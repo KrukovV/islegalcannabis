@@ -1,0 +1,16 @@
+{
+  "id": "US-CA",
+  "country": "US",
+  "region": "CA",
+  "medical": "allowed",
+  "recreational": "allowed",
+  "possession_limit": "up to 28.5 g (adult)",
+  "public_use": "illegal",
+  "home_grow": "allowed",
+  "cross_border": "illegal",
+  "risks": ["public_use", "border_crossing", "driving", "federal_property_us"],
+  "sources": [
+    { "title": "California Cannabis Portal (official)", "url": "https://cannabis.ca.gov/" }
+  ],
+  "updated_at": "2025-12-14"
+}

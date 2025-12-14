@@ -1,0 +1,15 @@
+{
+  "id": "DE",
+  "country": "DE",
+  "medical": "allowed",
+  "recreational": "restricted",
+  "possession_limit": "varies (see official sources)",
+  "public_use": "restricted",
+  "home_grow": "restricted",
+  "cross_border": "illegal",
+  "risks": ["border_crossing", "driving", "public_use"],
+  "sources": [
+    { "title": "Bundesregierung (official)", "url": "https://www.bundesregierung.de/" }
+  ],
+  "updated_at": "2025-12-14"
+}
