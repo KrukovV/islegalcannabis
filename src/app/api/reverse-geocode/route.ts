@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
-import { resolveByBbox } from "@/lib/geo/bbox";
+import { reverseGeocode } from "@/lib/geo/reverseGeocode";
+
+export const runtime = "nodejs";
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
@@ -13,7 +15,13 @@ export async function GET(req: Request) {
     );
   }
 
-  const resolved = resolveByBbox(lat, lon);
-
-  return NextResponse.json({ ok: true, ...resolved, method: "bbox" });
+  try {
+    const resolved = await reverseGeocode(lat, lon);
+    return NextResponse.json({ ok: true, ...resolved });
+  } catch {
+    return NextResponse.json(
+      { ok: false, error: "Reverse geocoding failed." },
+      { status: 500 }
+    );
+  }
 }

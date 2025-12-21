@@ -1,4 +1,5 @@
-import { computeStatus, getLawProfile } from "@/lib/lawStore";
+import { getLawProfile } from "@/lib/lawStore";
+import { computeStatus } from "@/lib/status";
 
 export const runtime = "nodejs";
 
@@ -46,7 +47,7 @@ export default async function CheckPage({
       </p>
 
       <p>
-        Status: <b>{status}</b>
+        Status: <b>{status.label}</b>
       </p>
 
       <pre style={{ padding: 16, border: "1px solid #ddd", borderRadius: 12, overflow: "auto" }}>

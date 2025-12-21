@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "vitest run"
+    "test": "vitest run",
+    "validate:laws": "node --experimental-strip-types tools/validate-laws.ts"
   },
   "dependencies": {
     "next": "16.0.10",

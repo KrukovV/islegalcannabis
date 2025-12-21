@@ -1,12 +1,12 @@
-import Link from "next/link";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { getLawProfile } from "@/lib/lawStore";
 import { computeStatus } from "@/lib/status";
 import type { RiskFlag } from "@/lib/types";
-import styles from "./result.module.css";
+import { slugMap } from "@/lib/seo/slugMap";
+import styles from "./seo.module.css";
 
 export const runtime = "nodejs";
-
-type SearchParams = { country?: string; region?: string };
 
 const riskText: Record<RiskFlag, string> = {
   border_crossing: "Crossing borders with cannabis is illegal.",
@@ -31,38 +31,41 @@ function formatStatus(value: string | undefined) {
   return value.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
-export default async function ResultPage({
-  searchParams
-}: {
-  searchParams: Promise<SearchParams>;
-}) {
-  const sp = await searchParams;
-  const rawCountry = (sp.country ?? "").trim().toUpperCase();
-  const rawRegion = (sp.region ?? "").trim().toUpperCase();
+export function generateStaticParams() {
+  return Object.keys(slugMap).map((slug) => ({ slug }));
+}
 
-  const country = rawCountry || "US";
-  const region = rawRegion || "CA";
+export function generateMetadata({
+  params
+}: {
+  params: { slug: string };
+}): Metadata {
+  const entry = slugMap[params.slug];
+  if (!entry) {
+    return { title: "Jurisdiction not found" };
+  }
+
+  const title = `Is cannabis legal in ${entry.displayName}?`;
+  const description =
+    "Educational summary of local cannabis laws. Not legal advice.";
+
+  return { title, description };
+}
+
+export default function SeoResultPage({
+  params
+}: {
+  params: { slug: string };
+}) {
+  const entry = slugMap[params.slug];
+  if (!entry) notFound();
 
   const profile = getLawProfile({
-    country,
-    region: country === "US" ? region : undefined
+    country: entry.country,
+    region: entry.region
   });
 
-  if (!profile) {
-    return (
-      <main className={styles.page}>
-        <div className={styles.container}>
-          <div className={styles.card}>
-            <h1>Result</h1>
-            <p>We could not find that jurisdiction.</p>
-            <Link className={styles.backLink} href="/">
-              Return to search
-            </Link>
-          </div>
-        </div>
-      </main>
-    );
-  }
+  if (!profile) notFound();
 
   const status = computeStatus(profile);
   const flag = countryFlag[profile.country] ?? "🏳️";
@@ -90,11 +93,14 @@ export default async function ResultPage({
         <div className={styles.card}>
           <header className={styles.header}>
             <div>
-              <p className={styles.kicker}>Result card</p>
+              <p className={styles.kicker}>Educational summary</p>
               <h1>
+                Is cannabis legal in {entry.displayName}?
+              </h1>
+              <p className={styles.jurisdiction}>
                 <span className={styles.flag}>{flag}</span>
                 {profile.id}
-              </h1>
+              </p>
             </div>
             <div className={`${styles.statusBadge} ${styles[status.level]}`}>
               <span className={styles.statusIcon}>

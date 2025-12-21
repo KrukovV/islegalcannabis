@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+isLegalCannabis is a Next.js App Router project that provides educational, jurisdiction-based cannabis law summaries.
 
 ## Getting Started
 
@@ -16,9 +16,24 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Validate law data
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run validate:laws
+```
+
+## Adding a new jurisdiction
+
+1. Add a JSON file under `src/laws/**` (follow existing files for schema).
+2. Ensure required fields are present: `id`, `country`, `medical`, `recreational`,
+   `public_use`, `cross_border`, `updated_at`, `sources`.
+3. Run `npm run validate:laws`.
+
+## Adding a new SEO slug
+
+1. Add a slug mapping in `src/lib/seo/slugMap.ts`.
+2. Ensure the referenced jurisdiction exists in `src/laws/**`.
+3. Confirm `generateStaticParams()` includes the slug.
 
 ## Learn More
 

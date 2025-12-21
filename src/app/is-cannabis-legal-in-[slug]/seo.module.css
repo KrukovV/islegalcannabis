@@ -1,13 +1,13 @@
 .page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #eef2ec 0%, #f6f3ed 45%, #f7efe7 100%);
+  background: linear-gradient(135deg, #f3f6f1 0%, #f8f3ec 55%, #f6ece3 100%);
   padding: 72px 24px;
   color: #1f2420;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
 .container {
-  width: min(920px, 100%);
+  width: min(900px, 100%);
   margin: 0 auto;
 }
 
@@ -32,15 +32,22 @@
 
 .header h1 {
   font-family: "Georgia", "Times New Roman", serif;
-  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-size: clamp(2rem, 4vw, 2.7rem);
+  margin-bottom: 8px;
 }
 
 .kicker {
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.16em;
   font-size: 0.7rem;
   color: #5a645d;
   font-weight: 600;
+}
+
+.jurisdiction {
+  color: #5a645d;
+  font-size: 0.95rem;
+  margin-top: 8px;
 }
 
 .statusBadge {
@@ -78,9 +85,9 @@
 
 .flag {
   display: inline-flex;
-  margin-right: 10px;
-  font-size: 1.6rem;
-  transform: translateY(2px);
+  margin-right: 8px;
+  font-size: 1.2rem;
+  transform: translateY(1px);
 }
 
 .section {
@@ -126,14 +133,6 @@
   padding-left: 12px;
   font-size: 0.85rem;
   color: #6c766f;
-}
-
-.backLink {
-  display: inline-flex;
-  margin-top: 12px;
-  color: #2f5f45;
-  text-decoration: underline;
-  text-underline-offset: 3px;
 }
 
 @media (max-width: 640px) {

@@ -39,7 +39,9 @@ export default function HomeActions() {
       }
 
       setNotice("GPS unavailable — using approximate location by IP.");
-      router.push(buildResultUrl(data.country, data.region));
+      setTimeout(() => {
+        router.push(buildResultUrl(data.country, data.region));
+      }, 1200);
     } catch {
       setError("We could not determine a location. Choose manually.");
       setShowManual(true);
@@ -68,9 +70,11 @@ export default function HomeActions() {
             throw new Error("reverse_geocode_failed");
           }
 
+          setNotice(null);
           router.push(buildResultUrl(data.country, data.region));
         } catch {
-          await resolveByIp();
+          setError("Could not resolve your GPS location. Choose manually.");
+          setShowManual(true);
         } finally {
           setLocating(false);
         }
@@ -105,14 +109,14 @@ export default function HomeActions() {
           onClick={handleUseLocation}
           disabled={locating}
         >
-          {locating ? "Locating..." : "Use my location"}
+          {locating ? "Locating..." : "📍 Use my location"}
         </button>
         <button
           className={styles.secondaryButton}
           type="button"
           onClick={() => setShowManual((prev) => !prev)}
         >
-          Choose manually
+          🌍 Choose manually
         </button>
       </div>
 

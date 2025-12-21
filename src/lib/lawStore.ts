@@ -48,9 +48,3 @@ export function getLawProfile(input: JurisdictionKey): JurisdictionLawProfile | 
   cache.set(key, parsed);
   return parsed;
 }
-
-export function computeStatus(profile: JurisdictionLawProfile) {
-  if (profile.recreational === "allowed") return "recreational_legal" as const;
-  if (profile.medical === "allowed") return "medical_only_or_restricted" as const;
-  return "illegal_or_highly_restricted" as const;
-}

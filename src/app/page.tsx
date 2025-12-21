@@ -5,20 +5,20 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <header className={styles.hero}>
-          <p className={styles.kicker}>Cannabis law explainer</p>
-          <h1>Check local cannabis rules in seconds.</h1>
-          <p className={styles.subtitle}>
-            A calm, factual summary of the rules that matter most today.
-          </p>
-        </header>
+        <section className={styles.card}>
+          <header className={styles.hero}>
+            <h1>Where are you right now?</h1>
+            <p className={styles.subtitle}>
+              Clear, up-to-date cannabis laws by location. No advice. Just facts.
+            </p>
+          </header>
 
-        <HomeActions />
-
-        <div className={styles.disclaimer}>
-          Educational only. Not legal advice. Laws change.
-        </div>
+          <HomeActions />
+        </section>
       </main>
+      <div className={styles.disclaimerSticky}>
+        Educational only. Not legal advice. Laws change.
+      </div>
     </div>
   );
 }

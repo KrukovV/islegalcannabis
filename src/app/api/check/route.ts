@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import { computeStatus, getLawProfile } from "@/lib/lawStore";
+import { getLawProfile } from "@/lib/lawStore";
+import { computeStatus } from "@/lib/status";
 
 export const runtime = "nodejs";
 
