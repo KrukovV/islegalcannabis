@@ -48,3 +48,11 @@ Day 27: Analytics
 Day 28: UX polish
 Day 29: Bug fixes
 Day 30: Go live
+
+---
+
+## MVP progress
+- Added a one-screen home UX with GPS and manual selection entry points.
+- Added result card UI for status, risks, sources, and disclaimers.
+- Added stubbed IP and reverse-geocode endpoints with geo bbox logic.
+- Added unit tests and a test runner for core geo and law key normalization.

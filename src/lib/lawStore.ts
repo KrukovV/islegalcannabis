@@ -6,7 +6,7 @@ export type JurisdictionKey = { country: string; region?: string };
 
 const cache = new Map<string, JurisdictionLawProfile>();
 
-function normalizeKey(input: JurisdictionKey): string | null {
+export function normalizeKey(input: JurisdictionKey): string | null {
   const country = (input.country || "").trim().toUpperCase();
   const region = (input.region || "").trim().toUpperCase();
 
