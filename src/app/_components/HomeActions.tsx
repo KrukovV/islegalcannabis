@@ -24,13 +24,34 @@ export default function HomeActions() {
   const [country, setCountry] = useState("US");
   const [region, setRegion] = useState("CA");
   const [error, setError] = useState<string | null>(null);
+  const [notice, setNotice] = useState<string | null>(null);
   const [locating, setLocating] = useState(false);
+
+  const resolveByIp = async () => {
+    try {
+      const res = await fetch("/api/whereami");
+      const data = await res.json();
+
+      if (!res.ok || !data?.ok || !data?.country) {
+        setError("We could not determine a location. Choose manually.");
+        setShowManual(true);
+        return;
+      }
+
+      setNotice("GPS unavailable — using approximate location by IP.");
+      router.push(buildResultUrl(data.country, data.region));
+    } catch {
+      setError("We could not determine a location. Choose manually.");
+      setShowManual(true);
+    }
+  };
 
   const handleUseLocation = () => {
     setError(null);
+    setNotice(null);
 
     if (!navigator.geolocation) {
-      setError("Location is not supported in this browser.");
+      resolveByIp();
       return;
     }
 
@@ -49,14 +70,14 @@ export default function HomeActions() {
 
           router.push(buildResultUrl(data.country, data.region));
         } catch {
-          setError("Could not resolve your location. Try manual selection.");
+          await resolveByIp();
         } finally {
           setLocating(false);
         }
       },
       () => {
         setLocating(false);
-        setError("Location access was blocked. Choose manually.");
+        resolveByIp();
       },
       { enableHighAccuracy: false, timeout: 10000, maximumAge: 60000 }
     );
@@ -65,6 +86,7 @@ export default function HomeActions() {
   const handleManualSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setError(null);
+    setNotice(null);
 
     if (country === "US" && !region) {
       setError("Select a state to continue.");
@@ -132,6 +154,7 @@ export default function HomeActions() {
         </form>
       ) : null}
 
+      {notice ? <p className={styles.notice}>{notice}</p> : null}
       {error ? <p className={styles.error}>{error}</p> : null}
     </section>
   );

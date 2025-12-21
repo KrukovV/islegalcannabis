@@ -1,5 +1,7 @@
 import { computeStatus, getLawProfile } from "@/lib/lawStore";
 
+export const runtime = "nodejs";
+
 type SP = { country?: string; region?: string };
 
 export default async function CheckPage({

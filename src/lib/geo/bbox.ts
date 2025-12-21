@@ -30,5 +30,6 @@ export function resolveByBbox(lat: number, lon: number): BboxResult {
     return { country: "DE" };
   }
 
+  // TODO: Replace bbox stub with a real reverse-geocoding provider.
   return { country: "US", region: "CA" };
 }

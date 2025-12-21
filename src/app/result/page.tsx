@@ -3,6 +3,8 @@ import { computeStatus, getLawProfile } from "@/lib/lawStore";
 import type { RiskFlag } from "@/lib/types";
 import styles from "./result.module.css";
 
+export const runtime = "nodejs";
+
 type SearchParams = { country?: string; region?: string };
 
 const statusLabels: Record<string, string> = {

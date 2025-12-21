@@ -6,8 +6,19 @@ describe("resolveByBbox", () => {
     expect(resolveByBbox(52.52, 13.405)).toEqual({ country: "DE" });
   });
 
-  it("returns US-CA for Los Angeles coordinates", () => {
-    expect(resolveByBbox(34.0522, -118.2437)).toEqual({
+  it("returns DE for Munich coordinates", () => {
+    expect(resolveByBbox(48.1351, 11.582)).toEqual({ country: "DE" });
+  });
+
+  it("returns US-CA for Amsterdam coordinates", () => {
+    expect(resolveByBbox(52.3676, 4.9041)).toEqual({
+      country: "US",
+      region: "CA"
+    });
+  });
+
+  it("returns US-CA for San Francisco coordinates", () => {
+    expect(resolveByBbox(37.7749, -122.4194)).toEqual({
       country: "US",
       region: "CA"
     });

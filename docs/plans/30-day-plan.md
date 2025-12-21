@@ -56,3 +56,7 @@ Day 30: Go live
 - Added result card UI for status, risks, sources, and disclaimers.
 - Added stubbed IP and reverse-geocode endpoints with geo bbox logic.
 - Added unit tests and a test runner for core geo and law key normalization.
+
+## Repo repair note
+- If you see a stale git lock: `rm -f .git/index.lock`
+- Optional: check for a process holding the lock: `lsof .git/index.lock`

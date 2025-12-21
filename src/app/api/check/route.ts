@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { computeStatus, getLawProfile } from "@/lib/lawStore";
 
+export const runtime = "nodejs";
+
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const country = searchParams.get("country") ?? "";
