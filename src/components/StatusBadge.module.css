@@ -1,0 +1,32 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.icon {
+  font-size: 1rem;
+}
+
+.green {
+  background: #e7f6ee;
+  color: #1f6b45;
+  border-color: #c4e6d2;
+}
+
+.yellow {
+  background: #fff3d6;
+  color: #8a5a00;
+  border-color: #f0d8a6;
+}
+
+.red {
+  background: #fde8e9;
+  color: #8a2f3a;
+  border-color: #f2c2c7;
+}

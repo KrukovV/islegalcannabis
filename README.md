@@ -22,6 +22,16 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 npm run validate:laws
 ```
 
+## SEO pages
+
+SEO pages under `/is-cannabis-legal-in-[slug]` are statically generated from a fixed registry.
+
+## Local CI
+
+```bash
+bash tools/ci-local.sh
+```
+
 ## Adding a new jurisdiction
 
 1. Add a JSON file under `src/laws/**` (follow existing files for schema).

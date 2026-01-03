@@ -1,0 +1,44 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.text {
+  color: #2f3b34;
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+.button {
+  align-self: flex-start;
+  border-radius: 999px;
+  border: 1px solid #2f5f45;
+  padding: 10px 18px;
+  background: #f6fbf3;
+  color: #214533;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.note {
+  font-size: 0.85rem;
+  color: #6c766f;
+}
+
+.error {
+  color: #8a2f3a;
+  font-size: 0.85rem;
+}
+
+.link {
+  color: #2f5f45;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

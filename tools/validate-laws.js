@@ -1,21 +1,10 @@
-import fs from "node:fs";
-import path from "node:path";
+const fs = require("node:fs");
+const path = require("node:path");
 
 const ROOT = process.cwd();
 const LAWS_DIR = path.join(ROOT, "src", "laws");
 
-type LawProfile = {
-  id: string;
-  country: string;
-  medical: string;
-  recreational: string;
-  public_use: string;
-  cross_border: string;
-  updated_at: string;
-  sources: Array<{ title: string; url: string }>;
-};
-
-const REQUIRED_FIELDS: Array<keyof LawProfile> = [
+const REQUIRED_FIELDS = [
   "id",
   "country",
   "medical",
@@ -26,7 +15,7 @@ const REQUIRED_FIELDS: Array<keyof LawProfile> = [
   "sources"
 ];
 
-function listJsonFiles(dir: string, files: string[] = []) {
+function listJsonFiles(dir, files = []) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     const fullPath = path.join(dir, entry.name);
     if (entry.isDirectory()) {
@@ -38,12 +27,12 @@ function listJsonFiles(dir: string, files: string[] = []) {
   return files;
 }
 
-function validateFile(filePath: string) {
+function validateFile(filePath) {
   const raw = fs.readFileSync(filePath, "utf-8");
-  let parsed: LawProfile;
+  let parsed;
 
   try {
-    parsed = JSON.parse(raw) as LawProfile;
+    parsed = JSON.parse(raw);
   } catch {
     throw new Error(`Invalid JSON: ${filePath}`);
   }

@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
-    "validate:laws": "node --experimental-strip-types tools/validate-laws.ts"
+    "validate:laws": "node tools/validate-laws.js",
+    "where": "bash tools/where-am-i.sh"
   },
   "dependencies": {
     "next": "16.0.10",
