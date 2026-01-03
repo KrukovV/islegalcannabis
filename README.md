@@ -5,13 +5,13 @@ isLegalCannabis is a Next.js App Router project that provides educational, juris
 First, run the development server:
 
 ```bash
-npm run dev
+npm run web:dev
 # or
-yarn dev
+yarn web:dev
 # or
-pnpm dev
+pnpm web:dev
 # or
-bun dev
+bun web:dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -34,15 +34,15 @@ bash tools/ci-local.sh
 
 ## Adding a new jurisdiction
 
-1. Add a JSON file under `src/laws/**` (follow existing files for schema).
+1. Add a JSON file under `data/laws/**` (follow existing files for schema).
 2. Ensure required fields are present: `id`, `country`, `medical`, `recreational`,
    `public_use`, `cross_border`, `updated_at`, `sources`.
 3. Run `npm run validate:laws`.
 
 ## Adding a new SEO slug
 
-1. Add a slug mapping in `src/lib/seo/slugMap.ts`.
-2. Ensure the referenced jurisdiction exists in `src/laws/**`.
+1. Add a slug mapping in `packages/shared/src/slugMap.ts`.
+2. Ensure the referenced jurisdiction exists in `data/laws/**`.
 3. Confirm `generateStaticParams()` includes the slug.
 
 ## Learn More

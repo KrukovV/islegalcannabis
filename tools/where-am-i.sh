@@ -14,6 +14,6 @@ fi
 echo "git top-level: ${top_level}"
 
 if [[ "${top_level}" != "${expected}" ]]; then
-  echo "Неверный репозиторий. cd ${expected}"
-  exit 2
+  echo "cd ${expected}"
+  exit 1
 fi

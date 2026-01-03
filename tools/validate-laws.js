@@ -2,7 +2,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const ROOT = process.cwd();
-const LAWS_DIR = path.join(ROOT, "src", "laws");
+const LAWS_DIR = path.join(ROOT, "data", "laws");
 
 const REQUIRED_FIELDS = [
   "id",
@@ -70,12 +70,12 @@ function validateFile(filePath) {
 
 function main() {
   if (!fs.existsSync(LAWS_DIR)) {
-    throw new Error("Missing src/laws directory.");
+    throw new Error("Missing data/laws directory.");
   }
 
   const files = listJsonFiles(LAWS_DIR);
   if (files.length === 0) {
-    throw new Error("No law JSON files found in src/laws.");
+    throw new Error("No law JSON files found in data/laws.");
   }
 
   for (const file of files) {

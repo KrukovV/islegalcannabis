@@ -1,28 +1,13 @@
 {
-  "name": "islegalcannabis",
-  "version": "0.1.0",
+  "name": "islegalcannabis-root",
   "private": true,
+  "workspaces": ["apps/*", "packages/*"],
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint",
-    "test": "vitest run",
-    "validate:laws": "node tools/validate-laws.js",
-    "where": "bash tools/where-am-i.sh"
-  },
-  "dependencies": {
-    "next": "16.0.10",
-    "react": "19.2.1",
-    "react-dom": "19.2.1"
-  },
-  "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.0.10",
-    "typescript": "^5",
-    "vitest": "^2.1.4"
+    "where": "bash tools/where-am-i.sh",
+    "web:dev": "npm -w apps/web run dev",
+    "web:build": "npm -w apps/web run build",
+    "lint": "npm -w apps/web run lint",
+    "test": "npm -w apps/web run test",
+    "validate:laws": "node tools/validate-laws.js"
   }
 }
