@@ -19,6 +19,11 @@ fi
 
 echo "git top-level: ${top_level}"
 
+if [[ "${current_realpath}" != "${expected_realpath}" ]]; then
+  echo "cd ${expected}"
+  exit 1
+fi
+
 if [[ "${top_level}" != "${expected}" ]]; then
   echo "cd ${expected}"
   exit 1

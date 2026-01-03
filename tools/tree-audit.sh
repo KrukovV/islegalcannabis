@@ -11,15 +11,15 @@ du -x -a . \
   | head -20
 
 echo
-echo "Large binary candidates (>2MB):"
+echo "Large binary candidates (>5MB):"
 matches="$(find . \
   -path "./.git" -prune -o \
   -path "./node_modules" -prune -o \
   -path "./apps/web/node_modules" -prune -o \
   -path "./.next" -prune -o \
   -path "./apps/web/.next" -prune -o \
-  -type f \( -name "*.zip" -o -name "*.dmg" -o -name "*.png" -o -name "*.mp4" -o -name "*.pdf" \) \
-  -size +2M -print)"
+  -type f \( -name "*.zip" -o -name "*.dmg" -o -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.gif" -o -name "*.mp4" -o -name "*.mov" -o -name "*.avi" -o -name "*.pdf" \) \
+  -size +5M -print)"
 
 if [[ -n "${matches}" ]]; then
   echo "WARNING: large binary files detected:"
