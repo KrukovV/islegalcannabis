@@ -3,6 +3,7 @@
 This directory is reserved for the future iOS client.
 
 Contract:
-- Consume jurisdiction from the shared API (country, region).
-- Render status/risk using shared rules.
+- Endpoints: /api/check, /api/reverse-geocode, /api/whereami, /api/paraphrase.
+- Cache: last known country/region + updated_at + generated text.
+- Offline: show last known result + disclaimer.
 - Do not duplicate law JSON; always source from data/laws via backend.

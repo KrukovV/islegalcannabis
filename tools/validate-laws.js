@@ -66,6 +66,13 @@ function validateFile(filePath) {
       throw new Error(`Invalid source url protocol "${source.url}" in ${filePath}`);
     }
   }
+
+  if (typeof parsed.updated_at !== "string") {
+    throw new Error(`updated_at must be a string in ${filePath}`);
+  }
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(parsed.updated_at)) {
+    throw new Error(`updated_at must be YYYY-MM-DD in ${filePath}`);
+  }
 }
 
 function main() {

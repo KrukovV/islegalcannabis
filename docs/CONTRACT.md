@@ -6,8 +6,8 @@
 
 ## Выходы (response)
 - status: { level, label, icon }
-- profile: JurisdictionLawProfile
-- risks: string[] (человеко-читаемые риски)
+- bullets: { label, value }[]
+- risksText: string[] (человеко-читаемые риски)
 - sources: { title, url }[]
 - updated_at: string (YYYY-MM-DD)
 
