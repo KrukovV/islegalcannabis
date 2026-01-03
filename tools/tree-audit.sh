@@ -28,3 +28,12 @@ if [[ -n "${matches}" ]]; then
 fi
 
 echo "No large binary files found."
+
+echo
+echo "Secret pattern scan (warning only):"
+if rg -n --hidden --glob '!**/node_modules/**' --glob '!**/.next/**' --glob '!**/.git/**' --glob '!**/apps/web/node_modules/**' --glob '!tools/tree-audit.sh' \
+  'OPENAI_API_KEY=|GH_TOKEN=|GITHUB_TOKEN=' .; then
+  echo "WARNING: secret-like patterns detected. Review the lines above."
+else
+  echo "No secret-like patterns found."
+fi
