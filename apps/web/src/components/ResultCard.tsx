@@ -98,6 +98,11 @@ export default function ResultCard({
               ))}
             </ul>
           </section>
+
+          <section className={styles.section}>
+            <h2>PDF export</h2>
+            <p className={styles.updated}>Coming soon.</p>
+          </section>
         </>
       ) : (
         <section className={styles.section}>

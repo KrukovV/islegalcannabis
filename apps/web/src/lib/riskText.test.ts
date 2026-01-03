@@ -4,13 +4,13 @@ import { riskTextFor } from "@islegal/shared";
 describe("riskTextFor", () => {
   it("maps border_crossing", () => {
     expect(riskTextFor("border_crossing")).toBe(
-      "Crossing borders with cannabis is illegal."
+      "Crossing borders with cannabis remains illegal."
     );
   });
 
   it("maps public_use", () => {
     expect(riskTextFor("public_use")).toBe(
-      "Public use can lead to citations or criminal penalties."
+      "Public use can still lead to penalties."
     );
   });
 
@@ -22,7 +22,7 @@ describe("riskTextFor", () => {
 
   it("maps federal_property_us", () => {
     expect(riskTextFor("federal_property_us")).toBe(
-      "Federal property has separate enforcement rules."
+      "Federal property in the U.S. has separate enforcement."
     );
   });
 });

@@ -3,9 +3,18 @@ import { riskTextFor } from "@islegal/shared";
 
 export type SummaryBullet = { label: string; value: string };
 
-export function formatStatusValue(value: string | undefined) {
-  if (!value) return "Not specified";
-  return value.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+function normalizeStatus(value?: string) {
+  if (!value) return null;
+  return value.replace(/_/g, " ").toLowerCase();
+}
+
+function formatStatusValue(value?: string) {
+  const normalized = normalizeStatus(value);
+  if (!normalized) return "Not specified";
+  if (normalized === "allowed") return "Allowed";
+  if (normalized === "restricted") return "Restricted";
+  if (normalized === "illegal") return "Illegal";
+  return normalized.replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
 export function buildBullets(profile: JurisdictionLawProfile): SummaryBullet[] {

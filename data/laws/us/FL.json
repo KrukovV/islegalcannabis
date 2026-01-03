@@ -1,0 +1,23 @@
+{
+  "id": "US-FL",
+  "country": "US",
+  "region": "FL",
+  "medical": "allowed",
+  "recreational": "illegal",
+  "possession_limit": "Medical only",
+  "public_use": "illegal",
+  "home_grow": "illegal",
+  "cross_border": "illegal",
+  "risks": ["public_use", "driving", "border_crossing", "federal_property_us"],
+  "sources": [
+    {
+      "title": "Florida Medical Marijuana",
+      "url": "https://knowthefactsmmj.com/"
+    },
+    {
+      "title": "Florida Department of Health",
+      "url": "https://www.floridahealth.gov/"
+    }
+  ],
+  "updated_at": "2024-01-01"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "FR",
+  "country": "FR",
+  "medical": "restricted",
+  "recreational": "illegal",
+  "possession_limit": "Not specified",
+  "public_use": "illegal",
+  "home_grow": "illegal",
+  "cross_border": "illegal",
+  "risks": ["public_use", "driving", "border_crossing"],
+  "sources": [
+    {
+      "title": "Service-Public: Usage de cannabis",
+      "url": "https://www.service-public.fr/particuliers/vosdroits/F31684"
+    }
+  ],
+  "updated_at": "2024-01-01"
+}

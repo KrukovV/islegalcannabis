@@ -1,0 +1,19 @@
+{
+  "id": "US-WA",
+  "country": "US",
+  "region": "WA",
+  "medical": "allowed",
+  "recreational": "allowed",
+  "possession_limit": "Up to 1 oz flower",
+  "public_use": "illegal",
+  "home_grow": "restricted",
+  "cross_border": "illegal",
+  "risks": ["public_use", "driving", "border_crossing", "federal_property_us"],
+  "sources": [
+    {
+      "title": "Washington State Liquor and Cannabis Board",
+      "url": "https://lcb.wa.gov/mj2015/related-laws"
+    }
+  ],
+  "updated_at": "2024-01-01"
+}

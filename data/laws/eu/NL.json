@@ -1,0 +1,18 @@
+{
+  "id": "NL",
+  "country": "NL",
+  "medical": "allowed",
+  "recreational": "restricted",
+  "possession_limit": "Not specified",
+  "public_use": "restricted",
+  "home_grow": "restricted",
+  "cross_border": "illegal",
+  "risks": ["public_use", "driving", "border_crossing"],
+  "sources": [
+    {
+      "title": "Government of the Netherlands: Drugs",
+      "url": "https://www.government.nl/topics/drugs"
+    }
+  ],
+  "updated_at": "2024-01-01"
+}
