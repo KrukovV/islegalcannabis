@@ -3,7 +3,13 @@ set -euo pipefail
 
 expected="/Users/vitaliykryukov/Projects/islegalcannabis"
 
-echo "pwd: $(pwd)"
+current_pwd="$(pwd)"
+current_realpath="$(realpath "${current_pwd}")"
+expected_realpath="$(realpath "${expected}")"
+
+echo "pwd: ${current_pwd}"
+echo "pwd (realpath): ${current_realpath}"
+echo "expected (realpath): ${expected_realpath}"
 
 if ! top_level="$(git rev-parse --show-toplevel 2>/dev/null)"; then
   echo "git top-level: (not a git repo)"

@@ -14,6 +14,9 @@
 - build: `npm run web:build`
 - validate:laws: `npm run validate:laws`
 
+## Перед каждым коммитом
+- Запускать: `bash tools/ci-local.sh`.
+
 ## Как добавить новую юрисдикцию и SEO-страницу
 1) Добавьте JSON в `data/laws/**` по текущей схеме (смотрите существующие файлы).
 2) Проверьте валидатор: `npm run validate:laws`.

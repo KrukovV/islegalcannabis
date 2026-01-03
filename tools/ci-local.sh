@@ -2,6 +2,7 @@
 set -euo pipefail
 
 npm run where
+npm run audit
 npm run lint
 npm test
 npm run web:build
