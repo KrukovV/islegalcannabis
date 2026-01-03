@@ -33,7 +33,7 @@ export default function HomeActions() {
       const data = await res.json();
 
       if (!res.ok || !data?.ok || !data?.country) {
-        setError("We could not determine a location. Choose manually.");
+        setNotice("We couldn't determine your location. Please choose manually.");
         setShowManual(true);
         return;
       }
@@ -43,7 +43,7 @@ export default function HomeActions() {
         router.push(buildResultUrl(data.country, data.region));
       }, 1200);
     } catch {
-      setError("We could not determine a location. Choose manually.");
+      setNotice("We couldn't determine your location. Please choose manually.");
       setShowManual(true);
     }
   };
@@ -70,10 +70,14 @@ export default function HomeActions() {
             throw new Error("reverse_geocode_failed");
           }
 
-          setNotice(null);
+          if (data.method === "bbox") {
+            setNotice("Using a coarse location estimate. Verify manually if needed.");
+          } else {
+            setNotice(null);
+          }
           router.push(buildResultUrl(data.country, data.region));
         } catch {
-          setError("Could not resolve your GPS location. Choose manually.");
+          setNotice("We couldn't verify your GPS location. Please choose manually.");
           setShowManual(true);
         } finally {
           setLocating(false);

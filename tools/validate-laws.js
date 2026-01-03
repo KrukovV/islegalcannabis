@@ -11,6 +11,7 @@ const REQUIRED_FIELDS = [
   "recreational",
   "public_use",
   "cross_border",
+  "risks",
   "updated_at",
   "sources"
 ];
@@ -43,8 +44,27 @@ function validateFile(filePath) {
     }
   }
 
+  if (!Array.isArray(parsed.risks)) {
+    throw new Error(`Risks must be an array in ${filePath}`);
+  }
+
   if (!Array.isArray(parsed.sources) || parsed.sources.length === 0) {
     throw new Error(`Sources must be a non-empty array in ${filePath}`);
+  }
+
+  for (const source of parsed.sources) {
+    if (!source || typeof source.url !== "string") {
+      throw new Error(`Source url must be a string in ${filePath}`);
+    }
+    let parsedUrl;
+    try {
+      parsedUrl = new URL(source.url);
+    } catch {
+      throw new Error(`Invalid source url "${source.url}" in ${filePath}`);
+    }
+    if (!["http:", "https:"].includes(parsedUrl.protocol)) {
+      throw new Error(`Invalid source url protocol "${source.url}" in ${filePath}`);
+    }
   }
 }
 
