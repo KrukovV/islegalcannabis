@@ -1,8 +1,8 @@
-import { NextResponse } from "next/server";
 import { getLawProfile } from "@/lib/lawStore";
 import { buildExplanationInput } from "@/lib/explanation";
 import { paraphrase } from "@/lib/ai/paraphrase";
-import { logEvent } from "@/lib/analytics";
+import { incrementCounter } from "@/lib/metrics";
+import { createRequestId, errorJson, okJson } from "@/lib/api/response";
 
 export const runtime = "nodejs";
 
@@ -45,14 +45,12 @@ function checkRateLimit(ip: string): boolean {
 }
 
 export async function POST(req: Request) {
+  const requestId = createRequestId(req);
   let body: ParaphraseRequest;
   try {
     body = (await req.json()) as ParaphraseRequest;
   } catch {
-    return NextResponse.json(
-      { ok: false, error: "Invalid JSON body." },
-      { status: 400 }
-    );
+    return errorJson(requestId, 400, "INVALID_JSON", "Invalid JSON body.");
   }
 
   const country = (body.country ?? "").trim().toUpperCase();
@@ -60,25 +58,27 @@ export async function POST(req: Request) {
   const locale = body.locale?.trim().toLowerCase() ?? "en";
 
   if (!country) {
-    return NextResponse.json(
-      { ok: false, error: "Missing country." },
-      { status: 400 }
+    return errorJson(
+      requestId,
+      400,
+      "MISSING_COUNTRY",
+      "Missing country.",
+      "Provide country (and region for US)."
     );
   }
 
   const ip = getClientIp(req);
   if (!checkRateLimit(ip)) {
-    return NextResponse.json(
-      { ok: false, error: "Rate limit exceeded." },
-      { status: 429 }
-    );
+    return errorJson(requestId, 429, "RATE_LIMITED", "Rate limit exceeded.");
   }
 
   const profile = getLawProfile({ country, region });
   if (!profile) {
-    return NextResponse.json(
-      { ok: false, error: "Unknown jurisdiction." },
-      { status: 404 }
+    return errorJson(
+      requestId,
+      404,
+      "UNKNOWN_JURISDICTION",
+      "Unknown jurisdiction."
     );
   }
 
@@ -93,10 +93,10 @@ export async function POST(req: Request) {
   });
 
   const provider = process.env.OPENAI_API_KEY ? "openai" : "disabled";
-  logEvent("paraphrase_generated");
+  incrementCounter("paraphrase_generated");
+  console.info(`[${requestId}] paraphrase_generated`);
 
-  return NextResponse.json({
-    ok: true,
+  return okJson(requestId, {
     text: result.text,
     cached: result.cached,
     provider,

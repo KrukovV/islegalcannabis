@@ -34,11 +34,11 @@ export default function SimpleTermsClient({
       const data = (await response.json()) as {
         ok: boolean;
         text?: string;
-        error?: string;
+        error?: { message?: string };
       };
 
       if (!response.ok || !data.ok || !data.text) {
-        setError(data.error ?? "Unable to generate explanation.");
+        setError(data.error?.message ?? "Unable to generate explanation.");
         return;
       }
 

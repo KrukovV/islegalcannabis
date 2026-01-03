@@ -5,6 +5,11 @@
 - paraphrase_generated: был сгенерирован простой текст.
 - upgrade_clicked: пользователь кликнул на апгрейд.
 
+## Метрики
+- counters: check_performed, paraphrase_generated.
+- reverse_geocode_method_{method}: метод геокодинга.
+- errors_{code}: количество ошибок по кодам.
+
 ## Зачем
 - Понимание спроса на ключевые функции.
 - Оценка конверсии в платные детали.
@@ -12,3 +17,6 @@
 
 ## Хранение
 - MVP: агрегаты в памяти на сервере (dev).
+
+## Доступ
+- GET /api/metrics доступен только вне production или при METRICS_ENABLED=1.

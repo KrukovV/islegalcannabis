@@ -10,6 +10,7 @@ curl "http://localhost:3000/api/check?country=US&region=CA"
 ```json
 {
   "ok": true,
+  "requestId": "uuid",
   "status": { "level": "green", "label": "Recreational cannabis is legal", "icon": "✅" },
   "profile": { "...": "..." }
 }
@@ -17,12 +18,20 @@ curl "http://localhost:3000/api/check?country=US&region=CA"
 
 Ответ 404:
 ```json
-{ "ok": false, "error": "Unknown jurisdiction. Provide country (and region for US)." }
+{
+  "ok": false,
+  "requestId": "uuid",
+  "error": { "code": "UNKNOWN_JURISDICTION", "message": "Unknown jurisdiction.", "hint": "Provide country (and region for US)." }
+}
 ```
 
 Ответ 400:
 ```json
-{ "ok": false, "error": "Missing country." }
+{
+  "ok": false,
+  "requestId": "uuid",
+  "error": { "code": "MISSING_COUNTRY", "message": "Missing country.", "hint": "Provide country (and region for US)." }
+}
 ```
 
 ## GET /api/reverse-geocode
@@ -33,12 +42,16 @@ curl "http://localhost:3000/api/reverse-geocode?lat=37.77&lon=-122.41"
 
 Ответ 200:
 ```json
-{ "ok": true, "country": "US", "region": "CA", "method": "nominatim" }
+{ "ok": true, "requestId": "uuid", "country": "US", "region": "CA", "method": "nominatim" }
 ```
 
 Ответ 400:
 ```json
-{ "ok": false, "error": "Provide valid lat and lon query parameters." }
+{
+  "ok": false,
+  "requestId": "uuid",
+  "error": { "code": "INVALID_COORDS", "message": "Provide valid lat and lon query parameters." }
+}
 ```
 
 ## GET /api/whereami
@@ -49,7 +62,7 @@ curl "http://localhost:3000/api/whereami"
 
 Ответ 200:
 ```json
-{ "ok": true, "country": "US", "region": "CA", "method": "ip" }
+{ "ok": true, "requestId": "uuid", "country": "US", "region": "CA", "method": "ip" }
 ```
 
 ## POST /api/paraphrase
@@ -64,6 +77,7 @@ curl -X POST "http://localhost:3000/api/paraphrase" \
 ```json
 {
   "ok": true,
+  "requestId": "uuid",
   "text": "In simple terms: ...",
   "cached": false,
   "provider": "disabled"
@@ -72,15 +86,27 @@ curl -X POST "http://localhost:3000/api/paraphrase" \
 
 Ответ 400:
 ```json
-{ "ok": false, "error": "Invalid JSON body." }
+{
+  "ok": false,
+  "requestId": "uuid",
+  "error": { "code": "INVALID_JSON", "message": "Invalid JSON body." }
+}
 ```
 
 Ответ 404:
 ```json
-{ "ok": false, "error": "Unknown jurisdiction." }
+{
+  "ok": false,
+  "requestId": "uuid",
+  "error": { "code": "UNKNOWN_JURISDICTION", "message": "Unknown jurisdiction." }
+}
 ```
 
 Ответ 429:
 ```json
-{ "ok": false, "error": "Rate limit exceeded." }
+{
+  "ok": false,
+  "requestId": "uuid",
+  "error": { "code": "RATE_LIMITED", "message": "Rate limit exceeded." }
+}
 ```

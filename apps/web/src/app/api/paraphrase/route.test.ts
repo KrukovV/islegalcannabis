@@ -33,9 +33,14 @@ describe("POST /api/paraphrase rate limit", () => {
     for (let i = 0; i < 10; i += 1) {
       const response = await POST(makeRequest());
       expect(response.status).toBe(200);
+      const json = await response.json();
+      expect(json.requestId).toBeDefined();
     }
 
     const blocked = await POST(makeRequest());
     expect(blocked.status).toBe(429);
+    const blockedJson = await blocked.json();
+    expect(blockedJson.error?.code).toBe("RATE_LIMITED");
+    expect(blockedJson.requestId).toBeDefined();
   });
 });

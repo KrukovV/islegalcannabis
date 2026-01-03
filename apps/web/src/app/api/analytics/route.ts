@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server";
 import { logEvent } from "@/lib/analytics";
+import { createRequestId, errorJson, okJson } from "@/lib/api/response";
 
 export const runtime = "nodejs";
 
@@ -10,23 +10,18 @@ const allowedEvents = new Set([
 ]);
 
 export async function POST(req: Request) {
+  const requestId = createRequestId(req);
   let body: { event?: string };
   try {
     body = (await req.json()) as { event?: string };
   } catch {
-    return NextResponse.json(
-      { ok: false, error: "Invalid JSON body." },
-      { status: 400 }
-    );
+    return errorJson(requestId, 400, "INVALID_JSON", "Invalid JSON body.");
   }
 
   if (!body.event || !allowedEvents.has(body.event)) {
-    return NextResponse.json(
-      { ok: false, error: "Unknown event." },
-      { status: 400 }
-    );
+    return errorJson(requestId, 400, "UNKNOWN_EVENT", "Unknown event.");
   }
 
   logEvent(body.event as "check_performed" | "paraphrase_generated" | "upgrade_clicked");
-  return NextResponse.json({ ok: true });
+  return okJson(requestId, {});
 }
