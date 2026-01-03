@@ -66,6 +66,7 @@ export default function SeoResultPage({
           title={`Is cannabis legal in ${entry.displayName}?`}
           kicker="Educational summary"
           subtitle="Clear, up-to-date cannabis laws by location. No advice. Just facts."
+          isPaidUser={false}
           simpleTerms={<SimpleTermsStatic text={fallbackText} />}
         />
         <div className={styles.cta}>

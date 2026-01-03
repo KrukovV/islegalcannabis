@@ -5,6 +5,7 @@ import StatusBadge from "./StatusBadge";
 import Disclaimer from "./Disclaimer";
 import styles from "./ResultCard.module.css";
 import { buildBullets, buildRisks } from "@/lib/summary";
+import UpgradePrompt from "./UpgradePrompt";
 
 type ResultCardProps = {
   profile: JurisdictionLawProfile;
@@ -13,6 +14,7 @@ type ResultCardProps = {
   subtitle?: string;
   showJurisdiction?: boolean;
   simpleTerms?: ReactNode;
+  isPaidUser?: boolean;
 };
 
 const countryFlag: Record<string, string> = {
@@ -26,12 +28,14 @@ export default function ResultCard({
   kicker = "Result card",
   subtitle,
   showJurisdiction = true,
-  simpleTerms
+  simpleTerms,
+  isPaidUser = true
 }: ResultCardProps) {
   const status = computeStatus(profile);
   const flag = countryFlag[profile.country] ?? "🏳️";
 
   const bullets = buildBullets(profile);
+  const visibleBullets = isPaidUser ? bullets : bullets.slice(0, 3);
   const risks = buildRisks(profile);
 
   return (
@@ -62,7 +66,7 @@ export default function ResultCard({
       <section className={styles.section}>
         <h2>Details</h2>
         <ul className={styles.bullets}>
-          {bullets.map((item) => (
+          {visibleBullets.map((item) => (
             <li key={item.label}>
               <span>{item.label}:</span> {item.value}
             </li>
@@ -70,28 +74,36 @@ export default function ResultCard({
         </ul>
       </section>
 
-      <section className={styles.section}>
-        <h2>Key risks</h2>
-        <ul className={styles.risks}>
-          {risks.map((risk) => (
-            <li key={risk}>{risk}</li>
-          ))}
-        </ul>
-      </section>
+      {isPaidUser ? (
+        <>
+          <section className={styles.section}>
+            <h2>Key risks</h2>
+            <ul className={styles.risks}>
+              {risks.map((risk) => (
+                <li key={risk}>{risk}</li>
+              ))}
+            </ul>
+          </section>
 
-      <section className={styles.section}>
-        <h2>Sources</h2>
-        <p className={styles.updated}>Last updated: {profile.updated_at}</p>
-        <ul className={styles.sources}>
-          {profile.sources.map((source) => (
-            <li key={source.url}>
-              <a href={source.url} target="_blank" rel="noreferrer">
-                {source.title}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </section>
+          <section className={styles.section}>
+            <h2>Sources</h2>
+            <p className={styles.updated}>Last updated: {profile.updated_at}</p>
+            <ul className={styles.sources}>
+              {profile.sources.map((source) => (
+                <li key={source.url}>
+                  <a href={source.url} target="_blank" rel="noreferrer">
+                    {source.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        </>
+      ) : (
+        <section className={styles.section}>
+          <UpgradePrompt />
+        </section>
+      )}
 
       <Disclaimer />
     </div>

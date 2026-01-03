@@ -11,18 +11,7 @@ curl "http://localhost:3000/api/check?country=US&region=CA"
 {
   "ok": true,
   "status": { "level": "green", "label": "Recreational cannabis is legal", "icon": "✅" },
-  "profile": {
-    "id": "US-CA",
-    "country": "US",
-    "region": "CA",
-    "medical": "allowed",
-    "recreational": "allowed",
-    "public_use": "restricted",
-    "cross_border": "illegal",
-    "risks": ["public_use"],
-    "sources": [{ "title": "Example", "url": "https://example.com" }],
-    "updated_at": "2024-01-01"
-  }
+  "profile": { "...": "..." }
 }
 ```
 

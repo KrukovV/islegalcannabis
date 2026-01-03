@@ -4,6 +4,7 @@ import ResultCard from "@/components/ResultCard";
 import SimpleTermsClient from "@/components/SimpleTermsClient";
 import { buildExplanationInput } from "@/lib/explanation";
 import { buildFallbackText } from "@/lib/ai/paraphrase";
+import { logEvent } from "@/lib/analytics";
 import styles from "./result.module.css";
 
 export const runtime = "nodejs";
@@ -43,6 +44,7 @@ export default async function ResultPage({
     );
   }
 
+  logEvent("check_performed");
   const { status, bullets, risksText } = buildExplanationInput(profile);
   const fallbackText = buildFallbackText({
     profile,
@@ -52,12 +54,15 @@ export default async function ResultPage({
     locale: "en"
   });
 
+  const isPaidUser = false;
+
   return (
     <main className={styles.page}>
       <div className={styles.container}>
         <ResultCard
           profile={profile}
           title={profile.id}
+          isPaidUser={isPaidUser}
           simpleTerms={
             <SimpleTermsClient
               country={country}

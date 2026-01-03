@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getLawProfile } from "@/lib/lawStore";
 import { computeStatus } from "@islegal/shared";
+import { logEvent } from "@/lib/analytics";
 
 export const runtime = "nodejs";
 
@@ -18,5 +19,6 @@ export async function GET(req: Request) {
     );
   }
 
+  logEvent("check_performed");
   return NextResponse.json({ ok: true, status: computeStatus(profile), profile });
 }

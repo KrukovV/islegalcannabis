@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { getLawProfile } from "@/lib/lawStore";
 import { buildExplanationInput } from "@/lib/explanation";
 import { paraphrase } from "@/lib/ai/paraphrase";
+import { logEvent } from "@/lib/analytics";
 
 export const runtime = "nodejs";
 
@@ -92,6 +93,7 @@ export async function POST(req: Request) {
   });
 
   const provider = process.env.OPENAI_API_KEY ? "openai" : "disabled";
+  logEvent("paraphrase_generated");
 
   return NextResponse.json({
     ok: true,
