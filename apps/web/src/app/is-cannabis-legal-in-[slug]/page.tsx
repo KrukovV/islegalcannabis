@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import ResultCard from "@/components/ResultCard";
 import SimpleTermsStatic from "@/components/SimpleTermsStatic";
 import { slugMap } from "@islegal/shared";
 import { getStaticLawProfile } from "@/laws/registry";
-import { computeStatus } from "@islegal/shared";
-import { buildBullets, buildRisks } from "@/lib/summary";
+import { buildExplanationInput } from "@/lib/explanation";
 import { buildFallbackText } from "@/lib/ai/paraphrase";
 import styles from "./seo.module.css";
 
@@ -49,9 +49,7 @@ export default function SeoResultPage({
 
   if (!profile) notFound();
 
-  const status = computeStatus(profile);
-  const bullets = buildBullets(profile);
-  const risksText = buildRisks(profile);
+  const { status, bullets, risksText } = buildExplanationInput(profile);
   const fallbackText = buildFallbackText({
     profile,
     status,
@@ -70,6 +68,11 @@ export default function SeoResultPage({
           subtitle="Clear, up-to-date cannabis laws by location. No advice. Just facts."
           simpleTerms={<SimpleTermsStatic text={fallbackText} />}
         />
+        <div className={styles.cta}>
+          <Link className={styles.ctaLink} href="/">
+            Open interactive check
+          </Link>
+        </div>
       </div>
     </main>
   );

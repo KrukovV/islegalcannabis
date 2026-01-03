@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { getLawProfile } from "@/lib/lawStore";
-import { computeStatus } from "@islegal/shared";
-import { buildBullets, buildRisks } from "@/lib/summary";
+import { buildExplanationInput } from "@/lib/explanation";
 import { paraphrase } from "@/lib/ai/paraphrase";
 
 export const runtime = "nodejs";
@@ -20,6 +19,10 @@ type RateLimitEntry = {
 const RATE_LIMIT = 10;
 const RATE_WINDOW_MS = 60 * 1000;
 const rateLimiter = new Map<string, RateLimitEntry>();
+
+export function resetParaphraseRateLimitForTests() {
+  rateLimiter.clear();
+}
 
 function getClientIp(req: Request): string {
   const forwarded = req.headers.get("x-forwarded-for");
@@ -78,9 +81,7 @@ export async function POST(req: Request) {
     );
   }
 
-  const status = computeStatus(profile);
-  const bullets = buildBullets(profile);
-  const risksText = buildRisks(profile);
+  const { status, bullets, risksText } = buildExplanationInput(profile);
 
   const result = await paraphrase({
     profile,

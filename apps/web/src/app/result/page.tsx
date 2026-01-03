@@ -2,8 +2,7 @@ import Link from "next/link";
 import { getLawProfile } from "@/lib/lawStore";
 import ResultCard from "@/components/ResultCard";
 import SimpleTermsClient from "@/components/SimpleTermsClient";
-import { computeStatus } from "@islegal/shared";
-import { buildBullets, buildRisks } from "@/lib/summary";
+import { buildExplanationInput } from "@/lib/explanation";
 import { buildFallbackText } from "@/lib/ai/paraphrase";
 import styles from "./result.module.css";
 
@@ -44,9 +43,7 @@ export default async function ResultPage({
     );
   }
 
-  const status = computeStatus(profile);
-  const bullets = buildBullets(profile);
-  const risksText = buildRisks(profile);
+  const { status, bullets, risksText } = buildExplanationInput(profile);
   const fallbackText = buildFallbackText({
     profile,
     status,

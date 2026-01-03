@@ -11,6 +11,28 @@
   margin: 0 auto;
 }
 
+.cta {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.ctaLink {
+  border: 1px solid #2e332f;
+  border-radius: 999px;
+  padding: 10px 18px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #2e332f;
+  background: #f9f7f1;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ctaLink:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(31, 36, 32, 0.12);
+}
+
 @media (max-width: 640px) {
   .page {
     padding: 48px 18px;
