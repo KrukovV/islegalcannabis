@@ -10,11 +10,17 @@
 - region?: string (ISO subdivision, upper-case; требуется для US)
 
 ## Выходы (response)
+- viewModel: ResultViewModel (единый контракт для Web/iOS/Android)
 - status: { level, label, icon }
-- bullets: { label, value }[]
-- risksText: string[] (человеко-читаемые риски)
-- sources: { title, url }[]
-- updated_at: string (YYYY-MM-DD)
+- profile: law_profile (для Web/SEO и отладки)
+
+ResultViewModel:
+- jurisdictionKey, title
+- statusLevel, statusTitle
+- bullets[], keyRisks[]
+- sources[], verifiedAt, updatedAt
+- location: { mode, method?, confidence? }
+- meta: { cacheHit?, verifiedFresh?, needsReview? }
 
 ## Гарантии
 - Решение о статусе и рисках принимается только на основе data/laws и shared-логики.

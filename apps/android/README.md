@@ -3,8 +3,9 @@
 This directory is reserved for the future Android client.
 
 Contract:
+- UI = render ResultViewModel from /api/check.
 - Endpoints: /api/check, /api/reverse-geocode, /api/whereami, /api/paraphrase.
 - Cache key: jurisdiction + updated_at + locale.
 - Offline: show last known result + disclaimer.
 - Do not duplicate law JSON; always source from data/laws via backend.
-- See docs/MOBILE_GUIDE.md for API-first flow.
+- See docs/MOBILE_GUIDE.md and docs/MOBILE_UI.md for API-first flow and screens.

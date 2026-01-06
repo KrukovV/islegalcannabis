@@ -19,6 +19,30 @@ export type LocationResolution = {
   note?: string;
 };
 
+export type ResultStatusLevel = "green" | "yellow" | "red" | "gray";
+
+export type ResultViewModel = {
+  jurisdictionKey: string;
+  title: string;
+  statusLevel: ResultStatusLevel;
+  statusTitle: string;
+  bullets: string[];
+  keyRisks: string[];
+  sources: Source[];
+  verifiedAt?: string;
+  updatedAt?: string;
+  location: {
+    mode: "detected" | "manual" | "query";
+    method?: LocationMethod;
+    confidence?: ConfidenceLevel;
+  };
+  meta: {
+    cacheHit?: boolean;
+    verifiedFresh?: boolean;
+    needsReview?: boolean;
+  };
+};
+
 export type JurisdictionLawProfile = {
   id: string;
   country: string;

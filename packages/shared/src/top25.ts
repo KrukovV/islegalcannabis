@@ -1,0 +1,13 @@
+import rawTop25 from "./top25.json";
+
+export type Top25Entry = {
+  jurisdictionKey: string;
+  country: string;
+  region?: string;
+  slug: string;
+  displayName: string;
+};
+
+export const TOP25: Top25Entry[] = rawTop25 as Top25Entry[];
+
+export const TOP25_KEYS = TOP25.map((entry) => entry.jurisdictionKey);
