@@ -4,6 +4,7 @@
   "workspaces": ["apps/*", "packages/*"],
   "scripts": {
     "where": "bash tools/where-am-i.sh",
+    "guard:ssr": "bash tools/guard-ssr.sh",
     "audit": "bash tools/tree-audit.sh",
     "web:dev": "npm -w apps/web run dev",
     "web:build": "npm -w apps/web run build",

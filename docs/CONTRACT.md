@@ -25,3 +25,6 @@
 - Гео — подсказка для интерфейса, закон берется из law_profile.
 - Trip history хранится локально, без аккаунтов, без lat/lon и точных адресов.
 - Approximate hint показываем только для IP или non-high confidence; manual(high) не approximate.
+
+## LocationContext SSOT
+Единый LocationContext: manual > gps > ip > query; localStorage используется только в client UI и хранит только country/region/method/confidence (без lat/lon).

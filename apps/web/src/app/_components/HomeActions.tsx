@@ -15,11 +15,13 @@ import type { LocationContext } from "@/lib/location/locationContext";
 import {
   fromDetected,
   fromManual,
-  loadLocationContext,
   pickPreferredContext,
-  saveLocationContext,
   toLocationResolution
 } from "@/lib/location/locationContext";
+import {
+  loadLocationContext,
+  saveLocationContext
+} from "@/lib/location/locationStorage";
 import {
   formatRemaining,
   getTripSummary,

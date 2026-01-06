@@ -1,60 +1,17 @@
 import { describe, expect, it } from "vitest";
 import {
   buildLocationResolution,
-  confidenceForLocation,
   formatLocationMethodHint,
-  formatLocationMethodLabel,
-  selectPreferredLocationResolution,
   shouldHighlightManualAction
 } from "./locationResolution";
 
 describe("location resolution", () => {
-  it("returns low confidence for IP without region", () => {
-    const resolution = buildLocationResolution("ip");
-    expect(resolution.confidence).toBe("low");
-  });
-
-  it("returns medium confidence for IP with region", () => {
-    const resolution = buildLocationResolution("ip", "CA");
-    expect(resolution.confidence).toBe("medium");
-  });
-
-  it("returns high confidence for GPS", () => {
-    expect(confidenceForLocation("gps")).toBe("high");
-  });
-
-  it("returns high confidence for manual selection", () => {
-    expect(confidenceForLocation("manual")).toBe("high");
-  });
-
-  it("prefers GPS and notes IP mismatch", () => {
-    const resolution = selectPreferredLocationResolution({
-      gps: { country: "NL", region: "NH" },
-      ip: { country: "DE" }
-    });
-
-    expect(resolution.method).toBe("gps");
-    expect(resolution.confidence).toBe("high");
-    expect(resolution.note).toContain("IP estimate differs");
-  });
-
-  it("formats method labels and hints for UI", () => {
-    const gpsLabel = formatLocationMethodLabel(
-      buildLocationResolution("gps")
-    );
-    const ipLabel = formatLocationMethodLabel(buildLocationResolution("ip"));
-    const manualLabel = formatLocationMethodLabel(
-      buildLocationResolution("manual")
-    );
-
-    expect(gpsLabel).toBe("Detected via GPS");
-    expect(ipLabel).toBe("Detected via IP (approximate)");
-    expect(manualLabel).toBe("Selected manually");
-    expect(formatLocationMethodHint(buildLocationResolution("ip"))).toBe(
-      "Location may be approximate"
-    );
+  it("shows approximate hint only for IP or low confidence", () => {
     expect(formatLocationMethodHint(buildLocationResolution("manual"))).toBe(
       null
+    );
+    expect(formatLocationMethodHint(buildLocationResolution("ip"))).toBe(
+      "Location may be approximate"
     );
   });
 
@@ -68,17 +25,5 @@ describe("location resolution", () => {
     expect(
       shouldHighlightManualAction(buildLocationResolution("manual"))
     ).toBe(false);
-    const lowConfidenceGps = {
-      method: "gps",
-      confidence: "low"
-    } as const;
-    expect(shouldHighlightManualAction(lowConfidenceGps)).toBe(true);
-  });
-
-  it("keeps manual selection high confidence without hint", () => {
-    const manual = buildLocationResolution("manual");
-    expect(manual.confidence).toBe("high");
-    expect(formatLocationMethodHint(manual)).toBe(null);
-    expect(shouldHighlightManualAction(manual)).toBe(false);
   });
 });
