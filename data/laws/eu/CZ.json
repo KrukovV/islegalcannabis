@@ -1,0 +1,25 @@
+{
+  "id": "CZ",
+  "country": "CZ",
+  "medical": "restricted",
+  "recreational": "illegal",
+  "possession_limit": "varies (see official sources)",
+  "public_use": "illegal",
+  "home_grow": "illegal",
+  "cross_border": "illegal",
+  "risks": [
+    "border_crossing",
+    "driving",
+    "public_use"
+  ],
+  "sources": [
+    {
+      "title": "Ministry of Health (Czech Republic)",
+      "url": "https://www.mzcr.cz/"
+    }
+  ],
+  "updated_at": "2024-01-01",
+  "verified_at": "2025-01-06",
+  "confidence": "low",
+  "status": "known"
+}

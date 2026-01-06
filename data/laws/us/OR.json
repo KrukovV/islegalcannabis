@@ -1,0 +1,27 @@
+{
+  "id": "US-OR",
+  "country": "US",
+  "region": "OR",
+  "medical": "allowed",
+  "recreational": "allowed",
+  "possession_limit": "varies (see official sources)",
+  "public_use": "restricted",
+  "home_grow": "restricted",
+  "cross_border": "illegal",
+  "risks": [
+    "public_use",
+    "driving",
+    "border_crossing",
+    "federal_property_us"
+  ],
+  "sources": [
+    {
+      "title": "Oregon Liquor and Cannabis Commission",
+      "url": "https://www.oregon.gov/olcc/marijuana/Pages/default.aspx"
+    }
+  ],
+  "updated_at": "2024-01-01",
+  "verified_at": "2025-01-06",
+  "confidence": "medium",
+  "status": "known"
+}

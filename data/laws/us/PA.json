@@ -1,0 +1,27 @@
+{
+  "id": "US-PA",
+  "country": "US",
+  "region": "PA",
+  "medical": "allowed",
+  "recreational": "illegal",
+  "possession_limit": "varies (see official sources)",
+  "public_use": "restricted",
+  "home_grow": "illegal",
+  "cross_border": "illegal",
+  "risks": [
+    "public_use",
+    "driving",
+    "border_crossing",
+    "federal_property_us"
+  ],
+  "sources": [
+    {
+      "title": "Pennsylvania Medical Marijuana Program",
+      "url": "https://www.health.pa.gov/topics/programs/Medical%20Marijuana/Pages/Medical-Marijuana.aspx"
+    }
+  ],
+  "updated_at": "2024-01-01",
+  "verified_at": "2025-01-06",
+  "confidence": "medium",
+  "status": "known"
+}

@@ -1,0 +1,27 @@
+{
+  "id": "US-VA",
+  "country": "US",
+  "region": "VA",
+  "medical": "allowed",
+  "recreational": "restricted",
+  "possession_limit": "varies (see official sources)",
+  "public_use": "restricted",
+  "home_grow": "restricted",
+  "cross_border": "illegal",
+  "risks": [
+    "public_use",
+    "driving",
+    "border_crossing",
+    "federal_property_us"
+  ],
+  "sources": [
+    {
+      "title": "Virginia Cannabis Control Authority",
+      "url": "https://cca.virginia.gov/"
+    }
+  ],
+  "updated_at": "2024-01-01",
+  "verified_at": "2025-01-06",
+  "confidence": "medium",
+  "status": "known"
+}
