@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo } from "react";
 import type { LocationContext } from "@/lib/location/locationContext";
-import type { Source } from "@islegal/shared";
+import type { ResultStatusLevel, Source } from "@islegal/shared";
 import {
   buildApproxCell,
   loadRecent,
@@ -15,7 +15,7 @@ type RecentResultBadgeProps = {
   country: string;
   region?: string;
   statusCode: string;
-  statusLevel: "green" | "yellow" | "red";
+  statusLevel: ResultStatusLevel;
   profileHash: string;
   verifiedAt?: string;
   lawUpdatedAt?: string;

@@ -6,6 +6,15 @@ import { getCatalogEntry } from "@/lib/jurisdictionCatalog";
 import { hashLawProfile } from "@/lib/profileHash";
 import { verifyJurisdictionFreshness } from "@/lib/verification";
 import { buildTripStatusCode } from "@/lib/tripStatus";
+import { buildResultViewModel } from "@/lib/resultViewModel";
+import {
+  fromDetected,
+  fromManual,
+  fromQuery,
+  type LocationContext
+} from "@/lib/location/locationContext";
+import { confidenceForLocation } from "@/lib/geo/locationResolution";
+import { titleForJurisdiction } from "@/lib/jurisdictionTitle";
 
 const CACHE_WINDOW_MINUTES = 120;
 
@@ -25,6 +34,7 @@ export async function GET(req: Request) {
   const country = searchParams.get("country") ?? "";
   const region = searchParams.get("region") ?? undefined;
   const method = searchParams.get("method") as "gps" | "ip" | "manual" | null;
+  const confidence = searchParams.get("confidence");
   const cell = searchParams.get("cell");
   const cacheTs = searchParams.get("cacheTs");
   const cacheProfileHash = searchParams.get("cacheProfileHash");
@@ -42,6 +52,22 @@ export async function GET(req: Request) {
   }
 
   const jurisdictionKey = normalizeKey({ country, region });
+  const title = titleForJurisdiction({ country, region });
+  const normalizedConfidence =
+    confidence === "high" || confidence === "medium" || confidence === "low"
+      ? confidence
+      : null;
+  const locationContext: LocationContext = method
+    ? method === "manual"
+      ? fromManual(country, region)
+      : fromDetected({
+          country,
+          region,
+          method,
+          confidence: normalizedConfidence ?? confidenceForLocation(method, region)
+        })
+    : fromQuery({ country, region });
+
   if (jurisdictionKey && cacheTs && cacheProfileHash) {
     const ageSec = Math.floor(
       (Date.now() - new Date(cacheTs).getTime()) / 1000
@@ -62,9 +88,24 @@ export async function GET(req: Request) {
               cacheVerifiedAt ?? undefined
             );
             if (verification.needsReview) {
+              const viewModel = buildResultViewModel({
+                profile,
+                title,
+                locationContext,
+                meta: {
+                  cacheHit: true,
+                  verifiedFresh: false,
+                  needsReview: true
+                },
+                statusOverride: {
+                  level: "yellow",
+                  title: "Information requires verification"
+                }
+              });
               return okResponse(requestId, {
                 status: buildNeedsReviewStatus(),
                 profile,
+                viewModel,
                 meta: {
                   cacheHit: true,
                   cacheAgeSec: ageSec,
@@ -74,9 +115,19 @@ export async function GET(req: Request) {
               });
             }
 
+            const viewModel = buildResultViewModel({
+              profile,
+              title,
+              locationContext,
+              meta: {
+                cacheHit: true,
+                verifiedFresh: true
+              }
+            });
             return okResponse(requestId, {
               status: computeStatus(profile),
               profile,
+              viewModel,
               meta: {
                 cacheHit: true,
                 cacheAgeSec: ageSec,
@@ -93,9 +144,24 @@ export async function GET(req: Request) {
             cacheVerifiedAt ?? undefined
           );
           if (verification.needsReview) {
+            const viewModel = buildResultViewModel({
+              profile,
+              title,
+              locationContext,
+              meta: {
+                cacheHit: true,
+                verifiedFresh: false,
+                needsReview: true
+              },
+              statusOverride: {
+                level: "yellow",
+                title: "Information requires verification"
+              }
+            });
             return okResponse(requestId, {
               status: buildNeedsReviewStatus(),
               profile,
+              viewModel,
               meta: {
                 cacheHit: true,
                 cacheAgeSec: ageSec,
@@ -105,9 +171,19 @@ export async function GET(req: Request) {
             });
           }
 
+          const viewModel = buildResultViewModel({
+            profile,
+            title,
+            locationContext,
+            meta: {
+              cacheHit: true,
+              verifiedFresh: true
+            }
+          });
           return okResponse(requestId, {
             status: computeStatus(profile),
             profile,
+            viewModel,
             meta: {
               cacheHit: true,
               cacheAgeSec: ageSec,
@@ -157,10 +233,17 @@ export async function GET(req: Request) {
 
   const status = computeStatus(profile);
   const statusCode = buildTripStatusCode(profile);
+  const viewModel = buildResultViewModel({
+    profile,
+    title,
+    locationContext,
+    meta: { cacheHit: false }
+  });
 
   return okResponse(requestId, {
     status,
     profile,
+    viewModel,
     meta: { cacheHit: false, statusCode }
   });
 }

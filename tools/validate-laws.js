@@ -3,6 +3,7 @@ const path = require("node:path");
 
 const ROOT = process.cwd();
 const LAWS_DIR = path.join(ROOT, "data", "laws");
+const TOP25_PATH = path.join(ROOT, "packages", "shared", "src", "top25.json");
 
 const { validateLawPayload } = require("./laws-validation");
 
@@ -29,6 +30,16 @@ function validateFile(filePath) {
   }
 
   validateLawPayload(parsed, filePath);
+  return parsed.id;
+}
+
+function loadTop25Keys() {
+  if (!fs.existsSync(TOP25_PATH)) {
+    throw new Error("Missing packages/shared/src/top25.json.");
+  }
+  const raw = fs.readFileSync(TOP25_PATH, "utf-8");
+  const parsed = JSON.parse(raw);
+  return parsed.map((entry) => entry.jurisdictionKey);
 }
 
 function main() {
@@ -41,8 +52,18 @@ function main() {
     throw new Error("No law JSON files found in data/laws.");
   }
 
+  const ids = new Set();
   for (const file of files) {
-    validateFile(file);
+    const id = validateFile(file);
+    ids.add(id);
+  }
+
+  const top25Keys = loadTop25Keys();
+  const missingTop25 = top25Keys.filter((key) => !ids.has(key));
+  if (missingTop25.length > 0) {
+    throw new Error(
+      `Missing law profiles for TOP25: ${missingTop25.join(", ")}`
+    );
   }
 
   console.log(`Validated ${files.length} law files.`);

@@ -17,6 +17,8 @@ import {
   fromQuery,
   type LocationContext
 } from "@/lib/location/locationContext";
+import { titleForJurisdiction } from "@/lib/jurisdictionTitle";
+import { buildResultViewModel } from "@/lib/resultViewModel";
 
 export const runtime = "nodejs";
 
@@ -70,6 +72,7 @@ export default async function ResultPage({
             resolvedAt: undefined
           })
         : fromQuery({ country, region: regionValue });
+  const title = titleForJurisdiction({ country, region: regionValue });
 
   const profile = getLawProfile({
     country,
@@ -102,6 +105,11 @@ export default async function ResultPage({
     risksText,
     locale: "en"
   });
+  const viewModel = buildResultViewModel({
+    profile,
+    title,
+    locationContext
+  });
 
   const isPaidUser = false;
 
@@ -110,9 +118,10 @@ export default async function ResultPage({
       <div className={styles.container}>
         <ResultCard
           profile={profile}
-          title={profile.id}
+          title={title}
           locationContext={locationContext}
           cacheCell={cacheCell}
+          viewModel={viewModel}
           isPaidUser={isPaidUser}
           simpleTerms={
             <SimpleTermsClient

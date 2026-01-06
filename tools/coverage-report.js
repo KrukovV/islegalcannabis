@@ -3,6 +3,8 @@ const path = require("node:path");
 
 const ROOT = process.cwd();
 const CATALOG_PATH = path.join(ROOT, "data", "jurisdictions", "catalog.json");
+const LAWS_DIR = path.join(ROOT, "data", "laws");
+const TOP25_PATH = path.join(ROOT, "packages", "shared", "src", "top25.json");
 
 const PRIORITY_CODES = [
   "US",
@@ -46,6 +48,39 @@ function loadCatalog() {
   return JSON.parse(raw);
 }
 
+function listJsonFiles(dir, files = []) {
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      listJsonFiles(fullPath, files);
+    } else if (entry.isFile() && entry.name.endsWith(".json")) {
+      files.push(fullPath);
+    }
+  }
+  return files;
+}
+
+function loadLawIds() {
+  if (!fs.existsSync(LAWS_DIR)) return new Set();
+  const ids = new Set();
+  const files = listJsonFiles(LAWS_DIR);
+  for (const file of files) {
+    const raw = fs.readFileSync(file, "utf-8");
+    const parsed = JSON.parse(raw);
+    if (parsed?.id) ids.add(parsed.id);
+  }
+  return ids;
+}
+
+function loadTop25Keys() {
+  if (!fs.existsSync(TOP25_PATH)) {
+    throw new Error("Missing packages/shared/src/top25.json.");
+  }
+  const raw = fs.readFileSync(TOP25_PATH, "utf-8");
+  const parsed = JSON.parse(raw);
+  return parsed.map((entry) => entry.jurisdictionKey);
+}
+
 function main() {
   const catalog = loadCatalog();
   const targets = catalog.filter(
@@ -80,6 +115,12 @@ function main() {
 
   console.log(
     `ISO3166 targets=${counts.total}, known=${counts.known}, pending=${counts.pending}, needs_review=${counts.needs_review}, unknown=${counts.unknown}`
+  );
+  const top25Keys = loadTop25Keys();
+  const lawIds = loadLawIds();
+  const top25Known = top25Keys.filter((key) => lawIds.has(key));
+  console.log(
+    `TOP25 coverage: ${top25Known.length}/25 (must be 25/25)`
   );
 
   if (process.env.VERBOSE === "1") {

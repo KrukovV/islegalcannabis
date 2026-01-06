@@ -1,6 +1,6 @@
 "use client";
 
-import type { Source } from "@islegal/shared";
+import type { ResultStatusLevel, Source } from "@islegal/shared";
 
 export type CachedCheck = {
   ts: string;
@@ -8,7 +8,7 @@ export type CachedCheck = {
   country: string;
   region?: string;
   statusCode: string;
-  statusLevel: "green" | "yellow" | "red";
+  statusLevel: ResultStatusLevel;
   profileHash: string;
   verifiedAt?: string;
   lawUpdatedAt?: string;

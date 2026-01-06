@@ -1,16 +1,15 @@
-import { computeStatus } from "@islegal/shared";
-import type { JurisdictionLawProfile } from "@islegal/shared";
+import type { JurisdictionLawProfile, ResultViewModel } from "@islegal/shared";
 import type { LocationContext } from "@/lib/location/locationContext";
 import type { ReactNode } from "react";
 import StatusBadge from "./StatusBadge";
 import Disclaimer from "./Disclaimer";
 import styles from "./ResultCard.module.css";
-import { buildBullets, buildRisks } from "@/lib/summary";
 import UpgradePrompt from "./UpgradePrompt";
 import LocationMeta from "@/components/LocationMeta";
 import RecentResultBadge from "@/components/RecentResultBadge";
 import { hashLawProfile } from "@/lib/profileHash";
 import { buildTripStatusCode } from "@/lib/tripStatus";
+import { buildResultViewModel } from "@/lib/resultViewModel";
 
 type ResultCardProps = {
   profile: JurisdictionLawProfile;
@@ -27,6 +26,8 @@ type ResultCardProps = {
   showUpgradePrompt?: boolean;
   locationContext?: LocationContext;
   cacheCell?: string | null;
+  viewModel?: ResultViewModel;
+  showLocationMeta?: boolean;
 };
 
 const countryFlag: Record<string, string> = {
@@ -48,31 +49,39 @@ export default function ResultCard({
   showPdf,
   showUpgradePrompt,
   locationContext,
-  cacheCell
+  cacheCell,
+  viewModel,
+  showLocationMeta = true
 }: ResultCardProps) {
-  const status = computeStatus(profile);
+  const resolvedViewModel =
+    viewModel ??
+    buildResultViewModel({
+      profile,
+      title,
+      locationContext
+    });
   const statusCode = buildTripStatusCode(profile);
   const profileHash = hashLawProfile(profile);
   const flag = countryFlag[profile.country] ?? "🏳️";
 
-  const bullets = buildBullets(profile);
+  const bullets = resolvedViewModel.bullets;
   const bulletLimit = maxBullets ?? (isPaidUser ? bullets.length : 3);
   const visibleBullets = bullets.slice(0, bulletLimit);
-  const risks = buildRisks(profile);
+  const risks = resolvedViewModel.keyRisks;
   const needsVerification = profile.status !== "known";
   const renderRisks = showRisks ?? isPaidUser;
   const renderSources = showSources ?? (isPaidUser || needsVerification);
   const renderPdf = showPdf ?? isPaidUser;
   const renderUpgrade = showUpgradePrompt ?? !isPaidUser;
-  const verifiedLabel = profile.verified_at ?? "Not verified";
-  const primarySource = profile.sources[0]?.url;
+  const verifiedLabel = resolvedViewModel.verifiedAt ?? "Not verified";
+  const primarySource = resolvedViewModel.sources[0]?.url;
 
   return (
     <div className={styles.card}>
       <header className={styles.header}>
         <div>
           <p className={styles.kicker}>{kicker}</p>
-          <h1>{title}</h1>
+          <h1>{resolvedViewModel.title}</h1>
           {subtitle ? <p className={styles.subtitle}>{subtitle}</p> : null}
           {showJurisdiction ? (
             <p className={styles.jurisdiction}>
@@ -80,7 +89,7 @@ export default function ResultCard({
               {profile.id}
             </p>
           ) : null}
-          {locationContext ? (
+          {locationContext && showLocationMeta ? (
             <LocationMeta
               className={styles.locationMeta}
               labelClassName={styles.locationLabel}
@@ -95,7 +104,7 @@ export default function ResultCard({
               country={profile.country}
               region={profile.region}
               statusCode={statusCode}
-              statusLevel={status.level}
+              statusLevel={resolvedViewModel.statusLevel}
               profileHash={profileHash}
               verifiedAt={profile.verified_at ?? undefined}
               lawUpdatedAt={profile.updated_at}
@@ -109,7 +118,10 @@ export default function ResultCard({
 
       <section className={styles.section}>
         <h2>Status</h2>
-        <StatusBadge status={status} />
+        <StatusBadge
+          level={resolvedViewModel.statusLevel}
+          label={resolvedViewModel.statusTitle}
+        />
       </section>
 
       {simpleTerms ? (
@@ -120,9 +132,7 @@ export default function ResultCard({
         <h2>Details</h2>
         <ul className={styles.bullets}>
           {visibleBullets.map((item) => (
-            <li key={item.label}>
-              <span>{item.label}:</span> {item.value}
-            </li>
+            <li key={item}>{item}</li>
           ))}
         </ul>
       </section>
@@ -144,9 +154,11 @@ export default function ResultCard({
             <section className={styles.section}>
               <h2>Sources</h2>
               <p className={styles.updated}>Verified: {verifiedLabel}</p>
-              <p className={styles.updated}>Last updated: {profile.updated_at}</p>
+              <p className={styles.updated}>
+                Last updated: {resolvedViewModel.updatedAt}
+              </p>
               <ul className={styles.sources}>
-                {profile.sources.map((source) => (
+                {resolvedViewModel.sources.map((source) => (
                   <li key={source.url}>
                     <a href={source.url} target="_blank" rel="noreferrer">
                       {source.title}
