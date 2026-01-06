@@ -13,6 +13,8 @@
     "validate:laws": "node tools/validate-laws.js",
     "validate:iso3166": "node tools/validate-iso3166.js",
     "coverage": "node tools/coverage-report.js",
+    "smoke:mock": "node tools/smoke/run_smoke.mjs --mode=mock",
+    "smoke:live": "node tools/smoke/run_smoke.mjs --mode=live",
     "gen:iso3166": "node tools/iso3166/generate-iso3166-1.js",
     "sync:catalog": "node tools/iso3166/import-iso3166.js",
     "refresh:laws": "node tools/refresh-laws.js",

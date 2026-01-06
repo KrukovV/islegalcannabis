@@ -12,3 +12,4 @@ npm run web:build
 npm run validate:laws
 npm run validate:iso3166
 npm run coverage
+npm run smoke:mock

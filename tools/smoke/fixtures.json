@@ -1,0 +1,152 @@
+[
+  {
+    "name": "Berlin",
+    "lat": 52.52,
+    "lon": 13.405,
+    "expectedCountry": "DE",
+    "expectedJurisdictionKey": "DE"
+  },
+  {
+    "name": "Amsterdam",
+    "lat": 52.3676,
+    "lon": 4.9041,
+    "expectedCountry": "NL",
+    "expectedJurisdictionKey": "NL"
+  },
+  {
+    "name": "Paris",
+    "lat": 48.8566,
+    "lon": 2.3522,
+    "expectedCountry": "FR",
+    "expectedJurisdictionKey": "FR"
+  },
+  {
+    "name": "Madrid",
+    "lat": 40.4168,
+    "lon": -3.7038,
+    "expectedCountry": "ES",
+    "expectedJurisdictionKey": "ES"
+  },
+  {
+    "name": "Rome",
+    "lat": 41.9028,
+    "lon": 12.4964,
+    "expectedCountry": "IT",
+    "expectedJurisdictionKey": "IT"
+  },
+  {
+    "name": "Vienna",
+    "lat": 48.2082,
+    "lon": 16.3738,
+    "expectedCountry": "AT",
+    "expectedJurisdictionKey": "AT"
+  },
+  {
+    "name": "Brussels",
+    "lat": 50.8476,
+    "lon": 4.3572,
+    "expectedCountry": "BE",
+    "expectedJurisdictionKey": "BE"
+  },
+  {
+    "name": "Prague",
+    "lat": 50.0755,
+    "lon": 14.4378,
+    "expectedCountry": "CZ",
+    "expectedJurisdictionKey": "CZ"
+  },
+  {
+    "name": "Dublin",
+    "lat": 53.3498,
+    "lon": -6.2603,
+    "expectedCountry": "IE",
+    "expectedJurisdictionKey": "IE"
+  },
+  {
+    "name": "Lisbon",
+    "lat": 38.7223,
+    "lon": -9.1393,
+    "expectedCountry": "PT",
+    "expectedJurisdictionKey": "PT"
+  },
+  {
+    "name": "Los Angeles",
+    "lat": 34.0522,
+    "lon": -118.2437,
+    "expectedCountry": "US",
+    "expectedRegion": "CA",
+    "expectedJurisdictionKey": "US-CA"
+  },
+  {
+    "name": "New York City",
+    "lat": 40.7128,
+    "lon": -74.006,
+    "expectedCountry": "US",
+    "expectedRegion": "NY",
+    "expectedJurisdictionKey": "US-NY"
+  },
+  {
+    "name": "Miami",
+    "lat": 25.7617,
+    "lon": -80.1918,
+    "expectedCountry": "US",
+    "expectedRegion": "FL",
+    "expectedJurisdictionKey": "US-FL"
+  },
+  {
+    "name": "Austin",
+    "lat": 30.2672,
+    "lon": -97.7431,
+    "expectedCountry": "US",
+    "expectedRegion": "TX",
+    "expectedJurisdictionKey": "US-TX"
+  },
+  {
+    "name": "Seattle",
+    "lat": 47.6062,
+    "lon": -122.3321,
+    "expectedCountry": "US",
+    "expectedRegion": "WA",
+    "expectedJurisdictionKey": "US-WA"
+  },
+  {
+    "name": "Chicago",
+    "lat": 41.8781,
+    "lon": -87.6298,
+    "expectedCountry": "US",
+    "expectedRegion": "IL",
+    "expectedJurisdictionKey": "US-IL"
+  },
+  {
+    "name": "Boston",
+    "lat": 42.3601,
+    "lon": -71.0589,
+    "expectedCountry": "US",
+    "expectedRegion": "MA",
+    "expectedJurisdictionKey": "US-MA"
+  },
+  {
+    "name": "Denver",
+    "lat": 39.7392,
+    "lon": -104.9903,
+    "expectedCountry": "US",
+    "expectedRegion": "CO",
+    "expectedJurisdictionKey": "US-CO"
+  },
+  {
+    "name": "Phoenix",
+    "lat": 33.4484,
+    "lon": -112.074,
+    "expectedCountry": "US",
+    "expectedRegion": "AZ",
+    "expectedJurisdictionKey": "US-AZ"
+  },
+  {
+    "name": "Las Vegas",
+    "lat": 36.1699,
+    "lon": -115.1398,
+    "expectedCountry": "US",
+    "expectedRegion": "NV",
+    "expectedJurisdictionKey": "US-NV"
+  }
+]
