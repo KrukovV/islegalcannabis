@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { GET } from "./route";
 import { getLawProfile } from "@/lib/lawStore";
 import { hashLawProfile } from "@/lib/profileHash";
@@ -8,6 +8,10 @@ import {
 } from "@/lib/verification";
 
 describe("GET /api/check cache", () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
   it("returns cached response on hit within window", async () => {
     resetVerificationCacheForTests();
     const profile = getLawProfile({ country: "DE" });
@@ -16,10 +20,9 @@ describe("GET /api/check cache", () => {
 
     setVerificationTimestampForTests(profile.id, now.toISOString());
 
-    const originalFetch = globalThis.fetch;
-    globalThis.fetch = async () => {
+    vi.stubGlobal("fetch", async () => {
       throw new Error("fetch should not be called");
-    };
+    });
 
     const cacheTs = encodeURIComponent(now.toISOString());
     const cacheProfileHash = encodeURIComponent(hashLawProfile(profile));
@@ -28,13 +31,9 @@ describe("GET /api/check cache", () => {
     const req = new Request(
       `http://localhost/api/check?country=DE&method=ip&confidence=low&cacheTs=${cacheTs}&cacheProfileHash=${cacheProfileHash}&cacheVerifiedAt=${cacheVerifiedAt}&cacheApproxCell=${cacheApproxCell}`
     );
-    try {
-      const res = await GET(req);
-      const json = await res.json();
-      expect(json.meta?.cacheHit).toBe(true);
-    } finally {
-      globalThis.fetch = originalFetch;
-    }
+    const res = await GET(req);
+    const json = await res.json();
+    expect(json.meta?.cacheHit).toBe(true);
   });
 
   it("skips verification when cacheVerifiedAt is recent", async () => {
@@ -43,10 +42,9 @@ describe("GET /api/check cache", () => {
     if (!profile) throw new Error("missing profile");
     const now = new Date();
 
-    const originalFetch = globalThis.fetch;
-    globalThis.fetch = async () => {
+    vi.stubGlobal("fetch", async () => {
       throw new Error("fetch should not be called");
-    };
+    });
 
     const cacheTs = encodeURIComponent(now.toISOString());
     const cacheProfileHash = encodeURIComponent(hashLawProfile(profile));
@@ -55,13 +53,9 @@ describe("GET /api/check cache", () => {
     const req = new Request(
       `http://localhost/api/check?country=DE&method=ip&confidence=low&cacheTs=${cacheTs}&cacheProfileHash=${cacheProfileHash}&cacheVerifiedAt=${cacheVerifiedAt}&cacheApproxCell=${cacheApproxCell}`
     );
-    try {
-      const res = await GET(req);
-      const json = await res.json();
-      expect(json.meta?.cacheHit).toBe(true);
-    } finally {
-      globalThis.fetch = originalFetch;
-    }
+    const res = await GET(req);
+    const json = await res.json();
+    expect(json.meta?.cacheHit).toBe(true);
   });
 
   it("verifies when cacheVerifiedAt is older than 5 hours", async () => {
@@ -71,8 +65,7 @@ describe("GET /api/check cache", () => {
     const now = new Date();
     const old = new Date(now.getTime() - 6 * 60 * 60 * 1000);
     let calls = 0;
-    const originalFetch = globalThis.fetch;
-    globalThis.fetch = async () => {
+    vi.stubGlobal("fetch", async () => {
       calls += 1;
       return new Response(null, {
         status: 200,
@@ -82,7 +75,7 @@ describe("GET /api/check cache", () => {
           "content-length": "1"
         }
       });
-    };
+    });
 
     const cacheTs = encodeURIComponent(now.toISOString());
     const cacheProfileHash = encodeURIComponent(hashLawProfile(profile));
@@ -91,14 +84,10 @@ describe("GET /api/check cache", () => {
     const req = new Request(
       `http://localhost/api/check?country=DE&method=ip&confidence=low&cacheTs=${cacheTs}&cacheProfileHash=${cacheProfileHash}&cacheVerifiedAt=${cacheVerifiedAt}&cacheApproxCell=${cacheApproxCell}`
     );
-    try {
-      const res = await GET(req);
-      const json = await res.json();
-      expect(json.meta?.cacheHit).toBe(true);
-      expect(calls).toBeGreaterThan(0);
-    } finally {
-      globalThis.fetch = originalFetch;
-    }
+    const res = await GET(req);
+    const json = await res.json();
+    expect(json.meta?.cacheHit).toBe(true);
+    expect(calls).toBeGreaterThan(0);
   });
 
   it("ignores stale cache outside window", async () => {
