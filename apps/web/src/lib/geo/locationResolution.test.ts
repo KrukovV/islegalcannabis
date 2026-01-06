@@ -54,11 +54,11 @@ describe("location resolution", () => {
       "Location may be approximate"
     );
     expect(formatLocationMethodHint(buildLocationResolution("manual"))).toBe(
-      "Location may be approximate"
+      null
     );
   });
 
-  it("highlights manual action for non-GPS resolutions", () => {
+  it("highlights manual action for IP or low confidence", () => {
     expect(shouldHighlightManualAction(buildLocationResolution("ip"))).toBe(
       true
     );
@@ -67,6 +67,11 @@ describe("location resolution", () => {
     );
     expect(
       shouldHighlightManualAction(buildLocationResolution("manual"))
-    ).toBe(true);
+    ).toBe(false);
+    const lowConfidenceManual = {
+      method: "manual",
+      confidence: "low"
+    } as const;
+    expect(shouldHighlightManualAction(lowConfidenceManual)).toBe(true);
   });
 });

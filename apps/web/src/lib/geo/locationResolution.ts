@@ -78,7 +78,7 @@ export function formatLocationMethodLabel(
 export function formatLocationMethodHint(
   resolution: LocationResolution
 ): string | null {
-  if (resolution.method !== "gps") {
+  if (resolution.method === "ip" || resolution.confidence !== "high") {
     return "Location may be approximate";
   }
   return null;
@@ -88,5 +88,5 @@ export function shouldHighlightManualAction(
   resolution: LocationResolution | null
 ): boolean {
   if (!resolution) return false;
-  return resolution.method !== "gps";
+  return resolution.method === "ip" || resolution.confidence !== "high";
 }
