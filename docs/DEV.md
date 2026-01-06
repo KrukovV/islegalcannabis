@@ -7,6 +7,9 @@
 - Работаем только в `/Users/vitaliykryukov/Projects/islegalcannabis`.
 - Перед любой работой запускать: `npm run where`.
 
+## КАНОН ПУТИ
+Все команды и изменения выполняются только из `/Users/vitaliykryukov/Projects/islegalcannabis`; запуск из другого каталога запрещен и должен завершаться ошибкой.
+
 ## Команды
 - lint: `npm run lint`
 - test: `npm run test`

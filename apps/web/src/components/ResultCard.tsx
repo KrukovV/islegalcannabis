@@ -81,6 +81,9 @@ export default function ResultCard({
               <span className={styles.locationLabel}>
                 {formatLocationMethodLabel(locationResolution)}
               </span>
+              <span className={styles.locationHint}>
+                Confidence: {locationResolution.confidence}
+              </span>
               {formatLocationMethodHint(locationResolution) ? (
                 <span className={styles.locationHint}>
                   {formatLocationMethodHint(locationResolution)}

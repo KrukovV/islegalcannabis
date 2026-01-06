@@ -279,6 +279,9 @@ export default function HomeActions() {
           <p className={styles.methodLine}>
             {formatLocationMethodLabel(locationResolution)}
           </p>
+          <p className={styles.methodHint}>
+            Confidence: {locationResolution.confidence}
+          </p>
           {formatLocationMethodHint(locationResolution) ? (
             <p className={styles.methodHint}>
               {formatLocationMethodHint(locationResolution)}

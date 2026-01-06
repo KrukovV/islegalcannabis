@@ -11,20 +11,23 @@ echo "pwd: ${current_pwd}"
 echo "pwd (realpath): ${current_realpath}"
 echo "expected (realpath): ${expected_realpath}"
 
+fail() {
+  echo "ERROR: Run commands from ${expected}" >&2
+  echo "cd ${expected}" >&2
+  exit 1
+}
+
 if ! top_level="$(git rev-parse --show-toplevel 2>/dev/null)"; then
   echo "git top-level: (not a git repo)"
-  echo "cd ${expected}"
-  exit 1
+  fail
 fi
 
 echo "git top-level: ${top_level}"
 
 if [[ "${current_realpath}" != "${expected_realpath}" ]]; then
-  echo "cd ${expected}"
-  exit 1
+  fail
 fi
 
 if [[ "${top_level}" != "${expected}" ]]; then
-  echo "cd ${expected}"
-  exit 1
+  fail
 fi
