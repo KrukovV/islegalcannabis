@@ -10,6 +10,7 @@ import RecentResultBadge from "@/components/RecentResultBadge";
 import { hashLawProfile } from "@/lib/profileHash";
 import { buildTripStatusCode } from "@/lib/tripStatus";
 import { buildResultViewModel } from "@/lib/resultViewModel";
+import { statusIconForExtras } from "@/lib/extras";
 
 type ResultCardProps = {
   profile: JurisdictionLawProfile;
@@ -75,6 +76,11 @@ export default function ResultCard({
   const renderUpgrade = showUpgradePrompt ?? !isPaidUser;
   const verifiedLabel = resolvedViewModel.verifiedAt ?? "Not verified";
   const primarySource = resolvedViewModel.sources[0]?.url;
+  const extrasList =
+    resolvedViewModel.meta?.paid
+      ? resolvedViewModel.extrasFull ?? []
+      : resolvedViewModel.extrasPreview ?? [];
+  const showExtras = extrasList.length > 0;
 
   return (
     <div className={styles.card}>
@@ -191,6 +197,31 @@ export default function ResultCard({
       {renderUpgrade ? (
         <section className={styles.section}>
           <UpgradePrompt />
+        </section>
+      ) : null}
+
+      {showExtras ? (
+        <section className={styles.section}>
+          <h2>What else is legal here?</h2>
+          <ul className={styles.extras}>
+            {extrasList.map((item) => (
+              <li key={item.key}>
+                <span className={styles.extrasIcon}>
+                  {statusIconForExtras(item.value)}
+                </span>
+                <span className={styles.extrasLabel}>{item.label}:</span>
+                <span className={styles.extrasValue}>{item.value}</span>
+              </li>
+            ))}
+          </ul>
+          {resolvedViewModel.meta?.paid ? null : (
+            <p className={styles.extrasLock}>Unlock full list</p>
+          )}
+          <div className={styles.extrasMeta}>
+            <p>Sources: {resolvedViewModel.sources[0]?.title ?? "Official sources"}</p>
+            <p>Verified: {verifiedLabel}</p>
+            <p>Educational only. Not legal advice.</p>
+          </div>
         </section>
       ) : null}
 

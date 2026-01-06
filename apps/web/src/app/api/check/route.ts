@@ -15,6 +15,7 @@ import {
 } from "@/lib/location/locationContext";
 import { confidenceForLocation } from "@/lib/geo/locationResolution";
 import { titleForJurisdiction } from "@/lib/jurisdictionTitle";
+import { buildExtrasItems, extrasPreview } from "@/lib/extras";
 
 const CACHE_WINDOW_MINUTES = 120;
 
@@ -27,6 +28,14 @@ function buildNeedsReviewStatus() {
 }
 
 export const runtime = "nodejs";
+
+function isPaidRequest(req: Request) {
+  if (process.env.NODE_ENV === "production") return false;
+  const url = new URL(req.url);
+  if (url.searchParams.get("paid") === "1") return true;
+  const cookie = req.headers.get("cookie") ?? "";
+  return cookie.split(";").some((part) => part.trim() === "ilc_paid=1");
+}
 
 export async function GET(req: Request) {
   const requestId = createRequestId(req);
@@ -53,6 +62,7 @@ export async function GET(req: Request) {
 
   const jurisdictionKey = normalizeKey({ country, region });
   const title = titleForJurisdiction({ country, region });
+  const paid = isPaidRequest(req);
   const normalizedConfidence =
     confidence === "high" || confidence === "medium" || confidence === "low"
       ? confidence
@@ -95,8 +105,14 @@ export async function GET(req: Request) {
                 meta: {
                   cacheHit: true,
                   verifiedFresh: false,
-                  needsReview: true
+                  needsReview: true,
+                  paid,
+                  paywallHint: !paid
                 },
+                extrasPreview: paid
+                  ? undefined
+                  : extrasPreview(buildExtrasItems(profile)),
+                extrasFull: paid ? buildExtrasItems(profile) : undefined,
                 statusOverride: {
                   level: "yellow",
                   title: "Information requires verification"
@@ -121,8 +137,14 @@ export async function GET(req: Request) {
               locationContext,
               meta: {
                 cacheHit: true,
-                verifiedFresh: true
-              }
+                verifiedFresh: true,
+                paid,
+                paywallHint: !paid
+              },
+              extrasPreview: paid
+                ? undefined
+                : extrasPreview(buildExtrasItems(profile)),
+              extrasFull: paid ? buildExtrasItems(profile) : undefined
             });
             return okResponse(requestId, {
               status: computeStatus(profile),
@@ -151,8 +173,14 @@ export async function GET(req: Request) {
               meta: {
                 cacheHit: true,
                 verifiedFresh: false,
-                needsReview: true
+                needsReview: true,
+                paid,
+                paywallHint: !paid
               },
+              extrasPreview: paid
+                ? undefined
+                : extrasPreview(buildExtrasItems(profile)),
+              extrasFull: paid ? buildExtrasItems(profile) : undefined,
               statusOverride: {
                 level: "yellow",
                 title: "Information requires verification"
@@ -177,8 +205,14 @@ export async function GET(req: Request) {
             locationContext,
             meta: {
               cacheHit: true,
-              verifiedFresh: true
-            }
+              verifiedFresh: true,
+              paid,
+              paywallHint: !paid
+            },
+            extrasPreview: paid
+              ? undefined
+              : extrasPreview(buildExtrasItems(profile)),
+            extrasFull: paid ? buildExtrasItems(profile) : undefined
           });
           return okResponse(requestId, {
             status: computeStatus(profile),
@@ -237,7 +271,9 @@ export async function GET(req: Request) {
     profile,
     title,
     locationContext,
-    meta: { cacheHit: false }
+    meta: { cacheHit: false, paid, paywallHint: !paid },
+    extrasPreview: paid ? undefined : extrasPreview(buildExtrasItems(profile)),
+    extrasFull: paid ? buildExtrasItems(profile) : undefined
   });
 
   return okResponse(requestId, {

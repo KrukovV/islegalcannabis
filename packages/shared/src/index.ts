@@ -1,5 +1,7 @@
 export type {
   ConfidenceLevel,
+  ExtrasItem,
+  ExtrasStatus,
   JurisdictionLawProfile,
   LocationMethod,
   LocationResolution,

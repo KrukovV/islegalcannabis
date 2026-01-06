@@ -17,6 +17,27 @@ const REQUIRED_FIELDS = [
 
 const STATUS_VALUES = new Set(["known", "unknown", "needs_review"]);
 const CONFIDENCE_VALUES = new Set(["high", "medium", "low"]);
+const EXTRAS_STATUS_VALUES = new Set([
+  "allowed",
+  "restricted",
+  "illegal",
+  "unknown"
+]);
+const EXTRAS_KEYS = new Set([
+  "purchase",
+  "retail_shops",
+  "edibles",
+  "vapes",
+  "concentrates",
+  "cbd",
+  "paraphernalia",
+  "medical_card",
+  "home_grow_plants",
+  "social_clubs",
+  "hemp",
+  "workplace",
+  "testing_dui"
+]);
 
 function assertDate(value, label, filePath) {
   if (typeof value !== "string") {
@@ -99,6 +120,37 @@ function validateLawPayload(parsed, filePath = "payload") {
   }
 
   validateSources(parsed.sources, filePath);
+
+  if (parsed.extras !== undefined) {
+    if (typeof parsed.extras !== "object" || parsed.extras === null) {
+      throw new Error(`extras must be an object in ${filePath}`);
+    }
+    for (const [key, value] of Object.entries(parsed.extras)) {
+      if (!EXTRAS_KEYS.has(key)) {
+        throw new Error(`Invalid extras key "${key}" in ${filePath}`);
+      }
+      if (value === undefined || value === null) {
+        throw new Error(`extras.${key} must be a string in ${filePath}`);
+      }
+      if (typeof value !== "string") {
+        throw new Error(`extras.${key} must be a string in ${filePath}`);
+      }
+      if (key === "home_grow_plants") {
+        if (
+          !EXTRAS_STATUS_VALUES.has(value) &&
+          !/^up to \\d+ plants$/i.test(value)
+        ) {
+          throw new Error(
+            `extras.home_grow_plants must be enum or \"up to N plants\" in ${filePath}`
+          );
+        }
+        continue;
+      }
+      if (!EXTRAS_STATUS_VALUES.has(value)) {
+        throw new Error(`Invalid extras.${key} value in ${filePath}`);
+      }
+    }
+  }
 }
 
 module.exports = {

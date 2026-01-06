@@ -25,6 +25,8 @@ export function buildResultViewModel(input: {
   locationContext?: LocationContext;
   meta?: ResultViewModel["meta"];
   statusOverride?: { level: ResultViewModel["statusLevel"]; title: string };
+  extrasPreview?: ResultViewModel["extrasPreview"];
+  extrasFull?: ResultViewModel["extrasFull"];
 }): ResultViewModel {
   const computed = computeStatus(input.profile);
   const statusLevel = input.statusOverride?.level ?? computed.level;
@@ -40,6 +42,8 @@ export function buildResultViewModel(input: {
     sources: input.profile.sources,
     verifiedAt: input.profile.verified_at ?? undefined,
     updatedAt: input.profile.updated_at,
+    extrasPreview: input.extrasPreview,
+    extrasFull: input.extrasFull,
     location: toLocation(input.locationContext),
     meta: input.meta ?? {}
   };

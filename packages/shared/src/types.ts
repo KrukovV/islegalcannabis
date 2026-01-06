@@ -21,6 +21,14 @@ export type LocationResolution = {
 
 export type ResultStatusLevel = "green" | "yellow" | "red" | "gray";
 
+export type ExtrasStatus = "allowed" | "restricted" | "illegal" | "unknown";
+
+export type ExtrasItem = {
+  key: string;
+  label: string;
+  value: string;
+};
+
 export type ResultViewModel = {
   jurisdictionKey: string;
   title: string;
@@ -31,6 +39,8 @@ export type ResultViewModel = {
   sources: Source[];
   verifiedAt?: string;
   updatedAt?: string;
+  extrasPreview?: ExtrasItem[];
+  extrasFull?: ExtrasItem[];
   location: {
     mode: "detected" | "manual" | "query";
     method?: LocationMethod;
@@ -40,6 +50,8 @@ export type ResultViewModel = {
     cacheHit?: boolean;
     verifiedFresh?: boolean;
     needsReview?: boolean;
+    paid?: boolean;
+    paywallHint?: boolean;
   };
 };
 
@@ -59,6 +71,21 @@ export type JurisdictionLawProfile = {
   verified_at: string | null;
   confidence: ConfidenceLevel;
   status: VerificationStatus;
+  extras?: {
+    purchase?: ExtrasStatus;
+    retail_shops?: ExtrasStatus;
+    edibles?: ExtrasStatus;
+    vapes?: ExtrasStatus;
+    concentrates?: ExtrasStatus;
+    cbd?: ExtrasStatus;
+    paraphernalia?: ExtrasStatus;
+    medical_card?: ExtrasStatus;
+    home_grow_plants?: string;
+    social_clubs?: ExtrasStatus;
+    hemp?: ExtrasStatus;
+    workplace?: ExtrasStatus;
+    testing_dui?: ExtrasStatus;
+  };
 };
 
 export type TripPlan = "free" | "trip_pass";

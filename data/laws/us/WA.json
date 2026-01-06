@@ -23,5 +23,20 @@
   "updated_at": "2024-01-01",
   "verified_at": "2025-01-06",
   "confidence": "medium",
-  "status": "known"
+  "status": "known",
+  "extras": {
+    "purchase": "unknown",
+    "retail_shops": "unknown",
+    "edibles": "unknown",
+    "vapes": "unknown",
+    "concentrates": "unknown",
+    "cbd": "unknown",
+    "paraphernalia": "unknown",
+    "medical_card": "unknown",
+    "home_grow_plants": "unknown",
+    "social_clubs": "unknown",
+    "hemp": "unknown",
+    "workplace": "unknown",
+    "testing_dui": "unknown"
+  }
 }

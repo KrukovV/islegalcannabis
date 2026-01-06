@@ -9,6 +9,7 @@ import { buildExplanationInput } from "@/lib/explanation";
 import { buildFallbackText } from "@/lib/ai/paraphrase";
 import styles from "./seo.module.css";
 import { buildResultViewModel } from "@/lib/resultViewModel";
+import { buildExtrasView } from "@/lib/extras";
 
 export const dynamic = "force-static";
 
@@ -56,9 +57,13 @@ export default function SeoResultPage({
     risksText,
     locale: "en"
   });
+  const extrasView = buildExtrasView(profile, false);
   const viewModel = buildResultViewModel({
     profile,
-    title: entry.displayName
+    title: entry.displayName,
+    extrasPreview: extrasView.preview,
+    extrasFull: extrasView.full,
+    meta: { paid: false, paywallHint: true }
   });
 
   return (

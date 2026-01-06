@@ -19,6 +19,7 @@ import {
 } from "@/lib/location/locationContext";
 import { titleForJurisdiction } from "@/lib/jurisdictionTitle";
 import { buildResultViewModel } from "@/lib/resultViewModel";
+import { buildExtrasView } from "@/lib/extras";
 
 export const runtime = "nodejs";
 
@@ -29,6 +30,7 @@ type SearchParams = {
   confidence?: string;
   locNote?: string;
   cell?: string;
+  paid?: string;
 };
 
 function parseLocationMethod(value?: string): LocationMethod {
@@ -56,6 +58,8 @@ export default async function ResultPage({
   const method = parseLocationMethod(sp.method);
   const confidence = parseConfidence(sp.confidence);
   const cacheCell = sp.cell ?? null;
+  const paid =
+    process.env.NODE_ENV !== "production" && sp.paid === "1";
   const country = rawCountry || "US";
   const region = rawRegion || "CA";
   const regionValue = country === "US" ? region : undefined;
@@ -105,10 +109,14 @@ export default async function ResultPage({
     risksText,
     locale: "en"
   });
+  const extrasView = buildExtrasView(profile, paid);
   const viewModel = buildResultViewModel({
     profile,
     title,
-    locationContext
+    locationContext,
+    extrasPreview: extrasView.preview,
+    extrasFull: extrasView.full,
+    meta: { paid, paywallHint: !paid }
   });
 
   const isPaidUser = false;
