@@ -8,7 +8,11 @@ paths=(
   "apps/web/src/lib/location/locationContext.ts"
 )
 
-matches="$(rg -n "${patterns}" "${paths[@]}" || true)"
+if command -v rg >/dev/null 2>&1; then
+  matches="$(rg -n "${patterns}" "${paths[@]}" || true)"
+else
+  matches="$(grep -R -n -E "${patterns}" "${paths[@]}" || true)"
+fi
 
 if [[ -n "${matches}" ]]; then
   echo "SSR guard failed. Found forbidden globals:"

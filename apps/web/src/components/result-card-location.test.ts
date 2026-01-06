@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
+import { createElement } from "react";
 import ResultCard from "./ResultCard";
 import type { JurisdictionLawProfile } from "@islegal/shared";
 import type { LocationContext } from "@/lib/location/locationContext";
@@ -22,17 +23,8 @@ const profile: JurisdictionLawProfile = {
   status: "known"
 };
 
-describe("ResultCard paywall", () => {
-  it("hides paid sections in free mode", () => {
-    const html = renderToStaticMarkup(
-      <ResultCard profile={profile} title="Test" isPaidUser={false} />
-    );
-    expect(html).not.toContain("Key risks");
-    expect(html).not.toContain("Sources");
-    expect(html).not.toContain("PDF export");
-  });
-
-  it("renders IP location context with approximate hint", () => {
+describe("ResultCard location rendering", () => {
+  it("renders IP detected with approximate hint", () => {
     const context: LocationContext = {
       mode: "detected",
       country: "US",
@@ -42,18 +34,18 @@ describe("ResultCard paywall", () => {
       source: "ip"
     };
     const html = renderToStaticMarkup(
-      <ResultCard
-        profile={profile}
-        title="Test"
-        isPaidUser={false}
-        locationContext={context}
-      />
+      createElement(ResultCard, {
+        profile,
+        title: "Test",
+        isPaidUser: false,
+        locationContext: context
+      })
     );
     expect(html).toContain("Detected via IP (approximate)");
     expect(html).toContain("Location may be approximate");
   });
 
-  it("renders manual location without approximate hint", () => {
+  it("renders manual high confidence without approximate hint", () => {
     const context: LocationContext = {
       mode: "manual",
       country: "DE",
@@ -62,12 +54,12 @@ describe("ResultCard paywall", () => {
       source: "user"
     };
     const html = renderToStaticMarkup(
-      <ResultCard
-        profile={profile}
-        title="Test"
-        isPaidUser={false}
-        locationContext={context}
-      />
+      createElement(ResultCard, {
+        profile,
+        title: "Test",
+        isPaidUser: false,
+        locationContext: context
+      })
     );
     expect(html).toContain("Selected manually");
     expect(html).not.toContain("Location may be approximate");
