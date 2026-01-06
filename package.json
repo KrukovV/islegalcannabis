@@ -10,6 +10,7 @@
     "lint": "npm -w apps/web run lint",
     "test": "npm -w apps/web run test",
     "validate:laws": "node tools/validate-laws.js",
+    "coverage": "node tools/coverage-report.js",
     "ci": "bash tools/ci-local.sh"
   }
 }
