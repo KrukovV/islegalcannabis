@@ -7,6 +7,10 @@
 4) Status/Risk -> вычисление статуса и рисков в packages/shared + summary.
 5) UI/SEO -> ResultCard, SEO-страницы, SimpleTerms.
 
+## Nearby cache + 5h verification
+- /api/check хранит недавние CachedCheck (без lat/lon) и переиспользует их для nearby запросов.
+- Freshness policy: если последняя проверка < 5 часов, используем кэш; иначе проверяем sources (HEAD/GET) и при изменениях/ошибках помечаем needs_review.
+
 ## Структура репозитория
 - apps/web: Next.js приложение (UI, API routes, страницы).
 - apps/ios: iOS контракт (пока README).

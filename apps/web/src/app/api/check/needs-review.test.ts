@@ -17,9 +17,14 @@ const profile = {
   status: "needs_review"
 };
 
-vi.mock("@/lib/lawStore", () => ({
-  getLawProfile: () => profile
-}));
+vi.mock("@/lib/lawStore", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("@/lib/lawStore")>();
+  return {
+    ...actual,
+    getLawProfile: () => profile,
+    normalizeKey: () => "DE"
+  };
+});
 
 describe("GET /api/check needs_review", () => {
   it("returns verification label for needs_review", async () => {

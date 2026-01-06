@@ -4,7 +4,8 @@ export type {
   LocationMethod,
   LocationResolution,
   Product,
-  RiskFlag
+  RiskFlag,
+  Source
 } from "./types";
 export type { Trip, TripEvent, TripPlan } from "./types";
 export type { StatusLevel, StatusResult } from "./status";

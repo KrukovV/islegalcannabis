@@ -25,7 +25,8 @@ while IFS= read -r file; do
   if [[ -n "${found}" ]]; then
     matches+="${found}"$'\n'
   fi
-done < <(find "${paths[@]}" -type f \( -name "*.ts" -o -name "*.tsx" \))
+done < <(find "${paths[@]}" -type f \( -name "*.ts" -o -name "*.tsx" \) \
+  ! -name "*.test.ts" ! -name "*.test.tsx")
 
 if [[ -n "${matches}" ]]; then
   echo "SSR guard failed. Found forbidden globals:"
