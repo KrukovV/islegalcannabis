@@ -82,6 +82,18 @@
   text-underline-offset: 3px;
 }
 
+.sourceButton {
+  align-self: flex-start;
+  display: inline-flex;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: #2f5f45;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
 .updated {
   font-size: 0.85rem;
   color: #6c766f;

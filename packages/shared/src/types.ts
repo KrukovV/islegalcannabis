@@ -8,6 +8,10 @@ export type RiskFlag =
 
 export type Source = { title: string; url: string };
 
+export type VerificationStatus = "known" | "unknown" | "needs_review";
+export type ConfidenceLevel = "high" | "medium" | "low";
+export type JurisdictionKey = string;
+
 export type JurisdictionLawProfile = {
   id: string;
   country: string;
@@ -21,4 +25,7 @@ export type JurisdictionLawProfile = {
   risks: RiskFlag[];
   sources: Source[];
   updated_at: string;
+  verified_at: string | null;
+  confidence: ConfidenceLevel;
+  status: VerificationStatus;
 };

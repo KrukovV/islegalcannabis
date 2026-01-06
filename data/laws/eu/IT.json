@@ -7,7 +7,11 @@
   "public_use": "illegal",
   "home_grow": "illegal",
   "cross_border": "illegal",
-  "risks": ["public_use", "driving", "border_crossing"],
+  "risks": [
+    "public_use",
+    "driving",
+    "border_crossing"
+  ],
   "sources": [
     {
       "title": "Ministero della Salute: Cannabis terapeutica",
@@ -18,5 +22,8 @@
       "url": "https://www.salute.gov.it/portale/temi/p2_6.jsp?lingua=italiano&area=Malattie_dipendenze"
     }
   ],
-  "updated_at": "2024-01-01"
+  "updated_at": "2024-01-01",
+  "verified_at": "2025-01-06",
+  "confidence": "medium",
+  "status": "known"
 }

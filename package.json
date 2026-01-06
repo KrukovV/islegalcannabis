@@ -11,6 +11,7 @@
     "test": "npm -w apps/web run test",
     "validate:laws": "node tools/validate-laws.js",
     "coverage": "node tools/coverage-report.js",
+    "refresh:laws": "node tools/refresh-laws.js",
     "ci": "bash tools/ci-local.sh"
   }
 }

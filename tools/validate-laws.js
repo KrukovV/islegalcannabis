@@ -4,17 +4,7 @@ const path = require("node:path");
 const ROOT = process.cwd();
 const LAWS_DIR = path.join(ROOT, "data", "laws");
 
-const REQUIRED_FIELDS = [
-  "id",
-  "country",
-  "medical",
-  "recreational",
-  "public_use",
-  "cross_border",
-  "risks",
-  "updated_at",
-  "sources"
-];
+const { validateLawPayload } = require("./laws-validation");
 
 function listJsonFiles(dir, files = []) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -38,41 +28,7 @@ function validateFile(filePath) {
     throw new Error(`Invalid JSON: ${filePath}`);
   }
 
-  for (const field of REQUIRED_FIELDS) {
-    if (!(field in parsed)) {
-      throw new Error(`Missing field "${field}" in ${filePath}`);
-    }
-  }
-
-  if (!Array.isArray(parsed.risks)) {
-    throw new Error(`Risks must be an array in ${filePath}`);
-  }
-
-  if (!Array.isArray(parsed.sources) || parsed.sources.length === 0) {
-    throw new Error(`Sources must be a non-empty array in ${filePath}`);
-  }
-
-  for (const source of parsed.sources) {
-    if (!source || typeof source.url !== "string") {
-      throw new Error(`Source url must be a string in ${filePath}`);
-    }
-    let parsedUrl;
-    try {
-      parsedUrl = new URL(source.url);
-    } catch {
-      throw new Error(`Invalid source url "${source.url}" in ${filePath}`);
-    }
-    if (!["http:", "https:"].includes(parsedUrl.protocol)) {
-      throw new Error(`Invalid source url protocol "${source.url}" in ${filePath}`);
-    }
-  }
-
-  if (typeof parsed.updated_at !== "string") {
-    throw new Error(`updated_at must be a string in ${filePath}`);
-  }
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(parsed.updated_at)) {
-    throw new Error(`updated_at must be YYYY-MM-DD in ${filePath}`);
-  }
+  validateLawPayload(parsed, filePath);
 }
 
 function main() {

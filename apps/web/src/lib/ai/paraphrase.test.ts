@@ -16,7 +16,10 @@ const profile: JurisdictionLawProfile = {
   cross_border: "illegal",
   risks: ["public_use"],
   sources: [{ title: "Example", url: "https://example.com" }],
-  updated_at: "2024-01-01"
+  updated_at: "2024-01-01",
+  verified_at: "2025-01-06",
+  confidence: "medium",
+  status: "known"
 };
 
 function makeInput() {

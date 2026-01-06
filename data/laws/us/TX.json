@@ -8,12 +8,20 @@
   "public_use": "illegal",
   "home_grow": "illegal",
   "cross_border": "illegal",
-  "risks": ["public_use", "driving", "border_crossing", "federal_property_us"],
+  "risks": [
+    "public_use",
+    "driving",
+    "border_crossing",
+    "federal_property_us"
+  ],
   "sources": [
     {
       "title": "Texas Compassionate Use Program",
       "url": "https://www.dps.texas.gov/section/compassionate-use-program"
     }
   ],
-  "updated_at": "2024-01-01"
+  "updated_at": "2024-01-01",
+  "verified_at": "2025-01-06",
+  "confidence": "medium",
+  "status": "known"
 }

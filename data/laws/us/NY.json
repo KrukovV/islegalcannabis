@@ -8,7 +8,12 @@
   "public_use": "restricted",
   "home_grow": "allowed",
   "cross_border": "illegal",
-  "risks": ["public_use", "driving", "border_crossing", "federal_property_us"],
+  "risks": [
+    "public_use",
+    "driving",
+    "border_crossing",
+    "federal_property_us"
+  ],
   "sources": [
     {
       "title": "NY Office of Cannabis Management",
@@ -19,5 +24,8 @@
       "url": "https://cannabis.ny.gov/adult-use"
     }
   ],
-  "updated_at": "2024-01-01"
+  "updated_at": "2024-01-01",
+  "verified_at": "2025-01-06",
+  "confidence": "medium",
+  "status": "known"
 }

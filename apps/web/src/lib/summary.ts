@@ -18,16 +18,36 @@ function formatStatusValue(value?: string) {
 }
 
 export function buildBullets(profile: JurisdictionLawProfile): SummaryBullet[] {
+  const isVerified = profile.status === "known";
+  const unverifiedSuffix = isVerified ? "" : " (unverified)";
+
   return [
-    { label: "Medical", value: formatStatusValue(profile.medical) },
-    { label: "Recreational", value: formatStatusValue(profile.recreational) },
+    {
+      label: "Medical",
+      value: `${formatStatusValue(profile.medical)}${unverifiedSuffix}`
+    },
+    {
+      label: "Recreational",
+      value: `${formatStatusValue(profile.recreational)}${unverifiedSuffix}`
+    },
     {
       label: "Possession limit",
-      value: profile.possession_limit ?? "Not specified"
+      value: isVerified
+        ? profile.possession_limit ?? "Not specified"
+        : "Unverified"
     },
-    { label: "Public use", value: formatStatusValue(profile.public_use) },
-    { label: "Home grow", value: formatStatusValue(profile.home_grow) },
-    { label: "Cross-border", value: formatStatusValue(profile.cross_border) }
+    {
+      label: "Public use",
+      value: `${formatStatusValue(profile.public_use)}${unverifiedSuffix}`
+    },
+    {
+      label: "Home grow",
+      value: isVerified ? formatStatusValue(profile.home_grow) : "Unverified"
+    },
+    {
+      label: "Cross-border",
+      value: `${formatStatusValue(profile.cross_border)}${unverifiedSuffix}`
+    }
   ];
 }
 

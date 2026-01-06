@@ -8,9 +8,20 @@
   "public_use": "illegal",
   "home_grow": "allowed",
   "cross_border": "illegal",
-  "risks": ["public_use", "border_crossing", "driving", "federal_property_us"],
-  "sources": [
-    { "title": "California Cannabis Portal (official)", "url": "https://cannabis.ca.gov/" }
+  "risks": [
+    "public_use",
+    "border_crossing",
+    "driving",
+    "federal_property_us"
   ],
-  "updated_at": "2025-12-14"
+  "sources": [
+    {
+      "title": "California Cannabis Portal (official)",
+      "url": "https://cannabis.ca.gov/"
+    }
+  ],
+  "updated_at": "2025-12-14",
+  "verified_at": "2025-01-06",
+  "confidence": "medium",
+  "status": "known"
 }

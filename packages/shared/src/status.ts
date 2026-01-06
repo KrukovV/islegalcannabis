@@ -9,6 +9,14 @@ export type StatusResult = {
 };
 
 export function computeStatus(profile: JurisdictionLawProfile): StatusResult {
+  if (profile.status !== "known") {
+    return {
+      level: "yellow",
+      label: "Information requires verification",
+      icon: "⚠️"
+    };
+  }
+
   if (profile.recreational === "allowed") {
     return {
       level: "green",

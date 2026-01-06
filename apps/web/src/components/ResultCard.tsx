@@ -48,10 +48,13 @@ export default function ResultCard({
   const bulletLimit = maxBullets ?? (isPaidUser ? bullets.length : 3);
   const visibleBullets = bullets.slice(0, bulletLimit);
   const risks = buildRisks(profile);
+  const needsVerification = profile.status !== "known";
   const renderRisks = showRisks ?? isPaidUser;
-  const renderSources = showSources ?? isPaidUser;
+  const renderSources = showSources ?? (isPaidUser || needsVerification);
   const renderPdf = showPdf ?? isPaidUser;
   const renderUpgrade = showUpgradePrompt ?? !isPaidUser;
+  const verifiedLabel = profile.verified_at ?? "Not verified";
+  const primarySource = profile.sources[0]?.url;
 
   return (
     <div className={styles.card}>
@@ -105,6 +108,7 @@ export default function ResultCard({
           {renderSources ? (
             <section className={styles.section}>
               <h2>Sources</h2>
+              <p className={styles.updated}>Verified: {verifiedLabel}</p>
               <p className={styles.updated}>Last updated: {profile.updated_at}</p>
               <ul className={styles.sources}>
                 {profile.sources.map((source) => (
@@ -115,6 +119,16 @@ export default function ResultCard({
                   </li>
                 ))}
               </ul>
+              {needsVerification && primarySource ? (
+                <a
+                  className={styles.sourceButton}
+                  href={primarySource}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Open official sources
+                </a>
+              ) : null}
             </section>
           ) : null}
 
