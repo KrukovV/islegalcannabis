@@ -10,7 +10,8 @@ if [ -n "$(git status --porcelain)" ]; then
   git commit -m "chore: eod checkpoint"
 fi
 
-tag="eod-$(date +%Y%m%d-%H%M)"
+tag="eod-$(date +%Y%m%d-%H%M%S)"
+git rev-parse -q --verify "refs/tags/$tag" >/dev/null && tag="${tag}-$$"
 git tag -a "$tag" -m "end of day checkpoint"
 
 git push
