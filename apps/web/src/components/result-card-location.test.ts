@@ -41,6 +41,7 @@ describe("ResultCard location rendering", () => {
         locationContext: context
       })
     );
+    expect(html).toContain("Mode: Detected");
     expect(html).toContain("Detected via IP (approximate)");
     expect(html).toContain("Location may be approximate");
   });
@@ -61,6 +62,7 @@ describe("ResultCard location rendering", () => {
         locationContext: context
       })
     );
+    expect(html).toContain("Mode: Manual");
     expect(html).toContain("Selected manually");
     expect(html).not.toContain("Location may be approximate");
   });

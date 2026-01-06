@@ -1,3 +1,5 @@
+import { incrementCounter } from "@/lib/metrics";
+
 const VERIFICATION_WINDOW_MS = 5 * 60 * 60 * 1000;
 const FETCH_TIMEOUT_MS = 4000;
 
@@ -89,6 +91,7 @@ export async function verifyJurisdictionFreshness(
   fetchFn: typeof fetchHeaders = fetchHeaders,
   clientVerifiedAt?: string | null
 ) {
+  incrementCounter("verify_called");
   const cached = normalizeIso(verificationByKey.get(jurisdictionKey));
   const clientVerified = normalizeIso(clientVerifiedAt);
   const latest =
@@ -105,6 +108,7 @@ export async function verifyJurisdictionFreshness(
   }
 
   if (!sources.length) {
+    incrementCounter("needs_review");
     return { fresh: false, needsReview: true, lastVerifiedAt: latest };
   }
 
@@ -137,6 +141,7 @@ export async function verifyJurisdictionFreshness(
   }
 
   if (hadFailure || hasChange) {
+    incrementCounter("needs_review");
     return { fresh: false, needsReview: true, lastVerifiedAt: latest };
   }
 

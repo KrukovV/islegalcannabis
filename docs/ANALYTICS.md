@@ -6,7 +6,7 @@
 - upgrade_clicked: пользователь кликнул на апгрейд.
 
 ## Метрики
-- counters: check_performed, paraphrase_generated.
+- counters: check_performed, paraphrase_generated, verify_called, needs_review.
 - reverse_geocode_method_{method}: метод геокодинга.
 - errors_{code}: количество ошибок по кодам.
 
@@ -17,6 +17,7 @@
 
 ## Хранение
 - MVP: агрегаты в памяти на сервере (dev).
+ - Не собираем персональные данные, координаты или IP.
 
 ## Доступ
 - GET /api/metrics доступен только вне production или при METRICS_ENABLED=1.

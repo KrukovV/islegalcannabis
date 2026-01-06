@@ -29,6 +29,8 @@ export default function LocationMeta({
     return null;
   }
 
+  const modeLabel =
+    context.mode === "manual" ? "Mode: Manual" : "Mode: Detected";
   const label = formatLocationMethodLabel({
     method: context.method,
     confidence: context.confidence
@@ -40,6 +42,7 @@ export default function LocationMeta({
 
   return (
     <div className={className}>
+      <span className={labelClassName}>{modeLabel}</span>
       <span className={labelClassName}>{label}</span>
       <span className={hintClassName}>Confidence: {context.confidence}</span>
       {hint ? <span className={hintClassName}>{hint}</span> : null}

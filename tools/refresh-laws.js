@@ -5,6 +5,7 @@ const ROOT = process.cwd();
 const LAWS_DIR = path.join(ROOT, "data", "laws");
 const CACHE_PATH = path.join(ROOT, "data", "jurisdictions", "source-cache.json");
 const REFRESH_WINDOW_MS = 12 * 60 * 60 * 1000;
+const FETCH_TIMEOUT_MS = 4000;
 
 function listJsonFiles(dir, files = []) {
   if (!fs.existsSync(dir)) return files;
@@ -65,20 +66,24 @@ function detectHeaderChange(previous, next) {
 }
 
 async function fetchHeaders(url) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
   let response = null;
   try {
-    response = await fetch(url, { method: "HEAD" });
+    response = await fetch(url, { method: "HEAD", signal: controller.signal });
   } catch {
     response = null;
   }
 
   if (!response || !response.ok) {
     try {
-      response = await fetch(url, { method: "GET" });
+      response = await fetch(url, { method: "GET", signal: controller.signal });
     } catch {
       response = null;
     }
   }
+
+  clearTimeout(timeout);
 
   if (!response || !response.ok) {
     return { ok: false };
