@@ -53,6 +53,37 @@
   gap: 18px;
 }
 
+.tripRow {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: #f9faf7;
+}
+
+.tripToggle {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.tripHint {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.tripLink {
+  color: var(--accent);
+  font-size: 0.85rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  width: fit-content;
+}
+
 .primaryActions {
   display: flex;
   flex-wrap: wrap;

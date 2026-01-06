@@ -1,9 +1,10 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 import type { FormEvent } from "react";
-import type { LocationResolution } from "@islegal/shared";
+import type { LocationResolution, Trip } from "@islegal/shared";
 import styles from "../page.module.css";
 import {
   buildLocationResolution,
@@ -12,6 +13,12 @@ import {
   selectPreferredLocationResolution,
   shouldHighlightManualAction
 } from "@/lib/geo/locationResolution";
+import {
+  formatRemaining,
+  getTripSummary,
+  startTrip,
+  stopTrip
+} from "@/lib/tripStore";
 
 const COUNTRY_OPTIONS = [
   { code: "US", label: "United States" },
@@ -45,6 +52,26 @@ export default function HomeActions() {
   const [locating, setLocating] = useState(false);
   const [locationResolution, setLocationResolution] =
     useState<LocationResolution | null>(null);
+  const [trip, setTrip] = useState<Trip | null>(null);
+
+  const refreshTrip = () => {
+    const summary = getTripSummary();
+    setTrip(summary.trip);
+  };
+
+  useEffect(() => {
+    refreshTrip();
+  }, []);
+
+  const handleToggleTrip = () => {
+    if (trip?.isActive) {
+      stopTrip();
+      refreshTrip();
+      return;
+    }
+    const newTrip = startTrip("free");
+    setTrip(newTrip);
+  };
 
   const fetchWhereAmI = async () => {
     try {
@@ -156,6 +183,32 @@ export default function HomeActions() {
 
   return (
     <section className={styles.actions}>
+      <div className={styles.tripRow}>
+        <label className={styles.tripToggle}>
+          <input
+            type="checkbox"
+            checked={Boolean(trip?.isActive)}
+            onChange={handleToggleTrip}
+          />
+          Trip mode: {trip?.isActive ? "On" : "Off"}
+        </label>
+        <span className={styles.tripHint}>
+          We store only jurisdictions (country/region), not your exact location.
+        </span>
+        {trip?.isActive && trip.endsAt ? (
+          <span className={styles.tripHint}>
+            Active • ends in {formatRemaining(trip)}
+          </span>
+        ) : null}
+        {trip?.plan === "free" ? (
+          <span className={styles.tripHint}>
+            Upgrade to Trip Pass to keep full trip history.
+          </span>
+        ) : null}
+        <Link className={styles.tripLink} href="/trip">
+          View trip timeline
+        </Link>
+      </div>
       <div className={styles.primaryActions}>
         <button
           className={styles.primaryButton}

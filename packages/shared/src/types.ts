@@ -36,3 +36,32 @@ export type JurisdictionLawProfile = {
   confidence: ConfidenceLevel;
   status: VerificationStatus;
 };
+
+export type TripPlan = "free" | "trip_pass";
+
+export type Trip = {
+  id: string;
+  startedAt: string;
+  endsAt?: string | null;
+  isActive: boolean;
+  plan: TripPlan;
+  maxDays: number;
+  maxEvents: number;
+};
+
+export type TripEvent = {
+  id: string;
+  tripId: string;
+  ts: string;
+  jurisdictionKey: string;
+  country: string;
+  region?: string;
+  method: LocationMethod;
+  confidence: ConfidenceLevel;
+  statusLevel: "green" | "yellow" | "red";
+  statusCode: string;
+  verified_at?: string | null;
+  needs_review?: boolean;
+};
+
+export type Product = "TRIP_PASS_7_DAYS" | "TRIP_PASS_14_DAYS";

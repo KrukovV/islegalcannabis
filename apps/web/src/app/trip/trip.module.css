@@ -1,0 +1,180 @@
+.page {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #f6f5f0 0%, #ecebe6 50%, #e5e3dc 100%);
+  padding: 72px 24px 120px;
+  color: #1d1f1b;
+  font-family: "Georgia", "Times New Roman", serif;
+}
+
+.container {
+  width: min(880px, 100%);
+  margin: 0 auto;
+}
+
+.timeline {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 36px;
+  border: 1px solid #e1e1d8;
+  box-shadow: 0 20px 44px rgba(34, 37, 27, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+}
+
+.header h1 {
+  margin: 0 0 6px;
+}
+
+.subtle {
+  color: #5a645d;
+  font-size: 0.95rem;
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+}
+
+.toggle {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #2d3832;
+}
+
+.tripStatus {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.tripBadge {
+  background: #2f5f45;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+.tripMeta {
+  font-size: 0.9rem;
+  color: #5a645d;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.primary,
+.secondary {
+  padding: 10px 16px;
+  border-radius: 14px;
+  font-weight: 600;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.primary {
+  background: #2f5f45;
+  color: #fff;
+  box-shadow: 0 12px 24px rgba(47, 95, 69, 0.18);
+}
+
+.secondary {
+  background: #edf5ef;
+  color: #2f5f45;
+  border: 1px solid #c9d6cd;
+}
+
+.paywall {
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px dashed #d4b36b;
+  background: #fff7e5;
+  color: #5f4a1b;
+}
+
+.paywall p {
+  margin: 6px 0 0;
+  font-size: 0.9rem;
+}
+
+.eventList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.eventCard {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid #e2e5dd;
+  background: #f9faf7;
+}
+
+.eventTime {
+  font-size: 0.85rem;
+  color: #6c766f;
+  margin: 0 0 6px;
+}
+
+.eventJurisdiction {
+  font-weight: 600;
+  margin: 0 0 4px;
+  color: #2c3b33;
+}
+
+.eventStatus {
+  font-size: 0.85rem;
+  color: #5a645d;
+  margin: 0;
+}
+
+.methodBadge {
+  align-self: flex-start;
+  background: #e8f1ea;
+  color: #2f5f45;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.empty {
+  color: #6c766f;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 48px 16px 96px;
+  }
+
+  .timeline {
+    padding: 24px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

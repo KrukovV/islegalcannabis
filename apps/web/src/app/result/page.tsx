@@ -8,6 +8,9 @@ import { logEvent } from "@/lib/analytics";
 import styles from "./result.module.css";
 import type { LocationMethod, LocationResolution } from "@islegal/shared";
 import { confidenceForLocation } from "@/lib/geo/locationResolution";
+import { computeStatus } from "@islegal/shared";
+import { buildTripStatusCode } from "@/lib/tripStatus";
+import TripEventLogger from "./TripEventLogger";
 
 export const runtime = "nodejs";
 
@@ -75,7 +78,8 @@ export default async function ResultPage({
   }
 
   logEvent("check_performed");
-  const { status, bullets, risksText } = buildExplanationInput(profile);
+  const status = computeStatus(profile);
+  const { bullets, risksText } = buildExplanationInput(profile);
   const fallbackText = buildFallbackText({
     profile,
     status,
@@ -101,6 +105,19 @@ export default async function ResultPage({
               fallbackText={fallbackText}
             />
           }
+        />
+        <TripEventLogger
+          event={{
+            jurisdictionKey: profile.id,
+            country: profile.country,
+            region: profile.region,
+            method: locationResolution.method,
+            confidence: locationResolution.confidence,
+            statusLevel: status.level,
+            statusCode: buildTripStatusCode(profile),
+            verified_at: profile.verified_at ?? undefined,
+            needs_review: profile.status !== "known"
+          }}
         />
       </div>
     </main>
