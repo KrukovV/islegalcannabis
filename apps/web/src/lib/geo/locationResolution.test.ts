@@ -68,10 +68,12 @@ describe("location resolution", () => {
     expect(
       shouldHighlightManualAction(buildLocationResolution("manual"))
     ).toBe(false);
-    const lowConfidenceManual = {
-      method: "manual",
-      confidence: "low"
-    } as const;
-    expect(shouldHighlightManualAction(lowConfidenceManual)).toBe(true);
+  });
+
+  it("keeps manual selection high confidence without hint", () => {
+    const manual = buildLocationResolution("manual");
+    expect(manual.confidence).toBe("high");
+    expect(formatLocationMethodHint(manual)).toBe(null);
+    expect(shouldHighlightManualAction(manual)).toBe(false);
   });
 });

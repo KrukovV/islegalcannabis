@@ -43,6 +43,13 @@ export default async function CheckPage({
       <h1>isLegalCannabis — Check</h1>
 
       <p>
+        Location method: <b>Selected manually</b>
+      </p>
+      <p>
+        Confidence: <b>high</b>
+      </p>
+
+      <p>
         Jurisdiction: <b>{profile.id}</b>
       </p>
 

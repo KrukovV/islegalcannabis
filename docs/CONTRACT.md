@@ -24,3 +24,4 @@
 - Trip Event пишется только при смене jurisdictionKey.
 - Гео — подсказка для интерфейса, закон берется из law_profile.
 - Trip history хранится локально, без аккаунтов, без lat/lon и точных адресов.
+- Approximate hint показываем только для IP или non-high confidence; manual(high) не approximate.
