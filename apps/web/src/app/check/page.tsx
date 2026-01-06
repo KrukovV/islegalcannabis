@@ -1,5 +1,6 @@
 import { getLawProfile } from "@/lib/lawStore";
 import { computeStatus } from "@islegal/shared";
+import LocationMeta from "@/components/LocationMeta";
 
 export const runtime = "nodejs";
 
@@ -42,12 +43,7 @@ export default async function CheckPage({
     <main style={{ padding: 24, fontFamily: "system-ui" }}>
       <h1>isLegalCannabis — Check</h1>
 
-      <p>
-        Location method: <b>Selected manually</b>
-      </p>
-      <p>
-        Confidence: <b>high</b>
-      </p>
+      <LocationMeta mode="query" />
 
       <p>
         Jurisdiction: <b>{profile.id}</b>

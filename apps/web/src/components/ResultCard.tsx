@@ -7,10 +7,7 @@ import Disclaimer from "./Disclaimer";
 import styles from "./ResultCard.module.css";
 import { buildBullets, buildRisks } from "@/lib/summary";
 import UpgradePrompt from "./UpgradePrompt";
-import {
-  formatLocationMethodHint,
-  formatLocationMethodLabel
-} from "@/lib/geo/locationResolution";
+import LocationMeta from "@/components/LocationMeta";
 
 type ResultCardProps = {
   profile: JurisdictionLawProfile;
@@ -77,24 +74,15 @@ export default function ResultCard({
             </p>
           ) : null}
           {locationResolution ? (
-            <div className={styles.locationMeta}>
-              <span className={styles.locationLabel}>
-                {formatLocationMethodLabel(locationResolution)}
-              </span>
-              <span className={styles.locationHint}>
-                Confidence: {locationResolution.confidence}
-              </span>
-              {formatLocationMethodHint(locationResolution) ? (
-                <span className={styles.locationHint}>
-                  {formatLocationMethodHint(locationResolution)}
-                </span>
-              ) : null}
-              {locationResolution.note ? (
-                <span className={styles.locationHint}>
-                  {locationResolution.note}
-                </span>
-              ) : null}
-            </div>
+            <LocationMeta
+              className={styles.locationMeta}
+              labelClassName={styles.locationLabel}
+              hintClassName={styles.locationHint}
+              mode="detected"
+              method={locationResolution.method}
+              confidence={locationResolution.confidence}
+              note={locationResolution.note}
+            />
           ) : null}
         </div>
       </header>

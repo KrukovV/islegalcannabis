@@ -8,11 +8,10 @@ import type { LocationResolution, Trip } from "@islegal/shared";
 import styles from "../page.module.css";
 import {
   buildLocationResolution,
-  formatLocationMethodHint,
-  formatLocationMethodLabel,
   selectPreferredLocationResolution,
   shouldHighlightManualAction
 } from "@/lib/geo/locationResolution";
+import LocationMeta from "@/components/LocationMeta";
 import {
   formatRemaining,
   getTripSummary,
@@ -275,22 +274,15 @@ export default function HomeActions() {
       {notice ? <p className={styles.notice}>{notice}</p> : null}
       {error ? <p className={styles.error}>{error}</p> : null}
       {locationResolution ? (
-        <div className={styles.locationInfo}>
-          <p className={styles.methodLine}>
-            {formatLocationMethodLabel(locationResolution)}
-          </p>
-          <p className={styles.methodHint}>
-            Confidence: {locationResolution.confidence}
-          </p>
-          {formatLocationMethodHint(locationResolution) ? (
-            <p className={styles.methodHint}>
-              {formatLocationMethodHint(locationResolution)}
-            </p>
-          ) : null}
-          {locationResolution.note ? (
-            <p className={styles.methodHint}>{locationResolution.note}</p>
-          ) : null}
-        </div>
+        <LocationMeta
+          className={styles.locationInfo}
+          labelClassName={styles.methodLine}
+          hintClassName={styles.methodHint}
+          mode="detected"
+          method={locationResolution.method}
+          confidence={locationResolution.confidence}
+          note={locationResolution.note}
+        />
       ) : null}
     </section>
   );
