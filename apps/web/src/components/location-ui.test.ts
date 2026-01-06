@@ -3,6 +3,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { createElement } from "react";
 import ResultCard from "./ResultCard";
 import type { JurisdictionLawProfile } from "@islegal/shared";
+import type { LocationContext } from "@/lib/location/locationContext";
 
 const profile: JurisdictionLawProfile = {
   id: "US-CA",
@@ -24,11 +25,19 @@ const profile: JurisdictionLawProfile = {
 
 describe("Location UI", () => {
   it("renders method label and IP warning", () => {
+    const context: LocationContext = {
+      mode: "detected",
+      country: "US",
+      region: "CA",
+      method: "ip",
+      confidence: "low",
+      source: "ip"
+    };
     const html = renderToStaticMarkup(
       createElement(ResultCard, {
         profile,
         title: "Test",
-        locationResolution: { method: "ip", confidence: "low" }
+        locationContext: context
       })
     );
 

@@ -6,11 +6,17 @@ import { buildExplanationInput } from "@/lib/explanation";
 import { buildFallbackText } from "@/lib/ai/paraphrase";
 import { logEvent } from "@/lib/analytics";
 import styles from "./result.module.css";
-import type { LocationMethod, LocationResolution } from "@islegal/shared";
+import type { LocationMethod } from "@islegal/shared";
 import { confidenceForLocation } from "@/lib/geo/locationResolution";
 import { computeStatus } from "@islegal/shared";
 import { buildTripStatusCode } from "@/lib/tripStatus";
 import TripEventLogger from "./TripEventLogger";
+import {
+  fromDetected,
+  fromManual,
+  fromQuery,
+  type LocationContext
+} from "@/lib/location/locationContext";
 
 export const runtime = "nodejs";
 
@@ -46,15 +52,22 @@ export default async function ResultPage({
   const rawRegion = (sp.region ?? "").trim().toUpperCase();
   const method = parseLocationMethod(sp.method);
   const confidence = parseConfidence(sp.confidence);
-  const locNote = sp.locNote;
-
   const country = rawCountry || "US";
   const region = rawRegion || "CA";
-  const locationResolution: LocationResolution = {
-    method,
-    confidence: confidence ?? confidenceForLocation(method, region),
-    ...(locNote ? { note: locNote } : {})
-  };
+  const regionValue = country === "US" ? region : undefined;
+  const normalizedConfidence = confidence ?? confidenceForLocation(method, region);
+  const locationContext: LocationContext =
+    method === "manual"
+      ? fromManual(country, regionValue)
+      : method && normalizedConfidence
+        ? fromDetected({
+            country,
+            region: regionValue,
+            method,
+            confidence: normalizedConfidence,
+            resolvedAt: undefined
+          })
+        : fromQuery({ country, region: regionValue });
 
   const profile = getLawProfile({
     country,
@@ -96,7 +109,7 @@ export default async function ResultPage({
         <ResultCard
           profile={profile}
           title={profile.id}
-          locationResolution={locationResolution}
+          locationContext={locationContext}
           isPaidUser={isPaidUser}
           simpleTerms={
             <SimpleTermsClient
@@ -106,19 +119,21 @@ export default async function ResultPage({
             />
           }
         />
-        <TripEventLogger
-          event={{
-            jurisdictionKey: profile.id,
-            country: profile.country,
-            region: profile.region,
-            method: locationResolution.method,
-            confidence: locationResolution.confidence,
-            statusLevel: status.level,
-            statusCode: buildTripStatusCode(profile),
-            verified_at: profile.verified_at ?? undefined,
-            needs_review: profile.status !== "known"
-          }}
-        />
+        {locationContext.method && locationContext.confidence ? (
+          <TripEventLogger
+            event={{
+              jurisdictionKey: profile.id,
+              country: profile.country,
+              region: profile.region,
+              method: locationContext.method,
+              confidence: locationContext.confidence,
+              statusLevel: status.level,
+              statusCode: buildTripStatusCode(profile),
+              verified_at: profile.verified_at ?? undefined,
+              needs_review: profile.status !== "known"
+            }}
+          />
+        ) : null}
       </div>
     </main>
   );

@@ -1,29 +1,23 @@
-import type { ConfidenceLevel, LocationMethod } from "@islegal/shared";
 import {
   formatLocationMethodHint,
   formatLocationMethodLabel
 } from "@/lib/geo/locationResolution";
+import type { LocationContext } from "@/lib/location/locationContext";
 
 type LocationMetaProps = {
-  method?: LocationMethod;
-  confidence?: ConfidenceLevel;
-  mode?: "detected" | "query";
-  note?: string;
+  context: LocationContext;
   className?: string;
   labelClassName?: string;
   hintClassName?: string;
 };
 
 export default function LocationMeta({
-  method,
-  confidence,
-  mode = "detected",
-  note,
+  context,
   className,
   labelClassName,
   hintClassName
 }: LocationMetaProps) {
-  if (mode === "query") {
+  if (context.mode === "query") {
     return (
       <div className={className}>
         <span className={labelClassName}>Source: Query parameters</span>
@@ -31,19 +25,24 @@ export default function LocationMeta({
     );
   }
 
-  if (!method || !confidence) {
+  if (!context.method || !context.confidence) {
     return null;
   }
 
-  const label = formatLocationMethodLabel({ method, confidence });
-  const hint = formatLocationMethodHint({ method, confidence });
+  const label = formatLocationMethodLabel({
+    method: context.method,
+    confidence: context.confidence
+  });
+  const hint = formatLocationMethodHint({
+    method: context.method,
+    confidence: context.confidence
+  });
 
   return (
     <div className={className}>
       <span className={labelClassName}>{label}</span>
-      <span className={hintClassName}>Confidence: {confidence}</span>
+      <span className={hintClassName}>Confidence: {context.confidence}</span>
       {hint ? <span className={hintClassName}>{hint}</span> : null}
-      {note ? <span className={hintClassName}>{note}</span> : null}
     </div>
   );
 }

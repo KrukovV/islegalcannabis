@@ -4,14 +4,22 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import type { FormEvent } from "react";
-import type { LocationResolution, Trip } from "@islegal/shared";
+import type { Trip } from "@islegal/shared";
 import styles from "../page.module.css";
 import {
-  buildLocationResolution,
-  selectPreferredLocationResolution,
+  confidenceForLocation,
   shouldHighlightManualAction
 } from "@/lib/geo/locationResolution";
 import LocationMeta from "@/components/LocationMeta";
+import type { LocationContext } from "@/lib/location/locationContext";
+import {
+  fromDetected,
+  fromManual,
+  loadLocationContext,
+  pickPreferredContext,
+  saveLocationContext,
+  toLocationResolution
+} from "@/lib/location/locationContext";
 import {
   formatRemaining,
   getTripSummary,
@@ -26,17 +34,12 @@ const COUNTRY_OPTIONS = [
 
 const REGION_OPTIONS = [{ code: "CA", label: "California" }];
 
-function buildResultUrl(
-  country: string,
-  region?: string,
-  resolution?: LocationResolution
-) {
-  const params = new URLSearchParams({ country });
-  if (region) params.set("region", region);
-  if (resolution) {
-    params.set("method", resolution.method);
-    params.set("confidence", resolution.confidence);
-    if (resolution.note) params.set("locNote", resolution.note);
+function buildResultUrl(context: LocationContext) {
+  const params = new URLSearchParams({ country: context.country });
+  if (context.region) params.set("region", context.region);
+  if (context.method && context.confidence) {
+    params.set("method", context.method);
+    params.set("confidence", context.confidence);
   }
   return `/result?${params.toString()}`;
 }
@@ -49,8 +52,8 @@ export default function HomeActions() {
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   const [locating, setLocating] = useState(false);
-  const [locationResolution, setLocationResolution] =
-    useState<LocationResolution | null>(null);
+  const [locationContext, setLocationContext] =
+    useState<LocationContext | null>(null);
   const [trip, setTrip] = useState<Trip | null>(null);
 
   const refreshTrip = () => {
@@ -60,6 +63,12 @@ export default function HomeActions() {
 
   useEffect(() => {
     refreshTrip();
+    const saved = loadLocationContext();
+    if (saved?.mode === "manual") {
+      setCountry(saved.country);
+      setRegion(saved.region ?? "");
+      setLocationContext(saved);
+    }
   }, []);
 
   const handleToggleTrip = () => {
@@ -99,11 +108,17 @@ export default function HomeActions() {
         return;
       }
 
-      const resolution = buildLocationResolution("ip", data.region);
-      setLocationResolution(resolution);
+      const context = fromDetected({
+        country: data.country,
+        region: data.region,
+        method: "ip",
+        confidence: confidenceForLocation("ip", data.region)
+      });
+      saveLocationContext(context);
+      setLocationContext(context);
       setNotice("GPS unavailable — using IP-based location.");
       setTimeout(() => {
-        router.push(buildResultUrl(data.country, data.region, resolution));
+        router.push(buildResultUrl(context));
       }, 1200);
     } catch {
       setNotice("We couldn't determine your location. Please choose manually.");
@@ -139,14 +154,27 @@ export default function HomeActions() {
           } else {
             setNotice(null);
           }
-          const gpsCandidate = { country: data.country, region: data.region };
-          const ipCandidate = await ipPromise;
-          const resolution = selectPreferredLocationResolution({
-            gps: gpsCandidate,
-            ip: ipCandidate ?? undefined
+          const gpsContext = fromDetected({
+            country: data.country,
+            region: data.region,
+            method: "gps",
+            confidence: confidenceForLocation("gps", data.region)
           });
-          setLocationResolution(resolution);
-          router.push(buildResultUrl(data.country, data.region, resolution));
+          const ipCandidate = await ipPromise;
+          const ipContext = ipCandidate
+            ? fromDetected({
+                country: ipCandidate.country,
+                region: ipCandidate.region,
+                method: "ip",
+                confidence: confidenceForLocation("ip", ipCandidate.region)
+              })
+            : null;
+          const preferred = pickPreferredContext([gpsContext, ipContext]);
+          if (preferred) {
+            saveLocationContext(preferred);
+            setLocationContext(preferred);
+            router.push(buildResultUrl(preferred));
+          }
         } catch {
           setNotice("We couldn't verify your GPS location. Please choose manually.");
           setShowManual(true);
@@ -172,12 +200,10 @@ export default function HomeActions() {
       return;
     }
 
-    const resolution = buildLocationResolution(
-      "manual",
-      country === "US" ? region : undefined
-    );
-    setLocationResolution(resolution);
-    router.push(buildResultUrl(country, country === "US" ? region : undefined, resolution));
+    const context = fromManual(country, country === "US" ? region : undefined);
+    saveLocationContext(context);
+    setLocationContext(context);
+    router.push(buildResultUrl(context));
   };
 
   return (
@@ -219,7 +245,7 @@ export default function HomeActions() {
         </button>
         <button
           className={`${styles.secondaryButton} ${
-            shouldHighlightManualAction(locationResolution)
+            shouldHighlightManualAction(toLocationResolution(locationContext))
               ? styles.secondaryButtonHighlight
               : ""
           }`}
@@ -228,7 +254,7 @@ export default function HomeActions() {
         >
           🌍 Choose manually
         </button>
-        {shouldHighlightManualAction(locationResolution) ? (
+        {shouldHighlightManualAction(toLocationResolution(locationContext)) ? (
           <span className={styles.manualHint}>Location may be approximate</span>
         ) : null}
       </div>
@@ -273,15 +299,12 @@ export default function HomeActions() {
 
       {notice ? <p className={styles.notice}>{notice}</p> : null}
       {error ? <p className={styles.error}>{error}</p> : null}
-      {locationResolution ? (
+      {locationContext ? (
         <LocationMeta
           className={styles.locationInfo}
           labelClassName={styles.methodLine}
           hintClassName={styles.methodHint}
-          mode="detected"
-          method={locationResolution.method}
-          confidence={locationResolution.confidence}
-          note={locationResolution.note}
+          context={locationContext}
         />
       ) : null}
     </section>

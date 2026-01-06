@@ -1,6 +1,7 @@
 import { getLawProfile } from "@/lib/lawStore";
 import { computeStatus } from "@islegal/shared";
 import LocationMeta from "@/components/LocationMeta";
+import { fromQuery } from "@/lib/location/locationContext";
 
 export const runtime = "nodejs";
 
@@ -43,7 +44,7 @@ export default async function CheckPage({
     <main style={{ padding: 24, fontFamily: "system-ui" }}>
       <h1>isLegalCannabis — Check</h1>
 
-      <LocationMeta mode="query" />
+      <LocationMeta context={fromQuery({ country, region: country === "US" ? region : undefined })} />
 
       <p>
         Jurisdiction: <b>{profile.id}</b>

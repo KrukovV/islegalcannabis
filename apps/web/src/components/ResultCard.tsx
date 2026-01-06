@@ -1,6 +1,6 @@
 import { computeStatus } from "@islegal/shared";
 import type { JurisdictionLawProfile } from "@islegal/shared";
-import type { LocationResolution } from "@islegal/shared";
+import type { LocationContext } from "@/lib/location/locationContext";
 import type { ReactNode } from "react";
 import StatusBadge from "./StatusBadge";
 import Disclaimer from "./Disclaimer";
@@ -22,7 +22,7 @@ type ResultCardProps = {
   showSources?: boolean;
   showPdf?: boolean;
   showUpgradePrompt?: boolean;
-  locationResolution?: LocationResolution;
+  locationContext?: LocationContext;
 };
 
 const countryFlag: Record<string, string> = {
@@ -43,7 +43,7 @@ export default function ResultCard({
   showSources,
   showPdf,
   showUpgradePrompt,
-  locationResolution
+  locationContext
 }: ResultCardProps) {
   const status = computeStatus(profile);
   const flag = countryFlag[profile.country] ?? "🏳️";
@@ -73,15 +73,12 @@ export default function ResultCard({
               {profile.id}
             </p>
           ) : null}
-          {locationResolution ? (
+          {locationContext ? (
             <LocationMeta
               className={styles.locationMeta}
               labelClassName={styles.locationLabel}
               hintClassName={styles.locationHint}
-              mode="detected"
-              method={locationResolution.method}
-              confidence={locationResolution.confidence}
-              note={locationResolution.note}
+              context={locationContext}
             />
           ) : null}
         </div>

@@ -2,11 +2,17 @@ import { describe, expect, it } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 import { createElement } from "react";
 import LocationMeta from "./LocationMeta";
+import type { LocationContext } from "@/lib/location/locationContext";
 
 describe("LocationMeta", () => {
   it("renders query mode without detected labels or confidence", () => {
+    const context: LocationContext = {
+      mode: "query",
+      country: "DE",
+      source: "url"
+    };
     const html = renderToStaticMarkup(
-      createElement(LocationMeta, { mode: "query" })
+      createElement(LocationMeta, { context })
     );
     expect(html).toContain("Source: Query parameters");
     expect(html).not.toContain("Detected via");
@@ -14,11 +20,16 @@ describe("LocationMeta", () => {
   });
 
   it("renders manual detected without approximate hint", () => {
+    const context: LocationContext = {
+      mode: "manual",
+      country: "DE",
+      method: "manual",
+      confidence: "high",
+      source: "user"
+    };
     const html = renderToStaticMarkup(
       createElement(LocationMeta, {
-        mode: "detected",
-        method: "manual",
-        confidence: "high"
+        context
       })
     );
     expect(html).toContain("Selected manually");
@@ -27,11 +38,16 @@ describe("LocationMeta", () => {
   });
 
   it("renders IP detected with approximate hint", () => {
+    const context: LocationContext = {
+      mode: "detected",
+      country: "DE",
+      method: "ip",
+      confidence: "medium",
+      source: "ip"
+    };
     const html = renderToStaticMarkup(
       createElement(LocationMeta, {
-        mode: "detected",
-        method: "ip",
-        confidence: "medium"
+        context
       })
     );
     expect(html).toContain("Detected via IP (approximate)");
