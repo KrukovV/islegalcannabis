@@ -2,7 +2,8 @@
 set -euo pipefail
 
 npm run where
-npm run guard:ssr
+bash tools/guard-ssr.sh
+ILC_FORCE_GREP=1 bash tools/guard-ssr.sh
 npm run audit
 npm run lint
 npm test

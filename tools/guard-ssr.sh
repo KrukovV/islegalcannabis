@@ -3,16 +3,29 @@ set -euo pipefail
 
 patterns="localStorage|window|document"
 paths=(
-  "apps/web/src/app/result"
-  "apps/web/src/app/check"
-  "apps/web/src/lib/location/locationContext.ts"
+  "apps/web/src/app"
+  "apps/web/src/app/api"
 )
 
-if command -v rg >/dev/null 2>&1; then
-  matches="$(rg -n "${patterns}" "${paths[@]}" || true)"
-else
-  matches="$(grep -R -n -E "${patterns}" "${paths[@]}" || true)"
+use_rg=0
+if [[ -z "${ILC_FORCE_GREP:-}" ]] && command -v rg >/dev/null 2>&1; then
+  use_rg=1
 fi
+
+matches=""
+while IFS= read -r file; do
+  if head -n 5 "${file}" | grep -q "use client"; then
+    continue
+  fi
+  if [[ "${use_rg}" -eq 1 ]]; then
+    found="$(rg -n "${patterns}" "${file}" || true)"
+  else
+    found="$(grep -n -E "${patterns}" "${file}" || true)"
+  fi
+  if [[ -n "${found}" ]]; then
+    matches+="${found}"$'\n'
+  fi
+done < <(find "${paths[@]}" -type f \( -name "*.ts" -o -name "*.tsx" \))
 
 if [[ -n "${matches}" ]]; then
   echo "SSR guard failed. Found forbidden globals:"
