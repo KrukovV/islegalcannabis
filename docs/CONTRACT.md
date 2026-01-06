@@ -1,5 +1,10 @@
 # CONTRACT
 
+## Мобильные клиенты
+- iOS/Android НЕ хранят data/laws локально.
+- Все решения и данные берутся только через API.
+- AI/LLM не влияет на решение, только на перефразирование текста.
+
 ## Входы (request)
 - country: string (ISO country code, upper-case)
 - region?: string (ISO subdivision, upper-case; требуется для US)

@@ -1,7 +1,7 @@
 import { getLawProfile } from "@/lib/lawStore";
 import { computeStatus } from "@islegal/shared";
 import { incrementCounter } from "@/lib/metrics";
-import { createRequestId, errorJson, okJson } from "@/lib/api/response";
+import { createRequestId, errorResponse, okResponse } from "@/lib/api/response";
 
 export const runtime = "nodejs";
 
@@ -12,7 +12,7 @@ export async function GET(req: Request) {
   const region = searchParams.get("region") ?? undefined;
 
   if (!country.trim()) {
-    return errorJson(
+    return errorResponse(
       requestId,
       400,
       "MISSING_COUNTRY",
@@ -24,7 +24,7 @@ export async function GET(req: Request) {
   const profile = getLawProfile({ country, region });
 
   if (!profile) {
-    return errorJson(
+    return errorResponse(
       requestId,
       404,
       "UNKNOWN_JURISDICTION",
@@ -35,5 +35,5 @@ export async function GET(req: Request) {
 
   incrementCounter("check_performed");
   console.info(`[${requestId}] check_performed`);
-  return okJson(requestId, { status: computeStatus(profile), profile });
+  return okResponse(requestId, { status: computeStatus(profile), profile });
 }

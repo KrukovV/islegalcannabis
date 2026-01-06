@@ -7,6 +7,7 @@ describe("GET /api/reverse-geocode", () => {
     const res = await GET(req);
     expect(res.status).toBe(400);
     const json = await res.json();
+    expect(json.ok).toBe(false);
     expect(json.error?.code).toBe("INVALID_COORDS");
     expect(json.requestId).toBeDefined();
   });

@@ -1,6 +1,6 @@
 import { reverseGeocode } from "@/lib/geo/reverseGeocode";
 import { incrementReverseGeocodeMethod } from "@/lib/metrics";
-import { createRequestId, errorJson, okJson } from "@/lib/api/response";
+import { createRequestId, errorResponse, okResponse } from "@/lib/api/response";
 
 export const runtime = "nodejs";
 
@@ -11,7 +11,7 @@ export async function GET(req: Request) {
   const lon = Number(searchParams.get("lon"));
 
   if (!Number.isFinite(lat) || !Number.isFinite(lon)) {
-    return errorJson(
+    return errorResponse(
       requestId,
       400,
       "INVALID_COORDS",
@@ -23,9 +23,9 @@ export async function GET(req: Request) {
     const resolved = await reverseGeocode(lat, lon);
     incrementReverseGeocodeMethod(resolved.method);
     console.info(`[${requestId}] reverse_geocode ${resolved.method}`);
-    return okJson(requestId, resolved);
+    return okResponse(requestId, resolved);
   } catch {
-    return errorJson(
+    return errorResponse(
       requestId,
       500,
       "REVERSE_GEOCODE_FAILED",

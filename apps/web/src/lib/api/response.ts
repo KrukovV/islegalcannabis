@@ -20,7 +20,7 @@ export function createRequestId(req?: Request): string {
   return `${Date.now()}-${Math.random().toString(16).slice(2)}`;
 }
 
-export function okJson<T extends Record<string, unknown>>(
+export function okResponse<T extends Record<string, unknown>>(
   requestId: string,
   data: T,
   status = 200
@@ -28,7 +28,7 @@ export function okJson<T extends Record<string, unknown>>(
   return NextResponse.json({ ok: true, requestId, ...data }, { status });
 }
 
-export function errorJson(
+export function errorResponse(
   requestId: string,
   status: number,
   code: string,

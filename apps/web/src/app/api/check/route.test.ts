@@ -7,6 +7,7 @@ describe("GET /api/check", () => {
     const res = await GET(req);
     expect(res.status).toBe(400);
     const json = await res.json();
+    expect(json.ok).toBe(false);
     expect(json.error?.code).toBe("MISSING_COUNTRY");
     expect(json.requestId).toBeDefined();
   });

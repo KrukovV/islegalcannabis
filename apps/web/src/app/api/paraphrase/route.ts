@@ -2,7 +2,7 @@ import { getLawProfile } from "@/lib/lawStore";
 import { buildExplanationInput } from "@/lib/explanation";
 import { paraphrase } from "@/lib/ai/paraphrase";
 import { incrementCounter } from "@/lib/metrics";
-import { createRequestId, errorJson, okJson } from "@/lib/api/response";
+import { createRequestId, errorResponse, okResponse } from "@/lib/api/response";
 
 export const runtime = "nodejs";
 
@@ -50,7 +50,7 @@ export async function POST(req: Request) {
   try {
     body = (await req.json()) as ParaphraseRequest;
   } catch {
-    return errorJson(requestId, 400, "INVALID_JSON", "Invalid JSON body.");
+    return errorResponse(requestId, 400, "INVALID_JSON", "Invalid JSON body.");
   }
 
   const country = (body.country ?? "").trim().toUpperCase();
@@ -58,7 +58,7 @@ export async function POST(req: Request) {
   const locale = body.locale?.trim().toLowerCase() ?? "en";
 
   if (!country) {
-    return errorJson(
+    return errorResponse(
       requestId,
       400,
       "MISSING_COUNTRY",
@@ -69,12 +69,12 @@ export async function POST(req: Request) {
 
   const ip = getClientIp(req);
   if (!checkRateLimit(ip)) {
-    return errorJson(requestId, 429, "RATE_LIMITED", "Rate limit exceeded.");
+    return errorResponse(requestId, 429, "RATE_LIMITED", "Rate limit exceeded.");
   }
 
   const profile = getLawProfile({ country, region });
   if (!profile) {
-    return errorJson(
+    return errorResponse(
       requestId,
       404,
       "UNKNOWN_JURISDICTION",
@@ -96,7 +96,7 @@ export async function POST(req: Request) {
   incrementCounter("paraphrase_generated");
   console.info(`[${requestId}] paraphrase_generated`);
 
-  return okJson(requestId, {
+  return okResponse(requestId, {
     text: result.text,
     cached: result.cached,
     provider,

@@ -1,5 +1,5 @@
 import { resolveIpToJurisdiction } from "@/lib/geo/ip";
-import { createRequestId, okJson } from "@/lib/api/response";
+import { createRequestId, okResponse } from "@/lib/api/response";
 
 export async function GET(req: Request) {
   const requestId = createRequestId(req);
@@ -9,6 +9,7 @@ export async function GET(req: Request) {
   const ip = rawIp.split(",")[0]?.trim() || null;
 
   const result = resolveIpToJurisdiction(ip);
+  console.info(`[${requestId}] whereami_resolved`);
 
-  return okJson(requestId, result);
+  return okResponse(requestId, result);
 }

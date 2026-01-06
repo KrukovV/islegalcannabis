@@ -1,5 +1,5 @@
 import { logEvent } from "@/lib/analytics";
-import { createRequestId, errorJson, okJson } from "@/lib/api/response";
+import { createRequestId, errorResponse, okResponse } from "@/lib/api/response";
 
 export const runtime = "nodejs";
 
@@ -15,13 +15,14 @@ export async function POST(req: Request) {
   try {
     body = (await req.json()) as { event?: string };
   } catch {
-    return errorJson(requestId, 400, "INVALID_JSON", "Invalid JSON body.");
+    return errorResponse(requestId, 400, "INVALID_JSON", "Invalid JSON body.");
   }
 
   if (!body.event || !allowedEvents.has(body.event)) {
-    return errorJson(requestId, 400, "UNKNOWN_EVENT", "Unknown event.");
+    return errorResponse(requestId, 400, "UNKNOWN_EVENT", "Unknown event.");
   }
 
   logEvent(body.event as "check_performed" | "paraphrase_generated" | "upgrade_clicked");
-  return okJson(requestId, {});
+  console.info(`[${requestId}] analytics ${body.event}`);
+  return okResponse(requestId, {});
 }

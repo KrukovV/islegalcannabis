@@ -1,5 +1,5 @@
 import { getMetricsSnapshot } from "@/lib/metrics";
-import { createRequestId, errorJson, okJson } from "@/lib/api/response";
+import { createRequestId, errorResponse, okResponse } from "@/lib/api/response";
 
 export const runtime = "nodejs";
 
@@ -10,8 +10,16 @@ function metricsEnabled() {
 export async function GET(req: Request) {
   const requestId = createRequestId(req);
   if (!metricsEnabled()) {
-    return errorJson(requestId, 404, "METRICS_DISABLED", "Metrics are disabled.");
+    return errorResponse(
+      requestId,
+      404,
+      "METRICS_DISABLED",
+      "Metrics are disabled."
+    );
   }
 
-  return okJson(requestId, { metrics: getMetricsSnapshot() });
+  return okResponse(requestId, {
+    metrics: getMetricsSnapshot(),
+    uptime: process.uptime()
+  });
 }
