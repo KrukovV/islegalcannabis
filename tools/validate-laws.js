@@ -29,6 +29,25 @@ function validateFile(filePath) {
     throw new Error(`Invalid JSON: ${filePath}`);
   }
 
+  if (Array.isArray(parsed.sources)) {
+    parsed.sources.forEach((source, index) => {
+      const url = source?.url;
+      if (typeof url !== "string") {
+        throw new Error(`sources[${index}].url must be a string in ${filePath}`);
+      }
+      if (/\s/.test(url)) {
+        throw new Error(
+          `sources[${index}].url must not contain whitespace in ${filePath}`
+        );
+      }
+      if (!url.startsWith("http://") && !url.startsWith("https://")) {
+        throw new Error(
+          `sources[${index}].url must start with http(s) in ${filePath}`
+        );
+      }
+    });
+  }
+
   validateLawPayload(parsed, filePath);
   return parsed.id;
 }

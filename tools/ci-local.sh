@@ -12,6 +12,7 @@ npm run lint
 npm test
 npm run web:build
 npm run validate:laws
+node tools/validate-sources-urls.mjs
 npm run validate:iso3166
 npm run coverage
 npm run smoke:mock

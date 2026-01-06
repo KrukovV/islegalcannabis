@@ -57,6 +57,17 @@ function validateSources(sources, filePath) {
     if (!source || typeof source.url !== "string") {
       throw new Error(`Source url must be a string in ${filePath}`);
     }
+    if (/\\s/.test(source.url)) {
+      throw new Error(`Source url must not contain whitespace in ${filePath}`);
+    }
+    if (
+      !source.url.startsWith("http://") &&
+      !source.url.startsWith("https://")
+    ) {
+      throw new Error(
+        `Source url must start with http(s) in ${filePath}`
+      );
+    }
     let parsedUrl;
     try {
       parsedUrl = new URL(source.url);
