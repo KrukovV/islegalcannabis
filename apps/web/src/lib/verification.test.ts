@@ -54,4 +54,21 @@ describe("verification", () => {
     expect(result.fresh).toBe(false);
     expect(result.needsReview).toBe(true);
   });
+
+  it("marks needs_review on fetch failure", async () => {
+    resetVerificationCacheForTests();
+    const now = new Date("2025-01-06T10:00:00Z");
+    const fetchFn = async () => {
+      throw new Error("timeout");
+    };
+
+    const result = await verifyJurisdictionFreshness(
+      "DE",
+      [{ url: "https://example.com/a" }],
+      now,
+      fetchFn
+    );
+    expect(result.fresh).toBe(false);
+    expect(result.needsReview).toBe(true);
+  });
 });

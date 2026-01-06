@@ -8,6 +8,9 @@ import styles from "./ResultCard.module.css";
 import { buildBullets, buildRisks } from "@/lib/summary";
 import UpgradePrompt from "./UpgradePrompt";
 import LocationMeta from "@/components/LocationMeta";
+import RecentResultBadge from "@/components/RecentResultBadge";
+import { hashLawProfile } from "@/lib/profileHash";
+import { buildTripStatusCode } from "@/lib/tripStatus";
 
 type ResultCardProps = {
   profile: JurisdictionLawProfile;
@@ -23,6 +26,7 @@ type ResultCardProps = {
   showPdf?: boolean;
   showUpgradePrompt?: boolean;
   locationContext?: LocationContext;
+  cacheCell?: string | null;
 };
 
 const countryFlag: Record<string, string> = {
@@ -43,9 +47,12 @@ export default function ResultCard({
   showSources,
   showPdf,
   showUpgradePrompt,
-  locationContext
+  locationContext,
+  cacheCell
 }: ResultCardProps) {
   const status = computeStatus(profile);
+  const statusCode = buildTripStatusCode(profile);
+  const profileHash = hashLawProfile(profile);
   const flag = countryFlag[profile.country] ?? "🏳️";
 
   const bullets = buildBullets(profile);
@@ -79,6 +86,22 @@ export default function ResultCard({
               labelClassName={styles.locationLabel}
               hintClassName={styles.locationHint}
               context={locationContext}
+            />
+          ) : null}
+          {locationContext ? (
+            <RecentResultBadge
+              className={styles.cacheBadge}
+              jurisdictionKey={profile.id}
+              country={profile.country}
+              region={profile.region}
+              statusCode={statusCode}
+              statusLevel={status.level}
+              profileHash={profileHash}
+              verifiedAt={profile.verified_at ?? undefined}
+              lawUpdatedAt={profile.updated_at}
+              sources={profile.sources}
+              locationContext={locationContext}
+              cell={cacheCell ?? undefined}
             />
           ) : null}
         </div>

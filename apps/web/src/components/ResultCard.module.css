@@ -54,6 +54,18 @@
   color: #5a645d;
 }
 
+.cacheBadge {
+  display: inline-flex;
+  align-self: flex-start;
+  margin-top: 8px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #edf3e8;
+  color: #2f5f45;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
 .jurisdiction {
   color: #5a645d;
   font-size: 0.95rem;

@@ -26,6 +26,7 @@ type SearchParams = {
   method?: string;
   confidence?: string;
   locNote?: string;
+  cell?: string;
 };
 
 function parseLocationMethod(value?: string): LocationMethod {
@@ -52,6 +53,7 @@ export default async function ResultPage({
   const rawRegion = (sp.region ?? "").trim().toUpperCase();
   const method = parseLocationMethod(sp.method);
   const confidence = parseConfidence(sp.confidence);
+  const cacheCell = sp.cell ?? null;
   const country = rawCountry || "US";
   const region = rawRegion || "CA";
   const regionValue = country === "US" ? region : undefined;
@@ -110,6 +112,7 @@ export default async function ResultPage({
           profile={profile}
           title={profile.id}
           locationContext={locationContext}
+          cacheCell={cacheCell}
           isPaidUser={isPaidUser}
           simpleTerms={
             <SimpleTermsClient

@@ -1,4 +1,5 @@
 const VERIFICATION_WINDOW_MS = 5 * 60 * 60 * 1000;
+const FETCH_TIMEOUT_MS = 4000;
 
 type HeaderSnapshot = {
   etag?: string | null;
@@ -24,20 +25,27 @@ function detectHeaderChange(previous?: HeaderSnapshot, next?: HeaderSnapshot) {
 }
 
 async function fetchHeaders(url: string) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
   let response: Response | null = null;
   try {
-    response = await fetch(url, { method: "HEAD" });
+    response = await fetch(url, { method: "HEAD", signal: controller.signal });
   } catch {
     response = null;
   }
 
   if (!response || !response.ok) {
     try {
-      response = await fetch(url, { method: "GET" });
+      response = await fetch(url, {
+        method: "GET",
+        signal: controller.signal
+      });
     } catch {
       response = null;
     }
   }
+
+  clearTimeout(timeout);
 
   if (!response || !response.ok) {
     return { ok: false as const };
@@ -53,6 +61,13 @@ async function fetchHeaders(url: string) {
 
 function toMs(value: string) {
   return new Date(value).getTime();
+}
+
+function normalizeIso(value?: string | null) {
+  if (!value) return null;
+  const ms = toMs(value);
+  if (Number.isNaN(ms)) return null;
+  return value;
 }
 
 export function resetVerificationCacheForTests() {
@@ -71,15 +86,26 @@ export async function verifyJurisdictionFreshness(
   jurisdictionKey: string,
   sources: { url: string }[],
   now = new Date(),
-  fetchFn: typeof fetchHeaders = fetchHeaders
+  fetchFn: typeof fetchHeaders = fetchHeaders,
+  clientVerifiedAt?: string | null
 ) {
-  const cached = verificationByKey.get(jurisdictionKey);
-  if (cached && now.getTime() - toMs(cached) < VERIFICATION_WINDOW_MS) {
-    return { fresh: true, needsReview: false, lastVerifiedAt: cached };
+  const cached = normalizeIso(verificationByKey.get(jurisdictionKey));
+  const clientVerified = normalizeIso(clientVerifiedAt);
+  const latest =
+    cached && clientVerified
+      ? toMs(cached) >= toMs(clientVerified)
+        ? cached
+        : clientVerified
+      : cached ?? clientVerified ?? null;
+  if (latest && now.getTime() - toMs(latest) < VERIFICATION_WINDOW_MS) {
+    if (!cached || toMs(latest) > toMs(cached)) {
+      verificationByKey.set(jurisdictionKey, latest);
+    }
+    return { fresh: true, needsReview: false, lastVerifiedAt: latest };
   }
 
   if (!sources.length) {
-    return { fresh: false, needsReview: true, lastVerifiedAt: cached ?? null };
+    return { fresh: false, needsReview: true, lastVerifiedAt: latest };
   }
 
   let hadFailure = false;
@@ -88,8 +114,13 @@ export async function verifyJurisdictionFreshness(
   for (const source of sources) {
     const url = source.url;
     const previous = sourceCache.get(url);
-    const result = await fetchFn(url);
-    if (!result.ok) {
+    let result: Awaited<ReturnType<typeof fetchFn>> | null = null;
+    try {
+      result = await fetchFn(url);
+    } catch {
+      result = null;
+    }
+    if (!result || !result.ok) {
       hadFailure = true;
       continue;
     }
@@ -106,7 +137,7 @@ export async function verifyJurisdictionFreshness(
   }
 
   if (hadFailure || hasChange) {
-    return { fresh: false, needsReview: true, lastVerifiedAt: cached ?? null };
+    return { fresh: false, needsReview: true, lastVerifiedAt: latest };
   }
 
   const nowIso = now.toISOString();

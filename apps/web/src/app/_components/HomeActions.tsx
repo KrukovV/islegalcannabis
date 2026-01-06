@@ -22,6 +22,7 @@ import {
   loadLocationContext,
   saveLocationContext
 } from "@/lib/location/locationStorage";
+import { buildGpsCell } from "@/lib/nearbyCacheStorage";
 import {
   formatRemaining,
   getTripSummary,
@@ -36,12 +37,15 @@ const COUNTRY_OPTIONS = [
 
 const REGION_OPTIONS = [{ code: "CA", label: "California" }];
 
-function buildResultUrl(context: LocationContext) {
+function buildResultUrl(context: LocationContext, cell?: string) {
   const params = new URLSearchParams({ country: context.country });
   if (context.region) params.set("region", context.region);
   if (context.method && context.confidence) {
     params.set("method", context.method);
     params.set("confidence", context.confidence);
+  }
+  if (cell) {
+    params.set("cell", cell);
   }
   return `/result?${params.toString()}`;
 }
@@ -156,6 +160,7 @@ export default function HomeActions() {
           } else {
             setNotice(null);
           }
+          const gpsCell = buildGpsCell(lat, lon);
           const gpsContext = fromDetected({
             country: data.country,
             region: data.region,
@@ -175,7 +180,12 @@ export default function HomeActions() {
           if (preferred) {
             saveLocationContext(preferred);
             setLocationContext(preferred);
-            router.push(buildResultUrl(preferred));
+            router.push(
+              buildResultUrl(
+                preferred,
+                preferred.method === "gps" ? gpsCell : undefined
+              )
+            );
           }
         } catch {
           setNotice("We couldn't verify your GPS location. Please choose manually.");
