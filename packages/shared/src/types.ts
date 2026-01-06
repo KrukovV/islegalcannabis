@@ -11,6 +11,13 @@ export type Source = { title: string; url: string };
 export type VerificationStatus = "known" | "unknown" | "needs_review";
 export type ConfidenceLevel = "high" | "medium" | "low";
 export type JurisdictionKey = string;
+export type LocationMethod = "gps" | "ip" | "manual";
+
+export type LocationResolution = {
+  method: LocationMethod;
+  confidence: ConfidenceLevel;
+  note?: string;
+};
 
 export type JurisdictionLawProfile = {
   id: string;

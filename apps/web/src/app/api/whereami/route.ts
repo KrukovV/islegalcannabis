@@ -1,4 +1,5 @@
 import { resolveIpToJurisdiction } from "@/lib/geo/ip";
+import { buildLocationResolution } from "@/lib/geo/locationResolution";
 import { createRequestId, okResponse } from "@/lib/api/response";
 
 export async function GET(req: Request) {
@@ -9,7 +10,11 @@ export async function GET(req: Request) {
   const ip = rawIp.split(",")[0]?.trim() || null;
 
   const result = resolveIpToJurisdiction(ip);
+  const resolution = buildLocationResolution("ip", result.region);
   console.info(`[${requestId}] whereami_resolved`);
 
-  return okResponse(requestId, result);
+  return okResponse(requestId, {
+    ...result,
+    confidence: resolution.confidence
+  });
 }

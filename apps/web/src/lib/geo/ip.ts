@@ -1,4 +1,8 @@
-export type IpResolveResult = { country: "US"; region: "CA"; method: "ip" };
+export type IpResolveResult = {
+  country: string;
+  region?: string;
+  method: "ip";
+};
 
 function isLocalIp(ip: string) {
   return (

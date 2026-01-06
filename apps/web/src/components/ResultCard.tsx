@@ -1,11 +1,16 @@
 import { computeStatus } from "@islegal/shared";
 import type { JurisdictionLawProfile } from "@islegal/shared";
+import type { LocationResolution } from "@islegal/shared";
 import type { ReactNode } from "react";
 import StatusBadge from "./StatusBadge";
 import Disclaimer from "./Disclaimer";
 import styles from "./ResultCard.module.css";
 import { buildBullets, buildRisks } from "@/lib/summary";
 import UpgradePrompt from "./UpgradePrompt";
+import {
+  formatLocationMethodHint,
+  formatLocationMethodLabel
+} from "@/lib/geo/locationResolution";
 
 type ResultCardProps = {
   profile: JurisdictionLawProfile;
@@ -20,6 +25,7 @@ type ResultCardProps = {
   showSources?: boolean;
   showPdf?: boolean;
   showUpgradePrompt?: boolean;
+  locationResolution?: LocationResolution;
 };
 
 const countryFlag: Record<string, string> = {
@@ -39,7 +45,8 @@ export default function ResultCard({
   showRisks,
   showSources,
   showPdf,
-  showUpgradePrompt
+  showUpgradePrompt,
+  locationResolution
 }: ResultCardProps) {
   const status = computeStatus(profile);
   const flag = countryFlag[profile.country] ?? "🏳️";
@@ -68,6 +75,23 @@ export default function ResultCard({
               <span className={styles.flag}>{flag}</span>
               {profile.id}
             </p>
+          ) : null}
+          {locationResolution ? (
+            <div className={styles.locationMeta}>
+              <span className={styles.locationLabel}>
+                {formatLocationMethodLabel(locationResolution)}
+              </span>
+              {formatLocationMethodHint(locationResolution) ? (
+                <span className={styles.locationHint}>
+                  {formatLocationMethodHint(locationResolution)}
+                </span>
+              ) : null}
+              {locationResolution.note ? (
+                <span className={styles.locationHint}>
+                  {locationResolution.note}
+                </span>
+              ) : null}
+            </div>
           ) : null}
         </div>
       </header>

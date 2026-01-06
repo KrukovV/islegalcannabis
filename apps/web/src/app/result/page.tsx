@@ -6,10 +6,32 @@ import { buildExplanationInput } from "@/lib/explanation";
 import { buildFallbackText } from "@/lib/ai/paraphrase";
 import { logEvent } from "@/lib/analytics";
 import styles from "./result.module.css";
+import type { LocationMethod, LocationResolution } from "@islegal/shared";
+import { confidenceForLocation } from "@/lib/geo/locationResolution";
 
 export const runtime = "nodejs";
 
-type SearchParams = { country?: string; region?: string };
+type SearchParams = {
+  country?: string;
+  region?: string;
+  method?: string;
+  confidence?: string;
+  locNote?: string;
+};
+
+function parseLocationMethod(value?: string): LocationMethod {
+  if (value === "gps" || value === "ip" || value === "manual") {
+    return value;
+  }
+  return "manual";
+}
+
+function parseConfidence(value?: string) {
+  if (value === "high" || value === "medium" || value === "low") {
+    return value;
+  }
+  return null;
+}
 
 export default async function ResultPage({
   searchParams
@@ -19,9 +41,17 @@ export default async function ResultPage({
   const sp = await searchParams;
   const rawCountry = (sp.country ?? "").trim().toUpperCase();
   const rawRegion = (sp.region ?? "").trim().toUpperCase();
+  const method = parseLocationMethod(sp.method);
+  const confidence = parseConfidence(sp.confidence);
+  const locNote = sp.locNote;
 
   const country = rawCountry || "US";
   const region = rawRegion || "CA";
+  const locationResolution: LocationResolution = {
+    method,
+    confidence: confidence ?? confidenceForLocation(method, region),
+    ...(locNote ? { note: locNote } : {})
+  };
 
   const profile = getLawProfile({
     country,
@@ -62,6 +92,7 @@ export default async function ResultPage({
         <ResultCard
           profile={profile}
           title={profile.id}
+          locationResolution={locationResolution}
           isPaidUser={isPaidUser}
           simpleTerms={
             <SimpleTermsClient

@@ -89,6 +89,11 @@
   border-color: #c7d7cb;
 }
 
+.secondaryButtonHighlight {
+  border-color: #2f5f45;
+  box-shadow: 0 0 0 2px rgba(47, 95, 69, 0.18);
+}
+
 .ghostButton {
   background: transparent;
   color: var(--accent);
@@ -144,6 +149,30 @@
   padding: 10px 12px;
   border-radius: 12px;
   font-size: 0.9rem;
+}
+
+.manualHint {
+  align-self: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.locationInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.methodLine {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.methodHint {
+  font-size: 0.85rem;
+  color: var(--muted);
 }
 
 .disclaimerSticky {

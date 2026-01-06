@@ -36,6 +36,24 @@
   margin-top: 6px;
 }
 
+.locationMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 10px;
+  color: #5a645d;
+  font-size: 0.85rem;
+}
+
+.locationLabel {
+  font-weight: 600;
+  color: #2c3b33;
+}
+
+.locationHint {
+  color: #5a645d;
+}
+
 .jurisdiction {
   color: #5a645d;
   font-size: 0.95rem;

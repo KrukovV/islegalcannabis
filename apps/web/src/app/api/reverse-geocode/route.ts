@@ -1,5 +1,6 @@
 import { reverseGeocode } from "@/lib/geo/reverseGeocode";
 import { incrementReverseGeocodeMethod } from "@/lib/metrics";
+import { buildLocationResolution } from "@/lib/geo/locationResolution";
 import { createRequestId, errorResponse, okResponse } from "@/lib/api/response";
 
 export const runtime = "nodejs";
@@ -21,9 +22,16 @@ export async function GET(req: Request) {
 
   try {
     const resolved = await reverseGeocode(lat, lon);
+    const resolution = buildLocationResolution("gps", resolved.region);
     incrementReverseGeocodeMethod(resolved.method);
     console.info(`[${requestId}] reverse_geocode ${resolved.method}`);
-    return okResponse(requestId, resolved);
+    return okResponse(requestId, {
+      country: resolved.country,
+      region: resolved.region,
+      method: "gps",
+      provider: resolved.method,
+      confidence: resolution.confidence
+    });
   } catch {
     return errorResponse(
       requestId,

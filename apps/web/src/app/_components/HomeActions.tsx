@@ -3,7 +3,15 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import type { FormEvent } from "react";
+import type { LocationResolution } from "@islegal/shared";
 import styles from "../page.module.css";
+import {
+  buildLocationResolution,
+  formatLocationMethodHint,
+  formatLocationMethodLabel,
+  selectPreferredLocationResolution,
+  shouldHighlightManualAction
+} from "@/lib/geo/locationResolution";
 
 const COUNTRY_OPTIONS = [
   { code: "US", label: "United States" },
@@ -12,9 +20,18 @@ const COUNTRY_OPTIONS = [
 
 const REGION_OPTIONS = [{ code: "CA", label: "California" }];
 
-function buildResultUrl(country: string, region?: string) {
+function buildResultUrl(
+  country: string,
+  region?: string,
+  resolution?: LocationResolution
+) {
   const params = new URLSearchParams({ country });
   if (region) params.set("region", region);
+  if (resolution) {
+    params.set("method", resolution.method);
+    params.set("confidence", resolution.confidence);
+    if (resolution.note) params.set("locNote", resolution.note);
+  }
   return `/result?${params.toString()}`;
 }
 
@@ -26,21 +43,41 @@ export default function HomeActions() {
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   const [locating, setLocating] = useState(false);
+  const [locationResolution, setLocationResolution] =
+    useState<LocationResolution | null>(null);
 
-  const resolveByIp = async () => {
+  const fetchWhereAmI = async () => {
     try {
       const res = await fetch("/api/whereami");
       const data = await res.json();
 
       if (!res.ok || !data?.ok || !data?.country) {
+        return null;
+      }
+
+      return { country: data.country, region: data.region };
+    } catch {
+      return null;
+    }
+  };
+
+  const resolveByIp = async (
+    prefetched?: Promise<{ country: string; region?: string } | null>
+  ) => {
+    try {
+      const data = await (prefetched ?? fetchWhereAmI());
+
+      if (!data?.country) {
         setNotice("We couldn't determine your location. Please choose manually.");
         setShowManual(true);
         return;
       }
 
-      setNotice("GPS unavailable — using approximate location by IP.");
+      const resolution = buildLocationResolution("ip", data.region);
+      setLocationResolution(resolution);
+      setNotice("GPS unavailable — using IP-based location.");
       setTimeout(() => {
-        router.push(buildResultUrl(data.country, data.region));
+        router.push(buildResultUrl(data.country, data.region, resolution));
       }, 1200);
     } catch {
       setNotice("We couldn't determine your location. Please choose manually.");
@@ -51,9 +88,10 @@ export default function HomeActions() {
   const handleUseLocation = () => {
     setError(null);
     setNotice(null);
+    const ipPromise = fetchWhereAmI();
 
     if (!navigator.geolocation) {
-      resolveByIp();
+      resolveByIp(ipPromise);
       return;
     }
 
@@ -70,12 +108,19 @@ export default function HomeActions() {
             throw new Error("reverse_geocode_failed");
           }
 
-          if (data.method === "bbox") {
+          if (data.provider === "bbox") {
             setNotice("Using a coarse location estimate. Verify manually if needed.");
           } else {
             setNotice(null);
           }
-          router.push(buildResultUrl(data.country, data.region));
+          const gpsCandidate = { country: data.country, region: data.region };
+          const ipCandidate = await ipPromise;
+          const resolution = selectPreferredLocationResolution({
+            gps: gpsCandidate,
+            ip: ipCandidate ?? undefined
+          });
+          setLocationResolution(resolution);
+          router.push(buildResultUrl(data.country, data.region, resolution));
         } catch {
           setNotice("We couldn't verify your GPS location. Please choose manually.");
           setShowManual(true);
@@ -85,7 +130,7 @@ export default function HomeActions() {
       },
       () => {
         setLocating(false);
-        resolveByIp();
+        resolveByIp(ipPromise);
       },
       { enableHighAccuracy: false, timeout: 10000, maximumAge: 60000 }
     );
@@ -101,7 +146,12 @@ export default function HomeActions() {
       return;
     }
 
-    router.push(buildResultUrl(country, country === "US" ? region : undefined));
+    const resolution = buildLocationResolution(
+      "manual",
+      country === "US" ? region : undefined
+    );
+    setLocationResolution(resolution);
+    router.push(buildResultUrl(country, country === "US" ? region : undefined, resolution));
   };
 
   return (
@@ -116,12 +166,19 @@ export default function HomeActions() {
           {locating ? "Locating..." : "📍 Use my location"}
         </button>
         <button
-          className={styles.secondaryButton}
+          className={`${styles.secondaryButton} ${
+            shouldHighlightManualAction(locationResolution)
+              ? styles.secondaryButtonHighlight
+              : ""
+          }`}
           type="button"
           onClick={() => setShowManual((prev) => !prev)}
         >
           🌍 Choose manually
         </button>
+        {shouldHighlightManualAction(locationResolution) ? (
+          <span className={styles.manualHint}>Location may be approximate</span>
+        ) : null}
       </div>
 
       {showManual ? (
@@ -164,6 +221,21 @@ export default function HomeActions() {
 
       {notice ? <p className={styles.notice}>{notice}</p> : null}
       {error ? <p className={styles.error}>{error}</p> : null}
+      {locationResolution ? (
+        <div className={styles.locationInfo}>
+          <p className={styles.methodLine}>
+            {formatLocationMethodLabel(locationResolution)}
+          </p>
+          {formatLocationMethodHint(locationResolution) ? (
+            <p className={styles.methodHint}>
+              {formatLocationMethodHint(locationResolution)}
+            </p>
+          ) : null}
+          {locationResolution.note ? (
+            <p className={styles.methodHint}>{locationResolution.note}</p>
+          ) : null}
+        </div>
+      ) : null}
     </section>
   );
 }
