@@ -67,6 +67,11 @@ export default function SeoResultPage({
           kicker="Educational summary"
           subtitle="Clear, up-to-date cannabis laws by location. No advice. Just facts."
           isPaidUser={false}
+          maxBullets={6}
+          showRisks={true}
+          showSources={true}
+          showPdf={false}
+          showUpgradePrompt={false}
           simpleTerms={<SimpleTermsStatic text={fallbackText} />}
         />
         <div className={styles.cta}>

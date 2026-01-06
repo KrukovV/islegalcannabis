@@ -11,7 +11,10 @@ export const slugMap: Record<string, SlugMapping> = {
   florida: { country: "US", region: "FL", displayName: "Florida" },
   texas: { country: "US", region: "TX", displayName: "Texas" },
   washington: { country: "US", region: "WA", displayName: "Washington" },
+  illinois: { country: "US", region: "IL", displayName: "Illinois" },
+  massachusetts: { country: "US", region: "MA", displayName: "Massachusetts" },
   netherlands: { country: "NL", displayName: "Netherlands" },
   france: { country: "FR", displayName: "France" },
-  spain: { country: "ES", displayName: "Spain" }
+  spain: { country: "ES", displayName: "Spain" },
+  italy: { country: "IT", displayName: "Italy" }
 };

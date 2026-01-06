@@ -1,0 +1,23 @@
+{
+  "id": "US-IL",
+  "country": "US",
+  "region": "IL",
+  "medical": "allowed",
+  "recreational": "allowed",
+  "possession_limit": "Up to 30 g flower or 5 g concentrate (adult)",
+  "public_use": "illegal",
+  "home_grow": "allowed",
+  "cross_border": "illegal",
+  "risks": ["public_use", "driving", "border_crossing", "federal_property_us"],
+  "sources": [
+    {
+      "title": "Illinois Cannabis Regulation and Tax Act (official portal)",
+      "url": "https://cannabis.illinois.gov/"
+    },
+    {
+      "title": "Illinois legal cannabis overview",
+      "url": "https://www.illinois.gov/services/service/cannabis-legalization.html"
+    }
+  ],
+  "updated_at": "2024-01-01"
+}

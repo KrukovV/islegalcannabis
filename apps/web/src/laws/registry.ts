@@ -4,9 +4,12 @@ import nyJson from "../../../../data/laws/us/NY.json";
 import flJson from "../../../../data/laws/us/FL.json";
 import txJson from "../../../../data/laws/us/TX.json";
 import waJson from "../../../../data/laws/us/WA.json";
+import ilJson from "../../../../data/laws/us/IL.json";
+import maJson from "../../../../data/laws/us/MA.json";
 import nlJson from "../../../../data/laws/eu/NL.json";
 import frJson from "../../../../data/laws/eu/FR.json";
 import esJson from "../../../../data/laws/eu/ES.json";
+import itJson from "../../../../data/laws/eu/IT.json";
 import type { JurisdictionLawProfile } from "@islegal/shared";
 
 export type LawRegistryKey =
@@ -15,10 +18,13 @@ export type LawRegistryKey =
   | "US-FL"
   | "US-TX"
   | "US-WA"
+  | "US-IL"
+  | "US-MA"
   | "DE"
   | "NL"
   | "FR"
-  | "ES";
+  | "ES"
+  | "IT";
 
 const ca = caJson as JurisdictionLawProfile;
 const de = deJson as JurisdictionLawProfile;
@@ -26,9 +32,12 @@ const ny = nyJson as JurisdictionLawProfile;
 const fl = flJson as JurisdictionLawProfile;
 const tx = txJson as JurisdictionLawProfile;
 const wa = waJson as JurisdictionLawProfile;
+const il = ilJson as JurisdictionLawProfile;
+const ma = maJson as JurisdictionLawProfile;
 const nl = nlJson as JurisdictionLawProfile;
 const fr = frJson as JurisdictionLawProfile;
 const es = esJson as JurisdictionLawProfile;
+const it = itJson as JurisdictionLawProfile;
 
 export const lawRegistry: Record<LawRegistryKey, JurisdictionLawProfile> = {
   "US-CA": ca,
@@ -36,10 +45,13 @@ export const lawRegistry: Record<LawRegistryKey, JurisdictionLawProfile> = {
   "US-FL": fl,
   "US-TX": tx,
   "US-WA": wa,
+  "US-IL": il,
+  "US-MA": ma,
   DE: de,
   NL: nl,
   FR: fr,
-  ES: es
+  ES: es,
+  IT: it
 };
 
 export function getStaticLawProfile(input: {

@@ -1,0 +1,23 @@
+{
+  "id": "US-MA",
+  "country": "US",
+  "region": "MA",
+  "medical": "allowed",
+  "recreational": "allowed",
+  "possession_limit": "Up to 1 oz in public; up to 10 oz at home",
+  "public_use": "illegal",
+  "home_grow": "allowed",
+  "cross_border": "illegal",
+  "risks": ["public_use", "driving", "border_crossing", "federal_property_us"],
+  "sources": [
+    {
+      "title": "Massachusetts Cannabis Control Commission",
+      "url": "https://masscannabiscontrol.com/"
+    },
+    {
+      "title": "Massachusetts law about marijuana",
+      "url": "https://www.mass.gov/info-details/massachusetts-law-about-marijuana"
+    }
+  ],
+  "updated_at": "2024-01-01"
+}
