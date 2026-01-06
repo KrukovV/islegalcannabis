@@ -37,6 +37,70 @@ describe("GET /api/check cache", () => {
     }
   });
 
+  it("skips verification when cacheVerifiedAt is recent", async () => {
+    resetVerificationCacheForTests();
+    const profile = getLawProfile({ country: "DE" });
+    if (!profile) throw new Error("missing profile");
+    const now = new Date();
+
+    const originalFetch = globalThis.fetch;
+    globalThis.fetch = async () => {
+      throw new Error("fetch should not be called");
+    };
+
+    const cacheTs = encodeURIComponent(now.toISOString());
+    const cacheProfileHash = encodeURIComponent(hashLawProfile(profile));
+    const cacheVerifiedAt = encodeURIComponent(now.toISOString());
+    const cacheApproxCell = encodeURIComponent("country:DE");
+    const req = new Request(
+      `http://localhost/api/check?country=DE&method=ip&confidence=low&cacheTs=${cacheTs}&cacheProfileHash=${cacheProfileHash}&cacheVerifiedAt=${cacheVerifiedAt}&cacheApproxCell=${cacheApproxCell}`
+    );
+    try {
+      const res = await GET(req);
+      const json = await res.json();
+      expect(json.meta?.cacheHit).toBe(true);
+    } finally {
+      globalThis.fetch = originalFetch;
+    }
+  });
+
+  it("verifies when cacheVerifiedAt is older than 5 hours", async () => {
+    resetVerificationCacheForTests();
+    const profile = getLawProfile({ country: "DE" });
+    if (!profile) throw new Error("missing profile");
+    const now = new Date();
+    const old = new Date(now.getTime() - 6 * 60 * 60 * 1000);
+    let calls = 0;
+    const originalFetch = globalThis.fetch;
+    globalThis.fetch = async () => {
+      calls += 1;
+      return new Response(null, {
+        status: 200,
+        headers: {
+          etag: "v1",
+          "last-modified": "x",
+          "content-length": "1"
+        }
+      });
+    };
+
+    const cacheTs = encodeURIComponent(now.toISOString());
+    const cacheProfileHash = encodeURIComponent(hashLawProfile(profile));
+    const cacheVerifiedAt = encodeURIComponent(old.toISOString());
+    const cacheApproxCell = encodeURIComponent("country:DE");
+    const req = new Request(
+      `http://localhost/api/check?country=DE&method=ip&confidence=low&cacheTs=${cacheTs}&cacheProfileHash=${cacheProfileHash}&cacheVerifiedAt=${cacheVerifiedAt}&cacheApproxCell=${cacheApproxCell}`
+    );
+    try {
+      const res = await GET(req);
+      const json = await res.json();
+      expect(json.meta?.cacheHit).toBe(true);
+      expect(calls).toBeGreaterThan(0);
+    } finally {
+      globalThis.fetch = originalFetch;
+    }
+  });
+
   it("ignores stale cache outside window", async () => {
     resetVerificationCacheForTests();
     const profile = getLawProfile({ country: "DE" });

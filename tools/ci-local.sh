@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+bash tools/git-health.sh
 npm run where
 bash tools/guard-ssr.sh
 ILC_FORCE_GREP=1 bash tools/guard-ssr.sh

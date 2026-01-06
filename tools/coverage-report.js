@@ -78,15 +78,15 @@ function main() {
 
   const next = nextPriority.concat(remaining).slice(0, 20);
 
-  console.log("Jurisdiction coverage report");
-  console.log(`Targets: ${counts.total}`);
-  console.log(`Known: ${counts.known}`);
-  console.log(`Pending: ${counts.pending}`);
-  console.log(`Needs review: ${counts.needs_review}`);
-  console.log(`Unknown: ${counts.unknown}`);
-  console.log("Next 20 targets:");
-  for (const code of next) {
-    console.log(`- ${code}`);
+  console.log(
+    `ISO3166 targets=${counts.total}, known=${counts.known}, pending=${counts.pending}, needs_review=${counts.needs_review}, unknown=${counts.unknown}`
+  );
+
+  if (process.env.VERBOSE === "1") {
+    console.log("Next 20 targets:");
+    for (const code of next) {
+      console.log(`- ${code}`);
+    }
   }
 }
 
