@@ -11,3 +11,8 @@
 1) Добавьте mapping в `packages/shared/src/slugMap.ts`.
 2) Убедитесь, что юрисдикция есть в registry.
 3) Проверьте: `npm run web:build` (SEO-страницы должны быть static).
+
+## ISO 3166-1 список
+ISO список обновляется только вручную:
+1) `npm run gen:iso3166`
+2) `npm run sync:catalog`

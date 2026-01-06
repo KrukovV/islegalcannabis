@@ -1,55 +1,5 @@
 [
   {
-    "country": "AF",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "AX",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "AL",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "DZ",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "AS",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
     "country": "AD",
     "kind": "iso3166-1",
     "target": true,
@@ -60,7 +10,7 @@
     "sources": []
   },
   {
-    "country": "AO",
+    "country": "AE",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -70,17 +20,7 @@
     "sources": []
   },
   {
-    "country": "AI",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "AQ",
+    "country": "AF",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -100,7 +40,17 @@
     "sources": []
   },
   {
-    "country": "AR",
+    "country": "AI",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "AL",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -120,7 +70,7 @@
     "sources": []
   },
   {
-    "country": "AW",
+    "country": "AO",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -130,7 +80,27 @@
     "sources": []
   },
   {
-    "country": "AU",
+    "country": "AQ",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "AR",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "AS",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -150,6 +120,36 @@
     "sources": []
   },
   {
+    "country": "AU",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "AW",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "AX",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
     "country": "AZ",
     "kind": "iso3166-1",
     "target": true,
@@ -160,27 +160,7 @@
     "sources": []
   },
   {
-    "country": "BS",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "BH",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "BD",
+    "country": "BA",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -200,7 +180,7 @@
     "sources": []
   },
   {
-    "country": "BY",
+    "country": "BD",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -220,7 +200,37 @@
     "sources": []
   },
   {
-    "country": "BZ",
+    "country": "BF",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "BG",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "BH",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "BI",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -240,6 +250,16 @@
     "sources": []
   },
   {
+    "country": "BL",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
     "country": "BM",
     "kind": "iso3166-1",
     "target": true,
@@ -250,7 +270,7 @@
     "sources": []
   },
   {
-    "country": "BT",
+    "country": "BN",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -280,7 +300,7 @@
     "sources": []
   },
   {
-    "country": "BA",
+    "country": "BR",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -290,7 +310,17 @@
     "sources": []
   },
   {
-    "country": "BW",
+    "country": "BS",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "BT",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -310,7 +340,7 @@
     "sources": []
   },
   {
-    "country": "BR",
+    "country": "BW",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -320,7 +350,7 @@
     "sources": []
   },
   {
-    "country": "IO",
+    "country": "BY",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -330,57 +360,7 @@
     "sources": []
   },
   {
-    "country": "BN",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "BG",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "BF",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "BI",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "KH",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "CM",
+    "country": "BZ",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -400,107 +380,7 @@
     "sources": []
   },
   {
-    "country": "CV",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "KY",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "CF",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "TD",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "CL",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "CN",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "CX",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
     "country": "CC",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "CO",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "KM",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "CG",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -520,7 +400,7 @@
     "sources": []
   },
   {
-    "country": "CK",
+    "country": "CF",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -530,7 +410,17 @@
     "sources": []
   },
   {
-    "country": "CR",
+    "country": "CG",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "CH",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -550,7 +440,57 @@
     "sources": []
   },
   {
-    "country": "HR",
+    "country": "CK",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "CL",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "CM",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "CN",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "CO",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "CR",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -570,7 +510,27 @@
     "sources": []
   },
   {
+    "country": "CV",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
     "country": "CW",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "CX",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -600,7 +560,22 @@
     "sources": []
   },
   {
-    "country": "DK",
+    "country": "DE",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": true,
+    "lastVerifiedAt": "2025-01-06",
+    "status": "known",
+    "notes": [],
+    "sources": [
+      {
+        "title": "Bundesregierung (official)",
+        "url": "https://www.bundesregierung.de/"
+      }
+    ]
+  },
+  {
+    "country": "DJ",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -610,7 +585,7 @@
     "sources": []
   },
   {
-    "country": "DJ",
+    "country": "DK",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -640,47 +615,17 @@
     "sources": []
   },
   {
+    "country": "DZ",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
     "country": "EC",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "EG",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "SV",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "GQ",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "ER",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -700,7 +645,7 @@
     "sources": []
   },
   {
-    "country": "SZ",
+    "country": "EG",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -708,6 +653,41 @@
     "status": "pending",
     "notes": [],
     "sources": []
+  },
+  {
+    "country": "EH",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "ER",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "ES",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": true,
+    "lastVerifiedAt": "2025-01-06",
+    "status": "known",
+    "notes": [],
+    "sources": [
+      {
+        "title": "Government of Spain: Drugs and addictions",
+        "url": "https://www.sanidad.gob.es/ciudadanos/portada/home.htm"
+      }
+    ]
   },
   {
     "country": "ET",
@@ -720,17 +700,7 @@
     "sources": []
   },
   {
-    "country": "FK",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "FO",
+    "country": "FI",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -750,7 +720,27 @@
     "sources": []
   },
   {
-    "country": "FI",
+    "country": "FK",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "FM",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "FO",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -775,36 +765,6 @@
     ]
   },
   {
-    "country": "GF",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "PF",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "TF",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
     "country": "GA",
     "kind": "iso3166-1",
     "target": true,
@@ -815,7 +775,17 @@
     "sources": []
   },
   {
-    "country": "GM",
+    "country": "GB",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "GD",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -835,19 +805,24 @@
     "sources": []
   },
   {
-    "country": "DE",
+    "country": "GF",
     "kind": "iso3166-1",
     "target": true,
-    "hasLawProfile": true,
-    "lastVerifiedAt": "2025-01-06",
-    "status": "known",
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
     "notes": [],
-    "sources": [
-      {
-        "title": "Bundesregierung (official)",
-        "url": "https://www.bundesregierung.de/"
-      }
-    ]
+    "sources": []
+  },
+  {
+    "country": "GG",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
   },
   {
     "country": "GH",
@@ -870,16 +845,6 @@
     "sources": []
   },
   {
-    "country": "GR",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
     "country": "GL",
     "kind": "iso3166-1",
     "target": true,
@@ -890,7 +855,17 @@
     "sources": []
   },
   {
-    "country": "GD",
+    "country": "GM",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "GN",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -910,7 +885,27 @@
     "sources": []
   },
   {
-    "country": "GU",
+    "country": "GQ",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "GR",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "GS",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -930,17 +925,7 @@
     "sources": []
   },
   {
-    "country": "GG",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "GN",
+    "country": "GU",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -970,7 +955,7 @@
     "sources": []
   },
   {
-    "country": "HT",
+    "country": "HK",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -990,16 +975,6 @@
     "sources": []
   },
   {
-    "country": "VA",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
     "country": "HN",
     "kind": "iso3166-1",
     "target": true,
@@ -1010,7 +985,17 @@
     "sources": []
   },
   {
-    "country": "HK",
+    "country": "HR",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "HT",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -1030,47 +1015,7 @@
     "sources": []
   },
   {
-    "country": "IS",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "IN",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
     "country": "ID",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "IR",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "IQ",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -1090,6 +1035,16 @@
     "sources": []
   },
   {
+    "country": "IL",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
     "country": "IM",
     "kind": "iso3166-1",
     "target": true,
@@ -1100,7 +1055,47 @@
     "sources": []
   },
   {
-    "country": "IL",
+    "country": "IN",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "IO",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "IQ",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "IR",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "IS",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -1129,27 +1124,17 @@
     ]
   },
   {
-    "country": "JM",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "JP",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
     "country": "JE",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "JM",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -1169,7 +1154,7 @@
     "sources": []
   },
   {
-    "country": "KZ",
+    "country": "JP",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -1189,7 +1174,47 @@
     "sources": []
   },
   {
+    "country": "KG",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "KH",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
     "country": "KI",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "KM",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "KN",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -1229,7 +1254,17 @@
     "sources": []
   },
   {
-    "country": "KG",
+    "country": "KY",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "KZ",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -1249,16 +1284,6 @@
     "sources": []
   },
   {
-    "country": "LV",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
     "country": "LB",
     "kind": "iso3166-1",
     "target": true,
@@ -1269,7 +1294,27 @@
     "sources": []
   },
   {
-    "country": "LS",
+    "country": "LC",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "LI",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "LK",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -1289,17 +1334,7 @@
     "sources": []
   },
   {
-    "country": "LY",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "LI",
+    "country": "LS",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -1329,7 +1364,67 @@
     "sources": []
   },
   {
-    "country": "MO",
+    "country": "LV",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "LY",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "MA",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "MC",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "MD",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "ME",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "MF",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -1349,7 +1444,7 @@
     "sources": []
   },
   {
-    "country": "MW",
+    "country": "MH",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -1359,17 +1454,7 @@
     "sources": []
   },
   {
-    "country": "MY",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "MV",
+    "country": "MK",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -1389,7 +1474,7 @@
     "sources": []
   },
   {
-    "country": "MT",
+    "country": "MM",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -1399,7 +1484,27 @@
     "sources": []
   },
   {
-    "country": "MH",
+    "country": "MN",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "MO",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "MP",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -1429,6 +1534,26 @@
     "sources": []
   },
   {
+    "country": "MS",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "MT",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
     "country": "MU",
     "kind": "iso3166-1",
     "target": true,
@@ -1439,7 +1564,17 @@
     "sources": []
   },
   {
-    "country": "YT",
+    "country": "MV",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "MW",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -1459,67 +1594,7 @@
     "sources": []
   },
   {
-    "country": "FM",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "MD",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "MC",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "MN",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "ME",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "MS",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "MA",
+    "country": "MY",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -1539,16 +1614,6 @@
     "sources": []
   },
   {
-    "country": "MM",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
     "country": "NA",
     "kind": "iso3166-1",
     "target": true,
@@ -1559,7 +1624,7 @@
     "sources": []
   },
   {
-    "country": "NR",
+    "country": "NC",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -1569,7 +1634,37 @@
     "sources": []
   },
   {
-    "country": "NP",
+    "country": "NE",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "NF",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "NG",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "NI",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -1594,7 +1689,7 @@
     ]
   },
   {
-    "country": "NC",
+    "country": "NO",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -1604,7 +1699,7 @@
     "sources": []
   },
   {
-    "country": "NZ",
+    "country": "NP",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -1614,27 +1709,7 @@
     "sources": []
   },
   {
-    "country": "NI",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "NE",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "NG",
+    "country": "NR",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -1654,37 +1729,7 @@
     "sources": []
   },
   {
-    "country": "NF",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "MK",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "MP",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "NO",
+    "country": "NZ",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -1704,57 +1749,7 @@
     "sources": []
   },
   {
-    "country": "PK",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "PW",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "PS",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
     "country": "PA",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "PG",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "PY",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -1774,6 +1769,26 @@
     "sources": []
   },
   {
+    "country": "PF",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "PG",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
     "country": "PH",
     "kind": "iso3166-1",
     "target": true,
@@ -1784,7 +1799,7 @@
     "sources": []
   },
   {
-    "country": "PN",
+    "country": "PK",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -1804,7 +1819,17 @@
     "sources": []
   },
   {
-    "country": "PT",
+    "country": "PM",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "PN",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -1815,6 +1840,46 @@
   },
   {
     "country": "PR",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "PS",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "PT",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "PW",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "PY",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -1854,6 +1919,16 @@
     "sources": []
   },
   {
+    "country": "RS",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
     "country": "RU",
     "kind": "iso3166-1",
     "target": true,
@@ -1874,187 +1949,7 @@
     "sources": []
   },
   {
-    "country": "BL",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "SH",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "KN",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "LC",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "MF",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "PM",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "VC",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "WS",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "SM",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "ST",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
     "country": "SA",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "SN",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "RS",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "SC",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "SL",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "SG",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "SX",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "SK",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "SI",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -2074,62 +1969,7 @@
     "sources": []
   },
   {
-    "country": "SO",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "ZA",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "GS",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "SS",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "ES",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": true,
-    "lastVerifiedAt": "2025-01-06",
-    "status": "known",
-    "notes": [],
-    "sources": [
-      {
-        "title": "Government of Spain: Drugs and addictions",
-        "url": "https://www.sanidad.gob.es/ciudadanos/portada/home.htm"
-      }
-    ]
-  },
-  {
-    "country": "LK",
+    "country": "SC",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -2149,7 +1989,37 @@
     "sources": []
   },
   {
-    "country": "SR",
+    "country": "SE",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "SG",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "SH",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "SI",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -2169,7 +2039,7 @@
     "sources": []
   },
   {
-    "country": "SE",
+    "country": "SK",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -2179,7 +2049,87 @@
     "sources": []
   },
   {
-    "country": "CH",
+    "country": "SL",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "SM",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "SN",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "SO",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "SR",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "SS",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "ST",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "SV",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "SX",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -2199,117 +2149,7 @@
     "sources": []
   },
   {
-    "country": "TW",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "TJ",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "TZ",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "TH",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "TL",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "TG",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "TK",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "TO",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "TT",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "TN",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "TR",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "TM",
+    "country": "SZ",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -2329,6 +2169,126 @@
     "sources": []
   },
   {
+    "country": "TD",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "TF",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "TG",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "TH",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "TJ",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "TK",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "TL",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "TM",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "TN",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "TO",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "TR",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "TT",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
     "country": "TV",
     "kind": "iso3166-1",
     "target": true,
@@ -2339,7 +2299,17 @@
     "sources": []
   },
   {
-    "country": "UG",
+    "country": "TW",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "TZ",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -2359,17 +2329,7 @@
     "sources": []
   },
   {
-    "country": "AE",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "GB",
+    "country": "UG",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -2424,7 +2384,17 @@
     "sources": []
   },
   {
-    "country": "VU",
+    "country": "VA",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "VC",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -2435,16 +2405,6 @@
   },
   {
     "country": "VE",
-    "kind": "iso3166-1",
-    "target": true,
-    "hasLawProfile": false,
-    "lastVerifiedAt": null,
-    "status": "pending",
-    "notes": [],
-    "sources": []
-  },
-  {
-    "country": "VN",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -2474,6 +2434,26 @@
     "sources": []
   },
   {
+    "country": "VN",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "VU",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
     "country": "WF",
     "kind": "iso3166-1",
     "target": true,
@@ -2484,7 +2464,7 @@
     "sources": []
   },
   {
-    "country": "EH",
+    "country": "WS",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,
@@ -2495,6 +2475,26 @@
   },
   {
     "country": "YE",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "YT",
+    "kind": "iso3166-1",
+    "target": true,
+    "hasLawProfile": false,
+    "lastVerifiedAt": null,
+    "status": "pending",
+    "notes": [],
+    "sources": []
+  },
+  {
+    "country": "ZA",
     "kind": "iso3166-1",
     "target": true,
     "hasLawProfile": false,

@@ -24,7 +24,11 @@ function loadIsoList() {
     throw new Error("Missing data/iso3166/iso3166-1.json.");
   }
   const raw = fs.readFileSync(ISO_PATH, "utf-8");
-  return JSON.parse(raw);
+  const data = JSON.parse(raw);
+  if (!Array.isArray(data.alpha2)) {
+    throw new Error("Invalid iso3166-1.json format: missing alpha2 array.");
+  }
+  return data.alpha2;
 }
 
 function loadCatalog() {
@@ -77,8 +81,8 @@ function syncCatalog() {
 
   const nextCatalog = [];
 
-  for (const isoEntry of isoList) {
-    const code = isoEntry.country?.toUpperCase();
+  for (const codeRaw of isoList) {
+    const code = String(codeRaw).toUpperCase();
     if (!code) continue;
 
     const existing = existingByCountry.get(code);

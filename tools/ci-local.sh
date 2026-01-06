@@ -7,4 +7,5 @@ npm run lint
 npm test
 npm run web:build
 npm run validate:laws
+npm run validate:iso3166
 npm run coverage
