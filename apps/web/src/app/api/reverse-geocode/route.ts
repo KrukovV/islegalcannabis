@@ -48,6 +48,7 @@ export async function GET(req: Request) {
   const lat = Number(searchParams.get("lat"));
   const lon = Number(searchParams.get("lon"));
   const mode = searchParams.get("mode") ?? "live";
+  const ilcMode = process.env.ILC_MODE ?? "dev";
 
   if (!Number.isFinite(lat) || !Number.isFinite(lon)) {
     return errorResponse(
@@ -60,6 +61,14 @@ export async function GET(req: Request) {
 
   try {
     if (mode === "mock") {
+      if (ilcMode !== "test") {
+        return errorResponse(
+          requestId,
+          400,
+          "MOCK_DISABLED",
+          "Mock reverse geocode is disabled outside test mode."
+        );
+      }
       const fixture = matchFixture(loadFixtures(), lat, lon);
       if (!fixture) {
         return errorResponse(

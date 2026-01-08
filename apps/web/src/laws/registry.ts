@@ -30,6 +30,13 @@ import ieJson from "../../../../data/laws/eu/IE.json";
 import plJson from "../../../../data/laws/eu/PL.json";
 import ptJson from "../../../../data/laws/eu/PT.json";
 import seJson from "../../../../data/laws/eu/SE.json";
+import caWorldJson from "../../../../data/laws/world/CA.json";
+import chWorldJson from "../../../../data/laws/world/CH.json";
+import gbWorldJson from "../../../../data/laws/world/GB.json";
+import jpWorldJson from "../../../../data/laws/world/JP.json";
+import mxWorldJson from "../../../../data/laws/world/MX.json";
+import thWorldJson from "../../../../data/laws/world/TH.json";
+import aeWorldJson from "../../../../data/laws/world/AE.json";
 import type { JurisdictionLawProfile } from "@islegal/shared";
 
 export type LawRegistryKey =
@@ -64,7 +71,14 @@ export type LawRegistryKey =
   | "SE"
   | "FR"
   | "ES"
-  | "IT";
+  | "IT"
+  | "CA"
+  | "CH"
+  | "GB"
+  | "JP"
+  | "MX"
+  | "TH"
+  | "AE";
 
 const ca = caJson as JurisdictionLawProfile;
 const de = deJson as JurisdictionLawProfile;
@@ -98,6 +112,13 @@ const ie = ieJson as JurisdictionLawProfile;
 const pl = plJson as JurisdictionLawProfile;
 const pt = ptJson as JurisdictionLawProfile;
 const se = seJson as JurisdictionLawProfile;
+const caWorld = caWorldJson as JurisdictionLawProfile;
+const chWorld = chWorldJson as JurisdictionLawProfile;
+const gbWorld = gbWorldJson as JurisdictionLawProfile;
+const jpWorld = jpWorldJson as JurisdictionLawProfile;
+const mxWorld = mxWorldJson as JurisdictionLawProfile;
+const thWorld = thWorldJson as JurisdictionLawProfile;
+const aeWorld = aeWorldJson as JurisdictionLawProfile;
 
 export const lawRegistry: Record<LawRegistryKey, JurisdictionLawProfile> = {
   "US-CA": ca,
@@ -131,7 +152,14 @@ export const lawRegistry: Record<LawRegistryKey, JurisdictionLawProfile> = {
   SE: se,
   FR: fr,
   ES: es,
-  IT: it
+  IT: it,
+  CA: caWorld,
+  CH: chWorld,
+  GB: gbWorld,
+  JP: jpWorld,
+  MX: mxWorld,
+  TH: thWorld,
+  AE: aeWorld
 };
 
 export function getStaticLawProfile(input: {

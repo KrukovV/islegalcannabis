@@ -1,3 +1,4 @@
+import { STATUS_BANNERS } from "./copy/statusBanners";
 import type { JurisdictionLawProfile } from "./types";
 
 export type StatusLevel = "green" | "yellow" | "red";
@@ -9,10 +10,18 @@ export type StatusResult = {
 };
 
 export function computeStatus(profile: JurisdictionLawProfile): StatusResult {
+  if (profile.status === "provisional") {
+    return {
+      level: "yellow",
+      label: STATUS_BANNERS.provisional.title,
+      icon: "⚠️"
+    };
+  }
+
   if (profile.status !== "known") {
     return {
       level: "yellow",
-      label: "Information requires verification",
+      label: STATUS_BANNERS.needs_review.title,
       icon: "⚠️"
     };
   }

@@ -206,6 +206,33 @@
   color: var(--muted);
 }
 
+.recentRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: space-between;
+  border: 1px dashed #d8e2da;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.recentLabel {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.recentClear {
+  background: transparent;
+  border: none;
+  color: var(--accent);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .disclaimerSticky {
   position: fixed;
   bottom: 16px;

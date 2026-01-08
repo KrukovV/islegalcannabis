@@ -1,0 +1,57 @@
+{
+  "schema_version": 2,
+  "country": "MX",
+  "id": "MX",
+  "medical": "unknown",
+  "recreational": "unknown",
+  "possession_limit": "unknown",
+  "public_use": "unknown",
+  "home_grow": "unknown",
+  "cross_border": "illegal",
+  "risks": [
+    "border_crossing",
+    "driving",
+    "public_use"
+  ],
+  "extras": {
+    "purchase": "unknown",
+    "retail_shops": "unknown",
+    "edibles": "unknown",
+    "vapes": "unknown",
+    "concentrates": "unknown",
+    "cbd": "unknown",
+    "paraphernalia": "unknown",
+    "medical_card": "unknown",
+    "home_grow_plants": "unknown",
+    "social_clubs": "unknown",
+    "hemp": "unknown",
+    "workplace": "unknown",
+    "testing_dui": "unknown"
+  },
+  "sources": [
+    {
+      "title": "Secretaría de Salud (official)",
+      "url": "https://www.gob.mx/salud"
+    }
+  ],
+  "updated_at": "2025-12-14",
+  "verified_at": "2025-12-14",
+  "status": "provisional",
+  "confidence": "low",
+  "provenance": {
+    "method": "ocr+ai",
+    "extracted_at": "2026-01-07",
+    "model_id": "bootstrap",
+    "input_hashes": [
+      "0d7b6f5e4c3b2a1908f7e6d5c4b3a29182736455d3c2b1a09f8e7d6c5b4a3921"
+    ],
+    "citations": [
+      {
+        "url": "https://www.gob.mx/salud",
+        "title": "Secretaría de Salud",
+        "snippet_hash": "bootstrap",
+        "retrieved_at": "2025-12-14"
+      }
+    ]
+  }
+}

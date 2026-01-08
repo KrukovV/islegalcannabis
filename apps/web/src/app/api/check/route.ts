@@ -1,5 +1,5 @@
 import { getLawProfile, normalizeKey } from "@/lib/lawStore";
-import { computeStatus } from "@islegal/shared";
+import { computeStatus, STATUS_BANNERS } from "@islegal/shared";
 import { incrementCounter } from "@/lib/metrics";
 import { createRequestId, errorResponse, okResponse } from "@/lib/api/response";
 import { getCatalogEntry } from "@/lib/jurisdictionCatalog";
@@ -16,15 +16,34 @@ import {
 import { confidenceForLocation } from "@/lib/geo/locationResolution";
 import { titleForJurisdiction } from "@/lib/jurisdictionTitle";
 import { buildExtrasItems, extrasPreview } from "@/lib/extras";
+import { findNearestLegalForProfile } from "@/lib/geo/nearestLegal";
 
 const CACHE_WINDOW_MINUTES = 120;
 
 function buildNeedsReviewStatus() {
   return {
-    level: "yellow" as const,
-    label: "Information requires verification",
+    level: "gray" as const,
+    label: STATUS_BANNERS.needs_review.title,
     icon: "⚠️"
   };
+}
+
+function buildProvisionalStatus() {
+  return {
+    level: "yellow" as const,
+    label: STATUS_BANNERS.provisional.title,
+    icon: "⚠️"
+  };
+}
+
+function buildDisplayStatus(profile: { status: string }) {
+  if (profile.status === "needs_review" || profile.status === "unknown") {
+    return buildNeedsReviewStatus();
+  }
+  if (profile.status === "provisional") {
+    return buildProvisionalStatus();
+  }
+  return computeStatus(profile as Parameters<typeof computeStatus>[0]);
 }
 
 export const runtime = "nodejs";
@@ -49,6 +68,24 @@ export async function GET(req: Request) {
   const cacheProfileHash = searchParams.get("cacheProfileHash");
   const cacheVerifiedAt = searchParams.get("cacheVerifiedAt");
   const cacheApproxCell = searchParams.get("cacheApproxCell");
+  const approxLatRaw = searchParams.get("approxLat");
+  const approxLonRaw = searchParams.get("approxLon");
+  const approxLat =
+    approxLatRaw === null ? null : Number(approxLatRaw);
+  const approxLon =
+    approxLonRaw === null ? null : Number(approxLonRaw);
+
+  const withRequestId = (meta: Record<string, unknown>) => ({
+    requestId,
+    ...meta
+  });
+  const approxPoint =
+    approxLat !== null &&
+    approxLon !== null &&
+    Number.isFinite(approxLat) &&
+    Number.isFinite(approxLon)
+      ? { lat: approxLat, lon: approxLon }
+      : null;
 
   if (!country.trim()) {
     return errorResponse(
@@ -74,9 +111,15 @@ export async function GET(req: Request) {
           country,
           region,
           method,
-          confidence: normalizedConfidence ?? confidenceForLocation(method, region)
+          confidence: normalizedConfidence ?? confidenceForLocation(method)
         })
     : fromQuery({ country, region });
+
+  const baseViewModelMeta = {
+    requestId,
+    paid,
+    paywallHint: !paid
+  };
 
   if (jurisdictionKey && cacheTs && cacheProfileHash) {
     const ageSec = Math.floor(
@@ -98,63 +141,79 @@ export async function GET(req: Request) {
               cacheVerifiedAt ?? undefined
             );
             if (verification.needsReview) {
-              const viewModel = buildResultViewModel({
-                profile,
-                title,
-                locationContext,
-                meta: {
-                  cacheHit: true,
-                  verifiedFresh: false,
-                  needsReview: true,
-                  paid,
-                  paywallHint: !paid
-                },
-                extrasPreview: paid
-                  ? undefined
-                  : extrasPreview(buildExtrasItems(profile)),
-                extrasFull: paid ? buildExtrasItems(profile) : undefined,
-                statusOverride: {
-                  level: "yellow",
-                  title: "Information requires verification"
-                }
-              });
+                const nearestLegal =
+                  approxPoint &&
+                  locationContext.mode === "detected" &&
+                  profile.status === "known" &&
+                  (computeStatus(profile).level === "red" ||
+                    profile.risks.includes("border_crossing"))
+                    ? findNearestLegalForProfile(profile, approxPoint)
+                    : null;
+                const viewModel = buildResultViewModel({
+                  profile,
+                  title,
+                  locationContext,
+                  meta: {
+                    ...baseViewModelMeta,
+                    cacheHit: true,
+                    verifiedFresh: false,
+                    needsReview: true,
+                  },
+                  extrasPreview: paid
+                    ? undefined
+                    : extrasPreview(buildExtrasItems(profile)),
+                  extrasFull: paid ? buildExtrasItems(profile) : undefined,
+                  nearestLegal: nearestLegal ?? undefined,
+                  statusOverride: {
+                    level: "gray",
+                    title: STATUS_BANNERS.needs_review.title
+                  }
+                });
               return okResponse(requestId, {
                 status: buildNeedsReviewStatus(),
                 profile,
                 viewModel,
-                meta: {
+                meta: withRequestId({
                   cacheHit: true,
                   cacheAgeSec: ageSec,
                   verifiedFresh: false,
                   needsReview: true
-                }
+                })
               });
             }
 
+            const nearestLegal =
+              approxPoint &&
+              locationContext.mode === "detected" &&
+              profile.status === "known" &&
+              (computeStatus(profile).level === "red" ||
+                profile.risks.includes("border_crossing"))
+                ? findNearestLegalForProfile(profile, approxPoint)
+                : null;
             const viewModel = buildResultViewModel({
               profile,
               title,
               locationContext,
               meta: {
+                ...baseViewModelMeta,
                 cacheHit: true,
-                verifiedFresh: true,
-                paid,
-                paywallHint: !paid
+                verifiedFresh: true
               },
               extrasPreview: paid
                 ? undefined
                 : extrasPreview(buildExtrasItems(profile)),
-              extrasFull: paid ? buildExtrasItems(profile) : undefined
+              extrasFull: paid ? buildExtrasItems(profile) : undefined,
+              nearestLegal: nearestLegal ?? undefined
             });
             return okResponse(requestId, {
-              status: computeStatus(profile),
+              status: buildDisplayStatus(profile),
               profile,
               viewModel,
-              meta: {
+              meta: withRequestId({
                 cacheHit: true,
                 cacheAgeSec: ageSec,
                 verifiedFresh: true
-              }
+              })
             });
           }
         } else {
@@ -166,63 +225,79 @@ export async function GET(req: Request) {
             cacheVerifiedAt ?? undefined
           );
           if (verification.needsReview) {
+            const nearestLegal =
+              approxPoint &&
+              locationContext.mode === "detected" &&
+              profile.status === "known" &&
+              (computeStatus(profile).level === "red" ||
+                profile.risks.includes("border_crossing"))
+                ? findNearestLegalForProfile(profile, approxPoint)
+                : null;
             const viewModel = buildResultViewModel({
               profile,
               title,
               locationContext,
               meta: {
+                ...baseViewModelMeta,
                 cacheHit: true,
                 verifiedFresh: false,
                 needsReview: true,
-                paid,
-                paywallHint: !paid
               },
               extrasPreview: paid
                 ? undefined
                 : extrasPreview(buildExtrasItems(profile)),
               extrasFull: paid ? buildExtrasItems(profile) : undefined,
-              statusOverride: {
-                level: "yellow",
-                title: "Information requires verification"
-              }
+              nearestLegal: nearestLegal ?? undefined,
+            statusOverride: {
+              level: "gray",
+              title: STATUS_BANNERS.needs_review.title
+            }
             });
             return okResponse(requestId, {
               status: buildNeedsReviewStatus(),
               profile,
               viewModel,
-              meta: {
+              meta: withRequestId({
                 cacheHit: true,
                 cacheAgeSec: ageSec,
                 verifiedFresh: false,
                 needsReview: true
-              }
+              })
             });
           }
 
+          const nearestLegal =
+            approxPoint &&
+            locationContext.mode === "detected" &&
+            profile.status === "known" &&
+            (computeStatus(profile).level === "red" ||
+              profile.risks.includes("border_crossing"))
+              ? findNearestLegalForProfile(profile, approxPoint)
+              : null;
           const viewModel = buildResultViewModel({
             profile,
             title,
             locationContext,
             meta: {
+              ...baseViewModelMeta,
               cacheHit: true,
-              verifiedFresh: true,
-              paid,
-              paywallHint: !paid
+              verifiedFresh: true
             },
             extrasPreview: paid
               ? undefined
               : extrasPreview(buildExtrasItems(profile)),
-            extrasFull: paid ? buildExtrasItems(profile) : undefined
+            extrasFull: paid ? buildExtrasItems(profile) : undefined,
+            nearestLegal: nearestLegal ?? undefined
           });
           return okResponse(requestId, {
-            status: computeStatus(profile),
+            status: buildDisplayStatus(profile),
             profile,
             viewModel,
-            meta: {
+            meta: withRequestId({
               cacheHit: true,
               cacheAgeSec: ageSec,
               verifiedFresh: true
-            }
+            })
           });
         }
       }
@@ -236,9 +311,9 @@ export async function GET(req: Request) {
     if (entry) {
       return okResponse(requestId, {
         status: {
-          level: "yellow",
-          label: "Information requires verification",
-          icon: "⚠️"
+          level: "gray",
+          label: STATUS_BANNERS.needs_review.title,
+          icon: "⚪"
         },
         profile: null,
         verification: {
@@ -249,37 +324,46 @@ export async function GET(req: Request) {
         actions: {
           open_sources_url: entry.sources?.[0]?.url ?? null
         },
-        message: "No law profile yet. Use official sources or select manually."
+        message: "No law profile yet. Use official sources or select manually.",
+        meta: withRequestId({})
       });
     }
 
     return errorResponse(
       requestId,
-      404,
-      "UNKNOWN_JURISDICTION",
-      "Unknown jurisdiction.",
-      "Provide country (and region for US)."
+      400,
+      "BAD_REQUEST",
+      "Invalid country code.",
+      "Provide ISO 3166-1 alpha-2 (and region for US)."
     );
   }
 
   incrementCounter("check_performed");
   console.info(`[${requestId}] check_performed`);
 
-  const status = computeStatus(profile);
+  const status = buildDisplayStatus(profile);
   const statusCode = buildTripStatusCode(profile);
+  const nearestLegal =
+    approxPoint &&
+    locationContext.mode === "detected" &&
+    profile.status === "known" &&
+    (status.level === "red" || profile.risks.includes("border_crossing"))
+      ? findNearestLegalForProfile(profile, approxPoint)
+      : null;
   const viewModel = buildResultViewModel({
     profile,
     title,
     locationContext,
-    meta: { cacheHit: false, paid, paywallHint: !paid },
+    meta: { ...baseViewModelMeta, cacheHit: false },
     extrasPreview: paid ? undefined : extrasPreview(buildExtrasItems(profile)),
-    extrasFull: paid ? buildExtrasItems(profile) : undefined
+    extrasFull: paid ? buildExtrasItems(profile) : undefined,
+    nearestLegal: nearestLegal ?? undefined
   });
 
   return okResponse(requestId, {
     status,
     profile,
     viewModel,
-    meta: { cacheHit: false, statusCode }
+    meta: withRequestId({ cacheHit: false, statusCode })
   });
 }

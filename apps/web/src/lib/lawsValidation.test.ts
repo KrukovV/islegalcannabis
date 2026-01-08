@@ -4,6 +4,7 @@ import { validateLawPayload } from "../../../../tools/laws-validation";
 describe("validateLawPayload", () => {
   it("fails when verified_at missing for known", () => {
     const payload = {
+      schema_version: 2,
       id: "DE",
       country: "DE",
       medical: "restricted",
@@ -27,6 +28,7 @@ describe("validateLawPayload", () => {
 
   it("fails when extras contain invalid enum", () => {
     const payload = {
+      schema_version: 2,
       id: "DE",
       country: "DE",
       medical: "restricted",

@@ -20,12 +20,12 @@ describe("LocationMeta", () => {
     expect(html).not.toContain("Confidence:");
   });
 
-  it("renders manual detected without approximate hint", () => {
+  it("renders manual detected with medium confidence", () => {
     const context: LocationContext = {
       mode: "manual",
       country: "DE",
       method: "manual",
-      confidence: "high",
+      confidence: "medium",
       source: "user"
     };
     const html = renderToStaticMarkup(
@@ -35,8 +35,8 @@ describe("LocationMeta", () => {
     );
     expect(html).toContain("Selected manually");
     expect(html).toContain("Mode: Manual");
-    expect(html).toContain("Confidence: high");
-    expect(html).not.toContain("Location may be approximate");
+    expect(html).toContain("Confidence: medium");
+    expect(html).toContain("Location may be approximate");
   });
 
   it("renders IP detected with approximate hint", () => {

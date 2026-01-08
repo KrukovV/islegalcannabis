@@ -4,7 +4,6 @@ const path = require("node:path");
 const ROOT = process.cwd();
 const LAWS_DIR = path.join(ROOT, "data", "laws");
 const TOP25_PATH = path.join(ROOT, "packages", "shared", "src", "top25.json");
-
 const { validateLawPayload } = require("./laws-validation");
 
 function listJsonFiles(dir, files = []) {
@@ -19,7 +18,7 @@ function listJsonFiles(dir, files = []) {
   return files;
 }
 
-function validateFile(filePath) {
+function validateFile(filePath, schemaVersion) {
   const raw = fs.readFileSync(filePath, "utf-8");
   let parsed;
 
@@ -49,6 +48,9 @@ function validateFile(filePath) {
   }
 
   validateLawPayload(parsed, filePath);
+  if (parsed.schema_version !== schemaVersion) {
+    throw new Error(`schema_version mismatch in ${filePath}`);
+  }
   return parsed.id;
 }
 
@@ -61,11 +63,13 @@ function loadTop25Keys() {
   return parsed.map((entry) => entry.jurisdictionKey);
 }
 
-function main() {
+async function main() {
   if (!fs.existsSync(LAWS_DIR)) {
     throw new Error("Missing data/laws directory.");
   }
 
+  const { readSchemaVersion } = await import("./lib/readSchemaVersion.mjs");
+  const schemaVersion = readSchemaVersion();
   const files = listJsonFiles(LAWS_DIR);
   if (files.length === 0) {
     throw new Error("No law JSON files found in data/laws.");
@@ -73,7 +77,7 @@ function main() {
 
   const ids = new Set();
   for (const file of files) {
-    const id = validateFile(file);
+    const id = validateFile(file, schemaVersion);
     ids.add(id);
   }
 
@@ -88,4 +92,7 @@ function main() {
   console.log(`Validated ${files.length} law files.`);
 }
 
-main();
+main().catch((error) => {
+  console.error(error.message || String(error));
+  process.exit(1);
+});

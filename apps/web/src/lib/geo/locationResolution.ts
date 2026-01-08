@@ -9,24 +9,20 @@ type LocationCandidate = {
   region?: string | null;
 };
 
-export function confidenceForLocation(
-  method: LocationMethod,
-  region?: string | null
-): ConfidenceLevel {
-  if (method === "ip") {
-    return region ? "medium" : "low";
-  }
-  return "high";
+export function confidenceForLocation(method: LocationMethod): ConfidenceLevel {
+  if (method === "gps") return "high";
+  if (method === "manual") return "medium";
+  return "low";
 }
 
 export function buildLocationResolution(
   method: LocationMethod,
-  region?: string | null,
+  _region?: string | null,
   note?: string
 ): LocationResolution {
   return {
     method,
-    confidence: confidenceForLocation(method, region),
+    confidence: confidenceForLocation(method),
     ...(note ? { note } : {})
   };
 }
@@ -65,7 +61,7 @@ export function formatLocationMethodLabel(
 ): string {
   switch (resolution.method) {
     case "gps":
-      return "Detected via GPS";
+      return "Detected via GPS (precise)";
     case "ip":
       return "Detected via IP (approximate)";
     case "manual":
@@ -88,5 +84,5 @@ export function shouldHighlightManualAction(
   resolution: LocationResolution | null
 ): boolean {
   if (!resolution) return false;
-  return resolution.method === "ip" || resolution.confidence !== "high";
+  return resolution.method !== "gps";
 }

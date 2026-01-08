@@ -1,162 +1,27 @@
 [
-  {
-    "jurisdictionKey": "DE",
-    "country": "DE",
-    "slug": "germany",
-    "displayName": "Germany"
-  },
-  {
-    "jurisdictionKey": "NL",
-    "country": "NL",
-    "slug": "netherlands",
-    "displayName": "Netherlands"
-  },
-  {
-    "jurisdictionKey": "FR",
-    "country": "FR",
-    "slug": "france",
-    "displayName": "France"
-  },
-  {
-    "jurisdictionKey": "ES",
-    "country": "ES",
-    "slug": "spain",
-    "displayName": "Spain"
-  },
-  {
-    "jurisdictionKey": "IT",
-    "country": "IT",
-    "slug": "italy",
-    "displayName": "Italy"
-  },
-  {
-    "jurisdictionKey": "PT",
-    "country": "PT",
-    "slug": "portugal",
-    "displayName": "Portugal"
-  },
-  {
-    "jurisdictionKey": "IE",
-    "country": "IE",
-    "slug": "ireland",
-    "displayName": "Ireland"
-  },
-  {
-    "jurisdictionKey": "AT",
-    "country": "AT",
-    "slug": "austria",
-    "displayName": "Austria"
-  },
-  {
-    "jurisdictionKey": "CZ",
-    "country": "CZ",
-    "slug": "czechia",
-    "displayName": "Czechia"
-  },
-  {
-    "jurisdictionKey": "PL",
-    "country": "PL",
-    "slug": "poland",
-    "displayName": "Poland"
-  },
-  {
-    "jurisdictionKey": "DK",
-    "country": "DK",
-    "slug": "denmark",
-    "displayName": "Denmark"
-  },
-  {
-    "jurisdictionKey": "SE",
-    "country": "SE",
-    "slug": "sweden",
-    "displayName": "Sweden"
-  },
-  {
-    "jurisdictionKey": "FI",
-    "country": "FI",
-    "slug": "finland",
-    "displayName": "Finland"
-  },
-  {
-    "jurisdictionKey": "GR",
-    "country": "GR",
-    "slug": "greece",
-    "displayName": "Greece"
-  },
-  {
-    "jurisdictionKey": "BE",
-    "country": "BE",
-    "slug": "belgium",
-    "displayName": "Belgium"
-  },
-  {
-    "jurisdictionKey": "US-CA",
-    "country": "US",
-    "region": "CA",
-    "slug": "california",
-    "displayName": "California"
-  },
-  {
-    "jurisdictionKey": "US-NY",
-    "country": "US",
-    "region": "NY",
-    "slug": "new-york",
-    "displayName": "New York"
-  },
-  {
-    "jurisdictionKey": "US-FL",
-    "country": "US",
-    "region": "FL",
-    "slug": "florida",
-    "displayName": "Florida"
-  },
-  {
-    "jurisdictionKey": "US-TX",
-    "country": "US",
-    "region": "TX",
-    "slug": "texas",
-    "displayName": "Texas"
-  },
-  {
-    "jurisdictionKey": "US-WA",
-    "country": "US",
-    "region": "WA",
-    "slug": "washington",
-    "displayName": "Washington"
-  },
-  {
-    "jurisdictionKey": "US-IL",
-    "country": "US",
-    "region": "IL",
-    "slug": "illinois",
-    "displayName": "Illinois"
-  },
-  {
-    "jurisdictionKey": "US-MA",
-    "country": "US",
-    "region": "MA",
-    "slug": "massachusetts",
-    "displayName": "Massachusetts"
-  },
-  {
-    "jurisdictionKey": "US-CO",
-    "country": "US",
-    "region": "CO",
-    "slug": "colorado",
-    "displayName": "Colorado"
-  },
-  {
-    "jurisdictionKey": "US-NV",
-    "country": "US",
-    "region": "NV",
-    "slug": "nevada",
-    "displayName": "Nevada"
-  },
-  {
-    "jurisdictionKey": "US-OR",
-    "country": "US",
-    "region": "OR",
-    "slug": "oregon",
-    "displayName": "Oregon"
-  }
+  { "jurisdictionKey": "US-CA", "country": "US", "region": "CA", "slug": "us-california", "displayName": "California, US" },
+  { "jurisdictionKey": "US-NY", "country": "US", "region": "NY", "slug": "us-new-york", "displayName": "New York, US" },
+  { "jurisdictionKey": "US-FL", "country": "US", "region": "FL", "slug": "us-florida", "displayName": "Florida, US" },
+  { "jurisdictionKey": "US-TX", "country": "US", "region": "TX", "slug": "us-texas", "displayName": "Texas, US" },
+  { "jurisdictionKey": "US-NV", "country": "US", "region": "NV", "slug": "us-nevada", "displayName": "Nevada, US" },
+  { "jurisdictionKey": "US-CO", "country": "US", "region": "CO", "slug": "us-colorado", "displayName": "Colorado, US" },
+  { "jurisdictionKey": "US-WA", "country": "US", "region": "WA", "slug": "us-washington", "displayName": "Washington, US" },
+  { "jurisdictionKey": "US-MA", "country": "US", "region": "MA", "slug": "us-massachusetts", "displayName": "Massachusetts, US" },
+  { "jurisdictionKey": "US-IL", "country": "US", "region": "IL", "slug": "us-illinois", "displayName": "Illinois, US" },
+  { "jurisdictionKey": "US-AZ", "country": "US", "region": "AZ", "slug": "us-arizona", "displayName": "Arizona, US" },
+  { "jurisdictionKey": "US-NJ", "country": "US", "region": "NJ", "slug": "us-new-jersey", "displayName": "New Jersey, US" },
+  { "jurisdictionKey": "US-MI", "country": "US", "region": "MI", "slug": "us-michigan", "displayName": "Michigan, US" },
+  { "jurisdictionKey": "DE", "country": "DE", "slug": "germany", "displayName": "Germany" },
+  { "jurisdictionKey": "NL", "country": "NL", "slug": "netherlands", "displayName": "Netherlands" },
+  { "jurisdictionKey": "ES", "country": "ES", "slug": "spain", "displayName": "Spain" },
+  { "jurisdictionKey": "PT", "country": "PT", "slug": "portugal", "displayName": "Portugal" },
+  { "jurisdictionKey": "IT", "country": "IT", "slug": "italy", "displayName": "Italy" },
+  { "jurisdictionKey": "FR", "country": "FR", "slug": "france", "displayName": "France" },
+  { "jurisdictionKey": "GB", "country": "GB", "slug": "united-kingdom", "displayName": "United Kingdom" },
+  { "jurisdictionKey": "CH", "country": "CH", "slug": "switzerland", "displayName": "Switzerland" },
+  { "jurisdictionKey": "CA", "country": "CA", "slug": "canada", "displayName": "Canada" },
+  { "jurisdictionKey": "TH", "country": "TH", "slug": "thailand", "displayName": "Thailand" },
+  { "jurisdictionKey": "MX", "country": "MX", "slug": "mexico", "displayName": "Mexico" },
+  { "jurisdictionKey": "JP", "country": "JP", "slug": "japan", "displayName": "Japan" },
+  { "jurisdictionKey": "AE", "country": "AE", "slug": "uae", "displayName": "United Arab Emirates" }
 ]

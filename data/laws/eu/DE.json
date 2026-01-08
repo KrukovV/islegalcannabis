@@ -1,6 +1,7 @@
 {
-  "id": "DE",
+  "schema_version": 2,
   "country": "DE",
+  "id": "DE",
   "medical": "allowed",
   "recreational": "restricted",
   "possession_limit": "varies (see official sources)",
@@ -12,16 +13,6 @@
     "driving",
     "public_use"
   ],
-  "sources": [
-    {
-      "title": "Bundesregierung (official)",
-      "url": "https://www.bundesregierung.de/"
-    }
-  ],
-  "updated_at": "2025-12-14",
-  "verified_at": "2025-01-06",
-  "confidence": "medium",
-  "status": "known",
   "extras": {
     "purchase": "unknown",
     "retail_shops": "unknown",
@@ -36,5 +27,31 @@
     "hemp": "unknown",
     "workplace": "unknown",
     "testing_dui": "unknown"
+  },
+  "sources": [
+    {
+      "title": "Bundesregierung (official)",
+      "url": "https://www.bundesregierung.de/"
+    }
+  ],
+  "updated_at": "2025-12-14",
+  "verified_at": "2025-12-14",
+  "status": "provisional",
+  "confidence": "low",
+  "provenance": {
+    "method": "ocr+ai",
+    "extracted_at": "2026-01-07",
+    "model_id": "demo",
+    "input_hashes": [
+      "096596e73edbff693e2ef8d7a32825eca094faa7a9a38f162401f19ef5d0ac48"
+    ],
+    "citations": [
+      {
+        "url": "https://www.bundesregierung.de/",
+        "title": "https://www.bundesregierung.de/",
+        "snippet_hash": "demo",
+        "retrieved_at": "2025-12-14"
+      }
+    ]
   }
 }

@@ -1,6 +1,7 @@
 const { URL } = require("node:url");
 
 const REQUIRED_FIELDS = [
+  "schema_version",
   "id",
   "country",
   "medical",
@@ -15,7 +16,12 @@ const REQUIRED_FIELDS = [
   "sources"
 ];
 
-const STATUS_VALUES = new Set(["known", "unknown", "needs_review"]);
+const STATUS_VALUES = new Set([
+  "known",
+  "unknown",
+  "needs_review",
+  "provisional"
+]);
 const CONFIDENCE_VALUES = new Set(["high", "medium", "low"]);
 const EXTRAS_STATUS_VALUES = new Set([
   "allowed",
@@ -117,10 +123,30 @@ function validateLawPayload(parsed, filePath = "payload") {
     throw new Error(`Invalid confidence "${parsed.confidence}" in ${filePath}`);
   }
 
+  if (typeof parsed.schema_version !== "number") {
+    throw new Error(`schema_version must be a number in ${filePath}`);
+  }
+
   if (parsed.status === "known") {
     assertDate(parsed.verified_at, "verified_at", filePath);
   } else if (parsed.verified_at !== null && parsed.verified_at !== undefined) {
     assertDate(parsed.verified_at, "verified_at", filePath);
+  }
+
+  if (parsed.status === "provisional") {
+    if (!parsed.provenance || typeof parsed.provenance !== "object") {
+      throw new Error(`provenance must be provided for provisional in ${filePath}`);
+    }
+    if (parsed.provenance.method !== "ocr+ai") {
+      throw new Error(`provenance.method must be "ocr+ai" in ${filePath}`);
+    }
+    assertDate(parsed.provenance.extracted_at, "provenance.extracted_at", filePath);
+    if (typeof parsed.provenance.model_id !== "string") {
+      throw new Error(`provenance.model_id must be a string in ${filePath}`);
+    }
+    if (!Array.isArray(parsed.provenance.input_hashes)) {
+      throw new Error(`provenance.input_hashes must be an array in ${filePath}`);
+    }
   }
 
   if (typeof parsed.updated_at !== "string") {

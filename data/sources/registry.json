@@ -1,0 +1,63 @@
+[
+  {
+    "country": "AW",
+    "sources": [
+      {
+        "title": "Government of Aruba - Public Safety",
+        "url": "https://www.gov.aw/",
+        "kind": "official",
+        "checked_at": "2026-01-07",
+        "weight": 0.7
+      }
+    ],
+    "suggested_status": "needs_review",
+    "confidence_hint": "medium",
+    "notes": "Minimal official source placeholder for pipeline."
+  },
+  {
+    "country": "BS",
+    "sources": [
+      {
+        "title": "The Bahamas Government",
+        "url": "https://www.bahamas.gov.bs/",
+        "kind": "official",
+        "checked_at": "2026-01-07",
+        "weight": 0.7
+      }
+    ],
+    "suggested_status": "needs_review",
+    "confidence_hint": "medium",
+    "notes": "Minimal official source placeholder for pipeline."
+  },
+  {
+    "country": "GF",
+    "sources": [
+      {
+        "title": "Government of France",
+        "url": "https://www.gouvernement.fr/",
+        "kind": "official",
+        "checked_at": "2026-01-07",
+        "weight": 0.7
+      }
+    ],
+    "suggested_status": "needs_review",
+    "confidence_hint": "medium",
+    "notes": "Minimal official source placeholder for pipeline."
+  }
+  ,
+  {
+    "country": "*",
+    "sources": [
+      {
+        "title": "UNODC World Drug Report",
+        "url": "https://www.unodc.org/unodc/en/data-and-analysis/world-drug-report.html",
+        "kind": "official",
+        "checked_at": "2026-01-07",
+        "weight": 0.6
+      }
+    ],
+    "suggested_status": "needs_review",
+    "confidence_hint": "medium",
+    "notes": "Fallback registry entry."
+  }
+]

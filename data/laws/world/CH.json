@@ -1,0 +1,57 @@
+{
+  "schema_version": 2,
+  "country": "CH",
+  "id": "CH",
+  "medical": "unknown",
+  "recreational": "unknown",
+  "possession_limit": "unknown",
+  "public_use": "unknown",
+  "home_grow": "unknown",
+  "cross_border": "illegal",
+  "risks": [
+    "border_crossing",
+    "driving",
+    "public_use"
+  ],
+  "extras": {
+    "purchase": "unknown",
+    "retail_shops": "unknown",
+    "edibles": "unknown",
+    "vapes": "unknown",
+    "concentrates": "unknown",
+    "cbd": "unknown",
+    "paraphernalia": "unknown",
+    "medical_card": "unknown",
+    "home_grow_plants": "unknown",
+    "social_clubs": "unknown",
+    "hemp": "unknown",
+    "workplace": "unknown",
+    "testing_dui": "unknown"
+  },
+  "sources": [
+    {
+      "title": "Fedlex (official)",
+      "url": "https://www.fedlex.admin.ch/eli/cc/1952/241_241_241/en"
+    }
+  ],
+  "updated_at": "2025-12-14",
+  "verified_at": "2025-12-14",
+  "status": "provisional",
+  "confidence": "low",
+  "provenance": {
+    "method": "ocr+ai",
+    "extracted_at": "2026-01-07",
+    "model_id": "bootstrap",
+    "input_hashes": [
+      "8b21b3d45e91c9b16a4dcb3d5d1c92953c64a0ab8a0e5c0e1eaf7c96e8c4e26d"
+    ],
+    "citations": [
+      {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1952/241_241_241/en",
+        "title": "Fedlex",
+        "snippet_hash": "bootstrap",
+        "retrieved_at": "2025-12-14"
+      }
+    ]
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": 2,
+  "items": {
+    "US-AZ": {
+      "lat": 34.0489,
+      "lon": -111.0937,
+      "name": "Arizona"
+    },
+    "US-CA": {
+      "lat": 36.7783,
+      "lon": -119.4179,
+      "name": "California"
+    },
+    "US-CO": {
+      "lat": 39.5501,
+      "lon": -105.7821,
+      "name": "Colorado"
+    },
+    "US-CT": {
+      "lat": 41.6032,
+      "lon": -73.0877,
+      "name": "Connecticut"
+    },
+    "US-FL": {
+      "lat": 27.6648,
+      "lon": -81.5158,
+      "name": "Florida"
+    },
+    "US-IL": {
+      "lat": 40.6331,
+      "lon": -89.3985,
+      "name": "Illinois"
+    },
+    "US-MA": {
+      "lat": 42.4072,
+      "lon": -71.3824,
+      "name": "Massachusetts"
+    },
+    "US-MI": {
+      "lat": 44.3148,
+      "lon": -85.6024,
+      "name": "Michigan"
+    },
+    "US-NJ": {
+      "lat": 40.0583,
+      "lon": -74.4057,
+      "name": "New Jersey"
+    },
+    "US-NV": {
+      "lat": 38.8026,
+      "lon": -116.4194,
+      "name": "Nevada"
+    },
+    "US-NY": {
+      "lat": 43,
+      "lon": -75,
+      "name": "New York"
+    },
+    "US-OH": {
+      "lat": 40.4173,
+      "lon": -82.9071,
+      "name": "Ohio"
+    },
+    "US-OR": {
+      "lat": 43.8041,
+      "lon": -120.5542,
+      "name": "Oregon"
+    },
+    "US-PA": {
+      "lat": 41.2033,
+      "lon": -77.1945,
+      "name": "Pennsylvania"
+    },
+    "US-TX": {
+      "lat": 31.9686,
+      "lon": -99.9018,
+      "name": "Texas"
+    },
+    "US-VA": {
+      "lat": 37.4316,
+      "lon": -78.6569,
+      "name": "Virginia"
+    },
+    "US-WA": {
+      "lat": 47.7511,
+      "lon": -120.7401,
+      "name": "Washington"
+    }
+  }
+}

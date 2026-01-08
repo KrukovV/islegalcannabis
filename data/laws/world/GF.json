@@ -1,0 +1,44 @@
+{
+  "id": "FRENCH GUIANA",
+  "country": "French Guiana",
+  "status": "needs_review",
+  "confidence": "medium",
+  "medical": "unknown",
+  "recreational": "unknown",
+  "possession_limit": "unknown",
+  "public_use": "unknown",
+  "home_grow": "unknown",
+  "cross_border": "unknown",
+  "risks": [
+    "border_crossing",
+    "driving"
+  ],
+  "provenance": {
+    "method": "ocr+ai",
+    "extracted_at": "2026-01-07",
+    "model_id": "registry",
+    "input_hashes": []
+  },
+  "sources": [
+    {
+      "title": "Government of France",
+      "url": "https://www.gouvernement.fr/",
+      "kind": "official",
+      "checked_at": "2026-01-07",
+      "weight": 0.7
+    }
+  ],
+  "verified_at": "2026-01-07",
+  "updated_at": "2026-01-07",
+  "schema_version": 2,
+  "status_history": [
+    {
+      "status": "provisional",
+      "at": "2026-01-07"
+    },
+    {
+      "status": "needs_review",
+      "at": "2026-01-07"
+    }
+  ]
+}

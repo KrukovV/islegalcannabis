@@ -63,7 +63,7 @@ export default async function ResultPage({
   const country = rawCountry || "US";
   const region = rawRegion || "CA";
   const regionValue = country === "US" ? region : undefined;
-  const normalizedConfidence = confidence ?? confidenceForLocation(method, region);
+  const normalizedConfidence = confidence ?? confidenceForLocation(method);
   const locationContext: LocationContext =
     method === "manual"
       ? fromManual(country, regionValue)

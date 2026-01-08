@@ -1,0 +1,57 @@
+{
+  "schema_version": 2,
+  "country": "TH",
+  "id": "TH",
+  "medical": "unknown",
+  "recreational": "unknown",
+  "possession_limit": "unknown",
+  "public_use": "unknown",
+  "home_grow": "unknown",
+  "cross_border": "illegal",
+  "risks": [
+    "border_crossing",
+    "driving",
+    "public_use"
+  ],
+  "extras": {
+    "purchase": "unknown",
+    "retail_shops": "unknown",
+    "edibles": "unknown",
+    "vapes": "unknown",
+    "concentrates": "unknown",
+    "cbd": "unknown",
+    "paraphernalia": "unknown",
+    "medical_card": "unknown",
+    "home_grow_plants": "unknown",
+    "social_clubs": "unknown",
+    "hemp": "unknown",
+    "workplace": "unknown",
+    "testing_dui": "unknown"
+  },
+  "sources": [
+    {
+      "title": "Ministry of Public Health (official)",
+      "url": "https://www.moph.go.th/"
+    }
+  ],
+  "updated_at": "2025-12-14",
+  "verified_at": "2025-12-14",
+  "status": "provisional",
+  "confidence": "low",
+  "provenance": {
+    "method": "ocr+ai",
+    "extracted_at": "2026-01-07",
+    "model_id": "bootstrap",
+    "input_hashes": [
+      "a50f0c3f0c8f8f9c5d1c6d0b2c8a9f0d3e2c4b5a6d7e8f9a0b1c2d3e4f5a6b7c"
+    ],
+    "citations": [
+      {
+        "url": "https://www.moph.go.th/",
+        "title": "Ministry of Public Health",
+        "snippet_hash": "bootstrap",
+        "retrieved_at": "2025-12-14"
+      }
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+export const API_CONTRACT_VERSION = "2026-01-06";

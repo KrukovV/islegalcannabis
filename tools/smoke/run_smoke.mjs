@@ -9,7 +9,7 @@ const DEFAULT_PORT = Number(process.env.SMOKE_PORT ?? "3000");
 
 function parseArgs() {
   const args = process.argv.slice(2);
-  const options = { mode: "mock", count: null, seed: null };
+  const options = { mode: "live", count: null, seed: null };
   for (const arg of args) {
     if (arg.startsWith("--mode=")) options.mode = arg.split("=")[1];
     if (arg.startsWith("--count=")) options.count = Number(arg.split("=")[1]);
@@ -54,7 +54,7 @@ function pickFixtures(fixtures, count, seed) {
 }
 
 function buildUrl(pathname) {
-  return `http://localhost:${DEFAULT_PORT}${pathname}`;
+  return `http://127.0.0.1:${DEFAULT_PORT}${pathname}`;
 }
 
 async function fetchWithTimeout(url, options = {}, timeoutMs = 5000) {
@@ -98,11 +98,15 @@ async function startServer() {
     build.on("exit", (code) => (code === 0 ? resolve() : reject(new Error("build failed"))));
   });
 
-  const child = spawn("npm", ["-w", "apps/web", "run", "start"], {
+  const child = spawn(
+    "npm",
+    ["-w", "apps/web", "run", "start", "--", "-H", "127.0.0.1", "-p", String(DEFAULT_PORT)],
+    {
     stdio: "inherit",
     cwd: ROOT,
-    env: { ...process.env, PORT: String(DEFAULT_PORT) }
-  });
+    env: { ...process.env }
+  }
+  );
 
   const ready = await waitForServer();
   if (!ready) {
@@ -120,18 +124,19 @@ function formatStatus(checkJson) {
 
 async function run() {
   const { mode, count, seed } = parseArgs();
+  if (mode === "mock" && !process.env.ILC_MODE) {
+    process.env.ILC_MODE = "test";
+  }
   const fixtures = loadFixtures();
   const cases = pickFixtures(fixtures, count, seed);
+  const localMode = process.env.SMOKE_MODE === "local";
 
   let serverProcess = null;
   let useLocalHandlers = false;
-  if (!(await isServerUp())) {
-    try {
-      serverProcess = await startServer();
-    } catch {
-      console.log("[warn] server start failed; falling back to in-process handlers");
-      useLocalHandlers = true;
-    }
+  if (localMode) {
+    useLocalHandlers = true;
+  } else if (!(await isServerUp())) {
+    serverProcess = await startServer();
   }
 
   let reverseHandler = null;

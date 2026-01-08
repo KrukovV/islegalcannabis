@@ -8,7 +8,11 @@ export type RiskFlag =
 
 export type Source = { title: string; url: string };
 
-export type VerificationStatus = "known" | "unknown" | "needs_review";
+export type VerificationStatus =
+  | "known"
+  | "unknown"
+  | "needs_review"
+  | "provisional";
 export type ConfidenceLevel = "high" | "medium" | "low";
 export type JurisdictionKey = string;
 export type LocationMethod = "gps" | "ip" | "manual";
@@ -41,12 +45,19 @@ export type ResultViewModel = {
   updatedAt?: string;
   extrasPreview?: ExtrasItem[];
   extrasFull?: ExtrasItem[];
+  nearestLegal?: {
+    title: string;
+    jurisdictionKey: string;
+    distanceKm: number;
+    approx: true;
+  };
   location: {
     mode: "detected" | "manual" | "query";
     method?: LocationMethod;
     confidence?: ConfidenceLevel;
   };
   meta: {
+    requestId?: string;
     cacheHit?: boolean;
     verifiedFresh?: boolean;
     needsReview?: boolean;
@@ -56,6 +67,7 @@ export type ResultViewModel = {
 };
 
 export type JurisdictionLawProfile = {
+  schema_version: number;
   id: string;
   country: string;
   region?: string;
@@ -71,6 +83,17 @@ export type JurisdictionLawProfile = {
   verified_at: string | null;
   confidence: ConfidenceLevel;
   status: VerificationStatus;
+  provenance?: {
+    method: "ocr+ai";
+    extracted_at: string;
+    model_id: string;
+    input_hashes: string[];
+    citations?: Array<{
+      url: string;
+      snippet_hash: string;
+      retrieved_at: string;
+    }>;
+  };
   extras?: {
     purchase?: ExtrasStatus;
     retail_shops?: ExtrasStatus;

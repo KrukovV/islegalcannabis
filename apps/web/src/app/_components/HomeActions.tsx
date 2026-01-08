@@ -22,6 +22,13 @@ import {
   loadLocationContext,
   saveLocationContext
 } from "@/lib/location/locationStorage";
+import {
+  clearLocationHistory,
+  formatRecentEntry,
+  loadLocationHistory,
+  saveLocationHistory
+} from "@/lib/location/locationHistory";
+import { mapGeoError } from "@/lib/ui/geoErrors";
 import { buildGpsCell } from "@/lib/nearbyCacheStorage";
 import {
   formatRemaining,
@@ -47,11 +54,12 @@ function buildResultUrl(context: LocationContext, cell?: string) {
   if (cell) {
     params.set("cell", cell);
   }
-  return `/result?${params.toString()}`;
+  return `/check?${params.toString()}`;
 }
 
 export default function HomeActions() {
   const router = useRouter();
+  const historyEnabled = process.env.NEXT_PUBLIC_HISTORY === "1";
   const [showManual, setShowManual] = useState(false);
   const [country, setCountry] = useState("US");
   const [region, setRegion] = useState("CA");
@@ -61,6 +69,7 @@ export default function HomeActions() {
   const [locationContext, setLocationContext] =
     useState<LocationContext | null>(null);
   const [trip, setTrip] = useState<Trip | null>(null);
+  const [recentLabel, setRecentLabel] = useState<string | null>(null);
 
   const refreshTrip = () => {
     const summary = getTripSummary();
@@ -75,7 +84,34 @@ export default function HomeActions() {
       setRegion(saved.region ?? "");
       setLocationContext(saved);
     }
-  }, []);
+    if (historyEnabled) {
+      const history = loadLocationHistory();
+      if (history[0]) {
+        setRecentLabel(formatRecentEntry(history[0]));
+      }
+    }
+  }, [historyEnabled]);
+
+  const recordHistory = (context: LocationContext) => {
+    if (!historyEnabled) return;
+    if (!context.method || !context.confidence) return;
+    saveLocationHistory({
+      country: context.country,
+      region: context.region,
+      method: context.method,
+      confidence: context.confidence,
+      checkedAt: new Date().toISOString()
+    });
+    setRecentLabel(
+      formatRecentEntry({
+        country: context.country,
+        region: context.region,
+        method: context.method,
+        confidence: context.confidence,
+        checkedAt: new Date().toISOString()
+      })
+    );
+  };
 
   const handleToggleTrip = () => {
     if (trip?.isActive) {
@@ -118,16 +154,17 @@ export default function HomeActions() {
         country: data.country,
         region: data.region,
         method: "ip",
-        confidence: confidenceForLocation("ip", data.region)
+        confidence: confidenceForLocation("ip")
       });
       saveLocationContext(context);
       setLocationContext(context);
       setNotice("GPS unavailable — using IP-based location.");
+      recordHistory(context);
       setTimeout(() => {
         router.push(buildResultUrl(context));
       }, 1200);
     } catch {
-      setNotice("We couldn't determine your location. Please choose manually.");
+      setNotice("Can't reach server. Check your connection or choose manually.");
       setShowManual(true);
     }
   };
@@ -165,7 +202,7 @@ export default function HomeActions() {
             country: data.country,
             region: data.region,
             method: "gps",
-            confidence: confidenceForLocation("gps", data.region)
+            confidence: confidenceForLocation("gps")
           });
           const ipCandidate = await ipPromise;
           const ipContext = ipCandidate
@@ -173,13 +210,14 @@ export default function HomeActions() {
                 country: ipCandidate.country,
                 region: ipCandidate.region,
                 method: "ip",
-                confidence: confidenceForLocation("ip", ipCandidate.region)
+                confidence: confidenceForLocation("ip")
               })
             : null;
           const preferred = pickPreferredContext([gpsContext, ipContext]);
           if (preferred) {
             saveLocationContext(preferred);
             setLocationContext(preferred);
+            recordHistory(preferred);
             router.push(
               buildResultUrl(
                 preferred,
@@ -188,14 +226,18 @@ export default function HomeActions() {
             );
           }
         } catch {
-          setNotice("We couldn't verify your GPS location. Please choose manually.");
-          setShowManual(true);
+          const mapped = mapGeoError();
+          setNotice(mapped.message);
+          if (mapped.showManual) setShowManual(true);
         } finally {
           setLocating(false);
         }
       },
-      () => {
+      (geoError) => {
         setLocating(false);
+        const mapped = mapGeoError(geoError?.code);
+        setNotice(mapped.message);
+        if (mapped.showManual) setShowManual(true);
         resolveByIp(ipPromise);
       },
       { enableHighAccuracy: false, timeout: 10000, maximumAge: 60000 }
@@ -215,6 +257,7 @@ export default function HomeActions() {
     const context = fromManual(country, country === "US" ? region : undefined);
     saveLocationContext(context);
     setLocationContext(context);
+    recordHistory(context);
     router.push(buildResultUrl(context));
   };
 
@@ -311,6 +354,23 @@ export default function HomeActions() {
 
       {notice ? <p className={styles.notice}>{notice}</p> : null}
       {error ? <p className={styles.error}>{error}</p> : null}
+      {historyEnabled ? (
+        <div className={styles.recentRow}>
+          <span className={styles.recentLabel}>
+            Recent: {recentLabel ?? "No recent locations"}
+          </span>
+          <button
+            className={styles.recentClear}
+            type="button"
+            onClick={() => {
+              clearLocationHistory();
+              setRecentLabel(null);
+            }}
+          >
+            Clear
+          </button>
+        </div>
+      ) : null}
       {locationContext ? (
         <LocationMeta
           className={styles.locationInfo}

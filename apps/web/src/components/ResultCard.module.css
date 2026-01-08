@@ -9,6 +9,8 @@
   gap: 28px;
   font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont,
     "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .header {
@@ -66,6 +68,32 @@
   font-weight: 600;
 }
 
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.metaLabel {
+  font-size: 0.8rem;
+  color: #5a645d;
+  font-weight: 600;
+}
+
+.changeLocation {
+  font-size: 0.85rem;
+  color: #2f5f45;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+}
+
+.changeLocationHighlight {
+  color: #1f4a35;
+  text-decoration-thickness: 2px;
+}
+
 .jurisdiction {
   color: #5a645d;
   font-size: 0.95rem;
@@ -90,6 +118,72 @@
   color: #2c3b33;
 }
 
+.provisionalBanner {
+  margin-top: 8px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: #fff2c2;
+  color: #5c3b00;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.warning {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid #f0c879;
+  background: #fff7e5;
+  color: #5c3b00;
+}
+
+.warning h2 {
+  font-size: 1.05rem;
+  color: #5c3b00;
+}
+
+.warningHeader {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.warningIcon {
+  font-size: 1.1rem;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.warningText {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.warningText h2 {
+  margin: 0;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.warningText p {
+  margin: 0;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.warningDisclaimer {
+  font-size: 0.9rem;
+  color: #7a5a1e;
+}
+
 .bullets,
 .risks,
 .sources {
@@ -106,10 +200,43 @@
   color: #27362e;
 }
 
-.sources a {
+.sourceItem {
+  list-style: none;
+}
+
+.sourceLink {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 44px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #f4f7f2;
   color: #2f5f45;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  text-decoration: none;
+  word-break: break-word;
+  overflow: hidden;
+}
+
+.sourceLink:hover {
+  background: #eaf1e5;
+}
+
+.sourceTitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2c3b33;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sourceHost {
+  font-size: 0.875rem;
+  color: #5a645d;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .sourceButton {
@@ -125,7 +252,7 @@
 }
 
 .updated {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: #6c766f;
 }
 
@@ -171,8 +298,81 @@
   gap: 4px;
 }
 
+.extrasCards {
+  display: grid;
+  gap: 12px;
+}
+
+.extrasCard {
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid #e1e6dc;
+  background: #f9fbf7;
+  color: #2c3b33;
+}
+
+.extrasCardHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.extrasCardTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.extrasCardValue {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1f5137;
+}
+
+.extrasCardBody {
+  margin: 6px 0 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #3f4b45;
+}
+
+.extrasCardHint {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #5a645d;
+}
+
 @media (max-width: 640px) {
   .card {
     padding: 24px;
+  }
+}
+
+@media (max-width: 360px) {
+  .card {
+    padding: 20px;
+    gap: 22px;
+  }
+
+  .warning {
+    padding: 14px;
+  }
+
+  .warningText h2 {
+    font-size: 1rem;
+  }
+
+  .sourceLink {
+    padding: 12px;
+  }
+
+  .sourceTitle {
+    font-size: 0.9rem;
+  }
+
+  .sourceHost {
+    font-size: 0.875rem;
   }
 }

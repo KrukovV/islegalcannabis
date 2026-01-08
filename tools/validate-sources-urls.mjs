@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { readSchemaVersion } from "./lib/readSchemaVersion.mjs";
 
 const ROOT = process.cwd();
 const LAWS_DIR = path.join(ROOT, "data", "laws");
@@ -45,6 +46,7 @@ function main() {
     process.exit(1);
   }
 
+  const schemaVersion = readSchemaVersion();
   const files = listJsonFiles(LAWS_DIR);
   const issues = [];
 
@@ -58,6 +60,14 @@ function main() {
     }
 
     validateSources(filePath, parsed.sources, issues);
+    if (parsed.schema_version !== schemaVersion) {
+      reportIssue(
+        issues,
+        filePath,
+        "schema_version",
+        `expected ${schemaVersion}, got ${parsed.schema_version}`
+      );
+    }
   }
 
   if (issues.length > 0) {

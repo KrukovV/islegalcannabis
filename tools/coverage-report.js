@@ -113,6 +113,19 @@ function main() {
 
   const next = nextPriority.concat(remaining).slice(0, 20);
 
+  const coverage = {
+    total: counts.total,
+    reviewedCount: counts.known + counts.needs_review,
+    provisionalCount: 0,
+    uncoveredCount: Math.max(0, counts.total - (counts.known + counts.needs_review))
+  };
+  const checkpointsDir = path.join(ROOT, ".checkpoints");
+  fs.mkdirSync(checkpointsDir, { recursive: true });
+  fs.writeFileSync(
+    path.join(checkpointsDir, "coverage-latest.json"),
+    JSON.stringify(coverage, null, 2) + "\n"
+  );
+
   console.log(
     `ISO3166 targets=${counts.total}, known=${counts.known}, pending=${counts.pending}, needs_review=${counts.needs_review}, unknown=${counts.unknown}`
   );

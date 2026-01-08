@@ -1,0 +1,43 @@
+.card {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 28px;
+  border: 1px solid #e2e5dd;
+  box-shadow: 0 16px 36px rgba(43, 55, 45, 0.08);
+  display: grid;
+  gap: 12px;
+}
+
+.message {
+  color: #4f5b54;
+}
+
+.meta {
+  font-size: 0.85rem;
+  color: #6b756f;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.primary,
+.secondary {
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.primary {
+  background: #2f5f45;
+  color: #ffffff;
+}
+
+.secondary {
+  background: #edf3e8;
+  color: #2f5f45;
+}

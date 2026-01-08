@@ -13,4 +13,15 @@ describe("SEO page", () => {
     expect(content).not.toMatch(/fetch\s*\(/);
     expect(content).not.toContain("/api/paraphrase");
   });
+
+  it("weed page stays static without fetch", () => {
+    const filePath = path.resolve(
+      process.cwd(),
+      "src/app/is-weed-legal-in-[slug]/page.tsx"
+    );
+    const content = fs.readFileSync(filePath, "utf-8");
+
+    expect(content).not.toMatch(/fetch\s*\(/);
+    expect(content).not.toContain("/api/paraphrase");
+  });
 });

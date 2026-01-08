@@ -23,23 +23,37 @@ function validateIsoFile() {
     throw new Error("iso3166-1.json generated_at must be YYYY-MM-DD.");
   }
 
-  if (!Array.isArray(data.alpha2)) {
-    throw new Error("iso3166-1.json alpha2 must be an array.");
+  if (!Array.isArray(data.entries)) {
+    throw new Error("iso3166-1.json entries must be an array.");
   }
 
-  if (data.alpha2.length !== 249) {
-    throw new Error(`iso3166-1.json must contain 249 codes, got ${data.alpha2.length}.`);
+  if (data.entries.length !== 249) {
+    throw new Error(`iso3166-1.json must contain 249 entries, got ${data.entries.length}.`);
   }
 
   const seen = new Set();
-  for (const code of data.alpha2) {
-    if (!/^[A-Z]{2}$/.test(code)) {
-      throw new Error(`Invalid alpha-2 code: ${code}`);
+  for (const entry of data.entries) {
+    const alpha2 = entry?.alpha2;
+    const alpha3 = entry?.alpha3;
+    const name = entry?.name;
+    const id = entry?.id;
+
+    if (!/^[A-Z]{2}$/.test(alpha2)) {
+      throw new Error(`Invalid alpha-2 code: ${alpha2}`);
     }
-    if (seen.has(code)) {
-      throw new Error(`Duplicate alpha-2 code: ${code}`);
+    if (!/^[A-Z]{3}$/.test(alpha3) && alpha3 !== "UNK") {
+      throw new Error(`Invalid alpha-3 code: ${alpha3}`);
     }
-    seen.add(code);
+    if (typeof name !== "string" || name.trim().length === 0) {
+      throw new Error(`Invalid name for ${alpha2}`);
+    }
+    if (id !== alpha2) {
+      throw new Error(`Invalid id for ${alpha2}: ${id}`);
+    }
+    if (seen.has(alpha2)) {
+      throw new Error(`Duplicate alpha-2 code: ${alpha2}`);
+    }
+    seen.add(alpha2);
   }
 }
 

@@ -1,4 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
+import { STATUS_BANNERS } from "@islegal/shared";
 
 const profile = {
   id: "DE",
@@ -32,8 +33,8 @@ describe("GET /api/check needs_review", () => {
     const req = new Request("http://localhost/api/check?country=DE");
     const res = await GET(req);
     const json = await res.json();
-    expect(json.status.level).toBe("yellow");
-    expect(json.status.label).toBe("Information requires verification");
+    expect(json.status.level).toBe("gray");
+    expect(json.status.label).toBe(STATUS_BANNERS.needs_review.title);
     expect(json.profile.verified_at).toBe("2025-01-01");
   });
 });

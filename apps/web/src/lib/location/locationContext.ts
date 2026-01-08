@@ -52,7 +52,7 @@ export function fromManual(country: string, region?: string): LocationContext {
     country,
     region,
     method: "manual",
-    confidence: "high",
+    confidence: "medium",
     source: "user"
   };
 }

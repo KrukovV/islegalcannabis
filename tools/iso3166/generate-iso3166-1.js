@@ -43,11 +43,19 @@ function buildPayload() {
   const sorted = [...SEED_ALPHA2].sort();
   validateSeed(sorted);
   const now = new Date().toISOString().slice(0, 10);
+  const displayNames = new Intl.DisplayNames(["en"], { type: "region" });
+  const entries = sorted.map((code) => ({
+    id: code,
+    alpha2: code,
+    alpha3: "UNK",
+    name: displayNames.of(code) ?? "Unknown"
+  }));
   return {
     version: "iso3166-1",
     generated_at: now,
-    source_note: "Curated list of ISO 3166-1 alpha-2 codes (249 entries).",
-    alpha2: sorted
+    source_note:
+      "Curated list of ISO 3166-1 codes (249 entries). alpha3 is UNK placeholder until backfilled.",
+    entries
   };
 }
 

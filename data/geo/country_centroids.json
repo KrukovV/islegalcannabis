@@ -1,0 +1,80 @@
+{
+  "schema_version": 2,
+  "items": {
+    "AT": {
+      "lat": 47.5162,
+      "lon": 14.5501,
+      "name": "Austria"
+    },
+    "BE": {
+      "lat": 50.5039,
+      "lon": 4.4699,
+      "name": "Belgium"
+    },
+    "CZ": {
+      "lat": 49.8175,
+      "lon": 15.473,
+      "name": "Czechia"
+    },
+    "DE": {
+      "lat": 51.1657,
+      "lon": 10.4515,
+      "name": "Germany"
+    },
+    "DK": {
+      "lat": 56.2639,
+      "lon": 9.5018,
+      "name": "Denmark"
+    },
+    "ES": {
+      "lat": 40.4637,
+      "lon": -3.7492,
+      "name": "Spain"
+    },
+    "FI": {
+      "lat": 61.9241,
+      "lon": 25.7482,
+      "name": "Finland"
+    },
+    "FR": {
+      "lat": 46.2276,
+      "lon": 2.2137,
+      "name": "France"
+    },
+    "GR": {
+      "lat": 39.0742,
+      "lon": 21.8243,
+      "name": "Greece"
+    },
+    "IE": {
+      "lat": 53.1424,
+      "lon": -7.6921,
+      "name": "Ireland"
+    },
+    "IT": {
+      "lat": 41.8719,
+      "lon": 12.5674,
+      "name": "Italy"
+    },
+    "NL": {
+      "lat": 52.1326,
+      "lon": 5.2913,
+      "name": "Netherlands"
+    },
+    "PL": {
+      "lat": 51.9194,
+      "lon": 19.1451,
+      "name": "Poland"
+    },
+    "PT": {
+      "lat": 39.3999,
+      "lon": -8.2245,
+      "name": "Portugal"
+    },
+    "SE": {
+      "lat": 60.1282,
+      "lon": 18.6435,
+      "name": "Sweden"
+    }
+  }
+}

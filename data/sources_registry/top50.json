@@ -1,0 +1,456 @@
+{
+  "version": 1,
+  "generated_at": "2026-01-06",
+  "items": [
+    {
+      "jurisdictionKey": "DE",
+      "kind": "country",
+      "displayName": "Germany",
+      "officialSources": [
+        { "title": "Bund.de", "url": "https://www.bund.de/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "NL",
+      "kind": "country",
+      "displayName": "Netherlands",
+      "officialSources": [
+        { "title": "Government.nl", "url": "https://www.government.nl/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "FR",
+      "kind": "country",
+      "displayName": "France",
+      "officialSources": [
+        { "title": "Service-Public.fr", "url": "https://www.service-public.fr/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "ES",
+      "kind": "country",
+      "displayName": "Spain",
+      "officialSources": [
+        { "title": "Administracion.gob.es", "url": "https://administracion.gob.es/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "IT",
+      "kind": "country",
+      "displayName": "Italy",
+      "officialSources": [
+        { "title": "Governo.it", "url": "https://www.governo.it/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "PT",
+      "kind": "country",
+      "displayName": "Portugal",
+      "officialSources": [
+        { "title": "Portugal.gov.pt", "url": "https://www.portugal.gov.pt/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "GB",
+      "kind": "country",
+      "displayName": "United Kingdom",
+      "officialSources": [
+        { "title": "GOV.UK", "url": "https://www.gov.uk/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "IE",
+      "kind": "country",
+      "displayName": "Ireland",
+      "officialSources": [
+        { "title": "Gov.ie", "url": "https://www.gov.ie/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "NO",
+      "kind": "country",
+      "displayName": "Norway",
+      "officialSources": [
+        { "title": "Regjeringen.no", "url": "https://www.regjeringen.no/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "SE",
+      "kind": "country",
+      "displayName": "Sweden",
+      "officialSources": [
+        { "title": "Government.se", "url": "https://www.government.se/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "DK",
+      "kind": "country",
+      "displayName": "Denmark",
+      "officialSources": [
+        { "title": "Borger.dk", "url": "https://www.borger.dk/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "CH",
+      "kind": "country",
+      "displayName": "Switzerland",
+      "officialSources": [
+        { "title": "Admin.ch", "url": "https://www.admin.ch/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "AT",
+      "kind": "country",
+      "displayName": "Austria",
+      "officialSources": [
+        { "title": "Oesterreich.gv.at", "url": "https://www.oesterreich.gv.at/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "CZ",
+      "kind": "country",
+      "displayName": "Czechia",
+      "officialSources": [
+        { "title": "Vlada.cz", "url": "https://www.vlada.cz/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "PL",
+      "kind": "country",
+      "displayName": "Poland",
+      "officialSources": [
+        { "title": "Gov.pl", "url": "https://www.gov.pl/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "CA",
+      "kind": "country",
+      "displayName": "Canada",
+      "officialSources": [
+        { "title": "Canada.ca", "url": "https://www.canada.ca/en.html", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "AU",
+      "kind": "country",
+      "displayName": "Australia",
+      "officialSources": [
+        { "title": "Australia.gov.au", "url": "https://www.australia.gov.au/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "NZ",
+      "kind": "country",
+      "displayName": "New Zealand",
+      "officialSources": [
+        { "title": "Govt.nz", "url": "https://www.govt.nz/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "JP",
+      "kind": "country",
+      "displayName": "Japan",
+      "officialSources": [
+        { "title": "Japan.go.jp", "url": "https://www.japan.go.jp/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "KR",
+      "kind": "country",
+      "displayName": "South Korea",
+      "officialSources": [
+        { "title": "Korea.go.kr", "url": "https://www.korea.go.kr/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "SG",
+      "kind": "country",
+      "displayName": "Singapore",
+      "officialSources": [
+        { "title": "Gov.sg", "url": "https://www.gov.sg/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "TH",
+      "kind": "country",
+      "displayName": "Thailand",
+      "officialSources": [
+        { "title": "ThaiGov", "url": "https://www.thaigov.go.th/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "VN",
+      "kind": "country",
+      "displayName": "Vietnam",
+      "officialSources": [
+        { "title": "Vietnam.gov.vn", "url": "https://vietnam.gov.vn/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "ID",
+      "kind": "country",
+      "displayName": "Indonesia",
+      "officialSources": [
+        { "title": "Indonesia.go.id", "url": "https://www.indonesia.go.id/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "MY",
+      "kind": "country",
+      "displayName": "Malaysia",
+      "officialSources": [
+        { "title": "Malaysia.gov.my", "url": "https://www.malaysia.gov.my/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "PH",
+      "kind": "country",
+      "displayName": "Philippines",
+      "officialSources": [
+        { "title": "Gov.ph", "url": "https://www.gov.ph/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "AE",
+      "kind": "country",
+      "displayName": "United Arab Emirates",
+      "officialSources": [
+        { "title": "U.AE", "url": "https://u.ae/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "IL",
+      "kind": "country",
+      "displayName": "Israel",
+      "officialSources": [
+        { "title": "Gov.il", "url": "https://www.gov.il/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "TR",
+      "kind": "country",
+      "displayName": "Turkey",
+      "officialSources": [
+        { "title": "Turkiye.gov.tr", "url": "https://www.turkiye.gov.tr/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "ZA",
+      "kind": "country",
+      "displayName": "South Africa",
+      "officialSources": [
+        { "title": "Gov.za", "url": "https://www.gov.za/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "US-CA",
+      "kind": "adm1",
+      "displayName": "California",
+      "officialSources": [
+        { "title": "CA.gov", "url": "https://www.ca.gov/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "US-NY",
+      "kind": "adm1",
+      "displayName": "New York",
+      "officialSources": [
+        { "title": "NY.gov", "url": "https://www.ny.gov/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "US-FL",
+      "kind": "adm1",
+      "displayName": "Florida",
+      "officialSources": [
+        { "title": "MyFlorida", "url": "https://www.myflorida.com/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "US-TX",
+      "kind": "adm1",
+      "displayName": "Texas",
+      "officialSources": [
+        { "title": "Texas.gov", "url": "https://www.texas.gov/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "US-WA",
+      "kind": "adm1",
+      "displayName": "Washington",
+      "officialSources": [
+        { "title": "WA.gov", "url": "https://www.wa.gov/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "US-IL",
+      "kind": "adm1",
+      "displayName": "Illinois",
+      "officialSources": [
+        { "title": "Illinois.gov", "url": "https://www.illinois.gov/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "US-MA",
+      "kind": "adm1",
+      "displayName": "Massachusetts",
+      "officialSources": [
+        { "title": "Mass.gov", "url": "https://www.mass.gov/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "US-CO",
+      "kind": "adm1",
+      "displayName": "Colorado",
+      "officialSources": [
+        { "title": "Colorado.gov", "url": "https://www.colorado.gov/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "US-NV",
+      "kind": "adm1",
+      "displayName": "Nevada",
+      "officialSources": [
+        { "title": "NV.gov", "url": "https://www.nv.gov/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "US-OR",
+      "kind": "adm1",
+      "displayName": "Oregon",
+      "officialSources": [
+        { "title": "Oregon.gov", "url": "https://www.oregon.gov/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "US-AZ",
+      "kind": "adm1",
+      "displayName": "Arizona",
+      "officialSources": [
+        { "title": "AZ.gov", "url": "https://az.gov/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "US-PA",
+      "kind": "adm1",
+      "displayName": "Pennsylvania",
+      "officialSources": [
+        { "title": "PA.gov", "url": "https://www.pa.gov/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "US-NJ",
+      "kind": "adm1",
+      "displayName": "New Jersey",
+      "officialSources": [
+        { "title": "NJ.gov", "url": "https://www.nj.gov/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "US-MI",
+      "kind": "adm1",
+      "displayName": "Michigan",
+      "officialSources": [
+        { "title": "Michigan.gov", "url": "https://www.michigan.gov/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "US-OH",
+      "kind": "adm1",
+      "displayName": "Ohio",
+      "officialSources": [
+        { "title": "Ohio.gov", "url": "https://ohio.gov/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "US-VA",
+      "kind": "adm1",
+      "displayName": "Virginia",
+      "officialSources": [
+        { "title": "Virginia.gov", "url": "https://www.virginia.gov/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "US-GA",
+      "kind": "adm1",
+      "displayName": "Georgia",
+      "officialSources": [
+        { "title": "Georgia.gov", "url": "https://georgia.gov/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "US-NC",
+      "kind": "adm1",
+      "displayName": "North Carolina",
+      "officialSources": [
+        { "title": "NC.gov", "url": "https://www.nc.gov/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "US-UT",
+      "kind": "adm1",
+      "displayName": "Utah",
+      "officialSources": [
+        { "title": "Utah.gov", "url": "https://www.utah.gov/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    },
+    {
+      "jurisdictionKey": "US-MN",
+      "kind": "adm1",
+      "displayName": "Minnesota",
+      "officialSources": [
+        { "title": "MN.gov", "url": "https://mn.gov/", "weight": 1.0 }
+      ],
+      "fallbackSources": []
+    }
+  ]
+}

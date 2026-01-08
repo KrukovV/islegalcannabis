@@ -1,11 +1,20 @@
-import { getLawProfile } from "@/lib/lawStore";
-import { computeStatus } from "@islegal/shared";
-import LocationMeta from "@/components/LocationMeta";
-import { fromQuery } from "@/lib/location/locationContext";
+import Link from "next/link";
+import ResultCard from "@/components/ResultCard";
+import CheckErrorCard from "@/components/CheckErrorCard";
+import { GET as checkGET } from "../api/check/route";
+import { fromDetected, fromManual, fromQuery } from "@/lib/location/locationContext";
+import { mapCheckError } from "@/lib/ui/checkErrors";
+import styles from "../result/result.module.css";
 
 export const runtime = "nodejs";
 
-type SP = { country?: string; region?: string };
+type SP = {
+  country?: string;
+  region?: string;
+  method?: string;
+  confidence?: string;
+  paid?: string;
+};
 
 export default async function CheckPage({
   searchParams
@@ -16,53 +25,87 @@ export default async function CheckPage({
 
   const rawCountry = (sp.country ?? "US").trim().toUpperCase();
   const rawRegion = (sp.region ?? "CA").trim().toUpperCase();
-
   const country = rawCountry || "US";
   const region = rawRegion || "CA";
+  const params = new URLSearchParams();
+  params.set("country", country);
+  if (country === "US") {
+    params.set("region", region);
+  }
+  if (sp.method) params.set("method", sp.method);
+  if (sp.confidence) params.set("confidence", sp.confidence);
+  if (sp.paid) params.set("paid", sp.paid);
 
-  const profile = getLawProfile({
-    country,
-    region: country === "US" ? region : undefined
-  });
+  const url = new URL("http://localhost/api/check");
+  url.search = params.toString();
+  const res = await checkGET(new Request(url.toString()));
+  const json = await res.json();
+  const retryHref = `/check?${params.toString()}`;
 
-  if (!profile) {
+  if (!json.ok) {
+    const mapped = mapCheckError(json?.error?.code);
     return (
-      <main style={{ padding: 24, fontFamily: "system-ui" }}>
-        <h1>isLegalCannabis — Check</h1>
-        <p>Not found. Try:</p>
-        <ul>
-          <li><code>/check?country=US&amp;region=CA</code></li>
-          <li><code>/check?country=DE</code></li>
-        </ul>
+      <main className={styles.page}>
+        <div className={styles.container}>
+          <CheckErrorCard
+            title={mapped.title}
+            message={mapped.message}
+            requestId={json.requestId}
+            retryHref={retryHref}
+          />
+        </div>
       </main>
     );
   }
 
-  const status = computeStatus(profile);
+  if (!json.profile) {
+    return (
+      <main className={styles.page}>
+        <div className={styles.container}>
+          <CheckErrorCard
+            title="Data not available"
+            message="We do not have data for that jurisdiction yet. Choose another location."
+            requestId={json.requestId}
+            retryHref={retryHref}
+          />
+        </div>
+      </main>
+    );
+  }
+
+  const locationMode = json.viewModel?.location?.mode ?? "query";
+  const method = json.viewModel?.location?.method;
+  const confidence = json.viewModel?.location?.confidence;
+  const locationContext =
+    locationMode === "manual"
+      ? fromManual(country, country === "US" ? region : undefined)
+      : locationMode === "detected" && method && confidence
+        ? fromDetected({
+            country,
+            region: country === "US" ? region : undefined,
+            method,
+            confidence
+          })
+        : fromQuery({
+            country,
+            region: country === "US" ? region : undefined
+          });
 
   return (
-    <main style={{ padding: 24, fontFamily: "system-ui" }}>
-      <h1>isLegalCannabis — Check</h1>
-
-      <LocationMeta context={fromQuery({ country, region: country === "US" ? region : undefined })} />
-
-      <p>
-        Jurisdiction: <b>{profile.id}</b>
-      </p>
-
-      <p>
-        Status: <b>{status.label}</b>
-      </p>
-
-      <pre style={{ padding: 16, border: "1px solid #ddd", borderRadius: 12, overflow: "auto" }}>
-        {JSON.stringify(profile, null, 2)}
-      </pre>
-
-      <p style={{ marginTop: 16 }}>
-        Try:{" "}
-        <code>/check?country=US&amp;region=CA</code>{" "}
-        <code>/check?country=DE</code>
-      </p>
+    <main className={styles.page}>
+      <div className={styles.container}>
+        <ResultCard
+          profile={json.profile}
+          title={json.viewModel?.title ?? json.profile.id}
+          isPaidUser={Boolean(json.viewModel?.meta?.paid)}
+          locationContext={locationContext}
+          viewModel={json.viewModel}
+          showSources
+        />
+        <Link className={styles.backLink} href="/">
+          Back to location search
+        </Link>
+      </div>
     </main>
   );
 }

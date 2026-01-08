@@ -17,6 +17,12 @@
 - build: `npm run web:build`
 - validate:laws: `npm run validate:laws`
 
+## How to verify
+- UI: `/check?country=US&region=CA`, `/check?country=DE`
+- API: `/api/check?country=US&region=CA`, `/api/check?country=DE`
+- CI: `bash tools/ci-local.sh`
+- Contract smoke: `node tools/smoke/run_jurisdiction_contract.mjs --baseUrl http://127.0.0.1:3000`
+
 ## Перед каждым коммитом
 - Запускать: `bash tools/ci-local.sh`.
 

@@ -1,36 +1,33 @@
-# CONTRACT
+# Contract
 
-## Мобильные клиенты
-- iOS/Android НЕ хранят data/laws локально.
-- Все решения и данные берутся только через API.
-- AI/LLM не влияет на решение, только на перефразирование текста.
+VERSION: SemVer from root `VERSION`.
+API_CONTRACT_VERSION: date or semver string in `packages/shared/src/api/contract.ts`.
+DATA_SCHEMA_VERSION: integer in `packages/shared/src/data/schema.ts` and `schema_version` in data files.
+Every API response includes `meta.requestId`, `meta.appVersion`, `meta.apiVersion`, `meta.dataSchemaVersion`.
 
-## Входы (request)
-- country: string (ISO country code, upper-case)
-- region?: string (ISO subdivision, upper-case; требуется для US)
+## UI output (SSOT)
+- Must show: jurisdiction, status badge (level+label), facts (4–6), key risks, sources + updated_at, requestId, location method + confidence.
+- Unknown/provisional/needs_review: show honest banner, avoid definitive language; sources remain visible.
+- UI uses the viewModel as the single source of truth (no duplicate logic).
 
-## Выходы (response)
-- viewModel: ResultViewModel (единый контракт для Web/iOS/Android)
-- status: { level, label, icon }
-- profile: law_profile (для Web/SEO и отладки)
+## Review status fields (SSOT)
+- review_status/review_confidence/review_sources are canonical for the review pipeline.
+- status/confidence/sources are legacy and only used as fallback when review_status is missing and status is provisional.
 
-ResultViewModel:
-- jurisdictionKey, title
-- statusLevel, statusTitle
-- bullets[], keyRisks[]
-- sources[], verifiedAt, updatedAt
-- location: { mode, method?, confidence? }
-- meta: { cacheHit?, verifiedFresh?, needsReview? }
-
-## Гарантии
-- Решение о статусе и рисках принимается только на основе data/laws и shared-логики.
-- LLM/AI не влияет на решение, только на перефразирование текста.
-
-## Trip mode (inTrip)
-- Trip Event пишется только при смене jurisdictionKey.
-- Гео — подсказка для интерфейса, закон берется из law_profile.
-- Trip history хранится локально, без аккаунтов, без lat/lon и точных адресов.
-- Approximate hint показываем только для IP или non-high confidence; manual(high) не approximate.
-
-## LocationContext SSOT
-Единый LocationContext: manual > gps > ip > query; localStorage используется только в client UI и хранит только country/region/method/confidence (без lat/lon).
+Example (ok response):
+```json
+{
+  "ok": true,
+  "data": {
+    "jurisdictionKey": "DE",
+    "statusLevel": "yellow",
+    "statusTitle": "Medical only / restricted"
+  },
+  "meta": {
+    "requestId": "2f0a9c1e-6c2e-4bb6-92b9-5a8aa9e0c1d4",
+    "appVersion": "0.8.0",
+    "apiVersion": "2026-01-06",
+    "dataSchemaVersion": 2
+  }
+}
+```

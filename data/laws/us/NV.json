@@ -38,5 +38,6 @@
     "hemp": "unknown",
     "workplace": "unknown",
     "testing_dui": "unknown"
-  }
+  },
+  "schema_version": 2
 }

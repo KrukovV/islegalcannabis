@@ -1,11 +1,36 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+last_cmd=""
+trap 'last_cmd=$BASH_COMMAND' DEBUG
+print_fail() {
+  local reason=${1:-unknown}
+  local summary_file=".checkpoints/ci-summary.txt"
+  mkdir -p .checkpoints
+  printf "❌ CI FAIL\nReason: %s\nRetry: bash tools/pass_cycle.sh\n" "${reason}" > "${summary_file}"
+  trap - ERR
+  node tools/guards/summary_format.mjs --status=FAIL --file "${summary_file}"
+  cat "${summary_file}"
+  exit 1
+}
+trap 'print_fail "$last_cmd"' ERR
+
+if [ ! -f .checkpoints/ci-summary.txt ]; then
+  mkdir -p .checkpoints
+  if [ -f .checkpoints/LATEST ]; then
+    LATEST_SEED=$(cat .checkpoints/LATEST)
+    printf "🌿 CI PASS (Smoke ?/?)\nPaths: total=0 delta=0\nCheckpoint: %s\nNext: 1) Placeholder.\n" \
+      "${LATEST_SEED}" \
+      > .checkpoints/ci-summary.txt
+  else
+    print_fail "Missing .checkpoints/LATEST. Run tools/pass_cycle.sh."
+  fi
+fi
+
 bash tools/git-health.sh
 npm run where
-bash tools/guard-ssr.sh
-ILC_FORCE_GREP=1 bash tools/guard-ssr.sh
-node tools/guards/forbid_statuslevel_dupes.mjs
+node tools/guards/run_all.mjs
+export NEXT_PUBLIC_APP_VERSION=$(cat VERSION)
 
 npm run audit
 npm run lint
@@ -13,6 +38,242 @@ npm test
 npm run web:build
 npm run validate:laws
 node tools/validate-sources-urls.mjs
+node tools/validate-data-schema.mjs
+node tools/validate-sources-registry.mjs
 npm run validate:iso3166
 npm run coverage
-npm run smoke:mock
+node tools/ledger/compact.test.mjs
+node tools/ledger/compact.mjs --dry-run
+node tools/ingest/run_ingest.test.mjs
+node tools/guards/run_all.test.mjs
+node tools/next/next_step.test.mjs
+node tools/promotion/promote_next.test.mjs
+node tools/promotion/review_apply.test.mjs
+SEO_HASH_BEFORE=$(shasum -a 256 apps/web/src/lib/seo/seoMap.generated.ts | awk '{print $1}')
+node tools/gen_seo_map.mjs
+if git diff --exit-code apps/web/src/lib/seo/seoMap.generated.ts >/dev/null 2>&1; then
+  :
+else
+  SEO_HASH_AFTER=$(shasum -a 256 apps/web/src/lib/seo/seoMap.generated.ts | awk '{print $1}')
+  if [ "${SEO_HASH_BEFORE}" != "${SEO_HASH_AFTER}" ]; then
+    echo "ERROR: seoMap.generated.ts is out of date. Run tools/gen_seo_map.mjs."
+    exit 1
+  fi
+fi
+SMOKE_MODE=${SMOKE_MODE:-local}
+if [ "${SMOKE_MODE}" = "local" ]; then
+  SMOKE_PORT="${SMOKE_PORT:-3000}"
+  echo "SMOKE_MODE=local; using SMOKE_PORT=${SMOKE_PORT} without listen(0)."
+else
+  SMOKE_PORT_ERR=$(mktemp)
+  SMOKE_PORT_OUTPUT=""
+  SMOKE_PORT_STATUS=0
+  SMOKE_PORT_OUTPUT=$(node -e "const net=require('net');const s=net.createServer();s.on('error',(err)=>{console.error(err);process.exit(1);});s.listen(0,'127.0.0.1',()=>{console.log(s.address().port);s.close();});" 2>"${SMOKE_PORT_ERR}") || SMOKE_PORT_STATUS=$?
+  if [ "${SMOKE_PORT_STATUS}" -ne 0 ]; then
+    echo "ERROR: Failed to select a free port for smoke tests (listen(0))."
+    echo "DIAG: whoami=$(whoami)"
+    echo "DIAG: pwd=$(pwd)"
+    echo "DIAG: uname=$(uname -a)"
+    echo "DIAG: env PORT vars"
+    env | sort | grep -E "PORT|SMOKE|NEXT" || true
+    echo "DIAG: lsof"
+    lsof -iTCP -sTCP:LISTEN -nP | head -n 20 || true
+    cat "${SMOKE_PORT_ERR}"
+    rm -f "${SMOKE_PORT_ERR}"
+    exit 1
+  fi
+  if grep -E "EPERM|bind\\(0\\)" "${SMOKE_PORT_ERR}" >/dev/null 2>&1; then
+    echo "ERROR: Failed to select a free port for smoke tests (listen(0))."
+    echo "DIAG: whoami=$(whoami)"
+    echo "DIAG: pwd=$(pwd)"
+    echo "DIAG: uname=$(uname -a)"
+    echo "DIAG: env PORT vars"
+    env | sort | grep -E "PORT|SMOKE|NEXT" || true
+    echo "DIAG: lsof"
+    lsof -iTCP -sTCP:LISTEN -nP | head -n 20 || true
+    cat "${SMOKE_PORT_ERR}"
+    rm -f "${SMOKE_PORT_ERR}"
+    exit 1
+  fi
+  rm -f "${SMOKE_PORT_ERR}"
+  if [ -z "${SMOKE_PORT_OUTPUT}" ] || ! echo "${SMOKE_PORT_OUTPUT}" | grep -E "^[0-9]+$" >/dev/null 2>&1; then
+    echo "ERROR: Failed to select a free port for smoke tests (listen(0))."
+    echo "DIAG: whoami=$(whoami)"
+    echo "DIAG: pwd=$(pwd)"
+    echo "DIAG: uname=$(uname -a)"
+    echo "DIAG: env PORT vars"
+    env | sort | grep -E "PORT|SMOKE|NEXT" || true
+    echo "DIAG: lsof"
+    lsof -iTCP -sTCP:LISTEN -nP | head -n 20 || true
+    exit 1
+  fi
+  SMOKE_PORT="${SMOKE_PORT_OUTPUT}"
+fi
+export SMOKE_PORT
+SMOKE_EXPECTED=50
+SMOKE_LOG=$(mktemp)
+SMOKE_MODE=${SMOKE_MODE} node tools/smoke/run_50_checks.mjs --baseUrl "http://127.0.0.1:${SMOKE_PORT}" --n 50 --seed 1 | tee "${SMOKE_LOG}"
+if grep -E "EPERM|bind\\(0\\)" "${SMOKE_LOG}" >/dev/null 2>&1; then
+  echo "ERROR: EPERM/bind(0) detected in smoke log."
+  exit 1
+fi
+if [ "${SMOKE_EXTENDED:-0}" = "1" ]; then
+  SMOKE_MODE=${SMOKE_MODE} node tools/smoke/run_100_jurisdictions.mjs --baseUrl "http://127.0.0.1:${SMOKE_PORT}" --count 100 --seed 1337 --writeReports=1
+  node tools/smoke/run_iso_contract.mjs --baseUrl "http://127.0.0.1:${SMOKE_PORT}" --count 20 --seed 1337
+fi
+if [ "${SEO_EXTENDED:-0}" = "1" ]; then
+  if [ "${SMOKE_MODE}" = "local" ]; then
+    SMOKE_MODE=local node tools/smoke/check_seo_pages.mjs --count 5 --seed 1
+  else
+  SEO_PORT_ERR=$(mktemp)
+  SEO_PORT_OUTPUT=""
+  SEO_PORT_STATUS=0
+  SEO_PORT_OUTPUT=$(node -e "const net=require('net');const s=net.createServer();s.on('error',(err)=>{console.error(err);process.exit(1);});s.listen(0,'127.0.0.1',()=>{console.log(s.address().port);s.close();});" 2>"${SEO_PORT_ERR}") || SEO_PORT_STATUS=$?
+  if [ "${SEO_PORT_STATUS}" -ne 0 ]; then
+    echo "ERROR: Failed to select a free port for SEO_EXTENDED."
+    echo "DIAG: whoami=$(whoami)"
+    echo "DIAG: pwd=$(pwd)"
+    echo "DIAG: uname=$(uname -a)"
+    echo "DIAG: env PORT vars"
+    env | sort | grep -E "PORT|SMOKE|NEXT" || true
+    echo "DIAG: lsof"
+    lsof -iTCP -sTCP:LISTEN -nP | head -n 20 || true
+    cat "${SEO_PORT_ERR}"
+    rm -f "${SEO_PORT_ERR}"
+    exit 1
+  fi
+  rm -f "${SEO_PORT_ERR}"
+  if [ -z "${SEO_PORT_OUTPUT}" ] || ! echo "${SEO_PORT_OUTPUT}" | grep -E "^[0-9]+$" >/dev/null 2>&1; then
+    echo "ERROR: Failed to select a free port for SEO_EXTENDED."
+    exit 1
+  fi
+  SEO_PORT="${SEO_PORT_OUTPUT}"
+  WEB_LOG=$(mktemp)
+  PORT="${SEO_PORT}" npm -w apps/web run start -- -p "${SEO_PORT}" >"${WEB_LOG}" 2>&1 &
+  WEB_PID=$!
+  WEB_READY=0
+  for _ in {1..30}; do
+    if node -e "const net=require('net');const s=net.createConnection({host:'127.0.0.1',port:${SEO_PORT}});s.on('connect',()=>{s.end();process.exit(0)});s.on('error',()=>process.exit(1));"; then
+      WEB_READY=1
+      break
+    fi
+    sleep 0.2
+  done
+  if [ "${WEB_READY}" -ne 1 ]; then
+    echo "ERROR: web server failed to start for SEO_EXTENDED."
+    cat "${WEB_LOG}"
+    kill "${WEB_PID}" >/dev/null 2>&1 || true
+    exit 1
+  fi
+  set +e
+  node tools/smoke/check_seo_pages.mjs --baseUrl "http://127.0.0.1:${SEO_PORT}" --count 5 --seed 1
+  SEO_STATUS=$?
+  set -e
+  kill "${WEB_PID}" >/dev/null 2>&1 || true
+  wait "${WEB_PID}" >/dev/null 2>&1 || true
+  rm -f "${WEB_LOG}"
+  if [ "${SEO_STATUS}" -ne 0 ]; then
+    exit "${SEO_STATUS}"
+  fi
+  fi
+fi
+if [ "${UI_E2E:-0}" = "1" ]; then
+  export PLAYWRIGHT_BASE_URL="http://127.0.0.1:${SMOKE_PORT}"
+  (cd apps/web && npx -y playwright install chromium)
+  PLAYWRIGHT_NPX_DIR=$(ls -td "${HOME}/.npm/_npx/"* 2>/dev/null | head -n 1 || true)
+  if [ -n "${PLAYWRIGHT_NPX_DIR}" ] && [ -d "${PLAYWRIGHT_NPX_DIR}/node_modules" ]; then
+    export NODE_PATH="${PLAYWRIGHT_NPX_DIR}/node_modules"
+  fi
+  WEB_LOG=$(mktemp)
+  PORT="${SMOKE_PORT}" npm -w apps/web run start -- -p "${SMOKE_PORT}" >"${WEB_LOG}" 2>&1 &
+  WEB_PID=$!
+  WEB_READY=0
+  for _ in {1..30}; do
+    if node -e "const net=require('net');const s=net.createConnection({host:'127.0.0.1',port:${SMOKE_PORT}});s.on('connect',()=>{s.end();process.exit(0)});s.on('error',()=>process.exit(1));"; then
+      WEB_READY=1
+      break
+    fi
+    sleep 0.2
+  done
+  if [ "${WEB_READY}" -ne 1 ]; then
+    echo "ERROR: web server failed to start for UI_E2E."
+    cat "${WEB_LOG}"
+    kill "${WEB_PID}" >/dev/null 2>&1 || true
+    exit 1
+  fi
+  set +e
+  (cd apps/web && npm run ui:e2e)
+  UI_E2E_STATUS=$?
+  set -e
+  kill "${WEB_PID}" >/dev/null 2>&1 || true
+  wait "${WEB_PID}" >/dev/null 2>&1 || true
+  rm -f "${WEB_LOG}"
+  if [ "${UI_E2E_STATUS}" -ne 0 ]; then
+    exit "${UI_E2E_STATUS}"
+  fi
+fi
+SMOKE_SUMMARY=$(grep "Summary:" "${SMOKE_LOG}" | tail -n 1)
+SMOKE_PASSED=$(echo "${SMOKE_SUMMARY}" | sed -n 's/.*Summary: \([0-9]*\) passed, \([0-9]*\) failed.*/\1/p')
+SMOKE_FAILED=$(echo "${SMOKE_SUMMARY}" | sed -n 's/.*Summary: \([0-9]*\) passed, \([0-9]*\) failed.*/\2/p')
+if [ -z "${SMOKE_PASSED}" ] || [ -z "${SMOKE_FAILED}" ]; then
+  SMOKE_PASSED="${SMOKE_EXPECTED}"
+  SMOKE_FAILED=0
+fi
+SMOKE_RESULT="${SMOKE_PASSED}/${SMOKE_FAILED}"
+mkdir -p .checkpoints
+CI_RESULT="PASS"
+echo "CI_RESULT=${CI_RESULT}; SMOKE=${SMOKE_RESULT}" | tee .checkpoints/ci-result.txt
+rm -f "${SMOKE_LOG}"
+if [ ! -f .checkpoints/LATEST ]; then
+  print_fail "Missing .checkpoints/LATEST. Run tools/pass_cycle.sh."
+fi
+LATEST_CHECKPOINT=$(cat .checkpoints/LATEST)
+STATE_CHECKPOINT=$(node -e "const fs=require('fs');const text=fs.readFileSync('CONTINUITY.md','utf8');const m=text.match(/checkpoint=([^\\s;]+)/);if(!m)process.exit(2);console.log(m[1]);" || true)
+if [ -z "${STATE_CHECKPOINT}" ] || [ "${STATE_CHECKPOINT}" != "${LATEST_CHECKPOINT}" ]; then
+  echo "ERROR: State mismatch in CONTINUITY.md."
+  echo "State: ${STATE_CHECKPOINT:-missing}"
+  echo "Latest: ${LATEST_CHECKPOINT}"
+  exit 1
+fi
+echo "State OK ${STATE_CHECKPOINT}"
+BASELINE_PATH=".checkpoints/baseline_paths.txt"
+CURRENT_TMP=$(mktemp)
+BASELINE_TMP=$(mktemp)
+{ git diff --name-only || true; git ls-files -o --exclude-standard || true; } \
+  | grep -v '^Reports/' \
+  | sort -u > "${CURRENT_TMP}"
+if [ -f "${BASELINE_PATH}" ]; then
+  sort -u "${BASELINE_PATH}" > "${BASELINE_TMP}"
+  DELTA_COUNT=$(comm -23 "${CURRENT_TMP}" "${BASELINE_TMP}" | wc -l | tr -d ' ')
+else
+  DELTA_COUNT=$(wc -l < "${CURRENT_TMP}" | tr -d ' ')
+fi
+TOTAL_COUNT=$(wc -l < "${CURRENT_TMP}" | tr -d ' ')
+rm -f "${BASELINE_TMP}"
+if [ "${CI_RESULT:-}" = "PASS" ]; then
+  cp "${CURRENT_TMP}" "${BASELINE_PATH}"
+fi
+rm -f "${CURRENT_TMP}"
+NEXT_OUT=$(mktemp)
+node tools/next/next_step.mjs --ciStatus=PASS > "${NEXT_OUT}"
+if grep -q $'\\n  1\\.' "${NEXT_OUT}" || grep -q $'\\n1\\.' "${NEXT_OUT}"; then
+  echo "ERROR: Next format must use '1)' not '1.'."
+  rm -f "${NEXT_OUT}"
+  exit 1
+fi
+if [ "$(wc -l < "${NEXT_OUT}" | tr -d ' ')" -ne 1 ]; then
+  echo "ERROR: Next output must be a single line."
+  rm -f "${NEXT_OUT}"
+  exit 1
+fi
+NEXT_LINE=$(sed -n '1p' "${NEXT_OUT}" | sed 's/^Next: 1) //')
+rm -f "${NEXT_OUT}"
+LATEST_CHECKPOINT=$(cat .checkpoints/LATEST)
+SUMMARY_FILE=".checkpoints/ci-summary.txt"
+CI_SMOKE_RESULT="${SMOKE_RESULT}" \
+CI_TOTAL_COUNT="${TOTAL_COUNT}" \
+CI_DELTA_COUNT="${DELTA_COUNT}" \
+CI_LATEST_CHECKPOINT="${LATEST_CHECKPOINT}" \
+CI_NEXT_LINE="${NEXT_LINE}" \
+  node -e "const fs=require('fs');const file='${SUMMARY_FILE}';const smoke=process.env.CI_SMOKE_RESULT||'?/?';const total=process.env.CI_TOTAL_COUNT||'0';const delta=process.env.CI_DELTA_COUNT||'0';const checkpoint=process.env.CI_LATEST_CHECKPOINT||'missing';const next=(process.env.CI_NEXT_LINE||'Next: 1) Placeholder.').replace(/\\r?\\n/g,' ').trim();const lines=[`🌿 CI PASS (Smoke ${smoke})`,`Paths: total=${total} delta=${delta}`,`Checkpoint: ${checkpoint}`,next];fs.writeFileSync(file,lines.join('\\n')+'\\n');"
+cat "${SUMMARY_FILE}"

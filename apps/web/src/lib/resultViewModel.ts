@@ -1,4 +1,4 @@
-import { computeStatus } from "@islegal/shared";
+import { computeStatus, STATUS_BANNERS } from "@islegal/shared";
 import type { JurisdictionLawProfile, ResultViewModel } from "@islegal/shared";
 import type { LocationContext } from "@/lib/location/locationContext";
 import { buildBullets, buildRisks } from "@/lib/summary";
@@ -27,10 +27,22 @@ export function buildResultViewModel(input: {
   statusOverride?: { level: ResultViewModel["statusLevel"]; title: string };
   extrasPreview?: ResultViewModel["extrasPreview"];
   extrasFull?: ResultViewModel["extrasFull"];
+  nearestLegal?: ResultViewModel["nearestLegal"];
 }): ResultViewModel {
   const computed = computeStatus(input.profile);
-  const statusLevel = input.statusOverride?.level ?? computed.level;
-  const statusTitle = input.statusOverride?.title ?? computed.label;
+  let statusLevel = input.statusOverride?.level ?? computed.level;
+  let statusTitle = input.statusOverride?.title ?? computed.label;
+
+  if (input.profile.status === "provisional") {
+    statusLevel = "yellow";
+    statusTitle = STATUS_BANNERS.provisional.title;
+  } else if (input.profile.status === "needs_review") {
+    statusLevel = "gray";
+    statusTitle = STATUS_BANNERS.needs_review.title;
+  } else if (input.profile.status === "unknown") {
+    statusLevel = "gray";
+    statusTitle = "Data not available";
+  }
 
   return {
     jurisdictionKey: input.profile.id,
@@ -44,6 +56,7 @@ export function buildResultViewModel(input: {
     updatedAt: input.profile.updated_at,
     extrasPreview: input.extrasPreview,
     extrasFull: input.extrasFull,
+    nearestLegal: input.nearestLegal,
     location: toLocation(input.locationContext),
     meta: input.meta ?? {}
   };

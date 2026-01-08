@@ -15,11 +15,11 @@ describe("locationContext", () => {
     expect(ctx.confidence).toBeUndefined();
   });
 
-  it("fromManual returns manual high confidence", () => {
+  it("fromManual returns manual medium confidence", () => {
     const ctx = fromManual("DE");
     expect(ctx.mode).toBe("manual");
     expect(ctx.method).toBe("manual");
-    expect(ctx.confidence).toBe("high");
+    expect(ctx.confidence).toBe("medium");
     expect(ctx.source).toBe("user");
   });
 

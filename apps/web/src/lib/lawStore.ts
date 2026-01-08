@@ -28,7 +28,13 @@ function filePathForKey(key: string): string | null {
     return path.join(root, "data", "laws", "us", `${region}.json`);
   }
 
-  return path.join(root, "data", "laws", "eu", `${key}.json`);
+  const euPath = path.join(root, "data", "laws", "eu", `${key}.json`);
+  if (fs.existsSync(euPath)) return euPath;
+
+  const worldPath = path.join(root, "data", "laws", "world", `${key}.json`);
+  if (fs.existsSync(worldPath)) return worldPath;
+
+  return euPath;
 }
 
 export function getLawProfile(input: JurisdictionKey): JurisdictionLawProfile | null {

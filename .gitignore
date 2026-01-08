@@ -25,6 +25,11 @@
 
 # misc
 .DS_Store
+.wip_quarantine/
+Reports/
+.checkpoints/
+apps/web/test-results/
+apps/web/playwright-report/
 *.pem
 *.log
 

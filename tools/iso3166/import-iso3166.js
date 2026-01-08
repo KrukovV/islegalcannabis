@@ -25,10 +25,10 @@ function loadIsoList() {
   }
   const raw = fs.readFileSync(ISO_PATH, "utf-8");
   const data = JSON.parse(raw);
-  if (!Array.isArray(data.alpha2)) {
-    throw new Error("Invalid iso3166-1.json format: missing alpha2 array.");
+  if (!Array.isArray(data.entries)) {
+    throw new Error("Invalid iso3166-1.json format: missing entries array.");
   }
-  return data.alpha2;
+  return data.entries.map((entry) => entry.alpha2);
 }
 
 function loadCatalog() {

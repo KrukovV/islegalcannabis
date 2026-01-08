@@ -3,7 +3,10 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { createElement } from "react";
 import ResultCard from "./ResultCard";
 import type { JurisdictionLawProfile } from "@islegal/shared";
+import { STATUS_BANNERS } from "@islegal/shared";
 import type { LocationContext } from "@/lib/location/locationContext";
+import { getLawProfile } from "@/lib/lawStore";
+import { buildResultViewModel } from "@/lib/resultViewModel";
 
 const profile: JurisdictionLawProfile = {
   id: "US-CA",
@@ -46,12 +49,12 @@ describe("ResultCard location rendering", () => {
     expect(html).toContain("Location may be approximate");
   });
 
-  it("renders manual high confidence without approximate hint", () => {
+  it("renders manual medium confidence with approximate hint", () => {
     const context: LocationContext = {
       mode: "manual",
       country: "DE",
       method: "manual",
-      confidence: "high",
+      confidence: "medium",
       source: "user"
     };
     const html = renderToStaticMarkup(
@@ -64,6 +67,66 @@ describe("ResultCard location rendering", () => {
     );
     expect(html).toContain("Mode: Manual");
     expect(html).toContain("Selected manually");
-    expect(html).not.toContain("Location may be approximate");
+    expect(html).toContain("Location may be approximate");
+  });
+
+  it("renders warning with nearest legal location for red status", () => {
+    const redProfile = getLawProfile({ country: "US", region: "TX" });
+    expect(redProfile).not.toBeNull();
+    if (!redProfile) return;
+    const viewModel = buildResultViewModel({
+      profile: redProfile,
+      title: "Texas",
+      nearestLegal: {
+        title: "Colorado, US",
+        jurisdictionKey: "US-CO",
+        distanceKm: 100,
+        approx: true
+      }
+    });
+    const html = renderToStaticMarkup(
+      createElement(ResultCard, {
+        profile: redProfile,
+        title: "Texas",
+        isPaidUser: false,
+        viewModel
+      })
+    );
+    expect(html).toContain("Not legal here.");
+    expect(html).toContain("Nearest place where status is green/yellow");
+  });
+
+  it("does not render nearest legal location for unknown status", () => {
+    const baseProfile = getLawProfile({ country: "DE" });
+    expect(baseProfile).not.toBeNull();
+    if (!baseProfile) return;
+    const unknownProfile = { ...baseProfile, status: "unknown" as const };
+    const html = renderToStaticMarkup(
+      createElement(ResultCard, {
+        profile: unknownProfile,
+        title: "Germany",
+        isPaidUser: false
+      })
+    );
+    expect(html).not.toContain("Nearest place where status is green/yellow");
+    expect(html).toContain("Data not available");
+  });
+
+  it("renders provisional banner when status is provisional", () => {
+    const baseProfile = getLawProfile({ country: "DE" });
+    expect(baseProfile).not.toBeNull();
+    if (!baseProfile) return;
+    const provisionalProfile = {
+      ...baseProfile,
+      status: "provisional" as const
+    };
+    const html = renderToStaticMarkup(
+      createElement(ResultCard, {
+        profile: provisionalProfile,
+        title: "Germany",
+        isPaidUser: false
+      })
+    );
+    expect(html).toContain(STATUS_BANNERS.provisional.body);
   });
 });

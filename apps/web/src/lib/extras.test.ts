@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { buildExtrasItems, extrasPreview } from "./extras";
 import type { JurisdictionLawProfile } from "@islegal/shared";
+import { EXTRAS_PRIORITY } from "@islegal/shared";
 
 const profile: JurisdictionLawProfile = {
   id: "US-CA",
@@ -21,9 +22,9 @@ const profile: JurisdictionLawProfile = {
   extras: {
     purchase: "allowed",
     retail_shops: "allowed",
-    edibles: "restricted",
+    edibles: "illegal",
     vapes: "restricted",
-    concentrates: "restricted",
+    concentrates: "allowed",
     cbd: "allowed",
     paraphernalia: "allowed",
     medical_card: "allowed",
@@ -39,6 +40,7 @@ describe("extras mapping", () => {
   it("builds deterministic extras list", () => {
     const items = buildExtrasItems(profile);
     expect(items.length).toBe(13);
+    expect(items.map((item) => item.key)).toEqual(EXTRAS_PRIORITY);
     expect(items[0].label).toBe("Purchase");
     expect(items[0].value).toBe("Allowed");
   });

@@ -1,4 +1,5 @@
 import type { JurisdictionLawProfile, ResultViewModel } from "@islegal/shared";
+import { STATUS_BANNERS } from "@islegal/shared";
 import type { LocationContext } from "@/lib/location/locationContext";
 import type { ReactNode } from "react";
 import StatusBadge from "./StatusBadge";
@@ -10,7 +11,10 @@ import RecentResultBadge from "@/components/RecentResultBadge";
 import { hashLawProfile } from "@/lib/profileHash";
 import { buildTripStatusCode } from "@/lib/tripStatus";
 import { buildResultViewModel } from "@/lib/resultViewModel";
-import { statusIconForExtras } from "@/lib/extras";
+import { buildExtrasCards, statusIconForExtras } from "@/lib/extras";
+import Link from "next/link";
+import { shouldHighlightManualAction } from "@/lib/geo/locationResolution";
+import { toLocationResolution } from "@/lib/location/locationContext";
 
 type ResultCardProps = {
   profile: JurisdictionLawProfile;
@@ -80,7 +84,18 @@ export default function ResultCard({
     resolvedViewModel.meta?.paid
       ? resolvedViewModel.extrasFull ?? []
       : resolvedViewModel.extrasPreview ?? [];
+  const extrasCards = buildExtrasCards(profile, 3);
   const showExtras = extrasList.length > 0;
+  const showExtrasCards = extrasCards.length > 0;
+  const hasBorderRisk = profile.risks.includes("border_crossing");
+  const canWarn = profile.status === "known";
+  const showWarning =
+    canWarn && (resolvedViewModel.statusLevel === "red" || hasBorderRisk);
+  const nearestLegal = resolvedViewModel.nearestLegal ?? null;
+  const requestId = resolvedViewModel.meta?.requestId ?? null;
+  const highlightChange = shouldHighlightManualAction(
+    toLocationResolution(locationContext ?? null)
+  );
 
   return (
     <div className={styles.card}>
@@ -119,6 +134,21 @@ export default function ResultCard({
               cell={cacheCell ?? undefined}
             />
           ) : null}
+          <div className={styles.metaRow}>
+            {requestId ? (
+              <span className={styles.metaLabel}>
+                Request ID: {requestId.slice(0, 8)}
+              </span>
+            ) : null}
+            <Link
+              className={`${styles.changeLocation} ${
+                highlightChange ? styles.changeLocationHighlight : ""
+              }`}
+              href="/"
+            >
+              Change location
+            </Link>
+          </div>
         </div>
       </header>
 
@@ -128,7 +158,43 @@ export default function ResultCard({
           level={resolvedViewModel.statusLevel}
           label={resolvedViewModel.statusTitle}
         />
+        {profile.status === "provisional" ? (
+          <p className={styles.provisionalBanner}>
+            {STATUS_BANNERS.provisional.body}
+          </p>
+        ) : null}
+        {profile.status === "needs_review" ? (
+          <p className={styles.provisionalBanner}>
+            {STATUS_BANNERS.needs_review.body}
+          </p>
+        ) : null}
       </section>
+
+      {showWarning ? (
+        <section className={styles.warning} data-testid="warning">
+          <div className={styles.warningHeader}>
+            <span className={styles.warningIcon} aria-hidden="true">
+              ⚠️
+            </span>
+            <div className={styles.warningText}>
+              <h2 data-testid="warning-title">Warning</h2>
+              {resolvedViewModel.statusLevel === "red" ? (
+                <p>Not legal here.</p>
+              ) : null}
+              {hasBorderRisk ? <p>Border crossing is illegal.</p> : null}
+              {nearestLegal ? (
+                <p data-testid="nearest-legal">
+                  Nearest place where status is green/yellow: {nearestLegal.title} (
+                  ~{Math.round(nearestLegal.distanceKm)} km, approx)
+                </p>
+              ) : null}
+            </div>
+          </div>
+          <p className={styles.warningDisclaimer}>
+            Approximate. Verify local rules.
+          </p>
+        </section>
+      ) : null}
 
       {simpleTerms ? (
         <section className={styles.section}>{simpleTerms}</section>
@@ -143,7 +209,7 @@ export default function ResultCard({
         </ul>
       </section>
 
-      {renderRisks || renderSources || renderPdf ? (
+      {renderRisks || renderSources || renderPdf || showExtrasCards ? (
         <>
           {renderRisks ? (
             <section className={styles.section}>
@@ -157,20 +223,37 @@ export default function ResultCard({
           ) : null}
 
           {renderSources ? (
-            <section className={styles.section}>
+            <section className={styles.section} data-testid="sources">
               <h2>Sources</h2>
               <p className={styles.updated}>Verified: {verifiedLabel}</p>
               <p className={styles.updated}>
                 Last updated: {resolvedViewModel.updatedAt}
               </p>
               <ul className={styles.sources}>
-                {resolvedViewModel.sources.map((source) => (
-                  <li key={source.url}>
-                    <a href={source.url} target="_blank" rel="noreferrer">
-                      {source.title}
-                    </a>
-                  </li>
-                ))}
+                {resolvedViewModel.sources.map((source) => {
+                  let host = "";
+                  try {
+                    host = new URL(source.url).hostname;
+                  } catch {
+                    host = "";
+                  }
+                  return (
+                    <li key={source.url} className={styles.sourceItem}>
+                      <a
+                        className={styles.sourceLink}
+                        data-testid="source-link"
+                        href={source.url}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <span className={styles.sourceTitle}>{source.title}</span>
+                        {host ? (
+                          <span className={styles.sourceHost}>{host}</span>
+                        ) : null}
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
               {needsVerification && primarySource ? (
                 <a
@@ -182,6 +265,34 @@ export default function ResultCard({
                   Open official sources
                 </a>
               ) : null}
+            </section>
+          ) : null}
+
+          {showExtrasCards ? (
+            <section className={styles.section} data-testid="extras-cards">
+              <h2>Key extras</h2>
+              <div className={styles.extrasCards}>
+                {extrasCards.map((card) => (
+                  <div
+                    key={card.key}
+                    className={styles.extrasCard}
+                    data-testid="extras-card"
+                  >
+                    <div className={styles.extrasCardHeader}>
+                      <span className={styles.extrasCardTitle}>
+                        {card.title}
+                      </span>
+                      <span className={styles.extrasCardValue}>
+                        {card.value}
+                      </span>
+                    </div>
+                    <p className={styles.extrasCardBody}>{card.whyMatters}</p>
+                    <p className={styles.extrasCardHint}>
+                      {card.userActionHint}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </section>
           ) : null}
 

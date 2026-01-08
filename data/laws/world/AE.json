@@ -1,0 +1,78 @@
+{
+  "schema_version": 2,
+  "country": "AE",
+  "id": "AE",
+  "medical": "unknown",
+  "recreational": "unknown",
+  "possession_limit": "unknown",
+  "public_use": "unknown",
+  "home_grow": "unknown",
+  "cross_border": "illegal",
+  "risks": [
+    "border_crossing",
+    "driving",
+    "public_use"
+  ],
+  "extras": {
+    "purchase": "unknown",
+    "retail_shops": "unknown",
+    "edibles": "unknown",
+    "vapes": "unknown",
+    "concentrates": "unknown",
+    "cbd": "unknown",
+    "paraphernalia": "unknown",
+    "medical_card": "unknown",
+    "home_grow_plants": "unknown",
+    "social_clubs": "unknown",
+    "hemp": "unknown",
+    "workplace": "unknown",
+    "testing_dui": "unknown"
+  },
+  "sources": [
+    {
+      "title": "UAE Government Portal (official)",
+      "url": "https://u.ae/en/information-and-services/justice-safety-and-the-law/anti-narcotics-laws"
+    }
+  ],
+  "updated_at": "2026-01-08",
+  "verified_at": "2025-12-14",
+  "status": "provisional",
+  "confidence": "low",
+  "provenance": {
+    "method": "ocr+ai",
+    "extracted_at": "2026-01-07",
+    "model_id": "bootstrap",
+    "input_hashes": [
+      "3af2af2075b6c114c3f9d60b1ed4cd3299f0b4d82c1d2df25c5e8ac8d5f1e8d5"
+    ],
+    "citations": [
+      {
+        "url": "https://u.ae/en/information-and-services/justice-safety-and-the-law/anti-narcotics-laws",
+        "title": "UAE Government Portal",
+        "snippet_hash": "bootstrap",
+        "retrieved_at": "2025-12-14"
+      }
+    ]
+  },
+  "review_status": "needs_review",
+  "review_confidence": "medium",
+  "review_sources": [
+    {
+      "title": "UNODC World Drug Report",
+      "url": "https://www.unodc.org/unodc/en/data-and-analysis/world-drug-report.html",
+      "kind": "official",
+      "checked_at": "2026-01-07",
+      "weight": 0.6
+    }
+  ],
+  "review_status_history": [
+    {
+      "status": "provisional",
+      "at": "2025-12-14"
+    },
+    {
+      "status": "needs_review",
+      "at": "2026-01-08"
+    }
+  ]
+}

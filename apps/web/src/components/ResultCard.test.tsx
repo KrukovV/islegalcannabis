@@ -53,12 +53,12 @@ describe("ResultCard paywall", () => {
     expect(html).toContain("Location may be approximate");
   });
 
-  it("renders manual location without approximate hint", () => {
+  it("renders manual location with approximate hint", () => {
     const context: LocationContext = {
       mode: "manual",
       country: "DE",
       method: "manual",
-      confidence: "high",
+      confidence: "medium",
       source: "user"
     };
     const html = renderToStaticMarkup(
@@ -70,6 +70,6 @@ describe("ResultCard paywall", () => {
       />
     );
     expect(html).toContain("Selected manually");
-    expect(html).not.toContain("Location may be approximate");
+    expect(html).toContain("Location may be approximate");
   });
 });
