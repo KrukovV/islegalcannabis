@@ -2,8 +2,8 @@
   "schema_version": 2,
   "country": "TH",
   "id": "TH",
-  "medical": "unknown",
-  "recreational": "unknown",
+  "medical": "allowed",
+  "recreational": "allowed",
   "possession_limit": "unknown",
   "public_use": "unknown",
   "home_grow": "unknown",
@@ -30,13 +30,13 @@
   },
   "sources": [
     {
-      "title": "Ministry of Public Health (official)",
-      "url": "https://www.moph.go.th/"
+      "title": "Official source",
+      "url": "https://www.thaigov.go.th/"
     }
   ],
-  "updated_at": "2025-12-14",
+  "updated_at": "2026-01-09",
   "verified_at": "2025-12-14",
-  "status": "provisional",
+  "status": "needs_review",
   "confidence": "low",
   "provenance": {
     "method": "ocr+ai",
@@ -53,5 +53,63 @@
         "retrieved_at": "2025-12-14"
       }
     ]
-  }
+  },
+  "review_status": "needs_review",
+  "review_confidence": "medium",
+  "review_sources": [
+    {
+      "title": "Official source",
+      "url": "https://www.thaigov.go.th/"
+    }
+  ],
+  "review_status_history": [
+    {
+      "status": "provisional",
+      "at": "2025-12-14"
+    },
+    {
+      "status": "needs_review",
+      "at": "2026-01-09"
+    },
+    {
+      "status": "needs_review",
+      "at": "2026-01-09"
+    },
+    {
+      "status": "needs_review",
+      "at": "2026-01-09"
+    },
+    {
+      "status": "needs_review",
+      "at": "2026-01-09"
+    },
+    {
+      "status": "needs_review",
+      "at": "2026-01-09"
+    },
+    {
+      "status": "needs_review",
+      "at": "2026-01-09"
+    },
+    {
+      "status": "needs_review",
+      "at": "2026-01-09"
+    }
+  ],
+  "legal_ssot": {
+    "recreational": "legal",
+    "medical": "legal",
+    "notes": null,
+    "sources": [
+      {
+        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis"
+      }
+    ]
+  },
+  "status_recreational": "legal",
+  "status_medical": "legal",
+  "official_sources": [],
+  "wiki_source": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "effective_date": null
 }

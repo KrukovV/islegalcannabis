@@ -1,5 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
+import { isLawKnown } from "../../packages/shared/src/law_known.js";
+import { sourcesMatchRegistry } from "../sources/registry_match.mjs";
+import { loadSourceRegistries } from "../sources/load_registries.mjs";
 
 function parseArgs() {
   const args = process.argv.slice(2);
@@ -23,6 +26,26 @@ function listJsonFiles(dir, files = []) {
     }
   }
   return files;
+}
+
+function writePromotionReport(root, report) {
+  const outDir = path.join(root, "Reports", "promotion");
+  fs.mkdirSync(outDir, { recursive: true });
+  fs.writeFileSync(
+    path.join(outDir, "last_promotion.json"),
+    JSON.stringify(report, null, 2) + "\n"
+  );
+  fs.writeFileSync(
+    path.join(outDir, "rejected.json"),
+    JSON.stringify(
+      {
+        generated_at: report.generated_at,
+        rejected: report.rejected
+      },
+      null,
+      2
+    ) + "\n"
+  );
 }
 
 function mulberry32(seed) {
@@ -49,6 +72,7 @@ function main() {
   const { count, seed, root } = parseArgs();
   const lawsDir = path.join(root, "data", "laws");
   const registryPath = path.join(root, "data", "sources", "registry.json");
+  const registries = loadSourceRegistries(root);
   if (!fs.existsSync(registryPath)) {
     console.error(`Missing registry: ${registryPath}`);
     process.exit(1);
@@ -67,6 +91,70 @@ function main() {
     }
   }
 
+  if (process.env.PROMOTE_KNOWN === "1") {
+    const allFiles = listJsonFiles(lawsDir);
+    const candidates = allFiles
+      .map((file) => ({
+        file,
+        id: path.basename(file, ".json").toUpperCase(),
+        payload: JSON.parse(fs.readFileSync(file, "utf8"))
+      }))
+      .filter((entry) => {
+        const status = String(entry.payload?.review_status || "").toLowerCase();
+        return status === "needs_review" || status === "reviewed";
+      })
+      .sort((a, b) => a.id.localeCompare(b.id))
+      .slice(0, 5);
+
+    const today = new Date().toISOString().slice(0, 10);
+    const promoted = [];
+    const rejected = [];
+
+    for (const entry of candidates) {
+      const payload = entry.payload;
+      const reviewStatus = String(payload?.review_status || "").toLowerCase();
+      if (reviewStatus !== "reviewed") {
+        rejected.push({ id: entry.id, reason: "not_reviewed" });
+        continue;
+      }
+      if (!isLawKnown(payload, registries)) {
+        rejected.push({ id: entry.id, reason: "missing_fields" });
+        continue;
+      }
+      if (!sourcesMatchRegistry(entry.id, payload.sources)) {
+        rejected.push({ id: entry.id, reason: "no_official_source" });
+        continue;
+      }
+      const history = Array.isArray(payload.review_status_history)
+        ? payload.review_status_history.slice()
+        : [];
+      const lastStatus = payload.review_status || payload.status || "provisional";
+      history.push({ status: lastStatus, at: payload.updated_at || today });
+      history.push({ status: "known", at: today });
+
+      const next = {
+        ...payload,
+        status: "known",
+        review_status: "reviewed",
+        updated_at: today,
+        review_status_history: history
+      };
+      fs.writeFileSync(entry.file, JSON.stringify(next, null, 2) + "\n");
+      promoted.push(entry.id);
+    }
+
+    const report = {
+      generated_at: today,
+      promoted_count: promoted.length,
+      rejected_count: rejected.length,
+      promoted_ids: promoted,
+      rejected
+    };
+    writePromotionReport(root, report);
+    console.log(`PROMOTION: promoted=${promoted.length} rejected=${rejected.length}`);
+    return;
+  }
+
   const provisionalFiles = listJsonFiles(lawsDir).filter((file) => {
     const parsed = JSON.parse(fs.readFileSync(file, "utf8"));
     if (parsed?.review_status === "provisional") return true;
@@ -82,8 +170,18 @@ function main() {
     .sort((a, b) => a.code.localeCompare(b.code));
 
   if (eligible.length === 0) {
-    console.error("No provisional profiles with registry sources.");
-    process.exit(1);
+    const today = new Date().toISOString().slice(0, 10);
+    const report = {
+      generated_at: today,
+      promoted_count: 0,
+      rejected_count: 0,
+      promoted_ids: [],
+      rejected: [],
+      reason: "NO_PROVISIONAL_WITH_SOURCES"
+    };
+    writePromotionReport(root, report);
+    console.log("PROMOTION: promoted=0 rejected=0");
+    return;
   }
 
   const selected = seededShuffle(eligible, seed).slice(0, count);
@@ -116,7 +214,7 @@ function main() {
     history.push({ status: parsed.review_status || "provisional", at: parsed.updated_at || today });
     history.push({ status: "needs_review", at: today });
 
-    const next = {
+    let next = {
       ...parsed,
       review_status: "needs_review",
       review_confidence: confidence,
@@ -124,6 +222,17 @@ function main() {
       updated_at: today,
       review_status_history: history
     };
+
+    const registryMatch = sourcesMatchRegistry(entry.code, next.sources);
+    if (next.status === "known" && (!isLawKnown(next, registries) || !registryMatch)) {
+      const notes = Array.isArray(parsed.review_notes) ? parsed.review_notes.slice() : [];
+      notes.push("missing verified sources");
+      next = {
+        ...next,
+        status: "needs_review",
+        review_notes: notes
+      };
+    }
 
     fs.writeFileSync(entry.file, JSON.stringify(next, null, 2) + "\n");
   }

@@ -2,6 +2,31 @@
 
 Statuses: pending | in_progress | done
 
-- [in_progress] Fix checkpoint -> CONTINUITY State always matches latest .checkpoints/*.patch
-- [pending] Harden CI determinism (free port, no silent fallbacks) + smoke contract checks
-- [pending] Ledger compact discipline: Done<=10, archive older entries without dupes
+- [done] Fix checkpoint -> CONTINUITY State always matches latest .checkpoints/*.patch
+- [done] Harden CI determinism (free port, no silent fallbacks) + smoke contract checks
+- [done] Ledger compact discipline: Done<=10, archive older entries without dupes
+- [done] Add wiki claims ingest snapshot (all countries/states) + 4h refresh schedule
+- [done] Extend wiki main-article crawler to emit official refs + deny reasons/top hosts
+- [done] Wire wiki official refs into auto_facts entrypoints + OFFICIAL_SCOPE
+- [done] Evidence snippets must be marker-aligned with snippet guard + best-evidence ranking
+- [done] Add cannabis-only discovery/doc-hunt/evidence gating pipeline for auto_facts (official-only)
+- [done] Extend CI summary/guards for cannabis discovery + doc-hunt progress output
+- [done] Add robots/etag snapshot caching + budget controls for cannabis pipeline
+- [done] Align AUTO_LEARN candidates/report selection with allowlist + consistent iso reporting
+- [done] Auto-facts multi-snapshot processing + auto-verify alignment with evidence outputs
+- [done] Cannabis-only XK improvements: cross-subdomain discovery, doc-hunt source meta, law_doc gating, blocker summary
+- [done] Status claim extraction + normative doc gate + MV block reasons
+- [done] OCR gate metadata + cannabis-bound status claim + multi-doc evidence aggregation
+- [done] Wiki claim fetcher + geo resolver + wiki refs extraction (fixtures/tests)
+- [done] Wiki-first verify pipeline (wiki -> main article -> official refs) + reports
+- [done] Improve wiki refs extraction (legality sections + named refs)
+- [done] UI/API wiki-claim display + verify reason wiring
+- [done] Rebuild sources_registry from official_catalog + unify law_verified/missing_sources metrics
+- [done] Ensure machine_verified evidence flows to API/UI + summary lines/tests
+- [done] Fix OFFLINE metrics/summary consistency (wiki metrics from SSOT, stages, blocker LAW_PAGE)
+- [done] Guard machine_verified writes (skip empty/offline, atomic write) + summary output
+- [done] Implement wiki SSOT refresh pipeline (wiki_refresh CLI, refs, official eval, reports)
+- [done] Wire pass_cycle to wiki_refresh + update summary/guards
+- [done] Default network ON for pass_cycle + add NETWORK_GUARD + stdout NETWORK line
+- [done] Add wiki refresh main_articles_total + API rate-limit/retry safety
+- [done] Expand official scope to portals/allowlist + add non_official wiki outputs

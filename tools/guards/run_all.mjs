@@ -25,6 +25,9 @@ for (const name of entries) {
   if (name === "summary_format.mjs") {
     args.push("--file", path.join(process.cwd(), ".checkpoints", "ci-summary.txt"));
   }
+  if (name === "metrics_artifacts_guard.mjs") {
+    args.push("--summary", path.join(process.cwd(), ".checkpoints", "ci-summary.txt"));
+  }
   const result = spawnSync(process.execPath, args, {
     stdio: "inherit"
   });

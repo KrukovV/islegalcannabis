@@ -1,0 +1,3380 @@
+{
+  "AD": {
+    "medical": [
+      "https://www.govern.ad/ca/inici"
+    ],
+    "missing_official": false,
+    "notes": "AUTO_SEEDED candidate; snapshot=/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/AD/2026-01-11/fa801799dbd19d72f0e66b95f36933f5d892a6b06774e714f40dd76183a622c9.html; AUTO_SEEDED candidate; snapshot=/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/AD/2026-01-11/c03e6ac694366d439b53c6960b04cf5dbde23b8a1dcf01a67ac4a557372bad2c.html auto_seeded",
+    "recreational": [
+      "https://www.govern.ad/ca/inici"
+    ],
+    "verified": {
+      "medical": [],
+      "recreational": [
+        "https://www.govern.ad/ca/inici"
+      ]
+    },
+    "government_portal": [
+      "https://www.govern.ad/"
+    ],
+    "government_portals": [
+      "https://www.govern.ad/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "AE": {
+    "medical": [
+      "https://u.ae/en/information-and-services/justice-safety-and-the-law/drugs-and-controlled-medicines"
+    ],
+    "notes": "UAE official portal - very strict drug laws; limited controlled medicines.",
+    "government_portal": [
+      "https://u.ae/"
+    ],
+    "government_portals": [
+      "https://government.ae/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "AF": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://mfa.gov.af/",
+      "https://president.gov.af/en/"
+    ],
+    "government_portals": [
+      "https://president.gov.af/en/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "AG": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://ab.gov.ag/"
+    ],
+    "government_portals": [
+      "https://ab.gov.ag/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "AI": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://gov.ai/"
+    ]
+  },
+  "AL": {
+    "medical": [
+      "https://www.kryeministria.al/en/"
+    ],
+    "missing_official": true,
+    "notes": "AUTO_SEEDED candidate; snapshot=/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/AL/2026-01-11/e99f0c79bb9dfcfbf04c07480411a10f5eac227a11b54aa75c2377040d7b5994.html; AUTO_SEEDED candidate; snapshot=/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/AL/2026-01-11/e99f0c79bb9dfcfbf04c07480411a10f5eac227a11b54aa75c2377040d7b5994.html auto_seeded",
+    "recreational": [
+      "https://parlament.al/",
+      "https://www.kryeministria.al/en/"
+    ],
+    "verified": {
+      "medical": [],
+      "recreational": [
+        "https://parlament.al/"
+      ]
+    },
+    "government_portal": [
+      "https://www.qeveria.al/",
+      "https://kryeministria.al/en/"
+    ],
+    "government_portals": [
+      "https://president.al/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "AM": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "AUTO_SEEDED candidate; snapshot=/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/AM/2026-01-11/fdd9fd9405a2673a97b0424f23a226398880f541ad3cc6beffa4c820403e2b98.html",
+    "recreational": [
+      "https://e-gov.am/"
+    ],
+    "government_portal": [
+      "https://www.gov.am/"
+    ],
+    "government_portals": [
+      "https://president.am/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "AO": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.governo.gov.ao/",
+      "https://governo.gov.ao/"
+    ],
+    "government_portals": [
+      "https://governo.gov.ao/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "AQ": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": []
+  },
+  "AR": {
+    "medical": [
+      "https://www.argentina.gob.ar/salud/cannabis"
+    ],
+    "notes": "Argentina government health portal on medical cannabis.",
+    "government_portal": [
+      "https://www.argentina.gob.ar/"
+    ],
+    "government_portals": [
+      "https://www.argentina.gob.ar/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "AS": {
+    "medical": [
+      "https://www.americansamoa.gov/"
+    ],
+    "missing_official": false,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://www.americansamoa.gov/"
+    ],
+    "auto": {
+      "medical": [],
+      "recreational": [],
+      "official": [
+        "https://www.americansamoa.gov/"
+      ],
+      "discovered_at": "2026-01-10T20:20:40.330Z",
+      "validated_at": "2026-01-10T20:21:29.759Z",
+      "snapshot_at": "2026-01-10T20:21:29.759Z"
+    },
+    "government_portals": [
+      "https://americansamoa.gov/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.768Z"
+  },
+  "AT": {
+    "medical": [
+      "https://www.basg.gv.at/"
+    ],
+    "notes": "Austrian medical cannabis under BASG (regulatory authority). Recreational is illegal.",
+    "government_portal": [
+      "https://www.oesterreich.gv.at/"
+    ],
+    "government_portals": [
+      "https://federal-chancellery.gv.at/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "AU": {
+    "medical": [
+      "https://www.tga.gov.au/medicinal-cannabis"
+    ],
+    "notes": "Australia TGA — national regulatory framework for medicinal cannabis; recreational laws vary by state but this is official.",
+    "government_portal": [
+      "https://my.gov.au/",
+      "https://www.australia.gov.au/"
+    ],
+    "government_portals": [
+      "https://www.australia.gov.au/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "AW": {
+    "medical": [
+      "https://www.parlamento.aw/"
+    ],
+    "missing_official": true,
+    "notes": "AUTO_SEEDED candidate; snapshot=/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/AW/2026-01-11/6f003376aac411dc115cf9a756da5ad9762e3632b00e7eeab2f7267f574c7a1e.html auto_seeded",
+    "recreational": [
+      "https://www.parlamento.aw/"
+    ],
+    "government_portal": [
+      "https://www.gobierno.aw/"
+    ]
+  },
+  "AX": {
+    "medical": [
+      "https://www.regeringen.ax/"
+    ],
+    "missing_official": true,
+    "notes": "AUTO_SEEDED candidate; snapshot=/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/AX/2026-01-11/faed1dc6e842a1300d8816a35d3ec3d4210d4071d62afff7eebcecf9029a8b15.html auto_seeded",
+    "recreational": [
+      "https://www.lagtinget.ax/",
+      "https://www.regeringen.ax/"
+    ]
+  },
+  "AZ": {
+    "medical": [
+      "https://meclis.gov.az/"
+    ],
+    "missing_official": false,
+    "notes": "AUTO_SEEDED candidate; snapshot=/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/AZ/2026-01-11/c3137058401799d689ac5caa873afda070f3cb1c739a9791adf39570eddb8cbe.html auto_seeded",
+    "recreational": [
+      "https://meclis.gov.az/"
+    ],
+    "government_portal": [
+      "https://president.az/",
+      "https://en.president.az/"
+    ],
+    "government_portals": [
+      "https://president.az/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "BA": {
+    "medical": [
+      "https://www.parlament.ba/"
+    ],
+    "missing_official": true,
+    "notes": "AUTO_SEEDED candidate; snapshot=/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/BA/2026-01-11/f1130f76598faa70f4f069c94bc01475ff4e6efd962ce4ac58714fcc293b6ec7.html auto_seeded",
+    "recreational": [
+      "https://www.parlament.ba/"
+    ],
+    "government_portal": [
+      "https://www.fbihvlada.gov.ba/"
+    ],
+    "government_portals": [
+      "https://predsjednistvobih.ba/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "BB": {
+    "medical": [
+      "https://www.gov.bb/"
+    ],
+    "missing_official": true,
+    "notes": "AUTO_SEEDED candidate; snapshot=/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/BB/2026-01-11/64e44b492b5c12066e94e7d60fb7891363f2a8abf4527f37ad2a115fc448d71b.html auto_seeded",
+    "recreational": [
+      "https://www.gov.bb/",
+      "https://www.barbadosparliament.com/"
+    ],
+    "government_portal": [
+      "https://www.gov.bb/"
+    ],
+    "government_portals": [
+      "https://www.gov.bb/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "BD": {
+    "medical": [
+      "https://www.mohfw.gov.bd/"
+    ],
+    "notes": "Bangladesh Ministry of Health; cannabis illegal.",
+    "government_portal": [
+      "https://bangladesh.gov.bd/"
+    ],
+    "government_portals": [
+      "https://bangladesh.gov.bd/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "BE": {
+    "medical": [
+      "https://www.health.belgium.be/en/health/medicines-health-products/medicines/cannabis"
+    ],
+    "notes": "Belgium federal health authority; medical cannabis tightly regulated.",
+    "government_portal": [
+      "https://www.belgium.be/"
+    ],
+    "government_portals": [
+      "https://www.belgium.be/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "BF": {
+    "medical": [
+      "https://gouvernement.gov.bf/"
+    ],
+    "missing_official": true,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://gouvernement.gov.bf/"
+    ],
+    "auto": {
+      "medical": [],
+      "recreational": [],
+      "official": [
+        "https://gouvernement.gov.bf/"
+      ],
+      "discovered_at": "2026-01-10T20:23:52.313Z",
+      "validated_at": "2026-01-10T20:24:41.181Z",
+      "snapshot_at": "2026-01-10T20:24:41.181Z"
+    },
+    "government_portal": [
+      "https://www.gouvernement.gov.bf/"
+    ],
+    "government_portals": [
+      "https://www.gouvernement.gov.bf/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "BG": {
+    "medical": [
+      "https://www.mh.government.bg/"
+    ],
+    "notes": "Bulgaria Ministry of Health; cannabis illegal, medical tightly controlled.",
+    "government_portal": [
+      "https://www.gov.bg/"
+    ],
+    "government_portals": [
+      "https://www.government.bg/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "BH": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.bahrain.bh/"
+    ],
+    "government_portals": [
+      "https://www.bahrain.bh/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "BI": {
+    "medical": [
+      "https://presidence.gov.bi/"
+    ],
+    "missing_official": true,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://presidence.gov.bi/"
+    ],
+    "auto": {
+      "medical": [],
+      "recreational": [],
+      "official": [
+        "https://presidence.gov.bi/"
+      ],
+      "discovered_at": "2026-01-10T20:25:40.307Z",
+      "validated_at": "2026-01-10T20:26:26.752Z",
+      "snapshot_at": "2026-01-10T20:26:26.752Z"
+    },
+    "government_portal": [
+      "https://burundi.gov.bi/"
+    ],
+    "government_portals": [
+      "https://www.burundi.gov.bi/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "BJ": {
+    "medical": [
+      "https://www.gouv.bj/"
+    ],
+    "missing_official": false,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://www.gouv.bj/"
+    ],
+    "government_portal": [
+      "https://www.gouv.bj/"
+    ],
+    "government_portals": [
+      "https://www.gouv.bj/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "BL": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": []
+  },
+  "BM": {
+    "medical": [
+      "https://www.gov.bm/"
+    ],
+    "missing_official": true,
+    "notes": "AUTO_SEEDED candidate; snapshot=/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/BM/2026-01-11/013a592f85fc2a3b5a1374882d874b5cc43626134ecc50007b97785199cfb83c.html auto_seeded",
+    "recreational": [
+      "https://www.gov.bm/",
+      "https://www.parliament.bm/"
+    ],
+    "government_portals": [
+      "https://www.gov.bm/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "BN": {
+    "medical": [
+      "https://www.moh.gov.bn/"
+    ],
+    "notes": "Brunei Ministry of Health; cannabis illegal under strict narcotics law.",
+    "government_portal": [
+      "https://www.gov.bn/"
+    ],
+    "government_portals": [
+      "https://www.gov.bn/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "BO": {
+    "medical": [
+      "https://www.minsalud.gob.bo/"
+    ],
+    "notes": "Bolivia Ministry of Health; cannabis illegal.",
+    "auto": {
+      "medical": [],
+      "recreational": [],
+      "official": [
+        "https://www.minsalud.gob.bo/"
+      ],
+      "discovered_at": "2026-01-10T20:02:53.500Z",
+      "validated_at": "2026-01-10T20:02:56.082Z",
+      "snapshot_at": "2026-01-10T20:02:56.082Z"
+    },
+    "government_portal": [
+      "https://www.bolivia.gob.bo/",
+      "https://www.presidencia.gob.bo/"
+    ],
+    "government_portals": [
+      "https://bolivia.gob.bo/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "BQ": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": []
+  },
+  "BR": {
+    "medical": [
+      "http://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2020/Lei/L14021.htm"
+    ],
+    "notes": "Brazil Law 14.021/2020 authorizes medical cannabis use.",
+    "government_portal": [
+      "https://gov.br/",
+      "https://acesso.gov.br/",
+      "https://www.gov.br/",
+      "https://www.brazil.gov.br/"
+    ],
+    "government_portal_secondary": [
+      "https://correios.com.br/"
+    ],
+    "government_portals": [
+      "https://www.gov.br/",
+      "https://brasil.gov.br/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "BS": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.bahamas.gov.bs/"
+    ],
+    "government_portals": [
+      "https://www.bahamas.gov.bs/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "BT": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.gov.bt/",
+      "https://www.bhutan.gov.bt/"
+    ],
+    "government_portals": [
+      "https://www.gov.bt/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "BV": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": []
+  },
+  "BW": {
+    "medical": [
+      "https://gov.bw/"
+    ],
+    "missing_official": true,
+    "notes": "AUTO_SEEDED candidate; snapshot=/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/BW/2026-01-11/0ef3e46b03af734beb8cd411074a5a087162179b1a9172f3e49f7c402bf3af35.html auto_seeded",
+    "recreational": [
+      "https://gov.bw/"
+    ],
+    "government_portal": [
+      "https://www.gov.bw/"
+    ],
+    "government_portals": [
+      "https://www.gov.bw/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "BY": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://government.by/",
+      "https://www.belarus.by/"
+    ],
+    "government_portals": [
+      "https://president.gov.by/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "BZ": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.belize.gov.bz/"
+    ],
+    "government_portals": [
+      "https://www.belize.gov.bz/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "CA": {
+    "medical": [
+      "https://laws.justice.gc.ca/eng/acts/c-24.5/"
+    ],
+    "notes": "Cannabis Act legalizes recreational and medical use (federal law).",
+    "recreational": [
+      "https://laws.justice.gc.ca/eng/acts/c-24.5/"
+    ],
+    "government_portal": [
+      "https://canada.ca/",
+      "https://www.canada.ca/"
+    ],
+    "government_portals": [
+      "https://www.canada.ca/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "CC": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": []
+  },
+  "CD": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://presidence.cg/"
+    ],
+    "government_portals": [
+      "https://presidentrdc.cd/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "CF": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.gouv.cf/"
+    ]
+  },
+  "CG": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portals": [
+      "https://presidence.cg/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "CH": {
+    "medical": [
+      "https://www.swissmedic.ch/swissmedic/en/home/market/marketing-licensing/authorisation/authorisation-of-medicinal-products.html"
+    ],
+    "notes": "Swiss federal announcements for regulated experiments + medical frameworks.",
+    "recreational": [
+      "https://www.admin.ch/gov/en/start/documentation/media-releases.msg-id-76073.html"
+    ],
+    "government_portal": [
+      "https://www.admin.ch/",
+      "https://www.admin.ch/gov/de/start.html/"
+    ],
+    "government_portals": [
+      "https://www.admin.ch/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "CI": {
+    "medical": [
+      "https://www.gouv.ci/"
+    ],
+    "missing_official": false,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://www.gouv.ci/"
+    ],
+    "government_portal": [
+      "https://www.gouv.ci/"
+    ],
+    "government_portals": [
+      "https://www.gouv.ci/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "CK": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": []
+  },
+  "CL": {
+    "medical": [
+      "https://www.leychile.cl/Navegar?idNorma=1116936"
+    ],
+    "notes": "Chile law authorizes medical cannabis; recreational remains controlled under Chilean public health codes.",
+    "government_portal": [
+      "https://www.gob.cl/"
+    ],
+    "government_portals": [
+      "https://www.gob.cl/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "CM": {
+    "medical": [
+      "https://www.prc.cm/fr/"
+    ],
+    "missing_official": false,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [],
+    "government_portal": [
+      "https://www.prc.cm/",
+      "https://www.spm.gov.cm/"
+    ],
+    "government_portals": [
+      "https://www.spm.gov.cm/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "CN": {
+    "medical": [
+      "http://www.nhc.gov.cn/"
+    ],
+    "notes": "China National Health Commission; cannabis illegal except industrial hemp regulation.",
+    "government_portal": [
+      "https://english.www.gov.cn/",
+      "https://www.gov.cn/"
+    ],
+    "government_portal_alt": [
+      "https://english.www.gov.cn/"
+    ],
+    "government_portals": [
+      "https://www.gov.cn/",
+      "https://english.www.gov.cn/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "CO": {
+    "medical": [
+      "https://www.invima.gov.co/"
+    ],
+    "notes": "Colombian National Institute for Drug and Food Surveillance pages on authorized cannabis products; recreational decriminalized to some extents.",
+    "government_portal": [
+      "https://www.gov.co/home/"
+    ],
+    "government_portals": [
+      "https://nomasfilas.gov.co/",
+      "https://gov.co/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "CR": {
+    "medical": [
+      "https://www.ministeriodesalud.go.cr/"
+    ],
+    "notes": "Costa Rica Ministry of Health; medical cannabis legal.",
+    "government_portal": [
+      "https://www.presidencia.go.cr/"
+    ],
+    "government_portals": [
+      "https://www.presidencia.go.cr/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "CU": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.cubagov.cu/",
+      "https://www.presidencia.gob.cu/"
+    ],
+    "government_portals": [
+      "https://cubagob.cu/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "CV": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "AUTO_SEEDED candidate; snapshot=/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/CV/2026-01-11/7ebb1c5b9cb9ecc2635c5d94d3e7767bb4978d8d3871d9c2e40bb1af9c71751b.html",
+    "recreational": [
+      "https://www.parlamento.cv/"
+    ],
+    "government_portal": [
+      "https://www.governo.cv/"
+    ],
+    "government_portals": [
+      "https://www.governo.cv/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "CW": {
+    "medical": [
+      "https://www.parlamento.cw/"
+    ],
+    "missing_official": true,
+    "notes": "AUTO_SEEDED candidate; snapshot=/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/CW/2026-01-11/f46f1ef828a30fe0179f155f1ed93cb547b25cd4d94ceab65dcc23a90153dbad.html auto_seeded",
+    "recreational": [
+      "https://www.parlamento.cw/"
+    ]
+  },
+  "CX": {
+    "medical": [
+      "https://www.shire.gov.cx/"
+    ],
+    "missing_official": false,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://www.shire.gov.cx/"
+    ],
+    "auto": {
+      "medical": [],
+      "recreational": [],
+      "official": [
+        "https://www.shire.gov.cx/"
+      ],
+      "discovered_at": "2026-01-10T20:14:14.516Z",
+      "validated_at": "2026-01-10T20:15:08.718Z",
+      "snapshot_at": "2026-01-10T20:15:08.718Z"
+    }
+  },
+  "CY": {
+    "medical": [
+      "https://www.moh.gov.cy/moh/moh.nsf/index_en/index_en?OpenDocument"
+    ],
+    "notes": "Cyprus Ministry of Health; medical cannabis framework.",
+    "government_portal": [
+      "https://www.cyprus.gov.cy/"
+    ],
+    "government_portals": [
+      "https://www.cyprus.gov.cy/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "CZ": {
+    "medical": [
+      "https://www.sukl.cz/"
+    ],
+    "notes": "Czech State Institute for Drug Control; medical cannabis legal.",
+    "government_portal": [
+      "https://www.vlada.cz/"
+    ],
+    "government_portals": [
+      "https://www.czech.cz/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "DE": {
+    "medical": [
+      "https://www.bfarm.de/EN/Drugs/licensing/cannabis/_node.html"
+    ],
+    "notes": "German Cannabis Act effective April 2024. Recreational adult use legal  (primary government page).",
+    "recreational": [
+      "https://www.bundesgesundheitsministerium.de/en/themen/cannabis/faq-cannabis-act.html"
+    ],
+    "candidates_official": [
+      "https://verwaltung.bund.de/"
+    ],
+    "auto": {
+      "medical": [],
+      "recreational": [],
+      "official": [],
+      "discovered_at": "2026-01-11T08:39:20.428Z",
+      "validated_at": "2026-01-11T08:39:49.962Z",
+      "snapshot_at": "2026-01-11T08:39:49.962Z"
+    },
+    "government_portal": [
+      "https://www.bundesregierung.de/"
+    ],
+    "government_portals": [
+      "https://www.bundesregierung.de/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "DJ": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.presidence.dj/"
+    ]
+  },
+  "DK": {
+    "medical": [
+      "https://laegemiddelstyrelsen.dk/en/"
+    ],
+    "notes": "Danish Medicines Agency pilot program for medical cannabis.",
+    "candidates_official": [
+      "https://laegemiddelstyrelsen.dk/en/"
+    ],
+    "auto": {
+      "medical": [],
+      "recreational": [],
+      "official": [],
+      "discovered_at": "2026-01-11T08:44:30.407Z",
+      "validated_at": "2026-01-11T08:45:02.215Z",
+      "snapshot_at": "2026-01-11T08:45:02.215Z"
+    },
+    "government_portal": [
+      "https://www.denmark.dk/",
+      "https://denmark.dk/"
+    ],
+    "government_portals": [
+      "https://www.ft.dk/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "DM": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://dominica.gov.dm/"
+    ],
+    "government_portals": [
+      "https://dominica.gov.dm/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "DO": {
+    "medical": [
+      "https://www.msp.gob.do/"
+    ],
+    "notes": "Dominican Republic Ministry of Public Health; cannabis illegal.",
+    "government_portal": [
+      "https://www.dominicanrepublic.com/"
+    ]
+  },
+  "DZ": {
+    "medical": [
+      "https://www.el-mouradia.dz/ar/home"
+    ],
+    "missing_official": false,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [],
+    "government_portal": [
+      "https://www.el-mouradia.dz/",
+      "https://www.mae.gov.dz/"
+    ],
+    "government_portals": [
+      "https://www.el-mouradia.dz/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "EC": {
+    "medical": [
+      "https://www.salud.gob.ec/"
+    ],
+    "notes": "Ecuador Ministry of Health; cannabis illegal, limited medical use.",
+    "government_portal": [
+      "https://www.presidencia.gob.ec/"
+    ],
+    "government_portals": [
+      "https://www.presidencia.gob.ec/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "EE": {
+    "medical": [
+      "https://www.sm.ee/en"
+    ],
+    "notes": "Estonian Ministry of Social Affairs; medical cannabis under special permit.",
+    "government_portal": [
+      "https://www.valitsus.ee/",
+      "https://valitsus.ee/"
+    ],
+    "government_portals": [
+      "https://www.valitsus.ee/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "EG": {
+    "medical": [
+      "https://www.mohp.gov.eg/"
+    ],
+    "notes": "Egypt Ministry of Health; cannabis illegal, medical exceptions rare.",
+    "government_portal": [
+      "https://www.egypt.gov.eg/"
+    ],
+    "government_portals": [
+      "https://cabinet.gov.eg/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "EH": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": []
+  },
+  "ER": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.shabait.com/",
+      "https://shabait.com/"
+    ],
+    "government_portals": [
+      "https://shabait.com/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "ES": {
+    "medical": [
+      "https://www.boe.es/eli/es/l/2015/07/21/17/con"
+    ],
+    "notes": "Spain medical cannabis is regulated via public health laws; recreational use largely decriminalized in private contexts.",
+    "candidates_official": [
+      "https://www.boe.es/eli/es/l/2015/07/21/17/con"
+    ],
+    "auto": {
+      "medical": [],
+      "recreational": [],
+      "official": [],
+      "discovered_at": "2026-01-11T09:20:23.392Z",
+      "validated_at": "2026-01-11T09:21:02.718Z",
+      "snapshot_at": "2026-01-11T09:21:02.718Z"
+    },
+    "government_portal": [
+      "https://www.lamoncloa.gob.es/"
+    ]
+  },
+  "ET": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://pmo.gov.et/"
+    ]
+  },
+  "FI": {
+    "medical": [
+      "https://www.fimea.fi/web/en"
+    ],
+    "notes": "Finnish Medicines Agency; medical cannabis via prescription.",
+    "government_portal": [
+      "https://valtioneuvosto.fi/"
+    ],
+    "government_portals": [
+      "https://valtioneuvosto.fi/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "FJ": {
+    "medical": [
+      "https://www.fiji.gov.fj/Home"
+    ],
+    "missing_official": false,
+    "notes": "AUTO_SEEDED candidate; snapshot=/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/FJ/2026-01-11/e946fbd0e881962a3432ab13a150401d487d03e4e25a34e622ce7feaa72b4458.html auto_seeded",
+    "recreational": [
+      "https://www.fiji.gov.fj/Home"
+    ],
+    "government_portal": [
+      "https://www.fiji.gov.fj/"
+    ],
+    "government_portals": [
+      "https://www.fiji.gov.fj/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "FK": {
+    "medical": [
+      "https://www.gov.fk/"
+    ],
+    "missing_official": false,
+    "notes": "AUTO_SEEDED candidate; snapshot=/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/FK/2026-01-11/084964fca18e02f3ad28e5a961c3060130ff92ddbab1221e73bcf3788dca802c.html auto_seeded",
+    "recreational": [
+      "https://assembly.gov.fk/",
+      "https://www.gov.fk/"
+    ],
+    "government_portals": [
+      "https://www.falklands.gov.fk/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "FM": {
+    "medical": [
+      "https://gov.fm/"
+    ],
+    "missing_official": false,
+    "notes": "AUTO_SEEDED candidate; snapshot=/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/FM/2026-01-11/5b6894b893daeb38372a729dbfe1016a6b17545cfd95862fd2ef2bc04507ffe0.html auto_seeded",
+    "recreational": [
+      "https://www.cfsm.gov.fm/",
+      "https://gov.fm/"
+    ],
+    "government_portal": [
+      "https://www.fsmgov.org/"
+    ],
+    "government_portals": [
+      "https://www.fsmgov.org/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "FO": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": []
+  },
+  "FR": {
+    "medical": [
+      "https://ansm.sante.fr/dossiers-thematiques/cannabis-a-usage-medical"
+    ],
+    "notes": "France ANSM pilot program for medical cannabis; recreational illegal.",
+    "government_portal": [
+      "https://franceconnect.gouv.fr/",
+      "https://impots.gouv.fr/",
+      "https://service-public.gouv.fr/",
+      "https://www.gouvernement.fr/"
+    ],
+    "government_portal_secondary": [
+      "https://laposte.fr/"
+    ],
+    "government_portals": [
+      "https://www.service-public.fr/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "GA": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.gouvernement.ga/"
+    ],
+    "government_portals": [
+      "https://www.gouvernement.ga/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "GB": {
+    "medical": [
+      "https://www.gov.uk/government/collections/medicinal-cannabis-information-and-resources"
+    ],
+    "notes": "UK allows medical cannabis by prescription; Home Office/NHS official resources.",
+    "government_portal": [
+      "https://gov.uk/",
+      "https://service.gov.uk/",
+      "https://www.gov.uk/"
+    ],
+    "government_portal_secondary": [
+      "https://royalmail.com/"
+    ],
+    "government_portals": [
+      "https://www.gov.uk/",
+      "https://gov.wales/",
+      "https://northernireland.gov.uk/",
+      "https://gov.scot/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "GD": {
+    "medical": [
+      "https://www.gov.gd/"
+    ],
+    "missing_official": false,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://www.gov.gd/"
+    ],
+    "government_portal": [
+      "https://gov.gd/"
+    ],
+    "government_portals": [
+      "https://gov.gd/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "GE": {
+    "medical": [
+      "https://en.wikipedia.org/wiki/Cannabis_in_Georgia_(country)"
+    ],
+    "notes": "Georgia (country) legal for possession; detailed in Wikipedia but can be backed by constitutional court decisions.",
+    "recreational": [
+      "https://en.wikipedia.org/wiki/Cannabis_in_Georgia_(country)"
+    ],
+    "government_portal": [
+      "https://georgia.gov/"
+    ],
+    "government_portals": [
+      "https://president.gov.ge/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "GF": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portals": [
+      "https://guyane.pref.gouv.fr/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "GG": {
+    "medical": [
+      "https://www.gov.gg/"
+    ],
+    "missing_official": false,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://www.gov.gg/"
+    ]
+  },
+  "GH": {
+    "medical": [
+      "https://www.moh.gov.gh/"
+    ],
+    "notes": "Ghana Ministry of Health; medical cannabis legalized.",
+    "candidates_official": [
+      "https://www.moh.gov.gh/"
+    ],
+    "auto": {
+      "medical": [],
+      "recreational": [],
+      "official": [],
+      "discovered_at": "2026-01-11T09:39:50.071Z",
+      "validated_at": "2026-01-11T09:40:18.697Z",
+      "snapshot_at": "2026-01-11T09:40:18.698Z"
+    },
+    "government_portal": [
+      "https://www.ghana.gov.gh/"
+    ],
+    "government_portals": [
+      "https://www.ghana.gov.gh/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "GI": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portals": [
+      "https://www.gibraltar.gov.gi/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "GL": {
+    "medical": [
+      "https://naalakkersuisut.gl/"
+    ],
+    "missing_official": false,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [],
+    "government_portal": [
+      "https://naalakkersuisut.gl/"
+    ],
+    "government_portals": [
+      "https://nanoq.gl/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "GM": {
+    "medical": [
+      "https://assembly.gm/"
+    ],
+    "missing_official": true,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://assembly.gm/"
+    ],
+    "government_portal": [
+      "https://www.statehouse.gm/"
+    ],
+    "government_portals": [
+      "https://www.statehouse.gm/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "GN": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.guineaecuatorialpress.com/"
+    ],
+    "government_portals": [
+      "https://presidence.gov.gn/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "GP": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": []
+  },
+  "GQ": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.guineaecuatorialpress.com/"
+    ]
+  },
+  "GR": {
+    "medical": [
+      "https://www.moh.gov.gr/articles/ministry/grafeio-typoy/press-releases/6958-nomos-gia-farmakeytikh-kannabh"
+    ],
+    "notes": "Greece Ministry of Health; medical cannabis legalized.",
+    "government_portal": [
+      "https://gov.gr/",
+      "https://www.mfa.gr/"
+    ],
+    "government_portals": [
+      "https://government.gov.gr/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "GS": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": []
+  },
+  "GT": {
+    "medical": [
+      "https://www.congreso.gob.gt/"
+    ],
+    "missing_official": true,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://www.congreso.gob.gt/"
+    ],
+    "government_portal": [
+      "https://guatemala.gob.gt/"
+    ],
+    "government_portals": [
+      "https://guatemala.gob.gt/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "GU": {
+    "medical": [
+      "https://www.guam.gov/"
+    ],
+    "missing_official": false,
+    "notes": "AUTO_SEEDED candidate; snapshot=/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/GU/2026-01-11/4b157d275b369c21edad7691a21e5c0e6709dadd690cb15815f2bdaf214dc760.html auto_seeded",
+    "recreational": [
+      "https://www.guam.gov/"
+    ],
+    "verified": {
+      "medical": [],
+      "recreational": [
+        "https://www.guam.gov/"
+      ]
+    }
+  },
+  "GW": {
+    "medical": [
+      "https://gov.gw/"
+    ],
+    "missing_official": false,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://gov.gw/"
+    ],
+    "government_portal": [
+      "https://www.guinebissaurepublic.com/"
+    ]
+  },
+  "GY": {
+    "medical": [
+      "https://parliament.gov.gy/"
+    ],
+    "missing_official": false,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://parliament.gov.gy/"
+    ],
+    "government_portal": [
+      "https://government.gy/"
+    ],
+    "government_portals": [
+      "https://parliament.gov.gy/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "HK": {
+    "medical": [
+      "https://www.gov.hk/en/residents/health"
+    ],
+    "notes": "Hong Kong SAR Government; cannabis strictly illegal.",
+    "government_portals": [
+      "https://www.gov.hk/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "HM": {
+    "medical": [
+      "https://www.antarctica.gov.au/antarctic-operations/stations-and-field-locations/heard-island/"
+    ],
+    "missing_official": false,
+    "notes": "AUTO_SEEDED candidate; snapshot=/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/HM/2026-01-11/acef3147cd2d83a8b9d9e63b1c58de288aad440d6baffd76fc1ff7b735492d91.html auto_seeded",
+    "recreational": [
+      "https://www.antarctica.gov.au/antarctic-operations/stations-and-field-locations/heard-island/"
+    ],
+    "verified": {
+      "medical": [],
+      "recreational": [
+        "https://www.antarctica.gov.au/antarctic-operations/stations-and-field-locations/heard-island/"
+      ]
+    }
+  },
+  "HN": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://presidencia.gob.hn/"
+    ],
+    "government_portals": [
+      "https://presidencia.gob.hn/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "HR": {
+    "medical": [
+      "https://zdravlje.gov.hr/"
+    ],
+    "notes": "Croatia Ministry of Health; medical cannabis permitted.",
+    "candidates_official": [
+      "https://zdravlje.gov.hr/"
+    ],
+    "auto": {
+      "medical": [],
+      "recreational": [],
+      "official": [],
+      "discovered_at": "2026-01-11T09:41:39.871Z",
+      "validated_at": "2026-01-11T09:42:07.751Z",
+      "snapshot_at": "2026-01-11T09:42:07.751Z"
+    },
+    "government_portal": [
+      "https://vlada.gov.hr/"
+    ],
+    "government_portals": [
+      "https://vlada.gov.hr/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "HT": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": []
+  },
+  "HU": {
+    "medical": [
+      "https://ogyei.gov.hu/"
+    ],
+    "notes": "Hungarian National Institute of Pharmacy; strict prohibition, rare medical permits.",
+    "candidates_official": [
+      "https://ogyei.gov.hu/"
+    ],
+    "auto": {
+      "medical": [],
+      "recreational": [],
+      "official": [],
+      "discovered_at": "2026-01-11T09:43:15.572Z",
+      "validated_at": "2026-01-11T09:43:46.489Z",
+      "snapshot_at": "2026-01-11T09:43:46.489Z"
+    },
+    "government_portal": [
+      "https://2010-2014.kormany.hu/en/"
+    ],
+    "government_portals": [
+      "https://kormany.hu/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "ID": {
+    "medical": [
+      "https://peraturan.bpk.go.id/"
+    ],
+    "notes": "Indonesia official law portal; cannabis illegal, medical research exceptions discussed.",
+    "government_portal": [
+      "https://pajak.go.id/",
+      "https://www.indonesia.go.id/",
+      "https://www.kemlu.go.id/en/"
+    ],
+    "government_portals": [
+      "https://www.indonesia.go.id/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "IE": {
+    "medical": [
+      "https://www.gov.ie/en/policy-information/medicinal-cannabis/"
+    ],
+    "notes": "Ireland Department of Health - Medical Cannabis Access Programme.",
+    "government_portal": [
+      "https://www.gov.ie/"
+    ],
+    "government_portals": [
+      "https://www.gov.ie/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "IL": {
+    "medical": [
+      "https://www.health.gov.il/English/Topics/DrugAbuse/Pages/cannabis.aspx"
+    ],
+    "notes": "Israel Ministry of Health page — legal medical cannabis framework.",
+    "government_portal": [
+      "https://www.gov.il/"
+    ],
+    "government_portals": [
+      "https://www.gov.il/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "IM": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": []
+  },
+  "IN": {
+    "medical": [
+      "https://legislative.gov.in/sites/default/files/A1985-61.pdf"
+    ],
+    "notes": "India NDPS Act 1985 - cannabis largely illegal; traditional use regulated by states.",
+    "government_portal": [
+      "https://uidai.gov.in/",
+      "https://eci.gov.in/",
+      "https://gst.gov.in/",
+      "https://epfindia.gov.in/",
+      "https://www.india.gov.in/"
+    ],
+    "government_portals": [
+      "https://www.india.gov.in/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "IO": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": []
+  },
+  "IQ": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://gds.gov.iq/"
+    ],
+    "government_portals": [
+      "https://presidency.iq/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "IR": {
+    "medical": [
+      "https://behdasht.gov.ir/"
+    ],
+    "notes": "Iran Ministry of Health; cannabis illegal.",
+    "government_portal": [
+      "https://www.president.ir/"
+    ],
+    "government_portals": [
+      "https://www.president.ir/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "IS": {
+    "medical": [
+      "https://www.government.is/ministries/health/"
+    ],
+    "notes": "Iceland Ministry of Health; limited medical cannabis.",
+    "government_portal": [
+      "https://www.government.is/"
+    ],
+    "government_portals": [
+      "https://island.is/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "IT": {
+    "medical": [
+      "https://www.gazzettaufficiale.it/eli/id/2013/11/14/13G00251/sg"
+    ],
+    "notes": "Italian official gazette — medical cannabis regime; recreational remains technically illegal (decriminalized in parts).",
+    "government_portal": [
+      "https://www.governo.it/"
+    ],
+    "government_portals": [
+      "https://www.governo.it/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "JE": {
+    "medical": [
+      "https://statesassembly.je/"
+    ],
+    "missing_official": true,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://statesassembly.je/"
+    ]
+  },
+  "JM": {
+    "medical": [
+      "https://www.moh.gov.jm/"
+    ],
+    "notes": "Jamaica Ministry of Health; decriminalized + medical cannabis authority.",
+    "government_portal": [
+      "https://www.gov.jm/"
+    ],
+    "government_portals": [
+      "https://cabinet.gov.jm/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "JO": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://jordan.gov.jo/"
+    ],
+    "government_portals": [
+      "https://nic.gov.jo/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "JP": {
+    "medical": [
+      "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000188411.html"
+    ],
+    "notes": "Japan Ministry of Health - Cannabis Control Act; extremely strict regime.",
+    "government_portal": [
+      "https://mhlw.go.jp/",
+      "https://nta.go.jp/",
+      "https://mlit.go.jp/",
+      "https://www.japan.go.jp/"
+    ],
+    "government_portal_secondary": [
+      "https://japanpost.jp/"
+    ],
+    "government_portals": [
+      "https://www.kantei.go.jp/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "KE": {
+    "medical": [
+      "https://www.health.go.ke/"
+    ],
+    "notes": "Kenya Ministry of Health; cannabis illegal, medical debate ongoing.",
+    "government_portal": [
+      "https://www.go.ke/",
+      "https://www.president.go.ke/"
+    ],
+    "government_portals": [
+      "https://parliament.go.ke/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "KG": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.gov.kg/"
+    ],
+    "government_portals": [
+      "https://president.kg/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "KH": {
+    "medical": [
+      "https://www.moh.gov.kh/"
+    ],
+    "notes": "Cambodia Ministry of Health; cannabis illegal.",
+    "government_portal": [
+      "https://www.cambodia.gov.kh/",
+      "https://pressocm.gov.kh/en/"
+    ],
+    "government_portals": [
+      "https://mfaic.gov.kh/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "KI": {
+    "medical": [
+      "https://www.kiribati.gov.ki/"
+    ],
+    "missing_official": false,
+    "notes": "AUTO_SEEDED candidate; snapshot=/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/KI/2026-01-11/c7e27cfce0afa4dd0f3464e6b1e41e2db832982bba1734ca6e1acffa35b95e7e.html auto_seeded",
+    "recreational": [
+      "https://www.kiribati.gov.ki/"
+    ],
+    "verified": {
+      "medical": [],
+      "recreational": [
+        "https://www.kiribati.gov.ki/"
+      ]
+    },
+    "government_portal": [
+      "https://kiribati.gov.ki/"
+    ],
+    "government_portals": [
+      "https://www.parliament.gov.ki/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "KM": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://beit-salam.km/"
+    ],
+    "government_portals": [
+      "https://beit-salam.km/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "KN": {
+    "medical": [
+      "https://www.parliament.gov.kn/"
+    ],
+    "missing_official": false,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://www.parliament.gov.kn/"
+    ],
+    "government_portal": [
+      "https://www.gov.kn/"
+    ],
+    "government_portals": [
+      "https://www.gov.kn/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "KP": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.korea-dpr.com/"
+    ],
+    "government_portals": [
+      "https://www.korea-dpr.com/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "KR": {
+    "medical": [
+      "https://www.mfds.go.kr/eng/index.do"
+    ],
+    "notes": "South Korea MFDS allows limited medical cannabis via import approval.",
+    "government_portal": [
+      "https://www.gov.kr/",
+      "https://www.mofa.go.kr/"
+    ],
+    "government_portals": [
+      "https://www.korea.net/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "KW": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.cait.gov.kw/"
+    ],
+    "government_portals": [
+      "https://e.gov.kw/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "KY": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portals": [
+      "https://www.gov.ky/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "KZ": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.primeminister.kz/"
+    ],
+    "government_portals": [
+      "https://government.kz/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "LA": {
+    "medical": [
+      "https://www.moh.gov.la/"
+    ],
+    "notes": "Laos Ministry of Health; cannabis illegal.",
+    "government_portal": [
+      "https://www.na.gov.la/"
+    ],
+    "government_portals": [
+      "https://www.na.gov.la/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "LB": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://portal.gov.lb/"
+    ]
+  },
+  "LC": {
+    "medical": [
+      "https://parliament.govt.lc/"
+    ],
+    "missing_official": false,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://parliament.govt.lc/"
+    ],
+    "government_portal": [
+      "https://www.govt.lc/"
+    ],
+    "government_portals": [
+      "https://www.govt.lc/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "LI": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.liechtenstein.li/"
+    ],
+    "government_portals": [
+      "https://www.liechtenstein.li/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "LK": {
+    "medical": [
+      "https://www.health.gov.lk/"
+    ],
+    "notes": "Sri Lanka Ministry of Health; traditional/medical cannabis permitted.",
+    "candidates_official": [
+      "https://www.health.gov.lk/"
+    ],
+    "auto": {
+      "medical": [],
+      "recreational": [],
+      "official": [],
+      "discovered_at": "2026-01-11T09:48:39.618Z",
+      "validated_at": "2026-01-11T09:49:24.578Z",
+      "snapshot_at": "2026-01-11T09:49:24.578Z"
+    },
+    "government_portal": [
+      "https://www.gov.lk/"
+    ],
+    "government_portals": [
+      "https://www.gov.lk/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "LR": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://eliberia.gov.lr/"
+    ],
+    "government_portals": [
+      "https://micat.gov.lr/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "LS": {
+    "medical": [
+      "https://parliament.ls/"
+    ],
+    "missing_official": false,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://www.gov.ls/"
+    ],
+    "government_portal": [
+      "https://www.gov.ls/"
+    ],
+    "government_portals": [
+      "https://www.gov.ls/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "LT": {
+    "medical": [
+      "https://sam.lrv.lt/en/"
+    ],
+    "notes": "Lithuania Ministry of Health; medical cannabis allowed since 2019.",
+    "government_portal": [
+      "https://lrv.lt/"
+    ],
+    "government_portals": [
+      "https://lrv.lt/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "LU": {
+    "medical": [
+      "https://sante.public.lu/en/politique-sante/medicaments.html"
+    ],
+    "notes": "Luxembourg government portal; recreational legalization framework.",
+    "recreational": [
+      "https://gouvernement.lu/en/dossiers/2021/cannabis.html"
+    ],
+    "government_portal": [
+      "https://gouvernement.lu/"
+    ],
+    "government_portals": [
+      "https://luxembourg.public.lu/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "LV": {
+    "medical": [
+      "https://www.vm.gov.lv/en"
+    ],
+    "notes": "Latvia Ministry of Health; cannabis illegal, medical discussion limited.",
+    "government_portal": [
+      "https://www.mk.gov.lv/"
+    ],
+    "government_portals": [
+      "https://latvija.lv/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "LY": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.pm.gov.ly/"
+    ]
+  },
+  "MA": {
+    "medical": [
+      "https://www.sante.gov.ma/"
+    ],
+    "notes": "Morocco Ministry of Health; medical/industrial cannabis regulation.",
+    "government_portal": [
+      "https://www.maroc.ma/",
+      "https://www.men.gov.ma/"
+    ],
+    "government_portals": [
+      "https://pm.gov.ma/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "MC": {
+    "medical": [
+      "https://www.gouv.mc/"
+    ],
+    "missing_official": false,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [],
+    "government_portal": [
+      "https://en.gouv.mc/"
+    ],
+    "government_portals": [
+      "https://en.gouv.mc/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "MD": {
+    "medical": [
+      "https://ms.gov.md/"
+    ],
+    "notes": "Moldova Ministry of Health; strict regulation.",
+    "government_portal": [
+      "https://gov.md/"
+    ],
+    "government_portals": [
+      "https://moldova.md/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "ME": {
+    "medical": [
+      "https://www.gov.me/"
+    ],
+    "missing_official": false,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://www.gov.me/"
+    ],
+    "government_portal": [
+      "https://www.gov.me/"
+    ],
+    "government_portals": [
+      "https://www.gov.me/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "MF": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": []
+  },
+  "MG": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.presidence.gov.mg/"
+    ],
+    "government_portals": [
+      "https://www.presidence.gov.mg/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "MH": {
+    "medical": [
+      "https://rmiparliament.org/"
+    ],
+    "missing_official": true,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://rmiparliament.org/"
+    ],
+    "government_portal": [
+      "https://www.rmiparliament.org/"
+    ],
+    "government_portals": [
+      "https://rmigovernment.org/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "MK": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://vlada.mk/"
+    ],
+    "government_portals": [
+      "https://vlada.mk/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "ML": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.primature.gov.ml/"
+    ],
+    "government_portals": [
+      "https://www.primature.gov.ml/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "MM": {
+    "medical": [
+      "https://www.mohs.gov.mm/"
+    ],
+    "notes": "Myanmar Ministry of Health; cannabis illegal.",
+    "government_portal": [
+      "https://www.moi.gov.mm/"
+    ],
+    "government_portals": [
+      "https://myanmar.gov.mm/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "MN": {
+    "medical": [
+      "https://moh.gov.mn/"
+    ],
+    "notes": "Mongolia Ministry of Health; cannabis illegal.",
+    "government_portal": [
+      "https://president.mn/"
+    ],
+    "government_portals": [
+      "https://president.mn/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "MO": {
+    "medical": [
+      "https://www.gov.mo/pt/"
+    ],
+    "missing_official": false,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://www.gov.mo/pt/",
+      "https://al.gov.mo/en/"
+    ],
+    "government_portals": [
+      "https://www.gov.mo/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "MP": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": []
+  },
+  "MQ": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": []
+  },
+  "MR": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portals": [
+      "https://mauritania.mr/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "MS": {
+    "medical": [
+      "https://parliament.ms/"
+    ],
+    "missing_official": true,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://parliament.ms/"
+    ]
+  },
+  "MT": {
+    "medical": [
+      "https://meae.gov.mt/en/Public_Consultations/MSDEC/Pages/Cannabis-Reform.aspx"
+    ],
+    "notes": "Malta Authority for the Responsible Use of Cannabis; first EU recreational law.",
+    "recreational": [
+      "https://meae.gov.mt/en/Public_Consultations/MSDEC/Pages/Cannabis-Reform.aspx"
+    ],
+    "government_portal": [
+      "https://www.gov.mt/"
+    ],
+    "government_portals": [
+      "https://www.gov.mt/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "MU": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://govmu.org/"
+    ],
+    "government_portals": [
+      "https://govmu.org/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "MV": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://presidency.gov.mv/"
+    ],
+    "government_portals": [
+      "https://presidency.gov.mv/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "MW": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.malawi.gov.mw/"
+    ],
+    "government_portals": [
+      "https://www.malawi.gov.mw/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "MX": {
+    "medical": [
+      "https://www.gob.mx/cofepris/acciones-y-programas/cannabis-salud"
+    ],
+    "notes": "Mexico Supreme Court rulings + regulatory documents; LGCA is federal law.",
+    "recreational": [
+      "https://www.diputados.gob.mx/LeyesBiblio/pdf/LGCA_230423.pdf"
+    ],
+    "government_portal": [
+      "https://gob.mx/",
+      "https://sat.gob.mx/",
+      "https://www.gob.mx/"
+    ],
+    "government_portals": [
+      "https://www.gob.mx/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "MY": {
+    "medical": [
+      "https://www.pharmacy.gov.my/v2/en"
+    ],
+    "notes": "Malaysia Pharmacy Division; cannabis illegal, medical discussion ongoing.",
+    "government_portal": [
+      "https://www.malaysia.gov.my/"
+    ],
+    "government_portals": [
+      "https://www.malaysia.gov.my/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "MZ": {
+    "medical": [
+      "https://www.parlamento.mz/"
+    ],
+    "missing_official": true,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://www.parlamento.mz/"
+    ],
+    "government_portal": [
+      "https://www.portaldogoverno.gov.mz/"
+    ],
+    "government_portals": [
+      "https://presidencia.gov.mz/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "NA": {
+    "medical": [
+      "https://www.parliament.na/"
+    ],
+    "missing_official": true,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://gov.na/"
+    ],
+    "government_portal": [
+      "https://opm.gov.na/"
+    ],
+    "government_portals": [
+      "https://www.gov.na/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "NC": {
+    "medical": [
+      "https://gouv.nc/"
+    ],
+    "missing_official": false,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": []
+  },
+  "NE": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.presidence.ne/"
+    ],
+    "government_portals": [
+      "https://www.presidence.ne/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "NF": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": []
+  },
+  "NG": {
+    "medical": [
+      "https://www.health.gov.ng/"
+    ],
+    "notes": "Nigeria Ministry of Health; cannabis illegal, medical discussion ongoing.",
+    "government_portal": [
+      "https://www.nigeria.gov.ng/",
+      "https://statehouse.gov.ng/"
+    ],
+    "government_portals": [
+      "https://www.nigeria.gov.ng/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "NI": {
+    "medical": [
+      "https://www.asamblea.gob.ni/"
+    ],
+    "missing_official": false,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://www.asamblea.gob.ni/"
+    ],
+    "government_portals": [
+      "https://poderjudicial.gob.ni/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "NL": {
+    "medical": [
+      "https://www.government.nl/topics/drugs/cannabis-policy"
+    ],
+    "notes": "Dutch government policy page describes tolerance and regulated coffee shop system.",
+    "recreational": [
+      "https://www.government.nl/topics/drugs/cannabis-policy"
+    ],
+    "government_portal_secondary": [
+      "https://postnl.nl/"
+    ],
+    "government_portal": [
+      "https://www.government.nl/"
+    ],
+    "government_portals": [
+      "https://www.government.nl/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "NO": {
+    "medical": [
+      "https://www.legemiddelverket.no/"
+    ],
+    "notes": "Norwegian Medicines Agency; medical cannabis via special permits.",
+    "government_portal": [
+      "https://www.regjeringen.no/"
+    ],
+    "government_portals": [
+      "https://www.regjeringen.no/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "NP": {
+    "medical": [
+      "https://mohp.gov.np/"
+    ],
+    "notes": "Nepal Ministry of Health; cannabis illegal, traditional use regulated.",
+    "government_portal": [
+      "https://www.nepal.gov.np/"
+    ],
+    "government_portals": [
+      "https://opmcm.gov.np/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "NR": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.naurugov.nr/"
+    ]
+  },
+  "NU": {
+    "medical": [
+      "https://www.gov.nu/government/"
+    ],
+    "missing_official": false,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://www.gov.nu/government/"
+    ],
+    "government_portals": [
+      "https://www.gov.nu/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "NZ": {
+    "medical": [
+      "https://www.health.govt.nz/our-work/regulation-health-and-disability-system/medicinal-cannabis-regulations"
+    ],
+    "notes": "New Zealand official health regulator pages for medical cannabis; recreational is tightly regulated or referendum-driven.",
+    "government_portal": [
+      "https://www.govt.nz/"
+    ],
+    "government_portals": [
+      "https://beehive.govt.nz/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "OM": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.oman.om/"
+    ],
+    "government_portals": [
+      "https://mofa.gov.om/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "PA": {
+    "medical": [
+      "https://www.minsa.gob.pa/"
+    ],
+    "notes": "Panama Ministry of Health; medical cannabis law approved.",
+    "government_portal": [
+      "https://www.presidencia.gob.pa/"
+    ],
+    "government_portals": [
+      "https://www.presidencia.gob.pa/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "PE": {
+    "medical": [
+      "https://www.gob.pe/minsa"
+    ],
+    "notes": "Peru Ministry of Health; medical cannabis legal.",
+    "government_portal": [
+      "https://sunat.gob.pe/",
+      "https://www.gob.pe/"
+    ],
+    "government_portals": [
+      "https://www.gob.pe/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "PF": {
+    "medical": [
+      "https://www.polynesie-francaise.pref.gouv.fr/"
+    ],
+    "missing_official": false,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://www.polynesie-francaise.pref.gouv.fr/"
+    ],
+    "government_portals": [
+      "https://www.presidence.pf/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "PG": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.parliament.gov.pg/"
+    ]
+  },
+  "PH": {
+    "medical": [
+      "https://www.congress.gov.ph/"
+    ],
+    "notes": "Philippines Congress bills on medical cannabis; currently illegal.",
+    "government_portal": [
+      "https://www.gov.ph/"
+    ],
+    "government_portals": [
+      "https://www.gov.ph/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "PK": {
+    "medical": [
+      "https://www.moh.gov.pk/"
+    ],
+    "notes": "Pakistan Ministry of Health; cannabis illegal, provincial variance exists.",
+    "government_portal": [
+      "https://www.pakistan.gov.pk/"
+    ],
+    "government_portals": [
+      "https://www.pakistan.gov.pk/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "PL": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.gov.pl/"
+    ],
+    "government_portals": [
+      "https://premier.gov.pl/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "PM": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": []
+  },
+  "PN": {
+    "medical": [
+      "https://www.government.pn/"
+    ],
+    "missing_official": false,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": []
+  },
+  "PR": {
+    "medical": [
+      "https://senado.pr.gov/"
+    ],
+    "missing_official": false,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://senado.pr.gov/"
+    ]
+  },
+  "PS": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": []
+  },
+  "PT": {
+    "medical": [
+      "https://www.infarmed.pt/web/infarmed-en/home"
+    ],
+    "notes": "Portugal decriminalized all drugs; official Diário da República + INFARMED regulator.",
+    "recreational": [
+      "https://dre.pt/home/-/dre/124182043/details/maximized"
+    ],
+    "government_portal": [
+      "https://www.portugal.gov.pt/"
+    ],
+    "government_portals": [
+      "https://www.portugal.gov.pt/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "PW": {
+    "medical": [
+      "https://www.palaugov.pw/"
+    ],
+    "missing_official": true,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://www.palaugov.pw/"
+    ],
+    "government_portal": [
+      "https://www.palaugov.pw/"
+    ],
+    "government_portals": [
+      "https://www.palaugov.pw/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "PY": {
+    "medical": [
+      "https://www.mspbs.gov.py/"
+    ],
+    "notes": "Paraguay Ministry of Public Health; medical cannabis legal.",
+    "government_portal": [
+      "https://www.paraguay.gov.py/"
+    ],
+    "government_portals": [
+      "https://presidencia.gov.py/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "QA": {
+    "medical": [
+      "https://www.diwan.gov.qa/"
+    ],
+    "missing_official": false,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://www.diwan.gov.qa/"
+    ],
+    "government_portal": [
+      "https://www.gco.gov.qa/"
+    ],
+    "government_portals": [
+      "https://diwan.gov.qa/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "RE": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": []
+  },
+  "RO": {
+    "medical": [
+      "https://www.ms.ro/"
+    ],
+    "notes": "Romanian Ministry of Health; limited medical cannabis discussions.",
+    "government_portal": [
+      "https://www.gov.ro/"
+    ],
+    "government_portals": [
+      "https://www.gov.ro/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "RS": {
+    "medical": [
+      "https://www.zdravlje.gov.rs/"
+    ],
+    "notes": "Serbia Ministry of Health; cannabis illegal, medical debates ongoing.",
+    "government_portal": [
+      "https://www.srbija.gov.rs/",
+      "https://www.mfa.gov.rs/"
+    ]
+  },
+  "RU": {
+    "medical": [],
+    "missing_official": false,
+    "notes": "Official legal portals and justice/parliament sources.",
+    "recreational": [],
+    "government_portal": [
+      "https://government.ru/",
+      "https://www.duma.gov.ru/",
+      "https://pravo.gov.ru/",
+      "https://publication.pravo.gov.ru/",
+      "https://minjust.gov.ru/",
+      "http://pravo.gov.ru/",
+      "http://publication.pravo.gov.ru/"
+    ]
+  },
+  "RW": {
+    "medical": [
+      "https://www.gov.rw/"
+    ],
+    "missing_official": false,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://www.gov.rw/",
+      "https://www.parliament.gov.rw/"
+    ],
+    "government_portal": [
+      "https://www.gov.rw/"
+    ],
+    "government_portals": [
+      "https://www.gov.rw/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "SA": {
+    "medical": [
+      "https://www.sfda.gov.sa/en"
+    ],
+    "notes": "Saudi Food & Drug Authority; cannabis illegal, medical exceptions extremely limited.",
+    "government_portal": [
+      "https://www.moh.gov.sa/"
+    ]
+  },
+  "SB": {
+    "medical": [
+      "https://solomons.gov.sb/"
+    ],
+    "missing_official": true,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://solomons.gov.sb/"
+    ],
+    "government_portal": [
+      "https://solomons.gov.sb/"
+    ],
+    "government_portals": [
+      "https://pmc.gov.sb/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "SC": {
+    "medical": [
+      "https://www.nationalassembly.sc/"
+    ],
+    "missing_official": true,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://www.nationalassembly.sc/"
+    ],
+    "government_portal": [
+      "https://www.statehouse.gov.sc/"
+    ],
+    "government_portals": [
+      "https://egov.sc/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "SD": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.sudan.gov.sd/"
+    ],
+    "government_portals": [
+      "https://www.sudan.gov.sd/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "SE": {
+    "medical": [
+      "https://www.lakemedelsverket.se/"
+    ],
+    "notes": "Swedish Medical Products Agency; very limited medical cannabis.",
+    "government_portal": [
+      "https://www.government.se/"
+    ],
+    "government_portals": [
+      "https://www.government.se/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "SG": {
+    "medical": [
+      "https://www.cnb.gov.sg/drug-information"
+    ],
+    "notes": "Singapore Central Narcotics Bureau - zero tolerance; no legal medical framework.",
+    "government_portal": [
+      "https://www.gov.sg/"
+    ],
+    "government_portals": [
+      "https://www.gov.sg/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "SH": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portals": [
+      "https://www.sainthelena.gov.sh/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "SI": {
+    "medical": [
+      "https://www.gov.si/en/policies/health/"
+    ],
+    "notes": "Slovenian government health policy; medical cannabis regulated.",
+    "government_portal": [
+      "https://www.gov.si/"
+    ],
+    "government_portals": [
+      "https://www.gov.si/",
+      "https://slovenia.si/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "SJ": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": []
+  },
+  "SK": {
+    "medical": [
+      "https://www.health.gov.sk/"
+    ],
+    "notes": "Slovakia Ministry of Health; cannabis mostly illegal, CBD regulated.",
+    "government_portal": [
+      "https://www.vlada.gov.sk/"
+    ],
+    "government_portals": [
+      "https://www.vlada.gov.sk/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "SL": {
+    "medical": [
+      "https://statehouse.gov.sl/"
+    ],
+    "missing_official": false,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://statehouse.gov.sl/"
+    ],
+    "government_portal": [
+      "https://psru.gov.sl/"
+    ],
+    "government_portals": [
+      "https://statehouse-sl.org/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "SM": {
+    "medical": [
+      "https://www.gov.sm/"
+    ],
+    "missing_official": false,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://www.gov.sm/"
+    ],
+    "government_portal": [
+      "https://www.sanmarino.sm/"
+    ]
+  },
+  "SN": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.sec.gouv.sn/"
+    ],
+    "government_portals": [
+      "https://www.gouv.sn/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "SO": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.somalia.gov.so/"
+    ],
+    "government_portals": [
+      "https://somaligov.net/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "SR": {
+    "medical": [
+      "https://gov.sr/"
+    ],
+    "missing_official": false,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://gov.sr/"
+    ],
+    "government_portal": [
+      "https://www.gov.sr/"
+    ],
+    "government_portals": [
+      "https://president.gov.sr/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "SS": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.goss-online.org/"
+    ]
+  },
+  "ST": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://visitsaotomeprincipe.st/"
+    ],
+    "government_portals": [
+      "https://presidencia.st/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "SV": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.presidencia.gob.sv/"
+    ],
+    "government_portals": [
+      "https://presidencia.gob.sv/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "SX": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": []
+  },
+  "SY": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.egov.sy/"
+    ],
+    "government_portals": [
+      "https://www.egov.sy/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "SZ": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.gov.sz/"
+    ],
+    "government_portals": [
+      "https://www.gov.sz/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "TC": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portals": [
+      "https://www.gov.tc/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "TD": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.presidence.td/",
+      "https://presidence.td/"
+    ],
+    "government_portals": [
+      "https://presidence.td/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "TF": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": []
+  },
+  "TG": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.republicoftogo.com/"
+    ],
+    "government_portals": [
+      "https://www.republicoftogo.com/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "TH": {
+    "medical": [
+      "https://www.fda.moph.go.th/",
+      "https://www.moph.go.th/"
+    ],
+    "notes": "Thailand legal/gazette and health portals; medical legal, recreational policy evolving.",
+    "recreational": [
+      "https://www.thaigov.go.th/news"
+    ],
+    "government_portal": [
+      "https://www.thaigov.go.th/",
+      "https://thailand.prd.go.th/",
+      "https://ratchakitcha.soc.go.th/",
+      "https://www.krisdika.go.th/"
+    ],
+    "government_portals": [
+      "https://www.thaigov.go.th/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "TJ": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.stat.tj/"
+    ],
+    "government_portals": [
+      "https://president.tj/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "TK": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": []
+  },
+  "TL": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portals": [
+      "https://timor-leste.gov.tl/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "TM": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://turkey.tmembassy.gov.tm/"
+    ],
+    "government_portals": [
+      "https://turkmenistan.gov.tm/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "TN": {
+    "medical": [
+      "http://www.santetunisie.rns.tn/"
+    ],
+    "notes": "Tunisia Ministry of Health; cannabis illegal.",
+    "government_portal": [
+      "https://www.pm.gov.tn/"
+    ]
+  },
+  "TO": {
+    "medical": [
+      "https://parliament.gov.to/en"
+    ],
+    "missing_official": false,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://parliament.gov.to/en"
+    ],
+    "government_portal": [
+      "https://www.mic.gov.to/"
+    ],
+    "government_portals": [
+      "https://pmo.gov.to/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "TR": {
+    "medical": [
+      "https://www.saglik.gov.tr/"
+    ],
+    "notes": "Turkey Ministry of Health; limited medical cultivation under state control.",
+    "government_portal": [
+      "https://turkiye.gov.tr/",
+      "https://meb.gov.tr/",
+      "https://saglik.gov.tr/",
+      "https://www.mfa.gov.tr/"
+    ],
+    "government_portals": [
+      "https://www.tccb.gov.tr/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "TT": {
+    "medical": [
+      "https://health.gov.tt/"
+    ],
+    "notes": "Trinidad and Tobago Ministry of Health; medical cannabis legal.",
+    "government_portal": [
+      "https://www.ttconnect.gov.tt/"
+    ]
+  },
+  "TV": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.gov.tv/"
+    ]
+  },
+  "TW": {
+    "medical": [
+      "https://www.mohw.gov.tw/"
+    ],
+    "notes": "Taiwan Ministry of Health and Welfare; cannabis illegal.",
+    "government_portal": [
+      "https://www.taiwan.gov.tw/"
+    ],
+    "government_portals": [
+      "https://www.gov.tw/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "TZ": {
+    "medical": [
+      "https://www.moh.go.tz/"
+    ],
+    "notes": "Tanzania Ministry of Health; cannabis illegal.",
+    "government_portal": [
+      "https://www.tanzania.go.tz/"
+    ],
+    "government_portals": [
+      "https://www.tanzania.go.tz/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "UA": {
+    "medical": [
+      "https://moz.gov.ua/"
+    ],
+    "notes": "Ukraine Ministry of Health; medical cannabis law passed 2023.",
+    "government_portal": [
+      "https://old.kmu.gov.ua/"
+    ],
+    "government_portals": [
+      "https://www.kmu.gov.ua/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "UG": {
+    "medical": [
+      "https://www.parliament.go.ug/"
+    ],
+    "missing_official": false,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://www.parliament.go.ug/"
+    ],
+    "government_portal": [
+      "https://www.gov.uk/",
+      "https://opm.go.ug/"
+    ]
+  },
+  "UM": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": []
+  },
+  "US": {
+    "medical": [
+      "https://www.fda.gov/drugs"
+    ],
+    "notes": "Federal law prohibits; states regulate recreational/medical use independently. Congress + FDA as federal SSOT.",
+    "recreational": [
+      "https://www.congress.gov/"
+    ],
+    "government_portal": [
+      "https://login.gov/",
+      "https://ssa.gov/",
+      "https://studentaid.gov/",
+      "https://state.gov/",
+      "https://irs.gov/",
+      "https://www.usa.gov/"
+    ]
+  },
+  "US-CA": {
+    "medical": [
+      "https://cannabis.ca.gov/"
+    ],
+    "notes": "California Department of Cannabis Control portal for state regulations.",
+    "recreational": [
+      "https://cannabis.ca.gov/"
+    ],
+    "government_portal": [
+      "https://www.ca.gov/"
+    ]
+  },
+  "UY": {
+    "medical": [
+      "https://www.impo.com.uy/bases/leyes/19617-2013"
+    ],
+    "notes": "Uruguay fully legalized cannabis; government registry/official docs enforce regulation.",
+    "recreational": [
+      "https://planalto.gov.uy/"
+    ],
+    "government_portal": [
+      "https://www.gub.uy/"
+    ],
+    "government_portals": [
+      "https://www.gub.uy/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "UZ": {
+    "medical": [
+      "https://gov.uz/en"
+    ],
+    "missing_official": false,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://gov.uz/en"
+    ],
+    "government_portal": [
+      "https://www.gov.uz/"
+    ],
+    "government_portals": [
+      "https://www.gov.uz/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "VA": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.vatican.va/"
+    ],
+    "government_portals": [
+      "https://www.vatican.va/",
+      "https://vaticanstate.va/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "VC": {
+    "medical": [
+      "https://www.gov.vc/"
+    ],
+    "missing_official": false,
+    "notes": "No verified official sources yet. auto_seeded",
+    "recreational": [
+      "https://www.gov.vc/",
+      "https://assembly.gov.vc/assembly/"
+    ],
+    "government_portal": [
+      "https://www.gov.vc/"
+    ],
+    "government_portals": [
+      "https://www.gov.vc/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "VE": {
+    "medical": [
+      "http://www.mpps.gob.ve/"
+    ],
+    "notes": "Venezuela Ministry of Health; cannabis illegal.",
+    "government_portal": [
+      "https://www.gobiernoenlinea.ve/"
+    ],
+    "government_portals": [
+      "https://gob.ve/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "VG": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": []
+  },
+  "VI": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": []
+  },
+  "VN": {
+    "medical": [
+      "https://moh.gov.vn/"
+    ],
+    "notes": "Vietnam Ministry of Health; cannabis illegal.",
+    "government_portal": [
+      "https://www.chinhphu.vn/",
+      "https://chinhphu.vn/"
+    ],
+    "government_portals": [
+      "https://vietnam.gov.vn/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "VU": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.gov.vu/"
+    ],
+    "government_portals": [
+      "https://www.gov.vu/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "WF": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portals": [
+      "https://wallis-et-futuna.gouv.fr/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "WS": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.samoagovt.ws/"
+    ],
+    "government_portals": [
+      "https://www.samoagovt.ws/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "XK": {
+    "medical": [
+      "https://rks-gov.net/"
+    ],
+    "recreational": [],
+    "missing_official": false,
+    "notes": "No verified official sources yet. auto_seeded",
+    "government_portal": [
+      "https://www.rks-gov.net/",
+      "https://gzk.rks-gov.net/",
+      "https://kryeministri.rks-gov.net/",
+      "https://dogana.rks-gov.net/",
+      "https://md.rks-gov.net/"
+    ]
+  },
+  "YE": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.yemen.gov.ye/"
+    ],
+    "government_portals": [
+      "https://www.yemen.gov.ye/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "YT": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": []
+  },
+  "ZA": {
+    "medical": [
+      "https://www.sahpra.org.za/"
+    ],
+    "notes": "Government announcement of decriminalization plus regulator site for medical products.",
+    "recreational": [
+      "https://www.gov.za/documents/cannabis-decriminalisation"
+    ],
+    "government_portal": [
+      "https://www.gov.za/"
+    ],
+    "government_portals": [
+      "https://www.gov.za/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "ZM": {
+    "medical": [],
+    "missing_official": true,
+    "notes": "No verified official sources yet.",
+    "recreational": [],
+    "government_portal": [
+      "https://www.zambia.gov.zm/",
+      "https://www.sh.gov.zm/"
+    ],
+    "government_portals": [
+      "https://statehouse.gov.zm/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  },
+  "ZW": {
+    "medical": [
+      "https://www.mohcc.gov.zw/"
+    ],
+    "notes": "Zimbabwe Ministry of Health; medical cannabis legal.",
+    "government_portal": [
+      "https://www.zimbambwe.gov.zw/",
+      "https://www.zim.gov.zw/"
+    ],
+    "government_portals": [
+      "https://parlzim.gov.zw/"
+    ],
+    "notes_portals": "seeded from portals_seed 2026-01-13T11:37:33.775Z"
+  }
+}

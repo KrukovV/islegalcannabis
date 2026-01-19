@@ -29,6 +29,11 @@ function main() {
   const total = Array.isArray(isoRaw.entries) ? isoRaw.entries.length : 0;
 
   const profiles = new Map();
+  const lawsWorldDir = path.join(lawsDir, "world");
+  const lawsEuDir = path.join(lawsDir, "eu");
+  const worldFiles = listJsonFiles(lawsWorldDir);
+  const euFiles = listJsonFiles(lawsEuDir);
+  const lawFiles = [...worldFiles, ...euFiles];
   for (const file of listJsonFiles(lawsDir)) {
     const parsed = JSON.parse(fs.readFileSync(file, "utf8"));
     if (parsed?.id) profiles.set(String(parsed.id).toUpperCase(), parsed);
@@ -37,8 +42,13 @@ function main() {
   let reviewedCount = 0;
   let needsReviewCount = 0;
   let provisionalCount = 0;
+  let missingSourcesCount = 0;
 
   for (const profile of profiles.values()) {
+    const sources = Array.isArray(profile?.sources) ? profile.sources : [];
+    if (sources.length === 0) {
+      missingSourcesCount += 1;
+    }
     const status = String(profile.review_status || "").toLowerCase() ||
       (String(profile.status || "").toLowerCase() === "provisional" ? "provisional" : "");
     if (status === "provisional") {
@@ -50,6 +60,10 @@ function main() {
     }
   }
 
+  const lawsFilesWorld = worldFiles.length;
+  const lawsFilesEu = euFiles.length;
+  const lawsFilesTotal = lawFiles.length;
+  const missingIso = Math.max(total - lawsFilesWorld, 0);
   const missingCount = Math.max(total - reviewedCount - needsReviewCount - provisionalCount, 0);
 
   const payload = {
@@ -58,6 +72,11 @@ function main() {
     needs_review_count: needsReviewCount,
     provisional_count: provisionalCount,
     missing_count: missingCount,
+    laws_files_world: lawsFilesWorld,
+    laws_files_eu: lawsFilesEu,
+    laws_files_total: lawsFilesTotal,
+    missing_iso: missingIso,
+    missing_sources: missingSourcesCount,
     updated_at: new Date().toISOString()
   };
 

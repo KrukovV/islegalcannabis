@@ -2,8 +2,8 @@
   "schema_version": 2,
   "country": "CA",
   "id": "CA",
-  "medical": "unknown",
-  "recreational": "unknown",
+  "medical": "allowed",
+  "recreational": "allowed",
   "possession_limit": "unknown",
   "public_use": "unknown",
   "home_grow": "unknown",
@@ -30,13 +30,13 @@
   },
   "sources": [
     {
-      "title": "Health Canada (official)",
-      "url": "https://www.canada.ca/en/health-canada/services/drugs-medication/cannabis.html"
+      "title": "Official source",
+      "url": "https://www.canada.ca/"
     }
   ],
-  "updated_at": "2026-01-08",
+  "updated_at": "2026-01-09",
   "verified_at": "2025-12-14",
-  "status": "provisional",
+  "status": "needs_review",
   "confidence": "low",
   "provenance": {
     "method": "ocr+ai",
@@ -58,11 +58,8 @@
   "review_confidence": "medium",
   "review_sources": [
     {
-      "title": "UNODC World Drug Report",
-      "url": "https://www.unodc.org/unodc/en/data-and-analysis/world-drug-report.html",
-      "kind": "official",
-      "checked_at": "2026-01-07",
-      "weight": 0.6
+      "title": "Official source",
+      "url": "https://www.canada.ca/"
     }
   ],
   "review_status_history": [
@@ -73,6 +70,52 @@
     {
       "status": "needs_review",
       "at": "2026-01-08"
+    },
+    {
+      "status": "needs_review",
+      "at": "2026-01-08"
+    },
+    {
+      "status": "needs_review",
+      "at": "2026-01-09"
+    },
+    {
+      "status": "needs_review",
+      "at": "2026-01-09"
+    },
+    {
+      "status": "needs_review",
+      "at": "2026-01-09"
+    },
+    {
+      "status": "needs_review",
+      "at": "2026-01-09"
+    },
+    {
+      "status": "needs_review",
+      "at": "2026-01-09"
     }
-  ]
+  ],
+  "legal_ssot": {
+    "recreational": "legal",
+    "medical": "legal",
+    "notes": "Cannabis Act legalizes recreational and medical use (federal law).",
+    "sources": [
+      {
+        "title": "Official source",
+        "url": "https://laws.justice.gc.ca/eng/acts/c-24.5/"
+      },
+      {
+        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis"
+      }
+    ]
+  },
+  "status_recreational": "legal",
+  "status_medical": "legal",
+  "official_sources": [
+    "https://laws.justice.gc.ca/eng/acts/c-24.5/"
+  ],
+  "wiki_source": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "effective_date": null
 }

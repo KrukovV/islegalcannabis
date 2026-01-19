@@ -1,0 +1,18 @@
+{
+  "iso2": "AL",
+  "status_recreational": "unknown",
+  "status_medical": "unknown",
+  "evidence": [
+    {
+      "type": "snapshot",
+      "url": "https://parlament.al/",
+      "snapshot_path": "/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/AL/2026-01-11/e99f0c79bb9dfcfbf04c07480411a10f5eac227a11b54aa75c2377040d7b5994.html",
+      "sha256": "e99f0c79bb9dfcfbf04c07480411a10f5eac227a11b54aa75c2377040d7b5994",
+      "retrieved_at": "2026-01-11T13:59:57.752Z",
+      "hint": "html_text"
+    }
+  ],
+  "confidence": "low",
+  "method": "auto_learn_candidate",
+  "generated_at": "2026-01-11T13:59:57.840Z"
+}

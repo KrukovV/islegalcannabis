@@ -1,0 +1,1 @@
+import fs from "node:fs"; fs.writeFileSync("/var/folders/4p/8wb9m50n2yg7bd2f_336zprr0000gn/T/ilc-guard-marker-1767986082604", "ok");

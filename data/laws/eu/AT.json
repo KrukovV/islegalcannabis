@@ -37,5 +37,27 @@
     "workplace": "unknown",
     "testing_dui": "unknown"
   },
-  "schema_version": 2
+  "schema_version": 2,
+  "legal_ssot": {
+    "recreational": "decriminalized",
+    "medical": "illegal",
+    "notes": "Austrian medical cannabis under BASG (regulatory authority). Recreational is illegal.",
+    "sources": [
+      {
+        "title": "Official source",
+        "url": "https://www.basg.gv.at/"
+      },
+      {
+        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis"
+      }
+    ]
+  },
+  "status_recreational": "decriminalized",
+  "status_medical": "illegal",
+  "official_sources": [
+    "https://www.basg.gv.at/"
+  ],
+  "wiki_source": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "effective_date": null
 }

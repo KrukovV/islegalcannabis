@@ -1,0 +1,18 @@
+{
+  "iso2": "AM",
+  "status_recreational": "unknown",
+  "status_medical": "unknown",
+  "evidence": [
+    {
+      "type": "snapshot",
+      "url": "https://e-gov.am/",
+      "snapshot_path": "/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/AM/2026-01-11/fdd9fd9405a2673a97b0424f23a226398880f541ad3cc6beffa4c820403e2b98.html",
+      "sha256": "fdd9fd9405a2673a97b0424f23a226398880f541ad3cc6beffa4c820403e2b98",
+      "retrieved_at": "2026-01-11T14:02:31.707Z",
+      "hint": "html_text"
+    }
+  ],
+  "confidence": "low",
+  "method": "auto_learn_candidate",
+  "generated_at": "2026-01-11T14:02:31.800Z"
+}

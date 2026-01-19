@@ -1,0 +1,81 @@
+{
+  "generated_at": "2026-01-10T07:38:25.190Z",
+  "entries": {
+    "CA": {
+      "hash": "9d0d06abb552285e35ebfea350448fe82d7d4704346354ecdf7b38138826a4f5",
+      "source_urls_count": 2
+    },
+    "UY": {
+      "hash": "999d0a93fa59cacef97eb90a7a59015ae93c7ef7bbfcd578f9399844b50a677b",
+      "source_urls_count": 2
+    },
+    "DE": {
+      "hash": "e346fc8e09f5ff8d7568c79ad4d170e4c0b141d4f9c75c2c4ab557664e9badfc",
+      "source_urls_count": 2
+    },
+    "MX": {
+      "hash": "86c8ae2d00f77486b58b3325b1dbf5062ea761e732e98bcd8284e61c6c9f89b8",
+      "source_urls_count": 2
+    },
+    "ZA": {
+      "hash": "2bacb98fe8d8644d7facbba0bee0ef9f1fe5d1cb52cac3647a344a04fecfff5e",
+      "source_urls_count": 2
+    },
+    "GE": {
+      "hash": "02c7412b8fbfd1414bbf276cc9ac7bddd9c7671303791af55e1d38f101410518",
+      "source_urls_count": 2
+    },
+    "CH": {
+      "hash": "89b3dbcf2da26bc9d8810a592c6fea4340b2c22a5710d2c15689fdf39284e35f",
+      "source_urls_count": 2
+    },
+    "PT": {
+      "hash": "711c0ec85f2507ffd59e137c5299cd4cad1c196fef02dc94d9a22870843093f3",
+      "source_urls_count": 2
+    },
+    "NL": {
+      "hash": "4e2dd21e987e0cc3a43f0433617ce972904949778d111cffea6113755c158374",
+      "source_urls_count": 2
+    },
+    "IT": {
+      "hash": "38deed005e00f860913952c76209e7284bc6a65752adc36e93b7118925f46b4a",
+      "source_urls_count": 1
+    },
+    "CL": {
+      "hash": "5fd648f9d6a57d37d155f65749720868a2999b4c7c7ae64304b677dd1e26f5c6",
+      "source_urls_count": 1
+    },
+    "IL": {
+      "hash": "a4bfb6f6b451b5a8ff60e5e0ee694745e995042fa8d3eabff606f4f7f9180525",
+      "source_urls_count": 1
+    },
+    "NZ": {
+      "hash": "349f1784cd115ddcbb7cdd41c66068d2134572f479cd360e661a2f54bbc3b927",
+      "source_urls_count": 1
+    },
+    "AT": {
+      "hash": "46b5390539f25feb21d63b0c6c8bfb32d8452968069de83c6542f5a08ea0a345",
+      "source_urls_count": 1
+    },
+    "ES": {
+      "hash": "0ce5d83d3cde9effb821f241ce414b9ef603814b9acc97f465c0898a9077b91d",
+      "source_urls_count": 1
+    },
+    "BR": {
+      "hash": "ae7e90152ddae8576141d94e29f6c103617ddf82265c18932a87e01f21a905b3",
+      "source_urls_count": 1
+    },
+    "CO": {
+      "hash": "8243da5a01fd39a1c5d592df7f4e5709b0c6b668a24523a630dffe2055954ce7",
+      "source_urls_count": 1
+    },
+    "AR": {
+      "hash": "ad46a04f9cbe91fc790d51ceef2216c90d0f9683efa699d36960adc19027cac1",
+      "source_urls_count": 1
+    },
+    "AU": {
+      "hash": "879e45f74242566f1290bcadf75e89d2b368c5b9462f7366037877f90a0cab90",
+      "source_urls_count": 1
+    }
+  }
+}

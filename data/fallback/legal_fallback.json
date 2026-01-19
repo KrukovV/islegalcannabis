@@ -1,0 +1,774 @@
+{
+  "generated_at": "2026-01-10T08:21:16.740Z",
+  "source": "offline_fallback",
+  "countries": {
+    "AE": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://u.ae/en/information-and-services/justice-safety-and-the-law/drugs-and-controlled-medicines"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "AR": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.argentina.gob.ar/salud/cannabis"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "AT": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.basg.gv.at/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "AU": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.tga.gov.au/medicinal-cannabis"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "BD": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.mohfw.gov.bd/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "BE": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.health.belgium.be/en/health/medicines-health-products/medicines/cannabis"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "BG": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.mh.government.bg/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "BN": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.moh.gov.bn/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "BO": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.minsalud.gob.bo/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "CA": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://laws.justice.gc.ca/eng/acts/c-24.5/",
+        "https://laws.justice.gc.ca/eng/acts/c-24.5/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "CH": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.swissmedic.ch/swissmedic/en/home/market/marketing-licensing/authorisation/authorisation-of-medicinal-products.html",
+        "https://www.admin.ch/gov/en/start/documentation/media-releases.msg-id-76073.html"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "CL": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.leychile.cl/Navegar?idNorma=1116936"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "CO": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.invima.gov.co/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "CR": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.ministeriodesalud.go.cr/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "CY": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.moh.gov.cy/moh/moh.nsf/index_en/index_en?OpenDocument"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "CZ": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.sukl.cz/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "DE": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.bfarm.de/EN/Drugs/licensing/cannabis/_node.html",
+        "https://www.bundesgesundheitsministerium.de/en/themen/cannabis/faq-cannabis-act.html"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "DK": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://laegemiddelstyrelsen.dk/en/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "DO": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.msp.gob.do/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "EC": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.salud.gob.ec/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "EE": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.sm.ee/en"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "EG": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.mohp.gov.eg/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "ES": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.boe.es/eli/es/l/2015/07/21/17/con"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "FI": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.fimea.fi/web/en"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "FR": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://ansm.sante.fr/dossiers-thematiques/cannabis-a-usage-medical"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "GB": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.gov.uk/government/collections/medicinal-cannabis-information-and-resources"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "GH": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.moh.gov.gh/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "GR": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.moh.gov.gr/articles/ministry/grafeio-typoy/press-releases/6958-nomos-gia-farmakeytikh-kannabh"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "HK": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.gov.hk/en/residents/health"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "HR": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://zdravlje.gov.hr/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "HU": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://ogyei.gov.hu/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "ID": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://peraturan.bpk.go.id/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "IE": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.gov.ie/en/policy-information/medicinal-cannabis/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "IL": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.health.gov.il/English/Topics/DrugAbuse/Pages/cannabis.aspx"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "IN": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://legislative.gov.in/sites/default/files/A1985-61.pdf"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "IR": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://behdasht.gov.ir/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "IS": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.government.is/ministries/health/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "IT": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.gazzettaufficiale.it/eli/id/2013/11/14/13G00251/sg"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "JM": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.moh.gov.jm/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "JP": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000188411.html"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "KE": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.health.go.ke/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "KH": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.moh.gov.kh/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "KR": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.mfds.go.kr/eng/index.do"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "LA": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.moh.gov.la/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "LK": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.health.gov.lk/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "LT": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://sam.lrv.lt/en/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "LU": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://sante.public.lu/en/politique-sante/medicaments.html",
+        "https://gouvernement.lu/en/dossiers/2021/cannabis.html"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "LV": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.vm.gov.lv/en"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "MA": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.sante.gov.ma/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "MD": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://ms.gov.md/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "MM": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.mohs.gov.mm/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "MN": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://moh.gov.mn/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "MT": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://meae.gov.mt/en/Public_Consultations/MSDEC/Pages/Cannabis-Reform.aspx",
+        "https://meae.gov.mt/en/Public_Consultations/MSDEC/Pages/Cannabis-Reform.aspx"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "MX": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.gob.mx/cofepris/acciones-y-programas/cannabis-salud",
+        "https://www.diputados.gob.mx/LeyesBiblio/pdf/LGCA_230423.pdf"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "MY": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.pharmacy.gov.my/v2/en"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "NG": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.health.gov.ng/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "NL": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.government.nl/topics/drugs/cannabis-policy",
+        "https://www.government.nl/topics/drugs/cannabis-policy"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "NO": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.legemiddelverket.no/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "NP": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://mohp.gov.np/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "NZ": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.health.govt.nz/our-work/regulation-health-and-disability-system/medicinal-cannabis-regulations"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "PA": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.minsa.gob.pa/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "PE": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.gob.pe/minsa"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "PH": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.congress.gov.ph/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "PK": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.moh.gov.pk/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "PT": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.infarmed.pt/web/infarmed-en/home",
+        "https://dre.pt/home/-/dre/124182043/details/maximized"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "PY": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.mspbs.gov.py/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "RO": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.ms.ro/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "RS": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.zdravlje.gov.rs/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "SA": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.sfda.gov.sa/en"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "SE": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.lakemedelsverket.se/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "SG": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.cnb.gov.sg/drug-information"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "SI": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.gov.si/en/policies/health/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "SK": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.health.gov.sk/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "TH": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.fda.moph.go.th/",
+        "https://www.thaigov.go.th/news"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "TR": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.saglik.gov.tr/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "TT": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://health.gov.tt/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "TW": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.mohw.gov.tw/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "TZ": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.moh.go.tz/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "UA": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://moz.gov.ua/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "US": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.fda.gov/drugs",
+        "https://www.congress.gov/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "UY": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.impo.com.uy/bases/leyes/19617-2013",
+        "https://planalto.gov.uy/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "VN": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://moh.gov.vn/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "ZA": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.sahpra.org.za/",
+        "https://www.gov.za/documents/cannabis-decriminalisation"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    },
+    "ZW": {
+      "status_recreational": "unknown",
+      "status_medical": "unknown",
+      "sources": [
+        "https://www.mohcc.gov.zw/"
+      ],
+      "confidence": "low",
+      "notes": "verified sources only; status unknown"
+    }
+  }
+}

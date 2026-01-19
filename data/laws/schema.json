@@ -1,0 +1,53 @@
+{
+  "schema_version": 2,
+  "extras": {
+    "purchase": [
+      "allowed",
+      "restricted",
+      "illegal",
+      "unknown"
+    ],
+    "possession": [
+      "allowed",
+      "restricted",
+      "illegal",
+      "unknown"
+    ],
+    "home_grow": [
+      "allowed",
+      "restricted",
+      "illegal",
+      "unknown"
+    ],
+    "public_use": [
+      "allowed",
+      "restricted",
+      "illegal",
+      "unknown"
+    ],
+    "driving": [
+      "allowed",
+      "restricted",
+      "illegal",
+      "unknown"
+    ],
+    "cbd": [
+      "allowed",
+      "restricted",
+      "illegal",
+      "unknown"
+    ],
+    "edibles": [
+      "allowed",
+      "restricted",
+      "illegal",
+      "unknown"
+    ],
+    "vapes": [
+      "allowed",
+      "restricted",
+      "illegal",
+      "unknown"
+    ]
+  }
+}

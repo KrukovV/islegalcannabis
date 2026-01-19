@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "required_fields": [
+    "medical",
+    "recreational",
+    "public_use",
+    "cross_border"
+  ],
+  "date_fields": [
+    "effective_date"
+  ]
+}

@@ -3,8 +3,8 @@
   "country": "French Guiana",
   "status": "needs_review",
   "confidence": "medium",
-  "medical": "unknown",
-  "recreational": "unknown",
+  "medical": "illegal",
+  "recreational": "illegal",
   "possession_limit": "unknown",
   "public_use": "unknown",
   "home_grow": "unknown",
@@ -40,5 +40,25 @@
       "status": "needs_review",
       "at": "2026-01-07"
     }
-  ]
+  ],
+  "legal_ssot": {
+    "recreational": "illegal",
+    "medical": "illegal",
+    "notes": null,
+    "confidence": "low",
+    "sources": [
+      {
+        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis"
+      },
+      {
+        "title": "CannabisBusinessPlans map",
+        "url": "https://cannabusinessplans.com/cannabis-legalization-map/"
+      },
+      {
+        "title": "Official source",
+        "url": "https://www.gouvernement.fr"
+      }
+    ]
+  }
 }

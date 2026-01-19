@@ -37,5 +37,21 @@
     "workplace": "unknown",
     "testing_dui": "unknown"
   },
-  "schema_version": 2
+  "schema_version": 2,
+  "legal_ssot": {
+    "recreational": "illegal",
+    "medical": "legal",
+    "notes": null,
+    "sources": [
+      {
+        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis"
+      }
+    ]
+  },
+  "status_recreational": "illegal",
+  "status_medical": "legal",
+  "official_sources": [],
+  "wiki_source": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "effective_date": null
 }

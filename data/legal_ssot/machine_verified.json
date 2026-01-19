@@ -1,0 +1,95 @@
+{
+  "generated_at": "2026-01-14T10:51:54.658Z",
+  "entries": {
+    "XK": {
+      "iso": "XK",
+      "iso2": "XK",
+      "status_recreational": "legal",
+      "status_medical": "unknown",
+      "medical_allowed": false,
+      "restricted_notes": null,
+      "evidence": [
+        {
+          "type": "pdf_page",
+          "page": "1",
+          "anchor": null,
+          "quote": "nga ministria e shendetesise nepermjet akpm, qe te importohet ose eksportohet dergesa e narkotikeve dhe prekursoreve ne kosove. 2 neni 3 kufizimet e veprimtarise me narkotike 3.1 ndalohet cdo lloj veprimtarie me bimet dhe narkotiket nga tabela i e ketij ligji,",
+          "snapshot_path": "/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/XK/20260113/adedd8f978411142ae97ab753c5fbbac19e627c9451210395136a27aacdda7fc.pdf",
+          "snapshot_ref": "/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/XK/20260113/adedd8f978411142ae97ab753c5fbbac19e627c9451210395136a27aacdda7fc.pdf",
+          "content_hash": "adedd8f978411142ae97ab753c5fbbac19e627c9451210395136a27aacdda7fc",
+          "marker": "narkotik",
+          "markers_in_snippet": [
+            "narkotik"
+          ]
+        }
+      ],
+      "evidence_kind": "law",
+      "status_claim": {
+        "type": "PROHIBITED",
+        "snippet": "nga ministria e shendetesise nepermjet akpm, qe te importohet ose eksportohet dergesa e narkotikeve dhe prekursoreve ne kosove. 2 neni 3 kufizimet e veprimtarise me narkotike 3.1 ndalohet cdo lloj veprimtarie me bimet dhe narkotiket nga tabela i e ketij ligji,",
+        "scope": [
+          "import"
+        ],
+        "conditions": "",
+        "jurisdiction_level": "national",
+        "effective_date": "",
+        "markers_in_snippet": [
+          "narkotik"
+        ]
+      },
+      "retrieved_at": "2026-01-13T20:20:16.977Z",
+      "generated_at": "2026-01-13T20:20:16.977Z",
+      "confidence": "machine_high",
+      "official_source_ok": true,
+      "source_url": "https://gzk.rks-gov.net/ActDocumentDetail.aspx?ActID=2572",
+      "snapshot_path": "/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/XK/20260113/adedd8f978411142ae97ab753c5fbbac19e627c9451210395136a27aacdda7fc.pdf",
+      "snapshot_ref": "/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/XK/20260113/adedd8f978411142ae97ab753c5fbbac19e627c9451210395136a27aacdda7fc.pdf",
+      "content_hash": "adedd8f978411142ae97ab753c5fbbac19e627c9451210395136a27aacdda7fc",
+      "model_id": "auto_facts_rules_v1",
+      "evidence_id": "3268ec6ad9a75a7cc81e84e1f07d4811ec5402a6b562d74e2d98d99bb300e542"
+    },
+    "US-CA": {
+      "iso": "US-CA",
+      "iso2": "US-CA",
+      "status_recreational": "legal",
+      "status_medical": "unknown",
+      "medical_allowed": false,
+      "restricted_notes": null,
+      "evidence": [
+        {
+          "quote": "cannabis license through the department of cannabis control (dcc), you are eligible to appeal certain compliance and licensing actions taken by dcc, pursuant to the medicinal and adult use cannabis regulation and safety act (maucrsa) and title 4 of the califor",
+          "marker": "cannabis",
+          "markers_in_snippet": [
+            "cannabis"
+          ]
+        }
+      ],
+      "evidence_kind": "law",
+      "status_claim": {
+        "type": "RECREATIONAL_ALLOWED",
+        "status_pattern": "adult use",
+        "snippet": "cannabis license through the department of cannabis control (dcc), you are eligible to appeal certain compliance and licensing actions taken by dcc, pursuant to the medicinal and adult use cannabis regulation and safety act (maucrsa) and title 4 of the califor",
+        "scope": [
+          "medical"
+        ],
+        "conditions": "",
+        "jurisdiction_level": "national",
+        "effective_date": "",
+        "markers_in_snippet": [
+          "cannabis"
+        ],
+        "cannabis_bound": true
+      },
+      "retrieved_at": "2026-01-14T10:51:54.585Z",
+      "generated_at": "2026-01-14T10:51:54.585Z",
+      "confidence": "machine_high",
+      "official_source_ok": true,
+      "source_url": "https://www.cannabis.ca.gov/cannabis-laws/compliance-with-state-law/",
+      "snapshot_path": "/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/US-CA/20260114/c0d09a0baa340e92c0c9eca86127eab8b7be569724eea9d130644f0d360801d6.html",
+      "snapshot_ref": "/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/US-CA/20260114/c0d09a0baa340e92c0c9eca86127eab8b7be569724eea9d130644f0d360801d6.html",
+      "content_hash": "c0d09a0baa340e92c0c9eca86127eab8b7be569724eea9d130644f0d360801d6",
+      "model_id": "auto_facts_rules_v1",
+      "evidence_id": "dd1f287487b06e105dfa1ce30bed8d86b4593c9c0591d2a1f26d11228501fdf3"
+    }
+  }
+}

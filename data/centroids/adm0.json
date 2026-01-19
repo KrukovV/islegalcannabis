@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "items": {
+    "DE": {
+      "lat": 51.1657,
+      "lon": 10.4515,
+      "name": "Germany"
+    },
+    "NL": {
+      "lat": 52.1326,
+      "lon": 5.2913,
+      "name": "Netherlands"
+    },
+    "ES": {
+      "lat": 40.4637,
+      "lon": -3.7492,
+      "name": "Spain"
+    },
+    "PT": {
+      "lat": 39.3999,
+      "lon": -8.2245,
+      "name": "Portugal"
+    },
+    "IT": {
+      "lat": 41.8719,
+      "lon": 12.5674,
+      "name": "Italy"
+    },
+    "FR": {
+      "lat": 46.2276,
+      "lon": 2.2137,
+      "name": "France"
+    }
+  }
+}

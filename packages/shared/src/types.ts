@@ -23,6 +23,8 @@ export type LocationResolution = {
   note?: string;
 };
 
+export type LocationMeta = LocationResolution;
+
 export type ResultStatusLevel = "green" | "yellow" | "red" | "gray";
 
 export type ExtrasStatus = "allowed" | "restricted" | "illegal" | "unknown";
@@ -63,6 +65,13 @@ export type ResultViewModel = {
     needsReview?: boolean;
     paid?: boolean;
     paywallHint?: boolean;
+    ssotChanged?: boolean;
+    nowIso?: string;
+    offlineMode?: boolean;
+    offlineFallback?: boolean;
+    offlineFallbackSources?: Source[];
+    offlineFallbackNote?: string;
+    verifyReason?: string | null;
   };
 };
 
@@ -108,6 +117,88 @@ export type JurisdictionLawProfile = {
     hemp?: ExtrasStatus;
     workplace?: ExtrasStatus;
     testing_dui?: ExtrasStatus;
+  };
+  verified_official?: boolean;
+  effective_date?: string | null;
+  facts?: Array<{
+    category: string;
+    url: string;
+    effective_date?: string | null;
+    text_snippet?: string | null;
+  }>;
+  status_recreational?: "legal" | "decriminalized" | "illegal";
+  status_medical?: "legal" | "decriminalized" | "illegal";
+  official_sources?: string[];
+  wiki_source?: string | null;
+  wiki_claim?: {
+    name_in_wiki: string;
+    wiki_row_url: string;
+    recreational_status: "Legal" | "Decrim" | "Illegal" | "Unenforced" | "Unknown";
+    medical_status: "Legal" | "Limited" | "Illegal" | "Unknown";
+    notes_main_articles: Source[];
+    wiki_revision_id?: string;
+    fetched_at?: string;
+  } | null;
+  legal_ssot?: {
+    recreational: "legal" | "decriminalized" | "illegal";
+    medical: "legal" | "decriminalized" | "illegal";
+    notes?: string | null;
+    confidence?: ConfidenceLevel;
+    sources?: Source[];
+    generated_at?: string | null;
+    generatedAt?: string | null;
+  };
+  auto_verified?: {
+    status_recreational: "legal" | "decriminalized" | "illegal" | "unknown";
+    status_medical: "legal" | "decriminalized" | "illegal" | "unknown";
+    medical_allowed?: boolean;
+    restricted_notes?: string | null;
+    confidence?: "low" | "med" | "machine_high";
+    official_source_ok?: boolean;
+    source_url?: string | null;
+    snapshot_path?: string | null;
+    snapshot_ref?: string | null;
+    content_hash?: string | null;
+    retrieved_at?: string | null;
+    model_id?: string | null;
+    evidence_kind?: "law" | "non_law";
+    evidence?: Array<{
+      type?: "pdf_page" | "html_anchor";
+      page?: string | null;
+      anchor?: string | null;
+      quote?: string | null;
+      snapshot_path: string;
+      kind?: "pdf_page" | "html_anchor";
+      ref?: string;
+      snippet?: string;
+      snippet_hash?: string;
+    }>;
+  };
+  machine_verified?: {
+    status_recreational: "legal" | "decriminalized" | "illegal" | "unknown";
+    status_medical: "legal" | "decriminalized" | "illegal" | "unknown";
+    medical_allowed?: boolean;
+    restricted_notes?: string | null;
+    confidence?: "low" | "med" | "machine_high";
+    official_source_ok?: boolean;
+    source_url?: string | null;
+    snapshot_path?: string | null;
+    snapshot_ref?: string | null;
+    content_hash?: string | null;
+    retrieved_at?: string | null;
+    model_id?: string | null;
+    evidence_kind?: "law" | "non_law";
+    evidence?: Array<{
+      type?: "pdf_page" | "html_anchor";
+      page?: string | null;
+      anchor?: string | null;
+      quote?: string | null;
+      snapshot_path: string;
+      kind?: "pdf_page" | "html_anchor";
+      ref?: string;
+      snippet?: string;
+      snippet_hash?: string;
+    }>;
   };
 };
 

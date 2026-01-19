@@ -5,10 +5,12 @@ root="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
 cd "${root}"
 
 echo "Top 20 largest files/dirs (excluding node_modules/.next/.git):"
+set +o pipefail
 du -x -a . \
   | rg -v "/node_modules($|/)|/.next($|/)|/.git($|/)" \
   | sort -nr \
   | head -20
+set -o pipefail
 
 echo
 echo "Large binary candidates (>5MB):"
@@ -18,6 +20,7 @@ matches="$(find . \
   -path "./apps/web/node_modules" -prune -o \
   -path "./.next" -prune -o \
   -path "./apps/web/.next" -prune -o \
+  -path "./data/source_snapshots" -prune -o \
   -type f \( -name "*.zip" -o -name "*.dmg" -o -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.gif" -o -name "*.mp4" -o -name "*.mov" -o -name "*.avi" -o -name "*.pdf" \) \
   -size +5M -print)"
 

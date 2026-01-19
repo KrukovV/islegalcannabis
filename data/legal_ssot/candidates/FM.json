@@ -1,0 +1,18 @@
+{
+  "iso2": "FM",
+  "status_recreational": "unknown",
+  "status_medical": "restricted",
+  "evidence": [
+    {
+      "type": "snapshot",
+      "url": "https://www.cfsm.gov.fm/",
+      "snapshot_path": "/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/FM/2026-01-11/5b6894b893daeb38372a729dbfe1016a6b17545cfd95862fd2ef2bc04507ffe0.html",
+      "sha256": "5b6894b893daeb38372a729dbfe1016a6b17545cfd95862fd2ef2bc04507ffe0",
+      "retrieved_at": "2026-01-11T15:33:32.709Z",
+      "hint": "html_text"
+    }
+  ],
+  "confidence": "low",
+  "method": "auto_learn_candidate",
+  "generated_at": "2026-01-11T15:33:32.802Z"
+}

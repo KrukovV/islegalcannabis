@@ -8,7 +8,7 @@ import {
 describe("location resolution", () => {
   it("shows approximate hint only for IP or low confidence", () => {
     expect(formatLocationMethodHint(buildLocationResolution("manual"))).toBe(
-      "Location may be approximate"
+      null
     );
     expect(formatLocationMethodHint(buildLocationResolution("ip"))).toBe(
       "Location may be approximate"

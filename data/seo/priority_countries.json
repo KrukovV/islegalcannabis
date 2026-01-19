@@ -1,0 +1,302 @@
+[
+  {
+    "rank": 1,
+    "iso2": "US",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 2,
+    "iso2": "CA",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 3,
+    "iso2": "GB",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 4,
+    "iso2": "DE",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 5,
+    "iso2": "NL",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 6,
+    "iso2": "AU",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 7,
+    "iso2": "NZ",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 8,
+    "iso2": "MX",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 9,
+    "iso2": "JP",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 10,
+    "iso2": "ZA",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 11,
+    "iso2": "IT",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 12,
+    "iso2": "FR",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 13,
+    "iso2": "ES",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 14,
+    "iso2": "PT",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 15,
+    "iso2": "IL",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 16,
+    "iso2": "BR",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 17,
+    "iso2": "CZ",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 18,
+    "iso2": "NO",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 19,
+    "iso2": "IN",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 20,
+    "iso2": "TH",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 21,
+    "iso2": "AE",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 22,
+    "iso2": "SG",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 23,
+    "iso2": "HK",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 24,
+    "iso2": "GR",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 25,
+    "iso2": "KR",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 26,
+    "iso2": "RU",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 27,
+    "iso2": "PL",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 28,
+    "iso2": "SA",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 29,
+    "iso2": "ID",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 30,
+    "iso2": "AR",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 31,
+    "iso2": "CL",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 32,
+    "iso2": "CO",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 33,
+    "iso2": "PE",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 34,
+    "iso2": "CR",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 35,
+    "iso2": "CU",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 36,
+    "iso2": "KE",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 37,
+    "iso2": "NG",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 38,
+    "iso2": "SN",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 39,
+    "iso2": "PH",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 40,
+    "iso2": "VN",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 41,
+    "iso2": "MY",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 42,
+    "iso2": "TW",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 43,
+    "iso2": "BD",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 44,
+    "iso2": "PK",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 45,
+    "iso2": "IR",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 46,
+    "iso2": "SE",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 47,
+    "iso2": "FI",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 48,
+    "iso2": "DK",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 49,
+    "iso2": "IE",
+    "score": null,
+    "source": "fallback"
+  },
+  {
+    "rank": 50,
+    "iso2": "BE",
+    "score": null,
+    "source": "fallback"
+  }
+]

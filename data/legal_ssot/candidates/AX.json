@@ -1,0 +1,18 @@
+{
+  "iso2": "AX",
+  "status_recreational": "unknown",
+  "status_medical": "unknown",
+  "evidence": [
+    {
+      "type": "snapshot",
+      "url": "https://www.lagtinget.ax/",
+      "snapshot_path": "/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/AX/2026-01-11/faed1dc6e842a1300d8816a35d3ec3d4210d4071d62afff7eebcecf9029a8b15.html",
+      "sha256": "faed1dc6e842a1300d8816a35d3ec3d4210d4071d62afff7eebcecf9029a8b15",
+      "retrieved_at": "2026-01-11T14:26:20.142Z",
+      "hint": "html_text"
+    }
+  ],
+  "confidence": "low",
+  "method": "auto_learn_candidate",
+  "generated_at": "2026-01-11T14:26:20.234Z"
+}

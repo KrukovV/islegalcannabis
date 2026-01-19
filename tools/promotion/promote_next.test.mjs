@@ -45,12 +45,16 @@ const registry = [
 ];
 fs.writeFileSync(path.join(sourcesDir, "registry.json"), JSON.stringify(registry, null, 2) + "\n");
 
-const result = spawnSync("node", [
-  path.join(process.cwd(), "tools", "promotion", "promote_next.mjs"),
-  "--count=1",
-  "--seed=1337",
-  `--root=${tmpDir}`
-], { encoding: "utf8" });
+const result = spawnSync(
+  "node",
+  [
+    path.join(process.cwd(), "tools", "promotion", "promote_next.mjs"),
+    "--count=1",
+    "--seed=1337",
+    `--root=${tmpDir}`
+  ],
+  { encoding: "utf8", env: { ...process.env, PROMOTE_KNOWN: "0" } }
+);
 assert.strictEqual(result.status, 0, result.stderr);
 
 const updated = JSON.parse(fs.readFileSync(path.join(lawsDir, "TL.json"), "utf8"));

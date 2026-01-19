@@ -17,9 +17,9 @@ Planning:
 - If stuck >3 iterations, split into 1-3 micro tasks and update PLAN.md.
 
 Sandbox/Approval Workflow:
-- SAFE: read files, rg/grep, edit apps/** packages/** tools/**, run tests/CI, create new files.
-- Git read-only commands (status/diff/log/show/ls-files) and staging/commits are allowed for hygiene. Direct `git push` is allowed only via `Tools/commit_if_green.sh` and `git reset --hard` only via `Tools/rollback_to_last_good.sh`.
-- ASK/STOP: deletions, data/laws/** edits (except new provisional), mass network fetch/ingest.
+- SAFE: read files, rg/grep, edit apps/** packages/** tools/**, run tests/CI, create new files, edit data/laws/**.
+- Git read-only commands (status/diff/log/show/ls-files) and staging/commits are allowed for hygiene. Direct `git push` is allowed only via `Tools/commit_if_green.sh` and `git reset --hard` only via `Tools/rollback_to_last_good.sh`. Any commit/push that includes data/laws/** must go through `tools/commit_if_green.sh`.
+- ASK/STOP: deletions, mass network fetch/ingest.
 - FORBIDDEN: git clean/reset/filter-repo, removing sources/tests, silent CI fallbacks.
 
 Tools usage:

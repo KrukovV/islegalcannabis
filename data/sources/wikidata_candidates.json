@@ -1,0 +1,627 @@
+{
+  "generated_at": "2026-01-19T13:11:07.091Z",
+  "candidates": {
+    "AF": [
+      {
+        "url": "https://alemarahenglish.af/",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "AL": [
+      {
+        "url": "https://www.kryeministria.al/en/",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      },
+      {
+        "url": "https://parlament.al",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "AM": [
+      {
+        "url": "https://e-gov.am",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "AO": [
+      {
+        "url": "https://www.governo.gov.ao/",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "AW": [
+      {
+        "url": "https://www.parlamento.aw/",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "AX": [
+      {
+        "url": "https://www.regeringen.ax/",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      },
+      {
+        "url": "https://www.lagtinget.ax/",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "BA": [
+      {
+        "url": "https://www.parlament.ba/",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "BB": [
+      {
+        "url": "https://www.gov.bb/",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      },
+      {
+        "url": "https://www.barbadosparliament.com/",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "BF": [
+      {
+        "url": "https://www.gouvernement.gov.bf/accueil",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      },
+      {
+        "url": "https://www.assembleenationale.bf",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "BH": [
+      {
+        "url": "https://www.bahrain.bh",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "BI": [
+      {
+        "url": "https://www.presidence.gov.bi/",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "BL": [
+      {
+        "url": "https://www.comstbarth.fr",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "BM": [
+      {
+        "url": "https://www.gov.bm/",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      },
+      {
+        "url": "https://www.parliament.bm/",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "BS": [
+      {
+        "url": "https://www.bahamas.gov.bs/",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "BT": [
+      {
+        "url": "https://parliament.bt/",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "BW": [
+      {
+        "url": "https://gov.bw/",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "BY": [
+      {
+        "url": "https://www.belarus.by/",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "CG": [
+      {
+        "url": "https://gouvernement.cg/",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "CV": [
+      {
+        "url": "https://www.parlamento.cv/",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "CW": [
+      {
+        "url": "https://curacao.com",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      },
+      {
+        "url": "https://www.parlamento.cw/",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "DJ": [
+      {
+        "url": "https://www.presidence.dj/",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "GA": [
+      {
+        "url": "https://gouvernement.ga",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "GF": [
+      {
+        "url": "https://www.ctguyane.fr/",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "GM": [
+      {
+        "url": "https://www.assembly.gm/",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "GQ": [
+      {
+        "url": "https://www.guineaecuatorialpress.com/",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "GT": [
+      {
+        "url": "https://www.guatemala.gob.gt/",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      },
+      {
+        "url": "https://congreso.gob.gt",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "HN": [
+      {
+        "url": "https://www.honduras.travel/en/",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "IQ": [
+      {
+        "url": "https://www.parliament.iq/",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "JE": [
+      {
+        "url": "https://statesassembly.gov.je",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      },
+      {
+        "url": "https://statesassembly.je/",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "KG": [
+      {
+        "url": "https://www.gov.kg/ky",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "KM": [
+      {
+        "url": "https://beit-salam.km/",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "KW": [
+      {
+        "url": "https://www.e.gov.kw/",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "KZ": [
+      {
+        "url": "https://www.gov.kz/",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "LB": [
+      {
+        "url": "https://www.lp.gov.lb/",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "LI": [
+      {
+        "url": "https://www.liechtenstein.li",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      },
+      {
+        "url": "https://www.landtag.li/",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "LY": [
+      {
+        "url": "https://parliament.ly",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "MF": [
+      {
+        "url": "https://www.comstmartin.fr",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "MH": [
+      {
+        "url": "https://rmiparliament.org/",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "MK": [
+      {
+        "url": "https://vlada.mk/",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      },
+      {
+        "url": "https://www.sobranie.mk/",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "MR": [
+      {
+        "url": "https://assembleenationale.mr/",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "MS": [
+      {
+        "url": "https://www.parliament.ms/",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "MU": [
+      {
+        "url": "https://mauritiusassembly.govmu.org/",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "MV": [
+      {
+        "url": "https://majlis.gov.mv/",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "MZ": [
+      {
+        "url": "https://www.parlamento.mz/",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "NA": [
+      {
+        "url": "https://gov.na/",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      },
+      {
+        "url": "https://www.parliament.na/",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "OM": [
+      {
+        "url": "https://www.oman.om/",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "PG": [
+      {
+        "url": "https://papuanewguinea.travel/",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "PS": [
+      {
+        "url": "https://president.ps/",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      },
+      {
+        "url": "https://pal-plc.org",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      },
+      {
+        "url": "https://plc.ps",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "PW": [
+      {
+        "url": "https://www.palaugov.pw/",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "SB": [
+      {
+        "url": "https://solomons.gov.sb",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "SC": [
+      {
+        "url": "https://www.nationalassembly.sc/",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "SN": [
+      {
+        "url": "https://www.sec.gouv.sn/",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "SV": [
+      {
+        "url": "https://elsalvador.travel/en/",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      },
+      {
+        "url": "https://www.asamblea.gob.sv",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "SZ": [
+      {
+        "url": "https://www.parliament.gov.sz/",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "TD": [
+      {
+        "url": "https://www.assemblee-nationale.td/",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "TF": [
+      {
+        "url": "https://taaf.fr/en/",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      },
+      {
+        "url": "https://taaf.fr/",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "TG": [
+      {
+        "url": "https://www.republicoftogo.com",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "TJ": [
+      {
+        "url": "https://parlament.tj/",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "TL": [
+      {
+        "url": "https://www.parlamento.tl/",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "VA": [
+      {
+        "url": "https://www.vaticanstate.va/it/",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      },
+      {
+        "url": "https://www.vaticanstate.va/",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "VG": [
+      {
+        "url": "https://bvi.gov.vg/house-of-assembly",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "VU": [
+      {
+        "url": "https://www.gov.vu/",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      },
+      {
+        "url": "https://parliament.gov.vu/",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "WS": [
+      {
+        "url": "https://www.palemene.ws",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "YT": [
+      {
+        "url": "https://mayotte.fr/",
+        "source": "wikidata",
+        "prop": "P856",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ],
+    "ZM": [
+      {
+        "url": "https://www.parliament.gov.zm/",
+        "source": "wikidata",
+        "prop": "P194",
+        "fetched_at": "2026-01-19T13:11:07.089Z"
+      }
+    ]
+  }
+}

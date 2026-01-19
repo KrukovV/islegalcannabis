@@ -14,6 +14,7 @@ type SP = {
   method?: string;
   confidence?: string;
   paid?: string;
+  pro?: string;
 };
 
 export default async function CheckPage({
@@ -35,6 +36,11 @@ export default async function CheckPage({
   if (sp.method) params.set("method", sp.method);
   if (sp.confidence) params.set("confidence", sp.confidence);
   if (sp.paid) params.set("paid", sp.paid);
+  if (sp.pro) params.set("pro", sp.pro);
+  const isPro = sp.pro === "1";
+  const proParams = new URLSearchParams(params.toString());
+  proParams.set("pro", "1");
+  const proPreviewHref = `/check?${proParams.toString()}`;
 
   const url = new URL("http://localhost/api/check");
   url.search = params.toString();
@@ -98,9 +104,14 @@ export default async function CheckPage({
           profile={json.profile}
           title={json.viewModel?.title ?? json.profile.id}
           isPaidUser={Boolean(json.viewModel?.meta?.paid)}
+          isPro={isPro}
+          proPreviewHref={proPreviewHref}
+          advancedNearest={json.nearest ?? undefined}
           locationContext={locationContext}
           viewModel={json.viewModel}
           showSources
+          wikiLinks={json.wiki_links}
+          linksTrust={json.links_trust}
         />
         <Link className={styles.backLink} href="/">
           Back to location search

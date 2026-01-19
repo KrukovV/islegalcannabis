@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "items": {
+    "US-CA": {
+      "lat": 36.7783,
+      "lon": -119.4179,
+      "name": "California"
+    },
+    "US-NY": {
+      "lat": 43,
+      "lon": -75,
+      "name": "New York"
+    },
+    "US-FL": {
+      "lat": 27.6648,
+      "lon": -81.5158,
+      "name": "Florida"
+    },
+    "US-TX": {
+      "lat": 31.9686,
+      "lon": -99.9018,
+      "name": "Texas"
+    },
+    "US-NV": {
+      "lat": 38.8026,
+      "lon": -116.4194,
+      "name": "Nevada"
+    },
+    "US-CO": {
+      "lat": 39.5501,
+      "lon": -105.7821,
+      "name": "Colorado"
+    },
+    "US-WA": {
+      "lat": 47.7511,
+      "lon": -120.7401,
+      "name": "Washington"
+    },
+    "US-MA": {
+      "lat": 42.4072,
+      "lon": -71.3824,
+      "name": "Massachusetts"
+    },
+    "US-IL": {
+      "lat": 40.6331,
+      "lon": -89.3985,
+      "name": "Illinois"
+    },
+    "US-AZ": {
+      "lat": 34.0489,
+      "lon": -111.0937,
+      "name": "Arizona"
+    },
+    "US-NJ": {
+      "lat": 40.0583,
+      "lon": -74.4057,
+      "name": "New Jersey"
+    },
+    "US-MI": {
+      "lat": 44.3148,
+      "lon": -85.6024,
+      "name": "Michigan"
+    }
+  }
+}

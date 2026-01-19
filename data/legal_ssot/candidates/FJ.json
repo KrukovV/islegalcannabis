@@ -1,0 +1,18 @@
+{
+  "iso2": "FJ",
+  "status_recreational": "unknown",
+  "status_medical": "restricted",
+  "evidence": [
+    {
+      "type": "snapshot",
+      "url": "https://www.fiji.gov.fj/Home",
+      "snapshot_path": "/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/FJ/2026-01-11/e946fbd0e881962a3432ab13a150401d487d03e4e25a34e622ce7feaa72b4458.html",
+      "sha256": "e946fbd0e881962a3432ab13a150401d487d03e4e25a34e622ce7feaa72b4458",
+      "retrieved_at": "2026-01-11T15:04:38.030Z",
+      "hint": "html_text"
+    }
+  ],
+  "confidence": "low",
+  "method": "auto_learn_candidate",
+  "generated_at": "2026-01-11T15:04:38.088Z"
+}

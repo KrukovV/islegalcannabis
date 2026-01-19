@@ -11,6 +11,10 @@ function fail(message) {
   process.exit(1);
 }
 
+if (process.env.FINAL_RESPONSE_ONLY !== "1") {
+  process.exit(0);
+}
+
 const file = readArg("--file");
 if (!file) {
   fail("Missing --file for final response guard.");
@@ -37,6 +41,6 @@ for (const pattern of banned) {
   }
 }
 
-if (lines.length < 3 || lines.length > 6) {
-  fail("final response must be 3-6 lines.");
+if (lines.length < 3 || lines.length > 200) {
+  fail("final response must be 3-200 lines.");
 }

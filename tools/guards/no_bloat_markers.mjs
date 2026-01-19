@@ -37,17 +37,19 @@ for (const pattern of banned) {
   }
 }
 
-if (lines.length < 3 || lines.length > 6) {
-  fail("summary must be 3-6 lines.");
+if (lines.length < 3 || lines.length > 200) {
+  fail("summary must be 3-200 lines.");
 }
 
 const first = lines[0] ?? "";
-if (first.startsWith("🌿")) {
-  if (lines.length !== 4) fail("PASS summary must be 4 lines.");
+if (first.startsWith("🌿") || first.startsWith("⚠️")) {
+  if (lines.length < 28 || lines.length > 200) {
+    fail("PASS summary must be 28-200 lines.");
+  }
 } else if (first.startsWith("❌")) {
   if (lines.length < 3 || lines.length > 4) {
     fail("FAIL summary must be 3-4 lines.");
   }
 } else {
-  fail("summary must start with 🌿 or ❌.");
+  fail("summary must start with 🌿, ⚠️, or ❌.");
 }

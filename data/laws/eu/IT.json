@@ -41,5 +41,27 @@
     "workplace": "unknown",
     "testing_dui": "unknown"
   },
-  "schema_version": 2
+  "schema_version": 2,
+  "legal_ssot": {
+    "recreational": "decriminalized",
+    "medical": "legal",
+    "notes": "Italian official gazette — medical cannabis regime; recreational remains technically illegal (decriminalized in parts).",
+    "sources": [
+      {
+        "title": "Official source",
+        "url": "https://www.gazzettaufficiale.it/eli/id/2013/11/14/13G00251/sg"
+      },
+      {
+        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis"
+      }
+    ]
+  },
+  "status_recreational": "decriminalized",
+  "status_medical": "legal",
+  "official_sources": [
+    "https://www.gazzettaufficiale.it/eli/id/2013/11/14/13G00251/sg"
+  ],
+  "wiki_source": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "effective_date": null
 }

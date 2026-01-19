@@ -11,7 +11,7 @@ type LocationCandidate = {
 
 export function confidenceForLocation(method: LocationMethod): ConfidenceLevel {
   if (method === "gps") return "high";
-  if (method === "manual") return "medium";
+  if (method === "manual") return "high";
   return "low";
 }
 

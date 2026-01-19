@@ -1,0 +1,15 @@
+{
+  "geo_key": "RU",
+  "name_in_wiki": "Russia",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Russia",
+  "recreational_status": "Illegal",
+  "medical_status": "Illegal",
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Russia",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Russia"
+    }
+  ],
+  "wiki_revision_id": "fixture",
+  "fetched_at": "2026-01-14T00:00:00.000Z"
+}

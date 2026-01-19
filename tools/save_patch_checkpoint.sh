@@ -83,8 +83,14 @@ const inserts = [
 
 for (const [header, value] of inserts) {
   if (!value) continue;
-  const index = lines.findIndex((line) => line.trim() === header);
+  const index = lines.findIndex(
+    (line) => line.trim() === header || line.trim().startsWith(`${header} `)
+  );
   if (index === -1) continue;
+  if (lines[index].trim().startsWith(`${header} `)) {
+    lines[index] = `${header} ${value}`;
+    continue;
+  }
   const sectionEnd = lines.findIndex((line, i) => i > index && /^[A-Za-z].*:\\s*$/.test(line));
   const end = sectionEnd === -1 ? lines.length : sectionEnd;
   const normalizedLines = String(value)

@@ -93,7 +93,33 @@ describe("ResultCard location rendering", () => {
       })
     );
     expect(html).toContain("Not legal here.");
-    expect(html).toContain("Nearest place where status is green/yellow");
+    expect(html).toContain("Nearest legal area: preview");
+    expect(html).toContain("Unlock details");
+  });
+
+  it("renders nearest legal details for paid users", () => {
+    const redProfile = getLawProfile({ country: "US", region: "TX" });
+    expect(redProfile).not.toBeNull();
+    if (!redProfile) return;
+    const viewModel = buildResultViewModel({
+      profile: redProfile,
+      title: "Texas",
+      nearestLegal: {
+        title: "Colorado, US",
+        jurisdictionKey: "US-CO",
+        distanceKm: 100,
+        approx: true
+      }
+    });
+    const html = renderToStaticMarkup(
+      createElement(ResultCard, {
+        profile: redProfile,
+        title: "Texas",
+        isPaidUser: true,
+        viewModel
+      })
+    );
+    expect(html).toContain("Nearest legal area: US-CO (~100 km)");
   });
 
   it("does not render nearest legal location for unknown status", () => {

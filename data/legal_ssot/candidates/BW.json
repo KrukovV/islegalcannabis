@@ -1,0 +1,18 @@
+{
+  "iso2": "BW",
+  "status_recreational": "unknown",
+  "status_medical": "unknown",
+  "evidence": [
+    {
+      "type": "snapshot",
+      "url": "https://gov.bw/",
+      "snapshot_path": "/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/BW/2026-01-11/0ef3e46b03af734beb8cd411074a5a087162179b1a9172f3e49f7c402bf3af35.html",
+      "sha256": "0ef3e46b03af734beb8cd411074a5a087162179b1a9172f3e49f7c402bf3af35",
+      "retrieved_at": "2026-01-11T14:44:27.996Z",
+      "hint": "html_text"
+    }
+  ],
+  "confidence": "low",
+  "method": "auto_learn_candidate",
+  "generated_at": "2026-01-11T14:44:28.050Z"
+}

@@ -22,8 +22,8 @@ if (!fs.existsSync(file)) {
 const text = fs.readFileSync(file, "utf8").trimEnd();
 const lines = text.split(/\r?\n/);
 
-if (lines.length < 3 || lines.length > 6) {
-  fail("stdout must be 3-6 lines.");
+if (lines.length < 3 || lines.length > 200) {
+  fail("stdout must be 3-200 lines.");
 }
 
 const banned = [
@@ -56,8 +56,8 @@ if (nextLines.length === 1) {
   }
 }
 
-if (lines[0]?.startsWith("🌿")) {
-  if (lines.length !== 4) {
-    fail("PASS output must be exactly 4 lines.");
+if (lines[0]?.startsWith("🌿") || lines[0]?.startsWith("⚠️")) {
+  if (lines.length < 28 || lines.length > 200) {
+    fail("PASS output must be 28-200 lines.");
   }
 }

@@ -37,5 +37,32 @@
     "workplace": "unknown",
     "testing_dui": "unknown"
   },
-  "schema_version": 2
+  "schema_version": 2,
+  "legal_ssot": {
+    "recreational": "decriminalized",
+    "medical": "legal",
+    "notes": "Portugal decriminalized all drugs; official Diário da República + INFARMED regulator.",
+    "sources": [
+      {
+        "title": "Official source",
+        "url": "https://dre.pt/home/-/dre/124182043/details/maximized"
+      },
+      {
+        "title": "Official source",
+        "url": "https://www.infarmed.pt/web/infarmed-en/home"
+      },
+      {
+        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis"
+      }
+    ]
+  },
+  "status_recreational": "decriminalized",
+  "status_medical": "legal",
+  "official_sources": [
+    "https://dre.pt/home/-/dre/124182043/details/maximized",
+    "https://www.infarmed.pt/web/infarmed-en/home"
+  ],
+  "wiki_source": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "effective_date": null
 }

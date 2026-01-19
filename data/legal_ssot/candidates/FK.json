@@ -1,0 +1,18 @@
+{
+  "iso2": "FK",
+  "status_recreational": "unknown",
+  "status_medical": "restricted",
+  "evidence": [
+    {
+      "type": "snapshot",
+      "url": "https://assembly.gov.fk/",
+      "snapshot_path": "/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/FK/2026-01-11/084964fca18e02f3ad28e5a961c3060130ff92ddbab1221e73bcf3788dca802c.html",
+      "sha256": "084964fca18e02f3ad28e5a961c3060130ff92ddbab1221e73bcf3788dca802c",
+      "retrieved_at": "2026-01-11T15:31:35.265Z",
+      "hint": "html_text"
+    }
+  ],
+  "confidence": "low",
+  "method": "auto_learn_candidate",
+  "generated_at": "2026-01-11T15:31:35.355Z"
+}

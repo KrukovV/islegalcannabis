@@ -15,7 +15,7 @@ import type { LocationContext } from "@/lib/location/locationContext";
 import {
   fromDetected,
   fromManual,
-  pickPreferredContext,
+  pickLocation,
   toLocationResolution
 } from "@/lib/location/locationContext";
 import {
@@ -156,12 +156,22 @@ export default function HomeActions() {
         method: "ip",
         confidence: confidenceForLocation("ip")
       });
-      saveLocationContext(context);
-      setLocationContext(context);
+      const manualContext = loadLocationContext();
+      const { loc: preferred } = pickLocation({
+        manual: manualContext?.mode === "manual" ? manualContext : null,
+        ip: context
+      });
+      if (preferred?.mode === "manual") {
+        router.push(buildResultUrl(preferred));
+        return;
+      }
+      const selected = preferred ?? context;
+      saveLocationContext(selected);
+      setLocationContext(selected);
       setNotice("GPS unavailable — using IP-based location.");
-      recordHistory(context);
+      recordHistory(selected);
       setTimeout(() => {
-        router.push(buildResultUrl(context));
+        router.push(buildResultUrl(selected));
       }, 1200);
     } catch {
       setNotice("Can't reach server. Check your connection or choose manually.");
@@ -172,6 +182,11 @@ export default function HomeActions() {
   const handleUseLocation = () => {
     setError(null);
     setNotice(null);
+    const stored = loadLocationContext();
+    if (stored?.mode === "manual") {
+      router.push(buildResultUrl(stored));
+      return;
+    }
     const ipPromise = fetchWhereAmI();
 
     if (!navigator.geolocation) {
@@ -213,7 +228,16 @@ export default function HomeActions() {
                 confidence: confidenceForLocation("ip")
               })
             : null;
-          const preferred = pickPreferredContext([gpsContext, ipContext]);
+          const manualContext = loadLocationContext();
+          const { loc: preferred } = pickLocation({
+            manual: manualContext?.mode === "manual" ? manualContext : null,
+            gps: gpsContext,
+            ip: ipContext
+          });
+          if (preferred?.mode === "manual") {
+            router.push(buildResultUrl(preferred));
+            return;
+          }
           if (preferred) {
             saveLocationContext(preferred);
             setLocationContext(preferred);

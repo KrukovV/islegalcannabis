@@ -1,0 +1,2278 @@
+{
+  "AS": {
+    "name": "American Samoa",
+    "portals": [
+      {
+        "url": "https://americansamoa.gov/",
+        "domain": "americansamoa.gov",
+        "note": "",
+        "region": "Австралия и Океания"
+      }
+    ]
+  },
+  "AU": {
+    "name": "Australia",
+    "portals": [
+      {
+        "url": "https://www.australia.gov.au/",
+        "domain": "australia.gov.au",
+        "note": "",
+        "region": "Австралия и Океания"
+      }
+    ]
+  },
+  "FJ": {
+    "name": "Fiji",
+    "portals": [
+      {
+        "url": "https://www.fiji.gov.fj/",
+        "domain": "fiji.gov.fj",
+        "note": "",
+        "region": "Австралия и Океания"
+      }
+    ]
+  },
+  "FM": {
+    "name": "Micronesia",
+    "portals": [
+      {
+        "url": "https://www.fsmgov.org/",
+        "domain": "fsmgov.org",
+        "note": "",
+        "region": "Австралия и Океания"
+      }
+    ]
+  },
+  "KI": {
+    "name": "Kiribati (parliament)",
+    "portals": [
+      {
+        "url": "https://www.parliament.gov.ki/",
+        "domain": "parliament.gov.ki",
+        "note": "",
+        "region": "Австралия и Океания"
+      }
+    ]
+  },
+  "MH": {
+    "name": "Marshall Islands",
+    "portals": [
+      {
+        "url": "https://rmigovernment.org/",
+        "domain": "rmigovernment.org",
+        "note": "",
+        "region": "Австралия и Океания"
+      }
+    ]
+  },
+  "NU": {
+    "name": "Niue",
+    "portals": [
+      {
+        "url": "https://www.gov.nu/",
+        "domain": "gov.nu",
+        "note": "",
+        "region": "Австралия и Океания"
+      }
+    ]
+  },
+  "NZ": {
+    "name": "New Zealand",
+    "portals": [
+      {
+        "url": "https://beehive.govt.nz/",
+        "domain": "beehive.govt.nz",
+        "note": "",
+        "region": "Австралия и Океания"
+      }
+    ]
+  },
+  "PF": {
+    "name": "French Polynesia",
+    "portals": [
+      {
+        "url": "https://www.presidence.pf/",
+        "domain": "presidence.pf",
+        "note": "",
+        "region": "Австралия и Океания"
+      }
+    ]
+  },
+  "PW": {
+    "name": "Palau",
+    "portals": [
+      {
+        "url": "https://www.palaugov.pw/",
+        "domain": "palaugov.pw",
+        "note": "",
+        "region": "Австралия и Океания"
+      }
+    ]
+  },
+  "SB": {
+    "name": "Solomon Islands",
+    "portals": [
+      {
+        "url": "https://pmc.gov.sb/",
+        "domain": "pmc.gov.sb",
+        "note": "",
+        "region": "Австралия и Океания"
+      }
+    ]
+  },
+  "TO": {
+    "name": "Tonga",
+    "portals": [
+      {
+        "url": "https://pmo.gov.to/",
+        "domain": "pmo.gov.to",
+        "note": "",
+        "region": "Австралия и Океания"
+      }
+    ]
+  },
+  "TV": {
+    "name": "Tuvalu",
+    "portals": [
+      {
+        "url": "https://palmoilworld.org/",
+        "domain": "palmoilworld.org",
+        "note": "",
+        "region": "Австралия и Океания"
+      }
+    ]
+  },
+  "VU": {
+    "name": "Vanuatu",
+    "portals": [
+      {
+        "url": "https://www.gov.vu/",
+        "domain": "gov.vu",
+        "note": "",
+        "region": "Австралия и Океания"
+      }
+    ]
+  },
+  "WF": {
+    "name": "Wallis and Futuna",
+    "portals": [
+      {
+        "url": "https://wallis-et-futuna.gouv.fr/",
+        "domain": "wallis-et-futuna.gouv.fr",
+        "note": "",
+        "region": "Австралия и Океания"
+      }
+    ]
+  },
+  "WS": {
+    "name": "Samoa",
+    "portals": [
+      {
+        "url": "https://www.samoagovt.ws/",
+        "domain": "samoagovt.ws",
+        "note": "",
+        "region": "Австралия и Океания"
+      }
+    ]
+  },
+  "AE": {
+    "name": "UAE",
+    "portals": [
+      {
+        "url": "https://government.ae/",
+        "domain": "government.ae",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "AF": {
+    "name": "Afghanistan",
+    "portals": [
+      {
+        "url": "https://president.gov.af/en/",
+        "domain": "president.gov.af",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "AM": {
+    "name": "Armenia",
+    "portals": [
+      {
+        "url": "https://president.am/",
+        "domain": "president.am",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "AZ": {
+    "name": "Azerbaijan",
+    "portals": [
+      {
+        "url": "https://president.az/",
+        "domain": "president.az",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "BD": {
+    "name": "Bangladesh",
+    "portals": [
+      {
+        "url": "https://bangladesh.gov.bd/",
+        "domain": "bangladesh.gov.bd",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "BH": {
+    "name": "Bahrain",
+    "portals": [
+      {
+        "url": "https://www.bahrain.bh/",
+        "domain": "bahrain.bh",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "BN": {
+    "name": "Brunei",
+    "portals": [
+      {
+        "url": "https://www.gov.bn/",
+        "domain": "gov.bn",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "BT": {
+    "name": "Bhutan",
+    "portals": [
+      {
+        "url": "https://www.gov.bt/",
+        "domain": "gov.bt",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "CN": {
+    "name": "China",
+    "portals": [
+      {
+        "url": "https://www.gov.cn/",
+        "domain": "gov.cn",
+        "note": "",
+        "region": "Азия"
+      },
+      {
+        "url": "https://english.www.gov.cn/",
+        "domain": "english.www.gov.cn",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "CY": {
+    "name": "Cyprus",
+    "portals": [
+      {
+        "url": "https://www.cyprus.gov.cy/",
+        "domain": "cyprus.gov.cy",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "GE": {
+    "name": "Georgia",
+    "portals": [
+      {
+        "url": "https://president.gov.ge/",
+        "domain": "president.gov.ge",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "HK": {
+    "name": "Hong Kong",
+    "portals": [
+      {
+        "url": "https://www.gov.hk/",
+        "domain": "gov.hk",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "ID": {
+    "name": "Indonesia",
+    "portals": [
+      {
+        "url": "https://www.indonesia.go.id/",
+        "domain": "indonesia.go.id",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "IL": {
+    "name": "Israel",
+    "portals": [
+      {
+        "url": "https://www.gov.il/",
+        "domain": "gov.il",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "IN": {
+    "name": "India",
+    "portals": [
+      {
+        "url": "https://www.india.gov.in/",
+        "domain": "india.gov.in",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "IQ": {
+    "name": "Iraq",
+    "portals": [
+      {
+        "url": "https://presidency.iq/",
+        "domain": "presidency.iq",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "IR": {
+    "name": "Iran",
+    "portals": [
+      {
+        "url": "https://www.president.ir/",
+        "domain": "president.ir",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "JO": {
+    "name": "Jordan",
+    "portals": [
+      {
+        "url": "https://nic.gov.jo/",
+        "domain": "nic.gov.jo",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "JP": {
+    "name": "Japan",
+    "portals": [
+      {
+        "url": "https://www.kantei.go.jp/",
+        "domain": "kantei.go.jp",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "KH": {
+    "name": "Cambodia",
+    "portals": [
+      {
+        "url": "https://mfaic.gov.kh/",
+        "domain": "mfaic.gov.kh",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "KP": {
+    "name": "North Korea",
+    "portals": [
+      {
+        "url": "https://www.korea-dpr.com/",
+        "domain": "korea-dpr.com",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "KR": {
+    "name": "South Korea",
+    "portals": [
+      {
+        "url": "https://www.korea.net/",
+        "domain": "korea.net",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "KW": {
+    "name": "Kuwait",
+    "portals": [
+      {
+        "url": "https://e.gov.kw/",
+        "domain": "e.gov.kw",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "KZ": {
+    "name": "Kazakhstan",
+    "portals": [
+      {
+        "url": "https://government.kz/",
+        "domain": "government.kz",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "KG": {
+    "name": "Kyrgyzstan",
+    "portals": [
+      {
+        "url": "https://president.kg/",
+        "domain": "president.kg",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "LA": {
+    "name": "Laos",
+    "portals": [
+      {
+        "url": "https://www.na.gov.la/",
+        "domain": "na.gov.la",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "LK": {
+    "name": "Sri Lanka",
+    "portals": [
+      {
+        "url": "https://www.gov.lk/",
+        "domain": "gov.lk",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "MM": {
+    "name": "Myanmar",
+    "portals": [
+      {
+        "url": "https://myanmar.gov.mm/",
+        "domain": "myanmar.gov.mm",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "MN": {
+    "name": "Mongolia",
+    "portals": [
+      {
+        "url": "https://president.mn/",
+        "domain": "president.mn",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "MO": {
+    "name": "Macao",
+    "portals": [
+      {
+        "url": "https://www.gov.mo/",
+        "domain": "gov.mo",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "MV": {
+    "name": "Maldives",
+    "portals": [
+      {
+        "url": "https://visitmaldives.com/",
+        "domain": "visitmaldives.com",
+        "note": "",
+        "region": "Азия"
+      },
+      {
+        "url": "https://presidency.gov.mv/",
+        "domain": "presidency.gov.mv",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "MY": {
+    "name": "Malaysia",
+    "portals": [
+      {
+        "url": "https://www.malaysia.gov.my/",
+        "domain": "malaysia.gov.my",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "NP": {
+    "name": "Nepal",
+    "portals": [
+      {
+        "url": "https://opmcm.gov.np/",
+        "domain": "opmcm.gov.np",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "OM": {
+    "name": "Oman",
+    "portals": [
+      {
+        "url": "https://mofa.gov.om/",
+        "domain": "mofa.gov.om",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "PH": {
+    "name": "Philippines",
+    "portals": [
+      {
+        "url": "https://www.gov.ph/",
+        "domain": "gov.ph",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "PK": {
+    "name": "Pakistan",
+    "portals": [
+      {
+        "url": "https://www.pakistan.gov.pk/",
+        "domain": "pakistan.gov.pk",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "QA": {
+    "name": "Qatar",
+    "portals": [
+      {
+        "url": "https://diwan.gov.qa/",
+        "domain": "diwan.gov.qa",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "SG": {
+    "name": "Singapore",
+    "portals": [
+      {
+        "url": "https://www.gov.sg/",
+        "domain": "gov.sg",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "SY": {
+    "name": "Syria",
+    "portals": [
+      {
+        "url": "https://www.egov.sy/",
+        "domain": "egov.sy",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "TH": {
+    "name": "Thailand",
+    "portals": [
+      {
+        "url": "https://www.thaigov.go.th/",
+        "domain": "thaigov.go.th",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "TJ": {
+    "name": "Tajikistan",
+    "portals": [
+      {
+        "url": "https://president.tj/",
+        "domain": "president.tj",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "TL": {
+    "name": "Timor-Leste",
+    "portals": [
+      {
+        "url": "https://timor-leste.gov.tl/",
+        "domain": "timor-leste.gov.tl",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "TM": {
+    "name": "Turkmenistan",
+    "portals": [
+      {
+        "url": "https://turkmenistan.gov.tm/",
+        "domain": "turkmenistan.gov.tm",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "TR": {
+    "name": "Turkey",
+    "portals": [
+      {
+        "url": "https://www.tccb.gov.tr/",
+        "domain": "tccb.gov.tr",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "TW": {
+    "name": "Taiwan",
+    "portals": [
+      {
+        "url": "https://www.gov.tw/",
+        "domain": "gov.tw",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "UZ": {
+    "name": "Uzbekistan",
+    "portals": [
+      {
+        "url": "https://www.gov.uz/",
+        "domain": "gov.uz",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "VN": {
+    "name": "Vietnam",
+    "portals": [
+      {
+        "url": "https://vietnam.gov.vn/",
+        "domain": "vietnam.gov.vn",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "YE": {
+    "name": "Yemen",
+    "portals": [
+      {
+        "url": "https://www.yemen.gov.ye/",
+        "domain": "yemen.gov.ye",
+        "note": "",
+        "region": "Азия"
+      }
+    ]
+  },
+  "SH": {
+    "name": "Saint Helena",
+    "portals": [
+      {
+        "url": "https://www.sainthelena.gov.sh/",
+        "domain": "sainthelena.gov.sh",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "AO": {
+    "name": "Angola",
+    "portals": [
+      {
+        "url": "https://governo.gov.ao/",
+        "domain": "governo.gov.ao",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "BF": {
+    "name": "Burkina Faso",
+    "portals": [
+      {
+        "url": "https://www.gouvernement.gov.bf/",
+        "domain": "gouvernement.gov.bf",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "BI": {
+    "name": "Burundi",
+    "portals": [
+      {
+        "url": "https://www.burundi.gov.bi/",
+        "domain": "burundi.gov.bi",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "BJ": {
+    "name": "Benin",
+    "portals": [
+      {
+        "url": "https://www.gouv.bj/",
+        "domain": "gouv.bj",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "BW": {
+    "name": "Botswana",
+    "portals": [
+      {
+        "url": "https://www.gov.bw/",
+        "domain": "gov.bw",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "CD": {
+    "name": "DR Congo",
+    "portals": [
+      {
+        "url": "https://presidentrdc.cd/",
+        "domain": "presidentrdc.cd",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "CF": {
+    "name": "Central African Republic",
+    "portals": [
+      {
+        "url": "https://centrafricaine.info/",
+        "domain": "centrafricaine.info",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "CG": {
+    "name": "Republic of Congo",
+    "portals": [
+      {
+        "url": "https://presidence.cg/",
+        "domain": "presidence.cg",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "CI": {
+    "name": "Côte d’Ivoire",
+    "portals": [
+      {
+        "url": "https://www.gouv.ci/",
+        "domain": "gouv.ci",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "CM": {
+    "name": "Cameroon",
+    "portals": [
+      {
+        "url": "https://www.spm.gov.cm/",
+        "domain": "spm.gov.cm",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "CV": {
+    "name": "Cabo Verde",
+    "portals": [
+      {
+        "url": "https://www.governo.cv/",
+        "domain": "governo.cv",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "DJ": {
+    "name": "Djibouti",
+    "portals": [
+      {
+        "url": "https://visitdjibouti.dj/",
+        "domain": "visitdjibouti.dj",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "DZ": {
+    "name": "Algeria",
+    "portals": [
+      {
+        "url": "https://www.el-mouradia.dz/",
+        "domain": "el-mouradia.dz",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "EG": {
+    "name": "Egypt",
+    "portals": [
+      {
+        "url": "https://cabinet.gov.eg/",
+        "domain": "cabinet.gov.eg",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "EH": {
+    "name": "Western Sahara",
+    "portals": [
+      {
+        "url": "https://corcas.com/",
+        "domain": "corcas.com",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "ER": {
+    "name": "Eritrea",
+    "portals": [
+      {
+        "url": "https://shabait.com/",
+        "domain": "shabait.com",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "ET": {
+    "name": "Ethiopia",
+    "portals": [
+      {
+        "url": "https://ethiopar.net/",
+        "domain": "ethiopar.net",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "GA": {
+    "name": "Gabon",
+    "portals": [
+      {
+        "url": "https://www.gouvernement.ga/",
+        "domain": "gouvernement.ga",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "GH": {
+    "name": "Ghana",
+    "portals": [
+      {
+        "url": "https://www.ghana.gov.gh/",
+        "domain": "ghana.gov.gh",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "GM": {
+    "name": "Gambia",
+    "portals": [
+      {
+        "url": "https://www.statehouse.gm/",
+        "domain": "statehouse.gm",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "GN": {
+    "name": "Guinea",
+    "portals": [
+      {
+        "url": "https://presidence.gov.gn/",
+        "domain": "presidence.gov.gn",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "GQ": {
+    "name": "Equatorial Guinea",
+    "portals": [
+      {
+        "url": "https://guinea-equatorial.com/",
+        "domain": "guinea-equatorial.com",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "GW": {
+    "name": "Guinea-Bissau",
+    "portals": [
+      {
+        "url": "https://www.guinebissaurepublic.com/",
+        "domain": "guinebissaurepublic.com",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "KE": {
+    "name": "Kenya",
+    "portals": [
+      {
+        "url": "https://parliament.go.ke/",
+        "domain": "parliament.go.ke",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "KM": {
+    "name": "Comoros",
+    "portals": [
+      {
+        "url": "https://beit-salam.km/",
+        "domain": "beit-salam.km",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "LR": {
+    "name": "Liberia",
+    "portals": [
+      {
+        "url": "https://micat.gov.lr/",
+        "domain": "micat.gov.lr",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "LS": {
+    "name": "Lesotho",
+    "portals": [
+      {
+        "url": "https://www.gov.ls/",
+        "domain": "gov.ls",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "MA": {
+    "name": "Morocco",
+    "portals": [
+      {
+        "url": "https://pm.gov.ma/",
+        "domain": "pm.gov.ma",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "MG": {
+    "name": "Madagascar",
+    "portals": [
+      {
+        "url": "https://www.presidence.gov.mg/",
+        "domain": "presidence.gov.mg",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "ML": {
+    "name": "Mali",
+    "portals": [
+      {
+        "url": "https://www.primature.gov.ml/",
+        "domain": "primature.gov.ml",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "MR": {
+    "name": "Mauritania",
+    "portals": [
+      {
+        "url": "https://mauritania.mr/",
+        "domain": "mauritania.mr",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "MU": {
+    "name": "Mauritius",
+    "portals": [
+      {
+        "url": "https://govmu.org/",
+        "domain": "govmu.org",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "MW": {
+    "name": "Malawi",
+    "portals": [
+      {
+        "url": "https://www.malawi.gov.mw/",
+        "domain": "malawi.gov.mw",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "MZ": {
+    "name": "Mozambique",
+    "portals": [
+      {
+        "url": "https://presidencia.gov.mz/",
+        "domain": "presidencia.gov.mz",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "NA": {
+    "name": "Namibia",
+    "portals": [
+      {
+        "url": "https://www.gov.na/",
+        "domain": "gov.na",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "NE": {
+    "name": "Niger",
+    "portals": [
+      {
+        "url": "https://www.presidence.ne/",
+        "domain": "presidence.ne",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "NG": {
+    "name": "Nigeria",
+    "portals": [
+      {
+        "url": "https://www.nigeria.gov.ng/",
+        "domain": "nigeria.gov.ng",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "RW": {
+    "name": "Rwanda",
+    "portals": [
+      {
+        "url": "https://www.gov.rw/",
+        "domain": "gov.rw",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "SC": {
+    "name": "Seychelles",
+    "portals": [
+      {
+        "url": "https://egov.sc/",
+        "domain": "egov.sc",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "SD": {
+    "name": "Sudan",
+    "portals": [
+      {
+        "url": "https://www.sudan.gov.sd/",
+        "domain": "sudan.gov.sd",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "RE": {
+    "name": "Réunion",
+    "portals": [
+      {
+        "url": "https://regionreunion.com/",
+        "domain": "regionreunion.com",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "SL": {
+    "name": "Sierra Leone",
+    "portals": [
+      {
+        "url": "https://statehouse-sl.org/",
+        "domain": "statehouse-sl.org",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "SN": {
+    "name": "Senegal",
+    "portals": [
+      {
+        "url": "https://www.gouv.sn/",
+        "domain": "gouv.sn",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "SO": {
+    "name": "Somalia",
+    "portals": [
+      {
+        "url": "https://somaligov.net/",
+        "domain": "somaligov.net",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "ST": {
+    "name": "São Tomé and Príncipe",
+    "portals": [
+      {
+        "url": "https://presidencia.st/",
+        "domain": "presidencia.st",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "SZ": {
+    "name": "Eswatini",
+    "portals": [
+      {
+        "url": "https://www.gov.sz/",
+        "domain": "gov.sz",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "TD": {
+    "name": "Chad",
+    "portals": [
+      {
+        "url": "https://presidence.td/",
+        "domain": "presidence.td",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "TG": {
+    "name": "Togo",
+    "portals": [
+      {
+        "url": "https://www.republicoftogo.com/",
+        "domain": "republicoftogo.com",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "TN": {
+    "name": "Tunisia",
+    "portals": [
+      {
+        "url": "https://tourisme.gov.tn/",
+        "domain": "tourisme.gov.tn",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "TZ": {
+    "name": "Tanzania",
+    "portals": [
+      {
+        "url": "https://www.tanzania.go.tz/",
+        "domain": "tanzania.go.tz",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "UG": {
+    "name": "Uganda",
+    "portals": [
+      {
+        "url": "https://visituganda.com/",
+        "domain": "visituganda.com",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "ZA": {
+    "name": "South Africa",
+    "portals": [
+      {
+        "url": "https://www.gov.za/",
+        "domain": "gov.za",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "ZM": {
+    "name": "Zambia",
+    "portals": [
+      {
+        "url": "https://statehouse.gov.zm/",
+        "domain": "statehouse.gov.zm",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "ZW": {
+    "name": "Zimbabwe",
+    "portals": [
+      {
+        "url": "https://parlzim.gov.zw/",
+        "domain": "parlzim.gov.zw",
+        "note": "",
+        "region": "Африка"
+      }
+    ]
+  },
+  "AD": {
+    "name": "Andorra",
+    "portals": [
+      {
+        "url": "https://www.govern.ad/",
+        "domain": "govern.ad",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "AL": {
+    "name": "Albania",
+    "portals": [
+      {
+        "url": "https://president.al/",
+        "domain": "president.al",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "AT": {
+    "name": "Austria",
+    "portals": [
+      {
+        "url": "https://federal-chancellery.gv.at/",
+        "domain": "federal-chancellery.gv.at",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "BA": {
+    "name": "Bosnia and Herzegovina",
+    "portals": [
+      {
+        "url": "https://predsjednistvobih.ba/",
+        "domain": "predsjednistvobih.ba",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "BE": {
+    "name": "Belgium",
+    "portals": [
+      {
+        "url": "https://www.belgium.be/",
+        "domain": "belgium.be",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "BG": {
+    "name": "Bulgaria",
+    "portals": [
+      {
+        "url": "https://www.government.bg/",
+        "domain": "government.bg",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "BY": {
+    "name": "Belarus",
+    "portals": [
+      {
+        "url": "https://president.gov.by/",
+        "domain": "president.gov.by",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "CH": {
+    "name": "Switzerland",
+    "portals": [
+      {
+        "url": "https://www.admin.ch/",
+        "domain": "admin.ch",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "CZ": {
+    "name": "Czechia",
+    "portals": [
+      {
+        "url": "https://www.czech.cz/",
+        "domain": "czech.cz",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "DE": {
+    "name": "Germany",
+    "portals": [
+      {
+        "url": "https://www.bundesregierung.de/",
+        "domain": "bundesregierung.de",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "DK": {
+    "name": "Denmark",
+    "portals": [
+      {
+        "url": "https://www.ft.dk/",
+        "domain": "ft.dk",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "EE": {
+    "name": "Estonia",
+    "portals": [
+      {
+        "url": "https://www.valitsus.ee/",
+        "domain": "valitsus.ee",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "ES": {
+    "name": "Spain",
+    "portals": [
+      {
+        "url": "https://spain.info/",
+        "domain": "spain.info",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "FI": {
+    "name": "Finland",
+    "portals": [
+      {
+        "url": "https://valtioneuvosto.fi/",
+        "domain": "valtioneuvosto.fi",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "FR": {
+    "name": "France",
+    "portals": [
+      {
+        "url": "https://www.service-public.fr/",
+        "domain": "service-public.fr",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "GI": {
+    "name": "Gibraltar",
+    "portals": [
+      {
+        "url": "https://www.gibraltar.gov.gi/",
+        "domain": "gibraltar.gov.gi",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "GR": {
+    "name": "Greece",
+    "portals": [
+      {
+        "url": "https://government.gov.gr/",
+        "domain": "government.gov.gr",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "HR": {
+    "name": "Croatia",
+    "portals": [
+      {
+        "url": "https://vlada.gov.hr/",
+        "domain": "vlada.gov.hr",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "HU": {
+    "name": "Hungary",
+    "portals": [
+      {
+        "url": "https://kormany.hu/",
+        "domain": "kormany.hu",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "IE": {
+    "name": "Ireland",
+    "portals": [
+      {
+        "url": "https://www.gov.ie/",
+        "domain": "gov.ie",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "IS": {
+    "name": "Iceland",
+    "portals": [
+      {
+        "url": "https://island.is/",
+        "domain": "island.is",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "IT": {
+    "name": "Italy",
+    "portals": [
+      {
+        "url": "https://www.governo.it/",
+        "domain": "governo.it",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "LI": {
+    "name": "Liechtenstein",
+    "portals": [
+      {
+        "url": "https://www.liechtenstein.li/",
+        "domain": "liechtenstein.li",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "LT": {
+    "name": "Lithuania",
+    "portals": [
+      {
+        "url": "https://lrv.lt/",
+        "domain": "lrv.lt",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "LU": {
+    "name": "Luxembourg",
+    "portals": [
+      {
+        "url": "https://luxembourg.public.lu/",
+        "domain": "luxembourg.public.lu",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "LV": {
+    "name": "Latvia",
+    "portals": [
+      {
+        "url": "https://latvija.lv/",
+        "domain": "latvija.lv",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "MC": {
+    "name": "Monaco",
+    "portals": [
+      {
+        "url": "https://en.gouv.mc/",
+        "domain": "en.gouv.mc",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "MD": {
+    "name": "Moldova",
+    "portals": [
+      {
+        "url": "https://moldova.md/",
+        "domain": "moldova.md",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "ME": {
+    "name": "Montenegro",
+    "portals": [
+      {
+        "url": "https://www.gov.me/",
+        "domain": "gov.me",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "MK": {
+    "name": "North Macedonia",
+    "portals": [
+      {
+        "url": "https://vlada.mk/",
+        "domain": "vlada.mk",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "MT": {
+    "name": "Malta",
+    "portals": [
+      {
+        "url": "https://www.gov.mt/",
+        "domain": "gov.mt",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "NL": {
+    "name": "Netherlands",
+    "portals": [
+      {
+        "url": "https://www.government.nl/",
+        "domain": "government.nl",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "NO": {
+    "name": "Norway",
+    "portals": [
+      {
+        "url": "https://www.regjeringen.no/",
+        "domain": "regjeringen.no",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "PL": {
+    "name": "Poland",
+    "portals": [
+      {
+        "url": "https://premier.gov.pl/",
+        "domain": "premier.gov.pl",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "PT": {
+    "name": "Portugal",
+    "portals": [
+      {
+        "url": "https://www.portugal.gov.pt/",
+        "domain": "portugal.gov.pt",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "RO": {
+    "name": "Romania",
+    "portals": [
+      {
+        "url": "https://www.gov.ro/",
+        "domain": "gov.ro",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "RS": {
+    "name": "Serbia",
+    "portals": [
+      {
+        "url": "https://serbia.travel/",
+        "domain": "serbia.travel",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "SE": {
+    "name": "Sweden",
+    "portals": [
+      {
+        "url": "https://www.government.se/",
+        "domain": "government.se",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "SI": {
+    "name": "Slovenia",
+    "portals": [
+      {
+        "url": "https://www.gov.si/",
+        "domain": "gov.si",
+        "note": "",
+        "region": "Европа"
+      },
+      {
+        "url": "https://slovenia.si/",
+        "domain": "slovenia.si",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "SK": {
+    "name": "Slovakia",
+    "portals": [
+      {
+        "url": "https://www.vlada.gov.sk/",
+        "domain": "vlada.gov.sk",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "SM": {
+    "name": "San Marino",
+    "portals": [
+      {
+        "url": "https://visitsanmarino.com/",
+        "domain": "visitsanmarino.com",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "UA": {
+    "name": "Ukraine",
+    "portals": [
+      {
+        "url": "https://www.kmu.gov.ua/",
+        "domain": "kmu.gov.ua",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "GB": {
+    "name": "UK",
+    "portals": [
+      {
+        "url": "https://www.gov.uk/",
+        "domain": "gov.uk",
+        "note": "",
+        "region": "Европа"
+      },
+      {
+        "url": "https://gov.wales/",
+        "domain": "gov.wales",
+        "note": "",
+        "region": "Европа"
+      },
+      {
+        "url": "https://northernireland.gov.uk/",
+        "domain": "northernireland.gov.uk",
+        "note": "",
+        "region": "Европа"
+      },
+      {
+        "url": "https://gov.scot/",
+        "domain": "gov.scot",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "VA": {
+    "name": "Vatican",
+    "portals": [
+      {
+        "url": "https://www.vatican.va/",
+        "domain": "vatican.va",
+        "note": "",
+        "region": "Европа"
+      },
+      {
+        "url": "https://vaticanstate.va/",
+        "domain": "vaticanstate.va",
+        "note": "",
+        "region": "Европа"
+      }
+    ]
+  },
+  "BM": {
+    "name": "Bermuda",
+    "portals": [
+      {
+        "url": "https://www.gov.bm/",
+        "domain": "gov.bm",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "CA": {
+    "name": "Canada",
+    "portals": [
+      {
+        "url": "https://www.canada.ca/",
+        "domain": "canada.ca",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "GL": {
+    "name": "Greenland",
+    "portals": [
+      {
+        "url": "https://nanoq.gl/",
+        "domain": "nanoq.gl",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "AG": {
+    "name": "Antigua and Barbuda",
+    "portals": [
+      {
+        "url": "https://ab.gov.ag/",
+        "domain": "ab.gov.ag",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "BB": {
+    "name": "Barbados",
+    "portals": [
+      {
+        "url": "https://www.gov.bb/",
+        "domain": "gov.bb",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "BS": {
+    "name": "Bahamas",
+    "portals": [
+      {
+        "url": "https://www.bahamas.gov.bs/",
+        "domain": "bahamas.gov.bs",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "BZ": {
+    "name": "Belize",
+    "portals": [
+      {
+        "url": "https://www.belize.gov.bz/",
+        "domain": "belize.gov.bz",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "CR": {
+    "name": "Costa Rica",
+    "portals": [
+      {
+        "url": "https://www.presidencia.go.cr/",
+        "domain": "presidencia.go.cr",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "CU": {
+    "name": "Cuba",
+    "portals": [
+      {
+        "url": "https://cubagob.cu/",
+        "domain": "cubagob.cu",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "DM": {
+    "name": "Dominica",
+    "portals": [
+      {
+        "url": "https://dominica.gov.dm/",
+        "domain": "dominica.gov.dm",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "DO": {
+    "name": "Dominican Republic",
+    "portals": [
+      {
+        "url": "https://www.dominicanrepublic.com/",
+        "domain": "dominicanrepublic.com",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "GD": {
+    "name": "Grenada",
+    "portals": [
+      {
+        "url": "https://gov.gd/",
+        "domain": "gov.gd",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "GT": {
+    "name": "Guatemala",
+    "portals": [
+      {
+        "url": "https://guatemala.gob.gt/",
+        "domain": "guatemala.gob.gt",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "HN": {
+    "name": "Honduras",
+    "portals": [
+      {
+        "url": "https://presidencia.gob.hn/",
+        "domain": "presidencia.gob.hn",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "JM": {
+    "name": "Jamaica",
+    "portals": [
+      {
+        "url": "https://cabinet.gov.jm/",
+        "domain": "cabinet.gov.jm",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "KN": {
+    "name": "Saint Kitts and Nevis",
+    "portals": [
+      {
+        "url": "https://www.gov.kn/",
+        "domain": "gov.kn",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "KY": {
+    "name": "Cayman Islands",
+    "portals": [
+      {
+        "url": "https://www.gov.ky/",
+        "domain": "gov.ky",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "LC": {
+    "name": "Saint Lucia",
+    "portals": [
+      {
+        "url": "https://www.govt.lc/",
+        "domain": "govt.lc",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "MX": {
+    "name": "Mexico",
+    "portals": [
+      {
+        "url": "https://www.gob.mx/",
+        "domain": "gob.mx",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "NI": {
+    "name": "Nicaragua",
+    "portals": [
+      {
+        "url": "https://poderjudicial.gob.ni/",
+        "domain": "poderjudicial.gob.ni",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "PA": {
+    "name": "Panama",
+    "portals": [
+      {
+        "url": "https://www.presidencia.gob.pa/",
+        "domain": "presidencia.gob.pa",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "SV": {
+    "name": "El Salvador",
+    "portals": [
+      {
+        "url": "https://presidencia.gob.sv/",
+        "domain": "presidencia.gob.sv",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "TC": {
+    "name": "Turks and Caicos",
+    "portals": [
+      {
+        "url": "https://www.gov.tc/",
+        "domain": "gov.tc",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "TT": {
+    "name": "Trinidad and Tobago",
+    "portals": [
+      {
+        "url": "https://gotrinidadandtobago.com/",
+        "domain": "gotrinidadandtobago.com",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "VC": {
+    "name": "Saint Vincent and the Grenadines",
+    "portals": [
+      {
+        "url": "https://www.gov.vc/",
+        "domain": "gov.vc",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "AR": {
+    "name": "Argentina",
+    "portals": [
+      {
+        "url": "https://www.argentina.gob.ar/",
+        "domain": "argentina.gob.ar",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "BO": {
+    "name": "Bolivia",
+    "portals": [
+      {
+        "url": "https://bolivia.gob.bo/",
+        "domain": "bolivia.gob.bo",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "BR": {
+    "name": "Brazil",
+    "portals": [
+      {
+        "url": "https://www.gov.br/",
+        "domain": "gov.br",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      },
+      {
+        "url": "https://brasil.gov.br/",
+        "domain": "brasil.gov.br",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "CL": {
+    "name": "Chile",
+    "portals": [
+      {
+        "url": "https://www.gob.cl/",
+        "domain": "gob.cl",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "CO": {
+    "name": "Colombia",
+    "portals": [
+      {
+        "url": "https://nomasfilas.gov.co/",
+        "domain": "nomasfilas.gov.co",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      },
+      {
+        "url": "https://gov.co/",
+        "domain": "gov.co",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "EC": {
+    "name": "Ecuador",
+    "portals": [
+      {
+        "url": "https://www.presidencia.gob.ec/",
+        "domain": "presidencia.gob.ec",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "FK": {
+    "name": "Falklands",
+    "portals": [
+      {
+        "url": "https://www.falklands.gov.fk/",
+        "domain": "falklands.gov.fk",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "GF": {
+    "name": "French Guiana",
+    "portals": [
+      {
+        "url": "https://guyane.pref.gouv.fr/",
+        "domain": "guyane.pref.gouv.fr",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "GY": {
+    "name": "Guyana",
+    "portals": [
+      {
+        "url": "https://parliament.gov.gy/",
+        "domain": "parliament.gov.gy",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "PE": {
+    "name": "Peru",
+    "portals": [
+      {
+        "url": "https://www.gob.pe/",
+        "domain": "gob.pe",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "PY": {
+    "name": "Paraguay",
+    "portals": [
+      {
+        "url": "https://presidencia.gov.py/",
+        "domain": "presidencia.gov.py",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "SR": {
+    "name": "Suriname",
+    "portals": [
+      {
+        "url": "https://president.gov.sr/",
+        "domain": "president.gov.sr",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "UY": {
+    "name": "Uruguay",
+    "portals": [
+      {
+        "url": "https://www.gub.uy/",
+        "domain": "gub.uy",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  },
+  "VE": {
+    "name": "Venezuela",
+    "portals": [
+      {
+        "url": "https://gob.ve/",
+        "domain": "gob.ve",
+        "note": "",
+        "region": "Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist)"
+      }
+    ]
+  }
+}

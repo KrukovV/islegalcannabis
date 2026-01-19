@@ -3,8 +3,8 @@
   "country": "Niger",
   "status": "provisional",
   "confidence": "low",
-  "medical": "unknown",
-  "recreational": "unknown",
+  "medical": "allowed",
+  "recreational": "allowed",
   "possession_limit": "unknown",
   "public_use": "unknown",
   "home_grow": "unknown",
@@ -49,5 +49,21 @@
       "status": "needs_review",
       "at": "2026-01-08"
     }
-  ]
+  ],
+  "legal_ssot": {
+    "recreational": "legal",
+    "medical": "legal",
+    "notes": null,
+    "sources": [
+      {
+        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis"
+      }
+    ]
+  },
+  "status_recreational": "legal",
+  "status_medical": "legal",
+  "official_sources": [],
+  "wiki_source": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "effective_date": null
 }

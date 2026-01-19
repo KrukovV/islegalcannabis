@@ -1,0 +1,417 @@
+{
+  "generated_at": "2026-01-11T17:43:56.143Z",
+  "discovered_at": "2026-01-11T17:42:55.604Z",
+  "candidates_source": "/Users/vitaliykryukov/Projects/islegalcannabis/data/sources/wikidata_candidates.json",
+  "validated": {
+    "AE": [
+      {
+        "final_url": "https://u.ae/",
+        "status_code": 200,
+        "checked_at": "2026-01-11T17:42:57.347Z"
+      }
+    ],
+    "AM": [
+      {
+        "final_url": "https://e-gov.am/",
+        "status_code": 200,
+        "checked_at": "2026-01-11T17:42:59.886Z"
+      }
+    ],
+    "AR": [
+      {
+        "final_url": "https://www.argentina.gob.ar/",
+        "status_code": 200,
+        "checked_at": "2026-01-11T17:43:02.078Z"
+      },
+      {
+        "final_url": "https://www.congreso.gob.ar/",
+        "status_code": 200,
+        "checked_at": "2026-01-11T17:43:03.493Z"
+      }
+    ],
+    "AS": [
+      {
+        "final_url": "https://www.americansamoa.gov/",
+        "status_code": 200,
+        "checked_at": "2026-01-11T17:43:04.198Z"
+      }
+    ],
+    "AT": [
+      {
+        "final_url": "https://www.parlament.gv.at/",
+        "status_code": 200,
+        "checked_at": "2026-01-11T17:43:06.015Z"
+      }
+    ],
+    "AU": [
+      {
+        "final_url": "https://my.gov.au/en/services?redirectFrom=australia.gov.au",
+        "status_code": 200,
+        "checked_at": "2026-01-11T17:43:08.198Z"
+      },
+      {
+        "final_url": "https://www.aph.gov.au/",
+        "status_code": 200,
+        "checked_at": "2026-01-11T17:43:10.546Z"
+      }
+    ],
+    "AW": [
+      {
+        "final_url": "https://www.parlamento.aw/",
+        "status_code": 200,
+        "checked_at": "2026-01-11T17:43:11.567Z"
+      }
+    ],
+    "AX": [
+      {
+        "final_url": "https://www.regeringen.ax/",
+        "status_code": 200,
+        "checked_at": "2026-01-11T17:43:12.494Z"
+      },
+      {
+        "final_url": "https://www.lagtinget.ax/",
+        "status_code": 200,
+        "checked_at": "2026-01-11T17:43:13.849Z"
+      }
+    ],
+    "AZ": [
+      {
+        "final_url": "https://meclis.gov.az/",
+        "status_code": 200,
+        "checked_at": "2026-01-11T17:43:14.817Z"
+      }
+    ],
+    "BA": [
+      {
+        "final_url": "https://www.parlament.ba/",
+        "status_code": 200,
+        "checked_at": "2026-01-11T17:43:16.556Z"
+      }
+    ],
+    "BB": [
+      {
+        "final_url": "https://www.gov.bb/",
+        "status_code": 200,
+        "checked_at": "2026-01-11T17:43:17.526Z"
+      }
+    ],
+    "BF": [
+      {
+        "final_url": "https://gouvernement.gov.bf/",
+        "status_code": 200,
+        "checked_at": "2026-01-11T17:43:21.878Z"
+      }
+    ],
+    "BI": [
+      {
+        "final_url": "https://presidence.gov.bi/",
+        "status_code": 200,
+        "checked_at": "2026-01-11T17:43:26.268Z"
+      }
+    ],
+    "BM": [
+      {
+        "final_url": "https://www.gov.bm/",
+        "status_code": 200,
+        "checked_at": "2026-01-11T17:43:27.034Z"
+      }
+    ],
+    "BR": [
+      {
+        "final_url": "https://www.gov.br/pt-br",
+        "status_code": 200,
+        "checked_at": "2026-01-11T17:43:34.220Z"
+      }
+    ],
+    "BW": [
+      {
+        "final_url": "https://gov.bw/",
+        "status_code": 200,
+        "checked_at": "2026-01-11T17:43:38.009Z"
+      }
+    ],
+    "CH": [
+      {
+        "final_url": "https://www.admin.ch/",
+        "status_code": 202,
+        "checked_at": "2026-01-11T17:43:38.922Z"
+      },
+      {
+        "final_url": "https://www.parlament.ch/de",
+        "status_code": 200,
+        "checked_at": "2026-01-11T17:43:42.859Z"
+      }
+    ],
+    "CN": [
+      {
+        "final_url": "https://www.gov.cn/",
+        "status_code": 200,
+        "checked_at": "2026-01-11T17:43:44.469Z"
+      },
+      {
+        "final_url": "https://english.www.gov.cn/",
+        "status_code": 200,
+        "checked_at": "2026-01-11T17:43:47.265Z"
+      }
+    ],
+    "CO": [
+      {
+        "final_url": "https://www.gov.co/",
+        "status_code": 200,
+        "checked_at": "2026-01-11T17:43:48.254Z"
+      }
+    ],
+    "CV": [
+      {
+        "final_url": "https://www.parlamento.cv/",
+        "status_code": 200,
+        "checked_at": "2026-01-11T17:43:49.205Z"
+      }
+    ],
+    "CW": [
+      {
+        "final_url": "https://www.parlamento.cw/",
+        "status_code": 200,
+        "checked_at": "2026-01-11T17:43:50.946Z"
+      }
+    ],
+    "CX": [
+      {
+        "final_url": "https://www.shire.gov.cx/",
+        "status_code": 200,
+        "checked_at": "2026-01-11T17:43:53.666Z"
+      }
+    ],
+    "DE": [
+      {
+        "final_url": "https://verwaltung.bund.de/portal/",
+        "status_code": 200,
+        "checked_at": "2026-01-11T17:43:56.141Z"
+      }
+    ]
+  },
+  "rejected": {
+    "AE": [
+      {
+        "url": "https://uaecabinet.ae/en/federal-supreme-council",
+        "reason": "not_allowed"
+      }
+    ],
+    "AF": [
+      {
+        "url": "https://alemarahenglish.af/",
+        "reason": "not_allowed"
+      }
+    ],
+    "AO": [
+      {
+        "url": "https://www.governo.gov.ao/",
+        "reason": "fetch_error"
+      }
+    ],
+    "BB": [
+      {
+        "url": "https://www.barbadosparliament.com/",
+        "reason": "not_allowed"
+      }
+    ],
+    "BD": [
+      {
+        "url": "https://www.parliament.gov.bd/",
+        "reason": "fetch_error"
+      }
+    ],
+    "BE": [
+      {
+        "url": "https://www.belgium.be/",
+        "reason": "not_allowed"
+      },
+      {
+        "url": "https://www.fed-parl.be/",
+        "reason": "not_allowed"
+      }
+    ],
+    "BF": [
+      {
+        "url": "https://www.assembleenationale.bf",
+        "reason": "not_allowed"
+      }
+    ],
+    "BG": [
+      {
+        "url": "https://www.parliament.bg",
+        "reason": "not_allowed"
+      }
+    ],
+    "BH": [
+      {
+        "url": "https://www.bahrain.bh",
+        "reason": "not_allowed"
+      }
+    ],
+    "BJ": [
+      {
+        "url": "https://www.gouv.bj/",
+        "reason": "not_allowed"
+      }
+    ],
+    "BL": [
+      {
+        "url": "https://www.comstbarth.fr",
+        "reason": "not_allowed"
+      }
+    ],
+    "BM": [
+      {
+        "url": "https://www.parliament.bm/",
+        "reason": "not_allowed"
+      }
+    ],
+    "BN": [
+      {
+        "url": "https://www.gov.bn/SitePages/Home.aspx",
+        "reason": "fetch_error"
+      },
+      {
+        "url": "https://www.gov.bn/bm/Home.aspx",
+        "reason": "fetch_error"
+      }
+    ],
+    "BR": [
+      {
+        "url": "https://www.congressonacional.leg.br/",
+        "reason": "not_allowed"
+      }
+    ],
+    "BS": [
+      {
+        "url": "https://www.bahamas.gov.bs/",
+        "reason": "status_403"
+      }
+    ],
+    "BT": [
+      {
+        "url": "https://parliament.bt/",
+        "reason": "not_allowed"
+      }
+    ],
+    "BY": [
+      {
+        "url": "https://www.belarus.by/",
+        "reason": "not_allowed"
+      }
+    ],
+    "CA": [
+      {
+        "url": "https://www.canada.ca",
+        "reason": "not_allowed"
+      },
+      {
+        "url": "https://parl.ca",
+        "reason": "not_allowed"
+      }
+    ],
+    "CG": [
+      {
+        "url": "https://gouvernement.cg/",
+        "reason": "not_allowed"
+      }
+    ],
+    "CI": [
+      {
+        "url": "https://www.gouv.ci",
+        "reason": "not_allowed"
+      }
+    ],
+    "CL": [
+      {
+        "url": "https://www.gob.cl/",
+        "reason": "not_allowed"
+      }
+    ],
+    "CM": [
+      {
+        "url": "https://www.prc.cm/fr/",
+        "reason": "not_allowed"
+      }
+    ],
+    "CR": [
+      {
+        "url": "https://www.presidencia.go.cr/",
+        "reason": "not_allowed"
+      }
+    ],
+    "CW": [
+      {
+        "url": "https://curacao.com",
+        "reason": "not_allowed"
+      }
+    ],
+    "CY": [
+      {
+        "url": "https://www.parliament.cy/",
+        "reason": "not_allowed"
+      }
+    ],
+    "CZ": [
+      {
+        "url": "https://www.czechia.eu/",
+        "reason": "not_allowed"
+      },
+      {
+        "url": "https://pspen.psp.cz/",
+        "reason": "not_allowed"
+      },
+      {
+        "url": "https://www.senat.cz/index-eng.php",
+        "reason": "not_allowed"
+      }
+    ],
+    "DE": [
+      {
+        "url": "https://www.bundesrat.de/",
+        "reason": "not_allowed"
+      },
+      {
+        "url": "https://www.bundestag.de/",
+        "reason": "not_allowed"
+      }
+    ],
+    "DJ": [
+      {
+        "url": "https://www.presidence.dj/",
+        "reason": "not_allowed"
+      }
+    ],
+    "DK": [
+      {
+        "url": "https://ft.dk",
+        "reason": "not_allowed"
+      },
+      {
+        "url": "https://thedanishparliament.dk",
+        "reason": "not_allowed"
+      },
+      {
+        "url": "https://www.folkatingid.dk",
+        "reason": "not_allowed"
+      },
+      {
+        "url": "https://www.folketingi.dk",
+        "reason": "not_allowed"
+      }
+    ],
+    "DO": [
+      {
+        "url": "https://www.dominicanrepublic.com/",
+        "reason": "not_allowed"
+      }
+    ],
+    "DZ": [
+      {
+        "url": "https://www.el-mouradia.dz/ar/home",
+        "reason": "not_allowed"
+      }
+    ]
+  }
+}

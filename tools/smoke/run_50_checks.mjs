@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { createRequire } from "node:module";
+import { writeCheckedArtifact } from "./checked_artifact.mjs";
 
 const ROOT = process.cwd();
 const TOP25_PATH = path.join(ROOT, "packages", "shared", "src", "top25.json");
@@ -48,7 +49,31 @@ function pickRandom(items, count, seed) {
   return list.slice(0, count);
 }
 
+function caseId(entry) {
+  if (!entry?.country) return "";
+  const country = String(entry.country).trim().toUpperCase();
+  const region = entry.region ? String(entry.region).trim().toUpperCase() : "";
+  return `${country}${region ? `-${region}` : ""}`;
+}
+
+function dedupeCases(entries) {
+  const seen = new Set();
+  const next = [];
+  for (const entry of entries) {
+    const id = caseId(entry);
+    if (!id || seen.has(id)) continue;
+    seen.add(id);
+    next.push(entry);
+  }
+  return next;
+}
+
 function buildCases(top25, seed) {
+  const fixedCases = [
+    { name: "Russia", country: "RU", expectOk: true },
+    { name: "Thailand", country: "TH", expectOk: true },
+    { name: "US-CA", country: "US", region: "CA", expectOk: true }
+  ];
   const topCases = pickRandom(top25, 25, seed).map((entry) => ({
     name: entry.displayName ?? entry.slug,
     country: entry.country,
@@ -87,7 +112,12 @@ function buildCases(top25, seed) {
     { name: "Sweden", country: "SE", expectOk: true }
   ];
 
-  return [...topCases, ...edgeCases, ...boundaryCases].slice(0, 50);
+  return dedupeCases([
+    ...fixedCases,
+    ...topCases,
+    ...edgeCases,
+    ...boundaryCases
+  ]).slice(0, 50);
 }
 
 function buildUrl(baseUrl, params) {
@@ -163,14 +193,19 @@ async function run() {
 
     let passed = 0;
     let failed = 0;
+    const checkedEntries = [];
 
     for (const item of cases) {
       const url = buildUrl(baseUrl, item);
-      let status = "n/a";
+      let status = "unknown";
+      let method = "test";
       let meta = {};
       let ok = false;
       let httpStatus = 0;
       let json = null;
+      const entryId = item.country
+        ? `${item.country}${item.region ? `-${item.region}` : ""}`
+        : "UNKNOWN";
 
       try {
         if (localMode && checkHandler) {
@@ -186,12 +221,20 @@ async function run() {
       } catch (err) {
         failed += 1;
         console.log(`[FAIL] ${item.name} -> request failed`);
+        checkedEntries.push({
+          id: entryId,
+          country: item.country,
+          region: item.region,
+          status: "error",
+          method
+        });
         continue;
       }
 
       ok = Boolean(json?.ok);
       status = json?.meta?.statusCode ?? json?.status?.label ?? "unknown";
       meta = json?.meta ?? {};
+      method = "test";
 
       const validPayload = validatePayload(json);
       const hasStatusCode = Boolean(json?.meta?.statusCode);
@@ -204,23 +247,41 @@ async function run() {
         pass = !isServerError && (!ok || !hasStatusCode || !validPayload);
       }
 
-    const requestId =
-      typeof json?.requestId === "string"
-        ? json.requestId.slice(0, 8)
-        : "n/a";
+      const requestId =
+        typeof json?.requestId === "string"
+          ? json.requestId.slice(0, 8)
+          : "n/a";
 
-    if (pass) {
-      passed += 1;
-      console.log(
-        `[OK] ${item.country || "??"}${item.region ? `-${item.region}` : ""} -> status=${status} requestId=${requestId} cacheHit=${meta.cacheHit ?? "n/a"} verifiedFresh=${meta.verifiedFresh ?? "n/a"}`
-      );
-    } else {
-      failed += 1;
-      console.log(
-        `[FAIL] ${item.country || "??"}${item.region ? `-${item.region}` : ""} -> http=${httpStatus} requestId=${requestId} message=${json?.error?.message ?? "n/a"}`
-      );
-    }
+      if (pass) {
+        passed += 1;
+        console.log(
+          `[OK] ${item.country || "??"}${item.region ? `-${item.region}` : ""} -> status=${status} requestId=${requestId} cacheHit=${meta.cacheHit ?? "n/a"} verifiedFresh=${meta.verifiedFresh ?? "n/a"}`
+        );
+      } else {
+        failed += 1;
+        console.log(
+          `[FAIL] ${item.country || "??"}${item.region ? `-${item.region}` : ""} -> http=${httpStatus} requestId=${requestId} message=${json?.error?.message ?? "n/a"}`
+        );
+      }
+
+      const sourcesCount = Array.isArray(json?.profile?.sources)
+        ? json.profile.sources.length
+        : 0;
+      checkedEntries.push({
+        id: entryId,
+        country: item.country,
+        region: item.region,
+        status,
+        method,
+        verified_sources_count: sourcesCount,
+        verified_sources_present: sourcesCount > 0
+      });
   }
+
+    writeCheckedArtifact(
+      checkedEntries,
+      path.join(ROOT, "Reports", "checked", "last_checked.json")
+    );
 
     console.log(`\nSummary: ${passed} passed, ${failed} failed`);
     if (failed > 0) {
@@ -243,7 +304,11 @@ async function run() {
   }
 }
 
-run().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+if (import.meta.url === `file://${process.argv[1]}`) {
+  run().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+}
+
+export { buildCases };

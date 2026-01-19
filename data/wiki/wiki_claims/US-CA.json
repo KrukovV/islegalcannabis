@@ -1,0 +1,31 @@
+{
+  "geo_key": "US-CA",
+  "name_in_wiki": "California",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/California",
+  "wiki_rec": "Legal",
+  "wiki_med": "Legal",
+  "notes_raw": "Main article: [[Cannabis in California]]",
+  "main_articles": [
+    {
+      "title": "Cannabis in California",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_California"
+    }
+  ],
+  "wiki_refs": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_California",
+      "title": "Cannabis in California",
+      "source": "main_article"
+    }
+  ],
+  "recreational_status": "Legal",
+  "medical_status": "Legal",
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in California",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_California"
+    }
+  ],
+  "wiki_revision_id": "fixture",
+  "fetched_at": "2026-01-19T19:35:14.682Z"
+}

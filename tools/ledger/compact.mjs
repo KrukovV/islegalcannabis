@@ -136,7 +136,12 @@ function appendArchiveEntries(archiveLines, date, entries) {
   while (cursor < next.length && !next[cursor].startsWith("## ")) {
     cursor += 1;
   }
-  const toInsert = entries.filter((entry) => !existing.has(entry));
+  const toInsert = [];
+  for (const entry of entries) {
+    if (existing.has(entry)) continue;
+    existing.add(entry);
+    toInsert.push(entry);
+  }
   if (toInsert.length === 0) return next;
   next.splice(cursor, 0, ...toInsert);
   return next;
@@ -154,8 +159,9 @@ const wipLine = wipLineRaw.trim();
 
 const doneLines = sections.get("Done:") ?? [];
 const doneBullets = collectBullets(doneLines);
-const doneKept = doneBullets.slice(0, 10);
-const doneOverflow = doneBullets.slice(10);
+const doneUnique = Array.from(new Set(doneBullets));
+const doneKept = doneUnique.slice(0, 10);
+const doneOverflow = doneUnique.slice(10);
 
 const stateKept = keepBullets(sections.get("State:") ?? [], 1);
 const nowKept = keepBullets(sections.get("Now:") ?? [], 15);

@@ -52,3 +52,19 @@ export const EXTRAS_CATALOG: ExtrasCatalogItem[] = [
     severityHint: "medium"
   }
 ];
+
+export const EXTRAS_PRIORITY = [
+  "purchase",
+  "retail_shops",
+  "edibles",
+  "vapes",
+  "concentrates",
+  "cbd",
+  "paraphernalia",
+  "medical_card",
+  "home_grow_plants",
+  "social_clubs",
+  "hemp",
+  "workplace",
+  "testing_dui"
+];

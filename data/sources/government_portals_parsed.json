@@ -1,0 +1,977 @@
+{
+  "Afghanistan": {
+    "government": "Islamic Republic of Afghanistan",
+    "url": "https://president.gov.af/en/",
+    "url_raw": "https://president.gov.af/en/"
+  },
+  "Albania": {
+    "government": "Republic of Albania",
+    "url": "https://kryeministria.al/en/",
+    "url_raw": "https://kryeministria.al/en/"
+  },
+  "Algeria": {
+    "government": "People’s Democratic Republic of Algeria",
+    "url": "https://www.mae.gov.dz/",
+    "url_raw": "http://www.mae.gov.dz/"
+  },
+  "Andorra": {
+    "government": "Govern d’Andorra",
+    "url": "https://www.govern.ad/",
+    "url_raw": "https://www.govern.ad/"
+  },
+  "Angola": {
+    "government": "República de Angola",
+    "url": "https://governo.gov.ao/",
+    "url_raw": "https://governo.gov.ao/"
+  },
+  "Antigua and Barbuda": {
+    "government": "Government of Antigua and Barbuda",
+    "url": "https://ab.gov.ag/",
+    "url_raw": "https://ab.gov.ag/"
+  },
+  "Argentina": {
+    "government": "The Argentine Republic",
+    "url": "https://www.argentina.gob.ar/",
+    "url_raw": "https://www.argentina.gob.ar"
+  },
+  "Armenia": {
+    "government": "The Government of the Republic of Armenia",
+    "url": "https://www.gov.am/",
+    "url_raw": "https://www.gov.am"
+  },
+  "Australia": {
+    "government": "Australian Government",
+    "url": "https://www.australia.gov.au/",
+    "url_raw": "https://www.australia.gov.au/"
+  },
+  "Austria": {
+    "government": "Republik Österreich",
+    "url": "https://www.oesterreich.gv.at/",
+    "url_raw": "https://www.oesterreich.gv.at/"
+  },
+  "Azerbaijan": {
+    "government": "Republic of Azerbaijan",
+    "url": "https://en.president.az/",
+    "url_raw": "https://en.president.az/"
+  },
+  "The Bahamas": {
+    "government": "Government of The Bahamas",
+    "url": "https://www.bahamas.gov.bs/",
+    "url_raw": "https://www.bahamas.gov.bs"
+  },
+  "Bahrain": {
+    "government": "Kingdom of Bahrain",
+    "url": "https://www.bahrain.bh/",
+    "url_raw": "https://www.bahrain.bh"
+  },
+  "Bangladesh": {
+    "government": "People’s Republic of Bangladesh",
+    "url": "https://bangladesh.gov.bd/",
+    "url_raw": "https://bangladesh.gov.bd/"
+  },
+  "Barbados": {
+    "government": "The Barbados Government",
+    "url": "https://www.gov.bb/",
+    "url_raw": "https://www.gov.bb"
+  },
+  "Belarus": {
+    "government": "Republic of Belarus",
+    "url": "https://www.belarus.by/",
+    "url_raw": "https://www.belarus.by"
+  },
+  "Belgium": {
+    "government": "Government of Belgium",
+    "url": "https://www.belgium.be/",
+    "url_raw": "https://www.belgium.be"
+  },
+  "Belize": {
+    "government": "Government of Belize",
+    "url": "https://www.belize.gov.bz/",
+    "url_raw": "https://www.belize.gov.bz"
+  },
+  "Benin": {
+    "government": "Gouvernement de la République du Bénin",
+    "url": "https://www.gouv.bj/",
+    "url_raw": "https://www.gouv.bj"
+  },
+  "Bhutan": {
+    "government": "The Royal Government of Bhutan",
+    "url": "https://www.bhutan.gov.bt/",
+    "url_raw": "http://www.bhutan.gov.bt"
+  },
+  "Bolivia": {
+    "government": "Estado Plurinacional de Bolivia",
+    "url": "https://www.presidencia.gob.bo/",
+    "url_raw": "http://www.presidencia.gob.bo/"
+  },
+  "Bosnia and Herzegovina": {
+    "government": "Government of Federation of Bosnia and Herzegovina",
+    "url": "https://www.fbihvlada.gov.ba/",
+    "url_raw": "http://www.fbihvlada.gov.ba"
+  },
+  "Botswana": {
+    "government": "Government of Botswana",
+    "url": "https://www.gov.bw/",
+    "url_raw": "http://www.gov.bw"
+  },
+  "Brazil": {
+    "government": "Federative Republic of Brazil",
+    "url": "https://www.brazil.gov.br/",
+    "url_raw": "http://www.brazil.gov.br"
+  },
+  "Brunei": {
+    "government": "Government of Brunei Darussalam",
+    "url": "https://www.gov.bn/",
+    "url_raw": "https://www.gov.bn"
+  },
+  "Bulgaria": {
+    "government": "Republic of Bulgaria",
+    "url": "https://www.gov.bg/",
+    "url_raw": "https://www.gov.bg"
+  },
+  "Burkina Faso": {
+    "government": "Gouvernement du Burkina Faso",
+    "url": "https://www.gouvernement.gov.bf/",
+    "url_raw": "https://www.gouvernement.gov.bf"
+  },
+  "Burundi": {
+    "government": "Gouvernement de la république du Burundi",
+    "url": "https://burundi.gov.bi/",
+    "url_raw": "https://burundi.gov.bi"
+  },
+  "Cabo Verde": {
+    "government": "Governo Cabo Verde",
+    "url": "https://www.governo.cv/",
+    "url_raw": "https://www.governo.cv"
+  },
+  "Cambodia": {
+    "government": "Kingdom of Cambodia",
+    "url": "https://pressocm.gov.kh/en/",
+    "url_raw": "https://pressocm.gov.kh/en/"
+  },
+  "Cameroon": {
+    "government": "The Republic of Cameroon",
+    "url": "https://www.spm.gov.cm/",
+    "url_raw": "https://www.spm.gov.cm"
+  },
+  "Canada": {
+    "government": "Gouvernement du Canada",
+    "url": "https://www.canada.ca/",
+    "url_raw": "https://www.canada.ca"
+  },
+  "Central African Republic": {
+    "government": "The Central African Republic",
+    "url": null,
+    "url_raw": ""
+  },
+  "Chad": {
+    "government": "République du Tchad",
+    "url": "https://presidence.td/",
+    "url_raw": "https://presidence.td/"
+  },
+  "Chile": {
+    "government": "República De Chile",
+    "url": "https://www.gob.cl/",
+    "url_raw": "https://www.gob.cl"
+  },
+  "China": {
+    "government": "People’s Republic of China",
+    "url": "https://www.gov.cn/",
+    "url_raw": "https://www.gov.cn"
+  },
+  "Colombia": {
+    "government": "Republic of Colombia",
+    "url": "https://www.gov.co/home/",
+    "url_raw": "https://www.gov.co/home/"
+  },
+  "Comoros": {
+    "government": "Union des Comores",
+    "url": "https://beit-salam.km/",
+    "url_raw": "https://beit-salam.km/"
+  },
+  "Congo, Democratic Republic of the": {
+    "government": "REPUBLIQUE DU CONGO",
+    "url": "https://presidence.cg/",
+    "url_raw": "https://presidence.cg/"
+  },
+  "Costa Rica": {
+    "government": "República de Costa Rica",
+    "url": "https://www.presidencia.go.cr/",
+    "url_raw": "https://www.presidencia.go.cr"
+  },
+  "Côte d’Ivoire": {
+    "government": "Republique du Côte d’Ivoire",
+    "url": "https://www.gouv.ci/",
+    "url_raw": "http://www.gouv.ci"
+  },
+  "Croatia": {
+    "government": "Government of the Republic of Croatia",
+    "url": "https://vlada.gov.hr/",
+    "url_raw": "https://vlada.gov.hr"
+  },
+  "Cuba": {
+    "government": "Republic of Cuba",
+    "url": "https://www.presidencia.gob.cu/",
+    "url_raw": "https://www.presidencia.gob.cu/"
+  },
+  "Cyprus": {
+    "government": "Republic of Cyprus",
+    "url": "https://www.cyprus.gov.cy/",
+    "url_raw": "http://www.cyprus.gov.cy"
+  },
+  "Czech Republic": {
+    "government": "Government of the Czech Republic",
+    "url": "https://www.vlada.cz/",
+    "url_raw": "https://www.vlada.cz"
+  },
+  "Denmark": {
+    "government": "Kingdom of Denmark",
+    "url": "https://denmark.dk/",
+    "url_raw": "https://denmark.dk"
+  },
+  "Djibouti": {
+    "government": "République de Djibouti",
+    "url": "https://www.presidence.dj/",
+    "url_raw": "https://www.presidence.dj"
+  },
+  "Dominica": {
+    "government": "Government of the Commonwealth of Dominica",
+    "url": "https://dominica.gov.dm/",
+    "url_raw": "https://dominica.gov.dm"
+  },
+  "Dominican Republic": {
+    "government": "The Dominican Republic",
+    "url": "https://www.dominicanrepublic.com/",
+    "url_raw": "https://www.dominicanrepublic.com"
+  },
+  "East Timor (Timor-Leste)": {
+    "government": "",
+    "url": null,
+    "url_raw": ""
+  },
+  "Ecuador": {
+    "government": "República del Ecuador",
+    "url": "https://www.presidencia.gob.ec/",
+    "url_raw": "https://www.presidencia.gob.ec"
+  },
+  "Egypt": {
+    "government": "Democratic Republic of Egypt",
+    "url": "https://www.egypt.gov.eg/",
+    "url_raw": "https://www.egypt.gov.eg"
+  },
+  "El Salvador": {
+    "government": "República de El Salvador",
+    "url": "https://www.presidencia.gob.sv/",
+    "url_raw": "https://www.presidencia.gob.sv"
+  },
+  "Equatorial Guinea": {
+    "government": "the Government of the Republic of Equatorial Guinea",
+    "url": "https://www.guineaecuatorialpress.com/",
+    "url_raw": "https://www.guineaecuatorialpress.com"
+  },
+  "Eritrea": {
+    "government": "State of Eritrea",
+    "url": "https://shabait.com/",
+    "url_raw": "https://shabait.com"
+  },
+  "Estonia": {
+    "government": "Government of the Republic of Estonia",
+    "url": "https://valitsus.ee/",
+    "url_raw": "https://valitsus.ee"
+  },
+  "Eswatini": {
+    "government": "The Government Of the Kingdom Of Eswatini",
+    "url": "https://www.gov.sz/",
+    "url_raw": "http://www.gov.sz"
+  },
+  "Ethiopia": {
+    "government": "Federal Democratic Republic of Ethiopia",
+    "url": "https://pmo.gov.et/",
+    "url_raw": "https://pmo.gov.et"
+  },
+  "Fiji": {
+    "government": "Fijian Government",
+    "url": "https://www.fiji.gov.fj/",
+    "url_raw": "https://www.fiji.gov.fj"
+  },
+  "Finland": {
+    "government": "Finnish Government",
+    "url": "https://valtioneuvosto.fi/",
+    "url_raw": "https://valtioneuvosto.fi"
+  },
+  "France": {
+    "government": "Gouvernement français",
+    "url": "https://www.gouvernement.fr/",
+    "url_raw": "https://www.gouvernement.fr"
+  },
+  "Gabon": {
+    "government": "République Gabonaise",
+    "url": "https://www.gouvernement.ga/",
+    "url_raw": "http://www.gouvernement.ga/"
+  },
+  "The Gambia": {
+    "government": "Republic of The Gambia",
+    "url": "https://www.statehouse.gm/",
+    "url_raw": "https://www.statehouse.gm"
+  },
+  "Georgia": {
+    "government": "State of Georgia",
+    "url": "https://georgia.gov/",
+    "url_raw": "https://georgia.gov"
+  },
+  "Germany": {
+    "government": "The Federal Republic of Germany",
+    "url": "https://www.bundesregierung.de/",
+    "url_raw": "https://www.bundesregierung.de"
+  },
+  "Ghana": {
+    "government": "The Government of Ghana",
+    "url": "https://www.ghana.gov.gh/",
+    "url_raw": "https://www.ghana.gov.gh"
+  },
+  "Greece": {
+    "government": "The Hellenic Government",
+    "url": "https://www.mfa.gr/",
+    "url_raw": "https://www.mfa.gr/"
+  },
+  "Grenada": {
+    "government": "Government of Grenada",
+    "url": "https://gov.gd/",
+    "url_raw": "https://gov.gd"
+  },
+  "Guatemala": {
+    "government": "Gobierno de Guatemala",
+    "url": "https://guatemala.gob.gt/",
+    "url_raw": "https://guatemala.gob.gt"
+  },
+  "Guinea": {
+    "government": "Government of Guinea",
+    "url": "https://www.guineaecuatorialpress.com/",
+    "url_raw": "https://www.guineaecuatorialpress.com/"
+  },
+  "Guinea-Bissau": {
+    "government": "Guinea Bissau Republic",
+    "url": "https://www.guinebissaurepublic.com/",
+    "url_raw": "www.guinebissaurepublic.com"
+  },
+  "Guyana": {
+    "government": "Co-operative Republic of Guyana",
+    "url": "https://government.gy/",
+    "url_raw": "https://government.gy"
+  },
+  "Haiti": {
+    "government": "République d’Haïti",
+    "url": null,
+    "url_raw": ""
+  },
+  "Honduras": {
+    "government": "Republic of Honduras",
+    "url": "https://presidencia.gob.hn/",
+    "url_raw": "https://presidencia.gob.hn"
+  },
+  "Hungary": {
+    "government": "Government of Hungary",
+    "url": "https://2010-2014.kormany.hu/en/",
+    "url_raw": "https://2010-2014.kormany.hu/en"
+  },
+  "Iceland": {
+    "government": "Government of Iceland",
+    "url": "https://www.government.is/",
+    "url_raw": "https://www.government.is"
+  },
+  "India": {
+    "government": "Government of India",
+    "url": "https://www.india.gov.in/",
+    "url_raw": "https://www.india.gov.in"
+  },
+  "Indonesia": {
+    "government": "Government of Indonesia",
+    "url": "https://www.kemlu.go.id/en/",
+    "url_raw": "http://www.kemlu.go.id/en"
+  },
+  "Iran": {
+    "government": "Islamic Republic of Iran",
+    "url": "https://www.president.ir/",
+    "url_raw": "http://www.president.ir"
+  },
+  "Iraq": {
+    "government": "Government of Iraq",
+    "url": "https://gds.gov.iq/",
+    "url_raw": "https://gds.gov.iq"
+  },
+  "Ireland": {
+    "government": "Government of Ireland",
+    "url": "https://www.gov.ie/",
+    "url_raw": "https://www.gov.ie"
+  },
+  "Israel": {
+    "government": "Government of Israel",
+    "url": "https://www.gov.il/",
+    "url_raw": "https://www.gov.il"
+  },
+  "Italy": {
+    "government": "Governo Italiano",
+    "url": "https://www.governo.it/",
+    "url_raw": "https://www.governo.it/"
+  },
+  "Jamaica": {
+    "government": "Government of Jamaica",
+    "url": "https://www.gov.jm/",
+    "url_raw": "https://www.gov.jm"
+  },
+  "Japan": {
+    "government": "The Government of Japan",
+    "url": "https://www.japan.go.jp/",
+    "url_raw": "https://www.japan.go.jp"
+  },
+  "Jordan": {
+    "government": "Government of Jordan",
+    "url": "https://jordan.gov.jo/",
+    "url_raw": "https://jordan.gov.jo"
+  },
+  "Kazakhstan": {
+    "government": "Republic of Kazakhstan",
+    "url": "https://www.primeminister.kz/",
+    "url_raw": "https://www.primeminister.kz"
+  },
+  "Kenya": {
+    "government": "Republic of Kenya",
+    "url": "https://www.president.go.ke/",
+    "url_raw": "https://www.president.go.ke"
+  },
+  "Kiribati": {
+    "government": "Government of Kiribati",
+    "url": "https://kiribati.gov.ki/",
+    "url_raw": "https://kiribati.gov.ki"
+  },
+  "Korea, North": {
+    "government": "Democratic People’s Republic of Korea",
+    "url": "https://www.korea-dpr.com/",
+    "url_raw": "https://www.korea-dpr.com"
+  },
+  "Korea, South": {
+    "government": "Republic of Korea",
+    "url": "https://www.mofa.go.kr/",
+    "url_raw": "https://www.mofa.go.kr"
+  },
+  "Kosovo": {
+    "government": "Republic of Kosovo",
+    "url": "https://www.rks-gov.net/",
+    "url_raw": "https://www.rks-gov.net"
+  },
+  "Kuwait": {
+    "government": "State of Kuwait",
+    "url": "https://www.cait.gov.kw/",
+    "url_raw": "https://www.cait.gov.kw"
+  },
+  "Kyrgyzstan": {
+    "government": "Government of the Kyrgyz Republic",
+    "url": "https://www.gov.kg/",
+    "url_raw": "https://www.gov.kg/"
+  },
+  "Laos": {
+    "government": "Government of Lao",
+    "url": "https://www.na.gov.la/",
+    "url_raw": "http://www.na.gov.la"
+  },
+  "Latvia": {
+    "government": "Government of Latvia",
+    "url": "https://www.mk.gov.lv/",
+    "url_raw": "https://www.mk.gov.lv"
+  },
+  "Lebanon": {
+    "government": "Lebanese Government",
+    "url": "https://portal.gov.lb/",
+    "url_raw": "http://portal.gov.lb"
+  },
+  "Lesotho": {
+    "government": "Government of Lesotho",
+    "url": "https://www.gov.ls/",
+    "url_raw": "https://www.gov.ls"
+  },
+  "Liberia": {
+    "government": "Government of Liberia",
+    "url": "https://eliberia.gov.lr/",
+    "url_raw": "https://eliberia.gov.lr"
+  },
+  "Libya": {
+    "government": "The State of Libya",
+    "url": "https://www.pm.gov.ly/",
+    "url_raw": "https://www.pm.gov.ly"
+  },
+  "Liechtenstein": {
+    "government": "Government of Liechtenstein",
+    "url": "https://www.liechtenstein.li/",
+    "url_raw": "https://www.liechtenstein.li"
+  },
+  "Lithuania": {
+    "government": "Government of the Republic of Lithuania",
+    "url": "https://lrv.lt/",
+    "url_raw": "https://lrv.lt"
+  },
+  "Luxembourg": {
+    "government": "Government of the Grand Duchy of Luxembourg",
+    "url": "https://gouvernement.lu/",
+    "url_raw": "https://gouvernement.lu"
+  },
+  "Madagascar": {
+    "government": "République de Madagascar",
+    "url": "https://www.presidence.gov.mg/",
+    "url_raw": "http://www.presidence.gov.mg"
+  },
+  "Malawi": {
+    "government": "Republic of Malawi",
+    "url": "https://www.malawi.gov.mw/",
+    "url_raw": "https://www.malawi.gov.mw"
+  },
+  "Malaysia": {
+    "government": "The Government of Malaysia",
+    "url": "https://www.malaysia.gov.my/",
+    "url_raw": "https://www.malaysia.gov.my"
+  },
+  "Maldives": {
+    "government": "Republic of Maldives",
+    "url": "https://presidency.gov.mv/",
+    "url_raw": "https://presidency.gov.mv"
+  },
+  "Mali": {
+    "government": "Government of the Republic of Mali",
+    "url": "https://www.primature.gov.ml/",
+    "url_raw": "http://www.primature.gov.ml/"
+  },
+  "Malta": {
+    "government": "Government of Malta",
+    "url": "https://www.gov.mt/",
+    "url_raw": "https://www.gov.mt"
+  },
+  "Marshall Islands": {
+    "government": "The Republic of the Marshall Islands",
+    "url": "https://www.rmiparliament.org/",
+    "url_raw": "https://www.rmiparliament.org"
+  },
+  "Mauritania": {
+    "government": "Islamic Republic of Mauritania",
+    "url": null,
+    "url_raw": ""
+  },
+  "Mauritius": {
+    "government": "Republic of Mauritius",
+    "url": "https://govmu.org/",
+    "url_raw": "https://govmu.org"
+  },
+  "Mexico": {
+    "government": "Government of Mexico",
+    "url": "https://www.gob.mx/",
+    "url_raw": "https://www.gob.mx"
+  },
+  "Micronesia, Federated States of": {
+    "government": "Government of the Federated States of Micronesia",
+    "url": "https://www.fsmgov.org/",
+    "url_raw": "https://www.fsmgov.org"
+  },
+  "Moldova": {
+    "government": "Government of Republic of Moldova",
+    "url": "https://gov.md/",
+    "url_raw": "https://gov.md"
+  },
+  "Monaco": {
+    "government": "Gouvernement Princier",
+    "url": "https://en.gouv.mc/",
+    "url_raw": "http://en.gouv.mc"
+  },
+  "Mongolia": {
+    "government": "The Government of Mongolia",
+    "url": "https://president.mn/",
+    "url_raw": "https://president.mn"
+  },
+  "Montenegro": {
+    "government": "Government of Montenegro",
+    "url": "https://www.gov.me/",
+    "url_raw": "https://www.gov.me"
+  },
+  "Morocco": {
+    "government": "Kingdom of Morocco",
+    "url": "https://www.men.gov.ma/",
+    "url_raw": "https://www.men.gov.ma/"
+  },
+  "Mozambique": {
+    "government": "Governo de Moçambique",
+    "url": "https://www.portaldogoverno.gov.mz/",
+    "url_raw": "https://www.portaldogoverno.gov.mz"
+  },
+  "Myanmar (Burma)": {
+    "government": "Government of Myanmar",
+    "url": "https://www.moi.gov.mm/",
+    "url_raw": "https://www.moi.gov.mm"
+  },
+  "Namibia": {
+    "government": "Government of the Republic of Namibia",
+    "url": "https://opm.gov.na/",
+    "url_raw": "https://opm.gov.na"
+  },
+  "Nauru": {
+    "government": "The Government of the Republic of Nauru",
+    "url": "https://www.naurugov.nr/",
+    "url_raw": "http://www.naurugov.nr"
+  },
+  "Nepal": {
+    "government": "Government of Nepal",
+    "url": "https://www.nepal.gov.np/",
+    "url_raw": "https://www.nepal.gov.np"
+  },
+  "Netherlands": {
+    "government": "Government of the Netherlands",
+    "url": "https://www.government.nl/",
+    "url_raw": "https://www.government.nl"
+  },
+  "New Zealand": {
+    "government": "New Zealand Government",
+    "url": "https://www.govt.nz/",
+    "url_raw": "https://www.govt.nz"
+  },
+  "Nicaragua": {
+    "government": "Republic of Nicaragua",
+    "url": null,
+    "url_raw": ""
+  },
+  "Niger": {
+    "government": "République du Niger",
+    "url": "https://www.presidence.ne/",
+    "url_raw": "https://www.presidence.ne"
+  },
+  "Nigeria": {
+    "government": "The federal government of Nigeria",
+    "url": "https://statehouse.gov.ng/",
+    "url_raw": "https://statehouse.gov.ng"
+  },
+  "North Macedonia": {
+    "government": "Government of the Republic of North Macedonia",
+    "url": "https://vlada.mk/",
+    "url_raw": "https://vlada.mk"
+  },
+  "Norway": {
+    "government": "Norwegian Government",
+    "url": "https://www.regjeringen.no/",
+    "url_raw": "https://www.regjeringen.no"
+  },
+  "Oman": {
+    "government": "Sultanate of Oman",
+    "url": "https://www.oman.om/",
+    "url_raw": "https://www.oman.om"
+  },
+  "Pakistan": {
+    "government": "Government of Islamic Republic of Pakistan",
+    "url": "https://www.pakistan.gov.pk/",
+    "url_raw": "https://www.pakistan.gov.pk"
+  },
+  "Palau": {
+    "government": "Government of Republic of Palau",
+    "url": "https://www.palaugov.pw/",
+    "url_raw": "https://www.palaugov.pw"
+  },
+  "Panama": {
+    "government": "Republic of Panama",
+    "url": "https://www.presidencia.gob.pa/",
+    "url_raw": "https://www.presidencia.gob.pa"
+  },
+  "Papua New Guinea": {
+    "government": "Government of Papua New Guinea",
+    "url": "https://www.parliament.gov.pg/",
+    "url_raw": "http://www.parliament.gov.pg"
+  },
+  "Paraguay": {
+    "government": "Republic of Paraguay",
+    "url": "https://www.paraguay.gov.py/",
+    "url_raw": "https://www.paraguay.gov.py"
+  },
+  "Peru": {
+    "government": "Gobierno del Perú",
+    "url": "https://www.gob.pe/",
+    "url_raw": "https://www.gob.pe"
+  },
+  "Philippines": {
+    "government": "Republic of the Philippines",
+    "url": "https://www.gov.ph/",
+    "url_raw": "https://www.gov.ph"
+  },
+  "Poland": {
+    "government": "Republic of Poland",
+    "url": "https://www.gov.pl/",
+    "url_raw": "https://www.gov.pl"
+  },
+  "Portugal": {
+    "government": "Portuguese Republic",
+    "url": "https://www.portugal.gov.pt/",
+    "url_raw": "https://www.portugal.gov.pt"
+  },
+  "Qatar": {
+    "government": "Government of Qatar",
+    "url": "https://www.gco.gov.qa/",
+    "url_raw": "https://www.gco.gov.qa"
+  },
+  "Romania": {
+    "government": "Guvernului României",
+    "url": "https://www.gov.ro/",
+    "url_raw": "https://www.gov.ro"
+  },
+  "Russia": {
+    "government": "Government of Russian Federation",
+    "url": "https://government.ru/",
+    "url_raw": "http://government.ru"
+  },
+  "Rwanda": {
+    "government": "Government of Rwanda",
+    "url": "https://www.gov.rw/",
+    "url_raw": "https://www.gov.rw"
+  },
+  "Saint Kitts and Nevis": {
+    "government": "Government of St. Kitts & Nevis",
+    "url": "https://www.gov.kn/",
+    "url_raw": "https://www.gov.kn"
+  },
+  "Saint Lucia": {
+    "government": "Government of Saint Lucia",
+    "url": "https://www.govt.lc/",
+    "url_raw": "http://www.govt.lc"
+  },
+  "Saint Vincent and the Grenadines": {
+    "government": "Government of Saint Vincent and the Grenadines",
+    "url": "https://www.gov.vc/",
+    "url_raw": "https://www.gov.vc"
+  },
+  "Samoa": {
+    "government": "Government of Samoa",
+    "url": "https://www.samoagovt.ws/",
+    "url_raw": "https://www.samoagovt.ws"
+  },
+  "San Marino": {
+    "government": "Repubblica di San Marino",
+    "url": "https://www.sanmarino.sm/",
+    "url_raw": "https://www.sanmarino.sm"
+  },
+  "Sao Tome and Principe": {
+    "government": "Government of São Tomé and Príncipe",
+    "url": "https://visitsaotomeprincipe.st/",
+    "url_raw": "https://visitsaotomeprincipe.st"
+  },
+  "Saudi Arabia": {
+    "government": "Kingdom of Saudi Arabia",
+    "url": "https://www.moh.gov.sa/",
+    "url_raw": "https://www.moh.gov.sa"
+  },
+  "Senegal": {
+    "government": "Gouvernement du Sénégal",
+    "url": "https://www.sec.gouv.sn/",
+    "url_raw": "https://www.sec.gouv.sn"
+  },
+  "Serbia": {
+    "government": "Republic of Serbia",
+    "url": "https://www.mfa.gov.rs/",
+    "url_raw": "https://www.mfa.gov.rs"
+  },
+  "Seychelles": {
+    "government": "The Republic of Seychelles",
+    "url": "https://www.statehouse.gov.sc/",
+    "url_raw": "https://www.statehouse.gov.sc/"
+  },
+  "Sierra Leone": {
+    "government": "Government of Sierra Leone",
+    "url": "https://psru.gov.sl/",
+    "url_raw": "https://psru.gov.sl"
+  },
+  "Singapore": {
+    "government": "The Singapore Government",
+    "url": "https://www.gov.sg/",
+    "url_raw": "https://www.gov.sg"
+  },
+  "Slovakia": {
+    "government": "Government of the Slovak Republic",
+    "url": "https://www.vlada.gov.sk/",
+    "url_raw": "https://www.vlada.gov.sk"
+  },
+  "Slovenia": {
+    "government": "The Government of the Republic of Slovenia",
+    "url": "https://www.gov.si/",
+    "url_raw": "https://www.gov.si"
+  },
+  "Solomon Islands": {
+    "government": "Solomon Islands Government",
+    "url": "https://solomons.gov.sb/",
+    "url_raw": "https://solomons.gov.sb"
+  },
+  "Somalia": {
+    "government": "Somali Federal Government",
+    "url": "https://www.somalia.gov.so/",
+    "url_raw": "https://www.somalia.gov.so"
+  },
+  "South Africa": {
+    "government": "The Republic of South Africa",
+    "url": "https://www.gov.za/",
+    "url_raw": "https://www.gov.za"
+  },
+  "Spain": {
+    "government": "Government of Spain",
+    "url": "https://www.lamoncloa.gob.es/",
+    "url_raw": "https://www.lamoncloa.gob.es"
+  },
+  "Sri Lanka": {
+    "government": "Government of Sri Lanka",
+    "url": "https://www.gov.lk/",
+    "url_raw": "https://www.gov.lk"
+  },
+  "Sudan": {
+    "government": "Republic of the Sudan",
+    "url": "https://www.sudan.gov.sd/",
+    "url_raw": "http://www.sudan.gov.sd"
+  },
+  "Sudan, South": {
+    "government": "Government of the Republic of South Sudan",
+    "url": "https://www.goss-online.org/",
+    "url_raw": "http://www.goss-online.org"
+  },
+  "Suriname": {
+    "government": "Republiek Suriname",
+    "url": "https://www.gov.sr/",
+    "url_raw": "http://www.gov.sr"
+  },
+  "Sweden": {
+    "government": "Government of Sweden",
+    "url": "https://www.government.se/",
+    "url_raw": "https://www.government.se/"
+  },
+  "Switzerland": {
+    "government": "Swiss Government",
+    "url": "https://www.admin.ch/gov/de/start.html/",
+    "url_raw": "https://www.admin.ch/gov/de/start.html"
+  },
+  "Syria": {
+    "government": "Syrian Arab Republic",
+    "url": "https://www.egov.sy/",
+    "url_raw": "https://www.egov.sy"
+  },
+  "Taiwan": {
+    "government": "Republic of China, Taiwan",
+    "url": "https://www.taiwan.gov.tw/",
+    "url_raw": "https://www.taiwan.gov.tw"
+  },
+  "Tajikistan": {
+    "government": "Government of the Republic of Tajikistan",
+    "url": "https://www.stat.tj/",
+    "url_raw": "https://www.stat.tj"
+  },
+  "Tanzania": {
+    "government": "United Republic of Tanzania",
+    "url": "https://www.tanzania.go.tz/",
+    "url_raw": "https://www.tanzania.go.tz"
+  },
+  "Thailand": {
+    "government": "Royal Thai Government",
+    "url": "https://thailand.prd.go.th/",
+    "url_raw": "https://thailand.prd.go.th"
+  },
+  "Togo": {
+    "government": "République Togolaise",
+    "url": "https://www.republicoftogo.com/",
+    "url_raw": "https://www.republicoftogo.com"
+  },
+  "Tonga": {
+    "government": "Government of Tonga",
+    "url": "https://www.mic.gov.to/",
+    "url_raw": "https://www.mic.gov.to"
+  },
+  "Trinidad and Tobago": {
+    "government": "Government of the Republic of Trinidad and Tobago",
+    "url": "https://www.ttconnect.gov.tt/",
+    "url_raw": "http://www.ttconnect.gov.tt"
+  },
+  "Tunisia": {
+    "government": "Government of Tunisia",
+    "url": "https://www.pm.gov.tn/",
+    "url_raw": "http://www.pm.gov.tn"
+  },
+  "Turkey": {
+    "government": "Republic of Turkey",
+    "url": "https://www.mfa.gov.tr/",
+    "url_raw": "https://www.mfa.gov.tr"
+  },
+  "Turkmenistan": {
+    "government": "Government of Turkmenistan",
+    "url": "https://turkey.tmembassy.gov.tm/",
+    "url_raw": "https://turkey.tmembassy.gov.tm"
+  },
+  "Tuvalu": {
+    "government": "Government of Tuvalu",
+    "url": "https://www.gov.tv/",
+    "url_raw": "https://www.gov.tv"
+  },
+  "Uganda": {
+    "government": "The Republic of Uganda",
+    "url": "https://opm.go.ug/",
+    "url_raw": "https://opm.go.ug"
+  },
+  "Ukraine": {
+    "government": "Government of Ukraine",
+    "url": "https://old.kmu.gov.ua/",
+    "url_raw": "http://old.kmu.gov.ua"
+  },
+  "United Arab Emirates": {
+    "government": "UAE Government",
+    "url": "https://u.ae/",
+    "url_raw": "https://u.ae"
+  },
+  "United Kingdom": {
+    "government": "UK Government",
+    "url": "https://www.gov.uk/",
+    "url_raw": "https://www.gov.uk"
+  },
+  "United States": {
+    "government": "United States federal government",
+    "url": "https://www.usa.gov/",
+    "url_raw": "https://www.usa.gov"
+  },
+  "Uruguay": {
+    "government": "República Oriental del Uruguay",
+    "url": "https://www.gub.uy/",
+    "url_raw": "https://www.gub.uy"
+  },
+  "Uzbekistan": {
+    "government": "Republic of Uzbekistan",
+    "url": "https://www.gov.uz/",
+    "url_raw": "https://www.gov.uz"
+  },
+  "Vanuatu": {
+    "government": "Government of Vanuatu",
+    "url": "https://www.gov.vu/",
+    "url_raw": "https://www.gov.vu"
+  },
+  "Vatican City": {
+    "government": "State of the Vatican City",
+    "url": "https://www.vatican.va/",
+    "url_raw": "http://www.vatican.va"
+  },
+  "Venezuela": {
+    "government": "Republic of Venezuela",
+    "url": null,
+    "url_raw": ""
+  },
+  "Vietnam": {
+    "government": "Socialist Republic of Vietnam",
+    "url": "https://chinhphu.vn/",
+    "url_raw": "http://chinhphu.vn"
+  },
+  "Yemen": {
+    "government": "Republic of Yemen",
+    "url": "https://www.yemen.gov.ye/",
+    "url_raw": "http://www.yemen.gov.ye"
+  },
+  "Zambia": {
+    "government": "Republic of Zambia",
+    "url": "https://www.sh.gov.zm/",
+    "url_raw": "https://www.sh.gov.zm"
+  },
+  "Zimbabwe": {
+    "government": "Government of Zimbabwe",
+    "url": "https://www.zim.gov.zw/",
+    "url_raw": "http://www.zim.gov.zw"
+  }
+}

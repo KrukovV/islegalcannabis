@@ -1,0 +1,1551 @@
+{
+  "generated_at": "2026-01-12T10:06:32.093Z",
+  "entries": {
+    "AF": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "AL": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "DZ": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "AD": {
+      "status_recreational": "allowed",
+      "status_medical": "unknown",
+      "official_sources": [
+        "https://www.govern.ad/ca/inici"
+      ],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null,
+      "source_url": "https://www.govern.ad/ca/inici",
+      "snapshot_path": "/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/AD/2026-01-12/9047a2480022da7479c70b867efec4dd53885c11f2e5a7a4808914122043f0c4.html",
+      "fetched_at": "2026-01-12T10:05:58.123Z",
+      "content_hash": "9047a2480022da7479c70b867efec4dd53885c11f2e5a7a4808914122043f0c4",
+      "extracted_facts": {
+        "recreational_status": "allowed",
+        "medical_status": "unknown",
+        "effective_date": null
+      },
+      "evidence": [
+        {
+          "field": "recreational_status",
+          "kind": "html_anchor",
+          "ref": "Portal oficial del Govern d&#39;Andorra",
+          "quote": "Portal oficial del Govern d&#39;Andorra - Govern d’Andorra {\"imports\":{\"@clayui/breadcrumb\":\"/o/frontend-taglib-clay/__liferay__/exports/@clayui$breadcrumb.js\",\"@clayui/form\":\"/o/frontend-taglib-clay/",
+          "snippet_hash": "ae90c03d1448f5e6d3d86bf6c6ec2d006cf711a4f50810f2ac1f451edc3c952a"
+        }
+      ],
+      "evidence_count": 1,
+      "confidence": "high",
+      "verified_sources_exist": true,
+      "official_source_ok": true,
+      "last_verified_at": "2026-01-12T10:05:58.123Z",
+      "verifier": "auto",
+      "ocr_used": false
+    },
+    "AO": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "AG": {
+      "status_recreational": "decriminalized",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "AR": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [
+        "https://www.argentina.gob.ar/salud/cannabis"
+      ],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": "Argentina government health portal on medical cannabis."
+    },
+    "AM": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "AU": {
+      "status_recreational": "decriminalized",
+      "status_medical": "legal",
+      "official_sources": [
+        "https://www.tga.gov.au/medicinal-cannabis"
+      ],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": "Australia TGA — national regulatory framework for medicinal cannabis; recreational laws vary by state but this is official."
+    },
+    "AT": {
+      "status_recreational": "illegal",
+      "status_medical": "unknown",
+      "official_sources": [
+        "https://www.basg.gv.at/"
+      ],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": "Austrian medical cannabis under BASG (regulatory authority). Recreational is illegal.",
+      "source_url": "https://www.basg.gv.at/",
+      "snapshot_path": "/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/AT/2026-01-11/f6e2aa61ce970b2ad1a7472e0d366a05cdd23cde3498e8b4ae7bd6c13c21de3d.html",
+      "fetched_at": "2026-01-11T18:24:14.047Z",
+      "content_hash": "f6e2aa61ce970b2ad1a7472e0d366a05cdd23cde3498e8b4ae7bd6c13c21de3d",
+      "extracted_facts": {
+        "recreational_status": "illegal",
+        "medical_status": "unknown",
+        "effective_date": null
+      },
+      "evidence": [
+        {
+          "field": "recreational_status",
+          "kind": "html_anchor",
+          "ref": "Bundesamt für Sicherheit im Gesundheitswesen",
+          "snippet_hash": "5b7e9c93bcdb273cc0633f22d9cd62146df56626f949f108a9fc71b3e50bd5bc"
+        }
+      ],
+      "evidence_count": 1,
+      "confidence": "high",
+      "verified_sources_exist": true,
+      "official_source_ok": true,
+      "last_verified_at": "2026-01-11T18:24:14.047Z",
+      "verifier": "auto",
+      "ocr_used": false
+    },
+    "AZ": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "BS": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "BH": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "BD": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "BB": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "BY": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "BE": {
+      "status_recreational": "decriminalized",
+      "status_medical": "illegal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "BZ": {
+      "status_recreational": "decriminalized",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "BJ": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "BM": {
+      "status_recreational": "decriminalized",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "BT": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "BO": {
+      "iso2": "BO",
+      "recreational_status": "unknown",
+      "medical_status": "unknown",
+      "evidence": [],
+      "sources": [
+        "https://www.minsalud.gob.bo/"
+      ],
+      "confidence": "medium",
+      "generated_at": "2026-01-11T09:21:02.606Z"
+    },
+    "BA": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "BW": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "BR": {
+      "status_recreational": "decriminalized",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": "Brazil Law 14.021/2020 authorizes medical cannabis use."
+    },
+    "BN": {
+      "iso2": "BN",
+      "recreational_status": "unknown",
+      "medical_status": "unknown",
+      "evidence": [],
+      "sources": [
+        "https://www.moh.gov.bn/"
+      ],
+      "confidence": "medium",
+      "generated_at": "2026-01-11T09:21:02.605Z"
+    },
+    "BG": {
+      "iso2": "BG",
+      "recreational_status": "unknown",
+      "medical_status": "unknown",
+      "evidence": [],
+      "sources": [
+        "https://www.mh.government.bg/"
+      ],
+      "confidence": "medium",
+      "generated_at": "2026-01-11T09:21:02.601Z"
+    },
+    "BF": {
+      "iso2": "BF",
+      "recreational_status": "unknown",
+      "medical_status": "unknown",
+      "evidence": [],
+      "sources": [
+        "https://gouvernement.gov.bf/"
+      ],
+      "confidence": "medium",
+      "generated_at": "2026-01-11T09:21:02.595Z"
+    },
+    "BI": {
+      "iso2": "BI",
+      "recreational_status": "unknown",
+      "medical_status": "unknown",
+      "evidence": [],
+      "sources": [
+        "https://presidence.gov.bi/"
+      ],
+      "confidence": "medium",
+      "generated_at": "2026-01-11T09:21:02.602Z"
+    },
+    "KH": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "CM": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "CA": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [
+        "https://laws.justice.gc.ca/eng/acts/c-24.5/"
+      ],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": "Cannabis Act legalizes recreational and medical use (federal law)."
+    },
+    "CV": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "CF": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "TD": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "CL": {
+      "status_recreational": "decriminalized",
+      "status_medical": "legal",
+      "official_sources": [
+        "https://www.leychile.cl/Navegar?idNorma=1116936"
+      ],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": "Chile law authorizes medical cannabis; recreational remains controlled under Chilean public health codes."
+    },
+    "CN": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "CO": {
+      "status_recreational": "decriminalized",
+      "status_medical": "legal",
+      "official_sources": [
+        "https://www.invima.gov.co/"
+      ],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": "Colombian National Institute for Drug and Food Surveillance pages on authorized cannabis products; recreational decriminalized to some extents."
+    },
+    "KM": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "CK": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "CD": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "CG": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "CR": {
+      "status_recreational": "decriminalized",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "HR": {
+      "status_recreational": "decriminalized",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "CU": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "CY": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "CZ": {
+      "status_recreational": "illegal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "DK": {
+      "iso2": "DK",
+      "recreational_status": "unknown",
+      "medical_status": "unknown",
+      "evidence": [],
+      "sources": [
+        "https://laegemiddelstyrelsen.dk/en/"
+      ],
+      "confidence": "medium",
+      "generated_at": "2026-01-11T09:21:02.611Z"
+    },
+    "DJ": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "DM": {
+      "status_recreational": "decriminalized",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "DO": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "EC": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "EG": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "SV": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "GQ": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "ER": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "EE": {
+      "status_recreational": "decriminalized",
+      "status_medical": "illegal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "SZ": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "ET": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "FJ": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "FI": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "FR": {
+      "status_recreational": "legal",
+      "status_medical": "illegal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "GA": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "GM": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "GE": {
+      "status_recreational": "decriminalized",
+      "status_medical": "legal",
+      "official_sources": [
+        "https://en.wikipedia.org/wiki/Cannabis_in_Georgia_(country)"
+      ],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": "Georgia (country) legal for possession; detailed in Wikipedia but can be backed by constitutional court decisions."
+    },
+    "DE": {
+      "iso2": "DE",
+      "recreational_status": "unknown",
+      "medical_status": "unknown",
+      "evidence": [],
+      "sources": [
+        "https://verwaltung.bund.de/"
+      ],
+      "confidence": "medium",
+      "generated_at": "2026-01-11T09:21:02.611Z"
+    },
+    "GH": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "GR": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "GL": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "GD": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "GT": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "GN": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "GW": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "GY": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "HT": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "HN": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "HK": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "HU": {
+      "status_recreational": "legal",
+      "status_medical": "illegal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "IS": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "IN": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "ID": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "IR": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "IQ": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "IE": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "IL": {
+      "status_recreational": "decriminalized",
+      "status_medical": "legal",
+      "official_sources": [
+        "https://www.health.gov.il/English/Topics/DrugAbuse/Pages/cannabis.aspx"
+      ],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": "Israel Ministry of Health page — legal medical cannabis framework."
+    },
+    "IT": {
+      "status_recreational": "decriminalized",
+      "status_medical": "legal",
+      "official_sources": [
+        "https://www.gazzettaufficiale.it/eli/id/2013/11/14/13G00251/sg"
+      ],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": "Italian official gazette — medical cannabis regime; recreational remains technically illegal (decriminalized in parts)."
+    },
+    "CI": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "JM": {
+      "status_recreational": "decriminalized",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "JP": {
+      "status_recreational": "legal",
+      "status_medical": "illegal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "JO": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "KZ": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "KE": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "KI": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "KP": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "KR": {
+      "status_recreational": "legal",
+      "status_medical": "illegal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "KW": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "KG": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "LA": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "LV": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "LB": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "LS": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "LR": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "LY": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "LI": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "LT": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "LU": {
+      "status_recreational": "decriminalized",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "MO": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "MG": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "MW": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "MY": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "MV": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "ML": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "MT": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "MH": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "MR": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "MU": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "MX": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [
+        "https://www.diputados.gob.mx/LeyesBiblio/pdf/LGCA_230423.pdf",
+        "https://www.gob.mx/cofepris/acciones-y-programas/cannabis-salud"
+      ],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": "Mexico Supreme Court rulings + regulatory documents; LGCA is federal law."
+    },
+    "FM": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "MD": {
+      "status_recreational": "decriminalized",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "MC": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "MN": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "ME": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "MA": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "MZ": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "MM": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "NA": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "NR": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "NP": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "NL": {
+      "status_recreational": "decriminalized",
+      "status_medical": "legal",
+      "official_sources": [
+        "https://www.government.nl/topics/drugs/cannabis-policy"
+      ],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": "Dutch government policy page describes tolerance and regulated coffee shop system."
+    },
+    "NZ": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [
+        "https://www.health.govt.nz/our-work/regulation-health-and-disability-system/medicinal-cannabis-regulations"
+      ],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": "New Zealand official health regulator pages for medical cannabis; recreational is tightly regulated or referendum-driven."
+    },
+    "NI": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "NE": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "NG": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "MK": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "NO": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "OM": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "PK": {
+      "status_recreational": "legal",
+      "status_medical": "illegal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "PW": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "PA": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "PG": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "PY": {
+      "status_recreational": "decriminalized",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "PE": {
+      "status_recreational": "decriminalized",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "PH": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "PL": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "PT": {
+      "status_recreational": "decriminalized",
+      "status_medical": "legal",
+      "official_sources": [
+        "https://dre.pt/home/-/dre/124182043/details/maximized",
+        "https://www.infarmed.pt/web/infarmed-en/home"
+      ],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": "Portugal decriminalized all drugs; official Diário da República + INFARMED regulator."
+    },
+    "QA": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "RO": {
+      "status_recreational": "legal",
+      "status_medical": "illegal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "RU": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "RW": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "KN": {
+      "status_recreational": "decriminalized",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "LC": {
+      "status_recreational": "decriminalized",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "VC": {
+      "status_recreational": "decriminalized",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "WS": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "SM": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "ST": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "SA": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "SN": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "RS": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "SC": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "SL": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "SG": {
+      "status_recreational": "legal",
+      "status_medical": "illegal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "SK": {
+      "status_recreational": "legal",
+      "status_medical": "illegal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "SI": {
+      "status_recreational": "decriminalized",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "SB": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "SO": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "ZA": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [
+        "https://www.gov.za/documents/cannabis-decriminalisation",
+        "https://www.sahpra.org.za/"
+      ],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": "Government announcement of decriminalization plus regulator site for medical products."
+    },
+    "SS": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "ES": {
+      "iso2": "ES",
+      "recreational_status": "unknown",
+      "medical_status": "unknown",
+      "evidence": [],
+      "sources": [
+        "https://www.boe.es/eli/es/l/2015/07/21/17/con"
+      ],
+      "confidence": "medium",
+      "generated_at": "2026-01-11T09:21:02.611Z"
+    },
+    "LK": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "SD": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "SR": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "SE": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "CH": {
+      "status_recreational": "decriminalized",
+      "status_medical": "legal",
+      "official_sources": [
+        "https://www.admin.ch/gov/en/start/documentation/media-releases.msg-id-76073.html",
+        "https://www.swissmedic.ch/swissmedic/en/home/market/marketing-licensing/authorisation/authorisation-of-medicinal-products.html"
+      ],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": "Swiss federal announcements for regulated experiments + medical frameworks."
+    },
+    "SY": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "TW": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "TJ": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "TZ": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "TH": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "TL": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "TG": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "TO": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "TT": {
+      "status_recreational": "decriminalized",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "TN": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "TR": {
+      "status_recreational": "legal",
+      "status_medical": "illegal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "TM": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "TV": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "UG": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "UA": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "AE": {
+      "iso2": "AE",
+      "recreational_status": "unknown",
+      "medical_status": "unknown",
+      "evidence": [],
+      "sources": [
+        "https://u.ae/en/information-and-services/justice-safety-and-the-law/drugs-and-controlled-medicines"
+      ],
+      "confidence": "medium",
+      "generated_at": "2026-01-11T09:21:02.580Z"
+    },
+    "GB": {
+      "status_recreational": "legal",
+      "status_medical": "illegal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "US": {
+      "status_recreational": "decriminalized",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "UY": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [
+        "https://planalto.gov.uy/",
+        "https://www.impo.com.uy/bases/leyes/19617-2013"
+      ],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": "Uruguay fully legalized cannabis; government registry/official docs enforce regulation."
+    },
+    "UZ": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "VU": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "VA": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "VE": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "VN": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "YE": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "ZM": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "ZW": {
+      "status_recreational": "legal",
+      "status_medical": "legal",
+      "official_sources": [],
+      "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+      "notes": null
+    },
+    "CX": {
+      "iso2": "CX",
+      "recreational_status": "unknown",
+      "medical_status": "unknown",
+      "evidence": [],
+      "sources": [
+        "https://www.shire.gov.cx/"
+      ],
+      "confidence": "medium",
+      "generated_at": "2026-01-11T09:21:02.611Z"
+    },
+    "AS": {
+      "iso2": "AS",
+      "recreational_status": "unknown",
+      "medical_status": "unknown",
+      "evidence": [],
+      "sources": [
+        "https://www.americansamoa.gov/"
+      ],
+      "confidence": "medium",
+      "generated_at": "2026-01-11T09:21:02.586Z"
+    }
+  }
+}

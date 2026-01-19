@@ -1,0 +1,31 @@
+{
+  "geo_key": "TH",
+  "name_in_wiki": "Thailand",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Thailand",
+  "wiki_rec": "Legal",
+  "wiki_med": "Legal",
+  "notes_raw": "Main article: [[Cannabis in Thailand]]",
+  "main_articles": [
+    {
+      "title": "Cannabis in Thailand",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Thailand"
+    }
+  ],
+  "wiki_refs": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Thailand",
+      "title": "Cannabis in Thailand",
+      "source": "main_article"
+    }
+  ],
+  "recreational_status": "Legal",
+  "medical_status": "Legal",
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Thailand",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Thailand"
+    }
+  ],
+  "wiki_revision_id": "fixture",
+  "fetched_at": "2026-01-19T19:35:14.679Z"
+}

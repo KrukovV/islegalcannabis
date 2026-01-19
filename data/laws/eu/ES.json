@@ -37,5 +37,27 @@
     "workplace": "unknown",
     "testing_dui": "unknown"
   },
-  "schema_version": 2
+  "schema_version": 2,
+  "legal_ssot": {
+    "recreational": "decriminalized",
+    "medical": "legal",
+    "notes": "Spain medical cannabis is regulated via public health laws; recreational use largely decriminalized in private contexts.",
+    "sources": [
+      {
+        "title": "Official source",
+        "url": "https://www.boe.es/eli/es/l/2015/07/21/17/con"
+      },
+      {
+        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis"
+      }
+    ]
+  },
+  "status_recreational": "decriminalized",
+  "status_medical": "legal",
+  "official_sources": [
+    "https://www.boe.es/eli/es/l/2015/07/21/17/con"
+  ],
+  "wiki_source": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "effective_date": null
 }

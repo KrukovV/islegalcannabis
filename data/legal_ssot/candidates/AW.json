@@ -1,0 +1,18 @@
+{
+  "iso2": "AW",
+  "status_recreational": "unknown",
+  "status_medical": "unknown",
+  "evidence": [
+    {
+      "type": "snapshot",
+      "url": "https://www.parlamento.aw/",
+      "snapshot_path": "/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/AW/2026-01-11/6f003376aac411dc115cf9a756da5ad9762e3632b00e7eeab2f7267f574c7a1e.html",
+      "sha256": "6f003376aac411dc115cf9a756da5ad9762e3632b00e7eeab2f7267f574c7a1e",
+      "retrieved_at": "2026-01-11T14:18:14.848Z",
+      "hint": "html_text"
+    }
+  ],
+  "confidence": "low",
+  "method": "auto_learn_candidate",
+  "generated_at": "2026-01-11T14:18:15.026Z"
+}

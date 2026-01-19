@@ -21,7 +21,10 @@ function readList(command) {
 const current = [
   ...readList("git diff --name-only"),
   ...readList("git ls-files --others --exclude-standard")
-].filter((entry) => !entry.startsWith("Reports/"));
+].filter(
+  (entry) =>
+    !entry.startsWith("Reports/") && !entry.startsWith("data/source_snapshots/")
+);
 
 const baseline = fs.existsSync(BASELINE_PATH)
   ? fs

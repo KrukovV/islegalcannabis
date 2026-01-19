@@ -1,0 +1,17 @@
+{
+  "head": { "vars": ["iso2", "countryWebsite", "legislatureWebsite"] },
+  "results": {
+    "bindings": [
+      {
+        "iso2": { "value": "AA" },
+        "countryWebsite": { "value": "https://example.gov/" },
+        "legislatureWebsite": { "value": "https://parliament.example.gov/" }
+      },
+      {
+        "iso2": { "value": "BB" },
+        "countryWebsite": { "value": "https://www.example.gov/" },
+        "legislatureWebsite": { "value": "https://wikipedia.org/wiki/Fake" }
+      }
+    ]
+  }
+}

@@ -9,4 +9,8 @@ describe("normalizeKey", () => {
   it("accepts non-US country without region", () => {
     expect(normalizeKey({ country: "de" })).toBe("DE");
   });
+
+  it("accepts US region key", () => {
+    expect(normalizeKey({ country: "us", region: "ca" })).toBe("US-CA");
+  });
 });

@@ -2,8 +2,8 @@
   "schema_version": 2,
   "country": "AU",
   "id": "AU",
-  "medical": "unknown",
-  "recreational": "unknown",
+  "medical": "allowed",
+  "recreational": "restricted",
   "possession_limit": "unknown",
   "public_use": "unknown",
   "home_grow": "unknown",
@@ -29,13 +29,13 @@
   },
   "sources": [
     {
-      "title": "Australia.gov.au",
+      "title": "Official source",
       "url": "https://www.australia.gov.au/"
     }
   ],
-  "updated_at": "2026-01-08",
+  "updated_at": "2026-01-09",
   "verified_at": "2026-01-07",
-  "status": "provisional",
+  "status": "needs_review",
   "confidence": "low",
   "provenance": {
     "method": "ocr+ai",
@@ -56,11 +56,8 @@
   "review_confidence": "medium",
   "review_sources": [
     {
-      "title": "UNODC World Drug Report",
-      "url": "https://www.unodc.org/unodc/en/data-and-analysis/world-drug-report.html",
-      "kind": "official",
-      "checked_at": "2026-01-07",
-      "weight": 0.6
+      "title": "Official source",
+      "url": "https://www.australia.gov.au/"
     }
   ],
   "review_status_history": [
@@ -71,6 +68,52 @@
     {
       "status": "needs_review",
       "at": "2026-01-08"
+    },
+    {
+      "status": "needs_review",
+      "at": "2026-01-08"
+    },
+    {
+      "status": "needs_review",
+      "at": "2026-01-09"
+    },
+    {
+      "status": "needs_review",
+      "at": "2026-01-09"
+    },
+    {
+      "status": "needs_review",
+      "at": "2026-01-09"
+    },
+    {
+      "status": "needs_review",
+      "at": "2026-01-09"
+    },
+    {
+      "status": "needs_review",
+      "at": "2026-01-09"
     }
-  ]
+  ],
+  "legal_ssot": {
+    "recreational": "decriminalized",
+    "medical": "legal",
+    "notes": "Australia TGA — national regulatory framework for medicinal cannabis; recreational laws vary by state but this is official.",
+    "sources": [
+      {
+        "title": "Official source",
+        "url": "https://www.tga.gov.au/medicinal-cannabis"
+      },
+      {
+        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis"
+      }
+    ]
+  },
+  "status_recreational": "decriminalized",
+  "status_medical": "legal",
+  "official_sources": [
+    "https://www.tga.gov.au/medicinal-cannabis"
+  ],
+  "wiki_source": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "effective_date": null
 }

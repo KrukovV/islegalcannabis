@@ -1,0 +1,52 @@
+{
+  "generated_at": "2026-01-11T21:47:50.731Z",
+  "entries": {
+    "AS": {
+      "iso": "AS",
+      "iso2": "AS",
+      "status_recreational": "unknown",
+      "status_medical": "decriminalized",
+      "medical_allowed": false,
+      "restricted_notes": "--> if (!window.Intl || !window.Intl.Segmenter) { (function() { var script = document.createElement('script'); script.src = 'https://static.parastorage.com/unpkg/@formatjs/intl-seg",
+      "evidence": [
+        {
+          "type": "html_anchor",
+          "page": null,
+          "anchor": "americansamoa.gov",
+          "quote": "--> if (!window.Intl || !window.Intl.Segmenter) { (function() { var script = document.createElement('script'); script.src = 'https://static.parastorage.com/unpkg/@formatjs/intl-segmenter@11.7.10/polyf",
+          "snapshot_path": "/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/AS/2026-01-11/source_0.html"
+        }
+      ],
+      "retrieved_at": "2026-01-11T21:47:50.731Z",
+      "confidence": "med",
+      "official_source_ok": true,
+      "source_url": "https://www.americansamoa.gov/",
+      "snapshot_path": "/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/AS/2026-01-11/source_0.html",
+      "content_hash": "b767ca3b7a6bde688fff2167f52e240f575e0fe1fbf4194e705d40ad7f79e303",
+      "model_id": "auto_facts_rules_v1"
+    },
+    "AD": {
+      "iso": "AD",
+      "iso2": "AD",
+      "status_recreational": "allowed",
+      "status_medical": "unknown",
+      "medical_allowed": false,
+      "confidence": "high",
+      "evidence": [
+        {
+          "type": "html_anchor",
+          "page": null,
+          "anchor": "Portal oficial del Govern d&#39;Andorra",
+          "quote": "Portal oficial del Govern d&#39;Andorra - Govern d’Andorra {\"imports\":{\"@clayui/breadcrumb\":\"/o/frontend-taglib-clay/__liferay__/exports/@clayui$breadcrumb.js\",\"@clayui/form\":\"/o/frontend-taglib-clay/",
+          "snapshot_path": "/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/AD/2026-01-11/3336a68f5e69640794c54ac7b177abff344ca393994273054a4e6c977dad33db.html"
+        }
+      ],
+      "official_source_ok": true,
+      "source_url": "https://www.govern.ad/ca/inici",
+      "snapshot_path": "/Users/vitaliykryukov/Projects/islegalcannabis/data/source_snapshots/AD/2026-01-11/3336a68f5e69640794c54ac7b177abff344ca393994273054a4e6c977dad33db.html",
+      "content_hash": "3336a68f5e69640794c54ac7b177abff344ca393994273054a4e6c977dad33db",
+      "retrieved_at": "2026-01-11T21:47:14.894Z",
+      "model_id": "auto_verify_ai_extract_v1"
+    }
+  }
+}

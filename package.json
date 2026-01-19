@@ -18,6 +18,9 @@
     "gen:iso3166": "node tools/iso3166/generate-iso3166-1.js",
     "sync:catalog": "node tools/iso3166/import-iso3166.js",
     "refresh:laws": "node tools/refresh-laws.js",
+    "wiki:ingest": "node tools/wiki/wiki_ingest.mjs",
+    "wiki:refresh": "node tools/wiki/wiki_refresh.mjs --all",
+    "wiki:official_eval": "node tools/wiki/wiki_official_eval.mjs",
     "ci": "bash tools/ci-local.sh"
   }
 }

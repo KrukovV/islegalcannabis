@@ -1,0 +1,87 @@
+{
+  "id": "GN",
+  "country": "GN",
+  "medical": "allowed",
+  "recreational": "allowed",
+  "possession_limit": "unknown",
+  "public_use": "unknown",
+  "home_grow": "unknown",
+  "cross_border": "unknown",
+  "risks": [
+    "border_crossing",
+    "driving"
+  ],
+  "extras": {
+    "purchase": "unknown",
+    "retail_shops": "unknown",
+    "edibles": "unknown",
+    "vapes": "unknown",
+    "concentrates": "unknown",
+    "cbd": "unknown",
+    "paraphernalia": "unknown",
+    "medical_card": "unknown",
+    "home_grow_plants": "unknown",
+    "social_clubs": "unknown",
+    "hemp": "unknown",
+    "workplace": "unknown",
+    "testing_dui": "unknown"
+  },
+  "status": "provisional",
+  "confidence": "low",
+  "review_status": "needs_review",
+  "review_confidence": "medium",
+  "review_sources": [
+    {
+      "title": "UNODC World Drug Report",
+      "url": "https://www.unodc.org/unodc/en/data-and-analysis/world-drug-report.html",
+      "kind": "official",
+      "checked_at": "2026-01-07",
+      "weight": 0.6
+    }
+  ],
+  "review_status_history": [
+    {
+      "status": "provisional",
+      "at": "2026-01-08"
+    },
+    {
+      "status": "provisional",
+      "at": "2026-01-08"
+    },
+    {
+      "status": "needs_review",
+      "at": "2026-01-08"
+    }
+  ],
+  "provenance": {
+    "method": "ocr+ai",
+    "extracted_at": "2026-01-08",
+    "model_id": "registry",
+    "input_hashes": []
+  },
+  "sources": [
+    {
+      "title": "UNODC World Drug Report",
+      "url": "https://www.unodc.org/unodc/en/data-and-analysis/world-drug-report.html"
+    }
+  ],
+  "verified_at": "2026-01-08",
+  "updated_at": "2026-01-08",
+  "schema_version": 2,
+  "legal_ssot": {
+    "recreational": "legal",
+    "medical": "legal",
+    "notes": null,
+    "sources": [
+      {
+        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis"
+      }
+    ]
+  },
+  "status_recreational": "legal",
+  "status_medical": "legal",
+  "official_sources": [],
+  "wiki_source": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "effective_date": null
+}

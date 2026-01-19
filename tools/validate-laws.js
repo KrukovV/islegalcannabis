@@ -12,6 +12,7 @@ function listJsonFiles(dir, files = []) {
     if (entry.isDirectory()) {
       listJsonFiles(fullPath, files);
     } else if (entry.isFile() && entry.name.endsWith(".json")) {
+      if (entry.name === "schema.json") continue;
       files.push(fullPath);
     }
   }

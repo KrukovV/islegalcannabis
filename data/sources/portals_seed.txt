@@ -1,0 +1,228 @@
+Австралия и Океания:
+- American Samoa — https://americansamoa.gov
+- Australia — https://www.australia.gov.au/
+- Fiji — https://www.fiji.gov.fj
+- Micronesia — https://www.fsmgov.org
+- Kiribati (parliament) — https://www.parliament.gov.ki
+- Marshall Islands — https://rmigovernment.org
+- Niue — https://www.gov.nu
+- New Zealand — https://beehive.govt.nz
+- French Polynesia — https://www.presidence.pf
+- Palau — https://www.palaugov.pw
+- Solomon Islands — https://pmc.gov.sb
+- Tonga — https://pmo.gov.to
+- Tuvalu — https://palmoilworld.org (ОТФИЛЬТРОВАТЬ как не-правительственный домен)
+- Vanuatu — https://www.gov.vu
+- Wallis and Futuna — https://wallis-et-futuna.gouv.fr
+- Samoa — https://www.samoagovt.ws
+
+Азия:
+- UAE — https://government.ae
+- Afghanistan — https://president.gov.af/en/ (и/или https://president.gov.af)
+- Armenia — https://president.am
+- Azerbaijan — https://president.az
+- Bangladesh — https://bangladesh.gov.bd/
+- Bahrain — https://www.bahrain.bh
+- Brunei — https://www.gov.bn
+- Bhutan — https://www.gov.bt
+- China — https://www.gov.cn + https://english.www.gov.cn/
+- Cyprus — http://www.cyprus.gov.cy
+- Georgia — https://president.gov.ge
+- Hong Kong — https://www.gov.hk
+- Indonesia — https://www.indonesia.go.id/
+- Israel — https://www.gov.il
+- India — https://www.india.gov.in
+- Iraq — https://presidency.iq
+- Iran — http://www.president.ir
+- Jordan — https://nic.gov.jo
+- Japan — https://www.kantei.go.jp
+- Cambodia — https://mfaic.gov.kh
+- North Korea — https://www.korea-dpr.com
+- South Korea — https://www.korea.net
+- Kuwait — https://e.gov.kw
+- Kazakhstan — https://government.kz
+- Kyrgyzstan — https://president.kg
+- Laos — http://www.na.gov.la
+- Sri Lanka — https://www.gov.lk
+- Myanmar — https://myanmar.gov.mm
+- Mongolia — https://president.mn
+- Macao — https://www.gov.mo
+- Maldives — https://visitmaldives.com (ОТФИЛЬТРОВАТЬ как туризм) + https://presidency.gov.mv
+- Malaysia — https://www.malaysia.gov.my/
+- Nepal — https://opmcm.gov.np
+- Oman — https://mofa.gov.om
+- Philippines — https://www.gov.ph
+- Pakistan — https://www.pakistan.gov.pk
+- Qatar — https://diwan.gov.qa
+- Singapore — https://www.gov.sg
+- Syria — https://www.egov.sy
+- Thailand — https://www.thaigov.go.th
+- Tajikistan — https://president.tj
+- Timor-Leste — https://timor-leste.gov.tl
+- Turkmenistan — https://turkmenistan.gov.tm
+- Turkey — https://www.tccb.gov.tr
+- Taiwan — https://www.gov.tw
+- Uzbekistan — https://www.gov.uz
+- Vietnam — https://vietnam.gov.vn
+- Yemen — http://www.yemen.gov.ye
+
+Африка:
+- Saint Helena — https://www.sainthelena.gov.sh
+- Angola — https://governo.gov.ao
+- Burkina Faso — https://www.gouvernement.gov.bf
+- Burundi — https://www.burundi.gov.bi
+- Benin — https://www.gouv.bj
+- Botswana — http://www.gov.bw
+- DR Congo — https://presidentrdc.cd
+- Central African Republic — https://centrafricaine.info (ОТФИЛЬТРОВАТЬ как не-официальный домен, искать альтернативу позже)
+- Republic of Congo — https://presidence.cg
+- Côte d’Ivoire — http://www.gouv.ci
+- Cameroon — https://www.spm.gov.cm
+- Cabo Verde — https://www.governo.cv
+- Djibouti — https://visitdjibouti.dj (ОТФИЛЬТРОВАТЬ как туризм)
+- Algeria — https://www.el-mouradia.dz
+- Egypt — https://cabinet.gov.eg
+- Western Sahara — https://corcas.com (пометить как спорный/не-гос, likely REJECTED)
+- Eritrea — https://shabait.com
+- Ethiopia — https://ethiopar.net (ОТФИЛЬТРОВАТЬ как не-официальный)
+- Gabon — http://www.gouvernement.ga/
+- Ghana — https://www.ghana.gov.gh
+- Gambia — https://www.statehouse.gm
+- Guinea — https://presidence.gov.gn
+- Equatorial Guinea — https://guinea-equatorial.com (скорее REJECTED; в списке есть сомнения)
+- Guinea-Bissau — https://www.guinebissaurepublic.com (скорее REJECTED)
+- Kenya — https://parliament.go.ke
+- Comoros — https://beit-salam.km
+- Liberia — https://micat.gov.lr
+- Lesotho — https://www.gov.ls
+- Morocco — https://pm.gov.ma
+- Madagascar — http://www.presidence.gov.mg
+- Mali — http://www.primature.gov.ml/
+- Mauritania — https://mauritania.mr
+- Mauritius — https://govmu.org
+- Malawi — https://www.malawi.gov.mw
+- Mozambique — https://presidencia.gov.mz
+- Namibia — https://www.gov.na
+- Niger — https://www.presidence.ne
+- Nigeria — https://www.nigeria.gov.ng
+- Rwanda — https://www.gov.rw
+- Seychelles — https://egov.sc
+- Sudan — http://www.sudan.gov.sd
+- Réunion — https://regionreunion.com (ОТФИЛЬТРОВАТЬ как не-гос)
+- Sierra Leone — https://statehouse-sl.org (сомнительно, пометить needs_check)
+- Senegal — https://www.gouv.sn
+- Somalia — https://somaligov.net (сомнительно, needs_check)
+- São Tomé and Príncipe — https://presidencia.st
+- Eswatini — http://www.gov.sz
+- Chad — https://presidence.td
+- Togo — https://www.republicoftogo.com
+- Tunisia — https://tourisme.gov.tn (ОТФИЛЬТРОВАТЬ как туризм)
+- Tanzania — https://www.tanzania.go.tz
+- Uganda — https://visituganda.com (ОТФИЛЬТРОВАТЬ как туризм)
+- South Africa — https://www.gov.za
+- Zambia — https://statehouse.gov.zm
+- Zimbabwe — https://parlzim.gov.zw
+
+Европа:
+- Andorra — https://www.govern.ad
+- Albania — https://president.al
+- Austria — https://federal-chancellery.gv.at
+- Bosnia and Herzegovina — https://predsjednistvobih.ba
+- Belgium — https://www.belgium.be
+- Bulgaria — https://www.government.bg
+- Belarus — https://president.gov.by
+- Switzerland — https://www.admin.ch
+- Czechia — https://www.czech.cz (скорее инфо; пометить needs_check)
+- Germany — https://www.bundesregierung.de
+- Denmark — https://www.ft.dk
+- Estonia — https://www.valitsus.ee
+- Spain — https://spain.info (ОТФИЛЬТРОВАТЬ как инфо/туризм)
+- Finland — https://valtioneuvosto.fi
+- France — https://www.service-public.fr
+- Gibraltar — https://www.gibraltar.gov.gi
+- Greece — https://government.gov.gr
+- Croatia — https://vlada.gov.hr
+- Hungary — https://kormany.hu
+- Ireland — https://www.gov.ie
+- Iceland — https://island.is (инфо-портал; оставить как portal)
+- Italy — https://www.governo.it
+- Liechtenstein — https://www.liechtenstein.li
+- Lithuania — https://lrv.lt
+- Luxembourg — https://luxembourg.public.lu
+- Latvia — https://latvija.lv (инфо-портал; оставить как portal)
+- Monaco — http://en.gouv.mc
+- Moldova — https://moldova.md
+- Montenegro — https://www.gov.me
+- North Macedonia — https://vlada.mk
+- Malta — https://www.gov.mt
+- Netherlands — https://www.government.nl
+- Norway — https://www.regjeringen.no
+- Poland — https://premier.gov.pl
+- Portugal — https://www.portugal.gov.pt
+- Romania — https://www.gov.ro
+- Serbia — https://serbia.travel (ОТФИЛЬТРОВАТЬ как туризм)
+- Sweden — https://www.government.se
+- Slovenia — https://www.gov.si (вместо slovenia.si)
+- Slovakia — https://www.vlada.gov.sk
+- San Marino — https://visitsanmarino.com (ОТФИЛЬТРОВАТЬ как туризм)
+- Ukraine — https://www.kmu.gov.ua
+- UK — https://www.gov.uk + gov.wales + northernireland.gov.uk + gov.scot
+- Vatican — https://www.vatican.va (vaticanstate.va — needs_check)
+
+США (федеральные ведомства, добавлять как US_FED_AGENCIES[], НЕ как страны):
+- https://www.whitehouse.gov
+- https://www.state.gov
+- https://www.usa.gov
+- https://www.cdc.gov
+- https://www.nasa.gov
+- https://www.army.mil
+- https://www.af.mil
+- https://www.epa.gov
+- https://www.fbi.gov
+- https://www.fema.gov
+- https://www.ng.mil
+- https://www.peacecorps.gov
+- https://www.uscg.mil
+- https://www.usda.gov
+
+Центральная/Северная/Южная Америка (часть доменов — туризм/частные, применять denylist):
+- Bermuda — https://www.gov.bm
+- Canada — https://www.canada.ca
+- Greenland — https://nanoq.gl (инфо; оставить как portal)
+- Hawaii — https://www.hawaii.gov (штат, не страна)
+- Antigua and Barbuda — https://ab.gov.ag
+- Barbados — https://www.gov.bb
+- Bahamas — https://www.bahamas.gov.bs
+- Belize — https://www.belize.gov.bz
+- Costa Rica — https://www.presidencia.go.cr
+- Cuba — https://cubagob.cu (needs_check)
+- Dominica — https://dominica.gov.dm
+- Dominican Republic — https://www.dominicanrepublic.com (ОТФИЛЬТРОВАТЬ как частный)
+- Grenada — https://gov.gd
+- Guatemala — https://guatemala.gob.gt
+- Honduras — https://presidencia.gob.hn
+- Jamaica — https://cabinet.gov.jm
+- Saint Kitts and Nevis — https://www.gov.kn
+- Cayman Islands — https://www.gov.ky
+- Saint Lucia — https://www.govt.lc
+- Mexico — https://www.gob.mx
+- Nicaragua — https://poderjudicial.gob.ni (суд, не портал; оставить как источник-орган)
+- Panama — https://www.presidencia.gob.pa
+- El Salvador — https://presidencia.gob.sv
+- Turks and Caicos — https://www.gov.tc
+- Trinidad and Tobago — https://gotrinidadandtobago.com (ОТФИЛЬТРОВАТЬ как туризм)
+- Saint Vincent and the Grenadines — https://www.gov.vc
+- Argentina — https://www.argentina.gob.ar
+- Bolivia — https://bolivia.gob.bo
+- Brazil — https://www.gov.br (а brasil.gov.br — проверить/редирект)
+- Chile — https://www.gob.cl
+- Colombia — https://nomasfilas.gov.co (скорее сервис, needs_check; основной gov.co лучше)
+- Ecuador — https://www.presidencia.gob.ec
+- Falklands — https://www.falklands.gov.fk
+- French Guiana — https://guyane.pref.gouv.fr
+- Guyana — https://parliament.gov.gy
+- Peru — https://www.gob.pe
+- Paraguay — https://presidencia.gov.py
+- Suriname — https://president.gov.sr
+- Uruguay — https://www.gub.uy
+- Venezuela — https://gob.ve (needs_check)

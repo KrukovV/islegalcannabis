@@ -2,8 +2,8 @@
   "schema_version": 2,
   "country": "KR",
   "id": "KR",
-  "medical": "unknown",
-  "recreational": "unknown",
+  "medical": "illegal",
+  "recreational": "allowed",
   "possession_limit": "unknown",
   "public_use": "unknown",
   "home_grow": "unknown",
@@ -29,13 +29,13 @@
   },
   "sources": [
     {
-      "title": "Korea.go.kr",
+      "title": "Official source",
       "url": "https://www.korea.go.kr/"
     }
   ],
-  "updated_at": "2026-01-07",
+  "updated_at": "2026-01-09",
   "verified_at": "2026-01-07",
-  "status": "provisional",
+  "status": "needs_review",
   "confidence": "low",
   "provenance": {
     "method": "ocr+ai",
@@ -51,5 +51,55 @@
         "retrieved_at": "2026-01-07"
       }
     ]
-  }
+  },
+  "review_sources": [
+    {
+      "title": "Official source",
+      "url": "https://www.korea.go.kr/"
+    }
+  ],
+  "review_status": "needs_review",
+  "review_confidence": "medium",
+  "review_status_history": [
+    {
+      "status": "provisional",
+      "at": "2026-01-07"
+    },
+    {
+      "status": "needs_review",
+      "at": "2026-01-09"
+    },
+    {
+      "status": "needs_review",
+      "at": "2026-01-09"
+    },
+    {
+      "status": "needs_review",
+      "at": "2026-01-09"
+    },
+    {
+      "status": "needs_review",
+      "at": "2026-01-09"
+    },
+    {
+      "status": "needs_review",
+      "at": "2026-01-09"
+    }
+  ],
+  "legal_ssot": {
+    "recreational": "legal",
+    "medical": "illegal",
+    "notes": null,
+    "sources": [
+      {
+        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis"
+      }
+    ]
+  },
+  "status_recreational": "legal",
+  "status_medical": "illegal",
+  "official_sources": [],
+  "wiki_source": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "effective_date": null
 }

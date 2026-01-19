@@ -2,8 +2,8 @@
   "schema_version": 2,
   "country": "MX",
   "id": "MX",
-  "medical": "unknown",
-  "recreational": "unknown",
+  "medical": "allowed",
+  "recreational": "allowed",
   "possession_limit": "unknown",
   "public_use": "unknown",
   "home_grow": "unknown",
@@ -30,13 +30,13 @@
   },
   "sources": [
     {
-      "title": "Secretaría de Salud (official)",
-      "url": "https://www.gob.mx/salud"
+      "title": "Official source",
+      "url": "https://www.gob.mx/"
     }
   ],
-  "updated_at": "2025-12-14",
+  "updated_at": "2026-01-09",
   "verified_at": "2025-12-14",
-  "status": "provisional",
+  "status": "needs_review",
   "confidence": "low",
   "provenance": {
     "method": "ocr+ai",
@@ -53,5 +53,66 @@
         "retrieved_at": "2025-12-14"
       }
     ]
-  }
+  },
+  "review_sources": [
+    {
+      "title": "Official source",
+      "url": "https://www.gob.mx/"
+    }
+  ],
+  "review_status": "needs_review",
+  "review_confidence": "medium",
+  "review_status_history": [
+    {
+      "status": "provisional",
+      "at": "2025-12-14"
+    },
+    {
+      "status": "needs_review",
+      "at": "2026-01-09"
+    },
+    {
+      "status": "needs_review",
+      "at": "2026-01-09"
+    },
+    {
+      "status": "needs_review",
+      "at": "2026-01-09"
+    },
+    {
+      "status": "needs_review",
+      "at": "2026-01-09"
+    },
+    {
+      "status": "needs_review",
+      "at": "2026-01-09"
+    }
+  ],
+  "legal_ssot": {
+    "recreational": "legal",
+    "medical": "legal",
+    "notes": "Mexico Supreme Court rulings + regulatory documents; LGCA is federal law.",
+    "sources": [
+      {
+        "title": "Official source",
+        "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LGCA_230423.pdf"
+      },
+      {
+        "title": "Official source",
+        "url": "https://www.gob.mx/cofepris/acciones-y-programas/cannabis-salud"
+      },
+      {
+        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis"
+      }
+    ]
+  },
+  "status_recreational": "legal",
+  "status_medical": "legal",
+  "official_sources": [
+    "https://www.diputados.gob.mx/LeyesBiblio/pdf/LGCA_230423.pdf",
+    "https://www.gob.mx/cofepris/acciones-y-programas/cannabis-salud"
+  ],
+  "wiki_source": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "effective_date": null
 }
