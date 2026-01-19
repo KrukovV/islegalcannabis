@@ -19,6 +19,19 @@ function readJson(file, fallback) {
   }
 }
 
+function coerceItems(payload) {
+  if (!payload || typeof payload !== "object") return [];
+  if (Array.isArray(payload)) return payload;
+  if (Array.isArray(payload.items)) return payload.items;
+  if (payload.items && typeof payload.items === "object") {
+    return Object.values(payload.items);
+  }
+  if (!payload.items) {
+    return Object.values(payload);
+  }
+  return [];
+}
+
 function normalizeClaim(entry) {
   if (!entry || typeof entry !== "object") return null;
   const mainArticles = Array.isArray(entry.main_articles)
@@ -57,15 +70,15 @@ export function readWikiClaimsSnapshot() {
   const { ssotClaimsPath, snapshotPath } = getPaths();
   const ssotPayload = readJson(ssotClaimsPath, null);
   if (ssotPayload) {
-    const ssotItems = Array.isArray(ssotPayload) ? ssotPayload : ssotPayload?.items;
-    if (Array.isArray(ssotItems)) {
+    const ssotItems = coerceItems(ssotPayload);
+    if (ssotItems.length) {
       return ssotItems.map((entry) => normalizeClaim(entry)).filter(Boolean);
     }
   }
   const payload = readJson(snapshotPath, null);
   if (!payload) return null;
-  const items = Array.isArray(payload) ? payload : payload?.items;
-  if (!Array.isArray(items)) return null;
+  const items = coerceItems(payload);
+  if (!items.length) return null;
   return items.map((entry) => normalizeClaim(entry)).filter(Boolean);
 }
 

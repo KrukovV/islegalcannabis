@@ -59,6 +59,23 @@ rm -f "${SUMMARY_FILE}"
 rm -f "${META_FILE}"
 rm -f "${PRE_LOG}"
 
+fail_with_reason() {
+  local reason="$1"
+  printf "❌ CI FAIL\nReason: %s\nRetry: bash tools/pass_cycle.sh\n" "${reason}" > "${STDOUT_FILE}"
+  set +e
+  local status=0
+  node tools/guards/no_bloat_markers.mjs --file "${STDOUT_FILE}" || status=$?
+  if [ "${status}" -eq 0 ]; then
+    node tools/guards/stdout_contract.mjs --file "${STDOUT_FILE}" || status=$?
+  fi
+  if [ "${status}" -eq 0 ]; then
+    node tools/guards/final_response_only.mjs --file "${STDOUT_FILE}" || status=$?
+  fi
+  set -e
+  cat "${STDOUT_FILE}"
+  exit "${status:-1}"
+}
+
 PRE_LATEST=""
 LATEST_FILE="${CHECKPOINT_DIR}/LATEST"
 if [ -f "${LATEST_FILE}" ]; then
@@ -104,6 +121,105 @@ if [ -z "${FACTS_NETWORK+x}" ]; then
   FACTS_NETWORK="${FETCH_NETWORK}"
 fi
 export ALLOW_NETWORK NETWORK FETCH_NETWORK FACTS_NETWORK
+
+ALLOW_NETWORK_SET=0
+NETWORK_SET=0
+FETCH_NETWORK_SET=0
+if [ -n "${ALLOW_NETWORK+x}" ]; then
+  ALLOW_NETWORK_SET=1
+fi
+if [ -n "${NETWORK+x}" ]; then
+  NETWORK_SET=1
+fi
+if [ -n "${FETCH_NETWORK+x}" ]; then
+  FETCH_NETWORK_SET=1
+fi
+
+NET_SOURCE="config"
+NET_KEY="default"
+NET_VALUE="1"
+if [ "${FETCH_NETWORK_SET}" -eq 1 ]; then
+  NET_SOURCE="env"
+  NET_KEY="FETCH_NETWORK"
+  NET_VALUE="${FETCH_NETWORK}"
+elif [ "${NETWORK_SET}" -eq 1 ]; then
+  NET_SOURCE="env"
+  NET_KEY="NETWORK"
+  NET_VALUE="${NETWORK}"
+elif [ "${ALLOW_NETWORK_SET}" -eq 1 ]; then
+  NET_SOURCE="env"
+  NET_KEY="ALLOW_NETWORK"
+  NET_VALUE="${ALLOW_NETWORK}"
+fi
+NET_ENABLED=0
+if [ "${FETCH_NETWORK}" = "1" ] || [ "${NETWORK}" = "1" ]; then
+  NET_ENABLED=1
+fi
+WIKI_CACHE_HIT=$(node -e 'const fs=require("fs");const path=require("path");const root=process.cwd();const ssot=path.join(root,"data","wiki_ssot","wiki_claims.json");const legacy=path.join(root,"data","wiki","wiki_claims.json");const legacyDir=path.join(root,"data","wiki","wiki_claims");let hit=0;if(fs.existsSync(ssot)||fs.existsSync(legacy)) hit=1; if(!hit && fs.existsSync(legacyDir)){try{hit=fs.readdirSync(legacyDir).some(e=>e.endsWith(".json"))?1:0;}catch{hit=0;}}console.log(hit);')
+WIKI_USE_CACHE=0
+if [ "${ALLOW_WIKI_OFFLINE:-0}" = "1" ]; then
+  WIKI_USE_CACHE=1
+fi
+NET_MODE_LINE="NET_MODE: enabled=${NET_ENABLED} source=${NET_SOURCE} key=${NET_KEY} value=${NET_VALUE}"
+WIKI_MODE_LINE="WIKI_MODE: use_cache=${WIKI_USE_CACHE} cache_hit=${WIKI_CACHE_HIT}"
+echo "${NET_MODE_LINE}"
+echo "${WIKI_MODE_LINE}"
+
+NETWORK_DISABLED=0
+NETCHECK_ATTEMPTED=0
+NETCHECK_STATUS="-"
+NETCHECK_ERR="-"
+NETCHECK_EXIT=0
+NETCHECK_REASON="NONE"
+OFFLINE=0
+OFFLINE_REASON="NONE"
+FETCH_DIAG_LINE=""
+NETCHECK_URL="https://en.wikipedia.org/w/api.php?action=parse&page=Legality_of_cannabis&prop=wikitext&format=json"
+
+run_netcheck() {
+  NETCHECK_ATTEMPTED=1
+  local output
+  set +e
+  output=$(node -e "const url='${NETCHECK_URL}';const ua='islegalcannabis/wiki_netcheck';const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),4000);const classify=(err,status)=>{if(status===403) return 'HTTP_403';if(status===429) return 'HTTP_429';if(status>=500) return 'HTTP_5XX';if(status>0) return 'HTTP_'+status;const code=String(err?.cause?.code||err?.code||err?.name||'');if(code.includes('ENOTFOUND')||code.includes('EAI_AGAIN')) return 'DNS_FAIL';if(code.includes('CERT')||code.includes('TLS')||code.includes('SSL')) return 'TLS_FAIL';if(code.includes('AbortError')) return 'TIMEOUT';return code? 'NETWORK_FAIL':'FETCH_FAIL';};fetch(url,{method:'GET',signal:controller.signal,headers:{'user-agent':ua}}).then(r=>{clearTimeout(timer);const reason=r.ok?'OK':classify(null,r.status);console.log('status='+String(r.status||'-')+' err=- reason='+reason);process.exit(r.ok?0:2);}).catch(err=>{clearTimeout(timer);const reason=classify(err,0);const errCode=String(err?.cause?.code||err?.code||err?.name||err?.message||'-');console.log('status=- err='+errCode+' reason='+reason);process.exit(2);});")
+  NETCHECK_EXIT=$?
+  set -e
+  for token in ${output}; do
+    case "${token}" in
+      status=*) NETCHECK_STATUS="${token#status=}";;
+      err=*) NETCHECK_ERR="${token#err=}";;
+      reason=*) NETCHECK_REASON="${token#reason=}";;
+    esac
+  done
+}
+
+if [ "${NET_ENABLED}" -eq 1 ]; then
+  run_netcheck
+  if [ "${NETCHECK_EXIT}" -ne 0 ]; then
+    case "${NETCHECK_REASON}" in
+      DNS_FAIL) OFFLINE_REASON="DNS";;
+      TLS_FAIL) OFFLINE_REASON="TLS";;
+      TIMEOUT) OFFLINE_REASON="TIMEOUT";;
+      HTTP_*) OFFLINE_REASON="${NETCHECK_REASON}";;
+      *) OFFLINE_REASON="HTTP_000";;
+    esac
+    OFFLINE=1
+    FETCH_DIAG_LINE="FETCH_DIAG: url=${NETCHECK_URL} err=${NETCHECK_ERR} code=${NETCHECK_REASON}"
+    if [ "${ALLOW_WIKI_OFFLINE:-0}" != "1" ]; then
+      fail_with_reason "NETWORK_FETCH_FAILED:${OFFLINE_REASON}"
+    fi
+  fi
+else
+  NETWORK_DISABLED=1
+  OFFLINE=0
+  OFFLINE_REASON="CONFIG_DISABLED"
+  if [ "${ALLOW_WIKI_OFFLINE:-0}" != "1" ]; then
+    fail_with_reason "CONFIG_NETWORK_DISABLED (ALLOW_NETWORK=${ALLOW_NETWORK:-0} FETCH_NETWORK=${FETCH_NETWORK:-0})"
+  fi
+fi
+
+NETWORK_DISABLED_LINE="NETWORK_DISABLED: ${NETWORK_DISABLED}"
+WIKI_NETCHECK_LINE="WIKI_NETCHECK: attempted=${NETCHECK_ATTEMPTED} status=${NETCHECK_STATUS} err=${NETCHECK_ERR} exit=${NETCHECK_EXIT}"
+OFFLINE_LINE="OFFLINE: ${OFFLINE} reason=${OFFLINE_REASON}"
 
 RU_BLOCKED=0
 if [ "${FETCH_NETWORK:-0}" = "1" ] || [ "${NETWORK:-0}" = "1" ]; then
@@ -190,27 +306,7 @@ if [ -n "${TARGET_ISO:-}" ] || [ "${LAW_PAGE_OK}" = "1" ]; then
 fi
 export AUTO_FACTS AUTO_FACTS_PIPELINE FORCE_CANNABIS
 
-fail_with_reason() {
-  local reason="$1"
-  printf "❌ CI FAIL\nReason: %s\nRetry: bash tools/pass_cycle.sh\n" "${reason}" > "${STDOUT_FILE}"
-  set +e
-  local status=0
-  node tools/guards/no_bloat_markers.mjs --file "${STDOUT_FILE}" || status=$?
-  if [ "${status}" -eq 0 ]; then
-    node tools/guards/stdout_contract.mjs --file "${STDOUT_FILE}" || status=$?
-  fi
-  if [ "${status}" -eq 0 ]; then
-    node tools/guards/final_response_only.mjs --file "${STDOUT_FILE}" || status=$?
-  fi
-  set -e
-  cat "${STDOUT_FILE}"
-  exit "${status:-1}"
-}
-
 NETWORK_GUARD="${NETWORK_GUARD:-1}"
-if [ "${NETWORK_GUARD}" = "1" ] && { [ "${ALLOW_NETWORK:-0}" != "1" ] || [ "${FETCH_NETWORK:-0}" != "1" ]; }; then
-  fail_with_reason "NETWORK_GUARD blocked (ALLOW_NETWORK=${ALLOW_NETWORK:-0} FETCH_NETWORK=${FETCH_NETWORK:-0})"
-fi
 
 if [ "${ALLOW_SCOPE_OVERRIDE:-0}" = "1" ] && [ "${EXTENDED_SMOKE:-0}" != "1" ]; then
   echo "❌ FAIL: ALLOW_SCOPE_OVERRIDE запрещён вне EXTENDED_SMOKE"
@@ -283,7 +379,7 @@ fi
 
 WIKI_REFRESH_RAN=0
 WIKI_OFFLINE_LINE=""
-if [ "${FETCH_NETWORK:-0}" = "1" ]; then
+if [ "${OFFLINE}" = "0" ] && [ "${NETWORK_DISABLED}" = "0" ]; then
   npm run wiki:refresh >>"${PRE_LOG}" 2>&1
   WIKI_REFRESH_STATUS=$?
   if [ "${WIKI_REFRESH_STATUS}" -ne 0 ]; then
@@ -291,7 +387,13 @@ if [ "${FETCH_NETWORK:-0}" = "1" ]; then
   fi
   WIKI_REFRESH_RAN=1
 else
-  WIKI_OFFLINE_LINE="OFFLINE: using cached wiki_db; refresh skipped"
+  if [ "${ALLOW_WIKI_OFFLINE:-0}" = "1" ]; then
+    if [ "${NETWORK_DISABLED}" -eq 1 ]; then
+      WIKI_OFFLINE_LINE="WIKI_CACHE: using cached wiki_db; refresh skipped (CONFIG_DISABLED)"
+    else
+      WIKI_OFFLINE_LINE="OFFLINE: using cached wiki_db; refresh skipped"
+    fi
+  fi
 fi
 npm run wiki:official_eval >>"${PRE_LOG}" 2>&1
 WIKI_EVAL_STATUS=$?
@@ -682,6 +784,11 @@ SUMMARY_LINES=(
 )
 RUN_ID_LINE="RUN_ID: $(cat "${RUNS_DIR}/current_run_id.txt")"
 SUMMARY_LINES+=("${RUN_ID_LINE}")
+SUMMARY_LINES+=("${NET_MODE_LINE}")
+SUMMARY_LINES+=("${NETWORK_DISABLED_LINE}")
+SUMMARY_LINES+=("${WIKI_NETCHECK_LINE}")
+SUMMARY_LINES+=("${OFFLINE_LINE}")
+SUMMARY_LINES+=("${WIKI_MODE_LINE}")
 NETWORK_MODE="OFFLINE"
 if [ "${ALLOW_NETWORK:-0}" = "1" ] && [ "${FETCH_NETWORK:-0}" = "1" ]; then
   NETWORK_MODE="ONLINE"
@@ -698,10 +805,13 @@ LAW_PAGE_DISCOVERY_LINE=$(ROOT_DIR="${ROOT}" node -e 'const fs=require("fs");con
 SUMMARY_LINES+=("${LAW_PAGE_DISCOVERY_LINE}")
 PORTALS_IMPORT_LINE=$(ROOT_DIR="${ROOT}" node -e 'const fs=require("fs");const path=require("path");const reportPath=path.join(process.env.ROOT_DIR,"Reports","portals_import","last_run.json");if(!fs.existsSync(reportPath)){console.log("PORTALS_IMPORT: total=0 added=0 updated=0 missing_iso=0 invalid_url=0 TOP_MISSING_ISO=-");process.exit(0);}const data=JSON.parse(fs.readFileSync(reportPath,"utf8"));const total=Number(data.total||0)||0;const added=Number(data.added||0)||0;const updated=Number(data.updated||0)||0;const missing=Number(data.missing_iso||0)||0;const invalid=Number(data.invalid_url||0)||0;const top=Array.isArray(data.missing_iso_entries)?data.missing_iso_entries.slice(0,10).map(e=>e.country||"").filter(Boolean).join(","):"-";console.log(`PORTALS_IMPORT: total=${total} added=${added} updated=${updated} missing_iso=${missing} invalid_url=${invalid} TOP_MISSING_ISO=${top||"-"}`);')
 SUMMARY_LINES+=("${PORTALS_IMPORT_LINE}")
-WIKI_METRICS_LINE=$(ROOT_DIR="${ROOT}" node -e 'const fs=require("fs");const path=require("path");const root=process.env.ROOT_DIR;const claimsPath=path.join(root,"data","wiki_ssot","wiki_claims.json");const refsPath=path.join(root,"data","wiki_ssot","wiki_refs.json");const legacyClaimsPath=path.join(root,"data","wiki","wiki_claims.json");const legacyClaimsDir=path.join(root,"data","wiki","wiki_claims");const evalPath=path.join(root,"data","wiki","wiki_official_eval.json");let geos=0;let refsTotal=0;let official=0;let nonOfficial=0;let stale=0;const now=Date.now();const countLegacyClaims=()=>{if(fs.existsSync(legacyClaimsPath)){try{const payload=JSON.parse(fs.readFileSync(legacyClaimsPath,"utf8"));const items=Array.isArray(payload?.items)?payload.items:Array.isArray(payload)?payload:[];return items.length;}catch{}}if(fs.existsSync(legacyClaimsDir)){try{const files=fs.readdirSync(legacyClaimsDir).filter((entry)=>entry.endsWith(".json"));return files.length;}catch{}}return 0;};if(fs.existsSync(claimsPath)){try{const payload=JSON.parse(fs.readFileSync(claimsPath,"utf8"));const items=Array.isArray(payload?.items)?payload.items:Array.isArray(payload)?payload:[];geos=items.length;}catch{}}if(geos===0){geos=countLegacyClaims();}if(fs.existsSync(refsPath)){try{const payload=JSON.parse(fs.readFileSync(refsPath,"utf8"));const items=Array.isArray(payload?.items)?payload.items:Array.isArray(payload)?payload:[];for(const item of items){const refs=Array.isArray(item?.refs)?item.refs:[];refsTotal+=refs.length;}}catch{}}let evalItems={};if(fs.existsSync(evalPath)){try{const payload=JSON.parse(fs.readFileSync(evalPath,"utf8"));const totals=payload?.totals||{};official=Number(totals.official||0)||0;nonOfficial=Number(totals.non_official||0)||0;evalItems=payload?.items&&typeof payload.items==="object"?payload.items:{};}catch{}}if(evalItems&&typeof evalItems==="object"){for(const entry of Object.values(evalItems)){const checkedAt=entry?.last_checked_at?Date.parse(entry.last_checked_at):0;if(!checkedAt||Number.isNaN(checkedAt)||now-checkedAt>4*60*60*1000){stale+=1;}}}console.log(`WIKI_METRICS: geos=${geos} refs_total=${refsTotal} official=${official} non_official=${nonOfficial} stale_geos=${stale}`);')
+WIKI_METRICS_LINE=$(ROOT_DIR="${ROOT}" node -e 'const fs=require("fs");const path=require("path");const root=process.env.ROOT_DIR;const claimsPath=path.join(root,"data","wiki_ssot","wiki_claims.json");const refsPath=path.join(root,"data","wiki_ssot","wiki_refs.json");const legacyClaimsPath=path.join(root,"data","wiki","wiki_claims.json");const legacyClaimsDir=path.join(root,"data","wiki","wiki_claims");const evalPath=path.join(root,"data","wiki","wiki_official_eval.json");const badgesPath=path.join(root,"data","wiki","wiki_official_badges.json");let geos=0;let refsTotal=0;let official=0;let nonOfficial=0;let stale=0;const now=Date.now();const countLegacyClaims=()=>{if(fs.existsSync(legacyClaimsPath)){try{const payload=JSON.parse(fs.readFileSync(legacyClaimsPath,"utf8"));if(Array.isArray(payload)) return payload.length;const items=payload?.items; if(Array.isArray(items)) return items.length; if(items && typeof items==="object") return Object.keys(items).length; return Object.keys(payload||{}).length;}catch{}}if(fs.existsSync(legacyClaimsDir)){try{const files=fs.readdirSync(legacyClaimsDir).filter((entry)=>entry.endsWith(".json"));return files.length;}catch{}}return 0;};if(fs.existsSync(claimsPath)){try{const payload=JSON.parse(fs.readFileSync(claimsPath,"utf8"));const items=Array.isArray(payload?.items)?payload.items:Array.isArray(payload)?payload:payload?.items&&typeof payload.items==="object"?Object.values(payload.items):[];geos=items.length;}catch{}}if(geos===0){geos=countLegacyClaims();}if(fs.existsSync(refsPath)){try{const payload=JSON.parse(fs.readFileSync(refsPath,"utf8"));const items=Array.isArray(payload?.items)?payload.items:Array.isArray(payload)?payload:[];for(const item of items){const refs=Array.isArray(item?.refs)?item.refs:[];refsTotal+=refs.length;}}catch{}}let evalItems={};if(fs.existsSync(badgesPath)){try{const payload=JSON.parse(fs.readFileSync(badgesPath,"utf8"));const totals=payload?.totals||{};official=Number(totals.official||0)||0;nonOfficial=Number(totals.non_official||0)||0;}catch{}}else if(fs.existsSync(evalPath)){try{const payload=JSON.parse(fs.readFileSync(evalPath,"utf8"));const totals=payload?.totals||{};official=Number(totals.official||0)||0;nonOfficial=Number(totals.non_official||0)||0;evalItems=payload?.items&&typeof payload.items==="object"?payload.items:{};}catch{}}if(evalItems&&typeof evalItems==="object"){for(const entry of Object.values(evalItems)){const checkedAt=entry?.last_checked_at?Date.parse(entry.last_checked_at):0;if(!checkedAt||Number.isNaN(checkedAt)||now-checkedAt>4*60*60*1000){stale+=1;}}}console.log(`WIKI_METRICS: geos=${geos} refs_total=${refsTotal} official=${official} non_official=${nonOfficial} stale_geos=${stale}`);')
 SUMMARY_LINES+=("${WIKI_METRICS_LINE}")
 if [ -n "${WIKI_OFFLINE_LINE}" ]; then
   SUMMARY_LINES+=("${WIKI_OFFLINE_LINE}")
+fi
+if [ -n "${FETCH_DIAG_LINE}" ]; then
+  SUMMARY_LINES+=("${FETCH_DIAG_LINE}")
 fi
 LAW_PAGE_CANDIDATES_LINE=$(ROOT_DIR="${ROOT}" node -e 'const fs=require("fs");const path=require("path");const reportPath=path.join(process.env.ROOT_DIR,"Reports","auto_learn_law","last_run.json");if(!fs.existsSync(reportPath)){console.log("LAW_PAGE_CANDIDATES: iso=n/a total=0 top3=[-]");process.exit(0);}const data=JSON.parse(fs.readFileSync(reportPath,"utf8"));const iso=String(data.iso2||"n/a").toUpperCase();const candidates=Array.isArray(data.candidates)?data.candidates:[];const votes=Array.isArray(data.llm_votes)?data.llm_votes:[];const voteMap=new Map(votes.map(v=>[v.url, v]));const top=candidates.slice(0,3).map(c=>{const vote=voteMap.get(c.url);const reason=vote?String(vote.reason||"").replace(/\\s+/g,"_"):"none";const score=Number(c.score||0)||0;return `${c.url}(score=${score},why=${reason})`;}).join(",")||"-";console.log(`LAW_PAGE_CANDIDATES: iso=${iso} total=${candidates.length} top3=[${top}]`);')
 SUMMARY_LINES+=("${LAW_PAGE_CANDIDATES_LINE}")
@@ -928,7 +1038,9 @@ printf "%s\n" "${SUMMARY_LINES[@]}" > "${STDOUT_FILE}"
 if [ ! -s "${STDOUT_FILE}" ]; then
   abort_with_reason "empty summary"
 fi
-cp "${STDOUT_FILE}" "${ROOT}/ci-final.txt"
+SANITIZED_STDOUT="${CHECKPOINT_DIR}/ci-final.sanitized.txt"
+node tools/guards/sanitize_stdout.mjs --input "${STDOUT_FILE}" --output "${SANITIZED_STDOUT}"
+cp "${SANITIZED_STDOUT}" "${ROOT}/ci-final.txt"
 if [ ! -s "${ROOT}/ci-final.txt" ]; then
   abort_with_reason "ci-final.txt missing"
 fi

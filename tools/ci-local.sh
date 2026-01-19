@@ -22,6 +22,7 @@ if [ ! -f .checkpoints/ci-summary.txt ]; then
     printf "🌿 CI PASS (Smoke ?/?)\nChecked: ? (sources=?/?; n/a)\nTrace top10: n/a\nChecked top10: n/a\nChecked saved: Reports/checked/last_checked.json\nTrends: skipped\nISO Coverage: covered=0, missing=0, delta=+0\nLaw Corpus: total_iso=0 laws_files_total=0 (world=0, eu=0) missing=0\nLaw Verified: known=0 needs_review=0 provisional_with_sources=0 provisional_no_sources=0 missing_sources=0\nISO batch: +0 provisional, missing now=0\nTOP50_INGEST: added=0 updated=0 missing_official=0\nSSOT Diff: skipped\nPROMOTION: promoted=0 rejected=0\nCheckpoint: %s\n" \
       "${LATEST_SEED}" \
       > .checkpoints/ci-summary.txt
+    node tools/guards/sanitize_stdout.mjs --input .checkpoints/ci-summary.txt --output .checkpoints/ci-summary.txt
   else
     print_fail "Missing .checkpoints/LATEST. Run tools/pass_cycle.sh."
   fi

@@ -337,6 +337,62 @@ export function isOfficialUrl(url, whitelist = readWhitelist(), options = {}) {
   return { ok: true };
 }
 
+export function classifyOfficialUrl(url, whitelist = readWhitelist(), options = {}) {
+  if (typeof url !== "string" || !url.trim()) {
+    return { ok: false, reason: "empty_url" };
+  }
+  let parsed;
+  try {
+    parsed = new URL(url);
+  } catch {
+    return { ok: false, reason: "invalid_url" };
+  }
+  if (parsed.protocol !== "https:") {
+    return { ok: false, reason: "https_only" };
+  }
+  const host = parsed.hostname.toLowerCase().replace(/^www\./, "");
+  const iso2 = String(options?.iso2 || "").toUpperCase();
+  if (!host) {
+    return { ok: false, reason: "missing_host" };
+  }
+  if (iso2 === "XK" && (host === "rks-gov.net" || host === "rks-gov.net.")) {
+    return { ok: true, matched_rule: "gov_allowlist" };
+  }
+  const deny = readDenylist();
+  const bannedHosts = Array.isArray(deny.banned) ? deny.banned : [];
+  if (hasDeniedSubstring(host) || hasDeniedSubstring(parsed.pathname)) {
+    return { ok: false, reason: "blog_domain" };
+  }
+  for (const banned of bannedHosts) {
+    const blocked = String(banned || "").toLowerCase();
+    if (!blocked) continue;
+    if (host === blocked || host.endsWith(`.${blocked}`)) {
+      return { ok: false, reason: "banned_domain" };
+    }
+  }
+  if (isOfficialCatalogDomain(host, iso2)) {
+    return { ok: true, matched_rule: "gov_portal_catalog" };
+  }
+  const allowDomains = readAllowDomains();
+  const allowed = Array.isArray(whitelist.allowed) ? whitelist.allowed : [];
+  if (allowDomains) {
+    if (allowDomainsMatch(host, allowDomains) || hostMatches(host, allowed)) {
+      return { ok: true, matched_rule: "gov_allowlist" };
+    }
+    if (matchesOfficialStructure(host) || matchesGovernPortal(host)) {
+      return { ok: true, matched_rule: "official_tld" };
+    }
+    return { ok: false, reason: "not_whitelisted" };
+  }
+  if (hostMatches(host, allowed)) {
+    return { ok: true, matched_rule: "gov_allowlist" };
+  }
+  if (matchesOfficialStructure(host) || matchesGovernPortal(host)) {
+    return { ok: true, matched_rule: "official_tld" };
+  }
+  return { ok: false, reason: "not_whitelisted" };
+}
+
 export function validateOfficialUrl(url, whitelist = readWhitelist(), options = {}) {
   return isOfficialUrl(url, whitelist, options);
 }

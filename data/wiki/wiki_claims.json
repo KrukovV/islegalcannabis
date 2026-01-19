@@ -3,6 +3,7 @@
     "geo_key": "AD",
     "name_in_wiki": "Andorra",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Andorra",
+    "row_ref": "country:3",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -17,15 +18,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Andorra"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "AE",
     "name_in_wiki": "United Arab Emirates",
     "wiki_row_url": "https://en.wikipedia.org/wiki/United_Arab_Emirates",
+    "row_ref": "country:169",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -40,28 +44,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_United_Arab_Emirates"
       }
     ],
+    "notes_text": "In 2008, even the smallest amounts of the drug could lead to a mandatory 4-year prison sentence.",
+    "notes_raw": "In 2008, even the smallest amounts of the drug could lead to a mandatory 4-year prison sentence.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "AF",
     "name_in_wiki": "Afghanistan",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Afghanistan",
+    "row_ref": "iso_fallback:AF",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "AG",
     "name_in_wiki": "Antigua and Barbuda",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Antigua_and_Barbuda",
+    "row_ref": "country:5",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -76,28 +86,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Antigua_and_Barbuda"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "AI",
     "name_in_wiki": "Anguilla",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Anguilla",
+    "row_ref": "iso_fallback:AI",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "AL",
     "name_in_wiki": "Albania",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Albania",
+    "row_ref": "country:1",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -112,15 +128,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Albania"
       }
     ],
+    "notes_text": "Prohibited but plants highly available throughout the country and law often unenforced. On 21 July 2023 the Albanian Parliament voted 69–23 to legalize medical cannabis.",
+    "notes_raw": "Prohibited but plants highly available throughout the country and law often unenforced. On 21 July 2023 the Albanian Parliament voted 69–23 to legalize medical cannabis.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "AM",
     "name_in_wiki": "Armenia",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Armenia",
+    "row_ref": "country:7",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -135,15 +154,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Armenia"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "AO",
     "name_in_wiki": "Angola",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Angola",
+    "row_ref": "country:4",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -158,28 +180,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Angola"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "AQ",
     "name_in_wiki": "Antarctica",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Antarctica",
+    "row_ref": "iso_fallback:AQ",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "AR",
     "name_in_wiki": "Argentina",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Argentina",
+    "row_ref": "country:6",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -194,28 +222,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Argentina"
       }
     ],
+    "notes_text": "Medicinal cannabis was legalized on 22 September 2017.",
+    "notes_raw": "Medicinal cannabis was legalized on 22 September 2017.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "AS",
     "name_in_wiki": "American Samoa",
     "wiki_row_url": "https://en.wikipedia.org/wiki/American_Samoa",
+    "row_ref": "iso_fallback:AS",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "AT",
     "name_in_wiki": "Austria",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Austria",
+    "row_ref": "country:9",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -230,15 +264,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Austria"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "AU",
     "name_in_wiki": "Australia",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Australia",
+    "row_ref": "country:8",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -253,41 +290,50 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Australia"
       }
     ],
+    "notes_text": "In September 2019, the Australian Capital Territory became the first state or territory of Australia to legalize recreational use of cannabis. Since 31 January 2020 residents have been allowed to grow two plants and possess , though sales or other transfer is prohibited, including cannabis seeds. Federal law also remains enforceable.",
+    "notes_raw": "In September 2019, the Australian Capital Territory became the first state or territory of Australia to legalize recreational use of cannabis. Since 31 January 2020 residents have been allowed to grow two plants and possess , though sales or other transfer is prohibited, including cannabis seeds. Federal law also remains enforceable.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "AW",
     "name_in_wiki": "Aruba",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Aruba",
+    "row_ref": "iso_fallback:AW",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "AX",
     "name_in_wiki": "Åland Islands",
     "wiki_row_url": "https://en.wikipedia.org/wiki/%C3%85land_Islands",
+    "row_ref": "iso_fallback:AX",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "AZ",
     "name_in_wiki": "Azerbaijan",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Azerbaijan",
+    "row_ref": "country:10",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -302,15 +348,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Azerbaijan"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "BA",
     "name_in_wiki": "Bosnia and Herzegovina",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Bosnia_and_Herzegovina",
+    "row_ref": "country:21",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -325,15 +374,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bosnia_and_Herzegovina"
       }
     ],
+    "notes_text": "In 2016, the Ministry of Civil Affairs formed a task force to explore the legalization of cannabis and cannabinoids for medicinal purposes.",
+    "notes_raw": "In 2016, the Ministry of Civil Affairs formed a task force to explore the legalization of cannabis and cannabinoids for medicinal purposes.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "BB",
     "name_in_wiki": "Barbados",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Barbados",
+    "row_ref": "country:13",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -348,15 +400,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Barbados"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "BD",
     "name_in_wiki": "Bangladesh",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Bangladesh",
+    "row_ref": "country:12",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -371,15 +426,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bangladesh"
       }
     ],
+    "notes_text": "Sale banned in 1989, but laws are rarely enforced and cannabis is openly sold in many parts of the country.",
+    "notes_raw": "Sale banned in 1989, but laws are rarely enforced and cannabis is openly sold in many parts of the country.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "BE",
     "name_in_wiki": "Belgium",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Belgium",
+    "row_ref": "country:15",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -394,15 +452,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Belgium"
       }
     ],
+    "notes_text": "Up to decriminalized for adults since 2003.",
+    "notes_raw": "Up to decriminalized for adults since 2003.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "BF",
     "name_in_wiki": "Burkina Faso",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Burkina_Faso",
+    "row_ref": "country:26",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -417,15 +478,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Burkina_Faso"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "BG",
     "name_in_wiki": "Bulgaria",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Bulgaria",
+    "row_ref": "country:25",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -440,15 +504,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bulgaria"
       }
     ],
+    "notes_text": "Cannabis is classified as a class A (High-risk) drug, together with heroin, cocaine, amphetamines, and MDMA (ecstasy). Until 2004, a loosely defined \"personal dose\" existed.",
+    "notes_raw": "Cannabis is classified as a class A (High-risk) drug, together with heroin, cocaine, amphetamines, and MDMA (ecstasy). Until 2004, a loosely defined \"personal dose\" existed.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "BH",
     "name_in_wiki": "Bahrain",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Bahrain",
+    "row_ref": "country:11",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -463,15 +530,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bahrain"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "BI",
     "name_in_wiki": "Burundi",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Burundi",
+    "row_ref": "country:27",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -486,15 +556,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Burundi"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "BJ",
     "name_in_wiki": "Benin",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Benin",
+    "row_ref": "country:17",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -509,28 +582,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Benin"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "BL",
     "name_in_wiki": "St. Barthélemy",
     "wiki_row_url": "https://en.wikipedia.org/wiki/St._Barth%C3%A9lemy",
+    "row_ref": "iso_fallback:BL",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "BM",
     "name_in_wiki": "Bermuda",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Bermuda",
+    "row_ref": "country:18",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -545,15 +624,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bermuda"
       }
     ],
+    "notes_text": "In November 2016, the Supreme Court of Bermuda ruled in favor of allowing the medical use of cannabis. As of July 2018, two doctors have been licensed to prescribe the drug.",
+    "notes_raw": "In November 2016, the Supreme Court of Bermuda ruled in favor of allowing the medical use of cannabis. As of July 2018, two doctors have been licensed to prescribe the drug.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "BN",
     "name_in_wiki": "Brunei",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Brunei",
+    "row_ref": "country:24",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -568,15 +650,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Brunei"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "BO",
     "name_in_wiki": "Bolivia",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Bolivia",
+    "row_ref": "country:20",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -591,28 +676,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bolivia"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "BQ",
     "name_in_wiki": "Caribbean Netherlands",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Caribbean_Netherlands",
+    "row_ref": "iso_fallback:BQ",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "BR",
     "name_in_wiki": "Brazil",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Brazil",
+    "row_ref": "country:23",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -627,28 +718,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Brazil"
       }
     ],
+    "notes_text": "Legislation passed in 2006 to require treatment and community service for possessing small amounts of drugs instead of jail time. Possession of large amounts, as well as sale, transportation, and cultivation, are considered drug trafficking.",
+    "notes_raw": "Legislation passed in 2006 to require treatment and community service for possessing small amounts of drugs instead of jail time. Possession of large amounts, as well as sale, transportation, and cultivation, are considered drug trafficking.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "BS",
     "name_in_wiki": "Bahamas",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Bahamas",
+    "row_ref": "iso_fallback:BS",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "BT",
     "name_in_wiki": "Bhutan",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Bhutan",
+    "row_ref": "country:19",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -663,28 +760,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bhutan"
       }
     ],
+    "notes_text": "Illegal, but plants grow prolifically and have multiple traditional uses, such as feeding pigs and producing textiles.",
+    "notes_raw": "Illegal, but plants grow prolifically and have multiple traditional uses, such as feeding pigs and producing textiles.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "BV",
     "name_in_wiki": "Bouvet Island",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Bouvet_Island",
+    "row_ref": "iso_fallback:BV",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "BW",
     "name_in_wiki": "Botswana",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Botswana",
+    "row_ref": "country:22",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -699,15 +802,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Botswana"
       }
     ],
+    "notes_text": "Cannabis (or ''dagga'') is illegal.",
+    "notes_raw": "Cannabis (or ''dagga'') is illegal.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "BY",
     "name_in_wiki": "Belarus",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Belarus",
+    "row_ref": "country:14",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -722,15 +828,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Belarus"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "BZ",
     "name_in_wiki": "Belize",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Belize",
+    "row_ref": "country:16",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -745,15 +854,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Belize"
       }
     ],
+    "notes_text": "Possession prohibited, but use is common and largely tolerated. Possession of up to decriminalized.",
+    "notes_raw": "Possession prohibited, but use is common and largely tolerated. Possession of up to decriminalized.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "CA",
     "name_in_wiki": "Canada",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Canada",
+    "row_ref": "country:29",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -776,28 +888,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_laws_of_Canada_by_province_or_territory"
       }
     ],
+    "notes_text": "Legal for medicinal purposes since 2001 and for recreational purposes since 17 October 2018. The age to buy or consume cannabis varies by province: 19 in most provinces, 18 in Alberta, and 21 in Quebec.",
+    "notes_raw": "Legal for medicinal purposes since 2001 and for recreational purposes since 17 October 2018. The age to buy or consume cannabis varies by province: 19 in most provinces, 18 in Alberta, and 21 in Quebec.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "CC",
     "name_in_wiki": "Cocos (Keeling) Islands",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Cocos_(Keeling)_Islands",
+    "row_ref": "iso_fallback:CC",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "CD",
     "name_in_wiki": "Democratic Republic of the Congo",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Democratic_Republic_of_the_Congo",
+    "row_ref": "country:38",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -812,15 +930,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Democratic_Republic_of_the_Congo"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "CF",
     "name_in_wiki": "Central African Republic",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Central_African_Republic",
+    "row_ref": "country:31",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -835,15 +956,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Central_African_Republic"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "CG",
     "name_in_wiki": "Republic of the Congo",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Republic_of_the_Congo",
+    "row_ref": "country:39",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -858,15 +982,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Republic_of_the_Congo"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "CH",
     "name_in_wiki": "Switzerland",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Switzerland",
+    "row_ref": "country:155",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -881,15 +1008,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Switzerland"
       }
     ],
+    "notes_text": "Since 2017, consuming cannabis in Switzerland may result in a fine, but possession of up to without evidence of consumption is not penalized; and as of 2023, confiscated amounts under this limit must be returned to the individual.",
+    "notes_raw": "Since 2017, consuming cannabis in Switzerland may result in a fine, but possession of up to without evidence of consumption is not penalized; and as of 2023, confiscated amounts under this limit must be returned to the individual.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "CI",
     "name_in_wiki": "Ivory Coast",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Ivory_Coast",
+    "row_ref": "country:78",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -904,15 +1034,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ivory_Coast"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "CK",
     "name_in_wiki": "Cook Islands",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Cook_Islands",
+    "row_ref": "country:37",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -927,15 +1060,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Cook_Islands"
       }
     ],
+    "notes_text": "A non-binding referendum in August 2022 asked \"Should we review our cannabis laws to allow for research and medicinal use?\" 62% voted yes.",
+    "notes_raw": "A non-binding referendum in August 2022 asked \"Should we review our cannabis laws to allow for research and medicinal use?\" 62% voted yes.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "CL",
     "name_in_wiki": "Chile",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Chile",
+    "row_ref": "country:33",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -950,15 +1086,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Chile"
       }
     ],
+    "notes_text": "Private personal use and recreational cultivation decriminalized. Medicinal cultivation legal with the authorization of The Chilean Agriculture Service (SAG) and sale of medication allowed on prescription in pharmacies.",
+    "notes_raw": "Private personal use and recreational cultivation decriminalized. Medicinal cultivation legal with the authorization of The Chilean Agriculture Service (SAG) and sale of medication allowed on prescription in pharmacies.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "CM",
     "name_in_wiki": "Cameroon",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Cameroon",
+    "row_ref": "country:28",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -973,15 +1112,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cameroon"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "CN",
     "name_in_wiki": "People's Republic of China",
     "wiki_row_url": "https://en.wikipedia.org/wiki/People's_Republic_of_China",
+    "row_ref": "country:34",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -996,15 +1138,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_China"
       }
     ],
+    "notes_text": "Penalty for possession or consumption: 10–15 days' detention without prosecution and a fine.",
+    "notes_raw": "Penalty for possession or consumption: 10–15 days' detention without prosecution and a fine.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "CO",
     "name_in_wiki": "Colombia",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Colombia",
+    "row_ref": "country:35",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -1019,15 +1164,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Colombia"
       }
     ],
+    "notes_text": "Decriminalized up to for personal consumption. Individuals carrying greater amounts, or cultivating up to 20 plants, cannot be prosecuted if the drug is for personal use.",
+    "notes_raw": "Decriminalized up to for personal consumption. Individuals carrying greater amounts, or cultivating up to 20 plants, cannot be prosecuted if the drug is for personal use.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "CR",
     "name_in_wiki": "Costa Rica",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Costa_Rica",
+    "row_ref": "country:40",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -1042,15 +1190,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Costa_Rica"
       }
     ],
+    "notes_text": "Decriminalized since police officers do not detain people for personal use, yet no amount has been defined as a minimum for possession. Use of cannabis is widespread throughout the country.",
+    "notes_raw": "Decriminalized since police officers do not detain people for personal use, yet no amount has been defined as a minimum for possession. Use of cannabis is widespread throughout the country.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "CU",
     "name_in_wiki": "Cuba",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Cuba",
+    "row_ref": "country:42",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -1065,15 +1216,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cuba"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "CV",
     "name_in_wiki": "Cape Verde",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Cape_Verde",
+    "row_ref": "country:30",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -1088,41 +1242,50 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cape_Verde"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "CW",
     "name_in_wiki": "Curaçao",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Cura%C3%A7ao",
+    "row_ref": "iso_fallback:CW",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "CX",
     "name_in_wiki": "Christmas Island",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Christmas_Island",
+    "row_ref": "iso_fallback:CX",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "CY",
     "name_in_wiki": "Cyprus",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Cyprus",
+    "row_ref": "country:43",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -1137,15 +1300,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cyprus"
       }
     ],
+    "notes_text": "Class B substance – life imprisonment is possible for use and maximum 8 years for possession (at the maximum 2 years for the first offense for people under 25).",
+    "notes_raw": "Class B substance – life imprisonment is possible for use and maximum 8 years for possession (at the maximum 2 years for the first offense for people under 25).",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "CZ",
     "name_in_wiki": "Czech Republic",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Czech_Republic",
+    "row_ref": "country:44",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -1160,15 +1326,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Czech_Republic"
       }
     ],
+    "notes_text": "Possession of less than 15 grams (½ oz) has been decriminalized since 1 January 2010. Since January 1, 2026, it has been legal for persons over the age of 21 to possess up to 100 g of cannabis at home and up to 25 g in public, and to grow up to 3 plants. Medical use has been legal and regulated since 2013.",
+    "notes_raw": "Possession of less than 15 grams (½ oz) has been decriminalized since 1 January 2010. Since January 1, 2026, it has been legal for persons over the age of 21 to possess up to 100 g of cannabis at home and up to 25 g in public, and to grow up to 3 plants. Medical use has been legal and regulated since 2013.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "DE",
     "name_in_wiki": "Germany",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Germany",
+    "row_ref": "country:59",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -1183,15 +1352,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Germany"
       }
     ],
+    "notes_text": "On 23 February 2024, the German Bundestag passed the Act on the Controlled Use of Cannabis, legalizing possession of outside the home, at home, and private cultivation of three plants, for adults 18 and over, since 1 April 2024. Collective, noncommercial cultivation is legal in cultivation associations (i.e. cannabis social clubs) since 1 July 2024.",
+    "notes_raw": "On 23 February 2024, the German Bundestag passed the Act on the Controlled Use of Cannabis, legalizing possession of outside the home, at home, and private cultivation of three plants, for adults 18 and over, since 1 April 2024. Collective, noncommercial cultivation is legal in cultivation associations (i.e. cannabis social clubs) since 1 July 2024.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "DJ",
     "name_in_wiki": "Djibouti",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Djibouti",
+    "row_ref": "country:45",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -1206,28 +1378,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Djibouti"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "DK",
     "name_in_wiki": "Denmark",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Denmark",
+    "row_ref": "iso_fallback:DK",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "DM",
     "name_in_wiki": "Dominica",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Dominica",
+    "row_ref": "country:46",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -1242,15 +1420,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Dominica"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "DO",
     "name_in_wiki": "Dominican Republic",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Dominican_Republic",
+    "row_ref": "country:47",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -1265,15 +1446,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Dominican_Republic"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "DZ",
     "name_in_wiki": "Algeria",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Algeria",
+    "row_ref": "country:2",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -1288,28 +1472,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Algeria"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "EC",
     "name_in_wiki": "Ecuador",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Ecuador",
+    "row_ref": "iso_fallback:EC",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "EE",
     "name_in_wiki": "Estonia",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Estonia",
+    "row_ref": "country:52",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -1324,15 +1514,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Estonia"
       }
     ],
+    "notes_text": "Up to is considered an amount for personal use, and is punished with a fine. Large amounts and distribution are criminal offenses punishable with a custodial sentence of up to 5 years. Medical cannabis is technically legal, but to get a prescription is an arduous process and is practically never given, with a single patient having received Sativex preparation.",
+    "notes_raw": "Up to is considered an amount for personal use, and is punished with a fine. Large amounts and distribution are criminal offenses punishable with a custodial sentence of up to 5 years. Medical cannabis is technically legal, but to get a prescription is an arduous process and is practically never given, with a single patient having received Sativex preparation.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "EG",
     "name_in_wiki": "Egypt",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Egypt",
+    "row_ref": "country:48",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -1347,28 +1540,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Egypt"
       }
     ],
+    "notes_text": "Illegal since 1925 but use is widespread. Convictions for personal use are rare. Formerly a plant of high status with several documented medicinal uses in ancient times.",
+    "notes_raw": "Illegal since 1925 but use is widespread. Convictions for personal use are rare. Formerly a plant of high status with several documented medicinal uses in ancient times.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "EH",
     "name_in_wiki": "Western Sahara",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Western_Sahara",
+    "row_ref": "iso_fallback:EH",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "ER",
     "name_in_wiki": "Eritrea",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Eritrea",
+    "row_ref": "country:51",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -1383,15 +1582,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Eritrea"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "ES",
     "name_in_wiki": "Spain",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Spain",
+    "row_ref": "country:150",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -1406,15 +1608,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Spain"
       }
     ],
+    "notes_text": "All actions related to cannabis for own consumption aren't considered criminal offenses, but misdemeanors punishable by a fine. Cannabis trafficking, including sale, import, or cultivation for sale, is punishable by jail time. Legalized in Catalonia in 2017, but that law was challenged by the state and declared unconstitutional. Cultivation in private areas for own consumption is allowed if the plants cannot be seen from the street or other public spaces.",
+    "notes_raw": "All actions related to cannabis for own consumption aren't considered criminal offenses, but misdemeanors punishable by a fine. Cannabis trafficking, including sale, import, or cultivation for sale, is punishable by jail time. Legalized in Catalonia in 2017, but that law was challenged by the state and declared unconstitutional. Cultivation in private areas for own consumption is allowed if the plants cannot be seen from the street or other public spaces.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "ET",
     "name_in_wiki": "Ethiopia",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Ethiopia",
+    "row_ref": "country:54",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -1429,15 +1634,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ethiopia"
       }
     ],
+    "notes_text": "Despite being the spiritual homeland of the Rastafari movement, possession of cannabis can result in up to six months imprisonment.",
+    "notes_raw": "Despite being the spiritual homeland of the Rastafari movement, possession of cannabis can result in up to six months imprisonment.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "FI",
     "name_in_wiki": "Finland",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Finland",
+    "row_ref": "country:55",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -1452,41 +1660,50 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Finland"
       }
     ],
+    "notes_text": "Personal use is generally not prosecuted in court but subject to summary fine. Medicinal cannabis possible under a special license since 2006; in 2014, 223 licenses were issued.",
+    "notes_raw": "Personal use is generally not prosecuted in court but subject to summary fine. Medicinal cannabis possible under a special license since 2006; in 2014, 223 licenses were issued.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "FJ",
     "name_in_wiki": "Fiji",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Fiji",
+    "row_ref": "iso_fallback:FJ",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "FK",
     "name_in_wiki": "Falkland Islands",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Falkland_Islands",
+    "row_ref": "iso_fallback:FK",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "FM",
     "name_in_wiki": "Micronesia",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Micronesia",
+    "row_ref": "country:106",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -1501,28 +1718,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Micronesia"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "FO",
     "name_in_wiki": "Faroe Islands",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Faroe_Islands",
+    "row_ref": "iso_fallback:FO",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "FR",
     "name_in_wiki": "France",
     "wiki_row_url": "https://en.wikipedia.org/wiki/France",
+    "row_ref": "country:56",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -1537,28 +1760,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_France"
       }
     ],
+    "notes_text": "Possession up to entails a €200 fine since November 2018, although a judge is still legally able to pronounce a stricter sentence. Medical use of some cannabinoid drugs legalized in 2013.",
+    "notes_raw": "Possession up to entails a €200 fine since November 2018, although a judge is still legally able to pronounce a stricter sentence. Medical use of some cannabinoid drugs legalized in 2013.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "GA",
     "name_in_wiki": "Gabon",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Gabon",
+    "row_ref": "iso_fallback:GA",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "GB",
     "name_in_wiki": "United Kingdom",
     "wiki_row_url": "https://en.wikipedia.org/wiki/United_Kingdom",
+    "row_ref": "country:170",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -1573,15 +1802,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_United_Kingdom"
       }
     ],
+    "notes_text": "Banned in 1928. A class B drug under the Misuse of Drugs Act 1971. Limited medical use legal since 1 November 2018 when prescribed by a specialist consultant, not a GP. Guidance: only prescribe when clearly beneficial and no other option available.",
+    "notes_raw": "Banned in 1928. A class B drug under the Misuse of Drugs Act 1971. Limited medical use legal since 1 November 2018 when prescribed by a specialist consultant, not a GP. Guidance: only prescribe when clearly beneficial and no other option available.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "GD",
     "name_in_wiki": "Grenada",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Grenada",
+    "row_ref": "country:63",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -1596,15 +1828,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Grenada"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "GE",
     "name_in_wiki": "Georgia",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Georgia",
+    "row_ref": "country:58",
     "wiki_rec": "Decrim",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -1619,41 +1854,50 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Georgia_(country)"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Decrim",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "GF",
     "name_in_wiki": "French Guiana",
     "wiki_row_url": "https://en.wikipedia.org/wiki/French_Guiana",
+    "row_ref": "iso_fallback:GF",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "GG",
     "name_in_wiki": "Guernsey",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Guernsey",
+    "row_ref": "iso_fallback:GG",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "GH",
     "name_in_wiki": "Ghana",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Ghana",
+    "row_ref": "country:60",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -1668,28 +1912,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ghana"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "GI",
     "name_in_wiki": "Gibraltar",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Gibraltar",
+    "row_ref": "iso_fallback:GI",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "GL",
     "name_in_wiki": "Greenland",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Greenland",
+    "row_ref": "country:62",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -1704,15 +1954,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Greenland"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "GM",
     "name_in_wiki": "Gambia",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Gambia",
+    "row_ref": "country:57",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -1727,15 +1980,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Gambia"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "GN",
     "name_in_wiki": "Guinea",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Guinea",
+    "row_ref": "country:65",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -1750,28 +2006,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Guinea"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "GP",
     "name_in_wiki": "Guadeloupe",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Guadeloupe",
+    "row_ref": "iso_fallback:GP",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "GQ",
     "name_in_wiki": "Equatorial Guinea",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Equatorial_Guinea",
+    "row_ref": "country:50",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -1786,15 +2048,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Equatorial_Guinea"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "GR",
     "name_in_wiki": "Greece",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Greece",
+    "row_ref": "country:61",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -1809,28 +2074,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Greece"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "GS",
     "name_in_wiki": "South Georgia & South Sandwich Islands",
     "wiki_row_url": "https://en.wikipedia.org/wiki/South_Georgia_%26_South_Sandwich_Islands",
+    "row_ref": "iso_fallback:GS",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "GT",
     "name_in_wiki": "Guatemala",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Guatemala",
+    "row_ref": "country:64",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -1845,28 +2116,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Guatemala"
       }
     ],
+    "notes_text": "In 2016 a constitutional commission rejected proposals to legalize medicinal or recreational use of cannabis.",
+    "notes_raw": "In 2016 a constitutional commission rejected proposals to legalize medicinal or recreational use of cannabis.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "GU",
     "name_in_wiki": "Guam",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Guam",
+    "row_ref": "iso_fallback:GU",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "GW",
     "name_in_wiki": "Guinea-Bissau",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Guinea-Bissau",
+    "row_ref": "country:66",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -1881,15 +2158,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Guinea-Bissau"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "GY",
     "name_in_wiki": "Guyana",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Guyana",
+    "row_ref": "country:67",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -1904,15 +2184,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Guyana"
       }
     ],
+    "notes_text": "Possession of or over can result in charges of drug trafficking.",
+    "notes_raw": "Possession of or over can result in charges of drug trafficking.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "HK",
     "name_in_wiki": "Hong Kong",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Hong_Kong",
+    "row_ref": "country:69",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -1927,28 +2210,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Hong_Kong"
       }
     ],
+    "notes_text": "Possession, sale, transportation, and cultivation illegal under the Dangerous Drug Ordinance. (Chapter 134 of the Law of Hong Kong)",
+    "notes_raw": "Possession, sale, transportation, and cultivation illegal under the Dangerous Drug Ordinance. (Chapter 134 of the Law of Hong Kong)",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "HM",
     "name_in_wiki": "Heard & McDonald Islands",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Heard_%26_McDonald_Islands",
+    "row_ref": "iso_fallback:HM",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "HN",
     "name_in_wiki": "Honduras",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Honduras",
+    "row_ref": "country:68",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -1963,15 +2252,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Honduras"
       }
     ],
+    "notes_text": "The possession, sale, transportation, and cultivation of cannabis is illegal.",
+    "notes_raw": "The possession, sale, transportation, and cultivation of cannabis is illegal.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "HR",
     "name_in_wiki": "Croatia",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Croatia",
+    "row_ref": "country:41",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -1986,28 +2278,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Croatia"
       }
     ],
+    "notes_text": "Possession of small amounts is considered a misdemeanor subject to fixed fines. Medicinal cannabis legal for patients with illnesses such as cancer, multiple sclerosis, or HIV/AIDS.",
+    "notes_raw": "Possession of small amounts is considered a misdemeanor subject to fixed fines. Medicinal cannabis legal for patients with illnesses such as cancer, multiple sclerosis, or HIV/AIDS.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "HT",
     "name_in_wiki": "Haiti",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Haiti",
+    "row_ref": "iso_fallback:HT",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "HU",
     "name_in_wiki": "Hungary",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Hungary",
+    "row_ref": "country:70",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2022,15 +2320,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Hungary"
       }
     ],
+    "notes_text": "There is no distinction in Hungarian law between illicit drugs according to dangers. Heroin use has the same legal consequences as cannabis use.",
+    "notes_raw": "There is no distinction in Hungarian law between illicit drugs according to dangers. Heroin use has the same legal consequences as cannabis use.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "ID",
     "name_in_wiki": "Indonesia",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Indonesia",
+    "row_ref": "country:72",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2045,15 +2346,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Indonesia"
       }
     ],
+    "notes_text": "Banned in 1927. Minimum sentence of 4 years in prison (additional fines may apply) if caught dealing / distributing. Rehabilitation or maximum sentence of 4 years if caught in possession alone.",
+    "notes_raw": "Banned in 1927. Minimum sentence of 4 years in prison (additional fines may apply) if caught dealing / distributing. Rehabilitation or maximum sentence of 4 years if caught in possession alone.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "IE",
     "name_in_wiki": "Ireland",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Ireland",
+    "row_ref": "country:75",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2068,15 +2372,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ireland"
       }
     ],
+    "notes_text": "The National Drugs Strategy of 2009–2016 did not favor decriminalizing cannabis. A new strategy was planned for 2017. Cannabis-derived medicines may be licensed since 2014. A review of policy on medicinal cannabis was announced in November 2016, and a private member's bill to legalize it passed second stage in the Dáil in December 2016.",
+    "notes_raw": "The National Drugs Strategy of 2009–2016 did not favor decriminalizing cannabis. A new strategy was planned for 2017. Cannabis-derived medicines may be licensed since 2014. A review of policy on medicinal cannabis was announced in November 2016, and a private member's bill to legalize it passed second stage in the Dáil in December 2016.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "IL",
     "name_in_wiki": "Israel",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Israel",
+    "row_ref": "country:76",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2091,28 +2398,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Israel"
       }
     ],
+    "notes_text": "As of April 2019, public possession of small amounts is a non-criminal offense punished by escalating fines. A third offense can result in criminal charges, however. Possession in the privacy of one's home is not punished.",
+    "notes_raw": "As of April 2019, public possession of small amounts is a non-criminal offense punished by escalating fines. A third offense can result in criminal charges, however. Possession in the privacy of one's home is not punished.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "IM",
     "name_in_wiki": "Isle of Man",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Isle_of_Man",
+    "row_ref": "iso_fallback:IM",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "IN",
     "name_in_wiki": "India",
     "wiki_row_url": "https://en.wikipedia.org/wiki/India",
+    "row_ref": "country:71",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2127,28 +2440,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_India"
       }
     ],
+    "notes_text": "Albeit illegal, usage is prevalent and some government-owned shops sell cannabis in the form of bhang. States have their own laws regarding cannabis, locally known as ''ganja''.",
+    "notes_raw": "Albeit illegal, usage is prevalent and some government-owned shops sell cannabis in the form of bhang. States have their own laws regarding cannabis, locally known as ''ganja''.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "IO",
     "name_in_wiki": "British Indian Ocean Territory",
     "wiki_row_url": "https://en.wikipedia.org/wiki/British_Indian_Ocean_Territory",
+    "row_ref": "iso_fallback:IO",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "IQ",
     "name_in_wiki": "Iraq",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Iraq",
+    "row_ref": "country:74",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2163,15 +2482,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Iraq"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "IR",
     "name_in_wiki": "Iran",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Iran",
+    "row_ref": "country:73",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2186,28 +2508,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Iran"
       }
     ],
+    "notes_text": "Maximum of capital punishment to possess hashish over but unenforced.",
+    "notes_raw": "Maximum of capital punishment to possess hashish over but unenforced.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "IS",
     "name_in_wiki": "Iceland",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Iceland",
+    "row_ref": "iso_fallback:IS",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "IT",
     "name_in_wiki": "Italy",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Italy",
+    "row_ref": "country:77",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2222,41 +2550,50 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Italy"
       }
     ],
+    "notes_text": "Possession of small amounts for personal use is a misdemeanor subject to fines and the suspension of documents (passports or driver's licenses). Sale is punishable by imprisonment, even if in small amounts. Licensed cultivation for medicinal and industrial use strictly regulated.",
+    "notes_raw": "Possession of small amounts for personal use is a misdemeanor subject to fines and the suspension of documents (passports or driver's licenses). Sale is punishable by imprisonment, even if in small amounts. Licensed cultivation for medicinal and industrial use strictly regulated.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "JE",
     "name_in_wiki": "Jersey",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Jersey",
+    "row_ref": "iso_fallback:JE",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "JM",
     "name_in_wiki": "Jamaica",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Jamaica",
+    "row_ref": "iso_fallback:JM",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "JO",
     "name_in_wiki": "Jordan",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Jordan",
+    "row_ref": "country:80",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2271,15 +2608,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Jordan"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "JP",
     "name_in_wiki": "Japan",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Japan",
+    "row_ref": "country:79",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2294,15 +2634,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Japan"
       }
     ],
+    "notes_text": "Restricted in 1948. Use and possession are punishable by up to 5 years imprisonment and a fine. Cultivation, sale, and transport are punishable by 7–10 years imprisonment and a fine.",
+    "notes_raw": "Restricted in 1948. Use and possession are punishable by up to 5 years imprisonment and a fine. Cultivation, sale, and transport are punishable by 7–10 years imprisonment and a fine.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "KE",
     "name_in_wiki": "Kenya",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Kenya",
+    "row_ref": "country:81",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2317,15 +2660,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kenya"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "KG",
     "name_in_wiki": "Kyrgyzstan",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Kyrgyzstan",
+    "row_ref": "country:87",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2340,28 +2686,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kyrgyzstan"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "KH",
     "name_in_wiki": "Cambodia",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Cambodia",
+    "row_ref": "iso_fallback:KH",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "KI",
     "name_in_wiki": "Kiribati",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Kiribati",
+    "row_ref": "country:82",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2376,15 +2728,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kiribati"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "KM",
     "name_in_wiki": "Comoros",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Comoros",
+    "row_ref": "country:36",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2399,28 +2754,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Comoros"
       }
     ],
+    "notes_text": "Cannabis was legal in Comoros between January 1975 and May 1978, when president Ali Soilih legalized cannabis consumption among other measures.",
+    "notes_raw": "Cannabis was legal in Comoros between January 1975 and May 1978, when president Ali Soilih legalized cannabis consumption among other measures.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "KN",
     "name_in_wiki": "St. Kitts & Nevis",
     "wiki_row_url": "https://en.wikipedia.org/wiki/St._Kitts_%26_Nevis",
+    "row_ref": "iso_fallback:KN",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "KP",
     "name_in_wiki": "Korea, North",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Korea%2C_North",
+    "row_ref": "country:83",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2435,15 +2796,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_North_Korea"
       }
     ],
+    "notes_text": "Cannabis is listed in Appendix 1 Narcotics in the DPRK. Narcotics Control Law (2005) states that narcotics may be used when prescribed. There are conflicting reports on the legal status of cannabis in North Korea. Multiple reports from defectors and tourists claim there is no law regarding the possession of cannabis in North Korea or if there is, it is mostly unenforced. However, other reports claim that cannabis is illegal.",
+    "notes_raw": "Cannabis is listed in Appendix 1 Narcotics in the DPRK. Narcotics Control Law (2005) states that narcotics may be used when prescribed. There are conflicting reports on the legal status of cannabis in North Korea. Multiple reports from defectors and tourists claim there is no law regarding the possession of cannabis in North Korea or if there is, it is mostly unenforced. However, other reports claim that cannabis is illegal.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "KR",
     "name_in_wiki": "Korea, South",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Korea%2C_South",
+    "row_ref": "country:84",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2458,15 +2822,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_South_Korea"
       }
     ],
+    "notes_text": "Medical use of cannabis was legalized in November 2018. The plant itself, however, remains unavailable due to a policy implemented by the Ministry of Food and Drug Safety.",
+    "notes_raw": "Medical use of cannabis was legalized in November 2018. The plant itself, however, remains unavailable due to a policy implemented by the Ministry of Food and Drug Safety.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "KW",
     "name_in_wiki": "Kuwait",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Kuwait",
+    "row_ref": "country:86",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2481,54 +2848,66 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kuwait"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "KY",
     "name_in_wiki": "Cayman Islands",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Cayman_Islands",
+    "row_ref": "iso_fallback:KY",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "KZ",
     "name_in_wiki": "Kazakhstan",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Kazakhstan",
+    "row_ref": "iso_fallback:KZ",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "LA",
     "name_in_wiki": "Laos",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Laos",
+    "row_ref": "iso_fallback:LA",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "LB",
     "name_in_wiki": "Lebanon",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Lebanon",
+    "row_ref": "country:89",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2543,15 +2922,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Lebanon"
       }
     ],
+    "notes_text": "Hashish banned in 1926; cultivation banned in 1992. Large amounts of cannabis are still grown within the country illicitly, however. Cultivation of cannabis for medical use was legalized in April 2020.",
+    "notes_raw": "Hashish banned in 1926; cultivation banned in 1992. Large amounts of cannabis are still grown within the country illicitly, however. Cultivation of cannabis for medical use was legalized in April 2020.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "LC",
     "name_in_wiki": "Saint Lucia",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Saint_Lucia",
+    "row_ref": "country:133",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2566,15 +2948,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Saint_Lucia"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "LI",
     "name_in_wiki": "Liechtenstein",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Liechtenstein",
+    "row_ref": "country:93",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2589,15 +2974,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Liechtenstein"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "LK",
     "name_in_wiki": "Sri Lanka",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Sri_Lanka",
+    "row_ref": "country:151",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2612,15 +3000,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Sri_Lanka"
       }
     ],
+    "notes_text": "The sale of cannabis is decriminalized for traditional medicine vendors and it is commonly used in Ayurvedic traditional medicines.",
+    "notes_raw": "The sale of cannabis is decriminalized for traditional medicine vendors and it is commonly used in Ayurvedic traditional medicines.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "LR",
     "name_in_wiki": "Liberia",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Liberia",
+    "row_ref": "country:91",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2635,15 +3026,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Liberia"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "LS",
     "name_in_wiki": "Lesotho",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Lesotho",
+    "row_ref": "country:90",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2658,15 +3052,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Lesotho"
       }
     ],
+    "notes_text": "Licensed cultivation allowed for export to other countries. Also widely grown for illicit purposes.",
+    "notes_raw": "Licensed cultivation allowed for export to other countries. Also widely grown for illicit purposes.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "LT",
     "name_in_wiki": "Lithuania",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Lithuania",
+    "row_ref": "country:94",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2681,15 +3078,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Lithuania"
       }
     ],
+    "notes_text": "Medical cannabis is illegal in Lithuania, but a law allowing seriously ill patients to use drugs made from synthetic cannabinoids was passed by the Seimas on 11 October 2018.",
+    "notes_raw": "Medical cannabis is illegal in Lithuania, but a law allowing seriously ill patients to use drugs made from synthetic cannabinoids was passed by the Seimas on 11 October 2018.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "LU",
     "name_in_wiki": "Luxembourg",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Luxembourg",
+    "row_ref": "country:95",
     "wiki_rec": "Decrim",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2704,15 +3104,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Luxembourg"
       }
     ],
+    "notes_text": "Decriminalized in 2001. Home use and cultivation legal since 21 July 2023.",
+    "notes_raw": "Decriminalized in 2001. Home use and cultivation legal since 21 July 2023.",
     "recreational_status": "Decrim",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "LV",
     "name_in_wiki": "Latvia",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Latvia",
+    "row_ref": "country:88",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2727,15 +3130,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Latvia"
       }
     ],
+    "notes_text": "Possession of up to can result in a €280 fine; for second offenses within a year period, criminal charges are applied. Larger quantities can be punished with up to 15 years in prison.",
+    "notes_raw": "Possession of up to can result in a €280 fine; for second offenses within a year period, criminal charges are applied. Larger quantities can be punished with up to 15 years in prison.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "LY",
     "name_in_wiki": "Libya",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Libya",
+    "row_ref": "country:92",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2750,15 +3156,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Libya"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "MA",
     "name_in_wiki": "Morocco",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Morocco",
+    "row_ref": "country:111",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2773,15 +3182,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Morocco"
       }
     ],
+    "notes_text": "Morocco is among the world's top producers of hashish.",
+    "notes_raw": "Morocco is among the world's top producers of hashish.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "MC",
     "name_in_wiki": "Monaco",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Monaco",
+    "row_ref": "country:108",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2796,15 +3208,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Monaco"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "MD",
     "name_in_wiki": "Moldova",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Moldova",
+    "row_ref": "country:107",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2819,15 +3234,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Moldova"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "ME",
     "name_in_wiki": "Montenegro",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Montenegro",
+    "row_ref": "country:110",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2842,28 +3260,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Montenegro"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "MF",
     "name_in_wiki": "St. Martin",
     "wiki_row_url": "https://en.wikipedia.org/wiki/St._Martin",
+    "row_ref": "iso_fallback:MF",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "MG",
     "name_in_wiki": "Madagascar",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Madagascar",
+    "row_ref": "country:96",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2878,15 +3302,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Madagascar"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "MH",
     "name_in_wiki": "Marshall Islands",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Marshall_Islands",
+    "row_ref": "country:102",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2901,15 +3328,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Marshall_Islands"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "MK",
     "name_in_wiki": "North Macedonia",
     "wiki_row_url": "https://en.wikipedia.org/wiki/North_Macedonia",
+    "row_ref": "country:121",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2924,15 +3354,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_North_Macedonia"
       }
     ],
+    "notes_text": "If one possesses large amounts, a jail sentence of anywhere from 3 months to 5 years may be given. Medicinal cannabis legalized since 2016.",
+    "notes_raw": "If one possesses large amounts, a jail sentence of anywhere from 3 months to 5 years may be given. Medicinal cannabis legalized since 2016.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "ML",
     "name_in_wiki": "Mali",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Mali",
+    "row_ref": "country:100",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2947,15 +3380,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Mali"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "MM",
     "name_in_wiki": "Myanmar",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Myanmar",
+    "row_ref": "country:113",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2970,15 +3406,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Myanmar"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "MN",
     "name_in_wiki": "Mongolia",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Mongolia",
+    "row_ref": "country:109",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -2993,54 +3432,66 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Mongolia"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "MO",
     "name_in_wiki": "Macao SAR China",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Macao_SAR_China",
+    "row_ref": "iso_fallback:MO",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "MP",
     "name_in_wiki": "Northern Mariana Islands",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Northern_Mariana_Islands",
+    "row_ref": "iso_fallback:MP",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "MQ",
     "name_in_wiki": "Martinique",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Martinique",
+    "row_ref": "iso_fallback:MQ",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "MR",
     "name_in_wiki": "Mauritania",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Mauritania",
+    "row_ref": "country:103",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -3055,28 +3506,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Mauritania"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "MS",
     "name_in_wiki": "Montserrat",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Montserrat",
+    "row_ref": "iso_fallback:MS",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "MT",
     "name_in_wiki": "Malta",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Malta",
+    "row_ref": "country:101",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -3091,15 +3548,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Malta"
       }
     ],
+    "notes_text": "On 30 March 2021, Prime Minister Robert Abela announced a proposal to legalize possession of up to and the cultivation of up to 4 plants, and for people charged with possession in the past to have it expunged from their criminal records. In December 2021, legislation was passed by the Maltese Parliament and signed into law by President George Vella.",
+    "notes_raw": "On 30 March 2021, Prime Minister Robert Abela announced a proposal to legalize possession of up to and the cultivation of up to 4 plants, and for people charged with possession in the past to have it expunged from their criminal records. In December 2021, legislation was passed by the Maltese Parliament and signed into law by President George Vella.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "MU",
     "name_in_wiki": "Mauritius",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Mauritius",
+    "row_ref": "country:104",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -3114,15 +3574,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Mauritius"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "MV",
     "name_in_wiki": "Maldives",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Maldives",
+    "row_ref": "country:99",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -3137,15 +3600,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Maldives"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "MW",
     "name_in_wiki": "Malawi",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Malawi",
+    "row_ref": "country:97",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -3160,15 +3626,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Malawi"
       }
     ],
+    "notes_text": "Illegal but widely used and cultivated; Malawian cannabis is famed internationally for its quality. Chamba is grown mainly in central and northern regions like Mzuzu.",
+    "notes_raw": "Illegal but widely used and cultivated; Malawian cannabis is famed internationally for its quality. Chamba is grown mainly in central and northern regions like Mzuzu.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "MX",
     "name_in_wiki": "Mexico",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Mexico",
+    "row_ref": "country:105",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -3183,15 +3652,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Mexico"
       }
     ],
+    "notes_text": "Possession of was decriminalized in 2009. In 2015 the Supreme Court voted 4–1 that prohibiting people from growing the drug for personal use was unconstitutional. In 2018 the Supreme Court reaffirmed the ruling and requested that the legislature update the country's laws regarding cannabis. After the legislature failed to act, the Supreme Court in 2021 invalidated laws regarding the personal possession and cultivation of cannabis.",
+    "notes_raw": "Possession of was decriminalized in 2009. In 2015 the Supreme Court voted 4–1 that prohibiting people from growing the drug for personal use was unconstitutional. In 2018 the Supreme Court reaffirmed the ruling and requested that the legislature update the country's laws regarding cannabis. After the legislature failed to act, the Supreme Court in 2021 invalidated laws regarding the personal possession and cultivation of cannabis.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "MY",
     "name_in_wiki": "Malaysia",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Malaysia",
+    "row_ref": "country:98",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -3206,15 +3678,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Malaysia"
       }
     ],
+    "notes_text": "Mandatory death penalty for convicted drug traffickers, legally defined as individuals possessing more than of cannabis.",
+    "notes_raw": "Mandatory death penalty for convicted drug traffickers, legally defined as individuals possessing more than of cannabis.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "MZ",
     "name_in_wiki": "Mozambique",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Mozambique",
+    "row_ref": "country:112",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -3229,41 +3704,50 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Mozambique"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "NA",
     "name_in_wiki": "Namibia",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Namibia",
+    "row_ref": "iso_fallback:NA",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "NC",
     "name_in_wiki": "New Caledonia",
     "wiki_row_url": "https://en.wikipedia.org/wiki/New_Caledonia",
+    "row_ref": "iso_fallback:NC",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "NE",
     "name_in_wiki": "Niger",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Niger",
+    "row_ref": "country:119",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -3278,28 +3762,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Niger"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "NF",
     "name_in_wiki": "Norfolk Island",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Norfolk_Island",
+    "row_ref": "iso_fallback:NF",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "NG",
     "name_in_wiki": "Nigeria",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Nigeria",
+    "row_ref": "country:120",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -3314,15 +3804,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Nigeria"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "NI",
     "name_in_wiki": "Nicaragua",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Nicaragua",
+    "row_ref": "country:118",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -3337,15 +3830,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Nicaragua"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "NL",
     "name_in_wiki": "Netherlands",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Netherlands",
+    "row_ref": "country:116",
     "wiki_rec": "Unenforced",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -3360,15 +3856,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Netherlands"
       }
     ],
+    "notes_text": "Personal possession decriminalized and sale allowed only in certain licensed coffeeshops in the continental Netherlands. Cultivation often tolerated but growers can still have their plants and equipment confiscated and face eviction or cancellation of their mortgage for one single plant. Zero tolerance policy in the Caribbean Netherlands.",
+    "notes_raw": "Personal possession decriminalized and sale allowed only in certain licensed coffeeshops in the continental Netherlands. Cultivation often tolerated but growers can still have their plants and equipment confiscated and face eviction or cancellation of their mortgage for one single plant. Zero tolerance policy in the Caribbean Netherlands.",
     "recreational_status": "Unenforced",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "NO",
     "name_in_wiki": "Norway",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Norway",
+    "row_ref": "country:122",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -3383,15 +3882,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Norway"
       }
     ],
+    "notes_text": "Illegal since 1965. As of 2022, use and possession of up to are punished with heavy fines and possible loss of driver's license. Solberg's Cabinet proposed a decriminalization bill in 2021 that would remove all sanctions for illegal drug use, including possession of up to of cannabis. Six parties (43,8%) voted for, while three parties (56,2%) voted against. As a result, the bill did not pass the parliament.",
+    "notes_raw": "Illegal since 1965. As of 2022, use and possession of up to are punished with heavy fines and possible loss of driver's license. Solberg's Cabinet proposed a decriminalization bill in 2021 that would remove all sanctions for illegal drug use, including possession of up to of cannabis. Six parties (43,8%) voted for, while three parties (56,2%) voted against. As a result, the bill did not pass the parliament.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "NP",
     "name_in_wiki": "Nepal",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Nepal",
+    "row_ref": "country:115",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -3406,15 +3908,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Nepal"
       }
     ],
+    "notes_text": "All cannabis licenses canceled in 1973.",
+    "notes_raw": "All cannabis licenses canceled in 1973.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "NR",
     "name_in_wiki": "Nauru",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Nauru",
+    "row_ref": "country:114",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -3429,54 +3934,66 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Nauru"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "NU",
     "name_in_wiki": "Niue",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Niue",
+    "row_ref": "iso_fallback:NU",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "NZ",
     "name_in_wiki": "New Zealand",
     "wiki_row_url": "https://en.wikipedia.org/wiki/New_Zealand",
+    "row_ref": "country:117",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "Banned in 1927. Possession over is presumed for supply. Medical use was legalized in 2018. In 2020, a referendum to legalize recreational use failed by a 50.7% to 48.4% margin.",
+    "notes_raw": "Banned in 1927. Possession over is presumed for supply. Medical use was legalized in 2018. In 2020, a referendum to legalize recreational use failed by a 50.7% to 48.4% margin.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "OM",
     "name_in_wiki": "Oman",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Oman",
+    "row_ref": "iso_fallback:OM",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "PA",
     "name_in_wiki": "Panama",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Panama",
+    "row_ref": "country:124",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -3491,15 +4008,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Panama"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "PE",
     "name_in_wiki": "Peru",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Peru",
+    "row_ref": "country:127",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -3514,28 +4034,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Peru"
       }
     ],
+    "notes_text": "Possession of up to is not punished. Cultivation, production, and sale are punished with 8–15 years in prison.",
+    "notes_raw": "Possession of up to is not punished. Cultivation, production, and sale are punished with 8–15 years in prison.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "PF",
     "name_in_wiki": "French Polynesia",
     "wiki_row_url": "https://en.wikipedia.org/wiki/French_Polynesia",
+    "row_ref": "iso_fallback:PF",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "PG",
     "name_in_wiki": "Papua New Guinea",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Papua_New_Guinea",
+    "row_ref": "country:125",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -3550,15 +4076,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Papua_New_Guinea"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "PH",
     "name_in_wiki": "Philippines",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Philippines",
+    "row_ref": "country:128",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -3573,28 +4102,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Philippines"
       }
     ],
+    "notes_text": "Medical use of cannabis is possible with a special permit from the Food and Drugs Authority for use by individuals with serious or terminal illness.",
+    "notes_raw": "Medical use of cannabis is possible with a special permit from the Food and Drugs Authority for use by individuals with serious or terminal illness.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "PK",
     "name_in_wiki": "Pakistan",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Pakistan",
+    "row_ref": "iso_fallback:PK",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "PL",
     "name_in_wiki": "Poland",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Poland",
+    "row_ref": "country:129",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -3609,67 +4144,82 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Poland"
       }
     ],
+    "notes_text": "Since 2011, prosecutors can choose not to prosecute possession of small quantities of cannabis for personal use if it is a first offense or if the person is drug dependent. Possession of large quantities of drugs can result in up to 10 years in prison.",
+    "notes_raw": "Since 2011, prosecutors can choose not to prosecute possession of small quantities of cannabis for personal use if it is a first offense or if the person is drug dependent. Possession of large quantities of drugs can result in up to 10 years in prison.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "PM",
     "name_in_wiki": "St. Pierre & Miquelon",
     "wiki_row_url": "https://en.wikipedia.org/wiki/St._Pierre_%26_Miquelon",
+    "row_ref": "iso_fallback:PM",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "PN",
     "name_in_wiki": "Pitcairn Islands",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Pitcairn_Islands",
+    "row_ref": "iso_fallback:PN",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "PR",
     "name_in_wiki": "Puerto Rico",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Puerto_Rico",
+    "row_ref": "iso_fallback:PR",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "PS",
     "name_in_wiki": "Palestinian Territories",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Palestinian_Territories",
+    "row_ref": "iso_fallback:PS",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "PT",
     "name_in_wiki": "Portugal",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Portugal",
+    "row_ref": "country:130",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -3684,15 +4234,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Portugal"
       }
     ],
+    "notes_text": "In 2001, Portugal became the first country in the world to decriminalize the use of all drugs.",
+    "notes_raw": "In 2001, Portugal became the first country in the world to decriminalize the use of all drugs.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "PW",
     "name_in_wiki": "Palau",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Palau",
+    "row_ref": "country:123",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -3707,15 +4260,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Palau"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "PY",
     "name_in_wiki": "Paraguay",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Paraguay",
+    "row_ref": "country:126",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -3730,54 +4286,66 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Paraguay"
       }
     ],
+    "notes_text": "The possession of up to of cannabis is not punishable.",
+    "notes_raw": "The possession of up to of cannabis is not punishable.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "QA",
     "name_in_wiki": "Qatar",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Qatar",
+    "row_ref": "iso_fallback:QA",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "RE",
     "name_in_wiki": "Réunion",
     "wiki_row_url": "https://en.wikipedia.org/wiki/R%C3%A9union",
+    "row_ref": "iso_fallback:RE",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "RO",
     "name_in_wiki": "Romania",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Romania",
+    "row_ref": "iso_fallback:RO",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "RS",
     "name_in_wiki": "Serbia",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Serbia",
+    "row_ref": "country:140",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -3792,15 +4360,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Serbia"
       }
     ],
+    "notes_text": "Possession of small amounts is punishable by fine or imprisonment of up to 3 years. Sale and transportation punishable by imprisonment of 3–12 years. Cultivation punishable by imprisonment from 6 months to 5 years. Higher penalties for organized crime.",
+    "notes_raw": "Possession of small amounts is punishable by fine or imprisonment of up to 3 years. Sale and transportation punishable by imprisonment of 3–12 years. Cultivation punishable by imprisonment from 6 months to 5 years. Higher penalties for organized crime.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "RU",
     "name_in_wiki": "Russia",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Russia",
+    "row_ref": "country:131",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -3815,15 +4386,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Russia"
       }
     ],
+    "notes_text": "Possession of up to of cannabis (or of hashish) is an administrative offense, punishable by a fine of ₽5,000 or detention of up to 15 days. Possession of larger amounts is a criminal offense. Foreign nationals and stateless individuals who violate the law are subject to deportation regardless of the amount.",
+    "notes_raw": "Possession of up to of cannabis (or of hashish) is an administrative offense, punishable by a fine of ₽5,000 or detention of up to 15 days. Possession of larger amounts is a criminal offense. Foreign nationals and stateless individuals who violate the law are subject to deportation regardless of the amount.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "RW",
     "name_in_wiki": "Rwanda",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Rwanda",
+    "row_ref": "country:132",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -3838,15 +4412,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Rwanda"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "SA",
     "name_in_wiki": "Saudi Arabia",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Saudi_Arabia",
+    "row_ref": "country:138",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -3861,15 +4438,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Saudi_Arabia"
       }
     ],
+    "notes_text": "Use and possession for personal use of any kind of recreational drugs is punishable by imprisonment if caught. Imprisonment for personal use can entail jail time of six months or more. Dealing and smuggling high amounts of drugs usually result in harsher prison time or even execution, although recently executions have been rare. Foreigners who use drugs might be deported.",
+    "notes_raw": "Use and possession for personal use of any kind of recreational drugs is punishable by imprisonment if caught. Imprisonment for personal use can entail jail time of six months or more. Dealing and smuggling high amounts of drugs usually result in harsher prison time or even execution, although recently executions have been rare. Foreigners who use drugs might be deported.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "SB",
     "name_in_wiki": "Solomon Islands",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Solomon_Islands",
+    "row_ref": "country:146",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -3884,15 +4464,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Solomon_Islands"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "SC",
     "name_in_wiki": "Seychelles",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Seychelles",
+    "row_ref": "country:141",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -3907,15 +4490,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Seychelles"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "SD",
     "name_in_wiki": "Sudan",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Sudan",
+    "row_ref": "country:152",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -3930,15 +4516,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Sudan"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "SE",
     "name_in_wiki": "Sweden",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Sweden",
+    "row_ref": "country:154",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -3953,15 +4542,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Sweden"
       }
     ],
+    "notes_text": "All cannabis-related activity illegal. The national police runs a \"disturb and annoy\" program aimed at users supported by the national \"zero tolerance\" policy.",
+    "notes_raw": "All cannabis-related activity illegal. The national police runs a \"disturb and annoy\" program aimed at users supported by the national \"zero tolerance\" policy.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "SG",
     "name_in_wiki": "Singapore",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Singapore",
+    "row_ref": "country:143",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -3976,28 +4568,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Singapore"
       }
     ],
+    "notes_text": "Banned in 1870. Cannabis is a Class A drug under the Misuse of Drugs Act, making it illegal to cultivate, sell, or possess. Those who are caught with of cannabis or more are considered drug traffickers and are liable to be punished with an automatic death penalty. In rare cases, permission has been granted to use cannabis-derived pharmaceuticals for treatment of epilepsy.",
+    "notes_raw": "Banned in 1870. Cannabis is a Class A drug under the Misuse of Drugs Act, making it illegal to cultivate, sell, or possess. Those who are caught with of cannabis or more are considered drug traffickers and are liable to be punished with an automatic death penalty. In rare cases, permission has been granted to use cannabis-derived pharmaceuticals for treatment of epilepsy.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "SH",
     "name_in_wiki": "St. Helena",
     "wiki_row_url": "https://en.wikipedia.org/wiki/St._Helena",
+    "row_ref": "iso_fallback:SH",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "SI",
     "name_in_wiki": "Slovenia",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Slovenia",
+    "row_ref": "country:145",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -4012,28 +4610,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Slovenia"
       }
     ],
+    "notes_text": "Medical cannabis legalized in 2025. Prior to 2025, cannabis-based drugs were legal for medicinal use, but not cannabis itself. Possession of any drug for personal use is decriminalized.",
+    "notes_raw": "Medical cannabis legalized in 2025. Prior to 2025, cannabis-based drugs were legal for medicinal use, but not cannabis itself. Possession of any drug for personal use is decriminalized.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "SJ",
     "name_in_wiki": "Svalbard & Jan Mayen",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Svalbard_%26_Jan_Mayen",
+    "row_ref": "iso_fallback:SJ",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "SK",
     "name_in_wiki": "Slovakia",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Slovakia",
+    "row_ref": "country:144",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -4048,15 +4652,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Slovakia"
       }
     ],
+    "notes_text": "Possession of small amounts punishable by up to 8 years in prison.",
+    "notes_raw": "Possession of small amounts punishable by up to 8 years in prison.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "SL",
     "name_in_wiki": "Sierra Leone",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Sierra_Leone",
+    "row_ref": "country:142",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -4071,15 +4678,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Sierra_Leone"
       }
     ],
+    "notes_text": "Cannabis banned in 1920.",
+    "notes_raw": "Cannabis banned in 1920.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "SM",
     "name_in_wiki": "San Marino",
     "wiki_row_url": "https://en.wikipedia.org/wiki/San_Marino",
+    "row_ref": "country:136",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -4094,15 +4704,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_San_Marino"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "SN",
     "name_in_wiki": "Senegal",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Senegal",
+    "row_ref": "country:139",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -4117,15 +4730,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Senegal"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "SO",
     "name_in_wiki": "Somalia",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Somalia",
+    "row_ref": "country:147",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -4140,15 +4756,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Somalia"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "SR",
     "name_in_wiki": "Suriname",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Suriname",
+    "row_ref": "country:153",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -4163,15 +4782,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Suriname"
       }
     ],
+    "notes_text": "Cannabis was banned in Suriname in the early 20th century, having been popularized there by Asian immigrants.",
+    "notes_raw": "Cannabis was banned in Suriname in the early 20th century, having been popularized there by Asian immigrants.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "SS",
     "name_in_wiki": "South Sudan",
     "wiki_row_url": "https://en.wikipedia.org/wiki/South_Sudan",
+    "row_ref": "country:149",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -4186,15 +4808,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_South_Sudan"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "ST",
     "name_in_wiki": "São Tomé and Príncipe",
     "wiki_row_url": "https://en.wikipedia.org/wiki/S%C3%A3o_Tom%C3%A9_and_Pr%C3%ADncipe",
+    "row_ref": "country:137",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -4209,15 +4834,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_S%C3%A3o_Tom%C3%A9_and_Principe"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "SV",
     "name_in_wiki": "El Salvador",
     "wiki_row_url": "https://en.wikipedia.org/wiki/El_Salvador",
+    "row_ref": "country:49",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -4232,28 +4860,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_El_Salvador"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "SX",
     "name_in_wiki": "Sint Maarten",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Sint_Maarten",
+    "row_ref": "iso_fallback:SX",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "SY",
     "name_in_wiki": "Syria",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Syria",
+    "row_ref": "country:156",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -4268,15 +4902,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Syria"
       }
     ],
+    "notes_text": "If someone is considered an addict by the Syrian government then they face no criminal penalties for drug possession.",
+    "notes_raw": "If someone is considered an addict by the Syrian government then they face no criminal penalties for drug possession.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "SZ",
     "name_in_wiki": "Eswatini",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Eswatini",
+    "row_ref": "country:53",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -4291,28 +4928,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Eswatini"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "TC",
     "name_in_wiki": "Turks & Caicos Islands",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Turks_%26_Caicos_Islands",
+    "row_ref": "iso_fallback:TC",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "TD",
     "name_in_wiki": "Chad",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Chad",
+    "row_ref": "country:32",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -4327,28 +4970,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Chad"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "TF",
     "name_in_wiki": "French Southern Territories",
     "wiki_row_url": "https://en.wikipedia.org/wiki/French_Southern_Territories",
+    "row_ref": "iso_fallback:TF",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "TG",
     "name_in_wiki": "Togo",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Togo",
+    "row_ref": "country:161",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -4363,15 +5012,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Togo"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "TH",
     "name_in_wiki": "Thailand",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Thailand",
+    "row_ref": "country:159",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -4386,15 +5038,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Thailand"
       }
     ],
+    "notes_text": "Criminalized in 1935, medical use legalized in 2018. Recreational use legalized in 2022 for those aged 20 and over. Unprescribed products with over 0.2% THC were recriminalized in 2025, but this law is often unenforced.",
+    "notes_raw": "Criminalized in 1935, medical use legalized in 2018. Recreational use legalized in 2022 for those aged 20 and over. Unprescribed products with over 0.2% THC were recriminalized in 2025, but this law is often unenforced.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "TJ",
     "name_in_wiki": "Tajikistan",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Tajikistan",
+    "row_ref": "country:157",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -4409,28 +5064,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Tajikistan"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "TK",
     "name_in_wiki": "Tokelau",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Tokelau",
+    "row_ref": "iso_fallback:TK",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "TL",
     "name_in_wiki": "Timor-Leste",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Timor-Leste",
+    "row_ref": "country:160",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -4445,15 +5106,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Timor-Leste"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "TM",
     "name_in_wiki": "Turkmenistan",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Turkmenistan",
+    "row_ref": "country:166",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -4468,15 +5132,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Turkmenistan"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "TN",
     "name_in_wiki": "Tunisia",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Tunisia",
+    "row_ref": "country:164",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -4491,15 +5158,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Tunisia"
       }
     ],
+    "notes_text": "Banned in 1953. Using or possessing entails 1–5 years of imprisonment and 1000–3000 dinars (around $500–1500).",
+    "notes_raw": "Banned in 1953. Using or possessing entails 1–5 years of imprisonment and 1000–3000 dinars (around $500–1500).",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "TO",
     "name_in_wiki": "Tonga",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Tonga",
+    "row_ref": "country:162",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -4514,15 +5184,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Tonga"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "TR",
     "name_in_wiki": "Turkey",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Turkey",
+    "row_ref": "country:165",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -4537,15 +5210,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Turkey"
       }
     ],
+    "notes_text": "Medical grade cannabis containing less than 0.3% THC legalized in 2025. Recreational use is illegal and is punishable by 1 year of probation while repetition is punishable by 2 years of probation and enforced treatment. Sale and supply is punishable by a prison term of 5–10 years, and production or trafficking by a minimum term of 10 years.",
+    "notes_raw": "Medical grade cannabis containing less than 0.3% THC legalized in 2025. Recreational use is illegal and is punishable by 1 year of probation while repetition is punishable by 2 years of probation and enforced treatment. Sale and supply is punishable by a prison term of 5–10 years, and production or trafficking by a minimum term of 10 years.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "TT",
     "name_in_wiki": "Trinidad and Tobago",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Trinidad_and_Tobago",
+    "row_ref": "country:163",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -4560,15 +5236,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Trinidad_and_Tobago"
       }
     ],
+    "notes_text": "Banned in 1925. Decriminalized in 2019.",
+    "notes_raw": "Banned in 1925. Decriminalized in 2019.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "TV",
     "name_in_wiki": "Tuvalu",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Tuvalu",
+    "row_ref": "country:167",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -4583,28 +5262,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Tuvalu"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "TW",
     "name_in_wiki": "Taiwan",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Taiwan",
+    "row_ref": "iso_fallback:TW",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "TZ",
     "name_in_wiki": "Tanzania",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Tanzania",
+    "row_ref": "country:158",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -4619,15 +5304,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Tanzania"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "UA",
     "name_in_wiki": "Ukraine",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Ukraine",
+    "row_ref": "country:168",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -4642,41 +5330,50 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ukraine"
       }
     ],
+    "notes_text": "In December 2023, Parliament adopted a bill to legalize medical cannabis on second reading. It was signed into law by President Zelensky on 15 February 2024.",
+    "notes_raw": "In December 2023, Parliament adopted a bill to legalize medical cannabis on second reading. It was signed into law by President Zelensky on 15 February 2024.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "UG",
     "name_in_wiki": "Uganda",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Uganda",
+    "row_ref": "iso_fallback:UG",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "UM",
     "name_in_wiki": "U.S. Outlying Islands",
     "wiki_row_url": "https://en.wikipedia.org/wiki/U.S._Outlying_Islands",
+    "row_ref": "iso_fallback:UM",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "US",
     "name_in_wiki": "United States",
     "wiki_row_url": "https://en.wikipedia.org/wiki/United_States",
+    "row_ref": "country:171",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -4699,236 +5396,290 @@
         "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction"
       }
     ],
+    "notes_text": "Cannabis remains a Schedule I drug at federal level, prohibiting even its medical use with narrow exceptions. The Rohrabacher–Farr amendment prevents federal enforcement in states that have legalized medical, however. No such protections exist regarding recreational, but the federal government has so far generally not intervened. Recognized Indian reservations are allowed to legalize for either use under a policy announced in 2014. Every U.S. state that has legalized recreational use has set a mandatory legal minimum age of 21 for purchase, possession, and use. In 2024, the Drug Enforcement Administration and the Department of Justice indicated they were planning to reschedule cannabis to Schedule III.",
+    "notes_raw": "Cannabis remains a Schedule I drug at federal level, prohibiting even its medical use with narrow exceptions. The Rohrabacher–Farr amendment prevents federal enforcement in states that have legalized medical, however. No such protections exist regarding recreational, but the federal government has so far generally not intervened. Recognized Indian reservations are allowed to legalize for either use under a policy announced in 2014. Every U.S. state that has legalized recreational use has set a mandatory legal minimum age of 21 for purchase, possession, and use. In 2024, the Drug Enforcement Administration and the Department of Justice indicated they were planning to reschedule cannabis to Schedule III.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "US-AZ",
     "name_in_wiki": "Arizona",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Arizona",
+    "row_ref": "state:3",
     "wiki_rec": "Unknown",
     "wiki_med": "Legal",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "Legal to possess up to 2.5 oz (71 g) per 14 days.",
+    "notes_raw": "Legal to possess up to 2.5 oz (71 g) per 14 days.",
     "recreational_status": "Unknown",
     "medical_status": "Legal",
     "wiki_revision_id": "1331890318",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "US-CA",
     "name_in_wiki": "California",
     "wiki_row_url": "https://en.wikipedia.org/wiki/California",
+    "row_ref": "state:5",
     "wiki_rec": "Unknown",
     "wiki_med": "Legal",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "Legal to possess up to 8 oz (230 g)",
+    "notes_raw": "Legal to possess up to 8 oz (230 g)",
     "recreational_status": "Unknown",
     "medical_status": "Legal",
     "wiki_revision_id": "1331890318",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "US-CO",
     "name_in_wiki": "Colorado",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Colorado",
+    "row_ref": "state:6",
     "wiki_rec": "Unknown",
     "wiki_med": "Legal",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "Legal to possess up to 2 oz (57 g)",
+    "notes_raw": "Legal to possess up to 2 oz (57 g)",
     "recreational_status": "Unknown",
     "medical_status": "Legal",
     "wiki_revision_id": "1331890318",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "US-CT",
     "name_in_wiki": "Connecticut",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Connecticut",
+    "row_ref": "state:7",
     "wiki_rec": "Unknown",
     "wiki_med": "Legal",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "Legal to possess up to 5 oz (140 g) per month.",
+    "notes_raw": "Legal to possess up to 5 oz (140 g) per month.",
     "recreational_status": "Unknown",
     "medical_status": "Legal",
     "wiki_revision_id": "1331890318",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "US-FL",
     "name_in_wiki": "Florida",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Florida",
+    "row_ref": "state:9",
     "wiki_rec": "Unknown",
     "wiki_med": "Legal",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "Legal to possess up to three 70-day, or six 35-day \"supply limits\". One 35-day supply is limited to 2.5 oz (71 g).",
+    "notes_raw": "Legal to possess up to three 70-day, or six 35-day \"supply limits\". One 35-day supply is limited to 2.5 oz (71 g).",
     "recreational_status": "Unknown",
     "medical_status": "Legal",
     "wiki_revision_id": "1331890318",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "US-IL",
     "name_in_wiki": "Illinois",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Illinois",
+    "row_ref": "state:13",
     "wiki_rec": "Unknown",
     "wiki_med": "Legal",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "Legal to possess up to 2.5 oz (71 g) per 14 day period.",
+    "notes_raw": "Legal to possess up to 2.5 oz (71 g) per 14 day period.",
     "recreational_status": "Unknown",
     "medical_status": "Legal",
     "wiki_revision_id": "1331890318",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "US-MA",
     "name_in_wiki": "Massachusetts",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Massachusetts",
+    "row_ref": "state:21",
     "wiki_rec": "Unknown",
     "wiki_med": "Legal",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "Legal to possess up to 10 oz (280 g) per every 2-month period",
+    "notes_raw": "Legal to possess up to 10 oz (280 g) per every 2-month period",
     "recreational_status": "Unknown",
     "medical_status": "Legal",
     "wiki_revision_id": "1331890318",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "US-MI",
     "name_in_wiki": "Michigan",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Michigan",
+    "row_ref": "state:22",
     "wiki_rec": "Unknown",
     "wiki_med": "Legal",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "Legal to possess up to 2.5 oz (71 g)",
+    "notes_raw": "Legal to possess up to 2.5 oz (71 g)",
     "recreational_status": "Unknown",
     "medical_status": "Legal",
     "wiki_revision_id": "1331890318",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "US-NJ",
     "name_in_wiki": "New Jersey",
     "wiki_row_url": "https://en.wikipedia.org/wiki/New_Jersey",
+    "row_ref": "state:30",
     "wiki_rec": "Unknown",
     "wiki_med": "Legal",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "Legal to possess up to 3 oz (85 g) per month",
+    "notes_raw": "Legal to possess up to 3 oz (85 g) per month",
     "recreational_status": "Unknown",
     "medical_status": "Legal",
     "wiki_revision_id": "1331890318",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "US-NV",
     "name_in_wiki": "Nevada",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Nevada",
+    "row_ref": "state:28",
     "wiki_rec": "Unknown",
     "wiki_med": "Legal",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "Legal to possess up to 2.5 oz (71 g)",
+    "notes_raw": "Legal to possess up to 2.5 oz (71 g)",
     "recreational_status": "Unknown",
     "medical_status": "Legal",
     "wiki_revision_id": "1331890318",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "US-NY",
     "name_in_wiki": "New York",
     "wiki_row_url": "https://en.wikipedia.org/wiki/New_York",
+    "row_ref": "state:32",
     "wiki_rec": "Unknown",
     "wiki_med": "Legal",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "Legal to possess a 60-day supply.",
+    "notes_raw": "Legal to possess a 60-day supply.",
     "recreational_status": "Unknown",
     "medical_status": "Legal",
     "wiki_revision_id": "1331890318",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "US-OH",
     "name_in_wiki": "Ohio",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Ohio",
+    "row_ref": "state:35",
     "wiki_rec": "Unknown",
     "wiki_med": "Legal",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "Legal to possess a 90-day supply.",
+    "notes_raw": "Legal to possess a 90-day supply.",
     "recreational_status": "Unknown",
     "medical_status": "Legal",
     "wiki_revision_id": "1331890318",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "US-OR",
     "name_in_wiki": "Oregon",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Oregon",
+    "row_ref": "state:37",
     "wiki_rec": "Unknown",
     "wiki_med": "Legal",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "Legal to possess up to 24 oz (680 g)",
+    "notes_raw": "Legal to possess up to 24 oz (680 g)",
     "recreational_status": "Unknown",
     "medical_status": "Legal",
     "wiki_revision_id": "1331890318",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "US-PA",
     "name_in_wiki": "Pennsylvania",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Pennsylvania",
+    "row_ref": "state:38",
     "wiki_rec": "Unknown",
     "wiki_med": "Legal",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "Legal to possess up to a 90-day supply",
+    "notes_raw": "Legal to possess up to a 90-day supply",
     "recreational_status": "Unknown",
     "medical_status": "Legal",
     "wiki_revision_id": "1331890318",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "US-TX",
     "name_in_wiki": "Texas",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Texas",
+    "row_ref": "state:43",
     "wiki_rec": "Unknown",
     "wiki_med": "Legal",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "Legal to possess medically. Patients may now access up to 10 mg of THC per serving and 1 gram per package, and are permitted to vape and nebulize THC products in addition to other forms.",
+    "notes_raw": "Legal to possess medically. Patients may now access up to 10 mg of THC per serving and 1 gram per package, and are permitted to vape and nebulize THC products in addition to other forms.",
     "recreational_status": "Unknown",
     "medical_status": "Legal",
     "wiki_revision_id": "1331890318",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "US-VA",
     "name_in_wiki": "Virginia",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Virginia",
+    "row_ref": "state:46",
     "wiki_rec": "Unknown",
     "wiki_med": "Legal",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "Legal to possess up to 4 oz (113 g) per 30-day period; unlike recreational use, commercial sales of medical marijuana is legal.",
+    "notes_raw": "Legal to possess up to 4 oz (113 g) per 30-day period; unlike recreational use, commercial sales of medical marijuana is legal.",
     "recreational_status": "Unknown",
     "medical_status": "Legal",
     "wiki_revision_id": "1331890318",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "US-WA",
     "name_in_wiki": "Washington",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Washington",
+    "row_ref": "state:47",
     "wiki_rec": "Unknown",
     "wiki_med": "Legal",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "Legal to possess up to 3 oz (85 g), 48 oz (1.3 kg) of edibles, 21 g (.74 oz) of concentrate, & 216 oz (6.1 kg) of infused-liquids.",
+    "notes_raw": "Legal to possess up to 3 oz (85 g), 48 oz (1.3 kg) of edibles, 21 g (.74 oz) of concentrate, & 216 oz (6.1 kg) of infused-liquids.",
     "recreational_status": "Unknown",
     "medical_status": "Legal",
     "wiki_revision_id": "1331890318",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "UY",
     "name_in_wiki": "Uruguay",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Uruguay",
+    "row_ref": "country:172",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -4943,15 +5694,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Uruguay"
       }
     ],
+    "notes_text": "Legal since late 2013. Buyers must be eighteen or older, residents of Uruguay, and must register with the authorities. Authorities grow the cannabis that can be sold legally. Non-profit Cannabis Clubs can also operate. The minimum age to purchase or obtain cannabis in Uruguay is 18.",
+    "notes_raw": "Legal since late 2013. Buyers must be eighteen or older, residents of Uruguay, and must register with the authorities. Authorities grow the cannabis that can be sold legally. Non-profit Cannabis Clubs can also operate. The minimum age to purchase or obtain cannabis in Uruguay is 18.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "UZ",
     "name_in_wiki": "Uzbekistan",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Uzbekistan",
+    "row_ref": "country:173",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -4966,28 +5720,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Uzbekistan"
       }
     ],
+    "notes_text": "Opiates, cannabis and other plants containing psychotropic substances are illegal.",
+    "notes_raw": "Opiates, cannabis and other plants containing psychotropic substances are illegal.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "VA",
     "name_in_wiki": "Vatican City",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Vatican_City",
+    "row_ref": "country:174",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "VC",
     "name_in_wiki": "Saint Vincent and the Grenadines",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Saint_Vincent_and_the_Grenadines",
+    "row_ref": "country:134",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -5002,15 +5762,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Saint_Vincent_and_the_Grenadines"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "VE",
     "name_in_wiki": "Venezuela",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Venezuela",
+    "row_ref": "country:175",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -5025,41 +5788,50 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Venezuela"
       }
     ],
+    "notes_text": "Possession of up to of marijuana or of genetically modified marijuana for commercial purposes is punishable by 1–2 years in prison at judge's discretion. If deemed to be for personal consumption, the user is subject to security measures involving rehabilitation and detoxification procedures.",
+    "notes_raw": "Possession of up to of marijuana or of genetically modified marijuana for commercial purposes is punishable by 1–2 years in prison at judge's discretion. If deemed to be for personal consumption, the user is subject to security measures involving rehabilitation and detoxification procedures.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "VG",
     "name_in_wiki": "British Virgin Islands",
     "wiki_row_url": "https://en.wikipedia.org/wiki/British_Virgin_Islands",
+    "row_ref": "iso_fallback:VG",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "VI",
     "name_in_wiki": "U.S. Virgin Islands",
     "wiki_row_url": "https://en.wikipedia.org/wiki/U.S._Virgin_Islands",
+    "row_ref": "iso_fallback:VI",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "VN",
     "name_in_wiki": "Vietnam",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Vietnam",
+    "row_ref": "country:176",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -5074,41 +5846,50 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Vietnam"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "VU",
     "name_in_wiki": "Vanuatu",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Vanuatu",
+    "row_ref": "iso_fallback:VU",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "WF",
     "name_in_wiki": "Wallis & Futuna",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Wallis_%26_Futuna",
+    "row_ref": "iso_fallback:WF",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "WS",
     "name_in_wiki": "Samoa",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Samoa",
+    "row_ref": "country:135",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -5123,15 +5904,18 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Samoa"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "XK",
     "name_in_wiki": "Kosovo",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Kosovo",
+    "row_ref": "country:85",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -5146,41 +5930,50 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kosovo"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "YE",
     "name_in_wiki": "Yemen",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Yemen",
+    "row_ref": "iso_fallback:YE",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "YT",
     "name_in_wiki": "Mayotte",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Mayotte",
+    "row_ref": "iso_fallback:YT",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "ZA",
     "name_in_wiki": "South Africa",
     "wiki_row_url": "https://en.wikipedia.org/wiki/South_Africa",
+    "row_ref": "country:148",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -5195,28 +5988,34 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_South_Africa"
       }
     ],
+    "notes_text": "Private use and cultivation have been legal since September 2018.",
+    "notes_raw": "Private use and cultivation have been legal since September 2018.",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "ZM",
     "name_in_wiki": "Zambia",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Zambia",
+    "row_ref": "iso_fallback:ZM",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [],
     "notes_main_articles": [],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   },
   {
     "geo_key": "ZW",
     "name_in_wiki": "Zimbabwe",
     "wiki_row_url": "https://en.wikipedia.org/wiki/Zimbabwe",
+    "row_ref": "country:177",
     "wiki_rec": "Unknown",
     "wiki_med": "Unknown",
     "main_articles": [
@@ -5231,9 +6030,11 @@
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Zimbabwe"
       }
     ],
+    "notes_text": "",
+    "notes_raw": "",
     "recreational_status": "Unknown",
     "medical_status": "Unknown",
     "wiki_revision_id": "1332405714",
-    "fetched_at": "2026-01-19T19:08:01.176Z"
+    "fetched_at": "2026-01-19T21:07:31.448Z"
   }
 ]

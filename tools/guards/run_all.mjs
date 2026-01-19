@@ -15,6 +15,8 @@ const entries = fs
       name !== "no_double_checkpoint.mjs" &&
       name !== "next_line.mjs" &&
       name !== "summary_format.mjs" &&
+      name !== "sanitize_stdout.mjs" &&
+      name !== "stdout_sanitize.mjs" &&
       !name.endsWith(".test.mjs")
   )
   .sort();

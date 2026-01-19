@@ -187,8 +187,17 @@ function loadWikiClaim(geoKey: string) {
   if (fs.existsSync(WIKI_CLAIMS_SNAPSHOT)) {
     try {
       const payload = JSON.parse(fs.readFileSync(WIKI_CLAIMS_SNAPSHOT, "utf8"));
-      const items = Array.isArray(payload) ? payload : payload?.items;
-      if (Array.isArray(items)) {
+      let items: unknown[] = [];
+      if (Array.isArray(payload)) {
+        items = payload;
+      } else if (Array.isArray(payload?.items)) {
+        items = payload.items;
+      } else if (payload?.items && typeof payload.items === "object") {
+        items = Object.values(payload.items);
+      } else if (payload && typeof payload === "object") {
+        items = Object.values(payload);
+      }
+      if (items.length) {
         const map: Record<string, unknown> = {};
         for (const entry of items) {
           if (!entry || typeof entry !== "object") continue;
@@ -259,14 +268,35 @@ function loadWikiSsotClaim(geoKey: string) {
   if (!fs.existsSync(WIKI_SSOT_CLAIMS_PATH)) return null;
   try {
     const payload = JSON.parse(fs.readFileSync(WIKI_SSOT_CLAIMS_PATH, "utf8"));
-    const items = Array.isArray(payload) ? payload : payload?.items;
-    if (!Array.isArray(items)) return null;
     const map: Record<string, unknown> = {};
-    for (const entry of items) {
-      const normalized = normalizeWikiClaim(entry);
-      const key = String(normalized?.geo_key || "").toUpperCase();
-      if (!key) continue;
-      map[key] = normalized;
+    if (Array.isArray(payload)) {
+      for (const entry of payload) {
+        const normalized = normalizeWikiClaim(entry);
+        const key = String(normalized?.geo_key || "").toUpperCase();
+        if (!key) continue;
+        map[key] = normalized;
+      }
+    } else if (Array.isArray(payload?.items)) {
+      for (const entry of payload.items) {
+        const normalized = normalizeWikiClaim(entry);
+        const key = String(normalized?.geo_key || "").toUpperCase();
+        if (!key) continue;
+        map[key] = normalized;
+      }
+    } else if (payload?.items && typeof payload.items === "object") {
+      for (const [key, value] of Object.entries(payload.items)) {
+        const normalized = normalizeWikiClaim(value);
+        const normalizedKey = String(normalized?.geo_key || key || "").toUpperCase();
+        if (!normalizedKey) continue;
+        map[normalizedKey] = normalized;
+      }
+    } else if (payload && typeof payload === "object") {
+      for (const [key, value] of Object.entries(payload)) {
+        const normalized = normalizeWikiClaim(value);
+        const normalizedKey = String(normalized?.geo_key || key || "").toUpperCase();
+        if (!normalizedKey) continue;
+        map[normalizedKey] = normalized;
+      }
     }
     wikiSsotCache = map;
     return map[geoKey.toUpperCase()] ?? null;

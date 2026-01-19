@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import { BANNED_STDOUT_PATTERNS } from "./stdout_sanitize.mjs";
 
 function readArg(name, fallback = null) {
   const idx = process.argv.indexOf(name);
@@ -21,6 +22,12 @@ if (!fs.existsSync(file)) {
 
 const text = fs.readFileSync(file, "utf8").trimEnd();
 const lines = text.split(/\r?\n/);
+for (const pattern of BANNED_STDOUT_PATTERNS) {
+  if (pattern.test(text)) {
+    console.error(`STDOUT_CONTRACT_VIOLATION: ${pattern}`);
+    process.exit(2);
+  }
+}
 const nextLines = lines.filter((line) => line.startsWith("Next:"));
 if (nextLines.length > 0) {
   fail("Next line is forbidden in output.");

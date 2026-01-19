@@ -17,6 +17,7 @@ const OUTPUT_PATH = path.join(ROOT, "data", "wiki", "wiki_claims.json");
 const META_PATH = path.join(ROOT, "data", "wiki", "wiki_claims.meta.json");
 const ISO_PATH = path.join(ROOT, "data", "iso3166", "iso3166-1.json");
 const US_STATES_PATH = path.join(ROOT, "data", "geo", "us_state_centroids.json");
+const FETCH_UA = "islegalcannabis/wiki_claims";
 
 function readJson(file, fallback) {
   if (!fs.existsSync(file)) return fallback;
@@ -55,7 +56,7 @@ async function fetchWithRetry(url) {
     const timeout = setTimeout(() => controller.abort(), API_TIMEOUT_MS);
     try {
       const res = await fetch(url, {
-        headers: { "user-agent": "islegalcannabis/wiki_claims" },
+        headers: { "user-agent": FETCH_UA },
         signal: controller.signal
       });
       if (res.ok) return res;
@@ -268,6 +269,47 @@ function parseWikiTable(tableText) {
   return parsed;
 }
 
+function classifyFetchIssue(error, status, parseFail) {
+  if (parseFail) return "PARSE_FAIL";
+  if (typeof status === "number" && status > 0) {
+    if (status === 403) return "HTTP_403";
+    if (status === 429) return "HTTP_429";
+    if (status >= 500) return "HTTP_5XX";
+    return `HTTP_${status}`;
+  }
+  const code = String(error?.cause?.code || error?.code || error?.name || "");
+  if (code.includes("ENOTFOUND") || code.includes("EAI_AGAIN")) return "NO_DNS";
+  if (code.includes("CERT") || code.includes("TLS") || code.includes("SSL")) return "TLS_FAIL";
+  if (code.includes("ETIMEDOUT") || code.includes("ECONNRESET")) return "NETWORK_FAIL";
+  return code ? "FETCH_FAIL" : "FETCH_ERROR";
+}
+
+async function logFetchDiag(url, res, error, parseFail = false) {
+  let status = 0;
+  let redirects = 0;
+  let contentType = "-";
+  let bytes = 0;
+  if (res) {
+    status = res.status;
+    redirects = res.redirected ? 1 : 0;
+    contentType = res.headers.get("content-type") || "-";
+    try {
+      const clone = res.clone();
+      const buf = await clone.arrayBuffer();
+      bytes = buf.byteLength;
+    } catch {
+      bytes = 0;
+    }
+  }
+  const errLabel = error
+    ? String(error?.cause?.code || error?.code || error?.name || error?.message || "-")
+    : "-";
+  const issueClass = classifyFetchIssue(error, status, parseFail);
+  console.error(
+    `FETCH_DIAG: url=${url} err=${errLabel} code=${status || 0} redirects=${redirects} ua=${FETCH_UA} bytes=${bytes} content_type=${contentType} class=${issueClass}`
+  );
+}
+
 async function fetchWikiWikitext(pageTitle) {
   const fixtureDir = process.env.WIKI_FIXTURE_DIR || "";
   if (fixtureDir) {
@@ -300,15 +342,22 @@ async function fetchWikiWikitext(pageTitle) {
   try {
     const res = await fetchWithRetry(url);
     if (!res.ok) {
+      await logFetchDiag(url, res, null);
       return { ok: false, wikitext: "", revisionId: "" };
     }
-    const payload = await res.json();
-    return {
-      ok: Boolean(payload?.parse?.wikitext),
-      wikitext: payload?.parse?.wikitext || "",
-      revisionId: String(payload?.parse?.revid || "")
-    };
-  } catch {
+    try {
+      const payload = await res.json();
+      return {
+        ok: Boolean(payload?.parse?.wikitext),
+        wikitext: payload?.parse?.wikitext || "",
+        revisionId: String(payload?.parse?.revid || "")
+      };
+    } catch (error) {
+      await logFetchDiag(url, res, error, true);
+      return { ok: false, wikitext: "", revisionId: "" };
+    }
+  } catch (error) {
+    await logFetchDiag(url, null, error);
     return { ok: false, wikitext: "", revisionId: "" };
   }
 }
@@ -370,7 +419,8 @@ async function main() {
   }
 
   const entries = new Map();
-  for (const row of countryResult.rows) {
+  for (let index = 0; index < countryResult.rows.length; index += 1) {
+    const row = countryResult.rows[index];
     const iso2 = resolveCountryIso(row.name, aliases, isoMap);
     if (!iso2) continue;
     const geoKey = iso2.toUpperCase();
@@ -381,10 +431,13 @@ async function main() {
       geo_key: geoKey,
       name_in_wiki: row.name,
       wiki_row_url: buildWikiUrl(row.link || row.name),
+      row_ref: `country:${index + 1}`,
       wiki_rec: wikiRec,
       wiki_med: wikiMed,
       main_articles: mainArticles,
       notes_main_articles: mainArticles,
+      notes_text: stripWikiMarkup(row.notes),
+      notes_raw: stripWikiMarkup(row.notes),
       recreational_status: wikiRec,
       medical_status: wikiMed,
       wiki_revision_id: countryResult.revisionId,
@@ -392,7 +445,8 @@ async function main() {
     });
   }
 
-  for (const row of stateResult.rows) {
+  for (let index = 0; index < stateResult.rows.length; index += 1) {
+    const row = stateResult.rows[index];
     const normalized = normalizeName(row.name);
     const geoKey = stateMap.get(normalized);
     if (!geoKey) continue;
@@ -403,10 +457,13 @@ async function main() {
       geo_key: geoKey,
       name_in_wiki: row.name,
       wiki_row_url: buildWikiUrl(row.link || row.name),
+      row_ref: `state:${index + 1}`,
       wiki_rec: wikiRec,
       wiki_med: wikiMed,
       main_articles: mainArticles,
       notes_main_articles: mainArticles,
+      notes_text: stripWikiMarkup(row.notes),
+      notes_raw: stripWikiMarkup(row.notes),
       recreational_status: wikiRec,
       medical_status: wikiMed,
       wiki_revision_id: stateResult.revisionId,
@@ -424,10 +481,13 @@ async function main() {
       geo_key: iso2,
       name_in_wiki: countryName,
       wiki_row_url: countryName ? buildWikiUrl(countryName) : "",
+      row_ref: `iso_fallback:${iso2}`,
       wiki_rec: "Unknown",
       wiki_med: "Unknown",
       main_articles: [],
       notes_main_articles: [],
+      notes_text: "",
+      notes_raw: "",
       recreational_status: "Unknown",
       medical_status: "Unknown",
       wiki_revision_id: countryResult.revisionId,

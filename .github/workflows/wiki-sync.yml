@@ -1,0 +1,44 @@
+name: Wiki Sync
+
+on:
+  schedule:
+    - cron: "0 */4 * * *"
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - name: Install
+        run: npm ci
+      - name: Sync Wiki Claims
+        env:
+          ALLOW_NETWORK: "1"
+          FETCH_NETWORK: "1"
+          NETWORK: "1"
+        run: node tools/wiki/sync_all.mjs --all
+      - name: Refresh Official Badges
+        run: node tools/wiki/official_badges.mjs --all
+      - name: Quality Gate
+        env:
+          ALLOW_NETWORK: "1"
+          FETCH_NETWORK: "1"
+          NETWORK: "1"
+          ALLOW_SMOKE_SKIP: "1"
+          SMOKE_MODE: "skip"
+        run: bash tools/quality_gate.sh
+      - name: Commit If Green
+        env:
+          ALLOW_NETWORK: "1"
+          FETCH_NETWORK: "1"
+          NETWORK: "1"
+        run: bash tools/commit_if_green.sh

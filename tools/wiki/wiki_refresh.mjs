@@ -10,7 +10,8 @@ const LEGACY_CLAIMS_PATH = path.join(ROOT, "data", "wiki", "wiki_claims.json");
 const LEGACY_META_PATH = path.join(ROOT, "data", "wiki", "wiki_claims.meta.json");
 const LEGACY_DIR = path.join(ROOT, "data", "wiki", "wiki_claims");
 const REPORT_PATH = path.join(ROOT, "Reports", "wiki_refresh", "last_run.json");
-const FETCH_NETWORK = process.env.FETCH_NETWORK ?? process.env.ALLOW_NETWORK ?? process.env.NETWORK ?? "0";
+const FETCH_NETWORK =
+  process.env.FETCH_NETWORK ?? process.env.ALLOW_NETWORK ?? process.env.NETWORK ?? "1";
 const FETCH_ENABLED_ENV = FETCH_NETWORK !== "0";
 const NETWORK_GUARD = process.env.NETWORK_GUARD ?? "1";
 const MAX_ARTICLES = Number(process.env.WIKI_ARTICLE_LIMIT || 2);
@@ -164,10 +165,46 @@ async function buildRefsForClaim(claim) {
   };
 }
 
+function getNetworkMode() {
+  if (typeof process.env.FETCH_NETWORK !== "undefined") {
+    return { source: "env", name: "FETCH_NETWORK", value: String(process.env.FETCH_NETWORK) };
+  }
+  if (typeof process.env.ALLOW_NETWORK !== "undefined") {
+    return { source: "env", name: "ALLOW_NETWORK", value: String(process.env.ALLOW_NETWORK) };
+  }
+  if (typeof process.env.NETWORK !== "undefined") {
+    return { source: "env", name: "NETWORK", value: String(process.env.NETWORK) };
+  }
+  return { source: "config", name: "default", value: "1" };
+}
+
+function hasWikiCache() {
+  if (fs.existsSync(SSOT_CLAIMS_PATH)) return true;
+  if (fs.existsSync(LEGACY_CLAIMS_PATH)) return true;
+  if (fs.existsSync(LEGACY_DIR)) {
+    try {
+      return fs.readdirSync(LEGACY_DIR).some((entry) => entry.endsWith(".json"));
+    } catch {
+      return false;
+    }
+  }
+  return false;
+}
+
 async function main() {
   const runAt = new Date().toISOString();
   let refreshStatus = "SKIPPED";
   let fetchEnabled = FETCH_ENABLED_ENV;
+  const networkMode = getNetworkMode();
+  const networkEnabled = networkMode.value !== "0";
+  const offlineAllowed = process.env.ALLOW_WIKI_OFFLINE === "1";
+  const cacheHit = hasWikiCache();
+  console.log(
+    `NET_MODE: network_enabled=${networkEnabled ? 1 : 0} source=${networkMode.source} value=${networkMode.name}=${networkMode.value}`
+  );
+  console.log(
+    `WIKI_MODE: offline_allowed=${offlineAllowed ? 1 : 0} cache_hit=${cacheHit ? 1 : 0}`
+  );
 
   if (!FETCH_ENABLED_ENV && NETWORK_GUARD !== "0") {
     console.error(

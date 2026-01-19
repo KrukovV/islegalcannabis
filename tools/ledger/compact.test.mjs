@@ -64,6 +64,11 @@ assert.strictEqual(doneCount, 10);
 const archive = fs.readFileSync(archivePath, "utf8");
 const archivedCount = archive.split(/\n/).filter((line) => line.startsWith("- Done item")).length;
 assert.strictEqual(archivedCount, 2);
+const forbidden = [/Implement \{feature\}/i, /context left/i, /for shortcuts/i];
+for (const pattern of forbidden) {
+  assert.ok(!pattern.test(updated));
+  assert.ok(!pattern.test(archive));
+}
 
 const second = run();
 assert.strictEqual(second.status, 0);

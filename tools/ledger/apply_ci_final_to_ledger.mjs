@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { BANNED_STDOUT_PATTERNS } from "../guards/stdout_sanitize.mjs";
 
 const args = process.argv.slice(2);
 let root = process.cwd();
@@ -48,7 +49,8 @@ const finalLines = fs
   .readFileSync(finalPath, "utf8")
   .split(/\r?\n/)
   .map((line) => line.trim())
-  .filter(Boolean);
+  .filter(Boolean)
+  .filter((line) => !BANNED_STDOUT_PATTERNS.some((pattern) => pattern.test(line)));
 
 const nowText = finalLines[0] ?? `CI PASS (Smoke ${smokeResult})`;
 const stateText = `checkpoint=${latestCheckpoint}; CI=${ciResult}; Smoke=${smokeResult}`;

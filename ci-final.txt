@@ -3,14 +3,19 @@ Checked: 20 (sources=20/20; 🇷🇺 RU Russia, 🇹🇭 TH Thailand, 🇺🇸 U
 Trends: skipped
 ISO Coverage: covered=249, missing=0, delta=+0
 Law Verified: missing_sources_total=129 missing_sources_delta=+0
-RUN_ID: 20260119T195459Z-28609
+RUN_ID: 20260119T212940Z-14296
+NET_MODE: enabled=0 source=env key=FETCH_NETWORK value=0
+NETWORK_DISABLED: 1
+WIKI_NETCHECK: attempted=0 status=- err=- exit=0
+OFFLINE: 0 reason=CONFIG_DISABLED
+WIKI_MODE: use_cache=1 cache_hit=1
 NETWORK: allow=0 fetch=0 mode=OFFLINE
 FLAGS: ALLOW_NETWORK=0 FETCH_NETWORK=0 AUTO_FACTS=1 AUTO_LEARN=0
 AUTO_LEARN: skipped (AUTO_LEARN=0)
 LAW_PAGE_DISCOVERY: iso=N/A law_pages=0 top=- reason=NO_LAW_PAGE
 PORTALS_IMPORT: total=202 added=0 updated=0 missing_iso=0 invalid_url=0 TOP_MISSING_ISO=-
-WIKI_METRICS: geos=267 refs_total=1514 official=152 non_official=1362 stale_geos=0
-OFFLINE: using cached wiki_db; refresh skipped
+WIKI_METRICS: geos=267 refs_total=1514 official=160 non_official=1354 stale_geos=0
+WIKI_CACHE: using cached wiki_db; refresh skipped (CONFIG_DISABLED)
 LAW_PAGE_CANDIDATES: iso=XK total=0 top3=[-]
 LAW_PAGE_OK: iso=XK ok=1 reason=OK url=https://gzk.rks-gov.net/ActsOftheConstitutionalCourtList.aspx
 OCR: iso=N/A ran=0 engine=- pages=0 text_len=0 reason=NO_OCR
@@ -112,4 +117,4 @@ MV_STORE_SKIPPED reason=EMPTY_WRITE_GUARD
 AUTO_TRAIN: targets=0 validated=0 snap=0 law_pages=0 evidence_ok=0 mv_delta=+0 cand_delta=+0 missing_sources=+0
 BLOCKER_SUMMARY: SNAPSHOT=0 DOC=0 MARKER=NO_MARKER EVIDENCE=NO_EVIDENCE LAW_PAGE=NO_LAW_PAGE
 WHERE: auto_train=Reports/auto_train/last_run.json auto_learn=Reports/auto_learn/last_run.json auto_facts=Reports/auto_facts/last_run.json auto_verify=Reports/auto_verify/last_run.json portals_import=Reports/portals_import/last_run.json mv=data/legal_ssot/machine_verified.json snapshots=data/source_snapshots
-Checkpoint: .checkpoints/20260119-225529.patch
+Checkpoint: .checkpoints/20260120-003008.patch

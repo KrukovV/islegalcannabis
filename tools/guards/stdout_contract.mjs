@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import { BANNED_STDOUT_PATTERNS } from "./stdout_sanitize.mjs";
 
 function readArg(name, fallback = null) {
   const idx = process.argv.indexOf(name);
@@ -35,6 +36,13 @@ const banned = [
   /I['’]m/i,
   /PREAMBLE/i
 ];
+
+for (const pattern of BANNED_STDOUT_PATTERNS) {
+  if (pattern.test(text)) {
+    console.error(`STDOUT_CONTRACT_VIOLATION: ${pattern}`);
+    process.exit(2);
+  }
+}
 
 for (const pattern of banned) {
   if (pattern.test(text)) {
