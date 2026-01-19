@@ -40,7 +40,6 @@ const headers = [
   "Changed paths (latest):",
   "Done:",
   "Now:",
-  "Next:",
   "Open questions (UNCONFIRMED if needed):",
   "Working set (files/ids/commands):"
 ];
@@ -165,7 +164,6 @@ const doneOverflow = doneUnique.slice(10);
 
 const stateKept = keepBullets(sections.get("State:") ?? [], 1);
 const nowKept = keepBullets(sections.get("Now:") ?? [], 15);
-const nextKept = keepBullets(sections.get("Next:") ?? [], 3);
 
 const date = formatDate(overrideDate);
 const checkpoint = overrideCheckpoint || getLatestCheckpoint(root);
@@ -226,7 +224,6 @@ if (minimal) {
   const minimalState = parseMinimalLine("State:", lines);
   const minimalDone = parseMinimalLine("Done:", lines);
   const minimalNow = parseMinimalLine("Now:", lines);
-  const minimalNext = parseMinimalLine("Next:", lines);
   const minimalOpen = parseMinimalLine("Open questions:", lines);
   const minimalWip = parseMinimalLine("WIP:", lines);
   const wipText = minimalWip || (wipLine ? wipLine.replace(/^WIP:\\s*/, "") : "");
@@ -234,13 +231,11 @@ if (minimal) {
   const goalLines = sections.get("Goal (incl. success criteria):") ?? [];
   const doneLinesText = sections.get("Done:") ?? [];
   const nowLinesText = sections.get("Now:") ?? [];
-  const nextLinesText = sections.get("Next:") ?? [];
   const openLinesText = sections.get("Open questions (UNCONFIRMED if needed):") ?? [];
 
   const goalText = minimalGoal || (collectBullets(goalLines)[0] ?? "- UNCONFIRMED").replace(/^- /, "");
   const doneText = minimalDone || (collectBullets(doneLinesText)[0] ?? "- UNCONFIRMED").replace(/^- /, "");
   const nowText = minimalNow || (collectBullets(nowLinesText)[0] ?? "- UNCONFIRMED").replace(/^- /, "");
-  const nextText = minimalNext || (collectBullets(nextLinesText)[0] ?? "- UNCONFIRMED").replace(/^- /, "");
   const openRaw = minimalOpen || (collectBullets(openLinesText)[0] ?? "- UNCONFIRMED").replace(/^- /, "");
   const openText = /UNCONFIRMED/.test(openRaw) ? openRaw : `UNCONFIRMED ${openRaw}`.trim();
   const stateValue = (stateOverride || minimalState || stateKept[0] || "- checkpoint=none; CI=UNCONFIRMED; Smoke=UNCONFIRMED")
@@ -250,7 +245,6 @@ if (minimal) {
   output.push(`State: ${stateValue}`);
   output.push(`Done: ${doneText}`);
   output.push(`Now: ${nowText}`);
-  output.push(`Next: ${nextText}`);
   if (wipText) {
     output.push(`WIP: ${wipText}`);
   }
@@ -274,8 +268,6 @@ for (const header of headers) {
       ? [...nextNow, wipLine]
       : nextNow;
     output.push(...rewriteSection(sections.get("Now:") ?? [], nextNowWithWip));
-  } else if (header === "Next:") {
-    output.push(...rewriteSection(sections.get("Next:") ?? [], nextKept));
   } else {
     const sectionLines = normalizeSectionLines(sections.get(header) ?? []);
     output.push(...sectionLines);

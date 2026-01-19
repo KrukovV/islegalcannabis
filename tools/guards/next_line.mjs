@@ -22,15 +22,6 @@ if (!fs.existsSync(file)) {
 const text = fs.readFileSync(file, "utf8").trimEnd();
 const lines = text.split(/\r?\n/);
 const nextLines = lines.filter((line) => line.startsWith("Next:"));
-
-if (nextLines.length !== 1) {
-  fail("Next line must be present exactly once.");
-}
-
-const nextLine = nextLines[0];
-if (!/^Next: 1\) .+/.test(nextLine)) {
-  fail("Next line must be 'Next: 1) <text>'.");
-}
-if (/ or /i.test(nextLine) || / либо /i.test(nextLine) || /вариант/i.test(nextLine)) {
-  fail("Next line must not include options.");
+if (nextLines.length > 0) {
+  fail("Next line is forbidden in output.");
 }

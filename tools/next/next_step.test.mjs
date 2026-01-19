@@ -15,30 +15,8 @@ function run(args, env = {}) {
   return result.stdout.trim();
 }
 
-function assertSingleNext(output) {
-  const lines = output.split("\n");
-  assert.strictEqual(lines.length, 1);
-  assert.ok(lines[0].startsWith("Next: 1) "));
-  assert.ok(!/^\\s*1\\./m.test(output));
-  assert.ok(!lines.join("\n").includes("Next 2"));
-}
-
-function assertNoInfra(output) {
-  const lower = output.toLowerCase();
-  const banned = [
-    "infra",
-    "refactor pipeline",
-    "setup",
-    "installation",
-    "option",
-    "вариант",
-    "можно",
-    "либо",
-    "?"
-  ];
-  for (const word of banned) {
-    assert.ok(!lower.includes(word));
-  }
+function assertEmpty(output) {
+  assert.strictEqual(output, "");
 }
 
 const coverageFile = path.join(ROOT, ".checkpoints", "coverage-test.json");
@@ -72,18 +50,14 @@ const passData = run([
   "--ciStatus=PASS",
   `--coveragePath=${coverageFile}`
 ]);
-assertSingleNext(passData);
-assert.ok(passData.includes("provisional ISO countries"));
-assertNoInfra(passData);
+assertEmpty(passData);
 
 const passSeo = run([
   "--ciStatus=PASS",
   "--changedPaths=apps/web/src/app/is-cannabis-legal-in-[slug]/page.tsx",
   `--coveragePath=${coverageSeoFile}`
 ]);
-assertSingleNext(passSeo);
-assert.ok(passSeo.includes("Promote next provisional"));
-assertNoInfra(passSeo);
+assertEmpty(passSeo);
 
 const reviewedFile = path.join(ROOT, ".checkpoints", "coverage-test-reviewed.json");
 const failCoverageFile = path.join(ROOT, ".checkpoints", "coverage-test-fail.json");
@@ -111,9 +85,7 @@ const reviewedCase = run([
   "--ciStatus=PASS",
   `--coveragePath=${reviewedFile}`
 ]);
-assertSingleNext(reviewedCase);
-assert.ok(reviewedCase.includes("SEO pages"));
-assertNoInfra(reviewedCase);
+assertEmpty(reviewedCase);
 
 const needsReviewFile = path.join(ROOT, ".checkpoints", "coverage-test-needs.json");
 fs.writeFileSync(
@@ -130,9 +102,7 @@ const needsReviewCase = run([
   "--ciStatus=PASS",
   `--coveragePath=${needsReviewFile}`
 ], { CODEX_TEST_REVIEWS: "0" });
-assertSingleNext(needsReviewCase);
-assert.ok(needsReviewCase.includes("review note"));
-assertNoInfra(needsReviewCase);
+assertEmpty(needsReviewCase);
 
 const tmpLog = path.join(ROOT, ".checkpoints", "ci-test.log");
 fs.writeFileSync(tmpLog, "root-cause");
@@ -141,9 +111,7 @@ const failCase = run([
   `--ciLog=${tmpLog}`,
   `--coveragePath=${failCoverageFile}`
 ]);
-assertSingleNext(failCase);
-assert.ok(failCase.includes("Fix root-cause"));
-assertNoInfra(failCase);
+assertEmpty(failCase);
 
 fs.unlinkSync(tmpLog);
 fs.unlinkSync(coverageFile);

@@ -115,35 +115,7 @@ function readCoverage(coveragePath) {
 }
 
 function selectNext(ciStatus, changedPaths, ciLog, coverage) {
-  if (coverage.uncoveredCount > 0) {
-    return "Add next batch of 5 provisional ISO countries (conveyor)";
-  }
-
-  if (coverage.uncoveredCount === 0 && coverage.provisionalCount > 0) {
-    return "Promote next provisional country to needs_review with sources";
-  }
-
-  if (coverage.uncoveredCount === 0 && coverage.provisionalCount === 0 && coverage.needsReviewCount > 0) {
-    if (coverage.hasReviewFiles) {
-      return "Apply next review to move needs_review to reviewed";
-    }
-    return "Prepare a review note for the next needs_review country";
-  }
-
-  if (
-    coverage.uncoveredCount === 0 &&
-    coverage.provisionalCount === 0 &&
-    coverage.needsReviewCount === 0 &&
-    coverage.reviewedCount > 0
-  ) {
-    return "Generate/validate SEO pages for newly reviewed jurisdictions";
-  }
-
-  if (ciStatus !== "PASS") {
-    return `Fix ${ciLog || "root-cause"}`;
-  }
-
-  return "Add next batch of 5 provisional ISO countries (conveyor)";
+  return "";
 }
 
 function main() {
@@ -161,12 +133,11 @@ function main() {
   const next = selectNext(ciStatus, paths, logText, {
     ...coverage,
     hasReviewFiles
-  })
-    .replace(/\s+/g, " ")
-    .trim()
-    .slice(0, 160);
+  });
 
-  process.stdout.write("Next: 1) " + next + "\n");
+  if (next) {
+    process.stdout.write(next + "\n");
+  }
 }
 
 main();

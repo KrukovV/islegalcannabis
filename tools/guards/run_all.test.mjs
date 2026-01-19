@@ -36,8 +36,7 @@ test("run_all executes discovered guards", () => {
         "TOP50_INGEST: added=0 updated=0 missing_official=0",
         "SSOT Diff: skipped",
         "PROMOTION: promoted=0 rejected=0",
-        "Checkpoint: .checkpoints/00000000-000000.patch",
-        "Next: 1) Placeholder."
+        "Checkpoint: .checkpoints/00000000-000000.patch"
       ].join("\n")
     );
     const result = spawnSync(process.execPath, [path.join(guardsDir, "run_all.mjs")], {

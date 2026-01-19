@@ -6,6 +6,7 @@ Hard Rule:
 - Use `bash tools/pass_cycle.sh` as the single command for CI + checkpoint + ledger updates.
 - Keep the ledger concise; unknowns must be marked UNCONFIRMED (do not guess).
 - Execution Mode only: actions + results. Forbidden phrases: "considering", "figuring out", "refine approach".
+- No auto-plan lines: do not store or print "Next: ..." in CONTINUITY.md or stdout; only user-provided tasks may define future steps.
 
 Response Contract (mandatory):
 - Standard responses allowed; include command stdout when required by the task.

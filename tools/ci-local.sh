@@ -19,7 +19,7 @@ if [ ! -f .checkpoints/ci-summary.txt ]; then
   mkdir -p .checkpoints
   if [ -f .checkpoints/LATEST ]; then
     LATEST_SEED=$(cat .checkpoints/LATEST)
-    printf "🌿 CI PASS (Smoke ?/?)\nChecked: ? (sources=?/?; n/a)\nTrace top10: n/a\nChecked top10: n/a\nChecked saved: Reports/checked/last_checked.json\nTrends: skipped\nISO Coverage: covered=0, missing=0, delta=+0\nLaw Corpus: total_iso=0 laws_files_total=0 (world=0, eu=0) missing=0\nLaw Verified: known=0 needs_review=0 provisional_with_sources=0 provisional_no_sources=0 missing_sources=0\nISO batch: +0 provisional, missing now=0\nTOP50_INGEST: added=0 updated=0 missing_official=0\nSSOT Diff: skipped\nPROMOTION: promoted=0 rejected=0\nCheckpoint: %s\nNext: 1) Placeholder.\n" \
+    printf "🌿 CI PASS (Smoke ?/?)\nChecked: ? (sources=?/?; n/a)\nTrace top10: n/a\nChecked top10: n/a\nChecked saved: Reports/checked/last_checked.json\nTrends: skipped\nISO Coverage: covered=0, missing=0, delta=+0\nLaw Corpus: total_iso=0 laws_files_total=0 (world=0, eu=0) missing=0\nLaw Verified: known=0 needs_review=0 provisional_with_sources=0 provisional_no_sources=0 missing_sources=0\nISO batch: +0 provisional, missing now=0\nTOP50_INGEST: added=0 updated=0 missing_official=0\nSSOT Diff: skipped\nPROMOTION: promoted=0 rejected=0\nCheckpoint: %s\n" \
       "${LATEST_SEED}" \
       > .checkpoints/ci-summary.txt
   else
@@ -288,24 +288,9 @@ if [ "${CI_RESULT:-}" = "PASS" ]; then
   cp "${CURRENT_TMP}" "${BASELINE_PATH}"
 fi
 rm -f "${CURRENT_TMP}"
-NEXT_OUT=$(mktemp)
-node tools/next/next_step.mjs --ciStatus=PASS > "${NEXT_OUT}"
-if grep -q $'\\n  1\\.' "${NEXT_OUT}" || grep -q $'\\n1\\.' "${NEXT_OUT}"; then
-  echo "ERROR: Next format must use '1)' not '1.'."
-  rm -f "${NEXT_OUT}"
-  exit 1
-fi
-if [ "$(wc -l < "${NEXT_OUT}" | tr -d ' ')" -ne 1 ]; then
-  echo "ERROR: Next output must be a single line."
-  rm -f "${NEXT_OUT}"
-  exit 1
-fi
-NEXT_LINE=$(sed -n '1p' "${NEXT_OUT}" | sed 's/^Next: 1) //')
-rm -f "${NEXT_OUT}"
 LATEST_CHECKPOINT=$(cat .checkpoints/LATEST)
 SUMMARY_FILE=".checkpoints/ci-summary.txt"
 CI_SMOKE_RESULT="${SMOKE_RESULT}" \
 CI_LATEST_CHECKPOINT="${LATEST_CHECKPOINT}" \
-CI_NEXT_LINE="${NEXT_LINE}" \
-  node -e "const fs=require('fs');const file='${SUMMARY_FILE}';const smoke=process.env.CI_SMOKE_RESULT||'?/?';const checkpoint=process.env.CI_LATEST_CHECKPOINT||'missing';const next=(process.env.CI_NEXT_LINE||'Next: 1) Placeholder.').replace(/\\r?\\n/g,' ').trim();const lines=[`🌿 CI PASS (Smoke ${smoke})`,`Checked saved: Reports/checked/last_checked.json`,`SSOT Diff: skipped`,`Checkpoint: ${checkpoint}`,next];fs.writeFileSync(file,lines.join('\\n')+'\\n');"
+  node -e "const fs=require('fs');const file='${SUMMARY_FILE}';const smoke=process.env.CI_SMOKE_RESULT||'?/?';const checkpoint=process.env.CI_LATEST_CHECKPOINT||'missing';const lines=[`🌿 CI PASS (Smoke ${smoke})`,`Checked saved: Reports/checked/last_checked.json`,`SSOT Diff: skipped`,`Checkpoint: ${checkpoint}`];fs.writeFileSync(file,lines.join('\\n')+'\\n');"
 cat "${SUMMARY_FILE}"

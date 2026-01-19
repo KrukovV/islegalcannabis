@@ -38,7 +38,6 @@ if (status === "PASS") {
   );
   const passLine6 = new RegExp("^RUN_ID: .+$");
   const passLine7 = new RegExp("^Checkpoint: .checkpoints/.+\\.patch$");
-  const passLine8 = new RegExp("^Next: 1\\) .+");
   const autoSeedLine = new RegExp(
     "^AUTO_SEED: added=\\d+ \\(before=\\d+ after=\\d+\\) artifact=Reports/auto_seed/last_seed\\.json$"
   );
@@ -205,7 +204,6 @@ if (status === "PASS") {
   seek(blockerLine, "BLOCKER_SUMMARY");
   seek(whereLine, "WHERE");
   seek(passLine7, "Checkpoint");
-  seek(passLine8, "Next");
   if (/\\n\\s*1\\./.test(text)) fail("PASS summary uses 1. instead of 1).");
 } else {
   if (lines.length !== 3) fail("FAIL summary must have 3 lines.");

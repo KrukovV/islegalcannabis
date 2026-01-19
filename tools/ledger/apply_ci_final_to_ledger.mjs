@@ -50,8 +50,6 @@ const finalLines = fs
   .map((line) => line.trim())
   .filter(Boolean);
 
-const nextLine =
-  finalLines.find((line) => line.startsWith("Next:")) || "Next: UNCONFIRMED";
 const nowText = finalLines[0] ?? `CI PASS (Smoke ${smokeResult})`;
 const stateText = `checkpoint=${latestCheckpoint}; CI=${ciResult}; Smoke=${smokeResult}`;
 
@@ -87,7 +85,6 @@ function replaceInline(prefix, newLine, fallbackInsertAfter) {
 
 replaceInline("State:", `State: ${stateText}`, "Goal:");
 replaceInline("Now:", `Now: ${nowText}`, "State:");
-replaceInline("Next:", nextLine, "Now:");
 
 const nextText = lines.join("\n").trimEnd() + "\n";
 const tempPath = `${ledgerPath}.tmp`;

@@ -43,17 +43,8 @@ for (const pattern of banned) {
 }
 
 const nextLines = lines.filter((line) => line.startsWith("Next:"));
-if (nextLines.length > 1) {
-  fail("stdout contains multiple Next lines.");
-}
-if (nextLines.length === 1) {
-  const nextLine = nextLines[0];
-  if (!/^Next: 1\) .+/.test(nextLine)) {
-    fail("Next line must be a single line with 'Next: 1)'.");
-  }
-  if (/ 1\./.test(nextLine) || /\n\s*1\./.test(text)) {
-    fail("Next line uses '1.' instead of '1)'.");
-  }
+if (nextLines.length > 0) {
+  fail("stdout must not include Next lines.");
 }
 
 if (lines[0]?.startsWith("🌿") || lines[0]?.startsWith("⚠️")) {

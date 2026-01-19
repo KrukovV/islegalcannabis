@@ -671,20 +671,6 @@ if [ "${ABORTED_LINE}" -eq 1 ] || [ "${INCOMPLETE}" -eq 1 ]; then
   exit 2
 fi
 
-NEXT_LINE=""
-if [ "${AUTO_LEARN:-0}" = "1" ] && [ "${NETWORK:-1}" != "0" ] && [ -f "${ROOT}/Reports/auto_learn/last_run.json" ]; then
-  NEXT_LINE=$(ROOT_DIR="${ROOT}" node -e 'const fs=require("fs");const path=process.env.ROOT_DIR+"/Reports/auto_learn/last_run.json";const data=JSON.parse(fs.readFileSync(path,"utf8"));const picked=Array.isArray(data.picked)&&data.picked.length?data.picked[0]:"n/a";const iso=data.iso||data.iso2||picked||"n/a";const added=Number(data.catalog_added??data.sources_added??0)||0;if(added>0){console.log(`Next: 1) Review AUTO_LEARN snapshot + catalog entry for ${iso}`);}else{console.log("Next: 1) Run AUTO_LEARN until sources_added=1");}')
-else
-  NEXT_LINE=$(node tools/next/next_step.mjs --ciStatus=PASS | tr '\n' ' ' | sed -E 's/ +/ /g' | cut -c1-120)
-  NEXT_LINE=$(echo "${NEXT_LINE}" | sed 's/^ *//;s/ *$//')
-fi
-if ! echo "${NEXT_LINE}" | grep -q "^Next: 1) "; then
-  fail_with_reason "invalid Next output"
-fi
-if echo "${NEXT_LINE}" | grep -q " 1\\."; then
-  fail_with_reason "invalid Next output"
-fi
-
 UI_LINE=$(ROOT_DIR="${ROOT}" node -e 'const fs=require("fs");const path=require("path");const root=process.env.ROOT_DIR;const lastPath=path.join(root,"Reports","auto_learn","last_run.json");if(!fs.existsSync(lastPath)){console.log("UI: candidate_badge=off verify_links=0");process.exit(0);}const data=JSON.parse(fs.readFileSync(lastPath,"utf8"));const picked=Array.isArray(data.picked)&&data.picked.length?data.picked[0]:"";const iso=String((data.iso||data.iso2||picked||"")).toUpperCase();let verifyLinks=0;const factsPath=path.join(root,"Reports","auto_facts","last_run.json");if(fs.existsSync(factsPath)){const facts=JSON.parse(fs.readFileSync(factsPath,"utf8"));const items=Array.isArray(facts.items)?facts.items:[];const ranked=[...items].sort((a,b)=>Number(b?.evidence_ok||0)-Number(a?.evidence_ok||0));verifyLinks=ranked.slice(0,5).reduce((sum,item)=>{const count=Number(item?.evidence_count||0)||0;return sum+count;},0);}if(verifyLinks===0){const machinePath=path.join(root,"data","legal_ssot","machine_verified.json");let entryCount=0;if(fs.existsSync(machinePath)){const payload=JSON.parse(fs.readFileSync(machinePath,"utf8"));const entries=payload&&payload.entries&&typeof payload.entries==="object"?payload.entries:payload;entryCount=entries&&typeof entries==="object"?Object.keys(entries).length:0;if(entries&&iso&&entries[iso]){verifyLinks=Array.isArray(entries[iso]?.evidence)?entries[iso].evidence.length:0;}if(verifyLinks===0&&entries&&typeof entries==="object"){for(const entry of Object.values(entries)){const count=Array.isArray(entry?.evidence)?entry.evidence.length:0;if(count>0){verifyLinks=count;break;}}}if(verifyLinks===0&&entryCount>0){verifyLinks=1;}}}const lawsPathWorld=path.join(root,"data","laws","world",`${iso}.json`);const lawsPathEu=path.join(root,"data","laws","eu",`${iso}.json`);let reviewStatus="";if(fs.existsSync(lawsPathWorld)){reviewStatus=JSON.parse(fs.readFileSync(lawsPathWorld,"utf8")).review_status||"";}else if(fs.existsSync(lawsPathEu)){reviewStatus=JSON.parse(fs.readFileSync(lawsPathEu,"utf8")).review_status||"";}const badge=String(reviewStatus).toLowerCase()==="needs_review"?"on":"off";console.log(`UI: candidate_badge=${badge} verify_links=${verifyLinks}`);')
 
 SUMMARY_LINES=(
@@ -936,7 +922,6 @@ WHERE_LINE="WHERE: auto_train=Reports/auto_train/last_run.json auto_learn=Report
 SUMMARY_LINES+=("${WHERE_LINE}")
 SUMMARY_LINES+=(
   "Checkpoint: ${LATEST_CHECKPOINT}"
-  "${NEXT_LINE}"
 )
 printf "%s\n" "${SUMMARY_LINES[@]}" > "${STDOUT_FILE}"
 
