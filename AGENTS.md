@@ -8,9 +8,7 @@ Hard Rule:
 - Execution Mode only: actions + results. Forbidden phrases: "considering", "figuring out", "refine approach".
 
 Response Contract (mandatory):
-- FINAL RESPONSE: After tasks/commands, print ONLY the contents of `.checkpoints/ci-final.txt`.
-- Forbidden in final response: Explored, Worked for, I'm tracing, Ledger Snapshot, PREAMBLE, ПСЕВДОКОД, КОМАНДЫ, ИЗМЕНЕНЫ ФАЙЛЫ, Open questions, Preamble, lists of files.
-- The true result of a step is the file `.checkpoints/ci-final.txt`; ignore any UI tail lines after it.
+- Standard responses allowed; include command stdout when required by the task.
 - If the UI adds suggestions or prompts, ignore them and do not repeat or summarize them.
 - Full file content only when explicitly requested and placed under "КОД: <file>".
 
@@ -20,7 +18,8 @@ Planning:
 
 Sandbox/Approval Workflow:
 - SAFE: read files, rg/grep, edit apps/** packages/** tools/**, run tests/CI, create new files.
-- ASK/STOP: any .git operations, deletions, data/laws/** edits (except new provisional), mass network fetch/ingest.
+- Git read-only commands (status/diff/log/show/ls-files) and staging/commits are allowed for hygiene. Direct `git push` is allowed only via `Tools/commit_if_green.sh` and `git reset --hard` only via `Tools/rollback_to_last_good.sh`.
+- ASK/STOP: deletions, data/laws/** edits (except new provisional), mass network fetch/ingest.
 - FORBIDDEN: git clean/reset/filter-repo, removing sources/tests, silent CI fallbacks.
 
 Tools usage:

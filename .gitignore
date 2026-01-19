@@ -48,3 +48,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+Reports/**
+data/source_snapshots/**
+.checkpoints/**
+Artifacts/backups/**
+**/*.log
+**/.DS_Store
+tmp/**
+.cache/**
+node_modules/**
+.build/**
+.swiftpm/**
+coverage/**
