@@ -17,6 +17,7 @@ const NETWORK_GUARD = process.env.NETWORK_GUARD ?? "1";
 const MAX_ARTICLES = Number(process.env.WIKI_ARTICLE_LIMIT || 2);
 const MAX_REFS = Number(process.env.WIKI_REF_LIMIT || 20);
 const RATE_LIMIT_MS = Number(process.env.WIKI_RATE_LIMIT_MS || 700);
+const REFS_MAX_AGE_HOURS = Number(process.env.WIKI_REFS_MAX_AGE_HOURS || 4);
 
 function readJson(file, fallback) {
   if (!fs.existsSync(file)) return fallback;
@@ -195,6 +196,7 @@ async function main() {
   const runAt = new Date().toISOString();
   let refreshStatus = "SKIPPED";
   let fetchEnabled = FETCH_ENABLED_ENV;
+  let refsFetchEnabled = FETCH_ENABLED_ENV;
   const networkMode = getNetworkMode();
   const networkEnabled = networkMode.value !== "0";
   const offlineAllowed = process.env.ALLOW_WIKI_OFFLINE === "1";
@@ -227,6 +229,17 @@ async function main() {
       }
     } else {
       refreshStatus = "FETCHED";
+    }
+  }
+
+  if (fetchEnabled && fs.existsSync(SSOT_REFS_PATH)) {
+    const stat = fs.statSync(SSOT_REFS_PATH);
+    const ageMs = Date.now() - stat.mtimeMs;
+    if (ageMs >= 0 && ageMs < REFS_MAX_AGE_HOURS * 60 * 60 * 1000) {
+      refsFetchEnabled = false;
+      console.log(
+        `WIKI_REFS_CACHE: hit=1 age_hours=${(ageMs / 3600000).toFixed(2)}`
+      );
     }
   }
 
@@ -289,7 +302,7 @@ async function main() {
   let officialTotal = 0;
   let nonOfficialTotal = 0;
   const refItems = [];
-  if (fetchEnabled) {
+  if (refsFetchEnabled) {
     for (const claim of claims) {
       const { refs, official, nonOfficial } = await buildRefsForClaim(claim);
       refsTotal += refs.length;
@@ -321,7 +334,7 @@ async function main() {
   if (!usedExisting || fetchEnabled) {
     writeAtomic(SSOT_CLAIMS_PATH, { items: claims, updated_at: runAt });
   }
-  if (fetchEnabled) {
+  if (refsFetchEnabled) {
     writeAtomic(SSOT_REFS_PATH, { items: refItems, updated_at: runAt });
   } else if (!usedExisting && refItems.length) {
     writeAtomic(SSOT_REFS_PATH, { items: refItems, updated_at: runAt });
@@ -329,7 +342,11 @@ async function main() {
 
   const reportPayload = {
     run_at: runAt,
-    refresh_status: fetchEnabled ? refreshStatus : "OFFLINE",
+    refresh_status: fetchEnabled
+      ? refsFetchEnabled
+        ? refreshStatus
+        : "REFS_CACHE_HIT"
+      : "OFFLINE",
     geos: claims.length,
     main_articles_total: mainArticlesTotal,
     refs_total: refsTotal,

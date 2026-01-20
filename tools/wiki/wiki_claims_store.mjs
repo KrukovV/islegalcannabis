@@ -6,7 +6,8 @@ function getPaths() {
   return {
     claimsDir: path.join(root, "data", "wiki", "wiki_claims"),
     snapshotPath: path.join(root, "data", "wiki", "wiki_claims.json"),
-    ssotClaimsPath: path.join(root, "data", "wiki_ssot", "wiki_claims.json")
+    ssotClaimsPath: path.join(root, "data", "wiki_ssot", "wiki_claims.json"),
+    mapPath: path.join(root, "data", "wiki", "wiki_claims_map.json")
   };
 }
 
@@ -67,7 +68,14 @@ function normalizeClaim(entry) {
 }
 
 export function readWikiClaimsSnapshot() {
-  const { ssotClaimsPath, snapshotPath } = getPaths();
+  const { ssotClaimsPath, snapshotPath, mapPath } = getPaths();
+  const mapPayload = readJson(mapPath, null);
+  if (mapPayload) {
+    const mapItems = coerceItems(mapPayload);
+    if (mapItems.length) {
+      return mapItems.map((entry) => normalizeClaim(entry)).filter(Boolean);
+    }
+  }
   const ssotPayload = readJson(ssotClaimsPath, null);
   if (ssotPayload) {
     const ssotItems = coerceItems(ssotPayload);

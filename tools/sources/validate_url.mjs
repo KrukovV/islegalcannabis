@@ -106,10 +106,11 @@ export async function validateCandidateUrl(url, options = {}) {
 
   const allowlistPath = options.allowlistPath || DEFAULT_ALLOWLIST;
   const allowlist = readAllowlist(allowlistPath);
+  const requireOfficial = options.requireOfficial !== false;
   const initialOfficial = isOfficialUrl(parsed.toString(), { allowed: allowlist }, {
     iso2: options.iso2
   });
-  if (!initialOfficial.ok) {
+  if (requireOfficial && !initialOfficial.ok) {
     return { ok: false, reason: "not_allowed" };
   }
 
@@ -148,24 +149,26 @@ export async function validateCandidateUrl(url, options = {}) {
     if (hasDeniedSubstring(finalUrl)) {
       return { ok: false, reason: "denied_substring", status, finalUrl };
     }
-    const officialCheck = isOfficialUrl(finalUrl, { allowed: allowlist }, {
-      iso2: options.iso2
-    });
-    if (!officialCheck.ok) {
-      return {
-        ok: false,
-        reason: "not_allowed_final",
-        status,
-        contentType,
-        finalUrl
-      };
+    if (requireOfficial) {
+      const officialCheck = isOfficialUrl(finalUrl, { allowed: allowlist }, {
+        iso2: options.iso2
+      });
+      if (!officialCheck.ok) {
+        return {
+          ok: false,
+          reason: "not_allowed_final",
+          status,
+          contentType,
+          finalUrl
+        };
+      }
     }
     return {
       ok: true,
       status,
       finalUrl,
       contentType,
-      official: true
+      official: requireOfficial
     };
   } catch (error) {
     return {

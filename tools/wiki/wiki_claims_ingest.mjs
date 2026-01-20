@@ -145,19 +145,19 @@ function parseRecreationalStatus(value) {
   if (!text) return "Unknown";
   if (text.includes("unenforced") || text.includes("non-enforced")) return "Unenforced";
   if (text.includes("decriminal")) return "Decrim";
-  if (text.includes("legal")) return "Legal";
   if (text.includes("illegal") || text.includes("prohibited")) return "Illegal";
+  if (text.includes("legal")) return "Legal";
   return "Unknown";
 }
 
 function parseMedicalStatus(value) {
   const text = stripWikiMarkup(value).toLowerCase();
   if (!text) return "Unknown";
-  if (text.includes("legal") || text.includes("medical")) return "Legal";
   if (text.includes("limited") || text.includes("restricted") || text.includes("low thc")) {
     return "Limited";
   }
   if (text.includes("illegal") || text.includes("prohibited")) return "Illegal";
+  if (text.includes("legal") || text.includes("medical")) return "Legal";
   return "Unknown";
 }
 

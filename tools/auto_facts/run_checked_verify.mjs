@@ -189,6 +189,15 @@ function buildSummaryItem(report, iso2, runAt) {
   const candidateCount = Array.isArray(report?.candidates)
     ? report.candidates.length
     : Number(wikiRefs.official || 0) || 0;
+  const candidateList = Array.isArray(report?.candidates) ? report.candidates : [];
+  const candidateUrls = candidateList
+    .map((entry) => String(entry?.url || "").trim())
+    .filter(Boolean);
+  const officialSnapshotCandidates = candidateList.filter((entry) =>
+    String(entry?.source_kind || "").includes("official")
+  );
+  const officialCount = officialSnapshotCandidates.length;
+  const nonOfficialCount = Math.max(0, candidateUrls.length - officialCount);
   const ocrRan = Number(report?.ocr_ran || 0) || 0;
   const mvWritten = Number(report?.mv_written || 0) > 0 ? 1 : 0;
   const reason = normalizeReason(report?.reason || "UNKNOWN");
@@ -209,6 +218,12 @@ function buildSummaryItem(report, iso2, runAt) {
       snapshots,
       snapshot_attempt: snapshotAttempt,
       law_page_candidates_total: candidateCount,
+      snapshot_candidates: {
+        total: candidateUrls.length,
+        official: officialCount,
+        non_official: nonOfficialCount,
+        first3: candidateUrls.slice(0, 3)
+      },
       ocr_ran: ocrRan,
       status_claim: claim,
       mv_written: mvWritten,
@@ -222,6 +237,12 @@ function buildSummaryItem(report, iso2, runAt) {
     status_claim: claim,
     snapshot_attempt: snapshotAttempt,
     law_page_candidates_total: candidateCount,
+    snapshot_candidates: {
+      total: candidateUrls.length,
+      official: officialCount,
+      non_official: nonOfficialCount,
+      first3: candidateUrls.slice(0, 3)
+    },
     mv_written: mvWritten,
     mv_blocked_reason: mvWritten ? "MV_OK" : reason
   };
@@ -233,7 +254,8 @@ function runWikiVerify(geoKey) {
     stdio: "inherit",
     env: {
       ...process.env,
-      FETCH_NETWORK
+      FETCH_NETWORK,
+      NETWORK: FETCH_NETWORK
     }
   });
   return res.status === 0;

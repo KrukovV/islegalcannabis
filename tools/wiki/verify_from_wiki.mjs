@@ -6,6 +6,7 @@ import { fetchWikiClaim } from "./wiki_claim_fetcher.mjs";
 import { extractWikiRefs } from "./wiki_refs.mjs";
 import { readWikiClaim } from "./wiki_claims_store.mjs";
 import { collectOfficialUrls } from "../sources/catalog_utils.mjs";
+import { classifyOfficialUrl } from "../sources/validate_official_url.mjs";
 import { validateCandidateUrl } from "../sources/validate_url.mjs";
 
 const ROOT = process.cwd();
@@ -24,6 +25,77 @@ function readJson(file, fallback) {
 function writeJson(file, payload) {
   fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(file, JSON.stringify(payload, null, 2) + "\n");
+}
+
+function hostForUrl(url) {
+  try {
+    return new URL(url).hostname.toLowerCase().replace(/^www\./, "");
+  } catch {
+    return "";
+  }
+}
+
+function loadCachedWikiRefs(geoKey) {
+  const refsPaths = [
+    path.join(ROOT, "data", "wiki", "wiki_refs.json"),
+    path.join(ROOT, "data", "wiki_ssot", "wiki_refs.json")
+  ];
+  for (const refsPath of refsPaths) {
+    if (!fs.existsSync(refsPath)) continue;
+    const payload = readJson(refsPath, null);
+    if (!payload || typeof payload !== "object") continue;
+    const items = payload.items;
+    if (items && typeof items === "object" && !Array.isArray(items)) {
+      const entry = items[geoKey.toUpperCase()];
+      if (Array.isArray(entry)) return entry;
+      return [];
+    }
+    const list = Array.isArray(items) ? items : Array.isArray(payload) ? payload : [];
+    for (const item of list) {
+      const key = String(item?.geo_key || item?.geo || item?.geo_id || "").toUpperCase();
+      if (!key || key !== geoKey.toUpperCase()) continue;
+      return Array.isArray(item?.refs) ? item.refs : [];
+    }
+  }
+  return [];
+}
+
+function summarizeCachedRefs(refs, iso2) {
+  const official = [];
+  const supporting = [];
+  const hostCounts = new Map();
+  for (const ref of refs) {
+    const url = String(ref?.url || "").trim();
+    if (!url) continue;
+    const host = hostForUrl(url);
+    const classified = classifyOfficialUrl(url, undefined, { iso2 });
+    if (classified.ok) {
+      official.push({
+        url,
+        host,
+        title: String(ref?.title_hint || ref?.title || ""),
+        source: "cached_refs",
+        reason: String(classified.matched_rule || "gov_allowlist")
+      });
+      if (host) hostCounts.set(host, (hostCounts.get(host) || 0) + 1);
+    } else {
+      supporting.push({
+        url,
+        host,
+        title: String(ref?.title_hint || ref?.title || ""),
+        deny_reason: String(classified.reason || "not_official")
+      });
+    }
+  }
+  const topHosts = Array.from(hostCounts.entries())
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .slice(0, 5)
+    .map(([host]) => host);
+  return {
+    official,
+    supporting,
+    top_hosts: topHosts
+  };
 }
 
 function normalizeWhitespace(value) {
@@ -181,13 +253,28 @@ async function main() {
   const fixturesEnabled = Boolean(process.env.WIKI_FIXTURE_DIR || process.env.WIKI_FIXTURE_PATH);
   const cachedClaim = readWikiClaim(resolved.geoKey);
   if (process.env.NETWORK !== "1" && !fixturesEnabled) {
+    const cachedRefs = loadCachedWikiRefs(resolved.geoKey);
+    const cachedSummary = summarizeCachedRefs(cachedRefs, resolved.iso2);
+    const cachedOfficial = cachedSummary.official || [];
+    const cachedSupporting = cachedSummary.supporting || [];
     writeJson(reportPath, {
       iso: resolved.geoKey,
       iso2: resolved.iso2,
       run_at: runAt,
       reason: "OFFLINE",
       wiki_claim: cachedClaim,
-      wiki_refs: null,
+      wiki_refs: {
+        counts: {
+          total: cachedOfficial.length + cachedSupporting.length,
+          official: cachedOfficial.length,
+          supporting: cachedSupporting.length
+        },
+        official_candidates: cachedOfficial,
+        supporting_refs: cachedSupporting,
+        top_hosts: cachedSummary.top_hosts || [],
+        deny_reasons: [],
+        denied_samples: []
+      },
       snapshots: 0,
       ocr_ran: 0,
       status_claim: { type: "UNKNOWN", scope: [], conditions: "" },
@@ -198,8 +285,13 @@ async function main() {
     const offlineArticles = Array.isArray(cachedClaim?.notes_main_articles)
       ? cachedClaim.notes_main_articles.length
       : 0;
+    const offlineOfficial = cachedOfficial.length;
+    const offlineNonOfficial = cachedSupporting.length;
+    const topHosts = Array.isArray(cachedSummary.top_hosts)
+      ? cachedSummary.top_hosts
+      : [];
     console.log(
-      `WIKI: geo=${resolved.geoKey} rec=${offlineRec} med=${offlineMed} main_articles=${offlineArticles} official_refs=0 non_official=0 top_hosts=[-]`
+      `WIKI: geo=${resolved.geoKey} rec=${offlineRec} med=${offlineMed} main_articles=${offlineArticles} official_refs=${offlineOfficial} non_official=${offlineNonOfficial} top_hosts=[${topHosts.join(",") || "-"}]`
     );
     console.log(`VERIFY: geo=${resolved.geoKey} snapshots=0 ocr_ran=0 status_claim=UNKNOWN mv_written=0 reason=OFFLINE`);
     console.log(`OCR: geo=${resolved.geoKey} ran=0 pages=0 text_len=0 reason=OFFLINE`);
@@ -267,11 +359,21 @@ async function main() {
     ...ref,
     source_kind: "wiki_official_ref"
   }));
-  let usedFallback = false;
+  const supportingCandidates = supportingRefs.map((ref) => ({
+    ...ref,
+    source_kind: "wiki_supporting_ref"
+  }));
+  let usedSupportingFallback = false;
+  let usedCatalogFallback = false;
+  if (candidates.length === 0 && supportingCandidates.length > 0) {
+    candidates = supportingCandidates;
+    usedSupportingFallback = true;
+  }
   if (candidates.length === 0) {
     candidates = buildFallbackCandidates(resolved.iso2);
-    usedFallback = true;
+    usedCatalogFallback = true;
   }
+  let usedFallback = usedSupportingFallback || usedCatalogFallback;
 
   const validated = [];
   const validateBatch = async (list) => {
@@ -279,7 +381,8 @@ async function main() {
       if (validated.length >= options.maxValid) break;
       if (!ref?.url) continue;
       const result = await validateCandidateUrl(ref.url, {
-        timeoutMs: options.timeoutMs
+        timeoutMs: options.timeoutMs,
+        requireOfficial: ref.source_kind !== "wiki_supporting_ref"
       });
       if (result.ok) {
         validated.push({
@@ -294,9 +397,10 @@ async function main() {
     }
   };
   await validateBatch(candidates);
-  if (validated.length === 0 && !usedFallback) {
+  if (validated.length === 0 && !usedCatalogFallback) {
     const fallbackCandidates = buildFallbackCandidates(resolved.iso2);
     if (fallbackCandidates.length > 0) {
+      usedCatalogFallback = true;
       usedFallback = true;
       candidates = fallbackCandidates;
       await validateBatch(candidates);
@@ -336,7 +440,13 @@ async function main() {
   }
 
   if (validated.length === 0) {
-    reason = usedFallback ? "NO_OFFICIAL_FROM_FALLBACK" : "NO_OFFICIAL_FROM_WIKI";
+    if (usedSupportingFallback) {
+      reason = "NO_SUPPORTING_VALIDATED";
+    } else if (usedCatalogFallback) {
+      reason = "NO_OFFICIAL_FROM_FALLBACK";
+    } else {
+      reason = "NO_OFFICIAL_FROM_WIKI";
+    }
   }
 
   const output = {

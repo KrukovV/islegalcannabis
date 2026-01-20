@@ -7,6 +7,7 @@ const ROOT = process.cwd();
 const ISO_PATH = path.join(ROOT, "data", "iso3166", "iso3166-1.json");
 const REFS_SSOT_PATH = path.join(ROOT, "data", "wiki_ssot", "wiki_refs.json");
 const OUTPUT_CLAIMS_PATH = path.join(ROOT, "data", "wiki", "wiki_claims.json");
+const OUTPUT_CLAIMS_MAP_PATH = path.join(ROOT, "data", "wiki", "wiki_claims_map.json");
 const OUTPUT_REFS_PATH = path.join(ROOT, "data", "wiki", "wiki_refs.json");
 const OFFICIAL_BADGES_PATH = path.join(ROOT, "data", "wiki", "wiki_official_badges.json");
 
@@ -83,11 +84,18 @@ function normalizeRef(entry) {
   if (!entry || typeof entry !== "object") return null;
   const url = String(entry.url || "").trim();
   if (!url) return null;
+  let host = "";
+  try {
+    host = new URL(url).hostname.toLowerCase().replace(/^www\./, "");
+  } catch {
+    host = "";
+  }
   return {
     url,
     title: String(entry.title || entry.title_hint || ""),
     publisher: String(entry.publisher || entry.host || ""),
-    section_hint: String(entry.section_hint || entry.section || "")
+    section_hint: String(entry.section_hint || entry.section || ""),
+    host
   };
 }
 
@@ -164,6 +172,10 @@ async function main() {
     generated_at: runAt,
     items: claimsByGeo
   });
+  writeAtomic(OUTPUT_CLAIMS_MAP_PATH, {
+    generated_at: runAt,
+    items: claimsByGeo
+  });
 
   const refsPayload = readJson(REFS_SSOT_PATH, null);
   const refItems = normalizeRefsPayload(refsPayload);
@@ -189,6 +201,10 @@ async function main() {
   });
 
   const isoEntries = loadIsoEntries();
+  const mainArticlesTotal = Object.values(claimsByGeo).reduce((sum, claim) => {
+    const list = Array.isArray(claim?.main_articles) ? claim.main_articles : [];
+    return sum + list.length;
+  }, 0);
   const claimKeys = new Set(Object.keys(claimsByGeo));
   let updated = 0;
   let unchanged = 0;
@@ -213,9 +229,12 @@ async function main() {
   const officialTotals = loadOfficialBadgeTotals();
 
   console.log(
-    `WIKI_SYNC: total=${geosTotal} updated=${updated} unchanged=${unchanged} failed=${failed} revision=${revisionId || "-"}`
+    `WIKI_SYNC: geos=${geosTotal} claims_ok=${geosTotal - failed} main_articles_total=${mainArticlesTotal} refs_total=${refsTotal}`
   );
   console.log(`WIKI_LINKS: extracted=${refsTotal} stored=${refsTotal}`);
+  console.log(
+    `REFS_SPLIT: official=${officialTotals.official} non_official=${officialTotals.non_official || 0}`
+  );
   console.log(
     `OFFICIAL_BADGE: official_links=${officialTotals.official} non_official=${officialTotals.non_official || 0}`
   );
