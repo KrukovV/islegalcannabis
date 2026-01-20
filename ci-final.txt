@@ -3,7 +3,7 @@ Checked: 20 (sources=20/20; 🇷🇺 RU Russia, 🇹🇭 TH Thailand, 🇺🇸 U
 Trends: skipped
 ISO Coverage: covered=249, missing=0, delta=+0
 Law Verified: missing_sources_total=129 missing_sources_delta=+0
-RUN_ID: 20260120T083155Z-27544
+RUN_ID: 20260120T083357Z-21344
 NET_MODE: enabled=0 source=env key=FETCH_NETWORK value=0
 NETWORK_DISABLED: 1 reason=CONFIG_NETWORK_DISABLED
 WIKI_NETCHECK: attempted=0 status=- err=- exit=0
@@ -117,4 +117,4 @@ MV_STORE_SKIPPED reason=EMPTY_WRITE_GUARD
 AUTO_TRAIN: targets=0 validated=0 snap=0 law_pages=0 evidence_ok=0 mv_delta=+0 cand_delta=+0 missing_sources=+0
 BLOCKER_SUMMARY: SNAPSHOT=0 DOC=0 MARKER=NO_MARKER EVIDENCE=NO_EVIDENCE LAW_PAGE=NO_LAW_PAGE
 WHERE: auto_train=Reports/auto_train/last_run.json auto_learn=Reports/auto_learn/last_run.json auto_facts=Reports/auto_facts/last_run.json auto_verify=Reports/auto_verify/last_run.json portals_import=Reports/portals_import/last_run.json mv=data/legal_ssot/machine_verified.json snapshots=data/source_snapshots
-Checkpoint: .checkpoints/20260120-113224.patch
+Checkpoint: .checkpoints/20260120-113427.patch
