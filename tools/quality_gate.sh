@@ -2,7 +2,7 @@
 set -euo pipefail
 
 filter_status() {
-  printf "%s\n" "$1" | grep -v -E '(^.. )?(ci-final\.txt|CONTINUITY\.md|Reports/|\.checkpoints/|data/source_snapshots/|Artifacts/backups/)'
+  printf "%s\n" "$1" | grep -v -E '(^.. )?(ci-final\.txt|CONTINUITY\.md|Reports/|\.checkpoints/|data/source_snapshots/|Artifacts/backups/|data/wiki/|data/wiki_ssot/)'
 }
 
 PRE_STATUS=$(git status --porcelain)
