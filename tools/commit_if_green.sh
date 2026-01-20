@@ -72,6 +72,15 @@ append_ci_final() {
   fi
 }
 
+run_git_with_timeout() {
+  local cmd="$1"
+  if command -v timeout >/dev/null 2>&1; then
+    timeout 60s bash -lc "${cmd}"
+  else
+    bash -lc "${cmd}"
+  fi
+}
+
 ensure_git_writable() {
   print_git_diag
   if [ -e .git/index.lock ]; then
@@ -167,7 +176,7 @@ fi
 
 timestamp="$(date -u +%Y%m%d-%H%M%S)"
 tag="${TAG_NAME:-good/${timestamp}}"
-if ! git tag -a "${tag}" -m "green: $(date -u +%FT%TZ)"; then
+if ! git tag -a -f "${tag}" -m "green: $(date -u +%FT%TZ)"; then
   echo "TAG_FAIL=1 Not committing."
   exit 1
 fi
@@ -179,7 +188,7 @@ fi
 
 if [ "${PROD_TAG_REQUESTED}" = "1" ] || [ "${ENABLE_PROD_TAG:-0}" = "1" ]; then
   prod_tag="${PROD_TAG_NAME:-prod/${timestamp}}"
-  if ! git tag -a "${prod_tag}" -m "prod: $(date -u +%FT%TZ)"; then
+  if ! git tag -a -f "${prod_tag}" -m "prod: $(date -u +%FT%TZ)"; then
     echo "TAG_FAIL=1 Not committing."
     exit 1
   fi
@@ -191,7 +200,7 @@ if [ "${PROD_TAG_REQUESTED}" = "1" ] || [ "${ENABLE_PROD_TAG:-0}" = "1" ]; then
 fi
 
 set +e
-git ls-remote --heads origin >/dev/null 2>&1
+GIT_TERMINAL_PROMPT=0 GIT_ASKPASS=/usr/bin/true run_git_with_timeout "git ls-remote --heads origin >/dev/null 2>&1"
 REMOTE_STATUS=$?
 set -e
 if [ "${REMOTE_STATUS}" -ne 0 ]; then
@@ -203,9 +212,9 @@ fi
 append_ci_final "REMOTE_REACHABLE=1 reason=OK"
 
 set +e
-PUSH_OUTPUT=$(git push 2>&1)
+PUSH_OUTPUT=$(GIT_TERMINAL_PROMPT=0 GIT_ASKPASS=/usr/bin/true run_git_with_timeout "git push" 2>&1)
 PUSH_STATUS=$?
-TAG_PUSH_OUTPUT=$(git push --tags 2>&1)
+TAG_PUSH_OUTPUT=$(GIT_TERMINAL_PROMPT=0 GIT_ASKPASS=/usr/bin/true run_git_with_timeout "git push --tags" 2>&1)
 TAG_PUSH_STATUS=$?
 set -e
 if [ "${PUSH_STATUS}" -ne 0 ] || [ "${TAG_PUSH_STATUS}" -ne 0 ]; then

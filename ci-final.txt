@@ -3,7 +3,7 @@ Checked: 20 (sources=20/20; 🇷🇺 RU Russia, 🇹🇭 TH Thailand, 🇺🇸 U
 Trends: skipped
 ISO Coverage: covered=249, missing=0, delta=+0
 Law Verified: missing_sources_total=129 missing_sources_delta=+0 learned_sources_iso=n/a
-RUN_ID: 20260120T202914Z-13361
+RUN_ID: 20260120T204453Z-27456
 NET_MODE: enabled=1 source=env key=FETCH_NETWORK value=1
 NET_HEALTH online=1 dns_ok=1 https_ok=1 tcp_ok=0 dns_ns=10.0.0.243 reason=OK
 NETWORK_DISABLED: 0 reason=-
@@ -14,7 +14,7 @@ NET_REASON=OK
 DNS_NS=10.0.0.243 DNS_OK=1 DNS_MODE=OK DNS_ERR=NONE
 HTTPS_PROBE=https://example.com/ PROBE_OK=1 PROBE_CODE=-
 OFFLINE_DECISION: online=1 allow_continue=1 reason=NONE
-WIKI_MODE: use_cache=1 cache_hit=1 cached_ok=1 cache_age_h=0.21 max_cache_h=6
+WIKI_MODE: use_cache=1 cache_hit=1 cached_ok=1 cache_age_h=0.47 max_cache_h=6
 WIKI_GATE geos=RU,TH,XK,US-CA,CA baseline_strict=0 offline_ok=1
 🌿 WIKI_CLAIM_OK geo=RU rec=Illegal med=Illegal source=countries revision=1332405714
 🌿 WIKI_CLAIM_OK geo=TH rec=Decrim med=Legal source=countries revision=1332405714
@@ -23,11 +23,11 @@ WIKI_GATE geos=RU,TH,XK,US-CA,CA baseline_strict=0 offline_ok=1
 🌿 WIKI_CLAIM_OK geo=CA rec=Legal med=Legal source=countries revision=1332405714
 WIKI_GATE_OK=1 ok=5 fail=0
 WIKI_DB_GATE geos=RU,TH,XK,US-CA,CA
-WIKI_DB geo=RU wiki_rec=Illegal wiki_med=Illegal wiki_revision=1332405714 sources_total=19 sources_official=0 official_badge=0 updated_at=2026-01-20T20:21:08.338Z
-WIKI_DB geo=TH wiki_rec=Decrim wiki_med=Legal wiki_revision=1332405714 sources_total=2 sources_official=0 official_badge=0 updated_at=2026-01-20T20:21:08.338Z
-WIKI_DB geo=XK wiki_rec=Illegal wiki_med=Illegal wiki_revision=1332405714 sources_total=11 sources_official=0 official_badge=0 updated_at=2026-01-20T20:21:08.338Z
-WIKI_DB geo=US-CA wiki_rec=Legal wiki_med=Legal wiki_revision=1331890318 sources_total=20 sources_official=1 official_badge=1 updated_at=2026-01-20T20:21:08.338Z
-WIKI_DB geo=CA wiki_rec=Legal wiki_med=Legal wiki_revision=1332405714 sources_total=20 sources_official=0 official_badge=0 updated_at=2026-01-20T20:21:08.338Z
+WIKI_DB geo=RU wiki_rec=Illegal wiki_med=Illegal wiki_revision=1332405714 sources_total=19 sources_official=0 official_badge=0 updated_at=2026-01-20T20:29:46.593Z
+WIKI_DB geo=TH wiki_rec=Decrim wiki_med=Legal wiki_revision=1332405714 sources_total=2 sources_official=0 official_badge=0 updated_at=2026-01-20T20:29:46.593Z
+WIKI_DB geo=XK wiki_rec=Illegal wiki_med=Illegal wiki_revision=1332405714 sources_total=11 sources_official=0 official_badge=0 updated_at=2026-01-20T20:29:46.593Z
+WIKI_DB geo=US-CA wiki_rec=Legal wiki_med=Legal wiki_revision=1331890318 sources_total=20 sources_official=1 official_badge=1 updated_at=2026-01-20T20:29:46.593Z
+WIKI_DB geo=CA wiki_rec=Legal wiki_med=Legal wiki_revision=1332405714 sources_total=20 sources_official=0 official_badge=0 updated_at=2026-01-20T20:29:46.593Z
 WIKI_DB_GATE_OK=1 ok=5 fail=0
 STEP_END name=ci_local rc=0
 NETWORK: allow=1 fetch=1 mode=ONLINE
@@ -36,7 +36,7 @@ FLAGS: ALLOW_NETWORK=1 FETCH_NETWORK=1 AUTO_FACTS=1 AUTO_LEARN=1
 MAP_ENABLED=0
 LEAFLET_GUARDED=1
 GIT_CLEAN=0
-LAST_TAG_PUSHED=good/20260120-1532
+LAST_TAG_PUSHED=good/now
 AUTO_LEARN: discovered=468 validated_ok=0 snapshots=0 first_snapshot_url=- first_snapshot_reason=- catalog_delta=+0 learned_iso=n/a reasons_top10=NO_OFFICIAL
 LAW_PAGE_DISCOVERY: iso=N/A law_pages=0 top=- reason=NO_ENTRYPOINTS
 PORTALS_IMPORT: total=202 added=0 updated=0 missing_iso=0 invalid_url=0 TOP_MISSING_ISO=-
@@ -141,4 +141,4 @@ MV_STORE_SKIPPED reason=EMPTY_WRITE_GUARD
 AUTO_TRAIN: targets=0 validated=0 snap=0 law_pages=0 evidence_ok=0 mv_delta=+0 cand_delta=+0 missing_sources=+0
 BLOCKER_SUMMARY: SNAPSHOT=0 DOC=0 MARKER=NO_MARKER EVIDENCE=NO_EVIDENCE LAW_PAGE=NO_LAW_PAGE
 WHERE: auto_train=Reports/auto_train/last_run.json auto_learn=Reports/auto_learn/last_run.json auto_facts=Reports/auto_facts/last_run.json auto_verify=Reports/auto_verify/last_run.json portals_import=Reports/portals_import/last_run.json mv=data/legal_ssot/machine_verified.json snapshots=data/source_snapshots
-Checkpoint: .checkpoints/20260120-232947.patch
+Checkpoint: .checkpoints/20260120-234526.patch
