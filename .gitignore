@@ -52,6 +52,7 @@ Reports/**
 data/source_snapshots/**
 .checkpoints/**
 Artifacts/backups/**
+data/wiki/cache/**
 **/*.log
 **/.DS_Store
 tmp/**

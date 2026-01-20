@@ -75,6 +75,7 @@ export function readWikiClaimsSnapshot() {
     if (mapItems.length) {
       return mapItems.map((entry) => normalizeClaim(entry)).filter(Boolean);
     }
+    return [];
   }
   const ssotPayload = readJson(ssotClaimsPath, null);
   if (ssotPayload) {
@@ -93,11 +94,14 @@ export function readWikiClaimsSnapshot() {
 export function readWikiClaim(geoKey) {
   const key = String(geoKey || "").toUpperCase();
   if (!key) return null;
-  const { claimsDir } = getPaths();
+  const { claimsDir, mapPath } = getPaths();
   const snapshot = readWikiClaimsSnapshot();
   if (snapshot) {
     const match = snapshot.find((entry) => entry?.geo_key === key);
     if (match) return match;
+  }
+  if (fs.existsSync(mapPath)) {
+    return null;
   }
   const claimPath = path.join(claimsDir, `${key}.json`);
   return normalizeClaim(readJson(claimPath, null));

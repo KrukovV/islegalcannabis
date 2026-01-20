@@ -1,0 +1,14 @@
+{
+  "domains": [
+    "gob.mx",
+    "gov.uk",
+    "gov.si",
+    "gazzettaufficiale.it"
+  ],
+  "patterns": [
+    "*.gov",
+    "*.gov.*",
+    "*.gob.*",
+    "*.gouv.fr"
+  ]
+}

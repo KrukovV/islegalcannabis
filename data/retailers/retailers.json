@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-01-20T00:00:00.000Z",
+  "items": [
+    {
+      "id": "us-ca-la-001",
+      "geo": "US-CA",
+      "name": "Pacific Green Collective",
+      "lat": 34.0522,
+      "lng": -118.2437,
+      "type": "Licensed Retailer",
+      "license": "CA-R-XXXX",
+      "website": "https://example.com",
+      "updatedAt": "2026-01-10"
+    },
+    {
+      "id": "us-ca-sf-002",
+      "geo": "US-CA",
+      "name": "Golden Gate Dispensary",
+      "lat": 37.7749,
+      "lng": -122.4194,
+      "type": "Licensed Retailer",
+      "license": "CA-R-YYYY",
+      "website": "https://example.com",
+      "updatedAt": "2026-01-08"
+    },
+    {
+      "id": "ca-on-001",
+      "geo": "CA",
+      "name": "Northern Lights Cannabis",
+      "lat": 43.6532,
+      "lng": -79.3832,
+      "type": "Licensed Retailer",
+      "license": "ON-R-ZZZZ",
+      "website": "https://example.com",
+      "updatedAt": "2026-01-05"
+    }
+  ]
+}

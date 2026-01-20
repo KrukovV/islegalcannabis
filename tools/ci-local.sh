@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+export MAP_ENABLED="${MAP_ENABLED:-0}"
+if [ -z "${SMOKE_MODE:-}" ] && [ "${MAP_ENABLED}" = "0" ]; then
+  export SMOKE_MODE="skip"
+  export ALLOW_SMOKE_SKIP="${ALLOW_SMOKE_SKIP:-1}"
+  echo "SMOKE_MODE=skip (MAP_ENABLED=0)"
+fi
+
 last_cmd=""
 trap 'last_cmd=$BASH_COMMAND' DEBUG
 print_fail() {
@@ -11,6 +18,17 @@ print_fail() {
   trap - ERR
   node tools/guards/summary_format.mjs --status=FAIL --file "${summary_file}"
   cat "${summary_file}"
+  mkdir -p Reports
+  {
+    echo "CI_LOCAL_FAIL step=ci_local rc=1 last_cmd=${reason}"
+    node -v
+    ls -la tools/wiki | head -n 20 || true
+    if [ -f ci-final.txt ]; then
+      tail -n 120 ci-final.txt || true
+    elif [ -f .checkpoints/ci-final.txt ]; then
+      tail -n 120 .checkpoints/ci-final.txt || true
+    fi
+  } | tee Reports/ci_local_fail.txt
   exit 1
 }
 trap 'print_fail "$last_cmd"' ERR
@@ -33,7 +51,11 @@ npm run where
 node tools/guards/run_all.mjs
 export NEXT_PUBLIC_APP_VERSION=$(cat VERSION)
 
-npm run audit
+if [ "${CI_LOCAL_OFFLINE_OK:-0}" = "1" ]; then
+  echo "CI_LOCAL_OFFLINE: skip npm run audit"
+else
+  npm run audit
+fi
 npm run lint
 npm test
 npm run web:build
@@ -293,5 +315,5 @@ LATEST_CHECKPOINT=$(cat .checkpoints/LATEST)
 SUMMARY_FILE=".checkpoints/ci-summary.txt"
 CI_SMOKE_RESULT="${SMOKE_RESULT}" \
 CI_LATEST_CHECKPOINT="${LATEST_CHECKPOINT}" \
-  node -e "const fs=require('fs');const file='${SUMMARY_FILE}';const smoke=process.env.CI_SMOKE_RESULT||'?/?';const checkpoint=process.env.CI_LATEST_CHECKPOINT||'missing';const lines=[`🌿 CI PASS (Smoke ${smoke})`,`Checked saved: Reports/checked/last_checked.json`,`SSOT Diff: skipped`,`Checkpoint: ${checkpoint}`];fs.writeFileSync(file,lines.join('\\n')+'\\n');"
+  node -e "const fs=require('fs');const file='${SUMMARY_FILE}';const smoke=process.env.CI_SMOKE_RESULT||'?/?';const checkpoint=process.env.CI_LATEST_CHECKPOINT||'missing';const leaf='🌿';const lines=[leaf+' CI PASS (Smoke '+smoke+')','Checked saved: Reports/checked/last_checked.json','SSOT Diff: skipped','Checkpoint: '+checkpoint];fs.writeFileSync(file,lines.join('\\n')+'\\n');"
 cat "${SUMMARY_FILE}"

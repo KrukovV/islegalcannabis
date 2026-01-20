@@ -13,7 +13,10 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
     "e2e/**",
-    "playwright.config.ts"
+    "playwright.config.ts",
+    "public/vendor/**",
+    "vendor/**",
+    "docs/leaflet/**"
   ]),
   {
     files: ["tools/**/*.js"],

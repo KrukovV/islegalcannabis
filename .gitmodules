@@ -1,0 +1,7 @@
+[submodule "vendor/leaflet"]
+	path = vendor/leaflet
+	url = https://github.com/Leaflet/Leaflet
+[submodule "vendor/leaflet-markercluster"]
+	path = vendor/leaflet-markercluster
+	url = https://github.com/Leaflet/Leaflet.markercluster
+	ignore = dirty

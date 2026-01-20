@@ -1,8 +1,10 @@
 import fs from "node:fs";
 import path from "node:path";
 import { spawnSync } from "node:child_process";
-import { resolveWikiGeo } from "./wiki_geo_resolver.mjs";
-import { fetchWikiClaim } from "./wiki_claim_fetcher.mjs";
+import { loadDefaultAliases, normalizeName, resolveWikiGeo } from "./wiki_geo_resolver.mjs";
+import { fetchLegalityPageMeta, fetchLegalityWikitext } from "./mediawiki_api.mjs";
+import { parseLegalityTable } from "./legality_wikitext_parser.mjs";
+import { cacheAgeHours, loadCache, saveCache, shouldRefresh } from "./wiki_cache.mjs";
 import { extractWikiRefs } from "./wiki_refs.mjs";
 import { readWikiClaim } from "./wiki_claims_store.mjs";
 import { collectOfficialUrls } from "../sources/catalog_utils.mjs";
@@ -205,13 +207,98 @@ function runExtract(iso2, snapshotPath, url, reportPath) {
   return { status: result.status ?? 1, report: payload };
 }
 
-async function ensureWikiClaim(resolved) {
-  if (!resolved?.geoKey) return null;
-  const cached = readWikiClaim(resolved.geoKey);
-  if (cached) return cached;
-  const result = await fetchWikiClaim(resolved.geoKey, {});
-  if (!result.ok) return null;
-  return result.payload;
+function buildClaimFromRow(row, resolved, cacheInfo) {
+  if (!row || !resolved?.geoKey) return null;
+  return {
+    geo_key: resolved.geoKey,
+    name_in_wiki: row.name,
+    wiki_row_url: row.wiki_row_url || "",
+    wiki_rec: row.recreational_status,
+    wiki_med: row.medical_status,
+    notes_raw: row.notes_raw || "",
+    notes_text: row.notes_text || "",
+    main_articles: row.notes_main_articles || [],
+    recreational_status: row.recreational_status,
+    medical_status: row.medical_status,
+    notes_main_articles: row.notes_main_articles || [],
+    wiki_revision_id: String(cacheInfo?.revision_id || ""),
+    fetched_at: String(cacheInfo?.fetched_at || "")
+  };
+}
+
+function buildLookupKeys(resolved, aliases) {
+  const keys = [];
+  const iso2 = String(resolved?.iso2 || "").toUpperCase();
+  if (resolved?.name) keys.push(resolved.name);
+  if (iso2) keys.push(iso2);
+  const aliasEntries = aliases ? Object.entries(aliases) : [];
+  for (const [alias, iso] of aliasEntries) {
+    if (String(iso || "").toUpperCase() !== iso2) continue;
+    keys.push(alias);
+  }
+  const normalized = new Set();
+  for (const key of keys) {
+    const value = normalizeName(key);
+    if (value) normalized.add(value);
+  }
+  return Array.from(normalized);
+}
+
+function findRowForGeo(rows, resolved, aliases) {
+  if (!Array.isArray(rows)) return null;
+  const lookups = buildLookupKeys(resolved, aliases);
+  if (!lookups.length) return null;
+  for (const lookup of lookups) {
+    const byName = rows.find((row) => normalizeName(row?.name || "") === lookup);
+    if (byName) return byName;
+    const byLink = rows.find((row) => normalizeName(row?.link || "") === lookup);
+    if (byLink) return byLink;
+  }
+  return null;
+}
+
+async function loadLegalityCache() {
+  const cache = loadCache();
+  const ageHours = cacheAgeHours(cache);
+  const needsRefresh = shouldRefresh(cache, 4);
+  if (!needsRefresh) {
+    return {
+      cache,
+      cacheHit: 1,
+      ageHours,
+      revisionId: cache?.revision_id || ""
+    };
+  }
+  const meta = await fetchLegalityPageMeta();
+  if (!meta.ok) {
+    return { error: meta };
+  }
+  const wikitextResponse = await fetchLegalityWikitext(meta.pageid);
+  if (!wikitextResponse.ok || !wikitextResponse.wikitext) {
+    return { error: wikitextResponse };
+  }
+  if (cache?.revision_id && cache.revision_id === wikitextResponse.revision_id) {
+    return {
+      cache,
+      cacheHit: 1,
+      ageHours,
+      revisionId: cache.revision_id
+    };
+  }
+  const rows = parseLegalityTable(wikitextResponse.wikitext || "");
+  const refreshed = {
+    pageid: meta.pageid,
+    revision_id: wikitextResponse.revision_id,
+    fetched_at: new Date().toISOString(),
+    rows
+  };
+  saveCache(refreshed);
+  return {
+    cache: refreshed,
+    cacheHit: 0,
+    ageHours: 0,
+    revisionId: refreshed.revision_id
+  };
 }
 
 function buildFallbackCandidates(iso2) {
@@ -252,8 +339,13 @@ async function main() {
   const reportPath = path.join(reportDir, "last_run.json");
   const fixturesEnabled = Boolean(process.env.WIKI_FIXTURE_DIR || process.env.WIKI_FIXTURE_PATH);
   const cachedClaim = readWikiClaim(resolved.geoKey);
+  const aliases = loadDefaultAliases();
+  const cachedTable = loadCache();
+  const cachedRow = findRowForGeo(cachedTable?.rows || [], resolved, aliases);
+  const cachedTableClaim = buildClaimFromRow(cachedRow, resolved, cachedTable);
   if (process.env.NETWORK !== "1" && !fixturesEnabled) {
     const cachedRefs = loadCachedWikiRefs(resolved.geoKey);
+    const offlineClaim = cachedTableClaim || cachedClaim;
     const cachedSummary = summarizeCachedRefs(cachedRefs, resolved.iso2);
     const cachedOfficial = cachedSummary.official || [];
     const cachedSupporting = cachedSummary.supporting || [];
@@ -262,7 +354,7 @@ async function main() {
       iso2: resolved.iso2,
       run_at: runAt,
       reason: "OFFLINE",
-      wiki_claim: cachedClaim,
+      wiki_claim: offlineClaim,
       wiki_refs: {
         counts: {
           total: cachedOfficial.length + cachedSupporting.length,
@@ -280,10 +372,10 @@ async function main() {
       status_claim: { type: "UNKNOWN", scope: [], conditions: "" },
       mv_written: 0
     });
-    const offlineRec = cachedClaim?.recreational_status || "Unknown";
-    const offlineMed = cachedClaim?.medical_status || "Unknown";
-    const offlineArticles = Array.isArray(cachedClaim?.notes_main_articles)
-      ? cachedClaim.notes_main_articles.length
+    const offlineRec = offlineClaim?.recreational_status || "Unknown";
+    const offlineMed = offlineClaim?.medical_status || "Unknown";
+    const offlineArticles = Array.isArray(offlineClaim?.notes_main_articles)
+      ? offlineClaim.notes_main_articles.length
       : 0;
     const offlineOfficial = cachedOfficial.length;
     const offlineNonOfficial = cachedSupporting.length;
@@ -300,8 +392,27 @@ async function main() {
     console.log(`MV_BLOCKED_REASON: geo=${resolved.geoKey} reason=OFFLINE`);
     process.exit(2);
   }
-  const claim = await ensureWikiClaim(resolved);
-  if (!claim) {
+  const cacheResult = await loadLegalityCache();
+  if (cacheResult?.error) {
+    const reason = cacheResult.error.reason || "NETWORK_FAIL";
+    const errDetail = cacheResult.error.error || "-";
+    console.error(`WIKI_API_ERROR: reason=${reason} err=${errDetail}`);
+    process.exit(reason === "NETWORK_FAIL" ? 10 : 2);
+  }
+  const cacheAge = cacheResult?.ageHours;
+  const cacheAgeLabel = typeof cacheAge === "number" ? cacheAge.toFixed(2) : "-";
+  const cacheRevision = cacheResult?.revisionId || cacheResult?.cache?.revision_id || "-";
+  console.log(`WIKI_CACHE: hit=${cacheResult?.cacheHit ? 1 : 0} age_h=${cacheAgeLabel} revision=${cacheRevision || "-"}`);
+  const tableRows = cacheResult?.cache?.rows || [];
+  const row = findRowForGeo(tableRows, resolved, aliases);
+  const claim = buildClaimFromRow(row, resolved, cacheResult?.cache);
+  if (claim) {
+    console.log(
+      `WIKI_ROW: geo=${resolved.geoKey} rec=${claim.recreational_status} med=${claim.medical_status} main_articles=${claim.notes_main_articles.length}`
+    );
+  }
+  const resolvedClaim = claim || cachedClaim;
+  if (!resolvedClaim) {
     writeJson(reportPath, {
       iso: resolved.geoKey,
       iso2: resolved.iso2,
@@ -320,8 +431,8 @@ async function main() {
     console.log(`VERIFY: geo=${resolved.geoKey} snapshots=0 ocr_ran=0 status_claim=UNKNOWN mv_written=0 reason=NO_WIKI_CLAIM`);
     process.exit(2);
   }
-  const wikiArticles = Array.isArray(claim?.notes_main_articles)
-    ? claim.notes_main_articles
+  const wikiArticles = Array.isArray(resolvedClaim?.notes_main_articles)
+    ? resolvedClaim.notes_main_articles
     : [];
   if (wikiArticles.length === 0) {
     writeJson(reportPath, {
@@ -329,7 +440,7 @@ async function main() {
       iso2: resolved.iso2,
       run_at: runAt,
       reason: "NO_MAIN_ARTICLES",
-      wiki_claim: claim,
+      wiki_claim: resolvedClaim,
       wiki_refs: null,
       snapshots: 0,
       ocr_ran: 0,
@@ -337,7 +448,7 @@ async function main() {
       mv_written: 0
     });
     console.log(
-      `WIKI: geo=${resolved.geoKey} rec=${claim.recreational_status} med=${claim.medical_status} main_articles=0 official_refs=0 non_official=0 top_hosts=[-]`
+      `WIKI: geo=${resolved.geoKey} rec=${resolvedClaim.recreational_status} med=${resolvedClaim.medical_status} main_articles=0 official_refs=0 non_official=0 top_hosts=[-]`
     );
     console.log(`VERIFY: geo=${resolved.geoKey} snapshots=0 ocr_ran=0 status_claim=UNKNOWN mv_written=0 reason=NO_MAIN_ARTICLES`);
     process.exit(2);
@@ -454,7 +565,7 @@ async function main() {
     iso2: resolved.iso2,
     run_at: runAt,
     reason,
-    wiki_claim: claim,
+    wiki_claim: resolvedClaim,
     wiki_refs: {
       counts: refsPayload?.counts || { total: 0, official: 0, supporting: 0 },
       official_candidates: officialRefs,
@@ -475,8 +586,8 @@ async function main() {
   };
   writeJson(reportPath, output);
 
-  const rec = claim.recreational_status || "Unknown";
-  const med = claim.medical_status || "Unknown";
+  const rec = resolvedClaim.recreational_status || "Unknown";
+  const med = resolvedClaim.medical_status || "Unknown";
   const officialCount = Number(refsPayload?.counts?.official || 0) || 0;
   const nonOfficialCount = Number(refsPayload?.counts?.supporting || 0) || 0;
   const topHosts = Array.isArray(refsPayload?.top_hosts)

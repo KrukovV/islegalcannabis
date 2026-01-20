@@ -8,7 +8,29 @@ filter_status() {
 PRE_STATUS=$(git status --porcelain)
 PRE_STATUS_FILTERED=$(filter_status "${PRE_STATUS}")
 
+node tools/wiki/wiki_claim_gate.mjs --geos RU,TH,XK,US-CA,CA
+node tools/wiki/wiki_db_gate.mjs --geos RU,TH,XK,US-CA,CA
+
 bash tools/pass_cycle.sh
+
+CI_FINAL="Reports/ci-final.txt"
+if [ ! -f "${CI_FINAL}" ]; then
+  echo "WIKI_GATE_MISSING: Reports/ci-final.txt not found."
+  exit 1
+fi
+if ! grep -q "^WIKI_GATE geos=RU,TH,XK,US-CA,CA" "${CI_FINAL}"; then
+  echo "WIKI_GATE_MISSING: header"
+  exit 1
+fi
+if ! grep -q "^WIKI_GATE_OK=1 ok=5 fail=0" "${CI_FINAL}"; then
+  echo "WIKI_GATE_MISSING: ok_line"
+  exit 1
+fi
+ok_count=$(grep -c "^🌿 WIKI_CLAIM_OK " "${CI_FINAL}" || true)
+if [ "${ok_count}" -ne 5 ]; then
+  echo "WIKI_GATE_MISSING: ok_count=${ok_count}"
+  exit 1
+fi
 
 POST_STATUS=$(git status --porcelain)
 POST_STATUS_FILTERED=$(filter_status "${POST_STATUS}")

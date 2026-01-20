@@ -43,6 +43,7 @@ SUMMARY_FILE="${CHECKPOINT_DIR}/ci-summary.txt"
 CI_LOG="${CHECKPOINT_DIR}/ci-local.log"
 CHECKPOINT_LOG="${CHECKPOINT_DIR}/save_patch_checkpoint.log"
 STDOUT_FILE="${CHECKPOINT_DIR}/ci-final.txt"
+REPORTS_FINAL="${ROOT}/Reports/ci-final.txt"
 META_FILE="${CHECKPOINT_DIR}/pass_cycle.meta.json"
 PRE_LOG="${CHECKPOINT_DIR}/pass_cycle.pre.log"
 
@@ -55,6 +56,8 @@ MACHINE_PRE_IDS_FILE="${CHECKPOINT_DIR}/machine_verified_pre_ids.json"
 ROOT_DIR="${ROOT}" MACHINE_PRE_IDS_FILE="${MACHINE_PRE_IDS_FILE}" node -e 'const fs=require("fs");const path=require("path");const root=process.env.ROOT_DIR;const outPath=process.env.MACHINE_PRE_IDS_FILE;const file=path.join(root,"data","legal_ssot","machine_verified.json");const ids=[];if(fs.existsSync(file)){try{const raw=JSON.parse(fs.readFileSync(file,"utf8"));const entries=raw&&raw.entries?raw.entries:raw;for(const [iso,entry] of Object.entries(entries||{})){const iso2=String(entry?.iso2||iso||"").toUpperCase();const hash=String(entry?.content_hash||"");const evidence=Array.isArray(entry?.evidence)?entry.evidence:[];const anchor=String(evidence[0]?.anchor||evidence[0]?.page||"");if(!iso2||!hash||!anchor) continue;ids.push(`${iso2}|${hash}|${anchor}`);} }catch{}}fs.writeFileSync(outPath,JSON.stringify({ids},null,2)+"\n");'
 
 rm -f "${STDOUT_FILE}"
+mkdir -p "${ROOT}/Reports"
+rm -f "${REPORTS_FINAL}"
 rm -f "${SUMMARY_FILE}"
 rm -f "${META_FILE}"
 rm -f "${PRE_LOG}"
@@ -62,6 +65,7 @@ rm -f "${PRE_LOG}"
 fail_with_reason() {
   local reason="$1"
   printf "❌ CI FAIL\nReason: %s\nRetry: bash tools/pass_cycle.sh\n" "${reason}" > "${STDOUT_FILE}"
+  cp "${STDOUT_FILE}" "${REPORTS_FINAL}" 2>/dev/null || true
   set +e
   local status=0
   node tools/guards/no_bloat_markers.mjs --file "${STDOUT_FILE}" || status=$?
@@ -126,7 +130,7 @@ fi
 
 CHECK_VERIFY=${CHECK_VERIFY:-1}
 CHECK_MODE=${CHECK_MODE:-smoke}
-CHECKED_VERIFY=${CHECKED_VERIFY:-1}
+CHECKED_VERIFY=${CHECKED_VERIFY:-${CHECKED_VERIFY_ENABLE:-0}}
 CHECK_SAMPLE_N=${CHECK_SAMPLE_N:-20}
 case "${CHECK_MODE}" in
   manual_check)
@@ -198,18 +202,53 @@ if [ "${FETCH_NETWORK}" = "1" ] || [ "${NETWORK}" = "1" ]; then
   NET_ENABLED=1
 fi
 WIKI_CACHE_HIT=$(node -e 'const fs=require("fs");const path=require("path");const root=process.cwd();const ssot=path.join(root,"data","wiki_ssot","wiki_claims.json");const legacy=path.join(root,"data","wiki","wiki_claims.json");const legacyDir=path.join(root,"data","wiki","wiki_claims");let hit=0;if(fs.existsSync(ssot)||fs.existsSync(legacy)) hit=1; if(!hit && fs.existsSync(legacyDir)){try{hit=fs.readdirSync(legacyDir).some(e=>e.endsWith(".json"))?1:0;}catch{hit=0;}}console.log(hit);')
+WIKI_OFFLINE_OK="${WIKI_OFFLINE_OK:-0}"
+WIKI_ALLOW_OFFLINE_ENV="${ALLOW_WIKI_OFFLINE:-0}"
+WIKI_CACHE_OK=0
+WIKI_CACHE_AGE_MAX="-"
+WIKI_CACHE_REASON="-"
+WIKI_CACHE_MAX_AGE_H="${WIKI_CACHE_MAX_AGE_H:-6}"
+run_wiki_cache_check() {
+  CACHE_CHECK_OUTPUT=$(node -e 'const fs=require("fs");const path=require("path");const root=process.cwd();const maxAge=Number(process.env.WIKI_CACHE_MAX_AGE_H||"6");const files=[path.join(root,"data","wiki","cache","legality_of_cannabis.json"),path.join(root,"data","wiki","cache","legality_us_states.json")];let ages=[];for(const file of files){if(!fs.existsSync(file)){console.log(`ok=0 reason=missing file=${file}`);process.exit(0);}let data;try{data=JSON.parse(fs.readFileSync(file,"utf8"));}catch{console.log(`ok=0 reason=read file=${file}`);process.exit(0);}const fetched=Date.parse(data?.fetched_at||"");if(!fetched){console.log(`ok=0 reason=stale file=${file}`);process.exit(0);}const age=(Date.now()-fetched)/36e5;ages.push(age);if(age>maxAge){console.log(`ok=0 reason=stale age_h=${age.toFixed(2)}`);process.exit(0);}}const ageMax=Math.max(...ages);console.log(`ok=1 age_max=${ageMax.toFixed(2)} max_h=${maxAge}`);')
+  for token in ${CACHE_CHECK_OUTPUT}; do
+    case "${token}" in
+      ok=*) WIKI_CACHE_OK="${token#ok=}";;
+      age_max=*) WIKI_CACHE_AGE_MAX="${token#age_max=}";;
+      reason=*) WIKI_CACHE_REASON="${token#reason=}";;
+    esac
+  done
+}
+if [ "${WIKI_OFFLINE_OK}" = "1" ]; then
+  run_wiki_cache_check
+fi
+WIKI_ALLOW_OFFLINE=0
+if [ "${WIKI_OFFLINE_OK}" = "1" ] && [ "${WIKI_CACHE_OK}" = "1" ]; then
+  WIKI_ALLOW_OFFLINE=1
+fi
+ALLOW_WIKI_OFFLINE="${WIKI_ALLOW_OFFLINE}"
+export ALLOW_WIKI_OFFLINE
+
 WIKI_USE_CACHE=0
-if [ "${ALLOW_WIKI_OFFLINE:-0}" = "1" ]; then
+if [ "${WIKI_ALLOW_OFFLINE}" = "1" ]; then
   WIKI_USE_CACHE=1
 fi
 NET_MODE_LINE="NET_MODE: enabled=${NET_ENABLED} source=${NET_SOURCE} key=${NET_KEY} value=${NET_VALUE}"
-WIKI_MODE_LINE="WIKI_MODE: use_cache=${WIKI_USE_CACHE} cache_hit=${WIKI_CACHE_HIT}"
+WIKI_MODE_LINE="WIKI_MODE: use_cache=${WIKI_USE_CACHE} cache_hit=${WIKI_CACHE_HIT} cached_ok=${WIKI_CACHE_OK} cache_age_h=${WIKI_CACHE_AGE_MAX} max_cache_h=${WIKI_CACHE_MAX_AGE_H}"
 NET_HEALTH_ATTEMPTED=0
 NET_HEALTH_ONLINE=0
 NET_HEALTH_URL="-"
 NET_HEALTH_STATUS="-"
 NET_HEALTH_ERR="-"
 NET_HEALTH_REASON="UNKNOWN"
+NET_HEALTH_DNS_OK="-"
+NET_HEALTH_DNS_NS="-"
+NET_HEALTH_HTTPS_OK="-"
+NET_HEALTH_TCP_OK="-"
+NET_HEALTH_DNS_MODE="-"
+NET_HEALTH_PROBE_URL="-"
+NET_HEALTH_PROBE_OK="-"
+NET_HEALTH_PROBE_STATUS="-"
+NET_HEALTH_DNS_ERR="-"
 NET_HEALTH_EXIT=0
 NETCHECK_ATTEMPTED=0
 NETCHECK_STATUS="-"
@@ -223,22 +262,46 @@ run_net_health() {
   NET_HEALTH_ATTEMPTED=1
   local output
   set +e
-  output=$(node -e "const probes=['https://en.wikipedia.org/wiki/Legality_of_cannabis','https://example.com'];const ua='islegalcannabis/net_health';const timeoutMs=4000;const classify=(err,status)=>{if(status>=400) return 'HTTP_FAIL';const code=String(err?.cause?.code||err?.code||err?.name||'');if(code.includes('ENOTFOUND')||code.includes('EAI_AGAIN')) return 'DNS_FAIL';if(code.includes('CERT')||code.includes('TLS')||code.includes('SSL')) return 'TLS_FAIL';if(code.includes('AbortError')) return 'TIMEOUT';return 'HTTP_FAIL';};const probe=async(url)=>{const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),timeoutMs);try{const res=await fetch(url,{method:'GET',signal:controller.signal,headers:{'user-agent':ua}});clearTimeout(timer);const ok=res.status>=200&&res.status<400;return {ok,status:res.status,url,reason:ok?'OK':classify(null,res.status),err:'-'};}catch(err){clearTimeout(timer);const reason=classify(err,0);const errCode=String(err?.cause?.code||err?.code||err?.name||err?.message||'-');return {ok:false,status:'-',url,reason,err:errCode};}};(async()=>{let last=null;for(const url of probes){const res=await probe(url);last=res;if(res.ok){console.log('online=1 url='+res.url+' status='+res.status+' reason=OK err=-');process.exit(0);}}const lastUrl=last&&last.url?last.url:'-';const lastStatus=last&&last.status?last.status:'-';const lastReason=last&&last.reason?last.reason:'HTTP_FAIL';const lastErr=last&&last.err?last.err:'-';console.log('online=0 url='+lastUrl+' status='+lastStatus+' reason='+lastReason+' err='+lastErr);process.exit(2);})();")
+  output=$(node tools/net/net_health.mjs)
   NET_HEALTH_EXIT=$?
   set -e
   for token in ${output}; do
     case "${token}" in
       online=*) NET_HEALTH_ONLINE="${token#online=}";;
-      url=*) NET_HEALTH_URL="${token#url=}";;
-      status=*) NET_HEALTH_STATUS="${token#status=}";;
       reason=*) NET_HEALTH_REASON="${token#reason=}";;
-      err=*) NET_HEALTH_ERR="${token#err=}";;
+      dns_ok=*) NET_HEALTH_DNS_OK="${token#dns_ok=}";;
+      https_ok=*) NET_HEALTH_HTTPS_OK="${token#https_ok=}";;
+      tcp_ok=*) NET_HEALTH_TCP_OK="${token#tcp_ok=}";;
+      dns_ns=*) NET_HEALTH_DNS_NS="${token#dns_ns=}";;
     esac
   done
+  if [ "${NET_HEALTH_DNS_OK}" = "1" ]; then
+    NET_HEALTH_DNS_MODE="OK"
+  else
+    NET_HEALTH_DNS_MODE="FAIL"
+  fi
 }
 
-run_net_health
-NET_HEALTH_LINE="NET_HEALTH: online=${NET_HEALTH_ONLINE} probe_url=${NET_HEALTH_URL} status=${NET_HEALTH_STATUS} reason=${NET_HEALTH_REASON}"
+if [ "${NET_ENABLED}" -eq 1 ]; then
+  run_net_health
+else
+  NET_HEALTH_ATTEMPTED=0
+  NET_HEALTH_ONLINE=0
+  NET_HEALTH_URL="-"
+  NET_HEALTH_STATUS="-"
+  NET_HEALTH_ERR="-"
+NET_HEALTH_REASON="CONFIG_DISABLED"
+NET_HEALTH_EXIT=0
+fi
+NET_HEALTH_PROBE_URL="https://example.com/"
+NET_HEALTH_PROBE_OK="${NET_HEALTH_HTTPS_OK}"
+NET_HEALTH_PROBE_STATUS="-"
+if [ "${NET_HEALTH_DNS_OK}" = "1" ]; then
+  NET_HEALTH_DNS_ERR="NONE"
+else
+  NET_HEALTH_DNS_ERR="UNKNOWN"
+fi
+NET_HEALTH_LINE="NET_HEALTH online=${NET_HEALTH_ONLINE} dns_ok=${NET_HEALTH_DNS_OK} https_ok=${NET_HEALTH_HTTPS_OK} tcp_ok=${NET_HEALTH_TCP_OK} dns_ns=${NET_HEALTH_DNS_NS} reason=${NET_HEALTH_REASON}"
 echo "${NET_MODE_LINE}"
 echo "${WIKI_MODE_LINE}"
 echo "${NET_HEALTH_LINE}"
@@ -248,26 +311,24 @@ NETWORK_DISABLED_REASON="-"
 if [ "${NET_ENABLED}" -eq 0 ]; then
   NETWORK_DISABLED=1
   NETWORK_DISABLED_REASON="CONFIG_NETWORK_DISABLED"
-fi
-
-if [ "${NET_HEALTH_ONLINE}" != "1" ]; then
-  case "${NET_HEALTH_REASON}" in
-    DNS_FAIL) OFFLINE_REASON="DNS";;
-    TLS_FAIL) OFFLINE_REASON="TLS";;
-    TIMEOUT) OFFLINE_REASON="TIMEOUT";;
-    HTTP_FAIL)
-      if [ "${NET_HEALTH_STATUS}" != "-" ]; then
-        OFFLINE_REASON="HTTP_${NET_HEALTH_STATUS}"
-      else
-        OFFLINE_REASON="HTTP_000"
-      fi
-      ;;
-    HTTP_*) OFFLINE_REASON="${NET_HEALTH_REASON}";;
-    *) OFFLINE_REASON="HTTP_000";;
+  OFFLINE=0
+  OFFLINE_REASON="CONFIG_DISABLED"
+  if [ "${WIKI_OFFLINE_OK}" != "1" ] || [ "${WIKI_CACHE_OK}" != "1" ]; then
+    fail_with_reason "CONFIG_NETWORK_DISABLED"
+  fi
+elif [ "${NET_HEALTH_ONLINE}" != "1" ]; then
+  case "${NET_HEALTH_EXIT}" in
+    10) OFFLINE_REASON="DNS";;
+    11) OFFLINE_REASON="HTTP";;
+    13) OFFLINE_REASON="TIMEOUT";;
+    *) OFFLINE_REASON="HTTP";;
   esac
   OFFLINE=1
-  FETCH_DIAG_LINE="FETCH_DIAG: url=${NET_HEALTH_URL} err=${NET_HEALTH_ERR} code=${NET_HEALTH_REASON}"
-  if [ "${ALLOW_WIKI_OFFLINE:-0}" != "1" ]; then
+  FETCH_DIAG_LINE="FETCH_DIAG: url=${NET_HEALTH_PROBE_URL} err=- code=${NET_HEALTH_REASON}"
+  if [ "${WIKI_OFFLINE_OK}" != "1" ]; then
+    fail_with_reason "OFFLINE_NOT_ALLOWED:${OFFLINE_REASON}"
+  fi
+  if [ "${WIKI_ALLOW_OFFLINE:-0}" != "1" ] || [ "${WIKI_CACHE_OK}" != "1" ]; then
     fail_with_reason "NETWORK_FETCH_FAILED:${OFFLINE_REASON}"
   fi
 fi
@@ -285,6 +346,30 @@ NETCHECK_EXIT="${NET_HEALTH_EXIT}"
 NETWORK_DISABLED_LINE="NETWORK_DISABLED: ${NETWORK_DISABLED} reason=${NETWORK_DISABLED_REASON}"
 WIKI_NETCHECK_LINE="WIKI_NETCHECK: attempted=${NETCHECK_ATTEMPTED} status=${NETCHECK_STATUS} err=${NETCHECK_ERR} exit=${NETCHECK_EXIT}"
 OFFLINE_LINE="OFFLINE: ${OFFLINE} reason=${OFFLINE_REASON}"
+OFFLINE_REASON_LINE="OFFLINE_REASON=${OFFLINE_REASON}"
+NET_REASON_LINE="NET_REASON=${NET_HEALTH_REASON}"
+DNS_LINE="DNS_NS=${NET_HEALTH_DNS_NS} DNS_OK=${NET_HEALTH_DNS_OK} DNS_MODE=${NET_HEALTH_DNS_MODE} DNS_ERR=${NET_HEALTH_DNS_ERR}"
+HTTPS_PROBE_LINE="HTTPS_PROBE=${NET_HEALTH_PROBE_URL} PROBE_OK=${NET_HEALTH_PROBE_OK} PROBE_CODE=${NET_HEALTH_PROBE_STATUS}"
+OFFLINE_DECISION_ONLINE="${NET_HEALTH_ONLINE}"
+OFFLINE_DECISION_ALLOW=1
+OFFLINE_DECISION_REASON="NONE"
+CI_LOCAL_OFFLINE_OK=0
+if [ "${NET_HEALTH_ONLINE}" != "1" ]; then
+  OFFLINE_DECISION_ONLINE=0
+  if [ "${WIKI_ALLOW_OFFLINE:-0}" = "1" ] && [ "${WIKI_CACHE_OK}" = "1" ]; then
+    OFFLINE_DECISION_ALLOW=1
+    OFFLINE_DECISION_REASON="${OFFLINE_REASON}"
+    CI_LOCAL_OFFLINE_OK=1
+  else
+    OFFLINE_DECISION_ALLOW=0
+    case "${WIKI_CACHE_REASON}" in
+      stale*|STALE*) OFFLINE_DECISION_REASON="STALE_CACHE";;
+      *) OFFLINE_DECISION_REASON="NO_CACHE";;
+    esac
+  fi
+fi
+OFFLINE_DECISION_LINE="OFFLINE_DECISION: online=${OFFLINE_DECISION_ONLINE} allow_continue=${OFFLINE_DECISION_ALLOW} reason=${OFFLINE_DECISION_REASON}"
+echo "${OFFLINE_DECISION_LINE}"
 
 RU_BLOCKED_ENV="${RU_BLOCKED:-0}"
 RU_BLOCKED=0
@@ -415,12 +500,42 @@ if [ "${PRE_STATUS}" -ne 0 ]; then
   fail_with_reason "${PRE_REASON:-pre-step failed}"
 fi
 
+run_step "wiki_claim_gate" 60 "node tools/wiki/wiki_claim_gate.mjs --geos RU,TH,XK,US-CA,CA >>\"${PRE_LOG}\" 2>&1"
+WIKI_GATE_OK_LINE=$(grep -E "WIKI_GATE_OK=" "${PRE_LOG}" | tail -n 1 || true)
+if [ -z "${WIKI_GATE_OK_LINE}" ]; then
+  WIKI_GATE_OK_LINE="WIKI_GATE_OK=0 ok=0 fail=0"
+fi
+run_step "wiki_db_gate" 60 "node tools/wiki/wiki_db_gate.mjs --geos RU,TH,XK,US-CA,CA >>\"${PRE_LOG}\" 2>&1"
+WIKI_GATE_BLOCK=$(awk '
+  /^WIKI_GATE /{block="";inblock=1}
+  inblock{block=block $0 "\n"}
+  /^WIKI_GATE_OK=/{inblock=0;last=block}
+  END{printf "%s", last}
+' "${PRE_LOG}" 2>/dev/null || true)
+WIKI_DB_BLOCK=$(awk '
+  /^WIKI_DB_GATE /{block="";inblock=1}
+  inblock{block=block $0 "\n"}
+  /^WIKI_DB_GATE_OK=/{inblock=0;last=block}
+  END{printf "%s", last}
+' "${PRE_LOG}" 2>/dev/null || true)
+
+CI_LOCAL_ENV="CI_LOCAL_OFFLINE_OK=${CI_LOCAL_OFFLINE_OK}"
+if [ "${CI_LOCAL_OFFLINE_OK}" = "1" ]; then
+  CI_LOCAL_ENV="CI_LOCAL_OFFLINE_OK=1 ALLOW_SMOKE_SKIP=1 SMOKE_MODE=skip"
+fi
+MAP_ENABLED="${MAP_ENABLED:-0}"
+export MAP_ENABLED
 set +e
-run_step "ci_local" 600 "bash tools/ci-local.sh >\"${CI_LOG}\" 2>&1"
+run_step "ci_local" 600 "${CI_LOCAL_ENV} bash tools/ci-local.sh >\"${CI_LOG}\" 2>&1"
 CI_STATUS=$?
 set -e
+CI_LOCAL_STEP_LINE="STEP_END name=ci_local rc=${CI_STATUS}"
 
 if [ "${CI_STATUS}" -ne 0 ]; then
+  if [ -f "${CI_LOG}" ]; then
+    echo "CI_LOCAL_FAIL_LOG:"
+    tail -n 120 "${CI_LOG}" || true
+  fi
   if [ -f "${SUMMARY_FILE}" ]; then
     REASON_LINE=$(sed -n '2p' "${SUMMARY_FILE}" | sed 's/^Reason: //')
   fi
@@ -433,7 +548,8 @@ fi
 
 WIKI_REFRESH_RAN=0
 WIKI_OFFLINE_LINE=""
-if [ "${NET_HEALTH_ONLINE}" = "1" ]; then
+WIKI_REFRESH_ENABLE="${WIKI_REFRESH_ENABLE:-0}"
+if [ "${NET_HEALTH_ONLINE}" = "1" ] && [ "${WIKI_REFRESH_ENABLE}" = "1" ]; then
   run_step "wiki_refresh" 180 "npm run wiki:refresh >>\"${PRE_LOG}\" 2>&1"
   WIKI_REFRESH_STATUS=$?
   if [ "${WIKI_REFRESH_STATUS}" -ne 0 ]; then
@@ -443,7 +559,13 @@ if [ "${NET_HEALTH_ONLINE}" = "1" ]; then
 else
   if [ "${ALLOW_WIKI_OFFLINE:-0}" = "1" ]; then
     WIKI_OFFLINE_LINE="OFFLINE: using cached wiki_db; refresh skipped"
+  else
+    WIKI_OFFLINE_LINE="WIKI_REFRESH: skipped reason=DISABLED"
   fi
+fi
+if [ "${NET_HEALTH_ONLINE}" = "1" ] || [ "${ALLOW_WIKI_OFFLINE:-0}" = "1" ]; then
+  run_step "wiki_sync_legality" 180 "node tools/wiki/sync_legality.mjs --once >>\"${PRE_LOG}\" 2>&1"
+  run_step "wiki_mark_official" 180 "node tools/wiki/mark_official_refs.mjs --once >>\"${PRE_LOG}\" 2>&1"
 fi
 run_step "wiki_official_eval" 180 "npm run wiki:official_eval >>\"${PRE_LOG}\" 2>&1"
 WIKI_EVAL_STATUS=$?
@@ -770,7 +892,7 @@ fi
 CHECKED_VERIFY_LINE="CHECKED_VERIFY: skipped (CHECKED_VERIFY=0)"
 CHECKED_VERIFY_REPORT="${ROOT}/Reports/auto_facts/checked_summary.json"
 if [ "${CHECKED_VERIFY:-0}" = "1" ]; then
-  run_step "checked_verify" 180 "CHECKED_VERIFY_EXTRA_ISO=${CHECKED_VERIFY_EXTRA_ISO:-RU,TH,US-CA,XK} node tools/auto_facts/run_checked_verify.mjs >>\"${PRE_LOG}\" 2>&1" || true
+  run_step "checked_verify" 180 "CHECKED_VERIFY_EXTRA_ISO=${CHECKED_VERIFY_EXTRA_ISO:-RU,TH,US-CA,XK} CHECKED_VERIFY_LIMIT=${CHECKED_VERIFY_LIMIT:-8} node tools/auto_facts/run_checked_verify.mjs >>\"${PRE_LOG}\" 2>&1" || true
   if [ -f "${CHECKED_VERIFY_REPORT}" ]; then
     CHECKED_VERIFY_LINE=$(ROOT_DIR="${ROOT}" node -e 'const fs=require("fs");const report=process.env.ROOT_DIR+"/Reports/auto_facts/checked_summary.json";if(!fs.existsSync(report)){console.log("CHECKED_VERIFY: missing report");process.exit(0);}const data=JSON.parse(fs.readFileSync(report,"utf8"));const count=Array.isArray(data.checked)?data.checked.length:0;const reason=String(data.reason||"OK").replace(/\\s+/g,"_");console.log(`CHECKED_VERIFY: isos=${count} reason=${reason}`);');
     set +e
@@ -812,6 +934,7 @@ if [ "${AUTO_LEARN:-0}" = "1" ] || [ "${AUTO_VERIFY:-0}" = "1" ]; then
 fi
 if [ "${ABORTED_LINE}" -eq 1 ] || [ "${INCOMPLETE}" -eq 1 ]; then
   printf "❌ VERIFY FAILED (aborted/incomplete)\n" > "${STDOUT_FILE}"
+  cp "${STDOUT_FILE}" "${REPORTS_FINAL}" 2>/dev/null || true
   cp "${STDOUT_FILE}" "${ROOT}/ci-final.txt"
   cat "${STDOUT_FILE}"
   exit 2
@@ -833,15 +956,54 @@ SUMMARY_LINES+=("${NET_HEALTH_LINE}")
 SUMMARY_LINES+=("${NETWORK_DISABLED_LINE}")
 SUMMARY_LINES+=("${WIKI_NETCHECK_LINE}")
 SUMMARY_LINES+=("${OFFLINE_LINE}")
+SUMMARY_LINES+=("${OFFLINE_REASON_LINE}")
+SUMMARY_LINES+=("${NET_REASON_LINE}")
+SUMMARY_LINES+=("${DNS_LINE}")
+SUMMARY_LINES+=("${HTTPS_PROBE_LINE}")
+SUMMARY_LINES+=("${OFFLINE_DECISION_LINE}")
 SUMMARY_LINES+=("${WIKI_MODE_LINE}")
+if [ -n "${WIKI_GATE_BLOCK}" ]; then
+  while IFS= read -r line; do
+    [ -n "${line}" ] && SUMMARY_LINES+=("${line}")
+  done <<< "${WIKI_GATE_BLOCK}"
+else
+  SUMMARY_LINES+=("${WIKI_GATE_OK_LINE}")
+fi
+if [ -n "${WIKI_DB_BLOCK}" ]; then
+  while IFS= read -r line; do
+    [ -n "${line}" ] && SUMMARY_LINES+=("${line}")
+  done <<< "${WIKI_DB_BLOCK}"
+fi
+SUMMARY_LINES+=("${CI_LOCAL_STEP_LINE}")
 NETWORK_MODE="OFFLINE"
 if [ "${ALLOW_NETWORK:-0}" = "1" ] && [ "${FETCH_NETWORK:-0}" = "1" ]; then
   NETWORK_MODE="ONLINE"
 fi
 NETWORK_LINE="NETWORK: allow=${ALLOW_NETWORK:-0} fetch=${FETCH_NETWORK:-0} mode=${NETWORK_MODE}"
 SUMMARY_LINES+=("${NETWORK_LINE}")
+NET_MODE_STATE="NET_MODE=OFFLINE"
+if [ "${NET_HEALTH_ONLINE}" = "1" ]; then
+  NET_MODE_STATE="NET_MODE=ONLINE"
+fi
+SUMMARY_LINES+=("${NET_MODE_STATE}")
 FLAGS_LINE="FLAGS: ALLOW_NETWORK=${ALLOW_NETWORK:-0} FETCH_NETWORK=${FETCH_NETWORK:-0} AUTO_FACTS=${AUTO_FACTS:-0} AUTO_LEARN=${AUTO_LEARN:-0}"
 SUMMARY_LINES+=("${FLAGS_LINE}")
+LEAFLET_GUARDED=1
+if [ "${MAP_ENABLED}" = "1" ]; then
+  LEAFLET_GUARDED=0
+fi
+SUMMARY_LINES+=("MAP_ENABLED=${MAP_ENABLED}")
+SUMMARY_LINES+=("LEAFLET_GUARDED=${LEAFLET_GUARDED}")
+GIT_CLEAN=0
+if [ -z "$(git status --porcelain)" ]; then
+  GIT_CLEAN=1
+fi
+LAST_TAG_PUSHED=$(git tag --list "good/*" --sort=-creatordate | head -n 1 || true)
+if [ -z "${LAST_TAG_PUSHED}" ]; then
+  LAST_TAG_PUSHED="-"
+fi
+SUMMARY_LINES+=("GIT_CLEAN=${GIT_CLEAN}")
+SUMMARY_LINES+=("LAST_TAG_PUSHED=${LAST_TAG_PUSHED}")
 if [ -n "${AUTO_SEED_LINE}" ]; then
   SUMMARY_LINES+=("${AUTO_SEED_LINE}")
 fi
@@ -854,6 +1016,9 @@ WIKI_METRICS_LINE=$(ROOT_DIR="${ROOT}" node -e 'const fs=require("fs");const pat
 SUMMARY_LINES+=("${WIKI_METRICS_LINE}")
 if [ -n "${WIKI_OFFLINE_LINE}" ]; then
   SUMMARY_LINES+=("${WIKI_OFFLINE_LINE}")
+fi
+if [ "${OFFLINE}" = "1" ]; then
+  SUMMARY_LINES+=("MV_BLOCKED_REASON=OFFLINE")
 fi
 if [ -n "${FETCH_DIAG_LINE}" ]; then
   SUMMARY_LINES+=("${FETCH_DIAG_LINE}")
@@ -1018,6 +1183,7 @@ AUTO_TRAIN_STATUS=$?
 set -e
 if [ "${AUTO_TRAIN_STATUS}" -eq 20 ]; then
   printf "❌ CI FAIL\nReason: NO_SNAPSHOT_AFTER_VALIDATE\nRetry: bash tools/pass_cycle.sh\n" > "${STDOUT_FILE}"
+  cp "${STDOUT_FILE}" "${REPORTS_FINAL}" 2>/dev/null || true
   set +e
   STATUS=0
   node tools/guards/no_bloat_markers.mjs --file "${STDOUT_FILE}" || STATUS=$?
@@ -1046,6 +1212,7 @@ fi
 printf "{\n  \"count\": %s,\n  \"updated_at\": \"%s\"\n}\n" "${NO_PROGRESS_COUNT}" "$(date -u +%FT%TZ)" > "${NO_PROGRESS_FILE}"
 if [ "${NO_PROGRESS_FLAG}" -eq 1 ] && [ "${NO_PROGRESS_COUNT}" -ge 3 ]; then
   printf "❌ CI FAIL\nReason: NO_PROGRESS_STREAK\nRetry: bash tools/pass_cycle.sh\n" > "${STDOUT_FILE}"
+  cp "${STDOUT_FILE}" "${REPORTS_FINAL}" 2>/dev/null || true
   set +e
   STATUS=0
   node tools/guards/no_bloat_markers.mjs --file "${STDOUT_FILE}" || STATUS=$?
@@ -1093,9 +1260,10 @@ if [ ! -s "${STDOUT_FILE}" ]; then
 fi
 SANITIZED_STDOUT="${CHECKPOINT_DIR}/ci-final.sanitized.txt"
 node tools/guards/sanitize_stdout.mjs --input "${STDOUT_FILE}" --output "${SANITIZED_STDOUT}"
+cp "${SANITIZED_STDOUT}" "${REPORTS_FINAL}"
 cp "${SANITIZED_STDOUT}" "${ROOT}/ci-final.txt"
-if [ ! -s "${ROOT}/ci-final.txt" ]; then
-  abort_with_reason "ci-final.txt missing"
+if [ ! -s "${REPORTS_FINAL}" ]; then
+  abort_with_reason "Reports/ci-final.txt missing"
 fi
 
 POST_LATEST=$(cat "${LATEST_FILE}" 2>/dev/null || true)

@@ -24,6 +24,8 @@ import path from "node:path";
 import { spawnSync } from "node:child_process";
 
 const CACHE_WINDOW_MINUTES = 120;
+const US_ADM1_PATH = path.join(process.cwd(), "..", "..", "data", "centroids", "us_adm1.json");
+let usAdm1NameMap: Record<string, string> | null = null;
 
 function buildVerifyLinks(
   sources: Array<{ title: string; url: string }> | undefined,
@@ -61,6 +63,46 @@ function buildDisplayStatus(profile: { status: string }) {
     return buildProvisionalStatus();
   }
   return computeStatus(profile as Parameters<typeof computeStatus>[0]);
+}
+
+function normalizeRegionName(value: string) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/['’]/g, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function loadUsAdm1NameMap() {
+  if (usAdm1NameMap) return usAdm1NameMap;
+  if (!fs.existsSync(US_ADM1_PATH)) return {};
+  const payload = JSON.parse(fs.readFileSync(US_ADM1_PATH, "utf8"));
+  const items = payload?.items ?? {};
+  const map: Record<string, string> = {};
+  for (const [key, entry] of Object.entries(items)) {
+    const name = normalizeRegionName(String((entry as { name?: string }).name || ""));
+    if (!name || !key.startsWith("US-")) continue;
+    map[name] = key.slice(3);
+  }
+  usAdm1NameMap = map;
+  return map;
+}
+
+function resolveUsRegion(country: string, region: string | undefined) {
+  if (country.toUpperCase() !== "US" || !region) return { region };
+  const cleaned = region.trim();
+  const upper = cleaned.toUpperCase();
+  if (upper.startsWith("US-")) return { region: upper.slice(3) };
+  if (upper.startsWith("US_")) return { region: upper.slice(3) };
+  if (upper.length === 2) return { region: upper };
+  const map = loadUsAdm1NameMap();
+  const normalized = normalizeRegionName(cleaned);
+  const code = map[normalized];
+  if (code) {
+    return { region: code, source: "adm1" };
+  }
+  return { region: upper };
 }
 
 function loadSsotChangedIds() {
@@ -101,8 +143,8 @@ const WIKI_CLAIM_DIR = path.join(
 const WIKI_SSOT_CLAIMS_PATH = path.join(
   process.cwd(),
   "data",
-  "wiki_ssot",
-  "wiki_claims.json"
+  "wiki",
+  "wiki_claims_map.json"
 );
 const WIKI_SSOT_REFS_PATH = path.join(
   process.cwd(),
@@ -184,6 +226,9 @@ function loadWikiClaim(geoKey: string) {
   }
   const ssot = loadWikiSsotClaim(key);
   if (ssot) return ssot;
+  if (fs.existsSync(WIKI_SSOT_CLAIMS_PATH)) {
+    return null;
+  }
   if (fs.existsSync(WIKI_CLAIMS_SNAPSHOT)) {
     try {
       const payload = JSON.parse(fs.readFileSync(WIKI_CLAIMS_SNAPSHOT, "utf8"));
@@ -569,7 +614,14 @@ export async function GET(req: Request) {
   const requestId = createRequestId(req);
   const { searchParams } = new URL(req.url);
   const country = searchParams.get("country") ?? "";
-  const region = searchParams.get("region") ?? undefined;
+  const regionInput = searchParams.get("region") ?? undefined;
+  const resolvedRegion = resolveUsRegion(country, regionInput);
+  const region = resolvedRegion.region;
+  if (resolvedRegion.source && regionInput) {
+    console.log(
+      `GEO_RESOLVE: input="${regionInput}, ${country}" -> geo=US-${resolvedRegion.region} source=${resolvedRegion.source}`
+    );
+  }
   const method = searchParams.get("method") as "gps" | "ip" | "manual" | null;
   const confidence = searchParams.get("confidence");
   const cell = searchParams.get("cell");

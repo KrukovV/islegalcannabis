@@ -1,0 +1,7 @@
+{
+  "RU": { "rec": "Illegal", "med": "Illegal", "source": "countries" },
+  "TH": { "rec": "Decrim", "med": "Legal", "source": "countries" },
+  "XK": { "rec": "Illegal", "med": "Illegal", "source": "countries" },
+  "US-CA": { "rec": "Legal", "med": "Legal", "source": "states" },
+  "CA": { "rec": "Legal", "med": "Legal", "source": "countries" }
+}

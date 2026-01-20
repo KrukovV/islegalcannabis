@@ -32,6 +32,25 @@ SEO pages under `/is-cannabis-legal-in-[slug]` are statically generated from a f
 bash tools/ci-local.sh
 ```
 
+## Leaflet map assets (offline)
+
+Pinned refs:
+- `vendor/leaflet` @ `v1.9.4` (`d15112c9e8ac339f0f74f563959d0423d291308d`)
+- `vendor/leaflet-markercluster` @ `v1.5.3` (`e5124b27a8374d7037c31bf81235f9ba007a715e`)
+
+Build local assets (no CDN):
+
+```bash
+bash tools/build_leaflet.sh
+```
+
+This copies Leaflet + MarkerCluster assets into `apps/web/public/vendor/leaflet/`.
+Do not link Leaflet from CDN; the app uses local `/vendor/leaflet/...` assets only.
+
+GeoJSON boundaries (Natural Earth 1:50m):
+- `data/geojson/ne_50m_admin_0_countries.geojson`
+- `data/geojson/ne_50m_admin_1_states_provinces.geojson`
+
 ## Adding a new jurisdiction
 
 1. Add a JSON file under `data/laws/**` (follow existing files for schema).
