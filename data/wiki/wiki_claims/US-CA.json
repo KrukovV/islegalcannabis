@@ -2,30 +2,21 @@
   "geo_key": "US-CA",
   "name_in_wiki": "California",
   "wiki_row_url": "https://en.wikipedia.org/wiki/California",
+  "row_ref": "state:5",
   "wiki_rec": "Legal",
   "wiki_med": "Legal",
-  "notes_raw": "Main article: [[Cannabis in California]]",
-  "main_articles": [
-    {
-      "title": "Cannabis in California",
-      "url": "https://en.wikipedia.org/wiki/Cannabis_in_California"
-    }
-  ],
-  "wiki_refs": [
-    {
-      "url": "https://en.wikipedia.org/wiki/Cannabis_in_California",
-      "title": "Cannabis in California",
-      "source": "main_article"
-    }
-  ],
+  "sources": [],
+  "sources_count": 0,
+  "main_articles": [],
+  "notes_main_articles": [],
+  "notes_text": "Legal to possess up to 8 oz (230 g)",
+  "notes_text_len": 35,
+  "notes": "Legal to possess up to 8 oz (230 g)",
+  "notes_raw": "Legal to possess up to 8 oz (230 g)",
   "recreational_status": "Legal",
   "medical_status": "Legal",
-  "notes_main_articles": [
-    {
-      "title": "Cannabis in California",
-      "url": "https://en.wikipedia.org/wiki/Cannabis_in_California"
-    }
-  ],
-  "wiki_revision_id": "fixture",
-  "fetched_at": "2026-01-21T12:28:39.259Z"
+  "wiki_revision_id": "1331890318",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "states",
+  "revision_id": "1331890318"
 }

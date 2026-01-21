@@ -1,0 +1,37 @@
+{
+  "geo_key": "IL",
+  "name_in_wiki": "Israel",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Israel",
+  "row_ref": "country:76",
+  "wiki_rec": "Legal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in Israel",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Israel"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Israel",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Israel"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Israel",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Israel"
+    }
+  ],
+  "notes_text": "As of April 2019, public possession of small amounts is a non-criminal offense punished by escalating fines. A third offense can result in criminal charges, however. Possession in the privacy of one's home is not punished.",
+  "notes_text_len": 222,
+  "notes": "As of April 2019, public possession of small amounts is a non-criminal offense punished by escalating fines. A third offense can result in criminal charges, however. Possession in the privacy of one's home is not punished.",
+  "notes_raw": "{{main|Cannabis in Israel}} As of April 2019, public possession of small amounts is a non-criminal offense punished by escalating fines. A third offense can result in criminal charges, however. Possession in the privacy of one's home is not punished.<ref>{{cite news |title=Partial decriminalization of public cannabis use takes effect Sunday night |url=https://www.timesofisrael.com/partial-decriminalization-of-public-cannabis-use-to-come-into-effect/ |access-date=5 April 2019 |work=[[The Times of Israel]] |date=31 March 2019 |archive-url=https://web.archive.org/web/20190609200544/https://www.timesofisrael.com/partial-decriminalization-of-public-cannabis-use-to-come-into-effect/ |archive-date=9 June 2019 |url-status=live}}</ref>",
+  "recreational_status": "Legal",
+  "medical_status": "Legal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

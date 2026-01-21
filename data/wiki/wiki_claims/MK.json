@@ -1,0 +1,37 @@
+{
+  "geo_key": "MK",
+  "name_in_wiki": "North Macedonia",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/North_Macedonia",
+  "row_ref": "country:121",
+  "wiki_rec": "Illegal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in North Macedonia",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_North_Macedonia"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in North Macedonia",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_North_Macedonia"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in North Macedonia",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_North_Macedonia"
+    }
+  ],
+  "notes_text": "If one possesses large amounts, a jail sentence of anywhere from 3 months to 5 years may be given. Medicinal cannabis legalized since 2016.",
+  "notes_text_len": 139,
+  "notes": "If one possesses large amounts, a jail sentence of anywhere from 3 months to 5 years may be given. Medicinal cannabis legalized since 2016.",
+  "notes_raw": "{{main|Cannabis in North Macedonia}} If one possesses large amounts, a jail sentence of anywhere from 3 months to 5 years may be given.<ref>{{citation |url = http://www.encod.org/info/MACEDONIA.html |title = European Coalition for Just and Effective Drug Policies |publisher = Encod.org |access-date = 17 February 2011 |url-status = dead |archive-url = https://web.archive.org/web/20110518004610/http://www.encod.org/info/MACEDONIA.html |archive-date = 18 May 2011}}</ref> Medicinal cannabis legalized since 2016.<ref>{{cite web|url=http://www.balkanews.org/index.php/2016/02/10/macedonia-parliament-legalizes-medical-marijuana/|title=Macedonia: Parliament Legalizes Medical Marijuana|work=Eurasia Review|date=22 April 2015|access-date=5 June 2018|archive-date=12 March 2020|archive-url=https://web.archive.org/web/20200312221640/http://www.ezyspot.com/|url-status=dead}}</ref>",
+  "recreational_status": "Illegal",
+  "medical_status": "Legal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

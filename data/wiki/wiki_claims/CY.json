@@ -1,0 +1,37 @@
+{
+  "geo_key": "CY",
+  "name_in_wiki": "Cyprus",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Cyprus",
+  "row_ref": "country:43",
+  "wiki_rec": "Illegal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in Cyprus",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cyprus"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Cyprus",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cyprus"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Cyprus",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cyprus"
+    }
+  ],
+  "notes_text": "Class B substance – life imprisonment is possible for use and maximum 8 years for possession (at the maximum 2 years for the first offense for people under 25).",
+  "notes_text_len": 160,
+  "notes": "Class B substance – life imprisonment is possible for use and maximum 8 years for possession (at the maximum 2 years for the first offense for people under 25).",
+  "notes_raw": "{{main|Cannabis in Cyprus}} Class B substance – life imprisonment is possible for use and maximum 8 years for possession (at the maximum 2 years for the first offense for people under 25).<ref>{{cite web|title=Overviews of legal topics: possession of cannabis for personal use|url=http://www.emcdda.europa.eu/legal-topic-overviews/cannabis-possession-for-personal-use|publisher=[[European Monitoring Centre for Drugs and Drug Addiction]]|access-date=26 July 2015|archive-date=30 September 2018|archive-url=https://web.archive.org/web/20180930083140/http://www.emcdda.europa.eu/legal-topic-overviews/cannabis-possession-for-personal-use|url-status=live}}</ref>",
+  "recreational_status": "Illegal",
+  "medical_status": "Legal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

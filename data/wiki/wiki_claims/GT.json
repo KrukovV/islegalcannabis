@@ -1,0 +1,37 @@
+{
+  "geo_key": "GT",
+  "name_in_wiki": "Guatemala",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Guatemala",
+  "row_ref": "country:64",
+  "wiki_rec": "Illegal",
+  "wiki_med": "Illegal",
+  "sources": [
+    {
+      "title": "Cannabis in Guatemala",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Guatemala"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Guatemala",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Guatemala"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Guatemala",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Guatemala"
+    }
+  ],
+  "notes_text": "In 2016 a constitutional commission rejected proposals to legalize medicinal or recreational use of cannabis.",
+  "notes_text_len": 109,
+  "notes": "In 2016 a constitutional commission rejected proposals to legalize medicinal or recreational use of cannabis.",
+  "notes_raw": "{{main|Cannabis in Guatemala}} In 2016 a constitutional commission rejected proposals to legalize medicinal or recreational use of cannabis.<ref>{{cite web |author=Milena Lopez |url=http://www.tn8.tv/cronica-tn8/373406-comision-rechaza-uso-medicinal-marihuana-guatemala/ |title=Comisión Rechaza Uso Medicinal De La Marihuana En Guatemala |date=2 November 2016 |publisher=Tn8.tv |access-date=30 November 2016 |archive-date=5 September 2017 |archive-url=https://web.archive.org/web/20170905095333/http://www.tn8.tv/cronica-tn8/373406-comision-rechaza-uso-medicinal-marihuana-guatemala/ |url-status=live }}</ref><ref>{{cite web |author=Juan Toro |url=http://clustersalud.americaeconomia.com/guatemala-rechazan-uso-marihuana-medicinal/ |title=Guatemala: Rechazan uso de marihuana medicinal |website=Cluster Salud |access-date=30 November 2016 |archive-date=3 October 2018 |archive-url=https://web.archive.org/web/20181003102740/https://clustersalud.americaeconomia.com/guatemala-rechazan-uso-marihuana-medicinal/ |url-status=dead }}</ref>",
+  "recreational_status": "Illegal",
+  "medical_status": "Illegal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

@@ -1,0 +1,37 @@
+{
+  "geo_key": "SY",
+  "name_in_wiki": "Syria",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Syria",
+  "row_ref": "country:156",
+  "wiki_rec": "Legal",
+  "wiki_med": "Illegal",
+  "sources": [
+    {
+      "title": "Cannabis in Syria",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Syria"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Syria",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Syria"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Syria",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Syria"
+    }
+  ],
+  "notes_text": "If someone is considered an addict by the Syrian government then they face no criminal penalties for drug possession.",
+  "notes_text_len": 117,
+  "notes": "If someone is considered an addict by the Syrian government then they face no criminal penalties for drug possession.",
+  "notes_raw": "{{main|Cannabis in Syria}} If someone is considered an addict by the Syrian government then they face no criminal penalties for drug possession.<ref>{{cite news |url=https://raseef22.net/article/1069955-syrians-turn-drugs-forget-burden-war |last=Ali |first=Tareq |title=Syrians Turn to Drugs to Forget the Burden of War |date=18 May 2017 |work=Raseef |access-date=2 August 2022 |archive-date=28 June 2022 |archive-url=https://web.archive.org/web/20220628193018/https://raseef22.net/article/1069955-syrians-turn-drugs-forget-burden-war |url-status=live }}</ref>",
+  "recreational_status": "Legal",
+  "medical_status": "Illegal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

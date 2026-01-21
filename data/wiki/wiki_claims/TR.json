@@ -1,0 +1,37 @@
+{
+  "geo_key": "TR",
+  "name_in_wiki": "Turkey",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Turkey",
+  "row_ref": "country:165",
+  "wiki_rec": "Illegal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in Turkey",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Turkey"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Turkey",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Turkey"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Turkey",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Turkey"
+    }
+  ],
+  "notes_text": "Medical grade cannabis containing less than 0.3% THC legalized in 2025. Recreational use is illegal and is punishable by 1 year of probation while repetition is punishable by 2 years of probation and enforced treatment. Sale and supply is punishable by a prison term of 5–10 years, and production or trafficking by a minimum term of 10 years.",
+  "notes_text_len": 342,
+  "notes": "Medical grade cannabis containing less than 0.3% THC legalized in 2025. Recreational use is illegal and is punishable by 1 year of probation while repetition is punishable by 2 years of probation and enforced treatment. Sale and supply is punishable by a prison term of 5–10 years, and production or trafficking by a minimum term of 10 years.",
+  "notes_raw": "{{main|Cannabis in Turkey}} Medical grade cannabis containing less than 0.3% THC legalized in 2025.<ref>https://www.haberler.com/politika/saglikla-ilgili-kanun-teklifi-tbmm-komisyonunda-kabul-edildi-18815091-haberi/ Sağlıkla İlgili Kanun Teklifi TBMM Komisyonunda Kabul Edildi - Haberler</ref><ref>https://halktv.com.tr/ekonomi/izin-verildi-ama-sadece-eczanelerde-satilacak-953269h İzin verildi ama sadece eczanelerde satılacak</ref> Recreational use is illegal and is punishable by 1 year of probation while repetition is punishable by 2 years of probation and enforced treatment.<ref name=\"EMCDDATurkey\">{{citation |url = http://www.emcdda.europa.eu/publications/country-overviews/tr |title = Country overview: Turkey |author = European Monitoring Centre for Drugs and Drug Addiction |author-link = European Monitoring Centre for Drugs and Drug Addiction |date = 31 January 2012 |publisher = European Monitoring Centre for Drugs and Drug Addiction |location = [[Lisbon]] |oclc = 527925326 |access-date = 5 June 2018 |archive-date = 4 February 2015 |archive-url = https://web.archive.org/web/20150204001431/http://www.emcdda.europa.eu/publications/country-overviews/tr |url-status = live }}</ref> Sale and supply is punishable by a prison term of 5–10 years, and production or trafficking by a minimum term of 10 years.<ref name=\"EMCDDATurkey\" /><ref>{{cite web |title=Turkish MPs pass bill to legalize pharmacy sale of medicinal cannabis | date=21 July 2025 |url=https://www.hurriyetdailynews.com/turkish-mps-pass-bill-to-legalize-pharmacy-sale-of-medicinal-cannabis-211713?utm_source=chatgpt.com |publisher=Hurriyet Daily News |access-date=21 Jul 2025}}</ref>",
+  "recreational_status": "Illegal",
+  "medical_status": "Legal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

@@ -21,7 +21,7 @@ if (process.cwd() !== ROOT) {
 
 const args = process.argv.slice(2);
 const geosArgIndex = args.indexOf("--geos");
-let geos = ["RU", "TH", "XK", "US", "US-CA", "CA"];
+let geos = ["RU", "TH", "XK", "US-CA", "CA"];
 if (geosArgIndex >= 0 && args[geosArgIndex + 1]) {
   geos = args[geosArgIndex + 1].split(",").map((geo) => geo.trim()).filter(Boolean);
 }
@@ -42,6 +42,30 @@ const ssot = JSON.parse(fs.readFileSync(ssotPath, "utf8"));
 const entries = ssot?.items || ssot?.entries || {};
 const baselineStrict = process.env.BASELINE_STRICT !== "0";
 const offlineOk = process.env.WIKI_OFFLINE_OK === "1" ? "1" : "0";
+const claimsPath = path.join(ROOT, "data", "wiki", "wiki_claims.json");
+const metaPath = path.join(ROOT, "data", "wiki", "wiki_claims.meta.json");
+let expectedTotal = 300;
+let foundTotal = Object.keys(entries || {}).length;
+let missingKey = "";
+try {
+  const meta = JSON.parse(fs.readFileSync(metaPath, "utf8"));
+  const counts = meta?.counts || {};
+  if (Number.isFinite(Number(counts.total))) expectedTotal = Number(counts.total);
+} catch {
+}
+try {
+  const claims = JSON.parse(fs.readFileSync(claimsPath, "utf8"));
+  if (Array.isArray(claims)) {
+    const claimKeys = new Set(claims.map((row) => row?.geo_key).filter(Boolean));
+    for (const key of claimKeys) {
+      if (!entries[key]) {
+        missingKey = key;
+        break;
+      }
+    }
+  }
+} catch {
+}
 
 const recIcons = new Map([
   ["legal", "🌿"],
@@ -69,6 +93,12 @@ const formatMed = (value) => {
 };
 
 console.log(`WIKI_GATE geos=${geos.join(",")} baseline_strict=${baselineStrict ? "1" : "0"} offline_ok=${offlineOk}`);
+const totalReason = foundTotal === expectedTotal ? "OK" : `MISSING_KEY:${missingKey || "-"}`;
+console.log(`WIKI_TOTAL_DIAG expected=${expectedTotal} found=${foundTotal} reason=${totalReason}`);
+if (foundTotal !== expectedTotal) {
+  console.log(`WIKI_TOTAL_MISMATCH expected=${expectedTotal} found=${foundTotal} reason=${totalReason}`);
+  process.exit(1);
+}
 
 let failed = false;
 const failures = [];

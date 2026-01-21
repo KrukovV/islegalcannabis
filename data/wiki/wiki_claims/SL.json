@@ -1,0 +1,37 @@
+{
+  "geo_key": "SL",
+  "name_in_wiki": "Sierra Leone",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Sierra_Leone",
+  "row_ref": "country:142",
+  "wiki_rec": "Illegal",
+  "wiki_med": "Illegal",
+  "sources": [
+    {
+      "title": "Cannabis in Sierra Leone",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Sierra_Leone"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Sierra Leone",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Sierra_Leone"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Sierra Leone",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Sierra_Leone"
+    }
+  ],
+  "notes_text": "Cannabis banned in 1920.",
+  "notes_text_len": 24,
+  "notes": "Cannabis banned in 1920.",
+  "notes_raw": "{{main|Cannabis in Sierra Leone}} Cannabis banned in 1920.<ref name=\"AkyeampongHill2015\">{{cite book|last1=Akyeampong |first1=Emmanuel |last2=Hill |first2=Allan G. |last3=Kleinman |first3=Arthur |title=The Culture of Mental Illness and Psychiatric Practice in Africa|url=https://books.google.com/books?id=wUd9CAAAQBAJ&pg=PA39|date=1 May 2015|publisher=Indiana University Press|isbn=978-0-253-01304-0|jstor=j.ctt16gz69f|pages=39–}}</ref>",
+  "recreational_status": "Illegal",
+  "medical_status": "Illegal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

@@ -1,0 +1,37 @@
+{
+  "geo_key": "TT",
+  "name_in_wiki": "Trinidad and Tobago",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Trinidad_and_Tobago",
+  "row_ref": "country:163",
+  "wiki_rec": "Legal",
+  "wiki_med": "Illegal",
+  "sources": [
+    {
+      "title": "Cannabis in Trinidad and Tobago",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Trinidad_and_Tobago"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Trinidad and Tobago",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Trinidad_and_Tobago"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Trinidad and Tobago",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Trinidad_and_Tobago"
+    }
+  ],
+  "notes_text": "Banned in 1925. Decriminalized in 2019.",
+  "notes_text_len": 39,
+  "notes": "Banned in 1925. Decriminalized in 2019.",
+  "notes_raw": "{{main|Cannabis in Trinidad and Tobago}} Banned in 1925.<ref name=\"KleinDay2004\">{{cite book|author1=Axel Klein|author2=Marcus Day|author3=Anthony Harriott|title=Caribbean Drugs: From Criminalization to Harm Reduction|url=https://books.google.com/books?id=KlJyez-Nr70C&pg=PA58|date=13 November 2004|publisher=Zed Books|isbn=978-1-84277-499-1|pages=58–}}</ref> Decriminalized in 2019.<ref>{{cite news |last1=Ramdass |first1=Anna |title=Merry Christmas: Weed decriminalisation law to be proclaimed December 23 |url=https://trinidadexpress.com/newsextra/merry-christmas-weed-decriminalisation-law-to-be-proclaimed-december/article_3188b0a6-22a9-11ea-85e9-f71de3bf932a.html |access-date=20 December 2019 |work=[[Trinidad Express]] |date=19 December 2019 |archive-date=20 December 2019 |archive-url=https://web.archive.org/web/20191220030055/https://trinidadexpress.com/newsextra/merry-christmas-weed-decriminalisation-law-to-be-proclaimed-december/article_3188b0a6-22a9-11ea-85e9-f71de3bf932a.html |url-status=live }}</ref>",
+  "recreational_status": "Legal",
+  "medical_status": "Illegal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

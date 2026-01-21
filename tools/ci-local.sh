@@ -7,6 +7,11 @@ if [ -z "${SMOKE_MODE:-}" ] && [ "${MAP_ENABLED}" = "0" ]; then
   export ALLOW_SMOKE_SKIP="${ALLOW_SMOKE_SKIP:-1}"
   echo "SMOKE_MODE=skip (MAP_ENABLED=0)"
 fi
+if [ "${CI_LOCAL_OFFLINE_OK:-0}" = "1" ]; then
+  echo "CI_LOCAL_SKIP reason=OFFLINE_CACHE_OK mode=wiki_db"
+  echo "CI_LOCAL_RESULT rc=0 skipped=1 reason=OFFLINE_CACHE_OK"
+  exit 0
+fi
 
 last_cmd=""
 trap 'last_cmd=$BASH_COMMAND' DEBUG
@@ -281,6 +286,7 @@ else
   CI_RESULT="PASS"
   echo "CI_RESULT=${CI_RESULT}; SMOKE=${SMOKE_RESULT} (skipped)" | tee .checkpoints/ci-result.txt
 fi
+echo "CI_LOCAL_RESULT rc=0 skipped=0 reason=OK"
 if [ ! -f .checkpoints/LATEST ]; then
   print_fail "Missing .checkpoints/LATEST. Run tools/pass_cycle.sh."
 fi

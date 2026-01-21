@@ -1,0 +1,37 @@
+{
+  "geo_key": "BF",
+  "name_in_wiki": "Burkina Faso",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Burkina_Faso",
+  "row_ref": "country:26",
+  "wiki_rec": "Illegal",
+  "wiki_med": "Illegal",
+  "sources": [
+    {
+      "title": "Cannabis in Burkina Faso",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Burkina_Faso"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Burkina Faso",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Burkina_Faso"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Burkina Faso",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Burkina_Faso"
+    }
+  ],
+  "notes_text": "",
+  "notes_text_len": 0,
+  "notes": "",
+  "notes_raw": "{{main|Cannabis in Burkina Faso}}",
+  "recreational_status": "Illegal",
+  "medical_status": "Illegal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

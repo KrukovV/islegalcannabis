@@ -1,0 +1,37 @@
+{
+  "geo_key": "GB",
+  "name_in_wiki": "United Kingdom",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/United_Kingdom",
+  "row_ref": "country:170",
+  "wiki_rec": "Legal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in the United Kingdom",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_United_Kingdom"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in the United Kingdom",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_United_Kingdom"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in the United Kingdom",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_United_Kingdom"
+    }
+  ],
+  "notes_text": "Banned in 1928. A class B drug under the Misuse of Drugs Act 1971. Limited medical use legal since 1 November 2018 when prescribed by a specialist consultant, not a GP. Guidance: only prescribe when clearly beneficial and no other option available.",
+  "notes_text_len": 248,
+  "notes": "Banned in 1928. A class B drug under the Misuse of Drugs Act 1971. Limited medical use legal since 1 November 2018 when prescribed by a specialist consultant, not a GP. Guidance: only prescribe when clearly beneficial and no other option available.",
+  "notes_raw": "{{Main|Cannabis in the United Kingdom}} Banned in 1928.<ref name=\"Manning2013\">{{cite book|author=Paul Manning|title=Drugs and Popular Culture|url=https://books.google.com/books?id=K2QQBAAAQBAJ&pg=PA136|date=11 January 2013|publisher=Routledge|isbn=978-1-134-01211-4|pages=136–}}</ref> A [[Cannabis classification in the United Kingdom|class B drug]] under the [[Misuse of Drugs Act 1971]].<ref>{{cite web |publisher=United Kingdom Home Office |url=http://www.homeoffice.gov.uk/drugs/drug-law/ |title=Drug Laws |access-date=9 March 2016 |archive-date=15 March 2013 |archive-url=https://web.archive.org/web/20130315190739/http://www.homeoffice.gov.uk/drugs/drug-law/ |url-status=live }}</ref> Limited medical use legal since 1 November 2018<ref name=\"BBC News2\">{{cite news |url= https://www.bbc.co.uk/news/health-46045487 |title= Medical cannabis products available on prescription |publisher= [[BBC News]] |date= 1 November 2018 |access-date= 6 March 2019 |archive-date= 2 March 2019 |archive-url= https://web.archive.org/web/20190302122340/https://www.bbc.co.uk/news/health-46045487 |url-status= live }}</ref> when prescribed by a specialist consultant, not a [[General practitioner|GP]]. Guidance: only prescribe when clearly beneficial and no other option available.<ref name=\"BBC News1\" />",
+  "recreational_status": "Legal",
+  "medical_status": "Legal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

@@ -1,0 +1,37 @@
+{
+  "geo_key": "PA",
+  "name_in_wiki": "Panama",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Panama",
+  "row_ref": "country:124",
+  "wiki_rec": "Illegal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in Panama",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Panama"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Panama",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Panama"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Panama",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Panama"
+    }
+  ],
+  "notes_text": "",
+  "notes_text_len": 0,
+  "notes": "",
+  "notes_raw": "{{main|Cannabis in Panama}}",
+  "recreational_status": "Illegal",
+  "medical_status": "Legal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

@@ -1,0 +1,37 @@
+{
+  "geo_key": "SK",
+  "name_in_wiki": "Slovakia",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Slovakia",
+  "row_ref": "country:144",
+  "wiki_rec": "Illegal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in Slovakia",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Slovakia"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Slovakia",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Slovakia"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Slovakia",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Slovakia"
+    }
+  ],
+  "notes_text": "Possession of small amounts punishable by up to 8 years in prison.",
+  "notes_text_len": 66,
+  "notes": "Possession of small amounts punishable by up to 8 years in prison.",
+  "notes_raw": "{{main|Cannabis in Slovakia}} Possession of small amounts punishable by up to 8 years in prison.<ref>{{cite news |title = High contrast |url = https://www.economist.com/europe/2010/08/26/high-contrast |newspaper = [[The Economist]] |location = London |issn = 0013-0613 |oclc = 60625410 |date = 26 August 2010 |access-date = 25 June 2012 |archive-url = https://archive.today/20190110221328/https://www.economist.com/europe/2010/08/26/high-contrast |archive-date = 10 January 2019 |url-status = live}}</ref><ref name=\"WSJSlovakia\">{{cite news |title = Slovakia's Incoming Leftist Premier Wants to Relax Tough Cannabis Laws |first = Leos |last = Rousek |url = https://blogs.wsj.com/emergingeurope/2012/04/03/slovakias-incoming-leftist-premier-wants-to-relax-tough-cannabis-laws/ |work = [[The Wall Street Journal]] |date = 3 April 2012 |access-date = 25 June 2012 |archive-date = 21 July 2018 |archive-url = https://web.archive.org/web/20180721073421/https://blogs.wsj.com/emergingeurope/2012/04/03/slovakias-incoming-leftist-premier-wants-to-relax-tough-cannabis-laws/ |url-status = live }}</ref>",
+  "recreational_status": "Illegal",
+  "medical_status": "Legal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

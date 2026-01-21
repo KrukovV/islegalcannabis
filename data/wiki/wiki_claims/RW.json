@@ -1,0 +1,37 @@
+{
+  "geo_key": "RW",
+  "name_in_wiki": "Rwanda",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Rwanda",
+  "row_ref": "country:132",
+  "wiki_rec": "Illegal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in Rwanda",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Rwanda"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Rwanda",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Rwanda"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Rwanda",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Rwanda"
+    }
+  ],
+  "notes_text": "",
+  "notes_text_len": 0,
+  "notes": "",
+  "notes_raw": "{{main|Cannabis in Rwanda}}",
+  "recreational_status": "Illegal",
+  "medical_status": "Legal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

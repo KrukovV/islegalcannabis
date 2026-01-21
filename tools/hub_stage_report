@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+REPORT="Reports/ci-final.txt"
+if [ ! -f "${REPORT}" ]; then
+  echo "SKIP(hub_stage_report): Reports/ci-final.txt missing"
+  exit 0
+fi
+
+RUN_ID=$(grep -E "^RUN_ID:" "${REPORT}" | tail -n 1 || true)
+REPORT_MTIME=$(stat -f "%Sm" "${REPORT}" 2>/dev/null || true)
+REPORT_MTIME_EPOCH=$(stat -f "%m" "${REPORT}" 2>/dev/null || echo "")
+if [ -n "${REPORT_MTIME}" ]; then
+  echo "REPORT_MTIME=${REPORT_MTIME}"
+fi
+if [ -n "${RUN_ID}" ]; then
+  echo "${RUN_ID}"
+fi
+STALE=0
+CURRENT_RUN_ID=""
+if [ -f Reports/_runs/current_run_id.txt ]; then
+  CURRENT_RUN_ID=$(cat Reports/_runs/current_run_id.txt | head -n 1 || true)
+fi
+if [ -n "${RUN_ID}" ] && [ -n "${REPORT_MTIME_EPOCH}" ]; then
+  RUN_TS=$(printf "%s\n" "${RUN_ID}" | sed -E 's/^RUN_ID: ([0-9]{8}T[0-9]{6}Z).*/\1/')
+  if [ -n "${RUN_TS}" ]; then
+    RUN_EPOCH=$(date -j -f "%Y%m%dT%H%M%SZ" "${RUN_TS}" "+%s" 2>/dev/null || echo "")
+    if [ -n "${RUN_EPOCH}" ]; then
+      DELTA=$((REPORT_MTIME_EPOCH - RUN_EPOCH))
+      if [ "${DELTA}" -gt 300 ]; then
+        echo "STALE_SSOT=1 report=${REPORT}"
+        STALE=1
+      fi
+    fi
+  fi
+fi
+if [ "${STALE}" -eq 1 ]; then
+  RUN_FILE=""
+  if [ -n "${CURRENT_RUN_ID}" ]; then
+    RUN_FILE="Artifacts/runs/${CURRENT_RUN_ID}/ci-final.txt"
+  else
+    RUN_FILE="Artifacts/runs/$(printf "%s\n" "${RUN_ID}" | sed -E 's/^RUN_ID: //')/ci-final.txt"
+  fi
+  if [ -f "${RUN_FILE}" ]; then
+    REPORT="${RUN_FILE}"
+  fi
+fi
+echo "WHERE_SSOT=${REPORT}"
+grep -E "^EGRESS_TRUTH |^NET_HEALTH:|^OFFLINE_DECISION:|^WIKI_GATE_OK=|^WIKI_DB_GATE_OK=|^OFFICIAL_BADGE total_official=|^WIKI_SYNC_ALL " "${REPORT}" || true
+exit 0

@@ -1,0 +1,37 @@
+{
+  "geo_key": "EE",
+  "name_in_wiki": "Estonia",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Estonia",
+  "row_ref": "country:52",
+  "wiki_rec": "Legal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in Estonia",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Estonia"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Estonia",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Estonia"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Estonia",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Estonia"
+    }
+  ],
+  "notes_text": "Up to is considered an amount for personal use, and is punished with a fine. Large amounts and distribution are criminal offenses punishable with a custodial sentence of up to 5 years. Medical cannabis is technically legal, but to get a prescription is an arduous process and is practically never given, with a single patient having received Sativex preparation.",
+  "notes_text_len": 362,
+  "notes": "Up to is considered an amount for personal use, and is punished with a fine. Large amounts and distribution are criminal offenses punishable with a custodial sentence of up to 5 years. Medical cannabis is technically legal, but to get a prescription is an arduous process and is practically never given, with a single patient having received Sativex preparation.",
+  "notes_raw": "{{main|Cannabis in Estonia}} Up to {{cvt|7.5|g|frac=4}} is considered an amount for personal use, and is punished with a fine. Large amounts and distribution are criminal offenses punishable with a custodial sentence of up to 5 years.<ref>{{citation |url = http://www.eupedia.com/europe/maps_of_europe.shtml#cannabis |title = Europe Guide : Maps of Europe by language, religion, population density, hair and eye color, etc |publisher = Eupedia.com |date = 19 April 1994 |access-date = 17 February 2011 |archive-date = 28 August 2019 |archive-url = https://web.archive.org/web/20190828073814/https://www.eupedia.com/europe/maps_of_europe.shtml#cannabis |url-status = live }}</ref> Medical cannabis is technically legal, but to get a prescription is an arduous process and is practically never given, with a single patient having received Sativex preparation.<ref>{{Cite web |title=Ravikanepi taotlemine {{!}} Ravikanep |url=https://ravikanep.ee/ravikanepi-taotlemine/ |access-date=2024-10-13 |language=et}}</ref>",
+  "recreational_status": "Legal",
+  "medical_status": "Legal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

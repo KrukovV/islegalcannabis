@@ -1,0 +1,37 @@
+{
+  "geo_key": "CR",
+  "name_in_wiki": "Costa Rica",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Costa_Rica",
+  "row_ref": "country:40",
+  "wiki_rec": "Legal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in Costa Rica",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Costa_Rica"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Costa Rica",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Costa_Rica"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Costa Rica",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Costa_Rica"
+    }
+  ],
+  "notes_text": "Decriminalized since police officers do not detain people for personal use, yet no amount has been defined as a minimum for possession. Use of cannabis is widespread throughout the country.",
+  "notes_text_len": 189,
+  "notes": "Decriminalized since police officers do not detain people for personal use, yet no amount has been defined as a minimum for possession. Use of cannabis is widespread throughout the country.",
+  "notes_raw": "{{main|Cannabis in Costa Rica}} Decriminalized since police officers do not detain people for personal use, yet no amount has been defined as a minimum for possession. Use of cannabis is widespread throughout the country.<ref name=\"nacion1\" /><ref name=\"tcrn\" />",
+  "recreational_status": "Legal",
+  "medical_status": "Legal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

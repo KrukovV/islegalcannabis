@@ -1,0 +1,37 @@
+{
+  "geo_key": "SE",
+  "name_in_wiki": "Sweden",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Sweden",
+  "row_ref": "country:154",
+  "wiki_rec": "Illegal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in Sweden",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Sweden"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Sweden",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Sweden"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Sweden",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Sweden"
+    }
+  ],
+  "notes_text": "All cannabis-related activity illegal. The national police runs a \"disturb and annoy\" program aimed at users supported by the national \"zero tolerance\" policy.",
+  "notes_text_len": 159,
+  "notes": "All cannabis-related activity illegal. The national police runs a \"disturb and annoy\" program aimed at users supported by the national \"zero tolerance\" policy.",
+  "notes_raw": "{{main|Cannabis in Sweden}} All cannabis-related activity illegal. The national police runs a \"disturb and annoy\" program aimed at users supported by the national \"zero tolerance\" policy.<ref>{{citation |url = http://www.unodc.org/pdf/research/Swedish_drug_control.pdf |title = Swedish drug control FINAL_14feb_merged |access-date = 17 February 2011 |archive-date = 17 May 2020 |archive-url = https://web.archive.org/web/20200517154255/http://www.unodc.org/pdf/research/Swedish_drug_control.pdf |url-status = live }}</ref><ref>{{citation |url = http://www.aklagare.se/upload/3/R%C3%A4ttsPMnarkotikafarlig.pdf |title = RättsPM 2009:1 |publisher = Åklagarmyndighetens Utvecklngscentrum |year = 2009 |language = sv |access-date = 6 September 2009 |archive-date = 10 January 2020 |archive-url = https://web.archive.org/web/20200110020418/https://www.aklagare.se/upload/3/R%C3%A4ttsPMnarkotikafarlig.pdf |url-status = dead }}</ref>",
+  "recreational_status": "Illegal",
+  "medical_status": "Legal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

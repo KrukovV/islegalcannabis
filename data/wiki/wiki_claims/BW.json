@@ -1,0 +1,37 @@
+{
+  "geo_key": "BW",
+  "name_in_wiki": "Botswana",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Botswana",
+  "row_ref": "country:22",
+  "wiki_rec": "Illegal",
+  "wiki_med": "Illegal",
+  "sources": [
+    {
+      "title": "Cannabis in Botswana",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Botswana"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Botswana",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Botswana"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Botswana",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Botswana"
+    }
+  ],
+  "notes_text": "Cannabis (or ''dagga'') is illegal.",
+  "notes_text_len": 35,
+  "notes": "Cannabis (or ''dagga'') is illegal.",
+  "notes_raw": "{{main|Cannabis in Botswana}} Cannabis (or ''dagga'') is illegal.<ref>{{cite web |url = http://www.issafrica.org/cdct/mainpages/pdf/Organised%20Crime/Legislation/Botswana/Botswana%20Drugs%20and%20Related%20Substances%20Act%2018%20of%201992%20.pdf |title = Drugs and related substances act no. 18 of 1992 |publisher = Government of Botswana |access-date = 3 October 2013 |url-status = dead |archive-url = https://web.archive.org/web/20131006215219/http://www.issafrica.org/cdct/mainpages/pdf/Organised%20Crime/Legislation/Botswana/Botswana%20Drugs%20and%20Related%20Substances%20Act%2018%20of%201992%20.pdf |archive-date = 6 October 2013}}</ref>",
+  "recreational_status": "Illegal",
+  "medical_status": "Illegal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

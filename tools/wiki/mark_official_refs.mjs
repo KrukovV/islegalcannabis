@@ -3,6 +3,7 @@ import path from "node:path";
 
 const ROOT = process.cwd();
 const WIKI_REFS_PATH = path.join(ROOT, "data", "wiki", "wiki_refs.json");
+const WIKI_CLAIMS_MAP_PATH = path.join(ROOT, "data", "wiki", "wiki_claims_map.json");
 const OUTPUT_PATH = path.join(ROOT, "data", "wiki", "wiki_claims_enriched.json");
 const OFFICIAL_EVAL_PATH = path.join(ROOT, "data", "wiki", "wiki_official_eval.json");
 const ALLOWLIST_PATH = path.join(ROOT, "data", "sources", "official_allowlist.json");
@@ -53,9 +54,12 @@ function isOfficial(host, allowlist) {
 
 function main() {
   const refsPayload = readJson(WIKI_REFS_PATH, { items: {} });
+  const claimsMapPayload = readJson(WIKI_CLAIMS_MAP_PATH, { items: {} });
+  const claimsMap = claimsMapPayload?.items || {};
   const items = refsPayload?.items || {};
   const allowlist = buildAllowlist();
   const outputItems = {};
+  const notesByGeo = {};
   const officialEvalItems = {};
   let total = 0;
   let official = 0;
@@ -65,6 +69,10 @@ function main() {
   for (const [geoKey, refs] of Object.entries(items)) {
     const list = Array.isArray(refs) ? refs : [];
     const isoKey = String(geoKey || "").toUpperCase();
+    const claim = claimsMap?.[isoKey] || {};
+    const notesText = String(claim.notes_text || claim.notes || "");
+    const notesRaw = String(claim.notes_raw || "");
+    const notesLen = Number(claim.notes_text_len || notesText.length || 0);
     const officialHosts = new Map();
     let geoTotal = 0;
     let geoOfficial = 0;
@@ -95,6 +103,12 @@ function main() {
       };
     });
     outputItems[isoKey] = enriched;
+    notesByGeo[isoKey] = {
+      notes: notesText,
+      notes_text: notesText,
+      notes_text_len: notesLen,
+      notes_raw: notesRaw
+    };
     const topOfficialDomains = Array.from(officialHosts.entries())
       .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
       .slice(0, 5)
@@ -104,7 +118,8 @@ function main() {
       sources_total: geoTotal,
       sources_official: geoOfficial,
       official_badge: geoOfficial > 0 ? 1 : 0,
-      top_official_domains: topOfficialDomains
+      top_official_domains: topOfficialDomains,
+      notes_text_len: notesLen
     };
   }
 
@@ -123,7 +138,8 @@ function main() {
       official_ratio: ratio,
       top_non_official_domains: topNonOfficial
     },
-    items: outputItems
+    items: outputItems,
+    notes: notesByGeo
   };
   fs.mkdirSync(path.dirname(OUTPUT_PATH), { recursive: true });
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify(output, null, 2) + "\n");

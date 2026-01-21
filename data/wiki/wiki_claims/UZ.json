@@ -1,0 +1,37 @@
+{
+  "geo_key": "UZ",
+  "name_in_wiki": "Uzbekistan",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Uzbekistan",
+  "row_ref": "country:173",
+  "wiki_rec": "Illegal",
+  "wiki_med": "Illegal",
+  "sources": [
+    {
+      "title": "Cannabis in Uzbekistan",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Uzbekistan"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Uzbekistan",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Uzbekistan"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Uzbekistan",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Uzbekistan"
+    }
+  ],
+  "notes_text": "Opiates, cannabis and other plants containing psychotropic substances are illegal.",
+  "notes_text_len": 82,
+  "notes": "Opiates, cannabis and other plants containing psychotropic substances are illegal.",
+  "notes_raw": "{{main|Cannabis in Uzbekistan}} Opiates, cannabis and other plants containing psychotropic substances are illegal.<ref>{{cite web |url = http://www.lex.uz/Pages/GetAct.aspx?lact_id=111453 |title = Criminal Code of the Republic of Uzbekistan |access-date = 2 August 2013 |language = uz |publisher = The national database of legislation of the Republic of Uzbekistan |archive-date = 26 December 2018 |archive-url = https://web.archive.org/web/20181226021514/http://www.lex.uz/acts/111453 |url-status = live }}</ref>",
+  "recreational_status": "Illegal",
+  "medical_status": "Illegal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

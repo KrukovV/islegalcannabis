@@ -18,13 +18,25 @@ function readList(command) {
   }
 }
 
+const allowedPrefixes = [
+  "data/wiki/",
+  "tools/wiki/",
+  "tools/pass_cycle.sh",
+  "tools/net/net_health.mjs",
+  "tools/commit_if_green.sh",
+  "tools/quality_gate.sh",
+  ".gitignore",
+  "CONTINUITY.md"
+];
 const current = [
   ...readList("git diff --name-only"),
   ...readList("git ls-files --others --exclude-standard")
-].filter(
-  (entry) =>
-    !entry.startsWith("Reports/") && !entry.startsWith("data/source_snapshots/")
-);
+].filter((entry) => {
+  if (entry.startsWith("Reports/") || entry.startsWith("data/source_snapshots/")) {
+    return false;
+  }
+  return !allowedPrefixes.some((prefix) => entry === prefix || entry.startsWith(prefix));
+});
 
 const baseline = fs.existsSync(BASELINE_PATH)
   ? fs

@@ -1,0 +1,37 @@
+{
+  "geo_key": "HN",
+  "name_in_wiki": "Honduras",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Honduras",
+  "row_ref": "country:68",
+  "wiki_rec": "Illegal",
+  "wiki_med": "Illegal",
+  "sources": [
+    {
+      "title": "Cannabis in Honduras",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Honduras"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Honduras",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Honduras"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Honduras",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Honduras"
+    }
+  ],
+  "notes_text": "The possession, sale, transportation, and cultivation of cannabis is illegal.",
+  "notes_text_len": 77,
+  "notes": "The possession, sale, transportation, and cultivation of cannabis is illegal.",
+  "notes_raw": "{{main|Cannabis in Honduras}} The possession, sale, transportation, and cultivation of cannabis is illegal.<ref>{{Cite web|url=http://www.poderjudicial.gob.hn/juris/Leyes/Ley%20sobre%20uso%20Indebido%20y%20Trafico%20Ilicito%20de%20Drogas%20y%20Sustancias%20Psicotropicas.pdf|title=Ley Sobre Uso Indebido y Trafico Ilicito de Drogas y Sustancias Psicotropicas|access-date=5 June 2018|archive-date=18 November 2017|archive-url=https://web.archive.org/web/20171118051130/http://www.poderjudicial.gob.hn/juris/Leyes/Ley%20sobre%20uso%20Indebido%20y%20Trafico%20Ilicito%20de%20Drogas%20y%20Sustancias%20Psicotropicas.pdf|url-status=dead}}</ref>",
+  "recreational_status": "Illegal",
+  "medical_status": "Illegal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

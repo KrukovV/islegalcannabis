@@ -1,0 +1,37 @@
+{
+  "geo_key": "MM",
+  "name_in_wiki": "Myanmar",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Myanmar",
+  "row_ref": "country:113",
+  "wiki_rec": "Legal",
+  "wiki_med": "Illegal",
+  "sources": [
+    {
+      "title": "Cannabis in Myanmar",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Myanmar"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Myanmar",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Myanmar"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Myanmar",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Myanmar"
+    }
+  ],
+  "notes_text": "",
+  "notes_text_len": 0,
+  "notes": "",
+  "notes_raw": "{{main|Cannabis in Myanmar}}",
+  "recreational_status": "Legal",
+  "medical_status": "Illegal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

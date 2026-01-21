@@ -1,0 +1,37 @@
+{
+  "geo_key": "AR",
+  "name_in_wiki": "Argentina",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Argentina",
+  "row_ref": "country:6",
+  "wiki_rec": "Illegal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in Argentina",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Argentina"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Argentina",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Argentina"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Argentina",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Argentina"
+    }
+  ],
+  "notes_text": "Medicinal cannabis was legalized on 22 September 2017.",
+  "notes_text_len": 54,
+  "notes": "Medicinal cannabis was legalized on 22 September 2017.",
+  "notes_raw": "{{main|Cannabis in Argentina}} Medicinal cannabis was legalized on 22 September 2017.<ref>{{Cite news |url=https://www.infobae.com/politica/2017/09/22/el-gobierno-reglamento-la-ley-de-cannabis-medicinal/ |title=El Gobierno reglamentó la ley de cannabis medicinal |date=22 September 2017 |publisher=[[Infobae]] |access-date=4 January 2023 |archive-date=8 June 2021 |archive-url=https://web.archive.org/web/20210608073626/https://www.infobae.com/politica/2017/09/22/el-gobierno-reglamento-la-ley-de-cannabis-medicinal/ |url-status=live |language=es}}</ref><ref>{{cite web |url=https://www.argentina.gob.ar/justicia/derechofacil/leysimple/cannabis-medicinal |title=Cannabis medicinal |author=<!--not stated--> |website=Argentina.gob.ar |date=12 July 2019 |publisher=[[Government of Argentina]] |trans-title=Medicinal cannabis |language=es |access-date=2024-01-04 |url-status=live |archive-url=https://web.archive.org/web/20231206063257/https://www.argentina.gob.ar/justicia/derechofacil/leysimple/cannabis-medicinal |archive-date=2023-12-06}}</ref>",
+  "recreational_status": "Illegal",
+  "medical_status": "Legal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

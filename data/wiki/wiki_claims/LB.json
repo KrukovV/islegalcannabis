@@ -1,0 +1,37 @@
+{
+  "geo_key": "LB",
+  "name_in_wiki": "Lebanon",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Lebanon",
+  "row_ref": "country:89",
+  "wiki_rec": "Illegal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in Lebanon",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Lebanon"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Lebanon",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Lebanon"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Lebanon",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Lebanon"
+    }
+  ],
+  "notes_text": "Hashish banned in 1926; cultivation banned in 1992. Large amounts of cannabis are still grown within the country illicitly, however. Cultivation of cannabis for medical use was legalized in April 2020.",
+  "notes_text_len": 201,
+  "notes": "Hashish banned in 1926; cultivation banned in 1992. Large amounts of cannabis are still grown within the country illicitly, however. Cultivation of cannabis for medical use was legalized in April 2020.",
+  "notes_raw": "{{main|Cannabis in Lebanon}} Hashish banned in 1926;<ref name=\"Clarke1998\">{{cite book|author=Robert Connell Clarke|title=Hashish!|url=https://books.google.com/books?id=hblBKeAE9rgC|year=1998|publisher=Red Eye Press|isbn=978-0-929349-05-3}}</ref> cultivation banned in 1992.<ref>{{cite book|title=Réalités|url=https://books.google.com/books?id=yPU7AQAAIAAJ|date=May 1996|publisher=Spectacle du monde|page=354|quote=Les Américains ne lâchant pas prise, le gouvernement libanais interdisait officiellement la culture du pavot et du cannabis en 1992.}}</ref> Large amounts of cannabis are still grown within the country illicitly, however.<ref>{{citation |url = https://www.csmonitor.com/2007/1016/p06s02-wome.html |title = In Lebanon, a comeback for cannabis |work = [[The Christian Science Monitor]] |date = 16 October 2007 |access-date = 17 February 2011 |archive-date = 20 April 2019 |archive-url = https://web.archive.org/web/20190420011630/https://www.csmonitor.com/2007/1016/p06s02-wome.html |url-status = live }}</ref> Cultivation of cannabis for medical use was legalized in April 2020.<ref>{{cite news |url = https://www.nytimes.com/reuters/2020/04/21/world/middleeast/21reuters-lebanon-crisis-cannabis.html | title = Lebanon Legalizes Cannabis Farming for Medicinal Use | work = [[The New York Times]] | agency = [[Reuters]] | date = 21 April 2020 | archive-url = https://web.archive.org/web/20200423112646/https://www.nytimes.com/reuters/2020/04/21/world/middleeast/21reuters-lebanon-crisis-cannabis.html | archive-date = 23 April 2020 | url-status=dead }}</ref>",
+  "recreational_status": "Illegal",
+  "medical_status": "Legal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

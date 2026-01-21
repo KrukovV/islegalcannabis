@@ -1,0 +1,37 @@
+{
+  "geo_key": "FR",
+  "name_in_wiki": "France",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/France",
+  "row_ref": "country:56",
+  "wiki_rec": "Legal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in France",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_France"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in France",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_France"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in France",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_France"
+    }
+  ],
+  "notes_text": "Possession up to entails a €200 fine since November 2018, although a judge is still legally able to pronounce a stricter sentence. Medical use of some cannabinoid drugs legalized in 2013.",
+  "notes_text_len": 187,
+  "notes": "Possession up to entails a €200 fine since November 2018, although a judge is still legally able to pronounce a stricter sentence. Medical use of some cannabinoid drugs legalized in 2013.",
+  "notes_raw": "{{main|Cannabis in France}} Possession up to {{cvt|100|g|frac=2}} entails a €200 fine since November 2018,<ref>{{Cite news|date=31 August 2020|title=L'amende forfaitaire pour les fumeurs de cannabis généralisée mardi|url=https://www.leparisien.fr/faits-divers/l-amende-forfaitaire-pour-les-fumeurs-de-cannabis-generalisee-mardi-31-08-2020-8376006.php|work=[[Le Parisien]]|language=fr-FR|access-date=31 March 2021|archive-date=5 March 2021|archive-url=https://web.archive.org/web/20210305204027/https://www.leparisien.fr/faits-divers/l-amende-forfaitaire-pour-les-fumeurs-de-cannabis-generalisee-mardi-31-08-2020-8376006.php|url-status=live}}</ref> although a judge is still legally able to pronounce a stricter sentence.<ref>{{Cite web|last=Forbes|date=9 February 2021|title=Cannabis : vers une dépénalisation en France ?|url=https://www.forbes.fr/business/cannabis-vers-une-depenalisation-en-france/|access-date=1 April 2021|website=Forbes France|language=fr-FR|archive-date=20 April 2021|archive-url=https://web.archive.org/web/20210420204537/https://www.forbes.fr/business/cannabis-vers-une-depenalisation-en-france/|url-status=live}}</ref> Medical use of some cannabinoid drugs legalized in 2013.<ref>{{cite news|title=Legalising or decriminalizing cannabis in France: not that easy|url=http://www.euronews.com/2013/11/06/france-legalising-or-decriminalizing-cannabis-not-that-easy|access-date=15 December 2013|publisher=[[Euronews]]|date=6 November 2013|author=Marie Jamet|archive-date=26 December 2018|archive-url=https://web.archive.org/web/20181226021356/https://www.euronews.com/2013/11/06/france-legalising-or-decriminalizing-cannabis-not-that-easy|url-status=live}}</ref><ref>{{cite news|title=French law on pot-based medicine takes effect|url=http://www.thelocal.fr/20130610/legalized-cannabis-tea-could-be-on-drug-menu-for-french-patients-in-pharmacies|access-date=15 December 2013|work=[[The Local]]|date=10 June 2013|author=Ann Törnkvist|archive-date=26 December 2018|archive-url=https://web.archive.org/web/20181226021452/https://www.thelocal.fr/20130610/legalized-cannabis-tea-could-be-on-drug-menu-for-french-patients-in-pharmacies|url-status=live}}</ref>",
+  "recreational_status": "Legal",
+  "medical_status": "Legal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

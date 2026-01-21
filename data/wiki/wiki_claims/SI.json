@@ -1,0 +1,37 @@
+{
+  "geo_key": "SI",
+  "name_in_wiki": "Slovenia",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Slovenia",
+  "row_ref": "country:145",
+  "wiki_rec": "Legal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in Slovenia",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Slovenia"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Slovenia",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Slovenia"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Slovenia",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Slovenia"
+    }
+  ],
+  "notes_text": "Medical cannabis legalized in 2025. Prior to 2025, cannabis-based drugs were legal for medicinal use, but not cannabis itself. Possession of any drug for personal use is decriminalized.",
+  "notes_text_len": 185,
+  "notes": "Medical cannabis legalized in 2025. Prior to 2025, cannabis-based drugs were legal for medicinal use, but not cannabis itself. Possession of any drug for personal use is decriminalized.",
+  "notes_raw": "{{main|Cannabis in Slovenia}} Medical cannabis legalized in 2025.<ref>{{cite news |title=Slovenia legalises medical marijuana |url=https://sloveniatimes.com/44182/slovenia-legalises-medical-marijuana |access-date=5 August 2025 |work=The Slovenia Times |date=16 July 2025}}</ref><ref>{{cite news |title=Slovenian Parliament overturns vetoes on key-laws |url=https://www.ansa.it/nuova_europa/en/news/countries/slovenia/2025/07/24/slovenian-parliament-overturns-vetoes-on-key-laws_c5deaf5f-5a50-4b48-86a1-1b2f3473765c.html |access-date=5 August 2025 |work=Nueova Europa |date=25 July 2025}}</ref> Prior to 2025, cannabis-based drugs were legal for medicinal use, but not cannabis itself.<ref>{{cite web|url=http://www.rtvslo.si/zdravje/novice/slovenija-dovolila-uporabo-konoplje-v-medicinske-namene/339830|title=Slovenija dovolila uporabo konoplje v medicinske namene|work=Prvi interaktivni multimedijski portal, MMC RTV Slovenija|access-date=14 January 2015|archive-date=26 December 2018|archive-url=https://web.archive.org/web/20181226021417/https://www.rtvslo.si/zdravje/novice/slovenija-dovolila-uporabo-konoplje-v-medicinske-namene/339830|url-status=live}}</ref><ref>{{cite web|url=http://www.nijz.si/uporaba-konoplje-v-medicini|title=Uporaba konoplje v medicini|work=NIJZ|date=19 June 2014|access-date=12 September 2015|archive-date=3 August 2021|archive-url=https://web.archive.org/web/20210803080141/https://www.nijz.si/uporaba-konoplje-v-medicini|url-status=live}}</ref> Possession of any drug for personal use is decriminalized.<ref>{{cite web|url=https://www.uradni-list.si/1/content?id=23256|title=Zakon o proizvodnji in prometu s prepovedanimi drogami (ZPPPD)|work=Uradni List|access-date=12 September 2015|archive-date=10 September 2016|archive-url=https://web.archive.org/web/20160910215506/http://www.uradni-list.si/1/content?id=23256|url-status=live}}</ref>",
+  "recreational_status": "Legal",
+  "medical_status": "Legal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

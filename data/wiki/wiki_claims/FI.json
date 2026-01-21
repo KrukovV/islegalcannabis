@@ -1,0 +1,37 @@
+{
+  "geo_key": "FI",
+  "name_in_wiki": "Finland",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Finland",
+  "row_ref": "country:55",
+  "wiki_rec": "Legal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in Finland",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Finland"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Finland",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Finland"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Finland",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Finland"
+    }
+  ],
+  "notes_text": "Personal use is generally not prosecuted in court but subject to summary fine. Medicinal cannabis possible under a special license since 2006; in 2014, 223 licenses were issued.",
+  "notes_text_len": 177,
+  "notes": "Personal use is generally not prosecuted in court but subject to summary fine. Medicinal cannabis possible under a special license since 2006; in 2014, 223 licenses were issued.",
+  "notes_raw": "{{main|Cannabis in Finland}} Personal use is generally not prosecuted in court but subject to summary fine. Medicinal cannabis possible under a special license since 2006; in 2014, 223 licenses were issued.<ref>{{cite web|last1=Silvàn|first1=Sini|title=Lääkekannabis edelleen marginaalinen lääke|date=20 April 2015 |url=http://yle.fi/aihe/artikkeli/2015/04/20/laakekannabis-edelleen-marginaalinen-laake|publisher=YLE|access-date=6 December 2016|language=fi|archive-date=21 July 2018|archive-url=https://web.archive.org/web/20180721162214/https://yle.fi/aihe/artikkeli/2015/04/20/laakekannabis-edelleen-marginaalinen-laake|url-status=live}}</ref>",
+  "recreational_status": "Legal",
+  "medical_status": "Legal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

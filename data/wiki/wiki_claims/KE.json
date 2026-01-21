@@ -1,0 +1,37 @@
+{
+  "geo_key": "KE",
+  "name_in_wiki": "Kenya",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Kenya",
+  "row_ref": "country:81",
+  "wiki_rec": "Illegal",
+  "wiki_med": "Illegal",
+  "sources": [
+    {
+      "title": "Cannabis in Kenya",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kenya"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Kenya",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kenya"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Kenya",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kenya"
+    }
+  ],
+  "notes_text": "",
+  "notes_text_len": 0,
+  "notes": "",
+  "notes_raw": "{{main|Cannabis in Kenya}}",
+  "recreational_status": "Illegal",
+  "medical_status": "Illegal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

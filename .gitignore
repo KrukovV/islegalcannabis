@@ -52,7 +52,11 @@ Reports/**
 data/source_snapshots/**
 .checkpoints/**
 Artifacts/backups/**
+Artifacts/git_blocked
 Artifacts/git_blocked/**
+Artifacts/git_bundle/**
+Artifacts/net_probe/**
+Artifacts/runs/**
 Artifacts/**/*.tgz
 data/wiki/cache/**
 **/*.log

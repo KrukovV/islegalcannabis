@@ -1,0 +1,37 @@
+{
+  "geo_key": "PH",
+  "name_in_wiki": "Philippines",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Philippines",
+  "row_ref": "country:128",
+  "wiki_rec": "Illegal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in the Philippines",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Philippines"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in the Philippines",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Philippines"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in the Philippines",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Philippines"
+    }
+  ],
+  "notes_text": "Medical use of cannabis is possible with a special permit from the Food and Drugs Authority for use by individuals with serious or terminal illness.",
+  "notes_text_len": 148,
+  "notes": "Medical use of cannabis is possible with a special permit from the Food and Drugs Authority for use by individuals with serious or terminal illness.",
+  "notes_raw": "{{main|Cannabis in the Philippines}} Medical use of cannabis is possible with a special permit from the Food and Drugs Authority for use by individuals with serious or terminal illness.<ref>{{cite news |last1=Viray |first1=Patricia Lourdes |title=Fact check: Is medical marijuana already allowed in the Philippines? |url=https://www.philstar.com/headlines/2018/12/18/1878036/fact-check-medical-marijuana-already-allowed-philippines |access-date=28 December 2018 |work=[[The Philippine Star]] |date=18 December 2018 |archive-date=20 December 2018 |archive-url=https://web.archive.org/web/20181220091203/https://www.philstar.com/headlines/2018/12/18/1878036/fact-check-medical-marijuana-already-allowed-philippines |url-status=live }}</ref>",
+  "recreational_status": "Illegal",
+  "medical_status": "Legal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

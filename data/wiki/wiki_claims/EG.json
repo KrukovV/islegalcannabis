@@ -1,0 +1,37 @@
+{
+  "geo_key": "EG",
+  "name_in_wiki": "Egypt",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Egypt",
+  "row_ref": "country:48",
+  "wiki_rec": "Legal",
+  "wiki_med": "Illegal",
+  "sources": [
+    {
+      "title": "Cannabis in Egypt",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Egypt"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Egypt",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Egypt"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Egypt",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Egypt"
+    }
+  ],
+  "notes_text": "Illegal since 1925 but use is widespread. Convictions for personal use are rare. Formerly a plant of high status with several documented medicinal uses in ancient times.",
+  "notes_text_len": 169,
+  "notes": "Illegal since 1925 but use is widespread. Convictions for personal use are rare. Formerly a plant of high status with several documented medicinal uses in ancient times.",
+  "notes_raw": "{{main|Cannabis in Egypt}} Illegal since 1925<ref>{{citation |url = http://sensiseeds.com/en/blog/cannabis-egypt |title = Cannabis in Egypt |publisher = The Sensi Seed Bank |author = Seshata |work = Sensi Seeds Blog |date = 27 December 2013 |access-date = 20 January 2014 |archive-date = 29 June 2019 |archive-url = https://web.archive.org/web/20190629104604/https://sensiseeds.com/en/blog/cannabis-egypt/ |url-status = live }}</ref> but use is widespread. Convictions for personal use are rare.<ref>{{citation |url = http://blogs.abcnews.com/theworldnewser/2010/05/egypts-pot-problem-a-marijuana-shortage.html |title = Egypt's Pot Problem? A Marijuana Shortage |publisher = [[ABC News (United States)|ABC News]] |last = Hasan |first = Lama |date = 5 May 2010 |access-date = 31 January 2011 |url-status = dead |archive-url = https://web.archive.org/web/20110301233324/http://blogs.abcnews.com/theworldnewser/2010/05/egypts-pot-problem-a-marijuana-shortage.html |archive-date = 1 March 2011}}</ref> Formerly a plant of high status with several documented medicinal uses in ancient times.",
+  "recreational_status": "Legal",
+  "medical_status": "Illegal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

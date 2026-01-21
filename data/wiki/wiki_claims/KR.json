@@ -1,0 +1,37 @@
+{
+  "geo_key": "KR",
+  "name_in_wiki": "Korea, South",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Korea%2C_South",
+  "row_ref": "country:84",
+  "wiki_rec": "Illegal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in South Korea",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_South_Korea"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in South Korea",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_South_Korea"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in South Korea",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_South_Korea"
+    }
+  ],
+  "notes_text": "Medical use of cannabis was legalized in November 2018. The plant itself, however, remains unavailable due to a policy implemented by the Ministry of Food and Drug Safety.",
+  "notes_text_len": 171,
+  "notes": "Medical use of cannabis was legalized in November 2018. The plant itself, however, remains unavailable due to a policy implemented by the Ministry of Food and Drug Safety.",
+  "notes_raw": "{{main|Cannabis in South Korea}} Medical use of cannabis was legalized in November 2018. The plant itself, however, remains unavailable due to a policy implemented by the [[Ministry of Food and Drug Safety]].<ref>{{cite news|url=https://www.ft.com/content/ff715088-f2ba-11e8-ae55-df4bf40f9d0d|title=South Korea legalises medical marijuana|work=[[Financial Times]]|access-date=29 November 2018|archive-url=https://archive.today/20181214110836/https://www.ft.com/content/ff715088-f2ba-11e8-ae55-df4bf40f9d0d|archive-date=14 December 2018|url-status=live|url-access=subscription}}</ref>",
+  "recreational_status": "Illegal",
+  "medical_status": "Legal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

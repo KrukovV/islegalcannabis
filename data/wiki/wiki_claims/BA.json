@@ -1,0 +1,37 @@
+{
+  "geo_key": "BA",
+  "name_in_wiki": "Bosnia and Herzegovina",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Bosnia_and_Herzegovina",
+  "row_ref": "country:21",
+  "wiki_rec": "Illegal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in Bosnia and Herzegovina",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bosnia_and_Herzegovina"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Bosnia and Herzegovina",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bosnia_and_Herzegovina"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Bosnia and Herzegovina",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bosnia_and_Herzegovina"
+    }
+  ],
+  "notes_text": "In 2016, the Ministry of Civil Affairs formed a task force to explore the legalization of cannabis and cannabinoids for medicinal purposes.",
+  "notes_text_len": 139,
+  "notes": "In 2016, the Ministry of Civil Affairs formed a task force to explore the legalization of cannabis and cannabinoids for medicinal purposes.",
+  "notes_raw": "{{main|Cannabis in Bosnia and Herzegovina}} In 2016, the Ministry of Civil Affairs formed a task force to explore the legalization of cannabis and [[cannabinoids]] for medicinal purposes.<ref>{{cite web |url=http://www.bosniatoday.ba/bosnia-to-legalize-medical-marijuana-this-year/ |title=Bosnia to legalize medical marijuana this year |website=Bosnia Today |access-date=30 November 2016 |url-status=dead |archive-url=https://web.archive.org/web/20160924221422/http://www.bosniatoday.ba/bosnia-to-legalize-medical-marijuana-this-year/ |archive-date=24 September 2016}}</ref><ref>{{cite web |url=https://n1info.hr/regija/bih-legalizirala-medicinski-kanabis/ |title=BiH legalizirala medicinski kanabis |language=bs |website=n1info.hr |date=2025-12-29 |access-date=2026-01-10}}</ref>",
+  "recreational_status": "Illegal",
+  "medical_status": "Legal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

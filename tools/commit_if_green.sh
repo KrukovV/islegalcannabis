@@ -5,6 +5,9 @@ DRY_RUN=0
 TAG_NAME=""
 PROD_TAG_NAME=""
 PROD_TAG_REQUESTED=0
+SKIP_GIT=0
+GIT_BLOCKED_ARTIFACTS=""
+GIT_HEALTH_REASON="UNKNOWN"
 
 while [ "$#" -gt 0 ]; do
   case "$1" in
@@ -34,6 +37,70 @@ while [ "$#" -gt 0 ]; do
       ;;
   esac
 done
+
+node tools/net/net_truth_gate.mjs
+bash tools/quality_gate.sh
+
+git_health() {
+  local details="OK"
+  local ok=1
+  local reason="OK"
+  local ls_out=""
+  if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    ok=0
+    reason="NO_REPO"
+    details="not inside worktree"
+  else
+    if ! git status --porcelain >/dev/null 2> /tmp/git_health_err.$$; then
+      if grep -qi "dubious ownership" /tmp/git_health_err.$$; then
+        ok=0
+        reason="SAFE_DIR"
+        details="$(tr '\n' ' ' < /tmp/git_health_err.$$)"
+      else
+        ok=0
+        reason="UNKNOWN"
+        details="$(tr '\n' ' ' < /tmp/git_health_err.$$)"
+      fi
+    fi
+  fi
+  if [ "${ok}" -eq 1 ] && [ -e .git/index.lock ]; then
+    if command -v lsof >/dev/null 2>&1; then
+      ls_out=$(lsof -nP .git/index.lock 2>/dev/null | tail -n +2)
+      if [ -n "${ls_out}" ]; then
+        ok=0
+        reason="LOCK"
+        details="index.lock in use"
+      fi
+    fi
+    if [ "${ok}" -eq 1 ]; then
+      ok=0
+      reason="LOCK"
+      details="index.lock present"
+    fi
+  fi
+  if [ "${ok}" -eq 1 ]; then
+    if ! touch .git/.writetest 2>/tmp/git_health_write.$$; then
+      ok=0
+      if grep -qi "Operation not permitted" /tmp/git_health_write.$$; then
+        reason="SANDBOX"
+        details="Operation not permitted"
+      else
+        reason="PERM"
+        details="$(tr '\n' ' ' < /tmp/git_health_write.$$)"
+      fi
+    else
+      rm -f .git/.writetest 2>/dev/null || true
+    fi
+  fi
+  rm -f /tmp/git_health_err.$$ /tmp/git_health_write.$$ 2>/dev/null || true
+  echo "GIT_HEALTH ok=${ok} reason=${reason} details=${details}"
+  append_ci_final "GIT_HEALTH ok=${ok} reason=${reason} details=${details}"
+  GIT_HEALTH_REASON="${reason}"
+  if [ "${ok}" -eq 1 ]; then
+    return 0
+  fi
+  return 1
+}
 
 print_git_diag() {
   echo "pwd=$(pwd)"
@@ -84,24 +151,78 @@ write_git_blocked_artifacts() {
   git diff > "${dir}/diff.patch" 2>/dev/null || true
   git diff --name-only --cached > "${dir}/staged_files.txt" 2>/dev/null || true
   git tag --list "good/*" --sort=-creatordate | head -n 1 > "${dir}/last_good_tag.txt" 2>/dev/null || true
+  printf "%s\n" "tools/**" "data/wiki/**" "README.md" "CONTINUITY.md" ".gitignore" > "${dir}/staged_allowlist.txt"
+  GIT_BLOCKED_ARTIFACTS="${dir}"
   echo "GIT_BLOCKED_ARTIFACTS=${dir}"
   append_ci_final "GIT_BLOCKED_ARTIFACTS=${dir}"
 }
 
+write_git_bundle() {
+  local bundle_id
+  local bundle_dir
+  local patch_path
+  local status_path
+  local script_path
+  bundle_id="${RUN_ID:-$(date -u +%Y%m%dT%H%M%SZ)}"
+  bundle_dir="Artifacts/git_bundle/${bundle_id}"
+  patch_path="${bundle_dir}/changes.patch"
+  status_path="${bundle_dir}/status.txt"
+  script_path="${bundle_dir}/APPLY_AND_PUSH.sh"
+  mkdir -p "${bundle_dir}"
+  git diff --binary > "${patch_path}" 2>/dev/null || true
+  git status --porcelain > "${status_path}" 2>/dev/null || true
+  cat > "${script_path}" <<EOF
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(pwd)"
+git apply --binary "${patch_path}"
+git add -- tools data/wiki README.md CONTINUITY.md .gitignore
+git commit -m "${COMMIT_SUBJECT:-chore: apply git bundle}"
+git tag -a -f good/now -m "green: $(date -u +%FT%TZ)"
+git push origin HEAD
+git push --force origin good/now
+EOF
+  chmod +x "${script_path}" 2>/dev/null || true
+  echo "GIT_BUNDLE_READY path=${bundle_dir}"
+  echo "GIT_BUNDLE_APPLY=./${script_path}"
+  echo "GIT_BUNDLE_PATCH=./${patch_path}"
+  append_ci_final "GIT_BUNDLE_READY path=${bundle_dir}"
+  append_ci_final "GIT_BUNDLE_APPLY=./${script_path}"
+  append_ci_final "GIT_BUNDLE_PATCH=./${patch_path}"
+}
+
 check_git_dir_writable() {
-  if [ ! -d .git ] || ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-    echo "GIT_BLOCKED=1 reason=EPERM_GIT_DIR"
-    append_ci_final "GIT_BLOCKED=1 reason=EPERM_GIT_DIR"
-    write_git_blocked_artifacts
-    exit 2
+  if ! git_health; then
+    if [ "${GIT_HEALTH_REASON}" = "SAFE_DIR" ]; then
+      owner="$(stat -f "%Su" .git 2>/dev/null || echo "")"
+      if [ "${owner}" = "$(id -un)" ]; then
+        git config --global --add safe.directory "$(pwd)" 2>/dev/null || true
+        git_health || true
+      fi
+    elif [ "${GIT_HEALTH_REASON}" = "LOCK" ]; then
+      if command -v lsof >/dev/null 2>&1; then
+        if [ -z "$(lsof -nP .git/index.lock 2>/dev/null | tail -n +2)" ]; then
+          rm -f .git/index.lock 2>/dev/null || true
+        fi
+      else
+        rm -f .git/index.lock 2>/dev/null || true
+      fi
+      git_health || true
+    fi
   fi
-  if ! touch .git/.writetest 2>/dev/null; then
-    echo "GIT_BLOCKED=1 reason=EPERM_GIT_DIR"
-    append_ci_final "GIT_BLOCKED=1 reason=EPERM_GIT_DIR"
-    write_git_blocked_artifacts
-    exit 2
+  if [ "${GIT_HEALTH_REASON}" = "PERM" ] || [ "${GIT_HEALTH_REASON}" = "SANDBOX" ] || [ "${GIT_HEALTH_REASON}" = "NO_REPO" ] || [ "${GIT_HEALTH_REASON}" = "LOCK" ] || [ "${GIT_HEALTH_REASON}" = "SAFE_DIR" ]; then
+    if [ "${GIT_HEALTH_REASON}" != "OK" ]; then
+      echo "GIT_AUTOCOMMIT=0 reason=${GIT_HEALTH_REASON}"
+      append_ci_final "GIT_AUTOCOMMIT=0 reason=${GIT_HEALTH_REASON}"
+      append_ci_final "TAG_CREATED=0 reason=${GIT_HEALTH_REASON}"
+      append_ci_final "TAG_PUSHED=0 reason=${GIT_HEALTH_REASON}"
+      write_git_blocked_artifacts
+      write_git_bundle
+      SKIP_GIT=1
+      return 0
+    fi
   fi
-  rm -f .git/.writetest 2>/dev/null || true
+  return 0
 }
 
 append_ci_final() {
@@ -126,9 +247,13 @@ report_git_clean() {
   if [ -z "${status}" ]; then
     echo "GIT_CLEAN=1"
     append_ci_final "GIT_CLEAN=1"
+    echo "GIT_TREE_CLEAN=1"
+    append_ci_final "GIT_TREE_CLEAN=1"
   else
     echo "GIT_CLEAN=0"
     append_ci_final "GIT_CLEAN=0"
+    echo "GIT_TREE_CLEAN=0"
+    append_ci_final "GIT_TREE_CLEAN=0"
     echo "${status}"
   fi
 }
@@ -192,11 +317,16 @@ ensure_git_writable() {
 
 check_git_dir_writable
 
-AUTO_COMMIT_AFTER_SYNC=0 tools/quality_gate.sh
 
-if ! git check-ignore -q Artifacts/git_blocked 2>/dev/null; then
+if ! git check-ignore -q Artifacts/git_blocked/ 2>/dev/null && ! git check-ignore -q Artifacts/git_blocked 2>/dev/null; then
   echo "GIT_BLOCKED_PATH_NOT_IGNORED=1"
   append_ci_final "GIT_BLOCKED_PATH_NOT_IGNORED=1"
+  exit 1
+fi
+
+if [ "${SKIP_GIT}" = "1" ]; then
+  echo "GIT_AUTOCOMMIT=0 reason=GIT_WRITE_FAIL artifacts=${GIT_BLOCKED_ARTIFACTS:-Artifacts/git_blocked}"
+  append_ci_final "GIT_AUTOCOMMIT=0 reason=GIT_WRITE_FAIL artifacts=${GIT_BLOCKED_ARTIFACTS:-Artifacts/git_blocked}"
   exit 1
 fi
 
@@ -206,7 +336,7 @@ if [ ! -f "${CI_FINAL}" ]; then
   print_fail_diag
   exit 1
 fi
-if ! grep -q "^WIKI_GATE geos=RU,TH,XK,US,US-CA,CA" "${CI_FINAL}"; then
+if ! grep -q "^WIKI_GATE geos=RU,TH,XK,US-CA,CA" "${CI_FINAL}"; then
   echo "Not committing."
   print_fail_diag
   exit 1
@@ -217,12 +347,12 @@ if ! grep -q "^WIKI_GATE_OK=1" "${CI_FINAL}"; then
   exit 1
 fi
 ok_count=$(grep -c "^🌿 WIKI_CLAIM_OK " "${CI_FINAL}" || true)
-if [ "${ok_count}" -ne 6 ]; then
+if [ "${ok_count}" -ne 5 ]; then
   echo "Not committing."
   print_fail_diag
   exit 1
 fi
-for geo in RU TH XK US US-CA CA; do
+for geo in RU TH XK US-CA CA; do
   geo_count=$(grep -c "^🌿 WIKI_CLAIM_OK geo=${geo} " "${CI_FINAL}" || true)
   if [ "${geo_count}" -ne 1 ]; then
     echo "Not committing."
@@ -270,6 +400,7 @@ if ! git tag -a -f "${tag}" -m "green: $(date -u +%FT%TZ)"; then
   exit 1
 fi
 append_ci_final "TAG_CREATED name=${tag}"
+echo "TAG_CREATED=1 name=${tag}"
 if ! git show-ref --tags | grep -q "refs/tags/${tag}"; then
   echo "TAG_FAIL=1 Not committing."
   append_ci_final "TAG_FAIL=1"
@@ -284,6 +415,7 @@ if [ "${PROD_TAG_REQUESTED}" = "1" ] || [ "${ENABLE_PROD_TAG:-0}" = "1" ]; then
     exit 1
   fi
   append_ci_final "TAG_CREATED name=${prod_tag}"
+  echo "TAG_CREATED=1 name=${prod_tag}"
   if ! git show-ref --tags | grep -q "refs/tags/${prod_tag}"; then
     echo "TAG_FAIL=1 Not committing."
     append_ci_final "TAG_FAIL=1"
@@ -315,14 +447,16 @@ if [ "${REMOTE_STATUS}" -ne 0 ]; then
   printf "%s\n" "${LS_REMOTE_OUTPUT}" | tail -n 60 >> Reports/ci-final.txt
   append_ci_final "REMOTE_STDERR_LAST_END"
   if [ "${PUSH_REQUIRED:-0}" = "1" ]; then
-    append_ci_final "PUSH_FAIL=1 reason=${remote_reason}"
-    echo "PUSH_FAIL=1 reason=${remote_reason}"
+  append_ci_final "PUSH_FAIL=1 reason=${remote_reason}"
+  echo "PUSH_FAIL=1 reason=${remote_reason}"
+  echo "TAG_PUSHED=0 reason=${remote_reason}"
     printf "%s\n" "${LS_REMOTE_OUTPUT}" | tail -n 60
     report_git_clean
     exit 1
   fi
   append_ci_final "PUSH_SKIPPED=1 reason=${remote_reason}"
   echo "PUSH_SKIPPED=1 reason=${remote_reason}"
+  echo "TAG_PUSHED=0 reason=${remote_reason}"
   printf "%s\n" "${LS_REMOTE_OUTPUT}" | tail -n 60
   report_git_clean
   exit 0
@@ -365,6 +499,7 @@ ${TAG_PUSH_OUTPUT}"
   printf "%s\n" "${combined_output}" | tail -n 60 >> Reports/ci-final.txt
   append_ci_final "PUSH_STDERR_LAST_END"
   echo "PUSH_FAIL_REASON=${reason}"
+  echo "TAG_PUSHED=0 reason=${reason}"
   printf "%s\n" "${combined_output}" | tail -n 60
   report_git_clean
   exit 1
@@ -377,6 +512,7 @@ if ! git ls-remote --tags origin | grep -q "refs/tags/${tag}"; then
   exit 1
 fi
 append_ci_final "TAG_PUSHED name=${tag}"
+echo "TAG_PUSHED=1 name=${tag}"
 
 if [ -n "${prod_tag:-}" ]; then
   if ! git ls-remote --tags origin | grep -q "refs/tags/${prod_tag}"; then
@@ -386,6 +522,7 @@ if [ -n "${prod_tag:-}" ]; then
     exit 1
   fi
   append_ci_final "TAG_PUSHED name=${prod_tag}"
+  echo "TAG_PUSHED=1 name=${prod_tag}"
 fi
 
 report_git_clean

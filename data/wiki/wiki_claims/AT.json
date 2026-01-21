@@ -1,0 +1,37 @@
+{
+  "geo_key": "AT",
+  "name_in_wiki": "Austria",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Austria",
+  "row_ref": "country:9",
+  "wiki_rec": "Legal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in Austria",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Austria"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Austria",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Austria"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Austria",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Austria"
+    }
+  ],
+  "notes_text": "",
+  "notes_text_len": 0,
+  "notes": "",
+  "notes_raw": "{{main|Cannabis in Austria}}",
+  "recreational_status": "Legal",
+  "medical_status": "Legal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

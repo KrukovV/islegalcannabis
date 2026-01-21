@@ -1,0 +1,37 @@
+{
+  "geo_key": "BR",
+  "name_in_wiki": "Brazil",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Brazil",
+  "row_ref": "country:23",
+  "wiki_rec": "Legal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in Brazil",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Brazil"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Brazil",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Brazil"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Brazil",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Brazil"
+    }
+  ],
+  "notes_text": "Legislation passed in 2006 to require treatment and community service for possessing small amounts of drugs instead of jail time. Possession of large amounts, as well as sale, transportation, and cultivation, are considered drug trafficking.",
+  "notes_text_len": 241,
+  "notes": "Legislation passed in 2006 to require treatment and community service for possessing small amounts of drugs instead of jail time. Possession of large amounts, as well as sale, transportation, and cultivation, are considered drug trafficking.",
+  "notes_raw": "{{main|Cannabis in Brazil}} Legislation passed in 2006 to require treatment and community service for possessing small amounts of drugs instead of jail time.<ref>{{cite news |last1=Smith |first1=Phillip |title=Brazilian President Signs New Drug Law – No Jail for Users |url=https://stopthedrugwar.org/chronicle/2006/aug/31/feature_brazilian_president_sign |access-date=3 August 2021 |work=stopthedrugwar.org |date=31 August 2006 |archive-date=3 August 2021 |archive-url=https://web.archive.org/web/20210803165114/https://stopthedrugwar.org/chronicle/2006/aug/31/feature_brazilian_president_sign |url-status=live }}</ref> Possession of large amounts, as well as sale, transportation, and cultivation, are considered drug trafficking.<ref>{{cite web |author1=Congresso Nacional |author-link1=Congress of Brazil |title=Lei nº 11.343 |url=http://www.planalto.gov.br/ccivil_03/_Ato2004-2006/2006/Lei/L11343.htm |website=www.planalto.gov.br |publisher=Presidência da República – Casa Civil |location=Brasília |language=pt-br |date=23 August 2006 |access-date=13 October 2009 |archive-date=25 November 2018 |archive-url=https://web.archive.org/web/20181125030720/http://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/lei/l11343.htm |url-status=live }}</ref>",
+  "recreational_status": "Legal",
+  "medical_status": "Legal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

@@ -1,0 +1,37 @@
+{
+  "geo_key": "BD",
+  "name_in_wiki": "Bangladesh",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Bangladesh",
+  "row_ref": "country:12",
+  "wiki_rec": "Legal",
+  "wiki_med": "Illegal",
+  "sources": [
+    {
+      "title": "Cannabis in Bangladesh",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bangladesh"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Bangladesh",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bangladesh"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Bangladesh",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bangladesh"
+    }
+  ],
+  "notes_text": "Sale banned in 1989, but laws are rarely enforced and cannabis is openly sold in many parts of the country.",
+  "notes_text_len": 107,
+  "notes": "Sale banned in 1989, but laws are rarely enforced and cannabis is openly sold in many parts of the country.",
+  "notes_raw": "{{main|Cannabis in Bangladesh}} Sale banned in 1989,<ref>{{cite web |url=http://dhakainsider.com/bangladesh-news/drug-abuse-where-is-the-way-of-remedy-part-ii-some-dangerous-silent-killers/ |title=Drug Abuse: Where is The Way of Remedy? (Part II- Some Dangerous Silent Killers) |publisher=DhakaInsider |date=20 June 2014 |access-date=15 November 2016 |archive-url=https://web.archive.org/web/20161115140731/http://dhakainsider.com/bangladesh-news/drug-abuse-where-is-the-way-of-remedy-part-ii-some-dangerous-silent-killers/ |archive-date=15 November 2016 |url-status=dead}}</ref> but laws are rarely enforced and cannabis is openly sold in many parts of the country.<ref>{{cite web |author1=Government of Bangladesh |author-link1=Government of Bangladesh |title=Narcotics Substances Control Act, 2018 |url=http://bdlaws.minlaw.gov.bd/act-details-1276.html |access-date=11 November 2016 |archive-date=11 October 2019 |archive-url=https://web.archive.org/web/20191011034412/http://bdlaws.minlaw.gov.bd/act-details-1276.html |url-status=live }}</ref><ref>{{cite web |title=Dhaka, Bangladesh – We Be High |url=http://webehigh.org/dhaka-bangladesh/ |website=webehigh.org |publisher=webehigh |access-date=5 December 2015 |archive-date=30 June 2018 |archive-url=https://web.archive.org/web/20180630024753/http://webehigh.org/dhaka-bangladesh/ |url-status=live }}</ref>",
+  "recreational_status": "Legal",
+  "medical_status": "Illegal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

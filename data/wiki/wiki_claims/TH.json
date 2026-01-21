@@ -2,30 +2,36 @@
   "geo_key": "TH",
   "name_in_wiki": "Thailand",
   "wiki_row_url": "https://en.wikipedia.org/wiki/Thailand",
-  "wiki_rec": "Legal",
+  "row_ref": "country:159",
+  "wiki_rec": "Decrim",
   "wiki_med": "Legal",
-  "notes_raw": "Main article: [[Cannabis in Thailand]]",
+  "sources": [
+    {
+      "title": "Cannabis in Thailand",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Thailand"
+    }
+  ],
+  "sources_count": 1,
   "main_articles": [
     {
       "title": "Cannabis in Thailand",
       "url": "https://en.wikipedia.org/wiki/Cannabis_in_Thailand"
     }
   ],
-  "wiki_refs": [
-    {
-      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Thailand",
-      "title": "Cannabis in Thailand",
-      "source": "main_article"
-    }
-  ],
-  "recreational_status": "Legal",
-  "medical_status": "Legal",
   "notes_main_articles": [
     {
       "title": "Cannabis in Thailand",
       "url": "https://en.wikipedia.org/wiki/Cannabis_in_Thailand"
     }
   ],
-  "wiki_revision_id": "fixture",
-  "fetched_at": "2026-01-21T12:28:39.256Z"
+  "notes_text": "Criminalized in 1935, medical use legalized in 2018. Recreational use legalized in 2022 for those aged 20 and over. Unprescribed products with over 0.2% THC were recriminalized in 2025, but this law is often unenforced.",
+  "notes_text_len": 219,
+  "notes": "Criminalized in 1935, medical use legalized in 2018. Recreational use legalized in 2022 for those aged 20 and over. Unprescribed products with over 0.2% THC were recriminalized in 2025, but this law is often unenforced.",
+  "notes_raw": "{{main|Cannabis in Thailand}} Criminalized in 1935, medical use legalized in 2018. Recreational use legalized in 2022 for those aged 20 and over. Unprescribed products with over 0.2% THC were recriminalized in 2025, but this law is often unenforced.<ref>{{cite news |last= Bush |first= Austin |date= 30 August 2022 |title= Cannabis is now legal in Thailand, but it's complicated: what travelers need to know |url= https://www.lonelyplanet.com/news/thailand-cannabis-guide |work= Lonely Planet |access-date= 24 June 2023}}</ref><ref>{{Cite web |date=2025-06-25 |title=Country bans recreational cannabis again in major blow to tourism |url=https://www.independent.co.uk/asia/southeast-asia/thailand-cannabis-illegal-law-b2776598.html |access-date=2025-06-25 |website=The Independent |language=en}}</ref>",
+  "recreational_status": "Decrim",
+  "medical_status": "Legal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
 }

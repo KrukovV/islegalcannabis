@@ -1,0 +1,37 @@
+{
+  "geo_key": "MY",
+  "name_in_wiki": "Malaysia",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Malaysia",
+  "row_ref": "country:98",
+  "wiki_rec": "Illegal",
+  "wiki_med": "Illegal",
+  "sources": [
+    {
+      "title": "Cannabis in Malaysia",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Malaysia"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Malaysia",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Malaysia"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Malaysia",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Malaysia"
+    }
+  ],
+  "notes_text": "Mandatory death penalty for convicted drug traffickers, legally defined as individuals possessing more than of cannabis.",
+  "notes_text_len": 120,
+  "notes": "Mandatory death penalty for convicted drug traffickers, legally defined as individuals possessing more than of cannabis.",
+  "notes_raw": "{{main|Cannabis in Malaysia}} Mandatory death penalty for convicted drug traffickers, legally defined as individuals possessing more than {{cvt|200|g|0}} of cannabis.<ref>{{citation|url=https://travel.state.gov/travel/cis_pa_tw/cis/cis_960.html |title=Malaysia |publisher=[[Bureau of Consular Affairs]] |access-date=17 February 2011 |url-status=dead |archive-url=https://web.archive.org/web/20110217140806/http://travel.state.gov/travel/cis_pa_tw/cis/cis_960.html |archive-date=17 February 2011 }}</ref>",
+  "recreational_status": "Illegal",
+  "medical_status": "Illegal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

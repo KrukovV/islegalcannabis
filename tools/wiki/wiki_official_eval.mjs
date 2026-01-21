@@ -23,7 +23,7 @@ function writeAtomic(file, payload) {
 }
 
 async function main() {
-  const printPerGeo = process.argv.includes("--print");
+  const printPerGeo = process.argv.includes("--print") || process.argv.includes("--diag");
   const payload = readJson(REFS_PATH, null);
   const items = payload?.items && typeof payload.items === "object" ? payload.items : {};
   const geoKeys = Object.keys(items);
@@ -85,8 +85,12 @@ async function main() {
       geo_key: geoKey,
       sources_total: geoTotal,
       sources_official: geoOfficial,
+      total_refs: geoTotal,
+      official: geoOfficial,
+      non_official: geoNonOfficial,
       official_badge: geoOfficial > 0 ? 1 : 0,
       top_official_domains: topHosts,
+      top_official_hosts: topHosts,
       last_checked_at: runAt
     };
   }
@@ -101,7 +105,8 @@ async function main() {
     totals: {
       total_refs: totalRefs,
       official: officialTotal,
-      non_official: nonOfficialTotal
+      non_official: nonOfficialTotal,
+      countries: geoKeys.length
     },
     top_hosts: topHosts,
     items: results
@@ -109,6 +114,9 @@ async function main() {
 
   console.log(
     `OFFICIAL_BADGE: total_links=${totalRefs} official_links=${officialTotal} non_official_links=${nonOfficialTotal} top_official_domains=${topHosts.join(",") || "-"}`
+  );
+  console.log(
+    `OFFICIAL_BADGE_TOTALS countries=${geoKeys.length} official_refs=${officialTotal} non_official_refs=${nonOfficialTotal} refs=${totalRefs}`
   );
   if (printPerGeo) {
     const ordered = Object.values(results)

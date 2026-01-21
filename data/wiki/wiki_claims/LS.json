@@ -1,0 +1,37 @@
+{
+  "geo_key": "LS",
+  "name_in_wiki": "Lesotho",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Lesotho",
+  "row_ref": "country:90",
+  "wiki_rec": "Legal",
+  "wiki_med": "Illegal",
+  "sources": [
+    {
+      "title": "Cannabis in Lesotho",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Lesotho"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Lesotho",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Lesotho"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Lesotho",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Lesotho"
+    }
+  ],
+  "notes_text": "Licensed cultivation allowed for export to other countries. Also widely grown for illicit purposes.",
+  "notes_text_len": 99,
+  "notes": "Licensed cultivation allowed for export to other countries. Also widely grown for illicit purposes.",
+  "notes_raw": "{{main|Cannabis in Lesotho}} Licensed cultivation allowed for export to other countries. Also widely grown for illicit purposes.<ref>{{cite web|url=http://www.okayafrica.com/lesotho-granted-first-legal-marijuana-license-africa/|title=Lesotho Just Granted Africa's First Legal Marijuana License|date=13 September 2017|access-date=5 June 2018|archive-date=27 June 2018|archive-url=https://web.archive.org/web/20180627230922/http://www.okayafrica.com/lesotho-granted-first-legal-marijuana-license-africa/|url-status=live}}</ref><ref>{{cite news |title=Marijuana, mountains and money: How Lesotho is cashing in |url=https://www.bbc.com/news/world-africa-46288374 |access-date=20 January 2019 |publisher=[[BBC News]] |date=28 November 2018 |archive-url=https://web.archive.org/web/20190420011629/https://www.bbc.com/news/world-africa-46288374|archive-date=20 April 2019}}</ref>",
+  "recreational_status": "Legal",
+  "medical_status": "Illegal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

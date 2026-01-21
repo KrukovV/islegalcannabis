@@ -146,7 +146,9 @@ function loadFallbackStateMap() {
 
 const FORCE_REFRESH = process.argv.includes("--refresh") || process.env.WIKI_FORCE_REFRESH === "1";
 const MODE =
-  process.argv.includes("--all") || process.env.WIKI_SYNC_MODE === "all"
+  process.argv.includes("--all") ||
+  process.argv.includes("--all-countries") ||
+  process.env.WIKI_SYNC_MODE === "all"
     ? "all"
     : "smoke";
 const SMOKE_GEOS = new Set(["RU", "TH", "XK", "US-CA", "CA"]);
@@ -156,6 +158,15 @@ async function fetchPageRows(pageTitle, cacheFile) {
   const cachePath = path.join(ROOT, "data", "wiki", "cache", cacheFile);
   const cache = loadCache(cachePath);
   const ageHours = cacheAgeHours(cache);
+  if (process.env.WIKI_CACHE_ONLY === "1") {
+    if (cache?.rows?.length) {
+      console.log(`WIKI_CACHE: page="${pageTitle}" hit=1 age_h=${ageHours?.toFixed(2) ?? "-"} revision=${cache.revision_id || "-"}`);
+      const rows = cache.rows.map((row) => normalizeRowStatuses(row));
+      return { ok: true, rows, revisionId: cache.revision_id || "", fetchedAt: cache.fetched_at || "", pageid: cache.pageid || "" };
+    }
+    console.log(`WIKI_CACHE_ONLY_MISS: page="${pageTitle}"`);
+    return { ok: false, reason: "CACHE_ONLY_MISS", error: "NO_CACHE" };
+  }
   const refresh = FORCE_REFRESH ? true : shouldRefresh(cache, 4);
   const meta = await fetchPageInfo(pageTitle);
   if (!meta.ok) {
@@ -250,11 +261,77 @@ async function main() {
   const countryResult = await fetchPageRows(COUNTRY_PAGE, "legality_of_cannabis.json");
   if (!countryResult.ok) {
     console.error(`ERROR: failed to fetch ${COUNTRY_PAGE} (${countryResult.reason})`);
+    if (process.env.WIKI_CACHE_ONLY === "1" && countryResult.reason === "CACHE_ONLY_MISS") {
+      const existingMap = readJson(MAP_PATH, null);
+      const existingMeta = readJson(META_PATH, null);
+      if (existingMap?.items && existingMeta?.pages) {
+        const mapItems = existingMap.items;
+        const perGeoDir = path.join(ROOT, "data", "wiki", "wiki_claims");
+        fs.mkdirSync(perGeoDir, { recursive: true });
+        for (const [geoKey, entry] of Object.entries(mapItems)) {
+          if (!geoKey || !entry) continue;
+          const filePath = path.join(perGeoDir, `${geoKey}.json`);
+          writeAtomic(filePath, entry);
+        }
+        const metaCounts = existingMeta.counts || {};
+        const totalCount = Number(metaCounts.total || Object.keys(mapItems).length);
+        const countriesCount = Number(metaCounts.countries || 0);
+        const statesCount = Number(metaCounts.states || 0);
+        writeAtomic(META_PATH, {
+          ...existingMeta,
+          fetched_at: runAt,
+          counts: {
+            total: totalCount,
+            countries: countriesCount,
+            states: statesCount
+          }
+        });
+        console.log(`WIKI_CACHE_ONLY_FALLBACK: using existing map`);
+        console.log(
+          `WIKI_SYNC: mode=${MODE === "all" ? "all" : "smoke"} revision_id=${existingMeta.pages[COUNTRY_PAGE]?.revision_id || "-"} countries_count=${countriesCount} states_count=${statesCount} total=${totalCount} links_count=0 revision_changed=0 updated_count=0`
+        );
+        console.log(`WIKI_COUNTRIES_COUNT=${countriesCount} WIKI_STATES_COUNT=${statesCount} WIKI_TOTAL=${totalCount}`);
+        return;
+      }
+    }
     process.exit(countryResult.reason === "NETWORK_FAIL" ? 10 : 2);
   }
   const stateResult = await fetchPageRows(STATE_PAGE, "legality_us_states.json");
   if (!stateResult.ok) {
     console.error(`ERROR: failed to fetch ${STATE_PAGE} (${stateResult.reason})`);
+    if (process.env.WIKI_CACHE_ONLY === "1" && stateResult.reason === "CACHE_ONLY_MISS") {
+      const existingMap = readJson(MAP_PATH, null);
+      const existingMeta = readJson(META_PATH, null);
+      if (existingMap?.items && existingMeta?.pages) {
+        const mapItems = existingMap.items;
+        const perGeoDir = path.join(ROOT, "data", "wiki", "wiki_claims");
+        fs.mkdirSync(perGeoDir, { recursive: true });
+        for (const [geoKey, entry] of Object.entries(mapItems)) {
+          if (!geoKey || !entry) continue;
+          const filePath = path.join(perGeoDir, `${geoKey}.json`);
+          writeAtomic(filePath, entry);
+        }
+        const metaCounts = existingMeta.counts || {};
+        const totalCount = Number(metaCounts.total || Object.keys(mapItems).length);
+        const countriesCount = Number(metaCounts.countries || 0);
+        const statesCount = Number(metaCounts.states || 0);
+        writeAtomic(META_PATH, {
+          ...existingMeta,
+          fetched_at: runAt,
+          counts: {
+            total: totalCount,
+            countries: countriesCount,
+            states: statesCount
+          }
+        });
+        console.log(`WIKI_CACHE_ONLY_FALLBACK: using existing map`);
+        console.log(
+          `WIKI_SYNC: mode=${MODE === "all" ? "all" : "smoke"} revision_id=${existingMeta.pages[COUNTRY_PAGE]?.revision_id || "-"} countries_count=${countriesCount} states_count=${statesCount} total=${totalCount} links_count=0 revision_changed=0 updated_count=0`
+        );
+        console.log(`WIKI_COUNTRIES_COUNT=${countriesCount} WIKI_STATES_COUNT=${statesCount} WIKI_TOTAL=${totalCount}`);
+        return;
+      }
+    }
     process.exit(stateResult.reason === "NETWORK_FAIL" ? 10 : 2);
   }
 
@@ -280,6 +357,7 @@ async function main() {
       notes_main_articles: row.notes_main_articles || [],
       notes_text: row.notes_text || "",
       notes_text_len: (row.notes_text || "").length,
+      notes: row.notes_text || "",
       notes_raw: row.notes_raw || "",
       recreational_status: row.recreational_status,
       medical_status: row.medical_status,
@@ -305,6 +383,7 @@ async function main() {
       notes_main_articles: row.notes_main_articles || [],
       notes_text: row.notes_text || "",
       notes_text_len: (row.notes_text || "").length,
+      notes: row.notes_text || "",
       notes_raw: row.notes_raw || "",
       recreational_status: row.recreational_status,
       medical_status: row.medical_status,
@@ -338,6 +417,7 @@ async function main() {
       notes_main_articles: [],
       notes_text: "",
       notes_text_len: 0,
+      notes: "",
       notes_raw: "",
       recreational_status: "Unknown",
       medical_status: "Unknown",
@@ -363,9 +443,17 @@ async function main() {
   }
   const mapItems = {};
   items.forEach((item) => {
-    mapItems[item.geo_key] = item;
+    const rowRef = String(item.row_ref || "");
+    let source = "unknown";
+    if (rowRef.startsWith("state:")) {
+      source = "states";
+    } else if (rowRef.startsWith("country:")) {
+      source = "countries";
+    }
+    const enriched = { ...item, source, revision_id: item.wiki_revision_id || item.revision_id || "" };
+    mapItems[item.geo_key] = enriched;
   });
-  writeAtomic(OUTPUT_PATH, items);
+  writeAtomic(OUTPUT_PATH, Object.values(mapItems));
   writeAtomic(MAP_PATH, {
     generated_at: runAt,
     items: mapItems
@@ -374,6 +462,7 @@ async function main() {
     metaPrev?.pages?.[COUNTRY_PAGE]?.revision_id !== countryResult.revisionId ||
     metaPrev?.pages?.[STATE_PAGE]?.revision_id !== stateResult.revisionId;
   const totalCount = items.length;
+  const updatedCount = revisionChanged ? totalCount : 0;
   writeAtomic(META_PATH, {
     fetched_at: runAt,
     pages: {
@@ -388,11 +477,20 @@ async function main() {
     missing_countries: missingCountries.slice(0, 10)
   });
 
+  const perGeoDir = path.join(ROOT, "data", "wiki", "wiki_claims");
+  fs.mkdirSync(perGeoDir, { recursive: true });
+  for (const [geoKey, entry] of Object.entries(mapItems)) {
+    if (!geoKey || !entry) continue;
+    const filePath = path.join(perGeoDir, `${geoKey}.json`);
+    writeAtomic(filePath, entry);
+  }
+
   const linkCount = items.reduce((sum, item) => sum + (item.notes_main_articles?.length || 0), 0);
   const modeLabel = MODE === "all" ? "all" : "smoke";
   console.log(
-    `WIKI_SYNC: mode=${modeLabel} revision_id=${countryResult.revisionId} countries_count=${countriesCount} states_count=${stateResult.rows.length} total=${totalCount} links_count=${linkCount} revision_changed=${revisionChanged ? 1 : 0}`
+    `WIKI_SYNC: mode=${modeLabel} revision_id=${countryResult.revisionId} countries_count=${countriesCount} states_count=${stateResult.rows.length} total=${totalCount} links_count=${linkCount} revision_changed=${revisionChanged ? 1 : 0} updated_count=${updatedCount}`
   );
+  console.log(`WIKI_COUNTRIES_COUNT=${countriesCount} WIKI_STATES_COUNT=${stateResult.rows.length} WIKI_TOTAL=${totalCount}`);
   if (missingCountries.length) {
     console.log(`WIKI_MISSING: count=${missingCountries.length} samples=${missingCountries.slice(0, 5).join("|")}`);
   }

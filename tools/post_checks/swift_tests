@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if ! command -v swift >/dev/null 2>&1; then
+  echo "SKIP(swift_tests): not present"
+  exit 0
+fi
+
+if [ -f "Package.swift" ]; then
+  swift test
+  exit $?
+fi
+
+echo "SKIP(swift_tests): no Package.swift"
+exit 0

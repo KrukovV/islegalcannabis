@@ -1,0 +1,37 @@
+{
+  "geo_key": "PY",
+  "name_in_wiki": "Paraguay",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Paraguay",
+  "row_ref": "country:126",
+  "wiki_rec": "Legal",
+  "wiki_med": "Illegal",
+  "sources": [
+    {
+      "title": "Cannabis in Paraguay",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Paraguay"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Paraguay",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Paraguay"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Paraguay",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Paraguay"
+    }
+  ],
+  "notes_text": "The possession of up to of cannabis is not punishable.",
+  "notes_text_len": 54,
+  "notes": "The possession of up to of cannabis is not punishable.",
+  "notes_raw": "{{main|Cannabis in Paraguay}} The possession of up to {{cvt|10|g|frac=8}} of cannabis is not punishable.<ref>{{cite web|url=http://www.druglawreform.info/en/country-information/latin-america/paraguay/item/206-paraguay|title=Paraguay – Drug Law Reform in Latin America|author=TNI|access-date=25 February 2016|archive-date=21 July 2018|archive-url=https://web.archive.org/web/20180721045343/http://www.druglawreform.info/en/country-information/latin-america/paraguay/item/206-paraguay|url-status=live}}</ref><ref>{{cite web|url=http://ea.com.py/v2/en-paraguay-la-posesion-y-consumo-personal-de-la-marihuana-es-legal/|title=En Paraguay, la posesión y consumo personal de la marihuana es legal|work=E'a|access-date=25 February 2016|archive-date=21 July 2018|archive-url=https://web.archive.org/web/20180721044110/http://ea.com.py/v2/en-paraguay-la-posesion-y-consumo-personal-de-la-marihuana-es-legal/|url-status=live}}</ref>",
+  "recreational_status": "Legal",
+  "medical_status": "Illegal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

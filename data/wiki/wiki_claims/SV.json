@@ -1,0 +1,37 @@
+{
+  "geo_key": "SV",
+  "name_in_wiki": "El Salvador",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/El_Salvador",
+  "row_ref": "country:49",
+  "wiki_rec": "Illegal",
+  "wiki_med": "Illegal",
+  "sources": [
+    {
+      "title": "Cannabis in El Salvador",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_El_Salvador"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in El Salvador",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_El_Salvador"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in El Salvador",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_El_Salvador"
+    }
+  ],
+  "notes_text": "",
+  "notes_text_len": 0,
+  "notes": "",
+  "notes_raw": "{{main|Cannabis in El Salvador}}",
+  "recreational_status": "Illegal",
+  "medical_status": "Illegal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

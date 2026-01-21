@@ -1,0 +1,37 @@
+{
+  "geo_key": "PT",
+  "name_in_wiki": "Portugal",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Portugal",
+  "row_ref": "country:130",
+  "wiki_rec": "Legal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in Portugal",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Portugal"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Portugal",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Portugal"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Portugal",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Portugal"
+    }
+  ],
+  "notes_text": "In 2001, Portugal became the first country in the world to decriminalize the use of all drugs.",
+  "notes_text_len": 94,
+  "notes": "In 2001, Portugal became the first country in the world to decriminalize the use of all drugs.",
+  "notes_raw": "{{main|Cannabis in Portugal}} In 2001, Portugal became the first country in the world to decriminalize the use of all drugs.<ref name=\"Emdrug\">{{citation |url = http://www.emcdda.europa.eu/publications/drug-policy-profiles/portugal |title = EMCDDA: Drug policy profiles, Portugal |publisher = Emcdda.europa.eu |date = 17 August 2011 |access-date = 14 December 2011 |archive-date = 17 September 2019 |archive-url = https://web.archive.org/web/20190917122923/http://www.emcdda.europa.eu/publications/drug-policy-profiles/portugal |url-status = live }}</ref>",
+  "recreational_status": "Legal",
+  "medical_status": "Legal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

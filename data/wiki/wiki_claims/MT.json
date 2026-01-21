@@ -1,0 +1,37 @@
+{
+  "geo_key": "MT",
+  "name_in_wiki": "Malta",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Malta",
+  "row_ref": "country:101",
+  "wiki_rec": "Legal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in Malta",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Malta"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Malta",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Malta"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Malta",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Malta"
+    }
+  ],
+  "notes_text": "On 30 March 2021, Prime Minister Robert Abela announced a proposal to legalize possession of up to and the cultivation of up to 4 plants, and for people charged with possession in the past to have it expunged from their criminal records. In December 2021, legislation was passed by the Maltese Parliament and signed into law by President George Vella.",
+  "notes_text_len": 351,
+  "notes": "On 30 March 2021, Prime Minister Robert Abela announced a proposal to legalize possession of up to and the cultivation of up to 4 plants, and for people charged with possession in the past to have it expunged from their criminal records. In December 2021, legislation was passed by the Maltese Parliament and signed into law by President George Vella.",
+  "notes_raw": "{{main|Cannabis in Malta}} On 30 March 2021, Prime Minister [[Robert Abela]] announced a proposal to legalize possession of up to {{cvt|7|g|frac=4}} and the cultivation of up to 4 plants, and for people charged with possession in the past to have it expunged from their criminal records.<ref>{{cite news |last1=Meilak |first1=Nicole |title=Cannabis reform: possession up to 7g, cultivation of four plants at home |url=https://www.maltatoday.com.mt/news/national/108696/public_consultation_on_cannabis_whitepaper |access-date=31 March 2021 |work=Malta Today |date=30 March 2021 |archive-date=30 March 2021 |archive-url=https://web.archive.org/web/20210330155031/https://www.maltatoday.com.mt/news/national/108696/public_consultation_on_cannabis_whitepaper |url-status=live }}</ref> In December 2021, legislation was passed by the Maltese Parliament and signed into law by President [[George Vella]].<ref>{{Cite web|title=Cannabis bill approved in parliament, in first for Europe|url=https://timesofmalta.com/articles/view/cannabis-bill-approved-in-parliament-in-first-for-europe.921310|access-date=14 December 2021|website=Times of Malta|date=14 December 2021 |language=en-gb|archive-date=14 December 2021|archive-url=https://web.archive.org/web/20211214210838/https://timesofmalta.com/articles/view/cannabis-bill-approved-in-parliament-in-first-for-europe.921310|url-status=live}}</ref><ref>{{cite news |last1=Jaeger |first1=Kyle |title=Malta Officially Legalizes Marijuana With President's Signature, Becoming First In Europe To End Cannabis Prohibition |url=https://www.marijuanamoment.net/malta-officially-legalizes-marijuana-with-presidents-signature-becoming-first-in-europe-to-end-cannabis-prohibition/ |access-date=18 December 2021 |work=Marijuana Moment |date=18 December 2021 |archive-date=18 December 2021 |archive-url=https://web.archive.org/web/20211218204524/https://www.marijuanamoment.net/malta-officially-legalizes-marijuana-with-presidents-signature-becoming-first-in-europe-to-end-cannabis-prohibition/ |url-status=live }}</ref>",
+  "recreational_status": "Legal",
+  "medical_status": "Legal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

@@ -1,0 +1,37 @@
+{
+  "geo_key": "CV",
+  "name_in_wiki": "Cape Verde",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Cape_Verde",
+  "row_ref": "country:30",
+  "wiki_rec": "Illegal",
+  "wiki_med": "Illegal",
+  "sources": [
+    {
+      "title": "Cannabis in Cape Verde",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cape_Verde"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Cape Verde",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cape_Verde"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Cape Verde",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cape_Verde"
+    }
+  ],
+  "notes_text": "",
+  "notes_text_len": 0,
+  "notes": "",
+  "notes_raw": "{{main|Cannabis in Cape Verde}}",
+  "recreational_status": "Illegal",
+  "medical_status": "Illegal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

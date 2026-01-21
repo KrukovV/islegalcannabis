@@ -1,0 +1,49 @@
+{
+  "geo_key": "CA",
+  "name_in_wiki": "Canada",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Canada",
+  "row_ref": "country:29",
+  "wiki_rec": "Legal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in Canada",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Canada"
+    },
+    {
+      "title": "Cannabis laws of Canada by province or territory",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_laws_of_Canada_by_province_or_territory"
+    }
+  ],
+  "sources_count": 2,
+  "main_articles": [
+    {
+      "title": "Cannabis in Canada",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Canada"
+    },
+    {
+      "title": "Cannabis laws of Canada by province or territory",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_laws_of_Canada_by_province_or_territory"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Canada",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Canada"
+    },
+    {
+      "title": "Cannabis laws of Canada by province or territory",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_laws_of_Canada_by_province_or_territory"
+    }
+  ],
+  "notes_text": "Legal for medicinal purposes since 2001 and for recreational purposes since 17 October 2018. The age to buy or consume cannabis varies by province: 19 in most provinces, 18 in Alberta, and 21 in Quebec.",
+  "notes_text_len": 202,
+  "notes": "Legal for medicinal purposes since 2001 and for recreational purposes since 17 October 2018. The age to buy or consume cannabis varies by province: 19 in most provinces, 18 in Alberta, and 21 in Quebec.",
+  "notes_raw": "{{Main|Cannabis in Canada|Cannabis laws of Canada by province or territory}} Legal for medicinal purposes since 2001 and for recreational purposes since 17 October 2018. The age to buy or consume cannabis varies by province: 19 in most provinces, 18 in Alberta, and 21 in Quebec.<ref>{{cite web |title=Cannabis Legalization and Regulation |url=https://www.justice.gc.ca/eng/cj-jp/cannabis/ |publisher=Department of Justice, Government of Canada |date=7 July 2021 |access-date=29 June 2023 }}</ref>",
+  "recreational_status": "Legal",
+  "medical_status": "Legal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

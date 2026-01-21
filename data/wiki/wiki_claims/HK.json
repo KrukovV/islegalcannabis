@@ -1,0 +1,37 @@
+{
+  "geo_key": "HK",
+  "name_in_wiki": "Hong Kong",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Hong_Kong",
+  "row_ref": "country:69",
+  "wiki_rec": "Illegal",
+  "wiki_med": "Illegal",
+  "sources": [
+    {
+      "title": "Cannabis in Hong Kong",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Hong_Kong"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Hong Kong",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Hong_Kong"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Hong Kong",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Hong_Kong"
+    }
+  ],
+  "notes_text": "Possession, sale, transportation, and cultivation illegal under the Dangerous Drug Ordinance. (Chapter 134 of the Law of Hong Kong)",
+  "notes_text_len": 131,
+  "notes": "Possession, sale, transportation, and cultivation illegal under the Dangerous Drug Ordinance. (Chapter 134 of the Law of Hong Kong)",
+  "notes_raw": "{{main|Cannabis in Hong Kong}} Possession, sale, transportation, and cultivation illegal under the Dangerous Drug Ordinance.<ref name=\"Police.gov.hk\">{{citation |url = http://www.police.gov.hk/ppp_en/04_crime_matters/drug/law_pen.html |title = Information on the official web site of the Hong Kong Police Force |publisher = Police.gov.hk |access-date = 14 December 2011 |archive-date = 5 October 2019 |archive-url = https://web.archive.org/web/20191005070448/https://www.police.gov.hk/ppp_en/04_crime_matters/drug/law_pen.html |url-status = live }}</ref> (Chapter 134 of the [[Law of Hong Kong]])",
+  "recreational_status": "Illegal",
+  "medical_status": "Illegal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

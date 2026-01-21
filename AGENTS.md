@@ -7,6 +7,7 @@ Hard Rule:
 - Keep the ledger concise; unknowns must be marked UNCONFIRMED (do not guess).
 - Execution Mode only: actions + results. Forbidden phrases: "considering", "figuring out", "refine approach".
 - No auto-plan lines: do not store or print "Next: ..." in CONTINUITY.md or stdout; only user-provided tasks may define future steps.
+- Network Truth Policy: DNS is diagnostic only; ONLINE truth derives solely from HTTP/API/CONNECT/FALLBACK probes; cache may allow DEGRADED_CACHE but never sets ONLINE=1; single-probe-per-run uses `Artifacts/net_probe/<RUN_ID>.json` and must keep pass_cycle/quality_gate/hub_stage_report consistent; do not reintroduce dns_fail -> offline/online flip without explicit requirement change.
 
 Response Contract (mandatory):
 - Standard responses allowed; include command stdout when required by the task.
@@ -25,3 +26,16 @@ Sandbox/Approval Workflow:
 
 Tools usage:
 - Prefer rg, fallback to grep -R when rg is unavailable.
+
+Network Truth Policy:
+- DNS is diagnostic only; it must never flip ONLINE/OFFLINE.
+- ONLINE is true only if at least one truth probe succeeds: HTTP/HTTPS, API ping, CONNECT, or fallback.
+- Cache may allow continue (DEGRADED_CACHE) but never sets ONLINE=1.
+- OFFLINE_REASON must be one of TLS|HTTP_STATUS|TIMEOUT|CONN_REFUSED|NO_ROUTE; DNS errors stay in diag fields.
+- Any network logic changes must preserve SSOT lines for NET_DIAG and EGRESS_TRUTH.
+- Single-probe-per-run must use `NET_PROBE_CACHE_PATH` and keep net_health/pass_cycle/hub_stage_report in sync for a given RUN_ID.
+- CONNECT errors EPERM/EACCES must be classified as SANDBOX_EGRESS_BLOCKED; this is diag-only and must not change ONLINE semantics.
+- DNS diag reasons must be explicit (SANDBOX_DNS_STUB/NO_DNS_CONFIG/TOOLING_DNS_DIFF) and never used to flip ONLINE.
+- DNS is diagnostic only.
+- ONLINE truth only (HTTP/API/CONNECT/FALLBACK).
+- Any PR changing net logic must keep EGRESS_TRUTH contract; gate enforces.

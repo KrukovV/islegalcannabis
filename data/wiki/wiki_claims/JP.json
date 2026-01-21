@@ -1,0 +1,37 @@
+{
+  "geo_key": "JP",
+  "name_in_wiki": "Japan",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Japan",
+  "row_ref": "country:79",
+  "wiki_rec": "Illegal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in Japan",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Japan"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Japan",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Japan"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Japan",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Japan"
+    }
+  ],
+  "notes_text": "Restricted in 1948. Use and possession are punishable by up to 5 years imprisonment and a fine. Cultivation, sale, and transport are punishable by 7–10 years imprisonment and a fine.",
+  "notes_text_len": 182,
+  "notes": "Restricted in 1948. Use and possession are punishable by up to 5 years imprisonment and a fine. Cultivation, sale, and transport are punishable by 7–10 years imprisonment and a fine.",
+  "notes_raw": "{{main|Cannabis in Japan}} Restricted in 1948.<ref name=\"ShikitaTsuchiya2012\">{{cite book|author1=Minoru Shikita|author2=Shinichi Tsuchiya|title=Crime and Criminal Policy in Japan: Analysis and Evaluation of the Showa Era, 1926–1988|url=https://books.google.com/books?id=9pHfBwAAQBAJ&pg=PA13|date=6 December 2012|publisher=Springer Science & Business Media|isbn=978-1-4612-2816-5|pages=13–}}</ref> Use and possession are punishable by up to 5 years imprisonment and a fine. Cultivation, sale, and transport are punishable by 7–10 years imprisonment and a fine.<ref>{{citation |url = http://www.japanhemp.org/en/taimalaw.htm |title = Cannabis Control Law |publisher = japanhemp.org |access-date = 4 August 2015 |archive-date = 17 May 2020 |archive-url = https://web.archive.org/web/20200517153638/http://www.japanhemp.org/en/taimalaw.htm |url-status = live }}</ref>",
+  "recreational_status": "Illegal",
+  "medical_status": "Legal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

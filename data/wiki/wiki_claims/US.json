@@ -1,0 +1,49 @@
+{
+  "geo_key": "US",
+  "name_in_wiki": "United States",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/United_States",
+  "row_ref": "country:171",
+  "wiki_rec": "Legal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in the United States",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_United_States"
+    },
+    {
+      "title": "Legality of cannabis by U.S. jurisdiction",
+      "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction"
+    }
+  ],
+  "sources_count": 2,
+  "main_articles": [
+    {
+      "title": "Cannabis in the United States",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_United_States"
+    },
+    {
+      "title": "Legality of cannabis by U.S. jurisdiction",
+      "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in the United States",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_United_States"
+    },
+    {
+      "title": "Legality of cannabis by U.S. jurisdiction",
+      "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction"
+    }
+  ],
+  "notes_text": "Cannabis remains a Schedule I drug at federal level, prohibiting even its medical use with narrow exceptions. The Rohrabacher–Farr amendment prevents federal enforcement in states that have legalized medical, however. No such protections exist regarding recreational, but the federal government has so far generally not intervened. Recognized Indian reservations are allowed to legalize for either use under a policy announced in 2014. Every U.S. state that has legalized recreational use has set a mandatory legal minimum age of 21 for purchase, possession, and use. In 2024, the Drug Enforcement Administration and the Department of Justice indicated they were planning to reschedule cannabis to Schedule III.",
+  "notes_text_len": 711,
+  "notes": "Cannabis remains a Schedule I drug at federal level, prohibiting even its medical use with narrow exceptions. The Rohrabacher–Farr amendment prevents federal enforcement in states that have legalized medical, however. No such protections exist regarding recreational, but the federal government has so far generally not intervened. Recognized Indian reservations are allowed to legalize for either use under a policy announced in 2014. Every U.S. state that has legalized recreational use has set a mandatory legal minimum age of 21 for purchase, possession, and use. In 2024, the Drug Enforcement Administration and the Department of Justice indicated they were planning to reschedule cannabis to Schedule III.",
+  "notes_raw": "{{Main|Cannabis in the United States|Legality of cannabis by U.S. jurisdiction}} {{See also|Cannabis on American Indian reservations}} Cannabis remains a [[Controlled Substances Act#Schedule I controlled substances|Schedule I drug]] at federal level, prohibiting even its medical use with [[Medical cannabis in the United States#Compassionate IND program|narrow exceptions]]. The [[Rohrabacher–Farr amendment]] prevents federal enforcement in states that have legalized medical, however. No such protections exist regarding recreational, but the federal government has so far generally not intervened. Recognized [[Indian reservation]]s are allowed to legalize for either use under a policy announced in 2014.<ref>{{cite news |url = https://www.nwherald.com/2014/12/12/doj-says-indian-tribes-can-grow-and-sell-marijuana/aee5o5i/ |last1 = Barnard |first1 = Jeff |last2 = Wozniacka |first2 = Gosia |title = the D.O.J. allows indian reservations to grow and sell marijuana |work = [[Northwest Herald]] |agency = [[Associated Press]] |date = 12 December 2014 |access-date = 24 December 2014 |archive-url = https://web.archive.org/web/20160120131029/https://www.nwherald.com/2014/12/12/doj-says-indian-tribes-can-grow-and-sell-marijuana/aee5o5i/ |archive-date = 20 January 2016 |url-status = live}}</ref> Every U.S. state that has legalized recreational use has set a mandatory legal minimum age of 21 for purchase, possession, and use.<ref>{{cite web |url= https://cannabis.net/blog/news/can-you-buy-weed-if-you-under-21-yearsold-the-statebystate-guide-to-cannabis-age-requirements |title= Can You Buy Weed If You Under 21 Years-Old? – The State-By-State Guide to Cannabis Age Requirements |date= 6 May 2022 |website= Cannabis.net |access-date= 23 June 2023}}</ref> In 2024, the [[Drug Enforcement Administration]] and the [[United States Department of Justice|Department of Justice]] indicated they were planning to [[Removal of cannabis from Schedule I of the Controlled Substances Act|reschedule]] cannabis to [[List of Schedule III controlled substances (U.S.)|Schedule III.]]<ref>{{Cite web |date=2024-04-30 |title=US poised to ease restrictions on marijuana in historic shift, but it'll remain controlled substance |url=https://apnews.com/article/marijuana-biden-dea-criminal-justice-pot-f833a8dae6ceb31a8658a5d65832a3b8 |access-date=2024-05-01 |website=AP News |language=en}}</ref>",
+  "recreational_status": "Legal",
+  "medical_status": "Legal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

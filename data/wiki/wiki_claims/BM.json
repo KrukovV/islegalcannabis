@@ -1,0 +1,37 @@
+{
+  "geo_key": "BM",
+  "name_in_wiki": "Bermuda",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Bermuda",
+  "row_ref": "country:18",
+  "wiki_rec": "Legal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in Bermuda",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bermuda"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Bermuda",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bermuda"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Bermuda",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bermuda"
+    }
+  ],
+  "notes_text": "In November 2016, the Supreme Court of Bermuda ruled in favor of allowing the medical use of cannabis. As of July 2018, two doctors have been licensed to prescribe the drug.",
+  "notes_text_len": 173,
+  "notes": "In November 2016, the Supreme Court of Bermuda ruled in favor of allowing the medical use of cannabis. As of July 2018, two doctors have been licensed to prescribe the drug.",
+  "notes_raw": "{{main|Cannabis in Bermuda}} In November 2016, the [[Law of Bermuda#Litigation and the Bermuda Court System|Supreme Court of Bermuda]] ruled in favor of allowing the medical use of cannabis.<ref>{{cite news |last1=Bell |first1=Jonathan |title=People can apply for medical cannabis |url=http://www.royalgazette.com/news/article/20161125/people-can-apply-for-medical-cannabis |access-date=27 October 2018 |work=[[The Royal Gazette (Bermuda)|The Royal Gazette]] |date=25 November 2016 |archive-url=https://web.archive.org/web/20181027232029/http://www.royalgazette.com/news/article/20161125/people-can-apply-for-medical-cannabis |archive-date=27 October 2018 |url-status=live}}</ref> As of July 2018, two doctors have been licensed to prescribe the drug.<ref>{{cite news |last1=Bell |first1=Jonathan |title=Weeks: we need to talk about cannabis |url=http://www.royalgazette.com/politics/article/20180725/weeks-we-need-to-talk-about-cannabis |access-date=27 October 2018 |work=[[The Royal Gazette (Bermuda)|The Royal Gazette]] |date=25 July 2018 |archive-url=https://web.archive.org/web/20181101101737/http://www.royalgazette.com/politics/article/20180725/weeks-we-need-to-talk-about-cannabis |archive-date=1 November 2018 |url-status=live}}</ref>",
+  "recreational_status": "Legal",
+  "medical_status": "Legal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

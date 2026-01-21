@@ -1,0 +1,37 @@
+{
+  "geo_key": "NP",
+  "name_in_wiki": "Nepal",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Nepal",
+  "row_ref": "country:115",
+  "wiki_rec": "Legal",
+  "wiki_med": "Illegal",
+  "sources": [
+    {
+      "title": "Cannabis in Nepal",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Nepal"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Nepal",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Nepal"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Nepal",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Nepal"
+    }
+  ],
+  "notes_text": "All cannabis licenses canceled in 1973.",
+  "notes_text_len": 39,
+  "notes": "All cannabis licenses canceled in 1973.",
+  "notes_raw": "{{main|Cannabis in Nepal}} All cannabis licenses canceled in 1973.<ref name=\"Booth2011\"/>",
+  "recreational_status": "Legal",
+  "medical_status": "Illegal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

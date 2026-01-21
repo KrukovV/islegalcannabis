@@ -1,0 +1,37 @@
+{
+  "geo_key": "AL",
+  "name_in_wiki": "Albania",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Albania",
+  "row_ref": "country:1",
+  "wiki_rec": "Illegal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in Albania",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Albania"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Albania",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Albania"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Albania",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Albania"
+    }
+  ],
+  "notes_text": "Prohibited but plants highly available throughout the country and law often unenforced. On 21 July 2023 the Albanian Parliament voted 69–23 to legalize medical cannabis.",
+  "notes_text_len": 169,
+  "notes": "Prohibited but plants highly available throughout the country and law often unenforced. On 21 July 2023 the Albanian Parliament voted 69–23 to legalize medical cannabis.",
+  "notes_raw": "{{main|Cannabis in Albania}} Prohibited but plants highly available throughout the country and law often unenforced.<ref name=\"setimes-albania\">{{citation |url = http://www.setimes.com/cocoon/setimes/xhtml/en_GB/features/setimes/features/2012/08/07/feature-03 |title = Growing marijuana is an increasing regional problem |publisher = SETimes.com |date = 7 August 2012 |access-date = 18 April 2013 |archive-date = 4 March 2016 |archive-url = https://web.archive.org/web/20160304045944/http://www.setimes.com/cocoon/setimes/xhtml/en_GB/features/setimes/features/2012/08/07/feature-03 |url-status = live }}</ref><ref name=\"balkaninsight-albania-1\">{{citation |url = http://www.balkaninsight.com/en/article/report-cannabis-growth-mounts-in-albania |title = Report Says Albania Cannabis Growth Mounting |date = 7 March 2013 |access-date = 18 April 2013 |publisher = balkaninsight.com |archive-date = 30 September 2018 |archive-url = https://web.archive.org/web/20180930100941/http://www.balkaninsight.com/en/article/report-cannabis-growth-mounts-in-albania |url-status = live }}</ref><ref name=\"balkaninsight-albania-2\">{{citation |url = http://www.balkaninsight.com/en/article/albania-police-bust-major-cannabis-shipments |title = Albanian Police Seize Cannabis Shipment |publisher = balkaninsight.com |date = 28 December 2011 |access-date = 5 June 2018 |archive-date = 5 September 2017 |archive-url = https://web.archive.org/web/20170905095749/http://www.balkaninsight.com/en/article/albania-police-bust-major-cannabis-shipments |url-status = live }}</ref>\nOn 21 July 2023 the [[Albanian Parliament]] voted 69–23 to legalize medical cannabis.<ref>{{cite news |title=Albanian Parliament legalizes medical cannabis despite harsh opposition |url=https://apnews.com/article/albania-legalize-medical-cannabis-trafficking-drugs-81c423f05a08537f606fb4dc535f8bfa |access-date=24 July 2023 |publisher=[[Associated Press]] |date=21 July 2023 |archive-url=https://web.archive.org/web/20230813230102/https://apnews.com/article/albania-legalize-medical-cannabis-trafficking-drugs-81c423f05a08537f606fb4dc535f8bfa |archive-date=13 August 2023 |url-status=live}}</ref>",
+  "recreational_status": "Illegal",
+  "medical_status": "Legal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

@@ -1,0 +1,37 @@
+{
+  "geo_key": "LU",
+  "name_in_wiki": "Luxembourg",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Luxembourg",
+  "row_ref": "country:95",
+  "wiki_rec": "Legal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in Luxembourg",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Luxembourg"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Luxembourg",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Luxembourg"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Luxembourg",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Luxembourg"
+    }
+  ],
+  "notes_text": "Decriminalized in 2001. Home use and cultivation legal since 21 July 2023.",
+  "notes_text_len": 74,
+  "notes": "Decriminalized in 2001. Home use and cultivation legal since 21 July 2023.",
+  "notes_raw": "{{main|Cannabis in Luxembourg}} Decriminalized in 2001.<ref>{{citation |title=Decriminalisation in Europe? |url=https://www.emcdda.europa.eu/attachements.cfm/att_5741_EN_Decriminalisation_Legal_Approaches.pdf |publisher=European Monitoring Centre for Drugs and Drug Addiction |date=November 2001}}</ref> Home use and cultivation legal since 21 July 2023.<ref name=\"lu\" /><ref name=\"law Luxembourg\">{{Cite act |language=fr |date=10 July 2023 |title=Loi du 10 juillet 2023 portant modification de la loi modifiée du 19 février 1973 concernant la vente de substances médicamenteuses et la lutte contre la toxicomanie |trans-title=Law of 10 July 2023 amending the amended law of 19 February 1973 concerning the sale of medicinal substances and the fight against drug addiction |url=https://mj.gouvernement.lu/dam-assets/dossiers/cannabis/loi-du-10-juillet-2023-cannabis.pdf |access-date=2024-01-16 |url-status=live |archive-url=https://web.archive.org/web/20240109044110/https://mj.gouvernement.lu/dam-assets/dossiers/cannabis/loi-du-10-juillet-2023-cannabis.pdf |archive-date=2024-01-09}}</ref>",
+  "recreational_status": "Legal",
+  "medical_status": "Legal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

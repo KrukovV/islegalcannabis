@@ -1,0 +1,37 @@
+{
+  "geo_key": "HU",
+  "name_in_wiki": "Hungary",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Hungary",
+  "row_ref": "country:70",
+  "wiki_rec": "Illegal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in Hungary",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Hungary"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Hungary",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Hungary"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Hungary",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Hungary"
+    }
+  ],
+  "notes_text": "There is no distinction in Hungarian law between illicit drugs according to dangers. Heroin use has the same legal consequences as cannabis use.",
+  "notes_text_len": 144,
+  "notes": "There is no distinction in Hungarian law between illicit drugs according to dangers. Heroin use has the same legal consequences as cannabis use.",
+  "notes_raw": "{{main|Cannabis in Hungary}} There is no distinction in Hungarian law between illicit drugs according to dangers. [[Heroin]] use has the same legal consequences as cannabis use.<ref>{{citation |author = Minstrel |url = http://www.daath.hu/showText.php?id=62#chapter3 |title = Társaság a Szabadságjogokért: Drogjog 1999 Voted Vote D2ID : 62 |publisher = Daath.hu |access-date = 17 February 2011 |archive-date = 4 June 2019 |archive-url = https://web.archive.org/web/20190604073510/http://www.daath.hu/showText.php?id=62#chapter3 |url-status = live }}</ref>",
+  "recreational_status": "Illegal",
+  "medical_status": "Legal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}

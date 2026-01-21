@@ -1,9 +1,10 @@
 {
-  "fetched_at": "2026-01-21T12:28:41.505Z",
+  "fetched_at": "2026-01-21T20:22:53.966Z",
   "totals": {
     "total_refs": 1516,
     "official": 79,
-    "non_official": 1437
+    "non_official": 1437,
+    "countries": 267
   },
   "top_hosts": [
     "2009-2017.state.gov",
@@ -17,106 +18,161 @@
       "geo_key": "AD",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "AE": {
       "geo_key": "AE",
       "sources_total": 8,
       "sources_official": 0,
+      "total_refs": 8,
+      "official": 0,
+      "non_official": 8,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "AF": {
       "geo_key": "AF",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "AG": {
       "geo_key": "AG",
       "sources_total": 4,
       "sources_official": 0,
+      "total_refs": 4,
+      "official": 0,
+      "non_official": 4,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "AI": {
       "geo_key": "AI",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "AL": {
       "geo_key": "AL",
       "sources_total": 8,
       "sources_official": 0,
+      "total_refs": 8,
+      "official": 0,
+      "non_official": 8,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "AM": {
       "geo_key": "AM",
       "sources_total": 8,
       "sources_official": 1,
+      "total_refs": 8,
+      "official": 1,
+      "non_official": 7,
       "official_badge": 1,
       "top_official_domains": [
         "2009-2017.state.gov"
       ],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [
+        "2009-2017.state.gov"
+      ],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "AO": {
       "geo_key": "AO",
       "sources_total": 3,
       "sources_official": 0,
+      "total_refs": 3,
+      "official": 0,
+      "non_official": 3,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "AQ": {
       "geo_key": "AQ",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "AR": {
       "geo_key": "AR",
       "sources_total": 20,
       "sources_official": 2,
+      "total_refs": 20,
+      "official": 2,
+      "non_official": 18,
       "official_badge": 1,
       "top_official_domains": [
         "argentina.gob.ar"
       ],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [
+        "argentina.gob.ar"
+      ],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "AS": {
       "geo_key": "AS",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "AT": {
       "geo_key": "AT",
       "sources_total": 3,
       "sources_official": 0,
+      "total_refs": 3,
+      "official": 0,
+      "non_official": 3,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "AU": {
       "geo_key": "AU",
       "sources_total": 20,
       "sources_official": 8,
+      "total_refs": 20,
+      "official": 8,
+      "non_official": 12,
       "official_badge": 1,
       "top_official_domains": [
         "tga.gov.au",
@@ -125,533 +181,812 @@
         "odc.gov.au",
         "parlinfo.aph.gov.au"
       ],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [
+        "tga.gov.au",
+        "legislation.gov.au",
+        "aihw.gov.au",
+        "odc.gov.au",
+        "parlinfo.aph.gov.au"
+      ],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "AW": {
       "geo_key": "AW",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "AX": {
       "geo_key": "AX",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "AZ": {
       "geo_key": "AZ",
       "sources_total": 2,
       "sources_official": 0,
+      "total_refs": 2,
+      "official": 0,
+      "non_official": 2,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "BA": {
       "geo_key": "BA",
       "sources_total": 5,
       "sources_official": 0,
+      "total_refs": 5,
+      "official": 0,
+      "non_official": 5,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "BB": {
       "geo_key": "BB",
       "sources_total": 7,
       "sources_official": 0,
+      "total_refs": 7,
+      "official": 0,
+      "non_official": 7,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "BD": {
       "geo_key": "BD",
       "sources_total": 11,
       "sources_official": 0,
+      "total_refs": 11,
+      "official": 0,
+      "non_official": 11,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "BE": {
       "geo_key": "BE",
       "sources_total": 5,
       "sources_official": 0,
+      "total_refs": 5,
+      "official": 0,
+      "non_official": 5,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "BF": {
       "geo_key": "BF",
       "sources_total": 15,
       "sources_official": 3,
+      "total_refs": 15,
+      "official": 3,
+      "non_official": 12,
       "official_badge": 1,
       "top_official_domains": [
         "2009-2017.state.gov",
         "police.gov.rw"
       ],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [
+        "2009-2017.state.gov",
+        "police.gov.rw"
+      ],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "BG": {
       "geo_key": "BG",
       "sources_total": 2,
       "sources_official": 0,
+      "total_refs": 2,
+      "official": 0,
+      "non_official": 2,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "BH": {
       "geo_key": "BH",
       "sources_total": 3,
       "sources_official": 0,
+      "total_refs": 3,
+      "official": 0,
+      "non_official": 3,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "BI": {
       "geo_key": "BI",
       "sources_total": 1,
       "sources_official": 0,
+      "total_refs": 1,
+      "official": 0,
+      "non_official": 1,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "BJ": {
       "geo_key": "BJ",
       "sources_total": 5,
       "sources_official": 0,
+      "total_refs": 5,
+      "official": 0,
+      "non_official": 5,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "BL": {
       "geo_key": "BL",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "BM": {
       "geo_key": "BM",
       "sources_total": 9,
       "sources_official": 0,
+      "total_refs": 9,
+      "official": 0,
+      "non_official": 9,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "BN": {
       "geo_key": "BN",
       "sources_total": 13,
       "sources_official": 4,
+      "total_refs": 13,
+      "official": 4,
+      "non_official": 9,
       "official_badge": 1,
       "top_official_domains": [
         "narcotics.gov.bn",
         "agc.gov.bn",
         "cnb.gov.sg"
       ],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [
+        "narcotics.gov.bn",
+        "agc.gov.bn",
+        "cnb.gov.sg"
+      ],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "BO": {
       "geo_key": "BO",
       "sources_total": 5,
       "sources_official": 0,
+      "total_refs": 5,
+      "official": 0,
+      "non_official": 5,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "BQ": {
       "geo_key": "BQ",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "BR": {
       "geo_key": "BR",
       "sources_total": 13,
       "sources_official": 1,
+      "total_refs": 13,
+      "official": 1,
+      "non_official": 12,
       "official_badge": 1,
       "top_official_domains": [
         "planalto.gov.br"
       ],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [
+        "planalto.gov.br"
+      ],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "BS": {
       "geo_key": "BS",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "BT": {
       "geo_key": "BT",
       "sources_total": 8,
       "sources_official": 0,
+      "total_refs": 8,
+      "official": 0,
+      "non_official": 8,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "BV": {
       "geo_key": "BV",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "BW": {
       "geo_key": "BW",
       "sources_total": 4,
       "sources_official": 0,
+      "total_refs": 4,
+      "official": 0,
+      "non_official": 4,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "BY": {
       "geo_key": "BY",
       "sources_total": 1,
       "sources_official": 0,
+      "total_refs": 1,
+      "official": 0,
+      "non_official": 1,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "BZ": {
       "geo_key": "BZ",
       "sources_total": 11,
       "sources_official": 1,
+      "total_refs": 11,
+      "official": 1,
+      "non_official": 10,
       "official_badge": 1,
       "top_official_domains": [
         "belize.gov.bz"
       ],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [
+        "belize.gov.bz"
+      ],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "CA": {
       "geo_key": "CA",
       "sources_total": 20,
       "sources_official": 0,
+      "total_refs": 20,
+      "official": 0,
+      "non_official": 20,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "CC": {
       "geo_key": "CC",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "CD": {
       "geo_key": "CD",
       "sources_total": 9,
       "sources_official": 0,
+      "total_refs": 9,
+      "official": 0,
+      "non_official": 9,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "CF": {
       "geo_key": "CF",
       "sources_total": 1,
       "sources_official": 0,
+      "total_refs": 1,
+      "official": 0,
+      "non_official": 1,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "CG": {
       "geo_key": "CG",
       "sources_total": 7,
       "sources_official": 0,
+      "total_refs": 7,
+      "official": 0,
+      "non_official": 7,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "CH": {
       "geo_key": "CH",
       "sources_total": 20,
       "sources_official": 0,
+      "total_refs": 20,
+      "official": 0,
+      "non_official": 20,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "CI": {
       "geo_key": "CI",
       "sources_total": 4,
       "sources_official": 0,
+      "total_refs": 4,
+      "official": 0,
+      "non_official": 4,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "CK": {
       "geo_key": "CK",
       "sources_total": 3,
       "sources_official": 0,
+      "total_refs": 3,
+      "official": 0,
+      "non_official": 3,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "CL": {
       "geo_key": "CL",
       "sources_total": 20,
       "sources_official": 0,
+      "total_refs": 20,
+      "official": 0,
+      "non_official": 20,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "CM": {
       "geo_key": "CM",
       "sources_total": 5,
       "sources_official": 0,
+      "total_refs": 5,
+      "official": 0,
+      "non_official": 5,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "CN": {
       "geo_key": "CN",
       "sources_total": 2,
       "sources_official": 1,
+      "total_refs": 2,
+      "official": 1,
+      "non_official": 1,
       "official_badge": 1,
       "top_official_domains": [
         "cecc.gov"
       ],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [
+        "cecc.gov"
+      ],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "CO": {
       "geo_key": "CO",
       "sources_total": 9,
       "sources_official": 0,
+      "total_refs": 9,
+      "official": 0,
+      "non_official": 9,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "CR": {
       "geo_key": "CR",
       "sources_total": 6,
       "sources_official": 0,
+      "total_refs": 6,
+      "official": 0,
+      "non_official": 6,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "CU": {
       "geo_key": "CU",
       "sources_total": 5,
       "sources_official": 0,
+      "total_refs": 5,
+      "official": 0,
+      "non_official": 5,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "CV": {
       "geo_key": "CV",
       "sources_total": 1,
       "sources_official": 0,
+      "total_refs": 1,
+      "official": 0,
+      "non_official": 1,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "CW": {
       "geo_key": "CW",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "CX": {
       "geo_key": "CX",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "CY": {
       "geo_key": "CY",
       "sources_total": 10,
       "sources_official": 0,
+      "total_refs": 10,
+      "official": 0,
+      "non_official": 10,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "CZ": {
       "geo_key": "CZ",
       "sources_total": 16,
       "sources_official": 1,
+      "total_refs": 16,
+      "official": 1,
+      "non_official": 15,
       "official_badge": 1,
       "top_official_domains": [
         "loc.gov"
       ],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [
+        "loc.gov"
+      ],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "DE": {
       "geo_key": "DE",
       "sources_total": 20,
       "sources_official": 0,
+      "total_refs": 20,
+      "official": 0,
+      "non_official": 20,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "DJ": {
       "geo_key": "DJ",
       "sources_total": 5,
       "sources_official": 0,
+      "total_refs": 5,
+      "official": 0,
+      "non_official": 5,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "DK": {
       "geo_key": "DK",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "DM": {
       "geo_key": "DM",
       "sources_total": 5,
       "sources_official": 2,
+      "total_refs": 5,
+      "official": 2,
+      "non_official": 3,
       "official_badge": 1,
       "top_official_domains": [
         "dominica.gov.dm"
       ],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [
+        "dominica.gov.dm"
+      ],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "DO": {
       "geo_key": "DO",
       "sources_total": 1,
       "sources_official": 0,
+      "total_refs": 1,
+      "official": 0,
+      "non_official": 1,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "DZ": {
       "geo_key": "DZ",
       "sources_total": 12,
       "sources_official": 0,
+      "total_refs": 12,
+      "official": 0,
+      "non_official": 12,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "EC": {
       "geo_key": "EC",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "EE": {
       "geo_key": "EE",
       "sources_total": 2,
       "sources_official": 0,
+      "total_refs": 2,
+      "official": 0,
+      "non_official": 2,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "EG": {
       "geo_key": "EG",
       "sources_total": 18,
       "sources_official": 0,
+      "total_refs": 18,
+      "official": 0,
+      "non_official": 18,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "EH": {
       "geo_key": "EH",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "ER": {
       "geo_key": "ER",
       "sources_total": 6,
       "sources_official": 0,
+      "total_refs": 6,
+      "official": 0,
+      "non_official": 6,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "ES": {
       "geo_key": "ES",
       "sources_total": 20,
       "sources_official": 0,
+      "total_refs": 20,
+      "official": 0,
+      "non_official": 20,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "ET": {
       "geo_key": "ET",
       "sources_total": 4,
       "sources_official": 0,
+      "total_refs": 4,
+      "official": 0,
+      "non_official": 4,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "FI": {
       "geo_key": "FI",
       "sources_total": 20,
       "sources_official": 0,
+      "total_refs": 20,
+      "official": 0,
+      "non_official": 20,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "FJ": {
       "geo_key": "FJ",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "FK": {
       "geo_key": "FK",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "FM": {
       "geo_key": "FM",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "FO": {
       "geo_key": "FO",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "FR": {
       "geo_key": "FR",
       "sources_total": 7,
       "sources_official": 0,
+      "total_refs": 7,
+      "official": 0,
+      "non_official": 7,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "GA": {
       "geo_key": "GA",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "GB": {
       "geo_key": "GB",
       "sources_total": 20,
       "sources_official": 5,
+      "total_refs": 20,
+      "official": 5,
+      "non_official": 15,
       "official_badge": 1,
       "top_official_domains": [
         "gov.uk",
@@ -659,1297 +994,1971 @@
         "clinicaltrials.gov",
         "homeoffice.gov.uk"
       ],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [
+        "gov.uk",
+        "assets.publishing.service.gov.uk",
+        "clinicaltrials.gov",
+        "homeoffice.gov.uk"
+      ],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "GD": {
       "geo_key": "GD",
       "sources_total": 8,
       "sources_official": 0,
+      "total_refs": 8,
+      "official": 0,
+      "non_official": 8,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "GE": {
       "geo_key": "GE",
       "sources_total": 20,
       "sources_official": 0,
+      "total_refs": 20,
+      "official": 0,
+      "non_official": 20,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "GF": {
       "geo_key": "GF",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "GG": {
       "geo_key": "GG",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "GH": {
       "geo_key": "GH",
       "sources_total": 12,
       "sources_official": 0,
+      "total_refs": 12,
+      "official": 0,
+      "non_official": 12,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "GI": {
       "geo_key": "GI",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "GL": {
       "geo_key": "GL",
       "sources_total": 2,
       "sources_official": 0,
+      "total_refs": 2,
+      "official": 0,
+      "non_official": 2,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "GM": {
       "geo_key": "GM",
       "sources_total": 1,
       "sources_official": 0,
+      "total_refs": 1,
+      "official": 0,
+      "non_official": 1,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "GN": {
       "geo_key": "GN",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "GP": {
       "geo_key": "GP",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "GQ": {
       "geo_key": "GQ",
       "sources_total": 6,
       "sources_official": 1,
+      "total_refs": 6,
+      "official": 1,
+      "non_official": 5,
       "official_badge": 1,
       "top_official_domains": [
         "osac.gov"
       ],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [
+        "osac.gov"
+      ],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "GR": {
       "geo_key": "GR",
       "sources_total": 8,
       "sources_official": 0,
+      "total_refs": 8,
+      "official": 0,
+      "non_official": 8,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "GS": {
       "geo_key": "GS",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "GT": {
       "geo_key": "GT",
       "sources_total": 11,
       "sources_official": 0,
+      "total_refs": 11,
+      "official": 0,
+      "non_official": 11,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "GU": {
       "geo_key": "GU",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "GW": {
       "geo_key": "GW",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "GY": {
       "geo_key": "GY",
       "sources_total": 10,
       "sources_official": 0,
+      "total_refs": 10,
+      "official": 0,
+      "non_official": 10,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "HK": {
       "geo_key": "HK",
       "sources_total": 3,
       "sources_official": 2,
+      "total_refs": 3,
+      "official": 2,
+      "non_official": 1,
       "official_badge": 1,
       "top_official_domains": [
         "elegislation.gov.hk",
         "info.gov.hk"
       ],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [
+        "elegislation.gov.hk",
+        "info.gov.hk"
+      ],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "HM": {
       "geo_key": "HM",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "HN": {
       "geo_key": "HN",
       "sources_total": 2,
       "sources_official": 1,
+      "total_refs": 2,
+      "official": 1,
+      "non_official": 1,
       "official_badge": 1,
       "top_official_domains": [
         "poderjudicial.gob.hn"
       ],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [
+        "poderjudicial.gob.hn"
+      ],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "HR": {
       "geo_key": "HR",
       "sources_total": 8,
       "sources_official": 0,
+      "total_refs": 8,
+      "official": 0,
+      "non_official": 8,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "HT": {
       "geo_key": "HT",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "HU": {
       "geo_key": "HU",
       "sources_total": 12,
       "sources_official": 0,
+      "total_refs": 12,
+      "official": 0,
+      "non_official": 12,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "ID": {
       "geo_key": "ID",
       "sources_total": 13,
       "sources_official": 0,
+      "total_refs": 13,
+      "official": 0,
+      "non_official": 13,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "IE": {
       "geo_key": "IE",
       "sources_total": 20,
       "sources_official": 1,
+      "total_refs": 20,
+      "official": 1,
+      "non_official": 19,
       "official_badge": 1,
       "top_official_domains": [
         "health.gov.ie"
       ],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [
+        "health.gov.ie"
+      ],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "IL": {
       "geo_key": "IL",
       "sources_total": 20,
       "sources_official": 0,
+      "total_refs": 20,
+      "official": 0,
+      "non_official": 20,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "IM": {
       "geo_key": "IM",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "IN": {
       "geo_key": "IN",
       "sources_total": 14,
       "sources_official": 0,
+      "total_refs": 14,
+      "official": 0,
+      "non_official": 14,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "IO": {
       "geo_key": "IO",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "IQ": {
       "geo_key": "IQ",
       "sources_total": 2,
       "sources_official": 0,
+      "total_refs": 2,
+      "official": 0,
+      "non_official": 2,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "IR": {
       "geo_key": "IR",
       "sources_total": 15,
       "sources_official": 0,
+      "total_refs": 15,
+      "official": 0,
+      "non_official": 15,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "IS": {
       "geo_key": "IS",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "IT": {
       "geo_key": "IT",
       "sources_total": 20,
       "sources_official": 6,
+      "total_refs": 20,
+      "official": 6,
+      "non_official": 14,
       "official_badge": 1,
       "top_official_domains": [
         "salute.gov.it"
       ],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [
+        "salute.gov.it"
+      ],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "JE": {
       "geo_key": "JE",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "JM": {
       "geo_key": "JM",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "JO": {
       "geo_key": "JO",
       "sources_total": 15,
       "sources_official": 0,
+      "total_refs": 15,
+      "official": 0,
+      "non_official": 15,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "JP": {
       "geo_key": "JP",
       "sources_total": 20,
       "sources_official": 2,
+      "total_refs": 20,
+      "official": 2,
+      "non_official": 18,
       "official_badge": 1,
       "top_official_domains": [
         "2009-2017.state.gov",
         "fas.usda.gov"
       ],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [
+        "2009-2017.state.gov",
+        "fas.usda.gov"
+      ],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "KE": {
       "geo_key": "KE",
       "sources_total": 14,
       "sources_official": 0,
+      "total_refs": 14,
+      "official": 0,
+      "non_official": 14,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "KG": {
       "geo_key": "KG",
       "sources_total": 5,
       "sources_official": 0,
+      "total_refs": 5,
+      "official": 0,
+      "non_official": 5,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "KH": {
       "geo_key": "KH",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "KI": {
       "geo_key": "KI",
       "sources_total": 5,
       "sources_official": 0,
+      "total_refs": 5,
+      "official": 0,
+      "non_official": 5,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "KM": {
       "geo_key": "KM",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "KN": {
       "geo_key": "KN",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "KP": {
       "geo_key": "KP",
       "sources_total": 11,
       "sources_official": 0,
+      "total_refs": 11,
+      "official": 0,
+      "non_official": 11,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "KR": {
       "geo_key": "KR",
       "sources_total": 6,
       "sources_official": 0,
+      "total_refs": 6,
+      "official": 0,
+      "non_official": 6,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "KW": {
       "geo_key": "KW",
       "sources_total": 5,
       "sources_official": 1,
+      "total_refs": 5,
+      "official": 1,
+      "non_official": 4,
       "official_badge": 1,
       "top_official_domains": [
         "travel.state.gov"
       ],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [
+        "travel.state.gov"
+      ],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "KY": {
       "geo_key": "KY",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "KZ": {
       "geo_key": "KZ",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "LA": {
       "geo_key": "LA",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "LB": {
       "geo_key": "LB",
       "sources_total": 14,
       "sources_official": 0,
+      "total_refs": 14,
+      "official": 0,
+      "non_official": 14,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "LC": {
       "geo_key": "LC",
       "sources_total": 1,
       "sources_official": 0,
+      "total_refs": 1,
+      "official": 0,
+      "non_official": 1,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "LI": {
       "geo_key": "LI",
       "sources_total": 11,
       "sources_official": 0,
+      "total_refs": 11,
+      "official": 0,
+      "non_official": 11,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "LK": {
       "geo_key": "LK",
       "sources_total": 4,
       "sources_official": 1,
+      "total_refs": 4,
+      "official": 1,
+      "non_official": 3,
       "official_badge": 1,
       "top_official_domains": [
         "nddcb.gov.lk"
       ],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [
+        "nddcb.gov.lk"
+      ],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "LR": {
       "geo_key": "LR",
       "sources_total": 1,
       "sources_official": 0,
+      "total_refs": 1,
+      "official": 0,
+      "non_official": 1,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "LS": {
       "geo_key": "LS",
       "sources_total": 19,
       "sources_official": 0,
+      "total_refs": 19,
+      "official": 0,
+      "non_official": 19,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "LT": {
       "geo_key": "LT",
       "sources_total": 8,
       "sources_official": 0,
+      "total_refs": 8,
+      "official": 0,
+      "non_official": 8,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "LU": {
       "geo_key": "LU",
       "sources_total": 11,
       "sources_official": 0,
+      "total_refs": 11,
+      "official": 0,
+      "non_official": 11,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "LV": {
       "geo_key": "LV",
       "sources_total": 20,
       "sources_official": 1,
+      "total_refs": 20,
+      "official": 1,
+      "non_official": 19,
       "official_badge": 1,
       "top_official_domains": [
         "vec.gov.lv"
       ],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [
+        "vec.gov.lv"
+      ],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "LY": {
       "geo_key": "LY",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "MA": {
       "geo_key": "MA",
       "sources_total": 20,
       "sources_official": 0,
+      "total_refs": 20,
+      "official": 0,
+      "non_official": 20,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "MC": {
       "geo_key": "MC",
       "sources_total": 5,
       "sources_official": 0,
+      "total_refs": 5,
+      "official": 0,
+      "non_official": 5,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "MD": {
       "geo_key": "MD",
       "sources_total": 2,
       "sources_official": 0,
+      "total_refs": 2,
+      "official": 0,
+      "non_official": 2,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "ME": {
       "geo_key": "ME",
       "sources_total": 3,
       "sources_official": 0,
+      "total_refs": 3,
+      "official": 0,
+      "non_official": 3,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "MF": {
       "geo_key": "MF",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "MG": {
       "geo_key": "MG",
       "sources_total": 8,
       "sources_official": 0,
+      "total_refs": 8,
+      "official": 0,
+      "non_official": 8,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "MH": {
       "geo_key": "MH",
       "sources_total": 1,
       "sources_official": 0,
+      "total_refs": 1,
+      "official": 0,
+      "non_official": 1,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "MK": {
       "geo_key": "MK",
       "sources_total": 3,
       "sources_official": 0,
+      "total_refs": 3,
+      "official": 0,
+      "non_official": 3,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "ML": {
       "geo_key": "ML",
       "sources_total": 5,
       "sources_official": 0,
+      "total_refs": 5,
+      "official": 0,
+      "non_official": 5,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "MM": {
       "geo_key": "MM",
       "sources_total": 3,
       "sources_official": 0,
+      "total_refs": 3,
+      "official": 0,
+      "non_official": 3,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "MN": {
       "geo_key": "MN",
       "sources_total": 2,
       "sources_official": 0,
+      "total_refs": 2,
+      "official": 0,
+      "non_official": 2,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "MO": {
       "geo_key": "MO",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "MP": {
       "geo_key": "MP",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "MQ": {
       "geo_key": "MQ",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "MR": {
       "geo_key": "MR",
       "sources_total": 13,
       "sources_official": 0,
+      "total_refs": 13,
+      "official": 0,
+      "non_official": 13,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "MS": {
       "geo_key": "MS",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "MT": {
       "geo_key": "MT",
       "sources_total": 14,
       "sources_official": 0,
+      "total_refs": 14,
+      "official": 0,
+      "non_official": 14,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "MU": {
       "geo_key": "MU",
       "sources_total": 5,
       "sources_official": 0,
+      "total_refs": 5,
+      "official": 0,
+      "non_official": 5,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "MV": {
       "geo_key": "MV",
       "sources_total": 2,
       "sources_official": 0,
+      "total_refs": 2,
+      "official": 0,
+      "non_official": 2,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "MW": {
       "geo_key": "MW",
       "sources_total": 20,
       "sources_official": 0,
+      "total_refs": 20,
+      "official": 0,
+      "non_official": 20,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "MX": {
       "geo_key": "MX",
       "sources_total": 20,
       "sources_official": 0,
+      "total_refs": 20,
+      "official": 0,
+      "non_official": 20,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "MY": {
       "geo_key": "MY",
       "sources_total": 14,
       "sources_official": 2,
+      "total_refs": 14,
+      "official": 2,
+      "non_official": 12,
       "official_badge": 1,
       "top_official_domains": [
         "lom.agc.gov.my",
         "pharmacy.moh.gov.my"
       ],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [
+        "lom.agc.gov.my",
+        "pharmacy.moh.gov.my"
+      ],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "MZ": {
       "geo_key": "MZ",
       "sources_total": 8,
       "sources_official": 0,
+      "total_refs": 8,
+      "official": 0,
+      "non_official": 8,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "NA": {
       "geo_key": "NA",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "NC": {
       "geo_key": "NC",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "NE": {
       "geo_key": "NE",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "NF": {
       "geo_key": "NF",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "NG": {
       "geo_key": "NG",
       "sources_total": 4,
       "sources_official": 1,
+      "total_refs": 4,
+      "official": 1,
+      "non_official": 3,
       "official_badge": 1,
       "top_official_domains": [
         "ndlea.gov.ng"
       ],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [
+        "ndlea.gov.ng"
+      ],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "NI": {
       "geo_key": "NI",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "NL": {
       "geo_key": "NL",
       "sources_total": 14,
       "sources_official": 0,
+      "total_refs": 14,
+      "official": 0,
+      "non_official": 14,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "NO": {
       "geo_key": "NO",
       "sources_total": 11,
       "sources_official": 0,
+      "total_refs": 11,
+      "official": 0,
+      "non_official": 11,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "NP": {
       "geo_key": "NP",
       "sources_total": 11,
       "sources_official": 0,
+      "total_refs": 11,
+      "official": 0,
+      "non_official": 11,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "NR": {
       "geo_key": "NR",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "NU": {
       "geo_key": "NU",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "NZ": {
       "geo_key": "NZ",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "OM": {
       "geo_key": "OM",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "PA": {
       "geo_key": "PA",
       "sources_total": 20,
       "sources_official": 0,
+      "total_refs": 20,
+      "official": 0,
+      "non_official": 20,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "PE": {
       "geo_key": "PE",
       "sources_total": 18,
       "sources_official": 1,
+      "total_refs": 18,
+      "official": 1,
+      "non_official": 17,
       "official_badge": 1,
       "top_official_domains": [
         "opd.gob.pe"
       ],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [
+        "opd.gob.pe"
+      ],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "PF": {
       "geo_key": "PF",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "PG": {
       "geo_key": "PG",
       "sources_total": 8,
       "sources_official": 0,
+      "total_refs": 8,
+      "official": 0,
+      "non_official": 8,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "PH": {
       "geo_key": "PH",
       "sources_total": 12,
       "sources_official": 3,
+      "total_refs": 12,
+      "official": 3,
+      "non_official": 9,
       "official_badge": 1,
       "top_official_domains": [
         "congress.gov.ph",
         "pdea.gov.ph",
         "pna.gov.ph"
       ],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [
+        "congress.gov.ph",
+        "pdea.gov.ph",
+        "pna.gov.ph"
+      ],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "PK": {
       "geo_key": "PK",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "PL": {
       "geo_key": "PL",
       "sources_total": 13,
       "sources_official": 1,
+      "total_refs": 13,
+      "official": 1,
+      "non_official": 12,
       "official_badge": 1,
       "top_official_domains": [
         "isap.sejm.gov.pl"
       ],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [
+        "isap.sejm.gov.pl"
+      ],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "PM": {
       "geo_key": "PM",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "PN": {
       "geo_key": "PN",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "PR": {
       "geo_key": "PR",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "PS": {
       "geo_key": "PS",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "PT": {
       "geo_key": "PT",
       "sources_total": 12,
       "sources_official": 0,
+      "total_refs": 12,
+      "official": 0,
+      "non_official": 12,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "PW": {
       "geo_key": "PW",
       "sources_total": 8,
       "sources_official": 0,
+      "total_refs": 8,
+      "official": 0,
+      "non_official": 8,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "PY": {
       "geo_key": "PY",
       "sources_total": 6,
       "sources_official": 0,
+      "total_refs": 6,
+      "official": 0,
+      "non_official": 6,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "QA": {
       "geo_key": "QA",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "RE": {
       "geo_key": "RE",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "RO": {
       "geo_key": "RO",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "RS": {
       "geo_key": "RS",
       "sources_total": 20,
       "sources_official": 0,
+      "total_refs": 20,
+      "official": 0,
+      "non_official": 20,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "RU": {
       "geo_key": "RU",
       "sources_total": 19,
       "sources_official": 0,
+      "total_refs": 19,
+      "official": 0,
+      "non_official": 19,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "RW": {
       "geo_key": "RW",
       "sources_total": 5,
       "sources_official": 0,
+      "total_refs": 5,
+      "official": 0,
+      "non_official": 5,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "SA": {
       "geo_key": "SA",
       "sources_total": 4,
       "sources_official": 1,
+      "total_refs": 4,
+      "official": 1,
+      "non_official": 3,
       "official_badge": 1,
       "top_official_domains": [
         "travel.state.gov"
       ],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [
+        "travel.state.gov"
+      ],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "SB": {
       "geo_key": "SB",
       "sources_total": 4,
       "sources_official": 1,
+      "total_refs": 4,
+      "official": 1,
+      "non_official": 3,
       "official_badge": 1,
       "top_official_domains": [
         "rsipf.gov.sb"
       ],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [
+        "rsipf.gov.sb"
+      ],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "SC": {
       "geo_key": "SC",
       "sources_total": 13,
       "sources_official": 0,
+      "total_refs": 13,
+      "official": 0,
+      "non_official": 13,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "SD": {
       "geo_key": "SD",
       "sources_total": 4,
       "sources_official": 0,
+      "total_refs": 4,
+      "official": 0,
+      "non_official": 4,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "SE": {
       "geo_key": "SE",
       "sources_total": 8,
       "sources_official": 0,
+      "total_refs": 8,
+      "official": 0,
+      "non_official": 8,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "SG": {
       "geo_key": "SG",
       "sources_total": 14,
       "sources_official": 3,
+      "total_refs": 14,
+      "official": 3,
+      "non_official": 11,
       "official_badge": 1,
       "top_official_domains": [
         "cnb.gov.sg",
         "statutes.agc.gov.sg"
       ],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [
+        "cnb.gov.sg",
+        "statutes.agc.gov.sg"
+      ],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "SH": {
       "geo_key": "SH",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "SI": {
       "geo_key": "SI",
       "sources_total": 8,
       "sources_official": 0,
+      "total_refs": 8,
+      "official": 0,
+      "non_official": 8,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "SJ": {
       "geo_key": "SJ",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "SK": {
       "geo_key": "SK",
       "sources_total": 7,
       "sources_official": 0,
+      "total_refs": 7,
+      "official": 0,
+      "non_official": 7,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "SL": {
       "geo_key": "SL",
       "sources_total": 12,
       "sources_official": 0,
+      "total_refs": 12,
+      "official": 0,
+      "non_official": 12,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "SM": {
       "geo_key": "SM",
       "sources_total": 3,
       "sources_official": 0,
+      "total_refs": 3,
+      "official": 0,
+      "non_official": 3,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "SN": {
       "geo_key": "SN",
       "sources_total": 11,
       "sources_official": 0,
+      "total_refs": 11,
+      "official": 0,
+      "non_official": 11,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "SO": {
       "geo_key": "SO",
       "sources_total": 5,
       "sources_official": 0,
+      "total_refs": 5,
+      "official": 0,
+      "non_official": 5,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "SR": {
       "geo_key": "SR",
       "sources_total": 8,
       "sources_official": 0,
+      "total_refs": 8,
+      "official": 0,
+      "non_official": 8,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "SS": {
       "geo_key": "SS",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "ST": {
       "geo_key": "ST",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "SV": {
       "geo_key": "SV",
       "sources_total": 4,
       "sources_official": 0,
+      "total_refs": 4,
+      "official": 0,
+      "non_official": 4,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "SX": {
       "geo_key": "SX",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "SY": {
       "geo_key": "SY",
       "sources_total": 15,
       "sources_official": 0,
+      "total_refs": 15,
+      "official": 0,
+      "non_official": 15,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "SZ": {
       "geo_key": "SZ",
       "sources_total": 5,
       "sources_official": 0,
+      "total_refs": 5,
+      "official": 0,
+      "non_official": 5,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "TC": {
       "geo_key": "TC",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "TD": {
       "geo_key": "TD",
       "sources_total": 2,
       "sources_official": 0,
+      "total_refs": 2,
+      "official": 0,
+      "non_official": 2,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "TF": {
       "geo_key": "TF",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "TG": {
       "geo_key": "TG",
       "sources_total": 1,
       "sources_official": 0,
+      "total_refs": 1,
+      "official": 0,
+      "non_official": 1,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "TH": {
       "geo_key": "TH",
       "sources_total": 2,
       "sources_official": 0,
+      "total_refs": 2,
+      "official": 0,
+      "non_official": 2,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "TJ": {
       "geo_key": "TJ",
       "sources_total": 9,
       "sources_official": 0,
+      "total_refs": 9,
+      "official": 0,
+      "non_official": 9,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "TK": {
       "geo_key": "TK",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "TL": {
       "geo_key": "TL",
       "sources_total": 5,
       "sources_official": 0,
+      "total_refs": 5,
+      "official": 0,
+      "non_official": 5,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "TM": {
       "geo_key": "TM",
       "sources_total": 1,
       "sources_official": 0,
+      "total_refs": 1,
+      "official": 0,
+      "non_official": 1,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "TN": {
       "geo_key": "TN",
       "sources_total": 10,
       "sources_official": 0,
+      "total_refs": 10,
+      "official": 0,
+      "non_official": 10,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "TO": {
       "geo_key": "TO",
       "sources_total": 1,
       "sources_official": 0,
+      "total_refs": 1,
+      "official": 0,
+      "non_official": 1,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "TR": {
       "geo_key": "TR",
       "sources_total": 8,
       "sources_official": 0,
+      "total_refs": 8,
+      "official": 0,
+      "non_official": 8,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "TT": {
       "geo_key": "TT",
       "sources_total": 16,
       "sources_official": 0,
+      "total_refs": 16,
+      "official": 0,
+      "non_official": 16,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "TV": {
       "geo_key": "TV",
       "sources_total": 7,
       "sources_official": 2,
+      "total_refs": 7,
+      "official": 2,
+      "non_official": 5,
       "official_badge": 1,
       "top_official_domains": [
         "osac.gov"
       ],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [
+        "osac.gov"
+      ],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "TW": {
       "geo_key": "TW",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "TZ": {
       "geo_key": "TZ",
       "sources_total": 4,
       "sources_official": 0,
+      "total_refs": 4,
+      "official": 0,
+      "non_official": 4,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "UA": {
       "geo_key": "UA",
       "sources_total": 20,
       "sources_official": 2,
+      "total_refs": 20,
+      "official": 2,
+      "non_official": 18,
       "official_badge": 1,
       "top_official_domains": [
         "moz.gov.ua",
         "zakon4.rada.gov.ua"
       ],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [
+        "moz.gov.ua",
+        "zakon4.rada.gov.ua"
+      ],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "UG": {
       "geo_key": "UG",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "UM": {
       "geo_key": "UM",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "US": {
       "geo_key": "US",
       "sources_total": 20,
       "sources_official": 15,
+      "total_refs": 20,
+      "official": 15,
+      "non_official": 5,
       "official_badge": 1,
       "top_official_domains": [
         "fec.gov",
@@ -1958,283 +2967,430 @@
         "citizensbriefingbook.change.gov",
         "congress.gov"
       ],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [
+        "fec.gov",
+        "samhsa.gov",
+        "bjs.gov",
+        "citizensbriefingbook.change.gov",
+        "congress.gov"
+      ],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "US-AZ": {
       "geo_key": "US-AZ",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "US-CA": {
       "geo_key": "US-CA",
       "sources_total": 20,
       "sources_official": 1,
+      "total_refs": 20,
+      "official": 1,
+      "non_official": 19,
       "official_badge": 1,
       "top_official_domains": [
         "cannabis.ca.gov"
       ],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [
+        "cannabis.ca.gov"
+      ],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "US-CO": {
       "geo_key": "US-CO",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "US-CT": {
       "geo_key": "US-CT",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "US-FL": {
       "geo_key": "US-FL",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "US-IL": {
       "geo_key": "US-IL",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "US-MA": {
       "geo_key": "US-MA",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "US-MI": {
       "geo_key": "US-MI",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "US-NJ": {
       "geo_key": "US-NJ",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "US-NV": {
       "geo_key": "US-NV",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "US-NY": {
       "geo_key": "US-NY",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "US-OH": {
       "geo_key": "US-OH",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "US-OR": {
       "geo_key": "US-OR",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "US-PA": {
       "geo_key": "US-PA",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "US-TX": {
       "geo_key": "US-TX",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "US-VA": {
       "geo_key": "US-VA",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "US-WA": {
       "geo_key": "US-WA",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "UY": {
       "geo_key": "UY",
       "sources_total": 20,
       "sources_official": 0,
+      "total_refs": 20,
+      "official": 0,
+      "non_official": 20,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "UZ": {
       "geo_key": "UZ",
       "sources_total": 1,
       "sources_official": 0,
+      "total_refs": 1,
+      "official": 0,
+      "non_official": 1,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "VA": {
       "geo_key": "VA",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "VC": {
       "geo_key": "VC",
       "sources_total": 14,
       "sources_official": 0,
+      "total_refs": 14,
+      "official": 0,
+      "non_official": 14,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "VE": {
       "geo_key": "VE",
       "sources_total": 2,
       "sources_official": 0,
+      "total_refs": 2,
+      "official": 0,
+      "non_official": 2,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "VG": {
       "geo_key": "VG",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "VI": {
       "geo_key": "VI",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "VN": {
       "geo_key": "VN",
       "sources_total": 5,
       "sources_official": 0,
+      "total_refs": 5,
+      "official": 0,
+      "non_official": 5,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "VU": {
       "geo_key": "VU",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "WF": {
       "geo_key": "WF",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "WS": {
       "geo_key": "WS",
       "sources_total": 9,
       "sources_official": 1,
+      "total_refs": 9,
+      "official": 1,
+      "non_official": 8,
       "official_badge": 1,
       "top_official_domains": [
         "samoalawreform.gov.ws"
       ],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [
+        "samoalawreform.gov.ws"
+      ],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "XK": {
       "geo_key": "XK",
       "sources_total": 11,
       "sources_official": 0,
+      "total_refs": 11,
+      "official": 0,
+      "non_official": 11,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "YE": {
       "geo_key": "YE",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "YT": {
       "geo_key": "YT",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "ZA": {
       "geo_key": "ZA",
       "sources_total": 18,
       "sources_official": 0,
+      "total_refs": 18,
+      "official": 0,
+      "non_official": 18,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "ZM": {
       "geo_key": "ZM",
       "sources_total": 0,
       "sources_official": 0,
+      "total_refs": 0,
+      "official": 0,
+      "non_official": 0,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     },
     "ZW": {
       "geo_key": "ZW",
       "sources_total": 7,
       "sources_official": 0,
+      "total_refs": 7,
+      "official": 0,
+      "non_official": 7,
       "official_badge": 0,
       "top_official_domains": [],
-      "last_checked_at": "2026-01-21T12:28:41.505Z"
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-21T20:22:53.966Z"
     }
   }
 }

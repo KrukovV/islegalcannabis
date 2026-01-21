@@ -1,0 +1,37 @@
+{
+  "geo_key": "DE",
+  "name_in_wiki": "Germany",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Germany",
+  "row_ref": "country:59",
+  "wiki_rec": "Legal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in Germany",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Germany"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Germany",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Germany"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Germany",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Germany"
+    }
+  ],
+  "notes_text": "On 23 February 2024, the German Bundestag passed the Act on the Controlled Use of Cannabis, legalizing possession of outside the home, at home, and private cultivation of three plants, for adults 18 and over, since 1 April 2024. Collective, noncommercial cultivation is legal in cultivation associations (i.e. cannabis social clubs) since 1 July 2024.",
+  "notes_text_len": 351,
+  "notes": "On 23 February 2024, the German Bundestag passed the Act on the Controlled Use of Cannabis, legalizing possession of outside the home, at home, and private cultivation of three plants, for adults 18 and over, since 1 April 2024. Collective, noncommercial cultivation is legal in cultivation associations (i.e. cannabis social clubs) since 1 July 2024.",
+  "notes_raw": "{{main|Cannabis in Germany}} On 23 February 2024, the German Bundestag passed the Act on the Controlled Use of Cannabis, legalizing possession of {{cvt|25|g|frac=8}} outside the home, {{cvt|50|g|frac=8}} at home, and private cultivation of three plants, for adults 18 and over, since 1 April 2024. Collective, noncommercial cultivation is legal in cultivation associations (i.e. [[cannabis social club]]s) since 1 July 2024.<ref>{{cite news |last1=McGuinness|first1=Damien |title=Germany legalises cannabis, but makes it hard to buy|url=https://www.bbc.com/news/world-europe-68378807 |access-date=23 February 2024 |publisher=[[BBC]] |date=23 February 2024 |archive-date=23 February 2024 |archive-url=https://web.archive.org/web/20240223120314/https://www.bbc.com/news/world-europe-68378807|url-status=live }}</ref><ref>{{cite news |last1=Moulson |first1=Geir |title=Germany's parliament votes to legalize limited marijuana possession and allow 'cannabis clubs' |url=https://apnews.com/article/germany-cannabis-parliament-liberalization-possession-sale-e185bbdb2df1dd43e33e829f7a23051a |access-date=23 February 2024 |work=Associated Press |date=23 February 2024}}</ref><ref>{{cite news |last1=Schmidt |first1=Nadine |title=Germany legalizes recreational cannabis use |url=https://www.cnn.com/2024/02/23/europe/germany-cannabis-legal-parliament-intl/index.html |access-date=23 February 2024 |work=CNN |date=23 February 2024}}</ref>",
+  "recreational_status": "Legal",
+  "medical_status": "Legal",
+  "wiki_revision_id": "1332405714",
+  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "source": "countries",
+  "revision_id": "1332405714"
+}
