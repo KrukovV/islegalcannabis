@@ -1,16 +1,18 @@
 {
-  "fetched_at": "2026-01-20T21:26:10.478Z",
+  "fetched_at": "2026-01-21T12:28:41.166Z",
   "pages": {
     "Legality of cannabis": {
+      "pageid": "168917",
       "revision_id": "1332405714"
     },
     "Legality of cannabis by U.S. jurisdiction": {
+      "pageid": "31188467",
       "revision_id": "1331890318"
     }
   },
   "counts": {
-    "total": 267,
-    "countries": 177,
+    "total": 300,
+    "countries": 249,
     "states": 50
   },
   "missing_countries": []

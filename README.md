@@ -32,6 +32,20 @@ SEO pages under `/is-cannabis-legal-in-[slug]` are statically generated from a f
 bash tools/ci-local.sh
 ```
 
+## Wiki sync (4h, revision cached)
+
+Run full Wiki claims + official badge sync (all countries + US states):
+
+```bash
+bash tools/wiki/cron_sync_all.sh
+```
+
+Cron example (every 4 hours):
+
+```bash
+0 */4 * * * cd /path/to/islegalcannabis && bash tools/wiki/cron_sync_all.sh >> Reports/wiki_sync.log 2>&1
+```
+
 ## Leaflet map assets (offline)
 
 Pinned refs:

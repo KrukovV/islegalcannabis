@@ -5,7 +5,7 @@ import {
   loadIsoLookupMap,
   normalizeName
 } from "./wiki_geo_resolver.mjs";
-import { fetchPageMeta, fetchPageWikitext } from "./mediawiki_api.mjs";
+import { fetchPageInfo, fetchPageWikitextCached } from "./mediawiki_api.mjs";
 import { parseLegalityTable, normalizeRowStatuses } from "./legality_wikitext_parser.mjs";
 import { cacheAgeHours, loadCache, saveCache, shouldRefresh } from "./wiki_cache.mjs";
 
@@ -69,50 +69,127 @@ function loadStateNameMap() {
     if (!key || typeof entry !== "object") continue;
     const name = String(entry?.name || "").trim();
     if (!name) continue;
-    map.set(normalizeName(name), key.toUpperCase());
+    const normalized = normalizeName(name);
+    if (!normalized) continue;
+    const geoKey = key.toUpperCase();
+    map.set(normalized, geoKey);
+    map.set(`${normalized} state`, geoKey);
+    map.set(`${normalized} u s state`, geoKey);
+  }
+  return map;
+}
+
+function loadFallbackStateMap() {
+  const states = {
+    alabama: "US-AL",
+    alaska: "US-AK",
+    arizona: "US-AZ",
+    arkansas: "US-AR",
+    california: "US-CA",
+    colorado: "US-CO",
+    connecticut: "US-CT",
+    delaware: "US-DE",
+    florida: "US-FL",
+    georgia: "US-GA",
+    hawaii: "US-HI",
+    idaho: "US-ID",
+    illinois: "US-IL",
+    indiana: "US-IN",
+    iowa: "US-IA",
+    kansas: "US-KS",
+    kentucky: "US-KY",
+    louisiana: "US-LA",
+    maine: "US-ME",
+    maryland: "US-MD",
+    massachusetts: "US-MA",
+    michigan: "US-MI",
+    minnesota: "US-MN",
+    mississippi: "US-MS",
+    missouri: "US-MO",
+    montana: "US-MT",
+    nebraska: "US-NE",
+    nevada: "US-NV",
+    "new hampshire": "US-NH",
+    "new jersey": "US-NJ",
+    "new mexico": "US-NM",
+    "new york": "US-NY",
+    "north carolina": "US-NC",
+    "north dakota": "US-ND",
+    ohio: "US-OH",
+    oklahoma: "US-OK",
+    oregon: "US-OR",
+    pennsylvania: "US-PA",
+    "rhode island": "US-RI",
+    "south carolina": "US-SC",
+    "south dakota": "US-SD",
+    tennessee: "US-TN",
+    texas: "US-TX",
+    utah: "US-UT",
+    vermont: "US-VT",
+    virginia: "US-VA",
+    washington: "US-WA",
+    "west virginia": "US-WV",
+    wisconsin: "US-WI",
+    wyoming: "US-WY",
+    "district of columbia": "US-DC"
+  };
+  const map = new Map();
+  for (const [name, code] of Object.entries(states)) {
+    const normalized = normalizeName(name);
+    if (!normalized) continue;
+    map.set(normalized, code);
+    map.set(`${normalized} state`, code);
+    map.set(`${normalized} u s state`, code);
   }
   return map;
 }
 
 const FORCE_REFRESH = process.argv.includes("--refresh") || process.env.WIKI_FORCE_REFRESH === "1";
+const MODE =
+  process.argv.includes("--all") || process.env.WIKI_SYNC_MODE === "all"
+    ? "all"
+    : "smoke";
+const SMOKE_GEOS = new Set(["RU", "TH", "XK", "US-CA", "CA"]);
+const DIAG = process.argv.includes("--diag");
 
 async function fetchPageRows(pageTitle, cacheFile) {
   const cachePath = path.join(ROOT, "data", "wiki", "cache", cacheFile);
   const cache = loadCache(cachePath);
   const ageHours = cacheAgeHours(cache);
   const refresh = FORCE_REFRESH ? true : shouldRefresh(cache, 4);
-  if (!refresh && cache?.rows?.length) {
-    console.log(`WIKI_CACHE: page="${pageTitle}" hit=1 age_h=${ageHours?.toFixed(2) ?? "-"} revision=${cache.revision_id || "-"}`);
-    const rows = cache.rows.map((row) => normalizeRowStatuses(row));
-    return { ok: true, rows, revisionId: cache.revision_id || "", fetchedAt: cache.fetched_at || "" };
-  }
-  const meta = await fetchPageMeta(pageTitle);
+  const meta = await fetchPageInfo(pageTitle);
   if (!meta.ok) {
     if (process.env.ALLOW_WIKI_OFFLINE === "1" && cache?.rows?.length) {
+      const refreshed = {
+        pageid: cache.pageid || "",
+        revision_id: cache.revision_id || "",
+        fetched_at: new Date().toISOString(),
+        rows: cache.rows.map((row) => normalizeRowStatuses(row))
+      };
+      saveCache(refreshed, cachePath);
       console.log(`WIKI_CACHE: page="${pageTitle}" hit=1 age_h=${ageHours?.toFixed(2) ?? "-"} revision=${cache.revision_id || "-"}`);
-      const rows = cache.rows.map((row) => normalizeRowStatuses(row));
-      return { ok: true, rows, revisionId: cache.revision_id || "", fetchedAt: cache.fetched_at || "" };
+      return { ok: true, rows: refreshed.rows, revisionId: refreshed.revision_id, fetchedAt: refreshed.fetched_at, pageid: cache.pageid || "" };
     }
     console.log(`WIKI_CACHE_MISS: page="${pageTitle}" reason=${meta.reason || "NETWORK_FAIL"}`);
     if (process.env.ALLOW_WIKI_OFFLINE === "1") {
-      return { ok: true, rows: [], revisionId: cache?.revision_id || "", fetchedAt: cache?.fetched_at || "" };
+      return { ok: true, rows: [], revisionId: cache?.revision_id || "", fetchedAt: cache?.fetched_at || "", pageid: cache?.pageid || "" };
     }
     return { ok: false, reason: meta.reason || "NETWORK_FAIL", error: meta.error || "-" };
   }
-  const wikitextResult = await fetchPageWikitext(meta.pageid);
-  if (!wikitextResult.ok) {
-    if (process.env.ALLOW_WIKI_OFFLINE === "1" && cache?.rows?.length) {
+  const revisionChanged = cache?.revision_id && meta.revision_id
+    ? cache.revision_id !== meta.revision_id
+    : true;
+  if (!refresh && cache?.rows?.length) {
+    if (!revisionChanged) {
       console.log(`WIKI_CACHE: page="${pageTitle}" hit=1 age_h=${ageHours?.toFixed(2) ?? "-"} revision=${cache.revision_id || "-"}`);
       const rows = cache.rows.map((row) => normalizeRowStatuses(row));
-      return { ok: true, rows, revisionId: cache.revision_id || "", fetchedAt: cache.fetched_at || "" };
+      return { ok: true, rows, revisionId: cache.revision_id || "", fetchedAt: cache.fetched_at || "", pageid: cache.pageid || meta.pageid || "" };
     }
-    console.log(`WIKI_CACHE_MISS: page="${pageTitle}" reason=${wikitextResult.reason || "NETWORK_FAIL"}`);
-    if (process.env.ALLOW_WIKI_OFFLINE === "1") {
-      return { ok: true, rows: [], revisionId: cache?.revision_id || "", fetchedAt: cache?.fetched_at || "" };
-    }
-    return { ok: false, reason: wikitextResult.reason || "NETWORK_FAIL", error: wikitextResult.error || "-" };
+    console.log(`WIKI_CACHE: page="${pageTitle}" hit=1 age_h=${ageHours?.toFixed(2) ?? "-"} revision=${cache.revision_id || "-"}`);
+    const rows = cache.rows.map((row) => normalizeRowStatuses(row));
+    return { ok: true, rows, revisionId: cache.revision_id || "", fetchedAt: cache.fetched_at || "", pageid: cache.pageid || meta.pageid || "" };
   }
-  if (!FORCE_REFRESH && cache?.revision_id && cache.revision_id === wikitextResult.revision_id && Array.isArray(cache.rows)) {
+  if (!FORCE_REFRESH && cache?.revision_id && meta.revision_id && cache.revision_id === meta.revision_id && Array.isArray(cache.rows)) {
     const refreshed = {
       pageid: meta.pageid,
       revision_id: cache.revision_id,
@@ -121,7 +198,26 @@ async function fetchPageRows(pageTitle, cacheFile) {
     };
     saveCache(refreshed, cachePath);
     console.log(`WIKI_CACHE: page="${pageTitle}" hit=1 age_h=${ageHours?.toFixed(2) ?? "-"} revision=${cache.revision_id}`);
-    return { ok: true, rows: refreshed.rows, revisionId: cache.revision_id, fetchedAt: refreshed.fetched_at };
+    return { ok: true, rows: refreshed.rows, revisionId: cache.revision_id, fetchedAt: refreshed.fetched_at, pageid: meta.pageid };
+  }
+  const wikitextResult = await fetchPageWikitextCached(meta.pageid, meta.revision_id);
+  if (!wikitextResult.ok) {
+    if (process.env.ALLOW_WIKI_OFFLINE === "1" && cache?.rows?.length) {
+      const refreshed = {
+        pageid: cache.pageid || meta.pageid || "",
+        revision_id: cache.revision_id || "",
+        fetched_at: new Date().toISOString(),
+        rows: cache.rows.map((row) => normalizeRowStatuses(row))
+      };
+      saveCache(refreshed, cachePath);
+      console.log(`WIKI_CACHE: page="${pageTitle}" hit=1 age_h=${ageHours?.toFixed(2) ?? "-"} revision=${cache.revision_id || "-"}`);
+      return { ok: true, rows: refreshed.rows, revisionId: refreshed.revision_id, fetchedAt: refreshed.fetched_at, pageid: cache.pageid || meta.pageid || "" };
+    }
+    console.log(`WIKI_CACHE_MISS: page="${pageTitle}" reason=${wikitextResult.reason || "NETWORK_FAIL"}`);
+    if (process.env.ALLOW_WIKI_OFFLINE === "1") {
+      return { ok: true, rows: [], revisionId: cache?.revision_id || "", fetchedAt: cache?.fetched_at || "", pageid: cache?.pageid || meta.pageid || "" };
+    }
+    return { ok: false, reason: wikitextResult.reason || "NETWORK_FAIL", error: wikitextResult.error || "-" };
   }
   const rows = parseLegalityTable(wikitextResult.wikitext || "");
   const refreshed = {
@@ -132,7 +228,7 @@ async function fetchPageRows(pageTitle, cacheFile) {
   };
   saveCache(refreshed, cachePath);
   console.log(`WIKI_CACHE: page="${pageTitle}" hit=0 age_h=0 revision=${wikitextResult.revision_id || "-"}`);
-  return { ok: true, rows, revisionId: wikitextResult.revision_id || "", fetchedAt: refreshed.fetched_at };
+  return { ok: true, rows, revisionId: wikitextResult.revision_id || "", fetchedAt: refreshed.fetched_at, pageid: meta.pageid };
 }
 
 async function main() {
@@ -148,6 +244,8 @@ async function main() {
   const aliases = loadDefaultAliases();
   const isoMap = loadIsoLookupMap();
   const stateMap = loadStateNameMap();
+  const fallbackStateMap = loadFallbackStateMap();
+  const metaPrev = readJson(META_PATH, { pages: {} });
 
   const countryResult = await fetchPageRows(COUNTRY_PAGE, "legality_of_cannabis.json");
   if (!countryResult.ok) {
@@ -176,9 +274,12 @@ async function main() {
       row_ref: `country:${index + 1}`,
       wiki_rec: row.recreational_status,
       wiki_med: row.medical_status,
+      sources: row.notes_main_articles || [],
+      sources_count: row.notes_main_articles?.length || 0,
       main_articles: row.notes_main_articles || [],
       notes_main_articles: row.notes_main_articles || [],
       notes_text: row.notes_text || "",
+      notes_text_len: (row.notes_text || "").length,
       notes_raw: row.notes_raw || "",
       recreational_status: row.recreational_status,
       medical_status: row.medical_status,
@@ -189,7 +290,7 @@ async function main() {
 
   stateResult.rows.forEach((row, index) => {
     const normalized = normalizeName(row.name || row.link || "");
-    const geoKey = stateMap.get(normalized);
+    const geoKey = stateMap.get(normalized) || fallbackStateMap.get(normalized);
     if (!geoKey) return;
     entries.set(geoKey, {
       geo_key: geoKey,
@@ -198,9 +299,12 @@ async function main() {
       row_ref: `state:${index + 1}`,
       wiki_rec: row.recreational_status,
       wiki_med: row.medical_status,
+      sources: row.notes_main_articles || [],
+      sources_count: row.notes_main_articles?.length || 0,
       main_articles: row.notes_main_articles || [],
       notes_main_articles: row.notes_main_articles || [],
       notes_text: row.notes_text || "",
+      notes_text_len: (row.notes_text || "").length,
       notes_raw: row.notes_raw || "",
       recreational_status: row.recreational_status,
       medical_status: row.medical_status,
@@ -216,6 +320,7 @@ async function main() {
 
   const isoPayload = readJson(ISO_PATH, { entries: [] });
   const isoEntries = Array.isArray(isoPayload?.entries) ? isoPayload.entries : [];
+  const countriesCount = isoEntries.length;
   isoEntries.forEach((entry) => {
     const iso2 = String(entry?.alpha2 || "").toUpperCase();
     if (!iso2 || entries.has(iso2)) return;
@@ -227,9 +332,12 @@ async function main() {
       row_ref: `iso_fallback:${iso2}`,
       wiki_rec: "Unknown",
       wiki_med: "Unknown",
+      sources: [],
+      sources_count: 0,
       main_articles: [],
       notes_main_articles: [],
       notes_text: "",
+      notes_text_len: 0,
       notes_raw: "",
       recreational_status: "Unknown",
       medical_status: "Unknown",
@@ -238,9 +346,21 @@ async function main() {
     });
   });
 
-  const items = Array.from(entries.values()).sort((a, b) =>
+  let items = Array.from(entries.values()).sort((a, b) =>
     String(a.geo_key || "").localeCompare(String(b.geo_key || ""))
   );
+  if (MODE === "smoke") {
+    const existingMapPayload = readJson(MAP_PATH, null);
+    const existingItems = existingMapPayload?.items && typeof existingMapPayload.items === "object"
+      ? existingMapPayload.items
+      : {};
+    const mergedItems = { ...existingItems };
+    for (const item of items) {
+      if (!SMOKE_GEOS.has(item.geo_key)) continue;
+      mergedItems[item.geo_key] = item;
+    }
+    items = Object.values(mergedItems).filter((entry) => entry && entry.geo_key);
+  }
   const mapItems = {};
   items.forEach((item) => {
     mapItems[item.geo_key] = item;
@@ -250,26 +370,34 @@ async function main() {
     generated_at: runAt,
     items: mapItems
   });
+  const revisionChanged =
+    metaPrev?.pages?.[COUNTRY_PAGE]?.revision_id !== countryResult.revisionId ||
+    metaPrev?.pages?.[STATE_PAGE]?.revision_id !== stateResult.revisionId;
+  const totalCount = items.length;
   writeAtomic(META_PATH, {
     fetched_at: runAt,
     pages: {
-      [COUNTRY_PAGE]: { revision_id: countryResult.revisionId },
-      [STATE_PAGE]: { revision_id: stateResult.revisionId }
+      [COUNTRY_PAGE]: { pageid: countryResult.pageid || "", revision_id: countryResult.revisionId },
+      [STATE_PAGE]: { pageid: stateResult.pageid || "", revision_id: stateResult.revisionId }
     },
     counts: {
-      total: items.length,
-      countries: countryResult.rows.length,
+      total: totalCount,
+      countries: countriesCount,
       states: stateResult.rows.length
     },
     missing_countries: missingCountries.slice(0, 10)
   });
 
   const linkCount = items.reduce((sum, item) => sum + (item.notes_main_articles?.length || 0), 0);
+  const modeLabel = MODE === "all" ? "all" : "smoke";
   console.log(
-    `WIKI_SYNC: revision_id=${countryResult.revisionId} countries_count=${countryResult.rows.length} states_count=${stateResult.rows.length} total=${items.length} links_count=${linkCount}`
+    `WIKI_SYNC: mode=${modeLabel} revision_id=${countryResult.revisionId} countries_count=${countriesCount} states_count=${stateResult.rows.length} total=${totalCount} links_count=${linkCount} revision_changed=${revisionChanged ? 1 : 0}`
   );
   if (missingCountries.length) {
     console.log(`WIKI_MISSING: count=${missingCountries.length} samples=${missingCountries.slice(0, 5).join("|")}`);
+  }
+  if (DIAG) {
+    console.log(`WIKI_SYNC_DIAG: mode=${modeLabel} missing_countries=${missingCountries.length}`);
   }
 
   const strict = process.argv.includes("--once") || process.env.WIKI_SYNC_STRICT === "1";

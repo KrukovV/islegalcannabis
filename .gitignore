@@ -52,6 +52,8 @@ Reports/**
 data/source_snapshots/**
 .checkpoints/**
 Artifacts/backups/**
+Artifacts/git_blocked/**
+Artifacts/**/*.tgz
 data/wiki/cache/**
 **/*.log
 **/.DS_Store

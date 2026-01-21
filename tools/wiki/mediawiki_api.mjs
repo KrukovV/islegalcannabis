@@ -22,6 +22,7 @@ const PAGE_TITLE = "Legality_of_cannabis";
 const PING_URL = "https://en.wikipedia.org/w/api.php?action=query&meta=siteinfo&format=json";
 const PING_TIMEOUT_MS = Number(process.env.WIKI_PING_TIMEOUT_MS || 4000);
 const WIKI_CACHE_MAX_AGE_H = Number(process.env.WIKI_CACHE_MAX_AGE_H || 6);
+const WIKI_CACHE_DIR = path.join(ROOT, "data", "wiki", "cache");
 const WIKI_CACHE_FILES = [
   path.join(ROOT, "data", "wiki", "cache", "legality_of_cannabis.json"),
   path.join(ROOT, "data", "wiki", "cache", "legality_us_states.json")
@@ -94,6 +95,35 @@ async function fetchJson(url) {
   }
 }
 
+function cachePathForWikitext(pageid, revisionId) {
+  if (!pageid || !revisionId) return "";
+  return path.join(WIKI_CACHE_DIR, `${pageid}-${revisionId}.json`);
+}
+
+function loadWikitextCache(pageid, revisionId) {
+  const cachePath = cachePathForWikitext(pageid, revisionId);
+  if (!cachePath || !fs.existsSync(cachePath)) return "";
+  try {
+    const payload = JSON.parse(fs.readFileSync(cachePath, "utf8"));
+    return String(payload?.wikitext || "");
+  } catch {
+    return "";
+  }
+}
+
+function saveWikitextCache(pageid, revisionId, wikitext) {
+  const cachePath = cachePathForWikitext(pageid, revisionId);
+  if (!cachePath) return;
+  fs.mkdirSync(path.dirname(cachePath), { recursive: true });
+  const payload = {
+    pageid: String(pageid),
+    revision_id: String(revisionId),
+    fetched_at: new Date().toISOString(),
+    wikitext: String(wikitext || "")
+  };
+  fs.writeFileSync(cachePath, JSON.stringify(payload, null, 2) + "\n");
+}
+
 export async function fetchPageMeta(title) {
   const params = new URLSearchParams({
     action: "query",
@@ -114,6 +144,30 @@ export async function fetchPageMeta(title) {
     pageid: String(page.pageid || ""),
     title: String(page.title || title),
     canonicalUrl: String(page.canonicalurl || page.fullurl || "")
+  };
+}
+
+export async function fetchPageInfo(title) {
+  const params = new URLSearchParams({
+    action: "query",
+    titles: title,
+    prop: "info|revisions",
+    rvprop: "ids",
+    format: "json",
+    formatversion: "2"
+  });
+  const url = `${API_BASE}?${params.toString()}`;
+  const response = await fetchJson(url);
+  if (!response.ok) {
+    return { ok: false, reason: response.reason, error: response.error };
+  }
+  const page = response.payload?.query?.pages?.[0] || {};
+  const revision = page?.revisions?.[0] || {};
+  return {
+    ok: true,
+    pageid: String(page.pageid || ""),
+    title: String(page.title || title),
+    revision_id: String(revision.revid || "")
   };
 }
 
@@ -146,6 +200,20 @@ export async function fetchPageWikitext(pageid) {
     wikitext: content,
     revision_id: revisionId
   };
+}
+
+export async function fetchPageWikitextCached(pageid, revisionId) {
+  const cached = loadWikitextCache(pageid, revisionId);
+  if (cached) {
+    const bytes = Buffer.byteLength(cached, "utf8");
+    console.log(`WIKI_API: pageid=${pageid} revision=${revisionId} bytes=${bytes} ok=1 cache=1`);
+    return { ok: true, wikitext: cached, revision_id: String(revisionId) };
+  }
+  const result = await fetchPageWikitext(pageid);
+  if (result.ok && result.revision_id) {
+    saveWikitextCache(pageid, result.revision_id, result.wikitext);
+  }
+  return result;
 }
 
 export async function fetchLegalityPageMeta() {

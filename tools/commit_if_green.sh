@@ -74,6 +74,36 @@ print_fail_diag() {
   ls -la .git/index* .git/*.lock 2>/dev/null || true
 }
 
+write_git_blocked_artifacts() {
+  local ts
+  local dir
+  ts=$(date -u +%Y%m%d-%H%M%S)
+  dir="Artifacts/git_blocked/${ts}"
+  mkdir -p "${dir}"
+  git status --porcelain > "${dir}/git_status.txt" 2>/dev/null || true
+  git diff > "${dir}/diff.patch" 2>/dev/null || true
+  git diff --name-only --cached > "${dir}/staged_files.txt" 2>/dev/null || true
+  git tag --list "good/*" --sort=-creatordate | head -n 1 > "${dir}/last_good_tag.txt" 2>/dev/null || true
+  echo "GIT_BLOCKED_ARTIFACTS=${dir}"
+  append_ci_final "GIT_BLOCKED_ARTIFACTS=${dir}"
+}
+
+check_git_dir_writable() {
+  if [ ! -d .git ] || ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    echo "GIT_BLOCKED=1 reason=EPERM_GIT_DIR"
+    append_ci_final "GIT_BLOCKED=1 reason=EPERM_GIT_DIR"
+    write_git_blocked_artifacts
+    exit 2
+  fi
+  if ! touch .git/.writetest 2>/dev/null; then
+    echo "GIT_BLOCKED=1 reason=EPERM_GIT_DIR"
+    append_ci_final "GIT_BLOCKED=1 reason=EPERM_GIT_DIR"
+    write_git_blocked_artifacts
+    exit 2
+  fi
+  rm -f .git/.writetest 2>/dev/null || true
+}
+
 append_ci_final() {
   local line="$1"
   if [ -n "${line}" ] && [ -f Reports/ci-final.txt ]; then
@@ -160,7 +190,15 @@ ensure_git_writable() {
   fi
 }
 
-tools/quality_gate.sh
+check_git_dir_writable
+
+AUTO_COMMIT_AFTER_SYNC=0 tools/quality_gate.sh
+
+if ! git check-ignore -q Artifacts/git_blocked 2>/dev/null; then
+  echo "GIT_BLOCKED_PATH_NOT_IGNORED=1"
+  append_ci_final "GIT_BLOCKED_PATH_NOT_IGNORED=1"
+  exit 1
+fi
 
 CI_FINAL="Reports/ci-final.txt"
 if [ ! -f "${CI_FINAL}" ]; then
@@ -168,7 +206,7 @@ if [ ! -f "${CI_FINAL}" ]; then
   print_fail_diag
   exit 1
 fi
-if ! grep -q "^WIKI_GATE geos=RU,TH,XK,US-CA,CA" "${CI_FINAL}"; then
+if ! grep -q "^WIKI_GATE geos=RU,TH,XK,US,US-CA,CA" "${CI_FINAL}"; then
   echo "Not committing."
   print_fail_diag
   exit 1
@@ -179,12 +217,12 @@ if ! grep -q "^WIKI_GATE_OK=1" "${CI_FINAL}"; then
   exit 1
 fi
 ok_count=$(grep -c "^🌿 WIKI_CLAIM_OK " "${CI_FINAL}" || true)
-if [ "${ok_count}" -ne 5 ]; then
+if [ "${ok_count}" -ne 6 ]; then
   echo "Not committing."
   print_fail_diag
   exit 1
 fi
-for geo in RU TH XK US-CA CA; do
+for geo in RU TH XK US US-CA CA; do
   geo_count=$(grep -c "^🌿 WIKI_CLAIM_OK geo=${geo} " "${CI_FINAL}" || true)
   if [ "${geo_count}" -ne 1 ]; then
     echo "Not committing."
@@ -205,7 +243,7 @@ if [ "${DRY_RUN}" = "1" ]; then
   exit 0
 fi
 
-git add -A
+git add -- tools data/wiki README.md CONTINUITY.md .gitignore
 
 if [ -z "$(git status --porcelain)" ]; then
   echo "NO_CHANGES"
@@ -217,6 +255,12 @@ else
   else
     git commit -am "${subject}"
   fi
+fi
+if [ -n "$(git status --porcelain)" ]; then
+  append_ci_final "DIRTY_TREE_AFTER_GREEN=1"
+  echo "DIRTY_TREE_AFTER_GREEN=1"
+  report_git_clean
+  exit 1
 fi
 
 timestamp="$(date -u +%Y%m%d-%H%M%S)"
@@ -286,10 +330,14 @@ fi
 append_ci_final "REMOTE_REACHABLE=1 reason=OK"
 
 set +e
-PUSH_OUTPUT=$(GIT_TERMINAL_PROMPT=0 GIT_ASKPASS=/usr/bin/true run_git_with_timeout "git push" 2>&1)
+PUSH_OUTPUT=$(GIT_TERMINAL_PROMPT=0 GIT_ASKPASS=/usr/bin/true run_git_with_timeout "git push --force origin refs/tags/${tag}" 2>&1)
 PUSH_STATUS=$?
-TAG_PUSH_OUTPUT=$(GIT_TERMINAL_PROMPT=0 GIT_ASKPASS=/usr/bin/true run_git_with_timeout "git push --tags" 2>&1)
-TAG_PUSH_STATUS=$?
+TAG_PUSH_STATUS=0
+TAG_PUSH_OUTPUT=""
+if [ -n "${prod_tag:-}" ]; then
+  TAG_PUSH_OUTPUT=$(GIT_TERMINAL_PROMPT=0 GIT_ASKPASS=/usr/bin/true run_git_with_timeout "git push --force origin refs/tags/${prod_tag}" 2>&1)
+  TAG_PUSH_STATUS=$?
+fi
 set -e
 if [ "${PUSH_STATUS}" -ne 0 ] || [ "${TAG_PUSH_STATUS}" -ne 0 ]; then
   reason="OTHER"
@@ -299,6 +347,8 @@ ${TAG_PUSH_OUTPUT}"
     reason="DNS"
   elif echo "${combined_output}" | grep -qi "Authentication failed\|Permission denied"; then
     reason="AUTH"
+  elif echo "${combined_output}" | grep -qi "permission denied to update refs/tags"; then
+    reason="PERMISSION"
   elif echo "${combined_output}" | grep -qi "non-fast-forward"; then
     reason="NON_FAST_FORWARD"
   elif echo "${combined_output}" | grep -qi "hook declined\|pre-receive hook declined"; then
@@ -307,8 +357,10 @@ ${TAG_PUSH_OUTPUT}"
     reason="NETWORK_TIMEOUT"
   fi
   append_ci_final "PUSH_FAIL_REASON=${reason}"
-  append_ci_final "PUSH_FAIL_CMD=git push"
-  append_ci_final "PUSH_FAIL_CMD=git push --tags"
+  append_ci_final "PUSH_FAIL_CMD=git push --force origin refs/tags/${tag}"
+  if [ -n "${prod_tag:-}" ]; then
+    append_ci_final "PUSH_FAIL_CMD=git push --force origin refs/tags/${prod_tag}"
+  fi
   append_ci_final "PUSH_STDERR_LAST_BEGIN"
   printf "%s\n" "${combined_output}" | tail -n 60 >> Reports/ci-final.txt
   append_ci_final "PUSH_STDERR_LAST_END"

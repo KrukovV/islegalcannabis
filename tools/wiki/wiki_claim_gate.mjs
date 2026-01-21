@@ -21,7 +21,7 @@ if (process.cwd() !== ROOT) {
 
 const args = process.argv.slice(2);
 const geosArgIndex = args.indexOf("--geos");
-let geos = ["RU", "TH", "XK", "US-CA", "CA"];
+let geos = ["RU", "TH", "XK", "US", "US-CA", "CA"];
 if (geosArgIndex >= 0 && args[geosArgIndex + 1]) {
   geos = args[geosArgIndex + 1].split(",").map((geo) => geo.trim()).filter(Boolean);
 }
@@ -42,6 +42,31 @@ const ssot = JSON.parse(fs.readFileSync(ssotPath, "utf8"));
 const entries = ssot?.items || ssot?.entries || {};
 const baselineStrict = process.env.BASELINE_STRICT !== "0";
 const offlineOk = process.env.WIKI_OFFLINE_OK === "1" ? "1" : "0";
+
+const recIcons = new Map([
+  ["legal", "🌿"],
+  ["decrim", "🟨"],
+  ["illegal", "❌"],
+  ["unknown", "◻️"],
+]);
+const medIcons = new Map([
+  ["legal", "💊"],
+  ["limited", "🟨"],
+  ["illegal", "❌"],
+  ["unknown", "◻️"],
+]);
+
+const formatRec = (value) => {
+  const text = value && String(value).trim() ? String(value).trim() : "Unknown";
+  const icon = recIcons.get(text.toLowerCase()) || "◻️";
+  return `${icon}${text}`;
+};
+
+const formatMed = (value) => {
+  const text = value && String(value).trim() ? String(value).trim() : "Unknown";
+  const icon = medIcons.get(text.toLowerCase()) || "◻️";
+  return `${icon}${text}`;
+};
 
 console.log(`WIKI_GATE geos=${geos.join(",")} baseline_strict=${baselineStrict ? "1" : "0"} offline_ok=${offlineOk}`);
 
@@ -88,7 +113,7 @@ for (const geo of geos) {
     console.log(`❌ WIKI_CLAIM_FAIL geo=${geo} reason=${reason}`);
   } else {
     okCount += 1;
-    console.log(`🌿 WIKI_CLAIM_OK geo=${geo} rec=${rec} med=${med} source=${source} revision=${revision}`);
+    console.log(`🌿 WIKI_CLAIM_OK geo=${geo} rec=${formatRec(rec)} med=${formatMed(med)} source=${source} revision=${revision}`);
   }
 }
 

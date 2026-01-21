@@ -46,6 +46,10 @@ STDOUT_FILE="${CHECKPOINT_DIR}/ci-final.txt"
 REPORTS_FINAL="${ROOT}/Reports/ci-final.txt"
 META_FILE="${CHECKPOINT_DIR}/pass_cycle.meta.json"
 PRE_LOG="${CHECKPOINT_DIR}/pass_cycle.pre.log"
+PREV_WIKI_SYNC_ALL_LINE=""
+if [ -f "${REPORTS_FINAL}" ]; then
+  PREV_WIKI_SYNC_ALL_LINE=$(grep -E "^WIKI_SYNC_ALL " "${REPORTS_FINAL}" | tail -n 1 || true)
+fi
 
 MACHINE_PRE_META=$(ROOT_DIR="${ROOT}" node -e 'const fs=require("fs");const path=require("path");const crypto=require("crypto");const file=path.join(process.env.ROOT_DIR,"data","legal_ssot","machine_verified.json");if(!fs.existsSync(file)){console.log("0||0");process.exit(0);}const stat=fs.statSync(file);const raw=fs.readFileSync(file);const hash=crypto.createHash("sha256").update(raw).digest("hex");let count=0;try{const payload=JSON.parse(raw);const entries=payload&&payload.entries?payload.entries:payload;count=entries&&typeof entries==="object"?Object.keys(entries).length:0;}catch{count=0;}console.log(`${hash}|${stat.mtimeMs}|${count}`);')
 MACHINE_PRE_HASH="${MACHINE_PRE_META%%|*}"
@@ -502,12 +506,12 @@ if [ "${PRE_STATUS}" -ne 0 ]; then
   fail_with_reason "${PRE_REASON:-pre-step failed}"
 fi
 
-run_step "wiki_claim_gate" 60 "node tools/wiki/wiki_claim_gate.mjs --geos RU,TH,XK,US-CA,CA >>\"${PRE_LOG}\" 2>&1"
+run_step "wiki_claim_gate" 60 "node tools/wiki/wiki_claim_gate.mjs --geos RU,TH,XK,US,US-CA,CA >>\"${PRE_LOG}\" 2>&1"
 WIKI_GATE_OK_LINE=$(grep -E "WIKI_GATE_OK=" "${PRE_LOG}" | tail -n 1 || true)
 if [ -z "${WIKI_GATE_OK_LINE}" ]; then
   WIKI_GATE_OK_LINE="WIKI_GATE_OK=0 ok=0 fail=0"
 fi
-if echo "${WIKI_GATE_OK_LINE}" | grep -q "WIKI_GATE_OK=1 ok=5 fail=0"; then
+if echo "${WIKI_GATE_OK_LINE}" | grep -q "WIKI_GATE_OK=1 ok=6 fail=0"; then
   WIKI_GATE_OK_FLAG=1
 else
   WIKI_GATE_OK_FLAG=0
@@ -571,13 +575,17 @@ else
   fi
 fi
 if [ "${NET_HEALTH_ONLINE}" = "1" ] || [ "${ALLOW_WIKI_OFFLINE:-0}" = "1" ]; then
-  run_step "wiki_sync_legality" 180 "node tools/wiki/sync_legality.mjs --once >>\"${PRE_LOG}\" 2>&1"
+  run_step "wiki_sync_legality" 180 "node tools/wiki/sync_legality.mjs --smoke --once >>\"${PRE_LOG}\" 2>&1"
   run_step "wiki_mark_official" 180 "node tools/wiki/mark_official_refs.mjs --once >>\"${PRE_LOG}\" 2>&1"
 fi
 run_step "wiki_official_eval" 180 "npm run wiki:official_eval >>\"${PRE_LOG}\" 2>&1"
 WIKI_EVAL_STATUS=$?
 if [ "${WIKI_EVAL_STATUS}" -ne 0 ]; then
   fail_with_reason "wiki official eval failed"
+fi
+if [ "${WIKI_GATE_OK_FLAG}" = "1" ]; then
+  run_step "wiki_sync_all" 600 "bash tools/wiki/cron_sync_all.sh >>\"${PRE_LOG}\" 2>&1"
+  run_step "wiki_official_eval_all" 60 "node tools/wiki/wiki_official_eval.mjs --print >>\"${PRE_LOG}\" 2>&1"
 fi
 
 TRENDS_STATUS="skipped"
@@ -1005,11 +1013,19 @@ GIT_CLEAN=0
 if [ -z "$(git status --porcelain)" ]; then
   GIT_CLEAN=1
 fi
+GIT_DIR_WRITABLE=0
+if [ -d .git ] && [ -w .git ]; then
+  GIT_DIR_WRITABLE=1
+fi
 LAST_TAG_PUSHED=$(git tag --list "good/*" --sort=-creatordate | head -n 1 || true)
 if [ -z "${LAST_TAG_PUSHED}" ]; then
   LAST_TAG_PUSHED="-"
 fi
 SUMMARY_LINES+=("GIT_CLEAN=${GIT_CLEAN}")
+SUMMARY_LINES+=("GIT_DIR_WRITABLE=${GIT_DIR_WRITABLE}")
+if [ "${GIT_DIR_WRITABLE}" -eq 0 ]; then
+  SUMMARY_LINES+=("GIT_BLOCKED=1 reason=EPERM_GIT_DIR")
+fi
 SUMMARY_LINES+=("LAST_TAG_PUSHED=${LAST_TAG_PUSHED}")
 if [ -n "${AUTO_SEED_LINE}" ]; then
   SUMMARY_LINES+=("${AUTO_SEED_LINE}")
@@ -1020,7 +1036,28 @@ SUMMARY_LINES+=("${LAW_PAGE_DISCOVERY_LINE}")
 PORTALS_IMPORT_LINE=$(ROOT_DIR="${ROOT}" node -e 'const fs=require("fs");const path=require("path");const reportPath=path.join(process.env.ROOT_DIR,"Reports","portals_import","last_run.json");if(!fs.existsSync(reportPath)){console.log("PORTALS_IMPORT: total=0 added=0 updated=0 missing_iso=0 invalid_url=0 TOP_MISSING_ISO=-");process.exit(0);}const data=JSON.parse(fs.readFileSync(reportPath,"utf8"));const total=Number(data.total||0)||0;const added=Number(data.added||0)||0;const updated=Number(data.updated||0)||0;const missing=Number(data.missing_iso||0)||0;const invalid=Number(data.invalid_url||0)||0;const top=Array.isArray(data.missing_iso_entries)?data.missing_iso_entries.slice(0,10).map(e=>e.country||"").filter(Boolean).join(","):"-";console.log(`PORTALS_IMPORT: total=${total} added=${added} updated=${updated} missing_iso=${missing} invalid_url=${invalid} TOP_MISSING_ISO=${top||"-"}`);')
 SUMMARY_LINES+=("${PORTALS_IMPORT_LINE}")
 WIKI_METRICS_LINE=$(ROOT_DIR="${ROOT}" node -e 'const fs=require("fs");const path=require("path");const root=process.env.ROOT_DIR;const claimsPath=path.join(root,"data","wiki_ssot","wiki_claims.json");const refsPath=path.join(root,"data","wiki_ssot","wiki_refs.json");const legacyClaimsPath=path.join(root,"data","wiki","wiki_claims.json");const legacyClaimsDir=path.join(root,"data","wiki","wiki_claims");const evalPath=path.join(root,"data","wiki","wiki_official_eval.json");const badgesPath=path.join(root,"data","wiki","wiki_official_badges.json");let geos=0;let refsTotal=0;let official=0;let nonOfficial=0;let stale=0;const now=Date.now();const countLegacyClaims=()=>{if(fs.existsSync(legacyClaimsPath)){try{const payload=JSON.parse(fs.readFileSync(legacyClaimsPath,"utf8"));if(Array.isArray(payload)) return payload.length;const items=payload?.items; if(Array.isArray(items)) return items.length; if(items && typeof items==="object") return Object.keys(items).length; return Object.keys(payload||{}).length;}catch{}}if(fs.existsSync(legacyClaimsDir)){try{const files=fs.readdirSync(legacyClaimsDir).filter((entry)=>entry.endsWith(".json"));return files.length;}catch{}}return 0;};if(fs.existsSync(claimsPath)){try{const payload=JSON.parse(fs.readFileSync(claimsPath,"utf8"));const items=Array.isArray(payload?.items)?payload.items:Array.isArray(payload)?payload:payload?.items&&typeof payload.items==="object"?Object.values(payload.items):[];geos=items.length;}catch{}}if(geos===0){geos=countLegacyClaims();}if(fs.existsSync(refsPath)){try{const payload=JSON.parse(fs.readFileSync(refsPath,"utf8"));const items=Array.isArray(payload?.items)?payload.items:Array.isArray(payload)?payload:[];for(const item of items){const refs=Array.isArray(item?.refs)?item.refs:[];refsTotal+=refs.length;}}catch{}}let evalItems={};if(fs.existsSync(badgesPath)){try{const payload=JSON.parse(fs.readFileSync(badgesPath,"utf8"));const totals=payload?.totals||{};official=Number(totals.official||0)||0;nonOfficial=Number(totals.non_official||0)||0;}catch{}}else if(fs.existsSync(evalPath)){try{const payload=JSON.parse(fs.readFileSync(evalPath,"utf8"));const totals=payload?.totals||{};official=Number(totals.official||0)||0;nonOfficial=Number(totals.non_official||0)||0;evalItems=payload?.items&&typeof payload.items==="object"?payload.items:{};}catch{}}if(evalItems&&typeof evalItems==="object"){for(const entry of Object.values(evalItems)){const checkedAt=entry?.last_checked_at?Date.parse(entry.last_checked_at):0;if(!checkedAt||Number.isNaN(checkedAt)||now-checkedAt>4*60*60*1000){stale+=1;}}}console.log(`WIKI_METRICS: geos=${geos} refs_total=${refsTotal} official=${official} non_official=${nonOfficial} stale_geos=${stale}`);')
+OFFICIAL_BADGE_LINE=$(grep -E "^OFFICIAL_BADGE:" "${PRE_LOG}" | tail -n 1 || true)
+OFFICIAL_BADGE_TOTALS_LINE=$(ROOT_DIR="${ROOT}" node -e 'const fs=require("fs");const path=require("path");const evalPath=path.join(process.env.ROOT_DIR,"data","wiki","wiki_official_eval.json");if(!fs.existsSync(evalPath)){process.exit(0);}let payload;try{payload=JSON.parse(fs.readFileSync(evalPath,"utf8"));}catch{process.exit(0);}const totals=payload?.totals||{};const official=Number(totals.official||0)||0;const nonOfficial=Number(totals.non_official||0)||0;const total=Number(totals.total_refs||totals.total||totals.links_total||0)||0;const fallbackTotal=total||official+nonOfficial;console.log(`OFFICIAL_BADGE total_official=${official} total_non_official=${nonOfficial} total_refs=${fallbackTotal}`);')
+WIKI_SYNC_ALL_LINE=$(grep -E "^WIKI_SYNC_ALL " "${PRE_LOG}" | tail -n 1 || true)
+if [ -z "${WIKI_SYNC_ALL_LINE}" ]; then
+  WIKI_SYNC_ALL_LINE="${PREV_WIKI_SYNC_ALL_LINE}"
+fi
+OFFICIAL_BADGE_GEOS=$(ROOT_DIR="${ROOT}" node -e 'const fs=require("fs");const path=require("path");const root=process.env.ROOT_DIR;const evalPath=path.join(root,"data","wiki","wiki_official_eval.json");if(!fs.existsSync(evalPath)){process.exit(0);}let payload;try{payload=JSON.parse(fs.readFileSync(evalPath,"utf8"));}catch{process.exit(0);}const items=payload?.items&&typeof payload.items==="object"?payload.items:{};const geos=["RU","TH","XK","US-CA","CA"];const lines=[];for(const geo of geos){const entry=items[geo];if(!entry){lines.push(`OFFICIAL_BADGE geo=${geo} official=0 non_official=0 total_refs=0 top_official_domains=-`);continue;}const total=Number(entry.sources_total||0)||0;const official=Number(entry.sources_official||0)||0;const nonOfficial=Math.max(0,total-official);const top=Array.isArray(entry.top_official_domains)?entry.top_official_domains.join(","):"-";lines.push(`OFFICIAL_BADGE geo=${geo} official=${official} non_official=${nonOfficial} total_refs=${total} top_official_domains=${top||"-"}`);}console.log(lines.join("\n"));')
 SUMMARY_LINES+=("${WIKI_METRICS_LINE}")
+if [ -n "${WIKI_SYNC_ALL_LINE}" ]; then
+  SUMMARY_LINES+=("${WIKI_SYNC_ALL_LINE}")
+fi
+if [ -n "${OFFICIAL_BADGE_TOTALS_LINE}" ]; then
+  SUMMARY_LINES+=("${OFFICIAL_BADGE_TOTALS_LINE}")
+fi
+if [ -n "${OFFICIAL_BADGE_LINE}" ]; then
+  SUMMARY_LINES+=("${OFFICIAL_BADGE_LINE}")
+fi
+if [ -n "${OFFICIAL_BADGE_GEOS}" ]; then
+  while IFS= read -r line; do
+    [ -n "${line}" ] && SUMMARY_LINES+=("${line}")
+  done <<< "${OFFICIAL_BADGE_GEOS}"
+fi
 if [ -n "${WIKI_OFFLINE_LINE}" ]; then
   SUMMARY_LINES+=("${WIKI_OFFLINE_LINE}")
 fi
@@ -1312,6 +1349,25 @@ if [ "${STATUS}" -eq 0 ] && [ -n "${ALLOWLIST:-}" ]; then
   fi
 fi
 set -e
+
+AUTO_COMMIT_AFTER_SYNC="${AUTO_COMMIT_AFTER_SYNC:-1}"
+if [ "${AUTO_COMMIT_AFTER_SYNC}" = "1" ]; then
+  if [ "${WIKI_GATE_OK_FLAG}" = "1" ] && [ -n "${WIKI_SYNC_ALL_LINE}" ] && printf "%s" "${WIKI_SYNC_ALL_LINE}" | grep -q "^WIKI_SYNC_ALL status=OK"; then
+    printf "%s\n" "COMMIT_ATTEMPT=1" >> "${REPORTS_FINAL}"
+    set +e
+    AUTO_COMMIT_AFTER_SYNC=0 tools/commit_if_green.sh -m "chore: auto sync" --tag good/now
+    COMMIT_RC=$?
+    set -e
+    COMMIT_RESULT="FAIL"
+    if [ "${COMMIT_RC}" -eq 0 ]; then
+      COMMIT_RESULT="OK"
+    elif [ "${COMMIT_RC}" -eq 2 ]; then
+      COMMIT_RESULT="GIT_BLOCKED"
+    fi
+    printf "%s\n" "COMMIT_ATTEMPT=1 result=${COMMIT_RESULT}" >> "${REPORTS_FINAL}"
+    echo "COMMIT_ATTEMPT=1 result=${COMMIT_RESULT}"
+  fi
+fi
 
 rm -f "${CHECKPOINT_DIR}/pending_batch.json"
 cat "${STDOUT_FILE}"

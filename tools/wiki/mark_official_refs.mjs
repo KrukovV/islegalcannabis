@@ -4,6 +4,7 @@ import path from "node:path";
 const ROOT = process.cwd();
 const WIKI_REFS_PATH = path.join(ROOT, "data", "wiki", "wiki_refs.json");
 const OUTPUT_PATH = path.join(ROOT, "data", "wiki", "wiki_claims_enriched.json");
+const OFFICIAL_EVAL_PATH = path.join(ROOT, "data", "wiki", "wiki_official_eval.json");
 const ALLOWLIST_PATH = path.join(ROOT, "data", "sources", "official_allowlist.json");
 
 function readJson(file, fallback) {
@@ -55,6 +56,7 @@ function main() {
   const items = refsPayload?.items || {};
   const allowlist = buildAllowlist();
   const outputItems = {};
+  const officialEvalItems = {};
   let total = 0;
   let official = 0;
   let nonOfficial = 0;
@@ -63,13 +65,21 @@ function main() {
   for (const [geoKey, refs] of Object.entries(items)) {
     const list = Array.isArray(refs) ? refs : [];
     const isoKey = String(geoKey || "").toUpperCase();
+    const officialHosts = new Map();
+    let geoTotal = 0;
+    let geoOfficial = 0;
     const enriched = list.map((ref) => {
       const url = String(ref?.url || "");
       const host = normalizeHost(url);
       const verdict = isOfficial(host, allowlist);
-      if (url) total += 1;
+      if (url) {
+        total += 1;
+        geoTotal += 1;
+      }
       if (verdict.ok) {
         official += 1;
+        geoOfficial += 1;
+        if (host) officialHosts.set(host, (officialHosts.get(host) || 0) + 1);
       } else {
         nonOfficial += 1;
         if (host) nonOfficialDomains.set(host, (nonOfficialDomains.get(host) || 0) + 1);
@@ -85,6 +95,17 @@ function main() {
       };
     });
     outputItems[isoKey] = enriched;
+    const topOfficialDomains = Array.from(officialHosts.entries())
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+      .slice(0, 5)
+      .map(([domain]) => domain);
+    officialEvalItems[isoKey] = {
+      geo_key: isoKey,
+      sources_total: geoTotal,
+      sources_official: geoOfficial,
+      official_badge: geoOfficial > 0 ? 1 : 0,
+      top_official_domains: topOfficialDomains
+    };
   }
 
   const topNonOfficial = Array.from(nonOfficialDomains.entries())
@@ -106,6 +127,23 @@ function main() {
   };
   fs.mkdirSync(path.dirname(OUTPUT_PATH), { recursive: true });
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify(output, null, 2) + "\n");
+  fs.writeFileSync(
+    OFFICIAL_EVAL_PATH,
+    JSON.stringify(
+      {
+        generated_at: new Date().toISOString(),
+        totals: {
+          total_links: total,
+          official_links: official,
+          non_official_links: nonOfficial,
+          official_ratio: ratio
+        },
+        items: officialEvalItems
+      },
+      null,
+      2
+    ) + "\n"
+  );
 
   console.log(
     `OFFICIAL_BADGE: total_links=${total} official_links=${official} non_official_links=${nonOfficial} official_ratio=${ratio}`

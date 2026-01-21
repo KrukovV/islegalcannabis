@@ -8,7 +8,7 @@ filter_status() {
 PRE_STATUS=$(git status --porcelain)
 PRE_STATUS_FILTERED=$(filter_status "${PRE_STATUS}")
 
-node tools/wiki/wiki_claim_gate.mjs --geos RU,TH,XK,US-CA,CA
+node tools/wiki/wiki_claim_gate.mjs --geos RU,TH,XK,US,US-CA,CA
 node tools/wiki/wiki_db_gate.mjs --geos RU,TH,XK,US-CA,CA
 
 bash tools/pass_cycle.sh
