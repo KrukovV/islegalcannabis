@@ -1,8 +1,8 @@
-import { execSync } from "node:child_process";
+import { execSync, spawnSync } from "node:child_process";
 import dns from "node:dns/promises";
 import net from "node:net";
 
-const API_URL = "https://example.com/";
+const API_URL = "https://en.wikipedia.org/";
 const FALLBACK_URL = "https://www.wikipedia.org/";
 const TIMEOUT_MS = Number(process.env.NET_HEALTH_TIMEOUT_MS || 4000);
 const RETRIES = Number(process.env.NET_HEALTH_RETRIES || 1);
@@ -53,17 +53,41 @@ function getDnsNameserver() {
   return { ns: "UNKNOWN", scutilEmpty };
 }
 
+function checkDigBlocked() {
+  const result = spawnSync("dig", ["+time=2", "+tries=1", "en.wikipedia.org", "A", "+short"], {
+    encoding: "utf8",
+    stdio: ["ignore", "pipe", "pipe"]
+  });
+  if (result.error) {
+    if (String(result.error?.code || "") === "ENOENT") {
+      return { blocked: false, err: "NO_DIG" };
+    }
+    if (String(result.error?.code || "") === "EPERM") {
+      return { blocked: true, err: "EPERM" };
+    }
+  }
+  const stderr = String(result.stderr || "");
+  if (stderr.includes("Operation not permitted")) {
+    return { blocked: true, err: "EPERM" };
+  }
+  if (result.status !== 0) {
+    return { blocked: false, err: "UNKNOWN" };
+  }
+  return { blocked: false, err: "NONE" };
+}
+
 async function checkDns(hostname) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), DNS_TIMEOUT_MS);
   try {
     await dns.lookup(hostname, { signal: controller.signal });
     clearTimeout(timer);
-    return { ok: true, err: "NONE" };
+    return { ok: true, err: "NONE", blocked: false };
   } catch (error) {
     clearTimeout(timer);
     const errCode = String(error?.code || error?.name || "UNKNOWN");
-    return { ok: false, err: errCode };
+    const blocked = errCode === "ECONNREFUSED" || errCode === "EPERM";
+    return { ok: false, err: errCode, blocked };
   }
 }
 
@@ -120,8 +144,15 @@ async function tcpProbe(host, port) {
 async function main() {
   const dnsInfo = getDnsNameserver();
   const dnsNs = dnsInfo.ns;
-  const dnsCheck = await checkDns("example.com");
+  const dnsCheck = await checkDns("en.wikipedia.org");
   const dnsOk = dnsCheck.ok;
+  const digCheck = checkDigBlocked();
+  let dnsMode = "FAIL";
+  if (dnsOk) {
+    dnsMode = "OK";
+  } else if (dnsInfo.scutilEmpty || dnsCheck.blocked || digCheck.blocked) {
+    dnsMode = "BLOCKED";
+  }
   let last = null;
   let probeUrl = API_URL;
   let probeOk = false;
@@ -148,10 +179,15 @@ async function main() {
     const tcpResult = await tcpProbe("example.com", 443);
     tcpOk = tcpResult.ok;
   }
-  const online = dnsOk && (probeOk || tcpOk);
+  let online = false;
+  if (dnsMode === "BLOCKED") {
+    online = probeOk;
+  } else {
+    online = dnsOk && (probeOk || tcpOk);
+  }
   let reason = "OK";
   if (!online) {
-    if (!dnsOk) {
+    if (dnsMode !== "BLOCKED" && !dnsOk) {
       reason = "DNS";
     } else if (!probeOk && !tcpOk) {
       reason = last?.reason || "HTTP";
@@ -160,12 +196,17 @@ async function main() {
   let exit = 0;
   if (!online) {
     exit = 11;
+    if (dnsMode === "BLOCKED") exit = 12;
     if (reason === "DNS") exit = 10;
     if (reason === "TLS") exit = 11;
     if (reason === "TIMEOUT") exit = 13;
   }
+  let dnsErr = dnsCheck.err || "NONE";
+  if (dnsMode === "BLOCKED" && dnsErr === "NONE") {
+    dnsErr = "BLOCKED";
+  }
   console.log(
-    `NET_HEALTH online=${online ? 1 : 0} dns_ok=${dnsOk ? 1 : 0} https_ok=${probeOk ? 1 : 0} tcp_ok=${tcpOk ? 1 : 0} dns_ns=${dnsNs} reason=${reason}`
+    `NET_HEALTH: online=${online ? 1 : 0} reason=${reason} dns_mode=${dnsMode} dns_err=${dnsErr} dns_ns=${dnsNs} probe_url=${probeUrl} probe_ok=${probeOk ? 1 : 0} probe_status=${probeStatus}`
   );
   if (DIAG) {
     console.log(`NET_HEALTH_EXIT=${exit}`);
@@ -181,7 +222,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       const err = String(error?.message || "UNKNOWN");
       const dnsNs = getDnsNameserver();
       console.log(
-        `NET_HEALTH online=0 dns_ok=0 https_ok=0 tcp_ok=0 dns_ns=${dnsNs} reason=HTTP`
+        `NET_HEALTH: online=0 reason=HTTP dns_mode=FAIL dns_err=${err} dns_ns=${dnsNs.ns || "UNKNOWN"} probe_url=${API_URL} probe_ok=0 probe_status=-`
       );
       if (DIAG) {
         console.log("NET_HEALTH_EXIT=12");

@@ -61,3 +61,6 @@ node_modules/**
 .build/**
 .swiftpm/**
 coverage/**
+
+# runtime reports
+ci-final.txt

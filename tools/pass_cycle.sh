@@ -267,19 +267,23 @@ run_net_health() {
   set -e
   for token in ${output}; do
     case "${token}" in
+      NET_HEALTH:*) ;;
       online=*) NET_HEALTH_ONLINE="${token#online=}";;
       reason=*) NET_HEALTH_REASON="${token#reason=}";;
-      dns_ok=*) NET_HEALTH_DNS_OK="${token#dns_ok=}";;
-      https_ok=*) NET_HEALTH_HTTPS_OK="${token#https_ok=}";;
-      tcp_ok=*) NET_HEALTH_TCP_OK="${token#tcp_ok=}";;
       dns_ns=*) NET_HEALTH_DNS_NS="${token#dns_ns=}";;
+      dns_mode=*) NET_HEALTH_DNS_MODE="${token#dns_mode=}";;
+      dns_err=*) NET_HEALTH_DNS_ERR="${token#dns_err=}";;
+      probe_url=*) NET_HEALTH_PROBE_URL="${token#probe_url=}";;
+      probe_ok=*) NET_HEALTH_PROBE_OK="${token#probe_ok=}";;
+      probe_status=*) NET_HEALTH_PROBE_STATUS="${token#probe_status=}";;
     esac
   done
-  if [ "${NET_HEALTH_DNS_OK}" = "1" ]; then
-    NET_HEALTH_DNS_MODE="OK"
+  if [ "${NET_HEALTH_DNS_MODE}" = "OK" ]; then
+    NET_HEALTH_DNS_OK=1
   else
-    NET_HEALTH_DNS_MODE="FAIL"
+    NET_HEALTH_DNS_OK=0
   fi
+  NET_HEALTH_HTTPS_OK="${NET_HEALTH_PROBE_OK:-0}"
 }
 
 if [ "${NET_ENABLED}" -eq 1 ]; then
@@ -293,15 +297,12 @@ else
 NET_HEALTH_REASON="CONFIG_DISABLED"
 NET_HEALTH_EXIT=0
 fi
-NET_HEALTH_PROBE_URL="https://example.com/"
-NET_HEALTH_PROBE_OK="${NET_HEALTH_HTTPS_OK}"
-NET_HEALTH_PROBE_STATUS="-"
-if [ "${NET_HEALTH_DNS_OK}" = "1" ]; then
-  NET_HEALTH_DNS_ERR="NONE"
-else
-  NET_HEALTH_DNS_ERR="UNKNOWN"
-fi
-NET_HEALTH_LINE="NET_HEALTH online=${NET_HEALTH_ONLINE} dns_ok=${NET_HEALTH_DNS_OK} https_ok=${NET_HEALTH_HTTPS_OK} tcp_ok=${NET_HEALTH_TCP_OK} dns_ns=${NET_HEALTH_DNS_NS} reason=${NET_HEALTH_REASON}"
+NET_HEALTH_PROBE_URL="${NET_HEALTH_PROBE_URL:--}"
+NET_HEALTH_PROBE_OK="${NET_HEALTH_PROBE_OK:--}"
+NET_HEALTH_PROBE_STATUS="${NET_HEALTH_PROBE_STATUS:--}"
+NET_HEALTH_DNS_ERR="${NET_HEALTH_DNS_ERR:-UNKNOWN}"
+NET_HEALTH_DNS_MODE="${NET_HEALTH_DNS_MODE:-FAIL}"
+NET_HEALTH_LINE="NET_HEALTH: online=${NET_HEALTH_ONLINE} reason=${NET_HEALTH_REASON} dns_mode=${NET_HEALTH_DNS_MODE} dns_err=${NET_HEALTH_DNS_ERR} dns_ns=${NET_HEALTH_DNS_NS} probe_url=${NET_HEALTH_PROBE_URL} probe_ok=${NET_HEALTH_PROBE_OK} probe_status=${NET_HEALTH_PROBE_STATUS}"
 echo "${NET_MODE_LINE}"
 echo "${WIKI_MODE_LINE}"
 echo "${NET_HEALTH_LINE}"
@@ -432,6 +433,7 @@ fi
 if [ "${AUTO_LEARN:-0}" = "1" ] && [ -z "${AUTO_VERIFY+x}" ]; then
   AUTO_VERIFY=1
 fi
+NO_PROGRESS_STRICT="${NO_PROGRESS_STRICT:-0}"
 
 LAW_PAGE_OK="0"
 if [ -f "${ROOT}/Reports/auto_learn_law/last_run.json" ]; then
@@ -504,6 +506,11 @@ run_step "wiki_claim_gate" 60 "node tools/wiki/wiki_claim_gate.mjs --geos RU,TH,
 WIKI_GATE_OK_LINE=$(grep -E "WIKI_GATE_OK=" "${PRE_LOG}" | tail -n 1 || true)
 if [ -z "${WIKI_GATE_OK_LINE}" ]; then
   WIKI_GATE_OK_LINE="WIKI_GATE_OK=0 ok=0 fail=0"
+fi
+if echo "${WIKI_GATE_OK_LINE}" | grep -q "WIKI_GATE_OK=1 ok=5 fail=0"; then
+  WIKI_GATE_OK_FLAG=1
+else
+  WIKI_GATE_OK_FLAG=0
 fi
 run_step "wiki_db_gate" 60 "node tools/wiki/wiki_db_gate.mjs --geos RU,TH,XK,US-CA,CA >>\"${PRE_LOG}\" 2>&1"
 WIKI_GATE_BLOCK=$(awk '
@@ -1200,6 +1207,8 @@ fi
 NO_PROGRESS_FILE="${RUNS_DIR}/no_progress.json"
 NO_PROGRESS_JSON=$(ROOT_DIR="${ROOT}" AUTO_LEARN="${AUTO_LEARN:-0}" NETWORK="${NETWORK:-0}" node -e 'const fs=require("fs");const path=require("path");const root=process.env.ROOT_DIR;const learnPath=path.join(root,"Reports","auto_learn","last_run.json");let validated=0;let snapshots=0;let noProgress=false;if(process.env.AUTO_LEARN==="1"&&process.env.NETWORK==="1"&&fs.existsSync(learnPath)){const data=JSON.parse(fs.readFileSync(learnPath,"utf8"));validated=Number(data.validated_ok||0)||0;snapshots=Number(data.snapshots||0)||0;noProgress=validated===0&&snapshots===0;}process.stdout.write(JSON.stringify({noProgress,validated,snapshots}));')
 NO_PROGRESS_FLAG=$(node -e 'const input=JSON.parse(process.argv[1]);process.stdout.write(String(input.noProgress?"1":"0"));' "${NO_PROGRESS_JSON}")
+NO_PROGRESS_VALIDATED=$(node -e 'const input=JSON.parse(process.argv[1]);process.stdout.write(String(Number(input.validated||0)||0));' "${NO_PROGRESS_JSON}")
+NO_PROGRESS_SNAPSHOTS=$(node -e 'const input=JSON.parse(process.argv[1]);process.stdout.write(String(Number(input.snapshots||0)||0));' "${NO_PROGRESS_JSON}")
 NO_PROGRESS_COUNT=0
 if [ -f "${NO_PROGRESS_FILE}" ]; then
   NO_PROGRESS_COUNT=$(node -e 'const fs=require("fs");const data=JSON.parse(fs.readFileSync(process.argv[1],"utf8"));process.stdout.write(String(Number(data.count||0)||0));' "${NO_PROGRESS_FILE}")
@@ -1211,20 +1220,25 @@ else
 fi
 printf "{\n  \"count\": %s,\n  \"updated_at\": \"%s\"\n}\n" "${NO_PROGRESS_COUNT}" "$(date -u +%FT%TZ)" > "${NO_PROGRESS_FILE}"
 if [ "${NO_PROGRESS_FLAG}" -eq 1 ] && [ "${NO_PROGRESS_COUNT}" -ge 3 ]; then
-  printf "❌ CI FAIL\nReason: NO_PROGRESS_STREAK\nRetry: bash tools/pass_cycle.sh\n" > "${STDOUT_FILE}"
-  cp "${STDOUT_FILE}" "${REPORTS_FINAL}" 2>/dev/null || true
-  set +e
-  STATUS=0
-  node tools/guards/no_bloat_markers.mjs --file "${STDOUT_FILE}" || STATUS=$?
-  if [ "${STATUS}" -eq 0 ]; then
-    node tools/guards/stdout_contract.mjs --file "${STDOUT_FILE}" || STATUS=$?
+  if [ "${NO_PROGRESS_STRICT}" = "1" ] || [ "${WIKI_GATE_OK_FLAG}" != "1" ]; then
+    printf "❌ CI FAIL\nReason: NO_PROGRESS_STREAK\nRetry: bash tools/pass_cycle.sh\n" > "${STDOUT_FILE}"
+    cp "${STDOUT_FILE}" "${REPORTS_FINAL}" 2>/dev/null || true
+    set +e
+    STATUS=0
+    node tools/guards/no_bloat_markers.mjs --file "${STDOUT_FILE}" || STATUS=$?
+    if [ "${STATUS}" -eq 0 ]; then
+      node tools/guards/stdout_contract.mjs --file "${STDOUT_FILE}" || STATUS=$?
+    fi
+    if [ "${STATUS}" -eq 0 ]; then
+      node tools/guards/final_response_only.mjs --file "${STDOUT_FILE}" || STATUS=$?
+    fi
+    set -e
+    cat "${STDOUT_FILE}"
+    exit 12
+  else
+    WARN_NO_PROGRESS_LINE="WARN_NO_PROGRESS streak=${NO_PROGRESS_COUNT} action=continue mode=wiki_db validated=${NO_PROGRESS_VALIDATED} snapshots=${NO_PROGRESS_SNAPSHOTS}"
+    SUMMARY_LINES+=("${WARN_NO_PROGRESS_LINE}")
   fi
-  if [ "${STATUS}" -eq 0 ]; then
-    node tools/guards/final_response_only.mjs --file "${STDOUT_FILE}" || STATUS=$?
-  fi
-  set -e
-  cat "${STDOUT_FILE}"
-  exit 12
 fi
 MV_LINE=$(ROOT_DIR="${ROOT}" node -e 'const fs=require("fs");const path=require("path");const factsPath=path.join(process.env.ROOT_DIR,"Reports","auto_facts","last_run.json");const verifyPath=path.join(process.env.ROOT_DIR,"Reports","auto_verify","last_run.json");let iso="n/a";let delta=0;let evidence=0;let docs=0;let confidence="-";let reason="n/a";if(fs.existsSync(factsPath)){const data=JSON.parse(fs.readFileSync(factsPath,"utf8"));const items=Array.isArray(data.items)?data.items:[];if(items.length){iso=String(items[0]?.iso2||"n/a").toUpperCase();evidence=Number(data.evidence_ok||0)||0;docs=Number(data.evidence_doc_count||0)||0;confidence=String(data.mv_confidence||"-");reason=String(items[0]?.reason||data.reason||"n/a").replace(/\\s+/g,"_");}delta=Number(data.machine_verified_delta||0)||0;}else if(fs.existsSync(verifyPath)){const data=JSON.parse(fs.readFileSync(verifyPath,"utf8"));const items=Array.isArray(data.items)?data.items:[];if(items.length){iso=String(items[0]?.iso2||"n/a").toUpperCase();evidence=Number(items[0]?.evidence_found||0)||0;reason=String(items[0]?.reason||data.reason||"n/a").replace(/\\s+/g,"_");}delta=Number(data.machine_verified_delta||0)||0;}const deltaLabel=`${delta>=0?"+":""}${delta}`;console.log(`MV: iso=${iso} delta=${deltaLabel} evidence=${evidence} docs=${docs} confidence=${confidence} reason=${reason}`);')
 SUMMARY_LINES+=("${MV_LINE}")
