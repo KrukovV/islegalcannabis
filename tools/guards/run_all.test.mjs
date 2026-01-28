@@ -40,7 +40,12 @@ test("run_all executes discovered guards", () => {
       ].join("\n")
     );
     const result = spawnSync(process.execPath, [path.join(guardsDir, "run_all.mjs")], {
-      stdio: "ignore"
+      stdio: "ignore",
+      env: {
+        ...process.env,
+        ALLOW_SCOPE_OVERRIDE: "1",
+        ALLOW_SCOPE_PATHS: "tools/**,docs/**,package.json,packages/**,data/sources/**,CONTINUITY.md"
+      }
     });
     assert.equal(result.status, 0, "run_all should pass");
     assert.equal(fs.existsSync(marker), true, "marker should be created");

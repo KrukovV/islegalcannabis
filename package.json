@@ -2,6 +2,7 @@
   "name": "islegalcannabis-root",
   "private": true,
   "workspaces": ["apps/*", "packages/*"],
+  "dependencies": {},
   "scripts": {
     "where": "bash tools/where-am-i.sh",
     "guard:ssr": "bash tools/guard-ssr.sh",
@@ -21,6 +22,7 @@
     "wiki:ingest": "node tools/wiki/wiki_ingest.mjs",
     "wiki:refresh": "node tools/wiki/wiki_refresh.mjs --all",
     "wiki:official_eval": "node tools/wiki/wiki_official_eval.mjs",
+    "allowlist:merge": "node tools/sources/merge_official_allowlist.mjs",
     "ci": "bash tools/ci-local.sh"
   }
 }

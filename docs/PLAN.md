@@ -30,3 +30,8 @@ Statuses: pending | in_progress | done
 - [done] Default network ON for pass_cycle + add NETWORK_GUARD + stdout NETWORK line
 - [done] Add wiki refresh main_articles_total + API rate-limit/retry safety
 - [done] Expand official scope to portals/allowlist + add non_official wiki outputs
+- [done] CI step logging: step_id in STEP_BEGIN/END/FAIL + CI_STEP_FAIL cmd/rc; eliminate step=unknown
+- [done] Wiki notes extractor: HTML-first section notes + wikitext fallback; remove MAIN_ONLY placeholders
+- [done] Notes regress: RO/RU/AU golden preview + baseline checks
+- [done] SSOT shrink guard: per-file sources counts/hashes + hard shrink block; sources writes create .bak
+- [done] Official allowlist merge: union 4 sources + guard against shrink below max input

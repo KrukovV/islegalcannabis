@@ -163,6 +163,20 @@ function extractCandidates(raw) {
   return output;
 }
 
+function backupIfExists(filePath) {
+  if (!fs.existsSync(filePath)) return;
+  const ts = new Date().toISOString().replace(/[:.]/g, "-");
+  fs.copyFileSync(filePath, `${filePath}.bak.${ts}`);
+}
+
+function writeAtomic(filePath, payload) {
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  backupIfExists(filePath);
+  const tmpPath = `${filePath}.tmp`;
+  fs.writeFileSync(tmpPath, JSON.stringify(payload, null, 2) + "\n");
+  fs.renameSync(tmpPath, filePath);
+}
+
 async function main() {
   const options = parseArgs();
   if (!fs.existsSync(options.isoPath)) {
@@ -195,11 +209,7 @@ async function main() {
     };
   }
 
-  fs.mkdirSync(path.dirname(options.outputPath), { recursive: true });
-  fs.writeFileSync(
-    options.outputPath,
-    JSON.stringify(output, null, 2) + "\n"
-  );
+  writeAtomic(options.outputPath, output);
   console.log(`OK official_catalog_autofill (${Object.keys(output).length})`);
 }
 

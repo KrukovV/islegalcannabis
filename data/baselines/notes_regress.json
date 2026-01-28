@@ -1,0 +1,20 @@
+{
+  "generated_at": "2026-01-27T21:16:03.877496Z",
+  "geos": {
+    "RO": {
+      "preview": "Small quantities punishable by a large fine for first offenders or 6 months to 2 years in prison if the person has been convicted before. Possession of large am",
+      "min_len": 80,
+      "length": 287
+    },
+    "RU": {
+      "preview": "Possession of up to 6 g of cannabis (or 2 g of hashish) is an administrative offense, punishable by a fine of \u20bd5,000 or detention of up to 15 days. Possession o",
+      "min_len": 80,
+      "length": 316
+    },
+    "AU": {
+      "preview": "In September 2019, the Australian Capital Territory became the first state or territory of Australia to legalize recreational use of cannabis. Since 31 January ",
+      "min_len": 80,
+      "length": 339
+    }
+  }
+}

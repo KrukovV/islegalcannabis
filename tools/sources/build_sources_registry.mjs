@@ -24,6 +24,13 @@ function readJson(file) {
   return JSON.parse(fs.readFileSync(file, "utf8"));
 }
 
+function backupIfExists(file) {
+  if (!fs.existsSync(file)) return;
+  const ts = new Date().toISOString().replace(/[:.]/g, "-");
+  const backupPath = `${file}.bak.${ts}`;
+  fs.copyFileSync(file, backupPath);
+}
+
 function loadIsoEntries() {
   const payload = readJson(ISO_PATH);
   const raw = Array.isArray(payload?.entries) ? payload.entries : [];
@@ -74,6 +81,7 @@ for (const entry of isoEntries) {
 }
 
 fs.mkdirSync(path.dirname(OUTPUT_PATH), { recursive: true });
+backupIfExists(OUTPUT_PATH);
 fs.writeFileSync(OUTPUT_PATH, JSON.stringify(registry, null, 2) + "\n");
 
 fs.mkdirSync(path.dirname(MISSING_PATH), { recursive: true });

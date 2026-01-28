@@ -21,6 +21,8 @@ function readProbeCache() {
   try {
     const raw = fs.readFileSync(CACHE_PATH, "utf8");
     const cached = JSON.parse(raw);
+    if (!("cache_hit" in cached)) cached.cache_hit = 1;
+    cached.source = "CACHE_FILE";
     if (!("connect_reason" in cached)) cached.connect_reason = "CONNECT_ERROR";
     if (!("connect_err_raw" in cached) && "connect_err" in cached) cached.connect_err_raw = cached.connect_err;
     if (!("connect_err_raw" in cached)) cached.connect_err_raw = "UNKNOWN";
@@ -237,7 +239,15 @@ async function main() {
     const dnsDiagReason = cached.dns_diag_reason || (cached.dns_err && cached.dns_err !== "NONE" ? "DNS_DIAG" : "NONE");
     const dnsDiagHint = cached.dns_diag_hint || "dns is diagnostic only";
     if (JSON_MODE) {
-      console.log(`NET_HTTP_PROBE json=${JSON.stringify({ ...cached, source, dns_diag_reason: dnsDiagReason, dns_diag_hint: dnsDiagHint })}`);
+      console.log(
+        `NET_HTTP_PROBE json=${JSON.stringify({
+          ...cached,
+          cache_hit: cached.cache_hit ?? 1,
+          source,
+          dns_diag_reason: dnsDiagReason,
+          dns_diag_hint: dnsDiagHint
+        })}`
+      );
     } else {
       console.log(
         `NET_DIAG_DNS ok=${cached.dns_ok ?? 0} err=${cached.dns_err ?? "UNKNOWN"} reason=${dnsDiagReason} hint=${dnsDiagHint} source=${source}`
@@ -303,6 +313,7 @@ async function main() {
     fallback_status: fallbackProbe.status || "-",
     fallback_reason: fallbackProbe.reason || "HTTP",
     fallback_target: fallbackProbe.target || "http://1.1.1.1/cdn-cgi/trace",
+    cache_hit: 0,
     target: FALLBACK_URL,
     rtt_ms: httpProbe.rtt_ms ?? "-",
     source: "LIVE"
@@ -354,6 +365,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
         fallback_status: "-",
         fallback_reason: "HTTP",
         fallback_target: "http://1.1.1.1/cdn-cgi/trace",
+        cache_hit: 0,
         target: API_URL
       };
       if (JSON_MODE) {

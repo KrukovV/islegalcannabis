@@ -10,6 +10,12 @@ import { readWikiClaim } from "./wiki_claims_store.mjs";
 const ROOT = process.cwd();
 const OUTPUT_DIR = path.join(ROOT, "data", "wiki", "wiki_claims");
 const API_BASE = "https://en.wikipedia.org/w/api.php";
+const SSOT_WRITE = process.env.SSOT_WRITE === "1";
+
+if (!SSOT_WRITE) {
+  console.log("SSOT_READONLY=1");
+  process.exit(0);
+}
 
 function readArg(name, fallback = "") {
   const idx = process.argv.indexOf(name);

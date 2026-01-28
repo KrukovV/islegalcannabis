@@ -1,12 +1,21 @@
 import fs from "node:fs";
 import path from "node:path";
+import dns from "node:dns";
 import {
   loadDefaultAliases,
   loadIsoLookupMap,
   normalizeName
 } from "./wiki_geo_resolver.mjs";
-import { fetchPageInfo, fetchPageWikitextCached } from "./mediawiki_api.mjs";
-import { parseLegalityTable, normalizeRowStatuses } from "./legality_wikitext_parser.mjs";
+import { fetchPageInfo, fetchPageHtmlCached, fetchPageWikitextCached } from "./mediawiki_api.mjs";
+import {
+  parseLegalityTable,
+  normalizeRowStatuses,
+  extractNotesFromWikitextTable,
+  extractNotesFromWikitextSections,
+  parseRecreationalStatus,
+  parseMedicalStatus,
+  stripWikiMarkup
+} from "./legality_wikitext_parser.mjs";
 import { cacheAgeHours, loadCache, saveCache, shouldRefresh } from "./wiki_cache.mjs";
 
 const BASE_DIR =
@@ -28,6 +37,7 @@ if (process.cwd() !== ROOT) {
 const OUTPUT_PATH = path.join(ROOT, "data", "wiki", "wiki_claims.json");
 const MAP_PATH = path.join(ROOT, "data", "wiki", "wiki_claims_map.json");
 const META_PATH = path.join(ROOT, "data", "wiki", "wiki_claims.meta.json");
+const REFS_PATH = path.join(ROOT, "data", "wiki", "wiki_refs.json");
 const ISO_PATH = path.join(ROOT, "data", "iso3166", "iso3166-1.json");
 const US_STATES_PATH = path.join(ROOT, "data", "geo", "us_state_centroids.json");
 
@@ -43,7 +53,25 @@ function readJson(file, fallback) {
   }
 }
 
+const SSOT_WRITE = process.env.SSOT_WRITE === "1";
+let ssotReadonlyLogged = false;
+const dnsServers = String(process.env.WIKI_DNS_SERVERS || process.env.DNS_SERVERS || "")
+  .split(",")
+  .map((value) => value.trim())
+  .filter(Boolean);
+if (dnsServers.length > 0) {
+  dns.setServers(dnsServers);
+  console.log(`DNS_OVERRIDE servers=${dnsServers.join(",")}`);
+}
+
 function writeAtomic(file, payload) {
+  if (!SSOT_WRITE) {
+    if (!ssotReadonlyLogged) {
+      console.log("SSOT_READONLY=1");
+      ssotReadonlyLogged = true;
+    }
+    return;
+  }
   const dir = path.dirname(file);
   fs.mkdirSync(dir, { recursive: true });
   const tmpPath = path.join(dir, `${path.basename(file)}.tmp`);
@@ -54,6 +82,20 @@ function writeAtomic(file, payload) {
 function buildWikiUrl(title) {
   if (!title) return "";
   return `https://en.wikipedia.org/wiki/${encodeURIComponent(title.replace(/ /g, "_"))}`;
+}
+
+function buildRefNotesMap(payload) {
+  const items = payload?.items && typeof payload.items === "object" ? payload.items : payload;
+  const map = new Map();
+  if (!items || typeof items !== "object") return map;
+  for (const [geo, refs] of Object.entries(items)) {
+    if (!Array.isArray(refs) || !geo) continue;
+    const titles = refs
+      .map((ref) => String(ref?.title_hint || ref?.title || "").trim())
+      .filter(Boolean);
+    if (titles.length) map.set(String(geo).toUpperCase(), titles);
+  }
+  return map;
 }
 
 function resolveCountryIso(name, aliases, isoMap) {
@@ -151,8 +193,222 @@ const MODE =
   process.env.WIKI_SYNC_MODE === "all"
     ? "all"
     : "smoke";
-const SMOKE_GEOS = new Set(["RU", "TH", "XK", "US-CA", "CA"]);
+const SMOKE_GEOS = new Set(["RU", "RO", "AU", "TH", "XK", "US-CA", "CA"]);
 const DIAG = process.argv.includes("--diag");
+const DUMP_ROW = process.argv.includes("--dump-row")
+  ? process.argv[process.argv.indexOf("--dump-row") + 1]
+  : "";
+const DUMP_GEO = process.argv.includes("--dump-geo")
+  ? process.argv[process.argv.indexOf("--dump-geo") + 1]
+  : "";
+const HTML_LEGALITY_PATH = path.join(ROOT, "data", "legal_raw", "wiki_legality.html");
+const LEAD_CACHE_PATH = path.join(ROOT, "data", "wiki", "cache", "notes_lead.json");
+
+function isPlaceholderNote(text) {
+  const normalized = String(text || "").replace(/\s+/g, " ").trim();
+  if (!normalized) return false;
+  if (/^Cannabis in\s+/i.test(normalized)) return true;
+  if (/^Main articles?:/i.test(normalized)) return true;
+  if (/^Main article:/i.test(normalized)) return true;
+  if (/^See also:/i.test(normalized)) return true;
+  if (/^Further information:/i.test(normalized)) return true;
+  const words = normalized.split(" ").filter(Boolean);
+  if (words.length <= 2 && normalized.length <= 20) return true;
+  return false;
+}
+
+function stripHtmlNotes(value) {
+  let text = String(value || "");
+  text = text.replace(/<sup[\s\S]*?<\/sup>/gi, " ");
+  text = text.replace(/<ref[\s\S]*?<\/ref>/gi, " ");
+  text = text.replace(/<[^>]+>/g, " ");
+  text = text.replace(/&nbsp;|&#160;/gi, " ");
+  text = text.replace(/&#91;|\[|\]/g, " ");
+  return text.replace(/\s+/g, " ").trim();
+}
+
+function normalizeLeadNotes(value) {
+  let text = String(value || "");
+  text = text.replace(/\[\d+\]/g, " ");
+  text = text.replace(/\s+/g, " ").trim();
+  return text;
+}
+
+function normalizeExtractedNotes(value) {
+  let text = String(value || "");
+  text = text.replace(/\s+/g, " ").trim();
+  text = text.replace(/^(Main articles?:|Main article:|See also:|Further information:)\s*/i, "");
+  return text.trim();
+}
+
+function truncateSentences(text, maxSentences = 3, maxChars = 320) {
+  const parts = String(text || "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .split(/(?<=[.!?])\s+/);
+  const selected = [];
+  let total = 0;
+  for (const part of parts) {
+    const chunk = part.trim();
+    if (!chunk) continue;
+    selected.push(chunk);
+    total += chunk.length + 1;
+    if (selected.length >= maxSentences || total >= maxChars) break;
+  }
+  let result = selected.join(" ").trim();
+  if (result.length > maxChars) {
+    result = result.slice(0, maxChars).replace(/\s+\S*$/, "");
+  }
+  return result.trim();
+}
+
+function extractNotesFromHtmlSections(html) {
+  if (!html) return "";
+  const headingRegex = /<h([23])[^>]*>([\s\S]*?)<\/h\1>/gi;
+  const markers = [];
+  let match;
+  while ((match = headingRegex.exec(html)) !== null) {
+    const title = stripHtmlNotes(match[2] || "");
+    if (!title) continue;
+    markers.push({ title, start: match.index, end: headingRegex.lastIndex });
+  }
+  if (markers.length === 0) return "";
+  const sections = [];
+  for (let i = 0; i < markers.length; i += 1) {
+    const current = markers[i];
+    const next = markers[i + 1];
+    const body = html.slice(current.end, next ? next.start : html.length);
+    sections.push({ title: current.title, body });
+  }
+  const priority = [
+    "notes",
+    "legality",
+    "legal status",
+    "status",
+    "medical",
+    "recreational"
+  ];
+  for (const key of priority) {
+    const target = sections.find((section) =>
+      normalizeLeadNotes(section.title).toLowerCase().includes(key)
+    );
+    if (!target) continue;
+    const paragraphs = [];
+    for (const entry of target.body.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi)) {
+      const cleaned = normalizeExtractedNotes(stripHtmlNotes(entry[1] || ""));
+      if (cleaned) paragraphs.push(cleaned);
+    }
+    const listItems = [];
+    for (const entry of target.body.matchAll(/<li[^>]*>([\s\S]*?)<\/li>/gi)) {
+      const cleaned = normalizeExtractedNotes(stripHtmlNotes(entry[1] || ""));
+      if (cleaned) listItems.push(cleaned);
+    }
+    const combined = [...paragraphs, ...listItems].join(" ");
+    const normalized = truncateSentences(normalizeExtractedNotes(combined));
+    if (normalized) return normalized;
+  }
+  return "";
+}
+
+async function fetchSectionNotes(title, allowNetwork) {
+  if (!allowNetwork || !title) return { text: "", mode: "NONE" };
+  const info = await fetchPageInfo(title);
+  if (!info.ok || !info.pageid) return { text: "", mode: "NONE" };
+  const htmlResult = await fetchPageHtmlCached(info.pageid, info.revision_id);
+  if (htmlResult.ok) {
+    const htmlNotes = extractNotesFromHtmlSections(htmlResult.html || "");
+    if (htmlNotes) return { text: htmlNotes, mode: "HTML" };
+  }
+  const wikiResult = await fetchPageWikitextCached(info.pageid, info.revision_id);
+  if (wikiResult.ok) {
+    const rawNotes = extractNotesFromWikitextSections(wikiResult.wikitext || "");
+    const wikiNotes = rawNotes ? truncateSentences(normalizeExtractedNotes(rawNotes)) : "";
+    if (wikiNotes) return { text: wikiNotes, mode: "WIKITEXT" };
+  }
+  return { text: "", mode: "NONE" };
+}
+
+function extractHtmlNotesMap(html) {
+  const notesMap = new Map();
+  if (!html) return notesMap;
+  const rows = html.match(/<tr[\s\S]*?<\/tr>/gi) || [];
+  for (const rowHtml of rows) {
+    const cells = Array.from(rowHtml.matchAll(/<td[^>]*>([\s\S]*?)<\/td>/gi)).map(
+      (match) => match[1]
+    );
+    if (cells.length < 4) continue;
+    const nameCell = cells[0] || "";
+    const notesCell = cells[cells.length - 1] || "";
+    const titleMatch = nameCell.match(/title=\"([^\"]+)\"/i);
+    const nameMatch = nameCell.match(/>([^<]+)<\/a>/i);
+    const name = titleMatch
+      ? String(titleMatch[1] || "").trim()
+      : nameMatch
+        ? String(nameMatch[1] || "").trim()
+        : "";
+    if (!name) continue;
+    const mainArticleMatch = notesCell.match(/Main articles?:\s*<a[^>]*title=\"([^\"]+)\"[^>]*>/i);
+    const mainArticleTitle = mainArticleMatch ? String(mainArticleMatch[1] || "").trim() : "";
+    const notesText = stripHtmlNotes(notesCell);
+    const recText = stripHtmlNotes(cells[1] || "");
+    const medText = stripHtmlNotes(cells[2] || "");
+    if (!notesText) continue;
+    notesMap.set(normalizeName(name), {
+      name,
+      notesText,
+      mainArticleTitle,
+      recText,
+      medText
+    });
+  }
+  return notesMap;
+}
+
+function loadLeadCache() {
+  const payload = readJson(LEAD_CACHE_PATH, { items: {} });
+  const items = payload?.items && typeof payload.items === "object" ? payload.items : {};
+  return { items, generated_at: payload?.generated_at || "" };
+}
+
+function saveLeadCache(cache) {
+  writeAtomic(LEAD_CACHE_PATH, cache);
+}
+
+async function fetchLeadSummary(title, allowNetwork) {
+  if (!allowNetwork || !title) return "";
+  const encoded = encodeURIComponent(String(title || "").replace(/ /g, "_"));
+  const url = `https://en.wikipedia.org/api/rest_v1/page/summary/${encoded}`;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 6000);
+  try {
+    const res = await fetch(url, { signal: controller.signal });
+    if (!res.ok) return "";
+    const payload = await res.json();
+    return normalizeLeadNotes(payload?.extract || "");
+  } catch {
+    return "";
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+function maybeDumpRow(rows, dumpName, isoMap) {
+  if (!dumpName) return;
+  const target = dumpName.toLowerCase();
+  const row = rows.find((item) => {
+    const name = String(item.name || "").toLowerCase();
+    const link = String(item.link || "").toLowerCase();
+    return name === target || link === target;
+  });
+  if (!row) {
+    console.log(`DUMP_ROW_MISS name=${dumpName}`);
+    return;
+  }
+  const iso = resolveCountryIso(row.name || row.link || "", loadDefaultAliases(), isoMap);
+  console.log(
+    `DUMP_ROW name=${row.name || "-"} link=${row.link || "-"} rec_raw="${row.recreational_raw || ""}" med_raw="${row.medical_raw || ""}" notes_raw="${String(row.notes_raw || "").replace(/\s+/g, " ").trim().slice(0, 260)}" iso=${iso || "-"}`
+  );
+}
 
 async function fetchPageRows(pageTitle, cacheFile) {
   const cachePath = path.join(ROOT, "data", "wiki", "cache", cacheFile);
@@ -230,7 +486,8 @@ async function fetchPageRows(pageTitle, cacheFile) {
     }
     return { ok: false, reason: wikitextResult.reason || "NETWORK_FAIL", error: wikitextResult.error || "-" };
   }
-  const rows = parseLegalityTable(wikitextResult.wikitext || "");
+  const notesMap = extractNotesFromWikitextTable(wikitextResult.wikitext || "");
+  const rows = parseLegalityTable(wikitextResult.wikitext || "", notesMap);
   const refreshed = {
     pageid: meta.pageid,
     revision_id: wikitextResult.revision_id,
@@ -267,7 +524,9 @@ async function main() {
       if (existingMap?.items && existingMeta?.pages) {
         const mapItems = existingMap.items;
         const perGeoDir = path.join(ROOT, "data", "wiki", "wiki_claims");
-        fs.mkdirSync(perGeoDir, { recursive: true });
+        if (SSOT_WRITE) {
+          fs.mkdirSync(perGeoDir, { recursive: true });
+        }
         for (const [geoKey, entry] of Object.entries(mapItems)) {
           if (!geoKey || !entry) continue;
           const filePath = path.join(perGeoDir, `${geoKey}.json`);
@@ -291,8 +550,21 @@ async function main() {
           `WIKI_SYNC: mode=${MODE === "all" ? "all" : "smoke"} revision_id=${existingMeta.pages[COUNTRY_PAGE]?.revision_id || "-"} countries_count=${countriesCount} states_count=${statesCount} total=${totalCount} links_count=0 revision_changed=0 updated_count=0`
         );
         console.log(`WIKI_COUNTRIES_COUNT=${countriesCount} WIKI_STATES_COUNT=${statesCount} WIKI_TOTAL=${totalCount}`);
-        return;
-      }
+    return;
+  }
+  if (DUMP_ROW) {
+    maybeDumpRow(countryResult.rows || [], DUMP_ROW, isoMap);
+  }
+  if (DUMP_GEO) {
+    const iso = String(DUMP_GEO || "").toUpperCase();
+    const isoEntries = readJson(ISO_PATH, { entries: [] })?.entries || [];
+    const match = isoEntries.find((entry) => String(entry?.alpha2 || "").toUpperCase() === iso);
+    if (match?.name) {
+      maybeDumpRow(countryResult.rows || [], match.name, isoMap);
+    } else {
+      console.log(`DUMP_GEO_MISS geo=${iso}`);
+    }
+  }
     }
     process.exit(countryResult.reason === "NETWORK_FAIL" ? 10 : 2);
   }
@@ -336,6 +608,15 @@ async function main() {
   }
 
   const entries = new Map();
+  let htmlNotesMap = new Map();
+  if (fs.existsSync(HTML_LEGALITY_PATH)) {
+    try {
+      const html = fs.readFileSync(HTML_LEGALITY_PATH, "utf8");
+      htmlNotesMap = extractHtmlNotesMap(html);
+    } catch {
+      htmlNotesMap = new Map();
+    }
+  }
   const missingCountries = [];
   countryResult.rows.forEach((row, index) => {
     const iso2 = resolveCountryIso(row.name || row.link || "", aliases, isoMap);
@@ -404,6 +685,7 @@ async function main() {
     const iso2 = String(entry?.alpha2 || "").toUpperCase();
     if (!iso2 || entries.has(iso2)) return;
     const countryName = String(entry?.name || "").trim();
+    const fallbackNotes = "";
     entries.set(iso2, {
       geo_key: iso2,
       name_in_wiki: countryName,
@@ -415,9 +697,9 @@ async function main() {
       sources_count: 0,
       main_articles: [],
       notes_main_articles: [],
-      notes_text: "",
-      notes_text_len: 0,
-      notes: "",
+      notes_text: fallbackNotes,
+      notes_text_len: fallbackNotes.length,
+      notes: fallbackNotes,
       notes_raw: "",
       recreational_status: "Unknown",
       medical_status: "Unknown",
@@ -426,18 +708,139 @@ async function main() {
     });
   });
 
+  if (htmlNotesMap.size > 0) {
+    for (const entry of entries.values()) {
+      const nameKey = normalizeName(entry.name_in_wiki || entry.geo_key || "");
+      if (!nameKey || !htmlNotesMap.has(nameKey)) continue;
+      const htmlRow = htmlNotesMap.get(nameKey);
+      const htmlNotes = String(htmlRow?.notesText || "");
+      if (!htmlNotes || isPlaceholderNote(htmlNotes)) continue;
+      const currentNotes = String(entry.notes_text || "");
+      if (!currentNotes || isPlaceholderNote(currentNotes) || htmlNotes.length > currentNotes.length) {
+        const mainTitle = htmlRow.mainArticleTitle;
+        const mainArticles = mainTitle
+          ? [{ title: mainTitle, url: buildWikiUrl(mainTitle) }]
+          : entry.notes_main_articles || [];
+        entry.notes_text = htmlNotes;
+        entry.notes_text_len = htmlNotes.length;
+        entry.notes = htmlNotes;
+        entry.notes_raw = htmlNotes;
+        entry.notes_main_articles = mainArticles;
+        entry.main_articles = mainArticles;
+      }
+      const htmlRec = String(htmlRow?.recText || "");
+      const htmlMed = String(htmlRow?.medText || "");
+      if (entry.wiki_rec === "Unknown" && htmlRec) {
+        const recStatus = parseRecreationalStatus(htmlRec);
+        entry.wiki_rec = recStatus;
+        entry.recreational_status = recStatus;
+        entry.recreational_raw = htmlRec;
+      }
+      if (entry.wiki_med === "Unknown" && htmlMed) {
+        const medStatus = parseMedicalStatus(htmlMed);
+        entry.wiki_med = medStatus;
+        entry.medical_status = medStatus;
+        entry.medical_raw = htmlMed;
+      }
+    }
+  }
+
+  const allowNetwork = process.env.FETCH_NETWORK !== "0" && process.env.ALLOW_NETWORK !== "0";
+  const leadCache = loadLeadCache();
+  let leadCacheUpdated = false;
+  for (const entry of entries.values()) {
+    if (!SMOKE_GEOS.has(entry.geo_key)) continue;
+    const currentNotes = String(entry.notes_text || "");
+    const mainArticle = entry.notes_main_articles?.[0]?.title || "";
+    const needsUpgrade = !currentNotes || isPlaceholderNote(currentNotes) || /^Main article:/i.test(currentNotes) || currentNotes.length < 80;
+    if (mainArticle && needsUpgrade) {
+      const result = await fetchSectionNotes(mainArticle, allowNetwork);
+      const sectionNotes = normalizeExtractedNotes(result.text);
+      const weak = sectionNotes.length < 80 ? 1 : 0;
+      const empty = sectionNotes.length === 0 ? 1 : 0;
+      console.log(
+        `NOTES_EXTRACT geo=${entry.geo_key} mode=${result.mode} notes_len=${sectionNotes.length} weak=${weak} empty=${empty}`
+      );
+      const shouldUpgrade =
+        sectionNotes &&
+        !isPlaceholderNote(sectionNotes) &&
+        sectionNotes.length >= 80 &&
+        (isPlaceholderNote(currentNotes) || sectionNotes.length > currentNotes.length);
+      if (shouldUpgrade) {
+        entry.notes_text = sectionNotes;
+        entry.notes_text_len = sectionNotes.length;
+        entry.notes = sectionNotes;
+        entry.notes_raw = sectionNotes;
+        continue;
+      }
+      if (entry.geo_key === "RO" || entry.geo_key === "RU" || entry.geo_key === "AU") {
+        const reason = sectionNotes
+          ? "SECTION_TOO_SHORT"
+          : "SECTION_MISSING";
+        console.log(`NOTES_WEAK geo=${entry.geo_key} reason=${reason} len=${sectionNotes.length}`);
+      }
+    } else if (!mainArticle && needsUpgrade) {
+      console.log(
+        `NOTES_EXTRACT geo=${entry.geo_key} mode=NONE notes_len=0 weak=1 empty=1`
+      );
+      if (entry.geo_key === "RO" || entry.geo_key === "RU" || entry.geo_key === "AU") {
+        console.log(`NOTES_WEAK geo=${entry.geo_key} reason=NO_MAIN_ARTICLE len=${currentNotes.length}`);
+      }
+    }
+    if (!currentNotes || !/^Main article:/i.test(currentNotes) || currentNotes.length >= 80) continue;
+    if (!mainArticle) continue;
+    const cached = leadCache.items?.[mainArticle]?.text || "";
+    let leadText = cached;
+    if (!leadText && allowNetwork) {
+      leadText = await fetchLeadSummary(mainArticle, allowNetwork);
+      if (leadText) {
+        leadCache.items[mainArticle] = { text: leadText, fetched_at: new Date().toISOString() };
+        leadCacheUpdated = true;
+      }
+    }
+    if (leadText && leadText.length >= 80 && !isPlaceholderNote(leadText)) {
+      entry.notes_text = leadText;
+      entry.notes_text_len = leadText.length;
+      entry.notes = leadText;
+      entry.notes_raw = leadText;
+    }
+  }
+  if (leadCacheUpdated) {
+    saveLeadCache({ generated_at: runAt, items: leadCache.items });
+  }
+
   let items = Array.from(entries.values()).sort((a, b) =>
     String(a.geo_key || "").localeCompare(String(b.geo_key || ""))
   );
+  const existingMapPayload = readJson(MAP_PATH, null);
+  const existingItems = existingMapPayload?.items && typeof existingMapPayload.items === "object"
+    ? existingMapPayload.items
+    : {};
+  const mergeNotes = (current) => {
+    if (!current || !current.geo_key) return current;
+    const previous = existingItems[current.geo_key];
+    if (!previous) return current;
+    const currentNotes = String(current.notes_text || "");
+    const previousNotes = String(previous.notes_text || "");
+    const currentRaw = String(current.notes_raw || "");
+    const mainOnly = /^\{\{\s*main\s*\|[^}]+\}\}$/i.test(currentRaw.replace(/\s+/g, " ").trim());
+    if (!currentNotes && previousNotes && !mainOnly && !isPlaceholderNote(previousNotes)) {
+      return {
+        ...current,
+        notes_text: previousNotes,
+        notes_text_len: previousNotes.length,
+        notes: previousNotes,
+        notes_raw: previous.notes_raw || current.notes_raw || ""
+      };
+    }
+    return current;
+  };
+  items = items.map((item) => mergeNotes(item));
   if (MODE === "smoke") {
-    const existingMapPayload = readJson(MAP_PATH, null);
-    const existingItems = existingMapPayload?.items && typeof existingMapPayload.items === "object"
-      ? existingMapPayload.items
-      : {};
     const mergedItems = { ...existingItems };
     for (const item of items) {
       if (!SMOKE_GEOS.has(item.geo_key)) continue;
-      mergedItems[item.geo_key] = item;
+      mergedItems[item.geo_key] = mergeNotes(item);
     }
     items = Object.values(mergedItems).filter((entry) => entry && entry.geo_key);
   }

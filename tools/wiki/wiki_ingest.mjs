@@ -12,6 +12,12 @@ const OUTPUT_PATH = path.join(ROOT, "data", "wiki", "wiki_claims.json");
 const META_PATH = path.join(ROOT, "data", "wiki", "wiki_claims.meta.json");
 const ISO_PATH = path.join(ROOT, "data", "iso3166", "iso3166-1.json");
 const US_STATES_PATH = path.join(ROOT, "data", "geo", "us_state_centroids.json");
+const SSOT_WRITE = process.env.SSOT_WRITE === "1";
+
+if (!SSOT_WRITE) {
+  console.log("SSOT_READONLY=1");
+  process.exit(0);
+}
 
 function readJson(file, fallback) {
   if (!fs.existsSync(file)) return fallback;

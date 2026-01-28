@@ -3,15 +3,50 @@ function buildWikiUrl(title) {
   return `https://en.wikipedia.org/wiki/${encodeURIComponent(title.replace(/ /g, "_"))}`;
 }
 
+function normalizeNotesText(value) {
+  return String(value || "")
+    .replace(/\u00a0/g, " ")
+    .replace(/&nbsp;|&#160;/gi, " ")
+    .replace(/[\r\n]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function stripWikiMarkup(value) {
   let text = String(value || "");
+  text = text.replace(
+    /\{\{\s*(plainlist|flatlist|ubl|unbulleted list|bulleted list|unordered list|list)\s*\|([\s\S]*?)\}\}/gi,
+    (_, __, body) => body.split("|").map((part) => part.replace(/^\s*\*\s*/g, "").trim()).filter(Boolean).join(" ")
+  );
+  text = text.replace(/\{\{\s*nowrap\s*\|([\s\S]*?)\}\}/gi, "$1");
+  text = text.replace(/\{\{\s*lang\s*\|[^|}]+\|([\s\S]*?)\}\}/gi, "$1");
+  text = text.replace(/\{\{\s*small\s*\|([\s\S]*?)\}\}/gi, "$1");
+  text = text.replace(/\{\{\s*abbr\s*\|([^|}]+)(?:\|[^}]+)?\}\}/gi, "$1");
+  text = text.replace(/\{\{\s*cvt\|([^}|]+)\|([^}|]+)[^}]*\}\}/gi, "$1 $2");
+  text = text.replace(/\{\{\s*convert\|([^}|]+)\|([^}|]+)[^}]*\}\}/gi, "$1 $2");
   text = text.replace(/<ref[\s\S]*?<\/ref>/gi, " ");
   text = text.replace(/<ref[^>]*\/?>/gi, " ");
-  text = text.replace(/\{\{[^}]+\}\}/g, " ");
+  text = text.replace(/\{\{[\s\S]*?\}\}/g, " ");
   text = text.replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g, "$2");
   text = text.replace(/\[\[([^\]]+)\]\]/g, "$1");
   text = text.replace(/<[^>]+>/g, " ");
-  return text.replace(/\s+/g, " ").trim();
+  text = text.replace(/&nbsp;|&#160;/gi, " ");
+  return normalizeNotesText(text);
+}
+
+function notesTextFromRaw(value) {
+  let text = String(value || "");
+  if (isMainOnlyRaw(text)) {
+    const articles = extractMainArticles(text);
+    const titles = articles.map((article) => article.title).filter(Boolean);
+    return normalizeNotesText(
+      titles.length ? `Main article: ${titles.join("; ")}` : "Main article"
+    );
+  }
+  text = text.replace(/\{\{\s*main\s*\|[^}]+\}\}/gi, " ");
+  text = text.replace(/\{\{\s*see\s*also\s*\|[^}]+\}\}/gi, " ");
+  text = text.replace(/\{\{\s*further(?:\s+information)?\s*\|[^}]+\}\}/gi, " ");
+  return stripWikiMarkup(text);
 }
 
 function extractFlagTemplate(value) {
@@ -61,6 +96,84 @@ function extractMainArticles(value) {
   return unique.map((title) => ({ title, url: buildWikiUrl(title) }));
 }
 
+function isMainOnlyRaw(raw) {
+  const rawText = String(raw || "").replace(/\s+/g, " ").trim();
+  return /^\{\{\s*main\s*\|[^}]+\}\}$/i.test(rawText);
+}
+
+function isPlaceholderNote(text) {
+  const normalized = normalizeNotesText(text);
+  if (!normalized) return false;
+  if (/^Cannabis in\s+/i.test(normalized)) return true;
+  if (/^Main articles?:/i.test(normalized)) return true;
+  if (/^Main article:/i.test(normalized)) return true;
+  if (/^See also:/i.test(normalized)) return true;
+  if (/^Further information:/i.test(normalized)) return true;
+  const words = normalized.split(" ").filter(Boolean);
+  if (words.length <= 2 && normalized.length <= 20) return true;
+  return false;
+}
+
+const SECTION_PRIORITY = [
+  "notes",
+  "footnotes",
+  "additional information",
+  "legality",
+  "legal status",
+  "status",
+  "penalties",
+  "penalty",
+  "possession",
+  "decriminalization",
+  "medical",
+  "recreational",
+  "cultivation",
+  "use",
+  "enforcement"
+];
+
+function extractNotesFromWikitextSections(wikitext, priority = SECTION_PRIORITY) {
+  const lines = String(wikitext || "").split(/\r?\n/);
+  let currentTitle = "";
+  let currentLines = [];
+  const sections = [];
+  for (const line of lines) {
+    const heading = line.match(/^==+\s*(.*?)\s*==+\s*$/);
+    if (heading) {
+      if (currentTitle) {
+        sections.push({ title: currentTitle, body: currentLines.join("\n") });
+      }
+      currentTitle = heading[1] || "";
+      currentLines = [];
+      continue;
+    }
+    if (currentTitle) currentLines.push(line);
+  }
+  if (currentTitle) {
+    sections.push({ title: currentTitle, body: currentLines.join("\n") });
+  }
+  const normalizedPriority = Array.isArray(priority) ? priority : SECTION_PRIORITY;
+  for (const key of normalizedPriority) {
+    const target = sections.find((section) =>
+      normalizeNotesText(section.title).toLowerCase().includes(key)
+    );
+    if (!target) continue;
+    const body = target.body
+      .split(/\r?\n/)
+      .map((line) => line.trim())
+      .filter((line) =>
+        line &&
+        !line.startsWith("{{") &&
+        !line.startsWith("|") &&
+        !line.startsWith("{|") &&
+        !line.startsWith("|}") &&
+        !line.startsWith("!")
+      );
+    const cleaned = normalizeNotesText(stripWikiMarkup(body.join(" ")));
+    if (cleaned && !isPlaceholderNote(cleaned)) return cleaned;
+  }
+  return "";
+}
 export function parseRecreationalStatus(value) {
   const raw = String(value || "").toLowerCase();
   if (/\{\{\s*hs\|0\.[1-9]/.test(raw)) return "Legal";
@@ -73,8 +186,8 @@ export function parseRecreationalStatus(value) {
   if (!text) return "Unknown";
   if (text.includes("unenforced") || text.includes("non-enforced")) return "Unenforced";
   if (text.includes("decriminal")) return "Decrim";
-  if (text.includes("legal")) return "Legal";
   if (text.includes("illegal") || text.includes("prohibited")) return "Illegal";
+  if (text.includes("legal")) return "Legal";
   return "Unknown";
 }
 
@@ -88,11 +201,14 @@ export function parseMedicalStatus(value) {
   if (/\{\{\s*(medical|yes|legal)\b/.test(raw)) return "Legal";
   const text = stripWikiMarkup(value).toLowerCase();
   if (!text) return "Unknown";
+  if (text.includes("illegal") || text.includes("prohibited")) return "Illegal";
+  if (text.includes("prescribed") || text.includes("0.2%") || text.includes("low thc")) {
+    return "Limited";
+  }
   if (text.includes("legal") || text.includes("medical")) return "Legal";
   if (text.includes("limited") || text.includes("restricted") || text.includes("low thc")) {
     return "Limited";
   }
-  if (text.includes("illegal") || text.includes("prohibited")) return "Illegal";
   return "Unknown";
 }
 
@@ -103,7 +219,11 @@ function splitRowCells(rowText) {
   let depthCurly = 0;
   const flush = () => {
     const trimmed = current.replace(/^\s*[!|]/, "").trim();
-    if (trimmed) cells.push(trimmed);
+    if (!trimmed || /^<!--/i.test(trimmed)) {
+      current = "";
+      return;
+    }
+    cells.push(trimmed);
     current = "";
   };
   for (let i = 0; i < rowText.length; i += 1) {
@@ -168,27 +288,142 @@ function extractTableFromWikitext(wikitext) {
   );
 }
 
-function parseWikiTable(tableText) {
-  if (!tableText) return [];
-  const rows = tableText.split(/\n\|-+/g).slice(1);
-  const parsed = [];
+function normalizeWikiKey(value) {
+  const text = normalizeNotesText(stripWikiMarkup(value));
+  return text.toLowerCase();
+}
+
+function extractHeaderCells(tableText) {
+  const headerBlock = tableText.split(/\n\|-+/g)[0] || "";
+  const lines = headerBlock.split("\n").filter((line) => line.trim().startsWith("!"));
+  if (!lines.length) return [];
+  const joined = lines.join("\n");
+  return splitRowCells(joined);
+}
+
+function resolveColumnIndexes(tableText) {
+  const headerCells = extractHeaderCells(tableText);
+  let nameIndex = 0;
+  let recIndex = 1;
+  let medIndex = 2;
+  let notesIndex = 3;
+  headerCells.forEach((cell, idx) => {
+    const text = stripWikiMarkup(cell).toLowerCase();
+    if (text.includes("country") || text.includes("territory") || text.includes("state")) {
+      nameIndex = idx;
+    }
+    if (text.includes("recreational")) {
+      recIndex = idx;
+    }
+    if (text.includes("medical")) {
+      medIndex = idx;
+    }
+    if (text.includes("notes")) {
+      notesIndex = idx;
+    }
+  });
+  return { nameIndex, recIndex, medIndex, notesIndex, totalCols: headerCells.length };
+}
+
+function applyRowspanRow(cells, carryByIndex, totalCols) {
+  const rowCells = Array.from({ length: totalCols }, () => "");
+  for (let idx = 0; idx < totalCols; idx += 1) {
+    const carry = carryByIndex[idx];
+    if (carry && carry.remaining > 0) {
+      rowCells[idx] = carry.cell;
+      carry.remaining -= 1;
+    }
+  }
+  let colIndex = 0;
+  for (const cell of cells) {
+    while (colIndex < totalCols && rowCells[colIndex]) colIndex += 1;
+    if (colIndex >= totalCols) break;
+    rowCells[colIndex] = cell;
+    const rowspan = cell.match(/rowspan\s*=\s*"?(\d+)/i);
+    if (rowspan) {
+      carryByIndex[colIndex] = {
+        cell,
+        remaining: Math.max(0, Number(rowspan[1] || 0) - 1)
+      };
+    }
+    colIndex += 1;
+  }
+  return rowCells;
+}
+
+export function extractNotesFromWikitextTable(wikitext) {
+  const result = new Map();
+  const table = extractTableFromWikitext(wikitext);
+  if (!table) return result;
+  const indexes = resolveColumnIndexes(table);
+  const totalCols = Math.max(
+    indexes.totalCols || 0,
+    indexes.nameIndex,
+    indexes.recIndex,
+    indexes.medIndex,
+    indexes.notesIndex
+  ) + 1;
+  const rows = table.split(/\n\|-+/g).slice(1);
+  const carryByIndex = Array.from({ length: totalCols }, () => null);
   for (const row of rows) {
     if (!row.trim()) continue;
     const cells = splitRowCells(row);
     if (cells.length < 3) continue;
-    let countryCell = cells[0] || "";
-    let recCell = cells[1] || "";
-    let medCell = cells[2] || "";
-    let notesCell = cells[3] || "";
-    if (/^id=/i.test(stripWikiMarkup(countryCell)) && cells.length >= 4) {
-      countryCell = cells[1] || "";
-      recCell = cells[2] || "";
-      medCell = cells[3] || "";
-      notesCell = cells[4] || "";
+    const rowCells = applyRowspanRow(cells, carryByIndex, totalCols);
+    let offset = 0;
+    const firstCellRaw = rowCells[0] || "";
+    const firstCellStrip = stripWikiMarkup(firstCellRaw);
+    const firstCellHasFlag = /\{\{\s*flag/i.test(firstCellRaw) || /\[\[/.test(firstCellRaw);
+    if (/^id=/i.test(firstCellStrip) && !firstCellHasFlag) {
+      offset = 1;
     }
+    const nameCell = rowCells[indexes.nameIndex + offset] || "";
+    const notesCell = rowCells[indexes.notesIndex + offset] || "";
+    const name = extractCountryName(nameCell);
+    if (!name) continue;
+    const notesText = stripWikiMarkup(notesCell);
+    if (notesText) {
+      result.set(normalizeWikiKey(name), notesText);
+    }
+  }
+  return result;
+}
+
+function parseWikiTable(tableText) {
+  if (!tableText) return [];
+  const indexes = resolveColumnIndexes(tableText);
+  const totalCols = Math.max(
+    indexes.totalCols || 0,
+    indexes.nameIndex,
+    indexes.recIndex,
+    indexes.medIndex,
+    indexes.notesIndex
+  ) + 1;
+  const rows = tableText.split(/\n\|-+/g).slice(1);
+  const parsed = [];
+  const carryByIndex = Array.from({ length: totalCols }, () => null);
+  for (const row of rows) {
+    if (!row.trim()) continue;
+    const cells = splitRowCells(row);
+    if (cells.length < 3) continue;
+    const rowCells = applyRowspanRow(cells, carryByIndex, totalCols);
+    let offset = 0;
+    const firstCellRaw = rowCells[0] || "";
+    const firstCellStrip = stripWikiMarkup(firstCellRaw);
+    const firstCellHasFlag = /\{\{\s*flag/i.test(firstCellRaw) || /\[\[/.test(firstCellRaw);
+    if (/^id=/i.test(firstCellStrip) && !firstCellHasFlag) {
+      offset = 1;
+    }
+    const countryCell = rowCells[indexes.nameIndex + offset] || "";
+    const recCell = rowCells[indexes.recIndex + offset] || "";
+    const medCell = rowCells[indexes.medIndex + offset] || "";
+    let notesCell = rowCells[indexes.notesIndex + offset] || "";
     const fallbackName = extractFlagTemplate(countryCell);
     const link = extractWikiLinks(countryCell)[0] || fallbackName || "";
-    const name = extractCountryName(countryCell);
+    let name = extractCountryName(countryCell);
+    if ((!name || /^[A-Z]{2}$/i.test(name)) && link) {
+      name = link;
+    }
     if (!name) continue;
     if (/^Country\/Territory$/i.test(name) || /^Country or territory$/i.test(name) || /^State$/i.test(name)) {
       continue;
@@ -204,13 +439,26 @@ function parseWikiTable(tableText) {
   return parsed;
 }
 
-export function parseLegalityTable(wikitext) {
+export function parseLegalityTable(wikitext, notesMap = null) {
   const table = extractTableFromWikitext(wikitext);
   const rows = parseWikiTable(table);
   const parsed = rows.map((row) => {
     const notesRaw = String(row.notes || "");
-    const notesText = stripWikiMarkup(notesRaw);
+    const extractedNotes = notesTextFromRaw(notesRaw);
+    let notesText = extractedNotes;
     const mainArticles = extractMainArticles(notesRaw);
+    const mainOnly = isMainOnlyRaw(notesRaw);
+    const hasMainTemplate = /\{\{\s*main\s*\|/i.test(notesRaw) || /Main articles?/i.test(notesRaw);
+    if (mainOnly) {
+      const titles = mainArticles.map((article) => article.title).filter(Boolean);
+      notesText = titles.length ? `Main article: ${titles.join("; ")}` : "Main article";
+    }
+    if (!notesText && mainArticles.length > 0 && !mainOnly && !hasMainTemplate) {
+      const titles = mainArticles.map((article) => article.title).filter(Boolean);
+      if (titles.length) {
+        notesText = titles.join("; ");
+      }
+    }
     return {
       name: row.name,
       link: row.link,
@@ -224,9 +472,25 @@ export function parseLegalityTable(wikitext) {
       notes_main_articles: mainArticles
     };
   });
-  const totalArticles = parsed.reduce((total, row) => total + row.notes_main_articles.length, 0);
-  console.log(`WIKI_PARSE: rows=${parsed.length} main_articles_total=${totalArticles}`);
-  return parsed;
+  const merged = applyNotesMap(parsed, notesMap);
+  const totalArticles = merged.reduce((total, row) => total + row.notes_main_articles.length, 0);
+  console.log(`WIKI_PARSE: rows=${merged.length} main_articles_total=${totalArticles}`);
+  return merged;
+}
+
+export function applyNotesMap(rows, notesMap) {
+  if (!notesMap || !rows) return rows;
+  return rows.map((row) => {
+    const key = normalizeWikiKey(row.name || row.link || "");
+    if (!key || !notesMap.has(key)) return row;
+    const htmlNotes = notesMap.get(key);
+    if (!normalizeNotesText(htmlNotes)) return row;
+    return {
+      ...row,
+      notes_text: normalizeNotesText(htmlNotes),
+      notes_raw: typeof row.notes_raw === "string" ? row.notes_raw : String(row.notes_raw || "")
+    };
+  });
 }
 
 export function normalizeRowStatuses(row) {
@@ -235,11 +499,52 @@ export function normalizeRowStatuses(row) {
     row.recreational_raw ?? row.recreational ?? row.recreational_status ?? "";
   const medicalRaw =
     row.medical_raw ?? row.medical ?? row.medical_status ?? "";
+  const existingNotes = String(row.notes_text || "");
+  const notesRaw = row.notes_raw ?? row.notes ?? "";
+  const rawNotesText = notesTextFromRaw(notesRaw);
+  const mainOnly = isMainOnlyRaw(notesRaw);
+  let normalizedNotes = "";
+  const rawHasDigits = /\d/.test(rawNotesText);
+  const existingHasDigits = /\d/.test(existingNotes);
+  const shouldPreferRaw =
+    rawNotesText &&
+    (!existingNotes ||
+      (rawHasDigits && !existingHasDigits) ||
+      rawNotesText.length > existingNotes.length);
+  if (existingNotes && !isPlaceholderNote(existingNotes)) {
+    normalizedNotes = shouldPreferRaw ? rawNotesText : existingNotes;
+  } else if (rawNotesText && !mainOnly) {
+    normalizedNotes = rawNotesText;
+  }
+  const name = String(row.name || row.link || "").trim();
+  if (!normalizedNotes) {
+    if (!mainOnly) {
+      const articles = Array.isArray(row.notes_main_articles) ? row.notes_main_articles : [];
+      const titles = Array.from(new Set(articles.map((article) => article?.title).filter(Boolean)));
+      if (titles.length) {
+        normalizedNotes = titles.join("; ");
+      }
+    } else {
+      const articles = Array.isArray(row.notes_main_articles) ? row.notes_main_articles : [];
+      const titles = Array.from(new Set(articles.map((article) => article?.title).filter(Boolean)));
+      normalizedNotes = titles.length ? `Main article: ${titles.join("; ")}` : "Main article";
+    }
+  }
   return {
     ...row,
     recreational_status: parseRecreationalStatus(recreationalRaw),
     medical_status: parseMedicalStatus(medicalRaw),
     recreational_raw: recreationalRaw,
-    medical_raw: medicalRaw
+    medical_raw: medicalRaw,
+    notes_text: normalizedNotes,
+    notes_text_len: normalizedNotes.length
   };
 }
+
+export {
+  extractMainArticles,
+  extractNotesFromWikitextSections,
+  isMainOnlyRaw,
+  notesTextFromRaw,
+  stripWikiMarkup
+};

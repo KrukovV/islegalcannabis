@@ -164,6 +164,47 @@ const WIKI_OFFICIAL_EVAL_PATH = path.join(
   "wiki",
   "wiki_official_eval.json"
 );
+
+function appendSsotLine(line: string) {
+  const reportsPath = path.join(process.cwd(), "Reports", "ci-final.txt");
+  const runId = process.env.RUN_ID;
+  const runPath = runId
+    ? path.join(process.cwd(), "Artifacts", "runs", runId, "ci-final.txt")
+    : null;
+  try {
+    fs.mkdirSync(path.dirname(reportsPath), { recursive: true });
+    fs.appendFileSync(reportsPath, `${line}\n`);
+  } catch {
+    // Ignore SSOT append failures.
+  }
+  if (runPath) {
+    try {
+      fs.mkdirSync(path.dirname(runPath), { recursive: true });
+      fs.appendFileSync(runPath, `${line}\n`);
+    } catch {
+      // Ignore SSOT append failures.
+    }
+  }
+}
+
+function geoConfidenceScore(source: string, normalized: string | null) {
+  if (source === "manual") return 1.0;
+  if (source === "gps") return 0.9;
+  if (source === "ip") return 0.6;
+  if (normalized === "high") return 0.9;
+  if (normalized === "medium") return 0.7;
+  if (normalized === "low") return 0.5;
+  return 0.0;
+}
+
+function writeGeoLocSsot(source: string, iso: string, state: string | undefined, confidence: number) {
+  const isoCode = String(iso || "UNKNOWN").toUpperCase();
+  const stateCode = state ? String(state).toUpperCase() : "-";
+  const ts = new Date().toISOString();
+  appendSsotLine(
+    `GEO_LOC source=${source} iso=${isoCode} state=${stateCode} confidence=${confidence.toFixed(1)} ts=${ts}`
+  );
+}
 let offlineFallbackCache: Record<string, unknown> | null = null;
 let autoVerifiedCache: Record<string, unknown> | null = null;
 let wikiClaimsCache: Record<string, unknown> | null = null;
@@ -684,6 +725,15 @@ export async function GET(req: Request) {
           confidence: normalizedConfidence ?? confidenceForLocation(method)
         })
     : fromQuery({ country, region });
+
+  const geoSource = method ? method : "none";
+  writeGeoLocSsot(
+    geoSource,
+    country,
+    region,
+    geoConfidenceScore(geoSource, normalizedConfidence)
+  );
+  appendSsotLine("MAP_READY=1");
 
   const baseViewModelMeta = {
     requestId,

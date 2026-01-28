@@ -32,7 +32,7 @@ export type { IsoMeta } from "./iso3166";
 export { buildWhyBullets } from "./why";
 export { levelFromStatus, titleFromLevel } from "./result_level";
 export type { DetectMethod, ResultLevel } from "./result_level";
-export { normalizeSources } from "./sources.js";
+export { normalizeSourceList, normalizeSources } from "./sources.js";
 export { isLawKnown } from "./law_known.js";
 export { extrasFromProfile } from "./extras";
 export type { ExtrasBreakdown, ExtrasLevel } from "./extras";

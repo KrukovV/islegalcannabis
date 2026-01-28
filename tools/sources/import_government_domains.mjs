@@ -87,7 +87,13 @@ function readCatalog() {
 
 function writeJson(file, payload) {
   fs.mkdirSync(path.dirname(file), { recursive: true });
-  fs.writeFileSync(file, JSON.stringify(payload, null, 2) + "\n");
+  const ts = new Date().toISOString().replace(/[:.]/g, "-");
+  if (fs.existsSync(file)) {
+    fs.copyFileSync(file, `${file}.bak.${ts}`);
+  }
+  const tmpPath = `${file}.tmp`;
+  fs.writeFileSync(tmpPath, JSON.stringify(payload, null, 2) + "\n");
+  fs.renameSync(tmpPath, file);
 }
 
 function pushUnique(list, value) {
@@ -166,7 +172,7 @@ function main() {
   const sortedCatalog = Object.fromEntries(
     Object.entries(catalog).sort(([a], [b]) => a.localeCompare(b))
   );
-  fs.writeFileSync(CATALOG_PATH, JSON.stringify(sortedCatalog, null, 2) + "\n");
+  writeJson(CATALOG_PATH, sortedCatalog);
 
   writeJson(REPORT_PATH, {
     additions,

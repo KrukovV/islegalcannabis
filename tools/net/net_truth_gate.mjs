@@ -42,9 +42,9 @@ function readCacheInfo() {
 const net = runNetHealth();
 const cacheInfo = readCacheInfo();
 const allowNetwork = process.env.ALLOW_NETWORK ?? "1";
-const fetchNetwork = process.env.FETCH_NETWORK ?? "1";
-const overrideNetwork = process.env.OVERRIDE_NETWORK ?? "";
-const networkEnabled = fetchNetwork !== "0" && overrideNetwork !== "0";
+let fetchNetwork = process.env.FETCH_NETWORK ?? "1";
+let overrideNetwork = process.env.OVERRIDE_NETWORK ?? "";
+let sandboxEgress = 0;
 
 const payload = net.payload || {
   dns_ok: 0,
@@ -65,7 +65,12 @@ const payload = net.payload || {
 };
 
 const truthOk = payload.http_ok === 1 || payload.api_ok === 1 || payload.connect_ok === 1 || payload.fallback_ok === 1;
-const online = networkEnabled && truthOk ? 1 : 0;
+if (payload.connect_reason === "SANDBOX_EGRESS_BLOCKED") {
+  sandboxEgress = 1;
+  fetchNetwork = "0";
+  overrideNetwork = "0";
+}
+const online = truthOk ? 1 : 0;
 const netMode = online === 1 ? "ONLINE" : (cacheInfo.cache_ok === 1 ? "DEGRADED_CACHE" : "OFFLINE");
 
 const diagPayload = {
@@ -77,12 +82,14 @@ const diagPayload = {
   api_status: payload.api_status,
   connect_ok: payload.connect_ok,
   fallback_ok: payload.fallback_ok,
+  cache_hit: payload.cache_hit ?? 0,
   cache_ok: cacheInfo.cache_ok,
   cache_age_h: cacheInfo.cache_age_h,
   max_cache_h: cacheInfo.max_cache_h,
   allow_network: allowNetwork,
   fetch_network: fetchNetwork,
-  override_network: overrideNetwork
+  override_network: overrideNetwork,
+  sandbox_egress: sandboxEgress
 };
 
 console.log(

@@ -16,6 +16,20 @@ function readJson(filePath, fallback = null) {
   }
 }
 
+function backupIfExists(filePath) {
+  if (!fs.existsSync(filePath)) return;
+  const ts = new Date().toISOString().replace(/[:.]/g, "-");
+  fs.copyFileSync(filePath, `${filePath}.bak.${ts}`);
+}
+
+function writeAtomic(filePath, payload) {
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  backupIfExists(filePath);
+  const tmpPath = `${filePath}.tmp`;
+  fs.writeFileSync(tmpPath, JSON.stringify(payload, null, 2) + "\n");
+  fs.renameSync(tmpPath, filePath);
+}
+
 function normalizeName(input) {
   return String(input || "")
     .normalize("NFD")
@@ -82,9 +96,8 @@ for (const [country, entry] of Object.entries(parsed)) {
   }
 }
 
-fs.mkdirSync(path.dirname(ISO_MAP_PATH), { recursive: true });
-fs.writeFileSync(ISO_MAP_PATH, JSON.stringify(updatedIsoMap, null, 2) + "\n");
-fs.writeFileSync(CATALOG_PATH, JSON.stringify(catalog, null, 2) + "\n");
+writeAtomic(ISO_MAP_PATH, updatedIsoMap);
+writeAtomic(CATALOG_PATH, catalog);
 
 const report = {
   run_at: new Date().toISOString(),

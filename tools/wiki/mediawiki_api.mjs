@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { execFileSync } from "node:child_process";
 
 const BASE_DIR =
   typeof import.meta.dirname === "string"
@@ -23,6 +24,7 @@ const PING_URL = "https://en.wikipedia.org/w/api.php?action=query&meta=siteinfo&
 const PING_TIMEOUT_MS = Number(process.env.WIKI_PING_TIMEOUT_MS || 4000);
 const WIKI_CACHE_MAX_AGE_H = Number(process.env.WIKI_CACHE_MAX_AGE_H || 6);
 const WIKI_CACHE_DIR = path.join(ROOT, "data", "wiki", "cache");
+const WIKI_HTML_CACHE_DIR = path.join(WIKI_CACHE_DIR, "html");
 const WIKI_CACHE_FILES = [
   path.join(ROOT, "data", "wiki", "cache", "legality_of_cannabis.json"),
   path.join(ROOT, "data", "wiki", "cache", "legality_us_states.json")
@@ -77,11 +79,28 @@ function normalizeFetchError(error) {
   return String(error?.message || "UNKNOWN");
 }
 
+function fetchJsonViaCurl(url) {
+  try {
+    const output = execFileSync("curl", ["-sS", "--max-time", "20", url], {
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "pipe"]
+    });
+    return { ok: true, payload: JSON.parse(output) };
+  } catch (error) {
+    return { ok: false, reason: "NETWORK_FAIL", error: normalizeFetchError(error) };
+  }
+}
+
 async function fetchJson(url) {
   let res;
   try {
     res = await fetch(url, { method: "GET" });
   } catch (error) {
+    const curlResult = fetchJsonViaCurl(url);
+    if (curlResult.ok) {
+      console.log("WIKI_API_FETCH via=curl");
+      return curlResult;
+    }
     return { ok: false, reason: "NETWORK_FAIL", error: normalizeFetchError(error) };
   }
   if (!res.ok) {
@@ -100,12 +119,28 @@ function cachePathForWikitext(pageid, revisionId) {
   return path.join(WIKI_CACHE_DIR, `${pageid}-${revisionId}.json`);
 }
 
+function cachePathForHtml(pageid, revisionId) {
+  if (!pageid || !revisionId) return "";
+  return path.join(WIKI_HTML_CACHE_DIR, `${pageid}-${revisionId}.json`);
+}
+
 function loadWikitextCache(pageid, revisionId) {
   const cachePath = cachePathForWikitext(pageid, revisionId);
   if (!cachePath || !fs.existsSync(cachePath)) return "";
   try {
     const payload = JSON.parse(fs.readFileSync(cachePath, "utf8"));
     return String(payload?.wikitext || "");
+  } catch {
+    return "";
+  }
+}
+
+function loadHtmlCache(pageid, revisionId) {
+  const cachePath = cachePathForHtml(pageid, revisionId);
+  if (!cachePath || !fs.existsSync(cachePath)) return "";
+  try {
+    const payload = JSON.parse(fs.readFileSync(cachePath, "utf8"));
+    return String(payload?.html || "");
   } catch {
     return "";
   }
@@ -120,6 +155,19 @@ function saveWikitextCache(pageid, revisionId, wikitext) {
     revision_id: String(revisionId),
     fetched_at: new Date().toISOString(),
     wikitext: String(wikitext || "")
+  };
+  fs.writeFileSync(cachePath, JSON.stringify(payload, null, 2) + "\n");
+}
+
+function saveHtmlCache(pageid, revisionId, html) {
+  const cachePath = cachePathForHtml(pageid, revisionId);
+  if (!cachePath) return;
+  fs.mkdirSync(path.dirname(cachePath), { recursive: true });
+  const payload = {
+    pageid: String(pageid),
+    revision_id: String(revisionId),
+    fetched_at: new Date().toISOString(),
+    html: String(html || "")
   };
   fs.writeFileSync(cachePath, JSON.stringify(payload, null, 2) + "\n");
 }
@@ -212,6 +260,42 @@ export async function fetchPageWikitextCached(pageid, revisionId) {
   const result = await fetchPageWikitext(pageid);
   if (result.ok && result.revision_id) {
     saveWikitextCache(pageid, result.revision_id, result.wikitext);
+  }
+  return result;
+}
+
+export async function fetchPageHtml(pageid) {
+  if (!pageid) {
+    return { ok: false, reason: "NETWORK_FAIL", error: "PAGEID_MISSING" };
+  }
+  const params = new URLSearchParams({
+    action: "parse",
+    pageid: String(pageid),
+    prop: "text",
+    format: "json",
+    formatversion: "2"
+  });
+  const url = `${API_BASE}?${params.toString()}`;
+  const response = await fetchJson(url);
+  if (!response.ok) {
+    return { ok: false, reason: response.reason, error: response.error };
+  }
+  const html = response.payload?.parse?.text || response.payload?.parse?.text?.["*"] || "";
+  const bytes = Buffer.byteLength(String(html || ""), "utf8");
+  console.log(`WIKI_API_HTML: pageid=${pageid} bytes=${bytes} ok=${html ? 1 : 0}`);
+  return { ok: Boolean(html), html };
+}
+
+export async function fetchPageHtmlCached(pageid, revisionId) {
+  const cached = loadHtmlCache(pageid, revisionId);
+  if (cached) {
+    const bytes = Buffer.byteLength(cached, "utf8");
+    console.log(`WIKI_API_HTML: pageid=${pageid} revision=${revisionId} bytes=${bytes} ok=1 cache=1`);
+    return { ok: true, html: cached, revision_id: String(revisionId) };
+  }
+  const result = await fetchPageHtml(pageid);
+  if (result.ok) {
+    saveHtmlCache(pageid, revisionId || "unknown", result.html);
   }
   return result;
 }

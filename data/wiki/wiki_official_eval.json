@@ -1,30 +1,36 @@
 {
-  "fetched_at": "2026-01-21T20:22:53.966Z",
+  "fetched_at": "2026-01-28T23:20:52.939Z",
   "totals": {
-    "total_refs": 1516,
-    "official": 79,
-    "non_official": 1437,
-    "countries": 267
+    "total_refs": 1601,
+    "official": 138,
+    "non_official": 1463,
+    "countries": 300,
+    "total_geo": 300,
+    "with_badge": 119
   },
   "top_hosts": [
-    "2009-2017.state.gov",
+    "en.wikipedia.org",
+    "unodc.org",
     "cnb.gov.sg",
-    "osac.gov",
-    "travel.state.gov",
-    "agc.gov.bn"
+    "admin.ch",
+    "ansm.sante.fr"
   ],
   "items": {
     "AD": {
       "geo_key": "AD",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "AE": {
       "geo_key": "AE",
@@ -36,19 +42,23 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "AF": {
       "geo_key": "AF",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "AG": {
       "geo_key": "AG",
@@ -60,7 +70,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "AI": {
       "geo_key": "AI",
@@ -72,7 +82,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "AL": {
       "geo_key": "AL",
@@ -84,23 +94,19 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "AM": {
       "geo_key": "AM",
       "sources_total": 8,
-      "sources_official": 1,
+      "sources_official": 0,
       "total_refs": 8,
-      "official": 1,
-      "non_official": 7,
-      "official_badge": 1,
-      "top_official_domains": [
-        "2009-2017.state.gov"
-      ],
-      "top_official_hosts": [
-        "2009-2017.state.gov"
-      ],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 0,
+      "non_official": 8,
+      "official_badge": 0,
+      "top_official_domains": [],
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "AO": {
       "geo_key": "AO",
@@ -112,7 +118,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "AQ": {
       "geo_key": "AQ",
@@ -124,7 +130,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "AR": {
       "geo_key": "AR",
@@ -140,7 +146,7 @@
       "top_official_hosts": [
         "argentina.gob.ar"
       ],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "AS": {
       "geo_key": "AS",
@@ -152,7 +158,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "AT": {
       "geo_key": "AT",
@@ -164,31 +170,23 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "AU": {
       "geo_key": "AU",
       "sources_total": 20,
-      "sources_official": 8,
+      "sources_official": 3,
       "total_refs": 20,
-      "official": 8,
-      "non_official": 12,
+      "official": 3,
+      "non_official": 17,
       "official_badge": 1,
       "top_official_domains": [
-        "tga.gov.au",
-        "legislation.gov.au",
-        "aihw.gov.au",
-        "odc.gov.au",
-        "parlinfo.aph.gov.au"
+        "tga.gov.au"
       ],
       "top_official_hosts": [
-        "tga.gov.au",
-        "legislation.gov.au",
-        "aihw.gov.au",
-        "odc.gov.au",
-        "parlinfo.aph.gov.au"
+        "tga.gov.au"
       ],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "AW": {
       "geo_key": "AW",
@@ -200,7 +198,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "AX": {
       "geo_key": "AX",
@@ -212,7 +210,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "AZ": {
       "geo_key": "AZ",
@@ -224,7 +222,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "BA": {
       "geo_key": "BA",
@@ -236,7 +234,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "BB": {
       "geo_key": "BB",
@@ -248,19 +246,23 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "BD": {
       "geo_key": "BD",
       "sources_total": 11,
-      "sources_official": 0,
+      "sources_official": 2,
       "total_refs": 11,
-      "official": 0,
-      "non_official": 11,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 2,
+      "non_official": 9,
+      "official_badge": 1,
+      "top_official_domains": [
+        "unodc.org"
+      ],
+      "top_official_hosts": [
+        "unodc.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "BE": {
       "geo_key": "BE",
@@ -272,25 +274,23 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "BF": {
       "geo_key": "BF",
       "sources_total": 15,
-      "sources_official": 3,
+      "sources_official": 1,
       "total_refs": 15,
-      "official": 3,
-      "non_official": 12,
+      "official": 1,
+      "non_official": 14,
       "official_badge": 1,
       "top_official_domains": [
-        "2009-2017.state.gov",
-        "police.gov.rw"
+        "unodc.org"
       ],
       "top_official_hosts": [
-        "2009-2017.state.gov",
-        "police.gov.rw"
+        "unodc.org"
       ],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "BG": {
       "geo_key": "BG",
@@ -302,7 +302,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "BH": {
       "geo_key": "BH",
@@ -314,7 +314,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "BI": {
       "geo_key": "BI",
@@ -326,7 +326,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "BJ": {
       "geo_key": "BJ",
@@ -338,7 +338,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "BL": {
       "geo_key": "BL",
@@ -350,7 +350,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "BM": {
       "geo_key": "BM",
@@ -362,27 +362,25 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "BN": {
       "geo_key": "BN",
       "sources_total": 13,
-      "sources_official": 4,
+      "sources_official": 2,
       "total_refs": 13,
-      "official": 4,
-      "non_official": 9,
+      "official": 2,
+      "non_official": 11,
       "official_badge": 1,
       "top_official_domains": [
-        "narcotics.gov.bn",
-        "agc.gov.bn",
-        "cnb.gov.sg"
+        "cnb.gov.sg",
+        "unodc.org"
       ],
       "top_official_hosts": [
-        "narcotics.gov.bn",
-        "agc.gov.bn",
-        "cnb.gov.sg"
+        "cnb.gov.sg",
+        "unodc.org"
       ],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "BO": {
       "geo_key": "BO",
@@ -394,7 +392,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "BQ": {
       "geo_key": "BQ",
@@ -406,7 +404,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "BR": {
       "geo_key": "BR",
@@ -422,31 +420,39 @@
       "top_official_hosts": [
         "planalto.gov.br"
       ],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "BS": {
       "geo_key": "BS",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "BT": {
       "geo_key": "BT",
       "sources_total": 8,
-      "sources_official": 0,
+      "sources_official": 1,
       "total_refs": 8,
-      "official": 0,
-      "non_official": 8,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 1,
+      "non_official": 7,
+      "official_badge": 1,
+      "top_official_domains": [
+        "unodc.org"
+      ],
+      "top_official_hosts": [
+        "unodc.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "BV": {
       "geo_key": "BV",
@@ -458,7 +464,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "BW": {
       "geo_key": "BW",
@@ -470,7 +476,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "BY": {
       "geo_key": "BY",
@@ -482,23 +488,19 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "BZ": {
       "geo_key": "BZ",
       "sources_total": 11,
-      "sources_official": 1,
+      "sources_official": 0,
       "total_refs": 11,
-      "official": 1,
-      "non_official": 10,
-      "official_badge": 1,
-      "top_official_domains": [
-        "belize.gov.bz"
-      ],
-      "top_official_hosts": [
-        "belize.gov.bz"
-      ],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 0,
+      "non_official": 11,
+      "official_badge": 0,
+      "top_official_domains": [],
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "CA": {
       "geo_key": "CA",
@@ -510,7 +512,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "CC": {
       "geo_key": "CC",
@@ -522,7 +524,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "CD": {
       "geo_key": "CD",
@@ -534,7 +536,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "CF": {
       "geo_key": "CF",
@@ -546,7 +548,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "CG": {
       "geo_key": "CG",
@@ -558,19 +560,25 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "CH": {
       "geo_key": "CH",
       "sources_total": 20,
-      "sources_official": 0,
+      "sources_official": 5,
       "total_refs": 20,
-      "official": 0,
-      "non_official": 20,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 5,
+      "non_official": 15,
+      "official_badge": 1,
+      "top_official_domains": [
+        "swissmedic.ch",
+        "admin.ch"
+      ],
+      "top_official_hosts": [
+        "swissmedic.ch",
+        "admin.ch"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "CI": {
       "geo_key": "CI",
@@ -582,7 +590,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "CK": {
       "geo_key": "CK",
@@ -594,7 +602,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "CL": {
       "geo_key": "CL",
@@ -606,7 +614,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "CM": {
       "geo_key": "CM",
@@ -618,23 +626,19 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "CN": {
       "geo_key": "CN",
       "sources_total": 2,
-      "sources_official": 1,
+      "sources_official": 0,
       "total_refs": 2,
-      "official": 1,
-      "non_official": 1,
-      "official_badge": 1,
-      "top_official_domains": [
-        "cecc.gov"
-      ],
-      "top_official_hosts": [
-        "cecc.gov"
-      ],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 0,
+      "non_official": 2,
+      "official_badge": 0,
+      "top_official_domains": [],
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "CO": {
       "geo_key": "CO",
@@ -646,7 +650,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "CR": {
       "geo_key": "CR",
@@ -658,7 +662,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "CU": {
       "geo_key": "CU",
@@ -670,7 +674,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "CV": {
       "geo_key": "CV",
@@ -682,7 +686,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "CW": {
       "geo_key": "CW",
@@ -694,7 +698,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "CX": {
       "geo_key": "CX",
@@ -706,7 +710,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "CY": {
       "geo_key": "CY",
@@ -718,75 +722,83 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "CZ": {
       "geo_key": "CZ",
       "sources_total": 16,
-      "sources_official": 1,
+      "sources_official": 0,
       "total_refs": 16,
-      "official": 1,
-      "non_official": 15,
-      "official_badge": 1,
-      "top_official_domains": [
-        "loc.gov"
-      ],
-      "top_official_hosts": [
-        "loc.gov"
-      ],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 0,
+      "non_official": 16,
+      "official_badge": 0,
+      "top_official_domains": [],
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "DE": {
       "geo_key": "DE",
       "sources_total": 20,
-      "sources_official": 0,
+      "sources_official": 1,
       "total_refs": 20,
-      "official": 0,
-      "non_official": 20,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 1,
+      "non_official": 19,
+      "official_badge": 1,
+      "top_official_domains": [
+        "bundesgesundheitsministerium.de"
+      ],
+      "top_official_hosts": [
+        "bundesgesundheitsministerium.de"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "DJ": {
       "geo_key": "DJ",
       "sources_total": 5,
-      "sources_official": 0,
+      "sources_official": 1,
       "total_refs": 5,
-      "official": 0,
-      "non_official": 5,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 1,
+      "non_official": 4,
+      "official_badge": 1,
+      "top_official_domains": [
+        "unodc.org"
+      ],
+      "top_official_hosts": [
+        "unodc.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "DK": {
       "geo_key": "DK",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "DM": {
       "geo_key": "DM",
       "sources_total": 5,
-      "sources_official": 2,
+      "sources_official": 1,
       "total_refs": 5,
-      "official": 2,
-      "non_official": 3,
+      "official": 1,
+      "non_official": 4,
       "official_badge": 1,
       "top_official_domains": [
-        "dominica.gov.dm"
+        "en.wikipedia.org"
       ],
       "top_official_hosts": [
-        "dominica.gov.dm"
+        "en.wikipedia.org"
       ],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "DO": {
       "geo_key": "DO",
@@ -798,31 +810,39 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "DZ": {
       "geo_key": "DZ",
       "sources_total": 12,
-      "sources_official": 0,
+      "sources_official": 1,
       "total_refs": 12,
-      "official": 0,
-      "non_official": 12,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 1,
+      "non_official": 11,
+      "official_badge": 1,
+      "top_official_domains": [
+        "unodc.org"
+      ],
+      "top_official_hosts": [
+        "unodc.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "EC": {
       "geo_key": "EC",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "EE": {
       "geo_key": "EE",
@@ -834,7 +854,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "EG": {
       "geo_key": "EG",
@@ -846,7 +866,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "EH": {
       "geo_key": "EH",
@@ -858,19 +878,23 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "ER": {
       "geo_key": "ER",
       "sources_total": 6,
-      "sources_official": 0,
+      "sources_official": 1,
       "total_refs": 6,
-      "official": 0,
-      "non_official": 6,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 1,
+      "non_official": 5,
+      "official_badge": 1,
+      "top_official_domains": [
+        "unodc.org"
+      ],
+      "top_official_hosts": [
+        "unodc.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "ES": {
       "geo_key": "ES",
@@ -882,7 +906,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "ET": {
       "geo_key": "ET",
@@ -894,7 +918,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "FI": {
       "geo_key": "FI",
@@ -906,19 +930,23 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "FJ": {
       "geo_key": "FJ",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "FK": {
       "geo_key": "FK",
@@ -930,19 +958,23 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "FM": {
       "geo_key": "FM",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "FO": {
       "geo_key": "FO",
@@ -954,53 +986,55 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "FR": {
       "geo_key": "FR",
       "sources_total": 7,
-      "sources_official": 0,
+      "sources_official": 1,
       "total_refs": 7,
-      "official": 0,
-      "non_official": 7,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 1,
+      "non_official": 6,
+      "official_badge": 1,
+      "top_official_domains": [
+        "ansm.sante.fr"
+      ],
+      "top_official_hosts": [
+        "ansm.sante.fr"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "GA": {
       "geo_key": "GA",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "GB": {
       "geo_key": "GB",
       "sources_total": 20,
-      "sources_official": 5,
+      "sources_official": 2,
       "total_refs": 20,
-      "official": 5,
-      "non_official": 15,
+      "official": 2,
+      "non_official": 18,
       "official_badge": 1,
       "top_official_domains": [
-        "gov.uk",
-        "assets.publishing.service.gov.uk",
-        "clinicaltrials.gov",
-        "homeoffice.gov.uk"
+        "gov.uk"
       ],
       "top_official_hosts": [
-        "gov.uk",
-        "assets.publishing.service.gov.uk",
-        "clinicaltrials.gov",
-        "homeoffice.gov.uk"
+        "gov.uk"
       ],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "GD": {
       "geo_key": "GD",
@@ -1012,7 +1046,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "GE": {
       "geo_key": "GE",
@@ -1024,7 +1058,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "GF": {
       "geo_key": "GF",
@@ -1036,7 +1070,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "GG": {
       "geo_key": "GG",
@@ -1048,7 +1082,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "GH": {
       "geo_key": "GH",
@@ -1060,7 +1094,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "GI": {
       "geo_key": "GI",
@@ -1072,7 +1106,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "GL": {
       "geo_key": "GL",
@@ -1084,7 +1118,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "GM": {
       "geo_key": "GM",
@@ -1096,19 +1130,23 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "GN": {
       "geo_key": "GN",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "GP": {
       "geo_key": "GP",
@@ -1120,23 +1158,19 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "GQ": {
       "geo_key": "GQ",
       "sources_total": 6,
-      "sources_official": 1,
+      "sources_official": 0,
       "total_refs": 6,
-      "official": 1,
-      "non_official": 5,
-      "official_badge": 1,
-      "top_official_domains": [
-        "osac.gov"
-      ],
-      "top_official_hosts": [
-        "osac.gov"
-      ],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 0,
+      "non_official": 6,
+      "official_badge": 0,
+      "top_official_domains": [],
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "GR": {
       "geo_key": "GR",
@@ -1148,7 +1182,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "GS": {
       "geo_key": "GS",
@@ -1160,7 +1194,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "GT": {
       "geo_key": "GT",
@@ -1172,7 +1206,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "GU": {
       "geo_key": "GU",
@@ -1184,19 +1218,23 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "GW": {
       "geo_key": "GW",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "GY": {
       "geo_key": "GY",
@@ -1208,25 +1246,19 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "HK": {
       "geo_key": "HK",
       "sources_total": 3,
-      "sources_official": 2,
+      "sources_official": 0,
       "total_refs": 3,
-      "official": 2,
-      "non_official": 1,
-      "official_badge": 1,
-      "top_official_domains": [
-        "elegislation.gov.hk",
-        "info.gov.hk"
-      ],
-      "top_official_hosts": [
-        "elegislation.gov.hk",
-        "info.gov.hk"
-      ],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 0,
+      "non_official": 3,
+      "official_badge": 0,
+      "top_official_domains": [],
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "HM": {
       "geo_key": "HM",
@@ -1238,23 +1270,19 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "HN": {
       "geo_key": "HN",
       "sources_total": 2,
-      "sources_official": 1,
+      "sources_official": 0,
       "total_refs": 2,
-      "official": 1,
-      "non_official": 1,
-      "official_badge": 1,
-      "top_official_domains": [
-        "poderjudicial.gob.hn"
-      ],
-      "top_official_hosts": [
-        "poderjudicial.gob.hn"
-      ],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 0,
+      "non_official": 2,
+      "official_badge": 0,
+      "top_official_domains": [],
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "HR": {
       "geo_key": "HR",
@@ -1266,19 +1294,23 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "HT": {
       "geo_key": "HT",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "HU": {
       "geo_key": "HU",
@@ -1290,7 +1322,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "ID": {
       "geo_key": "ID",
@@ -1302,23 +1334,19 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "IE": {
       "geo_key": "IE",
       "sources_total": 20,
-      "sources_official": 1,
+      "sources_official": 0,
       "total_refs": 20,
-      "official": 1,
-      "non_official": 19,
-      "official_badge": 1,
-      "top_official_domains": [
-        "health.gov.ie"
-      ],
-      "top_official_hosts": [
-        "health.gov.ie"
-      ],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 0,
+      "non_official": 20,
+      "official_badge": 0,
+      "top_official_domains": [],
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "IL": {
       "geo_key": "IL",
@@ -1330,7 +1358,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "IM": {
       "geo_key": "IM",
@@ -1342,19 +1370,23 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "IN": {
       "geo_key": "IN",
       "sources_total": 14,
-      "sources_official": 0,
+      "sources_official": 1,
       "total_refs": 14,
-      "official": 0,
-      "non_official": 14,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 1,
+      "non_official": 13,
+      "official_badge": 1,
+      "top_official_domains": [
+        "unodc.org"
+      ],
+      "top_official_hosts": [
+        "unodc.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "IO": {
       "geo_key": "IO",
@@ -1366,7 +1398,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "IQ": {
       "geo_key": "IQ",
@@ -1378,7 +1410,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "IR": {
       "geo_key": "IR",
@@ -1390,35 +1422,35 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "IS": {
       "geo_key": "IS",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "IT": {
       "geo_key": "IT",
       "sources_total": 20,
-      "sources_official": 6,
+      "sources_official": 0,
       "total_refs": 20,
-      "official": 6,
-      "non_official": 14,
-      "official_badge": 1,
-      "top_official_domains": [
-        "salute.gov.it"
-      ],
-      "top_official_hosts": [
-        "salute.gov.it"
-      ],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 0,
+      "non_official": 20,
+      "official_badge": 0,
+      "top_official_domains": [],
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "JE": {
       "geo_key": "JE",
@@ -1430,61 +1462,71 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "JM": {
       "geo_key": "JM",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "JO": {
       "geo_key": "JO",
       "sources_total": 15,
-      "sources_official": 0,
+      "sources_official": 1,
       "total_refs": 15,
-      "official": 0,
-      "non_official": 15,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 1,
+      "non_official": 14,
+      "official_badge": 1,
+      "top_official_domains": [
+        "unodc.org"
+      ],
+      "top_official_hosts": [
+        "unodc.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "JP": {
       "geo_key": "JP",
       "sources_total": 20,
-      "sources_official": 2,
+      "sources_official": 1,
       "total_refs": 20,
-      "official": 2,
-      "non_official": 18,
+      "official": 1,
+      "non_official": 19,
       "official_badge": 1,
       "top_official_domains": [
-        "2009-2017.state.gov",
-        "fas.usda.gov"
+        "unodc.org"
       ],
       "top_official_hosts": [
-        "2009-2017.state.gov",
-        "fas.usda.gov"
+        "unodc.org"
       ],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "KE": {
       "geo_key": "KE",
       "sources_total": 14,
-      "sources_official": 0,
+      "sources_official": 1,
       "total_refs": 14,
-      "official": 0,
-      "non_official": 14,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 1,
+      "non_official": 13,
+      "official_badge": 1,
+      "top_official_domains": [
+        "unodc.org"
+      ],
+      "top_official_hosts": [
+        "unodc.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "KG": {
       "geo_key": "KG",
@@ -1496,19 +1538,23 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "KH": {
       "geo_key": "KH",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "KI": {
       "geo_key": "KI",
@@ -1520,31 +1566,39 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "KM": {
       "geo_key": "KM",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "KN": {
       "geo_key": "KN",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "KP": {
       "geo_key": "KP",
@@ -1556,35 +1610,35 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "KR": {
       "geo_key": "KR",
       "sources_total": 6,
-      "sources_official": 0,
+      "sources_official": 1,
       "total_refs": 6,
-      "official": 0,
-      "non_official": 6,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 1,
+      "non_official": 5,
+      "official_badge": 1,
+      "top_official_domains": [
+        "mfds.go.kr"
+      ],
+      "top_official_hosts": [
+        "mfds.go.kr"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "KW": {
       "geo_key": "KW",
       "sources_total": 5,
-      "sources_official": 1,
+      "sources_official": 0,
       "total_refs": 5,
-      "official": 1,
-      "non_official": 4,
-      "official_badge": 1,
-      "top_official_domains": [
-        "travel.state.gov"
-      ],
-      "top_official_hosts": [
-        "travel.state.gov"
-      ],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 0,
+      "non_official": 5,
+      "official_badge": 0,
+      "top_official_domains": [],
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "KY": {
       "geo_key": "KY",
@@ -1596,31 +1650,39 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "KZ": {
       "geo_key": "KZ",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "LA": {
       "geo_key": "LA",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "LB": {
       "geo_key": "LB",
@@ -1632,7 +1694,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "LC": {
       "geo_key": "LC",
@@ -1644,35 +1706,35 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "LI": {
       "geo_key": "LI",
       "sources_total": 11,
-      "sources_official": 0,
+      "sources_official": 3,
       "total_refs": 11,
-      "official": 0,
-      "non_official": 11,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 3,
+      "non_official": 8,
+      "official_badge": 1,
+      "top_official_domains": [
+        "unodc.org"
+      ],
+      "top_official_hosts": [
+        "unodc.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "LK": {
       "geo_key": "LK",
       "sources_total": 4,
-      "sources_official": 1,
+      "sources_official": 0,
       "total_refs": 4,
-      "official": 1,
-      "non_official": 3,
-      "official_badge": 1,
-      "top_official_domains": [
-        "nddcb.gov.lk"
-      ],
-      "top_official_hosts": [
-        "nddcb.gov.lk"
-      ],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 0,
+      "non_official": 4,
+      "official_badge": 0,
+      "top_official_domains": [],
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "LR": {
       "geo_key": "LR",
@@ -1684,7 +1746,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "LS": {
       "geo_key": "LS",
@@ -1696,19 +1758,23 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "LT": {
       "geo_key": "LT",
       "sources_total": 8,
-      "sources_official": 0,
+      "sources_official": 1,
       "total_refs": 8,
-      "official": 0,
-      "non_official": 8,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 1,
+      "non_official": 7,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "LU": {
       "geo_key": "LU",
@@ -1720,35 +1786,35 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "LV": {
       "geo_key": "LV",
       "sources_total": 20,
-      "sources_official": 1,
-      "total_refs": 20,
-      "official": 1,
-      "non_official": 19,
-      "official_badge": 1,
-      "top_official_domains": [
-        "vec.gov.lv"
-      ],
-      "top_official_hosts": [
-        "vec.gov.lv"
-      ],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
-    },
-    "LY": {
-      "geo_key": "LY",
-      "sources_total": 0,
       "sources_official": 0,
-      "total_refs": 0,
+      "total_refs": 20,
       "official": 0,
-      "non_official": 0,
+      "non_official": 20,
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "LY": {
+      "geo_key": "LY",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "MA": {
       "geo_key": "MA",
@@ -1760,19 +1826,23 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "MC": {
       "geo_key": "MC",
       "sources_total": 5,
-      "sources_official": 0,
+      "sources_official": 2,
       "total_refs": 5,
-      "official": 0,
-      "non_official": 5,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 2,
+      "non_official": 3,
+      "official_badge": 1,
+      "top_official_domains": [
+        "unodc.org"
+      ],
+      "top_official_hosts": [
+        "unodc.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "MD": {
       "geo_key": "MD",
@@ -1784,7 +1854,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "ME": {
       "geo_key": "ME",
@@ -1796,7 +1866,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "MF": {
       "geo_key": "MF",
@@ -1808,7 +1878,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "MG": {
       "geo_key": "MG",
@@ -1820,7 +1890,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "MH": {
       "geo_key": "MH",
@@ -1832,7 +1902,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "MK": {
       "geo_key": "MK",
@@ -1844,7 +1914,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "ML": {
       "geo_key": "ML",
@@ -1856,7 +1926,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "MM": {
       "geo_key": "MM",
@@ -1868,7 +1938,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "MN": {
       "geo_key": "MN",
@@ -1880,19 +1950,23 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "MO": {
       "geo_key": "MO",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "MP": {
       "geo_key": "MP",
@@ -1904,7 +1978,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "MQ": {
       "geo_key": "MQ",
@@ -1916,7 +1990,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "MR": {
       "geo_key": "MR",
@@ -1928,7 +2002,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "MS": {
       "geo_key": "MS",
@@ -1940,7 +2014,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "MT": {
       "geo_key": "MT",
@@ -1952,7 +2026,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "MU": {
       "geo_key": "MU",
@@ -1964,7 +2038,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "MV": {
       "geo_key": "MV",
@@ -1976,7 +2050,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "MW": {
       "geo_key": "MW",
@@ -1988,7 +2062,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "MX": {
       "geo_key": "MX",
@@ -2000,25 +2074,19 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "MY": {
       "geo_key": "MY",
       "sources_total": 14,
-      "sources_official": 2,
+      "sources_official": 0,
       "total_refs": 14,
-      "official": 2,
-      "non_official": 12,
-      "official_badge": 1,
-      "top_official_domains": [
-        "lom.agc.gov.my",
-        "pharmacy.moh.gov.my"
-      ],
-      "top_official_hosts": [
-        "lom.agc.gov.my",
-        "pharmacy.moh.gov.my"
-      ],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 0,
+      "non_official": 14,
+      "official_badge": 0,
+      "top_official_domains": [],
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "MZ": {
       "geo_key": "MZ",
@@ -2030,19 +2098,23 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "NA": {
       "geo_key": "NA",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "NC": {
       "geo_key": "NC",
@@ -2054,19 +2126,23 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "NE": {
       "geo_key": "NE",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "NF": {
       "geo_key": "NF",
@@ -2078,59 +2154,69 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "NG": {
       "geo_key": "NG",
       "sources_total": 4,
-      "sources_official": 1,
-      "total_refs": 4,
-      "official": 1,
-      "non_official": 3,
-      "official_badge": 1,
-      "top_official_domains": [
-        "ndlea.gov.ng"
-      ],
-      "top_official_hosts": [
-        "ndlea.gov.ng"
-      ],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
-    },
-    "NI": {
-      "geo_key": "NI",
-      "sources_total": 0,
       "sources_official": 0,
-      "total_refs": 0,
+      "total_refs": 4,
       "official": 0,
-      "non_official": 0,
+      "non_official": 4,
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "NI": {
+      "geo_key": "NI",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "NL": {
       "geo_key": "NL",
       "sources_total": 14,
-      "sources_official": 0,
+      "sources_official": 1,
       "total_refs": 14,
-      "official": 0,
-      "non_official": 14,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 1,
+      "non_official": 13,
+      "official_badge": 1,
+      "top_official_domains": [
+        "government.nl"
+      ],
+      "top_official_hosts": [
+        "government.nl"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "NO": {
       "geo_key": "NO",
       "sources_total": 11,
-      "sources_official": 0,
+      "sources_official": 3,
       "total_refs": 11,
-      "official": 0,
-      "non_official": 11,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 3,
+      "non_official": 8,
+      "official_badge": 1,
+      "top_official_domains": [
+        "regjeringen.no",
+        "legemiddelverket.no"
+      ],
+      "top_official_hosts": [
+        "regjeringen.no",
+        "legemiddelverket.no"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "NP": {
       "geo_key": "NP",
@@ -2142,19 +2228,23 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "NR": {
       "geo_key": "NR",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "NU": {
       "geo_key": "NU",
@@ -2166,31 +2256,39 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "NZ": {
       "geo_key": "NZ",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "OM": {
       "geo_key": "OM",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "PA": {
       "geo_key": "PA",
@@ -2202,23 +2300,19 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "PE": {
       "geo_key": "PE",
       "sources_total": 18,
-      "sources_official": 1,
+      "sources_official": 0,
       "total_refs": 18,
-      "official": 1,
-      "non_official": 17,
-      "official_badge": 1,
-      "top_official_domains": [
-        "opd.gob.pe"
-      ],
-      "top_official_hosts": [
-        "opd.gob.pe"
-      ],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 0,
+      "non_official": 18,
+      "official_badge": 0,
+      "top_official_domains": [],
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "PF": {
       "geo_key": "PF",
@@ -2230,7 +2324,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "PG": {
       "geo_key": "PG",
@@ -2242,55 +2336,51 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "PH": {
       "geo_key": "PH",
       "sources_total": 12,
-      "sources_official": 3,
+      "sources_official": 1,
       "total_refs": 12,
-      "official": 3,
-      "non_official": 9,
+      "official": 1,
+      "non_official": 11,
       "official_badge": 1,
       "top_official_domains": [
-        "congress.gov.ph",
-        "pdea.gov.ph",
-        "pna.gov.ph"
+        "congress.gov.ph"
       ],
       "top_official_hosts": [
-        "congress.gov.ph",
-        "pdea.gov.ph",
-        "pna.gov.ph"
+        "congress.gov.ph"
       ],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "PK": {
       "geo_key": "PK",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "PL": {
       "geo_key": "PL",
       "sources_total": 13,
-      "sources_official": 1,
+      "sources_official": 0,
       "total_refs": 13,
-      "official": 1,
-      "non_official": 12,
-      "official_badge": 1,
-      "top_official_domains": [
-        "isap.sejm.gov.pl"
-      ],
-      "top_official_hosts": [
-        "isap.sejm.gov.pl"
-      ],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 0,
+      "non_official": 13,
+      "official_badge": 0,
+      "top_official_domains": [],
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "PM": {
       "geo_key": "PM",
@@ -2302,7 +2392,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "PN": {
       "geo_key": "PN",
@@ -2314,7 +2404,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "PR": {
       "geo_key": "PR",
@@ -2326,7 +2416,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "PS": {
       "geo_key": "PS",
@@ -2338,7 +2428,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "PT": {
       "geo_key": "PT",
@@ -2350,7 +2440,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "PW": {
       "geo_key": "PW",
@@ -2362,7 +2452,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "PY": {
       "geo_key": "PY",
@@ -2374,19 +2464,23 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "QA": {
       "geo_key": "QA",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "RE": {
       "geo_key": "RE",
@@ -2398,19 +2492,23 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "RO": {
       "geo_key": "RO",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "RS": {
       "geo_key": "RS",
@@ -2422,7 +2520,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "RU": {
       "geo_key": "RU",
@@ -2434,7 +2532,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "RW": {
       "geo_key": "RW",
@@ -2446,39 +2544,31 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "SA": {
       "geo_key": "SA",
       "sources_total": 4,
-      "sources_official": 1,
+      "sources_official": 0,
       "total_refs": 4,
-      "official": 1,
-      "non_official": 3,
-      "official_badge": 1,
-      "top_official_domains": [
-        "travel.state.gov"
-      ],
-      "top_official_hosts": [
-        "travel.state.gov"
-      ],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 0,
+      "non_official": 4,
+      "official_badge": 0,
+      "top_official_domains": [],
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "SB": {
       "geo_key": "SB",
       "sources_total": 4,
-      "sources_official": 1,
+      "sources_official": 0,
       "total_refs": 4,
-      "official": 1,
-      "non_official": 3,
-      "official_badge": 1,
-      "top_official_domains": [
-        "rsipf.gov.sb"
-      ],
-      "top_official_hosts": [
-        "rsipf.gov.sb"
-      ],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 0,
+      "non_official": 4,
+      "official_badge": 0,
+      "top_official_domains": [],
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "SC": {
       "geo_key": "SC",
@@ -2490,7 +2580,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "SD": {
       "geo_key": "SD",
@@ -2502,37 +2592,39 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "SE": {
       "geo_key": "SE",
       "sources_total": 8,
-      "sources_official": 0,
+      "sources_official": 1,
       "total_refs": 8,
-      "official": 0,
-      "non_official": 8,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 1,
+      "non_official": 7,
+      "official_badge": 1,
+      "top_official_domains": [
+        "lakemedelsverket.se"
+      ],
+      "top_official_hosts": [
+        "lakemedelsverket.se"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "SG": {
       "geo_key": "SG",
       "sources_total": 14,
-      "sources_official": 3,
+      "sources_official": 2,
       "total_refs": 14,
-      "official": 3,
-      "non_official": 11,
+      "official": 2,
+      "non_official": 12,
       "official_badge": 1,
       "top_official_domains": [
-        "cnb.gov.sg",
-        "statutes.agc.gov.sg"
+        "cnb.gov.sg"
       ],
       "top_official_hosts": [
-        "cnb.gov.sg",
-        "statutes.agc.gov.sg"
+        "cnb.gov.sg"
       ],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "SH": {
       "geo_key": "SH",
@@ -2544,7 +2636,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "SI": {
       "geo_key": "SI",
@@ -2556,7 +2648,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "SJ": {
       "geo_key": "SJ",
@@ -2568,7 +2660,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "SK": {
       "geo_key": "SK",
@@ -2580,7 +2672,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "SL": {
       "geo_key": "SL",
@@ -2592,7 +2684,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "SM": {
       "geo_key": "SM",
@@ -2604,19 +2696,23 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "SN": {
       "geo_key": "SN",
       "sources_total": 11,
-      "sources_official": 0,
+      "sources_official": 1,
       "total_refs": 11,
-      "official": 0,
-      "non_official": 11,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 1,
+      "non_official": 10,
+      "official_badge": 1,
+      "top_official_domains": [
+        "unodc.org"
+      ],
+      "top_official_hosts": [
+        "unodc.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "SO": {
       "geo_key": "SO",
@@ -2628,7 +2724,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "SR": {
       "geo_key": "SR",
@@ -2640,31 +2736,39 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "SS": {
       "geo_key": "SS",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "ST": {
       "geo_key": "ST",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "SV": {
       "geo_key": "SV",
@@ -2676,7 +2780,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "SX": {
       "geo_key": "SX",
@@ -2688,7 +2792,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "SY": {
       "geo_key": "SY",
@@ -2700,7 +2804,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "SZ": {
       "geo_key": "SZ",
@@ -2712,7 +2816,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "TC": {
       "geo_key": "TC",
@@ -2724,7 +2828,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "TD": {
       "geo_key": "TD",
@@ -2736,7 +2840,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "TF": {
       "geo_key": "TF",
@@ -2748,7 +2852,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "TG": {
       "geo_key": "TG",
@@ -2760,7 +2864,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "TH": {
       "geo_key": "TH",
@@ -2772,19 +2876,23 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "TJ": {
       "geo_key": "TJ",
       "sources_total": 9,
-      "sources_official": 0,
+      "sources_official": 3,
       "total_refs": 9,
-      "official": 0,
-      "non_official": 9,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 3,
+      "non_official": 6,
+      "official_badge": 1,
+      "top_official_domains": [
+        "unodc.org"
+      ],
+      "top_official_hosts": [
+        "unodc.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "TK": {
       "geo_key": "TK",
@@ -2796,7 +2904,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "TL": {
       "geo_key": "TL",
@@ -2808,7 +2916,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "TM": {
       "geo_key": "TM",
@@ -2820,7 +2928,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "TN": {
       "geo_key": "TN",
@@ -2832,7 +2940,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "TO": {
       "geo_key": "TO",
@@ -2844,7 +2952,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "TR": {
       "geo_key": "TR",
@@ -2856,7 +2964,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "TT": {
       "geo_key": "TT",
@@ -2868,77 +2976,85 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "TV": {
       "geo_key": "TV",
       "sources_total": 7,
-      "sources_official": 2,
-      "total_refs": 7,
-      "official": 2,
-      "non_official": 5,
-      "official_badge": 1,
-      "top_official_domains": [
-        "osac.gov"
-      ],
-      "top_official_hosts": [
-        "osac.gov"
-      ],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
-    },
-    "TW": {
-      "geo_key": "TW",
-      "sources_total": 0,
       "sources_official": 0,
-      "total_refs": 0,
+      "total_refs": 7,
       "official": 0,
-      "non_official": 0,
+      "non_official": 7,
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "TW": {
+      "geo_key": "TW",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "TZ": {
       "geo_key": "TZ",
       "sources_total": 4,
-      "sources_official": 0,
+      "sources_official": 2,
       "total_refs": 4,
-      "official": 0,
-      "non_official": 4,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 2,
+      "non_official": 2,
+      "official_badge": 1,
+      "top_official_domains": [
+        "unodc.org",
+        "who.int"
+      ],
+      "top_official_hosts": [
+        "unodc.org",
+        "who.int"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "UA": {
       "geo_key": "UA",
       "sources_total": 20,
-      "sources_official": 2,
+      "sources_official": 1,
       "total_refs": 20,
-      "official": 2,
-      "non_official": 18,
+      "official": 1,
+      "non_official": 19,
       "official_badge": 1,
       "top_official_domains": [
-        "moz.gov.ua",
-        "zakon4.rada.gov.ua"
+        "moz.gov.ua"
       ],
       "top_official_hosts": [
-        "moz.gov.ua",
-        "zakon4.rada.gov.ua"
+        "moz.gov.ua"
       ],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "UG": {
       "geo_key": "UG",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "UM": {
       "geo_key": "UM",
@@ -2950,46 +3066,10 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "US": {
       "geo_key": "US",
-      "sources_total": 20,
-      "sources_official": 15,
-      "total_refs": 20,
-      "official": 15,
-      "non_official": 5,
-      "official_badge": 1,
-      "top_official_domains": [
-        "fec.gov",
-        "samhsa.gov",
-        "bjs.gov",
-        "citizensbriefingbook.change.gov",
-        "congress.gov"
-      ],
-      "top_official_hosts": [
-        "fec.gov",
-        "samhsa.gov",
-        "bjs.gov",
-        "citizensbriefingbook.change.gov",
-        "congress.gov"
-      ],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
-    },
-    "US-AZ": {
-      "geo_key": "US-AZ",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
-      "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
-    },
-    "US-CA": {
-      "geo_key": "US-CA",
       "sources_total": 20,
       "sources_official": 1,
       "total_refs": 20,
@@ -2997,192 +3077,808 @@
       "non_official": 19,
       "official_badge": 1,
       "top_official_domains": [
-        "cannabis.ca.gov"
+        "congress.gov"
       ],
       "top_official_hosts": [
-        "cannabis.ca.gov"
+        "congress.gov"
       ],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-AK": {
+      "geo_key": "US-AK",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-AL": {
+      "geo_key": "US-AL",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-AR": {
+      "geo_key": "US-AR",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-AZ": {
+      "geo_key": "US-AZ",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-CA": {
+      "geo_key": "US-CA",
+      "sources_total": 20,
+      "sources_official": 0,
+      "total_refs": 20,
+      "official": 0,
+      "non_official": 20,
+      "official_badge": 0,
+      "top_official_domains": [],
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "US-CO": {
       "geo_key": "US-CO",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "US-CT": {
       "geo_key": "US-CT",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-DE": {
+      "geo_key": "US-DE",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "US-FL": {
       "geo_key": "US-FL",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-GA": {
+      "geo_key": "US-GA",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-HI": {
+      "geo_key": "US-HI",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-IA": {
+      "geo_key": "US-IA",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-ID": {
+      "geo_key": "US-ID",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "US-IL": {
       "geo_key": "US-IL",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-IN": {
+      "geo_key": "US-IN",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-KS": {
+      "geo_key": "US-KS",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-KY": {
+      "geo_key": "US-KY",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-LA": {
+      "geo_key": "US-LA",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "US-MA": {
       "geo_key": "US-MA",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-MD": {
+      "geo_key": "US-MD",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-ME": {
+      "geo_key": "US-ME",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "US-MI": {
       "geo_key": "US-MI",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-MN": {
+      "geo_key": "US-MN",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-MO": {
+      "geo_key": "US-MO",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-MS": {
+      "geo_key": "US-MS",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-MT": {
+      "geo_key": "US-MT",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-NC": {
+      "geo_key": "US-NC",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-ND": {
+      "geo_key": "US-ND",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-NE": {
+      "geo_key": "US-NE",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-NH": {
+      "geo_key": "US-NH",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "US-NJ": {
       "geo_key": "US-NJ",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-NM": {
+      "geo_key": "US-NM",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "US-NV": {
       "geo_key": "US-NV",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "US-NY": {
       "geo_key": "US-NY",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "US-OH": {
       "geo_key": "US-OH",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-OK": {
+      "geo_key": "US-OK",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "US-OR": {
       "geo_key": "US-OR",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "US-PA": {
       "geo_key": "US-PA",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-RI": {
+      "geo_key": "US-RI",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-SC": {
+      "geo_key": "US-SC",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-SD": {
+      "geo_key": "US-SD",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-TN": {
+      "geo_key": "US-TN",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "US-TX": {
       "geo_key": "US-TX",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-UT": {
+      "geo_key": "US-UT",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "US-VA": {
       "geo_key": "US-VA",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-VT": {
+      "geo_key": "US-VT",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "US-WA": {
       "geo_key": "US-WA",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-WI": {
+      "geo_key": "US-WI",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-WV": {
+      "geo_key": "US-WV",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
+    },
+    "US-WY": {
+      "geo_key": "US-WY",
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
+      "non_official": 0,
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "UY": {
       "geo_key": "UY",
@@ -3194,7 +3890,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "UZ": {
       "geo_key": "UZ",
@@ -3206,7 +3902,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "VA": {
       "geo_key": "VA",
@@ -3218,7 +3914,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "VC": {
       "geo_key": "VC",
@@ -3230,7 +3926,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "VE": {
       "geo_key": "VE",
@@ -3242,7 +3938,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "VG": {
       "geo_key": "VG",
@@ -3254,7 +3950,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "VI": {
       "geo_key": "VI",
@@ -3266,7 +3962,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "VN": {
       "geo_key": "VN",
@@ -3278,19 +3974,23 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "VU": {
       "geo_key": "VU",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "WF": {
       "geo_key": "WF",
@@ -3302,47 +4002,51 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "WS": {
       "geo_key": "WS",
       "sources_total": 9,
-      "sources_official": 1,
+      "sources_official": 0,
       "total_refs": 9,
-      "official": 1,
-      "non_official": 8,
-      "official_badge": 1,
-      "top_official_domains": [
-        "samoalawreform.gov.ws"
-      ],
-      "top_official_hosts": [
-        "samoalawreform.gov.ws"
-      ],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 0,
+      "non_official": 9,
+      "official_badge": 0,
+      "top_official_domains": [],
+      "top_official_hosts": [],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "XK": {
       "geo_key": "XK",
       "sources_total": 11,
-      "sources_official": 0,
+      "sources_official": 1,
       "total_refs": 11,
-      "official": 0,
-      "non_official": 11,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official": 1,
+      "non_official": 10,
+      "official_badge": 1,
+      "top_official_domains": [
+        "unodc.org"
+      ],
+      "top_official_hosts": [
+        "unodc.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "YE": {
       "geo_key": "YE",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "YT": {
       "geo_key": "YT",
@@ -3354,7 +4058,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "ZA": {
       "geo_key": "ZA",
@@ -3366,19 +4070,23 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "ZM": {
       "geo_key": "ZM",
-      "sources_total": 0,
-      "sources_official": 0,
-      "total_refs": 0,
-      "official": 0,
+      "sources_total": 1,
+      "sources_official": 1,
+      "total_refs": 1,
+      "official": 1,
       "non_official": 0,
-      "official_badge": 0,
-      "top_official_domains": [],
-      "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "official_badge": 1,
+      "top_official_domains": [
+        "en.wikipedia.org"
+      ],
+      "top_official_hosts": [
+        "en.wikipedia.org"
+      ],
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     },
     "ZW": {
       "geo_key": "ZW",
@@ -3390,7 +4098,7 @@
       "official_badge": 0,
       "top_official_domains": [],
       "top_official_hosts": [],
-      "last_checked_at": "2026-01-21T20:22:53.966Z"
+      "last_checked_at": "2026-01-28T23:20:52.939Z"
     }
   }
 }

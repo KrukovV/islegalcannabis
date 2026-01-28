@@ -2,8 +2,11 @@ import fs from "node:fs";
 import path from "node:path";
 
 const ROOT = process.cwd();
+const SSOT_WRITE = process.env.SSOT_WRITE === "1";
 const REFS_PATH = path.join(ROOT, "data", "wiki", "wiki_claims_enriched.json");
+const CLAIMS_MAP_PATH = path.join(ROOT, "data", "wiki", "wiki_claims_map.json");
 const OUTPUT_PATH = path.join(ROOT, "data", "wiki", "wiki_official_eval.json");
+const ALLOWLIST_PATH = path.join(ROOT, "data", "sources", "allowlist_domains.json");
 
 function readJson(file, fallback) {
   if (!fs.existsSync(file)) return fallback;
@@ -15,6 +18,10 @@ function readJson(file, fallback) {
 }
 
 function writeAtomic(file, payload) {
+  if (!SSOT_WRITE) {
+    console.log("SSOT_READONLY=1");
+    return;
+  }
   const dir = path.dirname(file);
   fs.mkdirSync(dir, { recursive: true });
   const tmpPath = path.join(dir, `${path.basename(file)}.tmp`);
@@ -22,11 +29,28 @@ function writeAtomic(file, payload) {
   fs.renameSync(tmpPath, file);
 }
 
+function matchAllowlist(host, patterns) {
+  if (!host) return false;
+  for (const patternRaw of patterns) {
+    const pattern = String(patternRaw || "").trim();
+    if (!pattern) continue;
+    const escaped = pattern.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, ".*");
+    const re = new RegExp(`^${escaped}$`, "i");
+    if (re.test(host)) return true;
+  }
+  return false;
+}
+
 async function main() {
   const printPerGeo = process.argv.includes("--print") || process.argv.includes("--diag");
   const payload = readJson(REFS_PATH, null);
   const items = payload?.items && typeof payload.items === "object" ? payload.items : {};
-  const geoKeys = Object.keys(items);
+  const mapPayload = readJson(CLAIMS_MAP_PATH, null);
+  const mapItems = mapPayload?.items && typeof mapPayload.items === "object" ? mapPayload.items : {};
+  const allowlistPayload = readJson(ALLOWLIST_PATH, null);
+  const allowlist = Array.isArray(allowlistPayload?.allowed) ? allowlistPayload.allowed : [];
+  const mapKeys = Object.keys(mapItems);
+  const geoKeys = mapKeys.length ? mapKeys : Object.keys(items);
   if (!geoKeys.length) {
     writeAtomic(OUTPUT_PATH, {
       fetched_at: new Date().toISOString(),
@@ -51,7 +75,8 @@ async function main() {
   let officialTotal = 0;
   let nonOfficialTotal = 0;
 
-  for (const [geoKeyRaw, refs] of Object.entries(items)) {
+  for (const geoKeyRaw of geoKeys) {
+    const refs = items[geoKeyRaw];
     const geoKey = String(geoKeyRaw || "").toUpperCase();
     if (!geoKey) continue;
     const list = Array.isArray(refs) ? refs : [];
@@ -99,6 +124,8 @@ async function main() {
     .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
     .slice(0, 5)
     .map(([host]) => host);
+  const totalGeo = geoKeys.length;
+  const withBadge = Object.values(results).filter((entry) => entry?.official_badge === 1).length;
 
   writeAtomic(OUTPUT_PATH, {
     fetched_at: runAt,
@@ -106,7 +133,9 @@ async function main() {
       total_refs: totalRefs,
       official: officialTotal,
       non_official: nonOfficialTotal,
-      countries: geoKeys.length
+      countries: totalGeo,
+      total_geo: totalGeo,
+      with_badge: withBadge
     },
     top_hosts: topHosts,
     items: results
@@ -116,8 +145,28 @@ async function main() {
     `OFFICIAL_BADGE: total_links=${totalRefs} official_links=${officialTotal} non_official_links=${nonOfficialTotal} top_official_domains=${topHosts.join(",") || "-"}`
   );
   console.log(
-    `OFFICIAL_BADGE_TOTALS countries=${geoKeys.length} official_refs=${officialTotal} non_official_refs=${nonOfficialTotal} refs=${totalRefs}`
+    `OFFICIAL_BADGE_TOTALS total_geo=${totalGeo} with_badge=${withBadge} official_refs=${officialTotal} non_official_refs=${nonOfficialTotal} refs=${totalRefs} countries=${totalGeo}`
   );
+  const caRefs = Array.isArray(items["CA"]) ? items["CA"] : [];
+  if (caRefs.length) {
+    const caHosts = new Map();
+    for (const ref of caRefs) {
+      const host = String(ref?.host || "").toLowerCase().replace(/^www\./, "");
+      if (!host) continue;
+      caHosts.set(host, (caHosts.get(host) || 0) + 1);
+    }
+    const topDomains = Array.from(caHosts.entries())
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+      .slice(0, 10)
+      .map(([host]) => host);
+    const allowlistHits = topDomains.filter((host) => matchAllowlist(host, allowlist));
+    const allowlistMiss = topDomains.filter((host) => !matchAllowlist(host, allowlist));
+    console.log(
+      `OFFICIAL_BADGE_CA_DOMAINS top_domains=${topDomains.join(",") || "-"} allowlist_hits=${allowlistHits.join(",") || "-"} allowlist_miss=${allowlistMiss.join(",") || "-"}`
+    );
+  } else {
+    console.log("OFFICIAL_BADGE_CA_DOMAINS top_domains=- allowlist_hits=- allowlist_miss=-");
+  }
   if (printPerGeo) {
     const ordered = Object.values(results)
       .sort((a, b) => String(a.geo_key || "").localeCompare(String(b.geo_key || "")));

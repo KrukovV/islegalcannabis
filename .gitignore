@@ -70,3 +70,23 @@ coverage/**
 
 # runtime reports
 ci-final.txt
+
+# local backups / timestamps (must never go to repo)
+data/sources/*.bak.*
+data/sources/*.bak
+data/sources/*~
+data/sources/**/*.bak.*
+data/sources/**/*.bak
+
+# local/import scratch (rebuildable)
+data/import/
+Artifacts/
+.checkpoints/
+Reports/.checkpoints/
+
+# huge rebuildable wiki outputs (keep only if you intentionally commit them)
+data/wiki/wiki_claims/
+data/wiki/wiki_claims.json
+data/wiki/wiki_claims_enriched.json
+data/wiki/wiki_official_eval.json
+

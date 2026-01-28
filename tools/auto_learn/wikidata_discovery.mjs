@@ -21,6 +21,10 @@ function readJson(file) {
 
 function writeJson(file, payload) {
   fs.mkdirSync(path.dirname(file), { recursive: true });
+  if (fs.existsSync(file)) {
+    const ts = new Date().toISOString().replace(/[:.]/g, "-");
+    fs.copyFileSync(file, `${file}.bak.${ts}`);
+  }
   fs.writeFileSync(file, JSON.stringify(payload, null, 2) + "\n");
 }
 

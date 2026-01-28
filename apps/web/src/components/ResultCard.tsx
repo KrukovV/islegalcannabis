@@ -7,7 +7,7 @@ import {
   buildWhyBullets,
   extrasFromProfile,
   levelFromStatus,
-  normalizeSources,
+  normalizeSourceList,
   STATUS_BANNERS,
   titleFromLevel
 } from "@islegal/shared";
@@ -28,8 +28,6 @@ import Link from "next/link";
 import { shouldHighlightManualAction } from "@/lib/geo/locationResolution";
 import { toLocationResolution } from "@/lib/location/locationContext";
 import { FEATURES } from "@/lib/features";
-import officialRegistry from "../../../../data/sources/official_registry.json";
-import neutralRegistry from "../../../../data/sources/neutral_registry.json";
 
 type ResultCardProps = {
   profile: JurisdictionLawProfile;
@@ -167,13 +165,18 @@ export default function ResultCard({
   const statusCode = buildTripStatusCode(profile);
   const resultLevel = levelFromStatus(statusCode);
   const resultTitle = titleFromLevel(resultLevel, statusCode);
-  const profileSources = normalizeSources(profile.sources, {
-    officialRegistry,
-    neutralRegistry
-  });
-  const officialSources = profileSources.official;
-  const neutralSources = profileSources.neutral;
-  const hasVerifiedSources = officialSources.length > 0;
+  const officialSources = normalizeSourceList(
+    Array.isArray(profile.official_sources)
+      ? profile.official_sources.map((url) => ({
+          title: "Official source",
+          url
+        }))
+      : []
+  );
+  const neutralSources = normalizeSourceList(profile.sources);
+  const linksTrustSafe = linksTrust ?? null;
+  const wikiTrustOfficial = Number(linksTrustSafe?.official_count || 0) || 0;
+  const hasVerifiedSources = wikiTrustOfficial > 0;
   const displayLevel =
     hasVerifiedSources || resultLevel !== "green" ? resultLevel : "yellow";
   const displayTitle =
@@ -261,10 +264,8 @@ export default function ResultCard({
     ? wikiClaim.notes_main_articles
     : [];
   const wikiLinksSafe = Array.isArray(wikiLinks) ? wikiLinks : [];
-  const linksTrustSafe = linksTrust ?? null;
   const wikiTrustTotal =
     Number(linksTrustSafe?.total_count || 0) || wikiLinksSafe.length;
-  const wikiTrustOfficial = Number(linksTrustSafe?.official_count || 0) || 0;
   const wikiTrustNonOfficial = Math.max(wikiTrustTotal - wikiTrustOfficial, 0);
   const showWikiTrust = wikiTrustTotal > 0 || wikiTrustOfficial > 0;
   const wikiTrustLabel =

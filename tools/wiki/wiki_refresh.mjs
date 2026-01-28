@@ -18,6 +18,12 @@ const MAX_ARTICLES = Number(process.env.WIKI_ARTICLE_LIMIT || 2);
 const MAX_REFS = Number(process.env.WIKI_REF_LIMIT || 20);
 const RATE_LIMIT_MS = Number(process.env.WIKI_RATE_LIMIT_MS || 700);
 const REFS_MAX_AGE_HOURS = Number(process.env.WIKI_REFS_MAX_AGE_HOURS || 4);
+const SSOT_WRITE = process.env.SSOT_WRITE === "1";
+
+if (!SSOT_WRITE) {
+  console.log("SSOT_READONLY=1");
+  process.exit(0);
+}
 
 function readJson(file, fallback) {
   if (!fs.existsSync(file)) return fallback;

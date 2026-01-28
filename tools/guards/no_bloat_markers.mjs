@@ -42,8 +42,13 @@ if (lines.length < 3 || lines.length > 200) {
 }
 
 const first = lines[0] ?? "";
+const hasMvpMarker = lines.some((line) => line.startsWith("CI_RESULT "));
 if (first.startsWith("🌿") || first.startsWith("⚠️")) {
-  if (lines.length < 28 || lines.length > 200) {
+  if (hasMvpMarker) {
+    if (lines.length < 8 || lines.length > 60) {
+      fail("PASS summary (MVP) must be 8-60 lines.");
+    }
+  } else if (lines.length < 28 || lines.length > 200) {
     fail("PASS summary must be 28-200 lines.");
   }
 } else if (first.startsWith("❌")) {

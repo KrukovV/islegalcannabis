@@ -14,6 +14,7 @@ function fail(message) {
 }
 
 const status = readArg("--status", "PASS");
+const mode = readArg("--mode", "FULL");
 const file = readArg("--file");
 
 if (!file) {
@@ -26,10 +27,43 @@ if (!fs.existsSync(file)) {
 const text = fs.readFileSync(file, "utf8").trimEnd();
 const lines = text.split(/\r?\n/);
 
-if (status === "PASS") {
+if ((status === "PASS" || status === "PASS_DEGRADED") && mode === "MVP") {
+  const hasCiLine = lines.some((line) => /CI PASS|CI PASS_DEGRADED|CI FAIL/.test(line));
+  const egressLine = lines.find((line) => line.startsWith("EGRESS_TRUTH "));
+  let egressOnline = null;
+  if (egressLine) {
+    const match = egressLine.match(/\bonline=(\d)\b/);
+    if (match) egressOnline = Number(match[1]);
+  }
+  const hasQualityDegraded =
+    lines.some((line) => line.startsWith("CI_QUALITY=DEGRADED")) ||
+    lines.some((line) => /CI_RESULT\b.*\bquality=DEGRADED\b/.test(line));
+  const required = [
+    { label: "EGRESS_TRUTH", re: /^EGRESS_TRUTH / },
+    { label: "WIKI_GATE_OK", re: /^WIKI_GATE_OK=/ },
+    { label: "WIKI_SYNC_ALL", re: /^WIKI_SYNC_ALL / },
+    { label: "NOTES_TOTAL", re: /^NOTES_TOTAL / },
+    { label: "NOTES5_STRICT_RESULT", re: /^NOTES5_STRICT_RESULT / },
+    { label: "NOTESALL_STRICT_RESULT", re: /^NOTESALL_STRICT_RESULT / },
+    { label: "OFFICIAL_DOMAINS_TOTAL", re: /^OFFICIAL_DOMAINS_TOTAL / },
+    { label: "OFFICIAL_COVERAGE", re: /^OFFICIAL_COVERAGE / },
+  ];
+  if (!hasCiLine) fail("MVP summary missing CI result.");
+  for (const item of required) {
+    if (!lines.some((line) => item.re.test(line))) {
+      fail(`MVP summary missing ${item.label}.`);
+    }
+  }
+  if (egressOnline === 0 && !hasQualityDegraded) {
+    fail("MVP summary missing CI_QUALITY=DEGRADED when online=0.");
+  }
+  process.exit(0);
+}
+
+if (status === "PASS" || status === "PASS_DEGRADED") {
   const hasAutoSeed = lines.some((line) => line.startsWith("AUTO_SEED:"));
   const hasScale = lines.some((line) => line.startsWith("SCALE:"));
-  const passLine1 = new RegExp("^\\S+ CI PASS \\(Smoke \\d+/\\d+\\)$");
+  const passLine1 = new RegExp("^\\S+ CI PASS(_DEGRADED)? \\(Smoke \\d+/\\d+\\)$");
   const passLine2 = new RegExp("^Checked: \\d+ \\(.+\\)$");
   const passLine3 = new RegExp("^Trends: (skipped|ok rows=50|pending\\(429\\))$");
   const passLine4 = new RegExp("^ISO Coverage: covered=\\d+, missing=\\d+, delta=[+-]?\\d+$");

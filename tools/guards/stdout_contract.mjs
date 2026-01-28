@@ -56,7 +56,12 @@ if (nextLines.length > 0) {
 }
 
 if (lines[0]?.startsWith("🌿") || lines[0]?.startsWith("⚠️")) {
-  if (lines.length < 28 || lines.length > 200) {
+  const hasMvpMarker = lines.some((line) => line.startsWith("CI_RESULT "));
+  if (hasMvpMarker) {
+    if (lines.length < 8 || lines.length > 60) {
+      fail("PASS output (MVP) must be 8-60 lines.");
+    }
+  } else if (lines.length < 28 || lines.length > 200) {
     fail("PASS output must be 28-200 lines.");
   }
 }

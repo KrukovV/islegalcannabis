@@ -53,6 +53,33 @@
   gap: 18px;
 }
 
+.geoPrompt {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px dashed #cfe0d3;
+  background: #f3f8f3;
+  color: var(--ink);
+}
+
+.geoPrompt p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.geoPromptActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.geoPromptHint {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
 .tripRow {
   display: flex;
   flex-direction: column;

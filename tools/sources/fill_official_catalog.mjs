@@ -20,6 +20,20 @@ function readJson(file) {
   return JSON.parse(fs.readFileSync(file, "utf8"));
 }
 
+function backupIfExists(filePath) {
+  if (!fs.existsSync(filePath)) return;
+  const ts = new Date().toISOString().replace(/[:.]/g, "-");
+  fs.copyFileSync(filePath, `${filePath}.bak.${ts}`);
+}
+
+function writeAtomic(filePath, payload) {
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  backupIfExists(filePath);
+  const tmpPath = `${filePath}.tmp`;
+  fs.writeFileSync(tmpPath, JSON.stringify(payload, null, 2) + "\n");
+  fs.renameSync(tmpPath, filePath);
+}
+
 if (!fs.existsSync(ISO_PATH)) {
   fail(`Missing ${ISO_PATH}`);
 }
@@ -50,6 +64,5 @@ for (const id of isoIds.sort()) {
   };
 }
 
-fs.mkdirSync(path.dirname(CATALOG_PATH), { recursive: true });
-fs.writeFileSync(CATALOG_PATH, JSON.stringify(output, null, 2) + "\n");
+writeAtomic(CATALOG_PATH, output);
 console.log(`OK filled official_catalog (${Object.keys(output).length})`);

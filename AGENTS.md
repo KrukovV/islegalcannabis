@@ -8,6 +8,9 @@ Hard Rule:
 - Execution Mode only: actions + results. Forbidden phrases: "considering", "figuring out", "refine approach".
 - No auto-plan lines: do not store or print "Next: ..." in CONTINUITY.md or stdout; only user-provided tasks may define future steps.
 - Network Truth Policy: DNS is diagnostic only; ONLINE truth derives solely from HTTP/API/CONNECT/FALLBACK probes; cache may allow DEGRADED_CACHE but never sets ONLINE=1; single-probe-per-run uses `Artifacts/net_probe/<RUN_ID>.json` and must keep pass_cycle/quality_gate/hub_stage_report consistent; do not reintroduce dns_fail -> offline/online flip without explicit requirement change.
+- DNS — только диагностика; `online` вычисляется только по truth-probes (HTTP/health/API и подобное), DNS не влияет на ветвления/stop_reason/работу проекта.
+- DNS is diagnostic only; online is computed only from truth-probes (HTTP/health/API), DNS never affects branching/stop_reason/работу.
+- DNS - второстепенен, только DNS is diagnostic only. DNS — только диагностика; `online` вычисляется только по truth‑probes (HTTP/health/API и подобное), DNS не влияет на ветвления/stop_reason/работу проекта.
 
 Response Contract (mandatory):
 - Standard responses allowed; include command stdout when required by the task.
@@ -29,13 +32,16 @@ Tools usage:
 
 Network Truth Policy:
 - DNS is diagnostic only; it must never flip ONLINE/OFFLINE.
+- DNS is diagnostic only; online is computed solely from truth-probes (HTTP/health/API and similar) and does not affect branching/stop_reason/project operation.
 - ONLINE is true only if at least one truth probe succeeds: HTTP/HTTPS, API ping, CONNECT, or fallback.
 - Cache may allow continue (DEGRADED_CACHE) but never sets ONLINE=1.
 - OFFLINE_REASON must be one of TLS|HTTP_STATUS|TIMEOUT|CONN_REFUSED|NO_ROUTE; DNS errors stay in diag fields.
+- DNS — только диагностика; online вычисляется только по truth‑probes (HTTP/health/API и подобное), DNS не влияет на ветвления/stop_reason/работу проекта.
 - Any network logic changes must preserve SSOT lines for NET_DIAG and EGRESS_TRUTH.
 - Single-probe-per-run must use `NET_PROBE_CACHE_PATH` and keep net_health/pass_cycle/hub_stage_report in sync for a given RUN_ID.
 - CONNECT errors EPERM/EACCES must be classified as SANDBOX_EGRESS_BLOCKED; this is diag-only and must not change ONLINE semantics.
 - DNS diag reasons must be explicit (SANDBOX_DNS_STUB/NO_DNS_CONFIG/TOOLING_DNS_DIFF) and never used to flip ONLINE.
+- SSOT writes are read-only by default; updates to SSOT require SSOT_WRITE=1 and must never be triggered implicitly.
 - DNS is diagnostic only.
 - ONLINE truth only (HTTP/API/CONNECT/FALLBACK).
 - Any PR changing net logic must keep EGRESS_TRUTH contract; gate enforces.

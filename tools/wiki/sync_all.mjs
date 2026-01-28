@@ -10,6 +10,12 @@ const OUTPUT_CLAIMS_PATH = path.join(ROOT, "data", "wiki", "wiki_claims.json");
 const OUTPUT_CLAIMS_MAP_PATH = path.join(ROOT, "data", "wiki", "wiki_claims_map.json");
 const OUTPUT_REFS_PATH = path.join(ROOT, "data", "wiki", "wiki_refs.json");
 const OFFICIAL_BADGES_PATH = path.join(ROOT, "data", "wiki", "wiki_official_badges.json");
+const SSOT_WRITE = process.env.SSOT_WRITE === "1";
+
+if (!SSOT_WRITE) {
+  console.log("SSOT_READONLY=1");
+  process.exit(0);
+}
 
 function readJson(file, fallback) {
   if (!fs.existsSync(file)) return fallback;
@@ -67,6 +73,48 @@ function normalizeClaim(entry, fallbackFetchedAt) {
     row_ref: String(entry.row_ref || entry.wiki_row_ref || entry.rowRef || ""),
     wiki_revision_id: String(entry.wiki_revision_id || entry.revision_id || ""),
     fetched_at: String(entry.fetched_at || entry.updated_at || fallbackFetchedAt || "")
+  };
+}
+
+function normalizeNotesText(value) {
+  return String(value || "")
+    .replace(/\u00a0/g, " ")
+    .replace(/&nbsp;|&#160;/gi, " ")
+    .replace(/[\r\n]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function isPlaceholderNote(value) {
+  const normalized = normalizeNotesText(value);
+  if (!normalized) return true;
+  if (/^Main articles?:/i.test(normalized)) return true;
+  if (/^Main article:/i.test(normalized)) return true;
+  if (/^See also:/i.test(normalized)) return true;
+  if (/^Further information:/i.test(normalized)) return true;
+  return false;
+}
+
+function mergeNotes(current, previous) {
+  if (!current || typeof current !== "object") return current;
+  if (!previous || typeof previous !== "object") return current;
+  const currentNotes = normalizeNotesText(current.notes_text || "");
+  const previousNotes = normalizeNotesText(previous.notes_text || previous.notes_raw || "");
+  if (!previousNotes) return current;
+  const currentIsPlaceholder = isPlaceholderNote(currentNotes);
+  const previousIsPlaceholder = isPlaceholderNote(previousNotes);
+  const shouldKeepPrevious =
+    !currentNotes ||
+    currentIsPlaceholder ||
+    (!previousIsPlaceholder && previousNotes.length > currentNotes.length);
+  if (!shouldKeepPrevious) return current;
+  return {
+    ...current,
+    notes_text: previousNotes,
+    notes_raw: previous.notes_raw || current.notes_raw || previousNotes,
+    main_articles: Array.isArray(current.main_articles) && current.main_articles.length
+      ? current.main_articles
+      : normalizeMainArticles(previous.main_articles || previous.notes_main_articles)
   };
 }
 
@@ -162,7 +210,8 @@ async function main() {
   for (const item of claimsSnapshot) {
     const normalized = normalizeClaim(item, runAt);
     if (!normalized) continue;
-    claimsByGeo[normalized.geo_id] = normalized;
+    const previous = previousClaims[normalized.geo_id];
+    claimsByGeo[normalized.geo_id] = mergeNotes(normalized, previous);
     if (!revisionId && normalized.wiki_revision_id) {
       revisionId = normalized.wiki_revision_id;
     }
@@ -178,6 +227,10 @@ async function main() {
   });
 
   const refsPayload = readJson(REFS_SSOT_PATH, null);
+  const prevRefsPayload = readJson(OUTPUT_REFS_PATH, null);
+  const prevRefsItems = prevRefsPayload?.items && typeof prevRefsPayload.items === "object"
+    ? prevRefsPayload.items
+    : {};
   const refItems = normalizeRefsPayload(refsPayload);
   const refsByGeo = {};
   let refsTotal = 0;
@@ -191,8 +244,11 @@ async function main() {
       if (!normalized) continue;
       normalizedRefs.push(normalized);
     }
-    refsTotal += normalizedRefs.length;
-    refsByGeo[geo] = normalizedRefs;
+    const prevRefs = Array.isArray(prevRefsItems?.[geo]) ? prevRefsItems[geo] : [];
+    const keepPrev = prevRefs.length > normalizedRefs.length && prevRefs.length > 0;
+    const finalRefs = keepPrev ? prevRefs : normalizedRefs;
+    refsTotal += finalRefs.length;
+    refsByGeo[geo] = finalRefs;
   }
 
   writeAtomic(OUTPUT_REFS_PATH, {

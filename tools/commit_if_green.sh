@@ -38,6 +38,12 @@ while [ "$#" -gt 0 ]; do
   esac
 done
 
+RUN_ID="${RUN_ID:-$(date -u +%Y%m%dT%H%M%SZ)-${RANDOM}}"
+NET_PROBE_CACHE_PATH="${NET_PROBE_CACHE_PATH:-Artifacts/runs/${RUN_ID}/net_probe.json}"
+SSOT_WRITE="${SSOT_WRITE:-0}"
+export RUN_ID NET_PROBE_CACHE_PATH SSOT_WRITE
+mkdir -p "Artifacts/runs/${RUN_ID}"
+
 node tools/net/net_truth_gate.mjs
 bash tools/quality_gate.sh
 
@@ -360,7 +366,7 @@ for geo in RU TH XK US-CA CA; do
     exit 1
   fi
 done
-if ! grep -q "STEP_END name=ci_local rc=0" "${CI_FINAL}"; then
+if ! grep -q "STEP_END step=ci_local rc=0" "${CI_FINAL}"; then
   echo "Not committing."
   print_fail_diag
   exit 1
