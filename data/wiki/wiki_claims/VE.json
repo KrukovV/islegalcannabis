@@ -2,7 +2,7 @@
   "geo_key": "VE",
   "name_in_wiki": "Venezuela",
   "wiki_row_url": "https://en.wikipedia.org/wiki/Venezuela",
-  "row_ref": "country:175",
+  "row_ref": "country:197",
   "wiki_rec": "Illegal",
   "wiki_med": "Illegal",
   "sources": [
@@ -24,14 +24,14 @@
       "url": "https://en.wikipedia.org/wiki/Cannabis_in_Venezuela"
     }
   ],
-  "notes_text": "Possession of up to of marijuana or of genetically modified marijuana for commercial purposes is punishable by 1–2 years in prison at judge's discretion. If deemed to be for personal consumption, the user is subject to security measures involving rehabilitation and detoxification procedures.",
-  "notes_text_len": 292,
-  "notes": "Possession of up to of marijuana or of genetically modified marijuana for commercial purposes is punishable by 1–2 years in prison at judge's discretion. If deemed to be for personal consumption, the user is subject to security measures involving rehabilitation and detoxification procedures.",
+  "notes_text": "Possession of up to 20 g of marijuana or 5 g of genetically modified marijuana for commercial purposes is punishable by 1–2 years in prison at judge's discretion. If deemed to be for personal consumption, the user is subject to security measures involving rehabilitation and detoxification procedures.",
+  "notes_text_len": 301,
+  "notes": "Possession of up to 20 g of marijuana or 5 g of genetically modified marijuana for commercial purposes is punishable by 1–2 years in prison at judge's discretion. If deemed to be for personal consumption, the user is subject to security measures involving rehabilitation and detoxification procedures.",
   "notes_raw": "{{main|Cannabis in Venezuela}} Possession of up to {{cvt|20|g|frac=4}} of marijuana or {{cvt|5|g|frac=16}} of genetically modified marijuana for commercial purposes is punishable by 1–2 years in prison at judge's discretion. If deemed to be for personal consumption, the user is subject to security measures involving rehabilitation and detoxification procedures.<ref>{{citation |url = http://www.eee.com.ve/upload/LeyOrganicadeDrogas.sept10.pdf |title = Ley Orgánica de Drogas – Sept.10 |access-date = 17 February 2011 |archive-url = https://web.archive.org/web/20120319163247/http://www.eee.com.ve/upload/LeyOrganicadeDrogas.sept10.pdf |archive-date = 19 March 2012 |url-status = dead}}</ref>",
   "recreational_status": "Illegal",
   "medical_status": "Illegal",
   "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "fetched_at": "2026-01-28T23:20:50.661Z",
   "source": "countries",
   "revision_id": "1332405714"
 }

@@ -2,7 +2,7 @@
   "geo_key": "GE",
   "name_in_wiki": "Georgia",
   "wiki_row_url": "https://en.wikipedia.org/wiki/Georgia",
-  "row_ref": "country:58",
+  "row_ref": "country:65",
   "wiki_rec": "Legal",
   "wiki_med": "Legal",
   "sources": [
@@ -24,14 +24,14 @@
       "url": "https://en.wikipedia.org/wiki/Cannabis_in_Georgia_(country)"
     }
   ],
-  "notes_text": "",
-  "notes_text_len": 0,
-  "notes": "",
+  "notes_text": "Main article: Cannabis in Georgia (country)",
+  "notes_text_len": 43,
+  "notes": "Main article: Cannabis in Georgia (country)",
   "notes_raw": "{{main|Cannabis in Georgia (country)}}",
   "recreational_status": "Legal",
   "medical_status": "Legal",
   "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "fetched_at": "2026-01-28T23:20:50.661Z",
   "source": "countries",
   "revision_id": "1332405714"
 }

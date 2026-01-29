@@ -2,21 +2,36 @@
   "geo_key": "KH",
   "name_in_wiki": "Cambodia",
   "wiki_row_url": "https://en.wikipedia.org/wiki/Cambodia",
-  "row_ref": "iso_fallback:KH",
-  "wiki_rec": "Unknown",
-  "wiki_med": "Unknown",
-  "sources": [],
-  "sources_count": 0,
-  "main_articles": [],
-  "notes_main_articles": [],
-  "notes_text": "",
-  "notes_text_len": 0,
-  "notes": "",
-  "notes_raw": "",
-  "recreational_status": "Unknown",
-  "medical_status": "Unknown",
+  "row_ref": "country:30",
+  "wiki_rec": "Legal",
+  "wiki_med": "Illegal",
+  "sources": [
+    {
+      "title": "Cannabis in Cambodia",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cambodia"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Cambodia",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cambodia"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Cambodia",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cambodia"
+    }
+  ],
+  "notes_text": "Illegal, but this prohibition is lax and enforced opportunistically. \"Happy\" restaurants in cities publicly offer food cooked with marijuana, or as a side garnish.",
+  "notes_text_len": 163,
+  "notes": "Illegal, but this prohibition is lax and enforced opportunistically. \"Happy\" restaurants in cities publicly offer food cooked with marijuana, or as a side garnish.",
+  "notes_raw": "{{main|Cannabis in Cambodia}} Illegal,<ref>{{cite web|title=Law on Drug Management (Drug Control)|url=http://www.cambodiainvestment.gov.kh/law-on-drug-management-drug-control_961209.html|publisher=Council for the Development of Cambodia|access-date=16 July 2017|quote=Article 2 : Except for the cases of the article 14, the cultivation of opium poppy, cocoa plants, cannabis indica and cannabis saliva in the Kingdom of Cambodia, shall be prohibited.|archive-date=3 August 2021|archive-url=https://web.archive.org/web/20210803075909/http://www.cambodiainvestment.gov.kh/law-on-drug-management-drug-control_961209.html|url-status=dead}}</ref> but this prohibition is lax and enforced opportunistically.<ref>{{cite news|last1=Soenthrith|first1=Saing|title=Foreigners Arrested in Siem Reap Marijuana Bust|url=https://www.cambodiadaily.com/archives/foreigners-arrested-in-siem-reap-marijuana-bust-14816/|access-date=16 July 2017|work=[[The Phnom Penh Post]]|date=15 March 2013|quote=Police in Siem Reap City on Tuesday arrested 18 people, including 14 foreign nationals, during raids on two establishments, where they confiscated a stash of marijuana and an as-yet-unidentified powder, police said.|archive-date=8 September 2017|archive-url=https://web.archive.org/web/20170908032328/https://www.cambodiadaily.com/archives/foreigners-arrested-in-siem-reap-marijuana-bust-14816/|url-status=dead}}</ref><ref>{{cite web|last1=Goldberg|first1=Lina|title=Recreational drugs in Cambodia|url=http://www.movetocambodia.com/living-in-cambodia/safety-and-security/recreational-drugs-in-cambodia/|website=Move To Cambodia|access-date=16 July 2017|quote=Foreigners are rarely prosecuted for small amounts of marijuana, but expect to pay a few bribes if you do get caught.|archive-date=21 July 2018|archive-url=https://web.archive.org/web/20180721044036/http://www.movetocambodia.com/living-in-cambodia/safety-and-security/recreational-drugs-in-cambodia/|url-status=live}}</ref><ref>{{cite news|last1=Harfenist|first1=Ethan|title=The high life|url=http://www.phnompenhpost.com/post-weekend/high-life|access-date=16 July 2017|agency=Phnom Penh Post|date=30 May 2015|archive-date=8 June 2021|archive-url=https://web.archive.org/web/20210608070551/https://www.phnompenhpost.com/post-weekend/high-life|url-status=live}}</ref> \"Happy\" restaurants in cities publicly offer food cooked with marijuana, or as a side garnish.<ref>{{citation |url = http://www.gosihanoukville.com/dining/happy/index.html |title = Happy Restaurants (sic) in Sihanoukville |publisher = GoSihanoukville.com |access-date = 17 February 2011 |archive-date = 20 April 2019 |archive-url = https://web.archive.org/web/20190420011629/http://www.gosihanoukville.com/dining/happy/index.html |url-status = usurped }}</ref>",
+  "recreational_status": "Legal",
+  "medical_status": "Illegal",
   "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-21T20:22:52.085Z",
-  "source": "unknown",
+  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source": "countries",
   "revision_id": "1332405714"
 }

@@ -2,7 +2,7 @@
   "geo_key": "BZ",
   "name_in_wiki": "Belize",
   "wiki_row_url": "https://en.wikipedia.org/wiki/Belize",
-  "row_ref": "country:16",
+  "row_ref": "country:18",
   "wiki_rec": "Legal",
   "wiki_med": "Illegal",
   "sources": [
@@ -24,14 +24,14 @@
       "url": "https://en.wikipedia.org/wiki/Cannabis_in_Belize"
     }
   ],
-  "notes_text": "Possession prohibited, but use is common and largely tolerated. Possession of up to decriminalized.",
-  "notes_text_len": 99,
-  "notes": "Possession prohibited, but use is common and largely tolerated. Possession of up to decriminalized.",
+  "notes_text": "Possession prohibited, but use is common and largely tolerated. Possession of up to 10 g decriminalized.",
+  "notes_text_len": 104,
+  "notes": "Possession prohibited, but use is common and largely tolerated. Possession of up to 10 g decriminalized.",
   "notes_raw": "{{main|Cannabis in Belize}} Possession prohibited, but use is common and largely tolerated.<ref>{{cite web|last=Hubbard|first=Kirsten|title=Drug Laws and Penalties in Central America|url=http://gocentralamerica.about.com/od/culturehistory/p/Central-America-Drug-Laws-And-Penalties.htm|publisher=About.com|access-date=2 January 2014|archive-date=14 May 2017|archive-url=https://web.archive.org/web/20170514082404/http://gocentralamerica.about.com/od/culturehistory/p/Central-America-Drug-Laws-And-Penalties.htm|url-status=dead}}</ref> Possession of up to {{cvt|10|g|frac=8}} decriminalized.<ref>{{cite news |title=The Future of Marijuana under Debate |url=https://edition.channel5belize.com/archives/157025 |access-date=7 January 2024 |work=News 5 |date=5 December 2017}}</ref>",
   "recreational_status": "Legal",
   "medical_status": "Illegal",
   "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "fetched_at": "2026-01-28T23:20:50.661Z",
   "source": "countries",
   "revision_id": "1332405714"
 }

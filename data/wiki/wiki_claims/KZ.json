@@ -2,21 +2,36 @@
   "geo_key": "KZ",
   "name_in_wiki": "Kazakhstan",
   "wiki_row_url": "https://en.wikipedia.org/wiki/Kazakhstan",
-  "row_ref": "iso_fallback:KZ",
-  "wiki_rec": "Unknown",
-  "wiki_med": "Unknown",
-  "sources": [],
-  "sources_count": 0,
-  "main_articles": [],
-  "notes_main_articles": [],
-  "notes_text": "",
-  "notes_text_len": 0,
-  "notes": "",
-  "notes_raw": "",
-  "recreational_status": "Unknown",
-  "medical_status": "Unknown",
+  "row_ref": "country:91",
+  "wiki_rec": "Illegal",
+  "wiki_med": "Illegal",
+  "sources": [
+    {
+      "title": "Cannabis in Kazakhstan",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kazakhstan"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Kazakhstan",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kazakhstan"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Kazakhstan",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kazakhstan"
+    }
+  ],
+  "notes_text": "Main article: Cannabis in Kazakhstan",
+  "notes_text_len": 36,
+  "notes": "Main article: Cannabis in Kazakhstan",
+  "notes_raw": "{{main|Cannabis in Kazakhstan}}",
+  "recreational_status": "Illegal",
+  "medical_status": "Illegal",
   "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-21T20:22:52.085Z",
-  "source": "unknown",
+  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source": "countries",
   "revision_id": "1332405714"
 }

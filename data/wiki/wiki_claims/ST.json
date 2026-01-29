@@ -2,7 +2,7 @@
   "geo_key": "ST",
   "name_in_wiki": "São Tomé and Príncipe",
   "wiki_row_url": "https://en.wikipedia.org/wiki/S%C3%A3o_Tom%C3%A9_and_Pr%C3%ADncipe",
-  "row_ref": "country:137",
+  "row_ref": "country:156",
   "wiki_rec": "Illegal",
   "wiki_med": "Illegal",
   "sources": [
@@ -24,14 +24,14 @@
       "url": "https://en.wikipedia.org/wiki/Cannabis_in_S%C3%A3o_Tom%C3%A9_and_Principe"
     }
   ],
-  "notes_text": "",
-  "notes_text_len": 0,
-  "notes": "",
+  "notes_text": "Main article: Cannabis in São Tomé and Principe",
+  "notes_text_len": 47,
+  "notes": "Main article: Cannabis in São Tomé and Principe",
   "notes_raw": "{{main|Cannabis in São Tomé and Principe}}",
   "recreational_status": "Illegal",
   "medical_status": "Illegal",
   "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "fetched_at": "2026-01-28T23:20:50.661Z",
   "source": "countries",
   "revision_id": "1332405714"
 }

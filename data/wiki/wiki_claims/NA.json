@@ -2,21 +2,36 @@
   "geo_key": "NA",
   "name_in_wiki": "Namibia",
   "wiki_row_url": "https://en.wikipedia.org/wiki/Namibia",
-  "row_ref": "iso_fallback:NA",
-  "wiki_rec": "Unknown",
-  "wiki_med": "Unknown",
-  "sources": [],
-  "sources_count": 0,
-  "main_articles": [],
-  "notes_main_articles": [],
-  "notes_text": "",
-  "notes_text_len": 0,
-  "notes": "",
-  "notes_raw": "",
-  "recreational_status": "Unknown",
-  "medical_status": "Unknown",
+  "row_ref": "country:127",
+  "wiki_rec": "Illegal",
+  "wiki_med": "Illegal",
+  "sources": [
+    {
+      "title": "Cannabis in Namibia",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Namibia"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Namibia",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Namibia"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Namibia",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Namibia"
+    }
+  ],
+  "notes_text": "Cannabis is illegal; in 2007 the government proposed but declined a 20-year jail sentence for any drug possession.",
+  "notes_text_len": 114,
+  "notes": "Cannabis is illegal; in 2007 the government proposed but declined a 20-year jail sentence for any drug possession.",
+  "notes_raw": "{{main|Cannabis in Namibia}} Cannabis is illegal; in 2007 the government proposed but declined a 20-year jail sentence for any drug possession.",
+  "recreational_status": "Illegal",
+  "medical_status": "Illegal",
   "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-21T20:22:52.085Z",
-  "source": "unknown",
+  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source": "countries",
   "revision_id": "1332405714"
 }

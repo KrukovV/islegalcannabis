@@ -2,21 +2,36 @@
   "geo_key": "AF",
   "name_in_wiki": "Afghanistan",
   "wiki_row_url": "https://en.wikipedia.org/wiki/Afghanistan",
-  "row_ref": "iso_fallback:AF",
-  "wiki_rec": "Unknown",
-  "wiki_med": "Unknown",
-  "sources": [],
-  "sources_count": 0,
-  "main_articles": [],
-  "notes_main_articles": [],
-  "notes_text": "",
-  "notes_text_len": 0,
-  "notes": "",
-  "notes_raw": "",
-  "recreational_status": "Unknown",
-  "medical_status": "Unknown",
+  "row_ref": "country:1",
+  "wiki_rec": "Illegal",
+  "wiki_med": "Illegal",
+  "sources": [
+    {
+      "title": "Cannabis in Afghanistan",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Afghanistan"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Afghanistan",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Afghanistan"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Afghanistan",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Afghanistan"
+    }
+  ],
+  "notes_text": "Production banned by King Zahir Shah in 1973.",
+  "notes_text_len": 45,
+  "notes": "Production banned by King Zahir Shah in 1973.",
+  "notes_raw": "{{main|Cannabis in Afghanistan}} Production banned by King [[Zahir Shah]] in 1973.<ref name=\"Booth2011\">{{cite book|author=Martin Booth|title=Cannabis: A History|url=https://books.google.com/books?id=Mjn6sCiHoFIC&pg=PA325|date=30 September 2011|publisher=Transworld|isbn=978-1-4090-8489-1|pages=325–}}</ref>",
+  "recreational_status": "Illegal",
+  "medical_status": "Illegal",
   "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-21T20:22:52.085Z",
-  "source": "unknown",
+  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source": "countries",
   "revision_id": "1332405714"
 }

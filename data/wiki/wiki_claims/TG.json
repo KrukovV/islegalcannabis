@@ -2,7 +2,7 @@
   "geo_key": "TG",
   "name_in_wiki": "Togo",
   "wiki_row_url": "https://en.wikipedia.org/wiki/Togo",
-  "row_ref": "country:161",
+  "row_ref": "country:181",
   "wiki_rec": "Illegal",
   "wiki_med": "Illegal",
   "sources": [
@@ -24,14 +24,14 @@
       "url": "https://en.wikipedia.org/wiki/Cannabis_in_Togo"
     }
   ],
-  "notes_text": "",
-  "notes_text_len": 0,
-  "notes": "",
+  "notes_text": "Main article: Cannabis in Togo",
+  "notes_text_len": 30,
+  "notes": "Main article: Cannabis in Togo",
   "notes_raw": "{{main|Cannabis in Togo}}",
   "recreational_status": "Illegal",
   "medical_status": "Illegal",
   "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "fetched_at": "2026-01-28T23:20:50.661Z",
   "source": "countries",
   "revision_id": "1332405714"
 }

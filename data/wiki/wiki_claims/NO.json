@@ -2,7 +2,7 @@
   "geo_key": "NO",
   "name_in_wiki": "Norway",
   "wiki_row_url": "https://en.wikipedia.org/wiki/Norway",
-  "row_ref": "country:122",
+  "row_ref": "country:136",
   "wiki_rec": "Illegal",
   "wiki_med": "Legal",
   "sources": [
@@ -24,14 +24,14 @@
       "url": "https://en.wikipedia.org/wiki/Cannabis_in_Norway"
     }
   ],
-  "notes_text": "Illegal since 1965. As of 2022, use and possession of up to are punished with heavy fines and possible loss of driver's license. Solberg's Cabinet proposed a decriminalization bill in 2021 that would remove all sanctions for illegal drug use, including possession of up to of cannabis. Six parties (43,8%) voted for, while three parties (56,2%) voted against. As a result, the bill did not pass the parliament.",
-  "notes_text_len": 410,
-  "notes": "Illegal since 1965. As of 2022, use and possession of up to are punished with heavy fines and possible loss of driver's license. Solberg's Cabinet proposed a decriminalization bill in 2021 that would remove all sanctions for illegal drug use, including possession of up to of cannabis. Six parties (43,8%) voted for, while three parties (56,2%) voted against. As a result, the bill did not pass the parliament.",
+  "notes_text": "Illegal since 1965. As of 2022, use and possession of up to 15 g are punished with heavy fines and possible loss of driver's license. Solberg's Cabinet proposed a decriminalization bill in 2021 that would remove all sanctions for illegal drug use, including possession of up to 10 g of cannabis. Six parties (43,8%) voted for, while three parties (56,2%) voted against. As a result, the bill did not pass the parliament.",
+  "notes_text_len": 420,
+  "notes": "Illegal since 1965. As of 2022, use and possession of up to 15 g are punished with heavy fines and possible loss of driver's license. Solberg's Cabinet proposed a decriminalization bill in 2021 that would remove all sanctions for illegal drug use, including possession of up to 10 g of cannabis. Six parties (43,8%) voted for, while three parties (56,2%) voted against. As a result, the bill did not pass the parliament.",
   "notes_raw": "{{main|Cannabis in Norway}} Illegal since 1965. As of 2022, use and possession of up to {{cvt|15|g|frac=2}} are punished with heavy fines and possible loss of driver's license.<ref>{{cite web |url=https://www.regjeringen.no/no/dokumenter/nou-2019-26/id2683531/?ch=1 |title=NOU 2019: 26 |publisher=regjeringen.no |date=19 December 2019 |access-date=14 January 2020 |archive-date=31 December 2019 |archive-url=https://web.archive.org/web/20191231164125/https://www.regjeringen.no/no/dokumenter/nou-2019-26/id2683531/?ch=1 |url-status=live }}</ref><ref>{{cite web|url=https://www.regjeringen.no/no/dep/hod/org/styrer-rad-og-utvalg/rusreformutvalget/id2594880/|title=The Drug Policy Working Group|date=23 March 2018|publisher=The Office of the Prime Minister|access-date=17 December 2018|archive-date=6 March 2021|archive-url=https://web.archive.org/web/20210306172036/https://www.regjeringen.no/no/dep/hod/org/styrer-rad-og-utvalg/rusreformutvalget/id2594880/|url-status=live}}</ref><ref>{{Cite web|url=https://www.riksadvokaten.no/wp-content/uploads/2017/09/Rundskriv-2014-2-Narkotikasaker.pdf|title=Riksadvokatens rundskriv nr. 2 2014|access-date=17 December 2018|archive-date=5 March 2021|archive-url=https://web.archive.org/web/20210305100104/https://www.riksadvokaten.no/wp-content/uploads/2017/09/Rundskriv-2014-2-Narkotikasaker.pdf|url-status=live}}</ref> [[Solberg's Cabinet]] proposed a decriminalization bill in 2021 that would remove all sanctions for illegal drug use, including possession of up to {{cvt|10|g|frac=8}} of cannabis. Six parties (43,8%) voted for, while three parties (56,2%) voted against. As a result, the bill did not pass the parliament.<ref>{{cite web|url=https://www.nrk.no/norge/store-sier-nei---rusreformen-splitter-ap-1.15458738|title=Støre sier nei – rusreformen splitter ap|date=16 April 2021|publisher=nrk|access-date=17 April 2021|archive-date=16 April 2021|archive-url=https://web.archive.org/web/20210416092904/https://www.nrk.no/norge/store-sier-nei---rusreformen-splitter-ap-1.15458738|url-status=live}}</ref><ref>{{cite web|url=https://frifagbevegelse.no/nyheter/mdglandsmotet-avsluttet--dette-er-de-viktigste-vedtakene-6.158.779191.eb57a0bc61|title=MDG landsmøtet avsluttet–dette er de viktigste vedtakene|date=29 March 2021|publisher=frifagbevegelse|access-date=17 April 2021|archive-date=17 April 2021|archive-url=https://web.archive.org/web/20210417101843/https://frifagbevegelse.no/nyheter/mdglandsmotet-avsluttet--dette-er-de-viktigste-vedtakene-6.158.779191.eb57a0bc61|url-status=live}}</ref>",
   "recreational_status": "Illegal",
   "medical_status": "Legal",
   "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "fetched_at": "2026-01-28T23:20:50.661Z",
   "source": "countries",
   "revision_id": "1332405714"
 }

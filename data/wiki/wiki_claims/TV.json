@@ -2,7 +2,7 @@
   "geo_key": "TV",
   "name_in_wiki": "Tuvalu",
   "wiki_row_url": "https://en.wikipedia.org/wiki/Tuvalu",
-  "row_ref": "country:167",
+  "row_ref": "country:187",
   "wiki_rec": "Illegal",
   "wiki_med": "Illegal",
   "sources": [
@@ -24,14 +24,14 @@
       "url": "https://en.wikipedia.org/wiki/Cannabis_in_Tuvalu"
     }
   ],
-  "notes_text": "",
-  "notes_text_len": 0,
-  "notes": "",
+  "notes_text": "Main article: Cannabis in Tuvalu",
+  "notes_text_len": 32,
+  "notes": "Main article: Cannabis in Tuvalu",
   "notes_raw": "{{main|Cannabis in Tuvalu}}",
   "recreational_status": "Illegal",
   "medical_status": "Illegal",
   "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "fetched_at": "2026-01-28T23:20:50.661Z",
   "source": "countries",
   "revision_id": "1332405714"
 }

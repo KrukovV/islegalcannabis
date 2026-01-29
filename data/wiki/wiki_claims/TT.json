@@ -2,7 +2,7 @@
   "geo_key": "TT",
   "name_in_wiki": "Trinidad and Tobago",
   "wiki_row_url": "https://en.wikipedia.org/wiki/Trinidad_and_Tobago",
-  "row_ref": "country:163",
+  "row_ref": "country:183",
   "wiki_rec": "Legal",
   "wiki_med": "Illegal",
   "sources": [
@@ -31,7 +31,7 @@
   "recreational_status": "Legal",
   "medical_status": "Illegal",
   "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "fetched_at": "2026-01-28T23:20:50.661Z",
   "source": "countries",
   "revision_id": "1332405714"
 }

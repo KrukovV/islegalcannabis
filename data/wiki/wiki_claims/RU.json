@@ -2,7 +2,7 @@
   "geo_key": "RU",
   "name_in_wiki": "Russia",
   "wiki_row_url": "https://en.wikipedia.org/wiki/Russia",
-  "row_ref": "country:131",
+  "row_ref": "country:149",
   "wiki_rec": "Illegal",
   "wiki_med": "Illegal",
   "sources": [
@@ -24,14 +24,14 @@
       "url": "https://en.wikipedia.org/wiki/Cannabis_in_Russia"
     }
   ],
-  "notes_text": "Possession of up to of cannabis (or of hashish) is an administrative offense, punishable by a fine of ₽5,000 or detention of up to 15 days. Possession of larger amounts is a criminal offense. Foreign nationals and stateless individuals who violate the law are subject to deportation regardless of the amount.",
-  "notes_text_len": 308,
-  "notes": "Possession of up to of cannabis (or of hashish) is an administrative offense, punishable by a fine of ₽5,000 or detention of up to 15 days. Possession of larger amounts is a criminal offense. Foreign nationals and stateless individuals who violate the law are subject to deportation regardless of the amount.",
+  "notes_text": "Possession of up to 6 g of cannabis (or 2 g of hashish) is an administrative offense, punishable by a fine of ₽5,000 or detention of up to 15 days. Possession of larger amounts is a criminal offense. Foreign nationals and stateless individuals who violate the law are subject to deportation regardless of the amount.",
+  "notes_text_len": 316,
+  "notes": "Possession of up to 6 g of cannabis (or 2 g of hashish) is an administrative offense, punishable by a fine of ₽5,000 or detention of up to 15 days. Possession of larger amounts is a criminal offense. Foreign nationals and stateless individuals who violate the law are subject to deportation regardless of the amount.",
   "notes_raw": "{{main|Cannabis in Russia}} Possession of up to {{cvt|6|g|frac=5}} of cannabis (or {{cvt|2|g|frac=20|disp=comma}} of hashish) is an administrative offense, punishable by a fine of [[Russian ruble|₽]]5,000 or detention of up to 15 days. Possession of larger amounts is a criminal offense. Foreign nationals and stateless individuals who violate the law are subject to deportation regardless of the amount.<ref>{{cite web | url = http://www.consultant.ru/cons/cgi/online.cgi?req=doc&ts=164469974506312461340936923&cacheid=994B2ACA3517C672CBCF7A2398087641&mode=splus&base=LAW&n=310901&dst=2083&rnd=62E8B8E346501CD4CE50DFE5E998C343#09158851242449872 | script-title = ru:КОДЕКС РОССИЙСКОЙ ФЕДЕРАЦИИ ОБ АДМИНИСТРАТИВНЫХ ПРАВОНАРУШЕНИЯХ | access-date = 5 December 2018 | language = ru | archive-date = 26 February 2021 | archive-url = https://web.archive.org/web/20210226184336/http://www.consultant.ru/cons/cgi/online.cgi?req=doc&ts=164469974506312461340936923&cacheid=994B2ACA3517C672CBCF7A2398087641&mode=splus&base=LAW&n=310901&dst=2083&rnd=62E8B8E346501CD4CE50DFE5E998C343#09158851242449872 | url-status = live }}</ref>",
   "recreational_status": "Illegal",
   "medical_status": "Illegal",
   "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "fetched_at": "2026-01-28T23:20:50.661Z",
   "source": "countries",
   "revision_id": "1332405714"
 }

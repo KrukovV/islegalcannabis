@@ -2,7 +2,7 @@
   "geo_key": "CO",
   "name_in_wiki": "Colombia",
   "wiki_row_url": "https://en.wikipedia.org/wiki/Colombia",
-  "row_ref": "country:35",
+  "row_ref": "country:38",
   "wiki_rec": "Legal",
   "wiki_med": "Legal",
   "sources": [
@@ -24,14 +24,14 @@
       "url": "https://en.wikipedia.org/wiki/Cannabis_in_Colombia"
     }
   ],
-  "notes_text": "Decriminalized up to for personal consumption. Individuals carrying greater amounts, or cultivating up to 20 plants, cannot be prosecuted if the drug is for personal use.",
-  "notes_text_len": 170,
-  "notes": "Decriminalized up to for personal consumption. Individuals carrying greater amounts, or cultivating up to 20 plants, cannot be prosecuted if the drug is for personal use.",
+  "notes_text": "Decriminalized up to 22 g for personal consumption. Individuals carrying greater amounts, or cultivating up to 20 plants, cannot be prosecuted if the drug is for personal use.",
+  "notes_text_len": 175,
+  "notes": "Decriminalized up to 22 g for personal consumption. Individuals carrying greater amounts, or cultivating up to 20 plants, cannot be prosecuted if the drug is for personal use.",
   "notes_raw": "{{main|Cannabis in Colombia}} Decriminalized up to {{cvt|22|g|frac=4}} for personal consumption. Individuals carrying greater amounts, or cultivating up to 20 plants, cannot be prosecuted if the drug is for personal use.<ref>{{cite web |url=http://www.semana.com/nacion/articulo/corte-dice-que-dosis-minima-no-es-cuantificable/465394 |title=Drogas: la dosis mínima ya no será tan mínima |publisher=Semana.com |date=14 March 2016 |access-date=23 November 2016 |archive-date=1 August 2018 |archive-url=https://web.archive.org/web/20180801101750/https://www.semana.com/nacion/articulo/corte-dice-que-dosis-minima-no-es-cuantificable/465394 |url-status=live }}</ref><ref>{{citation |url = http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=2774 |title = Ley 30 de 1986 |publisher = alcaldiabogota.gov.co |date = 31 January 1986 |access-date = 5 June 2018 |archive-date = 9 July 2019 |archive-url = https://web.archive.org/web/20190709104524/https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=2774 |url-status = live }}</ref><ref>{{cite web|url=https://www.buzzfeednews.com/article/karlazabludovsky/colombia-just-legalized-medical-marijuana |title=Colombia Just Legalized Medical Marijuana |work=[[BuzzFeed News]] |date=22 December 2015 |access-date=22 December 2015 |archive-url=https://web.archive.org/web/20190611131604/https://www.buzzfeednews.com/article/karlazabludovsky/colombia-just-legalized-medical-marijuana |archive-date=11 June 2019 |url-status=live}}</ref><ref>{{cite web |url=http://wp.presidencia.gov.co/sitios/normativa/decretos/2015/Decretos2015/DECRETO%202467%20DEL%2022%20DE%20DICIEMBRE%20DE%202015.pdf |title=Decreto Número 2467 de 2015 |publisher=Ministry of Health and Social Protection (Colombia) |date=22 December 2015 |access-date=22 December 2015 |archive-date=20 December 2017 |archive-url=https://web.archive.org/web/20171220115842/http://wp.presidencia.gov.co/sitios/normativa/decretos/2015/Decretos2015/DECRETO%202467%20DEL%2022%20DE%20DICIEMBRE%20DE%202015.pdf |url-status=live }}</ref>",
   "recreational_status": "Legal",
   "medical_status": "Legal",
   "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "fetched_at": "2026-01-28T23:20:50.661Z",
   "source": "countries",
   "revision_id": "1332405714"
 }

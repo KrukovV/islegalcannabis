@@ -2,21 +2,36 @@
   "geo_key": "IS",
   "name_in_wiki": "Iceland",
   "wiki_row_url": "https://en.wikipedia.org/wiki/Iceland",
-  "row_ref": "iso_fallback:IS",
-  "wiki_rec": "Unknown",
-  "wiki_med": "Unknown",
-  "sources": [],
-  "sources_count": 0,
-  "main_articles": [],
-  "notes_main_articles": [],
-  "notes_text": "",
-  "notes_text_len": 0,
-  "notes": "",
-  "notes_raw": "",
-  "recreational_status": "Unknown",
-  "medical_status": "Unknown",
+  "row_ref": "country:79",
+  "wiki_rec": "Illegal",
+  "wiki_med": "Illegal",
+  "sources": [
+    {
+      "title": "Cannabis in Iceland",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Iceland"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Iceland",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Iceland"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Iceland",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Iceland"
+    }
+  ],
+  "notes_text": "Banned in 1969. Possession of small amounts is subject to arrest and fine but no threat of jail time.",
+  "notes_text_len": 101,
+  "notes": "Banned in 1969. Possession of small amounts is subject to arrest and fine but no threat of jail time.",
+  "notes_raw": "{{main|Cannabis in Iceland}} Banned in 1969.<ref>{{cite news|title=Marihuana og LSD loks bannað hér!|url=http://timarit.is/view_page_init.jsp?pageId=3378672|access-date=10 December 2016|issue=235|publisher=Tíminn|date=25 October 1969|language=is|archive-date=21 July 2018|archive-url=https://web.archive.org/web/20180721073157/http://timarit.is/view_page_init.jsp?pageId=3378672|url-status=live}}</ref> Possession of small amounts is subject to arrest and fine but no threat of jail time.<ref>{{cite news |last1=Sveinn Helgason |first1=Magnús |title=Do Icelanders really smoke more cannabis than anyone else? |url=https://icelandmag.is/article/do-icelanders-really-smoke-more-cannabis-anyone-else |access-date=16 January 2019 |work=Iceland Magazine |date=26 August 2015 |archive-date=12 November 2020 |archive-url=https://web.archive.org/web/20201112034312/https://icelandmag.is/article/do-icelanders-really-smoke-more-cannabis-anyone-else |url-status=live }}</ref>",
+  "recreational_status": "Illegal",
+  "medical_status": "Illegal",
   "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-21T20:22:52.085Z",
-  "source": "unknown",
+  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source": "countries",
   "revision_id": "1332405714"
 }

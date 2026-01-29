@@ -2,7 +2,7 @@
   "geo_key": "IR",
   "name_in_wiki": "Iran",
   "wiki_row_url": "https://en.wikipedia.org/wiki/Iran",
-  "row_ref": "country:73",
+  "row_ref": "country:82",
   "wiki_rec": "Legal",
   "wiki_med": "Illegal",
   "sources": [
@@ -24,14 +24,14 @@
       "url": "https://en.wikipedia.org/wiki/Cannabis_in_Iran"
     }
   ],
-  "notes_text": "Maximum of capital punishment to possess hashish over but unenforced.",
-  "notes_text_len": 69,
-  "notes": "Maximum of capital punishment to possess hashish over but unenforced.",
+  "notes_text": "Maximum of capital punishment to possess hashish over 5 kg but unenforced.",
+  "notes_text_len": 74,
+  "notes": "Maximum of capital punishment to possess hashish over 5 kg but unenforced.",
   "notes_raw": "{{main|Cannabis in Iran}} Maximum of capital punishment to possess [[hashish]] over {{cvt|5|kg|lb}}<ref name=\"Afshari2011\">{{cite book|author=Reza Afshari|title=Human Rights in Iran: The Abuse of Cultural Relativism|url=https://books.google.com/books?id=3e_SBQAAQBAJ&pg=PA40|date=7 June 2011|publisher=University of Pennsylvania Press|isbn=978-0-8122-0105-5|pages=40–|access-date=8 October 2020|archive-date=20 April 2023|archive-url=https://web.archive.org/web/20230420090922/https://books.google.com/books?id=3e_SBQAAQBAJ&pg=PA40|url-status=live}}</ref> but unenforced.<ref>{{cite web |title=Cannabis Use in Present-Day Iran |url=https://sensiseeds.com/en/blog/cannabis-iran-en/ |website=Sensi Seeds |date=8 March 2014 |access-date=30 July 2018 |archive-date=25 August 2018 |archive-url=https://web.archive.org/web/20180825053141/https://sensiseeds.com/en/blog/cannabis-iran-en/ |url-status=live }}</ref>",
   "recreational_status": "Legal",
   "medical_status": "Illegal",
   "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "fetched_at": "2026-01-28T23:20:50.661Z",
   "source": "countries",
   "revision_id": "1332405714"
 }

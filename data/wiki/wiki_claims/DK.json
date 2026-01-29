@@ -2,21 +2,36 @@
   "geo_key": "DK",
   "name_in_wiki": "Denmark",
   "wiki_row_url": "https://en.wikipedia.org/wiki/Denmark",
-  "row_ref": "iso_fallback:DK",
-  "wiki_rec": "Unknown",
-  "wiki_med": "Unknown",
-  "sources": [],
-  "sources_count": 0,
-  "main_articles": [],
-  "notes_main_articles": [],
-  "notes_text": "",
-  "notes_text_len": 0,
-  "notes": "",
-  "notes_raw": "",
-  "recreational_status": "Unknown",
-  "medical_status": "Unknown",
+  "row_ref": "country:48",
+  "wiki_rec": "Illegal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in Denmark",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Denmark"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Denmark",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Denmark"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Denmark",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Denmark"
+    }
+  ],
+  "notes_text": "As with all drugs, cannabis-related offenses are punishable by a fine or imprisonment for up to 2 years. Freetown Christiania, a self-declared autonomous community in Copenhagen, is known for its cannabis trade.",
+  "notes_text_len": 211,
+  "notes": "As with all drugs, cannabis-related offenses are punishable by a fine or imprisonment for up to 2 years. Freetown Christiania, a self-declared autonomous community in Copenhagen, is known for its cannabis trade.",
+  "notes_raw": "{{main|Cannabis in Denmark}} As with all drugs, cannabis-related offenses are punishable by a fine or imprisonment for up to 2 years.<ref>{{citation |url = http://www.1stmarijuanagrowerspage.com/denmark-marijuana-cannabis-laws.html |title = Denmark marijuana laws – cannabis growing and marijuana seeds |publisher = 1stmarijuanagrowerspage.com |access-date = 17 February 2011 |archive-date = 20 May 2019 |archive-url = https://web.archive.org/web/20190520155622/http://www.1stmarijuanagrowerspage.com/denmark-marijuana-cannabis-laws.html |url-status = live }}</ref> [[Freetown Christiania]], a self-declared autonomous community in [[Copenhagen]], is known for its cannabis trade.<ref>{{cite news |last1=Radicella |first1=Lucas |title=Copenhagen's largest cannabis market shut down |url=https://www.euronews.com/2018/05/22/copenhagen-s-largest-cannabis-market-shut-down |publisher=[[Euronews]] |access-date=17 October 2018 |date=22 May 2018 |archive-date=17 October 2018 |archive-url=https://web.archive.org/web/20181017123732/https://www.euronews.com/2018/05/22/copenhagen-s-largest-cannabis-market-shut-down |url-status=live }}</ref>",
+  "recreational_status": "Illegal",
+  "medical_status": "Legal",
   "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-21T20:22:52.085Z",
-  "source": "unknown",
+  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source": "countries",
   "revision_id": "1332405714"
 }

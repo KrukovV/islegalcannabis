@@ -1,22 +1,37 @@
 {
   "geo_key": "KN",
-  "name_in_wiki": "St. Kitts & Nevis",
-  "wiki_row_url": "https://en.wikipedia.org/wiki/St._Kitts_%26_Nevis",
-  "row_ref": "iso_fallback:KN",
-  "wiki_rec": "Unknown",
-  "wiki_med": "Unknown",
-  "sources": [],
-  "sources_count": 0,
-  "main_articles": [],
-  "notes_main_articles": [],
-  "notes_text": "",
-  "notes_text_len": 0,
-  "notes": "",
-  "notes_raw": "",
-  "recreational_status": "Unknown",
-  "medical_status": "Unknown",
+  "name_in_wiki": "Saint Kitts and Nevis",
+  "wiki_row_url": "https://en.wikipedia.org/wiki/Saint_Kitts_and_Nevis",
+  "row_ref": "country:151",
+  "wiki_rec": "Legal",
+  "wiki_med": "Illegal",
+  "sources": [
+    {
+      "title": "Cannabis in Saint Kitts and Nevis",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Saint_Kitts_and_Nevis"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Saint Kitts and Nevis",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Saint_Kitts_and_Nevis"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Saint Kitts and Nevis",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Saint_Kitts_and_Nevis"
+    }
+  ],
+  "notes_text": "Main article: Cannabis in Saint Kitts and Nevis",
+  "notes_text_len": 47,
+  "notes": "Main article: Cannabis in Saint Kitts and Nevis",
+  "notes_raw": "{{main|Cannabis in Saint Kitts and Nevis}}",
+  "recreational_status": "Legal",
+  "medical_status": "Illegal",
   "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-21T20:22:52.085Z",
-  "source": "unknown",
+  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source": "countries",
   "revision_id": "1332405714"
 }

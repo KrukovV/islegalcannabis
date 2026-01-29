@@ -2,7 +2,7 @@
   "geo_key": "BB",
   "name_in_wiki": "Barbados",
   "wiki_row_url": "https://en.wikipedia.org/wiki/Barbados",
-  "row_ref": "country:13",
+  "row_ref": "country:15",
   "wiki_rec": "Legal",
   "wiki_med": "Legal",
   "sources": [
@@ -24,14 +24,14 @@
       "url": "https://en.wikipedia.org/wiki/Cannabis_in_Barbados"
     }
   ],
-  "notes_text": "",
-  "notes_text_len": 0,
-  "notes": "",
+  "notes_text": "Main article: Cannabis in Barbados",
+  "notes_text_len": 34,
+  "notes": "Main article: Cannabis in Barbados",
   "notes_raw": "{{main|Cannabis in Barbados}}",
   "recreational_status": "Legal",
   "medical_status": "Legal",
   "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "fetched_at": "2026-01-28T23:20:50.661Z",
   "source": "countries",
   "revision_id": "1332405714"
 }

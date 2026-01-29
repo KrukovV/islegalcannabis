@@ -2,7 +2,7 @@
   "geo_key": "AD",
   "name_in_wiki": "Andorra",
   "wiki_row_url": "https://en.wikipedia.org/wiki/Andorra",
-  "row_ref": "country:3",
+  "row_ref": "country:4",
   "wiki_rec": "Illegal",
   "wiki_med": "Illegal",
   "sources": [
@@ -24,14 +24,14 @@
       "url": "https://en.wikipedia.org/wiki/Cannabis_in_Andorra"
     }
   ],
-  "notes_text": "",
-  "notes_text_len": 0,
-  "notes": "",
+  "notes_text": "Main article: Cannabis in Andorra",
+  "notes_text_len": 33,
+  "notes": "Main article: Cannabis in Andorra",
   "notes_raw": "{{main|Cannabis in Andorra}}",
   "recreational_status": "Illegal",
   "medical_status": "Illegal",
   "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "fetched_at": "2026-01-28T23:20:50.661Z",
   "source": "countries",
   "revision_id": "1332405714"
 }

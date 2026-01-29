@@ -2,21 +2,36 @@
   "geo_key": "JM",
   "name_in_wiki": "Jamaica",
   "wiki_row_url": "https://en.wikipedia.org/wiki/Jamaica",
-  "row_ref": "iso_fallback:JM",
-  "wiki_rec": "Unknown",
-  "wiki_med": "Unknown",
-  "sources": [],
-  "sources_count": 0,
-  "main_articles": [],
-  "notes_main_articles": [],
-  "notes_text": "",
-  "notes_text_len": 0,
-  "notes": "",
-  "notes_raw": "",
-  "recreational_status": "Unknown",
-  "medical_status": "Unknown",
+  "row_ref": "country:88",
+  "wiki_rec": "Legal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in Jamaica",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Jamaica"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Jamaica",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Jamaica"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Jamaica",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Jamaica"
+    }
+  ],
+  "notes_text": "Decriminalized since 2015, and in 2018 the first medical cannabis dispensary opened.",
+  "notes_text_len": 84,
+  "notes": "Decriminalized since 2015, and in 2018 the first medical cannabis dispensary opened.",
+  "notes_raw": "{{main|Cannabis in Jamaica}} Decriminalized since 2015, and in 2018 the first medical cannabis dispensary opened.<ref>{{cite news |last1=Bud |first1=Monterey |title=Jamaica's Kaya Farms Becomes First Medical Marijuana Dispensary To Open |url=https://www.marijuana.com/news/2018/03/jamaicas-kaya-farms-becomes-first-medical-marijuana-dispensary-to-open/ |access-date=15 July 2018 |work=marijuana.com |date=19 March 2018 |archive-date=16 July 2018 |archive-url=https://web.archive.org/web/20180716111623/https://www.marijuana.com/news/2018/03/jamaicas-kaya-farms-becomes-first-medical-marijuana-dispensary-to-open/ |url-status=live }}</ref>",
+  "recreational_status": "Legal",
+  "medical_status": "Legal",
   "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-21T20:22:52.085Z",
-  "source": "unknown",
+  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source": "countries",
   "revision_id": "1332405714"
 }

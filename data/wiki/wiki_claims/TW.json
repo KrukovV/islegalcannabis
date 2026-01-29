@@ -2,21 +2,36 @@
   "geo_key": "TW",
   "name_in_wiki": "Taiwan",
   "wiki_row_url": "https://en.wikipedia.org/wiki/Taiwan",
-  "row_ref": "iso_fallback:TW",
-  "wiki_rec": "Unknown",
-  "wiki_med": "Unknown",
-  "sources": [],
-  "sources_count": 0,
-  "main_articles": [],
-  "notes_main_articles": [],
-  "notes_text": "",
-  "notes_text_len": 0,
-  "notes": "",
-  "notes_raw": "",
-  "recreational_status": "Unknown",
-  "medical_status": "Unknown",
+  "row_ref": "country:176",
+  "wiki_rec": "Illegal",
+  "wiki_med": "Illegal",
+  "sources": [
+    {
+      "title": "Cannabis in Taiwan",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Taiwan"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Taiwan",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Taiwan"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Taiwan",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Taiwan"
+    }
+  ],
+  "notes_text": "Cannabis is a schedule 2 narcotic in the ROC, and possession can result in up to 3 years imprisonment.",
+  "notes_text_len": 102,
+  "notes": "Cannabis is a schedule 2 narcotic in the ROC, and possession can result in up to 3 years imprisonment.",
+  "notes_raw": "{{main|Cannabis in Taiwan}} Cannabis is a schedule 2 narcotic in the ROC, and possession can result in up to 3 years imprisonment.<ref>{{citation |url = http://www.erowid.org/plants/cannabis/cannabis_law.shtml#taiwan |title = Cannabis legal status vault – Taiwan |publisher = Erowid.org |access-date = 1 November 2015 |archive-date = 15 December 2019 |archive-url = https://web.archive.org/web/20191215152836/https://www.erowid.org/plants/cannabis/cannabis_law.shtml#taiwan |url-status = live }}</ref>",
+  "recreational_status": "Illegal",
+  "medical_status": "Illegal",
   "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-21T20:22:52.085Z",
-  "source": "unknown",
+  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source": "countries",
   "revision_id": "1332405714"
 }

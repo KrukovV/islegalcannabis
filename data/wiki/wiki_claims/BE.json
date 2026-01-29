@@ -2,7 +2,7 @@
   "geo_key": "BE",
   "name_in_wiki": "Belgium",
   "wiki_row_url": "https://en.wikipedia.org/wiki/Belgium",
-  "row_ref": "country:15",
+  "row_ref": "country:17",
   "wiki_rec": "Legal",
   "wiki_med": "Legal",
   "sources": [
@@ -24,14 +24,14 @@
       "url": "https://en.wikipedia.org/wiki/Cannabis_in_Belgium"
     }
   ],
-  "notes_text": "Up to decriminalized for adults since 2003.",
-  "notes_text_len": 43,
-  "notes": "Up to decriminalized for adults since 2003.",
+  "notes_text": "Up to 3 g decriminalized for adults since 2003.",
+  "notes_text_len": 47,
+  "notes": "Up to 3 g decriminalized for adults since 2003.",
   "notes_raw": "{{main|Cannabis in Belgium}} Up to {{cvt|3|g|frac=10}} decriminalized for adults since 2003.<ref>{{cite web|url=http://www.polfed-fedpol.be/|title=Federale politie – Police fédérale|author=Police fédérale – CGPR Webteam|access-date=14 January 2015|archive-date=26 December 2018|archive-url=https://web.archive.org/web/20181226021500/https://www.politie.be//nl|url-status=live}}</ref><ref>{{cite web |title = Cannabis legal status vault – Belgium |url = http://www.erowid.org/plants/cannabis/cannabis_law.shtml#belgium |website = www.erowid.org |publisher = Erowid.org |access-date = 17 February 2011 |archive-date = 15 December 2019 |archive-url = https://web.archive.org/web/20191215152836/https://www.erowid.org/plants/cannabis/cannabis_law.shtml#belgium |url-status = live }}</ref>",
   "recreational_status": "Legal",
   "medical_status": "Legal",
   "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "fetched_at": "2026-01-28T23:20:50.661Z",
   "source": "countries",
   "revision_id": "1332405714"
 }

@@ -2,21 +2,36 @@
   "geo_key": "LA",
   "name_in_wiki": "Laos",
   "wiki_row_url": "https://en.wikipedia.org/wiki/Laos",
-  "row_ref": "iso_fallback:LA",
-  "wiki_rec": "Unknown",
-  "wiki_med": "Unknown",
-  "sources": [],
-  "sources_count": 0,
-  "main_articles": [],
-  "notes_main_articles": [],
-  "notes_text": "",
-  "notes_text_len": 0,
-  "notes": "",
-  "notes_raw": "",
-  "recreational_status": "Unknown",
-  "medical_status": "Unknown",
+  "row_ref": "country:99",
+  "wiki_rec": "Legal",
+  "wiki_med": "Illegal",
+  "sources": [
+    {
+      "title": "Cannabis in Laos",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Laos"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Laos",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Laos"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Laos",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Laos"
+    }
+  ],
+  "notes_text": "Main article: Cannabis in Laos",
+  "notes_text_len": 30,
+  "notes": "Main article: Cannabis in Laos",
+  "notes_raw": "{{Main|Cannabis in Laos}}",
+  "recreational_status": "Legal",
+  "medical_status": "Illegal",
   "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-21T20:22:52.085Z",
-  "source": "unknown",
+  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source": "countries",
   "revision_id": "1332405714"
 }

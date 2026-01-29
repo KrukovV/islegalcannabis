@@ -2,7 +2,7 @@
   "geo_key": "SG",
   "name_in_wiki": "Singapore",
   "wiki_row_url": "https://en.wikipedia.org/wiki/Singapore",
-  "row_ref": "country:143",
+  "row_ref": "country:162",
   "wiki_rec": "Illegal",
   "wiki_med": "Legal",
   "sources": [
@@ -24,14 +24,14 @@
       "url": "https://en.wikipedia.org/wiki/Cannabis_in_Singapore"
     }
   ],
-  "notes_text": "Banned in 1870. Cannabis is a Class A drug under the Misuse of Drugs Act, making it illegal to cultivate, sell, or possess. Those who are caught with of cannabis or more are considered drug traffickers and are liable to be punished with an automatic death penalty. In rare cases, permission has been granted to use cannabis-derived pharmaceuticals for treatment of epilepsy.",
-  "notes_text_len": 374,
-  "notes": "Banned in 1870. Cannabis is a Class A drug under the Misuse of Drugs Act, making it illegal to cultivate, sell, or possess. Those who are caught with of cannabis or more are considered drug traffickers and are liable to be punished with an automatic death penalty. In rare cases, permission has been granted to use cannabis-derived pharmaceuticals for treatment of epilepsy.",
+  "notes_text": "Banned in 1870. Cannabis is a Class A drug under the Misuse of Drugs Act, making it illegal to cultivate, sell, or possess. Those who are caught with 500 g of cannabis or more are considered drug traffickers and are liable to be punished with an automatic death penalty. In rare cases, permission has been granted to use cannabis-derived pharmaceuticals for treatment of epilepsy.",
+  "notes_text_len": 380,
+  "notes": "Banned in 1870. Cannabis is a Class A drug under the Misuse of Drugs Act, making it illegal to cultivate, sell, or possess. Those who are caught with 500 g of cannabis or more are considered drug traffickers and are liable to be punished with an automatic death penalty. In rare cases, permission has been granted to use cannabis-derived pharmaceuticals for treatment of epilepsy.",
   "notes_raw": "{{main|Cannabis in Singapore}} Banned in 1870.<ref name=\"Bunyapraphatsō̜n1999\">{{cite book|last=Bunyapraphatsō̜n |first=Nanthawan |title=Medicinal and poisonous plants|url=https://books.google.com/books?id=ifDwAAAAMAAJ|year=1999|publisher=Backhuys Publishers|isbn=978-90-5782-042-7|page=169}}</ref> Cannabis is a Class A drug under the Misuse of Drugs Act, making it illegal to cultivate, sell, or possess. Those who are caught with {{cvt|500|g|lboz}} of cannabis or more are considered drug traffickers and are liable to be punished with an automatic death penalty.<ref>{{citation |url = http://www.erowid.org/plants/cannabis/cannabis_law.shtml#singapore |title = Cannabis legal status vault – Singapore |publisher = Erowid.org |access-date = 17 February 2011 |archive-date = 15 December 2019 |archive-url = https://web.archive.org/web/20191215152836/https://www.erowid.org/plants/cannabis/cannabis_law.shtml#singapore |url-status = live }}</ref><ref>{{cite web|title=MISUSE OF DRUGS ACT|url=http://statutes.agc.gov.sg/aol/search/display/view.w3p;page=0;query=DocId%3Ac13adadb-7d1b-45f8-a3bb-92175f83f4f5%20Depth%3A0%20ValidTime%3A02%2F10%2F2013%20TransactionTime%3A02%2F10%2F2013%20Status%3Ainforce;rec=0;whole=yes|work=Attorney-General's Chamber|publisher=Singapore Government|access-date=3 October 2013|date=31 March 2008|archive-date=7 August 2017|archive-url=https://web.archive.org/web/20170807235438/http://statutes.agc.gov.sg/aol/search/display/view.w3p;page=0;query=DocId%3Ac13adadb-7d1b-45f8-a3bb-92175f83f4f5%20Depth%3A0%20ValidTime%3A02%2F10%2F2013%20TransactionTime%3A02%2F10%2F2013%20Status%3Ainforce;rec=0;whole=yes|url-status=dead}}</ref>  In rare cases, permission has been granted to use cannabis-derived pharmaceuticals for treatment of epilepsy.<ref>{{Cite web|url=https://www.straitstimes.com/singapore/cannabis-derived-drug-approved-for-second-patient|title=Cannabis-derived drug approved for second patient|date=17 June 2021|website=The Straits Times|access-date=19 June 2021|archive-date=19 June 2021|archive-url=https://web.archive.org/web/20210619172901/https://www.straitstimes.com/singapore/cannabis-derived-drug-approved-for-second-patient|url-status=live}}</ref>",
   "recreational_status": "Illegal",
   "medical_status": "Legal",
   "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-21T20:22:52.085Z",
+  "fetched_at": "2026-01-28T23:20:50.661Z",
   "source": "countries",
   "revision_id": "1332405714"
 }

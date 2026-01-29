@@ -2,21 +2,36 @@
   "geo_key": "EC",
   "name_in_wiki": "Ecuador",
   "wiki_row_url": "https://en.wikipedia.org/wiki/Ecuador",
-  "row_ref": "iso_fallback:EC",
-  "wiki_rec": "Unknown",
-  "wiki_med": "Unknown",
-  "sources": [],
-  "sources_count": 0,
-  "main_articles": [],
-  "notes_main_articles": [],
-  "notes_text": "",
-  "notes_text_len": 0,
-  "notes": "",
-  "notes_raw": "",
-  "recreational_status": "Unknown",
-  "medical_status": "Unknown",
+  "row_ref": "country:52",
+  "wiki_rec": "Illegal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in Ecuador",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ecuador"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Ecuador",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ecuador"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Ecuador",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ecuador"
+    }
+  ],
+  "notes_text": "Possession of up to 10 g decriminalized in 2013, but policy was repealed by President Daniel Noboa in 2023.",
+  "notes_text_len": 107,
+  "notes": "Possession of up to 10 g decriminalized in 2013, but policy was repealed by President Daniel Noboa in 2023.",
+  "notes_raw": "{{main|Cannabis in Ecuador}} Possession of up to {{cvt|10|g|frac=8}} decriminalized in 2013, but policy was repealed by President [[Daniel Noboa]] in 2023.<ref>{{cite news |title=Ecuador's newly sworn-in president repeals guidelines allowing people to carry limited drug amounts |url=https://apnews.com/article/ecuador-president-noboa-drug-trafficking-repeal-6c2e7b2764516113639817716f208300 |access-date=22 March 2024 |work=Associated Press |date=25 November 2023}}</ref>",
+  "recreational_status": "Illegal",
+  "medical_status": "Legal",
   "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-21T20:22:52.085Z",
-  "source": "unknown",
+  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source": "countries",
   "revision_id": "1332405714"
 }

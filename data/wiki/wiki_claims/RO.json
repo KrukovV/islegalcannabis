@@ -2,21 +2,36 @@
   "geo_key": "RO",
   "name_in_wiki": "Romania",
   "wiki_row_url": "https://en.wikipedia.org/wiki/Romania",
-  "row_ref": "iso_fallback:RO",
-  "wiki_rec": "Unknown",
-  "wiki_med": "Unknown",
-  "sources": [],
-  "sources_count": 0,
-  "main_articles": [],
-  "notes_main_articles": [],
-  "notes_text": "",
-  "notes_text_len": 0,
-  "notes": "",
-  "notes_raw": "",
-  "recreational_status": "Unknown",
-  "medical_status": "Unknown",
+  "row_ref": "country:148",
+  "wiki_rec": "Illegal",
+  "wiki_med": "Legal",
+  "sources": [
+    {
+      "title": "Cannabis in Romania",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Romania"
+    }
+  ],
+  "sources_count": 1,
+  "main_articles": [
+    {
+      "title": "Cannabis in Romania",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Romania"
+    }
+  ],
+  "notes_main_articles": [
+    {
+      "title": "Cannabis in Romania",
+      "url": "https://en.wikipedia.org/wiki/Cannabis_in_Romania"
+    }
+  ],
+  "notes_text": "Small quantities punishable by a large fine for first offenders or 6 months to 2 years in prison if the person has been convicted before. Possession of large amounts or trafficking is punishable by 2–7 years of jail time. Decriminalization proposed. Limited medical use approved in 2013.",
+  "notes_text_len": 287,
+  "notes": "Small quantities punishable by a large fine for first offenders or 6 months to 2 years in prison if the person has been convicted before. Possession of large amounts or trafficking is punishable by 2–7 years of jail time. Decriminalization proposed. Limited medical use approved in 2013.",
+  "notes_raw": "{{main|Cannabis in Romania}} Small quantities punishable by a large fine for first offenders or 6 months to 2 years in prison if the person has been convicted before. Possession of large amounts or trafficking is punishable by 2–7 years of jail time.<ref>{{citation | url=http://www.reporterntv.ro/stire/pedepsele-pentru-traficul-si-consumul-de-droguri-s-au-redus-totusi | title=Pedepsele pentru traficul și consumul de droguri s-au redus. Totuși... | publisher=Reporter NTV | date=10 February 2015 | access-date=4 September 2017 | archive-url=https://web.archive.org/web/20170904213425/http://www.reporterntv.ro/stire/pedepsele-pentru-traficul-si-consumul-de-droguri-s-au-redus-totusi | archive-date=4 September 2017 | url-status=dead }}</ref> Decriminalization proposed.<ref>{{citation |url = http://www.antena3.ro/stiri/politica/raport-prezidential-pentru-eba-comisia-lui-basescu-propune-dezincriminarea-consumului-de-droguri_80829.html |title = Raport pentru EBA: Comisia prezidenţială susţine dezincriminarea consumului de droguri şi sexul comercial |publisher = Antena3.ro |date = 22 September 2009 |access-date = 17 February 2011 |archive-date = 18 March 2016 |archive-url = https://web.archive.org/web/20160318161358/http://www.antena3.ro/stiri/politica/raport-prezidential-pentru-eba-comisia-lui-basescu-propune-dezincriminarea-consumului-de-droguri_80829.html |url-status = live }}</ref> Limited medical use approved in 2013.<ref>{{cite news|title=Romania Legalizes Medical Marijuana, Becomes 10th EU Country To Permit Therapeutic Use|url=http://www.novinite.com/view_news.php?id=154315|access-date=14 October 2013|work=[[Novinite]]|date=6 October 2013|archive-date=21 June 2018|archive-url=https://web.archive.org/web/20180621015758/https://www.novinite.com/view_news.php?id=154315|url-status=live}}</ref><ref>{{cite web |url = http://www.gandul.info/stiri/anm-nu-avem-nicio-cerere-de-punere-pe-piata-a-canabisului-medicinal-daca-ar-fi-am-aproba-o-11448832 |title = ANM: Nu avem nicio cerere de punere pe piaţă a canabisului medicinal; dacă ar fi, am aproba-o |date = 3 October 2013 |access-date = 3 October 2013 |archive-date = 26 December 2018 |archive-url = https://web.archive.org/web/20181226021504/https://www.gandul.info/stiri/anm-nu-avem-nicio-cerere-de-punere-pe-piata-a-canabisului-medicinal-daca-ar-fi-am-aproba-o-11448832%20 |url-status = live }}</ref>",
+  "recreational_status": "Illegal",
+  "medical_status": "Legal",
   "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-21T20:22:52.085Z",
-  "source": "unknown",
+  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source": "countries",
   "revision_id": "1332405714"
 }
