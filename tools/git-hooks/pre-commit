@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -e
+
+changed_code=$(git diff --cached --name-only | grep -Ev '^data/wiki/' || true)
+changed_data=$(git diff --cached --name-only | grep -E '^data/wiki/' || true)
+
+if [[ -n "$changed_code" && -n "$changed_data" ]]; then
+  echo "❌ Запрещено смешивать CODE и data/wiki/** в одном коммите"
+  echo "→ Сделай два коммита: code → data(wiki)"
+  exit 1
+fi
