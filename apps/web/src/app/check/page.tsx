@@ -1,10 +1,13 @@
 import Link from "next/link";
-import ResultCard from "@/components/ResultCard";
 import CheckErrorCard from "@/components/CheckErrorCard";
 import { GET as checkGET } from "../api/check/route";
 import { fromDetected, fromManual, fromQuery } from "@/lib/location/locationContext";
 import { mapCheckError } from "@/lib/ui/checkErrors";
 import styles from "../result/result.module.css";
+import LocationMeta from "@/components/LocationMeta";
+import { buildRegions, buildSSOTStatusIndex } from "@/lib/mapData";
+import { SSOTStatusText, statusTruthBadge } from "@/lib/statusUi";
+import { explainSSOT } from "@/lib/ssotExplain";
 
 export const runtime = "nodejs";
 
@@ -79,6 +82,25 @@ export default async function CheckPage({
     );
   }
 
+  const geoKey = country === "US" ? `US-${region}` : country;
+  const regions = buildRegions();
+  const statusIndex = buildSSOTStatusIndex(regions);
+  const entry = statusIndex.get(geoKey);
+  if (!entry) {
+    return (
+      <main className={styles.page}>
+        <div className={styles.container}>
+          <CheckErrorCard
+            title="Data not available"
+            message="We do not have SSOT data for that jurisdiction yet. Choose another location."
+            requestId={json.requestId}
+            retryHref={retryHref}
+          />
+        </div>
+      </main>
+    );
+  }
+
   const locationMode = json.viewModel?.location?.mode ?? "query";
   const method = json.viewModel?.location?.method;
   const confidence = json.viewModel?.location?.confidence;
@@ -97,22 +119,136 @@ export default async function CheckPage({
             region: country === "US" ? region : undefined
           });
 
+  const truthLevel = entry.truthLevel ?? "WIKI_ONLY";
+  const truthLevelLabel = truthLevel;
+  const truthReasonCodes = Array.isArray(entry.reasons) ? entry.reasons : [];
+  const hasOfficialOverride = Boolean(entry.officialOverride);
+  const effectiveRec = entry.recDerived || entry.recEffective || "Unknown";
+  const effectiveMed = entry.medDerived || entry.medEffective || "Unknown";
+  const wikiUsed = Boolean(entry.wikiPage);
+  const officialCount = Number.isFinite(entry.officialLinksCount)
+    ? entry.officialLinksCount
+    : 0;
+  const verifyLinks = Array.isArray(json.verify_links) ? json.verify_links : [];
+  const wikiLinks = Array.isArray(json.wiki_links) ? json.wiki_links : [];
+  const explain = explainSSOT({
+    truthLevel,
+    officialLinksCount: officialCount,
+    recEffective: effectiveRec,
+    medEffective: effectiveMed,
+    reasons: truthReasonCodes
+  });
+  const truthBadge = statusTruthBadge(truthLevel);
+  const ssotText = SSOTStatusText({
+    truthLevel,
+    recEffective: effectiveRec,
+    medEffective: effectiveMed
+  });
+
   return (
     <main className={styles.page}>
       <div className={styles.container}>
-        <ResultCard
-          profile={json.profile}
-          title={json.viewModel?.title ?? json.profile.id}
-          isPaidUser={Boolean(json.viewModel?.meta?.paid)}
-          isPro={isPro}
-          proPreviewHref={proPreviewHref}
-          advancedNearest={json.nearest ?? undefined}
-          locationContext={locationContext}
-          viewModel={json.viewModel}
-          showSources
-          wikiLinks={json.wiki_links}
-          linksTrust={json.links_trust}
-        />
+        <div className={styles.card}>
+          <header className={styles.header}>
+            <div>
+              <div className={styles.kicker}>SSOT check</div>
+              <h1 className={styles.title}>
+                {json.viewModel?.title ?? geoKey}
+              </h1>
+            </div>
+            <div className={styles.meta}>
+              <LocationMeta context={locationContext} />
+            </div>
+          </header>
+          <section className={styles.section}>
+            <h2>Status</h2>
+            <div className={styles.metaLabel} data-testid="legal-status">
+              <div>
+                Вывод: Recreational — {explain.recStatusRu}; Medical — {explain.medStatusRu}
+              </div>
+              <div>
+                Основано на: {explain.basisText} · {truthBadge.icon} {truthBadge.label}
+              </div>
+            </div>
+            <div className={styles.metaLabel}>
+              Recreational: Статус (по данным): {explain.recStatusRu}
+            </div>
+            <div className={styles.metaLabel}>
+              Уверенность: {explain.reliabilityText}
+            </div>
+            <div className={styles.metaLabel}>
+              Medical: Статус (по данным): {explain.medStatusRu}
+            </div>
+            <div className={styles.metaLabel}>Уверенность: {explain.reliabilityText}</div>
+            <div className={styles.metaLabel}>Почему: {explain.whyText}</div>
+            {explain.nextStepText ? (
+              <div className={styles.metaLabel}>{explain.nextStepText}</div>
+            ) : null}
+            <details className={styles.metaLabel}>
+              <summary>Details (для продвинутых)</summary>
+              <div>Status source: SSOT_ONLY</div>
+              <div>
+                SSOT truth level: {truthLevelLabel} ({truthLevel})
+              </div>
+              <div>Official override: {hasOfficialOverride ? "YES" : "NO"}</div>
+              <div>
+                Wiki used: {wikiUsed ? "YES (source material only)" : "NO"}
+              </div>
+              <div>Official links: {officialCount}</div>
+              {truthReasonCodes.length > 0 ? (
+                <div>Truth reasons: {truthReasonCodes.join(", ")}</div>
+              ) : (
+                <div>Truth reasons: -</div>
+              )}
+              <div>{ssotText.recText}</div>
+              <div>{ssotText.medText}</div>
+            </details>
+          </section>
+          <section className={styles.section}>
+            <h2 data-testid="verify-yourself">Verify yourself</h2>
+            {verifyLinks.length > 0 ? (
+              <ul className={styles.sources} data-testid="verify-links">
+                {verifyLinks.map((link: { title?: string; url?: string }) => (
+                  <li key={link.url ?? link.title}>
+                    {link.url ? (
+                      <a href={link.url} target="_blank" rel="noreferrer">
+                        {link.title ?? "Official source"}
+                      </a>
+                    ) : (
+                      link.title ?? "Official source"
+                    )}
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+            {wikiLinks.length > 0 ? (
+              <ul className={styles.sources} data-testid="verify-sources">
+                {wikiLinks.map((link: { title?: string; url?: string }) => (
+                  <li key={link.url ?? link.title}>
+                    {link.url ? (
+                      <a href={link.url} target="_blank" rel="noreferrer">
+                        {link.title ?? link.url}
+                      </a>
+                    ) : (
+                      link.title ?? "Wikipedia: Legality of cannabis"
+                    )}
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+            <details className={styles.metaLabel}>
+              <summary>Details (для продвинутых)</summary>
+              <ul className={styles.sources} data-testid="verify-facts">
+                <li>facts: ssot_only</li>
+              </ul>
+            </details>
+          </section>
+          {isPro ? (
+            <div className={styles.metaLabel}>
+              Pro preview: <Link href={proPreviewHref}>open</Link>
+            </div>
+          ) : null}
+        </div>
         <Link className={styles.backLink} href="/">
           Back to location search
         </Link>

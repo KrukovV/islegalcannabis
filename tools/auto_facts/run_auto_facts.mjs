@@ -1793,6 +1793,13 @@ async function main() {
       law_pages: 0,
       machine_verified_delta: 0,
       candidate_facts_delta: 0,
+      progress_delta: 0,
+      regress_delta: 0,
+      progress_components: {
+        machine_verified_added: 0,
+        machine_verified_removed: 0,
+        candidate_facts_added: 0
+      },
       reason,
       status: "UNKNOWN",
       reason_code: reason,
@@ -2251,6 +2258,12 @@ async function main() {
   }
   const afterCandidateCount = Object.keys(candidatePayload.entries || {}).length;
   const candidateFactsDelta = Math.max(0, afterCandidateCount - beforeCandidateCount);
+  const newOfficialBadges = 0;
+  const progressDelta =
+    Math.max(0, machineVerifiedDelta) +
+    Math.max(0, candidateFactsDelta) +
+    Math.max(0, newOfficialBadges);
+  const regressDelta = Math.max(0, mvRemoved);
   const picked = Array.from(
     new Set(items.map((item) => String(item.iso2 || "").toUpperCase()).filter(Boolean))
   );
@@ -2362,6 +2375,14 @@ async function main() {
     mv_after: mvAfterCount,
     mv_added: machineVerifiedDelta,
     mv_removed: mvRemoved,
+    progress_delta: progressDelta,
+    regress_delta: regressDelta,
+    progress_components: {
+      machine_verified_added: machineVerifiedDelta,
+      machine_verified_removed: mvRemoved,
+      candidate_facts_added: candidateFactsDelta,
+      official_badges_added: newOfficialBadges
+    },
     mv_wrote: Boolean(mvWriteSummaryCache?.wrote),
     mv_write_reason: mvWriteSummaryCache?.reason || "",
     mv_corrupt_backup: mvWriteSummaryCache?.corruptBackup || "",

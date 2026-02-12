@@ -38,7 +38,7 @@ export async function GET(req: Request) {
   appendSsotLine(
     `GEO_RESOLVE ok=1 source=IP permission=unsupported iso=${result.country} geo=${result.country}${result.region ? `-${result.region}` : ""} reason=OK`
   );
-  console.info(`[${requestId}] whereami_resolved`);
+  console.warn(`UI_WHEREAMI request_id=${requestId} resolved=1`);
 
   return okResponse(requestId, {
     ...result,

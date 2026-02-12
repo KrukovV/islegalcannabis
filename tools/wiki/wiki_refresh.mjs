@@ -110,6 +110,9 @@ function normalizeClaim(item, fallbackRevision, fallbackFetchedAt) {
       item?.med_status || item?.wiki_med || item?.medical_status || "Unknown"
     ),
     notes_text: String(item?.notes_text || item?.notes_raw || item?.notes || ""),
+    notes_sections_used: Array.isArray(item?.notes_sections_used) ? item.notes_sections_used : [],
+    notes_main_article: String(item?.notes_main_article || item?.notes_main_articles?.[0]?.title || ""),
+    notes_rev: String(item?.notes_rev || ""),
     main_articles: normalizeMainArticles(item?.main_articles || item?.notes_main_articles),
     wiki_row_url: String(item?.wiki_row_url || ""),
     updated_at: String(item?.updated_at || item?.fetched_at || fallbackFetchedAt || ""),

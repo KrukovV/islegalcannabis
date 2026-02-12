@@ -1,10 +1,7 @@
 import styles from "./page.module.css";
 import HomeActions from "./_components/HomeActions";
 import MapSection from "./_components/MapSection";
-
 export default function Home() {
-  const mapEnabled = process.env.MAP_ENABLED === "1";
-
   return (
     <div className={styles.page}>
       <main className={styles.main}>
@@ -19,7 +16,7 @@ export default function Home() {
           <HomeActions />
         </section>
         <section className={styles.card}>
-          <MapSection enabled={mapEnabled} />
+          <MapSection />
         </section>
       </main>
       <div className={styles.disclaimerSticky}>

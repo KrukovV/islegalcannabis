@@ -2,38 +2,43 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import styles from "./LeafletMap.module.css";
+import { SSOTStatusText, statusColorKey, statusLabelRu, statusTruthBadge, type TruthLevel } from "@/lib/statusUi";
+import { explainSSOT } from "@/lib/ssotExplain";
 
 type LeafletLayer = {
-  addTo?: (map: LeafletMapInstance) => LeafletLayer;
-  addLayer?: (layer: LeafletLayer | LeafletLayerGroup) => LeafletLayer;
+  addTo?: (_map: LeafletMapInstance) => LeafletLayer;
+  addLayer?: (_layer: LeafletLayer | LeafletLayerGroup) => LeafletLayer;
   clearLayers?: () => void;
-  bindPopup?: (html: string) => void;
+  bindPopup?: (_html: string) => void;
+  on?: (_event: string, _handler: () => void) => void;
 };
 
 type LeafletLayerGroup = LeafletLayer & {
-  addLayer: (layer: LeafletLayer) => LeafletLayerGroup;
+  addLayer: (_layer: LeafletLayer) => LeafletLayerGroup;
   clearLayers: () => void;
 };
 
 type LeafletMapInstance = {
-  setView: (coords: [number, number], zoom: number, options?: { animate?: boolean }) => LeafletMapInstance;
-  on: (event: string, handler: () => void) => void;
+  setView: (_coords: [number, number], _zoom: number, _options?: { animate?: boolean }) => LeafletMapInstance;
+  on: (_event: string, _handler: () => void) => void;
   getCenter: () => { lat: number; lng: number };
   getZoom: () => number;
   invalidateSize: () => void;
+  attributionControl?: { setPrefix: (_value: boolean) => void; setPosition: (_pos: string) => void };
 };
 
 type LeafletModule = {
-  map: (node: HTMLElement, options: { zoomControl: boolean; worldCopyJump: boolean }) => LeafletMapInstance;
-  tileLayer: (url: string, options: { attribution: string }) => LeafletLayer;
+  map: (_node: HTMLElement, _options: { zoomControl: boolean; worldCopyJump: boolean; attributionControl?: boolean }) => LeafletMapInstance;
+  tileLayer: (_url: string, _options: { attribution: string }) => LeafletLayer;
+  gridLayer?: (_options: { attribution?: string; tileSize?: number; opacity?: number }) => LeafletLayer;
   layerGroup: () => LeafletLayerGroup;
   control: {
-    layers: (base: Record<string, LeafletLayer>, overlays: Record<string, LeafletLayer>, options: { collapsed: boolean }) => LeafletLayer;
+    layers: (_base: Record<string, LeafletLayer>, _overlays: Record<string, LeafletLayer>, _options: { collapsed: boolean }) => LeafletLayer;
   };
-  geoJSON: (data: GeoJsonPayload, options: Record<string, unknown>) => LeafletLayer;
-  circleMarker: (latlng: unknown, options: Record<string, unknown>) => LeafletLayer;
-  marker: (coords: [number, number]) => LeafletLayer;
-  circle: (coords: [number, number], options: Record<string, unknown>) => LeafletLayer;
+  geoJSON: (_data: GeoJsonPayload, _options: Record<string, unknown>) => LeafletLayer;
+  circleMarker: (_latlng: unknown, _options: Record<string, unknown>) => LeafletLayer;
+  marker: (_coords: [number, number]) => LeafletLayer;
+  circle: (_coords: [number, number], _options: Record<string, unknown>) => LeafletLayer;
   markerClusterGroup?: () => LeafletLayerGroup;
 };
 
@@ -49,114 +54,133 @@ type RegionFeature = {
     type?: string;
     legalStatusGlobal?: string;
     medicalStatusGlobal?: string;
-    notes?: string | null;
-    wikiSources?: string[];
+    officialOverrideRec?: string | null;
+    officialOverrideMed?: string | null;
+    hasOfficialOverride?: boolean;
+    recEffective?: string;
+    medEffective?: string;
+    recDerived?: string;
+    medDerived?: string;
+    truthLevel?: TruthLevel;
+    officialLinksCount?: number;
+    reasons?: string[];
+    wikiPage?: string | null;
+    sources?: string[];
+    notesOur?: string | null;
+    notesWiki?: string | null;
     updatedAt?: string;
   };
 };
 
-type GeoJsonPayload = {
+export type GeoJsonPayload = {
   type: "FeatureCollection";
   features: RegionFeature[];
 };
 
-type RegionResponse = {
-  regions: Array<{
+type MapProps = {
+  geojsonData: GeoJsonPayload;
+  stateGeojsonData: GeoJsonPayload;
+  regionOptions: Array<{ id: string; name: string; lat: number; lng: number }>;
+  statusIndex: Record<string, {
     geo: string;
-    type: string;
-    legalStatusGlobal: string;
-    medicalStatusGlobal: string;
-    notes?: string | null;
-    wikiSources?: string[];
-    coordinates?: { lat: number; lng: number };
-    updatedAt?: string;
     name?: string;
+    recEffective?: string;
+    medEffective?: string;
+    recDerived?: string;
+    medDerived?: string;
+    truthLevel?: TruthLevel;
+    officialOverride?: boolean;
+    officialLinksCount?: number;
+    reasons?: string[];
+    wikiPage?: string | null;
+    sources?: string[];
   }>;
+  mapMode: "CI" | "DEV";
+  dataSource: string;
+  dataOk: boolean;
 };
 
-type Retailer = {
-  id: string;
-  name: string;
-  lat: number;
-  lng: number;
-  type?: string;
-  license?: string;
-  website?: string;
-  updatedAt?: string;
-};
-
-type RetailerResponse = {
-  retailers: Retailer[];
-};
-
-type CachePayload<T> = {
-  storedAt: number;
-  payload: T;
-};
-
-const REGION_TTL_MS = 48 * 60 * 60 * 1000;
-const RETAILER_TTL_MS = 4 * 60 * 60 * 1000;
-const GEOJSON_TTL_MS = 48 * 60 * 60 * 1000;
-
-function readCache<T>(key: string, ttlMs: number) {
-  if (typeof window === "undefined") return null;
-  const raw = window.localStorage.getItem(key);
-  if (!raw) return null;
-  try {
-    const parsed = JSON.parse(raw) as CachePayload<T>;
-    if (!parsed?.storedAt || !parsed?.payload) return null;
-    if (Date.now() - parsed.storedAt > ttlMs) return null;
-    return parsed.payload;
-  } catch {
-    return null;
-  }
+function mapColorKeyToHex(key: "green" | "yellow" | "red" | "gray") {
+  if (key === "green") return "#3AAE6B";
+  if (key === "yellow") return "#E4B94A";
+  if (key === "red") return "#D05C5C";
+  return "#9B9B9B";
 }
 
-function writeCache<T>(key: string, payload: T) {
-  if (typeof window === "undefined") return;
-  const value: CachePayload<T> = { storedAt: Date.now(), payload };
-  window.localStorage.setItem(key, JSON.stringify(value));
-}
-
-async function fetchWithCache<T>(url: string, cacheKey: string, ttlMs: number) {
-  const cached = readCache<T>(cacheKey, ttlMs);
-  try {
-    const res = await fetch(url, { cache: "no-store" });
-    if (!res.ok) throw new Error(`HTTP_${res.status}`);
-    const payload = (await res.json()) as T;
-    writeCache(cacheKey, payload);
-    return { payload, fromCache: false };
-  } catch {
-    if (cached) {
-      return { payload: cached, fromCache: true };
-    }
-    throw new Error("FETCH_FAILED");
-  }
-}
-
-function statusColor(status: string | undefined) {
-  switch (String(status || "").toLowerCase()) {
-    case "legal":
-      return "#3AAE6B";
-    case "decriminalized":
-      return "#E4B94A";
-    case "illegal":
-      return "#D05C5C";
-    case "limited":
-      return "#4E7BE6";
-    default:
-      return "#9B9B9B";
-  }
-}
-
-function resolvePrimaryStatus(legal: string | undefined, medical: string | undefined) {
-  const legalText = String(legal || "").toLowerCase();
-  if (legalText === "legal") return "Legal";
-  if (legalText === "decriminalized") return "Decriminalized";
-  if (legalText === "illegal") return "Illegal";
-  const medicalText = String(medical || "").toLowerCase();
-  if (medicalText === "legal" || medicalText === "limited") return "Limited";
+function primaryEffectiveStatus(legal: string | undefined, medical: string | undefined) {
+  const legalText = String(legal || "");
+  if (legalText && legalText !== "Unknown") return legalText;
+  const medicalText = String(medical || "");
+  if (medicalText === "Legal" || medicalText === "Limited") return "Limited";
   return "Unknown";
+}
+
+function statusFillColor(truthLevel: TruthLevel, legal: string | undefined, medical: string | undefined) {
+  const primary = primaryEffectiveStatus(legal, medical);
+  const key = statusColorKey(truthLevel, primary);
+  return mapColorKeyToHex(key);
+}
+
+function escapeHtml(value: string) {
+  return String(value || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function buildWikiLink(title: string) {
+  const slug = encodeURIComponent(title.trim().replace(/\s+/g, "_"));
+  return `https://en.wikipedia.org/wiki/${slug}`;
+}
+
+function linkifyUrls(text: string) {
+  const safe = escapeHtml(text);
+  const re = /(https?:\/\/[^\s<>"')\]]+)/g;
+  const parts = safe.split(re);
+  return parts
+    .map((part, index) => {
+      if (index % 2 === 1) {
+        return `<a class="${styles.mapLink}" href="${part}" target="_blank" rel="noreferrer noopener">${part}</a>`;
+      }
+      return part;
+    })
+    .join("");
+}
+
+function renderNoteLinks(raw: string | null | undefined) {
+  const text = String(raw || "");
+  if (!text) return "";
+  const lead = text.match(/^\s*/) ? text.match(/^\s*/)![0] : "";
+  const trimmed = text.slice(lead.length);
+  const prefixMatch = trimmed.match(/^Main articles?:\s*/i);
+  if (!prefixMatch) {
+    return linkifyUrls(text);
+  }
+  const rest = trimmed.slice(prefixMatch[0].length);
+  const dotIndex = rest.indexOf(".");
+  const newlineIndex = rest.search(/\r?\n/);
+  const marker = rest.match(
+    /\s+(?=(Production|Prohibited|Illegal|Decriminal|Legal|Allowed|Permitted|Medical|Enforced|Banned|Cultivation|Possession)\b)/i
+  );
+  const markerIndex = marker && marker.index !== undefined ? marker.index : -1;
+  const cutCandidates = [dotIndex, newlineIndex, markerIndex].filter((i) => i !== -1);
+  const cutIndex = cutCandidates.length ? Math.min(...cutCandidates) : -1;
+  const articlePart = cutIndex !== -1 ? rest.slice(0, cutIndex).trim() : rest.trim();
+  const tail = cutIndex !== -1 ? rest.slice(cutIndex) : "";
+  if (!articlePart) return linkifyUrls(text);
+  const hasAnd = /\s+and\s+/i.test(articlePart);
+  const titles = articlePart
+    .split(/\s+and\s+|,/i)
+    .map((t) => t.trim())
+    .filter(Boolean);
+  const links = titles.map((title, idx) => {
+    const sep = idx === 0 ? "" : hasAnd && idx === titles.length - 1 ? " and " : ", ";
+    const href = buildWikiLink(title);
+    return `${sep}<a class="${styles.mapLink}" href="${href}" target="_blank" rel="noreferrer noopener">${escapeHtml(title)}</a>`;
+  });
+  return `${escapeHtml(lead)}${escapeHtml(prefixMatch[0])}${links.join("")}${linkifyUrls(tail)}`;
 }
 
 function mapHashToView(hash: string) {
@@ -165,22 +189,42 @@ function mapHashToView(hash: string) {
   return { zoom: Number(match[1]), lat: Number(match[2]), lng: Number(match[3]) };
 }
 
-export default function LeafletMap() {
+async function fetchGeoLoc() {
+  try {
+    const res = await fetch("/api/geo/loc", { cache: "no-store" });
+    if (!res.ok) return { geo: "-" };
+    const json = await res.json();
+    const iso = String(json?.iso || "-").toUpperCase();
+    const region = String(json?.region || "-").toUpperCase();
+    const geo = iso && region && region !== "-" ? `${iso}-${region}` : iso;
+    return { geo };
+  } catch {
+    return { geo: "-" };
+  }
+}
+
+export default function LeafletMap({
+  geojsonData,
+  stateGeojsonData,
+  regionOptions,
+  statusIndex,
+  mapMode: _mapMode,
+  dataSource: _dataSource,
+  dataOk
+}: MapProps) {
   const mapRef = useRef<HTMLDivElement | null>(null);
   const mapInstance = useRef<LeafletMapInstance | null>(null);
-  const layersRef = useRef<{ regions?: LeafletLayer; states?: LeafletLayer; retailers?: LeafletLayer; heat?: LeafletLayer }>({});
+  const leafletRef = useRef<LeafletModule | null>(null);
+  const layersRef = useRef<{ regions?: LeafletLayer; states?: LeafletLayer }>({});
+  const geoMarkerRef = useRef<LeafletLayer | null>(null);
+  const mapLogRef = useRef<{ rendered?: boolean; missing?: boolean }>({});
   const [offline, setOffline] = useState(false);
-  const [cacheNotice, setCacheNotice] = useState<string>("");
-  const [regionOptions, setRegionOptions] = useState<Array<{ id: string; name: string; lat: number; lng: number }>>(
-    []
-  );
-  const [geojsonData, setGeojsonData] = useState<GeoJsonPayload | null>(null);
-  const [stateGeojsonData, setStateGeojsonData] = useState<GeoJsonPayload | null>(null);
   const [activeFilters, setActiveFilters] = useState<Record<string, boolean>>({
     recreational: true,
     medical: true,
     decrim: true,
     illegal: true,
+    unenforced: true,
     unknown: true
   });
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -199,24 +243,57 @@ export default function LeafletMap() {
     };
   }, []);
 
+  void _mapMode;
+  const mapTiles = _dataSource.includes("TILES_OFFLINE") ? "OFFLINE" : "NETWORK";
+  const legendColor = (status: string) =>
+    mapColorKeyToHex(statusColorKey("OFFICIAL", status));
+
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (!mapRef.current || mapInstance.current) return;
+    if (!dataOk) return;
     const leaflet = (window as Window & { L?: LeafletModule }).L;
-    if (!leaflet) return;
+    if (!leaflet) {
+      if (!mapLogRef.current.missing) {
+        mapLogRef.current.missing = true;
+        console.warn("MAP_LEAFLET_GLOBAL_MISSING=1");
+        console.warn("MAP_RENDERED=NO MAP_DATA_SOURCE=SSOT_ONLY");
+      }
+      return;
+    }
     const L: LeafletModule = leaflet;
+    leafletRef.current = L;
+    if (!mapLogRef.current.rendered) {
+      mapLogRef.current.rendered = true;
+      console.warn("MAP_LEAFLET_GLOBAL_MISSING=0");
+      console.warn("MAP_RENDERED=YES MAP_DATA_SOURCE=SSOT_ONLY");
+    }
 
     const hashView = mapHashToView(window.location.hash);
     const startView = hashView ?? baseView;
-    const map = L.map(mapRef.current, {
+    const map = L.map(mapRef.current as HTMLElement, {
       zoomControl: true,
-      worldCopyJump: true
+      worldCopyJump: true,
+      attributionControl: true
     }).setView([startView.lat, startView.lng], startView.zoom);
+    map.attributionControl?.setPrefix(false);
+    map.attributionControl?.setPosition("bottomright");
 
-    // @ts-expect-error Leaflet globals are injected at runtime.
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution: "© OpenStreetMap contributors"
-    }).addTo(map);
+    if (mapTiles === "NETWORK") {
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "&copy; OpenStreetMap contributors"
+      }).addTo(map);
+    } else if (typeof L.gridLayer === "function") {
+      const grid = L.gridLayer({ opacity: 0.15 });
+      // @ts-expect-error Leaflet grid layer supports createTile at runtime.
+      grid.createTile = () => {
+        const tile = document.createElement("div");
+        tile.style.border = "1px solid rgba(80, 90, 90, 0.3)";
+        tile.style.boxSizing = "border-box";
+        return tile;
+      };
+      grid.addTo(map);
+    }
 
     map.on("moveend", () => {
       const center = map.getCenter();
@@ -224,133 +301,49 @@ export default function LeafletMap() {
       window.location.hash = `map=${zoom}/${center.lat.toFixed(4)}/${center.lng.toFixed(4)}`;
     });
 
-    mapInstance.current = map;
+      mapInstance.current = map;
     const layerGroup = L.layerGroup;
     if (!layerGroup) return;
-    // @ts-expect-error Leaflet globals are injected at runtime.
     const regions = layerGroup().addTo(map);
-    // @ts-expect-error Leaflet globals are injected at runtime.
     const states = layerGroup().addTo(map);
-    // @ts-expect-error Leaflet globals are injected at runtime.
-    const retailers = layerGroup().addTo(map);
-    const heat = layerGroup();
-    layersRef.current = { regions, states, retailers, heat };
+      layersRef.current = { regions, states };
 
     const overlays: Record<string, LeafletLayer> = {};
     if (layersRef.current.regions) overlays.Regions = layersRef.current.regions;
     if (layersRef.current.states) overlays.States = layersRef.current.states;
-    if (layersRef.current.retailers) overlays.Retailers = layersRef.current.retailers;
-    if (layersRef.current.heat) overlays["Heat (demo)"] = layersRef.current.heat;
-    // @ts-expect-error Leaflet globals are injected at runtime.
     L.control.layers({}, overlays, { collapsed: false }).addTo(map);
-  }, [baseView]);
+  }, [baseView, dataOk, mapTiles]);
 
   useEffect(() => {
     const map = mapInstance.current;
-    const L = typeof window !== "undefined" ? (window as Window & { L?: LeafletModule }).L : null;
-    if (!map || !L) return;
-
-    const loadRegions = async () => {
-      const result = await fetchWithCache<GeoJsonPayload>(
-        "/api/v1/map/geojson?type=countries",
-        "ilc_geojson_countries_v1",
-        GEOJSON_TTL_MS
-      );
-      if (result.fromCache) setCacheNotice("Using cached map data.");
-      const geojson = result.payload;
-      setGeojsonData(geojson);
-    };
-
-    const loadStates = async () => {
-      const result = await fetchWithCache<GeoJsonPayload>(
-        "/api/v1/map/geojson?type=states",
-        "ilc_geojson_states_v1",
-        GEOJSON_TTL_MS
-      );
-      if (result.fromCache) setCacheNotice((prev) => prev || "Using cached map data.");
-      setStateGeojsonData(result.payload);
-    };
-
-    const loadRetailers = async () => {
-      const result = await fetchWithCache<RetailerResponse>(
-        "/api/v1/map/retailers",
-        "ilc_retailers_v1",
-        RETAILER_TTL_MS
-      );
-      if (result.fromCache) setCacheNotice((prev) => prev || "Using cached retailer data.");
-      const list = result.payload.retailers;
-      const cluster = typeof L.markerClusterGroup === "function" ? L.markerClusterGroup() : L.layerGroup();
-      list.forEach((store) => {
-        const marker = L.marker([store.lat, store.lng]);
-        marker.bindPopup?.(
-          `<div class="${styles.popup}"><strong>${store.name}</strong><div>${store.type ?? "Retailer"}</div><div>${store.license ?? ""}</div><div>${store.updatedAt ?? ""}</div></div>`
-        );
-        cluster.addLayer(marker);
-      });
-      layersRef.current.retailers?.clearLayers?.();
-      layersRef.current.retailers?.addLayer?.(cluster);
-    };
-
-    const loadHeat = async () => {
-      const result = await fetchWithCache<RegionResponse>(
-        "/api/v1/map/regions",
-        "ilc_regions_v1",
-        REGION_TTL_MS
-      );
-      const list = result.payload.regions;
-      setRegionOptions(
-        list
-          .filter((entry) => entry.coordinates)
-          .map((entry) => ({
-            id: entry.geo,
-            name: entry.name || entry.geo,
-            lat: entry.coordinates!.lat,
-            lng: entry.coordinates!.lng
-          }))
-          .sort((a, b) => a.name.localeCompare(b.name))
-      );
-      const points = list.filter((entry) => entry.coordinates);
-      const group = L.layerGroup();
-      points.forEach((entry) => {
-        const color = statusColor(resolvePrimaryStatus(entry.legalStatusGlobal, entry.medicalStatusGlobal));
-        const marker = L.circle([entry.coordinates!.lat, entry.coordinates!.lng], {
-          radius: 200000,
-          color,
-          weight: 0,
-          fillColor: color,
-          fillOpacity: 0.2
-        });
-        group.addLayer(marker);
-      });
-      layersRef.current.heat?.clearLayers?.();
-      layersRef.current.heat?.addLayer?.(group);
-    };
-
-    loadRegions().catch(() => setCacheNotice("Map data unavailable."));
-    loadStates().catch(() => setCacheNotice("State map data unavailable."));
-    loadRetailers().catch(() => setCacheNotice("Retailer data unavailable."));
-    loadHeat().catch(() => undefined);
-  }, []);
-
-  useEffect(() => {
-    const map = mapInstance.current;
-    const L = typeof window !== "undefined" ? (window as Window & { L?: LeafletModule }).L : null;
+    const L = leafletRef.current;
     if (!map || !L || !geojsonData) return;
+    const resolveEffective = (props: RegionFeature["properties"], fallback?: typeof statusIndex[string]) => {
+      const derivedRec =
+        props.recDerived || fallback?.recDerived || props.recEffective || fallback?.recEffective || "Unknown";
+      const derivedMed =
+        props.medDerived || fallback?.medDerived || props.medEffective || fallback?.medEffective || "Unknown";
+      const truthLevel = props.truthLevel || fallback?.truthLevel || "WIKI_ONLY";
+      return { derivedRec, derivedMed, truthLevel };
+    };
     const categoryFor = (feature: RegionFeature) => {
-      const legal = String(feature.properties.legalStatusGlobal || "").toLowerCase();
-      const medical = String(feature.properties.medicalStatusGlobal || "").toLowerCase();
+      const resolved = resolveEffective(feature.properties, statusIndex[feature.properties.geo]);
+      const legal = String(resolved.derivedRec || "").toLowerCase();
+      const medical = String(resolved.derivedMed || "").toLowerCase();
       if (legal === "legal") return "recreational";
       if (legal === "decriminalized") return "decrim";
       if (legal === "illegal") return "illegal";
+      if (legal === "unenforced") return "unenforced";
       if (["legal", "limited"].includes(medical)) return "medical";
       return "unknown";
     };
     const styleFor = (feature: RegionFeature) => {
-      const status = resolvePrimaryStatus(
-        feature.properties.legalStatusGlobal,
-        feature.properties.medicalStatusGlobal
+      const resolved = resolveEffective(feature.properties, statusIndex[feature.properties.geo]);
+      const color = statusFillColor(
+        resolved.truthLevel || "WIKI_ONLY",
+        resolved.derivedRec,
+        resolved.derivedMed
       );
-      const color = statusColor(status);
       return {
         color,
         weight: 1,
@@ -365,8 +358,11 @@ export default function LeafletMap() {
       },
       style: styleFor,
       pointToLayer: (feature: RegionFeature, latlng: unknown) => {
-        const color = statusColor(
-          resolvePrimaryStatus(feature.properties.legalStatusGlobal, feature.properties.medicalStatusGlobal)
+        const resolved = resolveEffective(feature.properties, statusIndex[feature.properties.geo]);
+        const color = statusFillColor(
+          resolved.truthLevel || "WIKI_ONLY",
+          resolved.derivedRec,
+          resolved.derivedMed
         );
         return L.circleMarker(latlng, {
           radius: 6,
@@ -378,39 +374,122 @@ export default function LeafletMap() {
       },
       onEachFeature: (feature: RegionFeature, layerItem: LeafletLayer) => {
         const props = feature.properties;
-        const label = props.name || props.geo;
-        const legal = props.legalStatusGlobal || "Unknown";
-        const medical = props.medicalStatusGlobal || "Unknown";
-        const updated = props.updatedAt ? `Updated: ${props.updatedAt}` : "";
-        const notes = props.notes ? `<div class="${styles.popupNotes}">${props.notes}</div>` : "";
+        const statusFallback = statusIndex[props.geo] || {};
+        const label = escapeHtml(props.name || props.geo || "");
+        const resolved = resolveEffective(props, statusFallback);
+        const derivedRec = resolved.derivedRec || "Unknown";
+        const derivedMed = resolved.derivedMed || "Unknown";
+        const truthLevel = resolved.truthLevel || "WIKI_ONLY";
+        SSOTStatusText({
+          truthLevel,
+          recEffective: derivedRec,
+          medEffective: derivedMed
+        });
+        const overrideRec = props.officialOverrideRec || null;
+        const overrideMed = props.officialOverrideMed || null;
+        const wikiPage = props.wikiPage || statusFallback.wikiPage || "";
+        const wikiLink = wikiPage
+          ? `<div>Wiki Page: <a class="${styles.mapLink}" href="${escapeHtml(
+              wikiPage
+            )}" target="_blank" rel="noreferrer noopener">${escapeHtml(wikiPage)}</a></div>`
+          : `<div>Wiki Page: -</div>`;
+        const officialCount = typeof props.officialLinksCount === "number"
+          ? props.officialLinksCount
+          : statusFallback.officialLinksCount || 0;
+        const explain = explainSSOT({
+          truthLevel,
+          officialLinksCount: officialCount,
+          recEffective: derivedRec,
+          medEffective: derivedMed,
+          reasons
+        });
+        const officialBadge = officialCount > 0 ? `YES (${officialCount})` : "NO";
+        const notesOurText = props.notesOur || statusFallback.notesOur || "";
+        const notesWikiText = props.notesWiki || statusFallback.notesWiki || "";
+        const notesOur = notesOurText
+          ? `<div class="${styles.popupNotes}"><strong>Notes (SSOT):</strong> ${renderNoteLinks(notesOurText)}</div>`
+          : "";
+        const notesWiki = notesWikiText
+          ? `<div class="${styles.popupNotes}"><strong>Notes (Wiki):</strong> ${renderNoteLinks(notesWikiText)}</div>`
+          : "";
+        const dataMissing =
+          String(derivedRec || "").toLowerCase() === "unknown" &&
+          String(derivedMed || "").toLowerCase() === "unknown" &&
+          !notesOur &&
+          !notesWiki
+            ? `<div class="${styles.popupNotes}"><strong>DATA_MISSING</strong></div>`
+            : "";
+        const updated = props.updatedAt ? `Updated: ${escapeHtml(props.updatedAt)}` : "";
+        const reasons = Array.isArray(props.reasons) && props.reasons.length
+          ? props.reasons
+          : Array.isArray(statusFallback.reasons) && statusFallback.reasons.length
+            ? statusFallback.reasons
+            : [];
+        const truthBadge = statusTruthBadge(truthLevel);
+        const sourceLine = `<div>SSOT truth level: ${escapeHtml(
+          String(truthLevel)
+        )} ${escapeHtml(truthBadge.icon)} ${escapeHtml(truthBadge.label)}</div>`;
+        const reasonLine = `<div>Почему: ${escapeHtml(explain.whyText)}</div>`;
+        const reliabilityLine = `<div>Уверенность: ${escapeHtml(explain.reliabilityText)}</div>`;
+        const truthReasonsLine = reasons.length
+          ? `<div>Truth reasons: ${escapeHtml(reasons.join(", "))}</div>`
+          : `<div>Truth reasons: -</div>`;
+        const overrideRecLine = overrideRec
+          ? `<div>Rec (Official Override): ${escapeHtml(overrideRec)}</div>`
+          : "";
+        const overrideMedLine = overrideMed
+          ? `<div>Med (Official Override): ${escapeHtml(overrideMed)}</div>`
+          : "";
         layerItem.bindPopup?.(
-          `<div class="${styles.popup}"><strong>${label}</strong><div>Recreational: ${legal}</div><div>Medical: ${medical}</div>${notes}<div>${updated}</div></div>`
+          `<div class="${styles.popup}"><strong>${label}</strong>${sourceLine}${reliabilityLine}<div>Статус: ${escapeHtml(
+            explain.recStatusShort
+          )}</div><div>Статус (medical): ${escapeHtml(
+            explain.medStatusShort
+          )}</div>${reasonLine}${truthReasonsLine}${overrideRecLine}${overrideMedLine}${wikiLink}<div>Official: ${escapeHtml(
+            officialBadge
+          )}</div>${notesOur}${notesWiki}${dataMissing}<div>${updated}</div></div>`
         );
+        if (wikiPage) {
+          layerItem.on?.("click", () => {
+            window.open(wikiPage, "_blank", "noopener");
+          });
+        }
       }
     });
     layersRef.current.regions?.clearLayers?.();
     layersRef.current.regions?.addLayer?.(layer);
-  }, [geojsonData, activeFilters]);
+  }, [geojsonData, activeFilters, statusIndex]);
 
   useEffect(() => {
     const map = mapInstance.current;
-    const L = typeof window !== "undefined" ? (window as Window & { L?: LeafletModule }).L : null;
+    const L = leafletRef.current;
     if (!map || !L || !stateGeojsonData) return;
+    const resolveEffective = (props: RegionFeature["properties"], fallback?: typeof statusIndex[string]) => {
+      const derivedRec =
+        props.recDerived || fallback?.recDerived || props.recEffective || fallback?.recEffective || "Unknown";
+      const derivedMed =
+        props.medDerived || fallback?.medDerived || props.medEffective || fallback?.medEffective || "Unknown";
+      const truthLevel = props.truthLevel || fallback?.truthLevel || "WIKI_ONLY";
+      return { derivedRec, derivedMed, truthLevel };
+    };
     const categoryFor = (feature: RegionFeature) => {
-      const legal = String(feature.properties.legalStatusGlobal || "").toLowerCase();
-      const medical = String(feature.properties.medicalStatusGlobal || "").toLowerCase();
+      const resolved = resolveEffective(feature.properties, statusIndex[feature.properties.geo]);
+      const legal = String(resolved.derivedRec || "").toLowerCase();
+      const medical = String(resolved.derivedMed || "").toLowerCase();
       if (legal === "legal") return "recreational";
       if (legal === "decriminalized") return "decrim";
       if (legal === "illegal") return "illegal";
+      if (legal === "unenforced") return "unenforced";
       if (["legal", "limited"].includes(medical)) return "medical";
       return "unknown";
     };
     const styleFor = (feature: RegionFeature) => {
-      const status = resolvePrimaryStatus(
-        feature.properties.legalStatusGlobal,
-        feature.properties.medicalStatusGlobal
+      const resolved = resolveEffective(feature.properties, statusIndex[feature.properties.geo]);
+      const color = statusFillColor(
+        resolved.truthLevel || "WIKI_ONLY",
+        resolved.derivedRec,
+        resolved.derivedMed
       );
-      const color = statusColor(status);
       return {
         color,
         weight: 1,
@@ -425,8 +504,11 @@ export default function LeafletMap() {
       },
       style: styleFor,
       pointToLayer: (feature: RegionFeature, latlng: unknown) => {
-        const color = statusColor(
-          resolvePrimaryStatus(feature.properties.legalStatusGlobal, feature.properties.medicalStatusGlobal)
+        const resolved = resolveEffective(feature.properties, statusIndex[feature.properties.geo]);
+        const color = statusFillColor(
+          resolved.truthLevel || "WIKI_ONLY",
+          resolved.derivedRec,
+          resolved.derivedMed
         );
         return L.circleMarker(latlng, {
           radius: 5,
@@ -439,16 +521,62 @@ export default function LeafletMap() {
       onEachFeature: (feature: RegionFeature, layerItem: LeafletLayer) => {
         const props = feature.properties;
         const label = props.name || props.geo;
-        const legal = props.legalStatusGlobal || "Unknown";
-        const medical = props.medicalStatusGlobal || "Unknown";
+        const resolved = resolveEffective(props, statusIndex[props.geo]);
+        const legal = resolved.derivedRec || "Unknown";
+        const medical = resolved.derivedMed || "Unknown";
+        const truthLevel = resolved.truthLevel || "WIKI_ONLY";
+        const ssotText = SSOTStatusText({
+          truthLevel,
+          recEffective: legal,
+          medEffective: medical
+        });
+        const overrideRec = props.officialOverrideRec || null;
+        const overrideMed = props.officialOverrideMed || null;
+        const reasonText = Array.isArray(props.reasons) && props.reasons.length
+          ? props.reasons.join(", ")
+          : "-";
+        const reasonLine = `<div>Truth reasons: ${escapeHtml(reasonText)}</div>`;
+        const overrideRecLine = overrideRec
+          ? `<div>Rec (Official Override): ${escapeHtml(overrideRec)}</div>`
+          : "";
+        const overrideMedLine = overrideMed
+          ? `<div>Med (Official Override): ${escapeHtml(overrideMed)}</div>`
+          : "";
+        const truthBadge = statusTruthBadge(truthLevel);
         layerItem.bindPopup?.(
-          `<div class="${styles.popup}"><strong>${label}</strong><div>Recreational: ${legal}</div><div>Medical: ${medical}</div></div>`
+          `<div class="${styles.popup}"><strong>${label}</strong><div>SSOT truth level: ${escapeHtml(
+            String(truthLevel)
+          )} ${escapeHtml(truthBadge.icon)} ${escapeHtml(truthBadge.label)}</div><div>${escapeHtml(
+            ssotText.recText
+          )}</div><div>${escapeHtml(
+            ssotText.medText
+          )}</div>${reasonLine}${overrideRecLine}${overrideMedLine}</div>`
         );
       }
     });
     layersRef.current.states?.clearLayers?.();
     layersRef.current.states?.addLayer?.(layer);
-  }, [stateGeojsonData, activeFilters]);
+  }, [stateGeojsonData, activeFilters, statusIndex]);
+
+  useEffect(() => {
+    const map = mapInstance.current;
+    const L = leafletRef.current;
+    if (!map || !L) return;
+    fetchGeoLoc().then((loc) => {
+      const geo = loc.geo;
+      const target = regionOptions.find((entry) => entry.id === geo);
+      if (!target) return;
+      if (geoMarkerRef.current?.addTo) {
+        geoMarkerRef.current.addTo(map);
+        return;
+      }
+      const marker = L.marker([target.lat, target.lng]);
+      marker.bindPopup?.(
+        `<div class="${styles.popup}"><strong>You are here</strong><div>${target.name}</div></div>`
+      );
+      geoMarkerRef.current = marker.addTo(map);
+    });
+  }, [regionOptions]);
 
   const handleSearch = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const targetId = event.target.value;
@@ -466,12 +594,14 @@ export default function LeafletMap() {
     setActiveFilters((prev) => ({ ...prev, [key]: !prev[key] }));
   };
 
+  const cacheNotice = "";
+
   return (
     <section className={`${styles.mapWrap} ${isFullscreen ? styles.fullscreen : ""}`}>
       <header className={styles.mapHeader}>
         <div>
-          <h2>Global Cannabis Map</h2>
-          <p>Toggle layers, explore legality, and inspect verified sources.</p>
+          <h2>Where am I right now?</h2>
+          <p>Recreational + medical legality from cached SSOT data.</p>
         </div>
         <div className={styles.mapActions}>
           <label className={styles.search}>
@@ -505,8 +635,12 @@ export default function LeafletMap() {
               Illegal
             </label>
             <label>
+              <input type="checkbox" checked={activeFilters.unenforced} onChange={() => toggleFilter("unenforced")} />
+              Unenforced
+            </label>
+            <label>
               <input type="checkbox" checked={activeFilters.unknown} onChange={() => toggleFilter("unknown")} />
-              Unknown
+              {statusLabelRu("Unknown")}
             </label>
           </div>
           <button type="button" onClick={toggleFullscreen}>
@@ -515,15 +649,16 @@ export default function LeafletMap() {
         </div>
       </header>
       <div className={styles.legend}>
-        <span><i className={styles.legal} />Legal</span>
-        <span><i className={styles.medical} />Medical/Limited</span>
-        <span><i className={styles.decrim} />Decriminalized</span>
-        <span><i className={styles.illegal} />Illegal</span>
-        <span><i className={styles.unknown} />Unknown</span>
+        <span><i style={{ backgroundColor: legendColor("Legal") }} />Legal</span>
+        <span><i style={{ backgroundColor: legendColor("Limited") }} />Medical/Limited</span>
+        <span><i style={{ backgroundColor: legendColor("Decrim") }} />Decriminalized</span>
+        <span><i style={{ backgroundColor: legendColor("Illegal") }} />Illegal</span>
+        <span><i style={{ backgroundColor: legendColor("Unenforced") }} />Unenforced</span>
+        <span><i style={{ backgroundColor: legendColor("Unknown") }} />{statusLabelRu("Unknown")}</span>
         <span className={styles.status}>{offline ? "Offline" : "Online"}</span>
         {cacheNotice ? <span className={styles.cache}>{cacheNotice}</span> : null}
       </div>
-      <div ref={mapRef} className={styles.map} />
+      <div ref={mapRef} className={styles.map} data-testid="leaflet-map" />
     </section>
   );
 }

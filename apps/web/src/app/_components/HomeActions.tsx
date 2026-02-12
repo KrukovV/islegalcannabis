@@ -169,7 +169,8 @@ export default function HomeActions() {
       await writeGeoLoc({
         source: "none",
         iso: "UNKNOWN",
-        confidence: 0.0
+        confidence: 0.0,
+        reasonCode: result.reasonCode ?? "UNKNOWN"
       });
       return;
     }
@@ -199,7 +200,8 @@ export default function HomeActions() {
       source: result.source,
       iso: result.iso,
       state: result.state,
-      confidence: result.confidence
+      confidence: result.confidence,
+      reasonCode: result.reasonCode ?? "UNKNOWN"
     });
     if (result.source === "ip") {
       setNotice("GPS unavailable — using IP-based location.");

@@ -1,12 +1,12 @@
 import fs from "node:fs";
 import path from "node:path";
+import { isOfficialDomain, loadOfficialDomains, normalizeHost } from "./official_domains.mjs";
 
 const ROOT = process.cwd();
 const WIKI_REFS_PATH = path.join(ROOT, "data", "wiki", "wiki_refs.json");
 const WIKI_CLAIMS_MAP_PATH = path.join(ROOT, "data", "wiki", "wiki_claims_map.json");
 const OUTPUT_PATH = path.join(ROOT, "data", "wiki", "wiki_claims_enriched.json");
 const OFFICIAL_EVAL_PATH = path.join(ROOT, "data", "wiki", "wiki_official_eval.json");
-const ALLOWLIST_PATH = path.join(ROOT, "data", "sources", "official_allowlist.json");
 
 const SSOT_WRITE = process.env.SSOT_WRITE === "1";
 let ssotReadonlyLogged = false;
@@ -20,53 +20,9 @@ function readJson(file, fallback) {
   }
 }
 
-function normalizeHost(url) {
-  try {
-    return new URL(url).hostname.toLowerCase().replace(/^www\./, "");
-  } catch {
-    return "";
-  }
-}
-
-function buildAllowlist() {
-  const allowlist = readJson(ALLOWLIST_PATH, { domains: [], patterns: [] });
-  const domains = new Set(
-    []
-      .concat(allowlist?.domains || [])
-      .map((entry) => String(entry).toLowerCase().replace(/^www\./, ""))
-  );
-  return { domains };
-}
-
-function allowlistGuard(allowlistDomains) {
-  const dir = path.dirname(ALLOWLIST_PATH);
-  const base = path.basename(ALLOWLIST_PATH);
-  const backup =
-    fs.existsSync(dir) &&
-    fs
-      .readdirSync(dir)
-      .filter((file) => file.startsWith(`${base}.bak.`))
-      .map((file) => path.join(dir, file))
-      .map((file) => ({ file, mtime: fs.statSync(file).mtimeMs }))
-      .sort((a, b) => b.mtime - a.mtime)[0]?.file;
-  const backupPayload = backup ? readJson(backup, { domains: [] }) : null;
-  const prevDomains = Array.isArray(backupPayload?.domains)
-    ? backupPayload.domains
-    : null;
-  const prevCount = prevDomains ? prevDomains.length : allowlistDomains;
-  const expectedMin = Math.max(50, Math.floor(prevCount * 0.7));
-  if (allowlistDomains < expectedMin) {
-    console.log(
-      `OFFICIAL_ALLOWLIST_GUARD_FAIL prev=${prevCount} new=${allowlistDomains} reason=SHRUNK_TOO_MUCH`
-    );
-    process.exit(1);
-  }
-  console.log(`OFFICIAL_ALLOWLIST_GUARD_OK prev=${prevCount} new=${allowlistDomains}`);
-}
-
-function isOfficial(host, allowlist) {
+function isOfficial(host, domains) {
   if (!host) return { ok: false, rule: "none" };
-  if (allowlist.domains.has(host)) return { ok: true, rule: "allowlist_domain" };
+  if (isOfficialDomain(host, domains)) return { ok: true, rule: "ssot_domain" };
   return { ok: false, rule: "none" };
 }
 
@@ -75,8 +31,7 @@ function main() {
   const claimsMapPayload = readJson(WIKI_CLAIMS_MAP_PATH, { items: {} });
   const claimsMap = claimsMapPayload?.items || {};
   const items = refsPayload?.items || {};
-  const allowlist = buildAllowlist();
-  allowlistGuard(allowlist.domains.size);
+  const officialDomains = loadOfficialDomains();
   const outputItems = {};
   const notesByGeo = {};
   const officialEvalItems = {};
@@ -85,9 +40,9 @@ function main() {
   let nonOfficial = 0;
   const nonOfficialDomains = new Map();
 
-  const addRef = (url, allowlist) => {
+  const addRef = (url, domains) => {
     const host = normalizeHost(url);
-    const verdict = isOfficial(host, allowlist);
+    const verdict = isOfficial(host, domains);
     if (url) total += 1;
     if (verdict.ok) {
       official += 1;
@@ -110,7 +65,7 @@ function main() {
     let geoOfficial = 0;
     const enriched = list.map((ref) => {
       const url = String(ref?.url || "");
-      const { host, verdict } = addRef(url, allowlist);
+      const { host, verdict } = addRef(url, officialDomains);
       if (url) geoTotal += 1;
       if (verdict.ok) {
         geoOfficial += 1;
@@ -158,7 +113,7 @@ function main() {
     const fallbackUrl =
       claim?.notes_main_articles?.[0]?.url || claim?.wiki_row_url || "";
     if (!fallbackUrl) continue;
-    const { host, verdict } = addRef(fallbackUrl, allowlist);
+    const { host, verdict } = addRef(fallbackUrl, officialDomains);
     outputItems[isoKey] = [
       {
         url: fallbackUrl,

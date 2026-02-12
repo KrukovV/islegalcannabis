@@ -6,12 +6,9 @@ const ROOT = process.cwd();
 const ISO_PATH = path.join(ROOT, "data", "iso3166", "iso3166-1.json");
 const DENYLIST_PATH = path.join(ROOT, "data", "sources", "domain_denylist.json");
 const CATALOG_PATH = path.join(ROOT, "data", "sources", "official_catalog.json");
-const OUTPUT_PATH = path.join(
-  ROOT,
-  "data",
-  "sources",
-  "wikidata_candidates.json"
-);
+const OUTPUT_PATH = process.env.DEBUG === "1"
+  ? path.join(ROOT, "Reports", "debug", "wikidata_candidates.json")
+  : "";
 const WIKIDATA_ENDPOINT = "https://query.wikidata.org/sparql";
 
 function readJson(file) {
@@ -20,6 +17,7 @@ function readJson(file) {
 }
 
 function writeJson(file, payload) {
+  if (!file) return;
   fs.mkdirSync(path.dirname(file), { recursive: true });
   if (fs.existsSync(file)) {
     const ts = new Date().toISOString().replace(/[:.]/g, "-");
@@ -179,7 +177,9 @@ async function main() {
     generated_at: new Date().toISOString(),
     candidates
   };
-  writeJson(OUTPUT_PATH, payload);
+  if (OUTPUT_PATH) {
+    writeJson(OUTPUT_PATH, payload);
+  }
 
   console.log(
     `WIKIDATA_DISCOVERY: candidates=${Object.keys(candidates).length} rejected=0`

@@ -17,13 +17,15 @@ function writeDiag(line) {
 
 function makeLine(source, iso, state, confidence) {
   const ts = new Date().toISOString();
-  return `GEO_LOC source=${source} iso=${iso} state=${state} confidence=${confidence} ts=${ts} run=${RUN_ID}`;
+  return `GEO_LOC source=${source} iso=${iso} state=${state} confidence=${confidence} ts=${ts} run=${RUN_ID} reason_code=UNKNOWN`;
 }
 
 const cases = [
   { source: "manual", iso: "US", state: "CA", confidence: "1.0" },
   { source: "gps", iso: "DE", state: "-", confidence: "0.9" },
-  { source: "ip", iso: "TH", state: "-", confidence: "0.6" }
+  { source: "ip", iso: "TH", state: "-", confidence: "0.6" },
+  { source: "manual", iso: "AU", state: "-", confidence: "0.95" },
+  { source: "ip", iso: "RO", state: "-", confidence: "0.7" }
 ];
 
 for (const entry of cases) {

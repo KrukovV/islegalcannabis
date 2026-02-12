@@ -80,7 +80,7 @@ export async function GET(req: Request) {
       }
       const resolution = buildLocationResolution("gps", fixture.expectedRegion);
       incrementReverseGeocodeMethod("mock");
-      console.info(`[${requestId}] reverse_geocode mock`);
+      console.warn(`UI_REVERSE_GEOCODE request_id=${requestId} provider=mock`);
       return okResponse(requestId, {
         country: fixture.expectedCountry,
         region: fixture.expectedRegion,
@@ -93,7 +93,7 @@ export async function GET(req: Request) {
     const resolved = await reverseGeocode(lat, lon);
     const resolution = buildLocationResolution("gps", resolved.region);
     incrementReverseGeocodeMethod(resolved.method);
-    console.info(`[${requestId}] reverse_geocode ${resolved.method}`);
+    console.warn(`UI_REVERSE_GEOCODE request_id=${requestId} provider=${resolved.method}`);
     return okResponse(requestId, {
       country: resolved.country,
       region: resolved.region,

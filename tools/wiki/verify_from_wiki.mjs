@@ -221,6 +221,9 @@ function buildClaimFromRow(row, resolved, cacheInfo) {
     recreational_status: row.recreational_status,
     medical_status: row.medical_status,
     notes_main_articles: row.notes_main_articles || [],
+    notes_sections_used: Array.isArray(row.notes_sections_used) ? row.notes_sections_used : [],
+    notes_main_article: String(row.notes_main_article || row.notes_main_articles?.[0]?.title || ""),
+    notes_rev: String(cacheInfo?.revision_id || ""),
     wiki_revision_id: String(cacheInfo?.revision_id || ""),
     fetched_at: String(cacheInfo?.fetched_at || "")
   };

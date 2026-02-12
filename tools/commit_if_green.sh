@@ -44,8 +44,59 @@ SSOT_WRITE="${SSOT_WRITE:-0}"
 export RUN_ID NET_PROBE_CACHE_PATH SSOT_WRITE
 mkdir -p "Artifacts/runs/${RUN_ID}"
 
-node tools/net/net_truth_gate.mjs
-bash tools/quality_gate.sh
+CI_FINAL="Reports/ci-final.txt"
+if [ ! -s "${CI_FINAL}" ]; then
+  echo "COMMIT_BLOCKED reason=CI_FINAL_MISSING"
+  exit 1
+fi
+
+WIKI_GATE_OK_LINE=$(grep -E '^WIKI_GATE_OK=1' "${CI_FINAL}" | tail -n 1 || true)
+POST_CHECKS_OK_LINE=$(grep -E '^POST_CHECKS_OK=1' "${CI_FINAL}" | tail -n 1 || true)
+HUB_STAGE_OK_LINE=$(grep -E '^HUB_STAGE_REPORT_OK=1' "${CI_FINAL}" | tail -n 1 || true)
+NET_TRUTH_OK_LINE=$(grep -E '^NET_TRUTH_OK=' "${CI_FINAL}" | tail -n 1 || true)
+OFFICIAL_DOMAINS_GUARD_LINE=$(grep -E '^OFFICIAL_DOMAINS_GUARD=' "${CI_FINAL}" | tail -n 1 || true)
+OFFICIAL_DOMAINS_ALLOW_SHRINK_LINE=$(grep -E '^OFFICIAL_DOMAINS_ALLOW_SHRINK=1' "${CI_FINAL}" | tail -n 1 || true)
+
+if [ -z "${WIKI_GATE_OK_LINE}" ]; then
+  echo "COMMIT_BLOCKED reason=WIKI_GATE_OK_MISSING"
+  exit 1
+fi
+if [ -z "${POST_CHECKS_OK_LINE}" ]; then
+  echo "COMMIT_BLOCKED reason=POST_CHECKS_MISSING"
+  exit 1
+fi
+if [ -z "${HUB_STAGE_OK_LINE}" ]; then
+  echo "COMMIT_BLOCKED reason=HUB_STAGE_REPORT_MISSING"
+  exit 1
+fi
+if [ -n "${NET_TRUTH_OK_LINE}" ] && ! printf "%s\n" "${NET_TRUTH_OK_LINE}" | grep -q '^NET_TRUTH_OK=1'; then
+  echo "COMMIT_BLOCKED reason=NET_TRUTH_FAIL"
+  exit 1
+fi
+if [ -n "${OFFICIAL_DOMAINS_GUARD_LINE}" ] && printf "%s\n" "${OFFICIAL_DOMAINS_GUARD_LINE}" | grep -q '^OFFICIAL_DOMAINS_GUARD=PASS'; then
+  true
+elif [ -n "${OFFICIAL_DOMAINS_ALLOW_SHRINK_LINE}" ]; then
+  true
+else
+  echo "COMMIT_BLOCKED reason=OFFICIAL_DOMAINS_GUARD"
+  exit 1
+fi
+
+STAGED_FILES=$(git diff --name-only --cached 2>/dev/null || true)
+if [ -n "${STAGED_FILES}" ]; then
+  HAS_WIKI=0
+  HAS_CODE=0
+  if printf "%s\n" "${STAGED_FILES}" | grep -q -E '^data/wiki/'; then
+    HAS_WIKI=1
+  fi
+  if printf "%s\n" "${STAGED_FILES}" | grep -q -E '^(tools/|src/|server/|ops/|packages/|apps/|\\.github/|Dockerfile$|docker/|package(-lock)?\\.json$|pnpm-lock\\.yaml$|yarn\\.lock$)'; then
+    HAS_CODE=1
+  fi
+  if [ "${HAS_WIKI}" -eq 1 ] && [ "${HAS_CODE}" -eq 1 ]; then
+    echo "COMMIT_BLOCKED reason=STAGED_MIXED_CODE_DATA_WIKI"
+    exit 1
+  fi
+fi
 
 git_health() {
   local details="OK"

@@ -3,9 +3,25 @@ set -e
 
 changed_code=$(git diff --cached --name-only | grep -Ev '^data/wiki/' || true)
 changed_data=$(git diff --cached --name-only | grep -E '^data/wiki/' || true)
+changed_official=$(git diff --cached --name-only | grep -E '^data/official/' || true)
+changed_wiki=$(git diff --cached --name-only | grep -E '^data/wiki/' || true)
 
 if [[ -n "$changed_code" && -n "$changed_data" ]]; then
   echo "❌ Запрещено смешивать CODE и data/wiki/** в одном коммите"
   echo "→ Сделай два коммита: code → data(wiki)"
   exit 1
+fi
+
+if [[ -n "$changed_official" ]]; then
+  echo "→ Проверка shrink-guard для official domains"
+  node tools/gates/official_domains_shrink_guard.mjs
+fi
+
+if [[ -n "$changed_wiki" ]]; then
+  echo "→ Проверка shrink-guard для wiki notes"
+  if [[ -f "Reports/notes_quality.baseline.json" ]]; then
+    node tools/gates/notes_shrink_guard.mjs
+  else
+    echo "→ Notes baseline отсутствует, пропускаю shrink-guard"
+  fi
 fi

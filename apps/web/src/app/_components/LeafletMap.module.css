@@ -119,6 +119,10 @@
   background: #d05c5c;
 }
 
+.unenforced {
+  background: #c07a3d;
+}
+
 .unknown {
   background: #9b9b9b;
 }
@@ -139,6 +143,26 @@
   border-radius: 16px;
   border: 1px solid rgba(20, 40, 30, 0.12);
   overflow: hidden;
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.9), rgba(230, 238, 232, 0.9));
+}
+
+.mapSummary {
+  margin-top: 12px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(20, 40, 30, 0.12);
+  background: rgba(255, 255, 255, 0.9);
+  color: #2f3a35;
+}
+
+.mapSummaryTitle {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.mapSummaryRow {
+  font-size: 0.9rem;
+  line-height: 1.4;
 }
 
 .popup {
@@ -149,6 +173,15 @@
 .popupNotes {
   margin-top: 6px;
   color: #47564f;
+}
+
+.mapLink {
+  color: #0645ad;
+  text-decoration: underline;
+}
+
+.mapLink:visited {
+  color: #0b0080;
 }
 
 @media (max-width: 960px) {

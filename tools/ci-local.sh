@@ -2,6 +2,8 @@
 set -euo pipefail
 
 export MAP_ENABLED="${MAP_ENABLED:-0}"
+export READONLY_CI="${READONLY_CI:-1}"
+export UPDATE_MODE="${UPDATE_MODE:-0}"
 if [ -z "${SMOKE_MODE:-}" ] && [ "${MAP_ENABLED}" = "0" ]; then
   export SMOKE_MODE="skip"
   export ALLOW_SMOKE_SKIP="${ALLOW_SMOKE_SKIP:-1}"
@@ -32,6 +34,9 @@ print_fail() {
     echo "CI_LOCAL_REASON=${fail_reason}"
     echo "CI_LOCAL_SUBSTEP=${fail_step}"
     echo "CI_LOCAL_CMD=${fail_cmd}"
+    echo "DIAG_CMD: git status --short"
+    echo "DIAG_CMD: tail -n 80 Reports/ci-final.txt"
+    echo "DIAG_CMD: ls -la Reports/"
     if [ -n "${CI_LOCAL_GUARDS_COUNTS:-}" ]; then
       echo "${CI_LOCAL_GUARDS_COUNTS}"
     fi
@@ -67,7 +72,7 @@ fi
 last_cmd=""
 trap 'last_cmd=$BASH_COMMAND' DEBUG
 bash tools/git-health.sh || { CI_LOCAL_REASON="GIT_HEALTH_FAIL"; CI_LOCAL_STEP="git_health"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
-ALLOW_SCOPE_OVERRIDE=1 npm run where || { CI_LOCAL_REASON="WHERE_FAIL"; CI_LOCAL_STEP="where"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
+ALLOW_SCOPE_OVERRIDE=1 npm run --workspace-root where || { CI_LOCAL_REASON="WHERE_FAIL"; CI_LOCAL_STEP="where"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 GUARDS_OUTPUT=$(ALLOW_SCOPE_OVERRIDE=1 ALLOW_SCOPE_PATHS="Reports/**,CONTINUITY.md,data/wiki/**,data/wiki_cache/**,data/wiki_notes/**" node tools/guards/run_all.mjs 2>&1) || {
   echo "${GUARDS_OUTPUT}"
   GUARDS_COUNTS_LINE=$(printf "%s\n" "${GUARDS_OUTPUT}" | grep -E "^GUARDS_COUNTS=" | tail -n 1 || true)
@@ -125,6 +130,20 @@ fi
 npm run lint || { CI_LOCAL_REASON="LINT_FAIL"; CI_LOCAL_STEP="lint"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 npm test || { CI_LOCAL_REASON="TEST_FAIL"; CI_LOCAL_STEP="test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 npm run web:build || { CI_LOCAL_REASON="WEB_BUILD_FAIL"; CI_LOCAL_STEP="web_build"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
+SSOT_METRICS_OUTPUT=$(node tools/ssot/ssot_metrics.js 2>&1) || {
+  CI_LOCAL_REASON="SSOT_METRICS_FAIL"
+  CI_LOCAL_STEP="ssot_metrics"
+  CI_LOCAL_CMD="${last_cmd}"
+  print_fail "${CI_LOCAL_REASON}"
+}
+WIKI_ROWS_TOTAL_LINE=$(printf "%s\n" "${SSOT_METRICS_OUTPUT}" | grep -E "^WIKI_ROWS_TOTAL=" | tail -n 1 || true)
+if [ "${WIKI_ROWS_TOTAL_LINE#WIKI_ROWS_TOTAL=}" != "300" ]; then
+  echo "${SSOT_METRICS_OUTPUT}"
+  CI_LOCAL_REASON="CI_FAIL_WIKI_INCOMPLETE"
+  CI_LOCAL_STEP="ssot_metrics"
+  CI_LOCAL_CMD="${last_cmd}"
+  print_fail "${CI_LOCAL_REASON}"
+fi
 npm run validate:laws || { CI_LOCAL_REASON="VALIDATE_LAWS_FAIL"; CI_LOCAL_STEP="validate_laws"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 node tools/validate-sources-urls.mjs || { CI_LOCAL_REASON="VALIDATE_SOURCES_URLS_FAIL"; CI_LOCAL_STEP="validate_sources_urls"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 node tools/validate-data-schema.mjs || { CI_LOCAL_REASON="VALIDATE_SCHEMA_FAIL"; CI_LOCAL_STEP="validate_schema"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }

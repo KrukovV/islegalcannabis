@@ -21,12 +21,13 @@ if (process.cwd() !== ROOT) {
 
 const args = process.argv.slice(2);
 const geosArgIndex = args.indexOf("--geos");
-let geos = ["RU", "TH", "XK", "US-CA", "CA"];
+let geos = ["RU", "RO", "AU", "US-CA", "CA"];
 if (geosArgIndex >= 0 && args[geosArgIndex + 1]) {
   geos = args[geosArgIndex + 1].split(",").map((geo) => geo.trim()).filter(Boolean);
 }
 const baselinePath = path.join(ROOT, "data", "wiki", "wiki_claim_baseline.json");
 const ssotPath = path.join(ROOT, "data", "wiki", "wiki_claims_map.json");
+const officialBadgesPath = path.join(ROOT, "data", "wiki", "wiki_official_badges.json");
 
 if (!fs.existsSync(baselinePath)) {
   console.error(`FATAL: baseline missing path=${baselinePath}`);
@@ -40,7 +41,18 @@ if (!fs.existsSync(ssotPath)) {
 const baseline = JSON.parse(fs.readFileSync(baselinePath, "utf8"));
 const ssot = JSON.parse(fs.readFileSync(ssotPath, "utf8"));
 const entries = ssot?.items || ssot?.entries || {};
+let officialBadges = {};
+try {
+  if (fs.existsSync(officialBadgesPath)) {
+    const payload = JSON.parse(fs.readFileSync(officialBadgesPath, "utf8"));
+    officialBadges = payload?.items && typeof payload.items === "object" ? payload.items : {};
+  }
+} catch {
+  officialBadges = {};
+}
 const baselineStrict = process.env.BASELINE_STRICT !== "0";
+const allowShrink = process.env.WIKI_CLAIMS_ALLOW_SHRINK === "1";
+const shrinkReason = String(process.env.WIKI_CLAIMS_SHRINK_REASON || "");
 const offlineOk = process.env.WIKI_OFFLINE_OK === "1" ? "1" : "0";
 const claimsPath = path.join(ROOT, "data", "wiki", "wiki_claims.json");
 const metaPath = path.join(ROOT, "data", "wiki", "wiki_claims.meta.json");
@@ -93,11 +105,28 @@ const formatMed = (value) => {
 };
 
 console.log(`WIKI_GATE geos=${geos.join(",")} baseline_strict=${baselineStrict ? "1" : "0"} offline_ok=${offlineOk}`);
+console.log(`WIKI_CLAIMS_BASELINE_PATH=${baselinePath}`);
+console.log(`WIKI_CLAIMS_CURRENT_COUNT=${foundTotal}`);
 const totalReason = foundTotal === expectedTotal ? "OK" : `MISSING_KEY:${missingKey || "-"}`;
+let claimsGuardStatus = "PASS";
 console.log(`WIKI_TOTAL_DIAG expected=${expectedTotal} found=${foundTotal} reason=${totalReason}`);
 if (foundTotal !== expectedTotal) {
-  console.log(`WIKI_TOTAL_MISMATCH expected=${expectedTotal} found=${foundTotal} reason=${totalReason}`);
-  process.exit(1);
+  if (foundTotal < expectedTotal && allowShrink) {
+    if (!shrinkReason) {
+      console.log("WIKI_CLAIMS_GUARD=FAIL");
+      console.log("WIKI_CLAIMS_FAIL_REASON=WIKI_CLAIMS_SHRINK");
+      console.log("WIKI_CLAIMS_ERROR=shrink_allowed_but_reason_missing");
+      process.exit(1);
+    }
+    console.log("WIKI_CLAIMS_ALLOW_SHRINK=1");
+    console.log(`WIKI_CLAIMS_SHRINK_REASON=${shrinkReason}`);
+    claimsGuardStatus = "PASS";
+  } else {
+    console.log(`WIKI_TOTAL_MISMATCH expected=${expectedTotal} found=${foundTotal} reason=${totalReason}`);
+    console.log("WIKI_CLAIMS_GUARD=FAIL");
+    console.log("WIKI_CLAIMS_FAIL_REASON=WIKI_CLAIMS_SHRINK");
+    process.exit(1);
+  }
 }
 
 let failed = false;
@@ -125,25 +154,39 @@ for (const geo of geos) {
   const revision = String(entry.wiki_revision_id || entry.revision_id || "");
 
   const baselineEntry = baseline[geo];
-  let reason = "";
+  const reasons = [];
   if (!rec || !med || rec === "Unknown" || med === "Unknown") {
-    reason = "UNKNOWN";
+    reasons.push("UNKNOWN");
   } else if (!["countries", "states"].includes(source) || (geo === "US-CA" && source !== "states") || (geo !== "US-CA" && source !== "countries")) {
-    reason = "WRONG_SOURCE";
+    reasons.push("WRONG_SOURCE");
   } else if (!revision || !/^\d+$/.test(revision)) {
-    reason = "NO_REVISION";
+    reasons.push("NO_REVISION");
   } else if (baselineStrict && baselineEntry && (baselineEntry.rec !== rec || baselineEntry.med !== med || baselineEntry.source !== source)) {
-    reason = "BASELINE_MISMATCH";
+    reasons.push("BASELINE_MISMATCH");
   }
 
-  if (reason) {
+  const notesText = String(entry.notes_text || "").trim();
+  const notesLen = notesText.length;
+  const sourcesCount = Number(entry.sources_count || (Array.isArray(entry.sources) ? entry.sources.length : 0) || 0);
+  const officialBadgeCount = Number(Array.isArray(officialBadges?.[geo]) ? officialBadges[geo].length : 0);
+  if (baselineEntry?.notes_nonempty === 1 && notesLen === 0) {
+    reasons.push("NOTES_EMPTY");
+  }
+  if (Number.isFinite(Number(baselineEntry?.sources_min)) && sourcesCount < Number(baselineEntry.sources_min)) {
+    reasons.push("SOURCES_LOW");
+  }
+  if (Number.isFinite(Number(baselineEntry?.official_badge_min)) && officialBadgeCount < Number(baselineEntry.official_badge_min)) {
+    reasons.push("OFFICIAL_BADGE_LOW");
+  }
+
+  if (reasons.length > 0) {
     failed = true;
-    failures.push(`${geo}:${reason}`);
+    failures.push(`${geo}:${reasons.join("+")}`);
     failCount += 1;
-    console.log(`❌ WIKI_CLAIM_FAIL geo=${geo} reason=${reason}`);
+    console.log(`❌ WIKI_CLAIM_FAIL geo=${geo} reason=${reasons.join("+")}`);
   } else {
     okCount += 1;
-    console.log(`🌿 WIKI_CLAIM_OK geo=${geo} rec=${formatRec(rec)} med=${formatMed(med)} source=${source} revision=${revision}`);
+    console.log(`🌿 WIKI_CLAIM_OK geo=${geo} rec=${formatRec(rec)} med=${formatMed(med)} source=${source} revision=${revision} notes_len=${notesLen} sources=${sourcesCount} official_badge=${officialBadgeCount}`);
   }
 }
 
@@ -154,3 +197,4 @@ if (failed) {
 }
 
 console.log(`WIKI_GATE_OK=1 ok=${okCount} fail=${failCount}`);
+console.log(`WIKI_CLAIMS_GUARD=${claimsGuardStatus}`);

@@ -5,6 +5,11 @@ import {
   loadIsoLookupMap,
   normalizeName
 } from "./wiki_geo_resolver.mjs";
+import {
+  deriveNotesFromRaw,
+  extractNotesFromWikitextSectionsDetailed,
+  isMainOnlyRaw
+} from "./legality_wikitext_parser.mjs";
 
 const ROOT = process.cwd();
 const API_BASE = "https://en.wikipedia.org/w/api.php";
@@ -433,6 +438,12 @@ async function main() {
     const wikiRec = parseRecreationalStatus(row.recreational);
     const wikiMed = parseMedicalStatus(row.medical);
     const mainArticles = extractMainArticles(row.notes);
+    const notesDetailed = extractNotesFromWikitextSectionsDetailed(row.notes || "");
+    const rawNotes = String(row.notes || "");
+    const derived = deriveNotesFromRaw(rawNotes);
+    const notesText = derived.notesText;
+    const sectionsUsed = Array.isArray(derived.notesSectionsUsed) ? derived.notesSectionsUsed : [];
+    const resolvedSections = sectionsUsed.length ? sectionsUsed : (notesText ? ["notes_raw"] : []);
     entries.set(geoKey, {
       geo_key: geoKey,
       name_in_wiki: row.name,
@@ -442,13 +453,27 @@ async function main() {
       wiki_med: wikiMed,
       main_articles: mainArticles,
       notes_main_articles: mainArticles,
-      notes_text: stripWikiMarkup(row.notes),
+      notes_text: notesText,
       notes_raw: stripWikiMarkup(row.notes),
+      notes_sections_used: resolvedSections,
+      notes_main_article: String(derived.notesMainArticle || notesDetailed.mainArticle || mainArticles?.[0]?.title || ""),
+      notes_kind: derived.notesKind,
+      notes_reason_code: derived.notesReasonCode,
+      notes_rev: String(countryResult.revisionId || ""),
       recreational_status: wikiRec,
       medical_status: wikiMed,
       wiki_revision_id: countryResult.revisionId,
       fetched_at: runAt
     });
+    if (["RO", "RU", "AU"].includes(geoKey)) {
+      if (derived.notesKind === "MIN_ONLY") {
+        console.log(`NOTES_WEAK geo=${geoKey} reason=MIN_ONLY len=${notesText.length}`);
+      } else if (!Array.isArray(resolvedSections) || resolvedSections.length === 0) {
+        console.log(`NOTES_WEAK geo=${geoKey} reason=NO_SECTIONS len=${notesText.length}`);
+      } else if (notesText.length < 200) {
+        console.log(`NOTES_WEAK geo=${geoKey} reason=TOO_SHORT len=${notesText.length}`);
+      }
+    }
   }
 
   for (let index = 0; index < stateResult.rows.length; index += 1) {
@@ -459,6 +484,12 @@ async function main() {
     const wikiRec = parseRecreationalStatus(row.recreational);
     const wikiMed = parseMedicalStatus(row.medical);
     const mainArticles = extractMainArticles(row.notes);
+    const notesDetailed = extractNotesFromWikitextSectionsDetailed(row.notes || "");
+    const rawNotes = String(row.notes || "");
+    const derived = deriveNotesFromRaw(rawNotes);
+    const notesText = derived.notesText;
+    const sectionsUsed = Array.isArray(derived.notesSectionsUsed) ? derived.notesSectionsUsed : [];
+    const resolvedSections = sectionsUsed.length ? sectionsUsed : (notesText ? ["notes_raw"] : []);
     entries.set(geoKey, {
       geo_key: geoKey,
       name_in_wiki: row.name,
@@ -468,8 +499,13 @@ async function main() {
       wiki_med: wikiMed,
       main_articles: mainArticles,
       notes_main_articles: mainArticles,
-      notes_text: stripWikiMarkup(row.notes),
+      notes_text: notesText,
       notes_raw: stripWikiMarkup(row.notes),
+      notes_sections_used: resolvedSections,
+      notes_main_article: String(derived.notesMainArticle || notesDetailed.mainArticle || mainArticles?.[0]?.title || ""),
+      notes_kind: derived.notesKind,
+      notes_reason_code: derived.notesReasonCode,
+      notes_rev: String(stateResult.revisionId || ""),
       recreational_status: wikiRec,
       medical_status: wikiMed,
       wiki_revision_id: stateResult.revisionId,

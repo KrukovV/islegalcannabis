@@ -6,6 +6,9 @@ export const runtime = "nodejs";
 
 export async function GET(req: Request) {
   const requestId = createRequestId(req);
+  const premium =
+    process.env.NEXT_PUBLIC_PREMIUM === "1" ||
+    process.env.PREMIUM === "1";
   const { searchParams } = new URL(req.url);
   const country = searchParams.get("country") ?? "";
   const region = searchParams.get("region") ?? undefined;
@@ -40,6 +43,14 @@ export async function GET(req: Request) {
       "Jurisdiction not found.",
       "Try another country or region."
     );
+  }
+
+  if (!premium) {
+    console.warn("NEARBY_SKIP_FREE=1");
+    return okResponse(requestId, {
+      current: { id: profile.id, status: "yellow", summary: "Status locked" },
+      nearby: []
+    });
   }
 
   const result = findNearbyStatus(profile) ?? {

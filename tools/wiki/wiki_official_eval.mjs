@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { isOfficialDomain, loadOfficialDomains } from "./official_domains.mjs";
 
 const ROOT = process.cwd();
 const SSOT_WRITE = process.env.SSOT_WRITE === "1";
@@ -49,6 +50,7 @@ async function main() {
   const mapItems = mapPayload?.items && typeof mapPayload.items === "object" ? mapPayload.items : {};
   const allowlistPayload = readJson(ALLOWLIST_PATH, null);
   const allowlist = Array.isArray(allowlistPayload?.allowed) ? allowlistPayload.allowed : [];
+  const officialDomains = loadOfficialDomains();
   const mapKeys = Object.keys(mapItems);
   const geoKeys = mapKeys.length ? mapKeys : Object.keys(items);
   if (!geoKeys.length) {
@@ -102,7 +104,8 @@ async function main() {
     const topHosts = Array.from(officialHosts.entries())
       .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
       .slice(0, 5)
-      .map(([host]) => host);
+      .map(([host]) => host)
+      .filter((host) => isOfficialDomain(host, officialDomains));
     for (const host of topHosts) {
       hostCounts.set(host, (hostCounts.get(host) || 0) + 1);
     }

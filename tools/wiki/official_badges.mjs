@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { classifyOfficialUrl } from "../sources/validate_official_url.mjs";
+import { isOfficialDomain, loadOfficialDomains, normalizeHost } from "./official_domains.mjs";
 
 const ROOT = process.cwd();
 const REFS_PATH = path.join(ROOT, "data", "wiki", "wiki_refs.json");
@@ -41,19 +41,12 @@ function normalizeRefsPayload(payload) {
   return {};
 }
 
-function hostForUrl(url) {
-  try {
-    return new URL(url).hostname.toLowerCase().replace(/^www\./, "");
-  } catch {
-    return "";
-  }
-}
-
 async function main() {
   const runAt = new Date().toISOString();
   const payload = readJson(REFS_PATH, null);
   const refsByGeo = normalizeRefsPayload(payload);
   const results = {};
+  const officialDomains = loadOfficialDomains();
   let totalRefs = 0;
   let officialTotal = 0;
   let nonOfficialTotal = 0;
@@ -66,10 +59,9 @@ async function main() {
       const url = String(ref?.url || "").trim();
       if (!url) continue;
       totalRefs += 1;
-      const iso2 = geo.split("-")[0] || geo;
-      const classified = classifyOfficialUrl(url, undefined, { iso2 });
-      const host = hostForUrl(url);
-      if (classified.ok) {
+      const host = normalizeHost(url);
+      const isOfficial = isOfficialDomain(host, officialDomains);
+      if (isOfficial) {
         officialTotal += 1;
         if (host) hostCounts.set(host, (hostCounts.get(host) || 0) + 1);
       } else {
@@ -81,10 +73,8 @@ async function main() {
         publisher: String(ref?.publisher || ""),
         section_hint: String(ref?.section_hint || ""),
         host,
-        official_badge: Boolean(classified.ok),
-        matched_rule: classified.ok
-          ? String(classified.matched_rule || "gov_allowlist")
-          : String(classified.reason || "not_official")
+        official_badge: Boolean(isOfficial),
+        matched_rule: isOfficial ? "ssot_domain" : "non_official"
       });
     }
     results[geo] = entries;

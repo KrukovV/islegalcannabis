@@ -10,6 +10,7 @@ export type GeoResolution = {
   confidence: number;
   permission: string;
   reason?: string;
+  reasonCode?: string;
   cell?: string;
 };
 
@@ -20,6 +21,7 @@ type ResolveOptions = {
 export async function resolveGeoLocation(
   options: ResolveOptions = {}
 ): Promise<GeoResolution> {
+  const offline = typeof navigator !== "undefined" && navigator.onLine === false;
   const manual = loadManualSelection();
   if (manual?.iso) {
     return {
@@ -27,7 +29,8 @@ export async function resolveGeoLocation(
       iso: manual.iso,
       state: manual.state,
       confidence: 1.0,
-      permission: "prompt"
+      permission: "prompt",
+      reasonCode: "USER_SELECT"
     };
   }
   const stored = loadLocationContext();
@@ -37,7 +40,8 @@ export async function resolveGeoLocation(
       iso: stored.country,
       state: stored.region,
       confidence: 1.0,
-      permission: "prompt"
+      permission: "prompt",
+      reasonCode: "USER_SELECT"
     };
   }
 
@@ -52,19 +56,39 @@ export async function resolveGeoLocation(
       confidence: 0.9,
       permission: gps.permission,
       reason: gps.reason,
+      reasonCode: "GPS_OK",
       cell: gps.cell
+    };
+  }
+
+  if (offline) {
+    return {
+      source: "none",
+      iso: "UNKNOWN",
+      confidence: 0.0,
+      permission: "unsupported",
+      reason: "offline",
+      reasonCode: "OFFLINE_NO_IP"
     };
   }
 
   const ip = await resolveIpLocation();
   if (ip.ok && ip.iso !== "UNKNOWN") {
+    const gpsReason = String(gps.reason || "").toLowerCase();
+    const reasonCode =
+      gpsReason === "denied"
+        ? "GPS_DENIED"
+        : gpsReason === "timeout"
+          ? "GPS_TIMEOUT"
+          : "IP_FALLBACK";
     return {
       source: "ip",
       iso: ip.iso,
       state: ip.state,
       confidence: 0.6,
       permission: "unsupported",
-      reason: gps.reason ?? ip.reason
+      reason: gps.reason ?? ip.reason,
+      reasonCode
     };
   }
 
@@ -73,6 +97,7 @@ export async function resolveGeoLocation(
     iso: "UNKNOWN",
     confidence: 0.0,
     permission: "unsupported",
-    reason: gps.reason ?? ip.reason ?? "not_found"
+    reason: gps.reason ?? ip.reason ?? "not_found",
+    reasonCode: "UNKNOWN"
   };
 }

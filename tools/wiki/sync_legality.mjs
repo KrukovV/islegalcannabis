@@ -12,6 +12,7 @@ import {
   normalizeRowStatuses,
   extractNotesFromWikitextTable,
   extractNotesFromWikitextSections,
+  extractNotesFromWikitextSectionsDetailed,
   parseRecreationalStatus,
   parseMedicalStatus,
   stripWikiMarkup
@@ -40,9 +41,22 @@ const META_PATH = path.join(ROOT, "data", "wiki", "wiki_claims.meta.json");
 const REFS_PATH = path.join(ROOT, "data", "wiki", "wiki_refs.json");
 const ISO_PATH = path.join(ROOT, "data", "iso3166", "iso3166-1.json");
 const US_STATES_PATH = path.join(ROOT, "data", "geo", "us_state_centroids.json");
+const ALL_GEO_PATH = path.join(ROOT, "apps", "web", "src", "lib", "geo", "allGeo.ts");
 
 const COUNTRY_PAGE = "Legality of cannabis";
 const STATE_PAGE = "Legality of cannabis by U.S. jurisdiction";
+const CLEAR_NOTES = process.env.CLEAR_NOTES === "1";
+const CLEAR_NOTES_REASON = String(process.env.CLEAR_NOTES_REASON || "");
+
+function appendCiFinal(line) {
+  const file = path.join(ROOT, "Reports", "ci-final.txt");
+  try {
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    fs.appendFileSync(file, `${line}\n`);
+  } catch {
+    // ignore
+  }
+}
 
 function readJson(file, fallback) {
   if (!fs.existsSync(file)) return fallback;
@@ -79,9 +93,41 @@ function writeAtomic(file, payload) {
   fs.renameSync(tmpPath, file);
 }
 
+function loadAllGeo() {
+  if (!fs.existsSync(ALL_GEO_PATH)) return [];
+  const raw = fs.readFileSync(ALL_GEO_PATH, "utf8");
+  const match = raw.match(/ALL_GEO\\s*:\\s*string\\[]\\s*=\\s*\\[([\\s\\S]*?)\\]\\s*;/);
+  if (!match) return [];
+  const body = match[1];
+  return body
+    .split(",")
+    .map((token) => token.trim())
+    .filter(Boolean)
+    .map((token) => token.replace(/^['"]|['"]$/g, ""))
+    .filter(Boolean);
+}
+
 function buildWikiUrl(title) {
   if (!title) return "";
   return `https://en.wikipedia.org/wiki/${encodeURIComponent(title.replace(/ /g, "_"))}`;
+}
+
+function inferNotesKind(text) {
+  const normalized = String(text || "").trim();
+  if (!normalized) return "NONE";
+  if (/^Main article:/i.test(normalized)) return "MIN_ONLY";
+  return "RICH";
+}
+
+function ensureNotesKind(entry, fallbackReason = "PARSED_SECTIONS") {
+  if (!entry || typeof entry !== "object") return;
+  const kind = String(entry.notes_kind || "");
+  if (!kind) {
+    entry.notes_kind = inferNotesKind(entry.notes_text || "");
+  }
+  if (!entry.notes_reason_code) {
+    entry.notes_reason_code = entry.notes_kind === "MIN_ONLY" ? "NO_EXTRA_TEXT" : fallbackReason;
+  }
 }
 
 function buildRefNotesMap(payload) {
@@ -282,6 +328,11 @@ function extractNotesFromHtmlSections(html) {
   }
   const priority = [
     "notes",
+    "see also",
+    "references",
+    "further reading",
+    "external links",
+    "bibliography",
     "legality",
     "legal status",
     "status",
@@ -310,22 +361,69 @@ function extractNotesFromHtmlSections(html) {
   return "";
 }
 
-async function fetchSectionNotes(title, allowNetwork) {
-  if (!allowNetwork || !title) return { text: "", mode: "NONE" };
+async function fetchSectionNotes(title, allowNetwork, options = {}) {
+  const includeDecisions = options?.includeDecisions === true;
+  if (!allowNetwork || !title) {
+    return { text: "", mode: "NONE", key: "", section: "", links: 0, decisions: [], sectionsUsed: [], mainArticle: "", revisionId: "" };
+  }
   const info = await fetchPageInfo(title);
-  if (!info.ok || !info.pageid) return { text: "", mode: "NONE" };
+  if (!info.ok || !info.pageid) {
+    return { text: "", mode: "NONE", key: "", section: "", links: 0, decisions: [], sectionsUsed: [], mainArticle: "", revisionId: "" };
+  }
   const htmlResult = await fetchPageHtmlCached(info.pageid, info.revision_id);
+  let detailed = null;
   if (htmlResult.ok) {
     const htmlNotes = extractNotesFromHtmlSections(htmlResult.html || "");
-    if (htmlNotes) return { text: htmlNotes, mode: "HTML" };
+    if (includeDecisions) {
+      const wikiResult = await fetchPageWikitextCached(info.pageid, info.revision_id);
+      if (wikiResult.ok) {
+        detailed = extractNotesFromWikitextSectionsDetailed(wikiResult.wikitext || "");
+      }
+    }
+    if (htmlNotes) {
+      return {
+        text: htmlNotes,
+        mode: "HTML",
+        key: "html",
+        section: "html",
+        links: Number(detailed?.linkCount || 0),
+        decisions: Array.isArray(detailed?.decisions) ? detailed.decisions : [],
+        sectionsUsed: Array.isArray(detailed?.sectionsUsed) ? detailed.sectionsUsed : [],
+        mainArticle: String(detailed?.mainArticle || ""),
+        revisionId: String(info.revision_id || "")
+      };
+    }
   }
   const wikiResult = await fetchPageWikitextCached(info.pageid, info.revision_id);
   if (wikiResult.ok) {
-    const rawNotes = extractNotesFromWikitextSections(wikiResult.wikitext || "");
+    detailed = extractNotesFromWikitextSectionsDetailed(wikiResult.wikitext || "");
+    const rawNotes = detailed.text || "";
     const wikiNotes = rawNotes ? truncateSentences(normalizeExtractedNotes(rawNotes)) : "";
-    if (wikiNotes) return { text: wikiNotes, mode: "WIKITEXT" };
+    if (wikiNotes) {
+      return {
+        text: wikiNotes,
+        mode: "WIKITEXT",
+        key: detailed.key || "",
+        section: detailed.title || "",
+        links: Number(detailed.linkCount || 0),
+        decisions: Array.isArray(detailed.decisions) ? detailed.decisions : [],
+        sectionsUsed: Array.isArray(detailed.sectionsUsed) ? detailed.sectionsUsed : [],
+        mainArticle: String(detailed.mainArticle || ""),
+        revisionId: String(wikiResult.revision_id || info.revision_id || "")
+      };
+    }
   }
-  return { text: "", mode: "NONE" };
+  return {
+    text: "",
+    mode: "NONE",
+    key: "",
+    section: "",
+    links: Number(detailed?.linkCount || 0),
+    decisions: Array.isArray(detailed?.decisions) ? detailed.decisions : [],
+    sectionsUsed: Array.isArray(detailed?.sectionsUsed) ? detailed.sectionsUsed : [],
+    mainArticle: String(detailed?.mainArticle || ""),
+    revisionId: String(info.revision_id || "")
+  };
 }
 
 function extractHtmlNotesMap(html) {
@@ -500,6 +598,10 @@ async function fetchPageRows(pageTitle, cacheFile) {
 }
 
 async function main() {
+  if (process.env.UPDATE_MODE !== "1") {
+    console.log("SYNC_DISABLED UPDATE_MODE=0");
+    return;
+  }
   if (!fs.existsSync(ISO_PATH)) {
     console.error(`ERROR: missing ${ISO_PATH}`);
     process.exit(1);
@@ -640,6 +742,11 @@ async function main() {
       notes_text_len: (row.notes_text || "").length,
       notes: row.notes_text || "",
       notes_raw: row.notes_raw || "",
+      notes_sections_used: Array.isArray(row.notes_sections_used) ? row.notes_sections_used : [],
+      notes_main_article: String(row.notes_main_article || row.notes_main_articles?.[0]?.title || ""),
+      notes_rev: String(row.notes_rev || ""),
+      notes_kind: String(row.notes_kind || ""),
+      notes_reason_code: String(row.notes_reason_code || ""),
       recreational_status: row.recreational_status,
       medical_status: row.medical_status,
       wiki_revision_id: countryResult.revisionId,
@@ -666,6 +773,11 @@ async function main() {
       notes_text_len: (row.notes_text || "").length,
       notes: row.notes_text || "",
       notes_raw: row.notes_raw || "",
+      notes_sections_used: Array.isArray(row.notes_sections_used) ? row.notes_sections_used : [],
+      notes_main_article: String(row.notes_main_article || row.notes_main_articles?.[0]?.title || ""),
+      notes_rev: String(row.notes_rev || ""),
+      notes_kind: String(row.notes_kind || ""),
+      notes_reason_code: String(row.notes_reason_code || ""),
       recreational_status: row.recreational_status,
       medical_status: row.medical_status,
       wiki_revision_id: stateResult.revisionId,
@@ -727,6 +839,9 @@ async function main() {
         entry.notes_raw = htmlNotes;
         entry.notes_main_articles = mainArticles;
         entry.main_articles = mainArticles;
+        entry.notes_sections_used = ["html"];
+        entry.notes_main_article = mainTitle || entry.notes_main_article || "";
+        ensureNotesKind(entry, "PARSED_HTML");
       }
       const htmlRec = String(htmlRow?.recText || "");
       const htmlMed = String(htmlRow?.medText || "");
@@ -752,15 +867,39 @@ async function main() {
     if (!SMOKE_GEOS.has(entry.geo_key)) continue;
     const currentNotes = String(entry.notes_text || "");
     const mainArticle = entry.notes_main_articles?.[0]?.title || "";
+    const forceDiag = entry.geo_key === "RO" || entry.geo_key === "RU";
     const needsUpgrade = !currentNotes || isPlaceholderNote(currentNotes) || /^Main article:/i.test(currentNotes) || currentNotes.length < 80;
-    if (mainArticle && needsUpgrade) {
-      const result = await fetchSectionNotes(mainArticle, allowNetwork);
+    if (mainArticle && (needsUpgrade || forceDiag)) {
+      const result = await fetchSectionNotes(mainArticle, allowNetwork, { includeDecisions: forceDiag });
       const sectionNotes = normalizeExtractedNotes(result.text);
       const weak = sectionNotes.length < 80 ? 1 : 0;
       const empty = sectionNotes.length === 0 ? 1 : 0;
-      console.log(
-        `NOTES_EXTRACT geo=${entry.geo_key} mode=${result.mode} notes_len=${sectionNotes.length} weak=${weak} empty=${empty}`
-      );
+      if (forceDiag) {
+        const sectionLabel = result.section ? result.section.replace(/\s+/g, " ").trim() : "-";
+        const keyLabel = result.key || "-";
+        console.log(
+          `NOTES_SECTION geo=${entry.geo_key} mode=${result.mode} key=${keyLabel} section="${sectionLabel}" links=${result.links} len=${sectionNotes.length}`
+        );
+        if (Array.isArray(result.decisions)) {
+          for (const decision of result.decisions) {
+            const titleLabel = decision.title ? String(decision.title).replace(/\s+/g, " ").trim() : "-";
+            const key = decision.key || "-";
+            const included = decision.included ? 1 : 0;
+            const reason = decision.reason || "-";
+            const links = Number(decision.linkCount || 0);
+            const len = Number(decision.textLen || 0);
+            console.log(
+              `NOTES_SECTION_PICK geo=${entry.geo_key} title="${titleLabel}" key=${key} included=${included} reason=${reason} links=${links} len=${len}`
+            );
+          }
+        }
+        console.log(`NOTES_LINKS_COUNT geo=${entry.geo_key} count=${result.links}`);
+      }
+      if (needsUpgrade) {
+        console.log(
+          `NOTES_EXTRACT geo=${entry.geo_key} mode=${result.mode} notes_len=${sectionNotes.length} weak=${weak} empty=${empty}`
+        );
+      }
       const shouldUpgrade =
         sectionNotes &&
         !isPlaceholderNote(sectionNotes) &&
@@ -771,13 +910,18 @@ async function main() {
         entry.notes_text_len = sectionNotes.length;
         entry.notes = sectionNotes;
         entry.notes_raw = sectionNotes;
+        entry.notes_sections_used = Array.isArray(result.sectionsUsed) ? result.sectionsUsed : [];
+        entry.notes_main_article = String(result.mainArticle || mainArticle || "");
+        entry.notes_rev = String(result.revisionId || "");
+        ensureNotesKind(entry, "PARSED_SECTIONS");
         continue;
       }
       if (entry.geo_key === "RO" || entry.geo_key === "RU" || entry.geo_key === "AU") {
-        const reason = sectionNotes
-          ? "SECTION_TOO_SHORT"
-          : "SECTION_MISSING";
-        console.log(`NOTES_WEAK geo=${entry.geo_key} reason=${reason} len=${sectionNotes.length}`);
+        let reason = "SECTION_OK_NO_CHANGE";
+        if (!sectionNotes) reason = "SECTION_MISSING";
+        else if (sectionNotes.length < 80) reason = "SECTION_TOO_SHORT";
+        else if (shouldUpgrade) reason = "SECTION_UPGRADE";
+        console.log(`NOTES_SECTION_DECISION geo=${entry.geo_key} reason=${reason} len=${sectionNotes.length}`);
       }
     } else if (!mainArticle && needsUpgrade) {
       console.log(
@@ -803,10 +947,32 @@ async function main() {
       entry.notes_text_len = leadText.length;
       entry.notes = leadText;
       entry.notes_raw = leadText;
+      entry.notes_sections_used = ["lead"];
+      entry.notes_main_article = String(mainArticle || entry.notes_main_article || "");
+      ensureNotesKind(entry, "LEAD_SUMMARY");
+    }
+    if (entry.geo_key === "RO" || entry.geo_key === "RU" || entry.geo_key === "AU") {
+      const finalNotes = String(entry.notes_text || "").trim();
+      const finalLen = finalNotes.length;
+      const sectionsUsed = Array.isArray(entry.notes_sections_used) ? entry.notes_sections_used : [];
+      if (sectionsUsed.length === 0) {
+        console.log(`NOTES_WEAK geo=${entry.geo_key} reason=NO_SECTIONS len=${finalLen}`);
+      } else if (finalLen < 200) {
+        console.log(`NOTES_WEAK geo=${entry.geo_key} reason=TOO_SHORT len=${finalLen}`);
+      }
     }
   }
   if (leadCacheUpdated) {
     saveLeadCache({ generated_at: runAt, items: leadCache.items });
+  }
+
+  for (const entry of entries.values()) {
+    if (entry.geo_key !== "RO" && entry.geo_key !== "RU") continue;
+    const notesText = String(entry.notes_text || "").trim();
+    if (!notesText) {
+      console.log(`NOTES_EMPTY_CORE_GEOS geo=${entry.geo_key} reason=EMPTY`);
+      process.exit(1);
+    }
   }
 
   let items = Array.from(entries.values()).sort((a, b) =>
@@ -824,15 +990,66 @@ async function main() {
     const previousNotes = String(previous.notes_text || "");
     const currentRaw = String(current.notes_raw || "");
     const mainOnly = /^\{\{\s*main\s*\|[^}]+\}\}$/i.test(currentRaw.replace(/\s+/g, " ").trim());
+    const oldLen = previousNotes.length;
+    const newLen = currentNotes.length;
+    const allowShrink = process.env.ALLOW_NOTES_SHRINK === "1";
+    const shrinkReason = String(process.env.NOTES_SHRINK_REASON || "");
     if (!currentNotes && previousNotes && !mainOnly && !isPlaceholderNote(previousNotes)) {
+      if (CLEAR_NOTES) {
+        if (!CLEAR_NOTES_REASON) {
+          console.log("NOTES_CLEAR_DENIED reason=MISSING_CLEAR_NOTES_REASON");
+          appendCiFinal("NOTES_CLEAR_DENIED reason=MISSING_CLEAR_NOTES_REASON");
+          console.log(`NOTES_WRITE geo=${current.geo_key} old_len=${oldLen} new_len=${newLen} decision=BLOCK reason=CLEAR_REASON_MISSING`);
+          return {
+            ...current,
+            notes_text: previousNotes,
+            notes_text_len: previousNotes.length,
+            notes: previousNotes,
+            notes_raw: previous.notes_raw || current.notes_raw || "",
+            notes_kind: previous.notes_kind || current.notes_kind || "",
+            notes_reason_code: previous.notes_reason_code || current.notes_reason_code || "",
+            notes_sections_used: Array.isArray(previous.notes_sections_used) ? previous.notes_sections_used : current.notes_sections_used,
+            notes_main_article: previous.notes_main_article || current.notes_main_article
+          };
+        }
+        console.log(`NOTES_CLEARED geo=${current.geo_key} reason=${CLEAR_NOTES_REASON}`);
+        appendCiFinal(`NOTES_CLEARED geo=${current.geo_key} reason=${CLEAR_NOTES_REASON}`);
+        console.log(`NOTES_WRITE geo=${current.geo_key} old_len=${oldLen} new_len=${newLen} decision=ALLOW reason=CLEAR_NOTES`);
+        return current;
+      }
+      console.log(`NOTES_WRITE geo=${current.geo_key} old_len=${oldLen} new_len=${newLen} decision=BLOCK reason=EMPTY_NEW_NOTES`);
       return {
         ...current,
         notes_text: previousNotes,
         notes_text_len: previousNotes.length,
         notes: previousNotes,
-        notes_raw: previous.notes_raw || current.notes_raw || ""
+        notes_raw: previous.notes_raw || current.notes_raw || "",
+        notes_kind: previous.notes_kind || current.notes_kind || "",
+        notes_reason_code: previous.notes_reason_code || current.notes_reason_code || "",
+        notes_sections_used: Array.isArray(previous.notes_sections_used) ? previous.notes_sections_used : current.notes_sections_used,
+        notes_main_article: previous.notes_main_article || current.notes_main_article
       };
     }
+    if (oldLen > 0 && newLen > 0 && newLen < Math.floor(oldLen * 0.6)) {
+      if (!allowShrink || !shrinkReason) {
+        console.log(`NOTES_WRITE geo=${current.geo_key} old_len=${oldLen} new_len=${newLen} decision=BLOCK reason=SHRINK`);
+        return {
+          ...current,
+          notes_text: previousNotes,
+          notes_text_len: previousNotes.length,
+          notes: previousNotes,
+          notes_raw: previous.notes_raw || current.notes_raw || "",
+          notes_kind: previous.notes_kind || current.notes_kind || "",
+          notes_reason_code: previous.notes_reason_code || current.notes_reason_code || "",
+          notes_sections_used: Array.isArray(previous.notes_sections_used) ? previous.notes_sections_used : current.notes_sections_used,
+          notes_main_article: previous.notes_main_article || current.notes_main_article
+        };
+      }
+      console.log(`NOTES_WRITE geo=${current.geo_key} old_len=${oldLen} new_len=${newLen} decision=ALLOW reason=${shrinkReason}`);
+    } else if (newLen > oldLen) {
+      console.log(`NOTES_WRITE geo=${current.geo_key} old_len=${oldLen} new_len=${newLen} decision=ALLOW reason=INCREASE`);
+    }
+    ensureNotesKind(current, "PARSED_SECTIONS");
     return current;
   };
   items = items.map((item) => mergeNotes(item));
@@ -843,6 +1060,15 @@ async function main() {
       mergedItems[item.geo_key] = mergeNotes(item);
     }
     items = Object.values(mergedItems).filter((entry) => entry && entry.geo_key);
+  }
+  for (const item of items) {
+    const sectionsUsed = Array.isArray(item.notes_sections_used)
+      ? item.notes_sections_used
+      : [];
+    if (sectionsUsed.length === 0 && item.notes_text) {
+      item.notes_sections_used = ["notes_raw"];
+    }
+    ensureNotesKind(item, "PARSED_SECTIONS");
   }
   const mapItems = {};
   items.forEach((item) => {
@@ -856,6 +1082,35 @@ async function main() {
     const enriched = { ...item, source, revision_id: item.wiki_revision_id || item.revision_id || "" };
     mapItems[item.geo_key] = enriched;
   });
+  const allGeo = loadAllGeo();
+  const stubItems = [];
+  for (const geo of allGeo) {
+    if (mapItems[geo]) continue;
+    const stub = {
+      geo_key: geo,
+      rec_status: "Illegal",
+      med_status: "Illegal",
+      recreational_status: "Illegal",
+      medical_status: "Illegal",
+      notes_text: "",
+      notes: "",
+      notes_raw: "",
+      notes_kind: "NONE",
+      notes_reason_code: "WIKI_STUB",
+      notes_sections_used: [],
+      notes_main_article: "",
+      main_articles: [],
+      row_ref: "stub",
+      wiki_revision_id: "",
+      fetched_at: runAt,
+      source: "WIKI_STUB"
+    };
+    mapItems[geo] = stub;
+    stubItems.push(stub);
+  }
+  if (stubItems.length) {
+    items = items.concat(stubItems);
+  }
   writeAtomic(OUTPUT_PATH, Object.values(mapItems));
   writeAtomic(MAP_PATH, {
     generated_at: runAt,

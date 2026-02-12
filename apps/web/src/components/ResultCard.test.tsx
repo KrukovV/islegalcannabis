@@ -1,8 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 import ResultCard from "./ResultCard";
-import type { JurisdictionLawProfile } from "@islegal/shared";
-import type { ResultViewModel } from "@islegal/shared";
+import type { JurisdictionLawProfile, ResultViewModel } from "@islegal/shared";
 import type { LocationContext } from "@/lib/location/locationContext";
 import { JSDOM } from "jsdom";
 

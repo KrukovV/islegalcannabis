@@ -1,7 +1,9 @@
 export const BANNED_STDOUT_PATTERNS = [
   /Implement \{feature\}/i,
   /context left/i,
-  /for shortcuts/i
+  /for shortcuts/i,
+  /›\s*Write tests/i,
+  /@filename/i
 ];
 
 export function sanitizeLines(lines) {
@@ -11,8 +13,15 @@ export function sanitizeLines(lines) {
   );
 }
 
-export function sanitizeText(text) {
+export function sanitizeWithCount(text) {
   const raw = String(text ?? "");
   const lines = raw.split(/\r?\n/);
-  return sanitizeLines(lines).join("\n");
+  const sanitizedLines = sanitizeLines(lines);
+  const removed = lines.length - sanitizedLines.length;
+  return { text: sanitizedLines.join("\n"), removed: Math.max(0, removed) };
+}
+
+export function sanitizeText(text) {
+  const sanitized = sanitizeWithCount(text);
+  return sanitized.text;
 }

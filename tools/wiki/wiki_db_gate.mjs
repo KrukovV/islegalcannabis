@@ -1,6 +1,14 @@
 import fs from "node:fs";
 import path from "node:path";
 import { writeSsotLine } from "../ssot/write_line.mjs";
+import {
+  classifyNotes,
+  classifyNotesForCoverage,
+  isMainOnlyRaw,
+  isMinOnlyOk,
+  isPlaceholderNote,
+  normalizeNotesKind
+} from "./notes_quality.mjs";
 
 const BASE_DIR =
   typeof import.meta.dirname === "string"
@@ -27,15 +35,18 @@ const geosArgList = GEOS_ARG
       .map((g) => g.trim())
       .filter(Boolean)
   : [];
-let geos = geosArgList.length > 0 ? geosArgList : ["RU", "RO", "AU", "US-CA", "CA"];
+let geos = geosArgList.length > 0 ? geosArgList : ["RU", "RO", "AU", "DE", "SG", "US-CA", "CA", "GH"];
 const scopeAll = (!GEOS_ARG && process.env.NOTES_SCOPE === "ALL") ||
   geosArgList.some((g) => g.toUpperCase() === "ALL");
 const scopedGate = Boolean(GEOS_ARG) && !scopeAll;
 let gateScopeLabel = scopeAll ? "ALL" : geos.join(",");
+const notesShrinkGuardEnabled =
+  process.env.NOTES_SHRINK_GUARD === "1" || scopeAll;
 
 const claimsPath = path.join(ROOT, "data", "wiki", "wiki_claims_map.json");
 const refsPath = path.join(ROOT, "data", "wiki", "wiki_claims_enriched.json");
 const metaPath = path.join(ROOT, "data", "wiki", "wiki_claims.meta.json");
+const notesBaselinePath = path.join(ROOT, "Reports", "notes.baseline.json");
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
@@ -69,7 +80,7 @@ const statesRev = String(pageRevisions["Legality of cannabis by U.S. jurisdictio
 const notesStrict = process.env.NOTES_STRICT === "1";
 const notesEmptyThreshold = Number(process.env.NOTES_EMPTY_THRESHOLD || 0);
 const notesMinLen = Number(process.env.NOTES_MIN_LEN || 20);
-const minNotesByGeoEnv = process.env.NOTES_MIN_LEN_BY_GEO || "RU:80,RO:80,AU:80";
+const minNotesByGeoEnv = process.env.NOTES_MIN_LEN_BY_GEO || "RU:120,RO:120,AU:120";
 const minNotesByGeo = new Map(
   minNotesByGeoEnv
     .split(",")
@@ -89,6 +100,7 @@ const weakThreshold = Number(process.env.WEAK_THRESHOLD || 50);
 const notesWeakMax = Number(process.env.NOTES_WEAK_MAX || 999999);
 const failOnWeak = process.env.NOTES_FAIL_ON_WEAK === "1";
 const allowWeakMainOnly = process.env.NOTES_ALLOW_WEAK_MAIN_ONLY !== "0";
+const sectionsRequired = new Set(["RU", "RO", "AU"]);
 const treatMainOnlyAsPlaceholder =
   notesStrict && process.env.NOTES_TREAT_MAIN_ONLY_PLACEHOLDER !== "0";
 
@@ -102,39 +114,39 @@ if (REPORT_NOTES_COVERAGE) {
   process.exit(0);
 }
 
-function isMainOnlyRaw(raw) {
-  const rawText = String(raw || "").replace(/\s+/g, " ").trim();
-  return /^\{\{\s*main\s*\|[^}]+\}\}$/i.test(rawText);
-}
-
-function stripWikiMarkupForGate(value) {
-  let text = String(value || "");
-  text = text.replace(/<ref[\s\S]*?<\/ref>/gi, " ");
-  text = text.replace(/<ref[^>]*\/?>/gi, " ");
-  text = text.replace(/\{\{[\s\S]*?\}\}/g, " ");
-  text = text.replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g, "$2");
-  text = text.replace(/\[\[([^\]]+)\]\]/g, "$1");
-  text = text.replace(/<[^>]+>/g, " ");
-  return text.replace(/\s+/g, " ").trim();
-}
-
-function isPlaceholderNote(text, raw) {
-  const normalized = text.replace(/\s+/g, " ").trim();
-  if (!normalized) return false;
-  if (isMainOnlyRaw(raw)) return false;
-  if (/^Cannabis in\s+/i.test(normalized)) {
-    const rawText = stripWikiMarkupForGate(raw);
-    if (!rawText) return true;
-    if (rawText !== normalized && rawText.length > normalized.length) {
-      return true;
-    }
-    return false;
+if (notesShrinkGuardEnabled) {
+  const guardRc = runNotesShrinkGuard(claims);
+  if (guardRc !== 0) process.exit(guardRc);
+  if (process.env.NOTES_SHRINK_GUARD === "1" && process.env.NOTES_SHRINK_WITH_DB !== "1") {
+    process.exit(0);
   }
-  if (/^Main articles?:/i.test(normalized)) return true;
-  if (/^Main article:/i.test(normalized)) return true;
-  if (/^See also:/i.test(normalized)) return true;
-  if (/^Further information:/i.test(normalized)) return true;
+}
+
+function hasSectionsUsed(claim, minLenForGeo) {
+  const sections = Array.isArray(claim?.notes_sections_used)
+    ? claim.notes_sections_used
+    : [];
+  if (sections.length > 0) return true;
+  const kind = normalizeNotesKind(claim);
+  if (kind === "MIN_ONLY" && isMinOnlyOk(claim)) return true;
+  const notesText = String(claim?.notes_text || "");
+  const notesRaw = String(claim?.notes_raw || "");
+  if (!notesText) return false;
+  if (isPlaceholderNote(notesText, notesRaw, kind)) return false;
+  if (Number.isFinite(minLenForGeo) && minLenForGeo > 0 && notesText.length >= minLenForGeo) {
+    return true;
+  }
   return false;
+}
+
+function notesClassLabel(claim) {
+  const kind = normalizeNotesKind(claim);
+  const notesText = String(claim?.notes_text || "");
+  const notesRaw = String(claim?.notes_raw || "");
+  if (!notesText) return "EMPTY";
+  if (isPlaceholderNote(notesText, notesRaw, kind)) return "PLACEHOLDER";
+  if (kind === "MIN_ONLY") return "MIN_ONLY";
+  return "RICH";
 }
 
 function reportNotesCoverage(allClaims) {
@@ -148,23 +160,23 @@ function reportNotesCoverage(allClaims) {
   const weakGeos = [];
   for (const [geo, claim] of Object.entries(allClaims || {})) {
     total += 1;
-    const notesText = String(claim?.notes_text || "");
-    const notesRaw = String(claim?.notes_raw || "");
-    const mainOnly = isMainOnlyRaw(notesRaw);
-    const isEmpty = !notesText;
-    const isPlaceholder = isPlaceholderNote(notesText, notesRaw) || mainOnly || /^Main article:/i.test(notesText);
-    if (isEmpty) {
+    const classification = classifyNotesForCoverage(claim, minOkLen, { allowNumericSignal: true });
+    if (classification.isEmpty) {
       empty += 1;
       if (emptyGeos.length < 10) emptyGeos.push(geo);
       continue;
     }
-    if (isPlaceholder) {
+    if (classification.isPlaceholder) {
       placeholder += 1;
       weak += 1;
       if (weakGeos.length < 10) weakGeos.push(geo);
       continue;
     }
-    if (notesText.length < minOkLen) {
+    if (classification.isOk) {
+      ok += 1;
+      continue;
+    }
+    if (classification.isWeak) {
       weak += 1;
       if (weakGeos.length < 10) weakGeos.push(geo);
       continue;
@@ -178,6 +190,108 @@ function reportNotesCoverage(allClaims) {
   console.log(`NOTES_COVERAGE_EMPTY_TOP10 ${emptyGeos.join(",") || "-"}`);
   console.log(`NOTES_COVERAGE_SAMPLE_WEAK geos=${weakGeos.join(",") || "-"}`);
   return hasAll === 1;
+}
+
+function computeNotesQualityCounts(allClaims) {
+  const minOkLen = 80;
+  let total = 0;
+  let ok = 0;
+  let empty = 0;
+  let placeholder = 0;
+  let weak = 0;
+  for (const claim of Object.values(allClaims || {})) {
+    total += 1;
+    const classification = classifyNotesForCoverage(claim, minOkLen, { allowNumericSignal: false });
+    if (classification.isEmpty) {
+      empty += 1;
+      continue;
+    }
+    if (classification.isPlaceholder) {
+      placeholder += 1;
+      weak += 1;
+      continue;
+    }
+    if (classification.isOk) {
+      ok += 1;
+      continue;
+    }
+    if (classification.isWeak) {
+      weak += 1;
+      continue;
+    }
+    ok += 1;
+  }
+  return {
+    total,
+    empty,
+    ok,
+    placeholder,
+    weak,
+    nonempty: total - empty
+  };
+}
+
+function readBaseline() {
+  if (!fs.existsSync(notesBaselinePath)) return null;
+  try {
+    return JSON.parse(fs.readFileSync(notesBaselinePath, "utf8"));
+  } catch {
+    return null;
+  }
+}
+
+function runNotesShrinkGuard(allClaims) {
+  const counts = computeNotesQualityCounts(allClaims);
+  const baseline = readBaseline();
+  console.log(`NOTES_BASELINE_PATH=${notesBaselinePath}`);
+  console.log(`NOTES_CURRENT_TOTAL_NONEMPTY=${counts.nonempty}`);
+  console.log(`NOTES_CURRENT_OK=${counts.ok}`);
+  console.log(`NOTES_CURRENT_PLACEHOLDER=${counts.placeholder}`);
+  console.log(`NOTES_CURRENT_WEAK=${counts.weak}`);
+  if (!baseline) {
+    console.log("NOTES_SHRINK_GUARD=FAIL");
+    console.log("NOTES_SHRINK_ERROR=missing_baseline");
+    return 2;
+  }
+  const baseNonempty = Number(baseline.total_nonempty || 0) || 0;
+  const baseOk = Number(baseline.ok || 0) || 0;
+  const basePlaceholder = Number(baseline.placeholder || 0) || 0;
+  const baseWeak = Number(baseline.weak || 0) || 0;
+  console.log(`NOTES_BASELINE_TOTAL_NONEMPTY=${baseNonempty}`);
+  console.log(`NOTES_BASELINE_OK=${baseOk}`);
+  console.log(`NOTES_BASELINE_PLACEHOLDER=${basePlaceholder}`);
+  console.log(`NOTES_BASELINE_WEAK=${baseWeak}`);
+
+  const shrinkNonempty = counts.nonempty < baseNonempty;
+  const shrinkOk = counts.ok < baseOk;
+  const growPlaceholder = counts.placeholder > basePlaceholder;
+  const growWeak = counts.weak > baseWeak;
+  const fail = shrinkNonempty || shrinkOk || growPlaceholder || growWeak;
+  if (!fail) {
+    console.log("NOTES_SHRINK_GUARD=PASS");
+    return 0;
+  }
+  const allow = process.env.NOTES_SHRINK_OK === "1";
+  const reason = String(process.env.NOTES_SHRINK_REASON || "").trim();
+  if (allow) {
+    if (!reason) {
+      console.log("NOTES_SHRINK_GUARD=FAIL");
+      console.log("NOTES_SHRINK_ERROR=reason_missing");
+      return 3;
+    }
+    console.log("NOTES_SHRINK_GUARD=PASS");
+    console.log("NOTES_SHRINK_OK=1");
+    console.log(`NOTES_SHRINK_REASON=${reason}`);
+    return 0;
+  }
+  const reasons = [];
+  if (shrinkNonempty) reasons.push("NONEMPTY_DOWN");
+  if (shrinkOk) reasons.push("OK_DOWN");
+  if (growPlaceholder) reasons.push("PLACEHOLDER_UP");
+  if (growWeak) reasons.push("WEAK_UP");
+  console.log("NOTES_SHRINK_GUARD=FAIL");
+  console.log(`NOTES_SHRINK_FAIL_REASON=${reasons.join(",") || "UNKNOWN"}`);
+  return 1;
 }
 
 let ok = 0;
@@ -214,6 +328,10 @@ const accumulateStats = (claim, key, stats, samples, minLen) => {
   }
   const notesText = String(claim.notes_text || "");
   const notesRaw = String(claim.notes_raw || "");
+  const kind = normalizeNotesKind(claim);
+  if (kind === "MIN_ONLY" && isMinOnlyOk(claim)) {
+    return;
+  }
   const hasMainArticles = Array.isArray(claim.notes_main_articles) && claim.notes_main_articles.length > 0;
   const mainOnly = isMainOnlyRaw(notesRaw);
   if (mainOnly) {
@@ -221,7 +339,7 @@ const accumulateStats = (claim, key, stats, samples, minLen) => {
     if (samples.length < 10 && key) {
       samples.push(`WEAK_NOTES_SAMPLE geo=${key} reason=MAIN_ONLY`);
     }
-    if (treatMainOnlyAsPlaceholder) {
+    if (treatMainOnlyAsPlaceholder && kind !== "MIN_ONLY") {
       stats.placeholder += 1;
     }
     if (notesText === "") {
@@ -245,9 +363,9 @@ const accumulateStats = (claim, key, stats, samples, minLen) => {
     }
     return;
   }
-  const placeholder = isPlaceholderNote(notesText, notesRaw);
+  const placeholder = isPlaceholderNote(notesText, notesRaw, kind);
   if (placeholder) stats.placeholder += 1;
-  if (minLen > 0 && !mainOnly && notesText.length < minLen) {
+  if (minLen > 0 && kind !== "MIN_ONLY" && notesText.length < minLen) {
     stats.short += 1;
   }
 };
@@ -318,16 +436,17 @@ for (const key of coverageKeys) {
   }
   const notesText = String(claim.notes_text || "");
   const notesRaw = String(claim.notes_raw || "");
+  const kind = normalizeNotesKind(claim);
   if (!notesText) {
     coverageEmpty += 1;
     continue;
   }
-  if (isPlaceholderNote(notesText, notesRaw) || (treatMainOnlyAsPlaceholder && isMainOnlyRaw(notesRaw))) {
+  if (isPlaceholderNote(notesText, notesRaw, kind) || (treatMainOnlyAsPlaceholder && isMainOnlyRaw(notesRaw))) {
     coveragePlaceholder += 1;
     continue;
   }
   const minLen = scopeAll ? notesMinLen : getMinLenForGeo(key);
-  if (minLen > 0 && notesText.length < minLen) {
+  if (minLen > 0 && kind !== "MIN_ONLY" && notesText.length < minLen) {
     coverageWeak += 1;
     continue;
   }
@@ -338,18 +457,32 @@ console.log(
 );
 const strictStats = scopeAll ? globalStats : scopedStats;
 const strictFailReasons = [];
+const sectionsCheckKeys = scopeAll
+  ? Array.from(sectionsRequired)
+  : geos.filter((geo) => sectionsRequired.has(geo));
+const missingSections = [];
+for (const geo of sectionsCheckKeys) {
+  const claim = claims[geo];
+  const minLenForGeo = getMinLenForGeo(geo);
+  if (!claim || typeof claim !== "object" || !hasSectionsUsed(claim, minLenForGeo)) {
+    missingSections.push(geo);
+  }
+}
 if (notesStrict) {
   if (strictStats.empty > 0) strictFailReasons.push("EMPTY");
   if (!scopedGate && strictStats.placeholder > 0) strictFailReasons.push("PLACEHOLDER");
   if (strictStats.missing > 0) strictFailReasons.push("MISSING_FIELD");
   if (scopedGate && failOnWeak && strictStats.placeholder > 0) strictFailReasons.push("PLACEHOLDER");
+  if (missingSections.length > 0) strictFailReasons.push("MISSING_SECTIONS");
 }
 let strictStatus = notesStrict
   ? (strictFailReasons.length === 0 ? "PASS" : "FAIL")
   : "SKIP";
 let strictReason = strictFailReasons.length ? `FAIL_${strictFailReasons.join(",")}` : "OK";
+if (missingSections.length > 0) {
+  console.log(`NOTES_SECTIONS_MISSING geos=${missingSections.join(",")}`);
+}
 if (weakTotal > 0) {
-  console.log(`NOTES_WEAK_WARN threshold=${weakThreshold} weak=${weakTotal}`);
   if (notesStrict && strictFailReasons.length === 0 && failOnWeak && weakTotal > notesWeakMax) {
     strictStatus = "FAIL";
     strictReason = "FAIL_WEAK";
@@ -377,9 +510,19 @@ if (notesStrict && strictFailReasons.length > 0) {
     }
     const notesText = String(claim.notes_text || "");
     const notesRaw = String(claim.notes_raw || "");
+  if (sectionsRequired.has(geo) && !hasSectionsUsed(claim, getMinLenForGeo(geo))) {
+      badEntries.push({
+        geo,
+        kind: "MISSING_SECTIONS",
+        notesLen: notesText.length,
+        preview: notesText.replace(/\s+/g, " ").trim().slice(0, 80)
+      });
+      continue;
+    }
     const hasMain = Array.isArray(claim.notes_main_articles) && claim.notes_main_articles.length > 0;
     const mainOnly = isMainOnlyRaw(notesRaw);
-    const placeholder = isPlaceholderNote(notesText, notesRaw);
+    const kind = normalizeNotesKind(claim);
+    const placeholder = isPlaceholderNote(notesText, notesRaw, kind);
     if (notesText === "" && !(hasMain || mainOnly || !notesRaw.trim())) {
       badEntries.push({ geo, kind: "PARSE_FAIL", notesLen: 0, preview: "" });
     } else if (placeholder) {
@@ -414,6 +557,11 @@ for (const key of sampleKeys) {
   const notes = String(claim?.notes_text ?? "");
   const preview = notes.replace(/\s+/g, " ").trim().slice(0, 80).replace(/"/g, "'");
   console.log(`NOTES_SAMPLE geo=${key} notes_len=${notes.length} preview="${preview}"`);
+  console.log(`NOTES_CLASS geo=${key} class=${notesClassLabel(claim)}`);
+}
+for (const key of sampleScopeKeys) {
+  const claim = claims[key];
+  console.log(`NOTES_CLASS geo=${key} class=${notesClassLabel(claim)}`);
 }
 const shortSampleKeys = sampleScopeKeys
   .filter((key) => {
@@ -497,13 +645,21 @@ for (const geo of geos) {
   const revision = geo.startsWith("US-") ? statesRev : countriesRev;
   const updatedAt = fetchedAt;
   let reason = "";
+  const kind = normalizeNotesKind(claim);
   if (minLenForGeo > 0 && claim) {
     if (notesLen === 0) {
       console.log(`NOTES_GEO_FAIL geo=${geo} notes_len=0 reason=EMPTY`);
       if (notesStrict) fail += 1;
-    } else if (isMainOnlyRaw(notesRaw)) {
-      console.log(`NOTES_GEO_WEAK geo=${geo} reason=MAIN_ONLY`);
-      if (notesStrict && failOnWeak && !allowWeakMainOnly) fail += 1;
+    } else if (kind === "MIN_ONLY") {
+      if (!isMinOnlyOk(claim)) {
+        console.log(`NOTES_GEO_FAIL geo=${geo} notes_len=${notesLen} reason=MIN_ONLY_NO_PROOF`);
+        if (notesStrict) fail += 1;
+      } else {
+        console.log(`NOTES_GEO_OK geo=${geo} notes_len=${notesLen} reason=MIN_ONLY`);
+      }
+    } else if (sectionsRequired.has(geoUpper) && !hasSectionsUsed(claim, minLenForGeo)) {
+      console.log(`NOTES_GEO_FAIL geo=${geo} notes_len=${notesLen} reason=NO_SECTIONS`);
+      if (notesStrict) fail += 1;
     } else if (notesLen < minLenForGeo) {
       console.log(
         `NOTES_GEO_WEAK geo=${geo} notes_len=${notesLen} min_len=${minLenForGeo} reason=SHORT`

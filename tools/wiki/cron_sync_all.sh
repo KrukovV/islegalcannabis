@@ -3,6 +3,10 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 cd "${ROOT}"
+if [ "${UPDATE_MODE:-0}" != "1" ]; then
+  echo "SYNC DISABLED IN CI (UPDATE_MODE=0)"
+  exit 0
+fi
 
 set +e
 START_MS=$(node -e 'console.log(Date.now())')

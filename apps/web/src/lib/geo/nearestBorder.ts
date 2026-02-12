@@ -1,8 +1,12 @@
 import fs from "node:fs";
 import path from "node:path";
-import { TOP25 } from "@islegal/shared";
-import { borderNearest, levelFromStatus } from "@islegal/shared";
-import type { NearestBorderLevel, NearestBorderResult } from "@islegal/shared";
+import {
+  TOP25,
+  borderNearest,
+  levelFromStatus,
+  type NearestBorderLevel,
+  type NearestBorderResult
+} from "@islegal/shared";
 import { buildTripStatusCode } from "@/lib/tripStatus";
 import { getLawProfile } from "@/lib/lawStore";
 

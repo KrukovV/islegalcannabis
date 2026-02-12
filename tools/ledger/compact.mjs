@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { BANNED_STDOUT_PATTERNS } from "../guards/stdout_sanitize.mjs";
 
 const args = process.argv.slice(2);
 const argMap = new Map();
@@ -53,7 +54,8 @@ function readLines(filePath) {
   return fs
     .readFileSync(filePath, "utf8")
     .split(/\r?\n/)
-    .map((line) => line.replace(/\\\\n/g, ""));
+    .map((line) => line.replace(/\\\\n/g, ""))
+    .filter((line) => !BANNED_STDOUT_PATTERNS.some((pattern) => pattern.test(line)));
 }
 
 function getLatestCheckpoint(rootDir) {

@@ -4,13 +4,35 @@ Hard Rule:
 - At the start of every response, read CONTINUITY.md and update Goal/State/Done/Now/Next if changes occurred.
 - Update the ledger after important outcomes (CI PASS/FAIL, smoke results, new invariants, generated artifacts).
 - Use `bash tools/pass_cycle.sh` as the single command for CI + checkpoint + ledger updates.
+- Before final response, always run `bash tools/pass_cycle.sh` and verify `Reports/ci-final.txt` has `POST_CHECKS_OK=1` and `HUB_STAGE_REPORT_OK=1`.
 - Keep the ledger concise; unknowns must be marked UNCONFIRMED (do not guess).
 - Execution Mode only: actions + results. Forbidden phrases: "considering", "figuring out", "refine approach".
 - No auto-plan lines: do not store or print "Next: ..." in CONTINUITY.md or stdout; only user-provided tasks may define future steps.
+- Lint is mandatory before Smoke/UI in CI; any lint error must fail the run (no pseudo-pass). Artifacts/Reports/QUARANTINE are never linted.
 - Network Truth Policy: DNS is diagnostic only; ONLINE truth derives solely from HTTP/API/CONNECT/FALLBACK probes; cache may allow DEGRADED_CACHE but never sets ONLINE=1; single-probe-per-run uses `Artifacts/net_probe/<RUN_ID>.json` and must keep pass_cycle/quality_gate/hub_stage_report consistent; do not reintroduce dns_fail -> offline/online flip without explicit requirement change.
 - DNS — только диагностика; `online` вычисляется только по truth-probes (HTTP/health/API и подобное), DNS не влияет на ветвления/stop_reason/работу проекта.
 - DNS is diagnostic only; online is computed only from truth-probes (HTTP/health/API), DNS never affects branching/stop_reason/работу.
 - DNS - второстепенен, только DNS is diagnostic only. DNS — только диагностика; `online` вычисляется только по truth‑probes (HTTP/health/API и подобное), DNS не влияет на ветвления/stop_reason/работу проекта.
+
+## UI / Dev Server Policy (Hard Rule)
+
+- UI_SINGLETON_RULE: only one Next.js dev server instance is allowed.
+- Codex MUST NOT start a second Next.js dev server if one is already running.
+- If an existing dev server is detected (HTTP on http://127.0.0.1:3000/wiki-truth OR .next/dev/lock exists):
+  - print: UI_ALREADY_RUNNING url=http://127.0.0.1:3000/wiki-truth
+  - exit 0
+- Codex MUST NOT:
+  - kill user processes
+  - delete .next/dev/lock while a dev process may be alive
+  - auto-switch ports (3001/3010/etc.)
+- A running user-started UI is ground truth and must not be disturbed.
+
+## Storage Hygiene (Hard Rule)
+
+- QUARANTINE must contain exactly 1 PASS snapshot; all other snapshots live خارج репозитория.
+- Reports is operational logs only; history archives must be outside the repo.
+- Archives belong in `~/islegalcannabis_archive/` (or an explicit external path).
+- CI must fail on disk bloat (see size guards in `tools/pass_cycle.sh`).
 
 Response Contract (mandatory):
 - Standard responses allowed; include command stdout when required by the task.

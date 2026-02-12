@@ -119,7 +119,7 @@ export default async function ResultPage({
     meta: { paid, paywallHint: !paid }
   });
 
-  const isPaidUser = false;
+  const isPaidUser = process.env.NEXT_PUBLIC_PREMIUM === "1";
 
   return (
     <main className={styles.page}>

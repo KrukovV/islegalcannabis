@@ -3,6 +3,7 @@ type GeoLocPayload = {
   iso: string;
   state?: string;
   confidence: number;
+  reasonCode?: string;
   ts?: string;
 };
 
@@ -12,7 +13,8 @@ function buildLine(payload: GeoLocPayload) {
   const ts = payload.ts ?? new Date().toISOString();
   const state = payload.state ? payload.state.toUpperCase() : "-";
   const iso = payload.iso ? payload.iso.toUpperCase() : "UNKNOWN";
-  return `GEO_LOC source=${payload.source} iso=${iso} state=${state} confidence=${payload.confidence.toFixed(1)} ts=${ts}`;
+  const reason = payload.reasonCode ? ` reason_code=${payload.reasonCode}` : "";
+  return `GEO_LOC source=${payload.source} iso=${iso} state=${state} confidence=${payload.confidence.toFixed(1)} ts=${ts}${reason}`;
 }
 
 export async function writeGeoLoc(payload: GeoLocPayload) {
@@ -35,6 +37,7 @@ export async function writeGeoLoc(payload: GeoLocPayload) {
         iso: payload.iso,
         state: payload.state ?? null,
         confidence: payload.confidence,
+        reason_code: payload.reasonCode ?? null,
         ts: payload.ts ?? null
       })
     });

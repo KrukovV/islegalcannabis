@@ -64,7 +64,7 @@ export function errorResponse(
   hint?: string
 ) {
   incrementError(code);
-  console.error(`[${requestId}] ${code}: ${message}`);
+  console.warn(`UI_API_ERROR request_id=${requestId} code=${code} message=${message}`);
   return NextResponse.json(
     {
       ok: false,

@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { toASCII } from "node:punycode";
 
 const ROOT = process.cwd();
 const refsPath = fs.existsSync(path.join(ROOT, "data", "wiki_ssot", "wiki_refs.json"))
@@ -18,9 +19,25 @@ function normalizeHost(value) {
   if (!trimmed) return "";
   try {
     const url = trimmed.includes("://") ? trimmed : `https://${trimmed}`;
-    const host = new URL(url).hostname.toLowerCase().replace(/^www\./, "");
-    if (!host || /^[\d.]+$/.test(host) || host === "localhost") return "";
-    return host;
+    const host = new URL(url).hostname || "";
+    const ascii = toASCII(host);
+    const normalized = String(ascii || "")
+      .toLowerCase()
+      .replace(/^www\./, "")
+      .replace(/\.$/, "");
+    if (!normalized || /^[\d.]+$/.test(normalized) || normalized === "localhost") return "";
+    return normalized;
+  } catch {
+    return "";
+  }
+}
+
+function rawHost(value) {
+  const trimmed = String(value || "").trim();
+  if (!trimmed) return "";
+  try {
+    const url = trimmed.includes("://") ? trimmed : `https://${trimmed}`;
+    return new URL(url).hostname || "";
   } catch {
     return "";
   }
@@ -38,6 +55,8 @@ const refsItems = refsPayload?.items || refsPayload;
 const refsList = Array.isArray(refsItems) ? refsItems : Object.values(refsItems || {});
 
 const domainCounts = new Map();
+const missingSamples = [];
+const missingSampleSet = new Set();
 let refsTotal = 0;
 for (const entry of refsList) {
   const refs = Array.isArray(entry?.refs) ? entry.refs : Array.isArray(entry) ? entry : [];
@@ -47,6 +66,15 @@ for (const entry of refsList) {
     if (!host) continue;
     refsTotal += 1;
     domainCounts.set(host, (domainCounts.get(host) || 0) + 1);
+    if (missingSamples.length < 10 && !allowlistDomains.has(host)) {
+      if (!missingSampleSet.has(host)) {
+        const raw = rawHost(url);
+        if (raw) {
+          missingSampleSet.add(host);
+          missingSamples.push({ raw, normalized: host });
+        }
+      }
+    }
   }
 }
 
@@ -70,6 +98,9 @@ missing.sort((a, b) => b[1] - a[1]);
 
 const summaryLine = `OFFICIAL_DIFF_SUMMARY total=${domainsTotal} allowlist=${allowlistDomains.size} matched=${matchedDomains} missing=${missingDomains} ratio=${domainsTotal ? (matchedDomains / domainsTotal).toFixed(4) : "0.0000"} refs=${refsTotal}`;
 console.log(summaryLine);
+for (const sample of missingSamples.slice(0, 10)) {
+  console.log(`OFFICIAL_DIFF_MISSING_SAMPLE raw=${sample.raw} normalized=${sample.normalized}`);
+}
 
 fs.mkdirSync(path.dirname(reportTxtPath), { recursive: true });
 const lines = [

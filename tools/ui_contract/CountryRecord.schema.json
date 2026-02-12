@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CountryRecord",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "geo",
+    "status",
+    "notes",
+    "sources",
+    "official_badge",
+    "last_updated",
+    "online_state"
+  ],
+  "properties": {
+    "geo": {"type": "string"},
+    "status": {
+      "type": "object",
+      "required": ["recreational", "medical"],
+      "additionalProperties": false,
+      "properties": {
+        "recreational": {"type": "string"},
+        "medical": {"type": "string"}
+      }
+    },
+    "notes": {
+      "type": "object",
+      "required": ["text", "sections_used", "main_article", "placeholder"],
+      "additionalProperties": false,
+      "properties": {
+        "text": {"type": "string"},
+        "sections_used": {"type": "array", "items": {"type": "string"}},
+        "main_article": {"type": "string"},
+        "placeholder": {"type": "boolean"}
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["url", "official"],
+        "additionalProperties": false,
+        "properties": {
+          "url": {"type": "string"},
+          "official": {"type": "boolean"}
+        }
+      }
+    },
+    "official_badge": {"type": "boolean"},
+    "last_updated": {"type": "string"},
+    "online_state": {"type": "string"}
+  }
+}

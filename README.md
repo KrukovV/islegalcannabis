@@ -16,6 +16,28 @@ bun web:dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Local UI (Important)
+
+If a Next.js dev server is already running (for example at http://127.0.0.1:3000),
+do NOT start another one.
+
+This project enforces a single dev server policy (UI_SINGLETON_RULE):
+- Only one `next dev` instance may exist.
+- Tooling detects an existing server and prints:
+  UI_ALREADY_RUNNING url=http://127.0.0.1:3000/wiki-truth
+- This is expected behavior and treated as OK (not an error).
+
+To restart the UI intentionally, stop it manually (Ctrl+C in the terminal running it) and start again.
+
+## Storage Hygiene (Required)
+
+This repo enforces strict storage limits:
+- QUARANTINE must contain exactly 1 PASS snapshot (no history).
+- Reports is operational logs only (no archives).
+- Archives live outside the repo under `~/islegalcannabis_archive/`.
+
+CI will fail on disk bloat (QUARANTINE > 500MB or Reports > 1GB).
+
 ### Validate law data
 
 ```bash
@@ -31,6 +53,24 @@ SEO pages under `/is-cannabis-legal-in-[slug]` are statically generated from a f
 ```bash
 bash tools/ci-local.sh
 ```
+
+## Lint
+
+Run ESLint checks:
+
+```bash
+npm run lint
+# or
+yarn lint
+```
+
+Auto-fix where safe:
+
+```bash
+npm run lint:fix
+```
+
+CI runs lint before Smoke/UI checks and fails on any lint error.
 
 ## Wiki sync (4h, revision cached)
 

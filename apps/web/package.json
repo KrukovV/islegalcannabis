@@ -3,27 +3,28 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "npm run web:dev",
+    "web:dev": "next dev -p 3000 -H 127.0.0.1",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
+    "lint": "eslint . --max-warnings=0",
     "test": "vitest run",
     "ui:e2e": "npx -y playwright test",
     "version:show": "cat ../../VERSION",
     "validate:laws": "node ../../tools/validate-laws.js"
   },
   "dependencies": {
-    "@islegal/shared": "workspace:*",
+    "@islegal/shared": "file:../../packages/shared",
     "next": "16.0.10",
     "react": "19.2.1",
     "react-dom": "19.2.1"
   },
   "devDependencies": {
-    "@playwright/test": "^1.50.0",
+    "@playwright/test": "^1.58.2",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^9",
+    "eslint": "^9.0.0",
     "eslint-config-next": "16.0.10",
     "typescript": "^5",
     "vitest": "^2.1.4"

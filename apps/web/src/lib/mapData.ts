@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import type { TruthLevel } from "@/lib/statusUi";
 
 type CentroidItem = {
   lat: number;
@@ -26,11 +27,42 @@ type RegionEntry = {
   type: string;
   legalStatusGlobal: string;
   medicalStatusGlobal: string;
-  notes?: string | null;
+  recOur?: string;
+  medOur?: string;
+  recDerived?: string;
+  medDerived?: string;
+  recWiki?: string;
+  medWiki?: string;
+  officialOverrideRec?: string | null;
+  officialOverrideMed?: string | null;
+  hasOfficialOverride?: boolean;
+  effectiveRec?: string;
+  effectiveMed?: string;
+  notesOur?: string | null;
+  notesWiki?: string | null;
+  wikiPageUrl?: string | null;
+  officialSources?: string[];
   wikiSources?: string[];
+  truthLevel?: string;
+  truthReasonCodes?: string[];
+  truthSources?: { wiki?: string | null; official?: string[]; our_rules?: string[] };
   coordinates?: { lat: number; lng: number };
   updatedAt?: string | null;
   name?: string;
+};
+
+export type SSOTStatusModel = {
+  geoKey: string;
+  recEffective: string;
+  medEffective: string;
+  recDerived: string;
+  medDerived: string;
+  truthLevel: TruthLevel;
+  officialOverride: boolean;
+  officialLinksCount: number;
+  reasons: string[];
+  wikiPage?: string | null;
+  sources: string[];
 };
 
 type LegalSsotEntry = {
@@ -42,6 +74,16 @@ type LegalSsotEntry = {
   official_sources?: string[];
   fetched_at?: string | null;
   updated_at?: string | null;
+};
+
+type WikiClaimsEntry = {
+  wiki_rec?: string | null;
+  wiki_med?: string | null;
+  recreational_status?: string | null;
+  medical_status?: string | null;
+  notes?: string | null;
+  notes_text?: string | null;
+  wiki_row_url?: string | null;
 };
 
 type Retailer = {
@@ -85,6 +127,97 @@ function mapMedicalStatus(value: string | null | undefined) {
   return "Unknown";
 }
 
+export function deriveStatusFromNotes(text: string, kind: "rec" | "med"): string {
+  const normalized = String(text || "").toLowerCase();
+  if (!normalized.trim()) return "Limited";
+  if (/\billegal\b|\bprohibit|\bprohibited\b|\bbanned\b|\bban\b/.test(normalized)) {
+    return "Illegal";
+  }
+  if (/\bdecriminal/.test(normalized)) {
+    return "Decriminalized";
+  }
+  if (/\bunenforced\b|\bnot enforced\b|\brarely enforced\b|\blax\b|\btolerated\b/.test(normalized)) {
+    return "Unenforced";
+  }
+  if (kind === "med") {
+    if (/\bmedical\b/.test(normalized) && /\blegal\b|\ballowed\b|\bpermitted\b/.test(normalized)) {
+      return "Legal";
+    }
+    if (/\bmedical\b/.test(normalized) && /\blimited\b|\brestricted\b|\bonly\b/.test(normalized)) {
+      return "Limited";
+    }
+  }
+  if (/\blegal\b|\ballowed\b|\bpermitted\b|\bregulated\b|\bregulation\b/.test(normalized)) {
+    return "Legal";
+  }
+  return "Limited";
+}
+
+function deriveStatus(params: {
+  truthLevel: string;
+  effective: string;
+  notes: string;
+  kind: "rec" | "med";
+}) {
+  if (params.truthLevel === "CONFLICT") return "Unknown";
+  if (params.effective && params.effective !== "Unknown") return params.effective;
+  return deriveStatusFromNotes(params.notes, params.kind);
+}
+
+function computeTruthLevel(params: {
+  recWiki: string;
+  medWiki: string;
+  officialOverrideRec: string | null;
+  officialOverrideMed: string | null;
+  officialSources: string[];
+  wikiPageUrl?: string | null;
+  rawOurRec?: string | null;
+  rawOurMed?: string | null;
+}) {
+  const truthReasonCodes: string[] = [];
+  const truthSources = {
+    wiki: params.wikiPageUrl || null,
+    official: params.officialSources || [],
+    our_rules: []
+  };
+  let truthLevel = "WIKI_ONLY";
+  const hasOverride = Boolean(params.officialOverrideRec || params.officialOverrideMed);
+  if (hasOverride) {
+    truthLevel = "OFFICIAL";
+    truthReasonCodes.push("OFFICIAL_OVERRIDE");
+  } else if (truthSources.official.length > 0 && (params.recWiki !== "Unknown" || params.medWiki !== "Unknown")) {
+    truthLevel = "WIKI_CORROBORATED";
+    truthReasonCodes.push("OFFICIAL_SOURCES_PRESENT");
+  }
+  const ourRec = params.rawOurRec ? mapLegalStatus(params.rawOurRec) : null;
+  const ourMed = params.rawOurMed ? mapMedicalStatus(params.rawOurMed) : null;
+  if (!hasOverride && ((ourRec && ourRec !== params.recWiki) || (ourMed && ourMed !== params.medWiki))) {
+    truthLevel = "CONFLICT";
+    truthReasonCodes.push("NO_OFFICIAL_FOR_UPGRADE");
+  }
+  return { truthLevel, truthReasonCodes, truthSources };
+}
+
+export function buildSSOTStatusModel(entry: RegionEntry): SSOTStatusModel {
+  const truthLevel = (entry.truthLevel || "WIKI_ONLY") as TruthLevel;
+  const officialLinks = Array.isArray(entry.officialSources) ? entry.officialSources : [];
+  const wikiLinks = Array.isArray(entry.wikiSources) ? entry.wikiSources : [];
+  const sources = Array.from(new Set([...officialLinks, ...wikiLinks])).filter(Boolean);
+  return {
+    geoKey: entry.geo,
+    recEffective: entry.effectiveRec || entry.legalStatusGlobal || "Unknown",
+    medEffective: entry.effectiveMed || entry.medicalStatusGlobal || "Unknown",
+    recDerived: entry.recDerived || entry.effectiveRec || entry.legalStatusGlobal || "Unknown",
+    medDerived: entry.medDerived || entry.effectiveMed || entry.medicalStatusGlobal || "Unknown",
+    truthLevel,
+    officialOverride: Boolean(entry.hasOfficialOverride),
+    officialLinksCount: officialLinks.length,
+    reasons: Array.isArray(entry.truthReasonCodes) ? entry.truthReasonCodes : [],
+    wikiPage: entry.wikiPageUrl ?? null,
+    sources
+  };
+}
+
 function loadCentroids(file: string) {
   if (!fs.existsSync(file)) return {};
   const payload = JSON.parse(fs.readFileSync(file, "utf8"));
@@ -96,6 +229,13 @@ function loadLegalSsot(): Record<string, LegalSsotEntry> {
   if (!fs.existsSync(file)) return {};
   const payload = JSON.parse(fs.readFileSync(file, "utf8"));
   return payload?.entries || {};
+}
+
+function loadWikiClaimsMap(): Record<string, WikiClaimsEntry> {
+  const file = resolveDataPath("data", "wiki", "wiki_claims_map.json");
+  if (!fs.existsSync(file)) return {};
+  const payload = JSON.parse(fs.readFileSync(file, "utf8"));
+  return payload?.items || {};
 }
 
 function loadUsLaws() {
@@ -146,20 +286,75 @@ function geoFromStateProps(props: Record<string, unknown>) {
 
 export function buildRegions() {
   const entries = loadLegalSsot();
+  const wikiClaims = loadWikiClaimsMap();
   const centroids = loadCentroids(resolveDataPath("data", "centroids", "adm0.json"));
   const regions: RegionEntry[] = [];
   for (const [geo, entry] of Object.entries(entries)) {
     const centroid = centroids[geo] || null;
+    const wiki = wikiClaims[geo] || {};
+    const recWiki = mapLegalStatus(wiki?.wiki_rec ?? wiki?.recreational_status);
+    const medWiki = mapMedicalStatus(wiki?.wiki_med ?? wiki?.medical_status);
+    const officialOverrideRec = entry?.official_override_rec
+      ? mapLegalStatus(entry?.official_override_rec)
+      : null;
+    const officialOverrideMed = entry?.official_override_med
+      ? mapMedicalStatus(entry?.official_override_med)
+      : null;
+    const hasOfficialOverride = Boolean(officialOverrideRec || officialOverrideMed);
+    const effectiveRec = hasOfficialOverride && officialOverrideRec ? officialOverrideRec : recWiki;
+    const effectiveMed = hasOfficialOverride && officialOverrideMed ? officialOverrideMed : medWiki;
+    const truth = computeTruthLevel({
+      recWiki,
+      medWiki,
+      officialOverrideRec,
+      officialOverrideMed,
+      officialSources: entry?.official_sources || [],
+      wikiPageUrl: wiki?.wiki_row_url || entry?.wiki_url || null,
+      rawOurRec: null,
+      rawOurMed: null
+    });
+    const notesCombined = `${entry?.notes || entry?.extracted_facts?.notes || ""} ${
+      wiki?.notes ?? wiki?.notes_text ?? ""
+    }`;
+    const recDerived = deriveStatus({
+      truthLevel: truth.truthLevel,
+      effective: effectiveRec,
+      notes: notesCombined,
+      kind: "rec"
+    });
+    const medDerived = deriveStatus({
+      truthLevel: truth.truthLevel,
+      effective: effectiveMed,
+      notes: notesCombined,
+      kind: "med"
+    });
     const wikiSources = [entry?.wiki_url, ...(entry?.official_sources || [])].filter(
       (value): value is string => Boolean(value)
     );
     regions.push({
       geo,
       type: "country",
-      legalStatusGlobal: mapLegalStatus(entry?.status_recreational),
-      medicalStatusGlobal: mapMedicalStatus(entry?.status_medical),
-      notes: entry?.notes || entry?.extracted_facts?.notes || null,
+      legalStatusGlobal: effectiveRec,
+      medicalStatusGlobal: effectiveMed,
+      recOur: null,
+      medOur: null,
+      recWiki,
+      medWiki,
+      officialOverrideRec,
+      officialOverrideMed,
+      hasOfficialOverride,
+      effectiveRec,
+      effectiveMed,
+      recDerived,
+      medDerived,
+      notesOur: entry?.notes || entry?.extracted_facts?.notes || null,
+      notesWiki: wiki?.notes ?? wiki?.notes_text ?? null,
+      wikiPageUrl: wiki?.wiki_row_url || entry?.wiki_url || null,
+      officialSources: entry?.official_sources || [],
       wikiSources,
+      truthLevel: truth.truthLevel,
+      truthReasonCodes: truth.truthReasonCodes,
+      truthSources: truth.truthSources,
       coordinates: centroid ? { lat: centroid.lat, lng: centroid.lon } : undefined,
       updatedAt: entry?.fetched_at || entry?.updated_at || null,
       name: centroid?.name
@@ -173,13 +368,67 @@ export function buildRegions() {
     if (!region) return;
     const geo = `US-${region}`;
     const centroid = stateCentroids[geo] || null;
+    const wiki = wikiClaims[geo] || {};
+    const recWiki = mapLegalStatus(wiki?.wiki_rec ?? wiki?.recreational_status);
+    const medWiki = mapMedicalStatus(wiki?.wiki_med ?? wiki?.medical_status);
+    const officialOverrideRec = entry?.official_override_rec
+      ? mapLegalStatus(entry?.official_override_rec)
+      : null;
+    const officialOverrideMed = entry?.official_override_med
+      ? mapMedicalStatus(entry?.official_override_med)
+      : null;
+    const hasOfficialOverride = Boolean(officialOverrideRec || officialOverrideMed);
+    const effectiveRec = hasOfficialOverride && officialOverrideRec ? officialOverrideRec : recWiki;
+    const effectiveMed = hasOfficialOverride && officialOverrideMed ? officialOverrideMed : medWiki;
+    const truth = computeTruthLevel({
+      recWiki,
+      medWiki,
+      officialOverrideRec,
+      officialOverrideMed,
+      officialSources: [],
+      wikiPageUrl: wiki?.wiki_row_url || null,
+      rawOurRec: null,
+      rawOurMed: null
+    });
+    const notesCombined = `${entry?.notes || ""} ${wiki?.notes ?? wiki?.notes_text ?? ""}`;
+    const recDerived = deriveStatus({
+      truthLevel: truth.truthLevel,
+      effective: effectiveRec,
+      notes: notesCombined,
+      kind: "rec"
+    });
+    const medDerived = deriveStatus({
+      truthLevel: truth.truthLevel,
+      effective: effectiveMed,
+      notes: notesCombined,
+      kind: "med"
+    });
     regions.push({
       geo,
       type: "state",
-      legalStatusGlobal: mapLegalStatus(entry?.recreational),
-      medicalStatusGlobal: mapMedicalStatus(entry?.medical),
-      notes: entry?.notes || null,
-      wikiSources: Array.isArray(entry?.sources) ? entry.sources.map((item: { url?: string }) => item?.url).filter(Boolean) : [],
+      legalStatusGlobal: effectiveRec,
+      medicalStatusGlobal: effectiveMed,
+      recOur: null,
+      medOur: null,
+      recWiki,
+      medWiki,
+      officialOverrideRec,
+      officialOverrideMed,
+      hasOfficialOverride,
+      effectiveRec,
+      effectiveMed,
+      recDerived,
+      medDerived,
+      notesOur: entry?.notes || null,
+      notesWiki: wiki?.notes ?? wiki?.notes_text ?? null,
+      wikiPageUrl: wiki?.wiki_row_url || null,
+      officialSources: [],
+      wikiSources: Array.isArray(entry?.sources)
+        ? entry.sources.map((item: { url?: string }) => item?.url).filter(Boolean)
+        : [],
+      truthLevel: truth.truthLevel,
+      truthReasonCodes: truth.truthReasonCodes,
+      truthSources: truth.truthSources,
       coordinates: centroid ? { lat: centroid.lat, lng: centroid.lon } : undefined,
       updatedAt: entry?.updated_at || entry?.verified_at || null,
       name: centroid?.name
@@ -187,6 +436,22 @@ export function buildRegions() {
   });
 
   return regions;
+}
+
+export function buildStatusIndex(regions: RegionEntry[]) {
+  const index = new Map<string, RegionEntry>();
+  regions.forEach((entry) => {
+    index.set(entry.geo, entry);
+  });
+  return index;
+}
+
+export function buildSSOTStatusIndex(regions: RegionEntry[]) {
+  const index = new Map<string, SSOTStatusModel>();
+  regions.forEach((entry) => {
+    index.set(entry.geo, buildSSOTStatusModel(entry));
+  });
+  return index;
 }
 
 export function buildGeoJson(type: string) {
@@ -203,6 +468,31 @@ export function buildGeoJson(type: string) {
       features: []
     };
   }
+  const makeProperties = (entry: RegionEntry, fallbackName?: string) => {
+    const statusModel = buildSSOTStatusModel(entry);
+    return {
+      geo: entry.geo,
+      name: entry.name || fallbackName || entry.geo,
+      type: entry.type,
+      legalStatusGlobal: statusModel.recEffective,
+      medicalStatusGlobal: statusModel.medEffective,
+      officialOverrideRec: entry.officialOverrideRec,
+      officialOverrideMed: entry.officialOverrideMed,
+      hasOfficialOverride: entry.hasOfficialOverride,
+      recEffective: statusModel.recEffective,
+      medEffective: statusModel.medEffective,
+      recDerived: statusModel.recDerived,
+      medDerived: statusModel.medDerived,
+      notesOur: entry.notesOur,
+      notesWiki: entry.notesWiki,
+      wikiPage: statusModel.wikiPage,
+      officialLinksCount: statusModel.officialLinksCount,
+      sources: statusModel.sources,
+      truthLevel: statusModel.truthLevel,
+      reasons: statusModel.reasons,
+      updatedAt: entry.updatedAt
+    };
+  };
   const features = geojson.features
     .map((feature) => {
       const props = feature.properties || {};
@@ -213,22 +503,28 @@ export function buildGeoJson(type: string) {
       return {
         type: "Feature",
         geometry: feature.geometry,
-        properties: {
-          geo: entry.geo,
-          name: entry.name || String(props?.NAME || props?.name || entry.geo),
-          type: entry.type,
-          legalStatusGlobal: entry.legalStatusGlobal,
-          medicalStatusGlobal: entry.medicalStatusGlobal,
-          notes: entry.notes,
-          wikiSources: entry.wikiSources,
-          updatedAt: entry.updatedAt
-        }
+        properties: makeProperties(entry, String(props?.NAME || props?.name || entry.geo))
       } as GeoJsonFeature;
     })
     .filter(Boolean) as GeoJsonFeature[];
+  const existing = new Set(features.map((feature) => String(feature.properties.geo || "")));
+  const fallbackPoints = regions
+    .filter((entry) => entry.type === (isState ? "state" : "country"))
+    .filter((entry) => !existing.has(entry.geo))
+    .map((entry) => {
+      const coords = entry.coordinates || { lat: 0, lng: 0 };
+      return {
+        type: "Feature",
+        geometry: {
+          type: "Point",
+          coordinates: [coords.lng, coords.lat]
+        },
+        properties: makeProperties(entry)
+      } as GeoJsonFeature;
+    }) as GeoJsonFeature[];
   return {
     type: "FeatureCollection",
-    features
+    features: [...features, ...fallbackPoints]
   };
 }
 

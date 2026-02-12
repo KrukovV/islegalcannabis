@@ -19,6 +19,7 @@ import { titleForJurisdiction } from "@/lib/jurisdictionTitle";
 import { buildExtrasItems, extrasPreview } from "@/lib/extras";
 import { findNearestLegalForProfile } from "@/lib/geo/nearestLegal";
 import { findNearestBetterBorder } from "@/lib/geo/nearestBorder";
+import { buildWikiBlock, withWikiClaim } from "../../../../../../core/ssot/wiki_status";
 import fs from "node:fs";
 import path from "node:path";
 import { spawnSync } from "node:child_process";
@@ -134,36 +135,6 @@ const AUTO_VERIFIED_PATH = path.join(
   "legal_ssot",
   "machine_verified.json"
 );
-const WIKI_CLAIM_DIR = path.join(
-  process.cwd(),
-  "data",
-  "wiki",
-  "wiki_claims"
-);
-const WIKI_SSOT_CLAIMS_PATH = path.join(
-  process.cwd(),
-  "data",
-  "wiki",
-  "wiki_claims_map.json"
-);
-const WIKI_SSOT_REFS_PATH = path.join(
-  process.cwd(),
-  "data",
-  "wiki_ssot",
-  "wiki_refs.json"
-);
-const WIKI_CLAIMS_SNAPSHOT = path.join(
-  process.cwd(),
-  "data",
-  "wiki",
-  "wiki_claims.json"
-);
-const WIKI_OFFICIAL_EVAL_PATH = path.join(
-  process.cwd(),
-  "data",
-  "wiki",
-  "wiki_official_eval.json"
-);
 
 function appendSsotLine(line: string) {
   const reportsPath = path.join(process.cwd(), "Reports", "ci-final.txt");
@@ -197,20 +168,23 @@ function geoConfidenceScore(source: string, normalized: string | null) {
   return 0.0;
 }
 
-function writeGeoLocSsot(source: string, iso: string, state: string | undefined, confidence: number) {
+function writeGeoLocSsot(
+  source: string,
+  iso: string,
+  state: string | undefined,
+  confidence: number,
+  reasonCode: string | undefined
+) {
   const isoCode = String(iso || "UNKNOWN").toUpperCase();
   const stateCode = state ? String(state).toUpperCase() : "-";
   const ts = new Date().toISOString();
+  const reason = reasonCode ? ` reason_code=${reasonCode}` : "";
   appendSsotLine(
-    `GEO_LOC source=${source} iso=${isoCode} state=${stateCode} confidence=${confidence.toFixed(1)} ts=${ts}`
+    `GEO_LOC source=${source} iso=${isoCode} state=${stateCode} confidence=${confidence.toFixed(1)} ts=${ts}${reason}`
   );
 }
 let offlineFallbackCache: Record<string, unknown> | null = null;
 let autoVerifiedCache: Record<string, unknown> | null = null;
-let wikiClaimsCache: Record<string, unknown> | null = null;
-let wikiSsotCache: Record<string, unknown> | null = null;
-let wikiRefsCache: Record<string, unknown> | null = null;
-let wikiOfficialCache: Record<string, unknown> | null = null;
 let onDemandTouched = false;
 
 function loadOfflineFallback() {
@@ -256,251 +230,6 @@ function getAutoVerifiedEntry(country: string) {
   return (payload as Record<string, unknown>)[country.toUpperCase()] ?? null;
 }
 
-function loadWikiClaim(geoKey: string) {
-  if (!geoKey) return null;
-  const key = geoKey.toUpperCase();
-  if (wikiSsotCache && !onDemandTouched) {
-    return wikiSsotCache[key] ?? null;
-  }
-  if (wikiClaimsCache && !onDemandTouched) {
-    return wikiClaimsCache[key] ?? null;
-  }
-  const ssot = loadWikiSsotClaim(key);
-  if (ssot) return ssot;
-  if (fs.existsSync(WIKI_SSOT_CLAIMS_PATH)) {
-    return null;
-  }
-  if (fs.existsSync(WIKI_CLAIMS_SNAPSHOT)) {
-    try {
-      const payload = JSON.parse(fs.readFileSync(WIKI_CLAIMS_SNAPSHOT, "utf8"));
-      let items: unknown[] = [];
-      if (Array.isArray(payload)) {
-        items = payload;
-      } else if (Array.isArray(payload?.items)) {
-        items = payload.items;
-      } else if (payload?.items && typeof payload.items === "object") {
-        items = Object.values(payload.items);
-      } else if (payload && typeof payload === "object") {
-        items = Object.values(payload);
-      }
-      if (items.length) {
-        const map: Record<string, unknown> = {};
-        for (const entry of items) {
-          if (!entry || typeof entry !== "object") continue;
-          const normalized = normalizeWikiClaim(entry);
-          const normalizedKey = String(normalized?.geo_key || "").toUpperCase();
-          if (!normalizedKey) continue;
-          map[normalizedKey] = normalized;
-        }
-        wikiClaimsCache = map;
-        return map[key] ?? null;
-      }
-    } catch {
-      wikiClaimsCache = null;
-    }
-  }
-  const claimPath = path.join(WIKI_CLAIM_DIR, `${key}.json`);
-  if (!fs.existsSync(claimPath)) return null;
-  try {
-    const payload = JSON.parse(fs.readFileSync(claimPath, "utf8"));
-    return normalizeWikiClaim(payload);
-  } catch {
-    return null;
-  }
-}
-
-function normalizeWikiClaim(entry: unknown) {
-  if (!entry || typeof entry !== "object") return null;
-  const payload = entry as Record<string, unknown>;
-  const geo =
-    payload.geo_key || payload.geoKey || payload.geo || payload.id || "";
-  const mainArticles = Array.isArray(payload.main_articles)
-    ? payload.main_articles
-    : Array.isArray(payload.notes_main_articles)
-      ? payload.notes_main_articles
-      : [];
-  const notesRaw =
-    typeof payload.notes_raw === "string"
-      ? payload.notes_raw
-      : typeof payload.notes_text === "string"
-        ? payload.notes_text
-        : "";
-  const wikiRec =
-    payload.wiki_rec ||
-    payload.rec_status ||
-    payload.recreational_status ||
-    "Unknown";
-  const wikiMed =
-    payload.wiki_med ||
-    payload.med_status ||
-    payload.medical_status ||
-    "Unknown";
-  return {
-    ...payload,
-    geo_key: String(geo || "").toUpperCase(),
-    wiki_rec: wikiRec,
-    wiki_med: wikiMed,
-    notes_raw: notesRaw,
-    main_articles: mainArticles,
-    recreational_status: payload.recreational_status || wikiRec,
-    medical_status: payload.medical_status || wikiMed,
-    notes_main_articles: Array.isArray(payload.notes_main_articles)
-      ? payload.notes_main_articles
-      : mainArticles
-  };
-}
-
-function loadWikiSsotClaim(geoKey: string) {
-  if (!fs.existsSync(WIKI_SSOT_CLAIMS_PATH)) return null;
-  try {
-    const payload = JSON.parse(fs.readFileSync(WIKI_SSOT_CLAIMS_PATH, "utf8"));
-    const map: Record<string, unknown> = {};
-    if (Array.isArray(payload)) {
-      for (const entry of payload) {
-        const normalized = normalizeWikiClaim(entry);
-        const key = String(normalized?.geo_key || "").toUpperCase();
-        if (!key) continue;
-        map[key] = normalized;
-      }
-    } else if (Array.isArray(payload?.items)) {
-      for (const entry of payload.items) {
-        const normalized = normalizeWikiClaim(entry);
-        const key = String(normalized?.geo_key || "").toUpperCase();
-        if (!key) continue;
-        map[key] = normalized;
-      }
-    } else if (payload?.items && typeof payload.items === "object") {
-      for (const [key, value] of Object.entries(payload.items)) {
-        const normalized = normalizeWikiClaim(value);
-        const normalizedKey = String(normalized?.geo_key || key || "").toUpperCase();
-        if (!normalizedKey) continue;
-        map[normalizedKey] = normalized;
-      }
-    } else if (payload && typeof payload === "object") {
-      for (const [key, value] of Object.entries(payload)) {
-        const normalized = normalizeWikiClaim(value);
-        const normalizedKey = String(normalized?.geo_key || key || "").toUpperCase();
-        if (!normalizedKey) continue;
-        map[normalizedKey] = normalized;
-      }
-    }
-    wikiSsotCache = map;
-    return map[geoKey.toUpperCase()] ?? null;
-  } catch {
-    wikiSsotCache = null;
-    return null;
-  }
-}
-
-function loadWikiRefs(geoKey: string) {
-  if (!geoKey) return [];
-  const key = geoKey.toUpperCase();
-  if (wikiRefsCache && !onDemandTouched) {
-    const match = wikiRefsCache[key];
-    return Array.isArray(match) ? match : [];
-  }
-  if (!fs.existsSync(WIKI_SSOT_REFS_PATH)) return [];
-  try {
-    const payload = JSON.parse(fs.readFileSync(WIKI_SSOT_REFS_PATH, "utf8"));
-    const items = Array.isArray(payload) ? payload : payload?.items;
-    if (!Array.isArray(items)) return [];
-    const map: Record<string, unknown> = {};
-    for (const entry of items) {
-      if (!entry || typeof entry !== "object") continue;
-      const item = entry as Record<string, unknown>;
-      const geo = String(item.geo || item.geo_key || item.geoKey || "").toUpperCase();
-      if (!geo) continue;
-      map[geo] = Array.isArray(item.refs) ? item.refs : [];
-    }
-    wikiRefsCache = map;
-    const match = map[key];
-    return Array.isArray(match) ? match : [];
-  } catch {
-    wikiRefsCache = null;
-    return [];
-  }
-}
-
-function loadWikiOfficialEval(geoKey: string) {
-  if (!geoKey) return null;
-  if (wikiOfficialCache && !onDemandTouched) {
-    return wikiOfficialCache[geoKey.toUpperCase()] ?? null;
-  }
-  if (fs.existsSync(WIKI_OFFICIAL_EVAL_PATH)) {
-    try {
-      const payload = JSON.parse(fs.readFileSync(WIKI_OFFICIAL_EVAL_PATH, "utf8"));
-      const items = payload?.items && typeof payload.items === "object" ? payload.items : null;
-      if (items && typeof items === "object") {
-        wikiOfficialCache = items as Record<string, unknown>;
-        return wikiOfficialCache[geoKey.toUpperCase()] ?? null;
-      }
-    } catch {
-      wikiOfficialCache = null;
-    }
-  }
-  return null;
-}
-
-function withWikiClaim<T extends { wiki_claim?: unknown; wiki_source?: string | null }>(
-  profile: T,
-  geoKey: string
-) {
-  if (!profile) return profile;
-  const claim = loadWikiClaim(geoKey);
-  if (!claim || typeof claim !== "object") return profile;
-  const wikiRowUrl =
-    typeof (claim as { wiki_row_url?: unknown }).wiki_row_url === "string"
-      ? ((claim as { wiki_row_url?: string }).wiki_row_url ?? null)
-      : null;
-  const wikiSource = wikiRowUrl || profile.wiki_source;
-  return { ...profile, wiki_claim: claim, wiki_source: wikiSource };
-}
-
-function buildWikiBlock(geoKey: string) {
-  const claim = loadWikiClaim(geoKey);
-  const wikiRefs = loadWikiRefs(geoKey);
-  const rawRefs = (claim as { wiki_refs?: unknown[] } | null)?.wiki_refs;
-  const fallbackRefs: unknown[] = Array.isArray(rawRefs) ? rawRefs : [];
-  const mergedRefs = wikiRefs.length ? wikiRefs : fallbackRefs;
-  const wikiClaim = claim
-    ? {
-        wiki_rec: (claim as { wiki_rec?: string }).wiki_rec ?? "Unknown",
-        wiki_med: (claim as { wiki_med?: string }).wiki_med ?? "Unknown",
-        notes_raw: (claim as { notes_raw?: string }).notes_raw ?? "",
-        main_articles: Array.isArray((claim as { main_articles?: unknown[] }).main_articles)
-          ? (claim as { main_articles?: unknown[] }).main_articles
-          : Array.isArray((claim as { notes_main_articles?: unknown[] }).notes_main_articles)
-            ? (claim as { notes_main_articles?: unknown[] }).notes_main_articles
-            : [],
-        wiki_row_url: (claim as { wiki_row_url?: string }).wiki_row_url ?? null,
-        fetched_at: (claim as { fetched_at?: string }).fetched_at ?? null
-      }
-    : null;
-  const officialEval = loadWikiOfficialEval(geoKey) as
-    | {
-        official_count?: number;
-        non_official_count?: number;
-        total_refs?: number;
-        official_matches?: unknown[];
-        non_official?: unknown[];
-        last_checked_at?: string;
-      }
-    | null;
-  const totalCount =
-    Number(officialEval?.total_refs || 0) ||
-    Number((officialEval?.official_count || 0) + (officialEval?.non_official_count || 0)) ||
-    mergedRefs.length;
-  const trust = {
-    official_count: Number(officialEval?.official_count || 0) || 0,
-    total_count: totalCount,
-    official_matches: Array.isArray(officialEval?.official_matches)
-      ? officialEval?.official_matches
-      : [],
-    non_official: Array.isArray(officialEval?.non_official) ? officialEval?.non_official : [],
-    last_checked_at: officialEval?.last_checked_at ?? null
-  };
-  return { wiki_claim: wikiClaim, wiki_links: mergedRefs, links_trust: trust };
-}
 
 function isMachineVerifiedFresh(entry: Record<string, unknown> | null, ttlDays = 45) {
   if (!entry || ttlDays <= 0) return false;
@@ -659,8 +388,8 @@ export async function GET(req: Request) {
   const resolvedRegion = resolveUsRegion(country, regionInput);
   const region = resolvedRegion.region;
   if (resolvedRegion.source && regionInput) {
-    console.log(
-      `GEO_RESOLVE: input="${regionInput}, ${country}" -> geo=US-${resolvedRegion.region} source=${resolvedRegion.source}`
+    console.warn(
+      `UI_GEO_RESOLVE input="${regionInput}, ${country}" geo=US-${resolvedRegion.region} source=${resolvedRegion.source}`
     );
   }
   const method = searchParams.get("method") as "gps" | "ip" | "manual" | null;
@@ -727,11 +456,20 @@ export async function GET(req: Request) {
     : fromQuery({ country, region });
 
   const geoSource = method ? method : "none";
+  const geoReason =
+    geoSource === "manual"
+      ? "USER_SELECT"
+      : geoSource === "gps"
+        ? "GPS_OK"
+        : geoSource === "ip"
+          ? "IP_FALLBACK"
+          : "IP_FALLBACK";
   writeGeoLocSsot(
     geoSource,
     country,
     region,
-    geoConfidenceScore(geoSource, normalizedConfidence)
+    geoConfidenceScore(geoSource, normalizedConfidence),
+    geoReason
   );
   appendSsotLine("MAP_READY=1");
 
@@ -1090,7 +828,7 @@ export async function GET(req: Request) {
   const wikiBlock = buildWikiBlock(jurisdictionKey ?? autoProfile.id);
 
   incrementCounter("check_performed");
-  console.info(`[${requestId}] check_performed`);
+  console.warn(`UI_CHECK_PERFORMED request_id=${requestId}`);
 
   const status = buildDisplayStatus(enrichedProfile);
   const statusCode = buildTripStatusCode(enrichedProfile);

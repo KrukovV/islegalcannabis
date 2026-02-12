@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { spawnSync } from "node:child_process";
 import { readWikiClaimsSnapshot } from "./wiki_claims_store.mjs";
+import { classifyNotesLevel } from "../ssot/notes_classify.mjs";
 
 const ROOT = process.cwd();
 const ISO_PATH = path.join(ROOT, "data", "iso3166", "iso3166-1.json");
@@ -11,6 +12,25 @@ const OUTPUT_CLAIMS_MAP_PATH = path.join(ROOT, "data", "wiki", "wiki_claims_map.
 const OUTPUT_REFS_PATH = path.join(ROOT, "data", "wiki", "wiki_refs.json");
 const OFFICIAL_BADGES_PATH = path.join(ROOT, "data", "wiki", "wiki_official_badges.json");
 const SSOT_WRITE = process.env.SSOT_WRITE === "1";
+const CLEAR_NOTES = process.env.CLEAR_NOTES === "1";
+const CLEAR_NOTES_REASON = String(process.env.CLEAR_NOTES_REASON || "");
+const NOTES_MIN_LEN = Number(process.env.NOTES_MIN_LEN || 120) || 120;
+const NOTES_REGRESS_PATH = path.join(ROOT, "Reports", "notes_regress.ssot.json");
+const NOTES_STATUS_CHANGE_PATH = path.join(ROOT, "Reports", "notes_status_change.json");
+const STATUS_CHANGE_PATH = path.join(ROOT, "Reports", "status_change.json");
+const notesRegressions = [];
+const notesStatusChanges = [];
+const statusChanges = [];
+
+function appendCiFinal(line) {
+  const file = path.join(ROOT, "Reports", "ci-final.txt");
+  try {
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    fs.appendFileSync(file, `${line}\n`);
+  } catch {
+    // ignore
+  }
+}
 
 if (!SSOT_WRITE) {
   console.log("SSOT_READONLY=1");
@@ -69,6 +89,10 @@ function normalizeClaim(entry, fallbackFetchedAt) {
       entry.medical_status || entry.wiki_med || entry.med_status || "Unknown"
     ),
     notes_text: String(entry.notes_text || entry.notes_raw || entry.notes || ""),
+    notes_kind: String(entry.notes_kind || ""),
+    notes_reason_code: String(entry.notes_reason_code || ""),
+    notes_sections_used: Array.isArray(entry.notes_sections_used) ? entry.notes_sections_used : [],
+    notes_main_article: String(entry.notes_main_article || ""),
     main_articles: normalizeMainArticles(entry.main_articles || entry.notes_main_articles),
     row_ref: String(entry.row_ref || entry.wiki_row_ref || entry.rowRef || ""),
     wiki_revision_id: String(entry.wiki_revision_id || entry.revision_id || ""),
@@ -95,14 +119,290 @@ function isPlaceholderNote(value) {
   return false;
 }
 
+function isWeakNote(value, kind = "") {
+  if (kind === "MIN_ONLY") return false;
+  if (kind === "NONE") return true;
+  const normalized = normalizeNotesText(value);
+  if (!normalized) return true;
+  if (isPlaceholderNote(normalized)) return true;
+  return normalized.length < NOTES_MIN_LEN;
+}
+
+function isWeakerClass(nextClass, prevClass) {
+  const order = {
+    PLACEHOLDER: 0,
+    MIN_ONLY: 1,
+    BASIC: 2,
+    RICH: 3
+  };
+  const nextScore = order[String(nextClass || "").toUpperCase()] ?? -1;
+  const prevScore = order[String(prevClass || "").toUpperCase()] ?? -1;
+  return nextScore >= 0 && prevScore >= 0 && nextScore < prevScore;
+}
+
+function recordNotesRegression(geo, prevClass, nextClass, reason) {
+  if (!geo) return;
+  notesRegressions.push({
+    geo,
+    prev_class: prevClass,
+    next_class: nextClass,
+    reason
+  });
+}
+
+function recordNotesStatusChange(entry) {
+  if (!entry || !entry.geo) return;
+  notesStatusChanges.push({
+    ...entry,
+    ts: new Date().toISOString()
+  });
+}
+
+function recordStatusChange(entry) {
+  if (!entry || !entry.geo) return;
+  statusChanges.push({
+    ...entry,
+    ts: new Date().toISOString()
+  });
+}
+
 function mergeNotes(current, previous) {
   if (!current || typeof current !== "object") return current;
   if (!previous || typeof previous !== "object") return current;
   const currentNotes = normalizeNotesText(current.notes_text || "");
   const previousNotes = normalizeNotesText(previous.notes_text || previous.notes_raw || "");
+  const currentKind = String(current.notes_kind || "");
+  const previousKind = String(previous.notes_kind || "");
+  const currentClass = classifyNotesLevel(current);
+  const previousClass = classifyNotesLevel(previous);
+  const allowStatusShrink = process.env.ALLOW_STATUS_SHRINK === "1";
+  const allowStatusUpgrade = process.env.ALLOW_STATUS_UPGRADE === "1";
+  const currRec = String(current.rec_status || current.recreational_status || "");
+  const currMed = String(current.med_status || current.medical_status || "");
+  const prevRec = String(previous.rec_status || previous.recreational_status || "");
+  const prevMed = String(previous.med_status || previous.medical_status || "");
+  const isUnknown = (val) => !val || val === "Unknown";
+  if (!allowStatusShrink) {
+    if (isUnknown(currRec) && !isUnknown(prevRec)) {
+      current.rec_status = prevRec;
+      current.recreational_status = prevRec;
+      recordStatusChange({
+        geo: String(current.geo_id || current.geo_key || ""),
+        field: "rec",
+        old: prevRec,
+        next: currRec,
+        reason: "STATUS_SHRINK_BLOCKED"
+      });
+    }
+    if (isUnknown(currMed) && !isUnknown(prevMed)) {
+      current.med_status = prevMed;
+      current.medical_status = prevMed;
+      recordStatusChange({
+        geo: String(current.geo_id || current.geo_key || ""),
+        field: "med",
+        old: prevMed,
+        next: currMed,
+        reason: "STATUS_SHRINK_BLOCKED"
+      });
+    }
+  }
+  if (!allowStatusUpgrade) {
+    if ((prevRec === "Decrim" || prevRec === "Unenforced") && currRec === "Legal") {
+      current.rec_status = prevRec;
+      current.recreational_status = prevRec;
+      recordStatusChange({
+        geo: String(current.geo_id || current.geo_key || ""),
+        field: "rec",
+        old: prevRec,
+        next: currRec,
+        reason: "STATUS_UPGRADE_BLOCKED"
+      });
+    }
+    if (prevMed === "Limited" && currMed === "Legal") {
+      current.med_status = prevMed;
+      current.medical_status = prevMed;
+      recordStatusChange({
+        geo: String(current.geo_id || current.geo_key || ""),
+        field: "med",
+        old: prevMed,
+        next: currMed,
+        reason: "STATUS_UPGRADE_BLOCKED"
+      });
+    }
+  }
+  const statusChanged =
+    String(current.rec_status || current.recreational_status || "") !==
+      String(previous.rec_status || previous.recreational_status || "") ||
+    String(current.med_status || current.medical_status || "") !==
+      String(previous.med_status || previous.medical_status || "");
+  const inferKind = (text) => {
+    if (!text) return "NONE";
+    if (/^Main article:/i.test(text)) return "MIN_ONLY";
+    return "RICH";
+  };
+  if (!currentKind) {
+    const inferred = inferKind(currentNotes);
+    current.notes_kind = inferred;
+    if (!current.notes_reason_code) {
+      current.notes_reason_code = inferred === "MIN_ONLY" ? "NO_EXTRA_TEXT" : "PARSED_SECTIONS";
+    }
+  }
+  if (current.notes_kind === "MIN_ONLY" && !current.notes_reason_code) {
+    current.notes_reason_code = "NO_EXTRA_TEXT";
+  }
   if (!previousNotes) return current;
-  const currentIsPlaceholder = isPlaceholderNote(currentNotes);
-  const previousIsPlaceholder = isPlaceholderNote(previousNotes);
+  if (!statusChanged && isWeakerClass(currentClass, previousClass)) {
+    return {
+      ...current,
+      notes_text: previousNotes,
+      notes_raw: previous.notes_raw || current.notes_raw || previousNotes,
+      notes_kind: previousKind,
+      notes_reason_code: "NOTES_WEAK_BLOCKED",
+      notes_sections_used: Array.isArray(previous.notes_sections_used) && previous.notes_sections_used.length
+        ? previous.notes_sections_used
+        : current.notes_sections_used,
+      notes_main_article: previous.notes_main_article || current.notes_main_article,
+      main_articles: Array.isArray(current.main_articles) && current.main_articles.length
+        ? current.main_articles
+        : normalizeMainArticles(previous.main_articles || previous.notes_main_articles)
+    };
+  }
+  if (!statusChanged && currentNotes.length < previousNotes.length) {
+    return {
+      ...current,
+      notes_text: previousNotes,
+      notes_raw: previous.notes_raw || current.notes_raw || previousNotes,
+      notes_kind: previousKind,
+      notes_reason_code: "NOTES_WEAK_BLOCKED",
+      notes_sections_used: Array.isArray(previous.notes_sections_used) && previous.notes_sections_used.length
+        ? previous.notes_sections_used
+        : current.notes_sections_used,
+      notes_main_article: previous.notes_main_article || current.notes_main_article,
+      main_articles: Array.isArray(current.main_articles) && current.main_articles.length
+        ? current.main_articles
+        : normalizeMainArticles(previous.main_articles || previous.notes_main_articles)
+    };
+  }
+  if (!currentNotes && previousNotes && CLEAR_NOTES) {
+    if (!CLEAR_NOTES_REASON) {
+      console.log("NOTES_CLEAR_DENIED reason=MISSING_CLEAR_NOTES_REASON");
+      appendCiFinal("NOTES_CLEAR_DENIED reason=MISSING_CLEAR_NOTES_REASON");
+    } else {
+      console.log(`NOTES_CLEARED geo=${String(current.geo_id || current.geo_key || \"\")} reason=${CLEAR_NOTES_REASON}`);
+      appendCiFinal(`NOTES_CLEARED geo=${String(current.geo_id || current.geo_key || \"\")} reason=${CLEAR_NOTES_REASON}`);
+      return current;
+    }
+  }
+  const allowShrink =
+    process.env.NOTES_SHRINK_OK === "1" || process.env.ALLOW_NOTES_SHRINK === "1";
+  const shrinkReason = String(process.env.NOTES_SHRINK_REASON || "");
+  const oldLen = previousNotes.length;
+  const newLen = currentNotes.length;
+  if (statusChanged) {
+    recordNotesStatusChange({
+      geo: String(current.geo_id || current.geo_key || ""),
+      old_rec: String(previous.rec_status || previous.recreational_status || ""),
+      new_rec: String(current.rec_status || current.recreational_status || ""),
+      old_med: String(previous.med_status || previous.medical_status || ""),
+      new_med: String(current.med_status || current.medical_status || ""),
+      old_len: oldLen,
+      new_len: newLen,
+      old_preview: previousNotes.slice(0, 160),
+      new_preview: currentNotes.slice(0, 160),
+      reason: "NOTES_STATUS_CHANGED"
+    });
+  }
+  if (previousClass === "RICH" && currentClass !== "RICH") {
+    const geo = String(current.geo_id || current.geo_key || "");
+    recordNotesRegression(geo, previousClass, currentClass, "RICH_REGRESS");
+    if (!statusChanged && (!allowShrink || !shrinkReason)) {
+      console.log(`NOTES_FETCH_WEAK geo=${geo} old_len=${oldLen} new_len=${newLen} decision=BLOCK reason=KIND_REGRESS`);
+      appendCiFinal(`NOTES_FETCH_WEAK geo=${geo} old_len=${oldLen} new_len=${newLen} decision=BLOCK reason=KIND_REGRESS`);
+      return {
+        ...current,
+        notes_text: previousNotes,
+        notes_raw: previous.notes_raw || current.notes_raw || previousNotes,
+        notes_kind: previousKind,
+        notes_reason_code: "NOTES_WEAK_BLOCKED",
+        notes_sections_used: Array.isArray(previous.notes_sections_used) && previous.notes_sections_used.length
+          ? previous.notes_sections_used
+          : current.notes_sections_used,
+        notes_main_article: previous.notes_main_article || current.notes_main_article,
+        main_articles: Array.isArray(current.main_articles) && current.main_articles.length
+          ? current.main_articles
+          : normalizeMainArticles(previous.main_articles || previous.notes_main_articles)
+      };
+    }
+  }
+  if (previousClass === "MIN_ONLY" && (currentClass === "PLACEHOLDER")) {
+    const geo = String(current.geo_id || current.geo_key || "");
+    recordNotesRegression(geo, previousClass, currentClass, "MIN_ONLY_REGRESS");
+    if (!statusChanged && (!allowShrink || !shrinkReason)) {
+      console.log(`NOTES_FETCH_WEAK geo=${geo} old_len=${oldLen} new_len=${newLen} decision=BLOCK reason=MIN_ONLY_REGRESS`);
+      appendCiFinal(`NOTES_FETCH_WEAK geo=${geo} old_len=${oldLen} new_len=${newLen} decision=BLOCK reason=MIN_ONLY_REGRESS`);
+      return {
+        ...current,
+        notes_text: previousNotes,
+        notes_raw: previous.notes_raw || current.notes_raw || previousNotes,
+        notes_kind: previousKind,
+        notes_reason_code: "NOTES_WEAK_BLOCKED",
+        notes_sections_used: Array.isArray(previous.notes_sections_used) && previous.notes_sections_used.length
+          ? previous.notes_sections_used
+          : current.notes_sections_used,
+        notes_main_article: previous.notes_main_article || current.notes_main_article,
+        main_articles: Array.isArray(current.main_articles) && current.main_articles.length
+          ? current.main_articles
+          : normalizeMainArticles(previous.main_articles || previous.notes_main_articles)
+      };
+    }
+  }
+  if (previousNotes && isWeakNote(currentNotes, currentKind) && !statusChanged) {
+    const geo = String(current.geo_id || current.geo_key || "");
+    const reason = !currentNotes ? "EMPTY_NEW_NOTES" : "WEAK_NEW_NOTES";
+    console.log(`NOTES_FETCH_WEAK geo=${geo} old_len=${oldLen} new_len=${newLen} decision=BLOCK reason=${reason}`);
+    appendCiFinal(`NOTES_FETCH_WEAK geo=${geo} old_len=${oldLen} new_len=${newLen} decision=BLOCK reason=${reason}`);
+    return {
+      ...current,
+      notes_text: previousNotes,
+      notes_raw: previous.notes_raw || current.notes_raw || previousNotes,
+      notes_kind: previousKind,
+      notes_reason_code: "NOTES_WEAK_BLOCKED",
+      notes_sections_used: Array.isArray(previous.notes_sections_used) && previous.notes_sections_used.length
+        ? previous.notes_sections_used
+        : current.notes_sections_used,
+      notes_main_article: previous.notes_main_article || current.notes_main_article,
+      main_articles: Array.isArray(current.main_articles) && current.main_articles.length
+        ? current.main_articles
+        : normalizeMainArticles(previous.main_articles || previous.notes_main_articles)
+    };
+  }
+  if (!currentNotes && previousNotes && !CLEAR_NOTES) {
+    console.log(`NOTES_WRITE geo=${String(current.geo_id || current.geo_key || "")} old_len=${oldLen} new_len=${newLen} decision=BLOCK reason=EMPTY_NEW_NOTES`);
+  }
+  if (oldLen > 0 && newLen > 0 && newLen < Math.floor(oldLen * 0.6)) {
+    if (!statusChanged && (!allowShrink || !shrinkReason)) {
+      console.log(`NOTES_WRITE geo=${String(current.geo_id || current.geo_key || \"\")} old_len=${oldLen} new_len=${newLen} decision=BLOCK reason=SHRINK`);
+      return {
+        ...current,
+        notes_text: previousNotes,
+        notes_raw: previous.notes_raw || current.notes_raw || previousNotes,
+        notes_kind: previousKind,
+        notes_reason_code: "NOTES_WEAK_BLOCKED",
+        notes_sections_used: Array.isArray(previous.notes_sections_used) && previous.notes_sections_used.length
+          ? previous.notes_sections_used
+          : current.notes_sections_used,
+        notes_main_article: previous.notes_main_article || current.notes_main_article,
+        main_articles: Array.isArray(current.main_articles) && current.main_articles.length
+          ? current.main_articles
+          : normalizeMainArticles(previous.main_articles || previous.notes_main_articles)
+      };
+    }
+    console.log(`NOTES_WRITE geo=${String(current.geo_id || current.geo_key || \"\")} old_len=${oldLen} new_len=${newLen} decision=ALLOW reason=${shrinkReason}`);
+  } else if (newLen > oldLen) {
+    console.log(`NOTES_WRITE geo=${String(current.geo_id || current.geo_key || \"\")} old_len=${oldLen} new_len=${newLen} decision=ALLOW reason=INCREASE`);
+  }
+  const currentIsPlaceholder = currentKind === "MIN_ONLY" ? false : isPlaceholderNote(currentNotes);
+  const previousIsPlaceholder = previousKind === "MIN_ONLY" ? false : isPlaceholderNote(previousNotes);
   const shouldKeepPrevious =
     !currentNotes ||
     currentIsPlaceholder ||
@@ -112,6 +412,12 @@ function mergeNotes(current, previous) {
     ...current,
     notes_text: previousNotes,
     notes_raw: previous.notes_raw || current.notes_raw || previousNotes,
+    notes_kind: previousKind,
+    notes_reason_code: "NOTES_WEAK_BLOCKED",
+    notes_sections_used: Array.isArray(previous.notes_sections_used) && previous.notes_sections_used.length
+      ? previous.notes_sections_used
+      : current.notes_sections_used,
+    notes_main_article: previous.notes_main_article || current.notes_main_article,
     main_articles: Array.isArray(current.main_articles) && current.main_articles.length
       ? current.main_articles
       : normalizeMainArticles(previous.main_articles || previous.notes_main_articles)
@@ -195,6 +501,10 @@ function normalizeForCompare(entry) {
 }
 
 async function main() {
+  if (process.env.UPDATE_MODE !== "1") {
+    console.log("SYNC_DISABLED UPDATE_MODE=0");
+    return;
+  }
   const runAt = new Date().toISOString();
   const refresh = spawnSync(process.execPath, [path.join(ROOT, "tools", "wiki", "wiki_refresh.mjs")], {
     stdio: "inherit"
@@ -203,7 +513,8 @@ async function main() {
     process.exit(refresh.status ?? 1);
   }
 
-  const previousClaims = readClaimsMap(OUTPUT_CLAIMS_PATH);
+  const previousClaims =
+    readClaimsMap(OUTPUT_CLAIMS_MAP_PATH) || readClaimsMap(OUTPUT_CLAIMS_PATH);
   const claimsSnapshot = readWikiClaimsSnapshot() || [];
   const claimsByGeo = {};
   let revisionId = "";
@@ -216,6 +527,14 @@ async function main() {
       revisionId = normalized.wiki_revision_id;
     }
   }
+  for (const entry of Object.values(claimsByGeo)) {
+    const sectionsUsed = Array.isArray(entry.notes_sections_used)
+      ? entry.notes_sections_used
+      : [];
+    if (sectionsUsed.length === 0 && entry.notes_text) {
+      entry.notes_sections_used = ["notes_raw"];
+    }
+  }
 
   writeAtomic(OUTPUT_CLAIMS_PATH, {
     generated_at: runAt,
@@ -225,6 +544,44 @@ async function main() {
     generated_at: runAt,
     items: claimsByGeo
   });
+  try {
+    const payload = {
+      generated_at: runAt,
+      regressions: notesRegressions,
+      total_regressions: notesRegressions.length
+    };
+    fs.writeFileSync(NOTES_REGRESS_PATH, JSON.stringify(payload, null, 2) + "\n", "utf8");
+  } catch {
+    // ignore
+  }
+  try {
+    if (notesStatusChanges.length > 0) {
+      const payload = {
+        generated_at: runAt,
+        changes: notesStatusChanges,
+        total_changes: notesStatusChanges.length
+      };
+      fs.writeFileSync(NOTES_STATUS_CHANGE_PATH, JSON.stringify(payload, null, 2) + "\n", "utf8");
+    } else if (fs.existsSync(NOTES_STATUS_CHANGE_PATH)) {
+      fs.unlinkSync(NOTES_STATUS_CHANGE_PATH);
+    }
+  } catch {
+    // ignore
+  }
+  try {
+    if (statusChanges.length > 0) {
+      const payload = {
+        generated_at: runAt,
+        changes: statusChanges,
+        total_changes: statusChanges.length
+      };
+      fs.writeFileSync(STATUS_CHANGE_PATH, JSON.stringify(payload, null, 2) + "\n", "utf8");
+    } else if (fs.existsSync(STATUS_CHANGE_PATH)) {
+      fs.unlinkSync(STATUS_CHANGE_PATH);
+    }
+  } catch {
+    // ignore
+  }
 
   const refsPayload = readJson(REFS_SSOT_PATH, null);
   const prevRefsPayload = readJson(OUTPUT_REFS_PATH, null);

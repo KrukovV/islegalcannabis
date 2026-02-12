@@ -35,3 +35,10 @@ Statuses: pending | in_progress | done
 - [done] Notes regress: RO/RU/AU golden preview + baseline checks
 - [done] SSOT shrink guard: per-file sources counts/hashes + hard shrink block; sources writes create .bak
 - [done] Official allowlist merge: union 4 sources + guard against shrink below max input
+- [done] Define minimal architecture layers/contracts and SSOT invariants in docs/ARCHITECTURE_MIN.md
+- [in_progress] Refactor pass_cycle into orchestrator-only steps + unified STEP_BEGIN/END + no silent exits
+- [done] Make quality_gate and commit_if_green SSOT-only decision points + staged code/data barrier
+- [done] Introduce core/ssot readers + move API/UI to thin layers
+- [done] Standardize anti-shrink gates (official/wiki/notes) with allow-shrink reason logging
+- [done] Notes spotlight tool + notes non-destructive policy + parser/DB protections
+- [done] Update AGENTS.md and ci-local diagnostics discipline

@@ -94,7 +94,7 @@ export async function POST(req: Request) {
 
   const provider = process.env.OPENAI_API_KEY ? "openai" : "disabled";
   incrementCounter("paraphrase_generated");
-  console.info(`[${requestId}] paraphrase_generated`);
+  console.warn(`UI_PARAPHRASE request_id=${requestId} provider=${provider}`);
 
   return okResponse(requestId, {
     text: result.text,

@@ -53,7 +53,7 @@ function loadProfiles(): JurisdictionLawProfile[] {
 function buildCandidates(
   profiles: JurisdictionLawProfile[],
   centroids: CentroidMap,
-  filter: (profile: JurisdictionLawProfile) => boolean
+  filter: (_profile: JurisdictionLawProfile) => boolean
 ): NearestCandidate[] {
   const items: NearestCandidate[] = [];
   for (const entry of profiles) {

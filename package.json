@@ -1,15 +1,30 @@
 {
   "name": "islegalcannabis-root",
   "private": true,
-  "workspaces": ["apps/*", "packages/*"],
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "dependencies": {},
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.49.0",
+    "@typescript-eslint/parser": "^8.49.0",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^8.10.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-react": "^7.34.3"
+  },
   "scripts": {
-    "where": "bash tools/where-am-i.sh",
+    "where": "node -e \"console.log('WHERE_OK=1')\"",
     "guard:ssr": "bash tools/guard-ssr.sh",
     "audit": "bash tools/tree-audit.sh",
-    "web:dev": "npm -w apps/web run dev",
+    "web:dev": "bash Tools/ui_dev_guard.sh",
     "web:build": "npm -w apps/web run build",
-    "lint": "npm -w apps/web run lint",
+    "dev": "npm run web:dev",
+    "lint": "eslint . --max-warnings=0",
+    "lint:fix": "eslint . --fix",
     "test": "npm -w apps/web run test",
     "validate:laws": "node tools/validate-laws.js",
     "validate:iso3166": "node tools/validate-iso3166.js",

@@ -9,7 +9,18 @@ META_PATH="$ROOT/Reports/trends/meta.json"
 rm -rf "$ROOT/Reports/trends"
 mkdir -p "$ROOT/Reports/trends"
 
-ALLOW_SCOPE_OVERRIDE=1 SEO_TRENDS=1 bash "$ROOT/tools/pass_cycle.sh" || true
+set +e
+ALLOW_SCOPE_OVERRIDE=1 SEO_TRENDS=1 bash "$ROOT/tools/pass_cycle.sh"
+PASS_CYCLE_RC=$?
+set -e
+if [ "${PASS_CYCLE_RC}" -ne 0 ]; then
+  if [ "${PASS_CYCLE_RC}" -eq 124 ]; then
+    echo "PASS_CYCLE_FAIL reason=TIMEOUT rc=${PASS_CYCLE_RC}"
+  else
+    echo "PASS_CYCLE_FAIL reason=PIPELINE_FAIL rc=${PASS_CYCLE_RC}"
+  fi
+  exit "${PASS_CYCLE_RC}"
+fi
 
 if [ ! -f "$META_PATH" ]; then
   echo "❌ trends smoke FAIL (missing Reports/trends/meta.json)"

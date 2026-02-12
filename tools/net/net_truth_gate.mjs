@@ -72,6 +72,7 @@ if (payload.connect_reason === "SANDBOX_EGRESS_BLOCKED") {
 }
 const online = truthOk ? 1 : 0;
 const netMode = online === 1 ? "ONLINE" : (cacheInfo.cache_ok === 1 ? "DEGRADED_CACHE" : "OFFLINE");
+const onlineReason = truthOk ? "OK" : "HTTP_API_CONNECT_FALLBACK_FAIL";
 
 const diagPayload = {
   dns_ok: payload.dns_ok,
@@ -96,5 +97,6 @@ console.log(
   `EGRESS_TRUTH http_ok=${payload.http_ok} api_ok=${payload.api_ok} connect_ok=${payload.connect_ok} fallback_ok=${payload.fallback_ok} online=${online} net_mode=${netMode}`
 );
 console.log(`NET_DIAG json=${JSON.stringify(diagPayload)}`);
+console.log(`ONLINE_REASON=${onlineReason}`);
 console.log("NET_TRUTH_GATE_OK=1");
 process.exit(0);

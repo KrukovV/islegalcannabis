@@ -18,6 +18,7 @@ import Disclaimer from "./Disclaimer";
 import styles from "./ResultCard.module.css";
 import UpgradePrompt from "./UpgradePrompt";
 import LocationMeta from "@/components/LocationMeta";
+import NearbyPaidSection from "@/components/NearbyPaidSection";
 import RecentResultBadge from "@/components/RecentResultBadge";
 import VerifyNowButton from "@/components/VerifyNowButton";
 import { hashLawProfile } from "@/lib/profileHash";
@@ -78,22 +79,6 @@ const countryFlag: Record<string, string> = {
   DE: "🇩🇪"
 };
 
-function flagFromId(id: string) {
-  const country = id.split("-")[0]?.toUpperCase();
-  if (!country || country.length !== 2) return "🏳️";
-  if (countryFlag[country]) return countryFlag[country];
-  return String.fromCodePoint(
-    ...country.split("").map((ch) => 0x1f1e6 + ch.charCodeAt(0) - 65)
-  );
-}
-
-function nearbyStatusLabel(status: string) {
-  if (status === "green") return "Legal";
-  if (status === "yellow") return "Restricted";
-  if (status === "red") return "Illegal";
-  return "Unknown";
-}
-
 function confidenceLabel(confidence: "high" | "medium" | "low") {
   if (confidence === "high") return "High";
   if (confidence === "medium") return "Medium";
@@ -104,7 +89,7 @@ function levelLabel(level: ResultStatusLevel) {
   if (level === "green") return "Legal";
   if (level === "yellow") return "Restricted";
   if (level === "red") return "Illegal";
-  return "Unknown";
+  return "Not confirmed";
 }
 
 function levelIcon(level: ResultStatusLevel) {
@@ -120,7 +105,7 @@ function wikiStatusLabel(value: string) {
   if (value === "Legal") return "Legal";
   if (value === "Illegal") return "Illegal";
   if (value === "Limited") return "Limited";
-  return "Unknown";
+  return "Not confirmed";
 }
 
 function levelFromLawStatus(value: string): ResultStatusLevel {
@@ -219,7 +204,6 @@ export default function ResultCard({
   const pagesTotalValue = typeof pagesTotal === "number" ? pagesTotal : null;
   const showPagesMetrics = pagesOkValue !== null && pagesTotalValue !== null;
   const showNearby =
-    isPaidUser &&
     resolvedViewModel.statusLevel === "red" &&
     Array.isArray(nearby) &&
     nearby.length > 0;
@@ -263,6 +247,17 @@ export default function ResultCard({
   const wikiClaimArticles = Array.isArray(wikiClaim?.notes_main_articles)
     ? wikiClaim.notes_main_articles
     : [];
+  const wikiNotesText =
+    typeof wikiClaim?.notes_text === "string" ? wikiClaim.notes_text : "";
+  const wikiNotesSections = Array.isArray(wikiClaim?.notes_sections_used)
+    ? wikiClaim.notes_sections_used
+    : [];
+  const wikiNotesMainArticle =
+    typeof wikiClaim?.notes_main_article === "string"
+      ? wikiClaim.notes_main_article
+      : "";
+  const wikiNotesRev =
+    typeof wikiClaim?.notes_rev === "string" ? wikiClaim.notes_rev : "";
   const wikiLinksSafe = Array.isArray(wikiLinks) ? wikiLinks : [];
   const wikiTrustTotal =
     Number(linksTrustSafe?.total_count || 0) || wikiLinksSafe.length;
@@ -412,10 +407,9 @@ export default function ResultCard({
     profile.sources.length >
       officialSources.length + neutralSources.length
   ) {
-    console.warn("ResultCard: skipped invalid verify sources", {
-      total: profile.sources.length,
-      valid: officialSources.length + neutralSources.length
-    });
+    console.warn(
+      `UI_RESULTCARD_INVALID_SOURCES total=${profile.sources.length} valid=${officialSources.length + neutralSources.length}`
+    );
   }
 
   return (
@@ -586,23 +580,7 @@ export default function ResultCard({
       ) : null}
 
       {showNearby ? (
-        <section className={styles.section} data-testid="nearby">
-          <h2>Nearest places where allowed</h2>
-          <ul className={styles.nearbyList}>
-            {nearby.slice(0, 5).map((item) => (
-              <li key={item.id} className={styles.nearbyItem}>
-                <span className={styles.nearbyId}>
-                  <span className={styles.flag}>{item.flag ?? flagFromId(item.id)}</span>
-                  {item.name ? `${item.name} (${item.id})` : item.id}
-                </span>
-                <span className={styles.nearbyStatus}>
-                  Status: {nearbyStatusLabel(item.status)}
-                </span>
-                <span className={styles.nearbySummary}>{item.summary}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
+        <NearbyPaidSection nearby={nearby} isPaidUser={isPaidUser} />
       ) : null}
 
       {showPaidPreview ? (
@@ -741,7 +719,7 @@ export default function ResultCard({
               </p>
             ) : (
               <p className={styles.provisionalBanner} data-testid="unknown-badge">
-                Unknown (no verified law page yet)
+                Not confirmed (no verified law page yet)
               </p>
             )}
             {wikiClaimUrl ? (
@@ -771,6 +749,19 @@ export default function ResultCard({
                 ))}
               </ul>
             ) : null}
+            {wikiClaim ? (
+              <div className={styles.updated} data-testid="wiki-notes">
+                <div>
+                  {wikiNotesText ? "Notes" : "Notes (placeholder)"}
+                  {wikiNotesRev ? ` · from wiki rev=${wikiNotesRev}` : ""}
+                  {wikiNotesMainArticle ? ` · source=${wikiNotesMainArticle}` : ""}
+                </div>
+                {wikiNotesSections.length > 0 ? (
+                  <div>Sections: {wikiNotesSections.join(", ")}</div>
+                ) : null}
+                <div>{wikiNotesText || "No notes yet."}</div>
+              </div>
+            ) : null}
             {showWikiTrust ? (
               <div className={styles.updated} data-testid="wiki-links-trust">
                 {wikiTrustLabel}
@@ -788,7 +779,7 @@ export default function ResultCard({
             ) : null}
             {!machineVerifiedBadge && verifyReason ? (
               <div className={styles.updated} data-testid="verify-reason">
-                Unknown / not verified yet: {verifyReason}
+                Not confirmed / not verified yet: {verifyReason}
               </div>
             ) : null}
             {offlineFallback ? (

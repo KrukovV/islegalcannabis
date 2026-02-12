@@ -105,6 +105,19 @@ function countRefs(payload) {
   return total;
 }
 
+function countOfficialLinks(payload) {
+  const items = payload?.items || payload;
+  if (!items || typeof items !== "object") return 0;
+  let total = 0;
+  for (const list of Object.values(items)) {
+    const entries = Array.isArray(list) ? list : [];
+    for (const entry of entries) {
+      if (entry?.official === true) total += 1;
+    }
+  }
+  return total;
+}
+
 function countMap(payload) {
   const items = payload?.items || payload;
   if (!items || typeof items !== "object") return 0;
@@ -217,6 +230,19 @@ function countNotesNonEmpty(payload) {
   return total;
 }
 
+function countNotesRows(payload) {
+  const items = payload?.items || payload;
+  if (!items) return 0;
+  const list = Array.isArray(items) ? items : Object.values(items);
+  let total = 0;
+  for (const entry of list) {
+    if (entry && Object.prototype.hasOwnProperty.call(entry, "notes_text")) {
+      total += 1;
+    }
+  }
+  return total;
+}
+
 function countNotesWeak(payload) {
   const items = payload?.items || payload;
   if (!items) return 0;
@@ -287,6 +313,7 @@ const prevSourcesMeta = prevPayload?.sources_meta ?? null;
 const notesCoveragePath = path.join(ROOT, "Reports", "notes-coverage.txt");
 const currentNotesCoverage = readNotesCoverage(notesCoveragePath);
 const prevNotesCoverage = prevPayload?.notes_coverage ?? prevPayload?.notesCoverage ?? null;
+const prevReportSnapshot = readJson(REPORT_SNAPSHOT_PATH, null);
 const prevNotesWithNotes = Number.isFinite(Number(prevNotesCoverage?.withNotes))
   ? Number(prevNotesCoverage.withNotes)
   : -1;
@@ -335,6 +362,7 @@ const prevOfficialRegistryCount = prevOfficialRegistry ? countRegistry(prevOffic
 const prevSourcesRegistryCount = prevSourcesRegistry ? countRegistry(prevSourcesRegistry) : 0;
 const prevWikidataCandidatesCount = prevWikidataCandidates ? countRegistry(prevWikidataCandidates) : 0;
 const prevNotesNonEmpty = prevClaims ? countNotesNonEmpty(prevClaims) : 0;
+const prevNotesRows = prevClaims ? countNotesRows(prevClaims) : 0;
 const prevNotesWeak = prevClaims ? countNotesWeak(prevClaims) : 0;
 
 const newGeo = countClaims(currentClaimsPayload);
@@ -345,11 +373,20 @@ const newOfficialRegistryCount = countRegistry(currentOfficialRegistryPayload);
 const newSourcesRegistryCount = countRegistry(currentSourcesRegistryPayload);
 const newWikidataCandidatesCount = countRegistry(currentWikidataCandidatesPayload);
 const newNotesNonEmpty = countNotesNonEmpty(currentClaimsPayload);
+const newNotesRows = countNotesRows(currentClaimsPayload);
 const newNotesWeak = countNotesWeak(currentClaimsPayload);
+const prevOfficialLinksCount = Number.isFinite(Number(prevPayload?.official_links_count))
+  ? Number(prevPayload.official_links_count)
+  : Number.isFinite(Number(prevReportSnapshot?.official_links_count))
+    ? Number(prevReportSnapshot.official_links_count)
+    : -1;
+const newOfficialLinksCount = countOfficialLinks(currentEnrichedPayload);
 
 const allowShrink =
   String(process.env.ALLOW_SHRINK || "") === "1" ||
   String(process.env.ALLOW_DATA_SHRINK || "") === "1";
+const shrinkReason = String(process.env.SHRINK_REASON || "").trim();
+const allowNotesShrink = String(process.env.ALLOW_NOTES_SHRINK || "") === "1";
 const guardLines = [];
 const sourceFiles = [
   { key: "allowlist_domains", path: ALLOWLIST_DOMAINS_PATH, kind: "domains" },
@@ -400,6 +437,7 @@ if (invalid) {
   process.exit(1);
 }
 guardLines.push(`ALLOW_SHRINK=${allowShrink ? 1 : 0}`);
+guardLines.push(`SHRINK_REASON=${shrinkReason || "-"}`);
 if (resolvedPrevPath) {
   guardLines.push(`SSOT_GUARD_PREV_SOURCE=${path.basename(resolvedPrevPath)}`);
 } else {
@@ -439,6 +477,7 @@ if (resolvedPrevPath === prevPath && prevPath && !fs.existsSync(prevPath)) {
     officialRegistry: currentOfficialRegistryPayload,
     sourcesRegistry: currentSourcesRegistryPayload,
     wikidataCandidates: currentWikidataCandidatesPayload,
+    official_links_count: newOfficialLinksCount,
     sources_meta
   };
   try {
@@ -507,14 +546,21 @@ for (const entry of refsList) {
 const refsBadRatio = refsTotal > 0 ? refsBad / refsTotal : 0;
 guardLines.push(`REFS_BAD_URL total=${refsTotal} bad=${refsBad} ratio=${refsBadRatio.toFixed(4)}`);
 guardLines.push(
-  `SSOT_COUNTS prev_geo=${prevGeo} new_geo=${newGeo} prev_refs=${prevRefsCount} new_refs=${newRefsCount} prev_map=${prevMapCount} new_map=${newMapCount} prev_notes=${prevNotesNonEmpty} new_notes=${newNotesNonEmpty} prev_weak=${prevNotesWeak} new_weak=${newNotesWeak} prev_notes_with=${prevNotesWithNotes} new_notes_with=${newNotesWithNotes} prev_notes_empty=${prevNotesEmpty} new_notes_empty=${newNotesEmpty} prev_notes_placeholder=${prevNotesPlaceholder} new_notes_placeholder=${newNotesPlaceholder} prev_notes_weak=${prevNotesWeakCoverage} new_notes_weak=${newNotesWeakCoverage} prev_allowlist=${prevAllowCount} new_allowlist=${newAllowCount} prev_official_registry=${prevOfficialRegistryCount} new_official_registry=${newOfficialRegistryCount} prev_sources_registry=${prevSourcesRegistryCount} new_sources_registry=${newSourcesRegistryCount} prev_wikidata_candidates=${prevWikidataCandidatesCount} new_wikidata_candidates=${newWikidataCandidatesCount}`
+  `SSOT_COUNTS prev_geo=${prevGeo} new_geo=${newGeo} prev_refs=${prevRefsCount} new_refs=${newRefsCount} prev_map=${prevMapCount} new_map=${newMapCount} prev_notes_rows=${prevNotesRows} new_notes_rows=${newNotesRows} prev_notes=${prevNotesNonEmpty} new_notes=${newNotesNonEmpty} prev_weak=${prevNotesWeak} new_weak=${newNotesWeak} prev_notes_with=${prevNotesWithNotes} new_notes_with=${newNotesWithNotes} prev_notes_empty=${prevNotesEmpty} new_notes_empty=${newNotesEmpty} prev_notes_placeholder=${prevNotesPlaceholder} new_notes_placeholder=${newNotesPlaceholder} prev_notes_weak=${prevNotesWeakCoverage} new_notes_weak=${newNotesWeakCoverage} prev_official_links=${prevOfficialLinksCount} new_official_links=${newOfficialLinksCount} prev_allowlist=${prevAllowCount} new_allowlist=${newAllowCount} prev_official_registry=${prevOfficialRegistryCount} new_official_registry=${newOfficialRegistryCount} prev_sources_registry=${prevSourcesRegistryCount} new_sources_registry=${newSourcesRegistryCount} prev_wikidata_candidates=${prevWikidataCandidatesCount} new_wikidata_candidates=${newWikidataCandidatesCount}`
 );
 guardLines.push(
-  `SSOT_GUARD prev_geo=${prevGeo} new_geo=${newGeo} prev_refs=${prevRefsCount} new_refs=${newRefsCount} prev_map=${prevMapCount} new_map=${newMapCount} prev_notes=${prevNotesNonEmpty} new_notes=${newNotesNonEmpty} prev_weak=${prevNotesWeak} new_weak=${newNotesWeak} prev_notes_with=${prevNotesWithNotes} new_notes_with=${newNotesWithNotes} prev_notes_empty=${prevNotesEmpty} new_notes_empty=${newNotesEmpty} prev_notes_placeholder=${prevNotesPlaceholder} new_notes_placeholder=${newNotesPlaceholder} prev_notes_weak=${prevNotesWeakCoverage} new_notes_weak=${newNotesWeakCoverage} prev_allowlist=${prevAllowCount} new_allowlist=${newAllowCount} prev_official_registry=${prevOfficialRegistryCount} new_official_registry=${newOfficialRegistryCount} prev_sources_registry=${prevSourcesRegistryCount} new_sources_registry=${newSourcesRegistryCount} prev_wikidata_candidates=${prevWikidataCandidatesCount} new_wikidata_candidates=${newWikidataCandidatesCount}`
+  `SSOT_GUARD prev_geo=${prevGeo} new_geo=${newGeo} prev_refs=${prevRefsCount} new_refs=${newRefsCount} prev_map=${prevMapCount} new_map=${newMapCount} prev_notes_rows=${prevNotesRows} new_notes_rows=${newNotesRows} prev_notes=${prevNotesNonEmpty} new_notes=${newNotesNonEmpty} prev_weak=${prevNotesWeak} new_weak=${newNotesWeak} prev_notes_with=${prevNotesWithNotes} new_notes_with=${newNotesWithNotes} prev_notes_empty=${prevNotesEmpty} new_notes_empty=${newNotesEmpty} prev_notes_placeholder=${prevNotesPlaceholder} new_notes_placeholder=${newNotesPlaceholder} prev_notes_weak=${prevNotesWeakCoverage} new_notes_weak=${newNotesWeakCoverage} prev_official_links=${prevOfficialLinksCount} new_official_links=${newOfficialLinksCount} prev_allowlist=${prevAllowCount} new_allowlist=${newAllowCount} prev_official_registry=${prevOfficialRegistryCount} new_official_registry=${newOfficialRegistryCount} prev_sources_registry=${prevSourcesRegistryCount} new_sources_registry=${newSourcesRegistryCount} prev_wikidata_candidates=${prevWikidataCandidatesCount} new_wikidata_candidates=${newWikidataCandidatesCount}`
 );
 guardLines.push(
   `GEO_COUNT_EXPLAIN geo=${newGeo} meaning=claims_rows`
 );
+if (newGeo >= 300) {
+  const coverageStatus = newNotesRows >= newGeo ? "OK" : "FAIL";
+  const coverageReason = coverageStatus === "OK" ? "OK" : "NOTES_ROWS_MISSING";
+  guardLines.push(
+    `SSOT_COVERAGE wiki_total=${newGeo} notes_rows=${newNotesRows} status=${coverageStatus} reason=${coverageReason}`
+  );
+}
 const prevAllowHash = prevAllowlist ? hashAllowlist(prevAllowlist) : hashAllowlist(currentAllowlistPayload);
 const newAllowHash = hashAllowlist(currentAllowlistPayload);
 const allowlistOk = allowShrink || newAllowCount >= prevAllowCount;
@@ -524,34 +570,63 @@ guardLines.push(
 );
 guardLines.push(`OFFICIAL_ALLOWLIST_HASH prev=${prevAllowHash} now=${newAllowHash}`);
 
-const shrinkKinds = [];
-if (prevGeo > 0 && newGeo < prevGeo) shrinkKinds.push("GEO");
-if (prevRefsCount > 0 && newRefsCount < prevRefsCount) shrinkKinds.push("REFS");
-if (prevMapCount > 0 && newMapCount < prevMapCount) shrinkKinds.push("MAP");
-if (prevNotesNonEmpty > 0 && newNotesNonEmpty < prevNotesNonEmpty) shrinkKinds.push("NOTES");
-if (prevNotesWeak > 0 && newNotesWeak < prevNotesWeak) shrinkKinds.push("WEAK");
+const wikiShrinkKinds = [];
+const sourceShrinkKinds = [];
+const notesShrinkKinds = [];
+if (prevGeo > 0 && newGeo < prevGeo) wikiShrinkKinds.push("GEO");
+if (prevRefsCount > 0 && newRefsCount < prevRefsCount) wikiShrinkKinds.push("REFS");
+if (prevMapCount > 0 && newMapCount < prevMapCount) wikiShrinkKinds.push("MAP");
+if (prevNotesNonEmpty > 0 && newNotesNonEmpty < prevNotesNonEmpty) wikiShrinkKinds.push("NOTES");
+if (prevNotesWeak > 0 && newNotesWeak < prevNotesWeak) wikiShrinkKinds.push("WEAK");
 if (prevNotesWithNotes >= 0 && newNotesWithNotes >= 0 && newNotesWithNotes < prevNotesWithNotes) {
-  shrinkKinds.push("NOTES_WITH_NOTES");
+  wikiShrinkKinds.push("NOTES_WITH_NOTES");
+  notesShrinkKinds.push("WITH_NOTES");
 }
 if (prevNotesEmpty >= 0 && newNotesEmpty >= 0 && newNotesEmpty > prevNotesEmpty) {
-  shrinkKinds.push("NOTES_EMPTY");
+  wikiShrinkKinds.push("NOTES_EMPTY");
+  notesShrinkKinds.push("EMPTY");
 }
 if (prevNotesPlaceholder >= 0 && newNotesPlaceholder >= 0 && newNotesPlaceholder > prevNotesPlaceholder) {
-  shrinkKinds.push("NOTES_PLACEHOLDER");
+  wikiShrinkKinds.push("NOTES_PLACEHOLDER");
+  notesShrinkKinds.push("PLACEHOLDER");
 }
-if (prevAllowCount > 0 && newAllowCount < prevAllowCount) shrinkKinds.push("ALLOWLIST");
+if (prevNotesWeakCoverage >= 0 && newNotesWeakCoverage >= 0 && newNotesWeakCoverage > prevNotesWeakCoverage) {
+  notesShrinkKinds.push("WEAK");
+}
+if (prevOfficialLinksCount >= 0 && newOfficialLinksCount >= 0 && newOfficialLinksCount < prevOfficialLinksCount) {
+  wikiShrinkKinds.push("OFFICIAL_LINKS");
+}
+if (newGeo >= 300 && newNotesRows < newGeo) {
+  wikiShrinkKinds.push("NOTES_ROWS");
+}
+if (prevAllowCount > 0 && newAllowCount < prevAllowCount) sourceShrinkKinds.push("ALLOWLIST");
 if (prevOfficialRegistryCount > 0 && newOfficialRegistryCount < prevOfficialRegistryCount) {
-  shrinkKinds.push("OFFICIAL_REGISTRY");
+  sourceShrinkKinds.push("OFFICIAL_REGISTRY");
 }
 if (prevSourcesRegistryCount > 0 && newSourcesRegistryCount < prevSourcesRegistryCount) {
-  shrinkKinds.push("SOURCES_REGISTRY");
+  sourceShrinkKinds.push("SOURCES_REGISTRY");
 }
 if (prevWikidataCandidatesCount > 0 && newWikidataCandidatesCount < prevWikidataCandidatesCount) {
-  shrinkKinds.push("WIKIDATA_CANDIDATES");
+  sourceShrinkKinds.push("WIKIDATA_CANDIDATES");
 }
 if (sourceShrink.length > 0) {
-  shrinkKinds.push(`SOURCES_FILES:${sourceShrink.join("|")}`);
+  sourceShrinkKinds.push(`SOURCES_FILES:${sourceShrink.join("|")}`);
 }
+const shrinkKinds = [...wikiShrinkKinds, ...sourceShrinkKinds];
+guardLines.push(`WIKI_ROWS_TOTAL=${newGeo}`);
+guardLines.push(`WIKI_SHRINK_COUNT=${wikiShrinkKinds.length}`);
+guardLines.push(`NOTES_SHRINK_COUNT=${notesShrinkKinds.length}`);
+if (prevNotesWithNotes >= 0 && newNotesWithNotes >= 0) {
+  const notesStatus = notesShrinkKinds.length === 0 ? "OK" : "FAIL";
+  const notesReason = notesShrinkKinds.length === 0 ? "OK" : `NOTES_SHRINK_${notesShrinkKinds.join(",")}`;
+  guardLines.push(
+    `NOTES_COVERAGE_GUARD prev_with_notes=${prevNotesWithNotes} new_with_notes=${newNotesWithNotes} prev_empty=${prevNotesEmpty} new_empty=${newNotesEmpty} prev_placeholder=${prevNotesPlaceholder} new_placeholder=${newNotesPlaceholder} prev_weak=${prevNotesWeakCoverage} new_weak=${newNotesWeakCoverage} status=${notesStatus} reason=${notesReason}`
+  );
+}
+const wikiShrink = wikiShrinkKinds.length > 0;
+guardLines.push(
+  `WIKI_SHRINK_GUARD=${wikiShrink ? "FAIL" : "PASS"} reason=${wikiShrink ? "WIKI_SHRINK_GUARD_FAIL" : "OK"}${wikiShrink ? ` kinds=${wikiShrinkKinds.join(",")}` : ""}`
+);
 
 if (verifySourcesMeta) {
   for (const line of guardLines) {
@@ -567,6 +642,15 @@ if (verifySourcesMeta) {
 
 let ok = true;
 let reason = "OK";
+if (allowShrink && !shrinkReason) {
+  ok = false;
+  reason = "SHRINK_REASON_MISSING";
+}
+const netMode = String(process.env.NET_MODE || "");
+if (ok && netMode === "OFFLINE" && (wikiShrinkKinds.length > 0 || notesShrinkKinds.length > 0 || sourceShrinkKinds.length > 0)) {
+  ok = false;
+  reason = "OFFLINE_SHRINK";
+}
 if (!allowShrink) {
   if (newAllowCount < 50) {
     ok = false;
@@ -574,14 +658,84 @@ if (!allowShrink) {
   } else if (refsBadRatio > 0.01) {
     ok = false;
     reason = "REFS_BAD_URL";
-  } else if (shrinkKinds.length > 0) {
-    ok = false;
-    reason = `SHRINK_${shrinkKinds.join(",")}`;
   }
+}
+if (ok && newGeo >= 300 && newNotesRows < newGeo) {
+  ok = false;
+  reason = "NOTES_EMPTY_STRICT";
+}
+if (ok && notesShrinkKinds.length > 0 && !allowNotesShrink) {
+  ok = false;
+  reason = "NOTES_SHRINK";
+}
+if (ok && wikiShrinkKinds.length > 0 && !allowShrink) {
+  ok = false;
+  reason = "WIKI_SHRINK_GUARD_FAIL";
+}
+if (ok && sourceShrinkKinds.length > 0 && !allowShrink) {
+  ok = false;
+  reason = `SHRINK_${sourceShrinkKinds.join(",")}`;
 }
 
 guardLines.push(`SSOT_GUARD_OK=${ok ? 1 : 0} reason=${reason}`);
+try {
+  const reportPayload = {
+    generated_at: new Date().toISOString(),
+    counts: {
+      prev_geo: prevGeo,
+      new_geo: newGeo,
+      prev_refs: prevRefsCount,
+      new_refs: newRefsCount,
+      prev_map: prevMapCount,
+      new_map: newMapCount,
+      prev_notes_rows: prevNotesRows,
+      new_notes_rows: newNotesRows,
+      prev_notes: prevNotesNonEmpty,
+      new_notes: newNotesNonEmpty,
+      prev_official_links: prevOfficialLinksCount,
+      new_official_links: newOfficialLinksCount
+    },
+    notes_coverage: currentNotesCoverage || null,
+    official_links_count: newOfficialLinksCount
+  };
+  fs.writeFileSync(REPORT_SNAPSHOT_PATH, JSON.stringify(reportPayload, null, 2) + "\n");
+} catch {
+  guardLines.push("SSOT_SNAPSHOT_WRITE=0 reason=WRITE_FAIL");
+}
 if (!ok) {
+  const diagPath = path.join(ROOT, "Reports", "ssot_shrink_guard.json");
+  try {
+    const diagPayload = {
+      generated_at: new Date().toISOString(),
+      reason,
+      shrink_kinds: shrinkKinds,
+      counts: {
+        prev_geo: prevGeo,
+        new_geo: newGeo,
+        prev_refs: prevRefsCount,
+        new_refs: newRefsCount,
+        prev_map: prevMapCount,
+        new_map: newMapCount,
+        prev_notes_rows: prevNotesRows,
+        new_notes_rows: newNotesRows,
+        prev_notes: prevNotesNonEmpty,
+        new_notes: newNotesNonEmpty,
+        prev_notes_with: prevNotesWithNotes,
+        new_notes_with: newNotesWithNotes,
+        prev_notes_empty: prevNotesEmpty,
+        new_notes_empty: newNotesEmpty,
+        prev_notes_placeholder: prevNotesPlaceholder,
+        new_notes_placeholder: newNotesPlaceholder,
+        prev_official_links: prevOfficialLinksCount,
+        new_official_links: newOfficialLinksCount
+      }
+    };
+    fs.mkdirSync(path.dirname(diagPath), { recursive: true });
+    fs.writeFileSync(diagPath, JSON.stringify(diagPayload, null, 2) + "\n");
+    guardLines.push(`SSOT_SHRINK_DIAG file=${path.relative(ROOT, diagPath)} reason=${reason}`);
+  } catch {
+    guardLines.push("SSOT_SHRINK_DIAG_WRITE=0 reason=WRITE_FAIL");
+  }
   guardLines.push(
     `DATA_SHRINK_GUARD kind=${reason} prev_geo=${prevGeo} new_geo=${newGeo} prev_refs=${prevRefsCount} new_refs=${newRefsCount} prev_map=${prevMapCount} new_map=${newMapCount} prev_notes=${prevNotesNonEmpty} new_notes=${newNotesNonEmpty} prev_weak=${prevNotesWeak} new_weak=${newNotesWeak} prev_allowlist=${prevAllowCount} new_allowlist=${newAllowCount} prev_official_registry=${prevOfficialRegistryCount} new_official_registry=${newOfficialRegistryCount} prev_sources_registry=${prevSourcesRegistryCount} new_sources_registry=${newSourcesRegistryCount} prev_wikidata_candidates=${prevWikidataCandidatesCount} new_wikidata_candidates=${newWikidataCandidatesCount} ok=0 reason=${reason}`
   );

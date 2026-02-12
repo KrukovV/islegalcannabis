@@ -23,6 +23,6 @@ export async function POST(req: Request) {
   }
 
   logEvent(body.event as "check_performed" | "paraphrase_generated" | "upgrade_clicked");
-  console.info(`[${requestId}] analytics ${body.event}`);
+  console.warn(`UI_ANALYTICS request_id=${requestId} event=${body.event}`);
   return okResponse(requestId, {});
 }

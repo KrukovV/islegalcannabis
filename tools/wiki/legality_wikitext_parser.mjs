@@ -12,6 +12,20 @@ function normalizeNotesText(value) {
     .trim();
 }
 
+function normalizeNotesParagraphs(lines) {
+  const normalized = [];
+  for (const line of lines) {
+    const cleaned = String(line || "")
+      .replace(/\u00a0/g, " ")
+      .replace(/&nbsp;|&#160;/gi, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+    if (!cleaned) continue;
+    normalized.push(cleaned);
+  }
+  return normalized.join("\n\n").trim();
+}
+
 function stripWikiMarkup(value) {
   let text = String(value || "");
   text = text.replace(
@@ -76,6 +90,46 @@ function extractWikiLinks(value) {
   return links;
 }
 
+function extractExternalLinks(value) {
+  const links = [];
+  const text = String(value || "");
+  const matches = text.matchAll(/\[https?:\/\/([^\s\]]+)(?:\s+[^\]]+)?\]/gi);
+  for (const match of matches) {
+    const url = `https://${String(match[1] || "").trim()}`;
+    if (url.length > 8) links.push(url);
+  }
+  const bareMatches = text.matchAll(/https?:\/\/[^\s\]]+/gi);
+  for (const match of bareMatches) {
+    const url = String(match[0] || "").trim();
+    if (url) links.push(url);
+  }
+  return Array.from(new Set(links));
+}
+
+function hasNormativeLink(text) {
+  const links = extractExternalLinks(text);
+  const keywords = /(act|law|code|regulation|statute|decree|ministry|government|parliament|legislation|justice|senate|gazette)/i;
+  for (const link of links) {
+    const host = link.replace(/^https?:\/\//, "").split("/")[0];
+    if (/\.(gov|gob|mil)\b/i.test(host)) return true;
+    if (/gov\.[a-z]{2,3}$/i.test(host)) return true;
+    if (keywords.test(link)) return true;
+  }
+  const wikiLinks = extractWikiLinks(text);
+  if (wikiLinks.some((title) => keywords.test(title))) return true;
+  return false;
+}
+
+function hasTextualNotes(value) {
+  const text = String(value || "").trim();
+  if (!text) return false;
+  if (text.length < 120) return false;
+  const words = text.split(/\s+/).filter(Boolean);
+  if (words.length < 12) return false;
+  if (!/[.!?]/.test(text)) return false;
+  return true;
+}
+
 function extractMainArticles(value) {
   const text = String(value || "");
   const results = [];
@@ -114,10 +168,78 @@ function isPlaceholderNote(text) {
   return false;
 }
 
+function normalizeMainArticleLine(titles) {
+  const list = Array.isArray(titles)
+    ? Array.from(new Set(titles.map((title) => String(title || "").trim()).filter(Boolean)))
+    : [];
+  if (!list.length) return "";
+  return `Main article: ${list.join("; ")}`;
+}
+
+function stripMainArticlePrefix(text, mainLine) {
+  const normalized = normalizeNotesText(text);
+  if (!normalized) return "";
+  let remainder = normalized;
+  if (mainLine) {
+    const mainNormalized = normalizeNotesText(mainLine).replace(/\.$/, "");
+    if (mainNormalized && remainder.startsWith(mainNormalized)) {
+      remainder = remainder.slice(mainNormalized.length);
+    }
+  }
+  if (/^Main articles?:/i.test(remainder)) {
+    remainder = remainder.replace(/^Main articles?:\s*/i, "");
+  }
+  return normalizeNotesText(remainder.replace(/^[\.\s:-]+/, ""));
+}
+
+function deriveNotesFromRaw(rawNotes) {
+  const notesRaw = String(rawNotes || "");
+  const mainArticles = extractMainArticles(notesRaw);
+  const mainLine = normalizeMainArticleLine(mainArticles.map((article) => article?.title || ""));
+  const detailed = extractNotesFromWikitextSectionsDetailed(notesRaw);
+  const detailedText = normalizeNotesText(detailed.text || "");
+  const fallback = stripWikiMarkup(notesRaw);
+  const fallbackRemainder = stripMainArticlePrefix(fallback, mainLine);
+  const extraText = detailedText || fallbackRemainder;
+  if (extraText) {
+    const combined = [mainLine, extraText].filter(Boolean).join("\n\n").trim();
+    return {
+      notesText: combined,
+      notesKind: "RICH",
+      notesReasonCode: "HAS_EXTRA_TEXT",
+      notesSectionsUsed: detailedText ? detailed.sectionsUsed : (combined ? ["notes_raw"] : []),
+      notesMainArticle: detailed.mainArticle || (mainArticles[0]?.title || "")
+    };
+  }
+  if (mainLine) {
+    return {
+      notesText: mainLine,
+      notesKind: "MIN_ONLY",
+      notesReasonCode: "NO_EXTRA_TEXT",
+      notesSectionsUsed: ["main_article"],
+      notesMainArticle: detailed.mainArticle || (mainArticles[0]?.title || "")
+    };
+  }
+  return {
+    notesText: "",
+    notesKind: "NONE",
+    notesReasonCode: "NO_WIKI_SECTION",
+    notesSectionsUsed: [],
+    notesMainArticle: detailed.mainArticle || ""
+  };
+}
+
 const SECTION_PRIORITY = [
   "notes",
   "footnotes",
   "additional information",
+  "see also",
+  "further information",
+  "примечания",
+  "ссылки",
+  "источники",
+  "литература",
+  "дополнительная информация",
   "legality",
   "legal status",
   "status",
@@ -129,10 +251,15 @@ const SECTION_PRIORITY = [
   "recreational",
   "cultivation",
   "use",
-  "enforcement"
+  "enforcement",
+  "references",
+  "further reading",
+  "external links",
+  "bibliography",
+  "sources"
 ];
 
-function extractNotesFromWikitextSections(wikitext, priority = SECTION_PRIORITY) {
+function extractNotesFromWikitextSectionsDetailed(wikitext, priority = SECTION_PRIORITY) {
   const lines = String(wikitext || "").split(/\r?\n/);
   let currentTitle = "";
   let currentLines = [];
@@ -153,26 +280,132 @@ function extractNotesFromWikitextSections(wikitext, priority = SECTION_PRIORITY)
     sections.push({ title: currentTitle, body: currentLines.join("\n") });
   }
   const normalizedPriority = Array.isArray(priority) ? priority : SECTION_PRIORITY;
+  const priorityMatch = (title) =>
+    normalizedPriority.find((key) => normalizeNotesText(title).toLowerCase().includes(key)) || "";
+  const cleanSectionBody = (body) => {
+    const lines = String(body || "")
+      .split(/\r?\n/)
+      .map((line) => line.trim())
+      .filter(
+        (line) =>
+          line &&
+          !line.startsWith("{{") &&
+          !line.startsWith("|") &&
+          !line.startsWith("{|") &&
+          !line.startsWith("|}") &&
+          !line.startsWith("!") &&
+          !/\[\[\s*Category:/i.test(line) &&
+          !/\{\{\s*portal/i.test(line) &&
+          !/\{\{\s*navbox/i.test(line)
+      );
+    const stripped = stripWikiMarkup(lines.join("\n"));
+    const paragraphs = stripped.split(/\r?\n/).map((line) => line.trim());
+    return normalizeNotesParagraphs(paragraphs);
+  };
+  const extractMainArticleTitle = (body) => {
+    const articles = extractMainArticles(body);
+    return articles.length ? String(articles[0]?.title || "") : "";
+  };
+  const extractReferenceCandidates = (body) => {
+    const titles = extractWikiLinks(body)
+      .filter((title) => title && title.length < 120)
+      .filter((title) => !/^Category:/i.test(title))
+      .filter((title) => !/^Portal:/i.test(title))
+      .filter((title) => !/^Template:/i.test(title))
+      .slice(0, 6);
+    if (!titles.length) return "";
+    return normalizeNotesText(`References: ${titles.join("; ")}`);
+  };
+  let selected = {
+    text: "",
+    title: "",
+    key: "",
+    linkCount: 0,
+    sectionsUsed: [],
+    mainArticle: ""
+  };
   for (const key of normalizedPriority) {
     const target = sections.find((section) =>
       normalizeNotesText(section.title).toLowerCase().includes(key)
     );
     if (!target) continue;
-    const body = target.body
-      .split(/\r?\n/)
-      .map((line) => line.trim())
-      .filter((line) =>
-        line &&
-        !line.startsWith("{{") &&
-        !line.startsWith("|") &&
-        !line.startsWith("{|") &&
-        !line.startsWith("|}") &&
-        !line.startsWith("!")
-      );
-    const cleaned = normalizeNotesText(stripWikiMarkup(body.join(" ")));
-    if (cleaned && !isPlaceholderNote(cleaned)) return cleaned;
+    const cleaned = cleanSectionBody(target.body);
+    if (key === "see also" && !hasTextualNotes(cleaned)) {
+      continue;
+    }
+    if (key === "references") {
+      const refText = extractReferenceCandidates(target.body);
+      if (refText) {
+        selected = {
+          text: refText,
+          title: target.title,
+          key,
+          linkCount: extractWikiLinks(target.body).length,
+          sectionsUsed: [key],
+          mainArticle: extractMainArticleTitle(target.body)
+        };
+        break;
+      }
+      continue;
+    }
+    if (cleaned && !isPlaceholderNote(cleaned)) {
+      selected = {
+        text: cleaned,
+        title: target.title,
+        key,
+        linkCount: extractWikiLinks(target.body).length,
+        sectionsUsed: [key],
+        mainArticle: extractMainArticleTitle(target.body)
+      };
+      break;
+    }
   }
-  return "";
+  const decisions = sections.map((section) => {
+    const key = priorityMatch(section.title);
+    const linkCount = extractWikiLinks(section.body).length;
+    const cleaned = cleanSectionBody(section.body);
+    const textLen = cleaned.length;
+    let reason = "NO_PRIORITY_MATCH";
+    let included = false;
+    if (key) {
+      if (!cleaned) {
+        reason = "EMPTY";
+      } else if (key === "see also" && !hasTextualNotes(cleaned)) {
+        reason = "SEE_ALSO_NO_TEXT";
+      } else if (isPlaceholderNote(cleaned)) {
+        reason = "PLACEHOLDER";
+      } else if (key === "references" && !extractReferenceCandidates(section.body)) {
+        reason = "REFERENCES_NO_CANDIDATES";
+      } else if (selected.title && selected.title === section.title) {
+        reason = "INCLUDED";
+        included = true;
+      } else {
+        reason = "SECONDARY_MATCH";
+      }
+    }
+    return {
+      title: section.title,
+      key,
+      included,
+      reason,
+      linkCount,
+      textLen
+    };
+  });
+  return {
+    text: selected.text,
+    title: selected.title,
+    key: selected.key,
+    linkCount: selected.linkCount,
+    sectionsUsed: selected.sectionsUsed || [],
+    mainArticle: selected.mainArticle || "",
+    decisions
+  };
+}
+
+function extractNotesFromWikitextSections(wikitext, priority = SECTION_PRIORITY) {
+  const detailed = extractNotesFromWikitextSectionsDetailed(wikitext, priority);
+  return detailed.text || "";
 }
 export function parseRecreationalStatus(value) {
   const raw = String(value || "").toLowerCase();
@@ -444,21 +677,8 @@ export function parseLegalityTable(wikitext, notesMap = null) {
   const rows = parseWikiTable(table);
   const parsed = rows.map((row) => {
     const notesRaw = String(row.notes || "");
-    const extractedNotes = notesTextFromRaw(notesRaw);
-    let notesText = extractedNotes;
     const mainArticles = extractMainArticles(notesRaw);
-    const mainOnly = isMainOnlyRaw(notesRaw);
-    const hasMainTemplate = /\{\{\s*main\s*\|/i.test(notesRaw) || /Main articles?/i.test(notesRaw);
-    if (mainOnly) {
-      const titles = mainArticles.map((article) => article.title).filter(Boolean);
-      notesText = titles.length ? `Main article: ${titles.join("; ")}` : "Main article";
-    }
-    if (!notesText && mainArticles.length > 0 && !mainOnly && !hasMainTemplate) {
-      const titles = mainArticles.map((article) => article.title).filter(Boolean);
-      if (titles.length) {
-        notesText = titles.join("; ");
-      }
-    }
+    const derived = deriveNotesFromRaw(notesRaw);
     return {
       name: row.name,
       link: row.link,
@@ -468,8 +688,12 @@ export function parseLegalityTable(wikitext, notesMap = null) {
       recreational_raw: row.recreational,
       medical_raw: row.medical,
       notes_raw: notesRaw,
-      notes_text: notesText,
-      notes_main_articles: mainArticles
+      notes_text: derived.notesText,
+      notes_main_articles: mainArticles,
+      notes_sections_used: derived.notesSectionsUsed,
+      notes_main_article: derived.notesMainArticle,
+      notes_kind: derived.notesKind,
+      notes_reason_code: derived.notesReasonCode
     };
   });
   const merged = applyNotesMap(parsed, notesMap);
@@ -501,34 +725,12 @@ export function normalizeRowStatuses(row) {
     row.medical_raw ?? row.medical ?? row.medical_status ?? "";
   const existingNotes = String(row.notes_text || "");
   const notesRaw = row.notes_raw ?? row.notes ?? "";
-  const rawNotesText = notesTextFromRaw(notesRaw);
-  const mainOnly = isMainOnlyRaw(notesRaw);
   let normalizedNotes = "";
-  const rawHasDigits = /\d/.test(rawNotesText);
-  const existingHasDigits = /\d/.test(existingNotes);
-  const shouldPreferRaw =
-    rawNotesText &&
-    (!existingNotes ||
-      (rawHasDigits && !existingHasDigits) ||
-      rawNotesText.length > existingNotes.length);
+  const derived = deriveNotesFromRaw(notesRaw);
   if (existingNotes && !isPlaceholderNote(existingNotes)) {
-    normalizedNotes = shouldPreferRaw ? rawNotesText : existingNotes;
-  } else if (rawNotesText && !mainOnly) {
-    normalizedNotes = rawNotesText;
-  }
-  const name = String(row.name || row.link || "").trim();
-  if (!normalizedNotes) {
-    if (!mainOnly) {
-      const articles = Array.isArray(row.notes_main_articles) ? row.notes_main_articles : [];
-      const titles = Array.from(new Set(articles.map((article) => article?.title).filter(Boolean)));
-      if (titles.length) {
-        normalizedNotes = titles.join("; ");
-      }
-    } else {
-      const articles = Array.isArray(row.notes_main_articles) ? row.notes_main_articles : [];
-      const titles = Array.from(new Set(articles.map((article) => article?.title).filter(Boolean)));
-      normalizedNotes = titles.length ? `Main article: ${titles.join("; ")}` : "Main article";
-    }
+    normalizedNotes = existingNotes;
+  } else {
+    normalizedNotes = derived.notesText;
   }
   return {
     ...row,
@@ -537,13 +739,21 @@ export function normalizeRowStatuses(row) {
     recreational_raw: recreationalRaw,
     medical_raw: medicalRaw,
     notes_text: normalizedNotes,
-    notes_text_len: normalizedNotes.length
+    notes_text_len: normalizedNotes.length,
+    notes_sections_used: Array.isArray(row.notes_sections_used) && row.notes_sections_used.length
+      ? row.notes_sections_used
+      : derived.notesSectionsUsed,
+    notes_main_article: row.notes_main_article || derived.notesMainArticle,
+    notes_kind: row.notes_kind || derived.notesKind,
+    notes_reason_code: row.notes_reason_code || derived.notesReasonCode
   };
 }
 
 export {
+  deriveNotesFromRaw,
   extractMainArticles,
   extractNotesFromWikitextSections,
+  extractNotesFromWikitextSectionsDetailed,
   isMainOnlyRaw,
   notesTextFromRaw,
   stripWikiMarkup
