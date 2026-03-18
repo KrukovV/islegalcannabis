@@ -42,6 +42,7 @@ import {
 import {
   getCountryOverlayBeforeLayerId,
   loadMapLibreStyle,
+  MAPLIBRE_PROVIDER_DETAIL_LABEL_LAYER_IDS,
   MAPLIBRE_PROVIDER_COUNTRY_LABEL_LAYER_IDS
 } from "@/lib/maplibreStyle";
 import type { TruthLevel } from "@/lib/statusUi";
@@ -238,6 +239,22 @@ function getCountryRenderStackDiagnostics(map: MapLibreMap | null) {
   };
 }
 
+function getStateRenderStackDiagnostics(map: MapLibreMap | null) {
+  const styleLayers = map?.getStyle?.()?.layers || [];
+  const styleLayerIds = styleLayers.map((layer) => layer.id);
+  const layerOrder = [
+    MAPLIBRE_STATE_CHOROPLETH_FILL_LAYER_ID,
+    MAPLIBRE_STATE_CHOROPLETH_LINE_LAYER_ID,
+    MAPLIBRE_STATE_CHOROPLETH_HOVER_LAYER_ID,
+    MAPLIBRE_STATE_CHOROPLETH_SELECTED_LAYER_ID
+  ].filter((layerId) => styleLayerIds.includes(layerId));
+  return {
+    hasStateLayer: layerOrder.length > 0,
+    stateLayerCount: layerOrder.length,
+    stateLayerOrder: layerOrder
+  };
+}
+
 function assertCountryRenderStack(map: MapLibreMap | null) {
   if (!map) {
     return {
@@ -313,6 +330,9 @@ export default function NewMapLibreMap({
   const overlaySyncCountRef = useRef(0);
   const frameStatsRef = useRef({ fps: 0, frames: 0, lastSampleAt: 0, rafId: 0 as number });
   const lastPointerTargetRef = useRef<string>("none");
+  const wheelOwnershipModeRef = useRef<"map" | "page" | "idle">("idle");
+  const safariWheelPreventDefaultActiveRef = useRef(false);
+  const wheelLimitHandoffReadyRef = useRef(false);
   const runtimeSyncStatsRef = useRef({
     mapLibreZoom: 0,
     normalizedLeafletZoomTarget: 0,
@@ -583,15 +603,16 @@ export default function NewMapLibreMap({
     const normalizedGeo = String(geo || "").toUpperCase();
     if (!normalizedGeo) return null;
     const viewportCenterLng = map.getCenter().lng;
-    const rendered = map
-      .queryRenderedFeatures(undefined, {
-        layers: [
+    const renderLayers = /^US-[A-Z]{2}$/.test(normalizedGeo)
+      ? [MAPLIBRE_STATE_CHOROPLETH_FILL_LAYER_ID, MAPLIBRE_STATE_CHOROPLETH_LINE_LAYER_ID]
+      : [
           MAPLIBRE_CHOROPLETH_MASK_LAYER_ID,
           MAPLIBRE_CHOROPLETH_FILL_LAYER_ID,
           MAPLIBRE_CHOROPLETH_MASK_POINT_LAYER_ID,
           MAPLIBRE_CHOROPLETH_POINT_LAYER_ID
-        ]
-      })
+        ];
+    const rendered = map
+      .queryRenderedFeatures(undefined, { layers: renderLayers })
       .filter((feature) => String(feature.properties?.geo || "").toUpperCase() === normalizedGeo);
 
     if (rendered.length === 0) return null;
@@ -680,12 +701,15 @@ export default function NewMapLibreMap({
     }
     const width = mapHost.clientWidth;
     const height = mapHost.clientHeight;
+    const isStateGeo = /^US-[A-Z]{2}$/.test(targetGeo);
     const hits: Array<{ x: number; y: number; distanceToViewportCenter: number }> = [];
     const collectHit = (x: number, y: number) => {
       const localX = Math.round(x);
       const localY = Math.round(y);
       if (localX < 18 || localX > width - 18 || localY < 18 || localY > height - 18) return;
-      const renderedGeo = getRenderedCountryIsoAtPoint({ x: localX, y: localY });
+      const renderedGeo = isStateGeo
+        ? String(getRenderedStateFeatureAtPoint({ x: localX, y: localY })?.properties?.geo || "").toUpperCase() || null
+        : getRenderedCountryIsoAtPoint({ x: localX, y: localY });
       if (renderedGeo !== targetGeo) return;
       hits.push({
         x: localX,
@@ -887,13 +911,31 @@ export default function NewMapLibreMap({
     runtime.__MAP_DEBUG__.worldWrapCount = interactionBuildStatsRef.current.worldWrapCount;
     runtime.__MAP_DEBUG__.outOfCanonicalBoundsCount = interactionBuildStatsRef.current.outOfCanonicalBoundsCount;
     const renderStackDiagnostics = assertCountryRenderStack(map);
+    const stateStackDiagnostics = getStateRenderStackDiagnostics(map);
+    const detailLabelIds = MAPLIBRE_PROVIDER_DETAIL_LABEL_LAYER_IDS.filter((layerId) => Boolean(map?.getLayer(layerId)));
+    const detailLayerAnchorId = detailLabelIds[0] || null;
+    const styleLayerIds = map?.getStyle?.()?.layers?.map((layer) => layer.id) || [];
+    const fillLayerIndex = styleLayerIds.indexOf(MAPLIBRE_CHOROPLETH_FILL_LAYER_ID);
+    const basemapDetailLayerVisible =
+      fillLayerIndex !== -1 && detailLabelIds.some((layerId) => styleLayerIds.indexOf(layerId) > fillLayerIndex);
+    const basemapLabelLayerVisible =
+      fillLayerIndex !== -1 &&
+      MAPLIBRE_PROVIDER_COUNTRY_LABEL_LAYER_IDS.some((layerId) => styleLayerIds.indexOf(layerId) > fillLayerIndex);
     runtime.__MAP_DEBUG__.hasMaskLayer = renderStackDiagnostics.hasMaskLayer;
     runtime.__MAP_DEBUG__.hasFillLayer = renderStackDiagnostics.hasFillLayer;
     runtime.__MAP_DEBUG__.hasIdleOutlineLayer = renderStackDiagnostics.hasIdleOutlineLayer;
     runtime.__MAP_DEBUG__.hasHoverLayer = renderStackDiagnostics.hasHoverLayer;
+    runtime.__MAP_DEBUG__.hasStateLayer = stateStackDiagnostics.hasStateLayer;
     runtime.__MAP_DEBUG__.layerOrder = renderStackDiagnostics.layerOrder;
     runtime.__MAP_DEBUG__.fillLayerCount = renderStackDiagnostics.fillLayerCount;
     runtime.__MAP_DEBUG__.lineLayerCount = renderStackDiagnostics.lineLayerCount;
+    runtime.__MAP_DEBUG__.stateLayerCount = stateStackDiagnostics.stateLayerCount;
+    runtime.__MAP_DEBUG__.stateLayerOrder = stateStackDiagnostics.stateLayerOrder;
+    runtime.__MAP_DEBUG__.basemapLabelLayerVisible = basemapLabelLayerVisible;
+    runtime.__MAP_DEBUG__.basemapDetailLayerVisible = basemapDetailLayerVisible;
+    runtime.__MAP_DEBUG__.detailLayerAnchorId = detailLayerAnchorId;
+    runtime.__MAP_DEBUG__.wheelOwnershipMode = wheelOwnershipModeRef.current;
+    runtime.__MAP_DEBUG__.safariWheelPreventDefaultActive = safariWheelPreventDefaultActiveRef.current;
     runtime.__MAP_DEBUG__.lastPointerTarget = () => lastPointerTargetRef.current;
     runtime.__MAP_DEBUG__.selectedCountryIso = () => selectedCountryIsoRef.current;
     runtime.__MAP_DEBUG__.hoveredCountryIso = () => hoverCountryIsoRef.current;
@@ -909,7 +951,11 @@ export default function NewMapLibreMap({
       tileCount,
       visibleFeatures: visibleFeatureSet.size,
       fps: frameStatsRef.current.fps,
-      ...renderStackDiagnostics
+      ...renderStackDiagnostics,
+      ...stateStackDiagnostics,
+      basemapLabelLayerVisible,
+      basemapDetailLayerVisible,
+      detailLayerAnchorId
     });
     runtime.__MAP_DEBUG__.getCanonicalGeometryDiagnostics = (geo: string) =>
       getCanonicalGeometryDiagnosticsForGeo(String(geo || "").toUpperCase());
@@ -966,6 +1012,7 @@ export default function NewMapLibreMap({
       });
     };
     runtime.__MAP_DEBUG__.labelLayerIds = MAPLIBRE_PROVIDER_COUNTRY_LABEL_LAYER_IDS.filter((layerId) => Boolean(mapRef.current?.getLayer(layerId)));
+    runtime.__MAP_DEBUG__.detailLabelLayerIds = detailLabelIds;
     runtime.__MAP_DEBUG__.queryVisibleCountryLabels = () => {
       const map = mapRef.current;
       if (!map) return [];
@@ -988,12 +1035,43 @@ export default function NewMapLibreMap({
         })
         .filter(Boolean);
     };
+    runtime.__MAP_DEBUG__.queryVisibleBasemapDetailLabels = () => {
+      const map = mapRef.current;
+      if (!map) return [];
+      const layerIds = MAPLIBRE_PROVIDER_DETAIL_LABEL_LAYER_IDS.filter((layerId) => Boolean(map.getLayer(layerId)));
+      const rendered = map.queryRenderedFeatures(undefined, { layers: layerIds });
+      const seen = new Set<string>();
+      return rendered
+        .map((feature) => {
+          const name = String(feature.properties?.name || feature.properties?.["name:latin"] || "").trim();
+          const layerId = String(feature.layer.id || "").trim();
+          if (!name || !layerId) return null;
+          const key = `${layerId}:${name}`.toLowerCase();
+          if (seen.has(key)) return null;
+          seen.add(key);
+          return { label: name, layerId };
+        })
+        .filter(Boolean);
+    };
   };
 
   const ensureMapLayers = () => {
     const map = mapRef.current;
     if (!map) return;
     const beforeOverlayLayerId = getCountryOverlayBeforeLayerId(map.getStyle());
+    const orderedLayerIds = [
+      MAPLIBRE_CHOROPLETH_MASK_LAYER_ID,
+      MAPLIBRE_CHOROPLETH_FILL_LAYER_ID,
+      MAPLIBRE_STATE_CHOROPLETH_FILL_LAYER_ID,
+      MAPLIBRE_STATE_CHOROPLETH_LINE_LAYER_ID,
+      MAPLIBRE_CHOROPLETH_LINE_LAYER_ID,
+      MAPLIBRE_STATE_CHOROPLETH_HOVER_LAYER_ID,
+      MAPLIBRE_STATE_CHOROPLETH_SELECTED_LAYER_ID,
+      MAPLIBRE_CHOROPLETH_HOVER_LAYER_ID,
+      MAPLIBRE_CHOROPLETH_SELECTED_LAYER_ID,
+      MAPLIBRE_CHOROPLETH_MASK_POINT_LAYER_ID,
+      MAPLIBRE_CHOROPLETH_POINT_LAYER_ID
+    ];
 
     if (!map.getSource(MAPLIBRE_CHOROPLETH_SOURCE_ID)) {
       map.addSource(MAPLIBRE_CHOROPLETH_SOURCE_ID, buildChoroplethSource(currentGeojsonRef.current, statusIndex));
@@ -1001,11 +1079,19 @@ export default function NewMapLibreMap({
     if (!map.getSource(MAPLIBRE_STATE_CHOROPLETH_SOURCE_ID)) {
       map.addSource(MAPLIBRE_STATE_CHOROPLETH_SOURCE_ID, buildStateChoroplethSource(currentStateGeojsonRef.current, statusIndex));
     }
-    buildStateChoroplethLayers().forEach((layer) => {
-      if (!map.getLayer(layer.id)) map.addLayer(layer, beforeOverlayLayerId);
-    });
-    buildChoroplethLayers().forEach((layer) => {
-      if (!map.getLayer(layer.id)) map.addLayer(layer, beforeOverlayLayerId);
+    const layerById = new Map(
+      [...buildChoroplethLayers(), ...buildStateChoroplethLayers()].map((layer) => [layer.id, layer] as const)
+    );
+    orderedLayerIds.forEach((layerId) => {
+      const layer = layerById.get(layerId);
+      if (!layer) return;
+      if (!map.getLayer(layer.id)) {
+        map.addLayer(layer, beforeOverlayLayerId);
+        return;
+      }
+      if (beforeOverlayLayerId && map.getLayer(beforeOverlayLayerId)) {
+        map.moveLayer(layer.id, beforeOverlayLayerId);
+      }
     });
     assertCountryRenderStack(map);
   };
@@ -1166,9 +1252,20 @@ export default function NewMapLibreMap({
             .getContainer?.()
             ?.querySelector<HTMLButtonElement>(".maplibregl-ctrl-zoom-out")
             ?.disabled === true;
+        const zoomInControlDisabled =
+          currentMap
+            .getContainer?.()
+            ?.querySelector<HTMLButtonElement>(".maplibregl-ctrl-zoom-in")
+            ?.disabled === true;
         const atMinZoom = currentMap.getZoom() <= currentMap.getMinZoom() + 1e-4;
-        const shouldHandoffToPage = event.deltaY > 0 && atMinZoom && zoomOutControlDisabled && !currentMap.isZooming?.();
+        const atMaxZoom = currentMap.getZoom() >= currentMap.getMaxZoom() - 1e-4;
+        const atZoomLimit =
+          (event.deltaY > 0 && atMinZoom && zoomOutControlDisabled) ||
+          (event.deltaY < 0 && atMaxZoom && zoomInControlDisabled);
+        const shouldHandoffToPage = atZoomLimit && wheelLimitHandoffReadyRef.current && !currentMap.isZooming?.();
         if (shouldHandoffToPage) {
+          wheelOwnershipModeRef.current = "page";
+          safariWheelPreventDefaultActiveRef.current = false;
           if (currentMap.scrollZoom.isEnabled?.()) currentMap.scrollZoom.disable?.();
           event.stopImmediatePropagation?.();
           event.stopPropagation?.();
@@ -1177,11 +1274,29 @@ export default function NewMapLibreMap({
             currentMap.scrollZoom?.enable?.();
             scrollWheelHandoffTimer = null;
           }, 0);
+          syncInteractionDebugRuntime();
           return;
         }
+        wheelLimitHandoffReadyRef.current = atZoomLimit;
+        wheelOwnershipModeRef.current = "map";
+        safariWheelPreventDefaultActiveRef.current = true;
         event.preventDefault?.();
         if (!currentMap.scrollZoom.isEnabled?.()) currentMap.scrollZoom.enable?.();
+        syncInteractionDebugRuntime();
       };
+      const onWheelPointerEnter = () => {
+        wheelLimitHandoffReadyRef.current = false;
+        wheelOwnershipModeRef.current = "map";
+        syncInteractionDebugRuntime();
+      };
+      const onWheelPointerLeave = () => {
+        wheelLimitHandoffReadyRef.current = false;
+        wheelOwnershipModeRef.current = "idle";
+        safariWheelPreventDefaultActiveRef.current = false;
+        syncInteractionDebugRuntime();
+      };
+      wheelTarget?.addEventListener("pointerenter", onWheelPointerEnter);
+      wheelTarget?.addEventListener("pointerleave", onWheelPointerLeave);
       wheelTarget?.addEventListener("wheel", onWheelAtMinZoom, { passive: false, capture: true });
 
       mapRef.current = map;
@@ -1428,13 +1543,21 @@ export default function NewMapLibreMap({
           hasFillLayer: false,
           hasIdleOutlineLayer: false,
           hasHoverLayer: false,
+          hasStateLayer: false,
           layerOrder: [],
           fillLayerCount: 0,
           lineLayerCount: 0,
+          stateLayerCount: 0,
+          basemapLabelLayerVisible: false,
+          basemapDetailLayerVisible: false,
+          wheelOwnershipMode: "idle",
+          safariWheelPreventDefaultActive: false,
           getTruthCoverageDiagnostics: () => mapTruthDiagnostics || null,
           getMapTruthStatus: (geo: string) => statusIndex[String(geo || "").toUpperCase()] || null,
           labelLayerIds: [],
+          detailLabelLayerIds: [],
           queryVisibleCountryLabels: () => [],
+          queryVisibleBasemapDetailLabels: () => [],
           projectGeo: (_geo: string) => null,
           getGeoLngLat: (_geo: string) => null,
           openPopupForGeo: (_geo: string) => false
@@ -1460,12 +1583,19 @@ export default function NewMapLibreMap({
             hasFillLayer: false,
             hasIdleOutlineLayer: false,
             hasHoverLayer: false,
+            hasStateLayer: false,
             layerOrder: [],
             fillLayerCount: 0,
             lineLayerCount: 0,
+            stateLayerCount: 0,
+            basemapLabelLayerVisible: false,
+            basemapDetailLayerVisible: false,
+            wheelOwnershipMode: "idle",
+            safariWheelPreventDefaultActive: false,
             getTruthCoverageDiagnostics: () => mapTruthDiagnostics || null,
             getMapTruthStatus: (geo: string) => statusIndex[String(geo || "").toUpperCase()] || null,
             labelLayerIds: MAPLIBRE_PROVIDER_COUNTRY_LABEL_LAYER_IDS.filter((layerId) => Boolean(map.getLayer(layerId))),
+            detailLabelLayerIds: MAPLIBRE_PROVIDER_DETAIL_LABEL_LAYER_IDS.filter((layerId) => Boolean(map.getLayer(layerId))),
             queryVisibleCountryLabels: () => {
               const layerIds = MAPLIBRE_PROVIDER_COUNTRY_LABEL_LAYER_IDS.filter((layerId) => Boolean(map.getLayer(layerId)));
               const rendered = map.queryRenderedFeatures(undefined, {
@@ -1489,6 +1619,7 @@ export default function NewMapLibreMap({
                 })
                 .filter(Boolean);
             },
+            queryVisibleBasemapDetailLabels: () => [],
             projectGeo: (geo: string) => {
               const projected = getInteractionPointForGeo(String(geo || "").toUpperCase());
               if (!projected) return null;
@@ -1640,6 +1771,9 @@ export default function NewMapLibreMap({
       map.on("click", onMapClick);
 
       cleanupOverlayRuntime = () => {
+        wheelTarget?.removeEventListener("pointerenter", onWheelPointerEnter);
+        wheelTarget?.removeEventListener("pointerleave", onWheelPointerLeave);
+        wheelTarget?.removeEventListener("wheel", onWheelAtMinZoom, true);
         map.off("movestart", onMoveStart);
         map.off("zoomstart", onZoomStart);
         map.off("moveend", onMoveEnd);
@@ -1696,8 +1830,6 @@ export default function NewMapLibreMap({
       selectedCountryIsoRef.current = null;
       focusedCountryIsoRef.current = null;
       interactionSyncPendingRef.current = false;
-      const wheelTarget = wrapperRef.current;
-      wheelTarget?.removeEventListener("wheel", onWheelAtMinZoom, true);
       mapRef.current?.remove();
       mapRef.current = null;
       maplibreRef.current = null;

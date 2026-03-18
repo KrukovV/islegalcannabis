@@ -80,6 +80,15 @@ async function getVisibleCountryLabels(page: Page) {
   });
 }
 
+async function getVisibleBasemapDetailLabels(page: Page) {
+  return page.evaluate(() => {
+    const debug = (window as Window & {
+      __MAP_DEBUG__?: { queryVisibleBasemapDetailLabels?: () => Array<{ label: string; layerId: string }> };
+    }).__MAP_DEBUG__;
+    return debug?.queryVisibleBasemapDetailLabels?.() || [];
+  });
+}
+
 async function getTruthCoverageDiagnostics(page: Page) {
   return page.evaluate(() => {
     const debug = (window as Window & {
@@ -151,9 +160,15 @@ async function getRuntimeInteractionState(page: Page) {
         hasFillLayer?: boolean;
         hasIdleOutlineLayer?: boolean;
         hasHoverLayer?: boolean;
+        hasStateLayer?: boolean;
         layerOrder?: string[];
         fillLayerCount?: number;
         lineLayerCount?: number;
+        stateLayerCount?: number;
+        basemapLabelLayerVisible?: boolean;
+        basemapDetailLayerVisible?: boolean;
+        wheelOwnershipMode?: string;
+        safariWheelPreventDefaultActive?: boolean;
         hoverHitCountryIso?: string | null;
         hoverRenderedCountryIso?: string | null;
         popupCountryIso?: string | null;
@@ -170,9 +185,18 @@ async function getRuntimeInteractionState(page: Page) {
       hasFillLayer: typeof debug?.hasFillLayer === "boolean" ? debug.hasFillLayer : null,
       hasIdleOutlineLayer: typeof debug?.hasIdleOutlineLayer === "boolean" ? debug.hasIdleOutlineLayer : null,
       hasHoverLayer: typeof debug?.hasHoverLayer === "boolean" ? debug.hasHoverLayer : null,
+      hasStateLayer: typeof debug?.hasStateLayer === "boolean" ? debug.hasStateLayer : null,
       layerOrder: Array.isArray(debug?.layerOrder) ? debug.layerOrder : null,
       fillLayerCount: typeof debug?.fillLayerCount === "number" ? debug.fillLayerCount : null,
       lineLayerCount: typeof debug?.lineLayerCount === "number" ? debug.lineLayerCount : null,
+      stateLayerCount: typeof debug?.stateLayerCount === "number" ? debug.stateLayerCount : null,
+      basemapLabelLayerVisible:
+        typeof debug?.basemapLabelLayerVisible === "boolean" ? debug.basemapLabelLayerVisible : null,
+      basemapDetailLayerVisible:
+        typeof debug?.basemapDetailLayerVisible === "boolean" ? debug.basemapDetailLayerVisible : null,
+      wheelOwnershipMode: typeof debug?.wheelOwnershipMode === "string" ? debug.wheelOwnershipMode : null,
+      safariWheelPreventDefaultActive:
+        typeof debug?.safariWheelPreventDefaultActive === "boolean" ? debug.safariWheelPreventDefaultActive : null,
       hoverHitCountryIso: debug?.hoverHitCountryIso || null,
       hoverRenderedCountryIso: debug?.hoverRenderedCountryIso || null,
       popupCountryIso: debug?.popupCountryIso || null,
@@ -548,38 +572,14 @@ test.describe("MapLibre map UI", () => {
     await page.waitForTimeout(1500);
 
     const texasScreenPoint = await page.evaluate(() => {
-      const map = (window as Window & { __MAP__?: import("maplibre-gl").Map }).__MAP__;
-      if (!map) return null;
-      const features = map.queryRenderedFeatures(undefined, {
-        layers: ["ilc-state-choropleth-fill", "ilc-state-choropleth-line"]
-      });
-      const texas = features.find((feature) => String(feature.properties?.geo || "").toUpperCase() === "US-TX");
-      if (!texas) return null;
-      const coords: Array<[number, number]> = [];
-      const collect = (value: unknown) => {
-        if (!Array.isArray(value)) return;
-        if (value.length >= 2 && typeof value[0] === "number" && typeof value[1] === "number") {
-          coords.push([value[0], value[1]]);
-          return;
-        }
-        value.forEach(collect);
-      };
-      collect(texas.geometry?.coordinates);
-      if (coords.length === 0) return null;
-      const lngs = coords.map((pair) => pair[0]);
-      const lats = coords.map((pair) => pair[1]);
-      const point = map.project([
-        (Math.min(...lngs) + Math.max(...lngs)) / 2,
-        (Math.min(...lats) + Math.max(...lats)) / 2
-      ]);
-      return { x: Math.round(point.x), y: Math.round(point.y) };
+      const debug = (window as Window & {
+        __MAP_DEBUG__?: { projectGeo?: (_geo: string) => { x: number; y: number } | null };
+      }).__MAP_DEBUG__;
+      return debug?.projectGeo?.("US-TX") || null;
     });
 
     expect(texasScreenPoint).not.toBeNull();
-    const mapFrame = page.locator("[data-testid='map-frame']");
-    const box = await mapFrame.boundingBox();
-    expect(box).not.toBeNull();
-    await page.mouse.move((box?.x || 0) + (texasScreenPoint?.x || 0), (box?.y || 0) + (texasScreenPoint?.y || 0));
+    await page.mouse.move(texasScreenPoint!.x, texasScreenPoint!.y);
     await page.waitForTimeout(300);
 
     const hoverRuntime = await page.evaluate(() => {
@@ -716,6 +716,65 @@ test.describe("MapLibre map UI", () => {
     await page.waitForTimeout(500);
     const scrollAfterHandoff = await page.evaluate(() => window.scrollY);
     expect(scrollAfterHandoff).toBeGreaterThan(0);
+
+    guard.assertNoNetworkErrors();
+    guard.assertNoClientErrors();
+  });
+
+  test("keeps basemap detail labels visible above the thematic stack after zoom-in", async ({ page }) => {
+    const guard = attachRuntimeGuards(page);
+    await openMapAndWaitReady(page);
+
+    await page.evaluate(() => {
+      const map = (window as Window & { __MAP__?: import("maplibre-gl").Map }).__MAP__;
+      map?.fitBounds?.(
+        [
+          [-10, 30],
+          [40, 56]
+        ],
+        { padding: 64, duration: 0, maxZoom: 4.8 }
+      );
+    });
+    await page.waitForTimeout(1500);
+
+    const detailLabels = await getVisibleBasemapDetailLabels(page);
+    const state = await getRuntimeInteractionState(page);
+
+    expect(state.basemapDetailLayerVisible).toBe(true);
+    expect(state.basemapLabelLayerVisible).toBe(true);
+    expect(detailLabels.length).toBeGreaterThan(8);
+    expect(detailLabels.some((entry) => !/place_country_/.test(entry.layerId))).toBe(true);
+
+    guard.assertNoNetworkErrors();
+    guard.assertNoClientErrors();
+  });
+
+  test("keeps safari wheel ownership on the map before page scroll wins", async ({ page, browserName }) => {
+    test.skip(browserName !== "webkit");
+    const guard = attachRuntimeGuards(page);
+    await openMapAndWaitReady(page);
+    await page.evaluate(() => window.scrollTo(0, 0));
+
+    const frame = page.locator("[data-testid='map-frame']");
+    const frameBox = await frame.boundingBox();
+    expect(frameBox).not.toBeNull();
+    await page.mouse.move(frameBox!.x + frameBox!.width * 0.5, frameBox!.y + frameBox!.height * 0.5);
+
+    const before = await page.evaluate(() => ({
+      zoom: (window as Window & { __MAP_DEBUG__?: { mapLibreZoom?: number } }).__MAP_DEBUG__?.mapLibreZoom ?? null,
+      scrollY: window.scrollY
+    }));
+    await page.mouse.wheel(0, 260);
+    await page.waitForTimeout(700);
+    const after = await getRuntimeInteractionState(page);
+    const afterScroll = await page.evaluate(() => window.scrollY);
+
+    expect(Number(afterScroll)).toBe(Number(before.scrollY));
+    expect(Number(after.fps || 0)).toBeGreaterThanOrEqual(0);
+    expect(after.wheelOwnershipMode).toBe("map");
+    expect(after.safariWheelPreventDefaultActive).toBe(true);
+    expect(Number(after.visibleFeatures || 0)).toBeGreaterThan(0);
+    expect(Number((await page.evaluate(() => (window as Window & { __MAP_DEBUG__?: { mapLibreZoom?: number } }).__MAP_DEBUG__?.mapLibreZoom ?? null)))).toBeLessThan(Number(before.zoom));
 
     guard.assertNoNetworkErrors();
     guard.assertNoClientErrors();
@@ -899,8 +958,12 @@ test.describe("MapLibre map UI", () => {
     expect(initialState.hasFillLayer).toBe(true);
     expect(initialState.hasIdleOutlineLayer).toBe(true);
     expect(initialState.hasHoverLayer).toBe(true);
+    expect(initialState.hasStateLayer).toBe(true);
     expect(initialState.fillLayerCount).toBe(1);
     expect(initialState.lineLayerCount || 0).toBeGreaterThanOrEqual(3);
+    expect(initialState.stateLayerCount || 0).toBeGreaterThanOrEqual(4);
+    expect(initialState.basemapLabelLayerVisible).toBe(true);
+    expect(initialState.basemapDetailLayerVisible).toBe(true);
     expect(initialState.layerOrder?.slice(0, 4)).toEqual([
       "ilc-choropleth-mask",
       "ilc-choropleth-fill",
