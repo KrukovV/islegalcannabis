@@ -23,12 +23,14 @@ import {
   buildChoroplethSource,
   buildStateChoroplethLayers,
   buildStateChoroplethSource,
+  getGeometrySourceDiagnosticsConfig,
   MAPLIBRE_CHOROPLETH_MASK_LAYER_ID,
   MAPLIBRE_CHOROPLETH_MASK_POINT_LAYER_ID,
   MAPLIBRE_CHOROPLETH_FILL_LAYER_ID,
   MAPLIBRE_CHOROPLETH_HOVER_LAYER_ID,
   MAPLIBRE_CHOROPLETH_LINE_LAYER_ID,
   MAPLIBRE_CHOROPLETH_POINT_LAYER_ID,
+  MAPLIBRE_CHOROPLETH_RENDER_STACK,
   MAPLIBRE_CHOROPLETH_SELECTED_LAYER_ID,
   MAPLIBRE_CHOROPLETH_SOURCE_ID,
   MAPLIBRE_STATE_CHOROPLETH_FILL_LAYER_ID,
@@ -206,6 +208,73 @@ function getProjectedOuterRings(
   );
 }
 
+function getExistingLayerIds(map: MapLibreMap | null, layerIds: string[]) {
+  if (!map) return [];
+  return layerIds.filter((layerId) => Boolean(map.getLayer(layerId)));
+}
+
+function getCountryRenderStackDiagnostics(map: MapLibreMap | null) {
+  const styleLayers = map?.getStyle?.()?.layers || [];
+  const styleLayerIds = styleLayers.map((layer) => layer.id);
+  const layerOrder = MAPLIBRE_CHOROPLETH_RENDER_STACK.filter((layerId) => styleLayerIds.includes(layerId));
+  const hasMaskLayer = layerOrder.includes(MAPLIBRE_CHOROPLETH_MASK_LAYER_ID);
+  const hasFillLayer = layerOrder.includes(MAPLIBRE_CHOROPLETH_FILL_LAYER_ID);
+  const hasIdleOutlineLayer = layerOrder.includes(MAPLIBRE_CHOROPLETH_LINE_LAYER_ID);
+  const hasHoverLayer = layerOrder.includes(MAPLIBRE_CHOROPLETH_HOVER_LAYER_ID);
+  const fillLayerCount = layerOrder.filter((layerId) => layerId === MAPLIBRE_CHOROPLETH_FILL_LAYER_ID).length;
+  const lineLayerCount = [
+    MAPLIBRE_CHOROPLETH_LINE_LAYER_ID,
+    MAPLIBRE_CHOROPLETH_HOVER_LAYER_ID,
+    MAPLIBRE_CHOROPLETH_SELECTED_LAYER_ID
+  ].filter((layerId) => styleLayerIds.includes(layerId)).length;
+  return {
+    layerOrder,
+    hasMaskLayer,
+    hasFillLayer,
+    hasIdleOutlineLayer,
+    hasHoverLayer,
+    fillLayerCount,
+    lineLayerCount
+  };
+}
+
+function assertCountryRenderStack(map: MapLibreMap | null) {
+  if (!map) {
+    return {
+      layerOrder: [] as string[],
+      hasMaskLayer: false,
+      hasFillLayer: false,
+      hasIdleOutlineLayer: false,
+      hasHoverLayer: false,
+      fillLayerCount: 0,
+      lineLayerCount: 0
+    };
+  }
+  const diagnostics = getCountryRenderStackDiagnostics(map);
+  if (diagnostics.layerOrder.length === 0) {
+    return diagnostics;
+  }
+  const maskIndex = diagnostics.layerOrder.indexOf(MAPLIBRE_CHOROPLETH_MASK_LAYER_ID);
+  const fillIndex = diagnostics.layerOrder.indexOf(MAPLIBRE_CHOROPLETH_FILL_LAYER_ID);
+  const lineIndex = diagnostics.layerOrder.indexOf(MAPLIBRE_CHOROPLETH_LINE_LAYER_ID);
+  const hoverIndex = diagnostics.layerOrder.indexOf(MAPLIBRE_CHOROPLETH_HOVER_LAYER_ID);
+  if (
+    maskIndex === -1 ||
+    fillIndex === -1 ||
+    lineIndex === -1 ||
+    hoverIndex === -1 ||
+    !(maskIndex < fillIndex && fillIndex < lineIndex && lineIndex < hoverIndex) ||
+    diagnostics.fillLayerCount !== 1 ||
+    !diagnostics.hasMaskLayer ||
+    !diagnostics.hasFillLayer ||
+    !diagnostics.hasIdleOutlineLayer ||
+    !diagnostics.hasHoverLayer
+  ) {
+    throw new Error("LAYER_ORDER_BROKEN");
+  }
+  return diagnostics;
+}
+
 export default function NewMapLibreMap({
   mapEnabled,
   whereAmI = null,
@@ -242,6 +311,7 @@ export default function NewMapLibreMap({
   const overlaySyncReasonRef = useRef("init");
   const overlaySyncForceSecondPassRef = useRef(false);
   const overlaySyncCountRef = useRef(0);
+  const frameStatsRef = useRef({ fps: 0, frames: 0, lastSampleAt: 0, rafId: 0 as number });
   const lastPointerTargetRef = useRef<string>("none");
   const runtimeSyncStatsRef = useRef({
     mapLibreZoom: 0,
@@ -479,15 +549,15 @@ export default function NewMapLibreMap({
   const getRenderedCountryIsoAtPoint = (point: { x: number; y: number }) => {
     const map = mapRef.current;
     if (!map) return null;
-    const rendered = map.queryRenderedFeatures([point.x, point.y], {
-      layers: [
-        MAPLIBRE_CHOROPLETH_MASK_LAYER_ID,
-        MAPLIBRE_CHOROPLETH_FILL_LAYER_ID,
-        MAPLIBRE_CHOROPLETH_LINE_LAYER_ID,
-        MAPLIBRE_CHOROPLETH_MASK_POINT_LAYER_ID,
-        MAPLIBRE_CHOROPLETH_POINT_LAYER_ID
-      ]
-    });
+    const layers = getExistingLayerIds(map, [
+      MAPLIBRE_CHOROPLETH_MASK_LAYER_ID,
+      MAPLIBRE_CHOROPLETH_FILL_LAYER_ID,
+      MAPLIBRE_CHOROPLETH_LINE_LAYER_ID,
+      MAPLIBRE_CHOROPLETH_MASK_POINT_LAYER_ID,
+      MAPLIBRE_CHOROPLETH_POINT_LAYER_ID
+    ]);
+    if (layers.length === 0) return null;
+    const rendered = map.queryRenderedFeatures([point.x, point.y], { layers });
     return (
       rendered
         .map((feature) => String(feature.properties?.geo || "").toUpperCase())
@@ -626,9 +696,9 @@ export default function NewMapLibreMap({
     if (canonicalAnchor) {
       const canonicalPoint = getFeatureScreenPoint(canonicalAnchor);
       if (canonicalPoint) {
-        for (let radius = 0; radius <= 120; radius += 10) {
-          for (let offsetY = -radius; offsetY <= radius; offsetY += 10) {
-            for (let offsetX = -radius; offsetX <= radius; offsetX += 10) {
+        for (let radius = 0; radius <= 120; radius += 6) {
+          for (let offsetY = -radius; offsetY <= radius; offsetY += 6) {
+            for (let offsetX = -radius; offsetX <= radius; offsetX += 6) {
               if (radius > 0 && Math.max(Math.abs(offsetX), Math.abs(offsetY)) !== radius) continue;
               collectHit(canonicalPoint.x + offsetX, canonicalPoint.y + offsetY);
             }
@@ -638,8 +708,23 @@ export default function NewMapLibreMap({
       }
     }
     if (hits.length === 0) {
-      for (let y = 18; y < height - 18; y += 10) {
-        for (let x = 18; x < width - 18; x += 10) {
+      const renderedAnchor = getRenderedFeatureAnchor(targetGeo);
+      const renderedPoint = renderedAnchor ? getFeatureScreenPoint(renderedAnchor) : null;
+      if (renderedPoint) {
+        for (let radius = 0; radius <= 48; radius += 4) {
+          for (let offsetY = -radius; offsetY <= radius; offsetY += 4) {
+            for (let offsetX = -radius; offsetX <= radius; offsetX += 4) {
+              if (radius > 0 && Math.max(Math.abs(offsetX), Math.abs(offsetY)) !== radius) continue;
+              collectHit(renderedPoint.x + offsetX, renderedPoint.y + offsetY);
+            }
+          }
+          if (hits.length > 0) break;
+        }
+      }
+    }
+    if (hits.length === 0) {
+      for (let y = 18; y < height - 18; y += 8) {
+        for (let x = 18; x < width - 18; x += 8) {
           collectHit(x, y);
         }
       }
@@ -755,6 +840,28 @@ export default function NewMapLibreMap({
     if (process.env.NODE_ENV === "production") return;
     const runtime = window as Window & { __MAP_DEBUG__?: Record<string, unknown> };
     if (!runtime.__MAP_DEBUG__) runtime.__MAP_DEBUG__ = {};
+    const map = mapRef.current;
+    const geometryDiagnostics = getGeometrySourceDiagnosticsConfig();
+    const visibleCountryLayers = getExistingLayerIds(map, [
+      MAPLIBRE_CHOROPLETH_MASK_LAYER_ID,
+      MAPLIBRE_CHOROPLETH_FILL_LAYER_ID,
+      MAPLIBRE_CHOROPLETH_LINE_LAYER_ID
+    ]);
+    const visibleFeatureSet = new Set(
+      (map
+        ? visibleCountryLayers.length > 0
+          ? map.queryRenderedFeatures(undefined, {
+              layers: visibleCountryLayers
+            })
+          : []
+        : []
+      )
+        .map((feature) => String(feature.properties?.geo || "").toUpperCase())
+        .filter(Boolean)
+    );
+    const styleAny = map as unknown as { style?: { sourceCaches?: Record<string, { _tiles?: Record<string, unknown> }> } };
+    const sourceCache = styleAny?.style?.sourceCaches?.[geometryDiagnostics.sourceId];
+    const tileCount = sourceCache?._tiles ? Object.keys(sourceCache._tiles).length : 0;
     runtime.__MAP_DEBUG__.mapLibreZoom = runtimeSyncStatsRef.current.mapLibreZoom;
     runtime.__MAP_DEBUG__.normalizedLeafletZoomTarget = runtimeSyncStatsRef.current.normalizedLeafletZoomTarget;
     runtime.__MAP_DEBUG__.leafletAppliedZoom = runtimeSyncStatsRef.current.leafletAppliedZoom;
@@ -774,8 +881,19 @@ export default function NewMapLibreMap({
     runtime.__MAP_DEBUG__.uniqueIsoCount = interactionBuildStatsRef.current.uniqueIsoCount;
     runtime.__MAP_DEBUG__.duplicateIsoCount = interactionBuildStatsRef.current.duplicateIsoCount;
     runtime.__MAP_DEBUG__.geometrySource = MAP_GEOMETRY_SOURCE;
+    runtime.__MAP_DEBUG__.tileCount = tileCount;
+    runtime.__MAP_DEBUG__.visibleFeatures = visibleFeatureSet.size;
+    runtime.__MAP_DEBUG__.fps = frameStatsRef.current.fps;
     runtime.__MAP_DEBUG__.worldWrapCount = interactionBuildStatsRef.current.worldWrapCount;
     runtime.__MAP_DEBUG__.outOfCanonicalBoundsCount = interactionBuildStatsRef.current.outOfCanonicalBoundsCount;
+    const renderStackDiagnostics = assertCountryRenderStack(map);
+    runtime.__MAP_DEBUG__.hasMaskLayer = renderStackDiagnostics.hasMaskLayer;
+    runtime.__MAP_DEBUG__.hasFillLayer = renderStackDiagnostics.hasFillLayer;
+    runtime.__MAP_DEBUG__.hasIdleOutlineLayer = renderStackDiagnostics.hasIdleOutlineLayer;
+    runtime.__MAP_DEBUG__.hasHoverLayer = renderStackDiagnostics.hasHoverLayer;
+    runtime.__MAP_DEBUG__.layerOrder = renderStackDiagnostics.layerOrder;
+    runtime.__MAP_DEBUG__.fillLayerCount = renderStackDiagnostics.fillLayerCount;
+    runtime.__MAP_DEBUG__.lineLayerCount = renderStackDiagnostics.lineLayerCount;
     runtime.__MAP_DEBUG__.lastPointerTarget = () => lastPointerTargetRef.current;
     runtime.__MAP_DEBUG__.selectedCountryIso = () => selectedCountryIsoRef.current;
     runtime.__MAP_DEBUG__.hoveredCountryIso = () => hoverCountryIsoRef.current;
@@ -786,6 +904,13 @@ export default function NewMapLibreMap({
       hoverRenderedCountryIso: focusedCountryIsoRef.current
     });
     runtime.__MAP_DEBUG__.getInteractionOverlayDiagnostics = () => ({ ...interactionBuildStatsRef.current });
+    runtime.__MAP_DEBUG__.getGeometrySourceDiagnostics = () => ({
+      ...geometryDiagnostics,
+      tileCount,
+      visibleFeatures: visibleFeatureSet.size,
+      fps: frameStatsRef.current.fps,
+      ...renderStackDiagnostics
+    });
     runtime.__MAP_DEBUG__.getCanonicalGeometryDiagnostics = (geo: string) =>
       getCanonicalGeometryDiagnosticsForGeo(String(geo || "").toUpperCase());
     runtime.__MAP_DEBUG__.getRenderSeamDiagnostics = (geo: string) =>
@@ -882,6 +1007,7 @@ export default function NewMapLibreMap({
     buildChoroplethLayers().forEach((layer) => {
       if (!map.getLayer(layer.id)) map.addLayer(layer, beforeOverlayLayerId);
     });
+    assertCountryRenderStack(map);
   };
 
   const syncMapSources = () => {
@@ -974,6 +1100,20 @@ export default function NewMapLibreMap({
     let resizeObserver: ResizeObserver | null = null;
     let cleanupOverlayRuntime: (() => void) | null = null;
     let scrollWheelHandoffTimer: number | null = null;
+
+    const tickFps = (timestamp: number) => {
+      if (!mounted) return;
+      const stats = frameStatsRef.current;
+      if (!stats.lastSampleAt) stats.lastSampleAt = timestamp;
+      stats.frames += 1;
+      const elapsed = timestamp - stats.lastSampleAt;
+      if (elapsed >= 1000) {
+        stats.fps = Number(((stats.frames * 1000) / elapsed).toFixed(1));
+        stats.frames = 0;
+        stats.lastSampleAt = timestamp;
+      }
+      stats.rafId = requestAnimationFrame(tickFps);
+    };
 
     const scheduleResize = () => {
       if (!mounted || !mapRef.current) return;
@@ -1281,6 +1421,16 @@ export default function NewMapLibreMap({
         (window as Window & { __MAP_DEBUG__?: Record<string, unknown> }).__MAP_DEBUG__ = {
           renderer: "maplibre",
           geometrySource: MAP_GEOMETRY_SOURCE,
+          tileCount: 0,
+          visibleFeatures: 0,
+          fps: 0,
+          hasMaskLayer: false,
+          hasFillLayer: false,
+          hasIdleOutlineLayer: false,
+          hasHoverLayer: false,
+          layerOrder: [],
+          fillLayerCount: 0,
+          lineLayerCount: 0,
           getTruthCoverageDiagnostics: () => mapTruthDiagnostics || null,
           getMapTruthStatus: (geo: string) => statusIndex[String(geo || "").toUpperCase()] || null,
           labelLayerIds: [],
@@ -1289,6 +1439,7 @@ export default function NewMapLibreMap({
           getGeoLngLat: (_geo: string) => null,
           openPopupForGeo: (_geo: string) => false
         };
+        frameStatsRef.current.rafId = requestAnimationFrame(tickFps);
         syncInteractionDebugRuntime();
       }
 
@@ -1305,6 +1456,13 @@ export default function NewMapLibreMap({
           (window as Window & { __MAP_DEBUG__?: Record<string, unknown> }).__MAP_DEBUG__ = {
             renderer: "maplibre",
             geometrySource: MAP_GEOMETRY_SOURCE,
+            hasMaskLayer: false,
+            hasFillLayer: false,
+            hasIdleOutlineLayer: false,
+            hasHoverLayer: false,
+            layerOrder: [],
+            fillLayerCount: 0,
+            lineLayerCount: 0,
             getTruthCoverageDiagnostics: () => mapTruthDiagnostics || null,
             getMapTruthStatus: (geo: string) => statusIndex[String(geo || "").toUpperCase()] || null,
             labelLayerIds: MAPLIBRE_PROVIDER_COUNTRY_LABEL_LAYER_IDS.filter((layerId) => Boolean(map.getLayer(layerId))),
@@ -1413,7 +1571,10 @@ export default function NewMapLibreMap({
         requestAnimationFrame(() => setInteractionOverlayHidden(false));
       };
       const onMoveEndVisible = () => {
-        requestAnimationFrame(() => setInteractionOverlayHidden(false));
+        requestAnimationFrame(() => {
+          setInteractionOverlayHidden(false);
+          syncInteractionDebugRuntime();
+        });
       };
       const onResizeSync = () => onMoveFinish("resize");
       const onMapMouseMove = (event: { point?: { x: number; y: number } }) => {
@@ -1504,6 +1665,7 @@ export default function NewMapLibreMap({
 
     return () => {
       mounted = false;
+      if (frameStatsRef.current.rafId) cancelAnimationFrame(frameStatsRef.current.rafId);
       cleanupOverlayRuntime?.();
       if (scrollWheelHandoffTimer != null) {
         window.clearTimeout(scrollWheelHandoffTimer);
@@ -1559,6 +1721,7 @@ export default function NewMapLibreMap({
       });
       overlaySyncCountRef.current += 1;
       syncInteractionDebugRuntime();
+      requestAnimationFrame(() => syncInteractionDebugRuntime());
     });
   }, [geojsonData, stateGeojsonData, statusIndex, mapRuntimeReady]);
 

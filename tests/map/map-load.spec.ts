@@ -144,6 +144,16 @@ async function getRuntimeInteractionState(page: Page) {
     const debug = (window as Window & {
       __MAP_DEBUG__?: {
         geometrySource?: string;
+        tileCount?: number;
+        visibleFeatures?: number;
+        fps?: number;
+        hasMaskLayer?: boolean;
+        hasFillLayer?: boolean;
+        hasIdleOutlineLayer?: boolean;
+        hasHoverLayer?: boolean;
+        layerOrder?: string[];
+        fillLayerCount?: number;
+        lineLayerCount?: number;
         hoverHitCountryIso?: string | null;
         hoverRenderedCountryIso?: string | null;
         popupCountryIso?: string | null;
@@ -153,6 +163,16 @@ async function getRuntimeInteractionState(page: Page) {
     }).__MAP_DEBUG__;
     return {
       geometrySource: debug?.geometrySource || null,
+      tileCount: typeof debug?.tileCount === "number" ? debug.tileCount : null,
+      visibleFeatures: typeof debug?.visibleFeatures === "number" ? debug.visibleFeatures : null,
+      fps: typeof debug?.fps === "number" ? debug.fps : null,
+      hasMaskLayer: typeof debug?.hasMaskLayer === "boolean" ? debug.hasMaskLayer : null,
+      hasFillLayer: typeof debug?.hasFillLayer === "boolean" ? debug.hasFillLayer : null,
+      hasIdleOutlineLayer: typeof debug?.hasIdleOutlineLayer === "boolean" ? debug.hasIdleOutlineLayer : null,
+      hasHoverLayer: typeof debug?.hasHoverLayer === "boolean" ? debug.hasHoverLayer : null,
+      layerOrder: Array.isArray(debug?.layerOrder) ? debug.layerOrder : null,
+      fillLayerCount: typeof debug?.fillLayerCount === "number" ? debug.fillLayerCount : null,
+      lineLayerCount: typeof debug?.lineLayerCount === "number" ? debug.lineLayerCount : null,
       hoverHitCountryIso: debug?.hoverHitCountryIso || null,
       hoverRenderedCountryIso: debug?.hoverRenderedCountryIso || null,
       popupCountryIso: debug?.popupCountryIso || null,
@@ -712,9 +732,10 @@ test.describe("MapLibre map UI", () => {
       return Boolean(
         map?.getSource?.("ilc-choropleth") &&
           map?.getLayer?.("ilc-choropleth-fill") &&
+          map?.getLayer?.("ilc-choropleth-line") &&
+          map?.getLayer?.("ilc-choropleth-hover-line") &&
+          map?.getLayer?.("ilc-choropleth-selected-line") &&
           map?.getLayer?.("place_country_major") &&
-          !map?.getLayer?.("ilc-choropleth-hover-line") &&
-          !map?.getLayer?.("ilc-choropleth-selected-line") &&
           !map?.getSource?.("ilc-country-labels") &&
           !map?.getLayer?.("ilc-country-label-major") &&
           !map?.getLayer?.("ilc-country-label-other")
@@ -872,10 +893,25 @@ test.describe("MapLibre map UI", () => {
 
     const initialState = await getRuntimeInteractionState(page);
     expect(initialState.geometrySource).toBe("geojson");
+    expect(initialState.visibleFeatures || 0).toBeGreaterThan(0);
+    expect(initialState.fps || 0).toBeGreaterThanOrEqual(0);
+    expect(initialState.hasMaskLayer).toBe(true);
+    expect(initialState.hasFillLayer).toBe(true);
+    expect(initialState.hasIdleOutlineLayer).toBe(true);
+    expect(initialState.hasHoverLayer).toBe(true);
+    expect(initialState.fillLayerCount).toBe(1);
+    expect(initialState.lineLayerCount || 0).toBeGreaterThanOrEqual(3);
+    expect(initialState.layerOrder?.slice(0, 4)).toEqual([
+      "ilc-choropleth-mask",
+      "ilc-choropleth-fill",
+      "ilc-choropleth-line",
+      "ilc-choropleth-hover-line"
+    ]);
 
     const cubaPoint = await hoverProjectedGeo(page, "CU");
     const cubaState = await getRuntimeInteractionState(page);
     expect(cubaState.geometrySource).toBe("geojson");
+    expect(cubaState.visibleFeatures || 0).toBeGreaterThan(0);
     expect(cubaState.hoverHitCountryIso).toBe("CU");
     expect(cubaState.hoverRenderedCountryIso).toBe("CU");
 
