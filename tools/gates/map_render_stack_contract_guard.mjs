@@ -29,8 +29,8 @@ const checks = {
   hasSelectedLayer: selectedLayerMatches.length >= 2 && source.includes('id: MAPLIBRE_CHOROPLETH_SELECTED_LAYER_ID'),
   hasSingleCountryFillLayerReference: fillLayerIdMatches.length >= 2,
   hasBasemapDetailAnchor:
-    styleSource.includes("MAPLIBRE_PROVIDER_DETAIL_LABEL_LAYER_IDS") &&
-    styleSource.includes("return MAPLIBRE_PROVIDER_DETAIL_LABEL_LAYER_IDS.find"),
+    styleSource.includes('layer.type === "symbol"') &&
+    styleSource.includes('return (style.layers || []).find((layer) => layer.type === "symbol")?.id;'),
   hasOrderedStateInsertion:
     mapSource.includes("const orderedLayerIds = [") &&
     mapSource.includes("MAPLIBRE_CHOROPLETH_FILL_LAYER_ID,\n      MAPLIBRE_STATE_CHOROPLETH_FILL_LAYER_ID,\n      MAPLIBRE_STATE_CHOROPLETH_LINE_LAYER_ID,\n      MAPLIBRE_CHOROPLETH_LINE_LAYER_ID"),
@@ -41,6 +41,9 @@ const checks = {
   exposesPostStage2Debug:
     mapSource.includes("hasStateLayer") &&
     mapSource.includes("basemapDetailLayerVisible") &&
+    mapSource.includes("basemapGeometryVisible") &&
+    mapSource.includes("activeMarkersCount") &&
+    mapSource.includes("markerSource") &&
     mapSource.includes("wheelOwnershipMode") &&
     mapSource.includes("safariWheelPreventDefaultActive")
 };

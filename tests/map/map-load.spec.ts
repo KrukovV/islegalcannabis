@@ -167,8 +167,11 @@ async function getRuntimeInteractionState(page: Page) {
         stateLayerCount?: number;
         basemapLabelLayerVisible?: boolean;
         basemapDetailLayerVisible?: boolean;
+        basemapGeometryVisible?: boolean;
         wheelOwnershipMode?: string;
         safariWheelPreventDefaultActive?: boolean;
+        activeMarkersCount?: number;
+        markerSource?: string | null;
         hoverHitCountryIso?: string | null;
         hoverRenderedCountryIso?: string | null;
         popupCountryIso?: string | null;
@@ -194,9 +197,13 @@ async function getRuntimeInteractionState(page: Page) {
         typeof debug?.basemapLabelLayerVisible === "boolean" ? debug.basemapLabelLayerVisible : null,
       basemapDetailLayerVisible:
         typeof debug?.basemapDetailLayerVisible === "boolean" ? debug.basemapDetailLayerVisible : null,
+      basemapGeometryVisible:
+        typeof debug?.basemapGeometryVisible === "boolean" ? debug.basemapGeometryVisible : null,
       wheelOwnershipMode: typeof debug?.wheelOwnershipMode === "string" ? debug.wheelOwnershipMode : null,
       safariWheelPreventDefaultActive:
         typeof debug?.safariWheelPreventDefaultActive === "boolean" ? debug.safariWheelPreventDefaultActive : null,
+      activeMarkersCount: typeof debug?.activeMarkersCount === "number" ? debug.activeMarkersCount : null,
+      markerSource: typeof debug?.markerSource === "string" ? debug.markerSource : null,
       hoverHitCountryIso: debug?.hoverHitCountryIso || null,
       hoverRenderedCountryIso: debug?.hoverRenderedCountryIso || null,
       popupCountryIso: debug?.popupCountryIso || null,
@@ -742,6 +749,7 @@ test.describe("MapLibre map UI", () => {
 
     expect(state.basemapDetailLayerVisible).toBe(true);
     expect(state.basemapLabelLayerVisible).toBe(true);
+    expect(state.basemapGeometryVisible).toBe(true);
     expect(detailLabels.length).toBeGreaterThan(8);
     expect(detailLabels.some((entry) => !/place_country_/.test(entry.layerId))).toBe(true);
 
@@ -775,6 +783,18 @@ test.describe("MapLibre map UI", () => {
     expect(after.safariWheelPreventDefaultActive).toBe(true);
     expect(Number(after.visibleFeatures || 0)).toBeGreaterThan(0);
     expect(Number((await page.evaluate(() => (window as Window & { __MAP_DEBUG__?: { mapLibreZoom?: number } }).__MAP_DEBUG__?.mapLibreZoom ?? null)))).toBeLessThan(Number(before.zoom));
+
+    guard.assertNoNetworkErrors();
+    guard.assertNoClientErrors();
+  });
+
+  test("does not render a map marker for coarse IP/manual fallback locations", async ({ page }) => {
+    const guard = attachRuntimeGuards(page);
+    await openMapAndWaitReady(page);
+
+    const state = await getRuntimeInteractionState(page);
+    expect(state.activeMarkersCount).toBe(0);
+    expect(state.markerSource).toBeNull();
 
     guard.assertNoNetworkErrors();
     guard.assertNoClientErrors();
@@ -964,6 +984,9 @@ test.describe("MapLibre map UI", () => {
     expect(initialState.stateLayerCount || 0).toBeGreaterThanOrEqual(4);
     expect(initialState.basemapLabelLayerVisible).toBe(true);
     expect(initialState.basemapDetailLayerVisible).toBe(true);
+    expect(initialState.basemapGeometryVisible).toBe(true);
+    expect(initialState.activeMarkersCount).toBe(0);
+    expect(initialState.markerSource).toBeNull();
     expect(initialState.layerOrder?.slice(0, 4)).toEqual([
       "ilc-choropleth-mask",
       "ilc-choropleth-fill",

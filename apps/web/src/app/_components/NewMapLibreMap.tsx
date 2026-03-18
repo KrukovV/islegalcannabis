@@ -100,6 +100,8 @@ type Props = {
   mapTruthDiagnostics?: MapTruthDiagnostics;
 };
 
+const GPS_MARKER_MAX_ACCURACY_M = 5000;
+
 function escapeHtml(value: string) {
   return value
     .replaceAll("&", "&amp;")
@@ -916,11 +918,21 @@ export default function NewMapLibreMap({
     const detailLayerAnchorId = detailLabelIds[0] || null;
     const styleLayerIds = map?.getStyle?.()?.layers?.map((layer) => layer.id) || [];
     const fillLayerIndex = styleLayerIds.indexOf(MAPLIBRE_CHOROPLETH_FILL_LAYER_ID);
+    const firstSymbolLayerIndex =
+      map?.getStyle?.()?.layers?.findIndex((layer) => layer.type === "symbol") ?? -1;
+    const basemapGeometryLayerIds = ["water", "waterway", "landuse_residential", "boundary_country"].filter((layerId) =>
+      styleLayerIds.includes(layerId)
+    );
     const basemapDetailLayerVisible =
       fillLayerIndex !== -1 && detailLabelIds.some((layerId) => styleLayerIds.indexOf(layerId) > fillLayerIndex);
     const basemapLabelLayerVisible =
       fillLayerIndex !== -1 &&
       MAPLIBRE_PROVIDER_COUNTRY_LABEL_LAYER_IDS.some((layerId) => styleLayerIds.indexOf(layerId) > fillLayerIndex);
+    const basemapGeometryVisible =
+      fillLayerIndex !== -1 &&
+      firstSymbolLayerIndex !== -1 &&
+      fillLayerIndex < firstSymbolLayerIndex &&
+      basemapGeometryLayerIds.some((layerId) => styleLayerIds.indexOf(layerId) < fillLayerIndex);
     runtime.__MAP_DEBUG__.hasMaskLayer = renderStackDiagnostics.hasMaskLayer;
     runtime.__MAP_DEBUG__.hasFillLayer = renderStackDiagnostics.hasFillLayer;
     runtime.__MAP_DEBUG__.hasIdleOutlineLayer = renderStackDiagnostics.hasIdleOutlineLayer;
@@ -933,9 +945,12 @@ export default function NewMapLibreMap({
     runtime.__MAP_DEBUG__.stateLayerOrder = stateStackDiagnostics.stateLayerOrder;
     runtime.__MAP_DEBUG__.basemapLabelLayerVisible = basemapLabelLayerVisible;
     runtime.__MAP_DEBUG__.basemapDetailLayerVisible = basemapDetailLayerVisible;
+    runtime.__MAP_DEBUG__.basemapGeometryVisible = basemapGeometryVisible;
     runtime.__MAP_DEBUG__.detailLayerAnchorId = detailLayerAnchorId;
     runtime.__MAP_DEBUG__.wheelOwnershipMode = wheelOwnershipModeRef.current;
     runtime.__MAP_DEBUG__.safariWheelPreventDefaultActive = safariWheelPreventDefaultActiveRef.current;
+    runtime.__MAP_DEBUG__.activeMarkersCount = markerRef.current ? 1 : 0;
+    runtime.__MAP_DEBUG__.markerSource = markerRef.current ? whereAmI?.source || null : null;
     runtime.__MAP_DEBUG__.lastPointerTarget = () => lastPointerTargetRef.current;
     runtime.__MAP_DEBUG__.selectedCountryIso = () => selectedCountryIsoRef.current;
     runtime.__MAP_DEBUG__.hoveredCountryIso = () => hoverCountryIsoRef.current;
@@ -955,6 +970,7 @@ export default function NewMapLibreMap({
       ...stateStackDiagnostics,
       basemapLabelLayerVisible,
       basemapDetailLayerVisible,
+      basemapGeometryVisible,
       detailLayerAnchorId
     });
     runtime.__MAP_DEBUG__.getCanonicalGeometryDiagnostics = (geo: string) =>
@@ -1162,7 +1178,15 @@ export default function NewMapLibreMap({
     markerRef.current = null;
     popupRef.current = null;
 
-    if (whereAmI && Number.isFinite(whereAmI.lat) && Number.isFinite(whereAmI.lng)) {
+    const shouldRenderGpsMarker =
+      whereAmI?.source === "gps" &&
+      Number.isFinite(whereAmI?.lat) &&
+      Number.isFinite(whereAmI?.lng) &&
+      Number.isFinite(whereAmI?.accuracyM) &&
+      Number(whereAmI.accuracyM) > 0 &&
+      Number(whereAmI.accuracyM) <= GPS_MARKER_MAX_ACCURACY_M;
+
+    if (shouldRenderGpsMarker && whereAmI) {
       const element = document.createElement("div");
       element.style.width = "14px";
       element.style.height = "14px";
@@ -1178,6 +1202,7 @@ export default function NewMapLibreMap({
       markerRef.current = new maplibre.Marker({ element }).setLngLat([whereAmI.lng, whereAmI.lat]).setPopup(popupRef.current).addTo(map);
       return;
     }
+    syncInteractionDebugRuntime();
   };
 
   useEffect(() => {
@@ -1550,8 +1575,11 @@ export default function NewMapLibreMap({
           stateLayerCount: 0,
           basemapLabelLayerVisible: false,
           basemapDetailLayerVisible: false,
+          basemapGeometryVisible: false,
           wheelOwnershipMode: "idle",
           safariWheelPreventDefaultActive: false,
+          activeMarkersCount: 0,
+          markerSource: null,
           getTruthCoverageDiagnostics: () => mapTruthDiagnostics || null,
           getMapTruthStatus: (geo: string) => statusIndex[String(geo || "").toUpperCase()] || null,
           labelLayerIds: [],
@@ -1590,8 +1618,11 @@ export default function NewMapLibreMap({
             stateLayerCount: 0,
             basemapLabelLayerVisible: false,
             basemapDetailLayerVisible: false,
+            basemapGeometryVisible: false,
             wheelOwnershipMode: "idle",
             safariWheelPreventDefaultActive: false,
+            activeMarkersCount: 0,
+            markerSource: null,
             getTruthCoverageDiagnostics: () => mapTruthDiagnostics || null,
             getMapTruthStatus: (geo: string) => statusIndex[String(geo || "").toUpperCase()] || null,
             labelLayerIds: MAPLIBRE_PROVIDER_COUNTRY_LABEL_LAYER_IDS.filter((layerId) => Boolean(map.getLayer(layerId))),

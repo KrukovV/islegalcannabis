@@ -28,8 +28,7 @@ export function getCountryLabelBeforeLayerId(style: StyleSpecification) {
 }
 
 export function getCountryOverlayBeforeLayerId(style: StyleSpecification) {
-  const ids = new Set((style.layers || []).map((layer) => layer.id));
-  return MAPLIBRE_PROVIDER_DETAIL_LABEL_LAYER_IDS.find((layerId) => ids.has(layerId));
+  return (style.layers || []).find((layer) => layer.type === "symbol")?.id;
 }
 
 export async function loadMapLibreStyle(): Promise<StyleSpecification> {
