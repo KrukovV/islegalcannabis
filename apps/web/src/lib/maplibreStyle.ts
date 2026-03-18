@@ -14,6 +14,15 @@ export const MAPLIBRE_PROVIDER_DETAIL_LABEL_LAYER_IDS = [
   "place_state",
   ...MAPLIBRE_PROVIDER_COUNTRY_LABEL_LAYER_IDS
 ] as const;
+export const MAPLIBRE_PROVIDER_BASEMAP_LAND_LAYER_IDS = [
+  "landcover_ice_shelf",
+  "landcover_glacier",
+  "landuse_residential",
+  "landcover_wood",
+  "landcover_park"
+] as const;
+export const MAPLIBRE_PROVIDER_BASEMAP_WATER_LAYER_IDS = ["water", "waterway"] as const;
+export const MAPLIBRE_PROVIDER_BASEMAP_TERRAIN_LAYER_IDS = ["hillshade", "terrain", "relief"] as const;
 const MAPLIBRE_PROVIDER_CITY_STYLE_SOURCE_LAYER_ID = "place_city_large";
 
 let styleCache: StyleSpecification | null = null;
@@ -22,13 +31,25 @@ function cloneStyle<T>(value: T): T {
   return JSON.parse(JSON.stringify(value)) as T;
 }
 
-export function getCountryLabelBeforeLayerId(style: StyleSpecification) {
+export function getCountryLabelBeforeLayerId(style: StyleSpecification | undefined | null) {
+  if (!style) return undefined;
   const ids = new Set((style.layers || []).map((layer) => layer.id));
   return ids.has("place_state") ? "place_state" : ids.has("place_suburb") ? "place_suburb" : undefined;
 }
 
-export function getCountryOverlayBeforeLayerId(style: StyleSpecification) {
+export function getCountryOverlayBeforeLayerId(style: StyleSpecification | undefined | null) {
+  if (!style) return undefined;
   return (style.layers || []).find((layer) => layer.type === "symbol")?.id;
+}
+
+export function getCountryMaskBeforeLayerId(style: StyleSpecification | undefined | null) {
+  if (!style) return undefined;
+  const ids = new Set((style.layers || []).map((layer) => layer.id));
+  return (
+    MAPLIBRE_PROVIDER_BASEMAP_LAND_LAYER_IDS.find((layerId) => ids.has(layerId)) ||
+    MAPLIBRE_PROVIDER_BASEMAP_WATER_LAYER_IDS.find((layerId) => ids.has(layerId)) ||
+    getCountryOverlayBeforeLayerId(style)
+  );
 }
 
 export async function loadMapLibreStyle(): Promise<StyleSpecification> {

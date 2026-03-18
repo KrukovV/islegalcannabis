@@ -1,6 +1,5 @@
 import type { Feature, FeatureCollection, GeoJsonProperties, Geometry } from "geojson";
 import type {
-  CircleLayerSpecification,
   FillLayerSpecification,
   GeoJSONSourceSpecification,
   LineLayerSpecification,
@@ -106,7 +105,7 @@ export function buildChoroplethSource(
   };
 }
 
-export function buildChoroplethLayers(): Array<FillLayerSpecification | LineLayerSpecification | CircleLayerSpecification> {
+export function buildChoroplethLayers(): Array<FillLayerSpecification | LineLayerSpecification> {
   const fillPaint: FillLayerSpecification["paint"] = {
     "fill-antialias": true,
     "fill-color": getSoftFillColorExpression(),
@@ -205,32 +204,6 @@ export function buildChoroplethLayers(): Array<FillLayerSpecification | LineLaye
       layout: {
         "line-join": "round",
         "line-cap": "round"
-      }
-    },
-    {
-      id: MAPLIBRE_CHOROPLETH_MASK_POINT_LAYER_ID,
-      type: "circle",
-      source: MAPLIBRE_CHOROPLETH_SOURCE_ID,
-      ...getChoroplethSourceLayer(),
-      filter: ["==", ["geometry-type"], "Point"],
-      paint: {
-        "circle-color": ["coalesce", ["get", "fillColor"], MAP_STATUS_COLOR_BY_KEY.gray],
-        "circle-radius": 6,
-        "circle-opacity": 0.22
-      }
-    },
-    {
-      id: MAPLIBRE_CHOROPLETH_POINT_LAYER_ID,
-      type: "circle",
-      source: MAPLIBRE_CHOROPLETH_SOURCE_ID,
-      ...getChoroplethSourceLayer(),
-      filter: ["==", ["geometry-type"], "Point"],
-      paint: {
-        "circle-color": ["coalesce", ["get", "fillColor"], MAP_STATUS_COLOR_BY_KEY.gray],
-        "circle-stroke-color": "#f8fafc",
-        "circle-stroke-width": 1,
-        "circle-radius": 5,
-        "circle-opacity": 0.9
       }
     }
   ];

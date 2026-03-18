@@ -28,12 +28,24 @@ const checks = {
   hasHoverLayer: hoverLayerMatches.length >= 2 && source.includes('id: MAPLIBRE_CHOROPLETH_HOVER_LAYER_ID'),
   hasSelectedLayer: selectedLayerMatches.length >= 2 && source.includes('id: MAPLIBRE_CHOROPLETH_SELECTED_LAYER_ID'),
   hasSingleCountryFillLayerReference: fillLayerIdMatches.length >= 2,
-  hasBasemapDetailAnchor:
+  hasBasemapOverlayAnchor:
     styleSource.includes('layer.type === "symbol"') &&
     styleSource.includes('return (style.layers || []).find((layer) => layer.type === "symbol")?.id;'),
+  hasBasemapMaskAnchor:
+    styleSource.includes("getCountryMaskBeforeLayerId") &&
+    styleSource.includes("MAPLIBRE_PROVIDER_BASEMAP_LAND_LAYER_IDS") &&
+    styleSource.includes("MAPLIBRE_PROVIDER_BASEMAP_WATER_LAYER_IDS"),
+  removesProdPointLayers:
+    !source.includes("MAPLIBRE_CHOROPLETH_MASK_POINT_LAYER_ID,\n") &&
+    !source.includes("MAPLIBRE_CHOROPLETH_POINT_LAYER_ID,\n") &&
+    !source.includes('type: "circle"'),
   hasOrderedStateInsertion:
     mapSource.includes("const orderedLayerIds = [") &&
     mapSource.includes("MAPLIBRE_CHOROPLETH_FILL_LAYER_ID,\n      MAPLIBRE_STATE_CHOROPLETH_FILL_LAYER_ID,\n      MAPLIBRE_STATE_CHOROPLETH_LINE_LAYER_ID,\n      MAPLIBRE_CHOROPLETH_LINE_LAYER_ID"),
+  hasSeparateMaskInsertion:
+    mapSource.includes("const maskBeforeLayerId = getCountryMaskBeforeLayerId(map.getStyle());") &&
+    mapSource.includes("const beforeOverlayLayerId = getCountryOverlayBeforeLayerId(map.getStyle());") &&
+    mapSource.includes("const maskLayer = layerById.get(MAPLIBRE_CHOROPLETH_MASK_LAYER_ID);"),
   hasCanvasWheelOwnership:
     mapSource.includes("const wheelTarget = wrapperRef.current") &&
     mapSource.includes('wheelOwnershipModeRef.current = "map"') &&
@@ -42,6 +54,11 @@ const checks = {
     mapSource.includes("hasStateLayer") &&
     mapSource.includes("basemapDetailLayerVisible") &&
     mapSource.includes("basemapGeometryVisible") &&
+    mapSource.includes("basemapLandVisible") &&
+    mapSource.includes("basemapWaterVisible") &&
+    mapSource.includes("activeAccuracyCirclesCount") &&
+    mapSource.includes("orphanCircleLayers") &&
+    mapSource.includes("mapLayerIds") &&
     mapSource.includes("activeMarkersCount") &&
     mapSource.includes("markerSource") &&
     mapSource.includes("wheelOwnershipMode") &&

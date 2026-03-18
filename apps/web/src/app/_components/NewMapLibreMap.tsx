@@ -40,8 +40,12 @@ import {
   MAPLIBRE_STATE_CHOROPLETH_SOURCE_ID
 } from "@/lib/maplibreCountryLayer";
 import {
+  getCountryMaskBeforeLayerId,
   getCountryOverlayBeforeLayerId,
   loadMapLibreStyle,
+  MAPLIBRE_PROVIDER_BASEMAP_LAND_LAYER_IDS,
+  MAPLIBRE_PROVIDER_BASEMAP_TERRAIN_LAYER_IDS,
+  MAPLIBRE_PROVIDER_BASEMAP_WATER_LAYER_IDS,
   MAPLIBRE_PROVIDER_DETAIL_LABEL_LAYER_IDS,
   MAPLIBRE_PROVIDER_COUNTRY_LABEL_LAYER_IDS
 } from "@/lib/maplibreStyle";
@@ -219,7 +223,9 @@ function getExistingLayerIds(map: MapLibreMap | null, layerIds: string[]) {
 function getCountryRenderStackDiagnostics(map: MapLibreMap | null) {
   const styleLayers = map?.getStyle?.()?.layers || [];
   const styleLayerIds = styleLayers.map((layer) => layer.id);
-  const layerOrder = MAPLIBRE_CHOROPLETH_RENDER_STACK.filter((layerId) => styleLayerIds.includes(layerId));
+  const layerOrder = styleLayers
+    .map((layer) => layer.id)
+    .filter((layerId) => MAPLIBRE_CHOROPLETH_RENDER_STACK.includes(layerId as (typeof MAPLIBRE_CHOROPLETH_RENDER_STACK)[number]));
   const hasMaskLayer = layerOrder.includes(MAPLIBRE_CHOROPLETH_MASK_LAYER_ID);
   const hasFillLayer = layerOrder.includes(MAPLIBRE_CHOROPLETH_FILL_LAYER_ID);
   const hasIdleOutlineLayer = layerOrder.includes(MAPLIBRE_CHOROPLETH_LINE_LAYER_ID);
@@ -916,23 +922,63 @@ export default function NewMapLibreMap({
     const stateStackDiagnostics = getStateRenderStackDiagnostics(map);
     const detailLabelIds = MAPLIBRE_PROVIDER_DETAIL_LABEL_LAYER_IDS.filter((layerId) => Boolean(map?.getLayer(layerId)));
     const detailLayerAnchorId = detailLabelIds[0] || null;
+    const maskLayerAnchorId = getCountryMaskBeforeLayerId(map.getStyle()) || null;
+    const overlayAnchorId = getCountryOverlayBeforeLayerId(map.getStyle()) || null;
     const styleLayerIds = map?.getStyle?.()?.layers?.map((layer) => layer.id) || [];
     const fillLayerIndex = styleLayerIds.indexOf(MAPLIBRE_CHOROPLETH_FILL_LAYER_ID);
-    const firstSymbolLayerIndex =
-      map?.getStyle?.()?.layers?.findIndex((layer) => layer.type === "symbol") ?? -1;
-    const basemapGeometryLayerIds = ["water", "waterway", "landuse_residential", "boundary_country"].filter((layerId) =>
-      styleLayerIds.includes(layerId)
+    const maskLayerIndex = styleLayerIds.indexOf(MAPLIBRE_CHOROPLETH_MASK_LAYER_ID);
+    const basemapLandLayerIds = MAPLIBRE_PROVIDER_BASEMAP_LAND_LAYER_IDS.filter((layerId) => styleLayerIds.includes(layerId));
+    const basemapWaterLayerIds = MAPLIBRE_PROVIDER_BASEMAP_WATER_LAYER_IDS.filter((layerId) => styleLayerIds.includes(layerId));
+    const basemapTerrainLayerIds = MAPLIBRE_PROVIDER_BASEMAP_TERRAIN_LAYER_IDS.filter((layerId) => styleLayerIds.includes(layerId));
+    const activeCircleLayerIds = (map?.getStyle?.()?.layers || [])
+      .filter(
+        (layer) =>
+          layer.type === "circle" &&
+          (String(layer.id || "").startsWith("ilc-") ||
+            layer.source === MAPLIBRE_CHOROPLETH_SOURCE_ID ||
+            layer.source === MAPLIBRE_STATE_CHOROPLETH_SOURCE_ID)
+      )
+      .map((layer) => layer.id);
+    const residualMarkerLikeLayers = activeCircleLayerIds.filter((layerId) =>
+      /(marker|accuracy|probe|whereami|geolocate)/i.test(layerId)
     );
+    const orphanCircleLayers = activeCircleLayerIds.filter(
+      (layerId) => !residualMarkerLikeLayers.includes(layerId)
+    );
+    const residualMarkerLikeSources = residualMarkerLikeLayers
+      .map((layerId) => map?.getLayer(layerId)?.source)
+      .filter(Boolean) as string[];
+    const orphanCircleSources = orphanCircleLayers
+      .map((layerId) => map?.getLayer(layerId)?.source)
+      .filter(Boolean) as string[];
     const basemapDetailLayerVisible =
       fillLayerIndex !== -1 && detailLabelIds.some((layerId) => styleLayerIds.indexOf(layerId) > fillLayerIndex);
     const basemapLabelLayerVisible =
       fillLayerIndex !== -1 &&
       MAPLIBRE_PROVIDER_COUNTRY_LABEL_LAYER_IDS.some((layerId) => styleLayerIds.indexOf(layerId) > fillLayerIndex);
-    const basemapGeometryVisible =
+    const basemapLandVisible =
+      maskLayerIndex !== -1 &&
       fillLayerIndex !== -1 &&
-      firstSymbolLayerIndex !== -1 &&
-      fillLayerIndex < firstSymbolLayerIndex &&
-      basemapGeometryLayerIds.some((layerId) => styleLayerIds.indexOf(layerId) < fillLayerIndex);
+      basemapLandLayerIds.some((layerId) => {
+        const index = styleLayerIds.indexOf(layerId);
+        return index > maskLayerIndex && index < fillLayerIndex;
+      });
+    const basemapWaterVisible =
+      maskLayerIndex !== -1 &&
+      fillLayerIndex !== -1 &&
+      basemapWaterLayerIds.some((layerId) => {
+        const index = styleLayerIds.indexOf(layerId);
+        return index > maskLayerIndex && index < fillLayerIndex;
+      });
+    const basemapTerrainVisible = basemapTerrainLayerIds.length
+      ? maskLayerIndex !== -1 &&
+        fillLayerIndex !== -1 &&
+        basemapTerrainLayerIds.some((layerId) => {
+          const index = styleLayerIds.indexOf(layerId);
+          return index > maskLayerIndex && index < fillLayerIndex;
+        })
+      : null;
+    const basemapGeometryVisible = basemapLandVisible || basemapWaterVisible || basemapTerrainVisible === true;
     runtime.__MAP_DEBUG__.hasMaskLayer = renderStackDiagnostics.hasMaskLayer;
     runtime.__MAP_DEBUG__.hasFillLayer = renderStackDiagnostics.hasFillLayer;
     runtime.__MAP_DEBUG__.hasIdleOutlineLayer = renderStackDiagnostics.hasIdleOutlineLayer;
@@ -946,14 +992,31 @@ export default function NewMapLibreMap({
     runtime.__MAP_DEBUG__.basemapLabelLayerVisible = basemapLabelLayerVisible;
     runtime.__MAP_DEBUG__.basemapDetailLayerVisible = basemapDetailLayerVisible;
     runtime.__MAP_DEBUG__.basemapGeometryVisible = basemapGeometryVisible;
+    runtime.__MAP_DEBUG__.basemapLandVisible = basemapLandVisible;
+    runtime.__MAP_DEBUG__.basemapWaterVisible = basemapWaterVisible;
+    runtime.__MAP_DEBUG__.basemapTerrainVisible = basemapTerrainVisible;
     runtime.__MAP_DEBUG__.detailLayerAnchorId = detailLayerAnchorId;
+    runtime.__MAP_DEBUG__.basemapDetailAnchorId = overlayAnchorId;
+    runtime.__MAP_DEBUG__.maskLayerAnchorId = maskLayerAnchorId;
     runtime.__MAP_DEBUG__.wheelOwnershipMode = wheelOwnershipModeRef.current;
     runtime.__MAP_DEBUG__.safariWheelPreventDefaultActive = safariWheelPreventDefaultActiveRef.current;
     runtime.__MAP_DEBUG__.activeMarkersCount = markerRef.current ? 1 : 0;
     runtime.__MAP_DEBUG__.markerSource = markerRef.current ? whereAmI?.source || null : null;
+    runtime.__MAP_DEBUG__.activeAccuracyCirclesCount = 0;
+    runtime.__MAP_DEBUG__.accuracyCircleSource = null;
+    runtime.__MAP_DEBUG__.activeDebugProbeCount = 0;
+    runtime.__MAP_DEBUG__.debugProbeSource = null;
+    runtime.__MAP_DEBUG__.orphanCircleLayers = orphanCircleLayers;
+    runtime.__MAP_DEBUG__.orphanCircleSources = orphanCircleSources;
+    runtime.__MAP_DEBUG__.residualMarkerLikeLayers = residualMarkerLikeLayers;
+    runtime.__MAP_DEBUG__.residualMarkerLikeSources = residualMarkerLikeSources;
+    runtime.__MAP_DEBUG__.mapLayerIds = styleLayerIds;
+    runtime.__MAP_DEBUG__.mapSourceIds = Object.keys(map?.getStyle?.()?.sources || {});
     runtime.__MAP_DEBUG__.lastPointerTarget = () => lastPointerTargetRef.current;
     runtime.__MAP_DEBUG__.selectedCountryIso = () => selectedCountryIsoRef.current;
     runtime.__MAP_DEBUG__.hoveredCountryIso = () => hoverCountryIsoRef.current;
+    runtime.__MAP_DEBUG__.selectedCountryIsoValue = selectedCountryIsoRef.current;
+    runtime.__MAP_DEBUG__.hoveredCountryIsoValue = hoverCountryIsoRef.current;
     runtime.__MAP_DEBUG__.getRuntimeDriftDiagnostics = () => ({
       ...runtimeSyncStatsRef.current,
       popupCountryIso: popupCountryIsoRef.current,
@@ -971,7 +1034,24 @@ export default function NewMapLibreMap({
       basemapLabelLayerVisible,
       basemapDetailLayerVisible,
       basemapGeometryVisible,
-      detailLayerAnchorId
+      basemapLandVisible,
+      basemapWaterVisible,
+      basemapTerrainVisible,
+      detailLayerAnchorId,
+      basemapDetailAnchorId: overlayAnchorId,
+      maskLayerAnchorId,
+      activeMarkersCount: markerRef.current ? 1 : 0,
+      markerSource: markerRef.current ? whereAmI?.source || null : null,
+      activeAccuracyCirclesCount: 0,
+      accuracyCircleSource: null,
+      activeDebugProbeCount: 0,
+      debugProbeSource: null,
+      orphanCircleLayers,
+      orphanCircleSources,
+      residualMarkerLikeLayers,
+      residualMarkerLikeSources,
+      mapLayerIds: styleLayerIds,
+      mapSourceIds: Object.keys(map?.getStyle?.()?.sources || {})
     });
     runtime.__MAP_DEBUG__.getCanonicalGeometryDiagnostics = (geo: string) =>
       getCanonicalGeometryDiagnosticsForGeo(String(geo || "").toUpperCase());
@@ -1074,9 +1154,9 @@ export default function NewMapLibreMap({
   const ensureMapLayers = () => {
     const map = mapRef.current;
     if (!map) return;
+    const maskBeforeLayerId = getCountryMaskBeforeLayerId(map.getStyle());
     const beforeOverlayLayerId = getCountryOverlayBeforeLayerId(map.getStyle());
     const orderedLayerIds = [
-      MAPLIBRE_CHOROPLETH_MASK_LAYER_ID,
       MAPLIBRE_CHOROPLETH_FILL_LAYER_ID,
       MAPLIBRE_STATE_CHOROPLETH_FILL_LAYER_ID,
       MAPLIBRE_STATE_CHOROPLETH_LINE_LAYER_ID,
@@ -1084,9 +1164,7 @@ export default function NewMapLibreMap({
       MAPLIBRE_STATE_CHOROPLETH_HOVER_LAYER_ID,
       MAPLIBRE_STATE_CHOROPLETH_SELECTED_LAYER_ID,
       MAPLIBRE_CHOROPLETH_HOVER_LAYER_ID,
-      MAPLIBRE_CHOROPLETH_SELECTED_LAYER_ID,
-      MAPLIBRE_CHOROPLETH_MASK_POINT_LAYER_ID,
-      MAPLIBRE_CHOROPLETH_POINT_LAYER_ID
+      MAPLIBRE_CHOROPLETH_SELECTED_LAYER_ID
     ];
 
     if (!map.getSource(MAPLIBRE_CHOROPLETH_SOURCE_ID)) {
@@ -1095,9 +1173,22 @@ export default function NewMapLibreMap({
     if (!map.getSource(MAPLIBRE_STATE_CHOROPLETH_SOURCE_ID)) {
       map.addSource(MAPLIBRE_STATE_CHOROPLETH_SOURCE_ID, buildStateChoroplethSource(currentStateGeojsonRef.current, statusIndex));
     }
+    [MAPLIBRE_CHOROPLETH_POINT_LAYER_ID, MAPLIBRE_CHOROPLETH_MASK_POINT_LAYER_ID].forEach((layerId) => {
+      if (map.getLayer(layerId)) {
+        map.removeLayer(layerId);
+      }
+    });
     const layerById = new Map(
       [...buildChoroplethLayers(), ...buildStateChoroplethLayers()].map((layer) => [layer.id, layer] as const)
     );
+    const maskLayer = layerById.get(MAPLIBRE_CHOROPLETH_MASK_LAYER_ID);
+    if (maskLayer) {
+      if (!map.getLayer(maskLayer.id)) {
+        map.addLayer(maskLayer, maskBeforeLayerId);
+      } else if (maskBeforeLayerId && map.getLayer(maskBeforeLayerId)) {
+        map.moveLayer(maskLayer.id, maskBeforeLayerId);
+      }
+    }
     orderedLayerIds.forEach((layerId) => {
       const layer = layerById.get(layerId);
       if (!layer) return;
@@ -1169,7 +1260,7 @@ export default function NewMapLibreMap({
     return buildCanonicalInteractionFeatureCollection();
   };
 
-  const applyWhereAmIMarker = () => {
+  const reconcileMapMarkerSubsystem = () => {
     const map = mapRef.current;
     const maplibre = maplibreRef.current;
     if (!map || !maplibre) return;
@@ -1200,6 +1291,7 @@ export default function NewMapLibreMap({
         `<div><strong>You are here</strong><div>${escapeHtml(getDisplayNameForGeo("UNKNOWN", { displayName: whereAmI.source.toUpperCase() }))}</div></div>`
       );
       markerRef.current = new maplibre.Marker({ element }).setLngLat([whereAmI.lng, whereAmI.lat]).setPopup(popupRef.current).addTo(map);
+      syncInteractionDebugRuntime();
       return;
     }
     syncInteractionDebugRuntime();
@@ -1576,10 +1668,25 @@ export default function NewMapLibreMap({
           basemapLabelLayerVisible: false,
           basemapDetailLayerVisible: false,
           basemapGeometryVisible: false,
+          basemapLandVisible: false,
+          basemapWaterVisible: false,
+          basemapTerrainVisible: null,
+          basemapDetailAnchorId: null,
+          maskLayerAnchorId: null,
           wheelOwnershipMode: "idle",
           safariWheelPreventDefaultActive: false,
           activeMarkersCount: 0,
           markerSource: null,
+          activeAccuracyCirclesCount: 0,
+          accuracyCircleSource: null,
+          activeDebugProbeCount: 0,
+          debugProbeSource: null,
+          orphanCircleLayers: [],
+          orphanCircleSources: [],
+          residualMarkerLikeLayers: [],
+          residualMarkerLikeSources: [],
+          mapLayerIds: [],
+          mapSourceIds: [],
           getTruthCoverageDiagnostics: () => mapTruthDiagnostics || null,
           getMapTruthStatus: (geo: string) => statusIndex[String(geo || "").toUpperCase()] || null,
           labelLayerIds: [],
@@ -1601,7 +1708,7 @@ export default function NewMapLibreMap({
         ensureMapLayers();
         syncMapSources();
         syncLeafletOverlay("load", true);
-        applyWhereAmIMarker();
+        reconcileMapMarkerSubsystem();
         setMapRuntimeReady(true);
         if (process.env.NODE_ENV !== "production") {
           (window as Window & { __MAP_DEBUG__?: Record<string, unknown> }).__MAP_DEBUG__ = {
@@ -1619,10 +1726,25 @@ export default function NewMapLibreMap({
             basemapLabelLayerVisible: false,
             basemapDetailLayerVisible: false,
             basemapGeometryVisible: false,
+            basemapLandVisible: false,
+            basemapWaterVisible: false,
+            basemapTerrainVisible: null,
+            basemapDetailAnchorId: null,
+            maskLayerAnchorId: null,
             wheelOwnershipMode: "idle",
             safariWheelPreventDefaultActive: false,
             activeMarkersCount: 0,
             markerSource: null,
+            activeAccuracyCirclesCount: 0,
+            accuracyCircleSource: null,
+            activeDebugProbeCount: 0,
+            debugProbeSource: null,
+            orphanCircleLayers: [],
+            orphanCircleSources: [],
+            residualMarkerLikeLayers: [],
+            residualMarkerLikeSources: [],
+            mapLayerIds: [],
+            mapSourceIds: [],
             getTruthCoverageDiagnostics: () => mapTruthDiagnostics || null,
             getMapTruthStatus: (geo: string) => statusIndex[String(geo || "").toUpperCase()] || null,
             labelLayerIds: MAPLIBRE_PROVIDER_COUNTRY_LABEL_LAYER_IDS.filter((layerId) => Boolean(map.getLayer(layerId))),
@@ -1898,7 +2020,7 @@ export default function NewMapLibreMap({
 
   useEffect(() => {
     if (!mapRuntimeReady) return;
-    applyWhereAmIMarker();
+    reconcileMapMarkerSubsystem();
   }, [whereAmI, locationReasonCode, mapRuntimeReady]);
 
   return (

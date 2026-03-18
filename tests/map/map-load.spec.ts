@@ -168,10 +168,24 @@ async function getRuntimeInteractionState(page: Page) {
         basemapLabelLayerVisible?: boolean;
         basemapDetailLayerVisible?: boolean;
         basemapGeometryVisible?: boolean;
+        basemapLandVisible?: boolean;
+        basemapWaterVisible?: boolean;
+        basemapTerrainVisible?: boolean | null;
+        basemapDetailAnchorId?: string | null;
         wheelOwnershipMode?: string;
         safariWheelPreventDefaultActive?: boolean;
         activeMarkersCount?: number;
         markerSource?: string | null;
+        activeAccuracyCirclesCount?: number;
+        accuracyCircleSource?: string | null;
+        activeDebugProbeCount?: number;
+        debugProbeSource?: string | null;
+        orphanCircleLayers?: string[];
+        orphanCircleSources?: string[];
+        residualMarkerLikeLayers?: string[];
+        residualMarkerLikeSources?: string[];
+        mapLayerIds?: string[];
+        mapSourceIds?: string[];
         hoverHitCountryIso?: string | null;
         hoverRenderedCountryIso?: string | null;
         popupCountryIso?: string | null;
@@ -199,11 +213,27 @@ async function getRuntimeInteractionState(page: Page) {
         typeof debug?.basemapDetailLayerVisible === "boolean" ? debug.basemapDetailLayerVisible : null,
       basemapGeometryVisible:
         typeof debug?.basemapGeometryVisible === "boolean" ? debug.basemapGeometryVisible : null,
+      basemapLandVisible: typeof debug?.basemapLandVisible === "boolean" ? debug.basemapLandVisible : null,
+      basemapWaterVisible: typeof debug?.basemapWaterVisible === "boolean" ? debug.basemapWaterVisible : null,
+      basemapTerrainVisible:
+        typeof debug?.basemapTerrainVisible === "boolean" ? debug.basemapTerrainVisible : debug?.basemapTerrainVisible ?? null,
+      basemapDetailAnchorId: typeof debug?.basemapDetailAnchorId === "string" ? debug.basemapDetailAnchorId : null,
       wheelOwnershipMode: typeof debug?.wheelOwnershipMode === "string" ? debug.wheelOwnershipMode : null,
       safariWheelPreventDefaultActive:
         typeof debug?.safariWheelPreventDefaultActive === "boolean" ? debug.safariWheelPreventDefaultActive : null,
       activeMarkersCount: typeof debug?.activeMarkersCount === "number" ? debug.activeMarkersCount : null,
       markerSource: typeof debug?.markerSource === "string" ? debug.markerSource : null,
+      activeAccuracyCirclesCount:
+        typeof debug?.activeAccuracyCirclesCount === "number" ? debug.activeAccuracyCirclesCount : null,
+      accuracyCircleSource: typeof debug?.accuracyCircleSource === "string" ? debug.accuracyCircleSource : null,
+      activeDebugProbeCount: typeof debug?.activeDebugProbeCount === "number" ? debug.activeDebugProbeCount : null,
+      debugProbeSource: typeof debug?.debugProbeSource === "string" ? debug.debugProbeSource : null,
+      orphanCircleLayers: Array.isArray(debug?.orphanCircleLayers) ? debug.orphanCircleLayers : null,
+      orphanCircleSources: Array.isArray(debug?.orphanCircleSources) ? debug.orphanCircleSources : null,
+      residualMarkerLikeLayers: Array.isArray(debug?.residualMarkerLikeLayers) ? debug.residualMarkerLikeLayers : null,
+      residualMarkerLikeSources: Array.isArray(debug?.residualMarkerLikeSources) ? debug.residualMarkerLikeSources : null,
+      mapLayerIds: Array.isArray(debug?.mapLayerIds) ? debug.mapLayerIds : null,
+      mapSourceIds: Array.isArray(debug?.mapSourceIds) ? debug.mapSourceIds : null,
       hoverHitCountryIso: debug?.hoverHitCountryIso || null,
       hoverRenderedCountryIso: debug?.hoverRenderedCountryIso || null,
       popupCountryIso: debug?.popupCountryIso || null,
@@ -750,6 +780,9 @@ test.describe("MapLibre map UI", () => {
     expect(state.basemapDetailLayerVisible).toBe(true);
     expect(state.basemapLabelLayerVisible).toBe(true);
     expect(state.basemapGeometryVisible).toBe(true);
+    expect(state.basemapLandVisible).toBe(true);
+    expect(state.basemapWaterVisible).toBe(true);
+    expect(state.basemapDetailAnchorId).toBeTruthy();
     expect(detailLabels.length).toBeGreaterThan(8);
     expect(detailLabels.some((entry) => !/place_country_/.test(entry.layerId))).toBe(true);
 
@@ -795,6 +828,14 @@ test.describe("MapLibre map UI", () => {
     const state = await getRuntimeInteractionState(page);
     expect(state.activeMarkersCount).toBe(0);
     expect(state.markerSource).toBeNull();
+    expect(state.activeAccuracyCirclesCount).toBe(0);
+    expect(state.accuracyCircleSource).toBeNull();
+    expect(state.activeDebugProbeCount).toBe(0);
+    expect(state.debugProbeSource).toBeNull();
+    expect(state.orphanCircleLayers).toEqual([]);
+    expect(state.orphanCircleSources).toEqual([]);
+    expect(state.residualMarkerLikeLayers).toEqual([]);
+    expect(state.residualMarkerLikeSources).toEqual([]);
 
     guard.assertNoNetworkErrors();
     guard.assertNoClientErrors();
@@ -985,8 +1026,13 @@ test.describe("MapLibre map UI", () => {
     expect(initialState.basemapLabelLayerVisible).toBe(true);
     expect(initialState.basemapDetailLayerVisible).toBe(true);
     expect(initialState.basemapGeometryVisible).toBe(true);
+    expect(initialState.basemapLandVisible).toBe(true);
+    expect(initialState.basemapWaterVisible).toBe(true);
     expect(initialState.activeMarkersCount).toBe(0);
     expect(initialState.markerSource).toBeNull();
+    expect(initialState.activeAccuracyCirclesCount).toBe(0);
+    expect(initialState.orphanCircleLayers).toEqual([]);
+    expect(initialState.residualMarkerLikeLayers).toEqual([]);
     expect(initialState.layerOrder?.slice(0, 4)).toEqual([
       "ilc-choropleth-mask",
       "ilc-choropleth-fill",
