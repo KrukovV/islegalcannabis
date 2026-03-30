@@ -28,10 +28,23 @@
   "notes_text_len": 355,
   "notes": "On 30 March 2021, Prime Minister Robert Abela announced a proposal to legalize possession of up to 7 g and the cultivation of up to 4 plants, and for people charged with possession in the past to have it expunged from their criminal records. In December 2021, legislation was passed by the Maltese Parliament and signed into law by President George Vella.",
   "notes_raw": "{{main|Cannabis in Malta}} On 30 March 2021, Prime Minister [[Robert Abela]] announced a proposal to legalize possession of up to {{cvt|7|g|frac=4}} and the cultivation of up to 4 plants, and for people charged with possession in the past to have it expunged from their criminal records.<ref>{{cite news |last1=Meilak |first1=Nicole |title=Cannabis reform: possession up to 7g, cultivation of four plants at home |url=https://www.maltatoday.com.mt/news/national/108696/public_consultation_on_cannabis_whitepaper |access-date=31 March 2021 |work=Malta Today |date=30 March 2021 |archive-date=30 March 2021 |archive-url=https://web.archive.org/web/20210330155031/https://www.maltatoday.com.mt/news/national/108696/public_consultation_on_cannabis_whitepaper |url-status=live }}</ref> In December 2021, legislation was passed by the Maltese Parliament and signed into law by President [[George Vella]].<ref>{{Cite web|title=Cannabis bill approved in parliament, in first for Europe|url=https://timesofmalta.com/articles/view/cannabis-bill-approved-in-parliament-in-first-for-europe.921310|access-date=14 December 2021|website=Times of Malta|date=14 December 2021 |language=en-gb|archive-date=14 December 2021|archive-url=https://web.archive.org/web/20211214210838/https://timesofmalta.com/articles/view/cannabis-bill-approved-in-parliament-in-first-for-europe.921310|url-status=live}}</ref><ref>{{cite news |last1=Jaeger |first1=Kyle |title=Malta Officially Legalizes Marijuana With President's Signature, Becoming First In Europe To End Cannabis Prohibition |url=https://www.marijuanamoment.net/malta-officially-legalizes-marijuana-with-presidents-signature-becoming-first-in-europe-to-end-cannabis-prohibition/ |access-date=18 December 2021 |work=Marijuana Moment |date=18 December 2021 |archive-date=18 December 2021 |archive-url=https://web.archive.org/web/20211218204524/https://www.marijuanamoment.net/malta-officially-legalizes-marijuana-with-presidents-signature-becoming-first-in-europe-to-end-cannabis-prohibition/ |url-status=live }}</ref>",
+  "notes_sections_used": [
+    "notes_raw"
+  ],
+  "notes_main_article": "Cannabis in Malta",
+  "notes_rev": "",
+  "notes_kind": "RICH",
+  "notes_reason_code": "HAS_EXTRA_TEXT",
   "recreational_status": "Legal",
   "medical_status": "Legal",
-  "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source_type": "WIKI_COUNTRIES",
+  "primary_source": "WIKI_COUNTRIES",
+  "source_page": "Legality of cannabis",
+  "source_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "source_revision": "1336080043",
+  "source_table": "countries",
+  "wiki_revision_id": "1336080043",
+  "fetched_at": "2026-02-12T19:20:54.889Z",
   "source": "countries",
-  "revision_id": "1332405714"
+  "revision_id": "1336080043"
 }

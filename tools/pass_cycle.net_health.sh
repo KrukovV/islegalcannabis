@@ -526,8 +526,12 @@ if [ "${PRE_STATUS}" -eq 0 ]; then
   PRE_STATUS=$?
 fi
 if [ "${PRE_STATUS}" -eq 0 ]; then
-  ${NODE_BIN} tools/coverage/report_coverage.mjs >>"${PRE_LOG}" 2>&1
-  PRE_STATUS=$?
+  if [ -f "${ROOT}/tools/coverage/report_coverage.mjs" ]; then
+    ${NODE_BIN} tools/coverage/report_coverage.mjs >>"${PRE_LOG}" 2>&1
+    PRE_STATUS=$?
+  else
+    printf 'COVERAGE_REPORT=SKIP reason=MISSING_tools/coverage/report_coverage.mjs\n' >>"${PRE_LOG}"
+  fi
 fi
 set -e
 if [ "${PRE_STATUS}" -ne 0 ]; then
@@ -688,6 +692,10 @@ if echo "${WIKI_DB_GATE_OK_LINE}" | grep -q "WIKI_DB_GATE_OK=1"; then
   WIKI_DB_GATE_OK_FLAG=1
 else
   WIKI_DB_GATE_OK_FLAG=0
+  NOTES_GEO_FAIL_LINE=$(grep -E "^NOTES_GEO_FAIL " "${PRE_LOG}" | tail -n 1 || true)
+  if [ -n "${NOTES_GEO_FAIL_LINE}" ]; then
+    FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}${NOTES_GEO_FAIL_LINE}"
+  fi
 fi
 NOTES_STRICT_RESULT_ALL_LINE=$(grep -E "^NOTES_STRICT_RESULT " "${PRE_LOG}" | grep "scope=ALL" | tail -n 1 || true)
 NOTES_STRICT_RESULT_5_LINE=$(grep -E "^NOTES_STRICT_RESULT " "${PRE_LOG}" | grep "scope=geos:RU,RO,AU,US-CA,CA" | tail -n 1 || true)
@@ -815,7 +823,34 @@ if [ -f "${NOTES_LINKS_SMOKE_FILE}" ]; then
     append_ci_line "${notes_links_line}"
   fi
 fi
-run_step "no_shrink_guard" 30 "NO_SHRINK_ALLOW=\"${NO_SHRINK_ALLOW:-0}\" NO_SHRINK_REASON=\"${NO_SHRINK_REASON:-}\" ${NODE_BIN} tools/no_shrink_guard.mjs >>\"${REPORTS_FINAL}\" 2>&1"
+if [ "${SSOT_METRICS_RAN:-0}" != "1" ]; then
+  run_ssot_metrics
+fi
+NO_SHRINK_OUTPUT=""
+NO_SHRINK_RC=0
+CURRENT_STEP="no_shrink_guard"
+CURRENT_CMD="NO_SHRINK_ALLOW=\"${NO_SHRINK_ALLOW:-0}\" NO_SHRINK_REASON=\"${NO_SHRINK_REASON:-}\" ${NODE_BIN} tools/no_shrink_guard.mjs"
+set +e
+NO_SHRINK_OUTPUT=$(READONLY_CI="${READONLY_CI}" UPDATE_MODE="${UPDATE_MODE}" NO_SHRINK_ALLOW="${NO_SHRINK_ALLOW:-0}" NO_SHRINK_REASON="${NO_SHRINK_REASON:-}" ${NODE_BIN} tools/no_shrink_guard.mjs 2>&1)
+NO_SHRINK_RC=$?
+set -e
+printf "%s\n" "${NO_SHRINK_OUTPUT}" >> "${REPORTS_FINAL}"
+printf "%s\n" "${NO_SHRINK_OUTPUT}" >> "${RUN_REPORT_FILE}"
+if [ "${CI_WRITE_ROOT}" = "1" ]; then
+  printf "%s\n" "${NO_SHRINK_OUTPUT}" >> "${ROOT}/ci-final.txt"
+fi
+NO_SHRINK_REASON_LINE=$(printf "%s\n" "${NO_SHRINK_OUTPUT}" | grep -E "^NO_SHRINK_GUARD_OK=0 reason=" | tail -n 1 || true)
+if [ "${NO_SHRINK_RC}" -ne 0 ] || [ -n "${NO_SHRINK_REASON_LINE}" ]; then
+  FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}${NO_SHRINK_OUTPUT}"
+  FAIL_STEP="no_shrink_guard"
+  FAIL_CMD="${CURRENT_CMD}"
+  FAIL_RC="${NO_SHRINK_RC}"
+  if [ -n "${NO_SHRINK_REASON_LINE}" ]; then
+    FAIL_REASON_PARSED="${NO_SHRINK_REASON_LINE#*reason=}"
+    fail_with_reason "${FAIL_REASON_PARSED}"
+  fi
+  fail_with_reason "DATA_SHRINK"
+fi
 if [ "${OFFLINE_MODE}" = "1" ]; then
   run_step "offline_cache_smoke" 30 "${NODE_BIN} tools/offline_cache_smoke.mjs >>\"${REPORTS_FINAL}\" 2>&1"
 fi
@@ -878,7 +913,7 @@ if [ "${WIKI_SHRINK_RC}" -ne 0 ] || printf "%s\n" "${WIKI_SHRINK_OUTPUT}" | grep
   fail_with_reason "WIKI_SHRINK"
 fi
 set +e
-LEGALITY_TABLE_OUTPUT=$(${NODE_BIN} tools/gates/legality_table_shrink_guard.mjs 2>&1)
+LEGALITY_TABLE_OUTPUT=$(READONLY_CI="${READONLY_CI}" ${NODE_BIN} tools/gates/legality_table_shrink_guard.mjs 2>&1)
 LEGALITY_TABLE_RC=$?
 set -e
 if [ -n "${LEGALITY_TABLE_OUTPUT}" ]; then
@@ -897,7 +932,7 @@ if [ "${LEGALITY_TABLE_RC}" -ne 0 ] || printf "%s\n" "${LEGALITY_TABLE_OUTPUT}" 
   fail_with_reason "LEGALITY_TABLE_SHRINK"
 fi
 
-WIKI_COVERAGE_OUTPUT=$(${NODE_BIN} tools/gates/wiki_coverage_guard.mjs 2>&1)
+WIKI_COVERAGE_OUTPUT=$(READONLY_CI="${READONLY_CI}" ${NODE_BIN} tools/gates/wiki_coverage_guard.mjs 2>&1)
 WIKI_COVERAGE_RC=$?
 if [ -n "${WIKI_COVERAGE_OUTPUT}" ]; then
   printf "%s\n" "${WIKI_COVERAGE_OUTPUT}" >> "${PRE_LOG}"
@@ -1466,12 +1501,37 @@ fi
 SMOKE_TOTAL="$(grep -E '^SMOKE_TOTAL=' "${REPORTS_FINAL}" | head -n1 | cut -d= -f2 || true)"
 SMOKE_OK="$(grep -E '^SMOKE_OK=' "${REPORTS_FINAL}" | head -n1 | cut -d= -f2 || true)"
 SMOKE_FAIL="$(grep -E '^SMOKE_FAIL=' "${REPORTS_FINAL}" | head -n1 | cut -d= -f2 || true)"
-if [ -z "${SMOKE_OK}" ] || [ -z "${SMOKE_FAIL}" ]; then
-  UI_SMOKE_LINE="$(grep -E '^UI_SMOKE_OK=' "${REPORTS_FINAL}" | head -n1 || true)"
-  if [ -n "${UI_SMOKE_LINE}" ]; then
-    SMOKE_OK="${SMOKE_OK:-$(printf "%s" "${UI_SMOKE_LINE}" | sed -nE 's/.*\\bok=([0-9]+).*/\\1/p')}"
-    SMOKE_FAIL="${SMOKE_FAIL:-$(printf "%s" "${UI_SMOKE_LINE}" | sed -nE 's/.*\\bfail=([0-9]+).*/\\1/p')}"
+extract_smoke_counts() {
+  local line="$1"
+  local ok_value=""
+  local fail_value=""
+  ok_value="$(printf "%s" "${line}" | sed -nE 's/.*ok=([0-9]+).*/\1/p')"
+  fail_value="$(printf "%s" "${line}" | sed -nE 's/.*fail=([0-9]+).*/\1/p')"
+  if [ -n "${ok_value}" ] || [ -n "${fail_value}" ]; then
+    printf "%s;%s\n" "${ok_value}" "${fail_value}"
   fi
+}
+if [ -z "${SMOKE_OK}" ] || [ -z "${SMOKE_FAIL}" ]; then
+  UI_SMOKE_LINE="$(grep -E '^UI_SMOKE_OK=' "${REPORTS_FINAL}" | tail -n1 || true)"
+  UI_SMOKE_COUNTS=""
+  if [ -n "${UI_SMOKE_LINE}" ]; then
+    UI_SMOKE_COUNTS="$(extract_smoke_counts "${UI_SMOKE_LINE}")"
+  fi
+  if [ -z "${UI_SMOKE_COUNTS}" ] && [ -f "${ROOT}/Reports/ui_smoke.txt" ]; then
+    UI_SMOKE_LINE="$(grep -E '^UI_SMOKE_OK=' "${ROOT}/Reports/ui_smoke.txt" | tail -n1 || true)"
+  fi
+  if [ -n "${UI_SMOKE_LINE}" ]; then
+    if [ -z "${UI_SMOKE_COUNTS}" ]; then
+      UI_SMOKE_COUNTS="$(extract_smoke_counts "${UI_SMOKE_LINE}")"
+    fi
+    if [ -n "${UI_SMOKE_COUNTS}" ]; then
+      SMOKE_OK="${SMOKE_OK:-${UI_SMOKE_COUNTS%%;*}}"
+      SMOKE_FAIL="${SMOKE_FAIL:-${UI_SMOKE_COUNTS##*;}}"
+    fi
+  fi
+fi
+if [ -z "${SMOKE_TOTAL}" ] && [ -n "${SMOKE_OK}" ] && [ -n "${SMOKE_FAIL}" ]; then
+  SMOKE_TOTAL="$((SMOKE_OK + SMOKE_FAIL))"
 fi
 SMOKE_LABEL="Smoke ${SMOKE_OK:-?}/${SMOKE_FAIL:-?} (total ${SMOKE_TOTAL:-?})"
 if [ -f "${REPORTS_FINAL}" ]; then

@@ -43,7 +43,12 @@ const nonEmptyNotes = items.filter((entry) => {
   const text = String(entry?.notes_text || entry?.notes_raw || "").trim();
   return text.length > 0;
 }).length;
-const officialDomainsCount = Array.isArray(officialPayload?.domains) ? officialPayload.domains.length : 0;
+const officialDomainsCount = Array.isArray(officialPayload?.domains)
+  ? officialPayload.domains.filter((domain) => {
+      const value = String(domain || "").toLowerCase();
+      return value && !value.endsWith("wikipedia.org");
+    }).length
+  : 0;
 const officialLinksCount = Number(badgesPayload?.totals?.official || 0);
 const officialItemsTotal = officialDomainsCount;
 

@@ -36,6 +36,9 @@ export function saveLocationContext(context: LocationContext | null) {
       STORAGE_KEY,
       JSON.stringify({ v: STORAGE_VERSION, context })
     );
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent("ilc:location-context-updated"));
+    }
   } catch {
     // Ignore storage failures in UI.
   }
@@ -51,6 +54,15 @@ export function loadLocationContext(): LocationContext | null {
       context?: LocationContext;
     };
     if (parsed?.v !== STORAGE_VERSION || !parsed.context) {
+      storage.removeItem(STORAGE_KEY);
+      return null;
+    }
+    if (
+      parsed.context.mode === "detected" &&
+      parsed.context.method === "gps" &&
+      (!Number.isFinite(parsed.context.lat) || !Number.isFinite(parsed.context.lng))
+    ) {
+      // Reject stale broken GPS entries to avoid poisoning runtime resolution.
       storage.removeItem(STORAGE_KEY);
       return null;
     }

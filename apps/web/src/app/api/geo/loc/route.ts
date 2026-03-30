@@ -20,3 +20,13 @@ export async function GET(req: Request) {
     confidence: resolution.confidence
   });
 }
+
+export async function POST(req: Request) {
+  const requestId = createRequestId(req);
+  try {
+    await req.json();
+  } catch {
+    // Ignore body parse errors; client-side SSOT writes are best-effort.
+  }
+  return okResponse(requestId, { ok: true });
+}

@@ -32,19 +32,31 @@ run_ssot_metrics() {
     FAIL_STEP="ssot_metrics"
     FAIL_CMD="${CURRENT_CMD}"
     FAIL_RC="${SSOT_METRICS_RC}"
+    reason_line=$(printf "%s\n" "${SSOT_METRICS_OUTPUT}" | grep -E "^SSOT_METRICS_REASON=" | tail -n 1 || true)
+    if [ -n "${reason_line}" ]; then
+      fail_with_reason "${reason_line#SSOT_METRICS_REASON=}"
+    fi
     fail_with_reason "DATA_SHRINK"
   fi
   required_metrics=(
     "GEO_TOTAL=300"
-    "WIKI_ROWS_TOTAL=300"
-    "WIKI_MISSING_TOTAL=0"
-    "OFFICIAL_LINKS_TOTAL=413"
     "SHRINK_DETECTED=0"
     "SSOT_METRICS_OK=1"
   )
   required_prefixes=(
-    "WIKI_NOTES_NONEMPTY="
-    "WIKI_NOTES_EMPTY="
+    "COUNTRY_UNIVERSE_TOTAL="
+    "REF_UNIVERSE_TOTAL="
+    "WIKI_SET_TOTAL="
+    "WIKI_COUNTRY_ROWS="
+    "ISO_MISSING_LEGALITY="
+    "NOTES_WIKI_NONEMPTY="
+    "NOTES_WIKI_EMPTY="
+    "NOTES_WIKI_TOTAL="
+    "OFFICIAL_LINKS_TOTAL="
+    "GEO_TOTAL_RENDERABLE="
+    "LEGALITY_TABLE_ROWS="
+    "LEGALITY_MISSING_TOTAL="
+    "WORKTREE_DIRTY="
   )
   metrics_missing=0
   for req in "${required_metrics[@]}"; do
@@ -59,6 +71,20 @@ run_ssot_metrics() {
       FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}MISSING_${req}"
     fi
   done
+  if printf "%s\n" "${SSOT_METRICS_OUTPUT}" | grep -q "^SSOT_METRICS_OK=0"; then
+    reason_line=$(printf "%s\n" "${SSOT_METRICS_OUTPUT}" | grep -E "^SSOT_METRICS_REASON=" | tail -n 1 || true)
+    if [ -n "${reason_line}" ]; then
+      FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}${reason_line}"
+      FAIL_STEP="ssot_metrics"
+      FAIL_CMD="${CURRENT_CMD}"
+      FAIL_RC="${SSOT_METRICS_RC}"
+      fail_with_reason "${reason_line#SSOT_METRICS_REASON=}"
+    fi
+    FAIL_STEP="ssot_metrics"
+    FAIL_CMD="${CURRENT_CMD}"
+    FAIL_RC="${SSOT_METRICS_RC}"
+    fail_with_reason "SSOT_METRICS_NOT_OK"
+  fi
   if [ "${metrics_missing}" -ne 0 ]; then
     FAIL_STEP="ssot_metrics"
     FAIL_CMD="${CURRENT_CMD}"
@@ -67,4 +93,5 @@ run_ssot_metrics() {
     exit 1
   fi
   # metrics summary already added
+  SSOT_METRICS_RAN=1
 }

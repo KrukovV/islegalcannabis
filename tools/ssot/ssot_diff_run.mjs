@@ -1,263 +1,212 @@
+#!/usr/bin/env node
+import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
-import crypto from "node:crypto";
-import { spawnSync } from "node:child_process";
 
 const ROOT = process.cwd();
-const CATALOG_PATH = path.join(ROOT, "data", "sources", "official_catalog.json");
-const FACTS_DIR = path.join(ROOT, "data", "sources", "ssot_facts");
-const SNAPSHOT_DIR = path.join(ROOT, "data", "sources", "ssot_snapshots");
-const SNAPSHOT_PATH = path.join(SNAPSHOT_DIR, "latest.json");
-const REPORT_DIR = path.join(ROOT, "Reports", "ssot-diff");
-const TODAY = new Date().toISOString().slice(0, 10).replace(/-/g, "");
-const REPORT_JSON = path.join(REPORT_DIR, `ssot_diff_${TODAY}.json`);
-const REPORT_MD = path.join(REPORT_DIR, `ssot_diff_${TODAY}.md`);
-const LAST_RUN_PATH = path.join(REPORT_DIR, "last_run.json");
-const PENDING_PATH = path.join(REPORT_DIR, `pending_${TODAY}.json`);
+const SNAPSHOT_DIR = path.join(ROOT, "data", "ssot_snapshots");
+const LATEST_PATH = path.join(SNAPSHOT_DIR, "latest.json");
+const STABLE_PATH = path.join(SNAPSHOT_DIR, "latest_stable.json");
+const REGISTRY_PATH = path.join(ROOT, "data", "ssot_diffs.json");
+const PENDING_PATH = path.join(ROOT, "cache", "ssot_diff_pending.json");
+const CACHE_PATH = path.join(ROOT, "cache", "ssot_diff_cache.json");
+const LOG_PATH = path.join(ROOT, "logs", "ssot_diff.log");
+const KEEP_LAST = 50;
 
-function fail(message) {
-  console.error(`ERROR: ${message}`);
-  process.exit(2);
-}
-
-function readJson(file) {
-  return JSON.parse(fs.readFileSync(file, "utf8"));
-}
-
-function normalizeArray(values) {
-  const normalized = values.map((value) => normalizeValue(value));
-  if (normalized.every((value) => value === null || typeof value !== "object")) {
-    return normalized.slice().sort();
+function readJson(filePath, fallback) {
+  try {
+    return JSON.parse(fs.readFileSync(filePath, "utf8"));
+  } catch {
+    return fallback;
   }
-  return normalized
-    .slice()
-    .sort((a, b) => JSON.stringify(a).localeCompare(JSON.stringify(b)));
 }
 
-function normalizeValue(value) {
-  if (Array.isArray(value)) return normalizeArray(value);
-  if (!value || typeof value !== "object") return value;
-  const keys = Object.keys(value).sort();
-  const out = {};
-  for (const key of keys) {
-    out[key] = normalizeValue(value[key]);
+function writeJson(filePath, payload) {
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  fs.writeFileSync(filePath, `${JSON.stringify(payload, null, 2)}\n`);
+}
+
+function hashNotes(value) {
+  return crypto.createHash("sha256").update(String(value || "").trim()).digest("hex").slice(0, 12);
+}
+
+function normalizeStatus(...values) {
+  for (const value of values) {
+    const normalized = String(value || "").trim();
+    if (normalized) return normalized;
   }
-  return out;
+  return "Unknown";
 }
 
-function normalizeFacts(facts) {
-  const cleaned = Array.isArray(facts) ? facts.filter(Boolean) : [];
-  return cleaned
-    .map((fact) => ({
-      category: String(fact.category || ""),
-      url: String(fact.url || ""),
-      effective_date: fact.effective_date ?? null,
-      text_snippet: fact.text_snippet ?? null
-    }))
-    .sort((a, b) => {
-      const keyA = `${a.category}|${a.url}|${a.effective_date || ""}`;
-      const keyB = `${b.category}|${b.url}|${b.effective_date || ""}`;
-      return keyA.localeCompare(keyB);
-    });
+function readGeoUniverse() {
+  const raw = fs.readFileSync(path.join(ROOT, "apps", "web", "src", "lib", "geo", "allGeo.ts"), "utf8");
+  return Array.from(raw.matchAll(/"([A-Z0-9-]+)"/g), (match) => match[1]);
 }
 
-function hashPayload(payload) {
-  const normalized = normalizeValue(payload);
-  const json = JSON.stringify(normalized);
-  return crypto.createHash("sha256").update(json).digest("hex");
-}
-
-function writeLastRun(payload) {
-  fs.mkdirSync(REPORT_DIR, { recursive: true });
-  fs.writeFileSync(LAST_RUN_PATH, JSON.stringify(payload, null, 2) + "\n");
-}
-
-if (!fs.existsSync(CATALOG_PATH)) {
-  fail(`Missing ${CATALOG_PATH}`);
-}
-
-const extract = spawnSync(process.execPath, [
-  path.join(ROOT, "tools", "sources", "ssot_extract_facts.mjs")
-]);
-if (extract.status !== 0) {
-  const pending = {
-    status: "pending",
-    reason: "extract_failed",
-    at: new Date().toISOString()
-  };
-  fs.mkdirSync(REPORT_DIR, { recursive: true });
-  fs.writeFileSync(PENDING_PATH, JSON.stringify(pending, null, 2) + "\n");
-  writeLastRun({
-    status: "pending",
-    changed_count: 0,
-    report_json: PENDING_PATH,
-    report_md: null,
-    changed_ids: []
-  });
-  process.exit(2);
-}
-
-const catalog = readJson(CATALOG_PATH);
-const current = {};
-const missingFacts = [];
-for (const [id, entry] of Object.entries(catalog)) {
-  const factPath = path.join(FACTS_DIR, `${id.toUpperCase()}.json`);
-  if (!fs.existsSync(factPath)) {
-    missingFacts.push(id);
-    continue;
+function buildSnapshot(nowIso) {
+  const claimsPayload = readJson(path.join(ROOT, "data", "wiki", "wiki_claims_map.json"), {});
+  const enrichedPayload = readJson(path.join(ROOT, "data", "wiki", "wiki_claims_enriched.json"), {});
+  const badgesPayload = readJson(path.join(ROOT, "data", "wiki", "wiki_official_badges.json"), {});
+  const claimByGeo = new Map();
+  for (const claim of Object.values(claimsPayload.items || {})) {
+    const geo = String(claim?.geo_key || claim?.geo_id || claim?.iso2 || "").toUpperCase();
+    if (geo) claimByGeo.set(geo, claim);
   }
-  const factsPayload = readJson(factPath);
-  const urls = Object.values(entry || {})
-    .flat()
-    .filter((value) => typeof value === "string" && value.startsWith("http"))
-    .map((value) => value.trim());
-  const notes = typeof entry?.notes === "string" ? entry.notes : null;
-  const facts = normalizeFacts(factsPayload?.facts);
-  const payload = { id, notes, urls, facts };
-  current[id] = {
-    hash: hashPayload(payload),
-    source_urls_count: urls.length
-  };
-}
-
-if (missingFacts.length > 0) {
-  const pending = {
-    status: "pending",
-    reason: "missing_facts",
-    missing_ids: missingFacts,
-    at: new Date().toISOString()
-  };
-  fs.mkdirSync(REPORT_DIR, { recursive: true });
-  fs.writeFileSync(PENDING_PATH, JSON.stringify(pending, null, 2) + "\n");
-  writeLastRun({
-    status: "pending",
-    changed_count: 0,
-    report_json: PENDING_PATH,
-    report_md: null,
-    changed_ids: []
-  });
-  process.exit(2);
-}
-
-fs.mkdirSync(SNAPSHOT_DIR, { recursive: true });
-
-if (!fs.existsSync(SNAPSHOT_PATH)) {
-  const baseline = {
-    generated_at: new Date().toISOString(),
-    entries: current
-  };
-  fs.writeFileSync(SNAPSHOT_PATH, JSON.stringify(baseline, null, 2) + "\n");
-  const report = {
-    status: "baseline",
-    generated_at: baseline.generated_at,
-    added: Object.keys(current),
-    removed: [],
-    changed: [],
-    counts: {
-      added: Object.keys(current).length,
-      removed: 0,
-      changed: 0
+  const rows = readGeoUniverse().map((geo) => {
+    const claim = claimByGeo.get(geo);
+    const official = new Set();
+    for (const item of Array.isArray(enrichedPayload.items?.[geo]) ? enrichedPayload.items[geo] : []) {
+      if (item?.official && item?.url) official.add(String(item.url).trim());
     }
-  };
-  fs.mkdirSync(REPORT_DIR, { recursive: true });
-  fs.writeFileSync(REPORT_JSON, JSON.stringify(report, null, 2) + "\n");
-  fs.writeFileSync(
-    REPORT_MD,
-    [
-      `# SSOT Diff ${TODAY}`,
-      "",
-      "Baseline created.",
-      "",
-      "| ISO2 | what_changed | old_hash | new_hash | source_urls_count |",
-      "| --- | --- | --- | --- | --- |",
-      ...Object.keys(current).map(
-        (id) =>
-          `| ${id} | baseline | - | ${current[id].hash} | ${current[id].source_urls_count} |`
-      )
-    ].join("\n") + "\n"
-  );
-  writeLastRun({
-    status: "ok",
-    changed_count: 0,
-    report_json: REPORT_JSON,
-    report_md: REPORT_MD,
-    changed_ids: []
+    for (const item of Array.isArray(badgesPayload.items?.[geo]) ? badgesPayload.items[geo] : []) {
+      if (item?.url) official.add(String(item.url).trim());
+    }
+    return {
+      geo,
+      rec_status: normalizeStatus(claim?.recreational_status, claim?.wiki_rec, claim?.rec_status),
+      med_status: normalizeStatus(claim?.medical_status, claim?.wiki_med, claim?.med_status),
+      notes_hash: hashNotes(claim?.notes_text || ""),
+      official_sources: Array.from(official).filter(Boolean).sort(),
+      wiki_page_url: String(claim?.wiki_row_url || "").trim() || null
+    };
   });
-  process.exit(0);
+  return { generated_at: nowIso, row_count: rows.length, rows };
 }
 
-const previous = readJson(SNAPSHOT_PATH);
-const prevEntries = previous?.entries || {};
-const added = [];
-const removed = [];
-const changed = [];
-
-for (const id of Object.keys(current)) {
-  if (!prevEntries[id]) {
-    added.push(id);
-    continue;
+function diffSnapshots(oldSnapshot, newSnapshot) {
+  const oldByGeo = new Map((oldSnapshot.rows || []).map((row) => [row.geo, row]));
+  const changes = [];
+  const pushChange = (geo, type, oldValue, newValue) => {
+    changes.push({
+      geo,
+      type,
+      old_value: oldValue,
+      new_value: newValue,
+      ts: newSnapshot.generated_at,
+      change_key: `${geo}|${type}|${oldValue || "-"}|${newValue || "-"}`
+    });
+  };
+  for (const row of newSnapshot.rows || []) {
+    const prev = oldByGeo.get(row.geo);
+    if (!prev) continue;
+    if (prev.rec_status !== row.rec_status) pushChange(row.geo, "STATUS_CHANGE", prev.rec_status, row.rec_status);
+    if (prev.med_status !== row.med_status) pushChange(row.geo, "MED_STATUS_CHANGE", prev.med_status, row.med_status);
+    if (prev.notes_hash !== row.notes_hash) pushChange(row.geo, "NOTES_UPDATE", prev.notes_hash, row.notes_hash);
+    if ((prev.wiki_page_url || null) !== (row.wiki_page_url || null)) {
+      pushChange(row.geo, "WIKI_PAGE_CHANGED", prev.wiki_page_url || null, row.wiki_page_url || null);
+    }
+    const prevSources = new Set(prev.official_sources || []);
+    const nextSources = new Set(row.official_sources || []);
+    for (const url of row.official_sources || []) if (!prevSources.has(url)) pushChange(row.geo, "OFFICIAL_SOURCE_ADDED", null, url);
+    for (const url of prev.official_sources || []) if (!nextSources.has(url)) pushChange(row.geo, "OFFICIAL_SOURCE_REMOVED", url, null);
   }
-  if (prevEntries[id].hash !== current[id].hash) {
-    changed.push(id);
+  return changes.sort((a, b) => a.change_key.localeCompare(b.change_key));
+}
+
+function readRegistry() {
+  return readJson(REGISTRY_PATH, { generated_at: new Date(0).toISOString(), changes: [] });
+}
+
+function writeCache(nowIso, registry, pending) {
+  const now = Date.parse(nowIso);
+  const within = (hours) =>
+    (registry.changes || []).filter((entry) => Date.parse(entry.ts) >= now - hours * 60 * 60 * 1000);
+  writeJson(CACHE_PATH, {
+    generated_at: nowIso,
+    last_24h: within(24),
+    last_7d: within(24 * 7),
+    pending
+  });
+}
+
+function pruneSnapshots() {
+  const files = fs.existsSync(SNAPSHOT_DIR)
+    ? fs.readdirSync(SNAPSHOT_DIR).filter((name) => /^snapshot_\d{4}_\d{2}_\d{2}_\d{2}\.json$/.test(name)).sort()
+    : [];
+  const removable = files.slice(0, Math.max(0, files.length - KEEP_LAST));
+  for (const name of removable) fs.unlinkSync(path.join(SNAPSHOT_DIR, name));
+  return files.length - removable.length;
+}
+
+function timestampName(nowIso) {
+  const stamp = nowIso.replace(/[-:TZ]/g, "").slice(0, 10);
+  return `snapshot_${stamp.slice(0, 4)}_${stamp.slice(4, 6)}_${stamp.slice(6, 8)}_${stamp.slice(8, 10)}.json`;
+}
+
+const nowIso = new Date().toISOString();
+const currentSnapshot = buildSnapshot(nowIso);
+fs.mkdirSync(SNAPSHOT_DIR, { recursive: true });
+writeJson(path.join(SNAPSHOT_DIR, timestampName(nowIso)), currentSnapshot);
+writeJson(LATEST_PATH, currentSnapshot);
+const stable = readJson(STABLE_PATH, null);
+let registry = readRegistry();
+let pending = readJson(PENDING_PATH, []);
+let status = "baseline";
+let confirmedCount = 0;
+
+if (!stable) {
+  writeJson(STABLE_PATH, currentSnapshot);
+  pending = [];
+  writeJson(PENDING_PATH, pending);
+  writeCache(nowIso, registry, pending);
+} else {
+  const rawChanges = diffSnapshots(stable, currentSnapshot);
+  if (!rawChanges.length) {
+    status = "stable";
+    pending = [];
+    writeJson(STABLE_PATH, currentSnapshot);
+    writeJson(PENDING_PATH, pending);
+    writeCache(nowIso, registry, pending);
+  } else {
+    const previous = new Map(pending.map((entry) => [entry.change_key, entry]));
+    pending = rawChanges.map((entry) => {
+      const prev = previous.get(entry.change_key);
+      return {
+        change_key: entry.change_key,
+        count: prev ? prev.count + 1 : 1,
+        first_seen_at: prev?.first_seen_at || nowIso,
+        last_seen_at: nowIso,
+        entry: {
+          geo: entry.geo,
+          type: entry.type,
+          old_value: entry.old_value,
+          new_value: entry.new_value,
+          change_key: entry.change_key
+        }
+      };
+    });
+    const confirmed = pending.every((entry) => entry.count >= 2) ? rawChanges.map((entry) => ({ ...entry, ts: nowIso })) : [];
+    if (confirmed.length) {
+      status = "changed";
+      confirmedCount = confirmed.length;
+      const existing = new Set((registry.changes || []).map((entry) => `${entry.change_key}|${entry.ts}`));
+      registry = {
+        generated_at: nowIso,
+        changes: [...(registry.changes || []), ...confirmed.filter((entry) => !existing.has(`${entry.change_key}|${entry.ts}`))].sort(
+          (a, b) => Date.parse(b.ts) - Date.parse(a.ts)
+        )
+      };
+      writeJson(REGISTRY_PATH, registry);
+      writeJson(STABLE_PATH, currentSnapshot);
+      pending = [];
+      fs.mkdirSync(path.dirname(LOG_PATH), { recursive: true });
+      fs.appendFileSync(
+        LOG_PATH,
+        `${confirmed.map((entry) => `${entry.ts} ${entry.type} ${entry.geo} ${entry.old_value || "-"} -> ${entry.new_value || "-"}`).join("\n")}\n`
+      );
+    } else {
+      status = "pending";
+    }
+    writeJson(PENDING_PATH, pending);
+    writeCache(nowIso, registry, pending);
   }
 }
-for (const id of Object.keys(prevEntries)) {
-  if (!current[id]) removed.push(id);
-}
 
-const status = added.length || removed.length || changed.length ? "changed" : "ok";
-const report = {
-  status,
-  generated_at: new Date().toISOString(),
-  added,
-  removed,
-  changed,
-  counts: {
-    added: added.length,
-    removed: removed.length,
-    changed: changed.length
-  }
-};
-
-fs.mkdirSync(REPORT_DIR, { recursive: true });
-fs.writeFileSync(REPORT_JSON, JSON.stringify(report, null, 2) + "\n");
-fs.writeFileSync(
-  REPORT_MD,
-  [
-    `# SSOT Diff ${TODAY}`,
-    "",
-    `Status: ${status}`,
-    "",
-    "| ISO2 | what_changed | old_hash | new_hash | source_urls_count |",
-    "| --- | --- | --- | --- | --- |",
-    ...[...added, ...removed, ...changed].sort().map((id) => {
-      const prev = prevEntries[id];
-      const next = current[id];
-      if (added.includes(id)) {
-        return `| ${id} | added | - | ${next.hash} | ${next.source_urls_count} |`;
-      }
-      if (removed.includes(id)) {
-        return `| ${id} | removed | ${prev.hash} | - | ${prev.source_urls_count} |`;
-      }
-      return `| ${id} | changed | ${prev.hash} | ${next.hash} | ${next.source_urls_count} |`;
-    })
-  ].join("\n") + "\n"
-);
-
-fs.writeFileSync(
-  SNAPSHOT_PATH,
-  JSON.stringify({ generated_at: new Date().toISOString(), entries: current }, null, 2) + "\n"
-);
-
-writeLastRun({
-  status,
-  changed_count: added.length + removed.length + changed.length,
-  report_json: REPORT_JSON,
-  report_md: REPORT_MD,
-  changed_ids: [...added, ...removed, ...changed]
-});
-
-if (status === "changed") {
-  process.exit(3);
-}
-process.exit(0);
+const snapshotCount = pruneSnapshots();
+console.log(`SSOT_DIFF_ENGINE_OK=1`);
+console.log(`SSOT_DIFF_STATUS=${status}`);
+console.log(`SSOT_SNAPSHOT_ROWS=${currentSnapshot.row_count}`);
+console.log(`SSOT_SNAPSHOT_COUNT=${snapshotCount}`);
+console.log(`SSOT_DIFF_REGISTRY_COUNT=${(registry.changes || []).length}`);
+console.log(`SSOT_DIFF_PENDING_COUNT=${pending.length}`);
+console.log(`SSOT_DIFF_CONFIRMED_COUNT=${confirmedCount}`);

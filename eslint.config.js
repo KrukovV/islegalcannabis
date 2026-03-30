@@ -29,6 +29,17 @@ module.exports = [
   {
     files: ["apps/web/**/*.{ts,tsx,js,jsx}"],
     rules: {
+      "no-restricted-imports": [
+        "error",
+        {
+          patterns: [
+            {
+              group: ["@/lib/mapRuntime/*", "@/lib/map/*", "@/app/_components/mapRuntime/*"],
+              message: "Map runtime imports are removed from the active product."
+            }
+          ]
+        }
+      ],
       "no-console": ["error", { allow: ["warn", "error"] }],
       "no-restricted-syntax": [
         "error",

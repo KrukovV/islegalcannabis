@@ -28,10 +28,23 @@
   "notes_text_len": 235,
   "notes": "Since 2017, consuming cannabis in Switzerland may result in a fine, but possession of up to 10 g without evidence of consumption is not penalized; and as of 2023, confiscated amounts under this limit must be returned to the individual.",
   "notes_raw": "{{Main|Cannabis in Switzerland}} Since 2017, consuming cannabis in Switzerland may result in a fine, but possession of up to {{cvt|10|g|frac=8}} without evidence of consumption is not penalized; and as of 2023, confiscated amounts under this limit must be returned to the individual.<ref>{{cite web |url=http://www.admin.ch/ch/f/ff/2012/7539.pdf |title=FF 2012 7539 |access-date=16 November 2016 |archive-date=17 May 2020 |archive-url=https://web.archive.org/web/20200517154324/https://www.admin.ch/opc/fr/federal-gazette/2012/7539.pdf |url-status=live }}</ref><ref>{{Cite web |date=2023-07-24 |title=Leiturteil des Bundesgerichts – Cannabis: bis 10 Gramm Eigenkonsum keine Beschlagnahmung möglich |url=https://www.srf.ch/news/schweiz/leiturteil-des-bundesgerichts-cannabis-bis-10-gramm-eigenkonsum-keine-beschlagnahmung-moeglich |access-date=2024-03-10 |website=Schweizer Radio und Fernsehen (SRF) |language=de}}</ref>",
+  "notes_sections_used": [
+    "notes_raw"
+  ],
+  "notes_main_article": "Cannabis in Switzerland",
+  "notes_rev": "",
+  "notes_kind": "RICH",
+  "notes_reason_code": "HAS_EXTRA_TEXT",
   "recreational_status": "Legal",
   "medical_status": "Legal",
-  "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source_type": "WIKI_COUNTRIES",
+  "primary_source": "WIKI_COUNTRIES",
+  "source_page": "Legality of cannabis",
+  "source_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "source_revision": "1336080043",
+  "source_table": "countries",
+  "wiki_revision_id": "1336080043",
+  "fetched_at": "2026-02-12T19:20:54.889Z",
   "source": "countries",
-  "revision_id": "1332405714"
+  "revision_id": "1336080043"
 }

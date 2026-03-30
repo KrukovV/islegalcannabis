@@ -5,6 +5,8 @@ import path from "node:path";
 const ROOT = process.cwd();
 const MAP_PATH = path.join(ROOT, "data", "wiki", "wiki_claims_map.json");
 const LEGALITY_PATH = path.join(ROOT, "data", "wiki", "ssot_legality_table.json");
+const READONLY_CI = process.env.READONLY_CI === "1";
+const UPDATE_MODE = process.env.UPDATE_MODE === "1";
 
 function parseGeoScope(argv) {
   const args = Array.isArray(argv) ? argv.slice(2) : [];
@@ -157,6 +159,11 @@ function writeAtomic(filePath, payload) {
 if (!fs.existsSync(MAP_PATH)) {
   console.log(`NOTES_SECTIONS_BACKFILL_OK=0 reason=missing:${MAP_PATH}`);
   process.exit(1);
+}
+
+if (READONLY_CI && !UPDATE_MODE) {
+  console.log("NOTES_SECTIONS_BACKFILL_OK=1 reason=SKIP_WRITE_UPDATE_MODE");
+  process.exit(0);
 }
 
 const payload = readJson(MAP_PATH);

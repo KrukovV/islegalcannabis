@@ -13,10 +13,23 @@
   "notes_text_len": 34,
   "notes": "Legal to possess up to 3 oz (85 g)",
   "notes_raw": "Legal to possess up to 3 oz (85 g)",
+  "notes_sections_used": [
+    "notes_raw"
+  ],
+  "notes_main_article": "",
+  "notes_rev": "",
+  "notes_kind": "RICH",
+  "notes_reason_code": "PARSED_SECTIONS",
   "recreational_status": "Legal",
   "medical_status": "Unknown",
+  "source_type": "WIKI_US_JURISDICTION",
+  "primary_source": "WIKI_US_JURISDICTION",
+  "source_page": "Legality of cannabis by U.S. jurisdiction",
+  "source_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
+  "source_revision": "1335166773",
+  "source_table": "states",
   "wiki_revision_id": "1335166773",
-  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "fetched_at": "2026-02-12T19:20:54.889Z",
   "source": "states",
   "revision_id": "1335166773"
 }

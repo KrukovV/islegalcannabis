@@ -28,10 +28,23 @@
   "notes_text_len": 368,
   "notes": "Up to 7.5 g is considered an amount for personal use, and is punished with a fine. Large amounts and distribution are criminal offenses punishable with a custodial sentence of up to 5 years. Medical cannabis is technically legal, but to get a prescription is an arduous process and is practically never given, with a single patient having received Sativex preparation.",
   "notes_raw": "{{main|Cannabis in Estonia}} Up to {{cvt|7.5|g|frac=4}} is considered an amount for personal use, and is punished with a fine. Large amounts and distribution are criminal offenses punishable with a custodial sentence of up to 5 years.<ref>{{citation |url = http://www.eupedia.com/europe/maps_of_europe.shtml#cannabis |title = Europe Guide : Maps of Europe by language, religion, population density, hair and eye color, etc |publisher = Eupedia.com |date = 19 April 1994 |access-date = 17 February 2011 |archive-date = 28 August 2019 |archive-url = https://web.archive.org/web/20190828073814/https://www.eupedia.com/europe/maps_of_europe.shtml#cannabis |url-status = live }}</ref> Medical cannabis is technically legal, but to get a prescription is an arduous process and is practically never given, with a single patient having received Sativex preparation.<ref>{{Cite web |title=Ravikanepi taotlemine {{!}} Ravikanep |url=https://ravikanep.ee/ravikanepi-taotlemine/ |access-date=2024-10-13 |language=et}}</ref>",
+  "notes_sections_used": [
+    "notes_raw"
+  ],
+  "notes_main_article": "Cannabis in Estonia",
+  "notes_rev": "",
+  "notes_kind": "RICH",
+  "notes_reason_code": "HAS_EXTRA_TEXT",
   "recreational_status": "Legal",
   "medical_status": "Legal",
-  "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source_type": "WIKI_COUNTRIES",
+  "primary_source": "WIKI_COUNTRIES",
+  "source_page": "Legality of cannabis",
+  "source_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "source_revision": "1336080043",
+  "source_table": "countries",
+  "wiki_revision_id": "1336080043",
+  "fetched_at": "2026-02-12T19:20:54.889Z",
   "source": "countries",
-  "revision_id": "1332405714"
+  "revision_id": "1336080043"
 }

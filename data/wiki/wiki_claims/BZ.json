@@ -28,10 +28,23 @@
   "notes_text_len": 104,
   "notes": "Possession prohibited, but use is common and largely tolerated. Possession of up to 10 g decriminalized.",
   "notes_raw": "{{main|Cannabis in Belize}} Possession prohibited, but use is common and largely tolerated.<ref>{{cite web|last=Hubbard|first=Kirsten|title=Drug Laws and Penalties in Central America|url=http://gocentralamerica.about.com/od/culturehistory/p/Central-America-Drug-Laws-And-Penalties.htm|publisher=About.com|access-date=2 January 2014|archive-date=14 May 2017|archive-url=https://web.archive.org/web/20170514082404/http://gocentralamerica.about.com/od/culturehistory/p/Central-America-Drug-Laws-And-Penalties.htm|url-status=dead}}</ref> Possession of up to {{cvt|10|g|frac=8}} decriminalized.<ref>{{cite news |title=The Future of Marijuana under Debate |url=https://edition.channel5belize.com/archives/157025 |access-date=7 January 2024 |work=News 5 |date=5 December 2017}}</ref>",
+  "notes_sections_used": [
+    "notes_raw"
+  ],
+  "notes_main_article": "Cannabis in Belize",
+  "notes_rev": "",
+  "notes_kind": "RICH",
+  "notes_reason_code": "HAS_EXTRA_TEXT",
   "recreational_status": "Legal",
   "medical_status": "Illegal",
-  "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source_type": "WIKI_COUNTRIES",
+  "primary_source": "WIKI_COUNTRIES",
+  "source_page": "Legality of cannabis",
+  "source_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "source_revision": "1336080043",
+  "source_table": "countries",
+  "wiki_revision_id": "1336080043",
+  "fetched_at": "2026-02-12T19:20:54.889Z",
   "source": "countries",
-  "revision_id": "1332405714"
+  "revision_id": "1336080043"
 }

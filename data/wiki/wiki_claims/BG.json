@@ -28,10 +28,23 @@
   "notes_text_len": 173,
   "notes": "Cannabis is classified as a class A (High-risk) drug, together with heroin, cocaine, amphetamines, and MDMA (ecstasy). Until 2004, a loosely defined \"personal dose\" existed.",
   "notes_raw": "{{main|Cannabis in Bulgaria}} Cannabis is classified as a class A (High-risk) drug, together with [[heroin]], [[cocaine]], [[amphetamines]], and [[MDMA]] (ecstasy). Until 2004, a loosely defined \"personal dose\" existed.<ref>{{cite web |title=Bulgaria: Country Drug Report 2017 |url=http://www.emcdda.europa.eu/countries/drug-reports/2017/bulgaria/drug-laws-and-offences_en |publisher=European Monitoring Centre for Drugs and Drug Addiction |access-date=17 October 2018 |archive-date=17 October 2018 |archive-url=https://web.archive.org/web/20181017123705/http://www.emcdda.europa.eu/countries/drug-reports/2017/bulgaria/drug-laws-and-offences_en |url-status=live }}</ref>",
+  "notes_sections_used": [
+    "notes_raw"
+  ],
+  "notes_main_article": "Cannabis in Bulgaria",
+  "notes_rev": "",
+  "notes_kind": "RICH",
+  "notes_reason_code": "HAS_EXTRA_TEXT",
   "recreational_status": "Illegal",
   "medical_status": "Illegal",
-  "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source_type": "WIKI_COUNTRIES",
+  "primary_source": "WIKI_COUNTRIES",
+  "source_page": "Legality of cannabis",
+  "source_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "source_revision": "1336080043",
+  "source_table": "countries",
+  "wiki_revision_id": "1336080043",
+  "fetched_at": "2026-02-12T19:20:54.889Z",
   "source": "countries",
-  "revision_id": "1332405714"
+  "revision_id": "1336080043"
 }

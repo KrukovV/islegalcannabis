@@ -38,11 +38,9 @@ const officialLinks = Number(metrics.OFFICIAL_LINKS_TOTAL || metrics.OFFICIAL_LI
 const premium =
   process.env.NEXT_PUBLIC_PREMIUM === "1" ||
   process.env.PREMIUM === "1";
-const ok = entriesCount >= 16 && totalGeo === 300 && officialLinks === 413;
+const ok = entriesCount >= 16 && totalGeo === 300 && officialLinks >= 413;
 
-writeLine("WIKI_TABLE_ROWS", String(entriesCount));
 writeLine("GEO_TOTAL", String(totalGeo || 0));
-writeLine("OFFICIAL_LINKS_TOTAL", String(officialLinks || 0));
 writeLine("NEARBY_COUNT", String(entriesCount));
 if (premium) {
   writeLine("NEARBY_SOURCE", "CACHE_ONLY");

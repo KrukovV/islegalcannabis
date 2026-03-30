@@ -28,10 +28,23 @@
   "notes_text_len": 109,
   "notes": "Cannabis was banned in Suriname in the early 20th century, having been popularized there by Asian immigrants.",
   "notes_raw": "{{main|Cannabis in Suriname}} Cannabis was banned in Suriname in the early 20th century, having been popularized there by Asian immigrants.<ref name=\"Hoefte1998\">{{cite book|author=Rosemarijn Hoefte|title=In Place of Slavery: A Social History of British Indian and Javanese Laborers in Suriname|url=https://books.google.com/books?id=EPzT5AYLvL0C&pg=PA160|year=1998|publisher=University Press of Florida|isbn=978-0-8130-1625-2|pages=160–}}</ref>",
+  "notes_sections_used": [
+    "notes_raw"
+  ],
+  "notes_main_article": "Cannabis in Suriname",
+  "notes_rev": "",
+  "notes_kind": "RICH",
+  "notes_reason_code": "HAS_EXTRA_TEXT",
   "recreational_status": "Illegal",
   "medical_status": "Illegal",
-  "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source_type": "WIKI_COUNTRIES",
+  "primary_source": "WIKI_COUNTRIES",
+  "source_page": "Legality of cannabis",
+  "source_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "source_revision": "1336080043",
+  "source_table": "countries",
+  "wiki_revision_id": "1336080043",
+  "fetched_at": "2026-02-12T19:20:54.889Z",
   "source": "countries",
-  "revision_id": "1332405714"
+  "revision_id": "1336080043"
 }

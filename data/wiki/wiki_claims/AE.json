@@ -28,10 +28,23 @@
   "notes_text_len": 96,
   "notes": "In 2008, even the smallest amounts of the drug could lead to a mandatory 4-year prison sentence.",
   "notes_raw": "{{main|Cannabis in the United Arab Emirates}} In 2008, even the smallest amounts of the drug could lead to a mandatory 4-year prison sentence.<ref>{{cite news |url = https://news.bbc.co.uk/1/hi/uk/7234786.stm |title = Tourists warned of UAE drug laws |publisher = [[BBC News]] |date = 8 February 2008 |access-date = 17 February 2011 |archive-url=https://web.archive.org/web/20170420193949/http://news.bbc.co.uk/2/hi/uk_news/7234786.stm |archive-date=20 April 2017 |url-status=live}}</ref>{{Update inline|date=October 2023|reason=Laws changed in 2016 and again in 2022.}}",
+  "notes_sections_used": [
+    "notes_raw"
+  ],
+  "notes_main_article": "Cannabis in the United Arab Emirates",
+  "notes_rev": "",
+  "notes_kind": "RICH",
+  "notes_reason_code": "HAS_EXTRA_TEXT",
   "recreational_status": "Illegal",
   "medical_status": "Illegal",
-  "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source_type": "WIKI_COUNTRIES",
+  "primary_source": "WIKI_COUNTRIES",
+  "source_page": "Legality of cannabis",
+  "source_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "source_revision": "1336080043",
+  "source_table": "countries",
+  "wiki_revision_id": "1336080043",
+  "fetched_at": "2026-02-12T19:20:54.889Z",
   "source": "countries",
-  "revision_id": "1332405714"
+  "revision_id": "1336080043"
 }

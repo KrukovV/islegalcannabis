@@ -1,0 +1,86 @@
+{
+  "mode": "prepare_only",
+  "description": "Safe GitHub publish prep manifest. Preview only; no auto-push.",
+  "allow": {
+    "exact": [
+      ".gitmodules",
+      ".gitignore",
+      "AGENTS.md",
+      "GOLDEN.md",
+      "README.md",
+      "eslint.config.js",
+      "package.json",
+      "package-lock.json",
+      "playwright.config.ts",
+      "VERSION"
+    ],
+    "prefix": [
+      ".github/",
+      "ai/",
+      "apps/",
+      "packages/",
+      "docs/",
+      "tests/",
+      "tools/",
+      "vendor/",
+      "data/fallback/",
+      "data/geo/",
+      "data/iso/",
+      "data/iso3166/",
+      "data/jurisdictions/",
+      "data/legal_ssot/",
+      "data/official_domains.json",
+      "data/centroids/",
+      "data/geojson/",
+      "data/laws/",
+      "data/official/",
+      "data/retailers/",
+      "data/reviews/",
+      "data/seo/",
+      "data/sources/",
+      "data/sources_registry/",
+      "data/sources_registry.json",
+      "data/ssot/"
+    ]
+  },
+  "deny": {
+    "exact": [
+      ".codexignore",
+      "CONTINUITY.md",
+      "ci-final.txt",
+      "data/wiki/wiki_claim_baseline.json",
+      "data/wiki/wiki_claims.json",
+      "data/wiki/wiki_claims.meta.json",
+      "data/wiki/wiki_claims_enriched.json",
+      "data/wiki/wiki_claims_map.json",
+      "data/wiki/wiki_official_badges.json",
+      "data/wiki/wiki_official_eval.json",
+      "data/wiki/wiki_refs.json",
+      "data/wiki/ssot_legality_table.json"
+    ],
+    "prefix": [
+      ".checkpoints/",
+      "Artifacts/",
+      "Reports/",
+      "QUARANTINE/",
+      "cache/",
+      "playwright-report/",
+      "test-results/",
+      "data/baselines/",
+      "data/import/",
+      "data/inbox/",
+      "data/legal_raw/",
+      "data/source_snapshots/",
+      "data/ssot_snapshots/",
+      "data/wiki/cache/",
+      "data/wiki/wiki_claims/",
+      "data/wiki_ssot/",
+      "apps/web/public/ssot/"
+    ],
+    "suffix": [
+      ".log",
+      ".tgz",
+      ".DS_Store"
+    ]
+  }
+}

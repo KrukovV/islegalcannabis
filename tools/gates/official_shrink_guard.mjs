@@ -6,9 +6,21 @@ import crypto from "node:crypto";
 const ROOT = process.cwd();
 const BASELINE_PATH = path.join(ROOT, "Reports", "official_domains.baseline.txt");
 const SSOT_PATH = path.join(ROOT, "data", "official", "official_domains.ssot.json");
-const OFFICIAL_EXPECTED = 413;
+const OFFICIAL_FILTERED_FLOOR = 418;
+const OFFICIAL_REGISTRY_FLOOR = 418;
 
 function readCurrentCount() {
+  if (!fs.existsSync(SSOT_PATH)) return null;
+  const payload = JSON.parse(fs.readFileSync(SSOT_PATH, "utf8"));
+  const list = Array.isArray(payload?.domains) ? payload.domains : [];
+  const filtered = list.filter((domain) => {
+    const value = String(domain || "").toLowerCase();
+    return value && !value.endsWith("wikipedia.org");
+  });
+  return filtered.length;
+}
+
+function readRawCount() {
   if (!fs.existsSync(SSOT_PATH)) return null;
   const payload = JSON.parse(fs.readFileSync(SSOT_PATH, "utf8"));
   const list = Array.isArray(payload?.domains) ? payload.domains : [];
@@ -19,7 +31,11 @@ function readCurrentHash() {
   if (!fs.existsSync(SSOT_PATH)) return "";
   const payload = JSON.parse(fs.readFileSync(SSOT_PATH, "utf8"));
   const list = Array.isArray(payload?.domains) ? payload.domains : [];
-  return crypto.createHash("sha256").update(JSON.stringify(list)).digest("hex").slice(0, 12);
+  const filtered = list.filter((domain) => {
+    const value = String(domain || "").toLowerCase();
+    return value && !value.endsWith("wikipedia.org");
+  });
+  return crypto.createHash("sha256").update(JSON.stringify(filtered)).digest("hex").slice(0, 12);
 }
 
 function readSourcesCounts() {
@@ -34,6 +50,7 @@ function readSourcesCounts() {
 }
 
 const current = readCurrentCount();
+const rawCurrent = readRawCount();
 const baseline = current ?? 0;
 const sourceCounts = readSourcesCounts();
 const currentHash = readCurrentHash();
@@ -50,12 +67,20 @@ if (current === null) {
   console.log("OFFICIAL_DOMAINS_ERROR=missing_ssot");
   process.exit(2);
 }
-if (current !== OFFICIAL_EXPECTED) {
+if (rawCurrent === null || rawCurrent < OFFICIAL_REGISTRY_FLOOR) {
   console.log("OFFICIAL_DOMAINS_GUARD=FAIL");
-  console.log(`OFFICIAL_DOMAINS_ERROR=OFFICIAL_BASELINE_CHANGED expected=${OFFICIAL_EXPECTED} got=${current}`);
+  console.log(`OFFICIAL_DOMAINS_ERROR=OFFICIAL_REGISTRY_SHRANK expected_min=${OFFICIAL_REGISTRY_FLOOR} got=${rawCurrent ?? 0}`);
+  process.exit(2);
+}
+if (current < OFFICIAL_FILTERED_FLOOR) {
+  console.log("OFFICIAL_DOMAINS_GUARD=FAIL");
+  console.log(`OFFICIAL_DOMAINS_ERROR=OFFICIAL_FILTERED_FLOOR expected_min=${OFFICIAL_FILTERED_FLOOR} got=${current}`);
   process.exit(2);
 }
 console.log(`OFFICIAL_DOMAINS_CURRENT=${current}`);
+console.log(`OFFICIAL_DOMAINS_RAW_CURRENT=${rawCurrent}`);
+console.log(`OFFICIAL_REGISTRY_FLOOR=${OFFICIAL_REGISTRY_FLOOR}`);
+console.log(`OFFICIAL_FILTERED_FLOOR=${OFFICIAL_FILTERED_FLOOR}`);
 console.log(`OFFICIAL_DOMAINS_NOW=${current}`);
 const shrinkOk = process.env.OFFICIAL_SHRINK_OK === "1" ? "1" : "0";
 console.log(`OFFICIAL_SHRINK_OK=${shrinkOk}`);

@@ -28,10 +28,23 @@
   "notes_text_len": 262,
   "notes": "Prohibited, but the smoking of hashish in Peshawar and the northern parts of Pakistan tends to be tolerated. One may be sent to jail for up to six months if found with charas in other parts of the country. CBD legalized by cabinet announcement in September 2020.",
   "notes_raw": "{{main|Cannabis in Pakistan}} Prohibited, but the smoking of hashish in [[Peshawar]] and the northern parts of Pakistan tends to be tolerated. One may be sent to jail for up to six months if found with [[charas]] in other parts of the country.<ref>{{citation |url = http://www.erowid.org/plants/cannabis/cannabis_law.shtml#pakistan |title = Cannabis legal status vault – Pakistan/Peshawar |publisher = Erowid.org |access-date = 5 June 2018 |archive-date = 15 December 2019 |archive-url = https://web.archive.org/web/20191215152836/https://www.erowid.org/plants/cannabis/cannabis_law.shtml#pakistan |url-status = live }}</ref> CBD legalized by cabinet announcement in September 2020.<ref name=\"ExpressTribune\" />",
+  "notes_sections_used": [
+    "notes_raw"
+  ],
+  "notes_main_article": "Cannabis in Pakistan",
+  "notes_rev": "",
+  "notes_kind": "RICH",
+  "notes_reason_code": "HAS_EXTRA_TEXT",
   "recreational_status": "Legal",
   "medical_status": "Legal",
-  "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source_type": "WIKI_COUNTRIES",
+  "primary_source": "WIKI_COUNTRIES",
+  "source_page": "Legality of cannabis",
+  "source_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "source_revision": "1336080043",
+  "source_table": "countries",
+  "wiki_revision_id": "1336080043",
+  "fetched_at": "2026-02-12T19:20:54.889Z",
   "source": "countries",
-  "revision_id": "1332405714"
+  "revision_id": "1336080043"
 }

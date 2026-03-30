@@ -20,6 +20,15 @@ import { buildExtrasItems, extrasPreview } from "@/lib/extras";
 import { findNearestLegalForProfile } from "@/lib/geo/nearestLegal";
 import { findNearestBetterBorder } from "@/lib/geo/nearestBorder";
 import { buildWikiBlock, withWikiClaim } from "../../../../../../core/ssot/wiki_status";
+import {
+  buildDisplayStatus,
+  buildNeedsReviewStatus,
+  buildVerifyLinks,
+  geoConfidenceScore,
+  isMachineVerifiedFresh,
+  loadSsotChangedIds,
+  normalizeRegionName
+} from "./helpers";
 import fs from "node:fs";
 import path from "node:path";
 import { spawnSync } from "node:child_process";
@@ -27,53 +36,6 @@ import { spawnSync } from "node:child_process";
 const CACHE_WINDOW_MINUTES = 120;
 const US_ADM1_PATH = path.join(process.cwd(), "..", "..", "data", "centroids", "us_adm1.json");
 let usAdm1NameMap: Record<string, string> | null = null;
-
-function buildVerifyLinks(
-  sources: Array<{ title: string; url: string }> | undefined,
-  isoMeta?: ReturnType<typeof getIsoMeta> | null
-) {
-  const links = Array.isArray(sources) ? [...sources] : [];
-  if (isoMeta) {
-    links.push({ title: "ISO 3166-1", url: isoMeta.verify.isoObp });
-    links.push({ title: "ISO 3166-1 alpha-2", url: isoMeta.verify.wiki });
-  }
-  return links;
-}
-
-function buildNeedsReviewStatus() {
-  return {
-    level: "gray" as const,
-    label: STATUS_BANNERS.needs_review.title,
-    icon: "⚠️"
-  };
-}
-
-function buildProvisionalStatus() {
-  return {
-    level: "yellow" as const,
-    label: STATUS_BANNERS.provisional.title,
-    icon: "⚠️"
-  };
-}
-
-function buildDisplayStatus(profile: { status: string }) {
-  if (profile.status === "needs_review" || profile.status === "unknown") {
-    return buildNeedsReviewStatus();
-  }
-  if (profile.status === "provisional") {
-    return buildProvisionalStatus();
-  }
-  return computeStatus(profile as Parameters<typeof computeStatus>[0]);
-}
-
-function normalizeRegionName(value: string) {
-  return String(value || "")
-    .toLowerCase()
-    .replace(/['’]/g, "")
-    .replace(/[^a-z0-9]+/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-}
 
 function loadUsAdm1NameMap() {
   if (usAdm1NameMap) return usAdm1NameMap;
@@ -104,23 +66,6 @@ function resolveUsRegion(country: string, region: string | undefined) {
     return { region: code, source: "adm1" };
   }
   return { region: upper };
-}
-
-function loadSsotChangedIds() {
-  const reportPath = path.join(process.cwd(), "Reports", "ssot-diff", "last_run.json");
-  if (!fs.existsSync(reportPath)) return new Set<string>();
-  try {
-    const data = JSON.parse(fs.readFileSync(reportPath, "utf8"));
-    if (data?.status !== "changed") return new Set<string>();
-    const ids = Array.isArray(data.changed_ids) ? data.changed_ids : [];
-    return new Set(
-      ids
-        .map((id: unknown) => String(id || "").toUpperCase())
-        .filter(Boolean)
-    );
-  } catch {
-    return new Set<string>();
-  }
 }
 
 const OFFLINE_FALLBACK_PATH = path.join(
@@ -156,16 +101,6 @@ function appendSsotLine(line: string) {
       // Ignore SSOT append failures.
     }
   }
-}
-
-function geoConfidenceScore(source: string, normalized: string | null) {
-  if (source === "manual") return 1.0;
-  if (source === "gps") return 0.9;
-  if (source === "ip") return 0.6;
-  if (normalized === "high") return 0.9;
-  if (normalized === "medium") return 0.7;
-  if (normalized === "low") return 0.5;
-  return 0.0;
 }
 
 function writeGeoLocSsot(
@@ -230,19 +165,6 @@ function getAutoVerifiedEntry(country: string) {
   return (payload as Record<string, unknown>)[country.toUpperCase()] ?? null;
 }
 
-
-function isMachineVerifiedFresh(entry: Record<string, unknown> | null, ttlDays = 45) {
-  if (!entry || ttlDays <= 0) return false;
-  const ts =
-    (entry as { verified_at?: string; retrieved_at?: string; generated_at?: string })
-      .verified_at ||
-    (entry as { retrieved_at?: string }).retrieved_at ||
-    (entry as { generated_at?: string }).generated_at;
-  if (!ts) return false;
-  const ageMs = Date.now() - new Date(ts).getTime();
-  if (!Number.isFinite(ageMs)) return false;
-  return ageMs <= ttlDays * 24 * 60 * 60 * 1000;
-}
 
 function runOnDemandVerify(iso2: string) {
   const scriptPath = path.join(

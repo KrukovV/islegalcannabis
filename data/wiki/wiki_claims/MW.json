@@ -28,10 +28,23 @@
   "notes_text_len": 166,
   "notes": "Illegal but widely used and cultivated; Malawian cannabis is famed internationally for its quality. Chamba is grown mainly in central and northern regions like Mzuzu.",
   "notes_raw": "{{main|Cannabis in Malawi}} Illegal but widely used and cultivated; Malawian cannabis is famed internationally for its quality.<ref>{{cite news|url=https://news.bbc.co.uk/2/hi/africa/920052.stm |title=Malawi Rastas' marijuana struggle |publisher=[[BBC News]] |date=11 September 2000 |access-date=20 April 2011 |archive-url=https://web.archive.org/web/20180227110028/http://news.bbc.co.uk/2/hi/africa/920052.stm |archive-date=27 February 2018 |url-status=live}}</ref> Chamba is grown mainly in central and northern regions like [[Mzuzu]].<ref>{{cite news|url=https://www.nytimes.com/1998/12/17/world/marijuana-cultivation-increases-in-malawi.html |title=Marijuana Cultivation Increases in Malawi |work=[[The New York Times]] |agency=[[Agence France-Presse]] |date=17 December 1998 |access-date=20 April 2011 |archive-url=https://web.archive.org/web/20180615010423/https://www.nytimes.com/1998/12/17/world/marijuana-cultivation-increases-in-malawi.html |archive-date=15 June 2018 |url-status=live |url-access=limited}}</ref>",
+  "notes_sections_used": [
+    "notes_raw"
+  ],
+  "notes_main_article": "Cannabis in Malawi",
+  "notes_rev": "",
+  "notes_kind": "RICH",
+  "notes_reason_code": "HAS_EXTRA_TEXT",
   "recreational_status": "Illegal",
   "medical_status": "Legal",
-  "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source_type": "WIKI_COUNTRIES",
+  "primary_source": "WIKI_COUNTRIES",
+  "source_page": "Legality of cannabis",
+  "source_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "source_revision": "1336080043",
+  "source_table": "countries",
+  "wiki_revision_id": "1336080043",
+  "fetched_at": "2026-02-12T19:20:54.889Z",
   "source": "countries",
-  "revision_id": "1332405714"
+  "revision_id": "1336080043"
 }

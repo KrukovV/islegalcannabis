@@ -123,8 +123,8 @@ export default async function CheckPage({
   const truthLevelLabel = truthLevel;
   const truthReasonCodes = Array.isArray(entry.reasons) ? entry.reasons : [];
   const hasOfficialOverride = Boolean(entry.officialOverride);
-  const effectiveRec = entry.recDerived || entry.recEffective || "Unknown";
-  const effectiveMed = entry.medDerived || entry.medEffective || "Unknown";
+  const effectiveRec = entry.finalRecStatus || "Unknown";
+  const effectiveMed = entry.finalMedStatus || "Unknown";
   const wikiUsed = Boolean(entry.wikiPage);
   const officialCount = Number.isFinite(entry.officialLinksCount)
     ? entry.officialLinksCount
@@ -138,6 +138,10 @@ export default async function CheckPage({
     medEffective: effectiveMed,
     reasons: truthReasonCodes
   });
+  const notesTriggerPhrases = Array.isArray(entry.notesTriggerPhrases) ? entry.notesTriggerPhrases : [];
+  const notesInterpretationSummary = entry.notesInterpretationSummary || "Notes only explain the SSOT status.";
+  const evidenceDelta = entry.evidenceDelta || "NONE";
+  const wikiDiffers = entry.wikiRecStatus !== effectiveRec || entry.wikiMedStatus !== effectiveMed;
   const truthBadge = statusTruthBadge(truthLevel);
   const ssotText = SSOTStatusText({
     truthLevel,
@@ -179,6 +183,37 @@ export default async function CheckPage({
             <div className={styles.metaLabel}>
               Medical: Статус (по данным): {explain.medStatusRu}
             </div>
+            {wikiDiffers ? (
+              <>
+                <div className={styles.metaLabel}>Wiki Rec: {entry.wikiRecStatus || "Unknown"}</div>
+                <div className={styles.metaLabel}>Wiki Med: {entry.wikiMedStatus || "Unknown"}</div>
+              </>
+            ) : null}
+            <div className={styles.metaLabel}>Final source: {entry.truthSourceLabel || "Unknown"}</div>
+            <div className={styles.metaLabel}>Override reason: {entry.statusOverrideReason || "NONE"}</div>
+            <div className={styles.metaLabel}>Official strength: {entry.effectiveOfficialStrength || "NONE"}</div>
+            <div className={styles.metaLabel}>Snapshot: {entry.finalSnapshotId || "UNCONFIRMED"}</div>
+            <div className={styles.metaLabel}>Built at: {entry.snapshotBuiltAt || "UNCONFIRMED"}</div>
+            <div className={styles.metaLabel}>Dataset hash: {entry.snapshotDatasetHash || "UNCONFIRMED"}</div>
+            <div className={styles.metaLabel}>
+              Notes affecting interpretation: Source {entry.evidenceSourceType || "none"} · Does it change final status?{" "}
+              {entry.notesAffectFinalStatus ? "yes" : "no"}
+            </div>
+            <div className={styles.metaLabel}>Why it matters: {notesInterpretationSummary}</div>
+            <div className={styles.metaLabel}>Context: {entry.contextNote || "-"}</div>
+            <div className={styles.metaLabel}>Enforcement: {entry.enforcementNote || "-"}</div>
+            <div className={styles.metaLabel}>Social reality: {entry.socialRealityNote || "-"}</div>
+            <div className={styles.metaLabel}>
+              Trigger phrase: {entry.triggerPhraseExcerpt ? <strong>{entry.triggerPhraseExcerpt}</strong> : "-"}
+            </div>
+            {evidenceDelta !== "NONE" ? (
+              <div className={styles.metaLabel}>
+                <strong>Notes suggest stronger status than Wiki</strong>
+              </div>
+            ) : null}
+            {notesTriggerPhrases.length > 1 ? (
+              <div className={styles.metaLabel}>Extra trigger phrases: {notesTriggerPhrases.slice(1).join(" | ")}</div>
+            ) : null}
             <div className={styles.metaLabel}>Уверенность: {explain.reliabilityText}</div>
             <div className={styles.metaLabel}>Почему: {explain.whyText}</div>
             {explain.nextStepText ? (

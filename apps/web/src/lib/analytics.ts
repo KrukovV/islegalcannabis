@@ -1,4 +1,7 @@
 export type AnalyticsEvent =
+  | "page_view"
+  | "premium_click"
+  | "near_legal_search"
   | "check_performed"
   | "paraphrase_generated"
   | "upgrade_clicked";

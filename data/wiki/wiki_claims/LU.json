@@ -28,10 +28,23 @@
   "notes_text_len": 74,
   "notes": "Decriminalized in 2001. Home use and cultivation legal since 21 July 2023.",
   "notes_raw": "{{main|Cannabis in Luxembourg}} Decriminalized in 2001.<ref>{{citation |title=Decriminalisation in Europe? |url=https://www.emcdda.europa.eu/attachements.cfm/att_5741_EN_Decriminalisation_Legal_Approaches.pdf |publisher=European Monitoring Centre for Drugs and Drug Addiction |date=November 2001}}</ref> Home use and cultivation legal since 21 July 2023.<ref name=\"lu\" /><ref name=\"law Luxembourg\">{{Cite act |language=fr |date=10 July 2023 |title=Loi du 10 juillet 2023 portant modification de la loi modifiée du 19 février 1973 concernant la vente de substances médicamenteuses et la lutte contre la toxicomanie |trans-title=Law of 10 July 2023 amending the amended law of 19 February 1973 concerning the sale of medicinal substances and the fight against drug addiction |url=https://mj.gouvernement.lu/dam-assets/dossiers/cannabis/loi-du-10-juillet-2023-cannabis.pdf |access-date=2024-01-16 |url-status=live |archive-url=https://web.archive.org/web/20240109044110/https://mj.gouvernement.lu/dam-assets/dossiers/cannabis/loi-du-10-juillet-2023-cannabis.pdf |archive-date=2024-01-09}}</ref>",
+  "notes_sections_used": [
+    "notes_raw"
+  ],
+  "notes_main_article": "Cannabis in Luxembourg",
+  "notes_rev": "",
+  "notes_kind": "RICH",
+  "notes_reason_code": "HAS_EXTRA_TEXT",
   "recreational_status": "Legal",
   "medical_status": "Legal",
-  "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source_type": "WIKI_COUNTRIES",
+  "primary_source": "WIKI_COUNTRIES",
+  "source_page": "Legality of cannabis",
+  "source_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "source_revision": "1336080043",
+  "source_table": "countries",
+  "wiki_revision_id": "1336080043",
+  "fetched_at": "2026-02-12T19:20:54.889Z",
   "source": "countries",
-  "revision_id": "1332405714"
+  "revision_id": "1336080043"
 }

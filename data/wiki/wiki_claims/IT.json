@@ -28,10 +28,23 @@
   "notes_text_len": 280,
   "notes": "Possession of small amounts for personal use is a misdemeanor subject to fines and the suspension of documents (passports or driver's licenses). Sale is punishable by imprisonment, even if in small amounts. Licensed cultivation for medicinal and industrial use strictly regulated.",
   "notes_raw": "{{main|Cannabis in Italy}} Possession of small amounts for personal use is a misdemeanor subject to fines and the suspension of documents (passports or driver's licenses). Sale is punishable by imprisonment, even if in small amounts. Licensed cultivation for medicinal and industrial use strictly regulated.<ref>{{cite web|url=http://www.prefetturateramo.linkonline.it/REFERENDUM/PRECEDENTI/1974-1993.htm|title=linkonline.it|access-date=14 January 2015|archive-date=26 December 2018|archive-url=https://web.archive.org/web/20181226021414/http://www.prefetturateramo.linkonline.it/REFERENDUM/PRECEDENTI/1974-1993.htm|url-status=live}}</ref>",
+  "notes_sections_used": [
+    "notes_raw"
+  ],
+  "notes_main_article": "Cannabis in Italy",
+  "notes_rev": "",
+  "notes_kind": "RICH",
+  "notes_reason_code": "HAS_EXTRA_TEXT",
   "recreational_status": "Legal",
   "medical_status": "Legal",
-  "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source_type": "WIKI_COUNTRIES",
+  "primary_source": "WIKI_COUNTRIES",
+  "source_page": "Legality of cannabis",
+  "source_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "source_revision": "1336080043",
+  "source_table": "countries",
+  "wiki_revision_id": "1336080043",
+  "fetched_at": "2026-02-12T19:20:54.889Z",
   "source": "countries",
-  "revision_id": "1332405714"
+  "revision_id": "1336080043"
 }

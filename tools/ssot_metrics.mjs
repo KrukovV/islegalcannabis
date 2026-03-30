@@ -78,7 +78,7 @@ const OFFICIAL_LINKS_TOTAL = official.domains.length;
 
 const shrinkDetected = WIKI_ROWS_TOTAL < GEO_TOTAL ? 1 : 0;
 const geoOk = GEO_TOTAL === 300;
-const officialOk = OFFICIAL_LINKS_TOTAL === 413;
+const officialOk = OFFICIAL_LINKS_TOTAL >= 418;
 const metricsOk = shrinkDetected === 0 && geoOk && officialOk;
 
 writeLine("GEO_TOTAL", GEO_TOTAL);

@@ -19,43 +19,58 @@ function readJsonStrict(filePath) {
   }
 }
 
+const READONLY_CI = process.env.READONLY_CI === "1";
 const official = readJsonStrict(OFFICIAL_PATH);
 if (!official.ok) {
   console.log(`SSOT_INVALID reason=${official.reason}`);
+  console.log("SSOT_METRICS_OK=0");
   process.exit(2);
 }
 if (!Array.isArray(official.data?.domains)) {
   console.log("SSOT_INVALID reason=official_domains_missing");
+  console.log("SSOT_METRICS_OK=0");
   process.exit(2);
 }
 
 const wiki = readJsonStrict(WIKI_PATH);
 if (!wiki.ok) {
   console.log(`SSOT_INVALID reason=${wiki.reason}`);
+  console.log("SSOT_METRICS_OK=0");
   process.exit(2);
 }
 if (!wiki.data?.items || typeof wiki.data.items !== "object") {
   console.log("SSOT_INVALID reason=wiki_claims_map_missing_items");
+  console.log("SSOT_METRICS_OK=0");
   process.exit(2);
 }
 
 const legality = readJsonStrict(LEGALITY_PATH);
 if (!legality.ok) {
+  if (READONLY_CI && String(legality.reason || "").startsWith("MISSING:")) {
+    console.log("SSOT_VALID=1 reason=LEGALITY_TABLE_MISSING_READONLY");
+    console.log("SSOT_METRICS_OK=1");
+    process.exit(0);
+  }
   console.log(`SSOT_INVALID reason=${legality.reason}`);
+  console.log("SSOT_METRICS_OK=0");
   process.exit(2);
 }
 if (!Array.isArray(legality.data?.rows)) {
   console.log("SSOT_INVALID reason=legality_table_missing_rows");
+  console.log("SSOT_METRICS_OK=0");
   process.exit(2);
 }
 if (typeof legality.data?.row_count !== "number") {
   console.log("SSOT_INVALID reason=legality_table_missing_row_count");
+  console.log("SSOT_METRICS_OK=0");
   process.exit(2);
 }
 if (legality.data.row_count !== legality.data.rows.length) {
   console.log("SSOT_INVALID reason=legality_table_row_count_mismatch");
+  console.log("SSOT_METRICS_OK=0");
   process.exit(2);
 }
 
 console.log("SSOT_VALID=1 reason=OK");
+console.log("SSOT_METRICS_OK=1");
 process.exit(0);

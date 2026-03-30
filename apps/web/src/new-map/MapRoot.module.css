@@ -1,0 +1,95 @@
+.root {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #c6d0d7;
+}
+
+.mapSurface {
+  position: absolute;
+  inset: 0;
+}
+
+.overlay {
+  position: absolute;
+  z-index: 2;
+  left: 20px;
+  top: 20px;
+  display: grid;
+  gap: 14px;
+  max-width: min(420px, calc(100vw - 40px));
+  pointer-events: none;
+}
+
+.card,
+.errorBox {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(103, 120, 133, 0.2);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(40, 55, 70, 0.12);
+  padding: 16px 18px;
+  color: #283746;
+}
+
+.eyebrow {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #5b7083;
+  margin-bottom: 8px;
+}
+
+.card h2 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.card p,
+.runtime,
+.meta,
+.errorBox {
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.runtime {
+  margin-top: 8px;
+  word-break: break-word;
+}
+
+.meta {
+  margin-top: 8px;
+  color: #607282;
+}
+
+.errorBox {
+  position: absolute;
+  z-index: 3;
+  right: 20px;
+  bottom: 20px;
+  max-width: min(420px, calc(100vw - 40px));
+  color: #8d1f1f;
+}
+
+@media (max-width: 720px) {
+  .overlay {
+    left: 12px;
+    top: 12px;
+    max-width: calc(100vw - 24px);
+  }
+
+  .card,
+  .errorBox {
+    border-radius: 14px;
+    padding: 14px;
+  }
+}

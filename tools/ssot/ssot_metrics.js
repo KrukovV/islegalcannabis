@@ -1,92 +1,88 @@
-const fs = require("fs");
-const path = require("path");
-
-const ROOT = process.cwd();
-
-const OFFICIAL_PATH = path.join(ROOT, "data", "official", "official_domains.ssot.json");
-const WIKI_CLAIMS_PATH = path.join(ROOT, "data", "wiki", "wiki_claims_map.json");
-const ALL_GEO_PATH = path.join(ROOT, "apps", "web", "src", "lib", "geo", "allGeo.ts");
-
-function readJson(filePath) {
-  if (!fs.existsSync(filePath)) return null;
-  try {
-    return JSON.parse(fs.readFileSync(filePath, "utf8"));
-  } catch {
-    return null;
-  }
-}
+const { computeMetrics } = require("./metrics_core");
 
 function writeLine(key, value) {
   process.stdout.write(`${key}=${value}\n`);
 }
 
-function loadAllGeo() {
-  if (!fs.existsSync(ALL_GEO_PATH)) return [];
-  const raw = fs.readFileSync(ALL_GEO_PATH, "utf8");
-  const match = raw.match(/ALL_GEO\\s*:\\s*string\\[]\\s*=\\s*\\[([\\s\\S]*?)\\]\\s*;/);
-  if (!match) return [];
-  const body = match[1];
-  const items = body
-    .split(",")
-    .map((token) => token.trim())
-    .filter(Boolean)
-    .map((token) => token.replace(/^['"]|['"]$/g, ""))
-    .filter(Boolean);
-  return items;
-}
-
-function getWikiNotes(entry) {
-  if (!entry || typeof entry !== "object") return "";
-  return String(entry.notesWiki || entry.notes_text || entry.notes || "");
-}
-
-const official = readJson(OFFICIAL_PATH);
-if (!official || !Array.isArray(official.domains)) {
+const metrics = computeMetrics();
+if (!metrics.ok) {
   writeLine("SSOT_METRICS_OK", "0");
-  writeLine("SSOT_METRICS_REASON", "OFFICIAL_SSOT_MISSING");
+  writeLine("SSOT_METRICS_REASON", metrics.reason || "SSOT_METRICS_FAIL");
   process.exit(2);
 }
 
-const wiki = readJson(WIKI_CLAIMS_PATH);
-if (!wiki || typeof wiki.items !== "object") {
-  writeLine("SSOT_METRICS_OK", "0");
-  writeLine("SSOT_METRICS_REASON", "WIKI_SSOT_MISSING");
-  process.exit(2);
-}
-
-const allGeo = loadAllGeo();
-if (!allGeo.length) {
-  writeLine("SSOT_METRICS_OK", "0");
-  writeLine("SSOT_METRICS_REASON", "ALL_GEO_MISSING");
-  process.exit(2);
-}
-
-const wikiItems = wiki.items || {};
-const wikiKeys = Object.keys(wikiItems);
-const missing = allGeo.filter((geo) => !wikiItems[geo]);
-let notesNonEmpty = 0;
-for (const geo of wikiKeys) {
-  const notes = getWikiNotes(wikiItems[geo]);
-  if (notes.trim().length > 0) notesNonEmpty += 1;
-}
-
-const GEO_TOTAL = allGeo.length;
-const WIKI_ROWS_TOTAL = wikiKeys.length;
-const WIKI_MISSING_TOTAL = missing.length;
-const WIKI_NOTES_NONEMPTY = notesNonEmpty;
-const WIKI_NOTES_EMPTY = Math.max(0, WIKI_ROWS_TOTAL - WIKI_NOTES_NONEMPTY);
-const OFFICIAL_LINKS_TOTAL = official.domains.length;
-
-const shrinkDetected = WIKI_ROWS_TOTAL < GEO_TOTAL ? 1 : 0;
-const geoOk = GEO_TOTAL === 300;
-const officialOk = OFFICIAL_LINKS_TOTAL === 413;
-const metricsOk = shrinkDetected === 0 && geoOk && officialOk;
-
-writeLine("GEO_TOTAL", GEO_TOTAL);
-writeLine("WIKI_ROWS_TOTAL", WIKI_ROWS_TOTAL);
-writeLine("WIKI_MISSING_TOTAL", WIKI_MISSING_TOTAL);
-writeLine("WIKI_NOTES_NONEMPTY", WIKI_NOTES_NONEMPTY);
-writeLine("WIKI_NOTES_EMPTY", WIKI_NOTES_EMPTY);
-writeLine("OFFICIAL_LINKS_TOTAL", OFFICIAL_LINKS_TOTAL);
-writeLine("SHRINK_DETECTED", String(shrinkDetected));
-writeLine("SSOT_METRICS_OK", metricsOk ? "1" : "0");
+writeLine("GEO_TOTAL", metrics.GEO_TOTAL);
+writeLine("COUNTRY_UNIVERSE_TOTAL", metrics.COUNTRY_UNIVERSE_TOTAL);
+writeLine("REF_UNIVERSE_TOTAL", metrics.REF_UNIVERSE_TOTAL);
+writeLine("ALL_GEO_TOTAL", metrics.ALL_GEO_TOTAL);
+writeLine("ALL_COUNTRIES_TOTAL", metrics.ALL_COUNTRIES_TOTAL);
+writeLine("STATES_TOTAL", metrics.STATES_TOTAL);
+writeLine("HAS_USA", metrics.HAS_USA);
+writeLine("GEO_TOTAL_RENDERABLE", metrics.GEO_TOTAL_RENDERABLE);
+writeLine("WIKI_SET_TOTAL", metrics.WIKI_SET_TOTAL);
+writeLine("WIKI_COUNTRY_TOTAL", metrics.WIKI_COUNTRY_TOTAL);
+writeLine("WIKI_STATES_TOTAL", metrics.WIKI_STATES_TOTAL);
+writeLine("WIKI_COUNTRY_ROWS", metrics.WIKI_COUNTRY_ROWS);
+writeLine("WIKI_COUNTRY_ROWS_MATCHED_ISO", metrics.WIKI_COUNTRY_ROWS_MATCHED_ISO);
+writeLine("WIKI_COUNTRY_MISSING", metrics.WIKI_COUNTRY_MISSING);
+writeLine("COUNTRY_WIKI_ROWS", metrics.COUNTRY_WIKI_ROWS);
+writeLine("COUNTRY_NOTES_WIKI_TOTAL", metrics.COUNTRY_NOTES_WIKI_TOTAL);
+writeLine("COUNTRY_MISSING_TOTAL", metrics.COUNTRY_MISSING_TOTAL);
+writeLine("COUNTRIES_ISO_TOTAL", metrics.COUNTRIES_ISO_TOTAL);
+writeLine("COUNTRIES_WIKI_COVERED", metrics.COUNTRIES_WIKI_COVERED);
+writeLine("COUNTRIES_MISSING", metrics.COUNTRIES_MISSING);
+writeLine("NOTES_WIKI_COVERED", metrics.NOTES_WIKI_COVERED);
+writeLine("US_STATES_TOTAL", metrics.US_STATES_TOTAL);
+writeLine("US_STATES_COVERED_TOTAL", metrics.US_STATES_COVERED_TOTAL);
+writeLine("US_STATES_MISSING_TOTAL", metrics.US_STATES_MISSING_TOTAL);
+writeLine("US_STATES_COVERED", metrics.US_STATES_COVERED);
+writeLine("US_STATES_MISSING", metrics.US_STATES_MISSING);
+writeLine(
+  "US_STATES_MISSING_LIST",
+  Array.isArray(metrics.US_STATES_MISSING_LIST) ? metrics.US_STATES_MISSING_LIST.join(",") : "-"
+);
+writeLine("ISO_MISSING_LEGALITY", metrics.ISO_MISSING_LEGALITY);
+writeLine("ISO_MISSING_LEGALITY_LIST", metrics.ISO_MISSING_LEGALITY_LIST);
+writeLine(
+  "MISSING_ISO2_LIST",
+  Array.isArray(metrics.MISSING_ISO2_LIST) ? metrics.MISSING_ISO2_LIST.join(",") : "-"
+);
+writeLine("MISSING_REASON_MAP", JSON.stringify(metrics.MISSING_REASON_MAP || {}));
+writeLine("WIKI_COUNTRY_ROWS_EMPTY_ISO", metrics.WIKI_COUNTRY_ROWS_EMPTY_ISO);
+writeLine("WIKI_COUNTRY_ROWS_NON_ISO", metrics.WIKI_COUNTRY_ROWS_NON_ISO);
+writeLine("WIKI_COUNTRY_ROWS_DUPLICATES", metrics.WIKI_COUNTRY_ROWS_DUPLICATES);
+writeLine("WIKI_NOTES_NONEMPTY", metrics.WIKI_NOTES_NONEMPTY);
+writeLine("WIKI_NOTES_EMPTY", metrics.WIKI_NOTES_EMPTY);
+writeLine("NOTES_WIKI_NONEMPTY", metrics.NOTES_WIKI_NONEMPTY);
+writeLine("NOTES_WIKI_EMPTY", metrics.NOTES_WIKI_EMPTY);
+writeLine("NOTES_WIKI_TOTAL", metrics.NOTES_WIKI_TOTAL);
+writeLine("WIKI_ONLY_TOTAL", metrics.WIKI_ONLY_TOTAL);
+writeLine("WIKI_ONLY_EMPTY_SOURCES", metrics.WIKI_ONLY_EMPTY_SOURCES);
+writeLine("LEGALITY_TABLE_ROWS", metrics.LEGALITY_TABLE_ROWS);
+writeLine("LEGALITY_COVERED_TOTAL", metrics.LEGALITY_COVERED_TOTAL);
+writeLine("LEGALITY_MISSING_TOTAL", metrics.LEGALITY_MISSING_TOTAL);
+writeLine("LEGALITY_MISSING_COUNTRIES_TOTAL", metrics.LEGALITY_MISSING_COUNTRIES_TOTAL);
+writeLine("LEGALITY_MISSING_STATES_TOTAL", metrics.LEGALITY_MISSING_STATES_TOTAL);
+writeLine("WIKI_TABLE_ROWS", metrics.WIKI_TABLE_ROWS);
+writeLine("WIKI_COVERED_TOTAL", metrics.WIKI_COVERED_TOTAL);
+writeLine("WIKI_MISSING_TOTAL", metrics.WIKI_MISSING_TOTAL);
+writeLine("WIKI_TABLE_MISSING_COUNTRIES_TOTAL", metrics.WIKI_TABLE_MISSING_COUNTRIES_TOTAL);
+writeLine("WIKI_TABLE_MISSING_STATES_TOTAL", metrics.WIKI_TABLE_MISSING_STATES_TOTAL);
+writeLine("STATUS_RECORD_COVERED_TOTAL", metrics.STATUS_RECORD_COVERED_TOTAL);
+writeLine("STATUS_RECORD_MISSING_TOTAL", metrics.STATUS_RECORD_MISSING_TOTAL);
+writeLine("SSOT_REF_COVERED", metrics.SSOT_REF_COVERED);
+writeLine("SSOT_REF_MISSING", metrics.SSOT_REF_MISSING);
+writeLine("SSOT_COVERED_TOTAL", metrics.SSOT_COVERED_TOTAL);
+writeLine("SSOT_MISSING_TOTAL", metrics.SSOT_MISSING_TOTAL);
+writeLine("COVERAGE_SOURCE_WIKI", metrics.COVERAGE_SOURCE_WIKI);
+writeLine("COVERAGE_SOURCE_OFFICIAL", metrics.COVERAGE_SOURCE_OFFICIAL);
+writeLine("COVERAGE_SOURCE_US_JURISDICTION", metrics.COVERAGE_SOURCE_US_JURISDICTION);
+writeLine("COVERAGE_SOURCE_UNKNOWN", metrics.COVERAGE_SOURCE_UNKNOWN);
+writeLine("SNAPSHOT_USED", metrics.SNAPSHOT_USED);
+writeLine("SNAPSHOT_REASON", metrics.SNAPSHOT_REASON);
+writeLine("OFFICIAL_LINKS_TOTAL", metrics.OFFICIAL_LINKS_TOTAL);
+writeLine("WORKTREE_DIRTY", metrics.WORKTREE_DIRTY);
+writeLine("DATA_SOURCE", "SSOT_ONLY");
+writeLine("CACHE_MODE", "ON");
+writeLine("SHRINK_DETECTED", String(metrics.SHRINK_DETECTED));
+writeLine("SSOT_METRICS_OK", metrics.SSOT_METRICS_OK ? "1" : "0");

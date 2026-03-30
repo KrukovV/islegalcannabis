@@ -28,10 +28,23 @@
   "notes_text_len": 157,
   "notes": "In December 2023, Parliament adopted a bill to legalize medical cannabis on second reading. It was signed into law by President Zelensky on 15 February 2024.",
   "notes_raw": "{{main|Cannabis in Ukraine}} In December 2023, Parliament adopted a bill to legalize medical cannabis on second reading.<ref>{{Cite news |last=Hilsman |first=Patrick |date=2023-07-13 |title=Ukrainian legislature passes medical marijuana law |url=https://www.upi.com/Top_News/World-News/2023/12/21/ukraine-Ukraine-medical-marijuana/2351703169298/ |access-date=2023-12-21 |publisher=[[United Press International]] |language=en-US}}</ref> It was signed into law by President Zelensky on 15 February 2024.<ref>{{cite news|title= Ukraine legalises cannabis for medical use|work=Reuters|date=15 February 2024 |url= https://www.reuters.com/world/europe/ukraine-legalises-cannabis-medical-use-2024-02-15/}}</ref>",
+  "notes_sections_used": [
+    "notes_raw"
+  ],
+  "notes_main_article": "Cannabis in Ukraine",
+  "notes_rev": "",
+  "notes_kind": "RICH",
+  "notes_reason_code": "HAS_EXTRA_TEXT",
   "recreational_status": "Illegal",
   "medical_status": "Legal",
-  "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source_type": "WIKI_COUNTRIES",
+  "primary_source": "WIKI_COUNTRIES",
+  "source_page": "Legality of cannabis",
+  "source_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "source_revision": "1336080043",
+  "source_table": "countries",
+  "wiki_revision_id": "1336080043",
+  "fetched_at": "2026-02-12T19:20:54.889Z",
   "source": "countries",
-  "revision_id": "1332405714"
+  "revision_id": "1336080043"
 }

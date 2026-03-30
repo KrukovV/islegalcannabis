@@ -28,10 +28,23 @@
   "notes_text_len": 138,
   "notes": "A non-binding referendum in August 2022 asked \"Should we review our cannabis laws to allow for research and medicinal use?\" 62% voted yes.",
   "notes_raw": "{{main|Cannabis in the Cook Islands}} A [[2022 Cook Islands medical cannabis referendum|non-binding referendum]] in August 2022 asked \"Should we review our cannabis laws to allow for research and medicinal use?\" 62% voted yes.<ref>{{cite news |last1=Kumar |first1=Rashneel |title=62 per cent vote yes for cannabis law reform |url=https://www.cookislandsnews.com/internal/national/breaking-news/62-per-cent-vote-yes-for-cannabis-law-reform/ |access-date=11 January 2023 |work=Cook Islands News |date=11 August 2022 |archive-date=11 January 2023 |archive-url=https://web.archive.org/web/20230111204302/https://www.cookislandsnews.com/internal/national/breaking-news/62-per-cent-vote-yes-for-cannabis-law-reform/ |url-status=live }}</ref>",
+  "notes_sections_used": [
+    "notes_raw"
+  ],
+  "notes_main_article": "Cannabis in the Cook Islands",
+  "notes_rev": "",
+  "notes_kind": "RICH",
+  "notes_reason_code": "HAS_EXTRA_TEXT",
   "recreational_status": "Illegal",
   "medical_status": "Legal",
-  "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source_type": "WIKI_COUNTRIES",
+  "primary_source": "WIKI_COUNTRIES",
+  "source_page": "Legality of cannabis",
+  "source_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "source_revision": "1336080043",
+  "source_table": "countries",
+  "wiki_revision_id": "1336080043",
+  "fetched_at": "2026-02-12T19:20:54.889Z",
   "source": "countries",
-  "revision_id": "1332405714"
+  "revision_id": "1336080043"
 }

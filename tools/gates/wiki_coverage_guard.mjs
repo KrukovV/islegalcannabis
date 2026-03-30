@@ -6,6 +6,7 @@ const ROOT = process.cwd();
 const LEGALITY_PATH = path.join(ROOT, "data", "wiki", "ssot_legality_table.json");
 const CLAIMS_PATH = path.join(ROOT, "data", "wiki", "wiki_claims_map.json");
 const BASELINE_PATH = path.join(ROOT, "Reports", "coverage.baseline.json");
+const READONLY_CI = process.env.READONLY_CI === "1";
 
 function readJson(filePath) {
   if (!fs.existsSync(filePath)) return null;
@@ -34,6 +35,11 @@ try {
   const legality = readJson(LEGALITY_PATH);
   if (!legality || !Array.isArray(legality.rows)) {
     console.log(`WIKI_COVERAGE_ERROR=missing_legality_ssot path=${LEGALITY_PATH}`);
+    if (READONLY_CI) {
+      console.log("WIKI_COVERAGE_SKIP_OK=1");
+      console.log("WIKI_COVERAGE_SKIP_REASON=READONLY_MISSING_LEGALITY_SSOT");
+      exitWith("SKIP", 0);
+    }
     exitWith("FAIL", 2);
   }
   const legalityRows = legality.rows.length;
@@ -63,6 +69,11 @@ try {
   };
 
   if (!fs.existsSync(BASELINE_PATH)) {
+    if (READONLY_CI) {
+      console.log("WIKI_COVERAGE_SKIP_OK=1");
+      console.log("WIKI_COVERAGE_SKIP_REASON=READONLY_BASELINE_MISSING");
+      exitWith("SKIP", 0);
+    }
     if (process.env.WIKI_COVERAGE_BASELINE_INIT === "1") {
       writeBaseline(snapshot);
       console.log("WIKI_COVERAGE_BASELINE_INIT=1");

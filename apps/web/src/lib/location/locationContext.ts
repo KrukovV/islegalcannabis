@@ -10,6 +10,9 @@ export type LocationContext = {
   mode: "detected" | "manual" | "query";
   country: string;
   region?: string;
+  lat?: number;
+  lng?: number;
+  accuracyM?: number;
   method?: LocationMethod;
   confidence?: ConfidenceLevel;
   resolvedAt?: string;
@@ -19,6 +22,9 @@ export type LocationContext = {
 type DetectedPayload = {
   country: string;
   region?: string;
+  lat?: number;
+  lng?: number;
+  accuracyM?: number;
   method: LocationMethod;
   confidence: ConfidenceLevel;
   resolvedAt?: string;
@@ -41,6 +47,9 @@ export function fromDetected(input: DetectedPayload): LocationContext {
     mode: "detected",
     country: input.country,
     region: input.region,
+    lat: input.lat,
+    lng: input.lng,
+    accuracyM: input.accuracyM,
     method: input.method,
     confidence: input.confidence,
     resolvedAt: input.resolvedAt,

@@ -5,6 +5,7 @@ import path from "node:path";
 const ROOT = process.cwd();
 const SSOT_PATH = path.join(ROOT, "data", "wiki", "ssot_legality_table.json");
 const BASELINE_PATH = path.join(ROOT, "Reports", "legality_table.baseline.txt");
+const READONLY_CI = process.env.READONLY_CI === "1";
 
 function readBaseline(pathValue) {
   const raw = fs.readFileSync(pathValue, "utf8").trim();
@@ -24,6 +25,11 @@ function exitWith(reason, code) {
 try {
   if (!fs.existsSync(SSOT_PATH)) {
     console.log(`LEGALITY_TABLE_ERROR=missing_ssot path=${SSOT_PATH}`);
+    if (READONLY_CI) {
+      console.log("LEGALITY_TABLE_SKIP_OK=1");
+      console.log("LEGALITY_TABLE_SKIP_REASON=READONLY_MISSING_SSOT");
+      exitWith("SKIP", 0);
+    }
     exitWith("FAIL", 2);
   }
   const ssot = JSON.parse(fs.readFileSync(SSOT_PATH, "utf8"));

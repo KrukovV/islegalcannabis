@@ -9,7 +9,7 @@ run_ui_dev_proof() {
   CURRENT_STEP="ui_local"
   CURRENT_CMD="bash tools/ui/ui_dev.sh --smoke"
   if [ "${UI_LOCAL:-1}" = "1" ]; then
-    UI_DEV_SSOT_OUTPUT="$(MAP_ENABLED=1 PREMIUM=1 NO_TILE_NETWORK=1 bash "${ROOT}/tools/ui/ui_dev_ssot.sh" 2>&1)"
+    UI_DEV_SSOT_OUTPUT="$(MAP_ENABLED=0 PREMIUM=1 NO_TILE_NETWORK=1 bash "${ROOT}/tools/ui/ui_dev_ssot.sh" 2>&1)"
     UI_DEV_SSOT_RC=$?
     if [ -n "${UI_DEV_SSOT_OUTPUT}" ]; then
       printf "%s\n" "${UI_DEV_SSOT_OUTPUT}" >> "${REPORTS_FINAL}"

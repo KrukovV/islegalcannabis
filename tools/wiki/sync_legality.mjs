@@ -44,7 +44,11 @@ const US_STATES_PATH = path.join(ROOT, "data", "geo", "us_state_centroids.json")
 const ALL_GEO_PATH = path.join(ROOT, "apps", "web", "src", "lib", "geo", "allGeo.ts");
 
 const COUNTRY_PAGE = "Legality of cannabis";
+const COUNTRY_PAGE_URL = "https://en.wikipedia.org/wiki/Legality_of_cannabis";
 const STATE_PAGE = "Legality of cannabis by U.S. jurisdiction";
+const STATE_PAGE_URL = "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction";
+const STATE_SOURCE_TYPE = "WIKI_US_JURISDICTION";
+const COUNTRY_SOURCE_TYPE = "WIKI_COUNTRIES";
 const CLEAR_NOTES = process.env.CLEAR_NOTES === "1";
 const CLEAR_NOTES_REASON = String(process.env.CLEAR_NOTES_REASON || "");
 
@@ -96,7 +100,7 @@ function writeAtomic(file, payload) {
 function loadAllGeo() {
   if (!fs.existsSync(ALL_GEO_PATH)) return [];
   const raw = fs.readFileSync(ALL_GEO_PATH, "utf8");
-  const match = raw.match(/ALL_GEO\\s*:\\s*string\\[]\\s*=\\s*\\[([\\s\\S]*?)\\]\\s*;/);
+  const match = raw.match(/ALL_GEO\s*:\s*string\[\]\s*=\s*\[([\s\S]*?)\]\s*;/);
   if (!match) return [];
   const body = match[1];
   return body
@@ -128,6 +132,34 @@ function ensureNotesKind(entry, fallbackReason = "PARSED_SECTIONS") {
   if (!entry.notes_reason_code) {
     entry.notes_reason_code = entry.notes_kind === "MIN_ONLY" ? "NO_EXTRA_TEXT" : fallbackReason;
   }
+}
+
+function normalizeSourceItems(list) {
+  if (!Array.isArray(list)) return [];
+  const out = [];
+  const seen = new Set();
+  for (const raw of list) {
+    const title = String(raw?.title || "").trim();
+    const url = String(raw?.url || "").trim();
+    if (!title && !url) continue;
+    const key = `${title}|${url}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push({ ...(title ? { title } : {}), ...(url ? { url } : {}) });
+  }
+  return out;
+}
+
+function fallbackWikiSource(entry) {
+  const url = String(entry?.source_url || "").trim();
+  const page = String(entry?.source_page || "").trim();
+  const title = page || "Legality_of_cannabis";
+  if (!url && !title) return [];
+  return [{ ...(title ? { title } : {}), ...(url ? { url } : {}) }];
+}
+
+function normalizeStatus(value) {
+  return String(value || "").trim().toLowerCase();
 }
 
 function buildRefNotesMap(payload) {
@@ -749,6 +781,12 @@ async function main() {
       notes_reason_code: String(row.notes_reason_code || ""),
       recreational_status: row.recreational_status,
       medical_status: row.medical_status,
+      source_type: COUNTRY_SOURCE_TYPE,
+      primary_source: COUNTRY_SOURCE_TYPE,
+      source_page: COUNTRY_PAGE,
+      source_url: COUNTRY_PAGE_URL,
+      source_revision: countryResult.revisionId || "",
+      source_table: "countries",
       wiki_revision_id: countryResult.revisionId,
       fetched_at: runAt
     });
@@ -780,6 +818,12 @@ async function main() {
       notes_reason_code: String(row.notes_reason_code || ""),
       recreational_status: row.recreational_status,
       medical_status: row.medical_status,
+      source_type: STATE_SOURCE_TYPE,
+      primary_source: STATE_SOURCE_TYPE,
+      source_page: STATE_PAGE,
+      source_url: STATE_PAGE_URL,
+      source_revision: stateResult.revisionId || "",
+      source_table: "states",
       wiki_revision_id: stateResult.revisionId,
       fetched_at: runAt
     });
@@ -985,9 +1029,44 @@ async function main() {
   const mergeNotes = (current) => {
     if (!current || !current.geo_key) return current;
     const previous = existingItems[current.geo_key];
-    if (!previous) return current;
+    const currentSources = normalizeSourceItems(current.sources || current.main_articles || []);
+    const previousSources = normalizeSourceItems(previous?.sources || previous?.main_articles || []);
+    const blockedEmptySources = currentSources.length === 0 && previousSources.length > 0;
+    const mergedSources = normalizeSourceItems([...previousSources, ...currentSources]);
+    const safeSources = mergedSources.length > 0 ? mergedSources : fallbackWikiSource(current);
+    const withRetainedSources = (entry) => ({
+      ...entry,
+      sources: safeSources,
+      main_articles: safeSources,
+      notes_main_articles: safeSources,
+      sources_count: safeSources.length,
+      sources_reason_code: blockedEmptySources ? "SOURCES_EMPTY_BLOCKED" : entry.sources_reason_code || ""
+    });
+    if (!previous) return withRetainedSources(current);
     const currentNotes = String(current.notes_text || "");
     const previousNotes = String(previous.notes_text || "");
+    const currentKind = String(current.notes_kind || inferNotesKind(currentNotes) || "");
+    const previousKind = String(previous.notes_kind || inferNotesKind(previousNotes) || "");
+    const sameStatus =
+      normalizeStatus(current.rec_status) === normalizeStatus(previous.rec_status) &&
+      normalizeStatus(current.med_status) === normalizeStatus(previous.med_status);
+    if (
+      sameStatus &&
+      previousKind === "RICH" &&
+      currentKind !== "RICH"
+    ) {
+      return {
+        ...withRetainedSources(current),
+        notes_text: previousNotes,
+        notes_text_len: previousNotes.length,
+        notes: previousNotes,
+        notes_raw: previous.notes_raw || current.notes_raw || "",
+        notes_kind: "RICH",
+        notes_reason_code: "NOTES_WEAKEN_BLOCKED_SAME_STATUS",
+        notes_sections_used: Array.isArray(previous.notes_sections_used) ? previous.notes_sections_used : current.notes_sections_used,
+        notes_main_article: previous.notes_main_article || current.notes_main_article
+      };
+    }
     const currentRaw = String(current.notes_raw || "");
     const mainOnly = /^\{\{\s*main\s*\|[^}]+\}\}$/i.test(currentRaw.replace(/\s+/g, " ").trim());
     const oldLen = previousNotes.length;
@@ -1001,7 +1080,7 @@ async function main() {
           appendCiFinal("NOTES_CLEAR_DENIED reason=MISSING_CLEAR_NOTES_REASON");
           console.log(`NOTES_WRITE geo=${current.geo_key} old_len=${oldLen} new_len=${newLen} decision=BLOCK reason=CLEAR_REASON_MISSING`);
           return {
-            ...current,
+            ...withRetainedSources(current),
             notes_text: previousNotes,
             notes_text_len: previousNotes.length,
             notes: previousNotes,
@@ -1015,11 +1094,11 @@ async function main() {
         console.log(`NOTES_CLEARED geo=${current.geo_key} reason=${CLEAR_NOTES_REASON}`);
         appendCiFinal(`NOTES_CLEARED geo=${current.geo_key} reason=${CLEAR_NOTES_REASON}`);
         console.log(`NOTES_WRITE geo=${current.geo_key} old_len=${oldLen} new_len=${newLen} decision=ALLOW reason=CLEAR_NOTES`);
-        return current;
+        return withRetainedSources(current);
       }
       console.log(`NOTES_WRITE geo=${current.geo_key} old_len=${oldLen} new_len=${newLen} decision=BLOCK reason=EMPTY_NEW_NOTES`);
       return {
-        ...current,
+        ...withRetainedSources(current),
         notes_text: previousNotes,
         notes_text_len: previousNotes.length,
         notes: previousNotes,
@@ -1034,7 +1113,7 @@ async function main() {
       if (!allowShrink || !shrinkReason) {
         console.log(`NOTES_WRITE geo=${current.geo_key} old_len=${oldLen} new_len=${newLen} decision=BLOCK reason=SHRINK`);
         return {
-          ...current,
+          ...withRetainedSources(current),
           notes_text: previousNotes,
           notes_text_len: previousNotes.length,
           notes: previousNotes,
@@ -1050,7 +1129,7 @@ async function main() {
       console.log(`NOTES_WRITE geo=${current.geo_key} old_len=${oldLen} new_len=${newLen} decision=ALLOW reason=INCREASE`);
     }
     ensureNotesKind(current, "PARSED_SECTIONS");
-    return current;
+    return withRetainedSources(current);
   };
   items = items.map((item) => mergeNotes(item));
   if (MODE === "smoke") {

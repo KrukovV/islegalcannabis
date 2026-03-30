@@ -28,10 +28,23 @@
   "notes_text_len": 117,
   "notes": "If someone is considered an addict by the Syrian government then they face no criminal penalties for drug possession.",
   "notes_raw": "{{main|Cannabis in Syria}} If someone is considered an addict by the Syrian government then they face no criminal penalties for drug possession.<ref>{{cite news |url=https://raseef22.net/article/1069955-syrians-turn-drugs-forget-burden-war |last=Ali |first=Tareq |title=Syrians Turn to Drugs to Forget the Burden of War |date=18 May 2017 |work=Raseef |access-date=2 August 2022 |archive-date=28 June 2022 |archive-url=https://web.archive.org/web/20220628193018/https://raseef22.net/article/1069955-syrians-turn-drugs-forget-burden-war |url-status=live }}</ref>",
+  "notes_sections_used": [
+    "notes_raw"
+  ],
+  "notes_main_article": "Cannabis in Syria",
+  "notes_rev": "",
+  "notes_kind": "RICH",
+  "notes_reason_code": "HAS_EXTRA_TEXT",
   "recreational_status": "Legal",
   "medical_status": "Illegal",
-  "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source_type": "WIKI_COUNTRIES",
+  "primary_source": "WIKI_COUNTRIES",
+  "source_page": "Legality of cannabis",
+  "source_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "source_revision": "1336080043",
+  "source_table": "countries",
+  "wiki_revision_id": "1336080043",
+  "fetched_at": "2026-02-12T19:20:54.889Z",
   "source": "countries",
-  "revision_id": "1332405714"
+  "revision_id": "1336080043"
 }

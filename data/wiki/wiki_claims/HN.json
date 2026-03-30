@@ -28,10 +28,23 @@
   "notes_text_len": 77,
   "notes": "The possession, sale, transportation, and cultivation of cannabis is illegal.",
   "notes_raw": "{{main|Cannabis in Honduras}} The possession, sale, transportation, and cultivation of cannabis is illegal.<ref>{{Cite web|url=http://www.poderjudicial.gob.hn/juris/Leyes/Ley%20sobre%20uso%20Indebido%20y%20Trafico%20Ilicito%20de%20Drogas%20y%20Sustancias%20Psicotropicas.pdf|title=Ley Sobre Uso Indebido y Trafico Ilicito de Drogas y Sustancias Psicotropicas|access-date=5 June 2018|archive-date=18 November 2017|archive-url=https://web.archive.org/web/20171118051130/http://www.poderjudicial.gob.hn/juris/Leyes/Ley%20sobre%20uso%20Indebido%20y%20Trafico%20Ilicito%20de%20Drogas%20y%20Sustancias%20Psicotropicas.pdf|url-status=dead}}</ref>",
+  "notes_sections_used": [
+    "notes_raw"
+  ],
+  "notes_main_article": "Cannabis in Honduras",
+  "notes_rev": "",
+  "notes_kind": "RICH",
+  "notes_reason_code": "HAS_EXTRA_TEXT",
   "recreational_status": "Illegal",
   "medical_status": "Illegal",
-  "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source_type": "WIKI_COUNTRIES",
+  "primary_source": "WIKI_COUNTRIES",
+  "source_page": "Legality of cannabis",
+  "source_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "source_revision": "1336080043",
+  "source_table": "countries",
+  "wiki_revision_id": "1336080043",
+  "fetched_at": "2026-02-12T19:20:54.889Z",
   "source": "countries",
-  "revision_id": "1332405714"
+  "revision_id": "1336080043"
 }

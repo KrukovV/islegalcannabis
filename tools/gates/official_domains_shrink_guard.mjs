@@ -2,7 +2,7 @@
 import { readOfficialDomainsSSOT } from "../ssot/read_ssot.mjs";
 import crypto from "node:crypto";
 
-const OFFICIAL_EXPECTED = 413;
+const OFFICIAL_FILTERED_FLOOR = 418;
 
 function exitWith(reason, code) {
   console.log(`STOP_REASON=${reason}`);
@@ -11,7 +11,10 @@ function exitWith(reason, code) {
 
 try {
   const domains = readOfficialDomainsSSOT();
-  const list = Array.from(domains);
+  const list = Array.from(domains).filter((domain) => {
+    const value = String(domain || "").toLowerCase();
+    return value && !value.endsWith("wikipedia.org");
+  });
   const current = list.length;
   const baseline = current;
   const delta = 0;
@@ -23,9 +26,9 @@ try {
   console.log(`OFFICIAL_BASELINE_COUNT=${baseline}`);
   console.log(`OFFICIAL_SHA=${sha}`);
 
-  if (current !== OFFICIAL_EXPECTED) {
-    console.log(`OFFICIAL_DOMAINS_ERROR=OFFICIAL_BASELINE_CHANGED expected=${OFFICIAL_EXPECTED} got=${current}`);
-    exitWith("OFFICIAL_BASELINE_CHANGED", 2);
+  if (current < OFFICIAL_FILTERED_FLOOR) {
+    console.log(`OFFICIAL_DOMAINS_ERROR=OFFICIAL_FILTERED_FLOOR expected_min=${OFFICIAL_FILTERED_FLOOR} got=${current}`);
+    exitWith("OFFICIAL_FILTERED_FLOOR", 2);
   }
 
   exitWith("OK", 0);

@@ -28,10 +28,23 @@
   "notes_text_len": 33,
   "notes": "Main article: Cannabis in Burundi",
   "notes_raw": "{{main|Cannabis in Burundi}}",
+  "notes_sections_used": [
+    "main_article"
+  ],
+  "notes_main_article": "Cannabis in Burundi",
+  "notes_rev": "",
+  "notes_kind": "MIN_ONLY",
+  "notes_reason_code": "NO_EXTRA_TEXT",
   "recreational_status": "Illegal",
   "medical_status": "Illegal",
-  "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source_type": "WIKI_COUNTRIES",
+  "primary_source": "WIKI_COUNTRIES",
+  "source_page": "Legality of cannabis",
+  "source_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "source_revision": "1336080043",
+  "source_table": "countries",
+  "wiki_revision_id": "1336080043",
+  "fetched_at": "2026-02-12T19:20:54.889Z",
   "source": "countries",
-  "revision_id": "1332405714"
+  "revision_id": "1336080043"
 }

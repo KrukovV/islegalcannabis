@@ -28,10 +28,23 @@
   "notes_text_len": 219,
   "notes": "Criminalized in 1935, medical use legalized in 2018. Recreational use legalized in 2022 for those aged 20 and over. Unprescribed products with over 0.2% THC were recriminalized in 2025, but this law is often unenforced.",
   "notes_raw": "{{main|Cannabis in Thailand}} Criminalized in 1935, medical use legalized in 2018. Recreational use legalized in 2022 for those aged 20 and over. Unprescribed products with over 0.2% THC were recriminalized in 2025, but this law is often unenforced.<ref>{{cite news |last= Bush |first= Austin |date= 30 August 2022 |title= Cannabis is now legal in Thailand, but it's complicated: what travelers need to know |url= https://www.lonelyplanet.com/news/thailand-cannabis-guide |work= Lonely Planet |access-date= 24 June 2023}}</ref><ref>{{Cite web |date=2025-06-25 |title=Country bans recreational cannabis again in major blow to tourism |url=https://www.independent.co.uk/asia/southeast-asia/thailand-cannabis-illegal-law-b2776598.html |access-date=2025-06-25 |website=The Independent |language=en}}</ref>",
+  "notes_sections_used": [
+    "notes_raw"
+  ],
+  "notes_main_article": "Cannabis in Thailand",
+  "notes_rev": "",
+  "notes_kind": "RICH",
+  "notes_reason_code": "HAS_EXTRA_TEXT",
   "recreational_status": "Decrim",
   "medical_status": "Legal",
-  "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source_type": "WIKI_COUNTRIES",
+  "primary_source": "WIKI_COUNTRIES",
+  "source_page": "Legality of cannabis",
+  "source_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "source_revision": "1336080043",
+  "source_table": "countries",
+  "wiki_revision_id": "1336080043",
+  "fetched_at": "2026-02-12T19:20:54.889Z",
   "source": "countries",
-  "revision_id": "1332405714"
+  "revision_id": "1336080043"
 }

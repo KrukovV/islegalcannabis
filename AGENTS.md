@@ -33,6 +33,7 @@ Hard Rule:
 - Reports is operational logs only; history archives must be outside the repo.
 - Archives belong in `~/islegalcannabis_archive/` (or an explicit external path).
 - CI must fail on disk bloat (see size guards in `tools/pass_cycle.sh`).
+- `.codex/**` is a disposable derived layer, never a product SSOT. It may be backed up, rebuilt, or ignored locally; project agents and repo workflows must not depend on unique `.codex` contents or stale resume metadata.
 
 Response Contract (mandatory):
 - Standard responses allowed; include command stdout when required by the task.
@@ -67,3 +68,40 @@ Network Truth Policy:
 - DNS is diagnostic only.
 - ONLINE truth only (HTTP/API/CONNECT/FALLBACK).
 - Any PR changing net logic must keep EGRESS_TRUTH contract; gate enforces.
+
+## Wiki Truth Audit Rules
+- `/wiki-truth` is an audit view, not a business table. UI must render a prebuilt audit model; counters, universe classification, normalization, alias resolution, and garbage filtering do not belong in `page.tsx`.
+- Audit universes must stay explicit and separate: `WIKI_COUNTRIES`, `ISO_COUNTRIES`, `REF_SSOT`, `US_STATES`, `TERRITORIES`/diagnostics. Totals from different universes must not be presented as if they must match.
+- Concrete universe floors are part of the contract and must remain explainable in UI/tests:
+  - `Wiki rows` ~= `202` physical country-table rows
+  - `ISO countries` = `249`
+  - `SSOT geo` = `300`
+  - `Official registry` = protected raw floor `414`
+  - `Official geo coverage` = valid wiki country rows with at least one official source
+- Parser leftovers, empty/invalid ISO rows, and synthetic placeholders must never appear in the main audit rows; they belong only in diagnostics.
+- Broken wiki title/slug normalization must resolve through the wiki-truth normalization layer with a deterministic reason (`NO_WIKI_ROW`, `TITLE_ALIAS_MISS`, `ISO_ALIAS_MISS`, `TERRITORY_NOT_IN_WIKI_SCOPE`, `PARSER_LEFTOVER`, `EMPTY_ISO`, `INVALID_ISO`).
+- Expected wiki pages must come only from the canonical resolver in `apps/web/src/lib/wikiTruthNormalization.ts`: explicit `Cannabis_by_country` page when proven, otherwise canonical `wiki_claims_map` page or canonical SSOT country title. ISO fallback slugs and pseudo-URLs like `/wiki/BQ` or `/wiki/land` are forbidden.
+- Official registry is non-shrinking. CI must preserve the filtered official-domain floor (`413`) and the raw protected registry floor (`414`); redirects/timeouts/unreachable states may change metadata but must never silently delete registry entries.
+- Protected official registry and official geo ownership are different universes. `data/official/official_domains.ssot.json` keeps the raw non-shrinking registry floor (`414`), while `data/ssot/official_link_ownership.json` is the only SSOT for mapping each official link to `owner_scope` / `owner_geos`. `/wiki-truth`, map coverage, badges, and counters must use ownership-matched links only; raw registry membership alone is not enough for country-level official coverage.
+- `/wiki-truth` must render `Official registry` and `Official geo coverage` as separate summary cards. `414/414` belongs only to the protected SSOT registry universe; geo coverage metrics such as `70/201` must never be labeled or interpreted as registry size.
+- Manual/GPS/IP precedence is fixed SSOT: `manual > gps > ip`. Tests must keep that order stable in `apps/web/src/lib/location/locationContext.ts`.
+- Notes refresh is merge-safe by contract: weaker notes must not overwrite stronger notes when status is unchanged; status changes must emit explicit delta metadata rather than silently degrading notes.
+- `/trust-view` must stay a stable localhost route that resolves to the truth audit UI (`/wiki-truth`) so smoke and manual audit flows have a predictable entrypoint.
+- SSOT diffing is authoritative and append-only by ownership:
+  - snapshots live in `data/ssot_snapshots/`
+  - diff registry lives in `data/ssot_diffs.json`
+  - pending confirmation cache lives in `cache/ssot_diff_pending.json`
+  - offline UI cache lives in `cache/ssot_diff_cache.json`
+- SSOT snapshot contract is fixed:
+  - `row_count` must equal `300`
+  - each row must contain `geo`, `rec_status`, `med_status`, `notes_hash`, `official_sources`, `wiki_page_url`
+  - snapshot retention is capped at `50`
+- SSOT diff registry is append-only. Confirmed changes may be added; historical diff entries must never be silently deleted or rewritten away.
+- False-positive noise is forbidden: a change is only promoted from pending to confirmed after it persists across two consecutive refresh cycles.
+- CI must fail if:
+  - latest SSOT snapshot row count is not `300`
+  - snapshot retention exceeds `50`
+  - pseudo wiki URLs reappear
+  - official registry falls below protected floor
+  - snapshot/diff schema drift is detected
+- `/changes` and `/api/ssot/changes` must stay stable on localhost and read from the SSOT diff cache/registry rather than rebuilding alternate truth in the UI.

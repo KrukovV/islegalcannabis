@@ -28,10 +28,23 @@
   "notes_text_len": 301,
   "notes": "Possession of up to 20 g of marijuana or 5 g of genetically modified marijuana for commercial purposes is punishable by 1–2 years in prison at judge's discretion. If deemed to be for personal consumption, the user is subject to security measures involving rehabilitation and detoxification procedures.",
   "notes_raw": "{{main|Cannabis in Venezuela}} Possession of up to {{cvt|20|g|frac=4}} of marijuana or {{cvt|5|g|frac=16}} of genetically modified marijuana for commercial purposes is punishable by 1–2 years in prison at judge's discretion. If deemed to be for personal consumption, the user is subject to security measures involving rehabilitation and detoxification procedures.<ref>{{citation |url = http://www.eee.com.ve/upload/LeyOrganicadeDrogas.sept10.pdf |title = Ley Orgánica de Drogas – Sept.10 |access-date = 17 February 2011 |archive-url = https://web.archive.org/web/20120319163247/http://www.eee.com.ve/upload/LeyOrganicadeDrogas.sept10.pdf |archive-date = 19 March 2012 |url-status = dead}}</ref>",
+  "notes_sections_used": [
+    "notes_raw"
+  ],
+  "notes_main_article": "Cannabis in Venezuela",
+  "notes_rev": "",
+  "notes_kind": "RICH",
+  "notes_reason_code": "HAS_EXTRA_TEXT",
   "recreational_status": "Illegal",
   "medical_status": "Illegal",
-  "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source_type": "WIKI_COUNTRIES",
+  "primary_source": "WIKI_COUNTRIES",
+  "source_page": "Legality of cannabis",
+  "source_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "source_revision": "1336080043",
+  "source_table": "countries",
+  "wiki_revision_id": "1336080043",
+  "fetched_at": "2026-02-12T19:20:54.889Z",
   "source": "countries",
-  "revision_id": "1332405714"
+  "revision_id": "1336080043"
 }

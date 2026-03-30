@@ -130,7 +130,7 @@ function hasSectionsUsed(claim, minLenForGeo) {
   const kind = normalizeNotesKind(claim);
   if (kind === "MIN_ONLY" && isMinOnlyOk(claim)) return true;
   const notesText = String(claim?.notes_text || "");
-  const notesRaw = String(claim?.notes_raw || "");
+  const notesRaw = "";
   if (!notesText) return false;
   if (isPlaceholderNote(notesText, notesRaw, kind)) return false;
   if (Number.isFinite(minLenForGeo) && minLenForGeo > 0 && notesText.length >= minLenForGeo) {
@@ -142,7 +142,7 @@ function hasSectionsUsed(claim, minLenForGeo) {
 function notesClassLabel(claim) {
   const kind = normalizeNotesKind(claim);
   const notesText = String(claim?.notes_text || "");
-  const notesRaw = String(claim?.notes_raw || "");
+  const notesRaw = "";
   if (!notesText) return "EMPTY";
   if (isPlaceholderNote(notesText, notesRaw, kind)) return "PLACEHOLDER";
   if (kind === "MIN_ONLY") return "MIN_ONLY";
@@ -160,7 +160,11 @@ function reportNotesCoverage(allClaims) {
   const weakGeos = [];
   for (const [geo, claim] of Object.entries(allClaims || {})) {
     total += 1;
-    const classification = classifyNotesForCoverage(claim, minOkLen, { allowNumericSignal: true });
+    const classification = classifyNotesForCoverage(
+      { ...claim, notes_raw: "" },
+      minOkLen,
+      { allowNumericSignal: true }
+    );
     if (classification.isEmpty) {
       empty += 1;
       if (emptyGeos.length < 10) emptyGeos.push(geo);
@@ -201,7 +205,11 @@ function computeNotesQualityCounts(allClaims) {
   let weak = 0;
   for (const claim of Object.values(allClaims || {})) {
     total += 1;
-    const classification = classifyNotesForCoverage(claim, minOkLen, { allowNumericSignal: false });
+    const classification = classifyNotesForCoverage(
+      { ...claim, notes_raw: "" },
+      minOkLen,
+      { allowNumericSignal: false }
+    );
     if (classification.isEmpty) {
       empty += 1;
       continue;
@@ -327,7 +335,7 @@ const accumulateStats = (claim, key, stats, samples, minLen) => {
     return;
   }
   const notesText = String(claim.notes_text || "");
-  const notesRaw = String(claim.notes_raw || "");
+  const notesRaw = "";
   const kind = normalizeNotesKind(claim);
   if (kind === "MIN_ONLY" && isMinOnlyOk(claim)) {
     return;
@@ -435,7 +443,7 @@ for (const key of coverageKeys) {
     continue;
   }
   const notesText = String(claim.notes_text || "");
-  const notesRaw = String(claim.notes_raw || "");
+  const notesRaw = "";
   const kind = normalizeNotesKind(claim);
   if (!notesText) {
     coverageEmpty += 1;
@@ -508,8 +516,8 @@ if (notesStrict && strictFailReasons.length > 0) {
       badEntries.push({ geo, kind: "MISSING_FIELD", notesLen: 0, preview: "" });
       continue;
     }
-    const notesText = String(claim.notes_text || "");
-    const notesRaw = String(claim.notes_raw || "");
+  const notesText = String(claim.notes_text || "");
+  const notesRaw = "";
   if (sectionsRequired.has(geo) && !hasSectionsUsed(claim, getMinLenForGeo(geo))) {
       badEntries.push({
         geo,
@@ -566,7 +574,7 @@ for (const key of sampleScopeKeys) {
 const shortSampleKeys = sampleScopeKeys
   .filter((key) => {
     const notes = String(claims[key]?.notes_text ?? "");
-    const raw = String(claims[key]?.notes_raw ?? "");
+    const raw = "";
     if (!notes) return false;
     const scopedMin = scopeAll ? notesMinLen : getMinLenForGeo(key);
     if (scopedMin <= 0) return false;
@@ -589,7 +597,7 @@ for (const key of shortSampleKeys) {
 const placeholderSampleKeys = sampleScopeKeys
   .filter((key) => {
     const notes = String(claims[key]?.notes_text ?? "");
-    const raw = String(claims[key]?.notes_raw ?? "");
+    const raw = "";
     if (!notes) return false;
     if (isMainOnlyRaw(raw)) return false;
     return isPlaceholderNote(notes, raw);
@@ -627,7 +635,7 @@ for (const geo of geos) {
   const wikiRec = claim?.wiki_rec || "-";
   const wikiMed = claim?.wiki_med || "-";
   const notesLen = String(claim?.notes_text ?? "").length;
-  const notesRaw = String(claim?.notes_raw ?? "");
+  const notesRaw = "";
   const minLenForGeo = getMinLenForGeo(geo);
   const notesText = String(claim?.notes_text ?? "");
   const geoUpper = String(geo).toUpperCase();
@@ -648,17 +656,23 @@ for (const geo of geos) {
   const kind = normalizeNotesKind(claim);
   if (minLenForGeo > 0 && claim) {
     if (notesLen === 0) {
-      console.log(`NOTES_GEO_FAIL geo=${geo} notes_len=0 reason=EMPTY`);
+      console.log(
+        `NOTES_GEO_FAIL geo=${geo} notes_len=0 min_len=${minLenForGeo} reason=EMPTY`
+      );
       if (notesStrict) fail += 1;
     } else if (kind === "MIN_ONLY") {
       if (!isMinOnlyOk(claim)) {
-        console.log(`NOTES_GEO_FAIL geo=${geo} notes_len=${notesLen} reason=MIN_ONLY_NO_PROOF`);
+        console.log(
+          `NOTES_GEO_FAIL geo=${geo} notes_len=${notesLen} min_len=${minLenForGeo} reason=MIN_ONLY_NO_PROOF`
+        );
         if (notesStrict) fail += 1;
       } else {
         console.log(`NOTES_GEO_OK geo=${geo} notes_len=${notesLen} reason=MIN_ONLY`);
       }
     } else if (sectionsRequired.has(geoUpper) && !hasSectionsUsed(claim, minLenForGeo)) {
-      console.log(`NOTES_GEO_FAIL geo=${geo} notes_len=${notesLen} reason=NO_SECTIONS`);
+      console.log(
+        `NOTES_GEO_FAIL geo=${geo} notes_len=${notesLen} min_len=${minLenForGeo} reason=NO_SECTIONS`
+      );
       if (notesStrict) fail += 1;
     } else if (notesLen < minLenForGeo) {
       console.log(

@@ -28,10 +28,23 @@
   "notes_text_len": 139,
   "notes": "In 2016, the Ministry of Civil Affairs formed a task force to explore the legalization of cannabis and cannabinoids for medicinal purposes.",
   "notes_raw": "{{main|Cannabis in Bosnia and Herzegovina}} In 2016, the Ministry of Civil Affairs formed a task force to explore the legalization of cannabis and [[cannabinoids]] for medicinal purposes.<ref>{{cite web |url=http://www.bosniatoday.ba/bosnia-to-legalize-medical-marijuana-this-year/ |title=Bosnia to legalize medical marijuana this year |website=Bosnia Today |access-date=30 November 2016 |url-status=dead |archive-url=https://web.archive.org/web/20160924221422/http://www.bosniatoday.ba/bosnia-to-legalize-medical-marijuana-this-year/ |archive-date=24 September 2016}}</ref><ref>{{cite web |url=https://n1info.hr/regija/bih-legalizirala-medicinski-kanabis/ |title=BiH legalizirala medicinski kanabis |language=bs |website=n1info.hr |date=2025-12-29 |access-date=2026-01-10}}</ref>",
+  "notes_sections_used": [
+    "notes_raw"
+  ],
+  "notes_main_article": "Cannabis in Bosnia and Herzegovina",
+  "notes_rev": "",
+  "notes_kind": "RICH",
+  "notes_reason_code": "HAS_EXTRA_TEXT",
   "recreational_status": "Illegal",
   "medical_status": "Legal",
-  "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source_type": "WIKI_COUNTRIES",
+  "primary_source": "WIKI_COUNTRIES",
+  "source_page": "Legality of cannabis",
+  "source_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "source_revision": "1336080043",
+  "source_table": "countries",
+  "wiki_revision_id": "1336080043",
+  "fetched_at": "2026-02-12T19:20:54.889Z",
   "source": "countries",
-  "revision_id": "1332405714"
+  "revision_id": "1336080043"
 }

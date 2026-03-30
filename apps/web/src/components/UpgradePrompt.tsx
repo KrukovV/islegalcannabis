@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import styles from "./UpgradePrompt.module.css";
+import { trackEvent } from "@/plugins/analytics";
 
 export default function UpgradePrompt() {
   const [sent, setSent] = useState(false);
@@ -10,11 +11,7 @@ export default function UpgradePrompt() {
     if (sent) return;
     setSent(true);
     try {
-      await fetch("/api/analytics", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ event: "upgrade_clicked" })
-      });
+      await trackEvent("premium_click", { source: "upgrade_prompt" });
     } catch {
       setSent(false);
     }

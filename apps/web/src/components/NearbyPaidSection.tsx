@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import styles from "./ResultCard.module.css";
+import { trackEvent } from "@/plugins/analytics";
 
 type NearbyItem = {
   id: string;
@@ -62,7 +63,8 @@ export default function NearbyPaidSection({
     loggedRef.current = true;
     console.warn("NEARBY_SOURCE=CACHE_ONLY");
     console.warn("NEARBY_OK=1");
-  }, [premium]);
+    void trackEvent("near_legal_search", { count: nearby.length });
+  }, [premium, nearby.length]);
 
   if (!Array.isArray(nearby) || nearby.length === 0) return null;
 

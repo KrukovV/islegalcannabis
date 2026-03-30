@@ -28,10 +28,23 @@
   "notes_text_len": 94,
   "notes": "In 2001, Portugal became the first country in the world to decriminalize the use of all drugs.",
   "notes_raw": "{{main|Cannabis in Portugal}} In 2001, Portugal became the first country in the world to decriminalize the use of all drugs.<ref name=\"Emdrug\">{{citation |url = http://www.emcdda.europa.eu/publications/drug-policy-profiles/portugal |title = EMCDDA: Drug policy profiles, Portugal |publisher = Emcdda.europa.eu |date = 17 August 2011 |access-date = 14 December 2011 |archive-date = 17 September 2019 |archive-url = https://web.archive.org/web/20190917122923/http://www.emcdda.europa.eu/publications/drug-policy-profiles/portugal |url-status = live }}</ref>",
+  "notes_sections_used": [
+    "notes_raw"
+  ],
+  "notes_main_article": "Cannabis in Portugal",
+  "notes_rev": "",
+  "notes_kind": "RICH",
+  "notes_reason_code": "HAS_EXTRA_TEXT",
   "recreational_status": "Legal",
   "medical_status": "Legal",
-  "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source_type": "WIKI_COUNTRIES",
+  "primary_source": "WIKI_COUNTRIES",
+  "source_page": "Legality of cannabis",
+  "source_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "source_revision": "1336080043",
+  "source_table": "countries",
+  "wiki_revision_id": "1336080043",
+  "fetched_at": "2026-02-12T19:20:54.889Z",
   "source": "countries",
-  "revision_id": "1332405714"
+  "revision_id": "1336080043"
 }

@@ -15,8 +15,7 @@ const eslintConfig = defineConfig([
     "e2e/**",
     "playwright.config.ts",
     "public/vendor/**",
-    "vendor/**",
-    "docs/leaflet/**"
+    "vendor/**"
   ]),
   {
     files: ["tools/**/*.js"],

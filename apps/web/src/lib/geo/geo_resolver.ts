@@ -7,6 +7,9 @@ export type GeoResolution = {
   source: "manual" | "gps" | "ip" | "none";
   iso: string;
   state?: string;
+  lat?: number;
+  lng?: number;
+  accuracyM?: number;
   confidence: number;
   permission: string;
   reason?: string;
@@ -48,17 +51,41 @@ export async function resolveGeoLocation(
   const gps = await resolveGpsLocation({
     permissionHint: options.permissionHint
   });
+  const gpsHasCoords = Number.isFinite(gps.lat) && Number.isFinite(gps.lng);
   if (gps.ok && gps.iso !== "UNKNOWN") {
     return {
       source: "gps",
       iso: gps.iso,
       state: gps.state,
       confidence: 0.9,
+      lat: gps.lat,
+      lng: gps.lng,
+      accuracyM: gps.accuracyM,
       permission: gps.permission,
       reason: gps.reason,
       reasonCode: "GPS_OK",
       cell: gps.cell
     };
+  }
+
+  if (gpsHasCoords) {
+    const storedIso = String(stored?.country || "").toUpperCase();
+    const storedState = stored?.region ? String(stored.region).toUpperCase() : undefined;
+    if (storedIso && storedIso !== "UNKNOWN") {
+      return {
+        source: "gps",
+        iso: storedIso,
+        state: storedState,
+        confidence: 0.8,
+        lat: gps.lat,
+        lng: gps.lng,
+        accuracyM: gps.accuracyM,
+        permission: gps.permission,
+        reason: gps.reason,
+        reasonCode: "GPS_OK",
+        cell: gps.cell
+      };
+    }
   }
 
   if (offline) {
@@ -73,6 +100,35 @@ export async function resolveGeoLocation(
   }
 
   const ip = await resolveIpLocation();
+  if (gpsHasCoords && ip.ok && ip.iso !== "UNKNOWN") {
+    return {
+      source: "gps",
+      iso: ip.iso,
+      state: ip.state,
+      confidence: 0.8,
+      lat: gps.lat,
+      lng: gps.lng,
+      accuracyM: gps.accuracyM,
+      permission: gps.permission,
+      reason: gps.reason ?? ip.reason,
+      reasonCode: "GPS_OK",
+      cell: gps.cell
+    };
+  }
+  if (gpsHasCoords) {
+    return {
+      source: "gps",
+      iso: "UN",
+      confidence: 0.7,
+      lat: gps.lat,
+      lng: gps.lng,
+      accuracyM: gps.accuracyM,
+      permission: gps.permission,
+      reason: gps.reason,
+      reasonCode: "GPS_OK",
+      cell: gps.cell
+    };
+  }
   if (ip.ok && ip.iso !== "UNKNOWN") {
     const gpsReason = String(gps.reason || "").toLowerCase();
     const reasonCode =

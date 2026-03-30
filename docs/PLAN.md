@@ -42,3 +42,4 @@ Statuses: pending | in_progress | done
 - [done] Standardize anti-shrink gates (official/wiki/notes) with allow-shrink reason logging
 - [done] Notes spotlight tool + notes non-destructive policy + parser/DB protections
 - [done] Update AGENTS.md and ci-local diagnostics discipline
+- [done] Simplify map/wiki runtime with shared prepared payloads, perf/log guards, and experimental country vector-tile benchmark path

@@ -1,0 +1,17 @@
+node_modules
+.git
+.next
+dist
+build
+coverage
+.turbo
+.cache
+.codex.backup_*
+*.log
+*.tmp
+*.swp
+.DS_Store
+Artifacts
+Reports
+.checkpoints
+QUARANTINE

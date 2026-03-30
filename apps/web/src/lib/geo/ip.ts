@@ -16,9 +16,9 @@ function isLocalIp(ip: string) {
 
 export function resolveIpToJurisdiction(ip: string | null): IpResolveResult {
   if (!ip || isLocalIp(ip)) {
-    return { country: "US", region: "CA", method: "ip" };
+    return { country: "UNKNOWN", method: "ip" };
   }
 
   // TODO: Replace stub with a real IP geolocation provider.
-  return { country: "US", region: "CA", method: "ip" };
+  return { country: "UNKNOWN", method: "ip" };
 }

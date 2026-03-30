@@ -28,10 +28,23 @@
   "notes_text_len": 173,
   "notes": "In November 2016, the Supreme Court of Bermuda ruled in favor of allowing the medical use of cannabis. As of July 2018, two doctors have been licensed to prescribe the drug.",
   "notes_raw": "{{main|Cannabis in Bermuda}} In November 2016, the [[Law of Bermuda#Litigation and the Bermuda Court System|Supreme Court of Bermuda]] ruled in favor of allowing the medical use of cannabis.<ref>{{cite news |last1=Bell |first1=Jonathan |title=People can apply for medical cannabis |url=http://www.royalgazette.com/news/article/20161125/people-can-apply-for-medical-cannabis |access-date=27 October 2018 |work=[[The Royal Gazette (Bermuda)|The Royal Gazette]] |date=25 November 2016 |archive-url=https://web.archive.org/web/20181027232029/http://www.royalgazette.com/news/article/20161125/people-can-apply-for-medical-cannabis |archive-date=27 October 2018 |url-status=live}}</ref> As of July 2018, two doctors have been licensed to prescribe the drug.<ref>{{cite news |last1=Bell |first1=Jonathan |title=Weeks: we need to talk about cannabis |url=http://www.royalgazette.com/politics/article/20180725/weeks-we-need-to-talk-about-cannabis |access-date=27 October 2018 |work=[[The Royal Gazette (Bermuda)|The Royal Gazette]] |date=25 July 2018 |archive-url=https://web.archive.org/web/20181101101737/http://www.royalgazette.com/politics/article/20180725/weeks-we-need-to-talk-about-cannabis |archive-date=1 November 2018 |url-status=live}}</ref>",
+  "notes_sections_used": [
+    "notes_raw"
+  ],
+  "notes_main_article": "Cannabis in Bermuda",
+  "notes_rev": "",
+  "notes_kind": "RICH",
+  "notes_reason_code": "HAS_EXTRA_TEXT",
   "recreational_status": "Legal",
   "medical_status": "Legal",
-  "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source_type": "WIKI_COUNTRIES",
+  "primary_source": "WIKI_COUNTRIES",
+  "source_page": "Legality of cannabis",
+  "source_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "source_revision": "1336080043",
+  "source_table": "countries",
+  "wiki_revision_id": "1336080043",
+  "fetched_at": "2026-02-12T19:20:54.889Z",
   "source": "countries",
-  "revision_id": "1332405714"
+  "revision_id": "1336080043"
 }

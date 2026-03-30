@@ -95,6 +95,7 @@ export RUN_ID NET_PROBE_CACHE_PATH
 mkdir -p "${RUNS_DIR}" "${RUN_REPORT_DIR}" "$(dirname "${SSOT_GUARD_PREV}")"
 echo "${RUN_ID}" > "${RUNS_DIR}/current_run_id.txt"
 echo "{\"run_id\":\"${RUN_ID}\",\"started_at\":\"$(date -u +%FT%TZ)\"}" > "${RUNS_DIR}/${RUN_ID}.json"
+${NODE_BIN} --input-type=module -e 'import { resetProjectProcessSlotStats } from "./tools/runtime/processSlots.mjs"; resetProjectProcessSlotStats();'
 true
 
 abort_with_reason() {
@@ -170,6 +171,26 @@ append_ci_line() {
   fi
 }
 
+emit_final_output() {
+  local file="$1"
+  if [ -z "${file}" ] || [ ! -f "${file}" ]; then
+    return 0
+  fi
+  if [ "${DIAG_FAST}" = "1" ]; then
+    cat "${file}" >&${OUTPUT_FD}
+    return 0
+  fi
+  awk '
+    NR <= 40 {
+      print;
+      next;
+    }
+    /^(CI_STATUS=|FAIL_REASON=|POST_CHECKS_OK=|HUB_STAGE_REPORT_OK=|PASS_CYCLE_EXIT )/ {
+      print;
+    }
+  ' "${file}" >&${OUTPUT_FD}
+}
+
 dedupe_ssot_keys_in_file() {
   local file="$1"
   shift || true
@@ -206,6 +227,20 @@ for (let i = 0; i < src.length; i += 1) {
 }
 fs.writeFileSync(file, `${out.join("\n").replace(/\n+$/,"")}\n`, "utf8");
 NODE
+}
+
+filter_summary_lines_inplace() {
+  local regex="$1"
+  local filtered=()
+  local line=""
+  local tmp_file
+  tmp_file=$(mktemp)
+  printf "%s\n" "${SUMMARY_LINES[@]}" | awk -v re="$regex" '$0 ~ re' > "${tmp_file}"
+  while IFS= read -r line; do
+    filtered+=("${line}")
+  done < "${tmp_file}"
+  rm -f "${tmp_file}"
+  SUMMARY_LINES=("${filtered[@]}")
 }
 
 quarantine_fail_artifacts() {
@@ -513,7 +548,7 @@ fail_with_reason() {
   fi
   quarantine_fail_artifacts "${reason_clean}"
   run_mandatory_tail || true
-  cat "${STDOUT_FILE}" >&${OUTPUT_FD}
+  emit_final_output "${STDOUT_FILE}"
   exit "${status:-1}"
 }
 
@@ -549,14 +584,53 @@ run_with_timeout() {
   local limit="$1"
   local cmd="$2"
   if command -v timeout >/dev/null 2>&1; then
-    timeout "${limit}s" bash -lc "${cmd}"
+    timeout --kill-after=10s "${limit}s" bash -lc "${cmd}"
     return $?
   fi
   if command -v gtimeout >/dev/null 2>&1; then
-    gtimeout "${limit}s" bash -lc "${cmd}"
+    gtimeout --kill-after=10s "${limit}s" bash -lc "${cmd}"
     return $?
   fi
   perl -e 'use POSIX ":sys_wait_h";my $limit=shift;my $cmd=shift;my $pid=fork();if(!$pid){exec "bash","-lc",$cmd;}my $timed=0;$SIG{ALRM}=sub{$timed=1;kill "TERM",$pid;sleep 1;kill "KILL",$pid;exit 124;};alarm $limit;waitpid($pid,0);my $rc=$?>>8;exit $rc;' "${limit}" "${cmd}"
+}
+
+capture_timeout_output() {
+  local limit="$1"
+  local cmd="$2"
+  local tmp
+  tmp=$(mktemp)
+  set +e
+  run_with_timeout "${limit}" "${cmd}" >"${tmp}" 2>&1
+  CAPTURE_TIMEOUT_RC=$?
+  set -e
+  CAPTURE_TIMEOUT_OUTPUT=$(cat "${tmp}")
+  rm -f "${tmp}"
+}
+
+artifact_files_exist() {
+  local relative_path=""
+  for relative_path in "$@"; do
+    [ -f "${ROOT}/${relative_path}" ] || return 1
+  done
+  return 0
+}
+
+run_guard_capture() {
+  local cmd="$1"
+  local tmp
+  tmp=$(mktemp)
+  set +e
+  bash -lc "cd \"${ROOT}\" && ${cmd}" >"${tmp}" 2>&1
+  GUARD_CAPTURE_RC=$?
+  set -e
+  GUARD_CAPTURE_OUTPUT=$(cat "${tmp}")
+  rm -f "${tmp}"
+}
+
+append_reuse_notice() {
+  local step_name="$1"
+  local detail="$2"
+  append_ci_line "STEP_REUSED ${step_name} ${detail}"
 }
 
 shrink_guard_counts() {
@@ -1207,12 +1281,6 @@ NET_MODE_STATE="NET_MODE wiki_online=${WIKI_ONLINE} offline=${OFFLINE} offline_r
 SUMMARY_LINES+=("${NET_MODE_STATE}")
 FLAGS_LINE="FLAGS: ALLOW_NETWORK=${ALLOW_NETWORK:-0} FETCH_NETWORK=${FETCH_NETWORK:-0} AUTO_FACTS=${AUTO_FACTS:-0} AUTO_LEARN=${AUTO_LEARN:-0}"
 SUMMARY_LINES+=("${FLAGS_LINE}")
-LEAFLET_GUARDED=1
-if [ "${MAP_ENABLED}" = "1" ]; then
-  LEAFLET_GUARDED=0
-fi
-SUMMARY_LINES+=("MAP_ENABLED=${MAP_ENABLED}")
-SUMMARY_LINES+=("LEAFLET_GUARDED=${LEAFLET_GUARDED}")
 GIT_CLEAN=0
 GIT_TREE_CLEAN=0
 GIT_STATUS_LIST=$(git status --porcelain | head -n 10 || true)
@@ -1786,7 +1854,7 @@ if [ -n "${OFFICIAL_DOMAINS_CURRENT_COUNT_LINE}" ]; then
 fi
 if [ -n "${OFFICIAL_ITEMS_PRESENT_LINE}" ]; then
   SUMMARY_LINES+=("${OFFICIAL_ITEMS_PRESENT_LINE}")
-  SUMMARY_LINES+=("OFFICIAL_EXPECTED=413")
+  SUMMARY_LINES+=("OFFICIAL_EXPECTED=418")
 fi
 if [ -n "${OFFICIAL_DOMAINS_DELTA_LINE}" ]; then
   SUMMARY_LINES+=("${OFFICIAL_DOMAINS_DELTA_LINE}")
@@ -2348,100 +2416,6 @@ PASS_LINE1="${PASS_ICON} CI ${PASS_LABEL} (Checked ${VERIFY_SAMPLED}/${VERIFY_FA
 SMOKE_TOTAL="$(grep -E '^SMOKE_TOTAL=' "${REPORTS_FINAL}" | head -n1 | cut -d= -f2 || true)"
 SMOKE_OK="$(grep -E '^SMOKE_OK=' "${REPORTS_FINAL}" | head -n1 | cut -d= -f2 || true)"
 SMOKE_FAIL="$(grep -E '^SMOKE_FAIL=' "${REPORTS_FINAL}" | head -n1 | cut -d= -f2 || true)"
-extract_smoke_counts() {
-  local line="$1"
-  local ok_value=""
-  local fail_value=""
-  ok_value="$(printf "%s" "${line}" | sed -nE 's/.*ok=([0-9]+).*/\1/p')"
-  fail_value="$(printf "%s" "${line}" | sed -nE 's/.*fail=([0-9]+).*/\1/p')"
-  if [ -n "${ok_value}" ] || [ -n "${fail_value}" ]; then
-    printf "%s;%s\n" "${ok_value}" "${fail_value}"
-  fi
-}
-replace_matching_lines_in_file() {
-  local file_path="$1"
-  local pattern="$2"
-  local replacement="$3"
-  local tmp_file=""
-  [ -f "${file_path}" ] || return 0
-  tmp_file="${file_path}.tmp.$$"
-  awk -v pat="${pattern}" -v repl="${replacement}" '
-    {
-      if ($0 ~ pat) {
-        print repl
-      } else {
-        print
-      }
-    }
-  ' "${file_path}" > "${tmp_file}" && mv "${tmp_file}" "${file_path}"
-}
-refresh_smoke_summary_outputs() {
-  local ui_smoke_line=""
-  local ui_smoke_counts=""
-  local smoke_ok_value=""
-  local smoke_fail_value=""
-  local smoke_total_value=""
-  local smoke_line_value=""
-  local infographic_value=""
-
-  if [ -f "${ROOT}/Reports/ui_smoke.txt" ]; then
-    ui_smoke_line="$(grep -E '^UI_SMOKE_OK=' "${ROOT}/Reports/ui_smoke.txt" | tail -n1 || true)"
-    smoke_total_value="$(grep -E '^SMOKE_TOTAL=' "${ROOT}/Reports/ui_smoke.txt" | tail -n1 | cut -d= -f2 || true)"
-  fi
-  if [ -z "${ui_smoke_line}" ] && [ -f "${REPORTS_FINAL}" ]; then
-    ui_smoke_line="$(grep -E '^UI_SMOKE_OK=' "${REPORTS_FINAL}" | tail -n1 || true)"
-  fi
-  ui_smoke_counts="$(extract_smoke_counts "${ui_smoke_line}")"
-  [ -n "${ui_smoke_counts}" ] || return 0
-
-  smoke_ok_value="${ui_smoke_counts%%;*}"
-  smoke_fail_value="${ui_smoke_counts##*;}"
-  if [ -z "${smoke_total_value}" ] && [ -n "${smoke_ok_value}" ] && [ -n "${smoke_fail_value}" ]; then
-    smoke_total_value="$((smoke_ok_value + smoke_fail_value))"
-  fi
-  smoke_line_value="Smoke ${smoke_ok_value:-?}/${smoke_fail_value:-?} (total ${smoke_total_value:-?})"
-  infographic_value="INFOGRAPH_STATUS=${CI_STATUS} checked=${VERIFY_SAMPLED}/${VERIFY_FAIL} smoke=${smoke_ok_value:-?}/${smoke_fail_value:-?} total=${smoke_total_value:-?} online=${ONLINE_BY_TRUTH_PROBES:-${ONLINE_INFO:-1}}"
-
-  for idx in "${!SUMMARY_LINES[@]}"; do
-    if [[ "${SUMMARY_LINES[$idx]}" == Smoke\ * ]]; then
-      SUMMARY_LINES[$idx]="${smoke_line_value}"
-    fi
-    if [[ "${SUMMARY_LINES[$idx]}" == INFOGRAPH_STATUS=* ]]; then
-      SUMMARY_LINES[$idx]="${infographic_value}"
-    fi
-  done
-
-  replace_matching_lines_in_file "${STDOUT_FILE}" '^Smoke ' "${smoke_line_value}"
-  replace_matching_lines_in_file "${RUN_REPORT_FILE}" '^Smoke ' "${smoke_line_value}"
-  replace_matching_lines_in_file "${REPORTS_FINAL}" '^Smoke ' "${smoke_line_value}"
-  if [ "${CI_WRITE_ROOT}" = "1" ]; then
-    replace_matching_lines_in_file "${ROOT}/ci-final.txt" '^Smoke ' "${smoke_line_value}"
-  fi
-  replace_matching_lines_in_file "${RUN_REPORT_FILE}" '^INFOGRAPH_STATUS=' "${infographic_value}"
-  replace_matching_lines_in_file "${REPORTS_FINAL}" '^INFOGRAPH_STATUS=' "${infographic_value}"
-  if [ "${CI_WRITE_ROOT}" = "1" ]; then
-    replace_matching_lines_in_file "${ROOT}/ci-final.txt" '^INFOGRAPH_STATUS=' "${infographic_value}"
-  fi
-}
-if [ -z "${SMOKE_OK}" ] || [ -z "${SMOKE_FAIL}" ]; then
-  UI_SMOKE_LINE="$(grep -E '^UI_SMOKE_OK=' "${REPORTS_FINAL}" | tail -n1 || true)"
-  UI_SMOKE_COUNTS=""
-  if [ -n "${UI_SMOKE_LINE}" ]; then
-    UI_SMOKE_COUNTS="$(extract_smoke_counts "${UI_SMOKE_LINE}")"
-  fi
-  if [ -z "${UI_SMOKE_COUNTS}" ] && [ -f "${ROOT}/Reports/ui_smoke.txt" ]; then
-    UI_SMOKE_LINE="$(grep -E '^UI_SMOKE_OK=' "${ROOT}/Reports/ui_smoke.txt" | tail -n1 || true)"
-  fi
-  if [ -n "${UI_SMOKE_LINE}" ]; then
-    if [ -z "${UI_SMOKE_COUNTS}" ]; then
-      UI_SMOKE_COUNTS="$(extract_smoke_counts "${UI_SMOKE_LINE}")"
-    fi
-    if [ -n "${UI_SMOKE_COUNTS}" ]; then
-      SMOKE_OK="${SMOKE_OK:-${UI_SMOKE_COUNTS%%;*}}"
-      SMOKE_FAIL="${SMOKE_FAIL:-${UI_SMOKE_COUNTS##*;}}"
-    fi
-  fi
-fi
 if [ -z "${SMOKE_TOTAL}" ] && [ -n "${SMOKE_OK}" ] && [ -n "${SMOKE_FAIL}" ]; then
   SMOKE_TOTAL="$((SMOKE_OK + SMOKE_FAIL))"
 fi
@@ -2552,7 +2526,7 @@ if [ "${DIAG_FAST}" != "1" ]; then
   SUMMARY_MODE="MVP"
 MVP_FILTER='^(GEO_LOC |GEO_LOC=|GEO_SOURCE_COUNTS|GEO_SOURCE=|GEO_REASON_CODE=|GEO_GATE_OK=|.* CI (PASS|FAIL|PASS_DEGRADED)|Smoke |INFOGRAPH_|PASS_ICON=|FAIL_ICON=|ANTI_SHRINK_|MAP_|RUN_LINT=|LINT_OK=|WORKTREE_DIRTY=|CI_DATA_DIRTY=|SANITIZE_HIT_COUNT=|UI_LISTEN |UI_WIKI_TRUTH_HTTP |Progress \\[|Stages: |[✔✖] STAGE_|STAGE_LAST=|STAGE_DONE=|STAGE_TOTAL=|STAGE_ORDER=|STAGE_ORDER_GUARD=|STAGE_OK_[1-4]=|STAGE_[A-Z_]+ \\[|EGRESS_TRUTH|ONLINE_POLICY|ONLINE_REASON|DNS_DIAGNOSTIC_ONLY=|ONLINE_BY_TRUTH_PROBES=|NET_MODE=|WIKI_GATE_OK=|WIKI_SYNC_ALL|LAST_REFRESH_TS=|LAST_SUCCESS_TS=|REFRESH_SOURCE=|REFRESH_AGE_H=|REFRESH_GUARD=|UPDATE_SCHEDULE_HOURS=|UPDATE_DID_RUN=|SUMMARY_CORE |LEGALITY_TABLE_|WIKI_COVERAGE_|WIKI_COUNTS|WIKI_SHRINK_|WIKI_ROWS_TOTAL=|WIKI_MISSING_TOTAL=|WIKI_NOTES_NONEMPTY=|WIKI_NOTES_EMPTY=|WIKI_SHRINK_COUNT=|NOTES_LIMITS |NOTES_TOTAL|NOTES_MINLEN=|NOTES_SHRINK_COUNT=|NOTES_BASELINE_COVERED=|NOTES_CURRENT_COVERED=|NOTES_GUARD=|NOTES_ALLOW_SHRINK=|NOTES_SHRINK_REASON=|NOTES_DIFF_MISSING_SAMPLE=|NOTES_OK=|NOTES_PLACEHOLDER=|NOTES_WEAK_COUNT=|NOTES_WEAK_GEOS=|NOTES_MIN_ONLY_GEOS=|NOTES_MIN_ONLY_REGRESSIONS=|NOTES_MIN_ONLY_REGRESSION_GEOS=|NOTES_QUALITY_GUARD=|NOTES_QUALITY_ALLOW_DROP=|NOTES_QUALITY_DROP_REASON=|NOTES_COVERAGE|NOTES_COVERAGE_BASELINE_PATH=|NOTES_COVERAGE_CURRENT_COUNT=|NOTES_COVERAGE_GUARD|NOTES_COVERAGE_SHRINK_REASON|NOTES_STRICT_RESULT |NOTES5_STRICT_RESULT |NOTESALL_STRICT_RESULT |NOTES_TOTAL_GEO=|NOTES_BASELINE_WITH_NOTES=|NOTES_CURRENT_WITH_NOTES=|NOTES_BASELINE_OK=|NOTES_CURRENT_OK=|NOTES_BASELINE_EMPTY=|NOTES_CURRENT_EMPTY=|NOTES_BASELINE_PLACEHOLDER=|NOTES_CURRENT_PLACEHOLDER=|NOTES_BASELINE_KIND_RICH=|NOTES_CURRENT_KIND_RICH=|NOTES_BASELINE_KIND_MIN_ONLY=|NOTES_CURRENT_KIND_MIN_ONLY=|NOTES_BASELINE_STRICT_WEAK=|NOTES_CURRENT_STRICT_WEAK=|NOTES_SHRINK_GUARD=|NOTES_SHRINK_OK=|NOTES_SHRINK_REASON=|NOTES_BASELINE=|NOTES_CURRENT=|NOTES_DELTA=|OFFICIAL_DOMAINS_TOTAL|OFFICIAL_ALLOWLIST_SIZE|OFFICIAL_ALLOWLIST_GUARD_|OFFICIAL_DIFF_SUMMARY |OFFICIAL_DIFF_BASELINE |OFFICIAL_DIFF_GUARD |OFFICIAL_DOMAINS_BASELINE=|OFFICIAL_DOMAINS_BASELINE_PATH=|OFFICIAL_BASELINE_COUNT=|OFFICIAL_SHA=|OFFICIAL_DOMAINS_CURRENT=|OFFICIAL_DOMAINS_CURRENT_COUNT=|OFFICIAL_ITEMS_PRESENT=|OFFICIAL_EXPECTED=|OFFICIAL_COVERED_COUNTRIES=|OFFICIAL_GEOS_WITH_URLS_|OFFICIAL_GEOS_WITHOUT_URLS_TOP20=|OFFICIAL_COVERAGE_GUARD|OFFICIAL_REFS_|OFFICIAL_SSOT_SHA12=|OFFICIAL_REGISTRY_TOTAL=|OFFICIAL_REGISTRY_FLOOR=|OFFICIAL_DOMAINS_DELTA=|OFFICIAL_DOMAINS_GUARD=|OFFICIAL_DOMAINS_ALLOW_SHRINK=|OFFICIAL_DOMAINS_SHRINK_REASON=|OFFICIAL_DOMAINS_SOURCE_COUNT |OFFICIAL_DIFF_MISSING_SAMPLE |OFFICIAL_DIFF_TOP_MISSING |OFFICIAL_DIFF_TOP_MATCHED |OFFICIAL_DIFF_BY_GEO |OFFICIAL_GEO_TOP_MISSING |OFFICIAL_GEO_COVERAGE|OFFICIAL_COVERAGE|OFFICIAL_SUMMARY |OFFICIAL_GEO_ROWS_COVERED=|OFFICIAL_GEO_ROWS_TOTAL=|OFFICIAL_GEO_ROWS_MISSING=|SSOT_GUARD |SSOT_GUARD_OK=|DATA_SHRINK_GUARD |SHRINK_|OFFICIAL_LINKS_COUNT=|OFFICIAL_LINKS_TOTAL=|REGIONS_TOTAL=|GEO_TOTAL=|COUNTRIES_ISO_COUNT=|US_PRESENT=|US_STATES_COUNT=|WIKI_STATUS_REC_COVERAGE=|WIKI_STATUS_MED_COVERAGE=|NOTES_NONEMPTY_COVERAGE=|COUNTRIES_COUNT=|HAS_USA=|TOTAL_GEO_COUNT=|GEO_TOTAL=|REC_STATUS_COVERAGE=|MED_STATUS_COVERAGE=|NOTES_NONEMPTY_COUNT=|COUNTRY_WIKI_ROWS_BASELINE=|COUNTRY_WIKI_ROWS_CURRENT=|COUNTRY_WIKI_ROWS_BASELINE_SHA=|COUNTRY_WIKI_ROWS_SHA=|COUNTRY_WIKI_ROWS_SHRINK_GUARD=|WIKI_PAGES_COUNT=|DATA_SOURCE=|CACHE_MODE=|SHRINK_DETECTED=|SSOT_METRICS_OK=|SSOT_COVERAGE_OK=|BASELINE_CREATED=|SHRINK_FIELDS=|MAP_SUMMARY_OK=|MAP_SUMMARY_COUNTS=|MAP_MODE=|MAP_TILES=|MAP_DATA_SOURCE=|PREMIUM_MODE=|NEARBY_MODE=|GEO_FEATURES_|GEO_RENDERABLE_|GEO_POLYGON_|GEO_FALLBACK_|NEARBY_|US_STATES_|QUARANTINE_SIZE_MB=|REPORTS_SIZE_MB=|UI_URL=|TRUTH_URL=|PROGRESS=|PROGRESS_DELTA=|REGRESS_DELTA=|WARN_NO_PROGRESS=|NO_PROGRESS_|WARN_GUARDS_SCOPE=|NODE_BIN=|CI_STATUS=|CI_QUALITY=|CI_RESULT |STOP_REASON=|PIPELINE_RC=|FAIL_REASON=)'
   SMOKE_FILTER_MATCH=$(printf "Smoke 0/0 (total 0)\n" | awk -v re="$MVP_FILTER" '$0 ~ re{ok=1} END{print ok+0}')
-  mapfile -t SUMMARY_LINES < <(printf "%s\n" "${SUMMARY_LINES[@]}" | awk -v re="$MVP_FILTER" '$0 ~ re')
+  filter_summary_lines_inplace "${MVP_FILTER}"
   if printf "%s\n" "${SUMMARY_LINES[@]}" | grep -E "^Smoke " >/dev/null 2>&1; then
     SMOKE_LINE_PRINTED=1
   fi
@@ -2586,7 +2560,6 @@ SSOT_FILTER_INFO="-"
 GEO_GATE_INFO="-"
 OFFICIAL_GUARD_INFO="-"
 NOTES_QUALITY_INFO="-"
-UI_SMOKE_OK_INFO="-"
 OFFICIAL_SHRINK_OK_INFO="-"
 NOTES_OK_INFO="-"
 if [ -f "${REPORTS_FINAL}" ]; then
@@ -2601,7 +2574,6 @@ if [ -f "${REPORTS_FINAL}" ]; then
   GEO_GATE_INFO=$(grep -E '^GEO_GATE_OK=' "${REPORTS_FINAL}" | tail -n 1 | cut -d= -f2- || echo "-")
   OFFICIAL_GUARD_INFO=$(grep -E '^OFFICIAL_DOMAINS_GUARD=' "${REPORTS_FINAL}" | tail -n 1 | cut -d= -f2- || echo "-")
   NOTES_QUALITY_INFO=$(grep -E '^NOTES_QUALITY_GUARD=' "${REPORTS_FINAL}" | tail -n 1 | cut -d= -f2- || echo "-")
-  UI_SMOKE_OK_INFO=$(grep -E '^UI_SMOKE_OK=' "${REPORTS_FINAL}" | tail -n 1 | cut -d= -f2- || echo "-")
   OFFICIAL_SHRINK_OK_INFO=$(grep -E '^OFFICIAL_SHRINK_OK=' "${REPORTS_FINAL}" | tail -n 1 | cut -d= -f2- || echo "-")
   NOTES_OK_INFO=$(grep -E '^NOTES_OK=' "${REPORTS_FINAL}" | tail -n 1 | cut -d= -f2- || echo "-")
 fi
@@ -2613,9 +2585,6 @@ if [ "${OFFICIAL_SHRINK_OK_INFO%% *}" = "1" ]; then
 fi
 if printf "%s" "${NOTES_OK_INFO%% *}" | grep -E '^[0-9]+$' >/dev/null 2>&1 && [ "${NOTES_OK_INFO%% *}" -gt 0 ]; then
   stage_mark "NOTES"
-fi
-if [ "${UI_SMOKE_OK_INFO%% *}" = "1" ]; then
-  stage_mark "UI_SMOKE"
 fi
 if [ "${POST_CHECKS_INFO%% *}" = "1" ]; then
   stage_mark "POST_CHECKS"
@@ -2781,10 +2750,10 @@ echo "LINT_OK=1"
 echo "RUN_TRUTH_TESTS=1"
 SUMMARY_LINES+=("RUN_TRUTH_TESTS=1")
 CURRENT_STEP="truth_tests"
-CURRENT_CMD="npm -w apps/web run test -- src/lib/wikiTruthNormalization.test.ts src/lib/wikiTruthAudit.test.ts src/lib/wikiTruthCounters.test.ts src/lib/officialSources/registry.test.ts src/lib/officialSources/officialLinkOwnership.test.ts src/lib/notesMerge/mergeNotes.test.ts src/lib/location/locationContext.test.ts src/lib/truth/mapTruthDataset.test.ts src/lib/map/canonicalCountryGeometry.test.ts src/lib/map/renderSafeGeometry.test.ts src/lib/ssotDiff/ssotDiffBuilder.test.ts src/lib/ssotDiff/ssotDiffEngine.test.ts src/app/wiki-truth/page.test.ts src/app/changes/page.test.ts src/app/api/ssot/changes/route.test.ts"
+CURRENT_CMD="npm -w apps/web run test -- src/lib/wikiTruthNormalization.test.ts src/lib/wikiTruthAudit.test.ts src/lib/wikiTruthCounters.test.ts src/lib/officialSources/registry.test.ts src/lib/officialSources/officialLinkOwnership.test.ts src/lib/notesMerge/mergeNotes.test.ts src/lib/location/locationContext.test.ts src/lib/truth/mapTruthDataset.test.ts src/lib/ssotDiff/ssotDiffBuilder.test.ts src/lib/ssotDiff/ssotDiffEngine.test.ts src/app/wiki-truth/page.test.ts src/app/changes/page.test.ts src/app/api/ssot/changes/route.test.ts"
 TRUTH_TEST_LOG="${ROOT}/Reports/truth-tests.log"
 rm -f "${TRUTH_TEST_LOG}" 2>/dev/null || true
-if ! (cd "${ROOT}" && npm -w apps/web run test -- src/lib/wikiTruthNormalization.test.ts src/lib/wikiTruthAudit.test.ts src/lib/wikiTruthCounters.test.ts src/lib/officialSources/registry.test.ts src/lib/officialSources/officialLinkOwnership.test.ts src/lib/notesMerge/mergeNotes.test.ts src/lib/location/locationContext.test.ts src/lib/truth/mapTruthDataset.test.ts src/lib/map/canonicalCountryGeometry.test.ts src/lib/map/renderSafeGeometry.test.ts src/lib/ssotDiff/ssotDiffBuilder.test.ts src/lib/ssotDiff/ssotDiffEngine.test.ts src/app/wiki-truth/page.test.ts src/app/changes/page.test.ts src/app/api/ssot/changes/route.test.ts) 2>&1 | tee -a "${TRUTH_TEST_LOG}"; then
+if ! (cd "${ROOT}" && npm -w apps/web run test -- src/lib/wikiTruthNormalization.test.ts src/lib/wikiTruthAudit.test.ts src/lib/wikiTruthCounters.test.ts src/lib/officialSources/registry.test.ts src/lib/officialSources/officialLinkOwnership.test.ts src/lib/notesMerge/mergeNotes.test.ts src/lib/location/locationContext.test.ts src/lib/truth/mapTruthDataset.test.ts src/lib/ssotDiff/ssotDiffBuilder.test.ts src/lib/ssotDiff/ssotDiffEngine.test.ts src/app/wiki-truth/page.test.ts src/app/changes/page.test.ts src/app/api/ssot/changes/route.test.ts) 2>&1 | tee -a "${TRUTH_TEST_LOG}"; then
   SUMMARY_LINES+=("TRUTH_TESTS_OK=0")
   echo "TRUTH_TESTS_OK=0 reason=TRUTH_TESTS_FAILED"
   {
@@ -2801,57 +2770,6 @@ echo "TRUTH_TESTS_OK=1"
   tail -n 80 "${TRUTH_TEST_LOG}" || true
   echo "TRUTH_TEST_LOG_TAIL_END"
 } >> "${STEP_LOG}"
-
-CURRENT_STEP="map_truth_coverage_guard"
-CURRENT_CMD="${NODE_BIN} tools/gates/map_truth_coverage_guard.mjs"
-MAP_TRUTH_GUARD_LOG="${ROOT}/Reports/map-truth-coverage-guard.log"
-rm -f "${MAP_TRUTH_GUARD_LOG}" 2>/dev/null || true
-if ! (cd "${ROOT}" && ${NODE_BIN} tools/gates/map_truth_coverage_guard.mjs) 2>&1 | tee -a "${MAP_TRUTH_GUARD_LOG}"; then
-  SUMMARY_LINES+=("MAP_TRUTH_COVERAGE_GUARD=FAIL")
-  echo "MAP_TRUTH_COVERAGE_GUARD=FAIL reason=MAP_TRUTH_COVERAGE_GUARD_FAILED"
-  fail_with_reason "MAP_TRUTH_COVERAGE_GUARD_FAILED"
-fi
-SUMMARY_LINES+=("MAP_TRUTH_COVERAGE_GUARD=PASS")
-echo "MAP_TRUTH_COVERAGE_GUARD=PASS"
-
-MAP_INTERACTION_ALIGNMENT_LOG="${CHECKPOINT_DIR}/map_interaction_overlay_alignment_guard.log"
-CURRENT_STEP="map_interaction_overlay_alignment_guard"
-CURRENT_CMD="${NODE_BIN} tools/gates/map_interaction_overlay_alignment_guard.mjs"
-mkdir -p "$(dirname "${MAP_INTERACTION_ALIGNMENT_LOG}")"
-: > "${MAP_INTERACTION_ALIGNMENT_LOG}"
-if ! (cd "${ROOT}" && ${NODE_BIN} tools/gates/map_interaction_overlay_alignment_guard.mjs) 2>&1 | tee -a "${MAP_INTERACTION_ALIGNMENT_LOG}"; then
-  SUMMARY_LINES+=("MAP_INTERACTION_OVERLAY_ALIGNMENT_GUARD=0")
-  FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}$(cat "${MAP_INTERACTION_ALIGNMENT_LOG}")"
-  FAIL_STEP="map_interaction_overlay_alignment_guard"
-  FAIL_CMD="${NODE_BIN} tools/gates/map_interaction_overlay_alignment_guard.mjs"
-  fail_with_reason "MAP_INTERACTION_OVERLAY_ALIGNMENT_GUARD"
-fi
-SUMMARY_LINES+=("MAP_INTERACTION_OVERLAY_ALIGNMENT_GUARD=1")
-echo "MAP_INTERACTION_OVERLAY_ALIGNMENT_GUARD=PASS"
-
-CURRENT_STEP="map_geometry_ssot_guard"
-CURRENT_CMD="${NODE_BIN} tools/gates/map_geometry_ssot_guard.mjs"
-MAP_GEOMETRY_SSOT_GUARD_LOG="${ROOT}/Reports/map-geometry-ssot-guard.log"
-rm -f "${MAP_GEOMETRY_SSOT_GUARD_LOG}" 2>/dev/null || true
-if ! (cd "${ROOT}" && ${NODE_BIN} tools/gates/map_geometry_ssot_guard.mjs) 2>&1 | tee -a "${MAP_GEOMETRY_SSOT_GUARD_LOG}"; then
-  SUMMARY_LINES+=("MAP_GEOMETRY_SSOT_GUARD=FAIL")
-  echo "MAP_GEOMETRY_SSOT_GUARD=FAIL reason=MAP_GEOMETRY_SSOT_GUARD_FAILED"
-  fail_with_reason "MAP_GEOMETRY_SSOT_GUARD_FAILED"
-fi
-SUMMARY_LINES+=("MAP_GEOMETRY_SSOT_GUARD=PASS")
-echo "MAP_GEOMETRY_SSOT_GUARD=PASS"
-
-CURRENT_STEP="map_color_distribution_guard"
-CURRENT_CMD="${NODE_BIN} tools/gates/map_color_distribution_guard.mjs"
-MAP_COLOR_GUARD_LOG="${ROOT}/Reports/map-color-distribution-guard.log"
-rm -f "${MAP_COLOR_GUARD_LOG}" 2>/dev/null || true
-if ! (cd "${ROOT}" && ${NODE_BIN} tools/gates/map_color_distribution_guard.mjs) 2>&1 | tee -a "${MAP_COLOR_GUARD_LOG}"; then
-  SUMMARY_LINES+=("MAP_COLOR_DISTRIBUTION_GUARD=FAIL")
-  echo "MAP_COLOR_DISTRIBUTION_GUARD=FAIL reason=MAP_COLOR_DISTRIBUTION_GUARD_FAILED"
-  fail_with_reason "MAP_COLOR_DISTRIBUTION_GUARD_FAILED"
-fi
-SUMMARY_LINES+=("MAP_COLOR_DISTRIBUTION_GUARD=PASS")
-echo "MAP_COLOR_DISTRIBUTION_GUARD=PASS"
 
 CURRENT_STEP="ssot_diff_engine"
 CURRENT_CMD="${NODE_BIN} tools/ssot/ssot_diff_run.mjs"
@@ -2954,48 +2872,46 @@ else
   fail_with_reason "STAGE2_OFFLINE_NOT_PROVEN"
   exit 1
 fi
-MAP_SUMMARY_OUTPUT=""
-MAP_SUMMARY_RC=0
-CURRENT_STEP="map_summary"
-CURRENT_CMD="${NODE_BIN} tools/map_summary_smoke.mjs"
+MAP_REMOVAL_AUDIT_OUTPUT=""
+MAP_REMOVAL_AUDIT_RC=0
+CURRENT_STEP="no_map_imports_audit"
+CURRENT_CMD="${NODE_BIN} tools/audit/no_map_imports.mjs"
 set +e
-MAP_SUMMARY_OUTPUT=$(${NODE_BIN} tools/map_summary_smoke.mjs 2>&1)
-MAP_SUMMARY_RC=$?
+MAP_REMOVAL_AUDIT_OUTPUT=$(${NODE_BIN} tools/audit/no_map_imports.mjs 2>&1)
+MAP_REMOVAL_AUDIT_RC=$?
 set -e
-printf "%s\n" "${MAP_SUMMARY_OUTPUT}" >> "${REPORTS_FINAL}"
-printf "%s\n" "${MAP_SUMMARY_OUTPUT}" >> "${RUN_REPORT_FILE}"
+printf "%s\n" "${MAP_REMOVAL_AUDIT_OUTPUT}" >> "${REPORTS_FINAL}"
+printf "%s\n" "${MAP_REMOVAL_AUDIT_OUTPUT}" >> "${RUN_REPORT_FILE}"
 if [ "${CI_WRITE_ROOT}" = "1" ]; then
-  printf "%s\n" "${MAP_SUMMARY_OUTPUT}" >> "${ROOT}/ci-final.txt"
+  printf "%s\n" "${MAP_REMOVAL_AUDIT_OUTPUT}" >> "${ROOT}/ci-final.txt"
 fi
 while IFS= read -r line; do
   [ -n "${line}" ] && SUMMARY_LINES+=("${line}")
-done <<< "${MAP_SUMMARY_OUTPUT}"
-MAP_SUMMARY_OK_LINE=$(printf "%s\n" "${MAP_SUMMARY_OUTPUT}" | grep -E "^MAP_SUMMARY_OK=" | tail -n 1 || true)
-MAP_RENDERED_LINE=$(printf "%s\n" "${MAP_SUMMARY_OUTPUT}" | grep -E "^MAP_RENDERED=" | tail -n 1 || true)
-CI_FLAG="${CI:-0}"
-CI_FLAG_LOWER=$(printf "%s" "${CI_FLAG}" | tr '[:upper:]' '[:lower:]')
-if [ "${MAP_SUMMARY_RC}" -ne 0 ] || ! printf "%s\n" "${MAP_SUMMARY_OK_LINE}" | grep -q "MAP_SUMMARY_OK=1"; then
-  FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}${MAP_SUMMARY_OUTPUT}"
-  FAIL_STEP="map_summary"
+done <<< "${MAP_REMOVAL_AUDIT_OUTPUT}"
+if [ "${MAP_REMOVAL_AUDIT_RC}" -ne 0 ] \
+  || ! printf "%s\n" "${MAP_REMOVAL_AUDIT_OUTPUT}" | grep -q "^MAP_RUNTIME_REMOVED=1" \
+  || ! printf "%s\n" "${MAP_REMOVAL_AUDIT_OUTPUT}" | grep -q "^MAP_IMPORTS_FOUND=0" \
+  || ! printf "%s\n" "${MAP_REMOVAL_AUDIT_OUTPUT}" | grep -q "^MAP_ROUTES_REMOVED=1" \
+  ; then
+  FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}${MAP_REMOVAL_AUDIT_OUTPUT}"
+  FAIL_STEP="no_map_imports_audit"
   FAIL_CMD="${CURRENT_CMD}"
-  FAIL_RC="${MAP_SUMMARY_RC}"
-  fail_with_reason "STAGE3_MAP_NOT_PROVEN"
+  FAIL_RC="${MAP_REMOVAL_AUDIT_RC}"
+  fail_with_reason "STAGE3_MAP_REMOVAL_NOT_PROVEN"
   exit 1
 fi
-if [ "${CI_FLAG}" = "1" ] || [ "${CI_FLAG_LOWER}" = "true" ]; then
-  if ! printf "%s\n" "${MAP_RENDERED_LINE}" | grep -q "MAP_RENDERED=NO"; then
-    FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}${MAP_SUMMARY_OUTPUT}"
-    fail_with_reason "STAGE3_MAP_NOT_PROVEN"
-    exit 1
-  fi
-else
-  if [ "${MAP_ENABLED:-0}" = "1" ] && [ "${PREMIUM:-0}" = "1" ] \
-    && ! printf "%s\n" "${MAP_RENDERED_LINE}" | grep -q "MAP_RENDERED=YES"; then
-    FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}${MAP_SUMMARY_OUTPUT}"
-    fail_with_reason "STAGE3_MAP_NOT_PROVEN"
-    exit 1
-  fi
+LEGACY_MAP_STAGE_COUNT=$(PASS_CYCLE_PATH="${ROOT}/tools/pass_cycle.sh" ${NODE_BIN} -e 'const fs=require("fs");const file=process.env.PASS_CYCLE_PATH;const patterns=["ui_smoke","generate_perf_report","perf_regression_guard","home_fullscreen_contract_guard","playwright_runtime_diag","NEXT_PUBLIC_MAP_ENABLED","MAP_ENABLED","/api/map","hover_","seam_"];const lines=fs.readFileSync(file,"utf8").split(/\r?\n/).filter((line)=>!line.includes("LEGACY_MAP_STAGE_COUNT=$("));const count=lines.filter((line)=>patterns.some((pattern)=>line.includes(pattern))).length;process.stdout.write(String(count));')
+SUMMARY_LINES+=("LEGACY_MAP_STAGE_COUNT=${LEGACY_MAP_STAGE_COUNT}")
+if [ "${LEGACY_MAP_STAGE_COUNT}" != "0" ]; then
+  SUMMARY_LINES+=("PASS_CYCLE_MAPLESS_ASSERT=FAIL")
+  echo "LEGACY_MAP_STAGE_COUNT=${LEGACY_MAP_STAGE_COUNT}"
+  echo "PASS_CYCLE_MAPLESS_ASSERT=FAIL"
+  fail_with_reason "PASS_CYCLE_MAPLESS_ASSERT_FAIL"
+  exit 1
 fi
+SUMMARY_LINES+=("PASS_CYCLE_MAPLESS_ASSERT=PASS")
+echo "LEGACY_MAP_STAGE_COUNT=0"
+echo "PASS_CYCLE_MAPLESS_ASSERT=PASS"
 STAGE_OK_3="1"
 NEARBY_OUTPUT=""
 NEARBY_RC=0
@@ -3107,239 +3023,32 @@ fi
 
 run_ui_dev_proof
 
-PLAYWRIGHT_RUNTIME_DIAG_OUTPUT=""
-CURRENT_STEP="playwright_runtime_diag"
-CURRENT_CMD="${NODE_BIN} tools/diagnostics/check_playwright_interactive_runtime.mjs"
+PROCESS_SLOT_LAUNCH_GUARD_OUTPUT=""
+CURRENT_STEP="process_slot_launch_guard"
+CURRENT_CMD="${NODE_BIN} tools/gates/process_slot_launch_guard.mjs"
 set +e
-PLAYWRIGHT_RUNTIME_DIAG_OUTPUT=$(PLAYWRIGHT_INTERACTIVE_REQUESTED=1 ${NODE_BIN} tools/diagnostics/check_playwright_interactive_runtime.mjs 2>&1)
-PLAYWRIGHT_RUNTIME_DIAG_RC=$?
+PROCESS_SLOT_LAUNCH_GUARD_OUTPUT=$(${NODE_BIN} tools/gates/process_slot_launch_guard.mjs 2>&1)
+PROCESS_SLOT_LAUNCH_GUARD_RC=$?
 set -e
-printf "%s\n" "${PLAYWRIGHT_RUNTIME_DIAG_OUTPUT}" >> "${REPORTS_FINAL}"
-printf "%s\n" "${PLAYWRIGHT_RUNTIME_DIAG_OUTPUT}" >> "${RUN_REPORT_FILE}"
+printf "%s\n" "${PROCESS_SLOT_LAUNCH_GUARD_OUTPUT}" >> "${REPORTS_FINAL}"
+printf "%s\n" "${PROCESS_SLOT_LAUNCH_GUARD_OUTPUT}" >> "${RUN_REPORT_FILE}"
 if [ "${CI_WRITE_ROOT}" = "1" ]; then
-  printf "%s\n" "${PLAYWRIGHT_RUNTIME_DIAG_OUTPUT}" >> "${ROOT}/ci-final.txt"
+  printf "%s\n" "${PROCESS_SLOT_LAUNCH_GUARD_OUTPUT}" >> "${ROOT}/ci-final.txt"
 fi
-if [ "${PLAYWRIGHT_RUNTIME_DIAG_RC}" -ne 0 ]; then
-  FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}${PLAYWRIGHT_RUNTIME_DIAG_OUTPUT}"
-  FAIL_STEP="playwright_runtime_diag"
+if [ "${PROCESS_SLOT_LAUNCH_GUARD_RC}" -ne 0 ] || printf "%s\n" "${PROCESS_SLOT_LAUNCH_GUARD_OUTPUT}" | grep -q "PROCESS_SLOT_LAUNCH_GUARD=FAIL"; then
+  FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}${PROCESS_SLOT_LAUNCH_GUARD_OUTPUT}"
+  FAIL_STEP="process_slot_launch_guard"
   FAIL_CMD="${CURRENT_CMD}"
-  FAIL_RC="${PLAYWRIGHT_RUNTIME_DIAG_RC}"
-  fail_with_reason "PLAYWRIGHT_RUNTIME_DIAG_FAILED"
-fi
-
-UI_SMOKE_OUTPUT=""
-UI_SMOKE_RC=0
-CURRENT_STEP="ui_smoke"
-CURRENT_CMD="NODE_PATH=${ROOT}/tools/playwright-smoke/node_modules ${NODE_BIN} tools/playwright-smoke/ui_smoke.mjs"
-UI_SMOKE_WEBKIT_REQUIRED="${UI_SMOKE_WEBKIT_REQUIRED:-1}"
-UI_SMOKE_REPORT_PATH="${ROOT}/Reports/ui_smoke.txt"
-rm -f "${UI_SMOKE_REPORT_PATH}"
-if [ "${UI_SMOKE:-1}" = "1" ]; then
-  stage_mark "UI_SMOKE"
-  printf "RUN_UI_SMOKE=1\n" >> "${REPORTS_FINAL}"
-  printf "RUN_UI_SMOKE=1\n" >> "${RUN_REPORT_FILE}"
-  if [ "${CI_WRITE_ROOT}" = "1" ]; then
-    printf "RUN_UI_SMOKE=1\n" >> "${ROOT}/ci-final.txt"
-  fi
-  set +e
-  UI_SMOKE_OUTPUT=$(NODE_PATH="${ROOT}/tools/playwright-smoke/node_modules" MAP_ENABLED="${MAP_ENABLED:-0}" PREMIUM="${PREMIUM:-0}" CI="${CI:-}" UI_SMOKE_WEBKIT="${UI_SMOKE_WEBKIT:-1}" ${NODE_BIN} tools/playwright-smoke/ui_smoke.mjs 2>&1)
-  UI_SMOKE_RC=$?
-  set -e
-  printf "%s\n" "${UI_SMOKE_OUTPUT}" >> "${REPORTS_FINAL}"
-  printf "%s\n" "${UI_SMOKE_OUTPUT}" >> "${RUN_REPORT_FILE}"
-  if [ "${CI_WRITE_ROOT}" = "1" ]; then
-    printf "%s\n" "${UI_SMOKE_OUTPUT}" >> "${ROOT}/ci-final.txt"
-  fi
-else
-  UI_SMOKE_RC=127
-fi
-UI_SMOKE_OK_LINE=""
-UI_SMOKE_WEBKIT_LINE=""
-if [ -f "${UI_SMOKE_REPORT_PATH}" ]; then
-  UI_SMOKE_REPORT_RUN_ID=$(grep -E '^RUN_ID=' "${UI_SMOKE_REPORT_PATH}" | tail -n1 | cut -d= -f2- || true)
-  if [ "${UI_SMOKE_REPORT_RUN_ID}" != "${RUN_ID}" ]; then
-    FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}$(cat "${UI_SMOKE_REPORT_PATH}")"
-    FAIL_STEP="ui_smoke"
-    FAIL_CMD="${CURRENT_CMD}"
-    FAIL_RC="${UI_SMOKE_RC:-1}"
-    fail_with_reason "UI_SMOKE_STALE_REPORT"
-  fi
-  cat "${UI_SMOKE_REPORT_PATH}" >> "${REPORTS_FINAL}"
-  cat "${UI_SMOKE_REPORT_PATH}" >> "${RUN_REPORT_FILE}"
-  if [ "${CI_WRITE_ROOT}" = "1" ]; then
-    cat "${UI_SMOKE_REPORT_PATH}" >> "${ROOT}/ci-final.txt"
-  fi
-  UI_SMOKE_OK_LINE=$(grep -E '^UI_SMOKE_OK=' "${UI_SMOKE_REPORT_PATH}" | tail -n 1 || true)
-  UI_SMOKE_WEBKIT_LINE=$(grep -E '^UI_SMOKE_WEBKIT_OK=' "${UI_SMOKE_REPORT_PATH}" | tail -n 1 || true)
-fi
-[ -n "${UI_SMOKE_OK_LINE}" ] || UI_SMOKE_OK_LINE=$(printf "%s\n" "${UI_SMOKE_OUTPUT}" | grep -E "^UI_SMOKE_OK=" | tail -n 1 || true)
-UI_SMOKE_COUNTS_LINE="$(extract_smoke_counts "${UI_SMOKE_OK_LINE}")"
-if [ -n "${UI_SMOKE_COUNTS_LINE}" ]; then
-  UI_SMOKE_OK_COUNT="${UI_SMOKE_COUNTS_LINE%%;*}"
-  UI_SMOKE_FAIL_COUNT="${UI_SMOKE_COUNTS_LINE##*;}"
-  UI_SMOKE_TOTAL_COUNT="$((UI_SMOKE_OK_COUNT + UI_SMOKE_FAIL_COUNT))"
-  printf "SMOKE_OK=%s\nSMOKE_FAIL=%s\nSMOKE_TOTAL=%s\n" \
-    "${UI_SMOKE_OK_COUNT}" "${UI_SMOKE_FAIL_COUNT}" "${UI_SMOKE_TOTAL_COUNT}" >> "${REPORTS_FINAL}"
-  printf "SMOKE_OK=%s\nSMOKE_FAIL=%s\nSMOKE_TOTAL=%s\n" \
-    "${UI_SMOKE_OK_COUNT}" "${UI_SMOKE_FAIL_COUNT}" "${UI_SMOKE_TOTAL_COUNT}" >> "${RUN_REPORT_FILE}"
-  if [ "${CI_WRITE_ROOT}" = "1" ]; then
-    printf "SMOKE_OK=%s\nSMOKE_FAIL=%s\nSMOKE_TOTAL=%s\n" \
-      "${UI_SMOKE_OK_COUNT}" "${UI_SMOKE_FAIL_COUNT}" "${UI_SMOKE_TOTAL_COUNT}" >> "${ROOT}/ci-final.txt"
-  fi
-fi
-if [ "${UI_SMOKE_RC}" -ne 0 ] || ! printf "%s\n" "${UI_SMOKE_OK_LINE}" | grep -q "UI_SMOKE_OK=1"; then
-  FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}${UI_SMOKE_OUTPUT}"
-  FAIL_STEP="ui_smoke"
-  FAIL_CMD="${CURRENT_CMD}"
-  FAIL_RC="${UI_SMOKE_RC}"
-  fail_with_reason "UI_SMOKE_FAIL"
-fi
-if [ "${UI_SMOKE_WEBKIT_REQUIRED}" = "1" ]; then
-  [ -n "${UI_SMOKE_WEBKIT_LINE}" ] || UI_SMOKE_WEBKIT_LINE=$(printf "%s\n" "${UI_SMOKE_OUTPUT}" | grep -E "^UI_SMOKE_WEBKIT_OK=" | tail -n 1 || true)
-  if ! printf "%s\n" "${UI_SMOKE_WEBKIT_LINE}" | grep -q "UI_SMOKE_WEBKIT_OK=1"; then
-    FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}${UI_SMOKE_OUTPUT}"
-    FAIL_STEP="ui_smoke_webkit"
-    FAIL_CMD="${CURRENT_CMD}"
-    FAIL_RC="${UI_SMOKE_RC}"
-    fail_with_reason "UI_SMOKE_WEBKIT_FAIL"
-  fi
-fi
-refresh_smoke_summary_outputs
-
-MAP_OVERLAY_LIVE_SUITE_OUTPUT=""
-CURRENT_STEP="map_overlay_live_suite"
-CURRENT_CMD="NODE_PATH=${ROOT}/tools/playwright-smoke/node_modules ${NODE_BIN} tools/playwright-smoke/map_overlay_live_suite.mjs"
-set +e
-MAP_OVERLAY_LIVE_SUITE_OUTPUT=$(NODE_PATH="${ROOT}/tools/playwright-smoke/node_modules" HEADLESS=1 ${NODE_BIN} tools/playwright-smoke/map_overlay_live_suite.mjs 2>&1)
-MAP_OVERLAY_LIVE_SUITE_RC=$?
-if [ "${MAP_OVERLAY_LIVE_SUITE_RC}" -ne 0 ]; then
-  sleep 2
-  MAP_OVERLAY_LIVE_SUITE_RETRY_OUTPUT=$(NODE_PATH="${ROOT}/tools/playwright-smoke/node_modules" HEADLESS=1 ${NODE_BIN} tools/playwright-smoke/map_overlay_live_suite.mjs 2>&1)
-  MAP_OVERLAY_LIVE_SUITE_RETRY_RC=$?
-  MAP_OVERLAY_LIVE_SUITE_OUTPUT="${MAP_OVERLAY_LIVE_SUITE_OUTPUT}"$'\n'"MAP_OVERLAY_LIVE_SUITE_RETRY=1"$'\n'"${MAP_OVERLAY_LIVE_SUITE_RETRY_OUTPUT}"
-  MAP_OVERLAY_LIVE_SUITE_RC="${MAP_OVERLAY_LIVE_SUITE_RETRY_RC}"
-fi
-set -e
-printf "%s\n" "${MAP_OVERLAY_LIVE_SUITE_OUTPUT}" >> "${REPORTS_FINAL}"
-printf "%s\n" "${MAP_OVERLAY_LIVE_SUITE_OUTPUT}" >> "${RUN_REPORT_FILE}"
-if [ "${CI_WRITE_ROOT}" = "1" ]; then
-  printf "%s\n" "${MAP_OVERLAY_LIVE_SUITE_OUTPUT}" >> "${ROOT}/ci-final.txt"
-fi
-if [ "${MAP_OVERLAY_LIVE_SUITE_RC}" -ne 0 ]; then
-  FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}${MAP_OVERLAY_LIVE_SUITE_OUTPUT}"
-  FAIL_STEP="map_overlay_live_suite"
-  FAIL_CMD="${CURRENT_CMD}"
-  FAIL_RC="${MAP_OVERLAY_LIVE_SUITE_RC}"
-  fail_with_reason "MAP_OVERLAY_LIVE_SUITE_FAIL"
-fi
-
-MAP_RENDER_SEAM_OUTPUT=""
-CURRENT_STEP="map_render_seam_test"
-CURRENT_CMD="NODE_PATH=${ROOT}/tools/playwright-smoke/node_modules ${NODE_BIN} tools/playwright-smoke/map_render_seam_test.mjs"
-set +e
-MAP_RENDER_SEAM_OUTPUT=$(NODE_PATH="${ROOT}/tools/playwright-smoke/node_modules" HEADLESS=1 ${NODE_BIN} tools/playwright-smoke/map_render_seam_test.mjs 2>&1)
-MAP_RENDER_SEAM_RC=$?
-set -e
-printf "%s\n" "${MAP_RENDER_SEAM_OUTPUT}" >> "${REPORTS_FINAL}"
-printf "%s\n" "${MAP_RENDER_SEAM_OUTPUT}" >> "${RUN_REPORT_FILE}"
-if [ "${CI_WRITE_ROOT}" = "1" ]; then
-  printf "%s\n" "${MAP_RENDER_SEAM_OUTPUT}" >> "${ROOT}/ci-final.txt"
-fi
-if [ "${MAP_RENDER_SEAM_RC}" -ne 0 ]; then
-  FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}${MAP_RENDER_SEAM_OUTPUT}"
-  FAIL_STEP="map_render_seam_test"
-  FAIL_CMD="${CURRENT_CMD}"
-  FAIL_RC="${MAP_RENDER_SEAM_RC}"
-  fail_with_reason "MAP_RENDER_SEAM_TEST_FAIL"
-fi
-
-MAP_RENDER_SEAM_GUARD_OUTPUT=""
-CURRENT_STEP="map_render_seam_guard"
-CURRENT_CMD="${NODE_BIN} tools/gates/map_render_seam_guard.mjs"
-set +e
-MAP_RENDER_SEAM_GUARD_OUTPUT=$(${NODE_BIN} tools/gates/map_render_seam_guard.mjs 2>&1)
-MAP_RENDER_SEAM_GUARD_RC=$?
-set -e
-printf "%s\n" "${MAP_RENDER_SEAM_GUARD_OUTPUT}" >> "${REPORTS_FINAL}"
-printf "%s\n" "${MAP_RENDER_SEAM_GUARD_OUTPUT}" >> "${RUN_REPORT_FILE}"
-if [ "${CI_WRITE_ROOT}" = "1" ]; then
-  printf "%s\n" "${MAP_RENDER_SEAM_GUARD_OUTPUT}" >> "${ROOT}/ci-final.txt"
-fi
-if [ "${MAP_RENDER_SEAM_GUARD_RC}" -ne 0 ] || printf "%s\n" "${MAP_RENDER_SEAM_GUARD_OUTPUT}" | grep -q "MAP_RENDER_SEAM_GUARD=FAIL"; then
-  FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}${MAP_RENDER_SEAM_GUARD_OUTPUT}"
-  FAIL_STEP="map_render_seam_guard"
-  FAIL_CMD="${CURRENT_CMD}"
-  FAIL_RC="${MAP_RENDER_SEAM_GUARD_RC}"
-  fail_with_reason "MAP_RENDER_SEAM_GUARD_FAIL"
-fi
-
-MAP_OVERLAY_DUPLICATE_GUARD_OUTPUT=""
-CURRENT_STEP="map_overlay_duplicate_features_guard"
-CURRENT_CMD="${NODE_BIN} tools/gates/map_overlay_duplicate_features_guard.mjs"
-set +e
-MAP_OVERLAY_DUPLICATE_GUARD_OUTPUT=$(${NODE_BIN} tools/gates/map_overlay_duplicate_features_guard.mjs 2>&1)
-MAP_OVERLAY_DUPLICATE_GUARD_RC=$?
-set -e
-printf "%s\n" "${MAP_OVERLAY_DUPLICATE_GUARD_OUTPUT}" >> "${REPORTS_FINAL}"
-printf "%s\n" "${MAP_OVERLAY_DUPLICATE_GUARD_OUTPUT}" >> "${RUN_REPORT_FILE}"
-if [ "${CI_WRITE_ROOT}" = "1" ]; then
-  printf "%s\n" "${MAP_OVERLAY_DUPLICATE_GUARD_OUTPUT}" >> "${ROOT}/ci-final.txt"
-fi
-if [ "${MAP_OVERLAY_DUPLICATE_GUARD_RC}" -ne 0 ] || printf "%s\n" "${MAP_OVERLAY_DUPLICATE_GUARD_OUTPUT}" | grep -q "MAP_OVERLAY_DUPLICATE_FEATURES_GUARD=FAIL"; then
-  FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}${MAP_OVERLAY_DUPLICATE_GUARD_OUTPUT}"
-  FAIL_STEP="map_overlay_duplicate_features_guard"
-  FAIL_CMD="${CURRENT_CMD}"
-  FAIL_RC="${MAP_OVERLAY_DUPLICATE_GUARD_RC}"
-  fail_with_reason "MAP_OVERLAY_DUPLICATE_FEATURES_GUARD_FAIL"
-fi
-
-MAP_FILL_ALIGNMENT_GUARD_OUTPUT=""
-CURRENT_STEP="map_fill_alignment_guard"
-CURRENT_CMD="${NODE_BIN} tools/gates/map_fill_alignment_guard.mjs"
-set +e
-MAP_FILL_ALIGNMENT_GUARD_OUTPUT=$(${NODE_BIN} tools/gates/map_fill_alignment_guard.mjs 2>&1)
-MAP_FILL_ALIGNMENT_GUARD_RC=$?
-set -e
-printf "%s\n" "${MAP_FILL_ALIGNMENT_GUARD_OUTPUT}" >> "${REPORTS_FINAL}"
-printf "%s\n" "${MAP_FILL_ALIGNMENT_GUARD_OUTPUT}" >> "${RUN_REPORT_FILE}"
-if [ "${CI_WRITE_ROOT}" = "1" ]; then
-  printf "%s\n" "${MAP_FILL_ALIGNMENT_GUARD_OUTPUT}" >> "${ROOT}/ci-final.txt"
-fi
-if [ "${MAP_FILL_ALIGNMENT_GUARD_RC}" -ne 0 ] || printf "%s\n" "${MAP_FILL_ALIGNMENT_GUARD_OUTPUT}" | grep -q "MAP_FILL_ALIGNMENT_GUARD=FAIL"; then
-  FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}${MAP_FILL_ALIGNMENT_GUARD_OUTPUT}"
-  FAIL_STEP="map_fill_alignment_guard"
-  FAIL_CMD="${CURRENT_CMD}"
-  FAIL_RC="${MAP_FILL_ALIGNMENT_GUARD_RC}"
-  fail_with_reason "MAP_FILL_ALIGNMENT_GUARD_FAIL"
-fi
-
-MAP_RENDER_STACK_CONTRACT_GUARD_OUTPUT=""
-CURRENT_STEP="map_render_stack_contract_guard"
-CURRENT_CMD="${NODE_BIN} tools/gates/map_render_stack_contract_guard.mjs"
-set +e
-MAP_RENDER_STACK_CONTRACT_GUARD_OUTPUT=$(${NODE_BIN} tools/gates/map_render_stack_contract_guard.mjs 2>&1)
-MAP_RENDER_STACK_CONTRACT_GUARD_RC=$?
-set -e
-printf "%s\n" "${MAP_RENDER_STACK_CONTRACT_GUARD_OUTPUT}" >> "${REPORTS_FINAL}"
-printf "%s\n" "${MAP_RENDER_STACK_CONTRACT_GUARD_OUTPUT}" >> "${RUN_REPORT_FILE}"
-if [ "${CI_WRITE_ROOT}" = "1" ]; then
-  printf "%s\n" "${MAP_RENDER_STACK_CONTRACT_GUARD_OUTPUT}" >> "${ROOT}/ci-final.txt"
-fi
-if [ "${MAP_RENDER_STACK_CONTRACT_GUARD_RC}" -ne 0 ] || printf "%s\n" "${MAP_RENDER_STACK_CONTRACT_GUARD_OUTPUT}" | grep -q "MAP_RENDER_STACK_CONTRACT_GUARD=FAIL"; then
-  FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}${MAP_RENDER_STACK_CONTRACT_GUARD_OUTPUT}"
-  FAIL_STEP="map_render_stack_contract_guard"
-  FAIL_CMD="${CURRENT_CMD}"
-  FAIL_RC="${MAP_RENDER_STACK_CONTRACT_GUARD_RC}"
-  fail_with_reason "MAP_RENDER_STACK_CONTRACT_GUARD_FAIL"
+  FAIL_RC="${PROCESS_SLOT_LAUNCH_GUARD_RC}"
+  fail_with_reason "PROCESS_SLOT_LAUNCH_GUARD_FAIL"
 fi
 
 WIKI_TRUTH_LIVE_CHROMIUM_OUTPUT=""
 CURRENT_STEP="wiki_truth_live_probe_chromium"
 CURRENT_CMD="NODE_PATH=${ROOT}/tools/playwright-smoke/node_modules BROWSER=chromium ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
-set +e
-WIKI_TRUTH_LIVE_CHROMIUM_OUTPUT=$(NODE_PATH="${ROOT}/tools/playwright-smoke/node_modules" BROWSER=chromium HEADLESS=1 ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs 2>&1)
-WIKI_TRUTH_LIVE_CHROMIUM_RC=$?
-set -e
+capture_timeout_output 180 "cd \"${ROOT}\" && NODE_PATH=\"${ROOT}/tools/playwright-smoke/node_modules\" BROWSER=chromium HEADLESS=1 ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
+WIKI_TRUTH_LIVE_CHROMIUM_OUTPUT="${CAPTURE_TIMEOUT_OUTPUT}"
+WIKI_TRUTH_LIVE_CHROMIUM_RC="${CAPTURE_TIMEOUT_RC}"
 printf "%s\n" "${WIKI_TRUTH_LIVE_CHROMIUM_OUTPUT}" >> "${REPORTS_FINAL}"
 printf "%s\n" "${WIKI_TRUTH_LIVE_CHROMIUM_OUTPUT}" >> "${RUN_REPORT_FILE}"
 if [ "${CI_WRITE_ROOT}" = "1" ]; then
@@ -3356,10 +3065,9 @@ fi
 WIKI_TRUTH_LIVE_WEBKIT_OUTPUT=""
 CURRENT_STEP="wiki_truth_live_probe_webkit"
 CURRENT_CMD="NODE_PATH=${ROOT}/tools/playwright-smoke/node_modules BROWSER=webkit ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
-set +e
-WIKI_TRUTH_LIVE_WEBKIT_OUTPUT=$(NODE_PATH="${ROOT}/tools/playwright-smoke/node_modules" BROWSER=webkit HEADLESS=1 ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs 2>&1)
-WIKI_TRUTH_LIVE_WEBKIT_RC=$?
-set -e
+capture_timeout_output 180 "cd \"${ROOT}\" && NODE_PATH=\"${ROOT}/tools/playwright-smoke/node_modules\" BROWSER=webkit HEADLESS=1 ${NODE_BIN} tools/playwright-smoke/wiki_truth_live_probe.mjs"
+WIKI_TRUTH_LIVE_WEBKIT_OUTPUT="${CAPTURE_TIMEOUT_OUTPUT}"
+WIKI_TRUTH_LIVE_WEBKIT_RC="${CAPTURE_TIMEOUT_RC}"
 printf "%s\n" "${WIKI_TRUTH_LIVE_WEBKIT_OUTPUT}" >> "${REPORTS_FINAL}"
 printf "%s\n" "${WIKI_TRUTH_LIVE_WEBKIT_OUTPUT}" >> "${RUN_REPORT_FILE}"
 if [ "${CI_WRITE_ROOT}" = "1" ]; then
@@ -3371,86 +3079,6 @@ if [ "${WIKI_TRUTH_LIVE_WEBKIT_RC}" -ne 0 ]; then
   FAIL_CMD="${CURRENT_CMD}"
   FAIL_RC="${WIKI_TRUTH_LIVE_WEBKIT_RC}"
   fail_with_reason "WIKI_TRUTH_LIVE_PROBE_WEBKIT_FAIL"
-fi
-
-PLAYWRIGHT_LIVE_EVIDENCE_OUTPUT=""
-CURRENT_STEP="playwright_live_evidence_guard"
-CURRENT_CMD="${NODE_BIN} tools/gates/playwright_live_evidence_guard.mjs"
-set +e
-PLAYWRIGHT_LIVE_EVIDENCE_OUTPUT=$(${NODE_BIN} tools/gates/playwright_live_evidence_guard.mjs 2>&1)
-PLAYWRIGHT_LIVE_EVIDENCE_RC=$?
-set -e
-printf "%s\n" "${PLAYWRIGHT_LIVE_EVIDENCE_OUTPUT}" >> "${REPORTS_FINAL}"
-printf "%s\n" "${PLAYWRIGHT_LIVE_EVIDENCE_OUTPUT}" >> "${RUN_REPORT_FILE}"
-if [ "${CI_WRITE_ROOT}" = "1" ]; then
-  printf "%s\n" "${PLAYWRIGHT_LIVE_EVIDENCE_OUTPUT}" >> "${ROOT}/ci-final.txt"
-fi
-if [ "${PLAYWRIGHT_LIVE_EVIDENCE_RC}" -ne 0 ] || printf "%s\n" "${PLAYWRIGHT_LIVE_EVIDENCE_OUTPUT}" | grep -q "PLAYWRIGHT_LIVE_EVIDENCE_GUARD=FAIL"; then
-  FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}${PLAYWRIGHT_LIVE_EVIDENCE_OUTPUT}"
-  FAIL_STEP="playwright_live_evidence_guard"
-  FAIL_CMD="${CURRENT_CMD}"
-  FAIL_RC="${PLAYWRIGHT_LIVE_EVIDENCE_RC}"
-  fail_with_reason "PLAYWRIGHT_LIVE_EVIDENCE_FAIL"
-fi
-
-SIMPLIFICATION_AUDIT_OUTPUT=""
-CURRENT_STEP="simplification_audit"
-CURRENT_CMD="${NODE_BIN} tools/diagnostics/generate_simplification_audit.mjs"
-set +e
-SIMPLIFICATION_AUDIT_OUTPUT=$(${NODE_BIN} tools/diagnostics/generate_simplification_audit.mjs 2>&1)
-SIMPLIFICATION_AUDIT_RC=$?
-set -e
-printf "%s\n" "${SIMPLIFICATION_AUDIT_OUTPUT}" >> "${REPORTS_FINAL}"
-printf "%s\n" "${SIMPLIFICATION_AUDIT_OUTPUT}" >> "${RUN_REPORT_FILE}"
-if [ "${CI_WRITE_ROOT}" = "1" ]; then
-  printf "%s\n" "${SIMPLIFICATION_AUDIT_OUTPUT}" >> "${ROOT}/ci-final.txt"
-fi
-if [ "${SIMPLIFICATION_AUDIT_RC}" -ne 0 ]; then
-  FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}${SIMPLIFICATION_AUDIT_OUTPUT}"
-  FAIL_STEP="simplification_audit"
-  FAIL_CMD="${CURRENT_CMD}"
-  FAIL_RC="${SIMPLIFICATION_AUDIT_RC}"
-  fail_with_reason "SIMPLIFICATION_AUDIT_FAIL"
-fi
-
-VECTOR_TILE_BENCHMARK_OUTPUT=""
-CURRENT_STEP="vector_tile_benchmark"
-CURRENT_CMD="${NODE_BIN} tools/vector_tile/benchmark_country_geometry_modes.mjs"
-set +e
-VECTOR_TILE_BENCHMARK_OUTPUT=$(${NODE_BIN} tools/vector_tile/benchmark_country_geometry_modes.mjs 2>&1)
-VECTOR_TILE_BENCHMARK_RC=$?
-set -e
-printf "%s\n" "${VECTOR_TILE_BENCHMARK_OUTPUT}" >> "${REPORTS_FINAL}"
-printf "%s\n" "${VECTOR_TILE_BENCHMARK_OUTPUT}" >> "${RUN_REPORT_FILE}"
-if [ "${CI_WRITE_ROOT}" = "1" ]; then
-  printf "%s\n" "${VECTOR_TILE_BENCHMARK_OUTPUT}" >> "${ROOT}/ci-final.txt"
-fi
-if [ "${VECTOR_TILE_BENCHMARK_RC}" -ne 0 ]; then
-  FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}${VECTOR_TILE_BENCHMARK_OUTPUT}"
-  FAIL_STEP="vector_tile_benchmark"
-  FAIL_CMD="${CURRENT_CMD}"
-  FAIL_RC="${VECTOR_TILE_BENCHMARK_RC}"
-  fail_with_reason "VECTOR_TILE_BENCHMARK_FAIL"
-fi
-
-PERF_REPORT_OUTPUT=""
-CURRENT_STEP="perf_before_after"
-CURRENT_CMD="NODE_PATH=${ROOT}/tools/playwright-smoke/node_modules ${NODE_BIN} tools/diagnostics/generate_perf_report.mjs"
-set +e
-PERF_REPORT_OUTPUT=$(NODE_PATH="${ROOT}/tools/playwright-smoke/node_modules" ${NODE_BIN} tools/diagnostics/generate_perf_report.mjs 2>&1)
-PERF_REPORT_RC=$?
-set -e
-printf "%s\n" "${PERF_REPORT_OUTPUT}" >> "${REPORTS_FINAL}"
-printf "%s\n" "${PERF_REPORT_OUTPUT}" >> "${RUN_REPORT_FILE}"
-if [ "${CI_WRITE_ROOT}" = "1" ]; then
-  printf "%s\n" "${PERF_REPORT_OUTPUT}" >> "${ROOT}/ci-final.txt"
-fi
-if [ "${PERF_REPORT_RC}" -ne 0 ]; then
-  FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}${PERF_REPORT_OUTPUT}"
-  FAIL_STEP="perf_before_after"
-  FAIL_CMD="${CURRENT_CMD}"
-  FAIL_RC="${PERF_REPORT_RC}"
-  fail_with_reason "PERF_BEFORE_AFTER_FAIL"
 fi
 
 NO_SECOND_TRUTH_OUTPUT=""
@@ -3473,46 +3101,6 @@ if [ "${NO_SECOND_TRUTH_RC}" -ne 0 ] || printf "%s\n" "${NO_SECOND_TRUTH_OUTPUT}
   fail_with_reason "NO_SECOND_TRUTH_GUARD_FAIL"
 fi
 
-FILE_SIZE_SIMPLIFICATION_OUTPUT=""
-CURRENT_STEP="file_size_simplification_guard"
-CURRENT_CMD="${NODE_BIN} tools/gates/file_size_simplification_guard.mjs"
-set +e
-FILE_SIZE_SIMPLIFICATION_OUTPUT=$(${NODE_BIN} tools/gates/file_size_simplification_guard.mjs 2>&1)
-FILE_SIZE_SIMPLIFICATION_RC=$?
-set -e
-printf "%s\n" "${FILE_SIZE_SIMPLIFICATION_OUTPUT}" >> "${REPORTS_FINAL}"
-printf "%s\n" "${FILE_SIZE_SIMPLIFICATION_OUTPUT}" >> "${RUN_REPORT_FILE}"
-if [ "${CI_WRITE_ROOT}" = "1" ]; then
-  printf "%s\n" "${FILE_SIZE_SIMPLIFICATION_OUTPUT}" >> "${ROOT}/ci-final.txt"
-fi
-if [ "${FILE_SIZE_SIMPLIFICATION_RC}" -ne 0 ] || printf "%s\n" "${FILE_SIZE_SIMPLIFICATION_OUTPUT}" | grep -q "FILE_SIZE_SIMPLIFICATION_GUARD=FAIL"; then
-  FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}${FILE_SIZE_SIMPLIFICATION_OUTPUT}"
-  FAIL_STEP="file_size_simplification_guard"
-  FAIL_CMD="${CURRENT_CMD}"
-  FAIL_RC="${FILE_SIZE_SIMPLIFICATION_RC}"
-  fail_with_reason "FILE_SIZE_SIMPLIFICATION_GUARD_FAIL"
-fi
-
-PERF_REGRESSION_OUTPUT=""
-CURRENT_STEP="perf_regression_guard"
-CURRENT_CMD="${NODE_BIN} tools/gates/perf_regression_guard.mjs"
-set +e
-PERF_REGRESSION_OUTPUT=$(${NODE_BIN} tools/gates/perf_regression_guard.mjs 2>&1)
-PERF_REGRESSION_RC=$?
-set -e
-printf "%s\n" "${PERF_REGRESSION_OUTPUT}" >> "${REPORTS_FINAL}"
-printf "%s\n" "${PERF_REGRESSION_OUTPUT}" >> "${RUN_REPORT_FILE}"
-if [ "${CI_WRITE_ROOT}" = "1" ]; then
-  printf "%s\n" "${PERF_REGRESSION_OUTPUT}" >> "${ROOT}/ci-final.txt"
-fi
-if [ "${PERF_REGRESSION_RC}" -ne 0 ] || printf "%s\n" "${PERF_REGRESSION_OUTPUT}" | grep -q "PERF_REGRESSION_GUARD=FAIL"; then
-  FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}${PERF_REGRESSION_OUTPUT}"
-  FAIL_STEP="perf_regression_guard"
-  FAIL_CMD="${CURRENT_CMD}"
-  FAIL_RC="${PERF_REGRESSION_RC}"
-  fail_with_reason "PERF_REGRESSION_GUARD_FAIL"
-fi
-
 LOG_SIZE_GUARD_OUTPUT=""
 CURRENT_STEP="log_size_guard"
 CURRENT_CMD="${NODE_BIN} tools/gates/log_size_guard.mjs"
@@ -3531,86 +3119,6 @@ if [ "${LOG_SIZE_GUARD_RC}" -ne 0 ] || printf "%s\n" "${LOG_SIZE_GUARD_OUTPUT}" 
   FAIL_CMD="${CURRENT_CMD}"
   FAIL_RC="${LOG_SIZE_GUARD_RC}"
   fail_with_reason "LOG_SIZE_GUARD_FAIL"
-fi
-
-VECTOR_TILE_DUAL_PATH_OUTPUT=""
-CURRENT_STEP="vector_tile_dual_path_guard"
-CURRENT_CMD="${NODE_BIN} tools/gates/vector_tile_dual_path_guard.mjs"
-set +e
-VECTOR_TILE_DUAL_PATH_OUTPUT=$(${NODE_BIN} tools/gates/vector_tile_dual_path_guard.mjs 2>&1)
-VECTOR_TILE_DUAL_PATH_RC=$?
-set -e
-printf "%s\n" "${VECTOR_TILE_DUAL_PATH_OUTPUT}" >> "${REPORTS_FINAL}"
-printf "%s\n" "${VECTOR_TILE_DUAL_PATH_OUTPUT}" >> "${RUN_REPORT_FILE}"
-if [ "${CI_WRITE_ROOT}" = "1" ]; then
-  printf "%s\n" "${VECTOR_TILE_DUAL_PATH_OUTPUT}" >> "${ROOT}/ci-final.txt"
-fi
-if [ "${VECTOR_TILE_DUAL_PATH_RC}" -ne 0 ] || printf "%s\n" "${VECTOR_TILE_DUAL_PATH_OUTPUT}" | grep -q "VECTOR_TILE_DUAL_PATH_GUARD=FAIL"; then
-  FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}${VECTOR_TILE_DUAL_PATH_OUTPUT}"
-  FAIL_STEP="vector_tile_dual_path_guard"
-  FAIL_CMD="${CURRENT_CMD}"
-  FAIL_RC="${VECTOR_TILE_DUAL_PATH_RC}"
-  fail_with_reason "VECTOR_TILE_DUAL_PATH_GUARD_FAIL"
-fi
-
-MAP_RENDER_OUTPUT=""
-MAP_RENDER_RC=0
-CURRENT_STEP="map_render_smoke"
-CURRENT_CMD="${NODE_BIN} tools/map_render_smoke.mjs"
-MAP_RENDER_SHOULD_RUN=0
-MAP_SMOKE_SKIPPED=0
-if [ "${FORCE_MAP_RENDER_SMOKE:-0}" = "1" ]; then
-  MAP_RENDER_SHOULD_RUN=1
-elif printf "%s\n" "${UI_DEV_SSOT_OUTPUT:-}" | grep -q "^UI_STARTED "; then
-  MAP_RENDER_SHOULD_RUN=1
-fi
-if [ "${MAP_RENDER_SHOULD_RUN}" -eq 1 ]; then
-  set +e
-  MAP_RENDER_OUTPUT=$(NODE_PATH="${ROOT}/tools/playwright-smoke/node_modules" PLAYWRIGHT_PKG="@playwright/test" MAP_ENABLED=1 PREMIUM=1 CI=0 NO_TILE_NETWORK=1 ${NODE_BIN} tools/map_render_smoke.mjs 2>&1)
-  MAP_RENDER_RC=$?
-  set -e
-else
-  MAP_RENDER_OUTPUT="MAP_RENDERED=SKIP"$'\n'"MAP_SMOKE_OK=0"$'\n'"MAP_SMOKE_REASON=UI_ALREADY_RUNNING"
-  MAP_RENDER_RC=0
-  MAP_SMOKE_SKIPPED=1
-fi
-printf "%s\n" "${MAP_RENDER_OUTPUT}" >> "${REPORTS_FINAL}"
-printf "%s\n" "${MAP_RENDER_OUTPUT}" >> "${RUN_REPORT_FILE}"
-if [ "${CI_WRITE_ROOT}" = "1" ]; then
-  printf "%s\n" "${MAP_RENDER_OUTPUT}" >> "${ROOT}/ci-final.txt"
-fi
-while IFS= read -r line; do
-  [ -n "${line}" ] && SUMMARY_LINES+=("${line}")
-done <<< "${MAP_RENDER_OUTPUT}"
-MAP_RENDERED_LINE=$(printf "%s\n" "${MAP_RENDER_OUTPUT}" | grep -E "^MAP_RENDERED=" | tail -n 1 || true)
-if [ "${MAP_RENDER_SHOULD_RUN}" -eq 1 ]; then
-  if [ "${MAP_RENDER_RC}" -ne 0 ] || ! printf "%s\n" "${MAP_RENDERED_LINE}" | grep -q "MAP_RENDERED=YES"; then
-    FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}${MAP_RENDER_OUTPUT}"
-    FAIL_STEP="map_render_smoke"
-    FAIL_CMD="${CURRENT_CMD}"
-    FAIL_RC="${MAP_RENDER_RC}"
-    fail_with_reason "MAP_RENDER_SMOKE_FAIL"
-  fi
-elif [ "${MAP_SMOKE_SKIPPED}" = "1" ]; then
-  MAP_SMOKE_SKIP_POLICY="${CI_FAIL_ON_UI_SMOKE_SKIP:-}"
-  if [ -z "${MAP_SMOKE_SKIP_POLICY}" ]; then
-    if [ "${MAP_ENABLED:-0}" = "1" ] && [ "${PREMIUM:-0}" = "1" ]; then
-      MAP_SMOKE_SKIP_POLICY="1"
-    else
-      MAP_SMOKE_SKIP_POLICY="0"
-    fi
-  fi
-  append_ci_line "STAGE_MAP_SMOKE=SKIP"
-  append_ci_line "CI_FAIL_ON_UI_SMOKE_SKIP=${MAP_SMOKE_SKIP_POLICY}"
-  if [ "${MAP_ENABLED:-0}" = "1" ] && [ "${PREMIUM:-0}" = "1" ] \
-    && [ "${MAP_SMOKE_SKIP_POLICY}" = "1" ]; then
-    FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}${MAP_RENDER_OUTPUT}"
-    FAIL_STEP="map_render_smoke"
-    FAIL_CMD="${CURRENT_CMD}"
-    FAIL_RC="${MAP_RENDER_RC}"
-    STOP_REASON="MAP_SMOKE_BUSY"
-    fail_with_reason "MAP_SMOKE_BUSY"
-  fi
 fi
 
 flag_from_env_or_default() {
@@ -3637,24 +3145,16 @@ flag_from_env_or_default() {
   printf "%s default" "${default}"
 }
 
-FLAG_TOTAL=6
+FLAG_TOTAL=3
 FLAG_ENABLED_TOTAL=0
 FLAG_SOURCE_query=0
 FLAG_SOURCE_storage=0
 FLAG_SOURCE_env=0
 FLAG_SOURCE_default=0
-if [ "${NODE_ENV:-development}" != "production" ]; then
-  MAP_DEFAULT=1
-else
-  MAP_DEFAULT=0
-fi
 for entry in \
   "$(flag_from_env_or_default 0 NEXT_PUBLIC_PREMIUM PREMIUM PREMIUM_ENABLED)" \
-  "$(flag_from_env_or_default ${MAP_DEFAULT} NEXT_PUBLIC_MAP_ENABLED MAP_ENABLED)" \
   "$(flag_from_env_or_default 0 NEXT_PUBLIC_TRIP_MODE TRIP_MODE)" \
-  "$(flag_from_env_or_default 0 NEXT_PUBLIC_NEAR_LEGAL NEAR_LEGAL)" \
-  "$(flag_from_env_or_default 1 NEXT_PUBLIC_WORLD_OVERLAY)" \
-  "$(flag_from_env_or_default 1 NEXT_PUBLIC_US_STATES_OVERLAY)"
+  "$(flag_from_env_or_default 0 NEXT_PUBLIC_NEAR_LEGAL NEAR_LEGAL)"
 do
   enabled=$(printf "%s\n" "${entry}" | awk '{print $1}')
   source=$(printf "%s\n" "${entry}" | awk '{print $2}')
@@ -3668,7 +3168,7 @@ do
 done
 append_ci_line "FLAGS_TOTAL=${FLAG_TOTAL} FLAGS_ENABLED_TOTAL=${FLAG_ENABLED_TOTAL} FLAGS_SOURCE_query=${FLAG_SOURCE_query} FLAGS_SOURCE_storage=${FLAG_SOURCE_storage} FLAGS_SOURCE_env=${FLAG_SOURCE_env} FLAGS_SOURCE_default=${FLAG_SOURCE_default}"
 
-FACTS_FILTER='EGRESS_TRUTH|ONLINE_POLICY|ONLINE_REASON|DNS_DIAGNOSTIC_ONLY=|ONLINE_BY_TRUTH_PROBES=|WIKI_GATE_OK|WIKI_DB_GATE_OK|GEO_SOURCE=|GEO_REASON_CODE=|GEO_GATE_OK=|LEGALITY_TABLE_|WIKI_COVERAGE_|NOTES_LIMITS|NOTES_BASELINE_COVERED|NOTES_CURRENT_COVERED|NOTES_GUARD|NOTES_ALLOW_SHRINK|NOTES_SHRINK_REASON|NOTES_DIFF_MISSING_SAMPLE|NOTES_OK=|NOTES_PLACEHOLDER=|NOTES_WEAK_COUNT=|NOTES_WEAK_GEOS=|NOTES_MIN_ONLY_GEOS=|NOTES_MIN_ONLY_REGRESSIONS=|NOTES_MIN_ONLY_REGRESSION_GEOS=|NOTES_QUALITY_GUARD=|NOTES_QUALITY_ALLOW_DROP=|NOTES_QUALITY_DROP_REASON=|NOTES_COVERAGE|NOTES_COVERAGE_BASELINE_PATH|NOTES_COVERAGE_CURRENT_COUNT|NOTES_COVERAGE_GUARD|NOTES_COVERAGE_SHRINK_REASON|NOTES_STRICT_RESULT|NOTES5_STRICT_RESULT|NOTESALL_STRICT_RESULT|NOTES_WEAK_POLICY|NOTES_GEO_OK|NOTES_GEO_FAIL|NOTES_TOTAL_GEO=|NOTES_BASELINE_WITH_NOTES=|NOTES_CURRENT_WITH_NOTES=|NOTES_BASELINE_OK=|NOTES_CURRENT_OK=|NOTES_BASELINE_EMPTY=|NOTES_CURRENT_EMPTY=|NOTES_BASELINE_PLACEHOLDER=|NOTES_CURRENT_PLACEHOLDER=|NOTES_BASELINE_KIND_RICH=|NOTES_CURRENT_KIND_RICH=|NOTES_BASELINE_KIND_MIN_ONLY=|NOTES_CURRENT_KIND_MIN_ONLY=|NOTES_BASELINE_STRICT_WEAK=|NOTES_CURRENT_STRICT_WEAK=|NOTES_SHRINK_GUARD|NOTES_SHRINK_OK|NOTES_SHRINK_REASON|NOTES_BASELINE=|NOTES_CURRENT=|NOTES_DELTA=|OFFICIAL_ALLOWLIST_GUARD_|OFFICIAL_DIFF_SUMMARY|OFFICIAL_DIFF_BASELINE|OFFICIAL_DIFF_GUARD|OFFICIAL_DOMAINS_BASELINE=|OFFICIAL_DOMAINS_BASELINE_PATH=|OFFICIAL_BASELINE_COUNT=|OFFICIAL_SHA=|OFFICIAL_DOMAINS_CURRENT=|OFFICIAL_DOMAINS_CURRENT_COUNT=|OFFICIAL_ITEMS_PRESENT=|OFFICIAL_GEOS_WITH_URLS_|OFFICIAL_GEOS_WITHOUT_URLS_TOP20=|OFFICIAL_COVERAGE_GUARD|OFFICIAL_REFS_|OFFICIAL_SSOT_SHA12=|OFFICIAL_REGISTRY_TOTAL=|OFFICIAL_REGISTRY_FLOOR=|OFFICIAL_DOMAINS_DELTA=|OFFICIAL_DOMAINS_GUARD=|OFFICIAL_DOMAINS_ALLOW_SHRINK=|OFFICIAL_DOMAINS_SHRINK_REASON=|OFFICIAL_DOMAINS_SOURCE_COUNT |OFFICIAL_DIFF_MISSING_SAMPLE|OFFICIAL_DIFF_TOP_MISSING|OFFICIAL_DIFF_TOP_MATCHED|OFFICIAL_GEO_TOP_MISSING|OFFICIAL_SUMMARY|OFFICIAL_COVERAGE|OFFICIAL_GEO_ROWS_COVERED=|OFFICIAL_GEO_ROWS_TOTAL=|OFFICIAL_GEO_ROWS_MISSING=|DATA_SHRINK_GUARD|RUN_LINT=|LINT_OK=|MAP_|UI_SMOKE_OK|UI_LOCAL_OK|UI_URL|TRUTH_URL|LAST_REFRESH_TS=|LAST_SUCCESS_TS=|NEXT_REFRESH_TS=|REFRESH_SOURCE=|REFRESH_AGE_H=|MAP_DATA_SOURCE=|PREMIUM_MODE=|NEARBY_MODE=|GEO_FEATURES_|NEARBY_|WIKI_COUNTS|WIKI_SHRINK_|OFFICIAL_LINKS_COUNT=|OFFICIAL_LINKS_TOTAL=|COUNTRIES_COUNT=|US_STATES_COUNT=|HAS_USA=|TOTAL_GEO_COUNT=|GEO_TOTAL=|REC_STATUS_COVERAGE=|MED_STATUS_COVERAGE=|NOTES_NONEMPTY_COUNT=|COUNTRY_WIKI_ROWS_BASELINE=|COUNTRY_WIKI_ROWS_CURRENT=|COUNTRY_WIKI_ROWS_BASELINE_SHA=|COUNTRY_WIKI_ROWS_SHA=|COUNTRY_WIKI_ROWS_SHRINK_GUARD=|WIKI_PAGES_COUNT=|DATA_SOURCE=|CACHE_MODE=|SHRINK_DETECTED=|MAP_DATA_SOURCE=|PREMIUM_MODE=|NEARBY_MODE=|GEO_FEATURES_|NEARBY_|SHRINK_FIELDS=|MAP_SUMMARY_OK=|MAP_SUMMARY_COUNTS=|MAP_MODE=|MAP_TILES=|MAP_DATA_SOURCE=|PREMIUM_MODE=|NEARBY_MODE=|GEO_FEATURES_|NEARBY_|STAGE_ORDER_GUARD=|STAGE_ORDER=|STAGE_OK_[1-4]='
+FACTS_FILTER='EGRESS_TRUTH|ONLINE_POLICY|ONLINE_REASON|DNS_DIAGNOSTIC_ONLY=|ONLINE_BY_TRUTH_PROBES=|WIKI_GATE_OK|WIKI_DB_GATE_OK|GEO_SOURCE=|GEO_REASON_CODE=|GEO_GATE_OK=|LEGALITY_TABLE_|WIKI_COVERAGE_|NOTES_LIMITS|NOTES_BASELINE_COVERED|NOTES_CURRENT_COVERED|NOTES_GUARD|NOTES_ALLOW_SHRINK|NOTES_SHRINK_REASON|NOTES_DIFF_MISSING_SAMPLE|NOTES_OK=|NOTES_PLACEHOLDER=|NOTES_WEAK_COUNT=|NOTES_WEAK_GEOS=|NOTES_MIN_ONLY_GEOS=|NOTES_MIN_ONLY_REGRESSIONS=|NOTES_MIN_ONLY_REGRESSION_GEOS=|NOTES_QUALITY_GUARD=|NOTES_QUALITY_ALLOW_DROP=|NOTES_QUALITY_DROP_REASON=|NOTES_COVERAGE|NOTES_COVERAGE_BASELINE_PATH|NOTES_COVERAGE_CURRENT_COUNT|NOTES_COVERAGE_GUARD|NOTES_COVERAGE_SHRINK_REASON|NOTES_STRICT_RESULT|NOTES5_STRICT_RESULT|NOTESALL_STRICT_RESULT|NOTES_WEAK_POLICY|NOTES_GEO_OK|NOTES_GEO_FAIL|NOTES_TOTAL_GEO=|NOTES_BASELINE_WITH_NOTES=|NOTES_CURRENT_WITH_NOTES=|NOTES_BASELINE_OK=|NOTES_CURRENT_OK=|NOTES_BASELINE_EMPTY=|NOTES_CURRENT_EMPTY=|NOTES_BASELINE_PLACEHOLDER=|NOTES_CURRENT_PLACEHOLDER=|NOTES_BASELINE_KIND_RICH=|NOTES_CURRENT_KIND_RICH=|NOTES_BASELINE_KIND_MIN_ONLY=|NOTES_CURRENT_KIND_MIN_ONLY=|NOTES_BASELINE_STRICT_WEAK=|NOTES_CURRENT_STRICT_WEAK=|NOTES_SHRINK_GUARD|NOTES_SHRINK_OK|NOTES_SHRINK_REASON|NOTES_BASELINE=|NOTES_CURRENT=|NOTES_DELTA=|OFFICIAL_ALLOWLIST_GUARD_|OFFICIAL_DIFF_SUMMARY|OFFICIAL_DIFF_BASELINE|OFFICIAL_DIFF_GUARD|OFFICIAL_DOMAINS_BASELINE=|OFFICIAL_DOMAINS_BASELINE_PATH=|OFFICIAL_BASELINE_COUNT=|OFFICIAL_SHA=|OFFICIAL_DOMAINS_CURRENT=|OFFICIAL_DOMAINS_CURRENT_COUNT=|OFFICIAL_ITEMS_PRESENT=|OFFICIAL_GEOS_WITH_URLS_|OFFICIAL_GEOS_WITHOUT_URLS_TOP20=|OFFICIAL_COVERAGE_GUARD|OFFICIAL_REFS_|OFFICIAL_SSOT_SHA12=|OFFICIAL_REGISTRY_TOTAL=|OFFICIAL_REGISTRY_FLOOR=|OFFICIAL_DOMAINS_DELTA=|OFFICIAL_DOMAINS_GUARD=|OFFICIAL_DOMAINS_ALLOW_SHRINK=|OFFICIAL_DOMAINS_SHRINK_REASON=|OFFICIAL_DOMAINS_SOURCE_COUNT |OFFICIAL_DIFF_MISSING_SAMPLE|OFFICIAL_DIFF_TOP_MISSING|OFFICIAL_DIFF_TOP_MATCHED|OFFICIAL_GEO_TOP_MISSING|OFFICIAL_SUMMARY|OFFICIAL_COVERAGE|OFFICIAL_GEO_ROWS_COVERED=|OFFICIAL_GEO_ROWS_TOTAL=|OFFICIAL_GEO_ROWS_MISSING=|DATA_SHRINK_GUARD|RUN_LINT=|LINT_OK=|UI_LOCAL_OK|UI_URL|TRUTH_URL|LAST_REFRESH_TS=|LAST_SUCCESS_TS=|NEXT_REFRESH_TS=|REFRESH_SOURCE=|REFRESH_AGE_H=|PREMIUM_MODE=|NEARBY_MODE=|GEO_FEATURES_|NEARBY_|WIKI_COUNTS|WIKI_SHRINK_|OFFICIAL_LINKS_COUNT=|OFFICIAL_LINKS_TOTAL=|COUNTRIES_COUNT=|US_STATES_COUNT=|HAS_USA=|TOTAL_GEO_COUNT=|GEO_TOTAL=|REC_STATUS_COVERAGE=|MED_STATUS_COVERAGE=|NOTES_NONEMPTY_COUNT=|COUNTRY_WIKI_ROWS_BASELINE=|COUNTRY_WIKI_ROWS_CURRENT=|COUNTRY_WIKI_ROWS_BASELINE_SHA=|COUNTRY_WIKI_ROWS_SHA=|COUNTRY_WIKI_ROWS_SHRINK_GUARD=|WIKI_PAGES_COUNT=|DATA_SOURCE=|CACHE_MODE=|SHRINK_DETECTED=|SHRINK_FIELDS=|STAGE_ORDER_GUARD=|STAGE_ORDER=|STAGE_OK_[1-4]='
 FACTS_SUMMARY=$(egrep "${FACTS_FILTER}" "${REPORTS_FINAL}" | tail -n 80 || true)
 if [ -n "${FACTS_SUMMARY}" ]; then
   printf "%s\n" "FACTS_SUMMARY" >> "${REPORTS_FINAL}"
@@ -3802,12 +3302,30 @@ if ! run_mandatory_tail; then
   append_ci_line "FAIL_REASON=${MANDATORY_TAIL_FAIL_REASON:-MANDATORY_TAIL_FAIL}"
   append_ci_line "CI_RESULT status=FAIL quality=BAD reason=${MANDATORY_TAIL_FAIL_REASON:-MANDATORY_TAIL_FAIL} online=${ONLINE_SIGNAL:-1} skipped=-"
 fi
-cat "${STDOUT_FILE}" >&${OUTPUT_FD}
+emit_final_output "${STDOUT_FILE}"
 if [ -f "${NOTES_LINKS_SMOKE_FILE:-}" ]; then
   notes_links_line=$(grep -E "^NOTES_LINKS_SMOKE_OK=" "${NOTES_LINKS_SMOKE_FILE}" | tail -n 1 || true)
   if [ -n "${notes_links_line}" ]; then
     append_ci_line "${notes_links_line}"
   fi
+fi
+PROCESS_SLOT_RUNTIME_GUARD_OUTPUT=""
+CURRENT_STEP="process_slot_runtime_guard"
+CURRENT_CMD="${NODE_BIN} tools/gates/process_slot_runtime_guard.mjs"
+set +e
+PROCESS_SLOT_RUNTIME_GUARD_OUTPUT=$(${NODE_BIN} tools/gates/process_slot_runtime_guard.mjs 2>&1)
+PROCESS_SLOT_RUNTIME_GUARD_RC=$?
+set -e
+printf "%s\n" "${PROCESS_SLOT_RUNTIME_GUARD_OUTPUT}" >> "${RUN_REPORT_FILE}"
+printf "%s\n" "${PROCESS_SLOT_RUNTIME_GUARD_OUTPUT}" >> "${REPORTS_FINAL}"
+if [ "${CI_WRITE_ROOT}" = "1" ]; then
+  printf "%s\n" "${PROCESS_SLOT_RUNTIME_GUARD_OUTPUT}" >> "${ROOT}/ci-final.txt"
+fi
+if [ "${PROCESS_SLOT_RUNTIME_GUARD_RC}" -ne 0 ] || printf "%s\n" "${PROCESS_SLOT_RUNTIME_GUARD_OUTPUT}" | grep -q "PROCESS_SLOT_RUNTIME_GUARD=FAIL"; then
+  CI_STATUS="FAIL"
+  CI_RC=1
+  append_ci_line "CI_STATUS=FAIL"
+  append_ci_line "FAIL_REASON=PROCESS_SLOT_RUNTIME_GUARD_FAIL"
 fi
 PASS_CYCLE_EXIT_LINE="PASS_CYCLE_EXIT rc=${CI_RC} status=${CI_STATUS} guard_status=${STATUS}"
 printf "%s\n" "${PASS_CYCLE_EXIT_LINE}" >> "${RUN_REPORT_FILE}"

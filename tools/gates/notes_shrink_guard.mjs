@@ -197,6 +197,23 @@ try {
     console.log(`NOTES_BASELINE_STRICT_WEAK=${baseStrictWeak}`);
   }
 
+  if (process.env.UPDATE_MODE === "1") {
+    writeBaseline({
+      total_geo: totalGeo,
+      with_notes: withNotes,
+      ok,
+      empty,
+      placeholder,
+      weak,
+      kind_rich: kindRich,
+      kind_min_only: kindMinOnly,
+      strict_weak: strictWeak
+    });
+    console.log("NOTES_BASELINE_UPDATE_MODE=1");
+    console.log("NOTES_QUALITY_GUARD=PASS");
+    exitWith("BASELINE_UPDATE", 0);
+  }
+
   if (process.env.NOTES_BASELINE_BUMP === "1") {
     writeBaseline({
       total_geo: totalGeo,

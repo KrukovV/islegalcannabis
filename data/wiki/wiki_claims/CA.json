@@ -40,10 +40,23 @@
   "notes_text_len": 202,
   "notes": "Legal for medicinal purposes since 2001 and for recreational purposes since 17 October 2018. The age to buy or consume cannabis varies by province: 19 in most provinces, 18 in Alberta, and 21 in Quebec.",
   "notes_raw": "{{Main|Cannabis in Canada|Cannabis laws of Canada by province or territory}} Legal for medicinal purposes since 2001 and for recreational purposes since 17 October 2018. The age to buy or consume cannabis varies by province: 19 in most provinces, 18 in Alberta, and 21 in Quebec.<ref>{{cite web |title=Cannabis Legalization and Regulation |url=https://www.justice.gc.ca/eng/cj-jp/cannabis/ |publisher=Department of Justice, Government of Canada |date=7 July 2021 |access-date=29 June 2023 }}</ref>",
+  "notes_sections_used": [
+    "notes_raw"
+  ],
+  "notes_main_article": "Cannabis in Canada",
+  "notes_rev": "",
+  "notes_kind": "RICH",
+  "notes_reason_code": "HAS_EXTRA_TEXT",
   "recreational_status": "Legal",
   "medical_status": "Legal",
-  "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source_type": "WIKI_COUNTRIES",
+  "primary_source": "WIKI_COUNTRIES",
+  "source_page": "Legality of cannabis",
+  "source_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "source_revision": "1336080043",
+  "source_table": "countries",
+  "wiki_revision_id": "1336080043",
+  "fetched_at": "2026-02-12T19:20:54.889Z",
   "source": "countries",
-  "revision_id": "1332405714"
+  "revision_id": "1336080043"
 }

@@ -1,3 +1,6 @@
+import { STATUS_MAP } from "@/config/theme";
+import { buildStatusContract, resolveColorKeyFromContract } from "@/lib/statusPairMatrix";
+
 export type TruthLevel =
   | "OFFICIAL"
   | "WIKI_CORROBORATED"
@@ -42,22 +45,12 @@ function canAssert(truthLevel: TruthLevel): boolean {
 
 export function statusLabelRu(value: string | null | undefined): string {
   const status = normalizeStatus(value);
-  if (status === "Legal") return "Разрешено";
-  if (status === "Decrim") return "Декриминализовано";
-  if (status === "Illegal") return "Запрещено";
-  if (status === "Unenforced") return "Ограниченно";
-  if (status === "Limited") return "Только мед";
-  return "Не подтверждено";
+  return STATUS_MAP[status].labelRu;
 }
 
 export function statusShortRu(value: string | null | undefined): string {
   const status = normalizeStatus(value);
-  if (status === "Legal") return "Разрешено";
-  if (status === "Decrim") return "Декрим";
-  if (status === "Illegal") return "Запрещено";
-  if (status === "Unenforced") return "Ограниченно";
-  if (status === "Limited") return "Только мед";
-  return "Не подтверждено";
+  return STATUS_MAP[status].shortRu;
 }
 
 export function statusVerdict(
@@ -65,9 +58,9 @@ export function statusVerdict(
   effectiveStatus: string | null | undefined
 ): Verdict {
   const status = normalizeStatus(effectiveStatus);
-  if (status === "Illegal") return { icon: "⛔", label: "Нельзя", tone: "bad" };
-  if (status === "Legal") return { icon: "✅", label: "Можно", tone: "good" };
-  if (status === "Decrim") return { icon: "✅", label: "Декрим", tone: "good" };
+  if (status === "Illegal") return { icon: STATUS_MAP.Illegal.icon, label: "Нельзя", tone: "bad" };
+  if (status === "Legal") return { icon: STATUS_MAP.Legal.icon, label: "Можно", tone: "good" };
+  if (status === "Decrim") return { icon: STATUS_MAP.Decrim.icon, label: "Декрим", tone: "good" };
   if (status === "Limited" || status === "Unenforced") {
     return { icon: "⚠️", label: "Ограниченно", tone: "warn" };
   }
@@ -82,13 +75,22 @@ export function statusColorKey(
   effectiveStatus: string | null | undefined
 ): "green" | "yellow" | "red" | "gray" {
   if (!canAssert(truthLevel)) {
-    return "gray";
+    return STATUS_MAP.Unknown.colorKey;
   }
   const status = normalizeStatus(effectiveStatus);
-  if (status === "Illegal") return "red";
-  if (status === "Legal") return "green";
-  if (status === "Decrim" || status === "Unenforced" || status === "Limited") return "yellow";
-  return "gray";
+  return STATUS_MAP[status].colorKey;
+}
+
+export function statusColorKeyFromContract(input: {
+  wikiRecStatus?: string | null;
+  wikiMedStatus?: string | null;
+  finalRecStatus?: string | null;
+  finalMedStatus?: string | null;
+  evidenceDelta?: string | null;
+  evidenceDeltaApproved?: boolean;
+}): "green" | "yellow" | "red" | "gray" {
+  const contract = buildStatusContract(input);
+  return resolveColorKeyFromContract(contract);
 }
 
 export function statusWhyText(params: {

@@ -115,7 +115,7 @@ if (fail === 0) {
   ssotWrite("SMOKE_OK", String(ok));
   ssotWrite("SMOKE_FAIL", String(fail));
   ssotWrite("SMOKE_FAIL_LIST", "-");
-  const reportPath = path.join(ROOT, "Reports", "ui_smoke.txt");
+  const reportPath = path.join(ROOT, "Reports", "ui_smoke_render.txt");
   fs.mkdirSync(path.dirname(reportPath), { recursive: true });
   fs.writeFileSync(reportPath, reportLines.join("\n") + "\n");
   writeSsotLine(okLine, { dedupePrefix: "UI_SMOKE_OK=" });
@@ -129,7 +129,7 @@ ssotWrite("SMOKE_TOTAL", String(SMOKE_TOTAL));
 ssotWrite("SMOKE_OK", String(ok));
 ssotWrite("SMOKE_FAIL", String(fail));
 ssotWrite("SMOKE_FAIL_LIST", failGeos.join(",") || "-");
-const reportPath = path.join(ROOT, "Reports", "ui_smoke.txt");
+const reportPath = path.join(ROOT, "Reports", "ui_smoke_render.txt");
 fs.mkdirSync(path.dirname(reportPath), { recursive: true });
 fs.writeFileSync(reportPath, reportLines.join("\n") + "\n");
 writeSsotLine(failLine, { dedupePrefix: "UI_SMOKE_OK=" });

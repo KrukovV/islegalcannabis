@@ -30,6 +30,8 @@ Reports/
 .checkpoints/
 apps/web/test-results/
 apps/web/playwright-report/
+test-results/
+playwright-report/
 *.pem
 *.log
 
@@ -89,4 +91,8 @@ data/wiki/wiki_claims/
 data/wiki/wiki_claims.json
 data/wiki/wiki_claims_enriched.json
 data/wiki/wiki_official_eval.json
-
+data/wiki/ssot_legality_table.json
+apps/web/public/ssot/
+core/
+/package-lock.json
+QUARANTINE/

@@ -47,7 +47,10 @@ const countriesCount = claimItems.filter((entry) => {
 
 const officialPayload = readJson(OFFICIAL_SSOT);
 const officialDomainsCount = Array.isArray(officialPayload?.domains)
-  ? officialPayload.domains.length
+  ? officialPayload.domains.filter((domain) => {
+      const value = String(domain || "").toLowerCase();
+      return value && !value.endsWith("wikipedia.org");
+    }).length
   : 0;
 
 const badgesPayload = readJson(OFFICIAL_BADGES);
@@ -72,6 +75,7 @@ const current = {
 const allowShrink = process.env.NO_SHRINK_ALLOW === "1";
 const shrinkReason = String(process.env.NO_SHRINK_REASON || "");
 const updateMode = process.env.UPDATE_MODE === "1";
+const readOnlyCi = process.env.READONLY_CI === "1";
 
 function fail(reason, detail) {
   console.log(`NO_SHRINK_GUARD_OK=0 reason=${reason}${detail ? " " + detail : ""}`);
@@ -79,6 +83,9 @@ function fail(reason, detail) {
 }
 
 if (updateMode) {
+  if (readOnlyCi) {
+    fail("UPDATE_FORBIDDEN_READONLY");
+  }
   fs.writeFileSync(
     BASELINE_PATH,
     JSON.stringify({ generated_at: new Date().toISOString(), baseline: current }, null, 2) + "\n"
@@ -89,6 +96,9 @@ if (updateMode) {
 }
 
 if (!fs.existsSync(BASELINE_PATH)) {
+  if (readOnlyCi) {
+    fail("BASELINE_MISSING_READONLY");
+  }
   fs.writeFileSync(BASELINE_PATH, JSON.stringify({ generated_at: new Date().toISOString(), baseline: current }, null, 2) + "\n");
   console.log("NO_SHRINK_GUARD=BOOTSTRAP");
   console.log("NO_SHRINK_GUARD_OK=1");
@@ -111,8 +121,36 @@ const shrink = {
 
 const anyShrink = Object.values(shrink).some(Boolean);
 if (anyShrink && (!allowShrink || !shrinkReason)) {
+  const fields = [];
+  if (shrink.rows_total) {
+    fields.push(`rows_total:${baseline.rows_total}->${current.rows_total}`);
+  }
+  if (shrink.countries_count) {
+    fields.push(`countries_count:${baseline.countries_count}->${current.countries_count}`);
+  }
+  if (shrink.notes_nonempty_count) {
+    fields.push(`notes_nonempty:${baseline.notes_nonempty_count}->${current.notes_nonempty_count}`);
+  }
+  if (shrink.official_domains_count) {
+    fields.push(`official_domains:${baseline.official_domains_count}->${current.official_domains_count}`);
+  }
+  if (shrink.official_links_count) {
+    fields.push(`official_links:${baseline.official_links_count}->${current.official_links_count}`);
+  }
   const detail = `baseline_rows=${baseline.rows_total} current_rows=${current.rows_total} baseline_notes=${baseline.notes_nonempty_count} current_notes=${current.notes_nonempty_count} baseline_official_domains=${baseline.official_domains_count} current_official_domains=${current.official_domains_count} baseline_official_links=${baseline.official_links_count} current_official_links=${current.official_links_count}`;
-  fail("DATA_SHRINK_GUARD", detail);
+  const reason = shrink.notes_nonempty_count
+    ? "NOTES_SHRINK"
+    : shrink.official_domains_count
+      ? "OFFICIAL_DOMAINS_SHRINK"
+      : shrink.official_links_count
+        ? "OFFICIAL_LINKS_SHRINK"
+        : shrink.rows_total
+          ? "WIKI_ROWS_SHRINK"
+          : "DATA_SHRINK_GUARD";
+  if (fields.length) {
+    console.log(`SHRINK_FIELDS=${fields.join(",")}`);
+  }
+  fail(reason, detail);
 }
 
 console.log("NO_SHRINK_GUARD_OK=1");

@@ -1,503 +1,713 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { renderNotesFragments } from "../../lib/wikiNotesRender.mjs";
-import { statusColorKey, statusLabelRu, statusShortRu, type TruthLevel } from "@/lib/statusUi";
-import { explainSSOT } from "@/lib/ssotExplain";
+import type { WikiTruthAuditModel, WikiTruthAuditRow } from "@/lib/wikiTruthAudit";
+import OfficialOwnershipSummary from "./OfficialOwnershipSummary";
+import OfficialOwnershipTable from "./OfficialOwnershipTable";
 
-export type WikiTruthRow = {
-  geoKey: string;
-  country: string;
-  recWiki: string;
-  medWiki: string;
-  recOur: string;
-  medOur: string;
-  notesWiki: string;
-  notesOur: string;
-  notesLen: number;
-  notesQuality: string;
-  wikiPageUrl: string;
-  sources: Array<{ url?: string; title?: string; isOfficial?: boolean }>;
-  officialSources: Array<{ url?: string; title?: string; isOfficial?: boolean }>;
-  sourcesTruncated: boolean;
-  officialSourcesTruncated: boolean;
-  official: string;
-  delta: string;
-  flags: string[];
-};
-
-const STATUS_CLASS: Record<"green" | "yellow" | "red" | "gray", string> = {
-  green: "s-legal",
-  yellow: "s-decrim",
-  red: "s-illegal",
-  gray: "s-unknown"
-};
-
-function classForStatus(value: string, truthLevel: TruthLevel): string {
-  const key = statusColorKey(truthLevel, value);
-  return STATUS_CLASS[key];
-}
-
-function badgeText(value: string): string {
-  return statusShortRu(value);
-}
-
-function hasFlag(flags: string[], flag: string): boolean {
-  return flags.includes(flag);
-}
-
-function linkifyText(text: string) {
-  const s = String(text || "");
-  const re = /(https?:\/\/[^\s<>"')\]]+)/g;
-  const parts = s.split(re);
+function renderLinks(items: Array<{ url?: string; title?: string; isOfficial?: boolean }>) {
+  if (!items.length) return "-";
   return (
-    <>
-      {parts.map((part, index) => {
-        if (index % 2 === 1) {
-          return (
-            <a key={`url-${index}`} href={part} target="_blank" rel="noreferrer">
-              {part}
-            </a>
-          );
-        }
-        return <span key={`text-${index}`}>{part}</span>;
-      })}
-    </>
-  );
-}
-
-function NotesCell({ text }: { text: string }) {
-  const fragments = renderNotesFragments(text) as
-    | Array<
-        | { type: "text"; value: string }
-        | { type: "link"; href: string; text: string }
-      >
-    | null;
-  if (!fragments) return linkifyText(text);
-  return (
-    <>
-      {fragments.map((part, index) => {
-        if (part.type === "link") {
-          return (
-            <a
-              key={`note-link-${index}`}
-              href={part.href}
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              {part.text}
-            </a>
-          );
-        }
-        return (
-          <span key={`note-text-${index}`}>{linkifyText(part.value)}</span>
+    <div className="linkList">
+      {items.map((item) => {
+        const href = item.url || "";
+        const label = item.title || item.url || "-";
+        return href ? (
+          <a key={`${href}-${label}`} href={href} target="_blank" rel="noreferrer noopener" className="link">
+            <span>{label}{item.isOfficial ? " OFFICIAL" : ""}</span>
+            {label !== href ? <span style={{ display: "block", fontSize: 11, color: "#6b7280" }}>{href}</span> : null}
+          </a>
+        ) : (
+          <span key={label}>{label}</span>
         );
       })}
-    </>
+    </div>
   );
 }
 
-export default function WikiTruthTable({ rows }: { rows: WikiTruthRow[] }) {
-  const [onlyMismatch, setOnlyMismatch] = useState(false);
-  const [onlyMissingOfficial, setOnlyMissingOfficial] = useState(false);
-  const [onlyMissingSources, setOnlyMissingSources] = useState(false);
+function renderOfficialSignal(row: WikiTruthAuditRow) {
+  if (row.officialSignal === "strong") return "yes (strong)";
+  if (row.officialSignal === "weak") return "yes (weak)";
+  if (row.officialSignal === "fallback") return "fallback only";
+  return "no";
+}
 
-  const filteredRows = useMemo(() => {
-    return rows.filter((row) => {
-      if (onlyMismatch && !hasFlag(row.flags, "STATUS_MISMATCH")) return false;
-      if (onlyMissingOfficial && !hasFlag(row.flags, "OFFICIAL_SOURCES_MISSING")) return false;
-      if (onlyMissingSources && !hasFlag(row.flags, "SOURCES_MISSING")) return false;
-      return true;
-    });
-  }, [rows, onlyMismatch, onlyMissingOfficial, onlyMissingSources]);
+function renderFlags(flags: string[]) {
+  if (!flags.length) return "-";
+  return (
+    <div className="flagList">
+      {flags.map((flag) => (
+        <span key={flag} className="flagPill">
+          {flag}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+function Row({ row }: { row: WikiTruthAuditRow }) {
+  return (
+    <tr
+      data-geo={row.geoKey}
+      data-final-rec={row.finalRec}
+      data-final-med={row.finalMed}
+      data-final-map-category={row.finalMapCategory}
+      data-truth-source-label={row.truthSourceLabel}
+      data-status-override-reason={row.statusOverrideReason}
+      data-snapshot-id={row.snapshotId}
+      data-rule-id={row.ruleId}
+      data-evidence-delta-approved={row.evidenceDeltaApproved ? "1" : "0"}
+    >
+      <td className="stickyCol1 stickyCell colGeo">{row.geoKey}</td>
+      <td className="stickyCol2 stickyCell colCountry">{row.country}</td>
+      <td className="colStatus">{row.wikiStatus}</td>
+      <td className="colStatus">{row.finalStatus}</td>
+      <td className="colMeta">{row.truthSourceLabel}</td>
+      <td className="colMeta">{row.statusOverrideReason}</td>
+      <td className="colMeta">{row.snapshotId}</td>
+      <td className="colDelta">{row.delta}</td>
+      <td className="colMeta">{row.ruleId}</td>
+      <td className="colMeta">{row.evidenceDeltaApproved ? "yes" : "no"}</td>
+      <td className="colUrl">
+        {row.wikiPageUrl !== "-" ? (
+          <a href={row.wikiPageUrl} target="_blank" rel="noreferrer noopener" className="link">
+            {row.wikiPageUrl}
+          </a>
+        ) : (
+          "-"
+        )}
+      </td>
+      <td className="colLinks">{renderLinks(row.sources)}</td>
+      <td className="colLinks">{renderLinks(row.officialSources)}</td>
+      <td className="colMeta">{row.evidenceDelta}</td>
+      <td className="colMeta">{row.evidenceSourceType}</td>
+      <td className="colNotes">{row.triggerPhraseExcerpt}</td>
+      <td className="colNotes">{row.contextNote}</td>
+      <td className="colNotes">{row.enforcementNote}</td>
+      <td className="colNotes">{row.socialRealityNote}</td>
+      <td className="colNotes">{row.notesText}</td>
+      <td className="colFlags">{renderFlags(row.flags)}</td>
+    </tr>
+  );
+}
+
+export default function WikiTruthTable({ audit }: { audit: WikiTruthAuditModel }) {
+  const wikiCoverage = audit.summaryCards.find((card) => card.id === "WIKI_COUNTRIES");
+  const isoCoverage = audit.summaryCards.find((card) => card.id === "ISO_COUNTRIES");
+  const refCoverage = audit.summaryCards.find((card) => card.id === "REF_SSOT");
+  const statesCoverage = audit.summaryCards.find((card) => card.id === "US_STATES");
+  const officialRegistry = audit.summaryCards.find((card) => card.id === "OFFICIAL_REGISTRY");
+  const officialGeoCoverage = audit.summaryCards.find((card) => card.id === "OFFICIAL_GEO_COVERAGE");
+  const diagnosticsCoverage = audit.summaryCards.find((card) => card.id === "DIAGNOSTICS");
 
   return (
-    <div className="mt-4">
-      <div className="legend">
-        <div className="legendRow">
-          <span className={`pill ${classForStatus("Legal", "OFFICIAL")}`}>Legal</span>
-          <span className={`pill ${classForStatus("Decrim", "OFFICIAL")}`}>Decrim</span>
-          <span className={`pill ${classForStatus("Illegal", "OFFICIAL")}`}>Illegal</span>
-          <span className={`pill ${classForStatus("Unenforced", "OFFICIAL")}`}>Unenforced</span>
-          <span className={`pill ${classForStatus("Limited", "OFFICIAL")}`}>Limited</span>
-          <span className={`pill ${classForStatus("Unknown", "OFFICIAL")}`}>{statusLabelRu("Unknown")}</span>
-        </div>
-        <div className="legendRow text">
-          <span className="flag">STATUS_MISMATCH</span>
-          <span className="flag">OFFICIAL_SOURCES_MISSING</span>
-          <span className="flag">SOURCES_MISSING</span>
-          <span className="flag">WIKI_NOTES_MISSING</span>
-        </div>
-      </div>
-      <div className="filters">
-        <label className="filterItem">
-          <input
-            type="checkbox"
-            checked={onlyMismatch}
-            onChange={(event) => setOnlyMismatch(event.target.checked)}
-          />
-          Only mismatches
-        </label>
-        <label className="filterItem">
-          <input
-            type="checkbox"
-            checked={onlyMissingOfficial}
-            onChange={(event) => setOnlyMissingOfficial(event.target.checked)}
-          />
-          Only missing official
-        </label>
-        <label className="filterItem">
-          <input
-            type="checkbox"
-            checked={onlyMissingSources}
-            onChange={(event) => setOnlyMissingSources(event.target.checked)}
-          />
-          Only missing sources
-        </label>
-        <span className="results">{filteredRows.length} results</span>
-      </div>
-      <div className="tableWrap">
-        <table className="truthTable">
-          <thead>
-            <tr>
-              <th className="stickyHead stickyCol1">ISO2/Geo</th>
-              <th className="stickyHead stickyCol2">Country</th>
-              <th className="stickyHead">Rec (Wiki)</th>
-              <th className="stickyHead">Med (Wiki)</th>
-              <th className="stickyHead">Rec (Our)</th>
-              <th className="stickyHead">Med (Our)</th>
-              <th className="stickyHead">Надёжность</th>
-              <th className="stickyHead colWide">Notes (Wiki)</th>
-              <th className="stickyHead colWide">Notes (Our)</th>
-              <th className="stickyHead">NotesLen</th>
-              <th className="stickyHead">NotesQuality</th>
-              <th className="stickyHead">Wiki Page</th>
-              <th className="stickyHead colWide">Sources (Our)</th>
-              <th className="stickyHead colWide">Official Sources</th>
-              <th className="stickyHead">Official</th>
-              <th className="stickyHead">Delta</th>
-              <th className="stickyHead">MismatchFlags</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredRows.map((row) => {
-              const hasMismatch = hasFlag(row.flags, "STATUS_MISMATCH");
-              const missingOfficial = hasFlag(row.flags, "OFFICIAL_SOURCES_MISSING");
-              const missingSources = hasFlag(row.flags, "SOURCES_MISSING");
-              const missingWikiNotes = hasFlag(row.flags, "WIKI_NOTES_MISSING");
-              const missingWikiPage = hasFlag(row.flags, "WIKI_PAGE_MISSING");
-              const rowTint = hasMismatch ? "rowTint" : "";
-              const truthLevel: TruthLevel =
-                row.officialSources.length > 0 ? "WIKI_CORROBORATED" : "WIKI_ONLY";
-              const explain = explainSSOT({
-                truthLevel,
-                officialLinksCount: row.officialSources.length,
-                recEffective: row.recOur,
-                medEffective: row.medOur,
-                reasons: row.flags
-              });
+    <div className="auditView">
+      <section className="cards" data-testid="wiki-truth-summary">
+        {audit.summaryCards.map((card) => (
+          <article key={card.id} className="card" data-testid={`summary-${card.id.toLowerCase()}`}>
+            <h2>{card.title}</h2>
+            <div className="numbers">
+              <strong>
+                {card.covered} / {card.total}
+              </strong>
+              <span>missing: {card.missing}</span>
+            </div>
+            <div className="meta">SSOT: {card.sourceOfTruth}</div>
+            <div className="meta">Rule: {card.inclusionRule}</div>
+          </article>
+        ))}
+      </section>
 
-              return (
-                <tr key={`${row.country}-${row.geoKey}`} className={rowTint}>
-                  <td className="stickyCol1 stickyCell">{row.geoKey}</td>
-                  <td className="stickyCol2 stickyCell">{row.country}</td>
-                  <td className={hasMismatch ? "cellMismatch" : ""}>
-                    <span className={`pill ${classForStatus(row.recWiki, truthLevel)}`}>
-                      {badgeText(row.recWiki)}
-                    </span>
-                  </td>
-                  <td className={hasMismatch ? "cellMismatch" : ""}>
-                    <span className={`pill ${classForStatus(row.medWiki, truthLevel)}`}>
-                      {badgeText(row.medWiki)}
-                    </span>
-                  </td>
-                  <td className={hasMismatch ? "cellMismatch" : ""}>
-                    <span className={`pill ${classForStatus(row.recOur, truthLevel)}`}>
-                      {badgeText(row.recOur)}
-                    </span>
-                  </td>
-                  <td className={hasMismatch ? "cellMismatch" : ""}>
-                    <span className={`pill ${classForStatus(row.medOur, truthLevel)}`}>
-                      {badgeText(row.medOur)}
-                    </span>
-                  </td>
-                  <td>{explain.reliabilityText}</td>
-                  <td className={`colWide ${missingWikiNotes ? "cellMissing" : ""}`}>
-                    <details>
-                      <summary className="summaryClamp">
-                        <NotesCell text={row.notesWiki} />
-                      </summary>
-                      <div className="expandedText">
-                        <NotesCell text={row.notesWiki} />
-                      </div>
-                    </details>
-                  </td>
-                  <td className="colWide">
-                    <details>
-                      <summary className="summaryClamp">
-                        <NotesCell text={row.notesOur} />
-                      </summary>
-                      <div className="expandedText">
-                        <NotesCell text={row.notesOur} />
-                      </div>
-                    </details>
-                  </td>
-                  <td>{row.notesLen}</td>
-                  <td>{row.notesQuality}</td>
-                  <td className={missingWikiPage ? "cellMissing" : ""}>
-                    {row.wikiPageUrl !== "-" ? (
-                      <a
-                        href={row.wikiPageUrl}
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        className="link"
-                      >
-                        {row.wikiPageUrl}
-                      </a>
-                    ) : (
-                      "-"
-                    )}
-                  </td>
-                  <td className={`colWide ${missingSources ? "cellMissing" : ""}`}>
-                    {row.sources.length ? (
-                      <div className="linkList">
-                        {row.sources.slice(0, 2).map((source) => {
-                          const url = source.url || source.title || "";
-                          return (
-                            <a
-                              key={url}
-                              href={url}
-                              target="_blank"
-                              rel="noreferrer noopener"
-                              className="link"
-                            >
-                              {url}
-                              {source.isOfficial ? " OFFICIAL" : ""}
-                            </a>
-                          );
-                        })}
-                        {row.sources.length > 2 && (
-                          <span className="muted">+{row.sources.length - 2}</span>
-                        )}
-                        {row.sourcesTruncated && <span className="muted">TRUNCATED</span>}
-                      </div>
-                    ) : (
-                      "-"
-                    )}
-                  </td>
-                  <td className={`colWide ${missingOfficial && row.official === "yes" ? "cellMismatch" : ""}`}>
-                    {row.officialSources.length ? (
-                      <div className="linkList">
-                        {row.officialSources.slice(0, 2).map((source) => {
-                          const url = source.url || source.title || "";
-                          return (
-                            <a
-                              key={url}
-                              href={url}
-                              target="_blank"
-                              rel="noreferrer noopener"
-                              className="link"
-                            >
-                              {url} OFFICIAL
-                            </a>
-                          );
-                        })}
-                        {row.officialSources.length > 2 && (
-                          <span className="muted">+{row.officialSources.length - 2}</span>
-                        )}
-                        {row.officialSourcesTruncated && <span className="muted">TRUNCATED</span>}
-                      </div>
-                    ) : (
-                      "-"
-                    )}
-                  </td>
-                  <td className={missingOfficial && row.official === "yes" ? "cellMismatch" : ""}>
-                    {row.official}
-                  </td>
-                  <td className={hasMismatch ? "cellMismatch" : ""}>{row.delta}</td>
-                  <td className={hasMismatch ? "cellMismatch" : ""}>
-                    {row.flags.length ? row.flags.join(",") : "-"}
-                  </td>
+      <section className="issueBar" data-testid="wiki-truth-issues">
+        <span>STATUS_MISMATCH: {audit.issueCounters.statusMismatch}</span>
+        <span>NO_FINAL_ROW: {audit.issueCounters.noOurRow}</span>
+        <span>OFFICIAL_SOURCES_MISSING: {audit.issueCounters.officialSourcesMissing}</span>
+        <span>SOURCES_MISSING: {audit.issueCounters.sourcesMissing}</span>
+        <span>WIKI_NOTES_MISSING: {audit.issueCounters.wikiNotesMissing}</span>
+      </section>
+
+      <section className="sectionCard">
+        <h2>Audit universe boundaries</h2>
+        <div className="boundaryGrid">
+          <div>
+            <strong>Wiki country coverage</strong>
+            <div>{wikiCoverage?.sourceOfTruth}</div>
+            <div>{wikiCoverage?.inclusionRule}</div>
+          </div>
+          <div>
+            <strong>ISO country audit</strong>
+            <div>{isoCoverage?.sourceOfTruth}</div>
+            <div>{isoCoverage?.inclusionRule}</div>
+          </div>
+          <div>
+            <strong>SSOT reference coverage</strong>
+            <div>{refCoverage?.sourceOfTruth}</div>
+            <div>{refCoverage?.inclusionRule}</div>
+          </div>
+          <div>
+            <strong>US states coverage</strong>
+            <div>{statesCoverage?.sourceOfTruth}</div>
+            <div>{statesCoverage?.inclusionRule}</div>
+          </div>
+          <div>
+            <strong>Official registry</strong>
+            <div>{officialRegistry?.sourceOfTruth}</div>
+            <div>{officialRegistry?.inclusionRule}</div>
+          </div>
+          <div>
+            <strong>Official geo coverage</strong>
+            <div>{officialGeoCoverage?.sourceOfTruth}</div>
+            <div>{officialGeoCoverage?.inclusionRule}</div>
+          </div>
+          <div>
+            <strong>Diagnostics</strong>
+            <div>{diagnosticsCoverage?.sourceOfTruth}</div>
+            <div>{diagnosticsCoverage?.inclusionRule}</div>
+          </div>
+        </div>
+      </section>
+
+      <section className="sectionCard" data-testid="official-ownership-diagnostics">
+        <h2>Official ownership diagnostics</h2>
+        <div className="boundaryGrid">
+          <div>
+            <strong>Raw registry total</strong>
+            <div>{audit.officialOwnership.rawRegistryTotal}</div>
+          </div>
+          <div>
+            <strong>Effective ownership total</strong>
+            <div>{audit.officialOwnership.effectiveRegistryTotal}</div>
+          </div>
+          <div>
+            <strong>Country / state assigned</strong>
+            <div>
+              {audit.officialOwnership.assignedCountryLinks} / {audit.officialOwnership.assignedStateLinks}
+            </div>
+          </div>
+          <div>
+            <strong>Multi-geo / global</strong>
+            <div>
+              {audit.officialOwnership.assignedMultiGeoLinks} / {audit.officialOwnership.assignedGlobalLinks}
+            </div>
+          </div>
+          <div>
+            <strong>Unknown ownership</strong>
+            <div>{audit.officialOwnership.unresolvedUnknownLinks}</div>
+          </div>
+        </div>
+        <p className="sectionHint">{audit.officialOwnership.discrepancyExplanation}</p>
+      </section>
+
+      <OfficialOwnershipSummary view={audit.officialOwnershipView} />
+      <OfficialOwnershipTable view={audit.officialOwnershipView} />
+
+      <section>
+        <h2>All countries truth table</h2>
+        <p className="sectionHint">
+          Normalized SSOT-backed truth rows. This is the primary country truth view; audit mismatches remain a separate
+          diagnostics layer below.
+        </p>
+        <div
+          className="tableWrap"
+          style={{ overflowX: "auto", width: "min(100%, calc(100vw - 64px))", maxWidth: "100%" }}
+        >
+          <table className="truthTable" data-testid="wiki-truth-table" style={{ width: "max-content", minWidth: 3200 }}>
+            <thead>
+              <tr>
+                <th className="stickyCol1 colGeo" style={{ whiteSpace: "nowrap" }}>ISO2/Geo</th>
+                <th className="stickyCol2 colCountry" style={{ whiteSpace: "nowrap" }}>Country</th>
+                <th className="colStatus" style={{ whiteSpace: "nowrap" }}>Rec (Wiki)</th>
+                <th className="colStatus" style={{ whiteSpace: "nowrap" }}>Med (Wiki)</th>
+                <th className="colStatus" style={{ whiteSpace: "nowrap" }}>Rec (Final)</th>
+                <th className="colStatus" style={{ whiteSpace: "nowrap" }}>Med (Final)</th>
+                <th className="colMeta" style={{ whiteSpace: "nowrap" }}>Map category</th>
+                <th className="colMeta" style={{ whiteSpace: "nowrap" }}>Rule basis</th>
+                <th className="colMeta" style={{ whiteSpace: "nowrap" }}>Override reason</th>
+                <th className="colMeta" style={{ whiteSpace: "nowrap" }}>Snapshot</th>
+                <th className="colDelta" style={{ whiteSpace: "nowrap" }}>Delta</th>
+                <th className="colMeta" style={{ whiteSpace: "nowrap" }}>Rule ID</th>
+                <th className="colMeta" style={{ whiteSpace: "nowrap" }}>Approved override</th>
+                <th className="colLinks" style={{ whiteSpace: "nowrap" }}>Sources</th>
+                <th className="colMeta" style={{ whiteSpace: "nowrap" }}>Official</th>
+                <th className="colOfficialLinks" style={{ whiteSpace: "nowrap" }}>Official link</th>
+                <th className="colMeta" style={{ whiteSpace: "nowrap" }}>Evidence delta</th>
+                <th className="colMeta" style={{ whiteSpace: "nowrap" }}>Evidence source</th>
+                <th className="colNotes" style={{ whiteSpace: "nowrap" }}>Trigger phrase</th>
+                <th className="colNotes" style={{ whiteSpace: "nowrap" }}>Context</th>
+                <th className="colNotes" style={{ whiteSpace: "nowrap" }}>Enforcement</th>
+                <th className="colNotes" style={{ whiteSpace: "nowrap" }}>Social reality</th>
+                <th className="colNotes" style={{ whiteSpace: "nowrap" }}>Notes explainability</th>
+                <th className="colMeta" style={{ whiteSpace: "nowrap" }}>NotesLen</th>
+                <th className="colMeta" style={{ whiteSpace: "nowrap" }}>NotesQuality</th>
+                <th className="colFlags" style={{ whiteSpace: "nowrap" }}>MismatchFlags</th>
+              </tr>
+            </thead>
+            <tbody>
+              {audit.allRows.map((row) => (
+                <tr
+                  key={`truth-${row.geoKey}-${row.country}`}
+                  data-geo={row.geoKey}
+                  data-final-rec={row.finalRec}
+                  data-final-med={row.finalMed}
+                  data-final-map-category={row.finalMapCategory}
+                  data-truth-source-label={row.truthSourceLabel}
+                  data-status-override-reason={row.statusOverrideReason}
+                  data-snapshot-id={row.snapshotId}
+                  data-rule-id={row.ruleId}
+                  data-evidence-delta-approved={row.evidenceDeltaApproved ? "1" : "0"}
+                >
+                  <td className="stickyCol1 stickyCell colGeo">{row.geoKey}</td>
+                  <td className="stickyCol2 stickyCell colCountry">{row.country}</td>
+                  <td className="colStatus">{row.wikiRec}</td>
+                  <td className="colStatus">{row.wikiMed}</td>
+                  <td className="colStatus">{row.finalRec}</td>
+                  <td className="colStatus">{row.finalMed}</td>
+                  <td className="colMeta">{row.finalMapCategory}</td>
+                  <td className="colMeta">{row.truthSourceLabel}</td>
+                  <td className="colMeta">{row.statusOverrideReason}</td>
+                  <td className="colMeta">{row.snapshotId}</td>
+                  <td className="colDelta">{row.delta}</td>
+                  <td className="colMeta">{row.ruleId}</td>
+                  <td className="colMeta">{row.evidenceDeltaApproved ? "yes" : "no"}</td>
+                  <td className="colLinks">{renderLinks(row.sources)}</td>
+                  <td className="colMeta">{renderOfficialSignal(row)}</td>
+                  <td className="colOfficialLinks">{renderLinks(row.officialSources)}</td>
+                  <td className="colMeta">{row.evidenceDelta}</td>
+                  <td className="colMeta">{row.evidenceSourceType}</td>
+                  <td className="colNotes">{row.triggerPhraseExcerpt}</td>
+                  <td className="colNotes">{row.contextNote}</td>
+                  <td className="colNotes">{row.enforcementNote}</td>
+                  <td className="colNotes">{row.socialRealityNote}</td>
+                  <td className="colNotes">{row.notesText}</td>
+                  <td className="colMeta">{row.notesLen}</td>
+                  <td className="colMeta">{row.notesQuality}</td>
+                  <td className="colFlags">{renderFlags(row.mismatchFlags)}</td>
                 </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
+              ))}
+              {!audit.allRows.length ? (
+                <tr>
+                  <td colSpan={26}>No truth rows found.</td>
+                </tr>
+              ) : null}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>Audit mismatches</h2>
+        <p className="sectionHint">
+          High-signal mismatches only. Parser leftovers, empty ISO rows and alias-resolution issues stay in diagnostics.
+        </p>
+        {audit.mainRows.length ? (
+          <div className="tableWrap">
+            <table className="truthTable" data-testid="wiki-truth-audit-table">
+              <thead>
+                <tr>
+                  <th className="stickyCol1 colGeo">ISO2/Geo</th>
+                  <th className="stickyCol2 colCountry">Country</th>
+                  <th className="colStatus">Wiki status</th>
+                  <th className="colStatus">Final status</th>
+                  <th className="colMeta">Rule basis</th>
+                  <th className="colMeta">Override reason</th>
+                  <th className="colDelta">Delta</th>
+                  <th className="colMeta">Rule ID</th>
+                  <th className="colMeta">Approved override</th>
+                  <th className="colUrl">Wiki page</th>
+                  <th className="colLinks">Sources</th>
+                  <th className="colOfficialLinks">Official sources</th>
+                  <th className="colMeta">Evidence delta</th>
+                  <th className="colMeta">Evidence source</th>
+                  <th className="colNotes">Trigger phrase</th>
+                  <th className="colNotes">Notes explainability</th>
+                  <th className="colFlags">Flags</th>
+                </tr>
+              </thead>
+              <tbody>
+                {audit.mainRows.map((row) => (
+                  <Row key={`${row.geoKey}-${row.country}`} row={row} />
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <p className="sectionHint" data-testid="wiki-truth-audit-empty">
+            No audit mismatches detected.
+          </p>
+        )}
+      </section>
+
+      <section>
+        <h2>ISO country audit</h2>
+        <p className="sectionHint">
+          This section explains why ISO-country totals differ from wiki country rows. These are expected uncovered
+          countries, not garbage rows in the main audit table.
+        </p>
+        <div className="tableWrap">
+          <table className="truthTable" data-testid="missing-coverage-table">
+            <thead>
+              <tr>
+                <th>ISO2</th>
+                <th>Country</th>
+                <th>Reason</th>
+                <th>Expected wiki page</th>
+                <th>Source hint</th>
+              </tr>
+            </thead>
+            <tbody>
+              {audit.uncoveredCountries.map((row) => (
+                <tr key={`missing-${row.geo}`}>
+                  <td>{row.geo}</td>
+                  <td>{row.name}</td>
+                  <td>{row.reason}</td>
+                  <td>
+                    {row.expectedWikiUrl ? (
+                      <div className="linkList">
+                        <span>{row.expectedWikiTitle || "-"}</span>
+                        <a href={row.expectedWikiUrl} target="_blank" rel="noreferrer noopener" className="link">
+                          {row.expectedWikiUrl}
+                        </a>
+                      </div>
+                    ) : (
+                      "-"
+                    )}
+                  </td>
+                  <td>{row.expectedSourceHint}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>US states coverage</h2>
+        <p className="sectionHint">
+          {audit.usStates.covered} / {audit.usStates.total} covered. Missing: {audit.usStates.missing}
+        </p>
+        {audit.usStates.rows.length ? (
+          <div className="tableWrap">
+            <table className="truthTable" data-testid="missing-states">
+              <thead>
+                <tr>
+                  <th>Geo</th>
+                  <th>Name</th>
+                  <th>Reason</th>
+                  <th>Source hint</th>
+                </tr>
+              </thead>
+              <tbody>
+                {audit.usStates.rows.map((row) => (
+                  <tr key={row.geo}>
+                    <td>{row.geo}</td>
+                    <td>{row.name}</td>
+                    <td>{row.missing_reason}</td>
+                    <td>{row.expected_source_hint}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : null}
+      </section>
+
+      <section>
+        <h2>SSOT reference coverage</h2>
+        <p className="sectionHint">
+          {audit.ssotCoverage.covered} / {audit.ssotCoverage.total} covered. Missing: {audit.ssotCoverage.missing}
+        </p>
+        {audit.ssotCoverage.rows.length ? (
+          <div className="tableWrap">
+            <table className="truthTable" data-testid="uncovered-jurisdictions-table">
+              <thead>
+                <tr>
+                  <th>Geo</th>
+                  <th>Name</th>
+                  <th>Type</th>
+                  <th>Reason</th>
+                  <th>Source hint</th>
+                </tr>
+              </thead>
+              <tbody>
+                {audit.ssotCoverage.rows.map((row) => (
+                  <tr key={`ssot-${row.geo}`}>
+                    <td>{row.geo}</td>
+                    <td>{row.name}</td>
+                    <td>{row.type}</td>
+                    <td>{row.reason}</td>
+                    <td>{row.expectedSourceHint}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : null}
+      </section>
+
+      <details className="diagnostics" data-testid="wiki-truth-diagnostics">
+        <summary>Diagnostics</summary>
+        <div className="diagBlock">
+          <h3>Garbage rows</h3>
+          <div>
+            empty_iso={audit.diagnostics.emptyIsoCount} · non_iso={audit.diagnostics.nonIsoCount} · duplicates=
+            {audit.diagnostics.duplicateCount}
+          </div>
+          <ul>
+            {audit.diagnostics.garbageRows.map((row) => (
+              <li key={`${row.country}-${row.iso2}-${row.reason}`}>
+                {row.country} [{row.iso2}] {"->"} {row.reason}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="diagBlock">
+          <h3>Alias diagnostics</h3>
+          <div className="tableWrap">
+            <table className="truthTable" data-testid="alias-diagnostics-table">
+              <thead>
+                <tr>
+                  <th>ISO2</th>
+                  <th>Country</th>
+                  <th>Canonical title</th>
+                  <th>Wiki alias</th>
+                  <th>Expected title</th>
+                  <th>Reason</th>
+                </tr>
+              </thead>
+              <tbody>
+                {audit.diagnostics.unresolvedAliases.map((row) => (
+                  <tr key={`alias-${row.geo}`}>
+                    <td>{row.geo}</td>
+                    <td>{row.country}</td>
+                    <td>{row.canonicalTitle || "-"}</td>
+                    <td>{row.wikiAliasTitle || "-"}</td>
+                    <td>{row.expectedWikiTitle || "-"}</td>
+                    <td>{row.reason}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div className="diagBlock">
+          <h3>Missing wiki rows</h3>
+          <div className="tableWrap">
+            <table className="truthTable" data-testid="missing-wiki-rows-table">
+              <thead>
+                <tr>
+                  <th>ISO2</th>
+                  <th>Country</th>
+                  <th>Expected title</th>
+                  <th>Expected wiki page</th>
+                  <th>Reason</th>
+                </tr>
+              </thead>
+              <tbody>
+                {audit.diagnostics.missingWikiRows.map((row) => (
+                  <tr key={`missing-wiki-${row.geo}`}>
+                    <td>{row.geo}</td>
+                    <td>{row.name}</td>
+                    <td>{row.expectedWikiTitle || "-"}</td>
+                    <td>
+                      {row.expectedWikiUrl ? (
+                        <a href={row.expectedWikiUrl} target="_blank" rel="noreferrer noopener" className="link">
+                          {row.expectedWikiUrl}
+                        </a>
+                      ) : (
+                        "-"
+                      )}
+                    </td>
+                    <td>{row.reason}</td>
+                  </tr>
+                ))}
+                {!audit.diagnostics.missingWikiRows.length ? (
+                  <tr>
+                    <td colSpan={5}>No missing wiki rows detected.</td>
+                  </tr>
+                ) : null}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
       <style jsx>{`
+        .auditView {
+          display: grid;
+          gap: 18px;
+        }
+        .cards {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+          gap: 12px;
+        }
+        .card {
+          border: 1px solid #e5e7eb;
+          border-radius: 12px;
+          padding: 14px;
+          background: #fff;
+        }
+        .card h2 {
+          margin: 0 0 8px;
+          font-size: 16px;
+        }
+        .numbers {
+          display: flex;
+          align-items: baseline;
+          justify-content: space-between;
+          gap: 8px;
+          margin-bottom: 8px;
+        }
+        .numbers strong {
+          font-size: 22px;
+        }
+        .meta {
+          font-size: 12px;
+          color: #4b5563;
+        }
+        .issueBar {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px 14px;
+          font-size: 13px;
+          color: #374151;
+          padding: 10px 12px;
+          border-radius: 10px;
+          background: #f8fafc;
+          border: 1px solid #e5e7eb;
+        }
+        .sectionCard {
+          border: 1px solid #e5e7eb;
+          border-radius: 10px;
+          background: #fff;
+          padding: 14px;
+        }
+        .boundaryGrid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+          gap: 12px;
+          font-size: 13px;
+          color: #4b5563;
+        }
+        .boundaryGrid strong {
+          display: block;
+          margin-bottom: 4px;
+          color: #111827;
+        }
+        .sectionHint {
+          margin: 4px 0 10px;
+          color: #4b5563;
+          font-size: 13px;
+        }
         .tableWrap {
           overflow-x: auto;
-          max-width: 100%;
-          -webkit-overflow-scrolling: touch;
           border: 1px solid #e5e7eb;
-          border-radius: 8px;
-          background: #ffffff;
+          border-radius: 10px;
+          background: #fff;
         }
         .truthTable {
           width: max-content;
-          min-width: 100%;
+          min-width: 2300px;
           border-collapse: separate;
           border-spacing: 0;
-          font-size: 0.875rem;
-          --bg: #ffffff;
-          --col1: 90px;
-          --col2: 220px;
+          font-size: 13px;
         }
         th,
         td {
-          padding: 6px 8px;
-          border-bottom: 1px solid #e5e7eb;
-          border-right: 1px solid #e5e7eb;
+          padding: 10px 12px;
+          border-bottom: 1px solid #f1f5f9;
           vertical-align: top;
-          background: var(--bg);
+          text-align: left;
+          max-width: 360px;
         }
-        thead th {
+        th {
           position: sticky;
           top: 0;
-          z-index: 5;
           background: #f8fafc;
+          z-index: 1;
+          white-space: nowrap;
+          overflow: visible;
+          text-overflow: clip;
         }
-        .stickyCol1 {
+        .stickyCol1,
+        .stickyCol2,
+        .stickyCell {
           position: sticky;
           left: 0;
-          min-width: var(--col1);
-          max-width: var(--col1);
-          z-index: 4;
-          background: #ffffff;
+          background: #fff;
+          z-index: 2;
         }
         .stickyCol2 {
-          position: sticky;
-          left: var(--col1);
-          min-width: var(--col2);
-          max-width: var(--col2);
-          z-index: 4;
-          background: #ffffff;
+          left: 96px;
         }
-        .stickyHead.stickyCol1,
-        .stickyHead.stickyCol2 {
-          z-index: 6;
-          background: #f8fafc;
+        .colGeo {
+          min-width: 96px;
+          width: 96px;
         }
-        .stickyCell {
-          background: #ffffff;
+        .colCountry {
+          min-width: 220px;
+          width: 220px;
         }
-        .colWide {
-          max-width: 520px;
+        .colStatus {
+          min-width: 132px;
+        }
+        .colLinks {
+          min-width: 280px;
+        }
+        .colOfficialLinks {
+          min-width: 420px;
+        }
+        .colNotes {
+          min-width: 360px;
           white-space: normal;
-          overflow-wrap: anywhere;
+          word-break: break-word;
         }
-        .summaryClamp {
-          display: -webkit-box;
-          -webkit-line-clamp: 2;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-          cursor: pointer;
+        .colMeta {
+          min-width: 96px;
         }
-        .expandedText {
-          margin-top: 6px;
-          white-space: pre-wrap;
+        .colDelta {
+          min-width: 180px;
+          white-space: normal;
         }
-        .pill {
-          display: inline-block;
-          padding: 2px 8px;
-          border-radius: 999px;
-          font-size: 0.75rem;
-          font-weight: 600;
-          border: 1px solid transparent;
+        .colUrl {
+          min-width: 320px;
         }
-        .s-legal {
-          background: #dcfce7;
-          color: #14532d;
-          border-color: #86efac;
+        .colFlags {
+          min-width: 220px;
         }
-        .s-decrim {
-          background: #dbeafe;
-          color: #1e3a8a;
-          border-color: #93c5fd;
-        }
-        .s-illegal {
-          background: #fee2e2;
-          color: #7f1d1d;
-          border-color: #fecaca;
-        }
-        .s-unenforced {
-          background: #fef3c7;
-          color: #92400e;
-          border-color: #fcd34d;
-        }
-        .s-limited {
-          background: #f3e8ff;
-          color: #5b21b6;
-          border-color: #ddd6fe;
-        }
-        .s-unknown {
-          background: #f1f5f9;
-          color: #334155;
-          border-color: #cbd5f5;
-        }
-        .cellMismatch {
-          outline: 2px solid #ef4444;
-          outline-offset: -2px;
-          background: #fef2f2;
-        }
-        .cellMissing {
-          outline: 2px dashed #f97316;
-          outline-offset: -2px;
-          background: #fff7ed;
-        }
-        .rowTint {
-          background: #fff7f7;
-        }
-        .link {
-          color: #1d4ed8;
-          text-decoration: underline;
-        }
-        .linkList {
+        .linkList,
+        .flagList {
           display: flex;
           flex-direction: column;
           gap: 4px;
         }
-        .muted {
-          color: #6b7280;
-          font-size: 0.75rem;
+        .linkList :global(a),
+        .linkList :global(span) {
+          overflow-wrap: anywhere;
+          word-break: break-word;
         }
-        .legend {
-          display: flex;
-          flex-direction: column;
-          gap: 6px;
-          padding: 8px 0;
+        .flagPill {
+          display: inline-flex;
+          width: fit-content;
+          padding: 2px 8px;
+          border-radius: 999px;
+          background: #eef2ff;
+          color: #3730a3;
+          font-size: 11px;
+          font-weight: 600;
         }
-        .legendRow {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 8px;
-          align-items: center;
+        .link {
+          color: #2563eb;
+          text-decoration: none;
+          word-break: break-word;
         }
-        .legendRow.text {
-          font-size: 0.75rem;
-          color: #6b7280;
+        .diagnostics {
+          border: 1px solid #e5e7eb;
+          border-radius: 10px;
+          background: #fff;
+          padding: 12px 14px;
         }
-        .flag {
-          padding: 2px 6px;
-          border: 1px dashed #cbd5f5;
-          border-radius: 6px;
-          background: #f8fafc;
-        }
-        .filters {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 12px;
-          align-items: center;
-          margin-bottom: 10px;
-          font-size: 0.85rem;
-        }
-        .filterItem {
-          display: flex;
-          gap: 6px;
-          align-items: center;
-        }
-        .results {
-          color: #475569;
+        .diagBlock + .diagBlock {
+          margin-top: 16px;
         }
       `}</style>
     </div>

@@ -5,8 +5,8 @@
     "apps/*",
     "packages/*"
   ],
-  "dependencies": {},
   "devDependencies": {
+    "@playwright/test": "^1.58.2",
     "@typescript-eslint/eslint-plugin": "^8.49.0",
     "@typescript-eslint/parser": "^8.49.0",
     "eslint": "^9.0.0",
@@ -22,6 +22,7 @@
     "audit": "bash tools/tree-audit.sh",
     "web:dev": "bash Tools/ui_dev_guard.sh",
     "web:build": "npm -w apps/web run build",
+    "build": "npm run web:build",
     "dev": "npm run web:dev",
     "lint": "eslint . --max-warnings=0",
     "lint:fix": "eslint . --fix",
@@ -29,6 +30,7 @@
     "validate:laws": "node tools/validate-laws.js",
     "validate:iso3166": "node tools/validate-iso3166.js",
     "coverage": "node tools/coverage-report.js",
+    "gen:country-names": "node tools/countries/generate-country-names.mjs",
     "smoke:mock": "node tools/smoke/run_smoke.mjs --mode=mock",
     "smoke:live": "node tools/smoke/run_smoke.mjs --mode=live",
     "gen:iso3166": "node tools/iso3166/generate-iso3166-1.js",
@@ -38,6 +40,8 @@
     "wiki:refresh": "node tools/wiki/wiki_refresh.mjs --all",
     "wiki:official_eval": "node tools/wiki/wiki_official_eval.mjs",
     "allowlist:merge": "node tools/sources/merge_official_allowlist.mjs",
-    "ci": "bash tools/ci-local.sh"
+    "ci": "bash tools/ci-local.sh",
+    "publish:preview": "node tools/github/preview_publish_state.mjs",
+    "test:ui": "playwright test"
   }
 }

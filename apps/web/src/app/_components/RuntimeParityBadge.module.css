@@ -1,0 +1,26 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  padding: 0 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.pending {
+  background: rgba(164, 132, 31, 0.14);
+  color: #7f640d;
+}
+
+.actual {
+  background: rgba(31, 97, 64, 0.14);
+  color: #1f6140;
+}
+
+.mismatch {
+  background: rgba(164, 49, 49, 0.14);
+  color: #972b2b;
+}

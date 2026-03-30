@@ -28,10 +28,23 @@
   "notes_text_len": 339,
   "notes": "In September 2019, the Australian Capital Territory became the first state or territory of Australia to legalize recreational use of cannabis. Since 31 January 2020 residents have been allowed to grow two plants and possess 50 g, though sales or other transfer is prohibited, including cannabis seeds. Federal law also remains enforceable.",
   "notes_raw": "{{main|Cannabis in Australia}} In September 2019, the [[Australian Capital Territory]] became the first state or territory of Australia to legalize recreational use of cannabis. Since 31 January 2020 residents have been allowed to grow two plants and possess {{cvt|50|g|frac=4}}, though sales or other transfer is prohibited, including cannabis seeds. Federal law also remains enforceable.<ref name=\"ACT\">{{cite news |last=Lowrey |first=Tom |title=ACT legalises personal cannabis use but warns smokers they're not safe from federal laws |url=https://www.abc.net.au/news/2019-09-25/act-first-jurisdiction-to-legalise-personal-cannabis-use/11530104 |access-date=11 December 2019 |publisher=[[Australian Broadcasting Corporation|ABC News]] |date=25 September 2019 |archive-url=https://web.archive.org/web/20191005020408/https://www.abc.net.au/news/2019-09-25/act-first-jurisdiction-to-legalise-personal-cannabis-use/11530104 |archive-date=5 October 2019 |url-status=live}}</ref>",
+  "notes_sections_used": [
+    "notes_raw"
+  ],
+  "notes_main_article": "Cannabis in Australia",
+  "notes_rev": "",
+  "notes_kind": "RICH",
+  "notes_reason_code": "HAS_EXTRA_TEXT",
   "recreational_status": "Legal",
   "medical_status": "Legal",
-  "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source_type": "WIKI_COUNTRIES",
+  "primary_source": "WIKI_COUNTRIES",
+  "source_page": "Legality of cannabis",
+  "source_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "source_revision": "1336080043",
+  "source_table": "countries",
+  "wiki_revision_id": "1336080043",
+  "fetched_at": "2026-02-12T19:20:54.889Z",
   "source": "countries",
-  "revision_id": "1332405714"
+  "revision_id": "1336080043"
 }

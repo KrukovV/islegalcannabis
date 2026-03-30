@@ -28,10 +28,23 @@
   "notes_text_len": 109,
   "notes": "In 2016 a constitutional commission rejected proposals to legalize medicinal or recreational use of cannabis.",
   "notes_raw": "{{main|Cannabis in Guatemala}} In 2016 a constitutional commission rejected proposals to legalize medicinal or recreational use of cannabis.<ref>{{cite web |author=Milena Lopez |url=http://www.tn8.tv/cronica-tn8/373406-comision-rechaza-uso-medicinal-marihuana-guatemala/ |title=Comisión Rechaza Uso Medicinal De La Marihuana En Guatemala |date=2 November 2016 |publisher=Tn8.tv |access-date=30 November 2016 |archive-date=5 September 2017 |archive-url=https://web.archive.org/web/20170905095333/http://www.tn8.tv/cronica-tn8/373406-comision-rechaza-uso-medicinal-marihuana-guatemala/ |url-status=live }}</ref><ref>{{cite web |author=Juan Toro |url=http://clustersalud.americaeconomia.com/guatemala-rechazan-uso-marihuana-medicinal/ |title=Guatemala: Rechazan uso de marihuana medicinal |website=Cluster Salud |access-date=30 November 2016 |archive-date=3 October 2018 |archive-url=https://web.archive.org/web/20181003102740/https://clustersalud.americaeconomia.com/guatemala-rechazan-uso-marihuana-medicinal/ |url-status=dead }}</ref>",
+  "notes_sections_used": [
+    "notes_raw"
+  ],
+  "notes_main_article": "Cannabis in Guatemala",
+  "notes_rev": "",
+  "notes_kind": "RICH",
+  "notes_reason_code": "HAS_EXTRA_TEXT",
   "recreational_status": "Illegal",
   "medical_status": "Illegal",
-  "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source_type": "WIKI_COUNTRIES",
+  "primary_source": "WIKI_COUNTRIES",
+  "source_page": "Legality of cannabis",
+  "source_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "source_revision": "1336080043",
+  "source_table": "countries",
+  "wiki_revision_id": "1336080043",
+  "fetched_at": "2026-02-12T19:20:54.889Z",
   "source": "countries",
-  "revision_id": "1332405714"
+  "revision_id": "1336080043"
 }

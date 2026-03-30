@@ -28,10 +28,23 @@
   "notes_text_len": 69,
   "notes": "Possession of 15 g or over can result in charges of drug trafficking.",
   "notes_raw": "{{main|Cannabis in Guyana}} Possession of {{cvt|15|g|frac=2}} or over can result in charges of drug trafficking.<ref name=\"stabroeknews1\">{{cite web |url=http://www.stabroeknews.com/2015/news/stories/12/04/rastafarian-community-protests-unjust-marijuana-laws/ |title=Rastafarian community protests against 'unjust' marijuana laws |publisher=Stabroek News |date=4 December 2015 |access-date=6 December 2015 |archive-date=5 September 2017 |archive-url=https://web.archive.org/web/20170905185119/https://www.stabroeknews.com/2015/news/stories/12/04/rastafarian-community-protests-unjust-marijuana-laws/ |url-status=live }}</ref>",
+  "notes_sections_used": [
+    "notes_raw"
+  ],
+  "notes_main_article": "Cannabis in Guyana",
+  "notes_rev": "",
+  "notes_kind": "RICH",
+  "notes_reason_code": "HAS_EXTRA_TEXT",
   "recreational_status": "Illegal",
   "medical_status": "Illegal",
-  "wiki_revision_id": "1332405714",
-  "fetched_at": "2026-01-28T23:20:50.661Z",
+  "source_type": "WIKI_COUNTRIES",
+  "primary_source": "WIKI_COUNTRIES",
+  "source_page": "Legality of cannabis",
+  "source_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+  "source_revision": "1336080043",
+  "source_table": "countries",
+  "wiki_revision_id": "1336080043",
+  "fetched_at": "2026-02-12T19:20:54.889Z",
   "source": "countries",
-  "revision_id": "1332405714"
+  "revision_id": "1336080043"
 }
