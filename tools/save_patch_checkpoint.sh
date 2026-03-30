@@ -9,7 +9,7 @@ PATCH_PATH=".checkpoints/${TS}.patch"
 CHANGED_FILES=$(
   { git diff --name-only || true; git ls-files -o --exclude-standard || true; } \
     | grep -v '^Reports/' \
-    | sort -u
+    | sort -u || true
 )
 CHANGED_TRACKED=$(git diff --name-only | grep -v '^Reports/' || true)
 CHANGED_TRACKED_FILE=".checkpoints/changed-paths.txt"
