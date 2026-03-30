@@ -9,7 +9,7 @@ export const NEW_MAP_HOVER_LAYER_ID = "legal-hover";
 const NEW_MAP_SUPPLEMENTAL_SEA_SOURCE_ID = "new-map-supplemental-seas";
 const NEW_MAP_SUPPLEMENTAL_SEA_LAYER_ID = "new-map-supplemental-seas";
 
-const BASEMAP_STYLE_URL = "/api/new-map/basemap-style?v=20260330-origin-bilingual";
+const BASEMAP_STYLE_URL = "/api/new-map/basemap-style?v=20260331-origin-header-same-origin";
 
 const DEFAULT_CENTER: [number, number] = [25, 50];
 const DEFAULT_ZOOM = 1.55;
