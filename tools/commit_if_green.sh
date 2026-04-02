@@ -522,6 +522,8 @@ fi
 append_ci_final "REMOTE_REACHABLE=1 reason=OK"
 
 set +e
+HEAD_PUSH_OUTPUT=$(GIT_TERMINAL_PROMPT=0 GIT_ASKPASS=/usr/bin/true run_git_with_timeout "git push origin HEAD" 2>&1)
+HEAD_PUSH_STATUS=$?
 PUSH_OUTPUT=$(GIT_TERMINAL_PROMPT=0 GIT_ASKPASS=/usr/bin/true run_git_with_timeout "git push --force origin refs/tags/${tag}" 2>&1)
 PUSH_STATUS=$?
 TAG_PUSH_STATUS=0
@@ -531,9 +533,10 @@ if [ -n "${prod_tag:-}" ]; then
   TAG_PUSH_STATUS=$?
 fi
 set -e
-if [ "${PUSH_STATUS}" -ne 0 ] || [ "${TAG_PUSH_STATUS}" -ne 0 ]; then
+if [ "${HEAD_PUSH_STATUS}" -ne 0 ] || [ "${PUSH_STATUS}" -ne 0 ] || [ "${TAG_PUSH_STATUS}" -ne 0 ]; then
   reason="OTHER"
-  combined_output="${PUSH_OUTPUT}
+  combined_output="${HEAD_PUSH_OUTPUT}
+${PUSH_OUTPUT}
 ${TAG_PUSH_OUTPUT}"
   if echo "${combined_output}" | grep -qi "Could not resolve host"; then
     reason="DNS"
@@ -549,6 +552,7 @@ ${TAG_PUSH_OUTPUT}"
     reason="NETWORK_TIMEOUT"
   fi
   append_ci_final "PUSH_FAIL_REASON=${reason}"
+  append_ci_final "PUSH_FAIL_CMD=git push origin HEAD"
   append_ci_final "PUSH_FAIL_CMD=git push --force origin refs/tags/${tag}"
   if [ -n "${prod_tag:-}" ]; then
     append_ci_final "PUSH_FAIL_CMD=git push --force origin refs/tags/${prod_tag}"
@@ -562,6 +566,9 @@ ${TAG_PUSH_OUTPUT}"
   report_git_clean
   exit 1
 fi
+
+append_ci_final "HEAD_PUSHED=1"
+echo "HEAD_PUSHED=1"
 
 if ! git ls-remote --tags origin | grep -q "refs/tags/${tag}"; then
   echo "TAG_NOT_PUSHED=1 Not committing."
