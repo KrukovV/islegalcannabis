@@ -5,9 +5,15 @@ import type { HoverControllerHandle } from "./map.types";
 
 type HoverDebugState = {
   hoveredId: string | null;
+  selectedId?: string | null;
   hoverSwitchCount: number;
   hoverStateOwner: "feature-state";
   lastPointerLng?: number | null;
+};
+
+type HoverControllerOptions = {
+  onHoverChange?: (_geo: string | null) => void;
+  onSelectChange?: (_geo: string | null) => void;
 };
 
 function normalizeLng(lng: number) {
@@ -37,9 +43,10 @@ function getGeoIdFromLayerEvent(event: MapMouseEvent & { features?: Array<{ id?:
   return feature ? String(feature.properties?.geo || feature.id || "").trim().toUpperCase() : null;
 }
 
-export function attachHoverController(map: MapLibreMap): HoverControllerHandle {
+export function attachHoverController(map: MapLibreMap, options: HoverControllerOptions = {}): HoverControllerHandle {
   const debug = ensureDebugState();
   let hoveredId: string | null = null;
+  let selectedId: string | null = null;
 
   const setHoveredId = (nextId: string | null) => {
     if (hoveredId === nextId) return;
@@ -49,9 +56,17 @@ export function attachHoverController(map: MapLibreMap): HoverControllerHandle {
     hoveredId = nextId;
     debug.hoveredId = hoveredId;
     debug.hoverSwitchCount += 1;
+    options.onHoverChange?.(hoveredId);
     if (hoveredId) {
       map.setFeatureState({ source: NEW_MAP_SOURCE_ID, id: hoveredId }, { hover: true });
     }
+  };
+
+  const setSelectedId = (nextId: string | null) => {
+    if (selectedId === nextId) return;
+    selectedId = nextId;
+    debug.selectedId = selectedId;
+    options.onSelectChange?.(selectedId);
   };
 
   const onMapMove = (event: MapMouseEvent) => {
@@ -65,10 +80,14 @@ export function attachHoverController(map: MapLibreMap): HoverControllerHandle {
   };
 
   const onLeave = () => setHoveredId(null);
+  const onClick = (event: MapMouseEvent & { features?: Array<{ id?: string | number; properties?: Record<string, unknown> }> }) => {
+    setSelectedId(getGeoIdFromLayerEvent(event) || getGeoIdAtPoint(map, event.point));
+  };
 
   map.on("mousemove", NEW_MAP_FILL_LAYER_ID, onLayerMove);
   map.on("mousemove", onMapMove);
   map.on("mouseleave", NEW_MAP_FILL_LAYER_ID, onLeave);
+  map.on("click", NEW_MAP_FILL_LAYER_ID, onClick);
 
   const overlayCleanup = attachLeafletPointerOverlay(map.getCanvas(), {
     onMove: (event) => {
@@ -92,7 +111,9 @@ export function attachHoverController(map: MapLibreMap): HoverControllerHandle {
       map.off("mousemove", NEW_MAP_FILL_LAYER_ID, onLayerMove);
       map.off("mousemove", onMapMove);
       map.off("mouseleave", NEW_MAP_FILL_LAYER_ID, onLeave);
+      map.off("click", NEW_MAP_FILL_LAYER_ID, onClick);
       setHoveredId(null);
+      setSelectedId(null);
     }
   };
 }

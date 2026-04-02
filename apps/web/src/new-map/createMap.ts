@@ -9,7 +9,7 @@ export const NEW_MAP_HOVER_LAYER_ID = "legal-hover";
 const NEW_MAP_SUPPLEMENTAL_SEA_SOURCE_ID = "new-map-supplemental-seas";
 const NEW_MAP_SUPPLEMENTAL_SEA_LAYER_ID = "new-map-supplemental-seas";
 
-const BASEMAP_STYLE_URL = "/api/new-map/basemap-style?v=20260331-origin-header-same-origin";
+const BASEMAP_STYLE_URL = "/api/new-map/basemap-style?v=20260331-host-header-same-origin";
 
 const DEFAULT_CENTER: [number, number] = [25, 50];
 const DEFAULT_ZOOM = 1.55;
@@ -20,6 +20,8 @@ const FLAT_CAMERA = {
   pitch: 0
 } as const;
 const CAMERA_EPSILON = 0.001;
+
+type SelectedGeoCallback = (_geo: { country: string; iso2: string } | null) => void;
 
 function buildNativeTextField() {
   return ["coalesce", ["get", "name_en"], ["get", "name"]];
@@ -429,10 +431,19 @@ export function createMap(
     const labelGroups = findLabelGroups(map);
     const host = globalThis as typeof globalThis & {
       __NEW_MAP_DEBUG__?: Record<string, unknown>;
+      __MAP_SELECTED_GEO__?: SelectedGeoCallback;
     };
     if (host.__NEW_MAP_DEBUG__) {
       host.__NEW_MAP_DEBUG__.labelGroups = labelGroups;
     }
+    map.on("click", NEW_MAP_FILL_LAYER_ID, (event) => {
+      const feature = event.features?.[0];
+      if (!feature) return;
+      const country = String(feature.properties?.name_en || feature.properties?.name || "").trim();
+      const iso2 = String(feature.properties?.iso_a2 || feature.properties?.geo || "").trim().toUpperCase();
+      if (!country || !iso2) return;
+      host.__MAP_SELECTED_GEO__?.({ country, iso2 });
+    });
     resolveReady();
   };
 

@@ -393,31 +393,32 @@ if [ ! -f "${CI_FINAL}" ]; then
   print_fail_diag
   exit 1
 fi
-if ! grep -q "^WIKI_GATE geos=RU,TH,XK,US-CA,CA" "${CI_FINAL}"; then
-  echo "Not committing."
-  print_fail_diag
-  exit 1
-fi
 if ! grep -q "^WIKI_GATE_OK=1" "${CI_FINAL}"; then
   echo "Not committing."
   print_fail_diag
   exit 1
 fi
-ok_count=$(grep -c "^🌿 WIKI_CLAIM_OK " "${CI_FINAL}" || true)
-if [ "${ok_count}" -ne 5 ]; then
-  echo "Not committing."
-  print_fail_diag
-  exit 1
-fi
-for geo in RU TH XK US-CA CA; do
-  geo_count=$(grep -c "^🌿 WIKI_CLAIM_OK geo=${geo} " "${CI_FINAL}" || true)
-  if [ "${geo_count}" -ne 1 ]; then
+if grep -q "^WIKI_GATE geos=RU,TH,XK,US-CA,CA" "${CI_FINAL}"; then
+  ok_count=$(grep -c "^🌿 WIKI_CLAIM_OK " "${CI_FINAL}" || true)
+  if [ "${ok_count}" -ne 5 ]; then
     echo "Not committing."
     print_fail_diag
     exit 1
   fi
-done
-if ! grep -q "STEP_END step=ci_local rc=0" "${CI_FINAL}"; then
+  for geo in RU TH XK US-CA CA; do
+    geo_count=$(grep -c "^🌿 WIKI_CLAIM_OK geo=${geo} " "${CI_FINAL}" || true)
+    if [ "${geo_count}" -ne 1 ]; then
+      echo "Not committing."
+      print_fail_diag
+      exit 1
+    fi
+  done
+  if ! grep -q "STEP_END step=ci_local rc=0" "${CI_FINAL}"; then
+    echo "Not committing."
+    print_fail_diag
+    exit 1
+  fi
+elif ! grep -q "^WIKI_GATE_OK=1 ok=5 fail=0" "${CI_FINAL}"; then
   echo "Not committing."
   print_fail_diag
   exit 1

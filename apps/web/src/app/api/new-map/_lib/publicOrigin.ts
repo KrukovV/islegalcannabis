@@ -1,13 +1,3 @@
-function isSafeOrigin(value: string | null | undefined) {
-  if (!value) return false;
-  try {
-    const parsed = new URL(value);
-    return Boolean(parsed.protocol && parsed.host && !parsed.username && !parsed.password);
-  } catch {
-    return false;
-  }
-}
-
 function originFromReferrer(value: string | null | undefined) {
   if (!value) return null;
   try {
@@ -20,12 +10,6 @@ function originFromReferrer(value: string | null | undefined) {
 }
 
 export function getPublicOrigin(request: Request) {
-  const origin = request.headers.get("origin");
-  if (isSafeOrigin(origin)) return String(origin);
-
-  const refererOrigin = originFromReferrer(request.headers.get("referer"));
-  if (refererOrigin) return refererOrigin;
-
   const forwardedProto = request.headers.get("x-forwarded-proto") || "http";
   const forwardedHost =
     request.headers.get("x-forwarded-host") || request.headers.get("host");
@@ -33,8 +17,8 @@ export function getPublicOrigin(request: Request) {
     return `${forwardedProto}://${forwardedHost}`;
   }
 
-  const fallback = new URL(request.url);
-  fallback.username = "";
-  fallback.password = "";
-  return fallback.origin;
+  const refererOrigin = originFromReferrer(request.headers.get("referer"));
+  if (refererOrigin) return refererOrigin;
+
+  return "http://127.0.0.1:3000";
 }

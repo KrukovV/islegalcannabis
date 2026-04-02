@@ -80,6 +80,198 @@
   color: #8d1f1f;
 }
 
+.aiDock {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  bottom: 24px;
+  width: min(720px, 90vw);
+  transform: translateX(-50%);
+  display: grid;
+  gap: 12px;
+}
+
+.aiBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 56px;
+  padding: 8px 10px;
+  border-radius: 28px;
+  border: 1px solid rgba(103, 120, 133, 0.22);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 12px 30px rgba(40, 55, 70, 0.18);
+  backdrop-filter: blur(18px);
+}
+
+.aiAction,
+.aiSubmit {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(86, 110, 128, 0.12);
+  color: #33485b;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.aiSubmit:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.aiInput {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #223546;
+  font-size: 0.98rem;
+}
+
+.aiInput::placeholder {
+  color: #718392;
+}
+
+.aiGps {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #516575;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.aiGps:disabled {
+  cursor: default;
+  opacity: 1;
+}
+
+.aiGpsButton {
+  cursor: pointer;
+}
+
+.aiGpsDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+}
+
+.aiGpsDotResolved {
+  background: #22c55e;
+}
+
+.aiGpsDotResolving {
+  background: #facc15;
+}
+
+.aiGpsDotUnknown {
+  background: #9ca3af;
+}
+
+.aiAnswerCard {
+  max-height: min(38vh, 280px);
+  overflow: auto;
+  border-radius: 22px;
+  border: 1px solid rgba(103, 120, 133, 0.22);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 12px 30px rgba(40, 55, 70, 0.16);
+  backdrop-filter: blur(18px);
+  padding: 16px 18px;
+}
+
+.aiAnswerText {
+  color: #243748;
+  font-size: 0.96rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.aiAnswerMeta {
+  margin-top: 10px;
+  color: #667988;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.aiSources {
+  margin-top: 12px;
+  display: grid;
+  gap: 6px;
+}
+
+.aiSources a {
+  color: #35516a;
+  font-size: 0.82rem;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.countryCard {
+  position: absolute;
+  z-index: 3;
+  left: 20px;
+  top: 202px;
+  max-width: min(360px, calc(100vw - 40px));
+  border-radius: 18px;
+  border: 1px solid rgba(103, 120, 133, 0.2);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 12px 30px rgba(40, 55, 70, 0.12);
+  padding: 16px 18px;
+  color: #283746;
+}
+
+.countryCardTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.countryCardMeta {
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: #4f6476;
+}
+
+.countryCardNotes {
+  margin-top: 10px;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: #33485b;
+}
+
+.locationMarker {
+  width: 22px;
+  height: 22px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  background: #5fb8df;
+  border: 2px solid rgba(255, 255, 255, 0.96);
+  box-shadow: 0 8px 18px rgba(27, 70, 95, 0.28);
+  pointer-events: none;
+}
+
+.locationMarker::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.96);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
 @media (max-width: 720px) {
   .overlay {
     left: 12px;
@@ -91,5 +283,16 @@
   .errorBox {
     border-radius: 14px;
     padding: 14px;
+  }
+
+  .aiDock {
+    bottom: 16px;
+    width: calc(100vw - 24px);
+  }
+
+  .countryCard {
+    left: 12px;
+    top: 182px;
+    max-width: calc(100vw - 24px);
   }
 }
