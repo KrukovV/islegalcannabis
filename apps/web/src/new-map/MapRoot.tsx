@@ -59,7 +59,7 @@ export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity, c
   const lastAutoCenterKeyRef = useRef<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [selectedGeo, setSelectedGeo] = useState<SelectedGeo>(null);
-  const { geoStatus, retry, currentGeo, refreshIpGeo } = useGeoStatus();
+  const { geoStatus, retry, currentGeo, refreshIpGeo, ipStatus } = useGeoStatus();
   const currentGeoEntry = currentGeo?.iso2 ? cardIndex[currentGeo.iso2] : null;
   const currentGeoView: ActiveGeo =
     currentGeo && currentGeoEntry
@@ -217,7 +217,12 @@ export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity, c
       </div>
       <div ref={containerRef} className={styles.mapSurface} data-testid="new-map-surface" />
       <CountryCard geo={activeGeo?.iso2 ?? null} cardIndex={cardIndex} />
-      <AIBar activeGeo={activeGeo ? { country: activeGeo.country, iso2: activeGeo.iso2 } : null} geoStatus={geoStatus} onGpsClick={handleGpsClick} />
+      <AIBar
+        activeGeo={activeGeo ? { country: activeGeo.country, iso2: activeGeo.iso2 } : null}
+        geoStatus={geoStatus}
+        ipStatus={ipStatus}
+        onGpsClick={handleGpsClick}
+      />
       {error ? (
         <div className={styles.errorBox} data-testid="new-map-error">
           {error}

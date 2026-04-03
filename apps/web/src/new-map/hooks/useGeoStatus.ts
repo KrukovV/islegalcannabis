@@ -7,6 +7,11 @@ export type GeoStatus =
   | { status: "resolving" }
   | { status: "resolved" };
 
+export type IpStatus =
+  | { status: "resolving"; message: string }
+  | { status: "resolved"; country: string; iso2: string; message: string }
+  | { status: "unknown"; message: string };
+
 export type CurrentGeo = {
   iso2: string;
   lat?: number;
@@ -18,6 +23,14 @@ type IpGeoPayload = {
   iso?: string;
 };
 
+type BrowserIpLookupPayload = {
+  success?: boolean;
+  country?: string;
+  country_code?: string;
+  latitude?: number;
+  longitude?: number;
+};
+
 type ReverseGeoPayload = {
   iso?: string;
 };
@@ -25,19 +38,60 @@ type ReverseGeoPayload = {
 export function useGeoStatus() {
   const [geoStatus, setGeoStatus] = useState<GeoStatus>({ status: "unknown" });
   const [currentGeo, setCurrentGeo] = useState<CurrentGeo>(null);
+  const [ipStatus, setIpStatus] = useState<IpStatus>({
+    status: "resolving",
+    message: "Detecting approximate location via IP..."
+  });
   const refreshIpGeo = useCallback(async () => {
+    setIpStatus({
+      status: "resolving",
+      message: "Detecting approximate location via IP..."
+    });
     try {
-      const response = await fetch("/api/geo/loc", { cache: "no-store" });
-      if (!response.ok) return;
-      const payload = (await response.json()) as { data?: IpGeoPayload } | IpGeoPayload;
-      const iso = String(payload?.data?.iso || payload?.iso || "").trim().toUpperCase();
-      if (!iso) return;
+      const response = await fetch("https://ipwho.is/", { cache: "no-store" });
+      const payload = (await response.json()) as BrowserIpLookupPayload;
+      const iso = String(payload?.country_code || "").trim().toUpperCase();
+      const country = String(payload?.country || "").trim();
+      const lat = typeof payload?.latitude === "number" ? payload.latitude : undefined;
+      const lng = typeof payload?.longitude === "number" ? payload.longitude : undefined;
+      if (!response.ok || payload?.success === false || !iso || !country) {
+        throw new Error("ip_lookup_failed");
+      }
       setCurrentGeo((prev) => {
         if (prev?.source === "gps") return prev;
-        return { iso2: iso, source: "ip" };
+        return { iso2: iso, lat, lng, source: "ip" };
+      });
+      setIpStatus({
+        status: "resolved",
+        country,
+        iso2: iso,
+        message: `IP: ${country} (approximate)`
       });
     } catch {
-      // Ignore IP refresh failures; existing map baseline stays usable.
+      try {
+        const fallbackResponse = await fetch("/api/geo/loc", { cache: "no-store" });
+        if (!fallbackResponse.ok) throw new Error("ip_loc_fallback_failed");
+        const fallbackPayload = (await fallbackResponse.json()) as { data?: IpGeoPayload } | IpGeoPayload;
+        const iso = String(fallbackPayload?.data?.iso || fallbackPayload?.iso || "").trim().toUpperCase();
+        if (!iso || iso === "UNKNOWN") {
+          throw new Error("ip_unknown");
+        }
+        setCurrentGeo((prev) => {
+          if (prev?.source === "gps") return prev;
+          return { iso2: iso, source: "ip" };
+        });
+        setIpStatus({
+          status: "resolved",
+          country: iso,
+          iso2: iso,
+          message: `IP: ${iso} (approximate)`
+        });
+      } catch {
+        setIpStatus({
+          status: "unknown",
+          message: "IP unavailable: localhost/private network, VPN/proxy, network blocker, or lookup timeout."
+        });
+      }
     }
   }, []);
   const requestGeo = useCallback(async () => {
@@ -94,5 +148,5 @@ export function useGeoStatus() {
     );
   }, []);
 
-  return { geoStatus, retry: requestGeo, currentGeo, refreshIpGeo };
+  return { geoStatus, retry: requestGeo, currentGeo, refreshIpGeo, ipStatus };
 }

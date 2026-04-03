@@ -189,6 +189,16 @@
   padding: 16px 18px;
 }
 
+.aiGeoHint {
+  margin-top: -2px;
+  padding: 0 12px;
+  color: #5b7083;
+  font-size: 0.8rem;
+  line-height: 1.35;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
 .aiAnswerText {
   color: #243748;
   font-size: 0.96rem;

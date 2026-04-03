@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import styles from "../MapRoot.module.css";
-import type { GeoStatus } from "../hooks/useGeoStatus";
+import type { GeoStatus, IpStatus } from "../hooks/useGeoStatus";
 
 type ActiveGeo = {
   country: string;
@@ -12,6 +12,7 @@ type ActiveGeo = {
 type Props = {
   activeGeo: ActiveGeo;
   geoStatus: GeoStatus;
+  ipStatus: IpStatus;
   onGpsClick: () => void;
 };
 
@@ -33,7 +34,7 @@ function trimQuery(value: string) {
   return value.replace(/\s+/g, " ").trim().slice(0, 500);
 }
 
-export default function AIBar({ activeGeo, geoStatus, onGpsClick }: Props) {
+export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Props) {
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const [answer, setAnswer] = useState<string | null>(null);
@@ -119,6 +120,9 @@ export default function AIBar({ activeGeo, geoStatus, onGpsClick }: Props) {
           {loading ? "…" : "→"}
         </button>
       </form>
+      <div className={styles.aiGeoHint} data-testid="new-map-ai-geo-hint">
+        {ipStatus.message}
+      </div>
       {answer || error ? (
         <div className={styles.aiAnswerCard} data-testid="new-map-ai-answer">
           <div className={styles.aiAnswerText}>{error || answer}</div>
