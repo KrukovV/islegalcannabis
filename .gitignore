@@ -94,5 +94,9 @@ data/wiki/wiki_official_eval.json
 data/wiki/ssot_legality_table.json
 apps/web/public/ssot/
 core/
+!apps/web/src/core/
+!apps/web/src/core/ssot/
+!apps/web/src/core/ssot/wiki_status.ts
+!apps/web/src/core/ssot/ssot_reader.ts
 /package-lock.json
 QUARANTINE/

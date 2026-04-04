@@ -19,7 +19,7 @@ import { titleForJurisdiction } from "../../../lib/jurisdictionTitle";
 import { buildExtrasItems, extrasPreview } from "../../../lib/extras";
 import { findNearestLegalForProfile } from "../../../lib/geo/nearestLegal";
 import { findNearestBetterBorder } from "../../../lib/geo/nearestBorder";
-import { buildWikiBlock, withWikiClaim } from "../../../../../../core/ssot/wiki_status";
+import { buildWikiBlock, withWikiClaim } from "../../../core/ssot/wiki_status";
 import {
   buildDisplayStatus,
   buildNeedsReviewStatus,
