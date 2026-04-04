@@ -3,8 +3,8 @@ import path from "node:path";
 import {
   buildOfficialLinkOwnershipIndex,
   readOfficialLinkOwnership
-} from "@/lib/officialSources/officialLinkOwnership";
-import type { OfficialLinkOwnershipDataset } from "@/lib/officialSources/officialLinkOwnershipTypes";
+} from "./officialSources/officialLinkOwnership";
+import type { OfficialLinkOwnershipDataset } from "./officialSources/officialLinkOwnershipTypes";
 
 type CentroidItem = {
   lat: number;

@@ -77,7 +77,7 @@ function toContext(entry: RegionRow): AiGeoContext {
     region: entry.type === "state" ? String(entry.name || entry.geo) : null,
     displayName: String(entry.name || entry.geo),
     iso2: countryGeo || null,
-    type: entry.type,
+    type: entry.type === "state" ? "state" : "country",
     legalStatus: String(entry.finalRecStatus || entry.legalStatusGlobal || "Unknown"),
     medicalStatus: String(entry.finalMedStatus || entry.medicalStatusGlobal || "Unknown"),
     notes: String(entry.notesInterpretationSummary || entry.notesWiki || entry.notesOur || "").trim(),

@@ -1,0 +1,32 @@
+[
+  {
+    "country": "RU",
+    "summary": "Cannabis is broadly illegal for both recreational and medical use in Russia.",
+    "risk": "Enforcement risk is high and penalties can be serious.",
+    "notes": "Medical access is not broadly recognized in normal consumer practice."
+  },
+  {
+    "country": "CZ",
+    "summary": "Czechia allows medical cannabis and has a more tolerant public discussion than strict prohibition countries.",
+    "risk": "Rules still matter and personal conduct can trigger penalties outside lawful medical channels.",
+    "notes": "High-level legality differs from informal culture."
+  },
+  {
+    "country": "US",
+    "summary": "Cannabis legality in the United States is mixed: many states allow medical or adult use, while federal law still creates legal tension.",
+    "risk": "Rules differ sharply by state and crossing borders adds risk.",
+    "notes": "Always separate state rules from federal risk."
+  },
+  {
+    "country": "CA",
+    "summary": "Canada permits adult recreational cannabis nationally with regulated retail and medical access.",
+    "risk": "There are still public-consumption, age, and transport restrictions.",
+    "notes": "Culture is relatively mainstream compared with prohibition countries."
+  },
+  {
+    "country": "JM",
+    "summary": "Jamaica is strongly associated with cannabis culture and has decriminalized small possession with religious and medical allowances.",
+    "risk": "It is not the same as unrestricted legality.",
+    "notes": "Cultural visibility is unusually high."
+  }
+]

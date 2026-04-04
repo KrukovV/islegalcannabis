@@ -20,7 +20,7 @@ type AiQuerySuccess = {
   ok: true;
   answer: string;
   sources: string[];
-  contextGeo: string | null;
+  safety_note: string;
 };
 
 type AiQueryFailure = {
@@ -39,6 +39,7 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
   const [loading, setLoading] = useState(false);
   const [answer, setAnswer] = useState<string | null>(null);
   const [sources, setSources] = useState<string[]>([]);
+  const [safetyNote, setSafetyNote] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const normalizedQuery = useMemo(() => trimQuery(query), [query]);
   const placeholder = activeGeo
@@ -58,14 +59,14 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch("/api/ai/query", {
+      const response = await fetch("/api/ai-assistant/query", {
         method: "POST",
         headers: {
           "content-type": "application/json"
         },
         body: JSON.stringify({
-          query: normalizedQuery,
-          geo: activeGeo
+          message: normalizedQuery,
+          geo_hint: activeGeo?.iso2
         })
       });
       const payload = (await response.json()) as AiQuerySuccess | AiQueryFailure;
@@ -73,14 +74,17 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
         setError(payload.ok ? "Request failed." : payload.error?.message || "Request failed.");
         setAnswer(null);
         setSources([]);
+        setSafetyNote(null);
         return;
       }
       setAnswer(payload.answer);
       setSources(Array.isArray(payload.sources) ? payload.sources : []);
+      setSafetyNote(payload.safety_note || null);
     } catch {
       setError("Request failed.");
       setAnswer(null);
       setSources([]);
+      setSafetyNote(null);
     } finally {
       setLoading(false);
     }
@@ -128,16 +132,16 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
           <div className={styles.aiAnswerText}>{error || answer}</div>
           {!error ? (
             <div className={styles.aiAnswerMeta}>
-              Based on official sources
-              {activeGeo ? ` · GEO=${activeGeo.iso2}` : ""}
+              {safetyNote || "Not legal advice."}
+              {activeGeo ? ` · GEO_HINT=${activeGeo.iso2}` : ""}
             </div>
           ) : null}
           {!error && sources.length > 0 ? (
             <div className={styles.aiSources}>
               {sources.slice(0, 6).map((source) => (
-                <a key={source} href={source} target="_blank" rel="noreferrer">
+                <span key={source}>
                   {source}
-                </a>
+                </span>
               ))}
             </div>
           ) : null}

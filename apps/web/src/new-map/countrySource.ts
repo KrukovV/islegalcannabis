@@ -13,7 +13,7 @@ function normalizeLng(lng: number) {
   return ((((lng + 180) % 360) + 360) % 360) - 180;
 }
 
-function ensureClosedRing(ring: Position[]) {
+function ensureClosedRing(ring: Position[]): Position[] {
   if (ring.length === 0) return ring;
   const first = ring[0];
   const last = ring[ring.length - 1];
@@ -24,13 +24,15 @@ function ensureClosedRing(ring: Position[]) {
 function unwrapRing(ring: number[][]): Position[] {
   if (ring.length === 0) return [];
   const unwrapped: Position[] = [];
-  let previousLng = normalizeLng(ring[0][0]);
-  unwrapped.push([previousLng, ring[0][1]]);
+  const firstLat = Number(ring[0][1]);
+  let previousLng = normalizeLng(Number(ring[0][0]));
+  unwrapped.push([previousLng, firstLat]);
   for (let index = 1; index < ring.length; index += 1) {
-    let lng = normalizeLng(ring[index][0]);
+    let lng = normalizeLng(Number(ring[index][0]));
+    const lat = Number(ring[index][1]);
     while (lng - previousLng > 180) lng -= 360;
     while (lng - previousLng < -180) lng += 360;
-    unwrapped.push([lng, ring[index][1]]);
+    unwrapped.push([lng, lat]);
     previousLng = lng;
   }
   return ensureClosedRing(unwrapped);
@@ -67,7 +69,7 @@ function clipRingAgainstBoundary(ring: Position[], boundaryLng: number, keepGrea
   return ensureClosedRing(output);
 }
 
-function clipRingToWindow(ring: Position[], leftLng: number, rightLng: number) {
+function clipRingToWindow(ring: Position[], leftLng: number, rightLng: number): Position[] {
   const clippedLeft = clipRingAgainstBoundary(ring, leftLng, true);
   if (clippedLeft.length < 4) return [];
   const clipped = clipRingAgainstBoundary(clippedLeft, rightLng, false);
@@ -114,7 +116,11 @@ function normalizeGeometry(geometry: Polygon | MultiPolygon): Polygon | MultiPol
   if (pieces.length <= 1) {
     return {
       type: "Polygon",
-      coordinates: pieces[0] || polygons[0].map((ring) => ensureClosedRing(ring.map(([lng, lat]) => [normalizeLng(lng), lat])))
+      coordinates:
+        pieces[0] ||
+        polygons[0].map((ring) =>
+          ensureClosedRing(ring.map(([lng, lat]) => [normalizeLng(Number(lng)), Number(lat)] as Position))
+        )
     };
   }
   return {

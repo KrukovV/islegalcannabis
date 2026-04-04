@@ -1,16 +1,16 @@
-import { getCountryMetaByIso2, getDisplayName, getEnglishName } from "@/lib/countryNames";
-import { buildNotesExplainability, type NotesEvidenceDelta, type NotesEvidenceSourceType } from "@/lib/notesExplainability";
-import { getEffectiveOfficialLinksByGeo, matchesOfficialGeoOwnership } from "@/lib/officialSources/officialLinkOwnership";
+import { getCountryMetaByIso2, getDisplayName, getEnglishName } from "./countryNames";
+import { buildNotesExplainability, type NotesEvidenceDelta, type NotesEvidenceSourceType } from "./notesExplainability";
+import { getEffectiveOfficialLinksByGeo, matchesOfficialGeoOwnership } from "./officialSources/officialLinkOwnership";
 import {
   computeTruthLevel,
   deriveUsStateStatusOverrideFromWikiTable,
   mapLegalStatus,
   mapMedicalStatus
-} from "@/lib/mapStatusProjection";
-import { buildStatusContract } from "@/lib/statusPairMatrix";
-import { buildStatusSnapshotMeta } from "@/lib/statusDomainModel";
-import { buildSSOTStatusModel, type SSOTStatusModel } from "@/lib/mapDataStatusModel";
-import { findRepoRoot, readLatestSnapshot } from "@/lib/ssotDiff/ssotSnapshotStore";
+} from "./mapStatusProjection";
+import { buildStatusContract } from "./statusPairMatrix";
+import { buildStatusSnapshotMeta } from "./statusDomainModel";
+import { buildSSOTStatusModel, type SSOTStatusModel } from "./mapDataStatusModel";
+import { findRepoRoot, readLatestSnapshot } from "./ssotDiff/ssotSnapshotStore";
 import {
   extractFeaturePolygons,
   geoFromStateProps,
@@ -29,8 +29,8 @@ import {
   resolveDataPath,
   resolveSpecialCountryGeoFromProps,
   squaredDistance
-} from "@/lib/mapDataSources";
-import type { TruthLevel } from "@/lib/statusUi";
+} from "./mapDataSources";
+import type { TruthLevel } from "./statusUi";
 
 type MapCategory = "LEGAL_OR_DECRIM" | "LIMITED_OR_MEDICAL" | "ILLEGAL" | "UNKNOWN";
 

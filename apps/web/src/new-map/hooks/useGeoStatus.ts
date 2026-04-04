@@ -13,7 +13,7 @@ export type IpStatus =
   | { status: "unknown"; message: string };
 
 export type CurrentGeo = {
-  iso2: string;
+  iso2?: string;
   lat?: number;
   lng?: number;
   source: "ip" | "gps";
@@ -34,6 +34,20 @@ type BrowserIpLookupPayload = {
 type ReverseGeoPayload = {
   iso?: string;
 };
+
+function unwrapIsoPayload(payload: unknown) {
+  if (!payload || typeof payload !== "object") return undefined;
+  const root = payload as Record<string, unknown>;
+  const directIso = typeof root.iso === "string" ? root.iso : undefined;
+  const data = root.data;
+  if (data && typeof data === "object") {
+    const nestedIso = typeof (data as Record<string, unknown>).iso === "string"
+      ? (data as Record<string, unknown>).iso
+      : undefined;
+    return nestedIso || directIso;
+  }
+  return directIso;
+}
 
 export function useGeoStatus() {
   const [geoStatus, setGeoStatus] = useState<GeoStatus>({ status: "unknown" });
@@ -72,7 +86,7 @@ export function useGeoStatus() {
         const fallbackResponse = await fetch("/api/geo/loc", { cache: "no-store" });
         if (!fallbackResponse.ok) throw new Error("ip_loc_fallback_failed");
         const fallbackPayload = (await fallbackResponse.json()) as { data?: IpGeoPayload } | IpGeoPayload;
-        const iso = String(fallbackPayload?.data?.iso || fallbackPayload?.iso || "").trim().toUpperCase();
+        const iso = String(unwrapIsoPayload(fallbackPayload) || "").trim().toUpperCase();
         if (!iso || iso === "UNKNOWN") {
           throw new Error("ip_unknown");
         }
@@ -103,6 +117,15 @@ export function useGeoStatus() {
     setGeoStatus({ status: "resolving" });
     navigator.geolocation.getCurrentPosition(
       async (position) => {
+        const lat = position.coords.latitude;
+        const lng = position.coords.longitude;
+        setCurrentGeo((prev) => ({
+          iso2: prev?.iso2,
+          lat,
+          lng,
+          source: "gps"
+        }));
+        setGeoStatus({ status: "resolved" });
         try {
           const response = await fetch("/api/geo/resolve", {
             method: "POST",
@@ -110,31 +133,28 @@ export function useGeoStatus() {
               "content-type": "application/json"
             },
             body: JSON.stringify({
-              lat: position.coords.latitude,
-              lon: position.coords.longitude,
+              lat,
+              lon: lng,
               accuracy: position.coords.accuracy,
               permission: "granted"
             })
           });
           const payload = (await response.json()) as { data?: ReverseGeoPayload } | ReverseGeoPayload;
           if (!response.ok) {
-            setGeoStatus({ status: "unknown" });
             return;
           }
-          const iso = String(payload?.data?.iso || payload?.iso || "").trim().toUpperCase();
+          const iso = String(unwrapIsoPayload(payload) || "").trim().toUpperCase();
           if (!iso) {
-            setGeoStatus({ status: "unknown" });
             return;
           }
-          setCurrentGeo({
+          setCurrentGeo((prev) => ({
             iso2: iso,
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
+            lat: prev?.lat ?? lat,
+            lng: prev?.lng ?? lng,
             source: "gps"
-          });
-          setGeoStatus({ status: "resolved" });
+          }));
         } catch {
-          setGeoStatus({ status: "unknown" });
+          // Keep the GPS location owner and marker even if reverse-geocode fails.
         }
       },
       () => {

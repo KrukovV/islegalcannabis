@@ -179,14 +179,14 @@
 }
 
 .aiAnswerCard {
-  max-height: min(38vh, 280px);
-  overflow: auto;
+  max-height: 40vh;
+  overflow-y: auto;
   border-radius: 22px;
   border: 1px solid rgba(103, 120, 133, 0.22);
   background: rgba(255, 255, 255, 0.9);
   box-shadow: 0 12px 30px rgba(40, 55, 70, 0.16);
   backdrop-filter: blur(18px);
-  padding: 16px 18px;
+  padding: 16px 18px 8px;
 }
 
 .aiGeoHint {
@@ -219,10 +219,9 @@
   gap: 6px;
 }
 
-.aiSources a {
+.aiSources span {
   color: #35516a;
   font-size: 0.82rem;
-  text-decoration: none;
   word-break: break-word;
 }
 

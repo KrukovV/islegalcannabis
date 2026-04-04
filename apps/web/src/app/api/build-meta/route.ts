@@ -1,8 +1,8 @@
-import { getBuildStamp } from "@/lib/buildStamp";
-import { isCi } from "@/lib/env";
-import { getStatusSnapshotMeta } from "@/lib/mapData";
-import { buildRuntimeIdentity } from "@/lib/runtimeIdentity";
-import { checkNearLegalEnabled, checkPremium } from "@/middleware/featureGate";
+import { getBuildStamp } from "../../../lib/buildStamp";
+import { isCi } from "../../../lib/env";
+import { getStatusSnapshotMeta } from "../../../lib/mapData";
+import { buildRuntimeIdentity } from "../../../lib/runtimeIdentity";
+import { checkNearLegalEnabled, checkPremium } from "../../../middleware/featureGate";
 
 export async function GET() {
   const buildStamp = getBuildStamp();

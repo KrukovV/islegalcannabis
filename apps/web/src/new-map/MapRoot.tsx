@@ -35,7 +35,7 @@ type SelectedGeo = {
 
 type ActiveGeo = {
   country: string;
-  iso2: string;
+  iso2?: string;
   lat?: number;
   lng?: number;
 } | null;
@@ -62,12 +62,12 @@ export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity, c
   const { geoStatus, retry, currentGeo, refreshIpGeo, ipStatus } = useGeoStatus();
   const currentGeoEntry = currentGeo?.iso2 ? cardIndex[currentGeo.iso2] : null;
   const currentGeoView: ActiveGeo =
-    currentGeo && currentGeoEntry
+    currentGeo && (currentGeoEntry || typeof currentGeo.lat === "number" || typeof currentGeo.lng === "number")
       ? {
-          country: currentGeoEntry.displayName,
+          country: currentGeoEntry?.displayName || currentGeo?.iso2 || "Current location",
           iso2: currentGeo.iso2,
-          lat: currentGeo.lat ?? currentGeoEntry.coordinates?.lat,
-          lng: currentGeo.lng ?? currentGeoEntry.coordinates?.lng
+          lat: currentGeo.lat ?? currentGeoEntry?.coordinates?.lat,
+          lng: currentGeo.lng ?? currentGeoEntry?.coordinates?.lng
         }
       : null;
   const activeGeo: ActiveGeo = selectedGeo ?? currentGeoView;
@@ -218,7 +218,7 @@ export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity, c
       <div ref={containerRef} className={styles.mapSurface} data-testid="new-map-surface" />
       <CountryCard geo={activeGeo?.iso2 ?? null} cardIndex={cardIndex} />
       <AIBar
-        activeGeo={activeGeo ? { country: activeGeo.country, iso2: activeGeo.iso2 } : null}
+        activeGeo={activeGeo?.iso2 ? { country: activeGeo.country, iso2: activeGeo.iso2 } : null}
         geoStatus={geoStatus}
         ipStatus={ipStatus}
         onGpsClick={handleGpsClick}

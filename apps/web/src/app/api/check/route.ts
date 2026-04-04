@@ -1,24 +1,24 @@
-import { getLawProfile, normalizeKey } from "@/lib/lawStore";
+import { getLawProfile, normalizeKey } from "../../../lib/lawStore";
 import { computeStatus, getIsoMeta, STATUS_BANNERS } from "@islegal/shared";
 import type { JurisdictionLawProfile } from "@islegal/shared";
-import { incrementCounter } from "@/lib/metrics";
-import { createRequestId, errorResponse, okResponse } from "@/lib/api/response";
-import { getCatalogEntry } from "@/lib/jurisdictionCatalog";
-import { hashLawProfile } from "@/lib/profileHash";
-import { verifyJurisdictionFreshness } from "@/lib/verification";
-import { buildTripStatusCode } from "@/lib/tripStatus";
-import { buildResultViewModel } from "@/lib/resultViewModel";
+import { incrementCounter } from "../../../lib/metrics";
+import { createRequestId, errorResponse, okResponse } from "../../../lib/api/response";
+import { getCatalogEntry } from "../../../lib/jurisdictionCatalog";
+import { hashLawProfile } from "../../../lib/profileHash";
+import { verifyJurisdictionFreshness } from "../../../lib/verification";
+import { buildTripStatusCode } from "../../../lib/tripStatus";
+import { buildResultViewModel } from "../../../lib/resultViewModel";
 import {
   fromDetected,
   fromManual,
   fromQuery,
   type LocationContext
-} from "@/lib/location/locationContext";
-import { confidenceForLocation } from "@/lib/geo/locationResolution";
-import { titleForJurisdiction } from "@/lib/jurisdictionTitle";
-import { buildExtrasItems, extrasPreview } from "@/lib/extras";
-import { findNearestLegalForProfile } from "@/lib/geo/nearestLegal";
-import { findNearestBetterBorder } from "@/lib/geo/nearestBorder";
+} from "../../../lib/location/locationContext";
+import { confidenceForLocation } from "../../../lib/geo/locationResolution";
+import { titleForJurisdiction } from "../../../lib/jurisdictionTitle";
+import { buildExtrasItems, extrasPreview } from "../../../lib/extras";
+import { findNearestLegalForProfile } from "../../../lib/geo/nearestLegal";
+import { findNearestBetterBorder } from "../../../lib/geo/nearestBorder";
 import { buildWikiBlock, withWikiClaim } from "../../../../../../core/ssot/wiki_status";
 import {
   buildDisplayStatus,
