@@ -8,6 +8,12 @@ import ServiceWorkerGuard from "@/plugins/serviceWorkerGuard";
 export const metadata: Metadata = {
   title: "isLegalCannabis",
   description: "Educational cannabis law summary by location.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon.png", type: "image/png" }
+    ]
+  }
 };
 
 export default function RootLayout({
