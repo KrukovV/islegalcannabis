@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import GeoInit from "./_components/GeoInit";
 import "./globals.css";
 import RuntimeMiddleware from "@/plugins/runtimeMiddleware";
@@ -9,11 +10,10 @@ export const metadata: Metadata = {
   title: "isLegalCannabis",
   description: "Educational cannabis law summary by location.",
   icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/favicon.png", type: "image/png" }
-    ]
-  }
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
@@ -30,6 +30,7 @@ export default function RootLayout({
         <BuildWatcher />
         <GeoInit />
         {children}
+        <Analytics />
       </body>
     </html>
   );
