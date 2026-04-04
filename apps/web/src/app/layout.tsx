@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import GeoInit from "./_components/GeoInit";
 import "./globals.css";
 import RuntimeMiddleware from "@/plugins/runtimeMiddleware";
@@ -24,6 +25,7 @@ export default function RootLayout({
         <BuildWatcher />
         <GeoInit />
         {children}
+        <Analytics />
       </body>
     </html>
   );
