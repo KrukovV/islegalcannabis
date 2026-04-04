@@ -4,7 +4,7 @@ from PIL import Image
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "favicon-for-public" / "7ab0a9ddcb24aec2abe7ab48f861c233728f4d70e3db7225648489022311b4d5.png"
+SRC = ROOT / "favicon-for-public" / "651f4c9cb3c5d07b36b68ad1d68f72a07a6548dd4a0136856c19c7c81b8812a6.png"
 DEST = ROOT / "apps" / "web" / "public"
 
 
@@ -13,7 +13,7 @@ def main() -> None:
 
     size = 512
     canvas = Image.new("RGBA", (size, size), (0, 0, 0, 0))
-    scale = int(size * 0.7)
+    scale = int(size * 0.94)
     resized = img.resize((scale, scale), Image.LANCZOS)
     offset = ((size - scale) // 2, (size - scale) // 2)
     canvas.paste(resized, offset, resized)
@@ -26,7 +26,7 @@ def main() -> None:
     canvas.resize((180, 180), Image.LANCZOS).save(DEST / "apple-touch-icon.png")
     canvas.save(DEST / "favicon.ico", sizes=[(16, 16), (32, 32), (48, 48)])
 
-    print("FAVICON GENERATED OK")
+    print("FAVICON BW CIRCLE GENERATED")
 
 
 if __name__ == "__main__":
