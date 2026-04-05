@@ -462,6 +462,12 @@ export function createMap(
           ["to-color", ["get", "legalColor"]]
         ],
         "fill-antialias": false,
+        "fill-outline-color": [
+          "case",
+          ["boolean", ["feature-state", "hover"], false],
+          ["to-color", ["get", "hoverColor"]],
+          ["to-color", ["get", "legalColor"]]
+        ],
         "fill-opacity": [
           "step",
           ["zoom"],
@@ -527,6 +533,12 @@ export function createMap(
           ["to-color", ["get", "legalColor"]]
         ],
         "fill-antialias": false,
+        "fill-outline-color": [
+          "case",
+          ["boolean", ["feature-state", "hover"], false],
+          ["to-color", ["get", "hoverColor"]],
+          ["to-color", ["get", "legalColor"]]
+        ],
         "fill-opacity": [
           "case",
           ["boolean", ["feature-state", "hover"], false],
@@ -545,8 +557,8 @@ export function createMap(
         "line-color": [
           "case",
           ["boolean", ["feature-state", "hover"], false],
-          "rgba(255,255,255,1)",
-          "rgba(255,255,255,0.96)"
+          "rgba(73,88,102,0.42)",
+          "rgba(73,88,102,0.22)"
         ],
         "line-width": [
           "interpolate",
@@ -562,8 +574,8 @@ export function createMap(
         "line-opacity": [
           "case",
           ["boolean", ["feature-state", "hover"], false],
-          1,
-          0.88
+          0.72,
+          0.36
         ]
       }
     }, NEW_MAP_ADMIN_LAYER_ID);
