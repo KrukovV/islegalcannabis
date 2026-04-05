@@ -13,6 +13,8 @@ export const NEW_MAP_US_STATES_LINE_LAYER_ID = "us-states-line";
 const NEW_MAP_SUPPLEMENTAL_SEA_SOURCE_ID = "new-map-supplemental-seas";
 const NEW_MAP_SUPPLEMENTAL_SEA_LAYER_ID = "new-map-supplemental-seas";
 const BASEMAP_STYLE_URL = "/api/new-map/basemap-style?v=20260331-host-header-same-origin";
+const NEW_MAP_BACKGROUND_LAYER_ID = "new-map-background";
+const NEW_MAP_BACKGROUND_COLOR = "#c6d0d7";
 
 const DEFAULT_CENTER: [number, number] = [25, 50];
 const DEFAULT_ZOOM = 1.55;
@@ -35,8 +37,28 @@ type CreateMapOptions = {
 const EMPTY_STYLE: StyleSpecification = {
   version: 8,
   sources: {},
-  layers: []
+  layers: [
+    {
+      id: NEW_MAP_BACKGROUND_LAYER_ID,
+      type: "background",
+      paint: {
+        "background-color": NEW_MAP_BACKGROUND_COLOR
+      }
+    }
+  ]
 };
+
+function ensureBackgroundLayer(map: maplibregl.Map) {
+  if (map.getLayer(NEW_MAP_BACKGROUND_LAYER_ID)) return;
+  const firstLayerId = map.getStyle().layers?.[0]?.id;
+  map.addLayer({
+    id: NEW_MAP_BACKGROUND_LAYER_ID,
+    type: "background",
+    paint: {
+      "background-color": NEW_MAP_BACKGROUND_COLOR
+    }
+  }, firstLayerId);
+}
 
 function getCountryFeatureAtPoint(map: maplibregl.Map, point: { x: number; y: number }) {
   return map.queryRenderedFeatures([point.x, point.y], { layers: [NEW_MAP_FILL_LAYER_ID] })[0] ?? null;
@@ -370,7 +392,9 @@ export function createMap(
     dragRotate: false,
     pitchWithRotate: false
   });
+  markNewMapTrace("NM_T1_MAP_CONSTRUCTOR");
   markNewMapTrace("NM_T3_MAP_INSTANCE_READY");
+  map.getCanvas().style.background = "transparent";
 
   map.dragPan.enable();
   map.scrollZoom.enable();
@@ -620,16 +644,19 @@ export function createMap(
   map.on("styledata", () => {
     if (firstStyleDataMarked) return;
     firstStyleDataMarked = true;
+    markNewMapTrace("NM_T2_STYLE_READY");
     markNewMapTrace("NM_T4_STYLEDATA_FIRST");
   });
 
   map.on("sourcedata", (event) => {
     if (!firstBasemapReadyMarked && event.sourceId && event.sourceId !== NEW_MAP_SOURCE_ID && event.sourceId !== NEW_MAP_ADMIN_SOURCE_ID && event.sourceId !== NEW_MAP_US_STATES_SOURCE_ID && event.isSourceLoaded) {
       firstBasemapReadyMarked = true;
+      markNewMapTrace("NM_T3_FIRST_TILE");
       markNewMapTrace("NM_T5_SOURCEDATA_BASEMAP_READY");
     }
     if (!firstCountriesReadyMarked && event.sourceId === NEW_MAP_SOURCE_ID && event.isSourceLoaded) {
       firstCountriesReadyMarked = true;
+      markNewMapTrace("NM_T4_COUNTRIES_READY");
       markNewMapTrace("NM_T6_COUNTRIES_SOURCE_READY");
     }
   });
@@ -645,6 +672,7 @@ export function createMap(
     if (bootstrapped) return;
     bootstrapped = true;
     map.jumpTo(FLAT_CAMERA);
+    ensureBackgroundLayer(map);
     tuneNativeBasemapLayers(map);
     addSupplementalSeaLayer(map);
     installCountryLayers();
@@ -703,6 +731,7 @@ export function createMap(
       if (map.getLayer(NEW_MAP_SUPPLEMENTAL_SEA_LAYER_ID)) map.removeLayer(NEW_MAP_SUPPLEMENTAL_SEA_LAYER_ID);
       if (map.getLayer(NEW_MAP_ADMIN_LAYER_ID)) map.removeLayer(NEW_MAP_ADMIN_LAYER_ID);
       if (map.getLayer(NEW_MAP_FILL_LAYER_ID)) map.removeLayer(NEW_MAP_FILL_LAYER_ID);
+      if (map.getLayer(NEW_MAP_BACKGROUND_LAYER_ID)) map.removeLayer(NEW_MAP_BACKGROUND_LAYER_ID);
       if (map.getSource(NEW_MAP_US_STATES_SOURCE_ID)) map.removeSource(NEW_MAP_US_STATES_SOURCE_ID);
       if (map.getSource(NEW_MAP_SUPPLEMENTAL_SEA_SOURCE_ID)) map.removeSource(NEW_MAP_SUPPLEMENTAL_SEA_SOURCE_ID);
       if (map.getSource(NEW_MAP_ADMIN_SOURCE_ID)) map.removeSource(NEW_MAP_ADMIN_SOURCE_ID);

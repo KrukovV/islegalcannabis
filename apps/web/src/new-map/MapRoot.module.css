@@ -9,6 +9,11 @@
 .mapSurface {
   position: absolute;
   inset: 0;
+  background: #c6d0d7;
+}
+
+.mapSurface :global(.maplibregl-canvas) {
+  background: transparent;
 }
 
 .overlay {

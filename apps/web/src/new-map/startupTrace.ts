@@ -51,6 +51,7 @@ export function emitFirstVisualReady() {
   const host = getHost();
   if (!host || host.__NEW_MAP_FIRST_VISUAL_READY__) return;
   host.__NEW_MAP_FIRST_VISUAL_READY__ = true;
+  markNewMapTrace("NM_T5_FILL_RENDERED");
   markNewMapTrace("NM_T7_FIRST_FILL_RENDERED");
   host.dispatchEvent(new CustomEvent(FIRST_VISUAL_EVENT));
 }
