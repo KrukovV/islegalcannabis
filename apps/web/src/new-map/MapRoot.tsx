@@ -214,9 +214,8 @@ export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity, c
           cache: "force-cache",
           credentials: "same-origin"
         });
-        const style = await stylePromise;
         const runtime = createMap(containerRef.current, {
-          style,
+          stylePromise,
           getCountryPopupHtml: (geo) => {
             const entry = cardIndex[geo];
             return entry ? renderCountryPopup(entry) : null;

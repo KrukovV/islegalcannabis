@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
-import Script from "next/script";
 import GeoInit from "./_components/GeoInit";
 import "./globals.css";
 import RuntimeMiddleware from "@/plugins/runtimeMiddleware";
@@ -44,11 +43,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
-        <Script id="new-map-prefetch" strategy="beforeInteractive">
-          {NEW_MAP_PREFETCH_SCRIPT}
-        </Script>
+        <script dangerouslySetInnerHTML={{ __html: NEW_MAP_PREFETCH_SCRIPT }} />
       </head>
       <body>
         <RuntimeMiddleware />

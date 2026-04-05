@@ -23,8 +23,15 @@ const CAMERA_EPSILON = 0.001;
 type SelectedGeoCallback = (_geo: { iso2: string; country: string; lng: number; lat: number } | null) => void;
 type CreateMapOptions = {
   style?: StyleSpecification | string | null;
+  stylePromise?: Promise<StyleSpecification>;
   getCountryPopupHtml?: (_geo: string) => string | null;
   onSelectGeo?: (_geo: string | null) => void;
+};
+
+const EMPTY_STYLE: StyleSpecification = {
+  version: 8,
+  sources: {},
+  layers: []
 };
 
 function getCountryFeatureAtPoint(map: maplibregl.Map, point: { x: number; y: number }) {
@@ -313,8 +320,10 @@ export function createMap(
   let adminBoundaries: AdminBoundaryCollection = { type: "FeatureCollection", features: [] };
   let mapLoaded = false;
   let bootstrapped = false;
+  let styleApplied = !options?.stylePromise;
   let readyResolved = false;
   let cursorHandlersBound = false;
+  let destroyed = false;
   let resolveReady = () => {};
   const ready = new Promise<void>((resolve) => {
     resolveReady = resolve;
@@ -334,7 +343,7 @@ export function createMap(
   };
   const map = new maplibregl.Map({
     container,
-    style: options?.style || BASEMAP_STYLE_URL,
+    style: styleApplied ? (options?.style || BASEMAP_STYLE_URL) : EMPTY_STYLE,
     center: DEFAULT_CENTER,
     zoom: DEFAULT_ZOOM,
     bearing: 0,
@@ -506,7 +515,8 @@ export function createMap(
     host.__MAP_SELECTED_GEO__?.({ iso2, country, lng, lat });
   });
 
-  const onLoad = () => {
+  const onStyleReady = () => {
+    if (!styleApplied) return;
     if (bootstrapped) return;
     bootstrapped = true;
     map.jumpTo(FLAT_CAMERA);
@@ -521,11 +531,27 @@ export function createMap(
     }
   };
 
-  map.on("load", onLoad);
-  if (map.loaded() || map.isStyleLoaded()) {
-    queueMicrotask(onLoad);
+  map.on("style.load", onStyleReady);
+  if (styleApplied && (map.loaded() || map.isStyleLoaded())) {
+    queueMicrotask(onStyleReady);
   }
   map.on("moveend", ensureFlatCamera);
+
+  if (options?.stylePromise) {
+    void options.stylePromise
+      .then((style) => {
+        if (destroyed) return;
+        styleApplied = true;
+        bootstrapped = false;
+        map.setStyle(style);
+      })
+      .catch(() => {
+        if (destroyed) return;
+        styleApplied = true;
+        bootstrapped = false;
+        map.setStyle(BASEMAP_STYLE_URL);
+      });
+  }
 
   return {
     map,
@@ -535,10 +561,16 @@ export function createMap(
       adminBoundaries = nextAdminBoundaries;
       applyData();
     },
+    setStyle: (nextStyle) => {
+      styleApplied = true;
+      bootstrapped = false;
+      map.setStyle(nextStyle);
+    },
     destroy: () => {
+      destroyed = true;
       countryPopup.remove();
       map.getCanvas().style.cursor = "";
-      map.off("load", onLoad);
+      map.off("style.load", onStyleReady);
       map.off("moveend", ensureFlatCamera);
       if (map.getLayer(NEW_MAP_HOVER_LAYER_ID)) map.removeLayer(NEW_MAP_HOVER_LAYER_ID);
       if (map.getLayer(NEW_MAP_SUPPLEMENTAL_SEA_LAYER_ID)) map.removeLayer(NEW_MAP_SUPPLEMENTAL_SEA_LAYER_ID);
