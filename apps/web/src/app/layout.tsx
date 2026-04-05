@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
-import NewMapDeferredRuntime from "./_components/NewMapDeferredRuntime";
+import LayoutRuntimeShell from "./_components/LayoutRuntimeShell";
 import "./globals.css";
-import ServiceWorkerGuard from "@/plugins/serviceWorkerGuard";
 
 const NEW_MAP_STYLE_URL = "/api/new-map/basemap-style?v=20260331-host-header-same-origin";
 const NEW_MAP_COUNTRIES_URL = "/api/new-map/countries";
-const NEW_MAP_CARD_INDEX_URL = "/new-map-card-index.json";
 
 export const metadata: Metadata = {
   title: "isLegalCannabis",
@@ -42,13 +40,11 @@ const NEW_MAP_PREFETCH_SCRIPT = `
       .catch(() => null);
   window.__NEW_MAP_PREFETCH__ = {
     style: loadJson("${NEW_MAP_STYLE_URL}"),
-    countries: loadJson("${NEW_MAP_COUNTRIES_URL}"),
-    cardIndex: loadJson("${NEW_MAP_CARD_INDEX_URL}")
+    countries: loadJson("${NEW_MAP_COUNTRIES_URL}")
   };
   Promise.allSettled([
     window.__NEW_MAP_PREFETCH__.style,
-    window.__NEW_MAP_PREFETCH__.countries,
-    window.__NEW_MAP_PREFETCH__.cardIndex
+    window.__NEW_MAP_PREFETCH__.countries
   ]).then(() => {
     trace.marks.NM_T1_HEAD_PREFETCH_READY = trace.marks.NM_T1_HEAD_PREFETCH_READY || performance.now();
   });
@@ -66,8 +62,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: NEW_MAP_PREFETCH_SCRIPT }} />
       </head>
       <body>
-        <ServiceWorkerGuard />
-        <NewMapDeferredRuntime />
+        <LayoutRuntimeShell />
         {children}
         <Analytics />
       </body>

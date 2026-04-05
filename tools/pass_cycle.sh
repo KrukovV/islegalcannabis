@@ -548,6 +548,7 @@ fail_with_reason() {
   fi
   quarantine_fail_artifacts "${reason_clean}"
   run_mandatory_tail || true
+  ${NODE_BIN} tools/update_continuity_status.mjs || true
   emit_final_output "${STDOUT_FILE}"
   exit "${status:-1}"
 }
@@ -3339,6 +3340,7 @@ if ! run_mandatory_tail; then
   append_ci_line "CI_RESULT status=FAIL quality=BAD reason=${MANDATORY_TAIL_FAIL_REASON:-MANDATORY_TAIL_FAIL} online=${ONLINE_SIGNAL:-1} skipped=-"
 fi
 emit_final_output "${STDOUT_FILE}"
+${NODE_BIN} tools/update_continuity_status.mjs || true
 if [ -f "${NOTES_LINKS_SMOKE_FILE:-}" ]; then
   notes_links_line=$(grep -E "^NOTES_LINKS_SMOKE_OK=" "${NOTES_LINKS_SMOKE_FILE}" | tail -n 1 || true)
   if [ -n "${notes_links_line}" ]; then
@@ -3370,6 +3372,8 @@ if [ "${CI_WRITE_ROOT}" = "1" ]; then
   printf "%s\n" "${PASS_CYCLE_EXIT_LINE}" >> "${ROOT}/ci-final.txt"
 fi
 if [ "${CI_STATUS}" != "PASS" ] && [ "${CI_STATUS}" != "PASS_DEGRADED" ]; then
+  ${NODE_BIN} tools/update_continuity_status.mjs || true
   exit 1
 fi
+${NODE_BIN} tools/update_continuity_status.mjs || true
 exit "${CI_RC}"

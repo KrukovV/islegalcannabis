@@ -39,72 +39,7 @@ else
   echo "No changes detected."
 fi
 
-CI_RESULT="UNCONFIRMED"
-SMOKE_RESULT="UNCONFIRMED"
-if [ -f ".checkpoints/ci-result.txt" ]; then
-  CI_RESULT=$(sed -n 's/.*CI_RESULT=\([^;]*\).*/\1/p' .checkpoints/ci-result.txt)
-  SMOKE_RESULT=$(sed -n 's/.*SMOKE=\([^ ]*\).*/\1/p' .checkpoints/ci-result.txt)
-  CI_RESULT=${CI_RESULT:-UNCONFIRMED}
-  SMOKE_RESULT=${SMOKE_RESULT:-UNCONFIRMED}
-fi
-
 LEDGER_PATH="${ROOT_DIR}/CONTINUITY.md"
 if [ -f "${LEDGER_PATH}" ]; then
-
-  STATE_LINE="checkpoint=${PATCH_PATH}; CI=${CI_RESULT}; Smoke=${SMOKE_RESULT}"
-  export LEDGER_STATE="${STATE_LINE}"
-  export LEDGER_ROOT="${ROOT_DIR}"
-
-  node <<'NODE'
-import fs from "node:fs";
-import path from "node:path";
-
-const root = process.env.LEDGER_ROOT || process.cwd();
-const ledgerPath = path.join(root, "CONTINUITY.md");
-const tempPath = `${ledgerPath}.tmp`;
-const lines = fs
-  .readFileSync(ledgerPath, "utf8")
-  .split(/\\r?\\n/)
-  .map((line) => line.replace(/\\\\n/g, ""));
-
-function readLinesFromFile(filePath, prefix) {
-  if (!filePath || !fs.existsSync(filePath)) return [];
-  return fs
-    .readFileSync(filePath, "utf8")
-    .split(/\r?\n/)
-    .map((line) => line.trim())
-    .filter(Boolean)
-    .map((line) => `${prefix}${line}`);
-}
-
-const inserts = [
-  ["State:", process.env.LEDGER_STATE]
-];
-
-for (const [header, value] of inserts) {
-  if (!value) continue;
-  const index = lines.findIndex(
-    (line) => line.trim() === header || line.trim().startsWith(`${header} `)
-  );
-  if (index === -1) continue;
-  if (lines[index].trim().startsWith(`${header} `)) {
-    lines[index] = `${header} ${value}`;
-    continue;
-  }
-  const sectionEnd = lines.findIndex((line, i) => i > index && /^[A-Za-z].*:\\s*$/.test(line));
-  const end = sectionEnd === -1 ? lines.length : sectionEnd;
-  const normalizedLines = String(value)
-    .split("\n")
-    .map((line) => line.trim())
-    .filter(Boolean)
-    .map((line) => (line.startsWith("- ") ? line : `- ${line}`));
-  lines.splice(index + 1, end - index - 1, ...normalizedLines);
-}
-
-const nextText = lines.join("\n").replace(/\\\\n/g, "").trimEnd() + "\n";
-fs.writeFileSync(tempPath, nextText);
-fs.renameSync(tempPath, ledgerPath);
-NODE
-
   LEDGER_MINIMAL=1 node tools/ledger/compact.mjs --root "${ROOT_DIR}" --checkpoint "checkpoint=${PATCH_PATH}"
 fi
