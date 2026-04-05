@@ -4,6 +4,7 @@ export default {
   testDir: "./e2e",
   timeout: 30000,
   expect: { timeout: 5000 },
+  workers: 1,
   reporter: [
     ["list"],
     ["json", { outputFile: "../../Reports/playwright-smoke.json" }]
@@ -21,8 +22,8 @@ export default {
   },
   projects: [
     {
-      name: "chromium",
-      use: { browserName: "chromium" }
+      name: "webkit",
+      use: { browserName: "webkit" }
     }
   ]
 };

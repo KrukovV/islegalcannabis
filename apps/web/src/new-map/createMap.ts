@@ -1,4 +1,4 @@
-import maplibregl from "maplibre-gl";
+import maplibregl, { type StyleSpecification } from "maplibre-gl";
 import type { AdminBoundaryCollection, LegalCountryCollection, NewMapBootResult } from "./map.types";
 export const NEW_MAP_ADMIN_SOURCE_ID = "admin-boundaries";
 export const NEW_MAP_ADMIN_LAYER_ID = "admin-boundary-line";
@@ -8,7 +8,6 @@ export const NEW_MAP_FILL_LAYER_ID = "legal-fill";
 export const NEW_MAP_HOVER_LAYER_ID = "legal-hover";
 const NEW_MAP_SUPPLEMENTAL_SEA_SOURCE_ID = "new-map-supplemental-seas";
 const NEW_MAP_SUPPLEMENTAL_SEA_LAYER_ID = "new-map-supplemental-seas";
-
 const BASEMAP_STYLE_URL = "/api/new-map/basemap-style?v=20260331-host-header-same-origin";
 
 const DEFAULT_CENTER: [number, number] = [25, 50];
@@ -21,7 +20,16 @@ const FLAT_CAMERA = {
 } as const;
 const CAMERA_EPSILON = 0.001;
 
-type SelectedGeoCallback = (_geo: { country: string; iso2: string } | null) => void;
+type SelectedGeoCallback = (_geo: { iso2: string; country: string; lng: number; lat: number } | null) => void;
+type CreateMapOptions = {
+  style?: StyleSpecification | string | null;
+  getCountryPopupHtml?: (_geo: string) => string | null;
+  onSelectGeo?: (_geo: string | null) => void;
+};
+
+function getCountryFeatureAtPoint(map: maplibregl.Map, point: { x: number; y: number }) {
+  return map.queryRenderedFeatures([point.x, point.y], { layers: [NEW_MAP_FILL_LAYER_ID] })[0] ?? null;
+}
 
 function buildNativeTextField() {
   return ["coalesce", ["get", "name_en"], ["get", "name"]];
@@ -299,16 +307,34 @@ function tuneNativeBasemapLayers(map: maplibregl.Map) {
 
 export function createMap(
   container: HTMLElement,
-  countries: LegalCountryCollection,
-  adminBoundaries: AdminBoundaryCollection
+  options?: CreateMapOptions
 ): NewMapBootResult {
+  let countries: LegalCountryCollection = { type: "FeatureCollection", features: [] };
+  let adminBoundaries: AdminBoundaryCollection = { type: "FeatureCollection", features: [] };
+  let mapLoaded = false;
+  let bootstrapped = false;
+  let readyResolved = false;
+  let cursorHandlersBound = false;
   let resolveReady = () => {};
   const ready = new Promise<void>((resolve) => {
     resolveReady = resolve;
   });
+  const countryPopup = new maplibregl.Popup({
+    closeButton: true,
+    closeOnClick: false,
+    className: "new-map-country-popup-shell",
+    maxWidth: "320px"
+  });
+  countryPopup.on("close", () => {
+    options?.onSelectGeo?.(null);
+  });
+  const host = globalThis as typeof globalThis & {
+    __NEW_MAP_DEBUG__?: Record<string, unknown>;
+    __MAP_SELECTED_GEO__?: SelectedGeoCallback;
+  };
   const map = new maplibregl.Map({
     container,
-    style: BASEMAP_STYLE_URL,
+    style: options?.style || BASEMAP_STYLE_URL,
     center: DEFAULT_CENTER,
     zoom: DEFAULT_ZOOM,
     bearing: 0,
@@ -342,10 +368,17 @@ export function createMap(
     }
   };
 
-  const onLoad = () => {
+  const applyData = () => {
+    if (!mapLoaded) return;
+    const countriesSource = map.getSource(NEW_MAP_SOURCE_ID) as maplibregl.GeoJSONSource | undefined;
+    const adminSource = map.getSource(NEW_MAP_ADMIN_SOURCE_ID) as maplibregl.GeoJSONSource | undefined;
+    countriesSource?.setData(countries);
+    adminSource?.setData(adminBoundaries);
+  };
+
+  const installCountryLayers = () => {
+    if (map.getSource(NEW_MAP_SOURCE_ID)) return;
     map.jumpTo(FLAT_CAMERA);
-    tuneNativeBasemapLayers(map);
-    addSupplementalSeaLayer(map);
     const beforeId = findFirstSymbolLayerId(map);
     map.addSource(NEW_MAP_SOURCE_ID, {
       type: "geojson",
@@ -429,31 +462,82 @@ export function createMap(
       }
     }, beforeId);
     const labelGroups = findLabelGroups(map);
-    const host = globalThis as typeof globalThis & {
-      __NEW_MAP_DEBUG__?: Record<string, unknown>;
-      __MAP_SELECTED_GEO__?: SelectedGeoCallback;
-    };
     if (host.__NEW_MAP_DEBUG__) {
       host.__NEW_MAP_DEBUG__.labelGroups = labelGroups;
     }
-    map.on("click", NEW_MAP_FILL_LAYER_ID, (event) => {
-      const feature = event.features?.[0];
-      if (!feature) return;
-      const country = String(feature.properties?.name_en || feature.properties?.name || "").trim();
-      const iso2 = String(feature.properties?.iso_a2 || feature.properties?.geo || "").trim().toUpperCase();
-      if (!country || !iso2) return;
-      host.__MAP_SELECTED_GEO__?.({ country, iso2 });
-    });
-    resolveReady();
+    if (!cursorHandlersBound) {
+      map.on("mouseenter", NEW_MAP_FILL_LAYER_ID, () => {
+        map.getCanvas().style.cursor = "pointer";
+      });
+      map.on("mouseleave", NEW_MAP_FILL_LAYER_ID, () => {
+        map.getCanvas().style.cursor = "";
+      });
+      cursorHandlersBound = true;
+    }
+  };
+  map.on("click", (event) => {
+    const feature = getCountryFeatureAtPoint(map, event.point);
+    if (!feature) return;
+    const country = String(
+      feature.properties?.displayName ||
+      feature.properties?.name_en ||
+      feature.properties?.name ||
+      feature.properties?.geo ||
+      ""
+    ).trim();
+    const iso2 = String(
+      feature.properties?.geo ||
+      feature.properties?.iso2 ||
+      feature.properties?.iso_a2 ||
+      feature.properties?.ISO_A2 ||
+      feature.id ||
+      ""
+    ).trim().toUpperCase();
+    const lng = event.lngLat.lng;
+    const lat = event.lngLat.lat;
+    if (!country || !iso2) return;
+    const popupHtml = options?.getCountryPopupHtml?.(iso2);
+    if (!popupHtml) return;
+    countryPopup
+      .setLngLat([lng, lat])
+      .setHTML(popupHtml)
+      .addTo(map);
+    options?.onSelectGeo?.(iso2);
+    host.__MAP_SELECTED_GEO__?.({ iso2, country, lng, lat });
+  });
+
+  const onLoad = () => {
+    if (bootstrapped) return;
+    bootstrapped = true;
+    map.jumpTo(FLAT_CAMERA);
+    tuneNativeBasemapLayers(map);
+    addSupplementalSeaLayer(map);
+    installCountryLayers();
+    mapLoaded = true;
+    applyData();
+    if (!readyResolved) {
+      readyResolved = true;
+      resolveReady();
+    }
   };
 
   map.on("load", onLoad);
+  if (map.loaded() || map.isStyleLoaded()) {
+    queueMicrotask(onLoad);
+  }
   map.on("moveend", ensureFlatCamera);
 
   return {
     map,
     ready,
+    setData: (nextCountries, nextAdminBoundaries) => {
+      countries = nextCountries;
+      adminBoundaries = nextAdminBoundaries;
+      applyData();
+    },
     destroy: () => {
+      countryPopup.remove();
+      map.getCanvas().style.cursor = "";
       map.off("load", onLoad);
       map.off("moveend", ensureFlatCamera);
       if (map.getLayer(NEW_MAP_HOVER_LAYER_ID)) map.removeLayer(NEW_MAP_HOVER_LAYER_ID);

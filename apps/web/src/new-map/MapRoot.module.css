@@ -225,33 +225,49 @@
   word-break: break-word;
 }
 
-.countryCard {
-  position: absolute;
-  z-index: 3;
-  left: 20px;
-  top: 202px;
-  max-width: min(360px, calc(100vw - 40px));
+:global(.new-map-country-popup-shell) :global(.maplibregl-popup-content) {
   border-radius: 18px;
   border: 1px solid rgba(103, 120, 133, 0.2);
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.96);
   box-shadow: 0 12px 30px rgba(40, 55, 70, 0.12);
   padding: 16px 18px;
   color: #283746;
+  max-width: min(320px, calc(100vw - 40px));
 }
 
-.countryCardTitle {
+:global(.new-map-country-popup-shell) :global(.maplibregl-popup-tip) {
+  border-top-color: rgba(255, 255, 255, 0.96);
+}
+
+:global(.new-map-country-popup-shell) :global(.maplibregl-popup-close-button) {
+  right: 6px;
+  top: 6px;
+  font-size: 16px;
+  opacity: 0.85;
+}
+
+:global(.new-map-country-popup-shell) :global(.maplibregl-popup-close-button:hover) {
+  opacity: 1;
+}
+
+.countryPopup {
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.countryPopupTitle {
   font-size: 1rem;
   font-weight: 700;
   margin-bottom: 6px;
 }
 
-.countryCardMeta {
+.countryPopupMeta {
   font-size: 0.86rem;
   line-height: 1.45;
   color: #4f6476;
 }
 
-.countryCardNotes {
+.countryPopupNotes {
   margin-top: 10px;
   font-size: 0.86rem;
   line-height: 1.45;
@@ -299,9 +315,7 @@
     width: calc(100vw - 24px);
   }
 
-  .countryCard {
-    left: 12px;
-    top: 182px;
+  :global(.new-map-country-popup-shell) :global(.maplibregl-popup-content) {
     max-width: calc(100vw - 24px);
   }
 }

@@ -2431,6 +2431,12 @@ if [ "${SMOKE_TOTAL}" -eq 0 ]; then
   FAIL_RC=1
   fail_with_reason "SMOKE_EMPTY"
 fi
+if [ "${SMOKE_TOTAL}" -lt 5 ]; then
+  FAIL_STEP="smoke_report"
+  FAIL_CMD="Reports/smoke-report.json"
+  FAIL_RC=1
+  fail_with_reason "SMOKE_FAKE_TOO_SMALL"
+fi
 if [ "${SMOKE_FAIL}" -ne 0 ]; then
   FAIL_STEP="smoke_report"
   FAIL_CMD="Reports/smoke-report.json"

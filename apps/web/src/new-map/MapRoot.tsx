@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import maplibregl from "maplibre-gl";
+import maplibregl, { type StyleSpecification } from "maplibre-gl";
 import RuntimeParityBadge from "@/app/_components/RuntimeParityBadge";
 import type { RuntimeIdentity } from "@/lib/runtimeIdentity";
 import { useGeoStatus } from "./hooks/useGeoStatus";
@@ -9,7 +9,7 @@ import { createMap } from "./createMap";
 import { attachHoverController } from "./hoverController";
 import type { LegalCountryCollection } from "./map.types";
 import AIBar from "./components/AIBar";
-import CountryCard, { type CountryCardEntry } from "./components/CountryCard";
+import type { CountryCardEntry } from "./components/CountryCard";
 import styles from "./MapRoot.module.css";
 
 type Props = {
@@ -28,10 +28,7 @@ type NewMapDebug = {
   lastPointerLng?: number | null;
 };
 
-type SelectedGeo = {
-  country: string;
-  iso2: string;
-} | null;
+type SelectedGeo = string | null;
 
 type ActiveGeo = {
   country: string;
@@ -39,6 +36,19 @@ type ActiveGeo = {
   lat?: number;
   lng?: number;
 } | null;
+
+type NewMapPrefetchCache = {
+  style?: Promise<StyleSpecification | null> | null;
+  countries?: Promise<LegalCountryCollection | null> | null;
+};
+
+function getNewMapPrefetchCache(): NewMapPrefetchCache | null {
+  if (typeof window === "undefined") return null;
+  const host = window as typeof window & {
+    __NEW_MAP_PREFETCH__?: NewMapPrefetchCache;
+  };
+  return host.__NEW_MAP_PREFETCH__ || null;
+}
 
 function setDebugState(partial: Partial<NewMapDebug>) {
   const host = globalThis as typeof globalThis & {
@@ -50,6 +60,27 @@ function setDebugState(partial: Partial<NewMapDebug>) {
   };
   Object.assign(current, partial);
   host.__NEW_MAP_DEBUG__ = current;
+}
+
+function escapeHtml(value: string) {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+function renderCountryPopup(entry: CountryCardEntry) {
+  return [
+    `<div class="${styles.countryPopup}" data-testid="new-map-country-popup">`,
+    `<div class="${styles.countryPopupTitle}">${escapeHtml(entry.displayName)}</div>`,
+    `<div class="${styles.countryPopupMeta}">ISO2: ${escapeHtml(entry.iso2 || "Unknown")}</div>`,
+    `<div class="${styles.countryPopupMeta}">Rec: ${escapeHtml(entry.legalStatus)}</div>`,
+    `<div class="${styles.countryPopupMeta}">Med: ${escapeHtml(entry.medicalStatus)}</div>`,
+    `<div class="${styles.countryPopupNotes}">${escapeHtml(entry.notes || "No notes available.")}</div>`,
+    "</div>"
+  ].join("");
 }
 
 export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity, cardIndex }: Props) {
@@ -75,7 +106,15 @@ export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity, c
       lng: currentGeo.lng ?? currentGeoEntry?.coordinates?.lng
     };
   }, [currentGeo, currentGeoEntry]);
-  const activeGeo: ActiveGeo = selectedGeo ?? currentGeoView;
+  const selectedGeoEntry = selectedGeo ? cardIndex[selectedGeo] ?? null : null;
+  const activeGeo: ActiveGeo = selectedGeoEntry
+    ? {
+        country: selectedGeoEntry.displayName,
+        iso2: selectedGeoEntry.iso2 || undefined,
+        lat: selectedGeoEntry.coordinates?.lat,
+        lng: selectedGeoEntry.coordinates?.lng
+      }
+    : currentGeoView;
 
   const applyGeoToMap = useCallback((geo: ActiveGeo, options?: { recenter?: boolean }) => {
     const map = mapRef.current;
@@ -129,19 +168,6 @@ export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity, c
   }, [centerMapToGeo, currentGeoView, geoStatus.status, retry]);
 
   useEffect(() => {
-    const host = globalThis as typeof globalThis & {
-      __MAP_SELECTED_GEO__?: (_geo: SelectedGeo) => void;
-    };
-    host.__MAP_SELECTED_GEO__ = (geo) => {
-      setSelectedGeo(geo);
-      setDebugState({ selectedId: geo?.iso2 ?? null });
-    };
-    return () => {
-      delete host.__MAP_SELECTED_GEO__;
-    };
-  }, []);
-
-  useEffect(() => {
     if (!geoReady || !mapReady || currentGeo?.source === "gps" || ipBootstrapStartedRef.current) return;
     ipBootstrapStartedRef.current = true;
     const timerId = window.setTimeout(() => {
@@ -157,29 +183,70 @@ export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity, c
     async function mount() {
       if (!containerRef.current) return;
       try {
-        const [countriesResponse, adminResponse] = await Promise.all([
-          fetch(countriesUrl, { cache: "no-store" }),
-          fetch("/api/new-map/admin-boundaries", { cache: "no-store" })
-        ]);
-        if (!countriesResponse.ok) {
-          throw new Error(`countries_fetch_failed:${countriesResponse.status}`);
-        }
-        if (!adminResponse.ok) {
-          throw new Error(`admin_boundaries_fetch_failed:${adminResponse.status}`);
-        }
-        const countries = (await countriesResponse.json()) as LegalCountryCollection;
-        const adminBoundaries = await adminResponse.json();
-        if (cancelled || !containerRef.current) return;
-        const runtime = createMap(containerRef.current, countries, adminBoundaries);
+        const prefetched = getNewMapPrefetchCache();
+        const loadCountries = () =>
+          fetch(countriesUrl, {
+            cache: "force-cache",
+            credentials: "same-origin"
+          }).then((response) => {
+            if (!response.ok) {
+              throw new Error(`countries_fetch_failed:${response.status}`);
+            }
+            return response.json() as Promise<LegalCountryCollection>;
+          });
+        const loadStyle = () =>
+          fetch("/api/new-map/basemap-style?v=20260331-host-header-same-origin", {
+            cache: "force-cache",
+            credentials: "same-origin"
+          }).then((response) => {
+            if (!response.ok) {
+              throw new Error(`basemap_style_fetch_failed:${response.status}`);
+            }
+            return response.json() as Promise<StyleSpecification>;
+          });
+        const countriesPromise = prefetched?.countries
+          ? prefetched.countries.then((value) => value || loadCountries())
+          : loadCountries();
+        const stylePromise = prefetched?.style
+          ? prefetched.style.then((value) => value || loadStyle())
+          : loadStyle();
+        const adminPromise = fetch("/api/new-map/admin-boundaries", {
+          cache: "force-cache",
+          credentials: "same-origin"
+        });
+        const style = await stylePromise;
+        const runtime = createMap(containerRef.current, {
+          style,
+          getCountryPopupHtml: (geo) => {
+            const entry = cardIndex[geo];
+            return entry ? renderCountryPopup(entry) : null;
+          },
+          onSelectGeo: (geo) => {
+            setSelectedGeo(geo);
+            setDebugState({ selectedId: geo });
+          }
+        });
         mapRef.current = runtime.map;
-        setMapReady(true);
         await runtime.ready;
         if (cancelled) {
           runtime.destroy();
           return;
         }
+        setMapReady(true);
         const hover = attachHoverController(runtime.map);
         setDebugState({ mounted: true, countriesUrl, map: runtime.map, selectedId: null });
+        const [countries, adminResponse] = await Promise.all([countriesPromise, adminPromise]);
+        if (!adminResponse.ok) {
+          throw new Error(`admin_boundaries_fetch_failed:${adminResponse.status}`);
+        }
+        const adminBoundaries =
+          await adminResponse.json() as import("./map.types").AdminBoundaryCollection;
+        if (cancelled) {
+          hover.destroy();
+          runtime.destroy();
+          return;
+        }
+        runtime.setData(countries, adminBoundaries);
         cleanup = () => {
           hover.destroy();
           locationMarkerRef.current?.remove();
@@ -201,7 +268,7 @@ export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity, c
       cancelled = true;
       cleanup();
     };
-  }, [countriesUrl]);
+  }, [cardIndex, countriesUrl]);
 
   useEffect(() => {
     if (!mapReady) return;
@@ -244,7 +311,6 @@ export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity, c
         </div>
       </div>
       <div ref={containerRef} className={styles.mapSurface} data-testid="new-map-surface" data-map-ready={mapReady ? "1" : "0"} />
-      <CountryCard geo={activeGeo?.iso2 ?? null} cardIndex={cardIndex} />
       <AIBar
         activeGeo={activeGeo?.iso2 ? { country: activeGeo.country, iso2: activeGeo.iso2 } : null}
         geoStatus={geoStatus}

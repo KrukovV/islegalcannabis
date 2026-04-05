@@ -357,7 +357,7 @@ if [ "${UI_E2E:-1}" = "1" ]; then
       print_fail "${CI_LOCAL_REASON}"
     fi
     set +e
-    (cd apps/web && npm run ui:e2e)
+    (cd apps/web && PLAYWRIGHT_BASE_URL="http://127.0.0.1:${SMOKE_PORT}" npm run ui:e2e)
     UI_E2E_STATUS=$?
     set -e
     node tools/playwright-smoke/normalize_report.mjs Reports/playwright-smoke.json Reports/smoke-report.json || {
@@ -401,8 +401,8 @@ if [ "${UI_E2E:-1}" = "1" ]; then
     CI_LOCAL_STEP="smoke_summary"
     print_fail "${CI_LOCAL_REASON}"
   fi
-  if [ "${SMOKE_TOTAL}" -lt 3 ]; then
-    echo "ERROR: Smoke summary count too small (expected>=3 got=${SMOKE_TOTAL})."
+  if [ "${SMOKE_TOTAL}" -lt 5 ]; then
+    echo "ERROR: Smoke summary count too small (expected>=5 got=${SMOKE_TOTAL})."
     CI_LOCAL_REASON="SMOKE_SUMMARY_TOO_SMALL"
     CI_LOCAL_STEP="smoke_summary"
     print_fail "${CI_LOCAL_REASON}"
