@@ -2413,15 +2413,41 @@ if [ "${CI_STATUS}" != "PASS" ] && [ "${CI_STATUS}" != "PASS_DEGRADED" ]; then
   PASS_LABEL="FAIL"
 fi
 PASS_LINE1="${PASS_ICON} CI ${PASS_LABEL} (Checked ${VERIFY_SAMPLED}/${VERIFY_FAIL})"
-SMOKE_TOTAL="$(grep -E '^SMOKE_TOTAL=' "${REPORTS_FINAL}" | head -n1 | cut -d= -f2 || true)"
-SMOKE_OK="$(grep -E '^SMOKE_OK=' "${REPORTS_FINAL}" | head -n1 | cut -d= -f2 || true)"
-SMOKE_FAIL="$(grep -E '^SMOKE_FAIL=' "${REPORTS_FINAL}" | head -n1 | cut -d= -f2 || true)"
-if [ -z "${SMOKE_TOTAL}" ] && [ -n "${SMOKE_OK}" ] && [ -n "${SMOKE_FAIL}" ]; then
-  SMOKE_TOTAL="$((SMOKE_OK + SMOKE_FAIL))"
+SMOKE_REPORT_JSON="${ROOT}/Reports/smoke-report.json"
+if [ ! -f "${SMOKE_REPORT_JSON}" ]; then
+  FAIL_STEP="smoke_report"
+  FAIL_CMD="Reports/smoke-report.json"
+  FAIL_RC=1
+  fail_with_reason "SMOKE_NO_REPORT"
 fi
-SMOKE_LABEL="Smoke ${SMOKE_OK:-?}/${SMOKE_FAIL:-?} (total ${SMOKE_TOTAL:-?})"
+SMOKE_PARSED=$(${NODE_BIN} -e 'const fs=require("fs");const data=JSON.parse(fs.readFileSync(process.argv[1],"utf8"));const total=Number(data.total||0)||0;const passed=Number(data.passed||0)||0;const failed=Number(data.failed||0)||0;process.stdout.write(`${total};${passed};${failed}`);' "${SMOKE_REPORT_JSON}")
+SMOKE_TOTAL="${SMOKE_PARSED%%;*}"
+SMOKE_REST="${SMOKE_PARSED#*;}"
+SMOKE_OK="${SMOKE_REST%%;*}"
+SMOKE_FAIL="${SMOKE_REST##*;}"
+if [ "${SMOKE_TOTAL}" -eq 0 ]; then
+  FAIL_STEP="smoke_report"
+  FAIL_CMD="Reports/smoke-report.json"
+  FAIL_RC=1
+  fail_with_reason "SMOKE_EMPTY"
+fi
+if [ "${SMOKE_FAIL}" -ne 0 ]; then
+  FAIL_STEP="smoke_report"
+  FAIL_CMD="Reports/smoke-report.json"
+  FAIL_RC=1
+  fail_with_reason "SMOKE_FAIL"
+fi
+append_ci_line "SMOKE_STATUS=PASS"
+append_ci_line "SMOKE_TOTAL=${SMOKE_TOTAL}"
+append_ci_line "SMOKE_PASSED=${SMOKE_OK}"
+append_ci_line "SMOKE_FAILED=${SMOKE_FAIL}"
+SMOKE_LABEL="Smoke ${SMOKE_OK}/${SMOKE_FAIL} (total ${SMOKE_TOTAL})"
 SUMMARY_LINES[0]="${PASS_LINE1}"
 SUMMARY_LINES+=("${SMOKE_LABEL}")
+SUMMARY_LINES+=("SMOKE_STATUS=PASS")
+SUMMARY_LINES+=("SMOKE_TOTAL=${SMOKE_TOTAL}")
+SUMMARY_LINES+=("SMOKE_PASSED=${SMOKE_OK}")
+SUMMARY_LINES+=("SMOKE_FAILED=${SMOKE_FAIL}")
 SUMMARY_LINES+=("QUARANTINE_SIZE_MB=${QUARANTINE_SIZE_MB}")
 SUMMARY_LINES+=("REPORTS_SIZE_MB=${REPORTS_SIZE_MB}")
 CI_STATUS_LINE="CI_STATUS=${CI_STATUS}"
@@ -2482,8 +2508,8 @@ SUMMARY_LINES+=(
 SMOKE_LABEL_LATEST="${SMOKE_LABEL}"
 if [ -f "${REPORTS_FINAL}" ]; then
   SMOKE_TOTAL_LATEST="$(grep -E '^SMOKE_TOTAL=' "${REPORTS_FINAL}" | head -n1 | cut -d= -f2 || true)"
-  SMOKE_OK_LATEST="$(grep -E '^SMOKE_OK=' "${REPORTS_FINAL}" | head -n1 | cut -d= -f2 || true)"
-  SMOKE_FAIL_LATEST="$(grep -E '^SMOKE_FAIL=' "${REPORTS_FINAL}" | head -n1 | cut -d= -f2 || true)"
+  SMOKE_OK_LATEST="$(grep -E '^SMOKE_PASSED=' "${REPORTS_FINAL}" | head -n1 | cut -d= -f2 || true)"
+  SMOKE_FAIL_LATEST="$(grep -E '^SMOKE_FAILED=' "${REPORTS_FINAL}" | head -n1 | cut -d= -f2 || true)"
   SMOKE_LABEL_LATEST="Smoke ${SMOKE_OK_LATEST:-?}/${SMOKE_FAIL_LATEST:-?} (total ${SMOKE_TOTAL_LATEST:-?})"
 fi
 for idx in "${!SUMMARY_LINES[@]}"; do
@@ -2501,7 +2527,7 @@ if [ -f "${PRE_LOG}" ]; then
 fi
 SMOKE_PRESENT=0
 if [ -f "${REPORTS_FINAL}" ]; then
-  if grep -E '^SMOKE_(TOTAL|OK|FAIL)=' "${REPORTS_FINAL}" >/dev/null 2>&1; then
+  if grep -E '^SMOKE_(STATUS|TOTAL|PASSED|FAILED)=' "${REPORTS_FINAL}" >/dev/null 2>&1; then
     SMOKE_PRESENT=1
   fi
 fi
@@ -2516,7 +2542,7 @@ if [ "${SMOKE_PRESENT}" = "0" ] && [ "${#SUMMARY_LINES[@]}" -gt 0 ]; then
   fi
 fi
 if [ "${SMOKE_PRESENT}" = "0" ] && [ -f "${PRE_LOG}" ]; then
-  if grep -E '^SMOKE_(TOTAL|OK|FAIL)=' "${PRE_LOG}" >/dev/null 2>&1; then
+  if grep -E '^SMOKE_(STATUS|TOTAL|PASSED|FAILED)=' "${PRE_LOG}" >/dev/null 2>&1; then
     SMOKE_PRESENT=1
   fi
 fi
@@ -2563,8 +2589,8 @@ NOTES_QUALITY_INFO="-"
 OFFICIAL_SHRINK_OK_INFO="-"
 NOTES_OK_INFO="-"
 if [ -f "${REPORTS_FINAL}" ]; then
-  SMOKE_OK_INFO=$(grep -E '^SMOKE_OK=' "${REPORTS_FINAL}" | tail -n 1 | cut -d= -f2 || echo "-")
-  SMOKE_FAIL_INFO=$(grep -E '^SMOKE_FAIL=' "${REPORTS_FINAL}" | tail -n 1 | cut -d= -f2 || echo "-")
+  SMOKE_OK_INFO=$(grep -E '^SMOKE_PASSED=' "${REPORTS_FINAL}" | tail -n 1 | cut -d= -f2 || echo "-")
+  SMOKE_FAIL_INFO=$(grep -E '^SMOKE_FAILED=' "${REPORTS_FINAL}" | tail -n 1 | cut -d= -f2 || echo "-")
   SMOKE_TOTAL_INFO=$(grep -E '^SMOKE_TOTAL=' "${REPORTS_FINAL}" | tail -n 1 | cut -d= -f2 || echo "-")
   ONLINE_INFO=$(grep -E '^ONLINE_BY_TRUTH_PROBES=' "${REPORTS_FINAL}" | tail -n 1 | cut -d= -f2 || echo "-")
   POST_CHECKS_INFO=$(grep -E '^POST_CHECKS_OK=' "${REPORTS_FINAL}" | tail -n 1 | cut -d= -f2- || echo "-")
@@ -3226,6 +3252,10 @@ if ! grep -q "^FINAL_SSOT_BLOCK=1$" "${REPORTS_FINAL}"; then
   FAIL_EXTRA_LINES="${FAIL_EXTRA_LINES:+${FAIL_EXTRA_LINES}"$'\n'"}FINAL_SSOT_BLOCK=0"
   fail_with_reason "FINAL_SSOT_BLOCK_INVALID"
 fi
+append_ci_line "SMOKE_STATUS=PASS"
+append_ci_line "SMOKE_TOTAL=${SMOKE_TOTAL}"
+append_ci_line "SMOKE_PASSED=${SMOKE_OK}"
+append_ci_line "SMOKE_FAILED=${SMOKE_FAIL}"
 
 POST_LATEST=$(cat "${LATEST_FILE}" 2>/dev/null || true)
 PRE_LATEST="${PRE_LATEST}" MID_LATEST="${LATEST_CHECKPOINT}" POST_LATEST="${POST_LATEST}" \

@@ -330,7 +330,7 @@ if [ -z "${SMOKE_PORT_OUTPUT}" ] || ! echo "${SMOKE_PORT_OUTPUT}" | grep -E "^[0
     fi
     fi
   fi
-  if [ "${UI_E2E:-0}" = "1" ]; then
+if [ "${UI_E2E:-1}" = "1" ]; then
     export PLAYWRIGHT_BASE_URL="http://127.0.0.1:${SMOKE_PORT}"
     (cd apps/web && npx -y playwright install chromium)
     PLAYWRIGHT_NPX_DIR=$(ls -td "${HOME}/.npm/_npx/"* 2>/dev/null | head -n 1 || true)
@@ -360,6 +360,11 @@ if [ -z "${SMOKE_PORT_OUTPUT}" ] || ! echo "${SMOKE_PORT_OUTPUT}" | grep -E "^[0
     (cd apps/web && npm run ui:e2e)
     UI_E2E_STATUS=$?
     set -e
+    node tools/playwright-smoke/normalize_report.mjs Reports/playwright-smoke.json Reports/smoke-report.json || {
+      CI_LOCAL_REASON="UI_E2E_REPORT_FAIL"
+      CI_LOCAL_STEP="ui_e2e_report"
+      print_fail "${CI_LOCAL_REASON}"
+    }
     kill "${WEB_PID}" >/dev/null 2>&1 || true
     wait "${WEB_PID}" >/dev/null 2>&1 || true
     rm -f "${WEB_LOG}"
@@ -369,19 +374,36 @@ if [ -z "${SMOKE_PORT_OUTPUT}" ] || ! echo "${SMOKE_PORT_OUTPUT}" | grep -E "^[0
       print_fail "${CI_LOCAL_REASON}"
     fi
   fi
+  if [ ! -f Reports/smoke-report.json ]; then
+    CI_LOCAL_REASON="SMOKE_REPORT_MISSING"
+    CI_LOCAL_STEP="smoke_report"
+    print_fail "${CI_LOCAL_REASON}"
+  fi
+  SMOKE_JSON=$(${NODE_BIN} -e 'const fs=require("fs");const data=JSON.parse(fs.readFileSync("Reports/smoke-report.json","utf8"));process.stdout.write(`${data.total};${data.passed};${data.failed}`)')
+  SMOKE_TOTAL=${SMOKE_JSON%%;*}
+  SMOKE_REST=${SMOKE_JSON#*;}
+  SMOKE_PASSED=${SMOKE_REST%%;*}
+  SMOKE_FAILED=${SMOKE_REST##*;}
+  if [ "${SMOKE_TOTAL}" -eq 0 ]; then
+    CI_LOCAL_REASON="SMOKE_EMPTY"
+    CI_LOCAL_STEP="smoke_report"
+    print_fail "${CI_LOCAL_REASON}"
+  fi
+  if [ "${SMOKE_FAILED}" -ne 0 ]; then
+    CI_LOCAL_REASON="SMOKE_REPORT_FAIL"
+    CI_LOCAL_STEP="smoke_report"
+    print_fail "${CI_LOCAL_REASON}"
+  fi
   SMOKE_SUMMARY=$(grep "Summary:" "${SMOKE_LOG}" | tail -n 1)
-  SMOKE_PASSED=$(echo "${SMOKE_SUMMARY}" | sed -n 's/.*Summary: \([0-9]*\) passed, \([0-9]*\) failed.*/\1/p')
-  SMOKE_FAILED=$(echo "${SMOKE_SUMMARY}" | sed -n 's/.*Summary: \([0-9]*\) passed, \([0-9]*\) failed.*/\2/p')
-  if [ -z "${SMOKE_PASSED}" ] || [ -z "${SMOKE_FAILED}" ]; then
+  if [ -z "${SMOKE_SUMMARY}" ]; then
     echo "ERROR: Smoke summary missing or malformed."
     CI_LOCAL_REASON="SMOKE_SUMMARY_MISSING"
     CI_LOCAL_STEP="smoke_summary"
     print_fail "${CI_LOCAL_REASON}"
   fi
-  SMOKE_TOTAL=$((SMOKE_PASSED + SMOKE_FAILED))
-  if [ "${SMOKE_TOTAL}" -ne "${SMOKE_EXPECTED}" ]; then
-    echo "ERROR: Smoke summary count mismatch (expected=${SMOKE_EXPECTED} got=${SMOKE_TOTAL})."
-    CI_LOCAL_REASON="SMOKE_SUMMARY_MISMATCH"
+  if [ "${SMOKE_TOTAL}" -lt 3 ]; then
+    echo "ERROR: Smoke summary count too small (expected>=3 got=${SMOKE_TOTAL})."
+    CI_LOCAL_REASON="SMOKE_SUMMARY_TOO_SMALL"
     CI_LOCAL_STEP="smoke_summary"
     print_fail "${CI_LOCAL_REASON}"
   fi

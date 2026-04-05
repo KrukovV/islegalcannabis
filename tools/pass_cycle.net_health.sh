@@ -1499,8 +1499,8 @@ if [ "${GEO_GATE_RC}" -ne 0 ] || [ "${GEO_GATE_OK}" -ne 1 ]; then
 fi
 
 SMOKE_TOTAL="$(grep -E '^SMOKE_TOTAL=' "${REPORTS_FINAL}" | head -n1 | cut -d= -f2 || true)"
-SMOKE_OK="$(grep -E '^SMOKE_OK=' "${REPORTS_FINAL}" | head -n1 | cut -d= -f2 || true)"
-SMOKE_FAIL="$(grep -E '^SMOKE_FAIL=' "${REPORTS_FINAL}" | head -n1 | cut -d= -f2 || true)"
+SMOKE_OK="$(grep -E '^SMOKE_PASSED=' "${REPORTS_FINAL}" | head -n1 | cut -d= -f2 || true)"
+SMOKE_FAIL="$(grep -E '^SMOKE_FAILED=' "${REPORTS_FINAL}" | head -n1 | cut -d= -f2 || true)"
 extract_smoke_counts() {
   local line="$1"
   local ok_value=""

@@ -1,6 +1,7 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { resolveIp } from "@/lib/geo/resolveIp";
 
 export type GeoStatus =
   | { status: "unknown" }
@@ -8,6 +9,7 @@ export type GeoStatus =
   | { status: "resolved" };
 
 export type IpStatus =
+  | { status: "idle"; message: string }
   | { status: "resolving"; message: string }
   | { status: "resolved"; country: string; iso2: string; message: string }
   | { status: "unknown"; message: string };
@@ -19,16 +21,11 @@ export type CurrentGeo = {
   source: "ip" | "gps";
 } | null;
 
+const GEO_STORAGE_KEY = "geo";
+let geoCache: CurrentGeo = null;
+
 type IpGeoPayload = {
   iso?: string;
-};
-
-type BrowserIpLookupPayload = {
-  success?: boolean;
-  country?: string;
-  country_code?: string;
-  latitude?: number;
-  longitude?: number;
 };
 
 type ReverseGeoPayload = {
@@ -49,29 +46,100 @@ function unwrapIsoPayload(payload: unknown) {
   return directIso;
 }
 
+function isFiniteNumber(value: unknown): value is number {
+  return typeof value === "number" && Number.isFinite(value);
+}
+
+function loadGeoFromStorage() {
+  if (typeof window === "undefined") return geoCache;
+  try {
+    const raw = window.localStorage.getItem(GEO_STORAGE_KEY);
+    if (!raw) return geoCache;
+    const parsed = JSON.parse(raw) as Record<string, unknown>;
+    const lat = parsed.lat;
+    const lng = parsed.lng;
+    const source = parsed.source;
+    if (!isFiniteNumber(lat) || !isFiniteNumber(lng) || (source !== "gps" && source !== "ip")) {
+      return geoCache;
+    }
+    geoCache = {
+      lat,
+      lng,
+      source,
+      iso2: typeof parsed.iso2 === "string" ? parsed.iso2 : undefined,
+    };
+  } catch {
+    // Ignore malformed persisted geo.
+  }
+  return geoCache;
+}
+
+function persistGeo(next: CurrentGeo) {
+  geoCache = next;
+  if (typeof window === "undefined") return;
+  try {
+    if (!next) {
+      window.localStorage.removeItem(GEO_STORAGE_KEY);
+      return;
+    }
+    window.localStorage.setItem(GEO_STORAGE_KEY, JSON.stringify(next));
+  } catch {
+    // Ignore storage write failures.
+  }
+}
+
 export function useGeoStatus() {
   const [geoStatus, setGeoStatus] = useState<GeoStatus>({ status: "unknown" });
   const [currentGeo, setCurrentGeo] = useState<CurrentGeo>(null);
+  const [geoReady, setGeoReady] = useState(false);
   const [ipStatus, setIpStatus] = useState<IpStatus>({
-    status: "resolving",
-    message: "Detecting approximate location via IP..."
+    status: "idle",
+    message: ""
   });
+  const setGeo = useCallback((next: CurrentGeo | ((_prev: CurrentGeo) => CurrentGeo)) => {
+    setCurrentGeo((prev) => {
+      const resolved = typeof next === "function" ? next(prev) : next;
+      if (prev?.source === "gps" && resolved?.source === "ip") {
+        return prev;
+      }
+      persistGeo(resolved);
+      return resolved;
+    });
+  }, []);
+
+  useEffect(() => {
+    const restored = loadGeoFromStorage();
+    if (restored) {
+      setCurrentGeo(restored);
+      if (restored.source === "gps") {
+        setGeoStatus({ status: "resolved" });
+      }
+      if (restored.source === "ip") {
+        setIpStatus({
+          status: "resolved",
+          country: restored.iso2 || "Saved location",
+          iso2: restored.iso2 || "",
+          message: restored.iso2 ? `IP: ${restored.iso2} (approximate)` : "IP: saved approximate location"
+        });
+      }
+    }
+    setGeoReady(true);
+  }, []);
+
   const refreshIpGeo = useCallback(async () => {
+    if (currentGeo?.source === "gps") return;
     setIpStatus({
       status: "resolving",
       message: "Detecting approximate location via IP..."
     });
     try {
-      const response = await fetch("https://ipwho.is/", { cache: "no-store" });
-      const payload = (await response.json()) as BrowserIpLookupPayload;
-      const iso = String(payload?.country_code || "").trim().toUpperCase();
-      const country = String(payload?.country || "").trim();
-      const lat = typeof payload?.latitude === "number" ? payload.latitude : undefined;
-      const lng = typeof payload?.longitude === "number" ? payload.longitude : undefined;
-      if (!response.ok || payload?.success === false || !iso || !country) {
-        throw new Error("ip_lookup_failed");
-      }
-      setCurrentGeo((prev) => {
+      const resolved = await resolveIp();
+      if (!resolved) throw new Error("ip_lookup_failed");
+      const iso = String(resolved.iso2 || "").trim().toUpperCase();
+      const country = String(resolved.country || "").trim();
+      const lat = resolved.lat;
+      const lng = resolved.lng;
+      setGeo((prev) => {
         if (prev?.source === "gps") return prev;
         return { iso2: iso, lat, lng, source: "ip" };
       });
@@ -90,9 +158,14 @@ export function useGeoStatus() {
         if (!iso || iso === "UNKNOWN") {
           throw new Error("ip_unknown");
         }
-        setCurrentGeo((prev) => {
+        setGeo((prev) => {
           if (prev?.source === "gps") return prev;
-          return { iso2: iso, source: "ip" };
+          return {
+            iso2: iso,
+            lat: prev?.lat,
+            lng: prev?.lng,
+            source: "ip"
+          };
         });
         setIpStatus({
           status: "resolved",
@@ -103,11 +176,11 @@ export function useGeoStatus() {
       } catch {
         setIpStatus({
           status: "unknown",
-          message: "IP unavailable: localhost/private network, VPN/proxy, network blocker, or lookup timeout."
+          message: ""
         });
       }
     }
-  }, []);
+  }, [currentGeo?.source, setGeo]);
   const requestGeo = useCallback(async () => {
     if (typeof navigator === "undefined" || !navigator.geolocation) {
       setGeoStatus({ status: "unknown" });
@@ -119,7 +192,7 @@ export function useGeoStatus() {
       async (position) => {
         const lat = position.coords.latitude;
         const lng = position.coords.longitude;
-        setCurrentGeo((prev) => ({
+        setGeo((prev) => ({
           iso2: prev?.iso2,
           lat,
           lng,
@@ -147,7 +220,7 @@ export function useGeoStatus() {
           if (!iso) {
             return;
           }
-          setCurrentGeo((prev) => ({
+          setGeo((prev) => ({
             iso2: iso,
             lat: prev?.lat ?? lat,
             lng: prev?.lng ?? lng,
@@ -166,7 +239,7 @@ export function useGeoStatus() {
         maximumAge: 0
       }
     );
-  }, []);
+  }, [setGeo]);
 
-  return { geoStatus, retry: requestGeo, currentGeo, refreshIpGeo, ipStatus };
+  return { geoStatus, retry: requestGeo, currentGeo, refreshIpGeo, ipStatus, geoReady };
 }

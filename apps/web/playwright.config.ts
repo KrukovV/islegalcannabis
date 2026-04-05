@@ -4,9 +4,20 @@ export default {
   testDir: "./e2e",
   timeout: 30000,
   expect: { timeout: 5000 },
+  reporter: [
+    ["list"],
+    ["json", { outputFile: "../../Reports/playwright-smoke.json" }]
+  ],
   use: {
     baseURL,
-    headless: true
+    headless: true,
+    launchOptions: {
+      args: [
+        "--use-angle=swiftshader",
+        "--use-gl=angle",
+        "--enable-unsafe-swiftshader"
+      ]
+    }
   },
   projects: [
     {

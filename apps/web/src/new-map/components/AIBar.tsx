@@ -124,9 +124,11 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
           {loading ? "…" : "→"}
         </button>
       </form>
-      <div className={styles.aiGeoHint} data-testid="new-map-ai-geo-hint">
-        {ipStatus.message}
-      </div>
+      {ipStatus.message ? (
+        <div className={styles.aiGeoHint} data-testid="new-map-ai-geo-hint">
+          {ipStatus.message}
+        </div>
+      ) : null}
       {answer || error ? (
         <div className={styles.aiAnswerCard} data-testid="new-map-ai-answer">
           <div className={styles.aiAnswerText}>{error || answer}</div>

@@ -235,7 +235,7 @@ export default function WikiTruthTable({ audit }: { audit: WikiTruthAuditModel }
                 <th className="colNotes" style={{ whiteSpace: "nowrap" }}>Context</th>
                 <th className="colNotes" style={{ whiteSpace: "nowrap" }}>Enforcement</th>
                 <th className="colNotes" style={{ whiteSpace: "nowrap" }}>Social reality</th>
-                <th className="colNotes" style={{ whiteSpace: "nowrap" }}>Notes explainability</th>
+                <th className="colNotes" style={{ whiteSpace: "nowrap" }}>Normalized notes</th>
                 <th className="colMeta" style={{ whiteSpace: "nowrap" }}>NotesLen</th>
                 <th className="colMeta" style={{ whiteSpace: "nowrap" }}>NotesQuality</th>
                 <th className="colFlags" style={{ whiteSpace: "nowrap" }}>MismatchFlags</th>
@@ -318,7 +318,7 @@ export default function WikiTruthTable({ audit }: { audit: WikiTruthAuditModel }
                   <th className="colMeta">Evidence delta</th>
                   <th className="colMeta">Evidence source</th>
                   <th className="colNotes">Trigger phrase</th>
-                  <th className="colNotes">Notes explainability</th>
+                  <th className="colNotes">Normalized notes</th>
                   <th className="colFlags">Flags</th>
                 </tr>
               </thead>
