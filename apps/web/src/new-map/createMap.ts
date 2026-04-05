@@ -494,9 +494,19 @@ export function createMap(
       source: NEW_MAP_US_STATES_SOURCE_ID,
       minzoom: 4.5,
       paint: {
-        "fill-color": ["to-color", ["get", "legalColor"]],
+        "fill-color": [
+          "case",
+          ["boolean", ["feature-state", "hover"], false],
+          ["to-color", ["get", "hoverColor"]],
+          ["to-color", ["get", "legalColor"]]
+        ],
         "fill-antialias": false,
-        "fill-opacity": ["get", "fillOpacity"]
+        "fill-opacity": [
+          "case",
+          ["boolean", ["feature-state", "hover"], false],
+          ["get", "hoverOpacity"],
+          ["get", "fillOpacity"]
+        ]
       }
     }, NEW_MAP_ADMIN_LAYER_ID);
 
@@ -506,7 +516,12 @@ export function createMap(
       source: NEW_MAP_US_STATES_SOURCE_ID,
       minzoom: 4.5,
       paint: {
-        "line-color": "rgba(255,255,255,0.96)",
+        "line-color": [
+          "case",
+          ["boolean", ["feature-state", "hover"], false],
+          "rgba(255,255,255,1)",
+          "rgba(255,255,255,0.96)"
+        ],
         "line-width": [
           "interpolate",
           ["linear"],
@@ -518,7 +533,12 @@ export function createMap(
           8,
           1.35
         ],
-        "line-opacity": 0.88
+        "line-opacity": [
+          "case",
+          ["boolean", ["feature-state", "hover"], false],
+          1,
+          0.88
+        ]
       }
     }, NEW_MAP_ADMIN_LAYER_ID);
 

@@ -1,13 +1,13 @@
-import { headers } from "next/headers";
 import { getBuildStamp } from "@/lib/buildStamp";
 import { buildRegions } from "@/lib/mapData";
 import { getStatusSnapshotMeta } from "@/lib/mapData";
-import { resolveRequestOrigin } from "@/lib/requestOrigin";
 import { buildRuntimeIdentity, formatVisibleRuntimeStamp } from "@/lib/runtimeIdentity";
 import { checkNearLegalEnabled, checkPremium } from "@/middleware/featureGate";
-import MapRoot from "@/new-map/MapRoot";
-import type { CountryCardEntry } from "@/new-map/components/CountryCard";
 import { buildUsStateSourceSnapshot } from "@/new-map/countrySource";
+import type { CountryCardEntry } from "@/new-map/components/CountryCard";
+import NewMapClientEntry from "./NewMapClientEntry";
+
+export const dynamic = "force-static";
 
 const NEW_MAP_CARD_INDEX = buildRegions().reduce<Record<string, CountryCardEntry>>((acc, row) => {
   if (row.type !== "country" && row.type !== "state") return acc;
@@ -25,31 +25,29 @@ const NEW_MAP_CARD_INDEX = buildRegions().reduce<Record<string, CountryCardEntry
 }, {});
 
 const NEW_MAP_US_STATES = buildUsStateSourceSnapshot();
+const NEW_MAP_RUNTIME_IDENTITY = buildRuntimeIdentity({
+  buildStamp: getBuildStamp(),
+  snapshot: getStatusSnapshotMeta(),
+  runtimeMode: process.env.NODE_ENV === "production" ? "production" : "development",
+  expectedOrigin: process.env.RUNTIME_EXPECTED_ORIGIN || "http://127.0.0.1:3000",
+  devMode: process.env.NODE_ENV !== "production",
+  mapEnabled: true,
+  premiumMode: checkPremium() ? "PAID" : "FREE",
+  nearbyMode: checkNearLegalEnabled() ? "RUN" : "SKIP",
+  mapTiles: "NETWORK",
+  dataSource: "SSOT",
+  mapRenderer: "none",
+  mapRuntime: "removed"
+});
+const NEW_MAP_VISIBLE_STAMP = formatVisibleRuntimeStamp(NEW_MAP_RUNTIME_IDENTITY);
 
-export default async function NewMapPage() {
-  const requestOrigin = resolveRequestOrigin(await headers());
-  const buildStamp = getBuildStamp();
-  const snapshot = getStatusSnapshotMeta();
-  const runtimeIdentity = buildRuntimeIdentity({
-    buildStamp,
-    snapshot,
-    runtimeMode: process.env.NODE_ENV === "production" ? "production" : "development",
-    expectedOrigin: requestOrigin,
-    devMode: process.env.NODE_ENV !== "production",
-    mapEnabled: true,
-    premiumMode: checkPremium() ? "PAID" : "FREE",
-    nearbyMode: checkNearLegalEnabled() ? "RUN" : "SKIP",
-    mapTiles: "NETWORK",
-    dataSource: "SSOT",
-    mapRenderer: "none",
-    mapRuntime: "removed"
-  });
+export default function NewMapPage() {
   return (
-    <MapRoot
+    <NewMapClientEntry
       cardIndex={NEW_MAP_CARD_INDEX}
       countriesUrl="/api/new-map/countries"
-      visibleStamp={formatVisibleRuntimeStamp(runtimeIdentity)}
-      runtimeIdentity={runtimeIdentity}
+      visibleStamp={NEW_MAP_VISIBLE_STAMP}
+      runtimeIdentity={NEW_MAP_RUNTIME_IDENTITY}
       usStates={NEW_MAP_US_STATES}
     />
   );
