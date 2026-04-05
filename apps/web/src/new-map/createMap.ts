@@ -394,7 +394,11 @@ export function createMap(
   });
   markNewMapTrace("NM_T1_MAP_CONSTRUCTOR");
   markNewMapTrace("NM_T3_MAP_INSTANCE_READY");
-  map.getCanvas().style.background = "transparent";
+  map.getCanvas().style.background = NEW_MAP_BACKGROUND_COLOR;
+  const canvasContainer = map.getCanvasContainer?.();
+  if (canvasContainer) {
+    canvasContainer.style.background = NEW_MAP_BACKGROUND_COLOR;
+  }
 
   map.dragPan.enable();
   map.scrollZoom.enable();

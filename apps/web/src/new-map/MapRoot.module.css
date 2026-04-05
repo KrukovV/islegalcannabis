@@ -13,7 +13,11 @@
 }
 
 .mapSurface :global(.maplibregl-canvas) {
-  background: transparent;
+  background: #c6d0d7 !important;
+}
+
+.mapSurface :global(.maplibregl-canvas-container) {
+  background: #c6d0d7;
 }
 
 .overlay {

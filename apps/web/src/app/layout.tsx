@@ -3,10 +3,12 @@ import { Analytics } from "@vercel/analytics/next";
 import NewMapDeferredRuntime from "./_components/NewMapDeferredRuntime";
 import "./globals.css";
 import ServiceWorkerGuard from "@/plugins/serviceWorkerGuard";
+import { getBuildStamp } from "@/lib/buildStamp";
 
 const NEW_MAP_STYLE_URL = "/api/new-map/basemap-style?v=20260331-host-header-same-origin";
 const NEW_MAP_COUNTRIES_URL = "/api/new-map/countries";
-const NEW_MAP_CARD_INDEX_URL = "/new-map-card-index.json";
+const NEW_MAP_BUILD_VERSION = encodeURIComponent(getBuildStamp().buildId);
+const NEW_MAP_CARD_INDEX_URL = `/new-map-card-index.json?v=${NEW_MAP_BUILD_VERSION}`;
 
 export const metadata: Metadata = {
   title: "isLegalCannabis",
