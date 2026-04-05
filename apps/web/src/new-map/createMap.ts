@@ -28,7 +28,6 @@ type SelectedGeoCallback = (_geo: { iso2: string; country: string; lng: number; 
 type CreateMapOptions = {
   style?: StyleSpecification | string | null;
   stylePromise?: Promise<StyleSpecification>;
-  usStates?: LegalCountryCollection;
   getCountryPopupHtml?: (_geo: string) => string | null;
   onSelectGeo?: (_geo: string | null) => void;
 };
@@ -327,7 +326,6 @@ export function createMap(
 ): NewMapBootResult {
   let countries: LegalCountryCollection = { type: "FeatureCollection", features: [] };
   let adminBoundaries: AdminBoundaryCollection = { type: "FeatureCollection", features: [] };
-  const usStates = options?.usStates || { type: "FeatureCollection", features: [] };
   let mapLoaded = false;
   let bootstrapped = false;
   let styleApplied = !options?.stylePromise;
@@ -460,7 +458,7 @@ export function createMap(
 
     map.addSource(NEW_MAP_US_STATES_SOURCE_ID, {
       type: "geojson",
-      data: usStates,
+      data: "/us-states.geojson",
       promoteId: "geo"
     });
 

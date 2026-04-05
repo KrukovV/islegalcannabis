@@ -17,8 +17,6 @@ type Props = {
   countriesUrl: string;
   visibleStamp: string;
   runtimeIdentity: RuntimeIdentity;
-  cardIndex: Record<string, CountryCardEntry>;
-  usStates: LegalCountryCollection;
 };
 
 type NewMapDebug = {
@@ -42,6 +40,7 @@ type ActiveGeo = {
 type NewMapPrefetchCache = {
   style?: Promise<StyleSpecification | null> | null;
   countries?: Promise<LegalCountryCollection | null> | null;
+  cardIndex?: Promise<Record<string, CountryCardEntry> | null> | null;
 };
 
 function getNewMapPrefetchCache(): NewMapPrefetchCache | null {
@@ -85,15 +84,17 @@ function renderCountryPopup(entry: CountryCardEntry) {
   ].join("");
 }
 
-export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity, cardIndex, usStates }: Props) {
+export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity }: Props) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   const locationMarkerRef = useRef<maplibregl.Marker | null>(null);
   const lastAutoCenterKeyRef = useRef<string | null>(null);
   const ipBootstrapStartedRef = useRef(false);
+  const cardIndexRef = useRef<Record<string, CountryCardEntry>>({});
   const [error, setError] = useState<string | null>(null);
   const [mapReady, setMapReady] = useState(false);
   const [selectedGeo, setSelectedGeo] = useState<SelectedGeo>(null);
+  const [cardIndex, setCardIndex] = useState<Record<string, CountryCardEntry>>({});
   const { geoStatus, retry, currentGeo, refreshIpGeo, ipStatus, geoReady } = useGeoStatus();
   const currentGeoEntry = currentGeo?.iso2 ? cardIndex[currentGeo.iso2] : null;
   const currentGeoView: ActiveGeo = useMemo(() => {
@@ -170,6 +171,44 @@ export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity, c
   }, [centerMapToGeo, currentGeoView, geoStatus.status, retry]);
 
   useEffect(() => {
+    cardIndexRef.current = cardIndex;
+  }, [cardIndex]);
+
+  useEffect(() => {
+    let cancelled = false;
+    const prefetched = getNewMapPrefetchCache();
+    const loadCardIndex = () =>
+      fetch("/new-map-card-index.json", {
+        cache: "force-cache",
+        credentials: "same-origin"
+      }).then((response) => {
+        if (!response.ok) {
+          throw new Error(`card_index_fetch_failed:${response.status}`);
+        }
+        return response.json() as Promise<Record<string, CountryCardEntry>>;
+      });
+    const cardIndexPromise = prefetched?.cardIndex
+      ? prefetched.cardIndex.then((value) => value || loadCardIndex())
+      : loadCardIndex();
+
+    void cardIndexPromise
+      .then((nextCardIndex) => {
+        if (!cancelled && nextCardIndex) {
+          setCardIndex(nextCardIndex);
+        }
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setCardIndex({});
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
     markNewMapTrace("NM_T11_AI_READY");
   }, []);
 
@@ -227,9 +266,8 @@ export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity, c
         });
         const runtime = createMap(containerRef.current, {
           stylePromise,
-          usStates,
           getCountryPopupHtml: (geo) => {
-            const entry = cardIndex[geo];
+            const entry = cardIndexRef.current[geo];
             return entry ? renderCountryPopup(entry) : null;
           },
           onSelectGeo: (geo) => {
@@ -280,7 +318,7 @@ export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity, c
       cancelled = true;
       cleanup();
     };
-  }, [cardIndex, countriesUrl, usStates]);
+  }, [countriesUrl]);
 
   useEffect(() => {
     if (!mapReady) return;
