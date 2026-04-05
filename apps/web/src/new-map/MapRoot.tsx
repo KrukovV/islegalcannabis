@@ -8,6 +8,7 @@ import { useGeoStatus } from "./hooks/useGeoStatus";
 import { createMap } from "./createMap";
 import { attachHoverController } from "./hoverController";
 import type { LegalCountryCollection } from "./map.types";
+import { markNewMapTrace } from "./startupTrace";
 import AIBar from "./components/AIBar";
 import type { CountryCardEntry } from "./components/CountryCard";
 import styles from "./MapRoot.module.css";
@@ -17,6 +18,7 @@ type Props = {
   visibleStamp: string;
   runtimeIdentity: RuntimeIdentity;
   cardIndex: Record<string, CountryCardEntry>;
+  usStates: LegalCountryCollection;
 };
 
 type NewMapDebug = {
@@ -83,7 +85,7 @@ function renderCountryPopup(entry: CountryCardEntry) {
   ].join("");
 }
 
-export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity, cardIndex }: Props) {
+export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity, cardIndex, usStates }: Props) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   const locationMarkerRef = useRef<maplibregl.Marker | null>(null);
@@ -168,6 +170,15 @@ export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity, c
   }, [centerMapToGeo, currentGeoView, geoStatus.status, retry]);
 
   useEffect(() => {
+    markNewMapTrace("NM_T11_AI_READY");
+  }, []);
+
+  useEffect(() => {
+    if (!currentGeo?.source) return;
+    markNewMapTrace("NM_T10_GEO_DONE");
+  }, [currentGeo?.source]);
+
+  useEffect(() => {
     if (!geoReady || !mapReady || currentGeo?.source === "gps" || ipBootstrapStartedRef.current) return;
     ipBootstrapStartedRef.current = true;
     const timerId = window.setTimeout(() => {
@@ -216,13 +227,15 @@ export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity, c
         });
         const runtime = createMap(containerRef.current, {
           stylePromise,
+          usStates,
           getCountryPopupHtml: (geo) => {
             const entry = cardIndex[geo];
             return entry ? renderCountryPopup(entry) : null;
           },
           onSelectGeo: (geo) => {
-            setSelectedGeo(geo);
-            setDebugState({ selectedId: geo });
+            const normalizedGeo = geo?.startsWith("US-") ? "US" : geo;
+            setSelectedGeo(normalizedGeo);
+            setDebugState({ selectedId: normalizedGeo });
           }
         });
         mapRef.current = runtime.map;
@@ -267,7 +280,7 @@ export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity, c
       cancelled = true;
       cleanup();
     };
-  }, [cardIndex, countriesUrl]);
+  }, [cardIndex, countriesUrl, usStates]);
 
   useEffect(() => {
     if (!mapReady) return;

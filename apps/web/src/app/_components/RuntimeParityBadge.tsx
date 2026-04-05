@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { usePathname } from "next/navigation";
 import type { RuntimeIdentity } from "@/lib/runtimeIdentity";
+import { hasFirstVisualReady, markNewMapTrace, onFirstVisualReady } from "@/new-map/startupTrace";
 import styles from "./RuntimeParityBadge.module.css";
 
 type BuildMeta = {
@@ -55,11 +57,22 @@ function runtimeMatches(left: ReturnType<typeof normalizeRuntimeStamp>, right: B
 }
 
 export default function RuntimeParityBadge({ runtimeIdentity }: Props) {
+  const pathname = usePathname();
+  const isNewMapRoute = pathname?.startsWith("/new-map");
   const [isActual, setIsActual] = useState<boolean | null>(null);
   const [mismatchCount, setMismatchCount] = useState(0);
   const runtimeStamp = useMemo(() => normalizeRuntimeStamp(runtimeIdentity), [runtimeIdentity]);
+  const [checkEnabled, setCheckEnabled] = useState(() => !pathname?.startsWith("/new-map") || hasFirstVisualReady());
 
   useEffect(() => {
+    if (!isNewMapRoute || hasFirstVisualReady()) return;
+    return onFirstVisualReady(() => {
+      setCheckEnabled(true);
+    });
+  }, [isNewMapRoute]);
+
+  useEffect(() => {
+    if (!checkEnabled) return;
     let alive = true;
 
     const check = async () => {
@@ -71,10 +84,12 @@ export default function RuntimeParityBadge({ runtimeIdentity }: Props) {
         if (!alive) return;
         setIsActual(matches);
         setMismatchCount(matches ? 0 : 1);
+        markNewMapTrace("NM_T9_RUNTIME_BADGE_ACTUAL");
       } catch {
         if (!alive) return;
         setIsActual(false);
         setMismatchCount(1);
+        markNewMapTrace("NM_T9_RUNTIME_BADGE_ACTUAL");
       }
     };
 
@@ -87,7 +102,7 @@ export default function RuntimeParityBadge({ runtimeIdentity }: Props) {
       alive = false;
       window.clearInterval(timer);
     };
-  }, [runtimeStamp]);
+  }, [checkEnabled, runtimeStamp]);
 
   const actual = isActual === true;
   const checking = isActual == null;

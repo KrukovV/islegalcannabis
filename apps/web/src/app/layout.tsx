@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
-import GeoInit from "./_components/GeoInit";
+import NewMapDeferredRuntime from "./_components/NewMapDeferredRuntime";
 import "./globals.css";
-import RuntimeMiddleware from "@/plugins/runtimeMiddleware";
-import BuildWatcher from "@/plugins/buildWatcher";
 import ServiceWorkerGuard from "@/plugins/serviceWorkerGuard";
 
 const NEW_MAP_STYLE_URL = "/api/new-map/basemap-style?v=20260331-host-header-same-origin";
@@ -25,7 +23,18 @@ export const metadata: Metadata = {
 
 const NEW_MAP_PREFETCH_SCRIPT = `
 (() => {
-  if (typeof window === "undefined" || window.__NEW_MAP_PREFETCH__) return;
+  if (typeof window === "undefined") return;
+  const trace = window.__NEW_MAP_TRACE__ || {
+    t0: performance.now(),
+    marks: {},
+    metrics: {}
+  };
+  trace.t0 = typeof trace.t0 === "number" ? trace.t0 : performance.now();
+  trace.marks = trace.marks || {};
+  trace.metrics = trace.metrics || {};
+  window.__NEW_MAP_TRACE__ = trace;
+  trace.marks.NM_T0_ROUTE_START = trace.marks.NM_T0_ROUTE_START || performance.now();
+  if (window.__NEW_MAP_PREFETCH__) return;
   const loadJson = (url) =>
     fetch(url, { cache: "force-cache", credentials: "same-origin" })
       .then((response) => (response.ok ? response.json() : null))
@@ -34,6 +43,9 @@ const NEW_MAP_PREFETCH_SCRIPT = `
     style: loadJson("${NEW_MAP_STYLE_URL}"),
     countries: loadJson("${NEW_MAP_COUNTRIES_URL}")
   };
+  Promise.allSettled([window.__NEW_MAP_PREFETCH__.style, window.__NEW_MAP_PREFETCH__.countries]).then(() => {
+    trace.marks.NM_T1_HEAD_PREFETCH_READY = trace.marks.NM_T1_HEAD_PREFETCH_READY || performance.now();
+  });
 })();
 `;
 
@@ -48,10 +60,8 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: NEW_MAP_PREFETCH_SCRIPT }} />
       </head>
       <body>
-        <RuntimeMiddleware />
         <ServiceWorkerGuard />
-        <BuildWatcher />
-        <GeoInit />
+        <NewMapDeferredRuntime />
         {children}
         <Analytics />
       </body>
