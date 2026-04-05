@@ -81,10 +81,12 @@ function Row({ row }: { row: WikiTruthAuditRow }) {
       <td className="colMeta">{row.evidenceDelta}</td>
       <td className="colMeta">{row.evidenceSourceType}</td>
       <td className="colNotes">{row.triggerPhraseExcerpt}</td>
+      <td className="colNotes">{row.wikiNotes}</td>
+      <td className="colNotes">{row.notesText}</td>
+      <td className="colNotes">{row.notesExplainability}</td>
       <td className="colNotes">{row.contextNote}</td>
       <td className="colNotes">{row.enforcementNote}</td>
       <td className="colNotes">{row.socialRealityNote}</td>
-      <td className="colNotes">{row.notesText}</td>
       <td className="colFlags">{renderFlags(row.flags)}</td>
     </tr>
   );
@@ -232,10 +234,12 @@ export default function WikiTruthTable({ audit }: { audit: WikiTruthAuditModel }
                 <th className="colMeta" style={{ whiteSpace: "nowrap" }}>Evidence delta</th>
                 <th className="colMeta" style={{ whiteSpace: "nowrap" }}>Evidence source</th>
                 <th className="colNotes" style={{ whiteSpace: "nowrap" }}>Trigger phrase</th>
+                <th className="colNotes" style={{ whiteSpace: "nowrap" }}>Wiki notes</th>
+                <th className="colNotes" style={{ whiteSpace: "nowrap" }}>Normalized notes</th>
+                <th className="colNotes" style={{ whiteSpace: "nowrap" }}>Notes explainability</th>
                 <th className="colNotes" style={{ whiteSpace: "nowrap" }}>Context</th>
                 <th className="colNotes" style={{ whiteSpace: "nowrap" }}>Enforcement</th>
                 <th className="colNotes" style={{ whiteSpace: "nowrap" }}>Social reality</th>
-                <th className="colNotes" style={{ whiteSpace: "nowrap" }}>Normalized notes</th>
                 <th className="colMeta" style={{ whiteSpace: "nowrap" }}>NotesLen</th>
                 <th className="colMeta" style={{ whiteSpace: "nowrap" }}>NotesQuality</th>
                 <th className="colFlags" style={{ whiteSpace: "nowrap" }}>MismatchFlags</th>
@@ -274,10 +278,12 @@ export default function WikiTruthTable({ audit }: { audit: WikiTruthAuditModel }
                   <td className="colMeta">{row.evidenceDelta}</td>
                   <td className="colMeta">{row.evidenceSourceType}</td>
                   <td className="colNotes">{row.triggerPhraseExcerpt}</td>
+                  <td className="colNotes">{row.wikiNotes}</td>
+                  <td className="colNotes">{row.notesText}</td>
+                  <td className="colNotes">{row.notesExplainability}</td>
                   <td className="colNotes">{row.contextNote}</td>
                   <td className="colNotes">{row.enforcementNote}</td>
                   <td className="colNotes">{row.socialRealityNote}</td>
-                  <td className="colNotes">{row.notesText}</td>
                   <td className="colMeta">{row.notesLen}</td>
                   <td className="colMeta">{row.notesQuality}</td>
                   <td className="colFlags">{renderFlags(row.mismatchFlags)}</td>
@@ -285,7 +291,7 @@ export default function WikiTruthTable({ audit }: { audit: WikiTruthAuditModel }
               ))}
               {!audit.allRows.length ? (
                 <tr>
-                  <td colSpan={26}>No truth rows found.</td>
+                  <td colSpan={28}>No truth rows found.</td>
                 </tr>
               ) : null}
             </tbody>
@@ -318,7 +324,9 @@ export default function WikiTruthTable({ audit }: { audit: WikiTruthAuditModel }
                   <th className="colMeta">Evidence delta</th>
                   <th className="colMeta">Evidence source</th>
                   <th className="colNotes">Trigger phrase</th>
+                  <th className="colNotes">Wiki notes</th>
                   <th className="colNotes">Normalized notes</th>
+                  <th className="colNotes">Notes explainability</th>
                   <th className="colFlags">Flags</th>
                 </tr>
               </thead>

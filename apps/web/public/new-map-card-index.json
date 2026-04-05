@@ -1,1 +1,3863 @@
-{"AF":{"geo":"AF","displayName":"Afghanistan","iso2":"AF","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":33,"lng":65}},"AL":{"geo":"AL","displayName":"Albania","iso2":"AL","type":"country","legalStatus":"Illegal","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":41,"lng":20}},"DZ":{"geo":"DZ","displayName":"Algeria","iso2":"DZ","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":28,"lng":3}},"AD":{"geo":"AD","displayName":"Andorra","iso2":"AD","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":42.5,"lng":1.5}},"AO":{"geo":"AO","displayName":"Angola","iso2":"AO","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":-12.5,"lng":18.5}},"AG":{"geo":"AG","displayName":"Antigua and Barbuda","iso2":"AG","type":"country","legalStatus":"Decrim","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":17.05,"lng":-61.8}},"AR":{"geo":"AR","displayName":"Argentina","iso2":"AR","type":"country","legalStatus":"Illegal","medicalStatus":"Legal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":-34,"lng":-64}},"AM":{"geo":"AM","displayName":"Armenia","iso2":"AM","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":40,"lng":45}},"AU":{"geo":"AU","displayName":"Australia","iso2":"AU","type":"country","legalStatus":"Decrim","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":-27,"lng":133}},"AT":{"geo":"AT","displayName":"Austria","iso2":"AT","type":"country","legalStatus":"Decrim","medicalStatus":"Unknown","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only.","coordinates":{"lat":47.33333333,"lng":13.33333333}},"AZ":{"geo":"AZ","displayName":"Azerbaijan","iso2":"AZ","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":40.5,"lng":47.5}},"BS":{"geo":"BS","displayName":"Bahamas","iso2":"BS","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":24.25,"lng":-76}},"BH":{"geo":"BH","displayName":"Bahrain","iso2":"BH","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":26,"lng":50.55}},"BD":{"geo":"BD","displayName":"Bangladesh","iso2":"BD","type":"country","legalStatus":"Unenforced","medicalStatus":"Illegal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":24,"lng":90}},"BB":{"geo":"BB","displayName":"Barbados","iso2":"BB","type":"country","legalStatus":"Legal","medicalStatus":"Legal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":13.16666666,"lng":-59.53333333}},"BY":{"geo":"BY","displayName":"Belarus","iso2":"BY","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":53,"lng":28}},"BE":{"geo":"BE","displayName":"Belgium","iso2":"BE","type":"country","legalStatus":"Decrim","medicalStatus":"Unknown","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":50.83333333,"lng":4}},"BZ":{"geo":"BZ","displayName":"Belize","iso2":"BZ","type":"country","legalStatus":"Decrim","medicalStatus":"Illegal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":17.25,"lng":-88.75}},"BJ":{"geo":"BJ","displayName":"Benin","iso2":"BJ","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":9.5,"lng":2.25}},"BM":{"geo":"BM","displayName":"Bermuda","iso2":"BM","type":"country","legalStatus":"Decrim","medicalStatus":"Legal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":32.33333333,"lng":-64.75}},"BT":{"geo":"BT","displayName":"Bhutan","iso2":"BT","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":27.5,"lng":90.5}},"BO":{"geo":"BO","displayName":"Bolivia","iso2":"BO","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":-17,"lng":-65}},"BA":{"geo":"BA","displayName":"Bosnia and Herzegovina","iso2":"BA","type":"country","legalStatus":"Illegal","medicalStatus":"Legal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":44,"lng":18}},"BW":{"geo":"BW","displayName":"Botswana","iso2":"BW","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":-22,"lng":24}},"BR":{"geo":"BR","displayName":"Brazil","iso2":"BR","type":"country","legalStatus":"Decrim","medicalStatus":"Legal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":-10,"lng":-55}},"BN":{"geo":"BN","displayName":"Brunei","iso2":"BN","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":4.5,"lng":114.66666666}},"BG":{"geo":"BG","displayName":"Bulgaria","iso2":"BG","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":43,"lng":25}},"BF":{"geo":"BF","displayName":"Burkina Faso","iso2":"BF","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":13,"lng":-2}},"BI":{"geo":"BI","displayName":"Burundi","iso2":"BI","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":-3.5,"lng":30}},"KH":{"geo":"KH","displayName":"Cambodia","iso2":"KH","type":"country","legalStatus":"Unenforced","medicalStatus":"Illegal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":13,"lng":105}},"CM":{"geo":"CM","displayName":"Cameroon","iso2":"CM","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":6,"lng":12}},"CA":{"geo":"CA","displayName":"Canada","iso2":"CA","type":"country","legalStatus":"Legal","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":60,"lng":-95}},"CV":{"geo":"CV","displayName":"Cape Verde","iso2":"CV","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":16,"lng":-24}},"CF":{"geo":"CF","displayName":"Central African Republic","iso2":"CF","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":7,"lng":21}},"TD":{"geo":"TD","displayName":"Chad","iso2":"TD","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":15,"lng":19}},"CL":{"geo":"CL","displayName":"Chile","iso2":"CL","type":"country","legalStatus":"Decrim","medicalStatus":"Legal","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only.","coordinates":{"lat":-30,"lng":-71}},"CN":{"geo":"CN","displayName":"China","iso2":"CN","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":35,"lng":105}},"CO":{"geo":"CO","displayName":"Colombia","iso2":"CO","type":"country","legalStatus":"Decrim","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":4,"lng":-72}},"KM":{"geo":"KM","displayName":"Comoros","iso2":"KM","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only.","coordinates":{"lat":-12.16666666,"lng":44.25}},"CK":{"geo":"CK","displayName":"Cook Islands","iso2":"CK","type":"country","legalStatus":"Illegal","medicalStatus":"Legal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":-21.23333333,"lng":-159.76666666}},"CD":{"geo":"CD","displayName":"DR Congo","iso2":"CD","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":0,"lng":25}},"CG":{"geo":"CG","displayName":"Congo","iso2":"CG","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":-1,"lng":15}},"CR":{"geo":"CR","displayName":"Costa Rica","iso2":"CR","type":"country","legalStatus":"Decrim","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":10,"lng":-84}},"HR":{"geo":"HR","displayName":"Croatia","iso2":"HR","type":"country","legalStatus":"Decrim","medicalStatus":"Legal","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only.","coordinates":{"lat":45.16666666,"lng":15.5}},"CU":{"geo":"CU","displayName":"Cuba","iso2":"CU","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":21.5,"lng":-80}},"CY":{"geo":"CY","displayName":"Cyprus","iso2":"CY","type":"country","legalStatus":"Illegal","medicalStatus":"Legal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":35,"lng":33}},"CZ":{"geo":"CZ","displayName":"Czechia","iso2":"CZ","type":"country","legalStatus":"Unknown","medicalStatus":"Legal","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only.","coordinates":{"lat":49.75,"lng":15.5}},"DK":{"geo":"DK","displayName":"Denmark","iso2":"DK","type":"country","legalStatus":"Illegal","medicalStatus":"Legal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":56,"lng":10}},"DJ":{"geo":"DJ","displayName":"Djibouti","iso2":"DJ","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":11.5,"lng":43}},"DM":{"geo":"DM","displayName":"Dominica","iso2":"DM","type":"country","legalStatus":"Decrim","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":15.41666666,"lng":-61.33333333}},"DO":{"geo":"DO","displayName":"Dominican Republic","iso2":"DO","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":19,"lng":-70.66666666}},"EC":{"geo":"EC","displayName":"Ecuador","iso2":"EC","type":"country","legalStatus":"Illegal","medicalStatus":"Legal","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only.","coordinates":{"lat":-2,"lng":-77.5}},"EG":{"geo":"EG","displayName":"Egypt","iso2":"EG","type":"country","legalStatus":"Unenforced","medicalStatus":"Illegal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":27,"lng":30}},"SV":{"geo":"SV","displayName":"El Salvador","iso2":"SV","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":13.83333333,"lng":-88.91666666}},"GQ":{"geo":"GQ","displayName":"Equatorial Guinea","iso2":"GQ","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":2,"lng":10}},"ER":{"geo":"ER","displayName":"Eritrea","iso2":"ER","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":15,"lng":39}},"EE":{"geo":"EE","displayName":"Estonia","iso2":"EE","type":"country","legalStatus":"Decrim","medicalStatus":"Unknown","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only.","coordinates":{"lat":59,"lng":26}},"SZ":{"geo":"SZ","displayName":"Eswatini","iso2":"SZ","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":-26.5,"lng":31.5}},"ET":{"geo":"ET","displayName":"Ethiopia","iso2":"ET","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":8,"lng":38}},"FJ":{"geo":"FJ","displayName":"Fiji","iso2":"FJ","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":-18,"lng":175}},"FI":{"geo":"FI","displayName":"Finland","iso2":"FI","type":"country","legalStatus":"Illegal","medicalStatus":"Legal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":64,"lng":26}},"FR":{"geo":"FR","displayName":"France","iso2":"FR","type":"country","legalStatus":"Illegal","medicalStatus":"Unknown","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":46.2276,"lng":2.2137}},"GA":{"geo":"GA","displayName":"Gabon","iso2":"GA","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":-1,"lng":11.75}},"GM":{"geo":"GM","displayName":"Gambia","iso2":"GM","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":13.46666666,"lng":-16.56666666}},"GE":{"geo":"GE","displayName":"Georgia","iso2":"GE","type":"country","legalStatus":"Decrim","medicalStatus":"Limited","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only.","coordinates":{"lat":42,"lng":43.5}},"DE":{"geo":"DE","displayName":"Germany","iso2":"DE","type":"country","legalStatus":"Legal","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":51.1657,"lng":10.4515}},"GH":{"geo":"GH","displayName":"Ghana","iso2":"GH","type":"country","legalStatus":"Illegal","medicalStatus":"Legal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":8,"lng":-2}},"GR":{"geo":"GR","displayName":"Greece","iso2":"GR","type":"country","legalStatus":"Illegal","medicalStatus":"Legal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":39,"lng":22}},"GL":{"geo":"GL","displayName":"Greenland","iso2":"GL","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":72,"lng":-40}},"GD":{"geo":"GD","displayName":"Grenada","iso2":"GD","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":12.11666666,"lng":-61.66666666}},"GT":{"geo":"GT","displayName":"Guatemala","iso2":"GT","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":15.5,"lng":-90.25}},"GN":{"geo":"GN","displayName":"Guinea","iso2":"GN","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":11,"lng":-10}},"GW":{"geo":"GW","displayName":"Guinea-Bissau","iso2":"GW","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":12,"lng":-15}},"GY":{"geo":"GY","displayName":"Guyana","iso2":"GY","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":5,"lng":-59}},"HT":{"geo":"HT","displayName":"Haiti","iso2":"HT","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":19,"lng":-72.41666666}},"HN":{"geo":"HN","displayName":"Honduras","iso2":"HN","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":15,"lng":-86.5}},"HK":{"geo":"HK","displayName":"Hong Kong","iso2":"HK","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":22.267,"lng":114.188}},"HU":{"geo":"HU","displayName":"Hungary","iso2":"HU","type":"country","legalStatus":"Illegal","medicalStatus":"Unknown","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only.","coordinates":{"lat":47,"lng":20}},"IS":{"geo":"IS","displayName":"Iceland","iso2":"IS","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":65,"lng":-18}},"IN":{"geo":"IN","displayName":"India","iso2":"IN","type":"country","legalStatus":"Illegal","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":20,"lng":77}},"ID":{"geo":"ID","displayName":"Indonesia","iso2":"ID","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":-5,"lng":120}},"IR":{"geo":"IR","displayName":"Iran","iso2":"IR","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only.","coordinates":{"lat":32,"lng":53}},"IQ":{"geo":"IQ","displayName":"Iraq","iso2":"IQ","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":33,"lng":44}},"IE":{"geo":"IE","displayName":"Ireland","iso2":"IE","type":"country","legalStatus":"Illegal","medicalStatus":"Legal","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only.","coordinates":{"lat":53,"lng":-8}},"IL":{"geo":"IL","displayName":"Israel","iso2":"IL","type":"country","legalStatus":"Decrim","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":31.47,"lng":35.13}},"IT":{"geo":"IT","displayName":"Italy","iso2":"IT","type":"country","legalStatus":"Decrim","medicalStatus":"Legal","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only.","coordinates":{"lat":41.8719,"lng":12.5674}},"CI":{"geo":"CI","displayName":"Ivory Coast","iso2":"CI","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":8,"lng":-5}},"JM":{"geo":"JM","displayName":"Jamaica","iso2":"JM","type":"country","legalStatus":"Decrim","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":18.25,"lng":-77.5}},"JP":{"geo":"JP","displayName":"Japan","iso2":"JP","type":"country","legalStatus":"Illegal","medicalStatus":"Unknown","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":36,"lng":138}},"JO":{"geo":"JO","displayName":"Jordan","iso2":"JO","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":31,"lng":36}},"KZ":{"geo":"KZ","displayName":"Kazakhstan","iso2":"KZ","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":48,"lng":68}},"KE":{"geo":"KE","displayName":"Kenya","iso2":"KE","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":1,"lng":38}},"KI":{"geo":"KI","displayName":"Kiribati","iso2":"KI","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":1.41666666,"lng":173}},"KP":{"geo":"KP","displayName":"North Korea","iso2":"KP","type":"country","legalStatus":"Unenforced","medicalStatus":"Legal","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only.","coordinates":{"lat":40,"lng":127}},"KR":{"geo":"KR","displayName":"South Korea","iso2":"KR","type":"country","legalStatus":"Illegal","medicalStatus":"Limited","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":37,"lng":127.5}},"KW":{"geo":"KW","displayName":"Kuwait","iso2":"KW","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":29.5,"lng":45.75}},"KG":{"geo":"KG","displayName":"Kyrgyzstan","iso2":"KG","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":41,"lng":75}},"LA":{"geo":"LA","displayName":"Laos","iso2":"LA","type":"country","legalStatus":"Unenforced","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":18,"lng":105}},"LV":{"geo":"LV","displayName":"Latvia","iso2":"LV","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":57,"lng":25}},"LB":{"geo":"LB","displayName":"Lebanon","iso2":"LB","type":"country","legalStatus":"Illegal","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":33.83333333,"lng":35.83333333}},"LS":{"geo":"LS","displayName":"Lesotho","iso2":"LS","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only.","coordinates":{"lat":-29.5,"lng":28.5}},"LR":{"geo":"LR","displayName":"Liberia","iso2":"LR","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":6.5,"lng":-9.5}},"LY":{"geo":"LY","displayName":"Libya","iso2":"LY","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":25,"lng":17}},"LI":{"geo":"LI","displayName":"Liechtenstein","iso2":"LI","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":47.26666666,"lng":9.53333333}},"LT":{"geo":"LT","displayName":"Lithuania","iso2":"LT","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":56,"lng":24}},"LU":{"geo":"LU","displayName":"Luxembourg","iso2":"LU","type":"country","legalStatus":"Decrim","medicalStatus":"Legal","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only.","coordinates":{"lat":49.75,"lng":6.16666666}},"MO":{"geo":"MO","displayName":"Macau","iso2":"MO","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":22.16666666,"lng":113.55}},"MG":{"geo":"MG","displayName":"Madagascar","iso2":"MG","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":-20,"lng":47}},"MW":{"geo":"MW","displayName":"Malawi","iso2":"MW","type":"country","legalStatus":"Illegal","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":-13.5,"lng":34}},"MY":{"geo":"MY","displayName":"Malaysia","iso2":"MY","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":2.5,"lng":112.5}},"MV":{"geo":"MV","displayName":"Maldives","iso2":"MV","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":3.25,"lng":73}},"ML":{"geo":"ML","displayName":"Mali","iso2":"ML","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":17,"lng":-4}},"MT":{"geo":"MT","displayName":"Malta","iso2":"MT","type":"country","legalStatus":"Legal","medicalStatus":"Legal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":35.83333333,"lng":14.58333333}},"MH":{"geo":"MH","displayName":"Marshall Islands","iso2":"MH","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":9,"lng":168}},"MR":{"geo":"MR","displayName":"Mauritania","iso2":"MR","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":20,"lng":-12}},"MU":{"geo":"MU","displayName":"Mauritius","iso2":"MU","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":-20.28333333,"lng":57.55}},"MX":{"geo":"MX","displayName":"Mexico","iso2":"MX","type":"country","legalStatus":"Legal","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":23,"lng":-102}},"FM":{"geo":"FM","displayName":"Micronesia","iso2":"FM","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":6.91666666,"lng":158.25}},"MD":{"geo":"MD","displayName":"Moldova","iso2":"MD","type":"country","legalStatus":"Decrim","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":47,"lng":29}},"MC":{"geo":"MC","displayName":"Monaco","iso2":"MC","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":43.73333333,"lng":7.4}},"MN":{"geo":"MN","displayName":"Mongolia","iso2":"MN","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":46,"lng":105}},"ME":{"geo":"ME","displayName":"Montenegro","iso2":"ME","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":42.5,"lng":19.3}},"MA":{"geo":"MA","displayName":"Morocco","iso2":"MA","type":"country","legalStatus":"Unenforced","medicalStatus":"Legal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":32,"lng":-5}},"MZ":{"geo":"MZ","displayName":"Mozambique","iso2":"MZ","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":-18.25,"lng":35}},"MM":{"geo":"MM","displayName":"Myanmar","iso2":"MM","type":"country","legalStatus":"Unenforced","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":22,"lng":98}},"NA":{"geo":"NA","displayName":"Namibia","iso2":"NA","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":-22,"lng":17}},"NR":{"geo":"NR","displayName":"Nauru","iso2":"NR","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":-0.53333333,"lng":166.91666666}},"NP":{"geo":"NP","displayName":"Nepal","iso2":"NP","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":28,"lng":84}},"NL":{"geo":"NL","displayName":"Netherlands","iso2":"NL","type":"country","legalStatus":"Unenforced","medicalStatus":"Legal","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only.","coordinates":{"lat":52.1326,"lng":5.2913}},"NZ":{"geo":"NZ","displayName":"New Zealand","iso2":"NZ","type":"country","legalStatus":"Illegal","medicalStatus":"Legal","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only.","coordinates":{"lat":-41,"lng":174}},"NI":{"geo":"NI","displayName":"Nicaragua","iso2":"NI","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":13,"lng":-85}},"NE":{"geo":"NE","displayName":"Niger","iso2":"NE","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":16,"lng":8}},"NG":{"geo":"NG","displayName":"Nigeria","iso2":"NG","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":10,"lng":8}},"MK":{"geo":"MK","displayName":"North Macedonia","iso2":"MK","type":"country","legalStatus":"Illegal","medicalStatus":"Legal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":41.83333333,"lng":22}},"NO":{"geo":"NO","displayName":"Norway","iso2":"NO","type":"country","legalStatus":"Illegal","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":62,"lng":10}},"OM":{"geo":"OM","displayName":"Oman","iso2":"OM","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":21,"lng":57}},"PK":{"geo":"PK","displayName":"Pakistan","iso2":"PK","type":"country","legalStatus":"Unenforced","medicalStatus":"Unknown","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only.","coordinates":{"lat":30,"lng":70}},"PW":{"geo":"PW","displayName":"Palau","iso2":"PW","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":7.5,"lng":134.5}},"PA":{"geo":"PA","displayName":"Panama","iso2":"PA","type":"country","legalStatus":"Illegal","medicalStatus":"Legal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":9,"lng":-80}},"PG":{"geo":"PG","displayName":"Papua New Guinea","iso2":"PG","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":-6,"lng":147}},"PY":{"geo":"PY","displayName":"Paraguay","iso2":"PY","type":"country","legalStatus":"Decrim","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":-23,"lng":-58}},"PE":{"geo":"PE","displayName":"Peru","iso2":"PE","type":"country","legalStatus":"Decrim","medicalStatus":"Legal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":-10,"lng":-76}},"PH":{"geo":"PH","displayName":"Philippines","iso2":"PH","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":13,"lng":122}},"PL":{"geo":"PL","displayName":"Poland","iso2":"PL","type":"country","legalStatus":"Illegal","medicalStatus":"Legal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":52,"lng":20}},"PT":{"geo":"PT","displayName":"Portugal","iso2":"PT","type":"country","legalStatus":"Decrim","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":39.3999,"lng":-8.2245}},"QA":{"geo":"QA","displayName":"Qatar","iso2":"QA","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":25.5,"lng":51.25}},"RO":{"geo":"RO","displayName":"Romania","iso2":"RO","type":"country","legalStatus":"Illegal","medicalStatus":"Unknown","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only.","coordinates":{"lat":46,"lng":25}},"RU":{"geo":"RU","displayName":"Russia","iso2":"RU","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":60,"lng":100}},"RW":{"geo":"RW","displayName":"Rwanda","iso2":"RW","type":"country","legalStatus":"Illegal","medicalStatus":"Legal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":-2,"lng":30}},"KN":{"geo":"KN","displayName":"Saint Kitts and Nevis","iso2":"KN","type":"country","legalStatus":"Decrim","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":17.33333333,"lng":-62.75}},"LC":{"geo":"LC","displayName":"Saint Lucia","iso2":"LC","type":"country","legalStatus":"Decrim","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":13.88333333,"lng":-60.96666666}},"VC":{"geo":"VC","displayName":"Saint Vincent and the Grenadines","iso2":"VC","type":"country","legalStatus":"Decrim","medicalStatus":"Legal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":13.25,"lng":-61.2}},"WS":{"geo":"WS","displayName":"Samoa","iso2":"WS","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":-13.58333333,"lng":-172.33333333}},"SM":{"geo":"SM","displayName":"San Marino","iso2":"SM","type":"country","legalStatus":"Illegal","medicalStatus":"Legal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":43.76666666,"lng":12.41666666}},"ST":{"geo":"ST","displayName":"São Tomé and Príncipe","iso2":"ST","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":1,"lng":7}},"SA":{"geo":"SA","displayName":"Saudi Arabia","iso2":"SA","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":25,"lng":45}},"SN":{"geo":"SN","displayName":"Senegal","iso2":"SN","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":14,"lng":-14}},"RS":{"geo":"RS","displayName":"Serbia","iso2":"RS","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":44,"lng":21}},"SC":{"geo":"SC","displayName":"Seychelles","iso2":"SC","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":-4.58333333,"lng":55.66666666}},"SL":{"geo":"SL","displayName":"Sierra Leone","iso2":"SL","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":8.5,"lng":-11.5}},"SG":{"geo":"SG","displayName":"Singapore","iso2":"SG","type":"country","legalStatus":"Illegal","medicalStatus":"Unknown","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only.","coordinates":{"lat":1.36666666,"lng":103.8}},"SK":{"geo":"SK","displayName":"Slovakia","iso2":"SK","type":"country","legalStatus":"Illegal","medicalStatus":"Unknown","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":48.66666666,"lng":19.5}},"SI":{"geo":"SI","displayName":"Slovenia","iso2":"SI","type":"country","legalStatus":"Decrim","medicalStatus":"Legal","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only.","coordinates":{"lat":46.11666666,"lng":14.81666666}},"SB":{"geo":"SB","displayName":"Solomon Islands","iso2":"SB","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":-8,"lng":159}},"SO":{"geo":"SO","displayName":"Somalia","iso2":"SO","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":10,"lng":49}},"ZA":{"geo":"ZA","displayName":"South Africa","iso2":"ZA","type":"country","legalStatus":"Legal","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":-29,"lng":24}},"SS":{"geo":"SS","displayName":"South Sudan","iso2":"SS","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":7,"lng":30}},"ES":{"geo":"ES","displayName":"Spain","iso2":"ES","type":"country","legalStatus":"Decrim","medicalStatus":"Legal","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only.","coordinates":{"lat":40.4637,"lng":-3.7492}},"LK":{"geo":"LK","displayName":"Sri Lanka","iso2":"LK","type":"country","legalStatus":"Illegal","medicalStatus":"Legal","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only.","coordinates":{"lat":7,"lng":81}},"SD":{"geo":"SD","displayName":"Sudan","iso2":"SD","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":15,"lng":30}},"SR":{"geo":"SR","displayName":"Suriname","iso2":"SR","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":4,"lng":-56}},"SE":{"geo":"SE","displayName":"Sweden","iso2":"SE","type":"country","legalStatus":"Illegal","medicalStatus":"Limited","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":62,"lng":15}},"CH":{"geo":"CH","displayName":"Switzerland","iso2":"CH","type":"country","legalStatus":"Decrim","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":47,"lng":8}},"SY":{"geo":"SY","displayName":"Syria","iso2":"SY","type":"country","legalStatus":"Unenforced","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":35,"lng":38}},"TW":{"geo":"TW","displayName":"Taiwan","iso2":"TW","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":23.5,"lng":121}},"TJ":{"geo":"TJ","displayName":"Tajikistan","iso2":"TJ","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":39,"lng":71}},"TZ":{"geo":"TZ","displayName":"Tanzania","iso2":"TZ","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":-6,"lng":35}},"TH":{"geo":"TH","displayName":"Thailand","iso2":"TH","type":"country","legalStatus":"Unenforced","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":15,"lng":100}},"TL":{"geo":"TL","displayName":"Timor-Leste","iso2":"TL","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":-8.83333333,"lng":125.91666666}},"TG":{"geo":"TG","displayName":"Togo","iso2":"TG","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":8,"lng":1.16666666}},"TO":{"geo":"TO","displayName":"Tonga","iso2":"TO","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":-20,"lng":-175}},"TT":{"geo":"TT","displayName":"Trinidad and Tobago","iso2":"TT","type":"country","legalStatus":"Decrim","medicalStatus":"Illegal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":11,"lng":-61}},"TN":{"geo":"TN","displayName":"Tunisia","iso2":"TN","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":34,"lng":9}},"TR":{"geo":"TR","displayName":"Türkiye","iso2":"TR","type":"country","legalStatus":"Illegal","medicalStatus":"Unknown","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only.","coordinates":{"lat":39,"lng":35}},"TM":{"geo":"TM","displayName":"Turkmenistan","iso2":"TM","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":40,"lng":60}},"TV":{"geo":"TV","displayName":"Tuvalu","iso2":"TV","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":-8,"lng":178}},"UG":{"geo":"UG","displayName":"Uganda","iso2":"UG","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":1,"lng":32}},"UA":{"geo":"UA","displayName":"Ukraine","iso2":"UA","type":"country","legalStatus":"Illegal","medicalStatus":"Legal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":49,"lng":32}},"AE":{"geo":"AE","displayName":"United Arab Emirates","iso2":"AE","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":24,"lng":54}},"GB":{"geo":"GB","displayName":"United Kingdom","iso2":"GB","type":"country","legalStatus":"Illegal","medicalStatus":"Unknown","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only.","coordinates":{"lat":54,"lng":-2}},"US":{"geo":"US","displayName":"United States","iso2":"US","type":"country","legalStatus":"Decrim","medicalStatus":"Illegal","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only.","coordinates":{"lat":38,"lng":-97}},"UY":{"geo":"UY","displayName":"Uruguay","iso2":"UY","type":"country","legalStatus":"Illegal","medicalStatus":"Legal","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only.","coordinates":{"lat":-33,"lng":-56}},"UZ":{"geo":"UZ","displayName":"Uzbekistan","iso2":"UZ","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":41,"lng":64}},"VU":{"geo":"VU","displayName":"Vanuatu","iso2":"VU","type":"country","legalStatus":"Illegal","medicalStatus":"Legal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":-16,"lng":167}},"VA":{"geo":"VA","displayName":"Vatican City","iso2":"VA","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":41.9,"lng":12.45}},"VE":{"geo":"VE","displayName":"Venezuela","iso2":"VE","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":8,"lng":-66}},"VN":{"geo":"VN","displayName":"Vietnam","iso2":"VN","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":16.16666666,"lng":107.83333333}},"YE":{"geo":"YE","displayName":"Yemen","iso2":"YE","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":15,"lng":48}},"ZM":{"geo":"ZM","displayName":"Zambia","iso2":"ZM","type":"country","legalStatus":"Illegal","medicalStatus":"Legal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":-15,"lng":30}},"ZW":{"geo":"ZW","displayName":"Zimbabwe","iso2":"ZW","type":"country","legalStatus":"Illegal","medicalStatus":"Legal","notes":"Notes are present, but no status trigger phrases were detected.","coordinates":{"lat":-20,"lng":30}},"CX":{"geo":"CX","displayName":"Christmas Island","iso2":"CX","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"No notes available for interpretation.","coordinates":{"lat":-10.5,"lng":105.66666666}},"AS":{"geo":"AS","displayName":"American Samoa","iso2":"AS","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"No notes available for interpretation.","coordinates":{"lat":-14.33333333,"lng":-170}},"PS":{"geo":"PS","displayName":"Palestine","iso2":"PS","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":32.047431,"lng":35.291341}},"EH":{"geo":"EH","displayName":"Western Sahara","iso2":"EH","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":23.967592,"lng":-12.630304}},"MF":{"geo":"MF","displayName":"Saint Martin","iso2":"MF","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":18.081302,"lng":-63.049399}},"SX":{"geo":"SX","displayName":"Sint Maarten","iso2":"SX","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":18.04088,"lng":-63.070133}},"XK":{"geo":"XK","displayName":"Kosovo","iso2":"XK","type":"country","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Main article: Cannabis in Kosovo","coordinates":{"lat":42.593587,"lng":20.860719}},"GI":{"geo":"GI","displayName":"Gibraltar","iso2":"GI","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":36.129426,"lng":-5.3467}},"KAS":{"geo":"KAS","displayName":"Siachen Glacier","iso2":"KAS","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":35.340606,"lng":77.129553}},"SPI":{"geo":"SPI","displayName":"Southern Patagonian Ice Field","iso2":"SPI","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":-49.511034,"lng":-73.31378}},"BRT":{"geo":"BRT","displayName":"Bir Tawil","iso2":"BRT","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":21.860442,"lng":33.673428}},"AQ":{"geo":"AQ","displayName":"Antarctica","iso2":"AQ","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":-79.843222,"lng":35.885455}},"NC":{"geo":"NC","displayName":"New Caledonia","iso2":"NC","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":-21.064697,"lng":165.084004}},"CW":{"geo":"CW","displayName":"Curaçao","iso2":"CW","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":12.145039,"lng":-68.920578}},"AW":{"geo":"AW","displayName":"Aruba","iso2":"AW","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":12.5174,"lng":-69.972795}},"TC":{"geo":"TC","displayName":"Turks and Caicos Islands","iso2":"TC","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":21.81663,"lng":-71.752704}},"PM":{"geo":"PM","displayName":"Saint Pierre and Miquelon","iso2":"PM","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":47.040344,"lng":-56.332352}},"PN":{"geo":"PN","displayName":"Pitcairn Islands","iso2":"PN","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":-24.364576,"lng":-128.317536}},"PF":{"geo":"PF","displayName":"French Polynesia","iso2":"PF","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":-17.628081,"lng":-149.46157}},"TF":{"geo":"TF","displayName":"French Southern and Antarctic Lands","iso2":"TF","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":-49.303721,"lng":69.122136}},"UM":{"geo":"UM","displayName":"United States Minor Outlying Islands","iso2":"UM","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":19.285663,"lng":166.644535}},"MS":{"geo":"MS","displayName":"Montserrat","iso2":"MS","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":16.73717,"lng":-62.188252}},"VI":{"geo":"VI","displayName":"United States Virgin Islands","iso2":"VI","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":17.746706,"lng":-64.779172}},"BL":{"geo":"BL","displayName":"Saint Barthélemy","iso2":"BL","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":17.901987,"lng":-62.833193}},"PR":{"geo":"PR","displayName":"Puerto Rico","iso2":"PR","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":18.234668,"lng":-66.481065}},"AI":{"geo":"AI","displayName":"Anguilla","iso2":"AI","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":18.242979,"lng":-63.026361}},"VG":{"geo":"VG","displayName":"British Virgin Islands","iso2":"VG","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":18.426606,"lng":-64.63661}},"KY":{"geo":"KY","displayName":"Cayman Islands","iso2":"KY","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":19.319862,"lng":-81.24055}},"HM":{"geo":"HM","displayName":"Heard Island and McDonald Islands","iso2":"HM","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":-53.103462,"lng":73.50521}},"SH":{"geo":"SH","displayName":"Saint Helena","iso2":"SH","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":-15.950487,"lng":-5.71262}},"JE":{"geo":"JE","displayName":"Jersey","iso2":"JE","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":49.220808,"lng":-2.090146}},"GG":{"geo":"GG","displayName":"Guernsey","iso2":"GG","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":49.463533,"lng":-2.561736}},"IM":{"geo":"IM","displayName":"Isle of Man","iso2":"IM","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":54.220833,"lng":-4.530069}},"AX":{"geo":"AX","displayName":"Åland","iso2":"AX","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":60.156467,"lng":19.869671}},"FO":{"geo":"FO","displayName":"Faroe Islands","iso2":"FO","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":62.185604,"lng":-7.058429}},"IO":{"geo":"IO","displayName":"British Indian Ocean Territory","iso2":"IO","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":-6.190826,"lng":71.348349}},"NF":{"geo":"NF","displayName":"Norfolk Island","iso2":"NF","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":-29.033042,"lng":167.954531}},"WF":{"geo":"WF","displayName":"Wallis and Futuna","iso2":"WF","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":-14.286415,"lng":-178.137436}},"GS":{"geo":"GS","displayName":"South Georgia and the South Sandwich Islands","iso2":"GS","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":-55.683402,"lng":-31.063179}},"FK":{"geo":"FK","displayName":"Falkland Islands","iso2":"FK","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":-51.608913,"lng":-58.738602}},"NU":{"geo":"NU","displayName":"Niue","iso2":"NU","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":-19.045956,"lng":-169.862565}},"GU":{"geo":"GU","displayName":"Guam","iso2":"GU","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":13.354173,"lng":144.703614}},"MP":{"geo":"MP","displayName":"Northern Mariana Islands","iso2":"MP","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":15.188188,"lng":145.734397}},"PGA":{"geo":"PGA","displayName":"Wake Island","iso2":"PGA","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":10.72954,"lng":115.81956}},"BJN":{"geo":"BJN","displayName":"Bajo Nuevo Bank","iso2":"BJN","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":15.791588,"lng":-79.845836}},"SER":{"geo":"SER","displayName":"Serranilla Bank","iso2":"SER","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":15.864308,"lng":-78.638239}},"SCR":{"geo":"SCR","displayName":"Scarborough Shoal","iso2":"SCR","type":"country","legalStatus":"Unknown","medicalStatus":"Unknown","notes":"","coordinates":{"lat":15.152039,"lng":117.753812}},"US-AK":{"geo":"US-AK","displayName":"US-AK","iso2":"US-AK","type":"state","legalStatus":"Legal","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status."},"US-AL":{"geo":"US-AL","displayName":"US-AL","iso2":"US-AL","type":"state","legalStatus":"Illegal","medicalStatus":"Limited","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only."},"US-AR":{"geo":"US-AR","displayName":"US-AR","iso2":"US-AR","type":"state","legalStatus":"Illegal","medicalStatus":"Limited","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only."},"US-AZ":{"geo":"US-AZ","displayName":"Arizona","iso2":"US-AZ","type":"state","legalStatus":"Legal","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":34.0489,"lng":-111.0937}},"US-CA":{"geo":"US-CA","displayName":"California","iso2":"US-CA","type":"state","legalStatus":"Legal","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":36.7783,"lng":-119.4179}},"US-CO":{"geo":"US-CO","displayName":"Colorado","iso2":"US-CO","type":"state","legalStatus":"Legal","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":39.5501,"lng":-105.7821}},"US-CT":{"geo":"US-CT","displayName":"US-CT","iso2":"US-CT","type":"state","legalStatus":"Legal","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status."},"US-DE":{"geo":"US-DE","displayName":"US-DE","iso2":"US-DE","type":"state","legalStatus":"Legal","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status."},"US-FL":{"geo":"US-FL","displayName":"Florida","iso2":"US-FL","type":"state","legalStatus":"Illegal","medicalStatus":"Limited","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only.","coordinates":{"lat":27.6648,"lng":-81.5158}},"US-GA":{"geo":"US-GA","displayName":"US-GA","iso2":"US-GA","type":"state","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected."},"US-HI":{"geo":"US-HI","displayName":"US-HI","iso2":"US-HI","type":"state","legalStatus":"Illegal","medicalStatus":"Limited","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only."},"US-IA":{"geo":"US-IA","displayName":"US-IA","iso2":"US-IA","type":"state","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only."},"US-ID":{"geo":"US-ID","displayName":"US-ID","iso2":"US-ID","type":"state","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected."},"US-IL":{"geo":"US-IL","displayName":"Illinois","iso2":"US-IL","type":"state","legalStatus":"Legal","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":40.6331,"lng":-89.3985}},"US-IN":{"geo":"US-IN","displayName":"US-IN","iso2":"US-IN","type":"state","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only."},"US-KS":{"geo":"US-KS","displayName":"US-KS","iso2":"US-KS","type":"state","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only."},"US-KY":{"geo":"US-KY","displayName":"US-KY","iso2":"US-KY","type":"state","legalStatus":"Illegal","medicalStatus":"Limited","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only."},"US-LA":{"geo":"US-LA","displayName":"US-LA","iso2":"US-LA","type":"state","legalStatus":"Illegal","medicalStatus":"Limited","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only."},"US-MA":{"geo":"US-MA","displayName":"Massachusetts","iso2":"US-MA","type":"state","legalStatus":"Legal","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":42.4072,"lng":-71.3824}},"US-MD":{"geo":"US-MD","displayName":"US-MD","iso2":"US-MD","type":"state","legalStatus":"Legal","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status."},"US-ME":{"geo":"US-ME","displayName":"US-ME","iso2":"US-ME","type":"state","legalStatus":"Legal","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status."},"US-MI":{"geo":"US-MI","displayName":"Michigan","iso2":"US-MI","type":"state","legalStatus":"Legal","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":44.3148,"lng":-85.6024}},"US-MN":{"geo":"US-MN","displayName":"US-MN","iso2":"US-MN","type":"state","legalStatus":"Legal","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status."},"US-MO":{"geo":"US-MO","displayName":"US-MO","iso2":"US-MO","type":"state","legalStatus":"Legal","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status."},"US-MS":{"geo":"US-MS","displayName":"US-MS","iso2":"US-MS","type":"state","legalStatus":"Illegal","medicalStatus":"Limited","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only."},"US-MT":{"geo":"US-MT","displayName":"US-MT","iso2":"US-MT","type":"state","legalStatus":"Legal","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status."},"US-NC":{"geo":"US-NC","displayName":"US-NC","iso2":"US-NC","type":"state","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected."},"US-ND":{"geo":"US-ND","displayName":"US-ND","iso2":"US-ND","type":"state","legalStatus":"Illegal","medicalStatus":"Limited","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only."},"US-NE":{"geo":"US-NE","displayName":"US-NE","iso2":"US-NE","type":"state","legalStatus":"Illegal","medicalStatus":"Limited","notes":"Notes are present, but no status trigger phrases were detected."},"US-NH":{"geo":"US-NH","displayName":"US-NH","iso2":"US-NH","type":"state","legalStatus":"Illegal","medicalStatus":"Limited","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only."},"US-NJ":{"geo":"US-NJ","displayName":"New Jersey","iso2":"US-NJ","type":"state","legalStatus":"Legal","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":40.0583,"lng":-74.4057}},"US-NM":{"geo":"US-NM","displayName":"US-NM","iso2":"US-NM","type":"state","legalStatus":"Legal","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status."},"US-NV":{"geo":"US-NV","displayName":"Nevada","iso2":"US-NV","type":"state","legalStatus":"Legal","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":38.8026,"lng":-116.4194}},"US-NY":{"geo":"US-NY","displayName":"New York","iso2":"US-NY","type":"state","legalStatus":"Legal","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":43,"lng":-75}},"US-OH":{"geo":"US-OH","displayName":"US-OH","iso2":"US-OH","type":"state","legalStatus":"Legal","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status."},"US-OK":{"geo":"US-OK","displayName":"US-OK","iso2":"US-OK","type":"state","legalStatus":"Illegal","medicalStatus":"Limited","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only."},"US-OR":{"geo":"US-OR","displayName":"US-OR","iso2":"US-OR","type":"state","legalStatus":"Legal","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status."},"US-PA":{"geo":"US-PA","displayName":"US-PA","iso2":"US-PA","type":"state","legalStatus":"Illegal","medicalStatus":"Limited","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only."},"US-RI":{"geo":"US-RI","displayName":"US-RI","iso2":"US-RI","type":"state","legalStatus":"Legal","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status."},"US-SC":{"geo":"US-SC","displayName":"US-SC","iso2":"US-SC","type":"state","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected."},"US-SD":{"geo":"US-SD","displayName":"US-SD","iso2":"US-SD","type":"state","legalStatus":"Illegal","medicalStatus":"Limited","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only."},"US-TN":{"geo":"US-TN","displayName":"US-TN","iso2":"US-TN","type":"state","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected."},"US-TX":{"geo":"US-TX","displayName":"Texas","iso2":"US-TX","type":"state","legalStatus":"Illegal","medicalStatus":"Limited","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only.","coordinates":{"lat":31.9686,"lng":-99.9018}},"US-UT":{"geo":"US-UT","displayName":"US-UT","iso2":"US-UT","type":"state","legalStatus":"Illegal","medicalStatus":"Limited","notes":"Notes suggest stronger status than Wiki/SSOT, but this is explainability only."},"US-VA":{"geo":"US-VA","displayName":"US-VA","iso2":"US-VA","type":"state","legalStatus":"Legal","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status."},"US-VT":{"geo":"US-VT","displayName":"US-VT","iso2":"US-VT","type":"state","legalStatus":"Legal","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status."},"US-WA":{"geo":"US-WA","displayName":"Washington","iso2":"US-WA","type":"state","legalStatus":"Legal","medicalStatus":"Legal","notes":"Notes only explain the SSOT status; they do not change the final status.","coordinates":{"lat":47.7511,"lng":-120.7401}},"US-WI":{"geo":"US-WI","displayName":"US-WI","iso2":"US-WI","type":"state","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected."},"US-WV":{"geo":"US-WV","displayName":"US-WV","iso2":"US-WV","type":"state","legalStatus":"Illegal","medicalStatus":"Limited","notes":"Notes are present, but no status trigger phrases were detected."},"US-WY":{"geo":"US-WY","displayName":"US-WY","iso2":"US-WY","type":"state","legalStatus":"Illegal","medicalStatus":"Illegal","notes":"Notes are present, but no status trigger phrases were detected."}}
+{
+  "AF": {
+    "geo": "AF",
+    "displayName": "Afghanistan",
+    "iso2": "AF",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Production banned by King Zahir Shah in 1973.",
+    "coordinates": {
+      "lat": 33,
+      "lng": 65
+    }
+  },
+  "AL": {
+    "geo": "AL",
+    "displayName": "Albania",
+    "iso2": "AL",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Legal",
+    "notes": "Prohibited but plants highly available throughout the country and law often unenforced. On 21 July 2023 the Albanian Parliament voted 69–23 to legalize medical cannabis.",
+    "coordinates": {
+      "lat": 41,
+      "lng": 20
+    }
+  },
+  "DZ": {
+    "geo": "DZ",
+    "displayName": "Algeria",
+    "iso2": "DZ",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Algeria",
+    "coordinates": {
+      "lat": 28,
+      "lng": 3
+    }
+  },
+  "AD": {
+    "geo": "AD",
+    "displayName": "Andorra",
+    "iso2": "AD",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Andorra",
+    "coordinates": {
+      "lat": 42.5,
+      "lng": 1.5
+    }
+  },
+  "AO": {
+    "geo": "AO",
+    "displayName": "Angola",
+    "iso2": "AO",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Angola",
+    "coordinates": {
+      "lat": -12.5,
+      "lng": 18.5
+    }
+  },
+  "AG": {
+    "geo": "AG",
+    "displayName": "Antigua and Barbuda",
+    "iso2": "AG",
+    "type": "country",
+    "legalStatus": "Decrim",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Antigua and Barbuda",
+    "coordinates": {
+      "lat": 17.05,
+      "lng": -61.8
+    }
+  },
+  "AR": {
+    "geo": "AR",
+    "displayName": "Argentina",
+    "iso2": "AR",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Legal",
+    "notes": "Argentina government health portal on medical cannabis.",
+    "coordinates": {
+      "lat": -34,
+      "lng": -64
+    }
+  },
+  "AM": {
+    "geo": "AM",
+    "displayName": "Armenia",
+    "iso2": "AM",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Armenia",
+    "coordinates": {
+      "lat": 40,
+      "lng": 45
+    }
+  },
+  "AU": {
+    "geo": "AU",
+    "displayName": "Australia",
+    "iso2": "AU",
+    "type": "country",
+    "legalStatus": "Decrim",
+    "medicalStatus": "Legal",
+    "notes": "Australia TGA — national regulatory framework for medicinal cannabis; recreational laws vary by state but this is official.",
+    "coordinates": {
+      "lat": -27,
+      "lng": 133
+    }
+  },
+  "AT": {
+    "geo": "AT",
+    "displayName": "Austria",
+    "iso2": "AT",
+    "type": "country",
+    "legalStatus": "Decrim",
+    "medicalStatus": "Unknown",
+    "notes": "Austrian medical cannabis under BASG (regulatory authority). Recreational is illegal.",
+    "coordinates": {
+      "lat": 47.33333333,
+      "lng": 13.33333333
+    }
+  },
+  "AZ": {
+    "geo": "AZ",
+    "displayName": "Azerbaijan",
+    "iso2": "AZ",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Azerbaijan",
+    "coordinates": {
+      "lat": 40.5,
+      "lng": 47.5
+    }
+  },
+  "BS": {
+    "geo": "BS",
+    "displayName": "Bahamas",
+    "iso2": "BS",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in the Bahamas",
+    "coordinates": {
+      "lat": 24.25,
+      "lng": -76
+    }
+  },
+  "BH": {
+    "geo": "BH",
+    "displayName": "Bahrain",
+    "iso2": "BH",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Bahrain",
+    "coordinates": {
+      "lat": 26,
+      "lng": 50.55
+    }
+  },
+  "BD": {
+    "geo": "BD",
+    "displayName": "Bangladesh",
+    "iso2": "BD",
+    "type": "country",
+    "legalStatus": "Unenforced",
+    "medicalStatus": "Illegal",
+    "notes": "Sale banned in 1989, but laws are rarely enforced and cannabis is openly sold in many parts of the country.",
+    "coordinates": {
+      "lat": 24,
+      "lng": 90
+    }
+  },
+  "BB": {
+    "geo": "BB",
+    "displayName": "Barbados",
+    "iso2": "BB",
+    "type": "country",
+    "legalStatus": "Legal",
+    "medicalStatus": "Legal",
+    "notes": "Main article: Cannabis in Barbados",
+    "coordinates": {
+      "lat": 13.16666666,
+      "lng": -59.53333333
+    }
+  },
+  "BY": {
+    "geo": "BY",
+    "displayName": "Belarus",
+    "iso2": "BY",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Belarus",
+    "coordinates": {
+      "lat": 53,
+      "lng": 28
+    }
+  },
+  "BE": {
+    "geo": "BE",
+    "displayName": "Belgium",
+    "iso2": "BE",
+    "type": "country",
+    "legalStatus": "Decrim",
+    "medicalStatus": "Unknown",
+    "notes": "Up to 3 g decriminalized for adults since 2003.",
+    "coordinates": {
+      "lat": 50.83333333,
+      "lng": 4
+    }
+  },
+  "BZ": {
+    "geo": "BZ",
+    "displayName": "Belize",
+    "iso2": "BZ",
+    "type": "country",
+    "legalStatus": "Decrim",
+    "medicalStatus": "Illegal",
+    "notes": "Possession prohibited, but use is common and largely tolerated. Possession of up to 10 g decriminalized.",
+    "coordinates": {
+      "lat": 17.25,
+      "lng": -88.75
+    }
+  },
+  "BJ": {
+    "geo": "BJ",
+    "displayName": "Benin",
+    "iso2": "BJ",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Benin",
+    "coordinates": {
+      "lat": 9.5,
+      "lng": 2.25
+    }
+  },
+  "BM": {
+    "geo": "BM",
+    "displayName": "Bermuda",
+    "iso2": "BM",
+    "type": "country",
+    "legalStatus": "Decrim",
+    "medicalStatus": "Legal",
+    "notes": "In November 2016, the Supreme Court of Bermuda ruled in favor of allowing the medical use of cannabis. As of July 2018, two doctors have been licensed to prescribe the drug.",
+    "coordinates": {
+      "lat": 32.33333333,
+      "lng": -64.75
+    }
+  },
+  "BT": {
+    "geo": "BT",
+    "displayName": "Bhutan",
+    "iso2": "BT",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Illegal, but plants grow prolifically and have multiple traditional uses, such as feeding pigs and producing textiles.",
+    "coordinates": {
+      "lat": 27.5,
+      "lng": 90.5
+    }
+  },
+  "BO": {
+    "geo": "BO",
+    "displayName": "Bolivia",
+    "iso2": "BO",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Bolivia",
+    "coordinates": {
+      "lat": -17,
+      "lng": -65
+    }
+  },
+  "BA": {
+    "geo": "BA",
+    "displayName": "Bosnia and Herzegovina",
+    "iso2": "BA",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Legal",
+    "notes": "In 2016, the Ministry of Civil Affairs formed a task force to explore the legalization of cannabis and cannabinoids for medicinal purposes.",
+    "coordinates": {
+      "lat": 44,
+      "lng": 18
+    }
+  },
+  "BW": {
+    "geo": "BW",
+    "displayName": "Botswana",
+    "iso2": "BW",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Cannabis (or ''dagga'') is illegal.",
+    "coordinates": {
+      "lat": -22,
+      "lng": 24
+    }
+  },
+  "BR": {
+    "geo": "BR",
+    "displayName": "Brazil",
+    "iso2": "BR",
+    "type": "country",
+    "legalStatus": "Decrim",
+    "medicalStatus": "Legal",
+    "notes": "Brazil Law 14.021/2020 authorizes medical cannabis use.",
+    "coordinates": {
+      "lat": -10,
+      "lng": -55
+    }
+  },
+  "BN": {
+    "geo": "BN",
+    "displayName": "Brunei",
+    "iso2": "BN",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Brunei",
+    "coordinates": {
+      "lat": 4.5,
+      "lng": 114.66666666
+    }
+  },
+  "BG": {
+    "geo": "BG",
+    "displayName": "Bulgaria",
+    "iso2": "BG",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Cannabis is classified as a class A (High-risk) drug, together with heroin, cocaine, amphetamines, and MDMA (ecstasy). Until 2004, a loosely defined \"personal dose\" existed.",
+    "coordinates": {
+      "lat": 43,
+      "lng": 25
+    }
+  },
+  "BF": {
+    "geo": "BF",
+    "displayName": "Burkina Faso",
+    "iso2": "BF",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Burkina Faso",
+    "coordinates": {
+      "lat": 13,
+      "lng": -2
+    }
+  },
+  "BI": {
+    "geo": "BI",
+    "displayName": "Burundi",
+    "iso2": "BI",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Burundi",
+    "coordinates": {
+      "lat": -3.5,
+      "lng": 30
+    }
+  },
+  "KH": {
+    "geo": "KH",
+    "displayName": "Cambodia",
+    "iso2": "KH",
+    "type": "country",
+    "legalStatus": "Unenforced",
+    "medicalStatus": "Illegal",
+    "notes": "Illegal, but this prohibition is lax and enforced opportunistically. \"Happy\" restaurants in cities publicly offer food cooked with marijuana, or as a side garnish.",
+    "coordinates": {
+      "lat": 13,
+      "lng": 105
+    }
+  },
+  "CM": {
+    "geo": "CM",
+    "displayName": "Cameroon",
+    "iso2": "CM",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Cameroon",
+    "coordinates": {
+      "lat": 6,
+      "lng": 12
+    }
+  },
+  "CA": {
+    "geo": "CA",
+    "displayName": "Canada",
+    "iso2": "CA",
+    "type": "country",
+    "legalStatus": "Legal",
+    "medicalStatus": "Legal",
+    "notes": "Cannabis Act legalizes recreational and medical use (federal law).",
+    "coordinates": {
+      "lat": 60,
+      "lng": -95
+    }
+  },
+  "CV": {
+    "geo": "CV",
+    "displayName": "Cape Verde",
+    "iso2": "CV",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Cape Verde",
+    "coordinates": {
+      "lat": 16,
+      "lng": -24
+    }
+  },
+  "CF": {
+    "geo": "CF",
+    "displayName": "Central African Republic",
+    "iso2": "CF",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in the Central African Republic",
+    "coordinates": {
+      "lat": 7,
+      "lng": 21
+    }
+  },
+  "TD": {
+    "geo": "TD",
+    "displayName": "Chad",
+    "iso2": "TD",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Chad",
+    "coordinates": {
+      "lat": 15,
+      "lng": 19
+    }
+  },
+  "CL": {
+    "geo": "CL",
+    "displayName": "Chile",
+    "iso2": "CL",
+    "type": "country",
+    "legalStatus": "Decrim",
+    "medicalStatus": "Legal",
+    "notes": "Chile law authorizes medical cannabis; recreational remains controlled under Chilean public health codes.",
+    "coordinates": {
+      "lat": -30,
+      "lng": -71
+    }
+  },
+  "CN": {
+    "geo": "CN",
+    "displayName": "China",
+    "iso2": "CN",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Penalty for possession or consumption: 10–15 days' detention without prosecution and a fine.",
+    "coordinates": {
+      "lat": 35,
+      "lng": 105
+    }
+  },
+  "CO": {
+    "geo": "CO",
+    "displayName": "Colombia",
+    "iso2": "CO",
+    "type": "country",
+    "legalStatus": "Decrim",
+    "medicalStatus": "Legal",
+    "notes": "Colombian National Institute for Drug and Food Surveillance pages on authorized cannabis products; recreational decriminalized to some extents.",
+    "coordinates": {
+      "lat": 4,
+      "lng": -72
+    }
+  },
+  "KM": {
+    "geo": "KM",
+    "displayName": "Comoros",
+    "iso2": "KM",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Cannabis was legal in Comoros between January 1975 and May 1978, when president Ali Soilih legalized cannabis consumption among other measures.",
+    "coordinates": {
+      "lat": -12.16666666,
+      "lng": 44.25
+    }
+  },
+  "CK": {
+    "geo": "CK",
+    "displayName": "Cook Islands",
+    "iso2": "CK",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Legal",
+    "notes": "A non-binding referendum in August 2022 asked \"Should we review our cannabis laws to allow for research and medicinal use?\" 62% voted yes.",
+    "coordinates": {
+      "lat": -21.23333333,
+      "lng": -159.76666666
+    }
+  },
+  "CD": {
+    "geo": "CD",
+    "displayName": "DR Congo",
+    "iso2": "CD",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in the Democratic Republic of the Congo",
+    "coordinates": {
+      "lat": 0,
+      "lng": 25
+    }
+  },
+  "CG": {
+    "geo": "CG",
+    "displayName": "Congo",
+    "iso2": "CG",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in the Republic of the Congo",
+    "coordinates": {
+      "lat": -1,
+      "lng": 15
+    }
+  },
+  "CR": {
+    "geo": "CR",
+    "displayName": "Costa Rica",
+    "iso2": "CR",
+    "type": "country",
+    "legalStatus": "Decrim",
+    "medicalStatus": "Legal",
+    "notes": "Decriminalized since police officers do not detain people for personal use, yet no amount has been defined as a minimum for possession. Use of cannabis is widespread throughout the country.",
+    "coordinates": {
+      "lat": 10,
+      "lng": -84
+    }
+  },
+  "HR": {
+    "geo": "HR",
+    "displayName": "Croatia",
+    "iso2": "HR",
+    "type": "country",
+    "legalStatus": "Decrim",
+    "medicalStatus": "Legal",
+    "notes": "Possession of small amounts is considered a misdemeanor subject to fixed fines. Medicinal cannabis legal for patients with illnesses such as cancer, multiple sclerosis, or HIV/AIDS.",
+    "coordinates": {
+      "lat": 45.16666666,
+      "lng": 15.5
+    }
+  },
+  "CU": {
+    "geo": "CU",
+    "displayName": "Cuba",
+    "iso2": "CU",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Cuba",
+    "coordinates": {
+      "lat": 21.5,
+      "lng": -80
+    }
+  },
+  "CY": {
+    "geo": "CY",
+    "displayName": "Cyprus",
+    "iso2": "CY",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Legal",
+    "notes": "Class B substance – life imprisonment is possible for use and maximum 8 years for possession (at the maximum 2 years for the first offense for people under 25).",
+    "coordinates": {
+      "lat": 35,
+      "lng": 33
+    }
+  },
+  "CZ": {
+    "geo": "CZ",
+    "displayName": "Czechia",
+    "iso2": "CZ",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Legal",
+    "notes": "Possession of less than 15 grams (½ oz) has been decriminalized since 1 January 2010. Since January 1, 2026, it has been legal for persons over the age of 21 to possess up to 100 g of cannabis at home and up to 25 g in public, and to grow up to 3 plants. Medical use has been legal and regulated since 2013.",
+    "coordinates": {
+      "lat": 49.75,
+      "lng": 15.5
+    }
+  },
+  "DK": {
+    "geo": "DK",
+    "displayName": "Denmark",
+    "iso2": "DK",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Legal",
+    "notes": "As with all drugs, cannabis-related offenses are punishable by a fine or imprisonment for up to 2 years. Freetown Christiania, a self-declared autonomous community in Copenhagen, is known for its cannabis trade.",
+    "coordinates": {
+      "lat": 56,
+      "lng": 10
+    }
+  },
+  "DJ": {
+    "geo": "DJ",
+    "displayName": "Djibouti",
+    "iso2": "DJ",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Djibouti",
+    "coordinates": {
+      "lat": 11.5,
+      "lng": 43
+    }
+  },
+  "DM": {
+    "geo": "DM",
+    "displayName": "Dominica",
+    "iso2": "DM",
+    "type": "country",
+    "legalStatus": "Decrim",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Dominica",
+    "coordinates": {
+      "lat": 15.41666666,
+      "lng": -61.33333333
+    }
+  },
+  "DO": {
+    "geo": "DO",
+    "displayName": "Dominican Republic",
+    "iso2": "DO",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in the Dominican Republic",
+    "coordinates": {
+      "lat": 19,
+      "lng": -70.66666666
+    }
+  },
+  "EC": {
+    "geo": "EC",
+    "displayName": "Ecuador",
+    "iso2": "EC",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Legal",
+    "notes": "Possession of up to 10 g decriminalized in 2013, but policy was repealed by President Daniel Noboa in 2023.",
+    "coordinates": {
+      "lat": -2,
+      "lng": -77.5
+    }
+  },
+  "EG": {
+    "geo": "EG",
+    "displayName": "Egypt",
+    "iso2": "EG",
+    "type": "country",
+    "legalStatus": "Unenforced",
+    "medicalStatus": "Illegal",
+    "notes": "Illegal since 1925 but use is widespread. Convictions for personal use are rare. Formerly a plant of high status with several documented medicinal uses in ancient times.",
+    "coordinates": {
+      "lat": 27,
+      "lng": 30
+    }
+  },
+  "SV": {
+    "geo": "SV",
+    "displayName": "El Salvador",
+    "iso2": "SV",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in El Salvador",
+    "coordinates": {
+      "lat": 13.83333333,
+      "lng": -88.91666666
+    }
+  },
+  "GQ": {
+    "geo": "GQ",
+    "displayName": "Equatorial Guinea",
+    "iso2": "GQ",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Equatorial Guinea",
+    "coordinates": {
+      "lat": 2,
+      "lng": 10
+    }
+  },
+  "ER": {
+    "geo": "ER",
+    "displayName": "Eritrea",
+    "iso2": "ER",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Eritrea",
+    "coordinates": {
+      "lat": 15,
+      "lng": 39
+    }
+  },
+  "EE": {
+    "geo": "EE",
+    "displayName": "Estonia",
+    "iso2": "EE",
+    "type": "country",
+    "legalStatus": "Decrim",
+    "medicalStatus": "Unknown",
+    "notes": "Up to 7.5 g is considered an amount for personal use, and is punished with a fine. Large amounts and distribution are criminal offenses punishable with a custodial sentence of up to 5 years. Medical cannabis is technically legal, but to get a prescription is an arduous process and is practically never given, with a single patient having received Sativex preparation.",
+    "coordinates": {
+      "lat": 59,
+      "lng": 26
+    }
+  },
+  "SZ": {
+    "geo": "SZ",
+    "displayName": "Eswatini",
+    "iso2": "SZ",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Eswatini",
+    "coordinates": {
+      "lat": -26.5,
+      "lng": 31.5
+    }
+  },
+  "ET": {
+    "geo": "ET",
+    "displayName": "Ethiopia",
+    "iso2": "ET",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Despite being the spiritual homeland of the Rastafari movement, possession of cannabis can result in up to six months imprisonment.",
+    "coordinates": {
+      "lat": 8,
+      "lng": 38
+    }
+  },
+  "FJ": {
+    "geo": "FJ",
+    "displayName": "Fiji",
+    "iso2": "FJ",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Fiji",
+    "coordinates": {
+      "lat": -18,
+      "lng": 175
+    }
+  },
+  "FI": {
+    "geo": "FI",
+    "displayName": "Finland",
+    "iso2": "FI",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Legal",
+    "notes": "Personal use is generally not prosecuted in court but subject to summary fine. Medicinal cannabis possible under a special license since 2006; in 2014, 223 licenses were issued.",
+    "coordinates": {
+      "lat": 64,
+      "lng": 26
+    }
+  },
+  "FR": {
+    "geo": "FR",
+    "displayName": "France",
+    "iso2": "FR",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Unknown",
+    "notes": "Possession up to 100 g entails a €200 fine since November 2018, although a judge is still legally able to pronounce a stricter sentence. Medical use of some cannabinoid drugs legalized in 2013.",
+    "coordinates": {
+      "lat": 46.2276,
+      "lng": 2.2137
+    }
+  },
+  "GA": {
+    "geo": "GA",
+    "displayName": "Gabon",
+    "iso2": "GA",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Gabon",
+    "coordinates": {
+      "lat": -1,
+      "lng": 11.75
+    }
+  },
+  "GM": {
+    "geo": "GM",
+    "displayName": "Gambia",
+    "iso2": "GM",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in the Gambia",
+    "coordinates": {
+      "lat": 13.46666666,
+      "lng": -16.56666666
+    }
+  },
+  "GE": {
+    "geo": "GE",
+    "displayName": "Georgia",
+    "iso2": "GE",
+    "type": "country",
+    "legalStatus": "Decrim",
+    "medicalStatus": "Limited",
+    "notes": "Georgia (country) legal for possession; detailed in Wikipedia but can be backed by constitutional court decisions.",
+    "coordinates": {
+      "lat": 42,
+      "lng": 43.5
+    }
+  },
+  "DE": {
+    "geo": "DE",
+    "displayName": "Germany",
+    "iso2": "DE",
+    "type": "country",
+    "legalStatus": "Legal",
+    "medicalStatus": "Legal",
+    "notes": "On 23 February 2024, the German Bundestag passed the Act on the Controlled Use of Cannabis, legalizing possession of 25 g outside the home, 50 g at home, and private cultivation of three plants, for adults 18 and over, since 1 April 2024. Collective, noncommercial cultivation is legal in cultivation associations (i.e. cannabis social clubs) since 1 July 2024.",
+    "coordinates": {
+      "lat": 51.1657,
+      "lng": 10.4515
+    }
+  },
+  "GH": {
+    "geo": "GH",
+    "displayName": "Ghana",
+    "iso2": "GH",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Legal",
+    "notes": "Main article: Cannabis in Ghana",
+    "coordinates": {
+      "lat": 8,
+      "lng": -2
+    }
+  },
+  "GR": {
+    "geo": "GR",
+    "displayName": "Greece",
+    "iso2": "GR",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Legal",
+    "notes": "Main article: Cannabis in Greece",
+    "coordinates": {
+      "lat": 39,
+      "lng": 22
+    }
+  },
+  "GL": {
+    "geo": "GL",
+    "displayName": "Greenland",
+    "iso2": "GL",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Greenland",
+    "coordinates": {
+      "lat": 72,
+      "lng": -40
+    }
+  },
+  "GD": {
+    "geo": "GD",
+    "displayName": "Grenada",
+    "iso2": "GD",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Grenada",
+    "coordinates": {
+      "lat": 12.11666666,
+      "lng": -61.66666666
+    }
+  },
+  "GT": {
+    "geo": "GT",
+    "displayName": "Guatemala",
+    "iso2": "GT",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "In 2016 a constitutional commission rejected proposals to legalize medicinal or recreational use of cannabis.",
+    "coordinates": {
+      "lat": 15.5,
+      "lng": -90.25
+    }
+  },
+  "GN": {
+    "geo": "GN",
+    "displayName": "Guinea",
+    "iso2": "GN",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Guinea",
+    "coordinates": {
+      "lat": 11,
+      "lng": -10
+    }
+  },
+  "GW": {
+    "geo": "GW",
+    "displayName": "Guinea-Bissau",
+    "iso2": "GW",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Guinea-Bissau",
+    "coordinates": {
+      "lat": 12,
+      "lng": -15
+    }
+  },
+  "GY": {
+    "geo": "GY",
+    "displayName": "Guyana",
+    "iso2": "GY",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Possession of 15 g or over can result in charges of drug trafficking.",
+    "coordinates": {
+      "lat": 5,
+      "lng": -59
+    }
+  },
+  "HT": {
+    "geo": "HT",
+    "displayName": "Haiti",
+    "iso2": "HT",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Haiti",
+    "coordinates": {
+      "lat": 19,
+      "lng": -72.41666666
+    }
+  },
+  "HN": {
+    "geo": "HN",
+    "displayName": "Honduras",
+    "iso2": "HN",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "The possession, sale, transportation, and cultivation of cannabis is illegal.",
+    "coordinates": {
+      "lat": 15,
+      "lng": -86.5
+    }
+  },
+  "HK": {
+    "geo": "HK",
+    "displayName": "Hong Kong",
+    "iso2": "HK",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Possession, sale, transportation, and cultivation illegal under the Dangerous Drug Ordinance. (Chapter 134 of the Law of Hong Kong)",
+    "coordinates": {
+      "lat": 22.267,
+      "lng": 114.188
+    }
+  },
+  "HU": {
+    "geo": "HU",
+    "displayName": "Hungary",
+    "iso2": "HU",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Unknown",
+    "notes": "There is no distinction in Hungarian law between illicit drugs according to dangers. Heroin use has the same legal consequences as cannabis use.",
+    "coordinates": {
+      "lat": 47,
+      "lng": 20
+    }
+  },
+  "IS": {
+    "geo": "IS",
+    "displayName": "Iceland",
+    "iso2": "IS",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Banned in 1969. Possession of small amounts is subject to arrest and fine but no threat of jail time.",
+    "coordinates": {
+      "lat": 65,
+      "lng": -18
+    }
+  },
+  "IN": {
+    "geo": "IN",
+    "displayName": "India",
+    "iso2": "IN",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Legal",
+    "notes": "Albeit illegal, usage is prevalent and some government-owned shops sell cannabis in the form of bhang. States have their own laws regarding cannabis, locally known as ''ganja''.",
+    "coordinates": {
+      "lat": 20,
+      "lng": 77
+    }
+  },
+  "ID": {
+    "geo": "ID",
+    "displayName": "Indonesia",
+    "iso2": "ID",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Banned in 1927. Minimum sentence of 4 years in prison (additional fines may apply) if caught dealing / distributing. Rehabilitation or maximum sentence of 4 years if caught in possession alone.",
+    "coordinates": {
+      "lat": -5,
+      "lng": 120
+    }
+  },
+  "IR": {
+    "geo": "IR",
+    "displayName": "Iran",
+    "iso2": "IR",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Maximum of capital punishment to possess hashish over 5 kg but unenforced.",
+    "coordinates": {
+      "lat": 32,
+      "lng": 53
+    }
+  },
+  "IQ": {
+    "geo": "IQ",
+    "displayName": "Iraq",
+    "iso2": "IQ",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Iraq",
+    "coordinates": {
+      "lat": 33,
+      "lng": 44
+    }
+  },
+  "IE": {
+    "geo": "IE",
+    "displayName": "Ireland",
+    "iso2": "IE",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Legal",
+    "notes": "The National Drugs Strategy of 2009–2016 did not favor decriminalizing cannabis. A new strategy was planned for 2017. Cannabis-derived medicines may be licensed since 2014. A review of policy on medicinal cannabis was announced in November 2016, and a private member's bill to legalize it passed second stage in the Dáil in December 2016.",
+    "coordinates": {
+      "lat": 53,
+      "lng": -8
+    }
+  },
+  "IL": {
+    "geo": "IL",
+    "displayName": "Israel",
+    "iso2": "IL",
+    "type": "country",
+    "legalStatus": "Decrim",
+    "medicalStatus": "Legal",
+    "notes": "Israel Ministry of Health page — legal medical cannabis framework.",
+    "coordinates": {
+      "lat": 31.47,
+      "lng": 35.13
+    }
+  },
+  "IT": {
+    "geo": "IT",
+    "displayName": "Italy",
+    "iso2": "IT",
+    "type": "country",
+    "legalStatus": "Decrim",
+    "medicalStatus": "Legal",
+    "notes": "Italian official gazette — medical cannabis regime; recreational remains technically illegal (decriminalized in parts).",
+    "coordinates": {
+      "lat": 41.8719,
+      "lng": 12.5674
+    }
+  },
+  "CI": {
+    "geo": "CI",
+    "displayName": "Ivory Coast",
+    "iso2": "CI",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Ivory Coast",
+    "coordinates": {
+      "lat": 8,
+      "lng": -5
+    }
+  },
+  "JM": {
+    "geo": "JM",
+    "displayName": "Jamaica",
+    "iso2": "JM",
+    "type": "country",
+    "legalStatus": "Decrim",
+    "medicalStatus": "Legal",
+    "notes": "Decriminalized since 2015, and in 2018 the first medical cannabis dispensary opened.",
+    "coordinates": {
+      "lat": 18.25,
+      "lng": -77.5
+    }
+  },
+  "JP": {
+    "geo": "JP",
+    "displayName": "Japan",
+    "iso2": "JP",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Unknown",
+    "notes": "Restricted in 1948. Use and possession are punishable by up to 5 years imprisonment and a fine. Cultivation, sale, and transport are punishable by 7–10 years imprisonment and a fine.",
+    "coordinates": {
+      "lat": 36,
+      "lng": 138
+    }
+  },
+  "JO": {
+    "geo": "JO",
+    "displayName": "Jordan",
+    "iso2": "JO",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Jordan",
+    "coordinates": {
+      "lat": 31,
+      "lng": 36
+    }
+  },
+  "KZ": {
+    "geo": "KZ",
+    "displayName": "Kazakhstan",
+    "iso2": "KZ",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Kazakhstan",
+    "coordinates": {
+      "lat": 48,
+      "lng": 68
+    }
+  },
+  "KE": {
+    "geo": "KE",
+    "displayName": "Kenya",
+    "iso2": "KE",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Kenya",
+    "coordinates": {
+      "lat": 1,
+      "lng": 38
+    }
+  },
+  "KI": {
+    "geo": "KI",
+    "displayName": "Kiribati",
+    "iso2": "KI",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Kiribati",
+    "coordinates": {
+      "lat": 1.41666666,
+      "lng": 173
+    }
+  },
+  "KP": {
+    "geo": "KP",
+    "displayName": "North Korea",
+    "iso2": "KP",
+    "type": "country",
+    "legalStatus": "Unenforced",
+    "medicalStatus": "Legal",
+    "notes": "Cannabis is listed in Appendix 1 Narcotics in the DPRK. Narcotics Control Law (2005) states that narcotics may be used when prescribed. There are conflicting reports on the legal status of cannabis in North Korea. Multiple reports from defectors and tourists claim there is no law regarding the possession of cannabis in North Korea or if there is, it is mostly unenforced. However, other reports claim that cannabis is illegal.",
+    "coordinates": {
+      "lat": 40,
+      "lng": 127
+    }
+  },
+  "KR": {
+    "geo": "KR",
+    "displayName": "South Korea",
+    "iso2": "KR",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Limited",
+    "notes": "Medical use of cannabis was legalized in November 2018. The plant itself, however, remains unavailable due to a policy implemented by the Ministry of Food and Drug Safety.",
+    "coordinates": {
+      "lat": 37,
+      "lng": 127.5
+    }
+  },
+  "KW": {
+    "geo": "KW",
+    "displayName": "Kuwait",
+    "iso2": "KW",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Kuwait",
+    "coordinates": {
+      "lat": 29.5,
+      "lng": 45.75
+    }
+  },
+  "KG": {
+    "geo": "KG",
+    "displayName": "Kyrgyzstan",
+    "iso2": "KG",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Kyrgyzstan",
+    "coordinates": {
+      "lat": 41,
+      "lng": 75
+    }
+  },
+  "LA": {
+    "geo": "LA",
+    "displayName": "Laos",
+    "iso2": "LA",
+    "type": "country",
+    "legalStatus": "Unenforced",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Laos",
+    "coordinates": {
+      "lat": 18,
+      "lng": 105
+    }
+  },
+  "LV": {
+    "geo": "LV",
+    "displayName": "Latvia",
+    "iso2": "LV",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Possession of up to 1 g can result in a €280 fine; for second offenses within a year period, criminal charges are applied. Larger quantities can be punished with up to 15 years in prison.",
+    "coordinates": {
+      "lat": 57,
+      "lng": 25
+    }
+  },
+  "LB": {
+    "geo": "LB",
+    "displayName": "Lebanon",
+    "iso2": "LB",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Legal",
+    "notes": "Hashish banned in 1926; cultivation banned in 1992. Large amounts of cannabis are still grown within the country illicitly, however. Cultivation of cannabis for medical use was legalized in April 2020.",
+    "coordinates": {
+      "lat": 33.83333333,
+      "lng": 35.83333333
+    }
+  },
+  "LS": {
+    "geo": "LS",
+    "displayName": "Lesotho",
+    "iso2": "LS",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Licensed cultivation allowed for export to other countries. Also widely grown for illicit purposes.",
+    "coordinates": {
+      "lat": -29.5,
+      "lng": 28.5
+    }
+  },
+  "LR": {
+    "geo": "LR",
+    "displayName": "Liberia",
+    "iso2": "LR",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Liberia",
+    "coordinates": {
+      "lat": 6.5,
+      "lng": -9.5
+    }
+  },
+  "LY": {
+    "geo": "LY",
+    "displayName": "Libya",
+    "iso2": "LY",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Libya",
+    "coordinates": {
+      "lat": 25,
+      "lng": 17
+    }
+  },
+  "LI": {
+    "geo": "LI",
+    "displayName": "Liechtenstein",
+    "iso2": "LI",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Liechtenstein",
+    "coordinates": {
+      "lat": 47.26666666,
+      "lng": 9.53333333
+    }
+  },
+  "LT": {
+    "geo": "LT",
+    "displayName": "Lithuania",
+    "iso2": "LT",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Medical cannabis is illegal in Lithuania, but a law allowing seriously ill patients to use drugs made from synthetic cannabinoids was passed by the Seimas on 11 October 2018.",
+    "coordinates": {
+      "lat": 56,
+      "lng": 24
+    }
+  },
+  "LU": {
+    "geo": "LU",
+    "displayName": "Luxembourg",
+    "iso2": "LU",
+    "type": "country",
+    "legalStatus": "Decrim",
+    "medicalStatus": "Legal",
+    "notes": "Decriminalized in 2001. Home use and cultivation legal since 21 July 2023.",
+    "coordinates": {
+      "lat": 49.75,
+      "lng": 6.16666666
+    }
+  },
+  "MO": {
+    "geo": "MO",
+    "displayName": "Macau",
+    "iso2": "MO",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Macau",
+    "coordinates": {
+      "lat": 22.16666666,
+      "lng": 113.55
+    }
+  },
+  "MG": {
+    "geo": "MG",
+    "displayName": "Madagascar",
+    "iso2": "MG",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Madagascar",
+    "coordinates": {
+      "lat": -20,
+      "lng": 47
+    }
+  },
+  "MW": {
+    "geo": "MW",
+    "displayName": "Malawi",
+    "iso2": "MW",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Legal",
+    "notes": "Illegal but widely used and cultivated; Malawian cannabis is famed internationally for its quality. Chamba is grown mainly in central and northern regions like Mzuzu.",
+    "coordinates": {
+      "lat": -13.5,
+      "lng": 34
+    }
+  },
+  "MY": {
+    "geo": "MY",
+    "displayName": "Malaysia",
+    "iso2": "MY",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Mandatory death penalty for convicted drug traffickers, legally defined as individuals possessing more than 200 g of cannabis.",
+    "coordinates": {
+      "lat": 2.5,
+      "lng": 112.5
+    }
+  },
+  "MV": {
+    "geo": "MV",
+    "displayName": "Maldives",
+    "iso2": "MV",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in the Maldives",
+    "coordinates": {
+      "lat": 3.25,
+      "lng": 73
+    }
+  },
+  "ML": {
+    "geo": "ML",
+    "displayName": "Mali",
+    "iso2": "ML",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Mali",
+    "coordinates": {
+      "lat": 17,
+      "lng": -4
+    }
+  },
+  "MT": {
+    "geo": "MT",
+    "displayName": "Malta",
+    "iso2": "MT",
+    "type": "country",
+    "legalStatus": "Legal",
+    "medicalStatus": "Legal",
+    "notes": "On 30 March 2021, Prime Minister Robert Abela announced a proposal to legalize possession of up to 7 g and the cultivation of up to 4 plants, and for people charged with possession in the past to have it expunged from their criminal records. In December 2021, legislation was passed by the Maltese Parliament and signed into law by President George Vella.",
+    "coordinates": {
+      "lat": 35.83333333,
+      "lng": 14.58333333
+    }
+  },
+  "MH": {
+    "geo": "MH",
+    "displayName": "Marshall Islands",
+    "iso2": "MH",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in the Marshall Islands",
+    "coordinates": {
+      "lat": 9,
+      "lng": 168
+    }
+  },
+  "MR": {
+    "geo": "MR",
+    "displayName": "Mauritania",
+    "iso2": "MR",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Mauritania",
+    "coordinates": {
+      "lat": 20,
+      "lng": -12
+    }
+  },
+  "MU": {
+    "geo": "MU",
+    "displayName": "Mauritius",
+    "iso2": "MU",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Mauritius",
+    "coordinates": {
+      "lat": -20.28333333,
+      "lng": 57.55
+    }
+  },
+  "MX": {
+    "geo": "MX",
+    "displayName": "Mexico",
+    "iso2": "MX",
+    "type": "country",
+    "legalStatus": "Legal",
+    "medicalStatus": "Legal",
+    "notes": "Mexico Supreme Court rulings + regulatory documents; LGCA is federal law.",
+    "coordinates": {
+      "lat": 23,
+      "lng": -102
+    }
+  },
+  "FM": {
+    "geo": "FM",
+    "displayName": "Micronesia",
+    "iso2": "FM",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Micronesia",
+    "coordinates": {
+      "lat": 6.91666666,
+      "lng": 158.25
+    }
+  },
+  "MD": {
+    "geo": "MD",
+    "displayName": "Moldova",
+    "iso2": "MD",
+    "type": "country",
+    "legalStatus": "Decrim",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Moldova",
+    "coordinates": {
+      "lat": 47,
+      "lng": 29
+    }
+  },
+  "MC": {
+    "geo": "MC",
+    "displayName": "Monaco",
+    "iso2": "MC",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Monaco",
+    "coordinates": {
+      "lat": 43.73333333,
+      "lng": 7.4
+    }
+  },
+  "MN": {
+    "geo": "MN",
+    "displayName": "Mongolia",
+    "iso2": "MN",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Mongolia",
+    "coordinates": {
+      "lat": 46,
+      "lng": 105
+    }
+  },
+  "ME": {
+    "geo": "ME",
+    "displayName": "Montenegro",
+    "iso2": "ME",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Montenegro",
+    "coordinates": {
+      "lat": 42.5,
+      "lng": 19.3
+    }
+  },
+  "MA": {
+    "geo": "MA",
+    "displayName": "Morocco",
+    "iso2": "MA",
+    "type": "country",
+    "legalStatus": "Unenforced",
+    "medicalStatus": "Legal",
+    "notes": "Morocco is among the world's top producers of hashish.",
+    "coordinates": {
+      "lat": 32,
+      "lng": -5
+    }
+  },
+  "MZ": {
+    "geo": "MZ",
+    "displayName": "Mozambique",
+    "iso2": "MZ",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Mozambique",
+    "coordinates": {
+      "lat": -18.25,
+      "lng": 35
+    }
+  },
+  "MM": {
+    "geo": "MM",
+    "displayName": "Myanmar",
+    "iso2": "MM",
+    "type": "country",
+    "legalStatus": "Unenforced",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Myanmar",
+    "coordinates": {
+      "lat": 22,
+      "lng": 98
+    }
+  },
+  "NA": {
+    "geo": "NA",
+    "displayName": "Namibia",
+    "iso2": "NA",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Cannabis is illegal; in 2007 the government proposed but declined a 20-year jail sentence for any drug possession.",
+    "coordinates": {
+      "lat": -22,
+      "lng": 17
+    }
+  },
+  "NR": {
+    "geo": "NR",
+    "displayName": "Nauru",
+    "iso2": "NR",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Nauru",
+    "coordinates": {
+      "lat": -0.53333333,
+      "lng": 166.91666666
+    }
+  },
+  "NP": {
+    "geo": "NP",
+    "displayName": "Nepal",
+    "iso2": "NP",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "All cannabis licenses canceled in 1973.",
+    "coordinates": {
+      "lat": 28,
+      "lng": 84
+    }
+  },
+  "NL": {
+    "geo": "NL",
+    "displayName": "Netherlands",
+    "iso2": "NL",
+    "type": "country",
+    "legalStatus": "Unenforced",
+    "medicalStatus": "Legal",
+    "notes": "Dutch government policy page describes tolerance and regulated coffee shop system.",
+    "coordinates": {
+      "lat": 52.1326,
+      "lng": 5.2913
+    }
+  },
+  "NZ": {
+    "geo": "NZ",
+    "displayName": "New Zealand",
+    "iso2": "NZ",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Legal",
+    "notes": "New Zealand official health regulator pages for medical cannabis; recreational is tightly regulated or referendum-driven.",
+    "coordinates": {
+      "lat": -41,
+      "lng": 174
+    }
+  },
+  "NI": {
+    "geo": "NI",
+    "displayName": "Nicaragua",
+    "iso2": "NI",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Nicaragua",
+    "coordinates": {
+      "lat": 13,
+      "lng": -85
+    }
+  },
+  "NE": {
+    "geo": "NE",
+    "displayName": "Niger",
+    "iso2": "NE",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Niger",
+    "coordinates": {
+      "lat": 16,
+      "lng": 8
+    }
+  },
+  "NG": {
+    "geo": "NG",
+    "displayName": "Nigeria",
+    "iso2": "NG",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Nigeria",
+    "coordinates": {
+      "lat": 10,
+      "lng": 8
+    }
+  },
+  "MK": {
+    "geo": "MK",
+    "displayName": "North Macedonia",
+    "iso2": "MK",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Legal",
+    "notes": "If one possesses large amounts, a jail sentence of anywhere from 3 months to 5 years may be given. Medicinal cannabis legalized since 2016.",
+    "coordinates": {
+      "lat": 41.83333333,
+      "lng": 22
+    }
+  },
+  "NO": {
+    "geo": "NO",
+    "displayName": "Norway",
+    "iso2": "NO",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Legal",
+    "notes": "Illegal since 1965. As of 2022, use and possession of up to 15 g are punished with heavy fines and possible loss of driver's license. Solberg's Cabinet proposed a decriminalization bill in 2021 that would remove all sanctions for illegal drug use, including possession of up to 10 g of cannabis. Six parties (43,8%) voted for, while three parties (56,2%) voted against. As a result, the bill did not pass the parliament.",
+    "coordinates": {
+      "lat": 62,
+      "lng": 10
+    }
+  },
+  "OM": {
+    "geo": "OM",
+    "displayName": "Oman",
+    "iso2": "OM",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Oman",
+    "coordinates": {
+      "lat": 21,
+      "lng": 57
+    }
+  },
+  "PK": {
+    "geo": "PK",
+    "displayName": "Pakistan",
+    "iso2": "PK",
+    "type": "country",
+    "legalStatus": "Unenforced",
+    "medicalStatus": "Unknown",
+    "notes": "Prohibited, but the smoking of hashish in Peshawar and the northern parts of Pakistan tends to be tolerated. One may be sent to jail for up to six months if found with charas in other parts of the country. CBD legalized by cabinet announcement in September 2020.",
+    "coordinates": {
+      "lat": 30,
+      "lng": 70
+    }
+  },
+  "PW": {
+    "geo": "PW",
+    "displayName": "Palau",
+    "iso2": "PW",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Palau",
+    "coordinates": {
+      "lat": 7.5,
+      "lng": 134.5
+    }
+  },
+  "PA": {
+    "geo": "PA",
+    "displayName": "Panama",
+    "iso2": "PA",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Legal",
+    "notes": "Main article: Cannabis in Panama",
+    "coordinates": {
+      "lat": 9,
+      "lng": -80
+    }
+  },
+  "PG": {
+    "geo": "PG",
+    "displayName": "Papua New Guinea",
+    "iso2": "PG",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Papua New Guinea",
+    "coordinates": {
+      "lat": -6,
+      "lng": 147
+    }
+  },
+  "PY": {
+    "geo": "PY",
+    "displayName": "Paraguay",
+    "iso2": "PY",
+    "type": "country",
+    "legalStatus": "Decrim",
+    "medicalStatus": "Illegal",
+    "notes": "The possession of up to 10 g of cannabis is not punishable.",
+    "coordinates": {
+      "lat": -23,
+      "lng": -58
+    }
+  },
+  "PE": {
+    "geo": "PE",
+    "displayName": "Peru",
+    "iso2": "PE",
+    "type": "country",
+    "legalStatus": "Decrim",
+    "medicalStatus": "Legal",
+    "notes": "Possession of up to 8 g is not punished. Cultivation, production, and sale are punished with 8–15 years in prison.",
+    "coordinates": {
+      "lat": -10,
+      "lng": -76
+    }
+  },
+  "PH": {
+    "geo": "PH",
+    "displayName": "Philippines",
+    "iso2": "PH",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Medical use of cannabis is possible with a special permit from the Food and Drugs Authority for use by individuals with serious or terminal illness.",
+    "coordinates": {
+      "lat": 13,
+      "lng": 122
+    }
+  },
+  "PL": {
+    "geo": "PL",
+    "displayName": "Poland",
+    "iso2": "PL",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Legal",
+    "notes": "Since 2011, prosecutors can choose not to prosecute possession of small quantities of cannabis for personal use if it is a first offense or if the person is drug dependent. Possession of large quantities of drugs can result in up to 10 years in prison.",
+    "coordinates": {
+      "lat": 52,
+      "lng": 20
+    }
+  },
+  "PT": {
+    "geo": "PT",
+    "displayName": "Portugal",
+    "iso2": "PT",
+    "type": "country",
+    "legalStatus": "Decrim",
+    "medicalStatus": "Legal",
+    "notes": "Portugal decriminalized all drugs; official Diário da República + INFARMED regulator.",
+    "coordinates": {
+      "lat": 39.3999,
+      "lng": -8.2245
+    }
+  },
+  "QA": {
+    "geo": "QA",
+    "displayName": "Qatar",
+    "iso2": "QA",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Qatar",
+    "coordinates": {
+      "lat": 25.5,
+      "lng": 51.25
+    }
+  },
+  "RO": {
+    "geo": "RO",
+    "displayName": "Romania",
+    "iso2": "RO",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Unknown",
+    "notes": "Small quantities punishable by a large fine for first offenders or 6 months to 2 years in prison if the person has been convicted before. Possession of large amounts or trafficking is punishable by 2–7 years of jail time. Decriminalization proposed. Limited medical use approved in 2013.",
+    "coordinates": {
+      "lat": 46,
+      "lng": 25
+    }
+  },
+  "RU": {
+    "geo": "RU",
+    "displayName": "Russia",
+    "iso2": "RU",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Possession of up to 6 g of cannabis (or 2 g of hashish) is an administrative offense, punishable by a fine of ₽5,000 or detention of up to 15 days. Possession of larger amounts is a criminal offense. Foreign nationals and stateless individuals who violate the law are subject to deportation regardless of the amount.",
+    "coordinates": {
+      "lat": 60,
+      "lng": 100
+    }
+  },
+  "RW": {
+    "geo": "RW",
+    "displayName": "Rwanda",
+    "iso2": "RW",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Legal",
+    "notes": "Main article: Cannabis in Rwanda",
+    "coordinates": {
+      "lat": -2,
+      "lng": 30
+    }
+  },
+  "KN": {
+    "geo": "KN",
+    "displayName": "Saint Kitts and Nevis",
+    "iso2": "KN",
+    "type": "country",
+    "legalStatus": "Decrim",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Saint Kitts and Nevis",
+    "coordinates": {
+      "lat": 17.33333333,
+      "lng": -62.75
+    }
+  },
+  "LC": {
+    "geo": "LC",
+    "displayName": "Saint Lucia",
+    "iso2": "LC",
+    "type": "country",
+    "legalStatus": "Decrim",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Saint Lucia",
+    "coordinates": {
+      "lat": 13.88333333,
+      "lng": -60.96666666
+    }
+  },
+  "VC": {
+    "geo": "VC",
+    "displayName": "Saint Vincent and the Grenadines",
+    "iso2": "VC",
+    "type": "country",
+    "legalStatus": "Decrim",
+    "medicalStatus": "Legal",
+    "notes": "Main article: Cannabis in Saint Vincent and the Grenadines",
+    "coordinates": {
+      "lat": 13.25,
+      "lng": -61.2
+    }
+  },
+  "WS": {
+    "geo": "WS",
+    "displayName": "Samoa",
+    "iso2": "WS",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Samoa",
+    "coordinates": {
+      "lat": -13.58333333,
+      "lng": -172.33333333
+    }
+  },
+  "SM": {
+    "geo": "SM",
+    "displayName": "San Marino",
+    "iso2": "SM",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Legal",
+    "notes": "Main article: Cannabis in San Marino",
+    "coordinates": {
+      "lat": 43.76666666,
+      "lng": 12.41666666
+    }
+  },
+  "ST": {
+    "geo": "ST",
+    "displayName": "São Tomé and Príncipe",
+    "iso2": "ST",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in São Tomé and Principe",
+    "coordinates": {
+      "lat": 1,
+      "lng": 7
+    }
+  },
+  "SA": {
+    "geo": "SA",
+    "displayName": "Saudi Arabia",
+    "iso2": "SA",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Use and possession for personal use of any kind of recreational drugs is punishable by imprisonment if caught. Imprisonment for personal use can entail jail time of six months or more. Dealing and smuggling high amounts of drugs usually result in harsher prison time or even execution, although recently executions have been rare. Foreigners who use drugs might be deported.",
+    "coordinates": {
+      "lat": 25,
+      "lng": 45
+    }
+  },
+  "SN": {
+    "geo": "SN",
+    "displayName": "Senegal",
+    "iso2": "SN",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Senegal",
+    "coordinates": {
+      "lat": 14,
+      "lng": -14
+    }
+  },
+  "RS": {
+    "geo": "RS",
+    "displayName": "Serbia",
+    "iso2": "RS",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Possession of small amounts is punishable by fine or imprisonment of up to 3 years. Sale and transportation punishable by imprisonment of 3–12 years. Cultivation punishable by imprisonment from 6 months to 5 years. Higher penalties for organized crime.",
+    "coordinates": {
+      "lat": 44,
+      "lng": 21
+    }
+  },
+  "SC": {
+    "geo": "SC",
+    "displayName": "Seychelles",
+    "iso2": "SC",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Seychelles",
+    "coordinates": {
+      "lat": -4.58333333,
+      "lng": 55.66666666
+    }
+  },
+  "SL": {
+    "geo": "SL",
+    "displayName": "Sierra Leone",
+    "iso2": "SL",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Cannabis banned in 1920.",
+    "coordinates": {
+      "lat": 8.5,
+      "lng": -11.5
+    }
+  },
+  "SG": {
+    "geo": "SG",
+    "displayName": "Singapore",
+    "iso2": "SG",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Unknown",
+    "notes": "Banned in 1870. Cannabis is a Class A drug under the Misuse of Drugs Act, making it illegal to cultivate, sell, or possess. Those who are caught with 500 g of cannabis or more are considered drug traffickers and are liable to be punished with an automatic death penalty. In rare cases, permission has been granted to use cannabis-derived pharmaceuticals for treatment of epilepsy.",
+    "coordinates": {
+      "lat": 1.36666666,
+      "lng": 103.8
+    }
+  },
+  "SK": {
+    "geo": "SK",
+    "displayName": "Slovakia",
+    "iso2": "SK",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Unknown",
+    "notes": "Possession of small amounts punishable by up to 8 years in prison.",
+    "coordinates": {
+      "lat": 48.66666666,
+      "lng": 19.5
+    }
+  },
+  "SI": {
+    "geo": "SI",
+    "displayName": "Slovenia",
+    "iso2": "SI",
+    "type": "country",
+    "legalStatus": "Decrim",
+    "medicalStatus": "Legal",
+    "notes": "Medical cannabis legalized in 2025. Prior to 2025, cannabis-based drugs were legal for medicinal use, but not cannabis itself. Possession of any drug for personal use is decriminalized.",
+    "coordinates": {
+      "lat": 46.11666666,
+      "lng": 14.81666666
+    }
+  },
+  "SB": {
+    "geo": "SB",
+    "displayName": "Solomon Islands",
+    "iso2": "SB",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in the Solomon Islands",
+    "coordinates": {
+      "lat": -8,
+      "lng": 159
+    }
+  },
+  "SO": {
+    "geo": "SO",
+    "displayName": "Somalia",
+    "iso2": "SO",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Somalia",
+    "coordinates": {
+      "lat": 10,
+      "lng": 49
+    }
+  },
+  "ZA": {
+    "geo": "ZA",
+    "displayName": "South Africa",
+    "iso2": "ZA",
+    "type": "country",
+    "legalStatus": "Legal",
+    "medicalStatus": "Legal",
+    "notes": "Government announcement of decriminalization plus regulator site for medical products.",
+    "coordinates": {
+      "lat": -29,
+      "lng": 24
+    }
+  },
+  "SS": {
+    "geo": "SS",
+    "displayName": "South Sudan",
+    "iso2": "SS",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in South Sudan",
+    "coordinates": {
+      "lat": 7,
+      "lng": 30
+    }
+  },
+  "ES": {
+    "geo": "ES",
+    "displayName": "Spain",
+    "iso2": "ES",
+    "type": "country",
+    "legalStatus": "Decrim",
+    "medicalStatus": "Legal",
+    "notes": "All actions related to cannabis for own consumption aren't considered criminal offenses, but misdemeanors punishable by a fine. Cannabis trafficking, including sale, import, or cultivation for sale, is punishable by jail time. Legalized in Catalonia in 2017, but that law was challenged by the state and declared unconstitutional. Cultivation in private areas for own consumption is allowed if the plants cannot be seen from the street or other public spaces.",
+    "coordinates": {
+      "lat": 40.4637,
+      "lng": -3.7492
+    }
+  },
+  "LK": {
+    "geo": "LK",
+    "displayName": "Sri Lanka",
+    "iso2": "LK",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Legal",
+    "notes": "The sale of cannabis is decriminalized for traditional medicine vendors and it is commonly used in Ayurvedic traditional medicines.",
+    "coordinates": {
+      "lat": 7,
+      "lng": 81
+    }
+  },
+  "SD": {
+    "geo": "SD",
+    "displayName": "Sudan",
+    "iso2": "SD",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Sudan",
+    "coordinates": {
+      "lat": 15,
+      "lng": 30
+    }
+  },
+  "SR": {
+    "geo": "SR",
+    "displayName": "Suriname",
+    "iso2": "SR",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Cannabis was banned in Suriname in the early 20th century, having been popularized there by Asian immigrants.",
+    "coordinates": {
+      "lat": 4,
+      "lng": -56
+    }
+  },
+  "SE": {
+    "geo": "SE",
+    "displayName": "Sweden",
+    "iso2": "SE",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Limited",
+    "notes": "All cannabis-related activity illegal. The national police runs a \"disturb and annoy\" program aimed at users supported by the national \"zero tolerance\" policy.",
+    "coordinates": {
+      "lat": 62,
+      "lng": 15
+    }
+  },
+  "CH": {
+    "geo": "CH",
+    "displayName": "Switzerland",
+    "iso2": "CH",
+    "type": "country",
+    "legalStatus": "Decrim",
+    "medicalStatus": "Legal",
+    "notes": "Swiss federal announcements for regulated experiments + medical frameworks.",
+    "coordinates": {
+      "lat": 47,
+      "lng": 8
+    }
+  },
+  "SY": {
+    "geo": "SY",
+    "displayName": "Syria",
+    "iso2": "SY",
+    "type": "country",
+    "legalStatus": "Unenforced",
+    "medicalStatus": "Illegal",
+    "notes": "If someone is considered an addict by the Syrian government then they face no criminal penalties for drug possession.",
+    "coordinates": {
+      "lat": 35,
+      "lng": 38
+    }
+  },
+  "TW": {
+    "geo": "TW",
+    "displayName": "Taiwan",
+    "iso2": "TW",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Cannabis is a schedule 2 narcotic in the ROC, and possession can result in up to 3 years imprisonment.",
+    "coordinates": {
+      "lat": 23.5,
+      "lng": 121
+    }
+  },
+  "TJ": {
+    "geo": "TJ",
+    "displayName": "Tajikistan",
+    "iso2": "TJ",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Tajikistan",
+    "coordinates": {
+      "lat": 39,
+      "lng": 71
+    }
+  },
+  "TZ": {
+    "geo": "TZ",
+    "displayName": "Tanzania",
+    "iso2": "TZ",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Tanzania",
+    "coordinates": {
+      "lat": -6,
+      "lng": 35
+    }
+  },
+  "TH": {
+    "geo": "TH",
+    "displayName": "Thailand",
+    "iso2": "TH",
+    "type": "country",
+    "legalStatus": "Unenforced",
+    "medicalStatus": "Legal",
+    "notes": "Criminalized in 1935, medical use legalized in 2018. Recreational use legalized in 2022 for those aged 20 and over. Unprescribed products with over 0.2% THC were recriminalized in 2025, but this law is often unenforced.",
+    "coordinates": {
+      "lat": 15,
+      "lng": 100
+    }
+  },
+  "TL": {
+    "geo": "TL",
+    "displayName": "Timor-Leste",
+    "iso2": "TL",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Timor-Leste",
+    "coordinates": {
+      "lat": -8.83333333,
+      "lng": 125.91666666
+    }
+  },
+  "TG": {
+    "geo": "TG",
+    "displayName": "Togo",
+    "iso2": "TG",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Togo",
+    "coordinates": {
+      "lat": 8,
+      "lng": 1.16666666
+    }
+  },
+  "TO": {
+    "geo": "TO",
+    "displayName": "Tonga",
+    "iso2": "TO",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Tonga",
+    "coordinates": {
+      "lat": -20,
+      "lng": -175
+    }
+  },
+  "TT": {
+    "geo": "TT",
+    "displayName": "Trinidad and Tobago",
+    "iso2": "TT",
+    "type": "country",
+    "legalStatus": "Decrim",
+    "medicalStatus": "Illegal",
+    "notes": "Banned in 1925. Decriminalized in 2019.",
+    "coordinates": {
+      "lat": 11,
+      "lng": -61
+    }
+  },
+  "TN": {
+    "geo": "TN",
+    "displayName": "Tunisia",
+    "iso2": "TN",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Banned in 1953. Using or possessing entails 1–5 years of imprisonment and 1000–3000 dinars (around $500–1500).",
+    "coordinates": {
+      "lat": 34,
+      "lng": 9
+    }
+  },
+  "TR": {
+    "geo": "TR",
+    "displayName": "Türkiye",
+    "iso2": "TR",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Unknown",
+    "notes": "Medical grade cannabis containing less than 0.3% THC legalized in 2025. Recreational use is illegal and is punishable by 1 year of probation while repetition is punishable by 2 years of probation and enforced treatment. Sale and supply is punishable by a prison term of 5–10 years, and production or trafficking by a minimum term of 10 years.",
+    "coordinates": {
+      "lat": 39,
+      "lng": 35
+    }
+  },
+  "TM": {
+    "geo": "TM",
+    "displayName": "Turkmenistan",
+    "iso2": "TM",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Turkmenistan",
+    "coordinates": {
+      "lat": 40,
+      "lng": 60
+    }
+  },
+  "TV": {
+    "geo": "TV",
+    "displayName": "Tuvalu",
+    "iso2": "TV",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Tuvalu",
+    "coordinates": {
+      "lat": -8,
+      "lng": 178
+    }
+  },
+  "UG": {
+    "geo": "UG",
+    "displayName": "Uganda",
+    "iso2": "UG",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Uganda",
+    "coordinates": {
+      "lat": 1,
+      "lng": 32
+    }
+  },
+  "UA": {
+    "geo": "UA",
+    "displayName": "Ukraine",
+    "iso2": "UA",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Legal",
+    "notes": "In December 2023, Parliament adopted a bill to legalize medical cannabis on second reading. It was signed into law by President Zelensky on 15 February 2024.",
+    "coordinates": {
+      "lat": 49,
+      "lng": 32
+    }
+  },
+  "AE": {
+    "geo": "AE",
+    "displayName": "United Arab Emirates",
+    "iso2": "AE",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "In 2008, even the smallest amounts of the drug could lead to a mandatory 4-year prison sentence.",
+    "coordinates": {
+      "lat": 24,
+      "lng": 54
+    }
+  },
+  "GB": {
+    "geo": "GB",
+    "displayName": "United Kingdom",
+    "iso2": "GB",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Unknown",
+    "notes": "Banned in 1928. A class B drug under the Misuse of Drugs Act 1971. Limited medical use legal since 1 November 2018 when prescribed by a specialist consultant, not a GP. Guidance: only prescribe when clearly beneficial and no other option available.",
+    "coordinates": {
+      "lat": 54,
+      "lng": -2
+    }
+  },
+  "US": {
+    "geo": "US",
+    "displayName": "United States",
+    "iso2": "US",
+    "type": "country",
+    "legalStatus": "Decrim",
+    "medicalStatus": "Illegal",
+    "notes": "Cannabis remains a Schedule I drug at federal level, prohibiting even its medical use with narrow exceptions. The Rohrabacher–Farr amendment prevents federal enforcement in states that have legalized medical, however. No such protections exist regarding recreational, but the federal government has so far generally not intervened. Recognized Indian reservations are allowed to legalize for either use under a policy announced in 2014. Every U.S. state that has legalized recreational use has set a mandatory legal minimum age of 21 for purchase, possession, and use. In 2024, the Drug Enforcement Administration and the Department of Justice indicated they were planning to reschedule cannabis to Schedule III.",
+    "coordinates": {
+      "lat": 38,
+      "lng": -97
+    }
+  },
+  "UY": {
+    "geo": "UY",
+    "displayName": "Uruguay",
+    "iso2": "UY",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Legal",
+    "notes": "Uruguay fully legalized cannabis; government registry/official docs enforce regulation.",
+    "coordinates": {
+      "lat": -33,
+      "lng": -56
+    }
+  },
+  "UZ": {
+    "geo": "UZ",
+    "displayName": "Uzbekistan",
+    "iso2": "UZ",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Opiates, cannabis and other plants containing psychotropic substances are illegal.",
+    "coordinates": {
+      "lat": 41,
+      "lng": 64
+    }
+  },
+  "VU": {
+    "geo": "VU",
+    "displayName": "Vanuatu",
+    "iso2": "VU",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Legal",
+    "notes": "Main article: Cannabis in Vanuatu",
+    "coordinates": {
+      "lat": -16,
+      "lng": 167
+    }
+  },
+  "VA": {
+    "geo": "VA",
+    "displayName": "Vatican City",
+    "iso2": "VA",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Cannabis is illegal in Vatican City, and possession or use is prosecuted under Italian-based criminal law applied within the Holy See.",
+    "coordinates": {
+      "lat": 41.9,
+      "lng": 12.45
+    }
+  },
+  "VE": {
+    "geo": "VE",
+    "displayName": "Venezuela",
+    "iso2": "VE",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Possession of up to 20 g of marijuana or 5 g of genetically modified marijuana for commercial purposes is punishable by 1–2 years in prison at judge's discretion. If deemed to be for personal consumption, the user is subject to security measures involving rehabilitation and detoxification procedures.",
+    "coordinates": {
+      "lat": 8,
+      "lng": -66
+    }
+  },
+  "VN": {
+    "geo": "VN",
+    "displayName": "Vietnam",
+    "iso2": "VN",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Vietnam",
+    "coordinates": {
+      "lat": 16.16666666,
+      "lng": 107.83333333
+    }
+  },
+  "YE": {
+    "geo": "YE",
+    "displayName": "Yemen",
+    "iso2": "YE",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Main article: Cannabis in Yemen",
+    "coordinates": {
+      "lat": 15,
+      "lng": 48
+    }
+  },
+  "ZM": {
+    "geo": "ZM",
+    "displayName": "Zambia",
+    "iso2": "ZM",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Legal",
+    "notes": "Main article: Cannabis in Zambia",
+    "coordinates": {
+      "lat": -15,
+      "lng": 30
+    }
+  },
+  "ZW": {
+    "geo": "ZW",
+    "displayName": "Zimbabwe",
+    "iso2": "ZW",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Legal",
+    "notes": "Main article: Cannabis in Zimbabwe",
+    "coordinates": {
+      "lat": -20,
+      "lng": 30
+    }
+  },
+  "CX": {
+    "geo": "CX",
+    "displayName": "Christmas Island",
+    "iso2": "CX",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available for interpretation.",
+    "coordinates": {
+      "lat": -10.5,
+      "lng": 105.66666666
+    }
+  },
+  "AS": {
+    "geo": "AS",
+    "displayName": "American Samoa",
+    "iso2": "AS",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available for interpretation.",
+    "coordinates": {
+      "lat": -14.33333333,
+      "lng": -170
+    }
+  },
+  "PS": {
+    "geo": "PS",
+    "displayName": "Palestine",
+    "iso2": "PS",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": 32.047431,
+      "lng": 35.291341
+    }
+  },
+  "EH": {
+    "geo": "EH",
+    "displayName": "Western Sahara",
+    "iso2": "EH",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": 23.967592,
+      "lng": -12.630304
+    }
+  },
+  "MF": {
+    "geo": "MF",
+    "displayName": "Saint Martin",
+    "iso2": "MF",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": 18.081302,
+      "lng": -63.049399
+    }
+  },
+  "SX": {
+    "geo": "SX",
+    "displayName": "Sint Maarten",
+    "iso2": "SX",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": 18.04088,
+      "lng": -63.070133
+    }
+  },
+  "XK": {
+    "geo": "XK",
+    "displayName": "Kosovo",
+    "iso2": "XK",
+    "type": "country",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "This Cannabis -related article is a stub . You can help Wikipedia by adding missing information . This Kosovo -related article is a stub .",
+    "coordinates": {
+      "lat": 42.593587,
+      "lng": 20.860719
+    }
+  },
+  "GI": {
+    "geo": "GI",
+    "displayName": "Gibraltar",
+    "iso2": "GI",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": 36.129426,
+      "lng": -5.3467
+    }
+  },
+  "KAS": {
+    "geo": "KAS",
+    "displayName": "Siachen Glacier",
+    "iso2": "KAS",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": 35.340606,
+      "lng": 77.129553
+    }
+  },
+  "SPI": {
+    "geo": "SPI",
+    "displayName": "Southern Patagonian Ice Field",
+    "iso2": "SPI",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": -49.511034,
+      "lng": -73.31378
+    }
+  },
+  "BRT": {
+    "geo": "BRT",
+    "displayName": "Bir Tawil",
+    "iso2": "BRT",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": 21.860442,
+      "lng": 33.673428
+    }
+  },
+  "AQ": {
+    "geo": "AQ",
+    "displayName": "Antarctica",
+    "iso2": "AQ",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": -79.843222,
+      "lng": 35.885455
+    }
+  },
+  "NC": {
+    "geo": "NC",
+    "displayName": "New Caledonia",
+    "iso2": "NC",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": -21.064697,
+      "lng": 165.084004
+    }
+  },
+  "CW": {
+    "geo": "CW",
+    "displayName": "Curaçao",
+    "iso2": "CW",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": 12.145039,
+      "lng": -68.920578
+    }
+  },
+  "AW": {
+    "geo": "AW",
+    "displayName": "Aruba",
+    "iso2": "AW",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": 12.5174,
+      "lng": -69.972795
+    }
+  },
+  "TC": {
+    "geo": "TC",
+    "displayName": "Turks and Caicos Islands",
+    "iso2": "TC",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": 21.81663,
+      "lng": -71.752704
+    }
+  },
+  "PM": {
+    "geo": "PM",
+    "displayName": "Saint Pierre and Miquelon",
+    "iso2": "PM",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": 47.040344,
+      "lng": -56.332352
+    }
+  },
+  "PN": {
+    "geo": "PN",
+    "displayName": "Pitcairn Islands",
+    "iso2": "PN",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": -24.364576,
+      "lng": -128.317536
+    }
+  },
+  "PF": {
+    "geo": "PF",
+    "displayName": "French Polynesia",
+    "iso2": "PF",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": -17.628081,
+      "lng": -149.46157
+    }
+  },
+  "TF": {
+    "geo": "TF",
+    "displayName": "French Southern and Antarctic Lands",
+    "iso2": "TF",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": -49.303721,
+      "lng": 69.122136
+    }
+  },
+  "UM": {
+    "geo": "UM",
+    "displayName": "United States Minor Outlying Islands",
+    "iso2": "UM",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": 19.285663,
+      "lng": 166.644535
+    }
+  },
+  "MS": {
+    "geo": "MS",
+    "displayName": "Montserrat",
+    "iso2": "MS",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": 16.73717,
+      "lng": -62.188252
+    }
+  },
+  "VI": {
+    "geo": "VI",
+    "displayName": "United States Virgin Islands",
+    "iso2": "VI",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": 17.746706,
+      "lng": -64.779172
+    }
+  },
+  "BL": {
+    "geo": "BL",
+    "displayName": "Saint Barthélemy",
+    "iso2": "BL",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": 17.901987,
+      "lng": -62.833193
+    }
+  },
+  "PR": {
+    "geo": "PR",
+    "displayName": "Puerto Rico",
+    "iso2": "PR",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": 18.234668,
+      "lng": -66.481065
+    }
+  },
+  "AI": {
+    "geo": "AI",
+    "displayName": "Anguilla",
+    "iso2": "AI",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": 18.242979,
+      "lng": -63.026361
+    }
+  },
+  "VG": {
+    "geo": "VG",
+    "displayName": "British Virgin Islands",
+    "iso2": "VG",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": 18.426606,
+      "lng": -64.63661
+    }
+  },
+  "KY": {
+    "geo": "KY",
+    "displayName": "Cayman Islands",
+    "iso2": "KY",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": 19.319862,
+      "lng": -81.24055
+    }
+  },
+  "HM": {
+    "geo": "HM",
+    "displayName": "Heard Island and McDonald Islands",
+    "iso2": "HM",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": -53.103462,
+      "lng": 73.50521
+    }
+  },
+  "SH": {
+    "geo": "SH",
+    "displayName": "Saint Helena",
+    "iso2": "SH",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": -15.950487,
+      "lng": -5.71262
+    }
+  },
+  "JE": {
+    "geo": "JE",
+    "displayName": "Jersey",
+    "iso2": "JE",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": 49.220808,
+      "lng": -2.090146
+    }
+  },
+  "GG": {
+    "geo": "GG",
+    "displayName": "Guernsey",
+    "iso2": "GG",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": 49.463533,
+      "lng": -2.561736
+    }
+  },
+  "IM": {
+    "geo": "IM",
+    "displayName": "Isle of Man",
+    "iso2": "IM",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": 54.220833,
+      "lng": -4.530069
+    }
+  },
+  "AX": {
+    "geo": "AX",
+    "displayName": "Åland",
+    "iso2": "AX",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": 60.156467,
+      "lng": 19.869671
+    }
+  },
+  "FO": {
+    "geo": "FO",
+    "displayName": "Faroe Islands",
+    "iso2": "FO",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": 62.185604,
+      "lng": -7.058429
+    }
+  },
+  "IO": {
+    "geo": "IO",
+    "displayName": "British Indian Ocean Territory",
+    "iso2": "IO",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": -6.190826,
+      "lng": 71.348349
+    }
+  },
+  "NF": {
+    "geo": "NF",
+    "displayName": "Norfolk Island",
+    "iso2": "NF",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": -29.033042,
+      "lng": 167.954531
+    }
+  },
+  "WF": {
+    "geo": "WF",
+    "displayName": "Wallis and Futuna",
+    "iso2": "WF",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": -14.286415,
+      "lng": -178.137436
+    }
+  },
+  "GS": {
+    "geo": "GS",
+    "displayName": "South Georgia and the South Sandwich Islands",
+    "iso2": "GS",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": -55.683402,
+      "lng": -31.063179
+    }
+  },
+  "FK": {
+    "geo": "FK",
+    "displayName": "Falkland Islands",
+    "iso2": "FK",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": -51.608913,
+      "lng": -58.738602
+    }
+  },
+  "NU": {
+    "geo": "NU",
+    "displayName": "Niue",
+    "iso2": "NU",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": -19.045956,
+      "lng": -169.862565
+    }
+  },
+  "GU": {
+    "geo": "GU",
+    "displayName": "Guam",
+    "iso2": "GU",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": 13.354173,
+      "lng": 144.703614
+    }
+  },
+  "MP": {
+    "geo": "MP",
+    "displayName": "Northern Mariana Islands",
+    "iso2": "MP",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": 15.188188,
+      "lng": 145.734397
+    }
+  },
+  "PGA": {
+    "geo": "PGA",
+    "displayName": "Wake Island",
+    "iso2": "PGA",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": 10.72954,
+      "lng": 115.81956
+    }
+  },
+  "BJN": {
+    "geo": "BJN",
+    "displayName": "Bajo Nuevo Bank",
+    "iso2": "BJN",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": 15.791588,
+      "lng": -79.845836
+    }
+  },
+  "SER": {
+    "geo": "SER",
+    "displayName": "Serranilla Bank",
+    "iso2": "SER",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": 15.864308,
+      "lng": -78.638239
+    }
+  },
+  "SCR": {
+    "geo": "SCR",
+    "displayName": "Scarborough Shoal",
+    "iso2": "SCR",
+    "type": "country",
+    "legalStatus": "Unknown",
+    "medicalStatus": "Unknown",
+    "notes": "No notes available.",
+    "coordinates": {
+      "lat": 15.152039,
+      "lng": 117.753812
+    }
+  },
+  "US-AK": {
+    "geo": "US-AK",
+    "displayName": "Alaska",
+    "iso2": "US-AK",
+    "type": "state",
+    "legalStatus": "Legal",
+    "medicalStatus": "Legal",
+    "notes": "Legal to possess up to 1 oz (28 g)",
+    "coordinates": {
+      "lat": 65.3609,
+      "lng": -151.604
+    }
+  },
+  "US-AL": {
+    "geo": "US-AL",
+    "displayName": "Alabama",
+    "iso2": "US-AL",
+    "type": "state",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Limited",
+    "notes": "Legal to possess up to \"70 daily dosages\" at one time.",
+    "coordinates": {
+      "lat": 32.8551,
+      "lng": -86.7184
+    }
+  },
+  "US-AR": {
+    "geo": "US-AR",
+    "displayName": "Arkansas",
+    "iso2": "US-AR",
+    "type": "state",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Limited",
+    "notes": "Legal to possess up to 2.5 oz (71 g) per 14 days.",
+    "coordinates": {
+      "lat": 34.7563,
+      "lng": -92.1428
+    }
+  },
+  "US-AZ": {
+    "geo": "US-AZ",
+    "displayName": "Arizona",
+    "iso2": "US-AZ",
+    "type": "state",
+    "legalStatus": "Legal",
+    "medicalStatus": "Legal",
+    "notes": "Legal to possess up to 2.5 oz (71 g) per 14 days.",
+    "coordinates": {
+      "lat": 34.0489,
+      "lng": -111.0937
+    }
+  },
+  "US-CA": {
+    "geo": "US-CA",
+    "displayName": "California",
+    "iso2": "US-CA",
+    "type": "state",
+    "legalStatus": "Legal",
+    "medicalStatus": "Legal",
+    "notes": "Legal to possess up to 8 oz (230 g)",
+    "coordinates": {
+      "lat": 36.7783,
+      "lng": -119.4179
+    }
+  },
+  "US-CO": {
+    "geo": "US-CO",
+    "displayName": "Colorado",
+    "iso2": "US-CO",
+    "type": "state",
+    "legalStatus": "Legal",
+    "medicalStatus": "Legal",
+    "notes": "Legal to possess up to 2 oz (57 g)",
+    "coordinates": {
+      "lat": 39.5501,
+      "lng": -105.7821
+    }
+  },
+  "US-CT": {
+    "geo": "US-CT",
+    "displayName": "Connecticut",
+    "iso2": "US-CT",
+    "type": "state",
+    "legalStatus": "Legal",
+    "medicalStatus": "Legal",
+    "notes": "Legal to possess up to 5 oz (140 g) per month.",
+    "coordinates": {
+      "lat": 41.6486,
+      "lng": -72.7594
+    }
+  },
+  "US-DE": {
+    "geo": "US-DE",
+    "displayName": "Delaware",
+    "iso2": "US-DE",
+    "type": "state",
+    "legalStatus": "Legal",
+    "medicalStatus": "Legal",
+    "notes": "Legal to possess up to 6 oz (171 g)",
+    "coordinates": {
+      "lat": 38.8657,
+      "lng": -75.4112
+    }
+  },
+  "US-FL": {
+    "geo": "US-FL",
+    "displayName": "Florida",
+    "iso2": "US-FL",
+    "type": "state",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Limited",
+    "notes": "Legal to possess up to three 70-day, or six 35-day \"supply limits\". One 35-day supply is limited to 2.5 oz (71 g).",
+    "coordinates": {
+      "lat": 27.6648,
+      "lng": -81.5158
+    }
+  },
+  "US-GA": {
+    "geo": "US-GA",
+    "displayName": "Georgia",
+    "iso2": "US-GA",
+    "type": "state",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "CBD oil (less than 5% THC)",
+    "coordinates": {
+      "lat": 32.8547,
+      "lng": -83.4078
+    }
+  },
+  "US-HI": {
+    "geo": "US-HI",
+    "displayName": "Hawaii",
+    "iso2": "US-HI",
+    "type": "state",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Limited",
+    "notes": "Legal to possess up to 4 oz (114 g).",
+    "coordinates": {
+      "lat": 21.4919,
+      "lng": -157.999
+    }
+  },
+  "US-IA": {
+    "geo": "US-IA",
+    "displayName": "Iowa",
+    "iso2": "US-IA",
+    "type": "state",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Legal to possess up to an amount of THC not exceeding 4.5 grams per 90 day period.",
+    "coordinates": {
+      "lat": 42.0423,
+      "lng": -93.3891
+    }
+  },
+  "US-ID": {
+    "geo": "US-ID",
+    "displayName": "Idaho",
+    "iso2": "US-ID",
+    "type": "state",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "CBD oil, derivatives from CBD, Hemp Flower CBD Substance and plant material, CBD Vape, CBD gummies or candies, and other CBD Derived Products (less than 0.9% THC)",
+    "coordinates": {
+      "lat": 43.7825,
+      "lng": -114.133
+    }
+  },
+  "US-IL": {
+    "geo": "US-IL",
+    "displayName": "Illinois",
+    "iso2": "US-IL",
+    "type": "state",
+    "legalStatus": "Legal",
+    "medicalStatus": "Legal",
+    "notes": "Legal to possess up to 2.5 oz (71 g) per 14 day period.",
+    "coordinates": {
+      "lat": 40.6331,
+      "lng": -89.3985
+    }
+  },
+  "US-IN": {
+    "geo": "US-IN",
+    "displayName": "Indiana",
+    "iso2": "US-IN",
+    "type": "state",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "CBD oil (less than 0.3% THC) legal for any use",
+    "coordinates": {
+      "lat": 39.8874,
+      "lng": -86.1396
+    }
+  },
+  "US-KS": {
+    "geo": "US-KS",
+    "displayName": "Kansas",
+    "iso2": "US-KS",
+    "type": "state",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "CBD oil (containing 0% THC) legal for any use",
+    "coordinates": {
+      "lat": 38.5,
+      "lng": -98.3309
+    }
+  },
+  "US-KY": {
+    "geo": "US-KY",
+    "displayName": "Kentucky",
+    "iso2": "US-KY",
+    "type": "state",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Limited",
+    "notes": "Legal to possess an \"uninterrupted 30-day supply\"",
+    "coordinates": {
+      "lat": 37.3994,
+      "lng": -85.5729
+    }
+  },
+  "US-LA": {
+    "geo": "US-LA",
+    "displayName": "Louisiana",
+    "iso2": "US-LA",
+    "type": "state",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Limited",
+    "notes": "Legal to possess up to a \"30-day supply\"",
+    "coordinates": {
+      "lat": 30.5274,
+      "lng": -91.9991
+    }
+  },
+  "US-MA": {
+    "geo": "US-MA",
+    "displayName": "Massachusetts",
+    "iso2": "US-MA",
+    "type": "state",
+    "legalStatus": "Legal",
+    "medicalStatus": "Legal",
+    "notes": "Legal to possess up to 10 oz (280 g) per every 2-month period",
+    "coordinates": {
+      "lat": 42.4072,
+      "lng": -71.3824
+    }
+  },
+  "US-MD": {
+    "geo": "US-MD",
+    "displayName": "Maryland",
+    "iso2": "US-MD",
+    "type": "state",
+    "legalStatus": "Legal",
+    "medicalStatus": "Legal",
+    "notes": "Legal to possess up to 120 g (4.2 oz) or 36 g (1.3 oz) of concentrate",
+    "coordinates": {
+      "lat": 39.3874,
+      "lng": -77.0454
+    }
+  },
+  "US-ME": {
+    "geo": "US-ME",
+    "displayName": "Maine",
+    "iso2": "US-ME",
+    "type": "state",
+    "legalStatus": "Legal",
+    "medicalStatus": "Legal",
+    "notes": "Legal to possess up to 2.5 oz (71 g)",
+    "coordinates": {
+      "lat": 45.148,
+      "lng": -69.1973
+    }
+  },
+  "US-MI": {
+    "geo": "US-MI",
+    "displayName": "Michigan",
+    "iso2": "US-MI",
+    "type": "state",
+    "legalStatus": "Legal",
+    "medicalStatus": "Legal",
+    "notes": "Legal to possess up to 2.5 oz (71 g)",
+    "coordinates": {
+      "lat": 44.3148,
+      "lng": -85.6024
+    }
+  },
+  "US-MN": {
+    "geo": "US-MN",
+    "displayName": "Minnesota",
+    "iso2": "US-MN",
+    "type": "state",
+    "legalStatus": "Legal",
+    "medicalStatus": "Legal",
+    "notes": "Legal to possess up to 2.5 oz (71 g) every 14 days.",
+    "coordinates": {
+      "lat": 46.0592,
+      "lng": -93.364
+    }
+  },
+  "US-MO": {
+    "geo": "US-MO",
+    "displayName": "Missouri",
+    "iso2": "US-MO",
+    "type": "state",
+    "legalStatus": "Legal",
+    "medicalStatus": "Legal",
+    "notes": "Legal to possess up to 6 oz (170 g) per month",
+    "coordinates": {
+      "lat": 38.5487,
+      "lng": -92.446
+    }
+  },
+  "US-MS": {
+    "geo": "US-MS",
+    "displayName": "Mississippi",
+    "iso2": "US-MS",
+    "type": "state",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Limited",
+    "notes": "Legal to possess up to 3 oz (85 g) per month",
+    "coordinates": {
+      "lat": 32.8657,
+      "lng": -89.7189
+    }
+  },
+  "US-MT": {
+    "geo": "US-MT",
+    "displayName": "Montana",
+    "iso2": "US-MT",
+    "type": "state",
+    "legalStatus": "Legal",
+    "medicalStatus": "Legal",
+    "notes": "Legal to possess up to 1 oz (28 g)",
+    "coordinates": {
+      "lat": 46.9965,
+      "lng": -110.044
+    }
+  },
+  "US-NC": {
+    "geo": "US-NC",
+    "displayName": "North Carolina",
+    "iso2": "US-NC",
+    "type": "state",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "From Legality of cannabis by U.S. jurisdiction table.",
+    "coordinates": {
+      "lat": 35.6152,
+      "lng": -78.866
+    }
+  },
+  "US-ND": {
+    "geo": "US-ND",
+    "displayName": "North Dakota",
+    "iso2": "US-ND",
+    "type": "state",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Limited",
+    "notes": "Legal to possess up to 3 oz (85 g)",
+    "coordinates": {
+      "lat": 47.4675,
+      "lng": -100.302
+    }
+  },
+  "US-NE": {
+    "geo": "US-NE",
+    "displayName": "Nebraska",
+    "iso2": "US-NE",
+    "type": "state",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Limited",
+    "notes": "From Legality of cannabis by U.S. jurisdiction table.",
+    "coordinates": {
+      "lat": 41.5002,
+      "lng": -99.6855
+    }
+  },
+  "US-NH": {
+    "geo": "US-NH",
+    "displayName": "New Hampshire",
+    "iso2": "US-NH",
+    "type": "state",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Limited",
+    "notes": "Legal to possess up to 2 oz (57 g)",
+    "coordinates": {
+      "lat": 43.5993,
+      "lng": -71.6301
+    }
+  },
+  "US-NJ": {
+    "geo": "US-NJ",
+    "displayName": "New Jersey",
+    "iso2": "US-NJ",
+    "type": "state",
+    "legalStatus": "Legal",
+    "medicalStatus": "Legal",
+    "notes": "Legal to possess up to 3 oz (85 g) per month",
+    "coordinates": {
+      "lat": 40.0583,
+      "lng": -74.4057
+    }
+  },
+  "US-NM": {
+    "geo": "US-NM",
+    "displayName": "New Mexico",
+    "iso2": "US-NM",
+    "type": "state",
+    "legalStatus": "Legal",
+    "medicalStatus": "Legal",
+    "notes": "Legal to possess up to 8 oz (230 g) per 90-day period",
+    "coordinates": {
+      "lat": 34.5002,
+      "lng": -106.024
+    }
+  },
+  "US-NV": {
+    "geo": "US-NV",
+    "displayName": "Nevada",
+    "iso2": "US-NV",
+    "type": "state",
+    "legalStatus": "Legal",
+    "medicalStatus": "Legal",
+    "notes": "Legal to possess up to 2.5 oz (71 g)",
+    "coordinates": {
+      "lat": 38.8026,
+      "lng": -116.4194
+    }
+  },
+  "US-NY": {
+    "geo": "US-NY",
+    "displayName": "New York",
+    "iso2": "US-NY",
+    "type": "state",
+    "legalStatus": "Legal",
+    "medicalStatus": "Legal",
+    "notes": "Legal to possess a 60-day supply.",
+    "coordinates": {
+      "lat": 43,
+      "lng": -75
+    }
+  },
+  "US-OH": {
+    "geo": "US-OH",
+    "displayName": "Ohio",
+    "iso2": "US-OH",
+    "type": "state",
+    "legalStatus": "Legal",
+    "medicalStatus": "Legal",
+    "notes": "Legal to possess a 90-day supply.",
+    "coordinates": {
+      "lat": 40.0924,
+      "lng": -82.6719
+    }
+  },
+  "US-OK": {
+    "geo": "US-OK",
+    "displayName": "Oklahoma",
+    "iso2": "US-OK",
+    "type": "state",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Limited",
+    "notes": "Legal to possess up to 8 oz (230 g), 1 oz (28 g) of concentrate, and 72 oz (2 kg) of edibles in a residence. Patients are able to possess up to 3 oz (85 g) in public.",
+    "coordinates": {
+      "lat": 35.452,
+      "lng": -97.1309
+    }
+  },
+  "US-OR": {
+    "geo": "US-OR",
+    "displayName": "Oregon",
+    "iso2": "US-OR",
+    "type": "state",
+    "legalStatus": "Legal",
+    "medicalStatus": "Legal",
+    "notes": "Legal to possess up to 24 oz (680 g)",
+    "coordinates": {
+      "lat": 43.8333,
+      "lng": -120.386
+    }
+  },
+  "US-PA": {
+    "geo": "US-PA",
+    "displayName": "Pennsylvania",
+    "iso2": "US-PA",
+    "type": "state",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Limited",
+    "notes": "Legal to possess up to a 90-day supply",
+    "coordinates": {
+      "lat": 40.8601,
+      "lng": -77.6094
+    }
+  },
+  "US-RI": {
+    "geo": "US-RI",
+    "displayName": "Rhode Island",
+    "iso2": "US-RI",
+    "type": "state",
+    "legalStatus": "Legal",
+    "medicalStatus": "Legal",
+    "notes": "Legal to possess up to 2.5 oz (71 g)",
+    "coordinates": {
+      "lat": 41.6242,
+      "lng": -71.5082
+    }
+  },
+  "US-SC": {
+    "geo": "US-SC",
+    "displayName": "South Carolina",
+    "iso2": "US-SC",
+    "type": "state",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Cannabis oil (less than 0.9% THC)",
+    "coordinates": {
+      "lat": 33.8578,
+      "lng": -80.6471
+    }
+  },
+  "US-SD": {
+    "geo": "US-SD",
+    "displayName": "South Dakota",
+    "iso2": "US-SD",
+    "type": "state",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Limited",
+    "notes": "Legal to possess up to 3 oz (85 g)",
+    "coordinates": {
+      "lat": 44.4711,
+      "lng": -100.255
+    }
+  },
+  "US-TN": {
+    "geo": "US-TN",
+    "displayName": "Tennessee",
+    "iso2": "US-TN",
+    "type": "state",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "Cannabis oil (less than 0.9% THC)",
+    "coordinates": {
+      "lat": 35.7514,
+      "lng": -86.3415
+    }
+  },
+  "US-TX": {
+    "geo": "US-TX",
+    "displayName": "Texas",
+    "iso2": "US-TX",
+    "type": "state",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Limited",
+    "notes": "Legal to possess medically. Patients may now access up to 10 mg of THC per serving and 1 gram per package, and are permitted to vape and nebulize THC products in addition to other forms.",
+    "coordinates": {
+      "lat": 31.9686,
+      "lng": -99.9018
+    }
+  },
+  "US-UT": {
+    "geo": "US-UT",
+    "displayName": "Utah",
+    "iso2": "US-UT",
+    "type": "state",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Limited",
+    "notes": "Legal to possess up to 4 oz (113 g) per 30-day period",
+    "coordinates": {
+      "lat": 39.5007,
+      "lng": -111.544
+    }
+  },
+  "US-VA": {
+    "geo": "US-VA",
+    "displayName": "Virginia",
+    "iso2": "US-VA",
+    "type": "state",
+    "legalStatus": "Legal",
+    "medicalStatus": "Legal",
+    "notes": "Legal to possess up to 4 oz (113 g) per 30-day period; unlike recreational use, commercial sales of medical marijuana is legal.",
+    "coordinates": {
+      "lat": 37.7403,
+      "lng": -78.2431
+    }
+  },
+  "US-VT": {
+    "geo": "US-VT",
+    "displayName": "Vermont",
+    "iso2": "US-VT",
+    "type": "state",
+    "legalStatus": "Legal",
+    "medicalStatus": "Legal",
+    "notes": "Legal to possess up to 2 oz (57 g)",
+    "coordinates": {
+      "lat": 44.0886,
+      "lng": -72.7317
+    }
+  },
+  "US-WA": {
+    "geo": "US-WA",
+    "displayName": "Washington",
+    "iso2": "US-WA",
+    "type": "state",
+    "legalStatus": "Legal",
+    "medicalStatus": "Legal",
+    "notes": "Legal to possess up to 3 oz (85 g), 48 oz (1.3 kg) of edibles, 21 g (.74 oz) of concentrate, & 216 oz (6.1 kg) of infused-liquids.",
+    "coordinates": {
+      "lat": 47.7511,
+      "lng": -120.7401
+    }
+  },
+  "US-WI": {
+    "geo": "US-WI",
+    "displayName": "Wisconsin",
+    "iso2": "US-WI",
+    "type": "state",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "From Legality of cannabis by U.S. jurisdiction table.",
+    "coordinates": {
+      "lat": 44.3709,
+      "lng": -89.5831
+    }
+  },
+  "US-WV": {
+    "geo": "US-WV",
+    "displayName": "West Virginia",
+    "iso2": "US-WV",
+    "type": "state",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Limited",
+    "notes": "From Legality of cannabis by U.S. jurisdiction table.",
+    "coordinates": {
+      "lat": 38.6422,
+      "lng": -80.7128
+    }
+  },
+  "US-WY": {
+    "geo": "US-WY",
+    "displayName": "Wyoming",
+    "iso2": "US-WY",
+    "type": "state",
+    "legalStatus": "Illegal",
+    "medicalStatus": "Illegal",
+    "notes": "From Legality of cannabis by U.S. jurisdiction table.",
+    "coordinates": {
+      "lat": 42.9999,
+      "lng": -107.552
+    }
+  }
+}

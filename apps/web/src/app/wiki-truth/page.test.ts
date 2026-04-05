@@ -41,6 +41,8 @@ describe("/wiki-truth", () => {
     expect(mainTable).toContain(">Evidence delta<");
     expect(mainTable).toContain(">Evidence source<");
     expect(mainTable).toContain(">Trigger phrase<");
+    expect(mainTable).toContain(">Wiki notes<");
+    expect(mainTable).toContain(">Normalized notes<");
     expect(mainTable).toContain(">Notes explainability<");
     expect(mainTable).toContain(">NotesLen<");
     expect(mainTable).toContain(">NotesQuality<");

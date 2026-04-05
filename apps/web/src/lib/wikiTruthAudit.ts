@@ -95,6 +95,7 @@ export type WikiTruthAuditRow = {
   wikiNotes: string;
   notesPresent: boolean;
   notesText: string;
+  notesExplainability: string;
   notesLen: number;
   notesQuality: string;
   triggerPhraseExcerpt: string;
@@ -340,15 +341,16 @@ export function buildWikiTruthAudit(input: BuildInput): WikiTruthAuditModel {
     const medWiki = wikiContract.wikiMedStatus;
     const finalRec = finalContract.finalRecStatus;
     const finalMed = finalContract.finalMedStatus;
-    const notesWikiRaw = String(row.wiki_notes_hint || "");
-    const notesExplainability = String(resolverStatus?.notesInterpretationSummary || claim?.notes_text || notesWikiRaw || "").trim();
-    const notesPresent = Boolean(notesExplainability || notesWikiRaw);
+    const notesWikiRaw = String(row.wiki_notes_hint || "").trim();
+    const normalizedNotes = String(claim?.notes_text || "").trim();
+    const notesExplainability = String(resolverStatus?.notesInterpretationSummary || "").trim();
+    const notesPresent = Boolean(normalizedNotes || notesWikiRaw || notesExplainability);
     const hasKnownStatus =
       recWiki !== "Unknown" ||
       medWiki !== "Unknown" ||
       finalRec !== "Unknown" ||
       finalMed !== "Unknown";
-    const notesQualityBase = classifyNotes(notesExplainability, claim?.notes_kind);
+    const notesQualityBase = classifyNotes(normalizedNotes || notesWikiRaw, claim?.notes_kind);
     const notesQuality = notesQualityBase === "EMPTY" && hasKnownStatus ? "VALID_EMPTY" : notesQualityBase;
     const sourcesRaw = Array.isArray(claim?.sources) ? claim.sources : Array.isArray(claim?.main_articles) ? claim.main_articles : [];
     const fallbackSource = buildWikiFallbackSource(claim || {});
@@ -426,8 +428,9 @@ export function buildWikiTruthAudit(input: BuildInput): WikiTruthAuditModel {
       ruleId: String(finalContract.ruleId || "DIRECT_FINAL_PAIR"),
       wikiNotes: notesWikiRaw || "-",
       notesPresent,
-      notesText: notesExplainability || "-",
-      notesLen: String(notesExplainability || "").trim().length,
+      notesText: normalizedNotes || "-",
+      notesExplainability: notesExplainability || "-",
+      notesLen: String(normalizedNotes || "").trim().length,
       notesQuality,
       triggerPhraseExcerpt: String(resolverStatus?.triggerPhraseExcerpt || "-"),
       contextNote: String(resolverStatus?.contextNote || "-"),

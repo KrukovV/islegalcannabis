@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { execFileSync } from "node:child_process";
 import { cache } from "react";
 
 export type BuildStamp = {
@@ -83,11 +84,32 @@ function resolveBuildId(root: string) {
   );
 }
 
+function readGitHeadShaWithDirty(root: string) {
+  const sha = readGitHeadSha(root);
+  if (!sha) return null;
+  if (process.env.NODE_ENV === "production") return sha;
+  try {
+    const output = execFileSync("git", ["status", "--short", "--untracked-files=all"], {
+      cwd: root,
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "ignore"]
+    }).trim();
+    return output ? `${sha}-dirty` : sha;
+  } catch {
+    return sha;
+  }
+}
+
 export const getBuildStamp = cache((): BuildStamp => {
   const root = findGitRoot(process.cwd());
   return {
     buildId: String(resolveBuildId(root)),
-    buildSha: String(process.env.VERCEL_GIT_COMMIT_SHA || process.env.GIT_COMMIT || readGitHeadSha(root) || "unknown"),
+    buildSha: String(
+      process.env.VERCEL_GIT_COMMIT_SHA ||
+        process.env.GIT_COMMIT ||
+        readGitHeadShaWithDirty(root) ||
+        "unknown"
+    ),
     buildTime: PROCESS_BUILD_TIME
   };
 });
