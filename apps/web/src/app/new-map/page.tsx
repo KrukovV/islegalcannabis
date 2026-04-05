@@ -9,6 +9,23 @@ import MapRoot from "@/new-map/MapRoot";
 import type { CountryCardEntry } from "@/new-map/components/CountryCard";
 import { buildUsStateSourceSnapshot } from "@/new-map/countrySource";
 
+const NEW_MAP_CARD_INDEX = buildRegions().reduce<Record<string, CountryCardEntry>>((acc, row) => {
+  if (row.type !== "country" && row.type !== "state") return acc;
+  acc[row.geo] = {
+    geo: row.geo,
+    displayName: String(row.name || row.geo),
+    iso2: row.geo,
+    type: row.type === "state" ? "state" : "country",
+    legalStatus: String(row.finalRecStatus || row.legalStatusGlobal || "Unknown"),
+    medicalStatus: String(row.finalMedStatus || row.medicalStatusGlobal || "Unknown"),
+    notes: String(row.notesInterpretationSummary || row.notesWiki || row.notesOur || "").trim(),
+    coordinates: row.coordinates
+  };
+  return acc;
+}, {});
+
+const NEW_MAP_US_STATES = buildUsStateSourceSnapshot();
+
 export default async function NewMapPage() {
   const requestOrigin = resolveRequestOrigin(await headers());
   const buildStamp = getBuildStamp();
@@ -27,29 +44,13 @@ export default async function NewMapPage() {
     mapRenderer: "none",
     mapRuntime: "removed"
   });
-  const cardIndex = buildRegions().reduce<Record<string, CountryCardEntry>>((acc, row) => {
-    if (row.type !== "country" && row.type !== "state") return acc;
-    acc[row.geo] = {
-      geo: row.geo,
-      displayName: String(row.name || row.geo),
-      iso2: row.geo,
-      type: row.type === "state" ? "state" : "country",
-      legalStatus: String(row.finalRecStatus || row.legalStatusGlobal || "Unknown"),
-      medicalStatus: String(row.finalMedStatus || row.medicalStatusGlobal || "Unknown"),
-      notes: String(row.notesInterpretationSummary || row.notesWiki || row.notesOur || "").trim(),
-      coordinates: row.coordinates
-    };
-    return acc;
-  }, {});
-  const usStates = buildUsStateSourceSnapshot();
-
   return (
     <MapRoot
-      cardIndex={cardIndex}
+      cardIndex={NEW_MAP_CARD_INDEX}
       countriesUrl="/api/new-map/countries"
       visibleStamp={formatVisibleRuntimeStamp(runtimeIdentity)}
       runtimeIdentity={runtimeIdentity}
-      usStates={usStates}
+      usStates={NEW_MAP_US_STATES}
     />
   );
 }
