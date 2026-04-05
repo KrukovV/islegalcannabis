@@ -1,15 +1,11 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import maplibregl, { type StyleSpecification } from "maplibre-gl";
-import RuntimeParityBadge from "@/app/_components/RuntimeParityBadge";
 import type { RuntimeIdentity } from "@/lib/runtimeIdentity";
-import { useGeoStatus } from "./hooks/useGeoStatus";
 import { createMap } from "./createMap";
-import { attachHoverController } from "./hoverController";
 import type { LegalCountryCollection } from "./map.types";
-import { markNewMapTrace } from "./startupTrace";
-import AIBar from "./components/AIBar";
 import type { CountryCardEntry } from "./components/CountryCard";
 import styles from "./MapRoot.module.css";
 
@@ -42,6 +38,9 @@ type NewMapPrefetchCache = {
   countries?: Promise<LegalCountryCollection | null> | null;
   cardIndex?: Promise<Record<string, CountryCardEntry> | null> | null;
 };
+
+const RuntimeParityBadge = dynamic(() => import("@/app/_components/RuntimeParityBadge"), { ssr: false });
+const MapGeoDock = dynamic(() => import("./MapGeoDock"), { ssr: false });
 
 function getNewMapPrefetchCache(): NewMapPrefetchCache | null {
   if (typeof window === "undefined") return null;
@@ -88,41 +87,30 @@ export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity }:
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   const locationMarkerRef = useRef<maplibregl.Marker | null>(null);
-  const lastAutoCenterKeyRef = useRef<string | null>(null);
-  const ipBootstrapStartedRef = useRef(false);
   const cardIndexRef = useRef<Record<string, CountryCardEntry>>({});
   const [error, setError] = useState<string | null>(null);
   const [mapReady, setMapReady] = useState(false);
   const [selectedGeo, setSelectedGeo] = useState<SelectedGeo>(null);
   const [cardIndex, setCardIndex] = useState<Record<string, CountryCardEntry>>({});
-  const { geoStatus, retry, currentGeo, refreshIpGeo, ipStatus, geoReady } = useGeoStatus();
-  const currentGeoEntry = currentGeo?.iso2 ? cardIndex[currentGeo.iso2] : null;
-  const currentGeoView: ActiveGeo = useMemo(() => {
-    if (!currentGeo) return null;
-    if (!currentGeoEntry && typeof currentGeo.lat !== "number" && typeof currentGeo.lng !== "number") {
-      return null;
-    }
-    return {
-      country: currentGeoEntry?.displayName || currentGeo.iso2 || "Current location",
-      iso2: currentGeo.iso2,
-      lat: currentGeo.lat ?? currentGeoEntry?.coordinates?.lat,
-      lng: currentGeo.lng ?? currentGeoEntry?.coordinates?.lng
-    };
-  }, [currentGeo, currentGeoEntry]);
   const selectedGeoEntry = selectedGeo ? cardIndex[selectedGeo] ?? null : null;
-  const activeGeo: ActiveGeo = selectedGeoEntry
-    ? {
-        country: selectedGeoEntry.displayName,
-        iso2: selectedGeoEntry.iso2 || undefined,
-        lat: selectedGeoEntry.coordinates?.lat,
-        lng: selectedGeoEntry.coordinates?.lng
-      }
-    : currentGeoView;
+  const selectedGeoView: ActiveGeo = useMemo(() => {
+    if (!selectedGeoEntry) return null;
+    return {
+      country: selectedGeoEntry.displayName,
+      iso2: selectedGeoEntry.iso2 || undefined,
+      lat: selectedGeoEntry.coordinates?.lat,
+      lng: selectedGeoEntry.coordinates?.lng
+    };
+  }, [selectedGeoEntry]);
 
   const applyGeoToMap = useCallback((geo: ActiveGeo, options?: { recenter?: boolean }) => {
     const map = mapRef.current;
     if (!map) return;
-    if (typeof geo?.lng !== "number" || typeof geo?.lat !== "number") return;
+    if (typeof geo?.lng !== "number" || typeof geo?.lat !== "number") {
+      locationMarkerRef.current?.remove();
+      locationMarkerRef.current = null;
+      return;
+    }
 
     const markerElement = locationMarkerRef.current?.getElement() || document.createElement("div");
     markerElement.className = styles.locationMarker;
@@ -161,15 +149,6 @@ export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity }:
     });
   }, []);
 
-  const handleGpsClick = useCallback(() => {
-    if (geoStatus.status === "resolved" && currentGeoView) {
-      setSelectedGeo(null);
-      centerMapToGeo(currentGeoView);
-      return;
-    }
-    retry();
-  }, [centerMapToGeo, currentGeoView, geoStatus.status, retry]);
-
   useEffect(() => {
     cardIndexRef.current = cardIndex;
   }, [cardIndex]);
@@ -207,24 +186,6 @@ export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity }:
       cancelled = true;
     };
   }, []);
-
-  useEffect(() => {
-    markNewMapTrace("NM_T11_AI_READY");
-  }, []);
-
-  useEffect(() => {
-    if (!currentGeo?.source) return;
-    markNewMapTrace("NM_T10_GEO_DONE");
-  }, [currentGeo?.source]);
-
-  useEffect(() => {
-    if (!geoReady || !mapReady || currentGeo?.source === "gps" || ipBootstrapStartedRef.current) return;
-    ipBootstrapStartedRef.current = true;
-    const timerId = window.setTimeout(() => {
-      void refreshIpGeo();
-    }, 0);
-    return () => window.clearTimeout(timerId);
-  }, [currentGeo?.source, geoReady, mapReady, refreshIpGeo]);
 
   useEffect(() => {
     let cancelled = false;
@@ -283,6 +244,7 @@ export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity }:
           return;
         }
         setMapReady(true);
+        const { attachHoverController } = await import("./hoverController");
         const hover = attachHoverController(runtime.map);
         setDebugState({ mounted: true, countriesUrl, map: runtime.map, selectedId: null });
         const [countries, adminResponse] = await Promise.all([countriesPromise, adminPromise]);
@@ -302,7 +264,6 @@ export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity }:
           locationMarkerRef.current?.remove();
           locationMarkerRef.current = null;
           mapRef.current = null;
-          ipBootstrapStartedRef.current = false;
           setMapReady(false);
           runtime.destroy();
           setSelectedGeo(null);
@@ -319,29 +280,6 @@ export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity }:
       cleanup();
     };
   }, [countriesUrl]);
-
-  useEffect(() => {
-    if (!mapReady) return;
-    if (
-      typeof currentGeoView?.lng !== "number" ||
-      typeof currentGeoView?.lat !== "number"
-    ) {
-      locationMarkerRef.current?.remove();
-      locationMarkerRef.current = null;
-      return;
-    }
-    applyGeoToMap(currentGeoView, { recenter: false });
-  }, [applyGeoToMap, currentGeoView, mapReady]);
-
-  useEffect(() => {
-    if (!mapReady) return;
-    if (selectedGeo) return;
-    if (!currentGeoView) return;
-    const autoCenterKey = `${currentGeo?.source || "none"}:${currentGeoView.iso2}:${currentGeoView.lat ?? "?"}:${currentGeoView.lng ?? "?"}`;
-    if (lastAutoCenterKeyRef.current === autoCenterKey) return;
-    lastAutoCenterKeyRef.current = autoCenterKey;
-    applyGeoToMap(currentGeoView, { recenter: true });
-  }, [applyGeoToMap, currentGeo?.source, currentGeoView, mapReady, selectedGeo]);
 
   return (
     <section className={styles.root} data-testid="new-map-root">
@@ -361,11 +299,13 @@ export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity }:
         </div>
       </div>
       <div ref={containerRef} className={styles.mapSurface} data-testid="new-map-surface" data-map-ready={mapReady ? "1" : "0"} />
-      <AIBar
-        activeGeo={activeGeo?.iso2 ? { country: activeGeo.country, iso2: activeGeo.iso2 } : null}
-        geoStatus={geoStatus}
-        ipStatus={ipStatus}
-        onGpsClick={handleGpsClick}
+      <MapGeoDock
+        mapReady={mapReady}
+        cardIndex={cardIndex}
+        selectedGeo={selectedGeoView}
+        clearSelectedGeo={() => setSelectedGeo(null)}
+        applyGeoToMap={applyGeoToMap}
+        centerMapToGeo={centerMapToGeo}
       />
       {error ? (
         <div className={styles.errorBox} data-testid="new-map-error">
