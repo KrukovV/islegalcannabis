@@ -1,10 +1,11 @@
 import { getBuildStamp } from "../../../lib/buildStamp";
 import { isCi } from "../../../lib/env";
 import { getStatusSnapshotMeta } from "../../../lib/mapData";
+import { resolveRequestOrigin } from "../../../lib/requestOrigin";
 import { buildRuntimeIdentity } from "../../../lib/runtimeIdentity";
 import { checkNearLegalEnabled, checkPremium } from "../../../middleware/featureGate";
 
-export async function GET() {
+export async function GET(request: Request) {
   const buildStamp = getBuildStamp();
   const snapshot = getStatusSnapshotMeta();
   const devMode = !isCi() && process.env.NODE_ENV !== "production";
@@ -14,7 +15,7 @@ export async function GET() {
   const mapTiles = "OFFLINE";
   const dataSource = "SSOT";
   const mapEnabled = false;
-  const expectedOrigin = "http://127.0.0.1:3000";
+  const expectedOrigin = resolveRequestOrigin(request.headers);
   const mapRuntime = "removed";
   const mapRenderer = "none";
   const runtimeIdentity = buildRuntimeIdentity({

@@ -1,19 +1,22 @@
+import { headers } from "next/headers";
 import { getBuildStamp } from "@/lib/buildStamp";
 import { buildRegions } from "@/lib/mapData";
 import { getStatusSnapshotMeta } from "@/lib/mapData";
+import { resolveRequestOrigin } from "@/lib/requestOrigin";
 import { buildRuntimeIdentity, formatVisibleRuntimeStamp } from "@/lib/runtimeIdentity";
 import { checkNearLegalEnabled, checkPremium } from "@/middleware/featureGate";
 import MapRoot from "@/new-map/MapRoot";
 import type { CountryCardEntry } from "@/new-map/components/CountryCard";
 
-export default function NewMapPage() {
+export default async function NewMapPage() {
+  const requestOrigin = resolveRequestOrigin(await headers());
   const buildStamp = getBuildStamp();
   const snapshot = getStatusSnapshotMeta();
   const runtimeIdentity = buildRuntimeIdentity({
     buildStamp,
     snapshot,
     runtimeMode: process.env.NODE_ENV === "production" ? "production" : "development",
-    expectedOrigin: "http://127.0.0.1:3000",
+    expectedOrigin: requestOrigin,
     devMode: process.env.NODE_ENV !== "production",
     mapEnabled: true,
     premiumMode: checkPremium() ? "PAID" : "FREE",

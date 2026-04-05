@@ -1,5 +1,7 @@
+import { headers } from "next/headers";
 import { isCi } from "@/lib/env";
 import { getStatusSnapshotMeta } from "@/lib/mapData";
+import { resolveRequestOrigin } from "@/lib/requestOrigin";
 import { buildRuntimeIdentity, formatVisibleRuntimeStamp } from "@/lib/runtimeIdentity";
 import { checkNearLegalEnabled, checkPremium } from "@/middleware/featureGate";
 import MapRemovedScreen from "./MapRemovedScreen";
@@ -14,7 +16,8 @@ type Props = {
   buildStamp: BuildStamp;
 };
 
-export default function MapSection({ buildStamp }: Props) {
+export default async function MapSection({ buildStamp }: Props) {
+  const requestOrigin = resolveRequestOrigin(await headers());
   const devMode = !isCi() && process.env.NODE_ENV !== "production";
   const isPremium = checkPremium();
   const premiumMode = isPremium ? "PAID" : "FREE";
@@ -29,7 +32,7 @@ export default function MapSection({ buildStamp }: Props) {
     buildStamp,
     snapshot,
     runtimeMode: process.env.NODE_ENV === "production" ? "production" : "development",
-    expectedOrigin: "http://127.0.0.1:3000",
+    expectedOrigin: requestOrigin,
     devMode,
     mapEnabled,
     premiumMode,

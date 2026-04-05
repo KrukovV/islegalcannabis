@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script";
 import GeoInit from "./_components/GeoInit";
 import "./globals.css";
 import RuntimeMiddleware from "@/plugins/runtimeMiddleware";
 import BuildWatcher from "@/plugins/buildWatcher";
 import ServiceWorkerGuard from "@/plugins/serviceWorkerGuard";
+
+const NEW_MAP_STYLE_URL = "/api/new-map/basemap-style?v=20260331-host-header-same-origin";
+const NEW_MAP_COUNTRIES_URL = "/api/new-map/countries";
 
 export const metadata: Metadata = {
   title: "isLegalCannabis",
@@ -20,6 +24,20 @@ export const metadata: Metadata = {
   },
 };
 
+const NEW_MAP_PREFETCH_SCRIPT = `
+(() => {
+  if (typeof window === "undefined" || window.__NEW_MAP_PREFETCH__) return;
+  const loadJson = (url) =>
+    fetch(url, { cache: "force-cache", credentials: "same-origin" })
+      .then((response) => (response.ok ? response.json() : null))
+      .catch(() => null);
+  window.__NEW_MAP_PREFETCH__ = {
+    style: loadJson("${NEW_MAP_STYLE_URL}"),
+    countries: loadJson("${NEW_MAP_COUNTRIES_URL}")
+  };
+})();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,7 +45,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head />
+      <head>
+        <Script id="new-map-prefetch" strategy="beforeInteractive">
+          {NEW_MAP_PREFETCH_SCRIPT}
+        </Script>
+      </head>
       <body>
         <RuntimeMiddleware />
         <ServiceWorkerGuard />
