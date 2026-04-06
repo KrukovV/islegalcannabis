@@ -84,6 +84,7 @@ function renderCountryPopup(entry: CountryCardEntry) {
 }
 
 export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity }: Props) {
+  const isDev = process.env.NODE_ENV !== "production";
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   const locationMarkerRef = useRef<maplibregl.Marker | null>(null);
@@ -283,21 +284,23 @@ export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity }:
 
   return (
     <section className={styles.root} data-testid="new-map-root">
-      <div className={styles.overlay}>
-        <div className={styles.card}>
-          <div className={styles.eyebrow}>New Map Skeleton</div>
-          <h2>MapLibre render + feature-state hover</h2>
-          <p>MapLibre owns render. Leaflet is reduced to pointer-stream glue only. Truth colors still come from the current SSOT snapshot.</p>
-        </div>
-        <div className={styles.card}>
-          <div className={styles.cardHeader}>
-            <strong>Runtime</strong>
-            <RuntimeParityBadge runtimeIdentity={runtimeIdentity} />
+      {isDev ? (
+        <div className={styles.overlay}>
+          <div className={styles.card}>
+            <div className={styles.eyebrow}>New Map Skeleton</div>
+            <h2>MapLibre render + feature-state hover</h2>
+            <p>MapLibre owns render. Leaflet is reduced to pointer-stream glue only. Truth colors still come from the current SSOT snapshot.</p>
           </div>
-          <div className={styles.runtime}>{visibleStamp}</div>
-          <div className={styles.meta}>ROUTE=/new-map · OWNER=feature-state · WORLDCOPIES=ON</div>
+          <div className={styles.card}>
+            <div className={styles.cardHeader}>
+              <strong>Runtime</strong>
+              <RuntimeParityBadge runtimeIdentity={runtimeIdentity} />
+            </div>
+            <div className={styles.runtime}>{visibleStamp}</div>
+            <div className={styles.meta}>ROUTE=/new-map · OWNER=feature-state · WORLDCOPIES=ON</div>
+          </div>
         </div>
-      </div>
+      ) : null}
       <div ref={containerRef} className={styles.mapSurface} data-testid="new-map-surface" data-map-ready={mapReady ? "1" : "0"} />
       <MapGeoDock
         mapReady={mapReady}

@@ -48,6 +48,9 @@ function sanitizeLanguage(value: string | null | undefined) {
 
 export async function POST(req: Request) {
   const requestId = createRequestId(req);
+  if (process.env.NODE_ENV === "production") {
+    return errorResponse(requestId, 403, "AI_DISABLED", "AI assistant is disabled in production.");
+  }
   let body: AIRequest;
   try {
     body = (await req.json()) as AIRequest;
