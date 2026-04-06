@@ -1,8 +1,9 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import styles from "../MapRoot.module.css";
 import type { GeoStatus, IpStatus } from "../hooks/useGeoStatus";
+import { isAssistantChatEnabled } from "@/ai-assistant/config";
 
 type ActiveGeo = {
   country: string;
@@ -30,21 +31,37 @@ type AiQueryFailure = {
   };
 };
 
+type ChatHistoryEntry = {
+  id: string;
+  role: "user" | "assistant" | "error";
+  text: string;
+  sources?: string[];
+  safetyNote?: string | null;
+};
+
+const HISTORY_KEY = "new_map_ai_history";
+
+function appendHistory(current: ChatHistoryEntry[], entry: ChatHistoryEntry) {
+  return [...current, entry].slice(-12);
+}
+
 function trimQuery(value: string) {
   return value.replace(/\s+/g, " ").trim().slice(0, 500);
 }
 
 export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Props) {
+  const inputLocked = !isAssistantChatEnabled();
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
-  const [answer, setAnswer] = useState<string | null>(null);
-  const [sources, setSources] = useState<string[]>([]);
-  const [safetyNote, setSafetyNote] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [history, setHistory] = useState<ChatHistoryEntry[]>([]);
   const normalizedQuery = useMemo(() => trimQuery(query), [query]);
   const placeholder = activeGeo
-    ? `Ask about cannabis law in ${activeGeo.country}`
-    : "Ask about cannabis laws...";
+    ? inputLocked
+      ? "AI assistant is temporarily unavailable while we finish global rollout"
+      : `Ask about cannabis law in ${activeGeo.country}`
+    : inputLocked
+      ? "AI assistant is temporarily unavailable while we finish global rollout"
+      : "Ask about cannabis laws...";
   const gpsDotClassName =
     geoStatus.status === "resolved"
       ? styles.aiGpsDotResolved
@@ -53,11 +70,35 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
         : styles.aiGpsDotUnknown;
   const gpsClickable = geoStatus.status !== "resolving";
 
+  useEffect(() => {
+    try {
+      const raw = window.localStorage.getItem(HISTORY_KEY);
+      if (!raw) return;
+      const parsed = JSON.parse(raw) as ChatHistoryEntry[];
+      if (Array.isArray(parsed)) setHistory(parsed.slice(-12));
+    } catch {
+      setHistory([]);
+    }
+  }, []);
+
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(HISTORY_KEY, JSON.stringify(history.slice(-12)));
+    } catch {
+      return;
+    }
+  }, [history]);
+
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!normalizedQuery || loading) return;
+    if (inputLocked || !normalizedQuery || loading) return;
+    const userEntry: ChatHistoryEntry = {
+      id: `user-${Date.now()}`,
+      role: "user",
+      text: normalizedQuery
+    };
+    setHistory((current) => [...current, userEntry].slice(-12));
     setLoading(true);
-    setError(null);
     try {
       const response = await fetch("/api/ai-assistant/query", {
         method: "POST",
@@ -71,20 +112,33 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
       });
       const payload = (await response.json()) as AiQuerySuccess | AiQueryFailure;
       if (!response.ok || !payload.ok) {
-        setError(payload.ok ? "Request failed." : payload.error?.message || "Request failed.");
-        setAnswer(null);
-        setSources([]);
-        setSafetyNote(null);
+        setHistory((current) =>
+          appendHistory(current, {
+            id: `error-${Date.now()}`,
+            role: "error",
+            text: payload.ok ? "Request failed." : payload.error?.message || "Request failed."
+          })
+        );
         return;
       }
-      setAnswer(payload.answer);
-      setSources(Array.isArray(payload.sources) ? payload.sources : []);
-      setSafetyNote(payload.safety_note || null);
+      setHistory((current) =>
+        appendHistory(current, {
+          id: `assistant-${Date.now()}`,
+          role: "assistant",
+          text: payload.answer,
+          sources: Array.isArray(payload.sources) ? payload.sources : [],
+          safetyNote: payload.safety_note || null
+        })
+      );
+      setQuery("");
     } catch {
-      setError("Request failed.");
-      setAnswer(null);
-      setSources([]);
-      setSafetyNote(null);
+      setHistory((current) =>
+        appendHistory(current, {
+          id: `error-${Date.now()}`,
+          role: "error",
+          text: "Request failed."
+        })
+      );
     } finally {
       setLoading(false);
     }
@@ -104,6 +158,8 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
           maxLength={500}
           autoComplete="off"
           spellCheck={false}
+          disabled={inputLocked}
+          readOnly={inputLocked}
         />
         <button
           type="button"
@@ -119,34 +175,43 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
           type="submit"
           className={styles.aiSubmit}
           aria-label="Submit AI query"
-          disabled={!normalizedQuery || loading}
+          disabled={inputLocked || !normalizedQuery || loading}
         >
           {loading ? "…" : "→"}
         </button>
       </form>
+      {inputLocked ? (
+        <div className={styles.aiGeoHint} data-testid="new-map-ai-chat-locked">
+          AI assistant is temporarily unavailable while we finish global rollout. GPS remains available.
+        </div>
+      ) : null}
       {ipStatus.message ? (
         <div className={styles.aiGeoHint} data-testid="new-map-ai-geo-hint">
           {ipStatus.message}
         </div>
       ) : null}
-      {answer || error ? (
+      {history.length > 0 ? (
         <div className={styles.aiAnswerCard} data-testid="new-map-ai-answer">
-          <div className={styles.aiAnswerText}>{error || answer}</div>
-          {!error ? (
-            <div className={styles.aiAnswerMeta}>
-              {safetyNote || "Not legal advice."}
-              {activeGeo ? ` · GEO_HINT=${activeGeo.iso2}` : ""}
+          {history.map((entry) => (
+            <div key={entry.id} className={styles.aiAnswerBlock}>
+              <div className={entry.role === "user" ? styles.aiAnswerPrompt : styles.aiAnswerText}>{entry.text}</div>
+              {entry.role !== "user" ? (
+                <div className={styles.aiAnswerMeta}>
+                  {entry.safetyNote || (entry.role === "assistant" ? "Not legal advice." : "")}
+                  {activeGeo ? ` · GEO_HINT=${activeGeo.iso2}` : ""}
+                </div>
+              ) : null}
+              {entry.role === "assistant" && entry.sources && entry.sources.length > 0 ? (
+                <div className={styles.aiSources}>
+                  {entry.sources.slice(0, 6).map((source) => (
+                    <span key={`${entry.id}-${source}`}>
+                      {source}
+                    </span>
+                  ))}
+                </div>
+              ) : null}
             </div>
-          ) : null}
-          {!error && sources.length > 0 ? (
-            <div className={styles.aiSources}>
-              {sources.slice(0, 6).map((source) => (
-                <span key={source}>
-                  {source}
-                </span>
-              ))}
-            </div>
-          ) : null}
+          ))}
         </div>
       ) : null}
     </div>

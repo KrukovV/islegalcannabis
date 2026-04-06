@@ -202,6 +202,20 @@
   padding: 16px 18px 8px;
 }
 
+.aiAnswerBlock + .aiAnswerBlock {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(103, 120, 133, 0.12);
+}
+
+.aiAnswerPrompt {
+  color: #35516a;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.45;
+  white-space: pre-wrap;
+}
+
 .aiGeoHint {
   margin-top: -2px;
   padding: 0 12px;

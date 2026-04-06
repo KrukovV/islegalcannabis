@@ -3,6 +3,26 @@ export type AIRequest = {
   geo_hint?: string;
 };
 
+export type TravelRiskLevel = "high" | "medium" | "low";
+
+export type AirportEntry = {
+  iata: string;
+  icao: string;
+  name: string;
+  country: string;
+  region?: string;
+  city?: string;
+  strict?: boolean;
+};
+
+export type TravelAdvisory = {
+  geo: string;
+  locationLabel: string;
+  riskLevel: TravelRiskLevel;
+  text: string;
+  sources: string[];
+};
+
 export type AIResponse = {
   answer: string;
   sources: string[];

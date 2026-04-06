@@ -305,8 +305,14 @@ function isPaidRequest(req: Request) {
 export async function GET(req: Request) {
   const requestId = createRequestId(req);
   const { searchParams } = new URL(req.url);
-  const country = searchParams.get("country") ?? "";
-  const regionInput = searchParams.get("region") ?? undefined;
+  const rawCountry = searchParams.get("country") ?? "";
+  const combinedGeo = rawCountry.trim().toUpperCase();
+  const splitGeo =
+    !searchParams.get("region") && /^[A-Z]{2}-[A-Z0-9]{2,3}$/.test(combinedGeo)
+      ? combinedGeo.split("-", 2)
+      : null;
+  const country = splitGeo?.[0] ?? rawCountry;
+  const regionInput = splitGeo?.[1] ?? searchParams.get("region") ?? undefined;
   const resolvedRegion = resolveUsRegion(country, regionInput);
   const region = resolvedRegion.region;
   if (resolvedRegion.source && regionInput) {
