@@ -6,8 +6,10 @@ import https from "node:https";
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..", "..");
 const TMP_DIR = path.join(ROOT, "tmp", "ourairports");
 const OUT_PATH = path.join(ROOT, "data", "ai", "travel", "airports.json");
+const ISO_PATH = path.join(ROOT, "data", "iso3166", "iso3166-1.json");
 const AIRPORTS_URL = "https://ourairports.com/data/airports.csv";
 const COUNTRIES_URL = "https://ourairports.com/data/countries.csv";
+const REGIONS_URL = "https://ourairports.com/data/regions.csv";
 const STRICT_IATA = new Set(["DXB"]);
 
 function download(url, target) {
@@ -107,12 +109,26 @@ async function main() {
   fs.mkdirSync(path.dirname(OUT_PATH), { recursive: true });
   const airportsPath = path.join(TMP_DIR, "airports.csv");
   const countriesPath = path.join(TMP_DIR, "countries.csv");
+  const regionsPath = path.join(TMP_DIR, "regions.csv");
   await download(AIRPORTS_URL, airportsPath);
   await download(COUNTRIES_URL, countriesPath);
+  await download(REGIONS_URL, regionsPath);
 
   const airports = toObjects(parseCsv(fs.readFileSync(airportsPath, "utf8")));
   const countries = toObjects(parseCsv(fs.readFileSync(countriesPath, "utf8")));
-  const validCountries = new Set(countries.map((row) => String(row.code || "").trim().toUpperCase()).filter(Boolean));
+  const regions = toObjects(parseCsv(fs.readFileSync(regionsPath, "utf8")));
+  const supportedIso = JSON.parse(fs.readFileSync(ISO_PATH, "utf8"));
+  const supportedCountries = new Set(
+    (Array.isArray(supportedIso?.entries) ? supportedIso.entries : [])
+      .map((row) => String(row?.alpha2 || row?.id || "").trim().toUpperCase())
+      .filter(Boolean)
+  );
+  const validCountries = new Set(
+    countries
+      .map((row) => String(row.code || "").trim().toUpperCase())
+      .filter((code) => Boolean(code) && supportedCountries.has(code))
+  );
+  const validRegions = new Set(regions.map((row) => String(row.code || "").trim().toUpperCase()).filter(Boolean));
   const grouped = {};
 
   for (const row of airports) {
@@ -134,15 +150,16 @@ async function main() {
       icao,
       name,
       country,
-      region: region || undefined,
+      region: validRegions.has(region) ? region : undefined,
       city,
+      type,
       _rank: type === "large_airport" ? 0 : 1,
       _international: /\binternational\b/i.test(name) ? 0 : 1,
       ...(STRICT_IATA.has(iata) ? { strict: true } : {})
     };
     if (!airport.name) continue;
     groupAirport(grouped, country, airport);
-    if (region) groupAirport(grouped, region, airport);
+    if (validRegions.has(region) && region.startsWith("US-")) groupAirport(grouped, region, airport);
   }
 
   const sorted = Object.fromEntries(

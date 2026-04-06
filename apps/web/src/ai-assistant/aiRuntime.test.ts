@@ -18,7 +18,7 @@ describe("aiRuntime", () => {
 
     expect(fetchSpy).not.toHaveBeenCalled();
     expect(result.answer).toContain("Jurisdiction: Germany");
-    expect(result.answer).toContain("Status:");
+    expect(result.answer).toContain("Final legal summary:");
     expect(result.sources).toContain("check:DE");
   });
 

@@ -10,6 +10,8 @@ describe("resolveLocation", () => {
   it("resolves countries from names and iso", () => {
     expect(normalizeCountry("Germany cannabis")).toBe("DE");
     expect(normalizeCountry("Travel in Nepal")).toBe("NP");
+    expect(normalizeCountry("USA airport")).toBe("US");
+    expect(normalizeCountry("UK weed")).toBe("GB");
   });
 
   it("prefers state over country and then falls back to geo hint", () => {

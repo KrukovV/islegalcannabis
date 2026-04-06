@@ -12,6 +12,7 @@ export type AirportEntry = {
   country: string;
   region?: string;
   city?: string;
+  type?: string;
   strict?: boolean;
 };
 

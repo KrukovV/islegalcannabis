@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildJurisdictionContext, buildTravelAdvisory, getAirports, isTravelQuery, resolveTravelGeo } from "./travel";
+import { buildJurisdictionContext, buildLegalResponse, buildTravelAdvisory, getAirports, isTravelQuery, resolveTravelGeo } from "./travel";
 
 describe("ai-assistant travel airports", () => {
   it("detects travel intent", () => {
@@ -34,8 +34,23 @@ describe("ai-assistant travel airports", () => {
   it("builds jurisdiction context from SSOT notes and sources", () => {
     const context = buildJurisdictionContext("US-TX", "en");
     expect(context?.text).toContain("Jurisdiction: Texas");
-    expect(context?.text).toContain("Recreational:");
+    expect(context?.text).toContain("Normalized notes:");
     expect(context?.text).toContain("Official / source context:");
     expect(context?.sources.some((source) => source.startsWith("ssot:US-TX:"))).toBe(true);
+  });
+
+  it("puts normalized notes before final legal summary", () => {
+    const response = buildLegalResponse("DE", "en");
+    expect(response?.text).toContain("Normalized notes:");
+    expect(response?.text).toContain("Final legal summary:");
+    expect(response!.text.indexOf("Normalized notes:")).toBeLessThan(response!.text.indexOf("Final legal summary:"));
+  });
+
+  it("keeps travel scope local to Nepal", () => {
+    const advisory = buildTravelAdvisory("Can I take weed through airport in Nepal?", undefined, "en");
+    const firstAirport = getAirports("NP")[0];
+    expect(advisory?.geo).toBe("NP");
+    expect(advisory?.text).toContain(firstAirport.iata);
+    expect(advisory?.text).not.toContain("Russia");
   });
 });

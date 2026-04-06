@@ -1,8 +1,10 @@
 import { listIsoMeta } from "@islegal/shared";
+import countriesAliasesData from "../../../../data/ai/countries_aliases.json";
 import statesUsData from "../../../../data/ai/states_us.json";
 import cardIndexData from "../../public/new-map-card-index.json";
 
 const statesUs = statesUsData as Record<string, string>;
+const countriesAliases = countriesAliasesData as Record<string, string>;
 const cardIndex = cardIndexData as Record<string, { displayName?: string; geo?: string }>;
 
 type AliasEntry = {
@@ -20,6 +22,12 @@ function escapeRegExp(value: string) {
 
 function buildCountryAliases() {
   const entries = new Map<string, AliasEntry>();
+  for (const [label, geo] of Object.entries(countriesAliases)) {
+    const normalized = String(label).trim().toLowerCase();
+    const normalizedGeo = String(geo || "").trim().toUpperCase();
+    if (!normalized || !/^[A-Z]{2}$/.test(normalizedGeo)) continue;
+    entries.set(`${normalizedGeo}:${normalized}`, { geo: normalizedGeo, label: normalized });
+  }
   for (const meta of listIsoMeta()) {
     const labels = [meta.name].filter(Boolean);
     for (const label of labels) {
@@ -46,10 +54,21 @@ function buildStateAliases() {
 const countryAliases = buildCountryAliases();
 const stateAliases = buildStateAliases();
 
-function findBestAlias(query: string, aliases: AliasEntry[]) {
+function hasExplicitUppercaseToken(query: string, label: string) {
+  return new RegExp(`(^|[^A-Z0-9])${escapeRegExp(label.toUpperCase())}($|[^A-Z0-9])`).test(query);
+}
+
+function findBestAlias(query: string, aliases: AliasEntry[], options?: { geoHint?: string; stateMode?: boolean }) {
   const normalized = normalizeQuery(query);
   let best: { geo: string; index: number; labelLength: number } | null = null;
   for (const entry of aliases) {
+    if (options?.stateMode && entry.label.length <= 2) {
+      const allowShort =
+        String(options.geoHint || "").toUpperCase() === "US" ||
+        String(options.geoHint || "").toUpperCase().startsWith("US-") ||
+        hasExplicitUppercaseToken(query, entry.label);
+      if (!allowShort) continue;
+    }
     const pattern = new RegExp(`(^|[^a-zа-я0-9])${escapeRegExp(entry.label)}($|[^a-zа-я0-9])`, "i");
     const match = pattern.exec(normalized);
     if (!match || match.index < 0) continue;
@@ -61,8 +80,8 @@ function findBestAlias(query: string, aliases: AliasEntry[]) {
   return best?.geo || null;
 }
 
-export function normalizeState(query: string) {
-  return findBestAlias(query, stateAliases);
+export function normalizeState(query: string, geoHint?: string) {
+  return findBestAlias(query, stateAliases, { geoHint, stateMode: true });
 }
 
 export function normalizeCountry(query: string) {
@@ -70,5 +89,5 @@ export function normalizeCountry(query: string) {
 }
 
 export function resolveLocation(query: string, geoHint?: string) {
-  return normalizeState(query) || normalizeCountry(query) || geoHint || null;
+  return normalizeState(query, geoHint) || normalizeCountry(query) || geoHint || null;
 }

@@ -1,9 +1,11 @@
 import airportsData from "../../../../data/ai/travel/airports.json";
+import travelRisksData from "../../../../data/ai/travel/travel_risks.json";
 import cardIndexData from "../../public/new-map-card-index.json";
 import { getLawProfile } from "@/lib/lawStore";
 import { buildResultViewModel } from "@/lib/resultViewModel";
 import { titleForJurisdiction } from "@/lib/jurisdictionTitle";
 import { resolveLocation } from "./resolveLocation";
+import { getWikiTruthExplainability } from "./wikiTruthExplainability";
 
 export type AirportEntry = {
   iata: string;
@@ -12,6 +14,7 @@ export type AirportEntry = {
   country: string;
   region?: string;
   city?: string;
+  type?: string;
   strict?: boolean;
 };
 
@@ -26,6 +29,12 @@ type CardIndexEntry = {
 };
 
 type TravelRiskLevel = "high" | "medium" | "low";
+
+type TravelRiskDatasetRow = {
+  risk?: TravelRiskLevel;
+  strictAirports?: string[];
+  notes?: { en?: string; ru?: string };
+};
 
 type TravelAdvisory = {
   geo: string;
@@ -43,6 +52,7 @@ type JurisdictionContext = {
 
 const airportsByGeo = airportsData as Record<string, AirportEntry[]>;
 const cardIndex = cardIndexData as Record<string, CardIndexEntry>;
+const travelRiskByGeo = travelRisksData as Record<string, TravelRiskDatasetRow>;
 const TRAVEL_PATTERNS = [
   /\bairport\b/i,
   /\bairports\b/i,
@@ -97,6 +107,14 @@ function riskLevelForStatus(statusLevel: string | undefined): TravelRiskLevel {
   return "low";
 }
 
+function localizeLabel(ru: boolean, enLabel: string, ruLabel: string) {
+  return ru ? ruLabel : enLabel;
+}
+
+function getTravelRiskConfig(geo: string) {
+  return travelRiskByGeo[geo] || (geo.startsWith("US-") ? travelRiskByGeo.US : null) || travelRiskByGeo.default || null;
+}
+
 function riskText(level: TravelRiskLevel, ru: boolean) {
   if (ru) {
     if (level === "high") return "очень высокий — лучше не рисковать";
@@ -146,17 +164,19 @@ export function buildJurisdictionContext(geo?: string, language?: string): Juris
   const card = getGeoCard(geo);
   if (!card) return null;
   const ru = /ru/i.test(language || "");
+  const explainability = getWikiTruthExplainability(geo);
   const sources = getProfileSourceLabels(geo);
   const lines = [
-    ru ? `Юрисдикция: ${card.displayName}` : `Jurisdiction: ${card.displayName}`,
-    `${ru ? "Recreational" : "Recreational"}: ${card.legalStatus}`,
-    `${ru ? "Medical" : "Medical"}: ${card.medicalStatus}`
+    ru ? `Юрисдикция: ${card.displayName}` : `Jurisdiction: ${card.displayName}`
   ];
-  if (card.notes) {
-    lines.push(`${ru ? "Notes" : "Notes"}: ${card.notes}`);
+  if (explainability?.notes || card.notes) {
+    lines.push(`${localizeLabel(ru, "Normalized notes", "Нормализованные Notes")}: ${explainability?.notes || card.notes}`);
+  }
+  if (explainability?.socialReality) {
+    lines.push(`${localizeLabel(ru, "Social reality", "Social reality")}: ${explainability.socialReality}`);
   }
   if (sources.length) {
-    lines.push(`${ru ? "Official / source context" : "Official / source context"}: ${sources.join("; ")}`);
+    lines.push(`${localizeLabel(ru, "Official / source context", "Official / source context")}: ${sources.join("; ")}`);
   }
   return {
     geo,
@@ -171,24 +191,31 @@ export function buildLegalResponse(geo?: string, language?: string) {
   const vm = buildTravelVm(geo);
   if (!card || !vm) return null;
   const ru = /ru/i.test(language || "");
+  const explainability = getWikiTruthExplainability(geo);
   const lines = [
     ru ? `Юрисдикция: ${card.displayName}` : `Jurisdiction: ${card.displayName}`,
-    `${ru ? "Status" : "Status"}: ${vm.statusTitle}`,
-    `${ru ? "Recreational" : "Recreational"}: ${card.legalStatus}`,
-    `${ru ? "Medical" : "Medical"}: ${card.medicalStatus}`
+    `${localizeLabel(ru, "Normalized notes", "Нормализованные Notes")}: ${explainability?.notes || card.notes || (ru ? "нет notes" : "no notes available")}`
   ];
-  if (card.notes) {
-    lines.push(`${ru ? "Notes" : "Notes"}: ${card.notes}`);
+  if (explainability?.socialReality) {
+    lines.push(`${localizeLabel(ru, "Social reality", "Social reality")}: ${explainability.socialReality}`);
   }
+  lines.push(
+    `${localizeLabel(ru, "Final legal summary", "Итоговое legal summary")}: ${vm.statusTitle}`,
+    `${localizeLabel(ru, "Recreational", "Recreational")}: ${card.legalStatus}`,
+    `${localizeLabel(ru, "Medical", "Medical")}: ${card.medicalStatus}`
+  );
   if (vm.keyRisks.length) {
-    lines.push(`${ru ? "Key risks" : "Key risks"}: ${vm.keyRisks.slice(0, 3).join(", ")}`);
-  }
-  if (vm.bullets.length) {
-    lines.push(`${ru ? "Rule basis" : "Rule basis"}: ${vm.bullets.slice(0, 3).join("; ")}`);
+    lines.push(`${localizeLabel(ru, "Practical risk", "Практический риск")}: ${vm.keyRisks.slice(0, 3).join(", ")}`);
   }
   const sources = getProfileSourceLabels(geo);
+  lines.push(
+    `${localizeLabel(ru, "Official corroboration", "Official corroboration")}: ${explainability?.corroboration || (ru ? "данных мало" : "limited")}`
+  );
+  if (explainability?.officialLinksSummary) {
+    lines.push(`${localizeLabel(ru, "Official links", "Official links")}: ${explainability.officialLinksSummary}`);
+  }
   if (sources.length) {
-    lines.push(`${ru ? "Official / source context" : "Official / source context"}: ${sources.join("; ")}`);
+    lines.push(`${localizeLabel(ru, "Representative sources", "Representative sources")}: ${sources.join("; ")}`);
   }
   lines.push(ru ? "Сравнить с другой страной или штатом?" : "Want a comparison with another country or state?");
   return {
@@ -204,9 +231,12 @@ export function buildTravelAdvisory(query: string, geoHint?: string, language?: 
   const ru = /ru/i.test(language || "") || /[а-яё]/i.test(query);
   const airports = getAirports(geo).slice(0, 3);
   const vm = buildTravelVm(geo);
-  const riskLevel = riskLevelForStatus(vm?.statusLevel);
+  const riskConfig = getTravelRiskConfig(geo);
+  const riskLevel = riskConfig?.risk || riskLevelForStatus(vm?.statusLevel);
   const locationLabel = resolveLocationLabel(geo);
-  const strictHit = airports.find((airport) => airport.strict);
+  const strictAirportCodes = new Set((riskConfig?.strictAirports || []).map((code) => String(code).toUpperCase()));
+  const strictHit = airports.find((airport) => airport.strict || strictAirportCodes.has(String(airport.iata || "").toUpperCase()));
+  const explainability = getWikiTruthExplainability(geo);
   const lines = [
     ru ? "⚠️ По поездкам:" : "⚠️ Travel:",
     ""
@@ -221,6 +251,18 @@ export function buildTravelAdvisory(query: string, geoHint?: string, language?: 
   }
   lines.push("");
   lines.push(`${ru ? "Риск" : "Risk"}: ${riskText(riskLevel, ru)}`);
+  if (riskConfig?.notes?.[ru ? "ru" : "en"]) {
+    lines.push(riskConfig.notes[ru ? "ru" : "en"] as string);
+  }
+  if (explainability?.notes) {
+    lines.push(`${localizeLabel(ru, "Normalized notes", "Нормализованные Notes")}: ${explainability.notes}`);
+  }
+  if (explainability?.socialReality) {
+    lines.push(`${localizeLabel(ru, "Social reality", "Social reality")}: ${explainability.socialReality}`);
+  }
+  if (vm?.keyRisks.length) {
+    lines.push(`${localizeLabel(ru, "Practical risk", "Практический риск")}: ${vm.keyRisks.slice(0, 2).join(", ")}`);
+  }
   if (strictHit) {
     lines.push(ru ? `Отдельно: ${strictHit.name} (${strictHit.iata}) отмечен как особенно строгий аэропорт.` : `Extra caution: ${strictHit.name} (${strictHit.iata}) is flagged as a stricter airport.`);
   }

@@ -1,0 +1,34 @@
+{
+  "default": {
+    "risk": "medium",
+    "strictAirports": [],
+    "notes": {
+      "en": "Airports and borders are high-control zones. If the rules are unclear, the safest option is not to carry.",
+      "ru": "Аэропорты и границы — зоны повышенного контроля. Если правила неясны, самый безопасный вариант — не везти."
+    }
+  },
+  "NP": {
+    "risk": "high",
+    "strictAirports": ["KTM"],
+    "notes": {
+      "en": "Nepal is travel-sensitive for cannabis. Border and airport enforcement can matter more than street-level assumptions.",
+      "ru": "Непал чувствителен для cannabis travel. Контроль на границе и в аэропорту может быть важнее бытовых представлений."
+    }
+  },
+  "US-TX": {
+    "risk": "high",
+    "strictAirports": [],
+    "notes": {
+      "en": "Texas is stricter than many other US jurisdictions, so airport travel deserves extra caution.",
+      "ru": "Техас строже многих других юрисдикций США, поэтому airport-travel требует дополнительной осторожности."
+    }
+  },
+  "DE": {
+    "risk": "medium",
+    "strictAirports": ["FRA"],
+    "notes": {
+      "en": "Germany may be more predictable than ultra-strict jurisdictions, but airport handling still does not equal ordinary city use.",
+      "ru": "Германия может быть предсказуемее ultra-strict юрисдикций, но режим аэропорта всё равно не равен обычному городскому контексту."
+    }
+  }
+}
