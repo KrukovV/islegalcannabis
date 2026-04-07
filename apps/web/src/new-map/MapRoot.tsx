@@ -8,6 +8,8 @@ import { createMap } from "./createMap";
 import type { LegalCountryCollection } from "./map.types";
 import type { CountryCardEntry } from "./components/CountryCard";
 import styles from "./MapRoot.module.css";
+import { NEW_MAP_WATER_COLOR } from "./mapPalette";
+import { hasFirstVisualReady, onFirstVisualReady, resetFirstVisualReady } from "./startupTrace";
 
 type Props = {
   countriesUrl: string;
@@ -84,13 +86,13 @@ function renderCountryPopup(entry: CountryCardEntry) {
 }
 
 export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity }: Props) {
-  const isDev = process.env.NODE_ENV !== "production";
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   const locationMarkerRef = useRef<maplibregl.Marker | null>(null);
   const cardIndexRef = useRef<Record<string, CountryCardEntry>>({});
   const [error, setError] = useState<string | null>(null);
   const [mapReady, setMapReady] = useState(false);
+  const [visualReady, setVisualReady] = useState(false);
   const [selectedGeo, setSelectedGeo] = useState<SelectedGeo>(null);
   const [cardIndex, setCardIndex] = useState<Record<string, CountryCardEntry>>({});
   const selectedGeoEntry = selectedGeo ? cardIndex[selectedGeo] ?? null : null;
@@ -155,11 +157,21 @@ export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity }:
   }, [cardIndex]);
 
   useEffect(() => {
+    resetFirstVisualReady();
+    setVisualReady(false);
+    if (hasFirstVisualReady()) {
+      setVisualReady(true);
+      return;
+    }
+    return onFirstVisualReady(() => setVisualReady(true));
+  }, [countriesUrl]);
+
+  useEffect(() => {
     let cancelled = false;
     const prefetched = getNewMapPrefetchCache();
     const loadCardIndex = () =>
       fetch("/new-map-card-index.json", {
-        cache: "force-cache",
+        cache: "no-store",
         credentials: "same-origin"
       }).then((response) => {
         if (!response.ok) {
@@ -198,7 +210,7 @@ export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity }:
         const prefetched = getNewMapPrefetchCache();
         const loadCountries = () =>
           fetch(countriesUrl, {
-            cache: "force-cache",
+            cache: "no-store",
             credentials: "same-origin"
           }).then((response) => {
             if (!response.ok) {
@@ -208,7 +220,7 @@ export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity }:
           });
         const loadStyle = () =>
           fetch("/api/new-map/basemap-style?v=20260331-host-header-same-origin", {
-            cache: "force-cache",
+            cache: "no-store",
             credentials: "same-origin"
           }).then((response) => {
             if (!response.ok) {
@@ -222,10 +234,6 @@ export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity }:
         const stylePromise = prefetched?.style
           ? prefetched.style.then((value) => value || loadStyle())
           : loadStyle();
-        const adminPromise = fetch("/api/new-map/admin-boundaries", {
-          cache: "force-cache",
-          credentials: "same-origin"
-        });
         const runtime = createMap(containerRef.current, {
           stylePromise,
           getCountryPopupHtml: (geo) => {
@@ -239,6 +247,10 @@ export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity }:
           }
         });
         mapRef.current = runtime.map;
+        void countriesPromise.then((countries) => {
+          if (cancelled) return;
+          runtime.setData(countries);
+        });
         await runtime.ready;
         if (cancelled) {
           runtime.destroy();
@@ -248,24 +260,19 @@ export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity }:
         const { attachHoverController } = await import("./hoverController");
         const hover = attachHoverController(runtime.map);
         setDebugState({ mounted: true, countriesUrl, map: runtime.map, selectedId: null });
-        const [countries, adminResponse] = await Promise.all([countriesPromise, adminPromise]);
-        if (!adminResponse.ok) {
-          throw new Error(`admin_boundaries_fetch_failed:${adminResponse.status}`);
-        }
-        const adminBoundaries =
-          await adminResponse.json() as import("./map.types").AdminBoundaryCollection;
+        await countriesPromise;
         if (cancelled) {
           hover.destroy();
           runtime.destroy();
           return;
         }
-        runtime.setData(countries, adminBoundaries);
         cleanup = () => {
           hover.destroy();
           locationMarkerRef.current?.remove();
           locationMarkerRef.current = null;
           mapRef.current = null;
           setMapReady(false);
+          setVisualReady(false);
           runtime.destroy();
           setSelectedGeo(null);
           setDebugState({ mounted: false, selectedId: null, map: null });
@@ -283,25 +290,32 @@ export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity }:
   }, [countriesUrl]);
 
   return (
-    <section className={styles.root} data-testid="new-map-root">
-      {isDev ? (
-        <div className={styles.overlay}>
-          <div className={styles.card}>
-            <div className={styles.eyebrow}>New Map Skeleton</div>
-            <h2>MapLibre render + feature-state hover</h2>
-            <p>MapLibre owns render. Leaflet is reduced to pointer-stream glue only. Truth colors still come from the current SSOT snapshot.</p>
-          </div>
-          <div className={styles.card}>
-            <div className={styles.cardHeader}>
-              <strong>Runtime</strong>
-              <RuntimeParityBadge runtimeIdentity={runtimeIdentity} />
-            </div>
-            <div className={styles.runtime}>{visibleStamp}</div>
-            <div className={styles.meta}>ROUTE=/new-map · OWNER=feature-state · WORLDCOPIES=ON</div>
-          </div>
+    <section
+      className={styles.root}
+      data-testid="new-map-root"
+      style={{ ["--new-map-water-color" as string]: NEW_MAP_WATER_COLOR }}
+    >
+      <div className={styles.overlay}>
+        <div className={styles.card}>
+          <div className={styles.eyebrow}>New Map Skeleton</div>
+          <h2>MapLibre render + feature-state hover</h2>
+          <p>MapLibre owns render. Leaflet is reduced to pointer-stream glue only. Truth colors still come from the current SSOT snapshot.</p>
         </div>
-      ) : null}
-      <div ref={containerRef} className={styles.mapSurface} data-testid="new-map-surface" data-map-ready={mapReady ? "1" : "0"} />
+        <div className={styles.card}>
+          <div className={styles.cardHeader}>
+            <strong>Runtime</strong>
+            <RuntimeParityBadge runtimeIdentity={runtimeIdentity} />
+          </div>
+          <div className={styles.runtime}>{visibleStamp}</div>
+          <div className={styles.meta}>ROUTE=/new-map · OWNER=feature-state · WORLDCOPIES=ON</div>
+        </div>
+      </div>
+      <div
+        ref={containerRef}
+        className={`${styles.mapSurface} ${visualReady ? styles.mapSurfaceReady : ""}`.trim()}
+        data-testid="new-map-surface"
+        data-map-ready={mapReady ? "1" : "0"}
+      />
       <MapGeoDock
         mapReady={mapReady}
         cardIndex={cardIndex}

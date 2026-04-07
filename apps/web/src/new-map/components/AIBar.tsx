@@ -35,7 +35,6 @@ function trimQuery(value: string) {
 }
 
 export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Props) {
-  const inputLocked = process.env.NODE_ENV === "production";
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const [answer, setAnswer] = useState<string | null>(null);
@@ -44,12 +43,8 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
   const [error, setError] = useState<string | null>(null);
   const normalizedQuery = useMemo(() => trimQuery(query), [query]);
   const placeholder = activeGeo
-    ? inputLocked
-      ? "AI assistant is temporarily unavailable while we finish global rollout"
-      : `Ask about cannabis law in ${activeGeo.country}`
-    : inputLocked
-      ? "AI assistant is temporarily unavailable while we finish global rollout"
-      : "Ask about cannabis laws...";
+    ? `Ask about cannabis law in ${activeGeo.country}`
+    : "Ask about cannabis laws...";
   const gpsDotClassName =
     geoStatus.status === "resolved"
       ? styles.aiGpsDotResolved
@@ -60,7 +55,7 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (inputLocked || !normalizedQuery || loading) return;
+    if (!normalizedQuery || loading) return;
     setLoading(true);
     setError(null);
     try {
@@ -109,8 +104,6 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
           maxLength={500}
           autoComplete="off"
           spellCheck={false}
-          disabled={inputLocked}
-          readOnly={inputLocked}
         />
         <button
           type="button"
@@ -126,16 +119,11 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
           type="submit"
           className={styles.aiSubmit}
           aria-label="Submit AI query"
-          disabled={inputLocked || !normalizedQuery || loading}
+          disabled={!normalizedQuery || loading}
         >
           {loading ? "…" : "→"}
         </button>
       </form>
-      {inputLocked ? (
-        <div className={styles.aiGeoHint} data-testid="new-map-ai-chat-locked">
-          AI assistant is temporarily unavailable while we finish global rollout. GPS remains available.
-        </div>
-      ) : null}
       {ipStatus.message ? (
         <div className={styles.aiGeoHint} data-testid="new-map-ai-geo-hint">
           {ipStatus.message}

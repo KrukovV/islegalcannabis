@@ -1,20 +1,18 @@
 import maplibregl, { type StyleSpecification } from "maplibre-gl";
-import type { AdminBoundaryCollection, LegalCountryCollection, NewMapBootResult } from "./map.types";
+import type { LegalCountryCollection, NewMapBootResult } from "./map.types";
 import { emitFirstVisualReady, markNewMapTrace } from "./startupTrace";
+import { NEW_MAP_WATER_COLOR } from "./mapPalette";
 export const NEW_MAP_ADMIN_SOURCE_ID = "admin-boundaries";
 export const NEW_MAP_ADMIN_LAYER_ID = "admin-boundary-line";
 
 export const NEW_MAP_SOURCE_ID = "legal-countries";
 export const NEW_MAP_FILL_LAYER_ID = "legal-fill";
-export const NEW_MAP_HOVER_LAYER_ID = "legal-hover";
 export const NEW_MAP_US_STATES_SOURCE_ID = "us-states";
 export const NEW_MAP_US_STATES_FILL_LAYER_ID = "us-states-fill";
 export const NEW_MAP_US_STATES_LINE_LAYER_ID = "us-states-line";
 const NEW_MAP_SUPPLEMENTAL_SEA_SOURCE_ID = "new-map-supplemental-seas";
 const NEW_MAP_SUPPLEMENTAL_SEA_LAYER_ID = "new-map-supplemental-seas";
 const BASEMAP_STYLE_URL = "/api/new-map/basemap-style?v=20260331-host-header-same-origin";
-const NEW_MAP_BACKGROUND_LAYER_ID = "new-map-background";
-const NEW_MAP_BACKGROUND_COLOR = "#c6d0d7";
 
 const DEFAULT_CENTER: [number, number] = [25, 50];
 const DEFAULT_ZOOM = 1.55;
@@ -39,26 +37,14 @@ const EMPTY_STYLE: StyleSpecification = {
   sources: {},
   layers: [
     {
-      id: NEW_MAP_BACKGROUND_LAYER_ID,
+      id: "background",
       type: "background",
       paint: {
-        "background-color": NEW_MAP_BACKGROUND_COLOR
+        "background-color": NEW_MAP_WATER_COLOR
       }
     }
   ]
 };
-
-function ensureBackgroundLayer(map: maplibregl.Map) {
-  if (map.getLayer(NEW_MAP_BACKGROUND_LAYER_ID)) return;
-  const firstLayerId = map.getStyle().layers?.[0]?.id;
-  map.addLayer({
-    id: NEW_MAP_BACKGROUND_LAYER_ID,
-    type: "background",
-    paint: {
-      "background-color": NEW_MAP_BACKGROUND_COLOR
-    }
-  }, firstLayerId);
-}
 
 function getCountryFeatureAtPoint(map: maplibregl.Map, point: { x: number; y: number }) {
   return map.queryRenderedFeatures([point.x, point.y], { layers: [NEW_MAP_FILL_LAYER_ID] })[0] ?? null;
@@ -97,6 +83,31 @@ function findFirstSymbolLayerId(map: maplibregl.Map) {
   const layers = map.getStyle().layers || [];
   const symbolLayer = layers.find((layer) => layer.type === "symbol");
   return symbolLayer?.id;
+}
+
+function moveNativeWaterLayersAboveCountries(map: maplibregl.Map) {
+  const layers = map.getStyle().layers || [];
+  const waterLayerIds = layers
+    .filter((layer) => {
+      const typedLayer = layer as {
+        id?: string;
+        type?: string;
+        source?: string;
+        "source-layer"?: string;
+      };
+      const sourceLayer = String(typedLayer["source-layer"] || "");
+      return (
+        typedLayer.source === "carto" &&
+        typedLayer.type !== "symbol" &&
+        (/^(water|water_shadow|waterway)$/.test(String(typedLayer.id || "")) || /^(water|waterway)$/.test(sourceLayer))
+      );
+    })
+    .map((layer) => layer.id);
+
+  for (const layerId of waterLayerIds) {
+    if (!map.getLayer(layerId) || !map.getLayer(NEW_MAP_ADMIN_LAYER_ID)) continue;
+    map.moveLayer(layerId, NEW_MAP_ADMIN_LAYER_ID);
+  }
 }
 
 function addSupplementalSeaLayer(map: maplibregl.Map) {
@@ -347,7 +358,6 @@ export function createMap(
   options?: CreateMapOptions
 ): NewMapBootResult {
   let countries: LegalCountryCollection = { type: "FeatureCollection", features: [] };
-  let adminBoundaries: AdminBoundaryCollection = { type: "FeatureCollection", features: [] };
   let mapLoaded = false;
   let bootstrapped = false;
   let styleApplied = !options?.stylePromise;
@@ -385,20 +395,16 @@ export function createMap(
     bearing: 0,
     pitch: 0,
     maxPitch: 0,
-    minZoom: 1,
+    minZoom: 0,
     maxZoom: 14,
     renderWorldCopies: true,
+    fadeDuration: 0,
     attributionControl: false,
     dragRotate: false,
     pitchWithRotate: false
   });
   markNewMapTrace("NM_T1_MAP_CONSTRUCTOR");
   markNewMapTrace("NM_T3_MAP_INSTANCE_READY");
-  map.getCanvas().style.background = NEW_MAP_BACKGROUND_COLOR;
-  const canvasContainer = map.getCanvasContainer?.();
-  if (canvasContainer) {
-    canvasContainer.style.background = NEW_MAP_BACKGROUND_COLOR;
-  }
 
   map.dragPan.enable();
   map.scrollZoom.enable();
@@ -423,16 +429,18 @@ export function createMap(
   const applyData = () => {
     if (!mapLoaded) return;
     const countriesSource = map.getSource(NEW_MAP_SOURCE_ID) as maplibregl.GeoJSONSource | undefined;
-    const adminSource = map.getSource(NEW_MAP_ADMIN_SOURCE_ID) as maplibregl.GeoJSONSource | undefined;
     countriesSource?.setData(countries);
-    adminSource?.setData(adminBoundaries);
-    if (!firstVisualReadyMarked && countries.features.length > 0) {
-      map.once("render", () => {
-        if (destroyed || firstVisualReadyMarked) return;
-        firstVisualReadyMarked = true;
-        emitFirstVisualReady();
-      });
+  };
+
+  const finalizeFirstVisualReady = () => {
+    if (destroyed || readyResolved || !mapLoaded) return;
+    if (!firstBasemapReadyMarked || !firstCountriesReadyMarked) return;
+    if (!firstVisualReadyMarked) {
+      firstVisualReadyMarked = true;
+      emitFirstVisualReady();
     }
+    readyResolved = true;
+    resolveReady();
   };
 
   const installCountryLayers = () => {
@@ -443,10 +451,6 @@ export function createMap(
       type: "geojson",
       data: countries,
       promoteId: "geo"
-    });
-    map.addSource(NEW_MAP_ADMIN_SOURCE_ID, {
-      type: "geojson",
-      data: adminBoundaries
     });
 
     map.addLayer({
@@ -471,20 +475,13 @@ export function createMap(
         "fill-opacity": [
           "step",
           ["zoom"],
-          [
-            "case",
-            ["boolean", ["feature-state", "hover"], false],
-            ["get", "hoverOpacity"],
-            ["get", "fillOpacity"]
-          ],
+          1,
           4.5,
           [
             "case",
             ["==", ["get", "geo"], "US"],
             0,
-            ["boolean", ["feature-state", "hover"], false],
-            ["get", "hoverOpacity"],
-            ["get", "fillOpacity"]
+            1
           ]
         ]
       }
@@ -492,31 +489,41 @@ export function createMap(
 
     map.addSource(NEW_MAP_US_STATES_SOURCE_ID, {
       type: "geojson",
-      data: "/us-states.geojson",
+      data: "/api/new-map/us-states",
       promoteId: "geo"
     });
 
     map.addLayer({
       id: NEW_MAP_ADMIN_LAYER_ID,
       type: "line",
-      source: NEW_MAP_ADMIN_SOURCE_ID,
+      source: "carto",
+      "source-layer": "boundary",
+      filter: [
+        "all",
+        ["in", "admin_level", 4, 6],
+        ["==", "maritime", 0]
+      ],
       minzoom: 1.2,
+      layout: {
+        "line-cap": "round",
+        "line-join": "round"
+      },
       paint: {
-        "line-color": "#8896a4",
+        "line-color": "#c5ccd3",
         "line-width": [
           "interpolate",
           ["linear"],
           ["zoom"],
           1.2,
-          0.28,
+          0.8,
           3,
-          0.42,
+          1,
           6,
-          0.62,
+          1.1,
           10,
-          0.92
+          1.2
         ],
-        "line-opacity": 0.34
+        "line-opacity": 1
       }
     }, beforeId);
 
@@ -539,12 +546,7 @@ export function createMap(
           ["to-color", ["get", "hoverColor"]],
           ["to-color", ["get", "legalColor"]]
         ],
-        "fill-opacity": [
-          "case",
-          ["boolean", ["feature-state", "hover"], false],
-          ["get", "hoverOpacity"],
-          ["get", "fillOpacity"]
-        ]
+        "fill-opacity": 1
       }
     }, NEW_MAP_ADMIN_LAYER_ID);
 
@@ -580,32 +582,8 @@ export function createMap(
       }
     }, NEW_MAP_ADMIN_LAYER_ID);
 
-    map.addLayer({
-      id: NEW_MAP_HOVER_LAYER_ID,
-      type: "fill",
-      source: NEW_MAP_SOURCE_ID,
-      paint: {
-        "fill-color": [
-          "case",
-          ["boolean", ["feature-state", "hover"], false],
-          ["to-color", ["get", "hoverColor"]],
-          ["to-color", ["get", "legalColor"]]
-        ],
-        "fill-antialias": false,
-        "fill-opacity": [
-          "case",
-          ["boolean", ["feature-state", "hover"], false],
-          ["get", "hoverOpacity"],
-          0
-        ],
-        "fill-outline-color": [
-          "case",
-          ["boolean", ["feature-state", "hover"], false],
-          "#314b6b",
-          "rgba(0,0,0,0)"
-        ]
-      }
-    }, beforeId);
+    moveNativeWaterLayersAboveCountries(map);
+
     const labelGroups = findLabelGroups(map);
     if (host.__NEW_MAP_DEBUG__) {
       host.__NEW_MAP_DEBUG__.labelGroups = labelGroups;
@@ -678,9 +656,11 @@ export function createMap(
   });
 
   map.on("idle", () => {
-    if (firstIdleMarked) return;
-    firstIdleMarked = true;
-    markNewMapTrace("NM_T8_IDLE_FIRST");
+    if (!firstIdleMarked) {
+      firstIdleMarked = true;
+      markNewMapTrace("NM_T8_IDLE_FIRST");
+    }
+    finalizeFirstVisualReady();
   });
 
   const onStyleReady = () => {
@@ -688,16 +668,11 @@ export function createMap(
     if (bootstrapped) return;
     bootstrapped = true;
     map.jumpTo(FLAT_CAMERA);
-    ensureBackgroundLayer(map);
     tuneNativeBasemapLayers(map);
     addSupplementalSeaLayer(map);
     installCountryLayers();
     mapLoaded = true;
     applyData();
-    if (!readyResolved) {
-      readyResolved = true;
-      resolveReady();
-    }
   };
 
   map.on("style.load", onStyleReady);
@@ -725,9 +700,8 @@ export function createMap(
   return {
     map,
     ready,
-    setData: (nextCountries, nextAdminBoundaries) => {
+    setData: (nextCountries) => {
       countries = nextCountries;
-      adminBoundaries = nextAdminBoundaries;
       applyData();
     },
     setStyle: (nextStyle) => {
@@ -743,14 +717,11 @@ export function createMap(
       map.off("moveend", ensureFlatCamera);
       if (map.getLayer(NEW_MAP_US_STATES_LINE_LAYER_ID)) map.removeLayer(NEW_MAP_US_STATES_LINE_LAYER_ID);
       if (map.getLayer(NEW_MAP_US_STATES_FILL_LAYER_ID)) map.removeLayer(NEW_MAP_US_STATES_FILL_LAYER_ID);
-      if (map.getLayer(NEW_MAP_HOVER_LAYER_ID)) map.removeLayer(NEW_MAP_HOVER_LAYER_ID);
       if (map.getLayer(NEW_MAP_SUPPLEMENTAL_SEA_LAYER_ID)) map.removeLayer(NEW_MAP_SUPPLEMENTAL_SEA_LAYER_ID);
       if (map.getLayer(NEW_MAP_ADMIN_LAYER_ID)) map.removeLayer(NEW_MAP_ADMIN_LAYER_ID);
       if (map.getLayer(NEW_MAP_FILL_LAYER_ID)) map.removeLayer(NEW_MAP_FILL_LAYER_ID);
-      if (map.getLayer(NEW_MAP_BACKGROUND_LAYER_ID)) map.removeLayer(NEW_MAP_BACKGROUND_LAYER_ID);
       if (map.getSource(NEW_MAP_US_STATES_SOURCE_ID)) map.removeSource(NEW_MAP_US_STATES_SOURCE_ID);
       if (map.getSource(NEW_MAP_SUPPLEMENTAL_SEA_SOURCE_ID)) map.removeSource(NEW_MAP_SUPPLEMENTAL_SEA_SOURCE_ID);
-      if (map.getSource(NEW_MAP_ADMIN_SOURCE_ID)) map.removeSource(NEW_MAP_ADMIN_SOURCE_ID);
       if (map.getSource(NEW_MAP_SOURCE_ID)) map.removeSource(NEW_MAP_SOURCE_ID);
       map.remove();
     }

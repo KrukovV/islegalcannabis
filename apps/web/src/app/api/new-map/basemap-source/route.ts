@@ -2,12 +2,15 @@ import { getPublicOrigin } from "../_lib/publicOrigin";
 
 const UPSTREAM_TILEJSON_URL = "https://tiles.basemaps.cartocdn.com/vector/carto.streets/v1/tiles.json";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export async function GET(request: Request) {
   const response = await fetch(UPSTREAM_TILEJSON_URL, {
     headers: {
       accept: "application/json"
     },
-    cache: "force-cache"
+    cache: "no-store"
   });
 
   if (!response.ok) {
@@ -20,7 +23,7 @@ export async function GET(request: Request) {
 
   return Response.json(tilejson, {
     headers: {
-      "cache-control": "no-store"
+      "cache-control": "no-store, no-cache, must-revalidate"
     }
   });
 }

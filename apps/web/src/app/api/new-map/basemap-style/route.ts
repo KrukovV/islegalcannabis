@@ -1,15 +1,18 @@
 import { getPublicOrigin } from "../_lib/publicOrigin";
+import { NEW_MAP_WATER_COLOR } from "@/new-map/mapPalette";
 
 const UPSTREAM_STYLE_URL = "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json";
-const OCEAN_BACKGROUND = "#c6d0d7";
 const SUBTLE_BOUNDARY = "rgba(198, 208, 215, 0.18)";
+
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export async function GET(request: Request) {
   const response = await fetch(UPSTREAM_STYLE_URL, {
     headers: {
       accept: "application/json"
     },
-    cache: "force-cache"
+    cache: "no-store"
   });
 
   if (!response.ok) {
@@ -19,21 +22,31 @@ export async function GET(request: Request) {
   const style = await response.json();
   const origin = getPublicOrigin(request);
   if (style && typeof style === "object" && Array.isArray(style.layers)) {
+    delete (style as Record<string, unknown>).light;
+    delete (style as Record<string, unknown>).fog;
+    delete (style as Record<string, unknown>).sky;
+    delete (style as Record<string, unknown>).terrain;
     for (const layer of style.layers as Array<{ id?: string; type?: string; paint?: Record<string, unknown> }>) {
+      if (layer.paint && typeof layer.paint === "object") {
+        for (const key of Object.keys(layer.paint)) {
+          if (/color-adjust/i.test(key)) {
+            delete layer.paint[key];
+          }
+        }
+      }
       if (!layer?.paint || typeof layer.paint !== "object") continue;
-      if (layer.id === "background" && layer.type === "background") {
+      if (layer.type === "background") {
         layer.paint = {
           ...layer.paint,
-          "background-color": OCEAN_BACKGROUND,
-          "background-opacity": 1
+          "background-color": NEW_MAP_WATER_COLOR
         };
         continue;
       }
       if (layer.id === "water" && layer.type === "fill") {
         layer.paint = {
           ...layer.paint,
-          "fill-color": OCEAN_BACKGROUND,
-          "fill-opacity": 1
+          "fill-color": NEW_MAP_WATER_COLOR,
+          "fill-antialias": false
         };
         continue;
       }
@@ -64,7 +77,7 @@ export async function GET(request: Request) {
 
   return Response.json(style, {
     headers: {
-      "cache-control": "public, max-age=300, stale-while-revalidate=86400"
+      "cache-control": "no-store, no-cache, must-revalidate"
     }
   });
 }

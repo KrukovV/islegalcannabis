@@ -23,7 +23,7 @@ export type LabelPointCollection = FeatureCollection<Point, { geo: string; label
 export type NewMapBootResult = {
   map: import("maplibre-gl").Map;
   ready: Promise<void>;
-  setData: (_countries: LegalCountryCollection, _adminBoundaries: AdminBoundaryCollection) => void;
+  setData: (_countries: LegalCountryCollection) => void;
   setStyle: (_style: import("maplibre-gl").StyleSpecification) => void;
   destroy: () => void;
 };

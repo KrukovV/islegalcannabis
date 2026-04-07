@@ -3,25 +3,18 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background: #c6d0d7;
+  background: var(--new-map-water-color, #d4dadc);
 }
 
 .mapSurface {
   position: absolute;
   inset: 0;
-  background: #c6d0d7;
+  background: var(--new-map-water-color, #d4dadc);
+  visibility: hidden;
 }
 
-.mapSurface :global(.maplibregl-map) {
-  background: #c6d0d7;
-}
-
-.mapSurface :global(.maplibregl-canvas) {
-  background: #c6d0d7 !important;
-}
-
-.mapSurface :global(.maplibregl-canvas-container) {
-  background: #c6d0d7;
+.mapSurfaceReady {
+  visibility: visible;
 }
 
 .overlay {
