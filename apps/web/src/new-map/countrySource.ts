@@ -1,6 +1,14 @@
 import type { Feature, FeatureCollection, Geometry, MultiPolygon, Polygon } from "geojson";
 import legalSnapshot from "@/data/legalSnapshot.json";
 import { buildGeoJson } from "@/lib/mapData";
+import {
+  loadCentroids,
+  loadUsStatesSsot,
+  loadUsStateWikiTableIndex,
+  resolveDataPath
+} from "@/lib/mapDataSources";
+import { deriveUsStateStatusOverrideFromWikiTable } from "@/lib/mapStatusProjection";
+import { resolveMapCategoryFromPair } from "@/lib/statusPairMatrix";
 import type { AdminBoundaryCollection, LegalCountryCollection } from "./map.types";
 import {
   resolveLegalFillColor,
@@ -61,12 +69,21 @@ export function buildAdminBoundarySnapshot(): AdminBoundaryCollection {
 
 export function buildUsStateSourceSnapshot(): LegalCountryCollection {
   const geojson = buildGeoJson("states") as FeatureCollection;
+  const stateCentroids = loadCentroids(resolveDataPath("data", "centroids", "us_adm1.json"));
+  const stateEntries = loadUsStatesSsot();
+  const stateWikiTableIndex = loadUsStateWikiTableIndex(stateCentroids, stateEntries);
   const features = geojson.features
     .filter((feature): feature is Feature<Polygon | MultiPolygon> => isPolygonGeometry(feature.geometry))
     .map((feature) => {
       const geo = String(feature.properties?.geo || feature.properties?.iso_3166_2 || "").trim().toUpperCase();
       if (!geo.startsWith("US-")) return null;
-      const stateCategory = String(feature.properties?.mapCategory || feature.properties?.finalMapCategory || "UNKNOWN");
+      const wikiTableRow = stateWikiTableIndex.get(geo);
+      const wikiTableOverride = deriveUsStateStatusOverrideFromWikiTable({
+        recreational_raw: wikiTableRow?.recreational_raw ?? undefined
+      });
+      const stateCategory = wikiTableOverride
+        ? resolveMapCategoryFromPair(wikiTableOverride.rec, wikiTableOverride.med)
+        : String(feature.properties?.mapCategory || feature.properties?.finalMapCategory || "UNKNOWN");
       const labelAnchorLng = Number(feature.properties?.labelAnchorLng);
       const labelAnchorLat = Number(feature.properties?.labelAnchorLat);
       return {
