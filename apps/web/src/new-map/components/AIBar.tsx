@@ -35,6 +35,7 @@ function trimQuery(value: string) {
 }
 
 export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Props) {
+  const aiInputLocked = process.env.NODE_ENV === "production";
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const [answer, setAnswer] = useState<string | null>(null);
@@ -42,9 +43,11 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
   const [safetyNote, setSafetyNote] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const normalizedQuery = useMemo(() => trimQuery(query), [query]);
-  const placeholder = activeGeo
-    ? `Ask about cannabis law in ${activeGeo.country}`
-    : "Ask about cannabis laws...";
+  const placeholder = aiInputLocked
+    ? "AI assistant temporarily unavailable"
+    : activeGeo
+      ? `Ask about cannabis law in ${activeGeo.country}`
+      : "Ask about cannabis laws...";
   const gpsDotClassName =
     geoStatus.status === "resolved"
       ? styles.aiGpsDotResolved
@@ -55,7 +58,7 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!normalizedQuery || loading) return;
+    if (aiInputLocked || !normalizedQuery || loading) return;
     setLoading(true);
     setError(null);
     try {
@@ -104,6 +107,9 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
           maxLength={500}
           autoComplete="off"
           spellCheck={false}
+          readOnly={aiInputLocked}
+          disabled={aiInputLocked}
+          aria-disabled={aiInputLocked}
         />
         <button
           type="button"
@@ -119,7 +125,7 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
           type="submit"
           className={styles.aiSubmit}
           aria-label="Submit AI query"
-          disabled={!normalizedQuery || loading}
+          disabled={aiInputLocked || !normalizedQuery || loading}
         >
           {loading ? "…" : "→"}
         </button>
