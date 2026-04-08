@@ -31,6 +31,7 @@ function getClientRuntimeStamp(): string {
 }
 
 export default function BuildWatcher() {
+  const isProduction = process.env.NODE_ENV === "production";
   const initialRuntimeStamp = useMemo(() => getClientRuntimeStamp(), []);
   const [nextRuntimeStamp, setNextRuntimeStamp] = useState<string | null>(null);
   const [dismissed, setDismissed] = useState(false);
@@ -74,7 +75,7 @@ export default function BuildWatcher() {
     };
   }, [initialRuntimeStamp]);
 
-  if (isNewMapRoute || !nextRuntimeStamp || dismissed) {
+  if (isProduction || isNewMapRoute || !nextRuntimeStamp || dismissed) {
     return null;
   }
 
