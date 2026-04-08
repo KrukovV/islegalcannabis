@@ -96,6 +96,7 @@ export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity }:
   const [selectedGeo, setSelectedGeo] = useState<SelectedGeo>(null);
   const [cardIndex, setCardIndex] = useState<Record<string, CountryCardEntry>>({});
   const selectedGeoEntry = selectedGeo ? cardIndex[selectedGeo] ?? null : null;
+  const showDebugOverlay = runtimeIdentity.runtimeMode !== "production";
   const selectedGeoView: ActiveGeo = useMemo(() => {
     if (!selectedGeoEntry) return null;
     return {
@@ -295,21 +296,23 @@ export default function MapRoot({ countriesUrl, visibleStamp, runtimeIdentity }:
       data-testid="new-map-root"
       style={{ ["--new-map-water-color" as string]: NEW_MAP_WATER_COLOR }}
     >
-      <div className={styles.overlay}>
-        <div className={styles.card}>
-          <div className={styles.eyebrow}>New Map Skeleton</div>
-          <h2>MapLibre render + feature-state hover</h2>
-          <p>MapLibre owns render. Leaflet is reduced to pointer-stream glue only. Truth colors still come from the current SSOT snapshot.</p>
-        </div>
-        <div className={styles.card}>
-          <div className={styles.cardHeader}>
-            <strong>Runtime</strong>
-            <RuntimeParityBadge runtimeIdentity={runtimeIdentity} />
+      {showDebugOverlay ? (
+        <div className={styles.overlay}>
+          <div className={styles.card}>
+            <div className={styles.eyebrow}>New Map Skeleton</div>
+            <h2>MapLibre render + feature-state hover</h2>
+            <p>MapLibre owns render. Leaflet is reduced to pointer-stream glue only. Truth colors still come from the current SSOT snapshot.</p>
           </div>
-          <div className={styles.runtime}>{visibleStamp}</div>
-          <div className={styles.meta}>ROUTE=/new-map · OWNER=feature-state · WORLDCOPIES=ON</div>
+          <div className={styles.card}>
+            <div className={styles.cardHeader}>
+              <strong>Runtime</strong>
+              <RuntimeParityBadge runtimeIdentity={runtimeIdentity} />
+            </div>
+            <div className={styles.runtime}>{visibleStamp}</div>
+            <div className={styles.meta}>ROUTE=/new-map · OWNER=feature-state · WORLDCOPIES=ON</div>
+          </div>
         </div>
-      </div>
+      ) : null}
       <div
         ref={containerRef}
         className={`${styles.mapSurface} ${visualReady ? styles.mapSurfaceReady : ""}`.trim()}
