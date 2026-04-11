@@ -101,7 +101,7 @@ export function retrieveTopChunks(query: string, geoHint?: string, limit: number
     .map((entry) => entry.chunk);
 }
 
-const RISK_PATTERNS = [/airport/i, /flight/i, /travel/i, /carry/i, /border/i, /transport/i];
+const RISK_PATTERNS = [/airport/i, /flight/i, /fly/i, /travel/i, /carry/i, /border/i, /transport/i];
 
 export function getTravelRiskBlock(query: string): TravelRiskBlock | null {
   if (!RISK_PATTERNS.some((pattern) => pattern.test(query))) return null;

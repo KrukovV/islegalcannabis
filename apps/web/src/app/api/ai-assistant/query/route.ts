@@ -38,7 +38,7 @@ function sanitizeMessage(value: string | null | undefined) {
 
 function sanitizeGeoHint(value: string | null | undefined) {
   const hint = String(value || "").trim().toUpperCase();
-  return /^[A-Z]{2}$/.test(hint) ? hint : undefined;
+  return /^[A-Z]{2}(?:-[A-Z]{2})?$/.test(hint) ? hint : undefined;
 }
 
 function sanitizeLanguage(value: string | null | undefined) {

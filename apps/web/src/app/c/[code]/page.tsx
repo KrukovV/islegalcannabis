@@ -88,39 +88,6 @@ export default async function CountryCodePage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <section className={styles.hero}>
-        <div className={styles.panel}>
-          <div className={styles.panelCard}>
-            <p className={styles.eyebrow}>{data.node_type === "state" ? "State View" : "Country View"}</p>
-            <h1 className={styles.title}>{getSeoTitle(data).replace(/\s*\(.*\)$/, "")}</h1>
-            <p className={styles.intro}>{data.notes_normalized}</p>
-            <div className={styles.metaGrid}>
-              <div className={styles.metaBlock}>
-                <p className={styles.metaLabel}>Recreational</p>
-                <p className={styles.metaText}>
-                  {data.legal_model.recreational.status} · {data.legal_model.recreational.enforcement} · {data.legal_model.recreational.scope}
-                </p>
-              </div>
-              <div className={styles.metaBlock}>
-                <p className={styles.metaLabel}>Medical</p>
-                <p className={styles.metaText}>
-                  {data.legal_model.medical.status} · {data.legal_model.medical.scope}
-                </p>
-              </div>
-              <div className={styles.metaBlock}>
-                <p className={styles.metaLabel}>Distribution</p>
-                <p className={styles.metaText}>{data.legal_model.distribution.status}</p>
-              </div>
-              <div className={styles.metaBlock}>
-                <p className={styles.metaLabel}>Risk</p>
-                <p className={styles.metaText}>
-                  {data.legal_model.signals?.final_risk || "UNKNOWN"} · prison {data.legal_model.signals?.penalties?.prison ? "yes" : "no"}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
       <NewMapClientEntry
         countriesUrl="/api/new-map/countries"
         visibleStamp={NEW_MAP_VISIBLE_STAMP}
@@ -130,6 +97,35 @@ export default async function CountryCodePage({
         seoCountryIndex={seoCountryIndex}
       />
       <article className={styles.article}>
+        <section id="seo-content" className={styles.section}>
+          <p className={styles.eyebrow}>{data.node_type === "state" ? "State View" : "Country View"}</p>
+          <h1 className={styles.title}>{getSeoTitle(data).replace(/\s*\(.*\)$/, "")}</h1>
+          <p className={styles.intro}>{data.notes_normalized}</p>
+          <div className={styles.metaGrid}>
+            <div className={styles.metaBlock}>
+              <p className={styles.metaLabel}>Recreational</p>
+              <p className={styles.metaText}>
+                {data.legal_model.recreational.status} · {data.legal_model.recreational.enforcement} · {data.legal_model.recreational.scope}
+              </p>
+            </div>
+            <div className={styles.metaBlock}>
+              <p className={styles.metaLabel}>Medical</p>
+              <p className={styles.metaText}>
+                {data.legal_model.medical.status} · {data.legal_model.medical.scope}
+              </p>
+            </div>
+            <div className={styles.metaBlock}>
+              <p className={styles.metaLabel}>Distribution</p>
+              <p className={styles.metaText}>{data.legal_model.distribution.status}</p>
+            </div>
+            <div className={styles.metaBlock}>
+              <p className={styles.metaLabel}>Risk</p>
+              <p className={styles.metaText}>
+                {data.legal_model.signals?.final_risk || "UNKNOWN"} · prison {data.legal_model.signals?.penalties?.prison ? "yes" : "no"}
+              </p>
+            </div>
+          </div>
+        </section>
         {intentSections.map((section) => (
           <section key={section.id} className={styles.section}>
             <h2>{section.heading}</h2>
