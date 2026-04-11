@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -170,9 +183,9 @@
   },
   "hashes": {
     "code": "qat",
-    "content_hash": "130f626cdd0f7ddd8e812001b870703ef39bc1ccb80911cebb1f0207c8492b68",
+    "content_hash": "aae73a3fbe72cf49edfa6aba4f55ba5b58a68ba7531d50be32c9f36e6770331b",
     "notes_hash": "2f891609507d5143fd3fc6b765cd68d07c7499f8091651fe3563d8ee9f2e4afc",
-    "model_hash": "918c24a744880d1c209df351af0f2526e993dd2489508cd27b34bcd2dd1c0bbf"
+    "model_hash": "7765f7b5bb09f52ee0106d7a2888bd20b00ab87a561fd19670df0bcf3858348a"
   },
   "geo_code": "QA",
   "node_type": "country",

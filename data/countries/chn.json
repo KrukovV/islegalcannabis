@@ -5,22 +5,22 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "LIMITED",
-      "enforcement": "MODERATE",
-      "scope": "MEDICAL_ONLY",
-      "override_reason": "rec_implies_med_floor"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
-        "use": "restricted",
+        "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -31,15 +31,28 @@
       "modifiers": []
     },
     "signals": {
-      "status": "restricted",
+      "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": true,
         "fine": true,
-        "severity_score": 2
+        "severity_score": 2,
+        "possession": {
+          "prison": false,
+          "arrest": true,
+          "fine": true,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Cannabis in China",
@@ -69,8 +82,6 @@
       "explain": [
         "rule: penalty_arrest | source: China / 中国 | type: summary | priority: 1 | scope: possession",
         "rule: penalty_fine | source: China / 中国 | type: summary | priority: 1 | scope: possession",
-        "rule: legal | source: Public Security Administration Punishment Law of The People's Republic of China, Article 72 | type: reference | priority: 2 | scope: general",
-        "rule: legal | source: Cannabis Use in China – Laws, History, Uses and More Info | type: reference | priority: 2 | scope: general",
         "no traversal evidence"
       ]
     },
@@ -79,13 +90,11 @@
     ],
     "applied_rules": [
       "penalty_arrest",
-      "penalty_fine",
-      "legal",
-      "rec_implies_med_floor"
+      "penalty_fine"
     ],
-    "notes_normalized": "Cannabis is legal in China / 中国. Medical cannabis is limited. Distribution is restricted."
+    "notes_normalized": "Cannabis is illegal in China / 中国. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is legal in China / 中国. Medical cannabis is limited. Distribution is restricted.",
+  "notes_normalized": "Cannabis is illegal in China / 中国. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in China}} Penalty for possession or consumption: 10–15 days' detention without prosecution and a fine.<ref>{{Cite web|title=Cannabis Use in China – Laws, History, Uses and More Info|url=https://sensiseeds.com/en/blog/countries/cannabis-in-china-laws-use-history/|access-date=23 December 2020|website=Sensi Seeds|date=21 September 2020 |language=en-GB|archive-date=21 December 2020|archive-url=https://web.archive.org/web/20201221161749/https://sensiseeds.com/en/blog/countries/cannabis-in-china-laws-use-history/|url-status=live}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -156,26 +165,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "tha",
-        "name": "Thailand / ประเทศไทย"
-      },
-      {
-        "code": "npl",
-        "name": "Nepal / नेपाल"
-      },
-      {
-        "code": "kor",
-        "name": "South Korea / 한국"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "hkg",
         "name": "Hong Kong / 香港"
       },
       {
         "code": "btn",
         "name": "Bhutan / འབྲུག་ཡུལ་"
+      },
+      {
+        "code": "lao",
+        "name": "Laos / ສປປລາວ"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "bgd",
+        "name": "Bangladesh / বাংলাদেশ"
+      },
+      {
+        "code": "vnm",
+        "name": "Vietnam / Việt Nam"
       }
     ],
     "same_country_states": [],
@@ -183,9 +192,9 @@
   },
   "hashes": {
     "code": "chn",
-    "content_hash": "39f4a1ec74773ac88ae1d0261dd4a99e2e86449e05c8032d2aaea686286e96c6",
-    "notes_hash": "9b91e91dcbf0d4f5cbf6298dc829977a8197544cbc0736e7afc4997074bc5b26",
-    "model_hash": "d06e981c96743e4c5ead6d80b254f2eb5d11bd9edbfe13bfa69b5ae65c6b6e8c"
+    "content_hash": "fd4e67a5591b802a83038332c76b27b7160029d2e1e78a7ed08b60132a147a0b",
+    "notes_hash": "428159c753d9caad47d252d05946b9e231d4b3d676c9bd9135f1f990f83505d9",
+    "model_hash": "abc8179897c5585d293a6fed3502aeede25fb6d0f77c973b9826c2faf97d1bbc"
   },
   "geo_code": "CN",
   "node_type": "country",

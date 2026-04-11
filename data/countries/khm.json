@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -63,13 +76,14 @@
         }
       ],
       "explain": [
+        "rule: raw_illegal | source: Cambodia / Kâmpŭchéa | type: summary | priority: 1 | scope: general",
         "rule: illegal | source: Cambodia / Kâmpŭchéa | type: summary | priority: 1 | scope: general",
         "no traversal evidence"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Cambodia / Kâmpŭchéa. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -171,9 +185,9 @@
   },
   "hashes": {
     "code": "khm",
-    "content_hash": "ce500fe7ec177d499bd260b9fea51b81a1af58fc0e9d56aab2efe3f46daed4e3",
+    "content_hash": "d2fe373b5507039f51dc11e98134509694917a66442f157872d450af92851afb",
     "notes_hash": "8521b7ed18868b41ce6acb4d6902b475e3152e693d683fce2049265aabbaa07b",
-    "model_hash": "e7dc5867c6f9ab9ead61bcd175525e2b3e518b102bb8759a36d2d1e9f6b9fb30"
+    "model_hash": "3c780af79cd3ba6083cf2944691c79ecd1d944d917fa37c48fb1619e2c54118c"
   },
   "geo_code": "KH",
   "node_type": "country",

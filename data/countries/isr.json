@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "restricted",
+      "final_risk": "LIMITED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -89,7 +102,6 @@
       "explain": [
         "rule: possession_decriminalized | source: Israel / إسرائيل | type: summary | priority: 1 | scope: possession",
         "rule: possession_decriminalized | source: Israel Decriminalized Cannabis (Kind Of) | type: reference | priority: 2 | scope: general",
-        "rule: legal | source: Will Marijuana Soon Be Legal In Israel? | type: reference | priority: 2 | scope: general",
         "no traversal evidence"
       ]
     },
@@ -174,12 +186,12 @@
         "name": "Cyprus / Κύπρος"
       },
       {
-        "code": "tur",
-        "name": "Türkiye"
-      },
-      {
         "code": "geo",
         "name": "Georgia / საქართველო"
+      },
+      {
+        "code": "grc",
+        "name": "Greece / Ελλάδα"
       }
     ],
     "cluster_links": [
@@ -188,8 +200,8 @@
         "name": "Syria / سوريا"
       },
       {
-        "code": "irq",
-        "name": "Iraq / العراق"
+        "code": "tur",
+        "name": "Türkiye"
       }
     ],
     "same_country_states": [],
@@ -197,9 +209,9 @@
   },
   "hashes": {
     "code": "isr",
-    "content_hash": "3984bdb4725642c6969e32cfee169ac60a9faf5853ecde361c5bf493e3a7c3a0",
+    "content_hash": "8f04f27b6eeedb754e2d26580b1a12ef430cc9bb1a49c7155dc5d7f9691a87c7",
     "notes_hash": "cd7228a5ffc1f69a017d80f1f95f474617d90cde56459a4d2f53a8aa46ff24ee",
-    "model_hash": "6b7d0cce00bad7579bca7098314cc540071856100f3a35610ea1cd5e38521b99"
+    "model_hash": "041d645b8a622d6d38bc147d012a1e7aeb9fc114d856267f99df5aba672d2bcd"
   },
   "geo_code": "IL",
   "node_type": "country",

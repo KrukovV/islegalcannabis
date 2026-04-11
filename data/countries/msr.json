@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "low",
       "sources": [
@@ -151,9 +164,9 @@
   },
   "hashes": {
     "code": "msr",
-    "content_hash": "be0b3e2b33ad59d43d8a513e93a09017065067893d9a22da4f9a4b157340de2e",
+    "content_hash": "5ca346f95ef90671e8592ebe1033d6bae5a31eed4f2b13a3137dbee453e72734",
     "notes_hash": "206be8467a75ba0b9b1638c3f307021d63f390e187dca7b114d0981e5d883868",
-    "model_hash": "ee28d025a3be5c4cb1441c6daa202ab8455618f4419ebaf3fd5492834b4f950f"
+    "model_hash": "c52d88e3193d1fe455ff89a3fa0b69532ecee661872cdcbd88e73690d15b99c1"
   },
   "geo_code": "MS",
   "node_type": "country",

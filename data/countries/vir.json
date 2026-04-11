@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "low",
       "sources": [
@@ -151,9 +164,9 @@
   },
   "hashes": {
     "code": "vir",
-    "content_hash": "f569360f5e24fdfe6fab2c07f317899fd44696abc63e72a0886d5f0de6de52c6",
+    "content_hash": "c478ba034050a73a5181a75a9e42605b0564589a5fa096b1196309fbd904cd2c",
     "notes_hash": "64866710ca3ec9bf13c451d826e4df5939a0ee29d3d5ff7c29801d6e562794ad",
-    "model_hash": "d92cb5f04b3dcdbf81946c3fcf8399fd582fcb051c7898910a714acdf3755d3d"
+    "model_hash": "64eaa94feeb0c12e0c72e4039cbe153d6a639d91a776484d14cd50934331de75"
   },
   "geo_code": "VI",
   "node_type": "country",

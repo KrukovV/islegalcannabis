@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -87,14 +100,16 @@
         }
       ],
       "explain": [
+        "rule: raw_illegal | source: Norway / Noreg | type: summary | priority: 1 | scope: general",
         "rule: illegal | source: Norway / Noreg | type: summary | priority: 1 | scope: general",
+        "rule: raw_illegal | source: Norway / Noreg | type: summary | priority: 1 | scope: possession",
         "rule: illegal | source: Norway / Noreg | type: summary | priority: 1 | scope: possession",
         "no traversal evidence"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Norway / Noreg. Medical cannabis is legal. Distribution is illegal."
   },
@@ -196,9 +211,9 @@
   },
   "hashes": {
     "code": "nor",
-    "content_hash": "e693476b6efbebfae2c0bb4971c855260458c049b62e63d3501d88f7cb406d05",
+    "content_hash": "ca14480b89f217f5af590f71ee9ef78e1e4e7a3a53067cc19dd4efc22064c0c4",
     "notes_hash": "9913b5810c4acb6d57894e6cbec5eed4aefc27eab53036d0bbb98d4b8761aa8b",
-    "model_hash": "11eff02e02578a14efa64c4949b7c870fd4fa791c6dee643e28e8af392bb547e"
+    "model_hash": "9e8c5579d6c0088b75735b318786e9a0943c2a950aea209a3f89adfd1b2a0116"
   },
   "geo_code": "NO",
   "node_type": "country",

@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "low",
       "sources": [
@@ -151,9 +164,9 @@
   },
   "hashes": {
     "code": "gum",
-    "content_hash": "166a693dced16678daae2eba85db8c99ee538d1aee2fb70bf4cf5b00b504bfce",
+    "content_hash": "8a84a52aff1f6f0b5e63c0087ad519017e9acfc0a28e5aa0f82ac060e045d809",
     "notes_hash": "99f3ab179b85fe6020607577b709a35c98b7b2cce4f00a05b7832308c9abd445",
-    "model_hash": "4f8fe0bdfeab88e1404b606cfd6006c66b1c98c446d390426b9c35f3b8e65500"
+    "model_hash": "2d50c853956fbe9350ce21d756051f6c4f0b05b23911fe55d8173efce92f9ce5"
   },
   "geo_code": "GU",
   "node_type": "country",

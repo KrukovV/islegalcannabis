@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "low",
       "sources": [
@@ -128,22 +141,22 @@
         "name": "Andorra"
       },
       {
-        "code": "fra",
-        "name": "France"
+        "code": "dza",
+        "name": "Algeria / الجزائر"
       },
       {
-        "code": "jey",
-        "name": "Jersey / Jèrri"
+        "code": "fra",
+        "name": "France"
       }
     ],
     "cluster_links": [
       {
-        "code": "ggy",
-        "name": "Guernsey / Guernesey"
+        "code": "jey",
+        "name": "Jersey / Jèrri"
       },
       {
-        "code": "mco",
-        "name": "Monaco"
+        "code": "ggy",
+        "name": "Guernsey / Guernesey"
       }
     ],
     "same_country_states": [],
@@ -151,9 +164,9 @@
   },
   "hashes": {
     "code": "gib",
-    "content_hash": "6e8a1b67321766cd4728db876da3ae24e3d06f8810724ebf041e720fac6a0fd2",
+    "content_hash": "0b4cd8253a1ec4ef8777772186fe585d3f367482c8b2a68ca2b9aa99876ce34b",
     "notes_hash": "4240bcbe55beb93fac6bb803d5fb46bee93d1d3e28923e10cf55a5c5b40d7b44",
-    "model_hash": "e8567576dcaae04e0e3d43070e18c0b0531ef47cae2eadc9f910afc3152c6505"
+    "model_hash": "6d99f31ffa56e133b488bd565890e871f93c0df0e4cd75183d7f78174d2b6f16"
   },
   "geo_code": "GI",
   "node_type": "country",

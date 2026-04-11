@@ -5,22 +5,22 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "LIMITED",
-      "enforcement": "MODERATE",
-      "scope": "MEDICAL_ONLY",
-      "override_reason": "rec_implies_med_floor"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
-        "use": "restricted",
+        "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -31,15 +31,28 @@
       "modifiers": []
     },
     "signals": {
-      "status": "restricted",
+      "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": true,
         "fine": false,
-        "severity_score": 2
+        "severity_score": 2,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Cannabis in Nepal",
@@ -85,21 +98,17 @@
         }
       ],
       "explain": [
-        "rule: legal | source: Cannabis in Nepal: In between legal lacuna &#124; The Farsight Nepal | type: reference | priority: 2 | scope: general",
         "rule: penalty_arrest | source: Police to arrest cannabis users at Pashupati this Mahashivaratri festival | type: reference | priority: 2 | scope: general",
-        "rule: legal | source: Activists seek legal marijuana in former hippie haven Nepal | type: reference | priority: 2 | scope: general",
         "no traversal evidence"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "legal",
-      "penalty_arrest",
-      "rec_implies_med_floor"
+      "penalty_arrest"
     ],
-    "notes_normalized": "Cannabis is legal in Nepal / नेपाल. Medical cannabis is limited. Distribution is restricted."
+    "notes_normalized": "Cannabis is illegal in Nepal / नेपाल. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is legal in Nepal / नेपाल. Medical cannabis is limited. Distribution is restricted.",
+  "notes_normalized": "Cannabis is illegal in Nepal / नेपाल. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Nepal}} All cannabis licenses canceled in 1973.<ref name=\"Booth2011\"/>",
   "facts": {
     "possession_limit": null,
@@ -174,16 +183,6 @@
         "name": "Pakistan / پاكستان"
       },
       {
-        "code": "tjk",
-        "name": "Tajikistan / Таджикистан"
-      },
-      {
-        "code": "tha",
-        "name": "Thailand / ประเทศไทย"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "mmr",
         "name": "Myanmar / မြန်မာ"
       },
@@ -192,14 +191,24 @@
         "name": "Kyrgyzstan / Кыргызстан"
       }
     ],
+    "cluster_links": [
+      {
+        "code": "tjk",
+        "name": "Tajikistan / Таджикистан"
+      },
+      {
+        "code": "afg",
+        "name": "Afghanistan / افغانستان"
+      }
+    ],
     "same_country_states": [],
     "federal_parent": null
   },
   "hashes": {
     "code": "npl",
-    "content_hash": "27129ebfd6c757a863414ac61ee906867b7d916574baf4a868bcea3d9a2bdd67",
-    "notes_hash": "98936dd886d64004f934351ab1f48e0a6e3b1004a67facb4fd025124cd3ae6f5",
-    "model_hash": "c49b6360a89b52c40a5328e9ef38338c055453f77628ea2909500c3394f9dcc5"
+    "content_hash": "9e0eabbdbb9e49d83f4b2f7fda97473ab312c7e7a2e320245d1518265a645454",
+    "notes_hash": "7a3bb35762a3f228b51b82b9e268be1408e9adb3432d8fa1b426853dcce3f8b1",
+    "model_hash": "bfbd41f567ae1de0973786df53434a6c2f3c936bcadb56304b2e0c24ad1988ff"
   },
   "geo_code": "NP",
   "node_type": "country",

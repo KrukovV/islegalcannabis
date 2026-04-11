@@ -32,12 +32,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -169,9 +182,9 @@
   },
   "hashes": {
     "code": "afg",
-    "content_hash": "6fac7713e3ee800da90abe6f889a7219406d1cb7837d3b2d60fe1903c1456ebe",
+    "content_hash": "aa52939fb352cd2eb5140ab1d2062d50930de2072efe4c8427a863bfa311a0f6",
     "notes_hash": "0ff300485bc16950b5ad7bbd3f9b0ab172e01242042baa61c3611c46d46c2a14",
-    "model_hash": "e728030e481f573a93f60f546bd2d429a44dbb1fe9c2aeaa323432995d88941a"
+    "model_hash": "afdca05581ce67fdf8b36035e283d34b3a219f15e107c387706b1645e5972b7e"
   },
   "geo_code": "AF",
   "node_type": "country",

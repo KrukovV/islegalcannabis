@@ -5,22 +5,22 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "LIMITED",
-      "enforcement": "MODERATE",
-      "scope": "MEDICAL_ONLY",
-      "override_reason": "rec_implies_med_floor"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
-        "use": "restricted",
+        "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -33,13 +33,26 @@
       ]
     },
     "signals": {
-      "status": "restricted",
+      "status": "illegal",
+      "final_risk": "HIGH_RISK",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 2,
         "arrest": true,
         "fine": true,
-        "severity_score": 2
+        "severity_score": 3,
+        "possession": {
+          "prison": true,
+          "arrest": true,
+          "fine": true,
+          "severe": true
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "high",
       "sources": [
@@ -89,9 +102,9 @@
       "explain": [
         "rule: penalty_arrest | source: Russia / Россия | type: summary | priority: 1 | scope: possession",
         "rule: penalty_fine | source: Russia / Россия | type: summary | priority: 1 | scope: possession",
+        "rule: penalty_criminal_offense | source: Russia / Россия | type: summary | priority: 1 | scope: possession",
         "rule: penalty_fine | source: Russia Seeks Balance in Drug-Use Sentencing | type: reference | priority: 2 | scope: general",
         "rule: penalty_fine | source: Russia Enacts Sweeping Reforms in Drug Laws: No Jail for Possession | type: reference | priority: 2 | scope: general",
-        "rule: legal | source: Is weed legal in Russia? Will it legalize in 2023? | type: reference | priority: 2 | scope: general",
         "rule: penalty_fine | source: Is weed legal in Russia? Will it legalize in 2023? | type: reference | priority: 2 | scope: general",
         "rule: penalty_years | source: Brittney Griner Found Guilty, Sentenced To 9 Years For Drug Possession In Russia | type: reference | priority: 2 | scope: possession",
         "rule: penalty_fine | source: Brittney Griner Found Guilty, Sentenced To 9 Years For Drug Possession In Russia | type: reference | priority: 2 | scope: general",
@@ -108,13 +121,12 @@
     "applied_rules": [
       "penalty_arrest",
       "penalty_fine",
-      "legal",
-      "penalty_years",
-      "rec_implies_med_floor"
+      "penalty_criminal_offense",
+      "penalty_years"
     ],
-    "notes_normalized": "Cannabis is legal in Russia / Россия. Medical cannabis is limited. Distribution is restricted."
+    "notes_normalized": "Cannabis is illegal in Russia / Россия. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is legal in Russia / Россия. Medical cannabis is limited. Distribution is restricted.",
+  "notes_normalized": "Cannabis is illegal in Russia / Россия. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Russia}} Possession of up to {{cvt|6|g|frac=5}} of cannabis (or {{cvt|2|g|frac=20|disp=comma}} of hashish) is an administrative offense, punishable by a fine of [[Russian ruble|₽]]5,000 or detention of up to 15 days. Possession of larger amounts is a criminal offense. Foreign nationals and stateless individuals who violate the law are subject to deportation regardless of the amount.<ref>{{cite web | url = http://www.consultant.ru/cons/cgi/online.cgi?req=doc&ts=164469974506312461340936923&cacheid=994B2ACA3517C672CBCF7A2398087641&mode=splus&base=LAW&n=310901&dst=2083&rnd=62E8B8E346501CD4CE50DFE5E998C343#09158851242449872 | script-title = ru:КОДЕКС РОССИЙСКОЙ ФЕДЕРАЦИИ ОБ АДМИНИСТРАТИВНЫХ ПРАВОНАРУШЕНИЯХ | access-date = 5 December 2018 | language = ru | archive-date = 26 February 2021 | archive-url = https://web.archive.org/web/20210226184336/http://www.consultant.ru/cons/cgi/online.cgi?req=doc&ts=164469974506312461340936923&cacheid=994B2ACA3517C672CBCF7A2398087641&mode=splus&base=LAW&n=310901&dst=2083&rnd=62E8B8E346501CD4CE50DFE5E998C343#09158851242449872 | url-status = live }}</ref>",
   "facts": {
     "possession_limit": "up to 6 g",
@@ -185,16 +197,16 @@
     ],
     "legal_similarity": [
       {
-        "code": "npl",
-        "name": "Nepal / नेपाल"
+        "code": "prk",
+        "name": "North Korea / 조선"
       },
       {
-        "code": "tjk",
-        "name": "Tajikistan / Таджикистан"
+        "code": "btn",
+        "name": "Bhutan / འབྲུག་ཡུལ་"
       },
       {
-        "code": "kor",
-        "name": "South Korea / 한국"
+        "code": "kaz",
+        "name": "Kazakhstan / Қазақстан"
       }
     ],
     "cluster_links": [
@@ -212,9 +224,9 @@
   },
   "hashes": {
     "code": "rus",
-    "content_hash": "438babc092bf6523f22fb45f0bd03dcca0df5d1b4bdbbb8c66b3bc8433929267",
-    "notes_hash": "5c8b8e747c5079a44d67075d9d95ef9f177a4500377dead285ead43006569cac",
-    "model_hash": "b788187c8892b79c26b55f100e9ea7b952c97213cfabc5400b4c42afc5b2524a"
+    "content_hash": "d8262de9292414f55d75f19c2c9b530fcc7d3b0916817949ae124b3662f54424",
+    "notes_hash": "b5e6a5a6c9d3bc84a4a23b66dc7fbedc40f167565121fdc08a39548d59d95289",
+    "model_hash": "d3de948c290570b2ac7ee373bc7dd6fa3daa23f56594ca44a040721d5fa6f700"
   },
   "geo_code": "RU",
   "node_type": "country",

@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -176,9 +189,9 @@
   },
   "hashes": {
     "code": "tcd",
-    "content_hash": "29763a69faaa3f0a13f313b634a0f2293360854c702e1214d26ff2c7366a9456",
+    "content_hash": "09322d1ec6ef29df0ab9d25aee485f74183e0a65f5930621f981dbb4ed91c39d",
     "notes_hash": "79f0a3f0a60abb4624e47ded14c38c5c58bacb00b8d87dead3fd2de56d97f2c3",
-    "model_hash": "6865258bc4aa05806ac9c6d23d4d7985c914cbed0133c979c3aa67220d4c138a"
+    "model_hash": "b6af97eb1894219eec8e8bfdea35fcba3d7124babfcbe1810ef3c2276af56950"
   },
   "geo_code": "TD",
   "node_type": "country",

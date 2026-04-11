@@ -36,12 +36,25 @@
     },
     "signals": {
       "status": "mixed",
+      "final_risk": "HIGH_RISK",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 1,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 4,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": true,
+          "arrest": false,
+          "fine": false,
+          "severe": true
+        }
       },
       "confidence": "high",
       "sources": [
@@ -89,6 +102,8 @@
         }
       ],
       "explain": [
+        "rule: penalty_prison | source: Brazil / Brasil | type: summary | priority: 1 | scope: general",
+        "rule: penalty_prison | source: Brazil / Brasil | type: summary | priority: 1 | scope: trafficking",
         "rule: trafficking_illegal | source: Brazil / Brasil | type: summary | priority: 1 | scope: trafficking",
         "rule: sale_regulated | source: Brazil approves sale of medical cannabis in pharmacies | type: reference | priority: 2 | scope: sale",
         "rule: medical_legal | source: Brazil approves sale of medical cannabis in pharmacies | type: reference | priority: 2 | scope: sale",
@@ -97,14 +112,15 @@
     },
     "enforcement_flags": [],
     "applied_rules": [
+      "penalty_prison",
       "trafficking_illegal",
       "sale_regulated",
       "medical_legal",
       "distribution_mixed_strong_penalty"
     ],
-    "notes_normalized": "Cannabis is decriminalized in Brazil / Brasil. Medical cannabis is legal. Distribution is mixed."
+    "notes_normalized": "Cannabis is decriminalized in Brazil / Brasil. Medical cannabis is legal. Distribution is mixed. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is decriminalized in Brazil / Brasil. Medical cannabis is legal. Distribution is mixed.",
+  "notes_normalized": "Cannabis is decriminalized in Brazil / Brasil. Medical cannabis is legal. Distribution is mixed. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Brazil}} Legislation passed in 2006 to require treatment and community service for possessing small amounts of drugs instead of jail time.<ref>{{cite news |last1=Smith |first1=Phillip |title=Brazilian President Signs New Drug Law – No Jail for Users |url=https://stopthedrugwar.org/chronicle/2006/aug/31/feature_brazilian_president_sign |access-date=3 August 2021 |work=stopthedrugwar.org |date=31 August 2006 |archive-date=3 August 2021 |archive-url=https://web.archive.org/web/20210803165114/https://stopthedrugwar.org/chronicle/2006/aug/31/feature_brazilian_president_sign |url-status=live }}</ref> Possession of large amounts, as well as sale, transportation, and cultivation, are considered drug trafficking.<ref>{{cite web |author1=Congresso Nacional |author-link1=Congress of Brazil |title=Lei nº 11.343 |url=http://www.planalto.gov.br/ccivil_03/_Ato2004-2006/2006/Lei/L11343.htm |website=www.planalto.gov.br |publisher=Presidência da República – Casa Civil |location=Brasília |language=pt-br |date=23 August 2006 |access-date=13 October 2009 |archive-date=25 November 2018 |archive-url=https://web.archive.org/web/20181125030720/http://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/lei/l11343.htm |url-status=live }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -202,9 +218,9 @@
   },
   "hashes": {
     "code": "bra",
-    "content_hash": "9300f17114864965ca3e81e5714a84e176cf260489667d0fbe829fcbb53eb48c",
-    "notes_hash": "f17e8afce2ff25dc3a820c02a4ba2994b439a947e101db9870afd06913356cf6",
-    "model_hash": "a04d58895038f7b57da11ea0724c0221d5463c243854810c1f0f768d87af13ae"
+    "content_hash": "53be41e4c28537d9d910fc13d8bbbeb036ef12fcc34dc4e5adfe53c2a9dd399e",
+    "notes_hash": "b9b79ffed742fb2d97a769a6c2e7e086e9865d39e8236f631a3fac448d413e86",
+    "model_hash": "85963deed1d1dc4d43f95ebd8d3d8d1e9b76afa458d77cccff83d2d3ef57bd6b"
   },
   "geo_code": "BR",
   "node_type": "country",

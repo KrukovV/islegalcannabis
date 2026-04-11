@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "HIGH_RISK",
       "penalties": {
         "prison": true,
         "prison_priority": 1,
         "arrest": false,
         "fine": false,
-        "severity_score": 4
+        "severity_score": 4,
+        "possession": {
+          "prison": true,
+          "arrest": false,
+          "fine": false,
+          "severe": true
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "high",
       "sources": [
@@ -89,13 +102,15 @@
       "explain": [
         "rule: penalty_prison | source: Slovakia / Slovensko | type: summary | priority: 1 | scope: possession",
         "rule: penalty_years | source: Slovakia / Slovensko | type: summary | priority: 1 | scope: possession",
+        "rule: penalty_criminal_offense | source: Slovakia / Slovensko | type: summary | priority: 1 | scope: possession",
         "no traversal evidence"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
       "penalty_prison",
-      "penalty_years"
+      "penalty_years",
+      "penalty_criminal_offense"
     ],
     "notes_normalized": "Cannabis is illegal in Slovakia / Slovensko. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
@@ -197,9 +212,9 @@
   },
   "hashes": {
     "code": "svk",
-    "content_hash": "2b3e118982aead9de5ee1e7f4fc8f02a35753378658e79a6142c873d13232386",
+    "content_hash": "b75c7b784ecc94d35cc03d35cb41db67e70ce9c8a8417dca1de48e34441ac0c6",
     "notes_hash": "c764bf96840829d2a2ce389c860668d588c9b1802cd5446b541abddb76d88cd3",
-    "model_hash": "2510a42575caf40e6be4b4d76895c9ec821575e65a422bebe53999b9f902d1b6"
+    "model_hash": "62ed1c43d8d5d3a64cb6080b32aa4879941e04ebcd5b7f424eddf3e66433c802"
   },
   "geo_code": "SK",
   "node_type": "country",

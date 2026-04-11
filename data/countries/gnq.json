@@ -5,39 +5,54 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "LIMITED",
-      "enforcement": "MODERATE",
-      "scope": "MEDICAL_ONLY",
-      "override_reason": "rec_implies_med_floor"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
-        "use": "restricted",
+        "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [],
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
       "modifiers": []
     },
     "signals": {
-      "status": "restricted",
+      "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -85,18 +100,16 @@
         }
       ],
       "explain": [
-        "rule: legal | source: Legal status of cannabis in Equatorial Guinea - Cannaconnection.com | type: reference | priority: 2 | scope: general",
         "no traversal evidence"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "legal",
-      "rec_implies_med_floor"
+      "distribution_fallback_illegal"
     ],
-    "notes_normalized": "Cannabis is legal in Equatorial Guinea / Guinée équatoriale. Medical cannabis is limited. Distribution is restricted."
+    "notes_normalized": "Cannabis is illegal in Equatorial Guinea / Guinée équatoriale. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is legal in Equatorial Guinea / Guinée équatoriale. Medical cannabis is limited. Distribution is restricted.",
+  "notes_normalized": "Cannabis is illegal in Equatorial Guinea / Guinée équatoriale. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Equatorial Guinea}}",
   "facts": {
     "possession_limit": null,
@@ -167,26 +180,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "dza",
-        "name": "Algeria / الجزائر"
-      },
-      {
-        "code": "zwe",
-        "name": "Zimbabwe"
-      },
-      {
-        "code": "eri",
-        "name": "Eritrea / إريتريا"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "cog",
         "name": "Congo / République du Congo"
       },
       {
         "code": "nga",
         "name": "Nigeria"
+      },
+      {
+        "code": "tgo",
+        "name": "Togo"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "ben",
+        "name": "Benin / Bénin"
+      },
+      {
+        "code": "caf",
+        "name": "Central African Republic / République centrafricaine"
       }
     ],
     "same_country_states": [],
@@ -194,9 +207,9 @@
   },
   "hashes": {
     "code": "gnq",
-    "content_hash": "9f46883a95e136f54bf1d65a25d388bebbed214f40eba60847ee04bbcc53c3ef",
-    "notes_hash": "1e076d9ef75d8a2e5eaebfab18b87f90f60f85e306d1534dd191a28a571656b4",
-    "model_hash": "570a08ae5e81486a279183ea548101e7f512fbc9074345fa124f98a0a8957e50"
+    "content_hash": "583e57127e2c0ae4a40fe9c5ba06114ef69c34208376414a005ec22c1298c2a1",
+    "notes_hash": "9460a5bd07ced8dcbee3ba183d26b4d580e2157528e6cf28277164d75ca349a9",
+    "model_hash": "4bbf56622b23291199222873f96ad5482907b080413676351b823cdce7afd4e2"
   },
   "geo_code": "GQ",
   "node_type": "country",

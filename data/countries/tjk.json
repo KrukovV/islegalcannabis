@@ -5,39 +5,54 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "LIMITED",
-      "enforcement": "MODERATE",
-      "scope": "MEDICAL_ONLY",
-      "override_reason": "rec_implies_med_floor"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
-        "use": "restricted",
+        "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [],
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
       "modifiers": []
     },
     "signals": {
-      "status": "restricted",
+      "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -85,18 +100,16 @@
         }
       ],
       "explain": [
-        "rule: legal | source: Legal status of cannabis in Tajikistan - Cannaconnection.com | type: reference | priority: 2 | scope: general",
         "no traversal evidence"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "legal",
-      "rec_implies_med_floor"
+      "distribution_fallback_illegal"
     ],
-    "notes_normalized": "Cannabis is legal in Tajikistan / Таджикистан. Medical cannabis is limited. Distribution is restricted."
+    "notes_normalized": "Cannabis is illegal in Tajikistan / Таджикистан. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is legal in Tajikistan / Таджикистан. Medical cannabis is limited. Distribution is restricted.",
+  "notes_normalized": "Cannabis is illegal in Tajikistan / Таджикистан. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Tajikistan}}",
   "facts": {
     "possession_limit": null,
@@ -171,16 +184,6 @@
         "name": "Pakistan / پاكستان"
       },
       {
-        "code": "npl",
-        "name": "Nepal / नेपाल"
-      },
-      {
-        "code": "are",
-        "name": "United Arab Emirates / الإمارات"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "kaz",
         "name": "Kazakhstan / Қазақстан"
       },
@@ -189,14 +192,24 @@
         "name": "Turkmenistan / Туркмения"
       }
     ],
+    "cluster_links": [
+      {
+        "code": "npl",
+        "name": "Nepal / नेपाल"
+      },
+      {
+        "code": "irn",
+        "name": "Iran / ایران"
+      }
+    ],
     "same_country_states": [],
     "federal_parent": null
   },
   "hashes": {
     "code": "tjk",
-    "content_hash": "e109ad35716891b4da2c9c374e1ad42dbebda4fba351d197f9c3d1fc0a5d3d9b",
-    "notes_hash": "467747ea5a24e6859a4f61476dd0f960343161597b028c377f37936a9796ca19",
-    "model_hash": "1b615ede3de976e40ef668b13f62e76b79e36dad9a1f73343b1ff14f1dea3bfa"
+    "content_hash": "23d50c095571750444f1853ead3955327098de944e2f95796515a28501fbd3b0",
+    "notes_hash": "7a941df10c1dcfe52481b3d721eff0837547ad8bb24dda1bc87fdeb6539d40be",
+    "model_hash": "17a9d79e03cca0cf7d895987878909be9934c6bf4ffde62b67cf8bde2df12576"
   },
   "geo_code": "TJ",
   "node_type": "country",

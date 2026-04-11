@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -147,18 +160,18 @@
         "name": "Micronesia"
       },
       {
-        "code": "vut",
-        "name": "Vanuatu"
+        "code": "tuv",
+        "name": "Tuvalu"
       },
       {
-        "code": "fji",
-        "name": "Fiji / Viti"
+        "code": "vut",
+        "name": "Vanuatu"
       }
     ],
     "cluster_links": [
       {
-        "code": "tuv",
-        "name": "Tuvalu"
+        "code": "fji",
+        "name": "Fiji / Viti"
       },
       {
         "code": "ncl",
@@ -170,9 +183,9 @@
   },
   "hashes": {
     "code": "nru",
-    "content_hash": "135fd4e6823c793a6fbc5229edbcf90b165a0993194c9fb9800507465307e07b",
+    "content_hash": "f23c14496f26445c98589163d8c830ac45a2aed25f5bcf713e82e6070c8c5f9e",
     "notes_hash": "a61aec8f66571228caf8cee5fded96884f83903e4e3e6c4d5fe75a732fa0b425",
-    "model_hash": "1c7152d67de43d0c3028730e0c754940563c39047d5001f421b3a9d5e0d362a5"
+    "model_hash": "5953c27a47576e8b2e57ea270a47a80c879e5c3494a7ad9b1c148903b9a4416d"
   },
   "geo_code": "NR",
   "node_type": "country",

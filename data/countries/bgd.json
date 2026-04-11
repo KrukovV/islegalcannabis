@@ -36,12 +36,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": true,
-        "severity_score": 1
+        "severity_score": 1,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -183,8 +196,8 @@
         "name": "Laos / ສປປລາວ"
       },
       {
-        "code": "khm",
-        "name": "Cambodia / Kâmpŭchéa"
+        "code": "chn",
+        "name": "China / 中国"
       }
     ],
     "cluster_links": [
@@ -193,8 +206,8 @@
         "name": "Thailand / ประเทศไทย"
       },
       {
-        "code": "chn",
-        "name": "China / 中国"
+        "code": "khm",
+        "name": "Cambodia / Kâmpŭchéa"
       }
     ],
     "same_country_states": [],
@@ -202,9 +215,9 @@
   },
   "hashes": {
     "code": "bgd",
-    "content_hash": "540f1bb5e91a5c7f7122fb6169bb4e698906eda38949cad4c6e80b53491f01b9",
+    "content_hash": "c58bc737c53c3dae33bc25ddd18d9aa0d16d37be74c4346bace43dd63ecc2367",
     "notes_hash": "11357b36c53661bc63ebbe5fb700881afced94cfa7433c329fff23564fa629ad",
-    "model_hash": "03dc57ae683d51556a70e0ecc1c279bb1f591c7a3a7602c9b1af8101719e0f64"
+    "model_hash": "9f607102dcdcdc93b769aea7463eaf24a9667d79fdbaee757381e17568fd1ba7"
   },
   "geo_code": "BD",
   "node_type": "country",

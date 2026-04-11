@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "HIGH_RISK",
       "penalties": {
         "prison": true,
         "prison_priority": 1,
         "arrest": false,
         "fine": false,
-        "severity_score": 4
+        "severity_score": 4,
+        "possession": {
+          "prison": true,
+          "arrest": false,
+          "fine": false,
+          "severe": true
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "high",
       "sources": [
@@ -71,13 +84,15 @@
       "explain": [
         "rule: penalty_prison | source: Venezuela | type: summary | priority: 1 | scope: possession",
         "rule: penalty_years | source: Venezuela | type: summary | priority: 1 | scope: possession",
+        "rule: penalty_criminal_offense | source: Venezuela | type: summary | priority: 1 | scope: possession",
         "no traversal evidence"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
       "penalty_prison",
-      "penalty_years"
+      "penalty_years",
+      "penalty_criminal_offense"
     ],
     "notes_normalized": "Cannabis is illegal in Venezuela. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
@@ -179,9 +194,9 @@
   },
   "hashes": {
     "code": "ven",
-    "content_hash": "2055da1f434f723735d992686420d9990b8a32bfe16f443cad1fade256140a1c",
+    "content_hash": "d1564de24d982fd391a05e5dc4ba8e345aa563c1cdd16234e2d0bf9d296d569e",
     "notes_hash": "621d0f30994afa165750655a71a41c87c6c10d31b65f78b307f654dfc30382c3",
-    "model_hash": "2cc05d1319eaba919ef2d7be3d6a7619a7bf273ebcb3a744d2113fad9d7d7a64"
+    "model_hash": "654b9ab9938cfb28da927e76f48e9bd86fe0ff42cf068fbd9268a3370abcc284"
   },
   "geo_code": "VE",
   "node_type": "country",

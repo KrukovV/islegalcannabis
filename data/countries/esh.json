@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "low",
       "sources": [
@@ -151,9 +164,9 @@
   },
   "hashes": {
     "code": "esh",
-    "content_hash": "f2a006aa9dd6e36873b0940dce5b9746cb83efd64be7a0cf25bf6525948be16b",
+    "content_hash": "648c0050192ecfd85ae09ee764f540007d6a58e7d718c8e897a9683addd0482e",
     "notes_hash": "cfac79f8a2ce861e52f5f9256e3ff237f79d6be199537e7c6483d9f82d5c6ca2",
-    "model_hash": "af77b44d1a867a5d14c8beecf4f21012dd6b5fe5624e9566d4f5a5981cad3b15"
+    "model_hash": "4025c5844f64639f8cb9b7887aa649111eacf8e9d70375a495233f6e2f21f6ef"
   },
   "geo_code": "EH",
   "node_type": "country",

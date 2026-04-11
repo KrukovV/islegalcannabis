@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "low",
       "sources": [
@@ -151,9 +164,9 @@
   },
   "hashes": {
     "code": "ggy",
-    "content_hash": "6faea303cbe818ac761e58e1d51fc84717963552ce2172f0c752d55e9dfce635",
+    "content_hash": "e2248498ffd7bd23484b5f53ad830620a4886c5afce6955b05e2a45067d66359",
     "notes_hash": "45a02024d06c4fa1c349a611f697060356b676a95a08ddc6ae3396828715a183",
-    "model_hash": "0b6cd20f4c84c716ca8b077c15f22f081e77da58bd6ee4bf59193433d59d7ada"
+    "model_hash": "acf50a76f4fbaca0215331354b9a6a4745cfe803ae57262097cf66939b0e111d"
   },
   "geo_code": "GG",
   "node_type": "country",

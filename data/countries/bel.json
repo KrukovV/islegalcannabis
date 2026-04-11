@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "restricted",
+      "final_risk": "LIMITED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -177,8 +190,8 @@
         "name": "Germany / Deutschland"
       },
       {
-        "code": "mco",
-        "name": "Monaco"
+        "code": "aut",
+        "name": "Austria / Österreich"
       }
     ],
     "cluster_links": [
@@ -196,9 +209,9 @@
   },
   "hashes": {
     "code": "bel",
-    "content_hash": "75028b60c6a22ab5aae39ddac656b87e017290a959bca0feee36157b3f42e3ec",
+    "content_hash": "5c7db9080517c5447f0eb2bb4ef2eb8d84bf0538dc372051416a5dfbf0ecd60d",
     "notes_hash": "085254dabeb657217f18d4cebc2a8313034acae0bbbf786ab6b8931b1b3dbb19",
-    "model_hash": "849a6c7961e49c6d879ef0ccb00a444459299536a3d469b277148f85ec5cd1e5"
+    "model_hash": "445cac1849f0924806dfbd6c662c9f60213dbae8fabaaddd5385750bb8441c84"
   },
   "geo_code": "BE",
   "node_type": "country",

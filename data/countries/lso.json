@@ -5,22 +5,22 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "LIMITED",
-      "enforcement": "MODERATE",
-      "scope": "MEDICAL_ONLY",
-      "override_reason": "rec_implies_med_floor"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
     },
     "distribution": {
       "status": "tolerated",
       "scopes": {
-        "possession": "restricted",
-        "use": "restricted",
+        "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": "tolerated",
         "import": null,
@@ -32,14 +32,27 @@
     },
     "signals": {
       "status": "tolerated",
+      "final_risk": "UNKNOWN",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Cannabis in Lesotho",
@@ -92,13 +105,11 @@
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "private_cultivation",
-      "legal",
-      "rec_implies_med_floor"
+      "private_cultivation"
     ],
-    "notes_normalized": "Cannabis is legal in Lesotho. Medical cannabis is limited. Distribution is tolerated."
+    "notes_normalized": "Cannabis is illegal in Lesotho. Medical cannabis is illegal. Distribution is tolerated."
   },
-  "notes_normalized": "Cannabis is legal in Lesotho. Medical cannabis is limited. Distribution is tolerated.",
+  "notes_normalized": "Cannabis is illegal in Lesotho. Medical cannabis is illegal. Distribution is tolerated.",
   "notes_raw": "{{main|Cannabis in Lesotho}} Licensed cultivation allowed for export to other countries. Also widely grown for illicit purposes.<ref>{{cite web|url=http://www.okayafrica.com/lesotho-granted-first-legal-marijuana-license-africa/|title=Lesotho Just Granted Africa's First Legal Marijuana License|date=13 September 2017|access-date=5 June 2018|archive-date=27 June 2018|archive-url=https://web.archive.org/web/20180627230922/http://www.okayafrica.com/lesotho-granted-first-legal-marijuana-license-africa/|url-status=live}}</ref><ref>{{cite news |title=Marijuana, mountains and money: How Lesotho is cashing in |url=https://www.bbc.com/news/world-africa-46288374 |access-date=20 January 2019 |publisher=[[BBC News]] |date=28 November 2018 |archive-url=https://web.archive.org/web/20190420011629/https://www.bbc.com/news/world-africa-46288374|archive-date=20 April 2019}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -173,16 +184,6 @@
         "name": "Zimbabwe"
       },
       {
-        "code": "mdg",
-        "name": "Madagascar / Madagasikara"
-      },
-      {
-        "code": "com",
-        "name": "Comoros / جزر القمر"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "moz",
         "name": "Mozambique / Moçambique"
       },
@@ -191,14 +192,24 @@
         "name": "Namibia / Namibië"
       }
     ],
+    "cluster_links": [
+      {
+        "code": "zmb",
+        "name": "Zambia"
+      },
+      {
+        "code": "mwi",
+        "name": "Malawi / Malaŵi"
+      }
+    ],
     "same_country_states": [],
     "federal_parent": null
   },
   "hashes": {
     "code": "lso",
-    "content_hash": "741d0167ef5a715aa3ba56e4f1e18451aa1649fb115e3bca4484b979a1894653",
-    "notes_hash": "f8706a8225c40256dc44cab178e4d35212c5b31ba095df587fd834a9f1f6d0f5",
-    "model_hash": "47326ffdc7745f29f7316ceba54514ad516ef64bbb99dce5f4b2fea80bbad3a0"
+    "content_hash": "b17944c8d2c86a0231e82ff99d52323e7d902e582e3a5c91facfe5611437ac57",
+    "notes_hash": "c9fb117416651d2e93de5c79ca5302eddf1903c6d5117ec1d51aff9a1a5d4656",
+    "model_hash": "69ca23e8ce9e57536ded1f28ffffbc1bbb976705afd0dea2555cfb908dde045d"
   },
   "geo_code": "LS",
   "node_type": "country",

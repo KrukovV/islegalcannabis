@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "low",
       "sources": [
@@ -151,9 +164,9 @@
   },
   "hashes": {
     "code": "fro",
-    "content_hash": "d98e270ef6b7df7000ae55715eaea6d56b0686a6e3678a5c34274f2f46c9f67b",
+    "content_hash": "c66b6a043d380320fef8ba03999545599d0fb4446035b341a50ff4c2da9d6283",
     "notes_hash": "259392571d1f35b9b01cd94b07bc402660754c492e256189005513f8ec27b139",
-    "model_hash": "e704bd9a514dec1d05424d79fa7e240a92a4310be65e40aa176f7409f7bf1bb6"
+    "model_hash": "e510ee61bd08501d4452449ebac921042da03f0f4dbafb00914b8365112a389c"
   },
   "geo_code": "FO",
   "node_type": "country",

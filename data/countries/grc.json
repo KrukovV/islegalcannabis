@@ -5,9 +5,9 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "LEGAL",
@@ -17,10 +17,10 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
-        "use": "restricted",
+        "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -31,15 +31,28 @@
       "modifiers": []
     },
     "signals": {
-      "status": "restricted",
+      "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": true,
-        "severity_score": 1
+        "severity_score": 1,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Cannabis in Greece",
@@ -86,7 +99,6 @@
       ],
       "explain": [
         "rule: medical_legal | source: Cannabis for Medical Use to be Legalized in Greece | type: reference | priority: 2 | scope: use",
-        "rule: legal | source: Is Cannabis Legal in Greece? Laws Penalties, and More | type: reference | priority: 2 | scope: general",
         "rule: penalty_fine | source: Is Cannabis Legal in Greece? Laws Penalties, and More | type: reference | priority: 2 | scope: general",
         "no traversal evidence"
       ]
@@ -96,12 +108,11 @@
     ],
     "applied_rules": [
       "medical_legal",
-      "legal",
       "penalty_fine"
     ],
-    "notes_normalized": "Cannabis is legal in Greece / Ελλάδα. Medical cannabis is legal. Distribution is restricted."
+    "notes_normalized": "Cannabis is illegal in Greece / Ελλάδα. Medical cannabis is legal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is legal in Greece / Ελλάδα. Medical cannabis is legal. Distribution is restricted.",
+  "notes_normalized": "Cannabis is illegal in Greece / Ελλάδα. Medical cannabis is legal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Greece}}",
   "facts": {
     "possession_limit": null,
@@ -172,26 +183,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "bih",
-        "name": "Bosnia and Herzegovina / Bosna i Hercegovina"
-      },
-      {
-        "code": "mlt",
-        "name": "Malta"
-      },
-      {
-        "code": "hrv",
-        "name": "Croatia / Hrvatska"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "bgr",
         "name": "Bulgaria / България"
       },
       {
         "code": "srb",
         "name": "Serbia / Србија"
+      },
+      {
+        "code": "bih",
+        "name": "Bosnia and Herzegovina / Bosna i Hercegovina"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "rou",
+        "name": "Romania / România"
+      },
+      {
+        "code": "mlt",
+        "name": "Malta"
       }
     ],
     "same_country_states": [],
@@ -199,9 +210,9 @@
   },
   "hashes": {
     "code": "grc",
-    "content_hash": "c0a5099e5a34dcf4d0209a95df1a564d264d674216aa2e10cd13c8e0e84b3e8d",
-    "notes_hash": "8f76a09c209d6ca18b0d11a269970fd87701ec65fa5592f4111c1b5dc8ccfb03",
-    "model_hash": "e6d44498f1b01d75391752cfead8a8e634e9f03546e07bc43cb93cbb0107dfbb"
+    "content_hash": "8fddb7ee7cfa608645b61f1333aadbba30596e9e95f72ba834644ae8ad17f0ce",
+    "notes_hash": "136ac3029799f98fda4d76749f747d7aa15c03a9c560dfb19e1ab5b3c7fc5899",
+    "model_hash": "692e2d5df1d296415c3030444fce9870df66a38b00b015261d27a0b0bbd2daa6"
   },
   "geo_code": "GR",
   "node_type": "country",

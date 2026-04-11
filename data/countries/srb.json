@@ -36,13 +36,26 @@
       ]
     },
     "signals": {
-      "status": "mixed",
+      "status": "illegal",
+      "final_risk": "HIGH_RISK",
       "penalties": {
         "prison": true,
         "prison_priority": 1,
         "arrest": false,
         "fine": true,
-        "severity_score": 4
+        "severity_score": 4,
+        "possession": {
+          "prison": true,
+          "arrest": false,
+          "fine": true,
+          "severe": true
+        },
+        "trafficking": {
+          "prison": true,
+          "arrest": false,
+          "fine": false,
+          "severe": true
+        }
       },
       "confidence": "high",
       "sources": [
@@ -93,12 +106,15 @@
         "rule: penalty_prison | source: Serbia / Србија | type: summary | priority: 1 | scope: possession",
         "rule: penalty_fine | source: Serbia / Србија | type: summary | priority: 1 | scope: possession",
         "rule: penalty_years | source: Serbia / Србија | type: summary | priority: 1 | scope: possession",
+        "rule: penalty_criminal_offense | source: Serbia / Србија | type: summary | priority: 1 | scope: possession",
         "rule: penalty_prison | source: Serbia / Србија | type: summary | priority: 1 | scope: trafficking",
         "rule: penalty_years | source: Serbia / Србија | type: summary | priority: 1 | scope: trafficking",
+        "rule: penalty_criminal_offense | source: Serbia / Србија | type: summary | priority: 1 | scope: trafficking",
         "rule: trafficking_illegal | source: Serbia / Србија | type: summary | priority: 1 | scope: trafficking",
         "rule: sale_illegal | source: Serbia / Србија | type: summary | priority: 1 | scope: trafficking",
         "rule: penalty_prison | source: Serbia / Србија | type: summary | priority: 1 | scope: cultivation",
         "rule: penalty_years | source: Serbia / Србија | type: summary | priority: 1 | scope: cultivation",
+        "rule: penalty_criminal_offense | source: Serbia / Србија | type: summary | priority: 1 | scope: cultivation",
         "rule: penalty_fine | source: Serbia / Србија | type: summary | priority: 1 | scope: general",
         "no traversal evidence"
       ]
@@ -110,12 +126,13 @@
       "penalty_prison",
       "penalty_fine",
       "penalty_years",
+      "penalty_criminal_offense",
       "trafficking_illegal",
       "sale_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Serbia / Србија. Medical cannabis is illegal. Distribution is mixed. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Serbia / Србија. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Serbia / Србија. Medical cannabis is illegal. Distribution is mixed. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Serbia / Србија. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Serbia}} Possession of small amounts is punishable by fine or imprisonment of up to 3 years. Sale and transportation punishable by imprisonment of 3–12 years. Cultivation punishable by imprisonment from 6 months to 5 years. Higher penalties for [[organized crime]].<ref>{{citation |url = http://www.paragraf.rs/propisi/krivicni_zakonik.html |title = Krivični zakonik (''The Criminal Code'') |via = [[Paragraf Lex]] |date = 2013 |access-date = 17 February 2011 |archive-date = 5 September 2019 |archive-url = https://web.archive.org/web/20190905020735/https://www.paragraf.rs/propisi/krivicni_zakonik.html |url-status = live }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -213,9 +230,9 @@
   },
   "hashes": {
     "code": "srb",
-    "content_hash": "bc10d6de7362a831c9ea1e4d1a4c6db8a2d8b3a8be4e7d572bc297539dea4913",
-    "notes_hash": "330a80f29392d9b3cb854c1d8d5e2d5579af8f7a38c95ad3d771511313296819",
-    "model_hash": "fbbcc00e3654a295d7d9e9597f44892fdac0d05f29f3c0876b4f5be611c30b54"
+    "content_hash": "54d377e1d8bf398905552659b5b9ec8d56c7744983698b2c63b3ed5c985b6a0b",
+    "notes_hash": "b93ed3e0850eb8830f75069ea25c3fd8d686f59c946e58073045c5e154a8d42a",
+    "model_hash": "ee33892afca5bbc58e9de7972ddd13b38e1ca68c2a3182b9b32340b5ab2c7cfc"
   },
   "geo_code": "RS",
   "node_type": "country",

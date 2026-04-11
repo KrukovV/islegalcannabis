@@ -32,12 +32,25 @@
     },
     "signals": {
       "status": "restricted",
+      "final_risk": "LIMITED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -186,9 +199,9 @@
   },
   "hashes": {
     "code": "atg",
-    "content_hash": "c3555832b8e0f20382c94f414a0c594fe9435462fc23ecdc1671d1eee7e7061b",
+    "content_hash": "e3a29a7469fae9245b82e4371c61b913395ef216950b7385e47e862390816b8e",
     "notes_hash": "172ac1f0db0866852b2c9f27086532cf9eb91088a96deb5d40762d0e259a4f97",
-    "model_hash": "b8a8e3c688a9d9428e8b1c1fd59904bc1f8d2bf5036b6875ac0656ab8745b0f5"
+    "model_hash": "e9bbd252efcaa2ab6ebfafe6972dd935bceaef188eb27570cb212af69da123af"
   },
   "geo_code": "AG",
   "node_type": "country",

@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "HIGH_RISK",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 1,
         "arrest": false,
         "fine": true,
-        "severity_score": 1
+        "severity_score": 4,
+        "possession": {
+          "prison": true,
+          "arrest": false,
+          "fine": true,
+          "severe": true
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "high",
       "sources": [
@@ -87,9 +100,11 @@
         }
       ],
       "explain": [
+        "rule: penalty_prison | source: France | type: summary | priority: 1 | scope: possession",
         "rule: penalty_fine | source: France | type: summary | priority: 1 | scope: possession",
         "rule: medical_legal | source: France | type: summary | priority: 1 | scope: use",
         "rule: medical_legal | source: France | type: summary | priority: 1 | scope: possession",
+        "rule: raw_illegal | source: Cannabis in France | type: traversal | priority: 3 | scope: use",
         "rule: illegal | source: Cannabis in France | type: traversal | priority: 3 | scope: use",
         "rule: medical_legal | source: Cannabis in France | type: traversal | priority: 3 | scope: general",
         "rule: medical_limited | source: Cannabis in France | type: traversal | priority: 3 | scope: general"
@@ -99,13 +114,14 @@
       "fine_based"
     ],
     "applied_rules": [
+      "penalty_prison",
       "penalty_fine",
       "medical_legal",
-      "illegal"
+      "raw_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in France. Medical cannabis is legal. Distribution is illegal."
+    "notes_normalized": "Cannabis is illegal in France. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in France. Medical cannabis is legal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in France. Medical cannabis is legal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in France}} Possession up to {{cvt|100|g|frac=2}} entails a €200 fine since November 2018,<ref>{{Cite news|date=31 August 2020|title=L'amende forfaitaire pour les fumeurs de cannabis généralisée mardi|url=https://www.leparisien.fr/faits-divers/l-amende-forfaitaire-pour-les-fumeurs-de-cannabis-generalisee-mardi-31-08-2020-8376006.php|work=[[Le Parisien]]|language=fr-FR|access-date=31 March 2021|archive-date=5 March 2021|archive-url=https://web.archive.org/web/20210305204027/https://www.leparisien.fr/faits-divers/l-amende-forfaitaire-pour-les-fumeurs-de-cannabis-generalisee-mardi-31-08-2020-8376006.php|url-status=live}}</ref> although a judge is still legally able to pronounce a stricter sentence.<ref>{{Cite web|last=Forbes|date=9 February 2021|title=Cannabis : vers une dépénalisation en France ?|url=https://www.forbes.fr/business/cannabis-vers-une-depenalisation-en-france/|access-date=1 April 2021|website=Forbes France|language=fr-FR|archive-date=20 April 2021|archive-url=https://web.archive.org/web/20210420204537/https://www.forbes.fr/business/cannabis-vers-une-depenalisation-en-france/|url-status=live}}</ref> Medical use of some cannabinoid drugs legalized in 2013.<ref>{{cite news|title=Legalising or decriminalizing cannabis in France: not that easy|url=http://www.euronews.com/2013/11/06/france-legalising-or-decriminalizing-cannabis-not-that-easy|access-date=15 December 2013|publisher=[[Euronews]]|date=6 November 2013|author=Marie Jamet|archive-date=26 December 2018|archive-url=https://web.archive.org/web/20181226021356/https://www.euronews.com/2013/11/06/france-legalising-or-decriminalizing-cannabis-not-that-easy|url-status=live}}</ref><ref>{{cite news|title=French law on pot-based medicine takes effect|url=http://www.thelocal.fr/20130610/legalized-cannabis-tea-could-be-on-drug-menu-for-french-patients-in-pharmacies|access-date=15 December 2013|work=[[The Local]]|date=10 June 2013|author=Ann Törnkvist|archive-date=26 December 2018|archive-url=https://web.archive.org/web/20181226021452/https://www.thelocal.fr/20130610/legalized-cannabis-tea-could-be-on-drug-menu-for-french-patients-in-pharmacies|url-status=live}}</ref>",
   "facts": {
     "possession_limit": "up to 100 g",
@@ -180,12 +196,12 @@
         "name": "Luxembourg / Luxemburg"
       },
       {
-        "code": "ggy",
-        "name": "Guernsey / Guernesey"
+        "code": "mco",
+        "name": "Monaco"
       },
       {
-        "code": "che",
-        "name": "Switzerland / Suisse"
+        "code": "ggy",
+        "name": "Guernsey / Guernesey"
       }
     ],
     "cluster_links": [
@@ -203,9 +219,9 @@
   },
   "hashes": {
     "code": "fra",
-    "content_hash": "b2b5d4eab19defb12426f3871d99ef77a014dfd6f94a36530943e4d36c7f67cd",
-    "notes_hash": "044102c6d9191fced3de54f41748adc004463a07ea3e239cc5ad48b88ccb0a37",
-    "model_hash": "e14fd169950a8b748442ed412ef0c7f2d63ffea5b6a017f9b74e6d5e30e47327"
+    "content_hash": "c082682f261ead734305e83f3602b9d67e79ffd0319ad4ba670ca664a4efef76",
+    "notes_hash": "15440b589840319aed174927933052bb47f9e3ae7a74cf19c437e61e9271d87f",
+    "model_hash": "a9fcc21a411bb4899e959ee057a93cc00d1015848fff6e2b97a8e956b031dc59"
   },
   "geo_code": "FR",
   "node_type": "country",

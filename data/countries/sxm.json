@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "low",
       "sources": [
@@ -151,9 +164,9 @@
   },
   "hashes": {
     "code": "sxm",
-    "content_hash": "86cff08cadd54f55c9e6b18b0fe12186cf1feaa26d00092a19d9f3afc357d087",
+    "content_hash": "78ca4b238a385b34db7e393f41d071c5f5a933459fd5c02b6f04c9ba75fc8ef6",
     "notes_hash": "9e463fd77539e67447b3f34349c2eac64420fa3b2c32f3e9d9b4c25bb89ce211",
-    "model_hash": "faf609b5845b1d0d5cb98b8ce1fde381f73c5e7a497d8eed458b2bce0a411d00"
+    "model_hash": "c3485f0038ea34790451aa3bc5f01dc87833fd761025ef2126fa580c7ca576da"
   },
   "geo_code": "SX",
   "node_type": "country",

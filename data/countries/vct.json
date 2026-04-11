@@ -27,17 +27,32 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [],
+      "flags": [
+        "distribution_fallback_restricted"
+      ],
       "modifiers": []
     },
     "signals": {
       "status": "restricted",
+      "final_risk": "LIMITED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
-        "arrest": true,
+        "arrest": false,
         "fine": false,
-        "severity_score": 2
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -85,13 +100,12 @@
         }
       ],
       "explain": [
-        "rule: penalty_arrest | source: No arrest for two ounces or less of cannabis | type: reference | priority: 2 | scope: general",
         "no traversal evidence"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "penalty_arrest"
+      "distribution_fallback_restricted"
     ],
     "notes_normalized": "Cannabis is decriminalized in Saint Vincent and the Grenadines. Medical cannabis is legal. Distribution is restricted."
   },
@@ -193,9 +207,9 @@
   },
   "hashes": {
     "code": "vct",
-    "content_hash": "2bf0cf9923a967829019dac847fdaff94374094f5c66a229c262518698e0e184",
+    "content_hash": "dd9756067d2f177b60ceb352aeefce0e39f045b8a4e4ac90000746451029ad8d",
     "notes_hash": "610bf93bb4eaac1a3fd4f854e5299d17c34008dbeaabd5cf1a291557938e9981",
-    "model_hash": "3aaaa662336aa51ebd0a0cd37222d0b1869ca1b11b908b23f0f7e90b1553a762"
+    "model_hash": "5f197c5140bae34564fba87f95b7ecf5acf3937c4e2689cf858dfada69514686"
   },
   "geo_code": "VC",
   "node_type": "country",

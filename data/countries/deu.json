@@ -36,12 +36,25 @@
     },
     "signals": {
       "status": "regulated",
+      "final_risk": "LIMITED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "high",
       "sources": [
@@ -103,7 +116,6 @@
     "applied_rules": [
       "private_cultivation",
       "social_club_distribution",
-      "legal",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is legal in Germany / Deutschland. Medical cannabis is legal. Distribution is regulated."
@@ -206,9 +218,9 @@
   },
   "hashes": {
     "code": "deu",
-    "content_hash": "bd8db530a6d97d03cb593786b7ded57a331206f0bbbb5d837734ce997a52ef91",
+    "content_hash": "b618a90fbc9575967b92737bc1cfd7af8bd2d8590f951e5e841e9a51d23257e9",
     "notes_hash": "77add1383c8aede8d19218efe5388b8628f0e1a8d48fc534e9e576dec89d7004",
-    "model_hash": "8bc8e309acb5ee39fde60e3ec91a1cc04055a63dccc13d0534213a2313214f66"
+    "model_hash": "adad7d235a3ff94bd19125ec0edf5c83157ea1da7f9651bdf7e757058c7dfd6b"
   },
   "geo_code": "DE",
   "node_type": "country",

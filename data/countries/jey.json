@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "low",
       "sources": [
@@ -151,9 +164,9 @@
   },
   "hashes": {
     "code": "jey",
-    "content_hash": "77c08e27c4895ac356feba702aff27411c54ee9e5ffe8ba45178728e261fd76a",
+    "content_hash": "583bd44088050ceaceb464210ec34bf8ce30b93972c81e4511004d86b0c8a888",
     "notes_hash": "01d37cb218a1274db3789a29e9b94a824878f530f53e66a683e58228bdd8997d",
-    "model_hash": "3f5832937d0a3650e3c0e0590189381c97ca8d6d093d965b36120f47dd4b7306"
+    "model_hash": "e17d35a08f04db7236d1e492cf8acfdcc943ea368a786bb3d991e969d738a69a"
   },
   "geo_code": "JE",
   "node_type": "country",

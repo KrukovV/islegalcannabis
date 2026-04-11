@@ -32,12 +32,25 @@
     },
     "signals": {
       "status": "restricted",
+      "final_risk": "LIMITED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -193,9 +206,9 @@
   },
   "hashes": {
     "code": "hrv",
-    "content_hash": "890299bb268660fdd88fe62c3418051c3f2011259a0ce3bfdb04871b9a70d54d",
+    "content_hash": "77a93726a75d7d6dd77de6af5203ca8672a5247a1a0a7f12515ea24c8535e69f",
     "notes_hash": "6dd554d1ca066069f94bcf5ed4addac123c70c56a64312b507a98d0d02bebdb4",
-    "model_hash": "6c6c00c95706d378584a2f6dda20a6f00ebccc93d594e15b288f65304551ab1c"
+    "model_hash": "4a70889aabe92c4f496c70e1838a10ea17f5878d79854bd0a5d239e02dde4093"
   },
   "geo_code": "HR",
   "node_type": "country",

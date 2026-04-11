@@ -32,12 +32,25 @@
     },
     "signals": {
       "status": "restricted",
+      "final_risk": "LIMITED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -88,9 +101,6 @@
         "rule: possession_decriminalized | source: Mexico / México | type: summary | priority: 1 | scope: possession",
         "rule: legal | source: Mexico / México | type: summary | priority: 1 | scope: general",
         "rule: legal | source: Mexico / México | type: summary | priority: 1 | scope: cultivation",
-        "rule: legal | source: Ruling in Mexico Sets Into Motion Legal Marijuana | type: reference | priority: 2 | scope: general",
-        "rule: legal | source: Mexico court ruling could eventually lead to legal marijuana | type: reference | priority: 2 | scope: general",
-        "rule: legal | source: Legal Pot In Mexico: Everything You Need to Know | type: reference | priority: 2 | scope: general",
         "rule: medical_legal | source: Legal Pot In Mexico: Everything You Need to Know | type: reference | priority: 2 | scope: use",
         "rule: medical_limited | source: Legal Pot In Mexico: Everything You Need to Know | type: reference | priority: 2 | scope: use",
         "no traversal evidence"
@@ -174,16 +184,16 @@
     ],
     "legal_similarity": [
       {
-        "code": "cub",
-        "name": "Cuba"
-      },
-      {
         "code": "cri",
         "name": "Costa Rica"
       },
       {
         "code": "jam",
         "name": "Jamaica"
+      },
+      {
+        "code": "pan",
+        "name": "Panama / Panamá"
       }
     ],
     "cluster_links": [
@@ -201,9 +211,9 @@
   },
   "hashes": {
     "code": "mex",
-    "content_hash": "913695b6b03ef56f5a4835a133054c1b67ec21b64d7f40d410de5c4e1b0630b2",
+    "content_hash": "7fb95900913c661edec9340ca55128d59099ea65a8441a6b938facbf483aa2b8",
     "notes_hash": "30a3404e34102f62900307eb1d50b89b03ef24b129f124966d3e1fd4872ad460",
-    "model_hash": "dc5e0b21b8dbd0a8c59a80640721c3e8b9d88d22f1471e0c769d8915de27c1c6"
+    "model_hash": "499e4777240dd0d8d2d701d38eaf5bb0d2cd6d25aab5978992ed6902692f271b"
   },
   "geo_code": "MX",
   "node_type": "country",

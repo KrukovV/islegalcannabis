@@ -32,12 +32,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -86,14 +99,12 @@
       ],
       "explain": [
         "rule: legal | source: Hungary / Magyarország | type: summary | priority: 1 | scope: use",
-        "rule: legal | source: Is Marijuana Legal in Hungary? | type: reference | priority: 2 | scope: general",
         "rule: illegal | source: A person is either male or female, drugs and Pride are banned – Hungarian Parliament adopts 15th constitutional amendment | type: reference | priority: 2 | scope: general",
         "no traversal evidence"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "legal",
       "illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Hungary / Magyarország. Medical cannabis is illegal. Distribution is illegal."
@@ -196,9 +207,9 @@
   },
   "hashes": {
     "code": "hun",
-    "content_hash": "500c2fcdbc669a6e0fe38a4a3a3bff9617a94e450fc32245a5f8dd4544db5fd9",
+    "content_hash": "0048854f673e4678cd00f62f670d273d05b86900b6231633a608037d30719a32",
     "notes_hash": "0a9f1189750a9a025b3827837deff28ee16373d1143162593263a9894e996dcb",
-    "model_hash": "65ffa71f6cfe142543cba7870bbbc49ba8e842e3abcadfa968ebe24b4bae78b3"
+    "model_hash": "a97e5339aed4569e03bd6520cca5d776ccb3ddf905ab6229011002046a695131"
   },
   "geo_code": "HU",
   "node_type": "country",

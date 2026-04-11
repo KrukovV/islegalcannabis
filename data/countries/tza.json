@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -188,9 +201,9 @@
   },
   "hashes": {
     "code": "tza",
-    "content_hash": "436d53735b1d6aa581034be48e5932a6ec4909f1f99fbea3bf7a784746753ab0",
+    "content_hash": "e03da8b01de1a82e93d6688b7a114c8ab02078aee07a485114d9c754c2d579d8",
     "notes_hash": "3a68839b381fff1b45873cde10095732eefb36380a753a5aeb36c8e8ddc32581",
-    "model_hash": "e2222d39f4e56b1e74395da3d580c0d4b1a6a17a562c54e9022c95e9792406fe"
+    "model_hash": "56fb513af2a26ff1f0ccded2bee3c3e8c6eadf4e9b682062148989f1dc661120"
   },
   "geo_code": "TZ",
   "node_type": "country",

@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -88,13 +101,15 @@
       ],
       "explain": [
         "rule: illegal | source: Sierra Leone | type: summary | priority: 1 | scope: general",
+        "rule: raw_illegal | source: Kush: Sierra Leone's new illegal drug | type: reference | priority: 2 | scope: general",
         "rule: illegal | source: Kush: Sierra Leone's new illegal drug | type: reference | priority: 2 | scope: general",
         "no traversal evidence"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "illegal"
+      "illegal",
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Sierra Leone. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -196,9 +211,9 @@
   },
   "hashes": {
     "code": "sle",
-    "content_hash": "540e18111c73ac6af1fde0a9cff52c738eb054f6b8d6b623aaec715d3ffa6f51",
+    "content_hash": "cce638d062b24213bbf03fe7ed5da13a2473c48d56b42dbd356ee963712b92c8",
     "notes_hash": "42e2911c66cf7864c3ef6ca41607a2c0aeecec825f1b352b3fe2976b5647fc1b",
-    "model_hash": "7c18cf4549ccfdf1fc9bc99de6790cf501897c90e989cacdd64be82479e7eb3a"
+    "model_hash": "f04d18a5ed146bb925854d1d04f025d0f47c173584c0c166399c00d98039dd3e"
   },
   "geo_code": "SL",
   "node_type": "country",

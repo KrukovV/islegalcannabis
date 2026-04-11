@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -194,9 +207,9 @@
   },
   "hashes": {
     "code": "ben",
-    "content_hash": "a73a5f7c7b83249568dec1837a8b8aef3fd6e8a6acad2f19de22146f73e453ba",
+    "content_hash": "5eb2e967356f94917a81c2d7aed480f68936e23fb2e3e40a645f6e36d343d04c",
     "notes_hash": "99505672eae0ace6d34cc373537899c04d90505405bf25d85dc98f56ceca1320",
-    "model_hash": "46578ddafb0217991a18134dd524f5b8d499d985bd2ca57260fd06a211f45d42"
+    "model_hash": "fe84afbc5bcba62b95039fc5647b6959abd762030706cfd1ef39f94b116b2b76"
   },
   "geo_code": "BJ",
   "node_type": "country",

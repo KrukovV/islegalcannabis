@@ -36,12 +36,25 @@
     },
     "signals": {
       "status": "restricted",
+      "final_risk": "LIMITED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -170,26 +183,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "alb",
-        "name": "Albania / Shqipëria"
-      },
-      {
         "code": "grc",
         "name": "Greece / Ελλάδα"
       },
       {
         "code": "smr",
         "name": "San Marino"
-      }
-    ],
-    "cluster_links": [
-      {
-        "code": "mne",
-        "name": "Montenegro / Црна Гора"
       },
       {
         "code": "bih",
         "name": "Bosnia and Herzegovina / Bosna i Hercegovina"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "alb",
+        "name": "Albania / Shqipëria"
+      },
+      {
+        "code": "mne",
+        "name": "Montenegro / Црна Гора"
       }
     ],
     "same_country_states": [],
@@ -197,9 +210,9 @@
   },
   "hashes": {
     "code": "mlt",
-    "content_hash": "b519d62628e8b260cf1c38a1bb683a479e4f9852774d4d0f97b964a3689e51ea",
+    "content_hash": "40a45f2053b2b2a0a56549e9b46eeb7d9037380a51c5c3fb5e184f3ef0602216",
     "notes_hash": "304418aa4d9b1eb523ddb06cd754d31f28c38478e543d24b82707f32368fa328",
-    "model_hash": "4051d366a56ed100ff9c538b040d6ba5f7d07126c4a0ce412462a17daf06cf85"
+    "model_hash": "acf39e77db51ad8384c890df9d60647deb16b7ed999a92683f07feb6485f0ea2"
   },
   "geo_code": "MT",
   "node_type": "country",

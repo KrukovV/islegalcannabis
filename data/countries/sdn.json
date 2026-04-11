@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -188,9 +201,9 @@
   },
   "hashes": {
     "code": "sdn",
-    "content_hash": "8794316880b988b4099a69d745bc8923b912048a446f8a6d85f16124bac75da3",
+    "content_hash": "58b71c8e451b36624fb0b648a6689376cd08724445855deeec3b706ad4957229",
     "notes_hash": "71248747a296c612aed673e638f3f2c1a1d1c1e1843178e712c727dd03682d65",
-    "model_hash": "7a0a8a99d239a3b7528913a18364c0f912c9e22a9a5538fcb5c789a1c2becb7d"
+    "model_hash": "69da9a9e5c9b41a3b8a222acb5b3b1e8ef8703d81252496b03d675b178a2bee5"
   },
   "geo_code": "SD",
   "node_type": "country",

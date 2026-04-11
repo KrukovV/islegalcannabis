@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "HIGH_RISK",
       "penalties": {
         "prison": true,
         "prison_priority": 1,
         "arrest": false,
         "fine": false,
-        "severity_score": 4
+        "severity_score": 4,
+        "possession": {
+          "prison": true,
+          "arrest": false,
+          "fine": false,
+          "severe": true
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "high",
       "sources": [
@@ -189,9 +202,9 @@
   },
   "hashes": {
     "code": "eth",
-    "content_hash": "157dd42c7c2f2831546151241c877c2c162b17cd48db0ac7e71a70a968b377f2",
+    "content_hash": "c6fded8509ab4e92eebe3496b13e5e98869e0d12c5eda01f90b60633518d058d",
     "notes_hash": "7b7cbc1fa2c94de75c60a79ade3af8b0e09942faac2cbb23be66c01e5dfc9157",
-    "model_hash": "69832a54066ab9962943c7ffdff5ef61ef58d205dd6332ff53d42364182ca85d"
+    "model_hash": "9b39897d4ed7f021ff2cd31d016865a0174adea9bc3b0a38570697e9a9543e10"
   },
   "geo_code": "ET",
   "node_type": "country",

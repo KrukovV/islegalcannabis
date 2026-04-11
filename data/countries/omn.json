@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -170,9 +183,9 @@
   },
   "hashes": {
     "code": "omn",
-    "content_hash": "3e41d989aa276c4925127bc10ec5a515ef14631229cc8c7024ab6d10d7736529",
+    "content_hash": "6d73b8fcfc06b1d4ac359d57ceee03229d99d3585c341f75645d2a44f74d9d1b",
     "notes_hash": "047949de036e190683a1e006b6bcf6ae1c3aea07cd6c72fbd10441b725344130",
-    "model_hash": "119f182bbfcc69ec9719051df27cd43561d6d9094a708924d4aa7539e4aba215"
+    "model_hash": "2e543af51761bbc1536302990c0cb86de5a5bb7ac6a63215c573266086af9900"
   },
   "geo_code": "OM",
   "node_type": "country",

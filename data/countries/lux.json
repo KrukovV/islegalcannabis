@@ -32,12 +32,25 @@
     },
     "signals": {
       "status": "restricted",
+      "final_risk": "LIMITED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -177,8 +190,8 @@
         "name": "France"
       },
       {
-        "code": "mco",
-        "name": "Monaco"
+        "code": "dnk",
+        "name": "Denmark / Danmark"
       }
     ],
     "cluster_links": [
@@ -187,8 +200,8 @@
         "name": "Liechtenstein"
       },
       {
-        "code": "dnk",
-        "name": "Denmark / Danmark"
+        "code": "mco",
+        "name": "Monaco"
       }
     ],
     "same_country_states": [],
@@ -196,9 +209,9 @@
   },
   "hashes": {
     "code": "lux",
-    "content_hash": "977473d9a5f4f3c9a867cd4bc2a954f710d05475a521d0d7eb7a59be5325b642",
+    "content_hash": "581530c9c14f5615d62fc1fc7bcd41b68709a3422f5100910033fb8d99c02ab8",
     "notes_hash": "bad819dc486e0c832a2cb0bb914f72aff7938492bc62358b4b16cfb2bdcac872",
-    "model_hash": "2786725b0c6df7a9946997b0126038c0282d5891af532130f5aaf94e43b842bd"
+    "model_hash": "8f5d61985d89c98b560695016b54560dc15c26f71910ec04eaa4df713a34689d"
   },
   "geo_code": "LU",
   "node_type": "country",

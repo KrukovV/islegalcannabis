@@ -1,10 +1,12 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 const CHECK_MS = 30_000;
 const DISMISSED_BUILD_KEY = "build-watcher-dismissed-stamp";
+const PENDING_BUILD_KEY = "build-watcher-pending-stamp";
+const REFRESH_PARAM = "__runtime_refresh";
 
 type BuildMeta = {
   buildId?: string;
@@ -53,14 +55,40 @@ async function waitForRuntimeStamp(expectedStamp: string, timeoutMs = 5_000) {
   return false;
 }
 
+function buildRefreshUrl(expectedStamp: string) {
+  if (typeof window === "undefined") {
+    return "/";
+  }
+  const url = new URL(window.location.href);
+  url.searchParams.set(REFRESH_PARAM, `${Date.now()}-${expectedStamp.slice(0, 12)}`);
+  return url.toString();
+}
+
 export default function BuildWatcher() {
   const router = useRouter();
   const isProduction = process.env.NODE_ENV === "production";
-  const initialRuntimeStamp = useMemo(() => getClientRuntimeStamp(), []);
   const [nextRuntimeStamp, setNextRuntimeStamp] = useState<string | null>(null);
   const [dismissed, setDismissed] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
   const isNewMapRoute = typeof window !== "undefined" && window.location.pathname.startsWith("/new-map");
+
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+    const pendingStamp = window.sessionStorage.getItem(PENDING_BUILD_KEY);
+    const currentStamp = getClientRuntimeStamp();
+    if (pendingStamp && pendingStamp === currentStamp) {
+      window.sessionStorage.removeItem(PENDING_BUILD_KEY);
+      const url = new URL(window.location.href);
+      if (url.searchParams.has(REFRESH_PARAM)) {
+        url.searchParams.delete(REFRESH_PARAM);
+        window.history.replaceState(null, "", url.toString());
+      }
+      setNextRuntimeStamp(null);
+      setDismissed(false);
+    }
+  }, []);
 
   const handleApplyUpdate = useCallback(async () => {
     if (!nextRuntimeStamp || refreshing) {
@@ -70,24 +98,24 @@ export default function BuildWatcher() {
     try {
       if (typeof window !== "undefined") {
         window.localStorage.removeItem(DISMISSED_BUILD_KEY);
+        window.sessionStorage.setItem(PENDING_BUILD_KEY, nextRuntimeStamp);
       }
       resetClientRuntimePrefetch();
       router.refresh();
-      const synced = await waitForRuntimeStamp(nextRuntimeStamp);
+      const synced = await waitForRuntimeStamp(nextRuntimeStamp, 1_500);
       if (synced) {
+        if (typeof window !== "undefined") {
+          window.sessionStorage.removeItem(PENDING_BUILD_KEY);
+        }
         setNextRuntimeStamp(null);
         setDismissed(false);
         return;
       }
       resetClientRuntimePrefetch();
-      router.refresh();
-      const retried = await waitForRuntimeStamp(nextRuntimeStamp, 6_500);
-      if (retried) {
-        setNextRuntimeStamp(null);
-        setDismissed(false);
+      if (typeof window !== "undefined") {
+        window.location.assign(buildRefreshUrl(nextRuntimeStamp));
         return;
       }
-      window.location.reload();
     } finally {
       setRefreshing(false);
     }
@@ -111,8 +139,10 @@ export default function BuildWatcher() {
           String(payload.finalSnapshotId || "UNCONFIRMED"),
           String(payload.snapshotBuiltAt || "UNCONFIRMED")
         ].join("|");
-        if (!observed || observed === initialRuntimeStamp) {
+        const currentRuntimeStamp = getClientRuntimeStamp();
+        if (!observed || observed === currentRuntimeStamp) {
           setNextRuntimeStamp(null);
+          setDismissed(false);
           return;
         }
         const dismissedStamp =
@@ -138,7 +168,7 @@ export default function BuildWatcher() {
       alive = false;
       window.clearInterval(timer);
     };
-  }, [initialRuntimeStamp]);
+  }, []);
 
   if (isProduction || isNewMapRoute || !nextRuntimeStamp || dismissed) {
     return null;

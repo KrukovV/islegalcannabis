@@ -29,7 +29,6 @@
       "enforcement": "standard",
       "flags": [
         "sale_tolerated",
-        "trafficking_illegal",
         "distribution_mixed_strong_penalty"
       ],
       "modifiers": [
@@ -41,12 +40,25 @@
     },
     "signals": {
       "status": "mixed",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "high",
       "sources": [
@@ -101,14 +113,15 @@
         "rule: rec_tolerated | source: Netherlands / Nederland | type: summary | priority: 1 | scope: cultivation",
         "rule: zero_tolerance | source: Netherlands / Nederland | type: summary | priority: 1 | scope: general",
         "rule: sale_regulated | source: Netherlands / Nederland | type: summary | priority: 1 | scope: sale",
+        "rule: raw_illegal | source: Cannabis in the Netherlands | type: traversal | priority: 3 | scope: use",
         "rule: possession_decriminalized | source: Cannabis in the Netherlands | type: traversal | priority: 3 | scope: use",
         "rule: illegal | source: Cannabis in the Netherlands | type: traversal | priority: 3 | scope: use",
         "rule: sale_tolerated | source: Cannabis in the Netherlands | type: traversal | priority: 3 | scope: sale",
         "rule: rec_tolerated | source: Cannabis in the Netherlands | type: traversal | priority: 3 | scope: sale",
         "rule: possession_decriminalized | source: Cannabis in the Netherlands | type: traversal | priority: 3 | scope: sale",
         "rule: legal | source: Cannabis in the Netherlands | type: traversal | priority: 3 | scope: trafficking",
+        "rule: raw_illegal | source: Cannabis in the Netherlands | type: traversal | priority: 3 | scope: trafficking",
         "rule: trafficking_illegal | source: Cannabis in the Netherlands | type: traversal | priority: 3 | scope: trafficking",
-        "rule: rec_tolerated | source: Cannabis in the Netherlands | type: traversal | priority: 3 | scope: trafficking",
         "rule: illegal | source: Cannabis in the Netherlands | type: traversal | priority: 3 | scope: trafficking",
         "rule: medical_legal | source: Cannabis in the Netherlands | type: traversal | priority: 3 | scope: general",
         "rule: sale_tolerated | source: Am I committing a criminal offence if I possess, produce or deal in drugs? - Drugs - Government.nl | type: reference | priority: 2 | scope: sale",
@@ -127,7 +140,7 @@
       "rec_tolerated",
       "possession_decriminalized",
       "zero_tolerance",
-      "trafficking_illegal",
+      "raw_illegal",
       "medical_legal",
       "distribution_mixed_strong_penalty"
     ],
@@ -231,9 +244,9 @@
   },
   "hashes": {
     "code": "nld",
-    "content_hash": "cb7f073434960e50abab6b5016dfb017f8d38caf13db42e2c11869b0b1bf0f57",
+    "content_hash": "30ced2477044646f8bb9ef7d698c9a3807cc7ce0eff10f80535acc18bf8cd5cc",
     "notes_hash": "047e0c2c9bce78732303ef221b6ed2086c7f5b2fe8e0916a4266d4a2590dca49",
-    "model_hash": "cbe2c553fecfc9f1e1f9631c8afa29baa1fb3192f17cda2000ae5bcf871fe452"
+    "model_hash": "aaa687f2ca8fc3ebbba16a3323cd0b683707071f692cfd0f365cea11db1569de"
   },
   "geo_code": "NL",
   "node_type": "country",

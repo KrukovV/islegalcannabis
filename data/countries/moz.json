@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -171,22 +184,22 @@
         "name": "Eswatini"
       },
       {
-        "code": "bwa",
-        "name": "Botswana"
-      },
-      {
-        "code": "tza",
-        "name": "Tanzania"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "com",
         "name": "Comoros / جزر القمر"
       },
       {
+        "code": "bwa",
+        "name": "Botswana"
+      }
+    ],
+    "cluster_links": [
+      {
         "code": "mdg",
         "name": "Madagascar / Madagasikara"
+      },
+      {
+        "code": "tza",
+        "name": "Tanzania"
       }
     ],
     "same_country_states": [],
@@ -194,9 +207,9 @@
   },
   "hashes": {
     "code": "moz",
-    "content_hash": "12f7c4714b32de5fc3f49834a82dbed4de183208d07b520cfc13d184bc6f99bf",
+    "content_hash": "5984057e06b5958effaf72c9599c8fc2830f96957e23a8a80db67558a09dee24",
     "notes_hash": "ebc793619c31796b8002bb3ef3a2549263bac9c6ff79979dbaffed9a6f71cc99",
-    "model_hash": "03ec305bfb27da021aed6cbc331cf2a56e7a6cd1739a4c645e61031a77de4c55"
+    "model_hash": "6b212a9439f620d99c583a3f6adef1f2ad96857d5c39d6e61ddf3eb732b3711a"
   },
   "geo_code": "MZ",
   "node_type": "country",

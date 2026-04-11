@@ -5,39 +5,54 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "LIMITED",
-      "enforcement": "MODERATE",
-      "scope": "MEDICAL_ONLY",
-      "override_reason": "rec_implies_med_floor"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
-        "use": "restricted",
+        "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [],
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
       "modifiers": []
     },
     "signals": {
-      "status": "restricted",
+      "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -85,18 +100,16 @@
         }
       ],
       "explain": [
-        "rule: legal | source: Legal status of cannabis in Tuvalu - Cannaconnection.com | type: reference | priority: 2 | scope: general",
         "no traversal evidence"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "legal",
-      "rec_implies_med_floor"
+      "distribution_fallback_illegal"
     ],
-    "notes_normalized": "Cannabis is legal in Tuvalu. Medical cannabis is limited. Distribution is restricted."
+    "notes_normalized": "Cannabis is illegal in Tuvalu. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is legal in Tuvalu. Medical cannabis is limited. Distribution is restricted.",
+  "notes_normalized": "Cannabis is illegal in Tuvalu. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Tuvalu}}",
   "facts": {
     "possession_limit": null,
@@ -167,26 +180,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "slb",
-        "name": "Solomon Islands"
-      },
-      {
-        "code": "plw",
-        "name": "Palau / Belau"
-      },
-      {
-        "code": "tls",
-        "name": "Timor-Leste / Timór-Leste"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "vut",
         "name": "Vanuatu"
       },
       {
         "code": "ncl",
         "name": "New Caledonia / Nouvelle-Calédonie"
+      },
+      {
+        "code": "slb",
+        "name": "Solomon Islands"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "mhl",
+        "name": "Marshall Islands / M̧ajeļ"
+      },
+      {
+        "code": "nfk",
+        "name": "Norfolk Island / Norf'k Ailen"
       }
     ],
     "same_country_states": [],
@@ -194,9 +207,9 @@
   },
   "hashes": {
     "code": "tuv",
-    "content_hash": "3859bb958f799449aa30a318dd5c389e962ec26a17825319715932caf1fd232a",
-    "notes_hash": "258c930ef8e0a76e1e26e723d4192d6835eb752ff28ebd04cf2410e6b478eee2",
-    "model_hash": "35238f1db2524acfac0e6ce754d607bd9bf59c96c60ef0a83ab701ed0cbb2848"
+    "content_hash": "bb0e6e95358df4feba0d4829b525724ba6d0e194dda43bf35ac8c4efd9b02d01",
+    "notes_hash": "f9739f525bea9041c034a98999c04c3915c0d9e52419467070699ae83fd0e1c0",
+    "model_hash": "2bd4340c87b8e98f78d04c540aac1fad20fe2ff74893dc062d7e8ca22173fac6"
   },
   "geo_code": "TV",
   "node_type": "country",

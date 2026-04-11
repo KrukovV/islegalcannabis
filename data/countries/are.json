@@ -5,22 +5,22 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "LIMITED",
-      "enforcement": "MODERATE",
-      "scope": "MEDICAL_ONLY",
-      "override_reason": "rec_implies_med_floor"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
-        "use": "restricted",
+        "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -32,12 +32,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "HIGH_RISK",
       "penalties": {
         "prison": true,
         "prison_priority": 2,
         "arrest": false,
         "fine": false,
-        "severity_score": 4
+        "severity_score": 4,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "high",
       "sources": [
@@ -87,19 +100,16 @@
       "explain": [
         "rule: penalty_prison | source: United Arab Emirates / الإمارات | type: summary | priority: 1 | scope: general",
         "rule: penalty_prison | source: UAE eases drug laws: No more jail for those bringing in THC | type: reference | priority: 2 | scope: general",
-        "rule: legal | source: UAE legal reforms: what the new law says about products containing cannabis extracts | type: reference | priority: 2 | scope: general",
         "no traversal evidence"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "penalty_prison",
-      "legal",
-      "rec_implies_med_floor"
+      "penalty_prison"
     ],
-    "notes_normalized": "Cannabis is legal in United Arab Emirates / الإمارات. Medical cannabis is limited. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in United Arab Emirates / الإمارات. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is legal in United Arab Emirates / الإمارات. Medical cannabis is limited. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in United Arab Emirates / الإمارات. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in the United Arab Emirates}} In 2008, even the smallest amounts of the drug could lead to a mandatory 4-year prison sentence.<ref>{{cite news |url = https://news.bbc.co.uk/1/hi/uk/7234786.stm |title = Tourists warned of UAE drug laws |publisher = [[BBC News]] |date = 8 February 2008 |access-date = 17 February 2011 |archive-url=https://web.archive.org/web/20170420193949/http://news.bbc.co.uk/2/hi/uk_news/7234786.stm |archive-date=20 April 2017 |url-status=live}}</ref>{{Update inline|date=October 2023|reason=Laws changed in 2016 and again in 2022.}}",
   "facts": {
     "possession_limit": null,
@@ -170,26 +180,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "dji",
-        "name": "Djibouti / جيبوتي"
-      },
-      {
-        "code": "pak",
-        "name": "Pakistan / پاكستان"
-      },
-      {
-        "code": "eri",
-        "name": "Eritrea / إريتريا"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "irn",
         "name": "Iran / ایران"
       },
       {
         "code": "sau",
         "name": "Saudi Arabia / السعودية"
+      },
+      {
+        "code": "kwt",
+        "name": "Kuwait / الكويت"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "yem",
+        "name": "Yemen / اليمن"
+      },
+      {
+        "code": "irq",
+        "name": "Iraq / العراق"
       }
     ],
     "same_country_states": [],
@@ -197,9 +207,9 @@
   },
   "hashes": {
     "code": "are",
-    "content_hash": "299158ffdcb3749ee885a51bbeef50fc97a2e874f2d5687b3484cdd584aec74b",
-    "notes_hash": "1a290397cdb2db52e6f1e7bdef823992015bfa0c9e152a7a42412e784a2f4306",
-    "model_hash": "ddec9ca7bf42fc8764d5c99b13960d927f6e14179bbf82895115d0b2708fcd74"
+    "content_hash": "57668c25bbaf22683cb20069e2761eafd0e4760d7a3aae3cd69777331ce460fb",
+    "notes_hash": "270c1b8ef022d684b5b5e4d0bbf15c46d3890c620a949657a7952d52cd3f38f9",
+    "model_hash": "dd0ed9c781c526aeecde15fda3aec475d0b8707130728c285b12edcac4b7004e"
   },
   "geo_code": "AE",
   "node_type": "country",

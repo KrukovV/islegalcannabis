@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -90,9 +103,6 @@
         "rule: illegal | source: Lebanon / لبنان | type: summary | priority: 1 | scope: general",
         "rule: illegal | source: Lebanon / لبنان | type: summary | priority: 1 | scope: cultivation",
         "rule: medical_legal | source: Lebanon / لبنان | type: summary | priority: 1 | scope: cultivation",
-        "rule: legal | source: Lebanon to consider legalising medicinal cannabis | type: reference | priority: 2 | scope: general",
-        "rule: legal | source: Lebanese cannabis farmers fight against legalisation of the drug | type: reference | priority: 2 | scope: general",
-        "rule: legal | source: Lebanon legalizes cannabis farming for medicinal use | type: reference | priority: 2 | scope: general",
         "no traversal evidence"
       ]
     },
@@ -201,9 +211,9 @@
   },
   "hashes": {
     "code": "lbn",
-    "content_hash": "23115b54906e0e61a3ee2e1edd61de80b42e191d1e4b07dc33c0e1b87d6898dd",
+    "content_hash": "ae016fd6dd48472147b5fe207de2b56e14200cbb11e0332431c1b7384297cbe3",
     "notes_hash": "465283faecce66a0a50a02b7ca506300b1a7f1b72e6583fac58a67a1d684327a",
-    "model_hash": "3fe267a02a5e6d328306c56792cd7328826c2490ce9f14c37ef634ad58d75a46"
+    "model_hash": "26e563ae455fc6e3832612257c48a07514859320e24f3abdd7473422375d12db"
   },
   "geo_code": "LB",
   "node_type": "country",

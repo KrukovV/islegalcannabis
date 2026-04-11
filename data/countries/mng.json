@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -153,18 +166,18 @@
         "name": "Bhutan / འབྲུག་ཡུལ་"
       },
       {
-        "code": "mmr",
-        "name": "Myanmar / မြန်မာ"
+        "code": "kor",
+        "name": "South Korea / 한국"
       },
       {
-        "code": "mac",
-        "name": "Macau / 澳门"
+        "code": "mmr",
+        "name": "Myanmar / မြန်မာ"
       }
     ],
     "cluster_links": [
       {
-        "code": "kor",
-        "name": "South Korea / 한국"
+        "code": "mac",
+        "name": "Macau / 澳门"
       },
       {
         "code": "hkg",
@@ -176,9 +189,9 @@
   },
   "hashes": {
     "code": "mng",
-    "content_hash": "1d684be7d83f3f3a8297bc2521c8b3ab7e67c5eb442aaf696a548bf4959c56be",
+    "content_hash": "9525fa93fcb8f243d11309fd7a8a71cd4f3e70da911c32d34cbe78ae0388ee2e",
     "notes_hash": "e76125b3f27e8d71a4384c8eb8f743a9dd1bb7183ead44f2b355a0ca4369b085",
-    "model_hash": "bbdf86d310a06d6cc3a3f58f13e35c7cd1366eff904fc64d13ea2b43a01eac45"
+    "model_hash": "9093edb0fad6041be73e5d59295a1687f83107c0399e3d73acccdd196f55d0cf"
   },
   "geo_code": "MN",
   "node_type": "country",

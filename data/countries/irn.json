@@ -36,12 +36,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -169,22 +182,22 @@
     ],
     "legal_similarity": [
       {
+        "code": "are",
+        "name": "United Arab Emirates / الإمارات"
+      },
+      {
         "code": "irq",
         "name": "Iraq / العراق"
       },
       {
         "code": "aze",
         "name": "Azerbaijan / Azərbaycan"
-      },
-      {
-        "code": "sau",
-        "name": "Saudi Arabia / السعودية"
       }
     ],
     "cluster_links": [
       {
-        "code": "are",
-        "name": "United Arab Emirates / الإمارات"
+        "code": "sau",
+        "name": "Saudi Arabia / السعودية"
       },
       {
         "code": "tkm",
@@ -196,9 +209,9 @@
   },
   "hashes": {
     "code": "irn",
-    "content_hash": "0ef5ac2173e2885efb92154537af77841899bffb23bf17f39b5f845a35975249",
+    "content_hash": "cb3d470262f2fc818312149b82c5facd87a59d6e760df90a8c0a4feaa054cb7a",
     "notes_hash": "eaa6e507f742cdb588d9a1a9a0a181cce7652d3e2b3cfd0e0b0e2c67cb9c2653",
-    "model_hash": "30ed9c2571042454e84204313d03ffbdd9e74f197ed9aa9ede9f3bac2622ed13"
+    "model_hash": "ce0ff05103f2e411657be1d13f1db4b0ab256c27324ccf42dc64760a7e9b8268"
   },
   "geo_code": "IR",
   "node_type": "country",

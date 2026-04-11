@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -143,22 +156,22 @@
     ],
     "legal_similarity": [
       {
+        "code": "tjk",
+        "name": "Tajikistan / Таджикистан"
+      },
+      {
         "code": "kaz",
         "name": "Kazakhstan / Қазақстан"
       },
       {
         "code": "aze",
         "name": "Azerbaijan / Azərbaycan"
-      },
-      {
-        "code": "pak",
-        "name": "Pakistan / پاكستان"
       }
     ],
     "cluster_links": [
       {
-        "code": "tjk",
-        "name": "Tajikistan / Таджикистан"
+        "code": "pak",
+        "name": "Pakistan / پاكستان"
       },
       {
         "code": "arm",
@@ -170,9 +183,9 @@
   },
   "hashes": {
     "code": "tkm",
-    "content_hash": "4e7c11bd75c0ae17da5e9a3edce5e9c3114184ecfb39c4b207c7e4af36a1cc4b",
+    "content_hash": "d486b6c4fb37cd64dcdf71e3c05a53105c344e061af1b180a587cae063b673dc",
     "notes_hash": "dd2d93eecc2817b7f2afddcf828a5cba359f288a4cbefd95bb7b6f2af6a89e77",
-    "model_hash": "45e106e25f66571720ec87d08542bd89c4ca29d1fd8fe63c2c1cea67bf038ab3"
+    "model_hash": "39768849a1285e10c05619718f28549ea81e0459f7bfa40bf9cbcc7909a38a11"
   },
   "geo_code": "TM",
   "node_type": "country",

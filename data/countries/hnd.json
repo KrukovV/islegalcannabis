@@ -27,22 +27,32 @@
         "trafficking": "illegal"
       },
       "enforcement": "standard",
-      "flags": [
-        "trafficking_illegal",
-        "sale_illegal"
-      ],
+      "flags": [],
       "modifiers": []
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Cannabis in Honduras",
@@ -70,6 +80,7 @@
         }
       ],
       "explain": [
+        "rule: raw_illegal | source: Honduras | type: summary | priority: 1 | scope: trafficking",
         "rule: trafficking_illegal | source: Honduras | type: summary | priority: 1 | scope: trafficking",
         "rule: sale_illegal | source: Honduras | type: summary | priority: 1 | scope: trafficking",
         "rule: illegal | source: Honduras | type: summary | priority: 1 | scope: trafficking",
@@ -78,9 +89,7 @@
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "trafficking_illegal",
-      "sale_illegal",
-      "illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Honduras. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -182,9 +191,9 @@
   },
   "hashes": {
     "code": "hnd",
-    "content_hash": "f2fa51ddfde0c885e95ab419c782395c051ffb7785ab268981c2b555bc93fc75",
+    "content_hash": "fec278c2c5589334343566e6dab842e53c0dfbbffa730897c19620c5278ae6aa",
     "notes_hash": "4fc807051916b0fab6b2053b42f5e74d3f606d41583dec2c09c936d803d8149d",
-    "model_hash": "4ca7d9e511fcf57fd140b2740be8abe8c5602b07bb5f544171f69ab8a0deb107"
+    "model_hash": "125a62b6d9d4b2fa0d312c2e4b637fddf2554499833432b4577330172e24c543"
   },
   "geo_code": "HN",
   "node_type": "country",

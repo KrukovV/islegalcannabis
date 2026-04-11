@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -87,13 +100,14 @@
         }
       ],
       "explain": [
+        "rule: raw_illegal | source: Malawi / Malaŵi | type: summary | priority: 1 | scope: general",
         "rule: illegal | source: Malawi / Malaŵi | type: summary | priority: 1 | scope: general",
         "no traversal evidence"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Malawi / Malaŵi. Medical cannabis is legal. Distribution is illegal."
   },
@@ -172,18 +186,18 @@
         "name": "Zimbabwe"
       },
       {
-        "code": "bdi",
-        "name": "Burundi / Uburundi"
+        "code": "com",
+        "name": "Comoros / جزر القمر"
       },
       {
-        "code": "rwa",
-        "name": "Rwanda"
+        "code": "bdi",
+        "name": "Burundi / Uburundi"
       }
     ],
     "cluster_links": [
       {
-        "code": "com",
-        "name": "Comoros / جزر القمر"
+        "code": "rwa",
+        "name": "Rwanda"
       },
       {
         "code": "bwa",
@@ -195,9 +209,9 @@
   },
   "hashes": {
     "code": "mwi",
-    "content_hash": "06c25f51bee217ee2c398f8c96b01b8340e911af37f285ebb5bc14eaf008eacc",
+    "content_hash": "4f238b1ad6889d74c7f649473bd6b5383815e9973cdf4ba8cd08ed3c4985866a",
     "notes_hash": "a85579dd15710ecf9d1ad3f5ad832bafa952579db6764430a1244fb09aeda84a",
-    "model_hash": "77b99764c19935527df4e11ec1ceb18955ecb7b602e266b3dafff7c7e24be698"
+    "model_hash": "0657b9d69d57aae329420229c864763bb17e6ed949d4cdbb87272a845144ebd7"
   },
   "geo_code": "MW",
   "node_type": "country",

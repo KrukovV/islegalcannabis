@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "tolerated",
+      "final_risk": "LIMITED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": true,
-        "severity_score": 1
+        "severity_score": 1,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": true,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "high",
       "sources": [
@@ -93,8 +106,7 @@
         "rule: penalty_fine | source: Cannabis in Trinidad and Tobago | type: traversal | priority: 3 | scope: cultivation",
         "rule: private_cultivation | source: Cannabis in Trinidad and Tobago | type: traversal | priority: 3 | scope: cultivation",
         "rule: legal | source: Cannabis in Trinidad and Tobago | type: traversal | priority: 3 | scope: cultivation",
-        "rule: private_cultivation | source: Four female plants to be allowed under Cannabis Control Bill | type: reference | priority: 2 | scope: cultivation",
-        "rule: legal | source: Four female plants to be allowed under Cannabis Control Bill | type: reference | priority: 2 | scope: cultivation"
+        "rule: private_cultivation | source: Four female plants to be allowed under Cannabis Control Bill | type: reference | priority: 2 | scope: cultivation"
       ]
     },
     "enforcement_flags": [
@@ -207,9 +219,9 @@
   },
   "hashes": {
     "code": "tto",
-    "content_hash": "bd1e0ea4e32297d4782fa5563f03150d77319a94eb2a58c8d80700ff67683cce",
+    "content_hash": "0320e592a129bf796d3658b1912f9af51cc2b3b4e0c41da0a5775d8bcac37bfa",
     "notes_hash": "8c430bc1924ce58217ef8e69637bcf785f8666bd066f75af2af6414229bcc585",
-    "model_hash": "6460e283e1468818f8e3a5629adaa327fab8bc7eae3dded7211cd290c8391d95"
+    "model_hash": "92a976daeed0571b2edac168df6b4d7f70860e55e25ea3c7f4a845266b97004c"
   },
   "geo_code": "TT",
   "node_type": "country",

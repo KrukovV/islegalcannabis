@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -170,9 +183,9 @@
   },
   "hashes": {
     "code": "gab",
-    "content_hash": "db97373f814d72ee6b40222539011c4b043eddb8c1d071543174854cd76cf070",
+    "content_hash": "3c95197f6003f7ba1b05c3c88854c648f40ee72d7047b910af4cb2d53a5e9030",
     "notes_hash": "3f17c313c20d5b14d67a004792d981b3466f3e328c7c3dd92b1c60478294cea3",
-    "model_hash": "eca94cdcc32b7fc66dda41967f4d233965688420a39724b11b7c285fa806a543"
+    "model_hash": "7a5d758144d693ec819bf6a44962d2f4942807fcfff32879e63a9dc872d59092"
   },
   "geo_code": "GA",
   "node_type": "country",

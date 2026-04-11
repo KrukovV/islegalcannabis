@@ -32,12 +32,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -193,9 +206,9 @@
   },
   "hashes": {
     "code": "arg",
-    "content_hash": "d217a8d944c20bb41b8aae53a51028dcfd658136a067d09dec195e343ddad931",
+    "content_hash": "ea9edc9cc03fb2ab8d13175be21caa553fd3c880f3ece75633ecc3d804d74a5f",
     "notes_hash": "aade7e9c80a98bfab82a33a8709add1960b9f7fb97964337882f18fc053df378",
-    "model_hash": "b25bb9cbf1b9513f0ba34859502de031671d96a4eea3623eb9bede51d3a0aa89"
+    "model_hash": "2c077451480bed15199d2285cdc966cb583b739254890a7cc762e0b0112c8669"
   },
   "geo_code": "AR",
   "node_type": "country",

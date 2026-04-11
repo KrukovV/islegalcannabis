@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "HIGH_RISK",
       "penalties": {
         "prison": true,
         "prison_priority": 1,
         "arrest": false,
         "fine": false,
-        "severity_score": 4
+        "severity_score": 4,
+        "possession": {
+          "prison": true,
+          "arrest": false,
+          "fine": false,
+          "severe": true
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -146,22 +159,22 @@
     ],
     "legal_similarity": [
       {
+        "code": "kor",
+        "name": "South Korea / 한국"
+      },
+      {
         "code": "vnm",
         "name": "Vietnam / Việt Nam"
       },
       {
         "code": "lao",
         "name": "Laos / ສປປລາວ"
-      },
-      {
-        "code": "prk",
-        "name": "North Korea / 조선"
       }
     ],
     "cluster_links": [
       {
-        "code": "kor",
-        "name": "South Korea / 한국"
+        "code": "prk",
+        "name": "North Korea / 조선"
       },
       {
         "code": "khm",
@@ -173,9 +186,9 @@
   },
   "hashes": {
     "code": "twn",
-    "content_hash": "2bd3cef2573079968531b9dc257c6251ff89b0a80e63bd19bb1c8aaa22c85424",
+    "content_hash": "ff52bb7830f78eaa141da7eac9c6af7d5b2fb17685f6e7577a68418d754b26d4",
     "notes_hash": "29a748c8a21061f9d3497d3c7805ca2b1c0d39db4fabb2363a48844b462b0ba7",
-    "model_hash": "f76b8d2ffb69b41a4e1de466e14c0b3c60a7639e8d2c0d24a5834fdb177e00b0"
+    "model_hash": "ba1a93f17767a3b0763bd1dd3e7fdf17eb41e488f35320e8c6e49b3e252fa146"
   },
   "geo_code": "TW",
   "node_type": "country",

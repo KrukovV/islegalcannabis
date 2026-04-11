@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -188,9 +201,9 @@
   },
   "hashes": {
     "code": "slv",
-    "content_hash": "3d45cf967695fc1527c409fec342cff78fc3b24dff285beb2b56eb5971c29d18",
+    "content_hash": "702f28fd543f72d91354459a3af5efc07fb2a1f1c941dda8fcd3c374c38f5ac7",
     "notes_hash": "43e605994bcda80e31f7bd31e1dde83b035b05bb2226bfcc231e3f113fdbbd0a",
-    "model_hash": "69e405c2c30adfbf1b0ddad825f6f76a63ba69493beb8a569c2297f18594daaf"
+    "model_hash": "16ba5b43d32a2026a82c0c24779c3dabdea2227e3ee8d6bb6621d929126b99dd"
   },
   "geo_code": "SV",
   "node_type": "country",

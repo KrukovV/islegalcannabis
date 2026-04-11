@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -194,9 +207,9 @@
   },
   "hashes": {
     "code": "arm",
-    "content_hash": "3ba767f35252d64ae4b070448325a8415afd4c7b1f9c4fdb80c3b0d53249deef",
+    "content_hash": "8faf60741b2dd0aa803559251a5127f4707c1d8ee075ce3d8bbb7b644e02efd1",
     "notes_hash": "166f18daeaf8c166065065e15b871550a530bbcfb9b2dc90ff4ce7a20506e8ac",
-    "model_hash": "1345f0856c880bf17b70d716708ef54dc37d834761203fe7e5ebf2b0103387ea"
+    "model_hash": "8eadc15ba6ac6401cf7e245211e1e5a0d3d5fee435614df011f418751c1e77bc"
   },
   "geo_code": "AM",
   "node_type": "country",

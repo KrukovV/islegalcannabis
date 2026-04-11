@@ -121,10 +121,16 @@ function distributionRank(status) {
 }
 
 function createState(input) {
+  const baseRec = baseRecStatus(input?.wikiRecStatus);
+  const baseMed = baseMedStatus(input?.wikiMedStatus);
+  const baseRecPriority =
+    baseRec === "ILLEGAL" ? 65 : baseRec === "DECRIMINALIZED" ? 70 : baseRec === "LEGAL" ? 60 : baseRec === "TOLERATED" ? 70 : -1;
+  const baseMedPriority =
+    baseMed === "ILLEGAL" ? 120 : baseMed === "LIMITED" ? 70 : baseMed === "LEGAL" ? 60 : -1;
   return {
     input,
-    rec: { status: baseRecStatus(input?.wikiRecStatus), priority: -1 },
-    med: { status: baseMedStatus(input?.wikiMedStatus), priority: -1 },
+    rec: { status: baseRec, priority: baseRecPriority },
+    med: { status: baseMed, priority: baseMedPriority },
     distribution: { status: null, priority: -1 },
     scopes: { ...DEFAULT_SCOPES },
     scopePriority: Object.fromEntries(Object.keys(DEFAULT_SCOPES).map((key) => [key, -1])),
@@ -134,7 +140,9 @@ function createState(input) {
       prison_priority: 0,
       arrest: false,
       fine: false,
-      severity_score: 0
+      severity_score: 0,
+      possession: { prison: false, arrest: false, fine: false, severe: false },
+      trafficking: { prison: false, arrest: false, fine: false, severe: false }
     },
     sources: [],
     source_titles: [],
@@ -188,7 +196,17 @@ function penaltySourcePriority(sourceType) {
   return 1;
 }
 
-function assignPenalty(state, penaltyKey, severityDelta, ruleId, sourceType = "summary") {
+function detectPenaltyScope(normalizedSentence) {
+  if (sentenceMentionsScope(normalizedSentence, "trafficking") || sentenceMentionsScope(normalizedSentence, "sale") || sentenceMentionsScope(normalizedSentence, "import")) {
+    return "trafficking";
+  }
+  if (sentenceMentionsScope(normalizedSentence, "possession") || sentenceMentionsScope(normalizedSentence, "use")) {
+    return "possession";
+  }
+  return null;
+}
+
+function assignPenalty(state, penaltyKey, severityDelta, ruleId, sourceType = "summary", scope = null) {
   const sourcePriority = penaltySourcePriority(sourceType);
   if (penaltyKey === "prison") {
     state.penalties.prison = true;
@@ -197,6 +215,12 @@ function assignPenalty(state, penaltyKey, severityDelta, ruleId, sourceType = "s
   if (penaltyKey === "arrest") state.penalties.arrest = true;
   if (penaltyKey === "fine") state.penalties.fine = true;
   state.penalties.severity_score = Math.max(state.penalties.severity_score, severityDelta);
+  if (scope && state.penalties[scope] && typeof state.penalties[scope] === "object") {
+    if (penaltyKey === "prison") state.penalties[scope].prison = true;
+    if (penaltyKey === "arrest") state.penalties[scope].arrest = true;
+    if (penaltyKey === "fine") state.penalties[scope].fine = true;
+    if (severityDelta >= 3) state.penalties[scope].severe = true;
+  }
   pushUnique(state.applied_rules, ruleId);
 }
 
@@ -236,6 +260,12 @@ function recordExplain(state, ruleId, context) {
   pushUnique(state.explain, entry);
 }
 
+function sentenceHasNegatedPenalty(normalizedSentence) {
+  return /\bno (?:threat of )?(?:jail|prison|custody|detention|arrest)\b|\bnot punishable by (?:prison|jail|imprisonment)\b|\bwithout imprisonment\b|\bno prison sentence\b/.test(
+    normalizedSentence
+  );
+}
+
 function sentenceMentionsScope(normalizedSentence, scope) {
   switch (scope) {
     case "possession":
@@ -253,6 +283,32 @@ function sentenceMentionsScope(normalizedSentence, scope) {
     default:
       return false;
   }
+}
+
+function sentenceMentionsCommercialPenaltyContext(normalizedSentence) {
+  return (
+    sentenceMentionsScope(normalizedSentence, "sale") ||
+    sentenceMentionsScope(normalizedSentence, "import") ||
+    sentenceMentionsScope(normalizedSentence, "trafficking") ||
+    /\bbulk possession\b|\boutside of retail stores\b|\boutside retail stores\b|\bfor sale\b/.test(normalizedSentence)
+  );
+}
+
+function sentenceTargetsRecreationalUse(normalizedSentence) {
+  if (sentenceMentionsScope(normalizedSentence, "use")) return true;
+  if (/\bpersonal possession\b|\bpersonal use\b|\bup to \d+\s*(g|gram|grams|oz|ounces)\b/.test(normalizedSentence)) return true;
+  if (sentenceMentionsScope(normalizedSentence, "possession") && !sentenceMentionsCommercialPenaltyContext(normalizedSentence)) return true;
+  return !sentenceMentionsCommercialPenaltyContext(normalizedSentence);
+}
+
+function sentenceSoftensRecreationalIllegality(normalizedSentence) {
+  return (
+    /\billegal\b|\bprohibited\b/.test(normalizedSentence) &&
+    /\bbut\b/.test(normalizedSentence) &&
+    (/\bdecriminali[sz]ed\b/.test(normalizedSentence) || /\btolerated\b/.test(normalizedSentence)) &&
+    (/\bpersonal use\b|\bpersonal possession\b|\bup to \d+\s*(g|gram|grams|oz|ounces)\b/.test(normalizedSentence) ||
+      sentenceMentionsScope(normalizedSentence, "use"))
+  );
 }
 
 function sentenceDocs(input) {
@@ -303,20 +359,39 @@ const RULES_TABLE = [
     id: "penalty_prison",
     priority: 140,
     test: (sentence) =>
-      !/\bno (?:threat of )?jail\b|\bnot punishable by prison\b|\binstead of jail\b|\bwithout imprisonment\b/.test(
+      !sentenceHasNegatedPenalty(sentence.normalized) &&
+      /\bprison\b|\bimprison(?:ment|ed)?\b|\bjail\b|\bincarceration\b|\bprison term\b|\bcustody\b|\byears? in prison\b|\bsentence\b/.test(
         sentence.normalized
-      ) &&
-      /\bprison\b|\bimprison(?:ment|ed)?\b|\bjail\b|\bincarceration\b|\bprison term\b/.test(sentence.normalized),
+      ),
     apply(state, sentence) {
-      assignPenalty(state, "prison", 4, this.id, sentence.sourceType);
+      assignPenalty(state, "prison", 4, this.id, sentence.sourceType, detectPenaltyScope(sentence.normalized));
     }
   },
   {
     id: "penalty_arrest",
     priority: 135,
-    test: (sentence) => /\barrest(?:ed)?\b|\bdetained\b|\bdetention\b/.test(sentence.normalized),
+    test: (sentence) => !sentenceHasNegatedPenalty(sentence.normalized) && /\barrest(?:ed)?\b|\bdetained\b|\bdetention\b/.test(sentence.normalized),
     apply(state, sentence) {
-      assignPenalty(state, "arrest", 2, this.id, sentence.sourceType);
+      assignPenalty(state, "arrest", 2, this.id, sentence.sourceType, detectPenaltyScope(sentence.normalized));
+    }
+  },
+  {
+    id: "raw_illegal",
+    priority: 130,
+    test: (sentence) => /\billegal\b|\bprohibited\b/.test(sentence.normalized),
+    apply(state, sentence) {
+      const targetsRec =
+        sentenceTargetsRecreationalUse(sentence.normalized) && !sentenceSoftensRecreationalIllegality(sentence.normalized);
+      if (targetsRec) {
+        assignRec(state, "ILLEGAL", this.id, this.priority);
+      }
+      if (/\bmedical\b|\bmedicinal\b/.test(sentence.normalized)) {
+        assignMed(state, "ILLEGAL", this.id, this.priority);
+      }
+      if (sentenceMentionsScope(sentence.normalized, "sale")) assignScope(state, "sale", "illegal", this.id, this.priority);
+      if (sentenceMentionsScope(sentence.normalized, "import")) assignScope(state, "import", "illegal", this.id, this.priority);
+      if (sentenceMentionsScope(sentence.normalized, "trafficking")) assignScope(state, "trafficking", "illegal", this.id, this.priority);
+      assignDistributionCandidate(state, "illegal", this.id, this.priority);
     }
   },
   {
@@ -324,19 +399,29 @@ const RULES_TABLE = [
     priority: 130,
     test: (sentence) => /\bfine\b|\bfined\b|\bpenalt(?:y|ies)\b|€\s*\d+|\$+\s*\d+/.test(sentence.normalized),
     apply(state, sentence) {
-      assignPenalty(state, "fine", 1, this.id, sentence.sourceType);
+      assignPenalty(state, "fine", 1, this.id, sentence.sourceType, detectPenaltyScope(sentence.normalized));
       assignEnforcementFlag(state, "fine_based", this.id);
     }
   },
   {
     id: "penalty_years",
     priority: 125,
-    test: (sentence) => /\bup to \d+ years?\b|\b\d+\s*-\s*\d+ years?\b|\b\d+\s+years?\b/.test(sentence.normalized),
+    test: (sentence) => !sentenceHasNegatedPenalty(sentence.normalized) && /\bup to \d+ years?\b|\b\d+\s*-\s*\d+ years?\b|\b\d+\s+years?\b/.test(sentence.normalized),
     apply(state, sentence) {
       const years = sentence.normalized.match(/\b(\d+)\s*-\s*(\d+)\s+years?\b|\bup to (\d+) years?\b|\b(\d+)\s+years?\b/);
       const values = years ? years.slice(1).filter(Boolean).map(Number) : [];
       const strongest = values.length ? Math.max(...values) : 1;
       state.penalties.severity_score = Math.max(state.penalties.severity_score, Math.max(1, Math.ceil(strongest / 5)));
+      assignPenalty(state, "prison", Math.max(2, Math.ceil(strongest / 5)), this.id, sentence.sourceType, detectPenaltyScope(sentence.normalized));
+      pushUnique(state.applied_rules, this.id);
+    }
+  },
+  {
+    id: "penalty_criminal_offense",
+    priority: 124,
+    test: (sentence) => !sentenceHasNegatedPenalty(sentence.normalized) && /\bcriminal offe[nc]e\b|\bpunishable\b/.test(sentence.normalized),
+    apply(state, sentence) {
+      assignPenalty(state, "prison", 3, this.id, sentence.sourceType, detectPenaltyScope(sentence.normalized));
       pushUnique(state.applied_rules, this.id);
     }
   },
@@ -447,7 +532,9 @@ const RULES_TABLE = [
   {
     id: "rec_tolerated",
     priority: 89,
-    test: (sentence) => /\btolerated\b|\bcoffeeshops?\b|\bcoffee shops?\b/.test(sentence.normalized),
+    test: (sentence) =>
+      !/\billegal\b|\bprohibited\b|\bcriminal offe[nc]e\b/.test(sentence.normalized) &&
+      /\btolerated\b|\bcoffeeshops?\b|\bcoffee shops?\b/.test(sentence.normalized),
     apply(state) {
       assignRec(state, "TOLERATED", this.id, this.priority);
     }
@@ -487,13 +574,7 @@ const RULES_TABLE = [
         assignScope(state, "trafficking", "illegal", this.id, this.priority);
       }
       assignDistributionCandidate(state, "illegal", this.id, this.priority);
-      if (
-        sentenceMentionsScope(sentence.normalized, "possession") ||
-        sentenceMentionsScope(sentence.normalized, "use") ||
-        (!sentenceMentionsScope(sentence.normalized, "sale") &&
-          !sentenceMentionsScope(sentence.normalized, "import") &&
-          !sentenceMentionsScope(sentence.normalized, "trafficking"))
-      ) {
+      if (sentenceTargetsRecreationalUse(sentence.normalized) && !sentenceSoftensRecreationalIllegality(sentence.normalized)) {
         assignRec(state, "ILLEGAL", this.id, this.priority);
       }
     }
@@ -502,7 +583,9 @@ const RULES_TABLE = [
     id: "legal",
     priority: 30,
     test: (sentence) =>
+      sentence.sourceType !== "reference" &&
       /\blegal(?:ised|ized)?\b|\ballowed\b|\bpermitted\b/.test(sentence.normalized) &&
+      !/\billegal\b|\bprohibited\b|\bcriminal offe[nc]e\b/.test(sentence.normalized) &&
       !/\bmedical\b|\bmedicinal\b/.test(sentence.normalized),
     apply(state) {
       assignRec(state, "LEGAL", this.id, this.priority);
@@ -593,19 +676,19 @@ function resolveConfidence(state, traversalCount) {
   return "low";
 }
 
-function resolveOverallLegalStatus(state, distributionStatus) {
+function resolveLegalStatus(state, distributionStatus, recStatus) {
   if (distributionStatus === "mixed") return "mixed";
-  if (state.penalties.prison && (state.scopes.import === "illegal" || state.scopes.trafficking === "illegal")) {
-    return "mixed";
-  }
-  if (state.penalties.prison_priority >= 2 && distributionStatus === "tolerated") {
-    return "restricted";
-  }
-  if (state.penalties.prison && distributionStatus !== "regulated") {
-    return "illegal";
-  }
   if (distributionStatus) return distributionStatus;
-  return state.penalties.prison ? "illegal" : "restricted";
+  if (recStatus === "DECRIMINALIZED" || recStatus === "TOLERATED" || recStatus === "LEGAL") return "restricted";
+  return "illegal";
+}
+
+function resolveFinalRisk(state, distributionStatus, recStatus) {
+  if (state.penalties.prison) return "HIGH_RISK";
+  if (state.penalties.arrest) return "RESTRICTED";
+  if (distributionStatus === "illegal" || distributionStatus === "mixed") return "RESTRICTED";
+  if (recStatus === "DECRIMINALIZED" || recStatus === "TOLERATED" || recStatus === "LEGAL") return "LIMITED";
+  return "UNKNOWN";
 }
 
 function buildNotesSummary(params) {
@@ -641,7 +724,8 @@ function normalize(state) {
 
   const traversalCount = (Array.isArray(state.input?.traversalPages) ? state.input.traversalPages.length : 0) +
     (Array.isArray(state.input?.referenceSources) ? Math.min(state.input.referenceSources.length, 2) : 0);
-  const overallLegalStatus = resolveOverallLegalStatus(state, distributionFinal);
+  const legalStatus = resolveLegalStatus(state, distributionFinal, recFinal);
+  const finalRisk = resolveFinalRisk(state, distributionFinal, recFinal);
   const confidence = resolveConfidence(state, traversalCount);
 
   return {
@@ -677,7 +761,8 @@ function normalize(state) {
       modifiers: [...state.modifiers]
     },
     signals: {
-      status: overallLegalStatus,
+      status: legalStatus,
+      final_risk: finalRisk,
       penalties: { ...state.penalties },
       confidence,
       sources: [...state.sources],
@@ -717,7 +802,7 @@ export function deriveCountryStatusModel(input) {
       geo: input?.geo,
       rec: normalized.recreational.status,
       med: normalized.medical.status,
-      distribution: normalized.signals.status,
+      distribution: normalized.distribution.status,
       penalties: normalized.signals.penalties
     })
   };

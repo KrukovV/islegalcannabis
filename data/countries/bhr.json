@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -182,9 +195,9 @@
   },
   "hashes": {
     "code": "bhr",
-    "content_hash": "3f8ab67327bb0ce091603a3364c78f30fe910dcc44cd0d407548a69457f263df",
+    "content_hash": "a4d25d2ec5e83bd6124244d2c868e6f356e2f46c35ce1c583888c043f9570b9c",
     "notes_hash": "4099c31635fb6ea498f4d846ff752b49bc7a8bc3dc9823c8edd2cdfe3af29d21",
-    "model_hash": "31e1303e7fcfd6c5cddf78e9e202584986d7d460d7ea2d5bf9e6ba96d0c96052"
+    "model_hash": "b18721d32f31b05fd43fd77ac11f460808a59f42aa5ad85f75de42e0e33abde8"
   },
   "geo_code": "BH",
   "node_type": "country",

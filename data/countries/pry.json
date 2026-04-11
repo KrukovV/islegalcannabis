@@ -5,7 +5,7 @@
   "legal_model": {
     "recreational": {
       "raw_status": "DECRIMINALIZED",
-      "status": "LEGAL",
+      "status": "DECRIMINALIZED",
       "enforcement": "MODERATE",
       "scope": "PERSONAL_USE"
     },
@@ -34,14 +34,27 @@
     },
     "signals": {
       "status": "restricted",
+      "final_risk": "HIGH_RISK",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 1,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 3,
+        "possession": {
+          "prison": true,
+          "arrest": false,
+          "fine": false,
+          "severe": true
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Paraguay",
@@ -87,18 +100,18 @@
         }
       ],
       "explain": [
-        "rule: legal | source: En Paraguay, la posesión y consumo personal de la marihuana es legal | type: reference | priority: 2 | scope: general",
+        "rule: penalty_criminal_offense | source: Paraguay / Paraguái | type: summary | priority: 1 | scope: possession",
         "no traversal evidence"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "legal",
+      "penalty_criminal_offense",
       "rec_implies_med_floor"
     ],
-    "notes_normalized": "Cannabis is legal in Paraguay / Paraguái. Medical cannabis is limited. Distribution is restricted."
+    "notes_normalized": "Cannabis is decriminalized in Paraguay / Paraguái. Medical cannabis is limited. Distribution is restricted. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is legal in Paraguay / Paraguái. Medical cannabis is limited. Distribution is restricted.",
+  "notes_normalized": "Cannabis is decriminalized in Paraguay / Paraguái. Medical cannabis is limited. Distribution is restricted. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Paraguay}} The possession of up to {{cvt|10|g|frac=8}} of cannabis is not punishable.<ref>{{cite web|url=http://www.druglawreform.info/en/country-information/latin-america/paraguay/item/206-paraguay|title=Paraguay – Drug Law Reform in Latin America|author=TNI|access-date=25 February 2016|archive-date=21 July 2018|archive-url=https://web.archive.org/web/20180721045343/http://www.druglawreform.info/en/country-information/latin-america/paraguay/item/206-paraguay|url-status=live}}</ref><ref>{{cite web|url=http://ea.com.py/v2/en-paraguay-la-posesion-y-consumo-personal-de-la-marihuana-es-legal/|title=En Paraguay, la posesión y consumo personal de la marihuana es legal|work=E'a|access-date=25 February 2016|archive-date=21 July 2018|archive-url=https://web.archive.org/web/20180721044110/http://ea.com.py/v2/en-paraguay-la-posesion-y-consumo-personal-de-la-marihuana-es-legal/|url-status=live}}</ref>",
   "facts": {
     "possession_limit": "up to 10 g",
@@ -196,9 +209,9 @@
   },
   "hashes": {
     "code": "pry",
-    "content_hash": "dda3661bba51c38b83436e8c5b70be0fbc5082e440f09936fcbcf75f844aed5a",
-    "notes_hash": "fd5e5e492adf63d127a1ffa50c17494a96d9faf8fcc3b4a060316cd995d5a3a8",
-    "model_hash": "4a1881f2e5a0201e5df66d15a1ae132e1adf7991e5526916503a68312a1a5642"
+    "content_hash": "a4155ef07cae4369eb4710df480bcfa3cab7e2868b2a79bb1430c572d239acd0",
+    "notes_hash": "97c9e4b0f3a066ca9479be8d3f7dbf44cf3a9e51e51194bd779506c8a53f54a0",
+    "model_hash": "2c31a375327d3047875109bb858df042b45e90003124f5ac5bd3e597faa6f1d3"
   },
   "geo_code": "PY",
   "node_type": "country",

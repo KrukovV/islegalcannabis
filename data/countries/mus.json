@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -194,9 +207,9 @@
   },
   "hashes": {
     "code": "mus",
-    "content_hash": "a75f20e96d2f799fdacd9868aa595cbdd51e01e50e553645be9b45a7cc4268ec",
+    "content_hash": "8585339b50137eb5485ffda428334accf3d9702e3c4a605099b53ac9a07cda7b",
     "notes_hash": "740cc5fed3f375a2b5a5cdc8ab5cd50d99035127e4b6b794da63ccb238218188",
-    "model_hash": "50f1057e3851526e48bd062a8810046aa1cd191424f561b9f27f72ff8aa9955e"
+    "model_hash": "a6d4cb518a0e23b7895e08edab62036632793c9a21e2726689621e49111354bd"
   },
   "geo_code": "MU",
   "node_type": "country",

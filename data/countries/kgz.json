@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -194,9 +207,9 @@
   },
   "hashes": {
     "code": "kgz",
-    "content_hash": "3d28482df551acb5fcac3c934ed41b10d32650edd1735a1011eb1ed6e89ae5d2",
+    "content_hash": "311f3638968c11f1e2f86a07f52001473fde4642cda653ab35184c552f149b96",
     "notes_hash": "abb86a86c35c233100492243c838f299c58e1ad025a6ba0ed0749c268a70e033",
-    "model_hash": "a648a0e5c8ac0821d42e638d797262da378e97a3901ab5be0ed80a9c8d36b601"
+    "model_hash": "73a2be5960996e490ade82be019670359fa5471d61f5c44186c11465f1f90edc"
   },
   "geo_code": "KG",
   "node_type": "country",

@@ -35,12 +35,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -89,6 +102,7 @@
       ],
       "explain": [
         "rule: legal | source: North Korea / 조선 | type: summary | priority: 1 | scope: general",
+        "rule: raw_illegal | source: North Korea / 조선 | type: summary | priority: 1 | scope: general",
         "rule: illegal | source: North Korea / 조선 | type: summary | priority: 1 | scope: general",
         "no traversal evidence"
       ]
@@ -96,7 +110,7 @@
     "enforcement_flags": [],
     "applied_rules": [
       "legal",
-      "illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in North Korea / 조선. Medical cannabis is legal. Distribution is illegal."
   },
@@ -179,14 +193,14 @@
         "name": "Macau / 澳门"
       },
       {
-        "code": "mng",
-        "name": "Mongolia / Монгол улс"
+        "code": "chn",
+        "name": "China / 中国"
       }
     ],
     "cluster_links": [
       {
-        "code": "chn",
-        "name": "China / 中国"
+        "code": "mng",
+        "name": "Mongolia / Монгол улс"
       },
       {
         "code": "phl",
@@ -198,9 +212,9 @@
   },
   "hashes": {
     "code": "prk",
-    "content_hash": "685d13a7f3975155b1ecd0eaa6e53b37859f688b753f0e4aa69ee5d44e0db23e",
+    "content_hash": "d1499c957de5bbbe4fd66951f2fa3e45f4036f5e841d2a070e6ff7c63591d3f2",
     "notes_hash": "43c8a4031ab4bd1377a76657eaacd2b9e8f3102ea9cc666038eb47b2eee09c0a",
-    "model_hash": "cc3536395f0180bae53cc32e7c57e0ea5b3310439d025cf88bd08d5fe4eadabd"
+    "model_hash": "a6b27683969e090f5f1231225f73b05d5c866d5f6b2ffc7552f0e7c3c477861c"
   },
   "geo_code": "KP",
   "node_type": "country",

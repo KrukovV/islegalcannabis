@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -147,16 +160,6 @@
         "name": "United States Minor Outlying Islands"
       },
       {
-        "code": "mnp",
-        "name": "Northern Mariana Islands / Na Islas Mariånas"
-      },
-      {
-        "code": "gum",
-        "name": "Guam / Guåhån"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "slb",
         "name": "Solomon Islands"
       },
@@ -165,14 +168,24 @@
         "name": "Tuvalu"
       }
     ],
+    "cluster_links": [
+      {
+        "code": "mnp",
+        "name": "Northern Mariana Islands / Na Islas Mariånas"
+      },
+      {
+        "code": "gum",
+        "name": "Guam / Guåhån"
+      }
+    ],
     "same_country_states": [],
     "federal_parent": null
   },
   "hashes": {
     "code": "mhl",
-    "content_hash": "d22a384514d0c7ba7a2c838e45d9a3f83edf2f870ab1d50e2f03033eeb22dc10",
+    "content_hash": "39575e929dd28960e56878460f6c7c2cde558e81aa7c167e0fda9c1fa7047986",
     "notes_hash": "c812d6590cbc324d64eac48c79021b83aa357c7e4cf50567439620298aa02a34",
-    "model_hash": "ad50d67e0d227c41a38da1a01dbe95b8bd06fa942a43cd52c325c02381b15e3b"
+    "model_hash": "84861d88492302c013a255727f09fa01700bee00fb47cacbe9c7eec193d187eb"
   },
   "geo_code": "MH",
   "node_type": "country",

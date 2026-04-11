@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "low",
       "sources": [
@@ -132,18 +145,18 @@
         "name": "Eswatini"
       },
       {
-        "code": "ata",
-        "name": "Antarctica"
+        "code": "com",
+        "name": "Comoros / جزر القمر"
       }
     ],
     "cluster_links": [
       {
-        "code": "syc",
-        "name": "Seychelles / Sesel"
+        "code": "ata",
+        "name": "Antarctica"
       },
       {
-        "code": "mdv",
-        "name": "Maldives / ދިވެހިރާއްޖޭގެ"
+        "code": "syc",
+        "name": "Seychelles / Sesel"
       }
     ],
     "same_country_states": [],
@@ -151,9 +164,9 @@
   },
   "hashes": {
     "code": "atf",
-    "content_hash": "e7a6519964b53e33aada006f66afb1f0365350b226e7cd99ac0900c7cae9f292",
+    "content_hash": "a9bd112d5377781dcbfb30540d2824933989340fef21ccd1f4a8fd96abbadace",
     "notes_hash": "e6f7d5cb539abecac8bdf037b08b109cc9f58276d073765090bb1c984b641cdf",
-    "model_hash": "09b620a0560b1ec69490bd83fa3bad8828ad3d7be6b3ae24b48d6b77058d79e2"
+    "model_hash": "c947bf0e5a75169ed6ceb30b8d4389bd41eec7016419faf67a2879df39b3cb1c"
   },
   "geo_code": "TF",
   "node_type": "country",

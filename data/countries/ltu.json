@@ -5,22 +5,22 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "LIMITED",
-      "enforcement": "MODERATE",
-      "scope": "MEDICAL_ONLY",
-      "override_reason": "rec_implies_med_floor"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
-        "use": "restricted",
+        "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -33,13 +33,26 @@
       ]
     },
     "signals": {
-      "status": "restricted",
+      "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -87,18 +100,17 @@
         }
       ],
       "explain": [
-        "rule: legal | source: More hemp produce to become legal in Lithuania | type: reference | priority: 2 | scope: general",
+        "rule: raw_illegal | source: Lithuania / Lietuva | type: summary | priority: 1 | scope: use",
         "no traversal evidence"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "legal",
-      "rec_implies_med_floor"
+      "raw_illegal"
     ],
-    "notes_normalized": "Cannabis is legal in Lithuania / Lietuva. Medical cannabis is limited. Distribution is restricted."
+    "notes_normalized": "Cannabis is illegal in Lithuania / Lietuva. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is legal in Lithuania / Lietuva. Medical cannabis is limited. Distribution is restricted.",
+  "notes_normalized": "Cannabis is illegal in Lithuania / Lietuva. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Lithuania}} Medical cannabis is illegal in Lithuania, but a law allowing seriously ill patients to use drugs made from synthetic cannabinoids was passed by the [[Seimas]] on 11 October 2018.",
   "facts": {
     "possession_limit": null,
@@ -169,26 +181,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "rou",
-        "name": "Romania / România"
-      },
-      {
-        "code": "mda",
-        "name": "Moldova"
-      },
-      {
-        "code": "cze",
-        "name": "Czechia / Česko"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "pol",
         "name": "Poland / Polska"
       },
       {
         "code": "ala",
         "name": "Åland Islands / Åland"
+      },
+      {
+        "code": "fin",
+        "name": "Finland / Suomi"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "svk",
+        "name": "Slovakia / Slovensko"
+      },
+      {
+        "code": "hun",
+        "name": "Hungary / Magyarország"
       }
     ],
     "same_country_states": [],
@@ -196,9 +208,9 @@
   },
   "hashes": {
     "code": "ltu",
-    "content_hash": "609e8f9c95f5cabe7276ea45cc2296251b01f60f7dae3df0d4bbbb071ad12679",
-    "notes_hash": "825ebaa06c8b7d545d475faa19a1732e5fd940c41a9f91749136ebb510a207d8",
-    "model_hash": "15190891916123a8d53ae84286612231e51f0978deb24c1cc6244a570af7da58"
+    "content_hash": "ea3b5db4efb5e791bffa2ceb7562d50635df0396c149a8ee690d03de53590174",
+    "notes_hash": "7053b128ad50a168d33a8689be99e05331e3bd2fe1930ebe9ac4c363b5e160da",
+    "model_hash": "b60e5207d8a6b9d3207bbc8c942693ec82e687fa5c27dd167ed12f7440fc1dae"
   },
   "geo_code": "LT",
   "node_type": "country",

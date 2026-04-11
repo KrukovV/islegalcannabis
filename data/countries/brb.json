@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "restricted",
+      "final_risk": "LIMITED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -194,9 +207,9 @@
   },
   "hashes": {
     "code": "brb",
-    "content_hash": "cd31a5b9a6ff5b09ece8412d0536a57fff049c0d0ef95e2d33cd4f0e91420359",
+    "content_hash": "b68604faf9efea4c71868873741b7981627e3709d939e0177dd3da456d4fcd9a",
     "notes_hash": "4b384b9a4ba7e178bf9d7ac8bc9bb9a51712b7e3d3b0e3f46cd7d81e3e27ac2c",
-    "model_hash": "7f83289e18e9c72ad39f74fe01f2af30ce6d1e2577b1664150fdd665cd987c04"
+    "model_hash": "f0a58541280921d1a37b4522a13219ec150e6e173c503ed5bcddd2d834f010ae"
   },
   "geo_code": "BB",
   "node_type": "country",

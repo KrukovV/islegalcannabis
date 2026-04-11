@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -194,9 +207,9 @@
   },
   "hashes": {
     "code": "swz",
-    "content_hash": "8b37f60adf1220fe3ff3c04d9936ab2eb1b5f78ffd58b7acee52296ded845e98",
+    "content_hash": "ad536f2e017ddb67ea2e7bf14897e0cc71a440d0315956ddc0d19a31acd9e622",
     "notes_hash": "a0181ccdfdf53d6a5202a931fca56934d9cf110763c086a10ce26620205e800f",
-    "model_hash": "e34854935fc83875cdecff8f070de83d3a904710d715214dd127ab61ed7fc607"
+    "model_hash": "9dbaf5dc07dd48ab2180be2f92649be26f5d62d0287f1225efade3dd5dab5fea"
   },
   "geo_code": "SZ",
   "node_type": "country",

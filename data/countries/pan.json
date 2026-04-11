@@ -32,14 +32,27 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "HIGH_RISK",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 2,
         "arrest": true,
         "fine": false,
-        "severity_score": 2
+        "severity_score": 4,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Panama",
@@ -85,17 +98,19 @@
         }
       ],
       "explain": [
+        "rule: penalty_prison | source: MARIJUANA SMOKING IS REPORTED SAFE; Hemp Leaves, Classed in Some States With Drugs, Tested by Canal Zone Committee. EXPERIMENT MADE ON 17 Panaman Judge Recently Gave Sailor a Year's Sentence for Possessing the Weed. | type: reference | priority: 2 | scope: general",
         "rule: penalty_arrest | source: Four Tons of Cocaine Seized and 64 Arrested in Massive Panama Drug Bust | type: reference | priority: 2 | scope: general",
         "no traversal evidence"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
+      "penalty_prison",
       "penalty_arrest"
     ],
-    "notes_normalized": "Cannabis is illegal in Panama / Panamá. Medical cannabis is legal. Distribution is illegal."
+    "notes_normalized": "Cannabis is illegal in Panama / Panamá. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Panama / Panamá. Medical cannabis is legal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Panama / Panamá. Medical cannabis is legal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Panama}}",
   "facts": {
     "possession_limit": null,
@@ -193,9 +208,9 @@
   },
   "hashes": {
     "code": "pan",
-    "content_hash": "82fe6e19d2d2c43ffe28bb9f38c40255091d531a40c1ab415162ad5983c7612a",
-    "notes_hash": "551daba50145ebc3abcc742d33ea7d8532fbfc46fd74630f08b7c35d0c1a36cc",
-    "model_hash": "cc22b244c0e9ebfef04d1c8c69996e10c393ec96ea5294bfeefc28f1ef940861"
+    "content_hash": "8d83db4dbd5e485d33192e2cf4892dd10d9f1eada10d9d35a1b0eed55e460df9",
+    "notes_hash": "16b5e51439301047d57486b9e3de3368ad6570095592179f7d4163576b14264c",
+    "model_hash": "4f20e00fc6cd8699685934b0adfe31af26a0478de3119cf8fd2e61963059ab6d"
   },
   "geo_code": "PA",
   "node_type": "country",

@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -194,9 +207,9 @@
   },
   "hashes": {
     "code": "grd",
-    "content_hash": "3ec7aef16bab9ad6aa906b063f44ebd17a9293848b425b736ca9bfa242e3b5b1",
+    "content_hash": "2686ca31e2168c76efa5e70c9bb576b98bdac373a96213a28f23657f85af3274",
     "notes_hash": "a70335c7ae621bd114c280a78215927ee733f9eebde29a2c7fc5480aaefd5c8c",
-    "model_hash": "f1760649c142f44bf7af5abbf2d7c9bd378a593b550699bd37d3e12a28bddbf3"
+    "model_hash": "1a7ffbafa4b1eadd1c1dc4bc2a0bc29e0ce893ecb3c0e8d52801414125db08ca"
   },
   "geo_code": "GD",
   "node_type": "country",

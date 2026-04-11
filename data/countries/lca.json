@@ -32,12 +32,25 @@
     },
     "signals": {
       "status": "restricted",
+      "final_risk": "LIMITED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -168,9 +181,9 @@
   },
   "hashes": {
     "code": "lca",
-    "content_hash": "92213254dc5fa03a6f9a5177ec2b02da193666ded75d271afc2ead0be67a8a11",
+    "content_hash": "c7d627674e86ad2fea5929e97598b648b82bf2e2de25fbeced6aa6ffb1b38bde",
     "notes_hash": "83068061f3b552cf968312e6bfdd4a2e41e81d85a8d79c0c83b0f941559889cb",
-    "model_hash": "d97d54dfdd1a132347f0c24e081f1d790b3ad11a15d28768ea318061d3a0876a"
+    "model_hash": "29274d46a2a9f401a33fc81f63d8135fee38112712201e467d99536b11a01d10"
   },
   "geo_code": "LC",
   "node_type": "country",

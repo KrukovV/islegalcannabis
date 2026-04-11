@@ -37,13 +37,26 @@
       ]
     },
     "signals": {
-      "status": "mixed",
+      "status": "illegal",
+      "final_risk": "HIGH_RISK",
       "penalties": {
         "prison": true,
         "prison_priority": 1,
         "arrest": false,
         "fine": true,
-        "severity_score": 4
+        "severity_score": 4,
+        "possession": {
+          "prison": true,
+          "arrest": false,
+          "fine": true,
+          "severe": true
+        },
+        "trafficking": {
+          "prison": true,
+          "arrest": false,
+          "fine": true,
+          "severe": true
+        }
       },
       "confidence": "high",
       "sources": [
@@ -94,9 +107,11 @@
         "rule: penalty_prison | source: Japan / 日本 | type: summary | priority: 1 | scope: possession",
         "rule: penalty_fine | source: Japan / 日本 | type: summary | priority: 1 | scope: possession",
         "rule: penalty_years | source: Japan / 日本 | type: summary | priority: 1 | scope: possession",
+        "rule: penalty_criminal_offense | source: Japan / 日本 | type: summary | priority: 1 | scope: possession",
         "rule: penalty_prison | source: Japan / 日本 | type: summary | priority: 1 | scope: trafficking",
         "rule: penalty_fine | source: Japan / 日本 | type: summary | priority: 1 | scope: trafficking",
         "rule: penalty_years | source: Japan / 日本 | type: summary | priority: 1 | scope: trafficking",
+        "rule: penalty_criminal_offense | source: Japan / 日本 | type: summary | priority: 1 | scope: trafficking",
         "rule: trafficking_illegal | source: Japan / 日本 | type: summary | priority: 1 | scope: trafficking",
         "rule: sale_illegal | source: Japan / 日本 | type: summary | priority: 1 | scope: trafficking",
         "no traversal evidence"
@@ -109,12 +124,13 @@
       "penalty_prison",
       "penalty_fine",
       "penalty_years",
+      "penalty_criminal_offense",
       "trafficking_illegal",
       "sale_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Japan / 日本. Medical cannabis is illegal. Distribution is mixed. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Japan / 日本. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Japan / 日本. Medical cannabis is illegal. Distribution is mixed. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Japan / 日本. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Japan}} Restricted in 1948.<ref name=\"ShikitaTsuchiya2012\">{{cite book|author1=Minoru Shikita|author2=Shinichi Tsuchiya|title=Crime and Criminal Policy in Japan: Analysis and Evaluation of the Showa Era, 1926–1988|url=https://books.google.com/books?id=9pHfBwAAQBAJ&pg=PA13|date=6 December 2012|publisher=Springer Science & Business Media|isbn=978-1-4612-2816-5|pages=13–}}</ref> Use and possession are punishable by up to 5 years imprisonment and a fine. Cultivation, sale, and transport are punishable by 7–10 years imprisonment and a fine.<ref>{{citation |url = http://www.japanhemp.org/en/taimalaw.htm |title = Cannabis Control Law |publisher = japanhemp.org |access-date = 4 August 2015 |archive-date = 17 May 2020 |archive-url = https://web.archive.org/web/20200517153638/http://www.japanhemp.org/en/taimalaw.htm |url-status = live }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -212,9 +228,9 @@
   },
   "hashes": {
     "code": "jpn",
-    "content_hash": "abf10be4898af02b10367cb9097beb86a38b5192dbf701873f5d1bd2491bfb98",
-    "notes_hash": "17729f0982fe318bd9f705eaa23d521b5a5ef6bdd8db1aba4e239852199ac37d",
-    "model_hash": "6aa26310cb79ae1d536be1185c77b9b04f4d84e99c92dd233de87826b9fa297d"
+    "content_hash": "12d72a07cea483c15e3c098fda0fbf5a87f53a62b423a38fb52f04fd6727d4d3",
+    "notes_hash": "51d2bf04605ee687ed3abbc6ce70456da90381bab5f16488933d86c7aadfdf38",
+    "model_hash": "b134a69319beb390600baf367a71c5b65fb1dcc3813a409ce50d2dd5a8d5a699"
   },
   "geo_code": "JP",
   "node_type": "country",

@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "restricted",
+      "final_risk": "LIMITED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -194,9 +207,9 @@
   },
   "hashes": {
     "code": "bmu",
-    "content_hash": "634d3f384180551ca2d0e1984711857d4dde62bb0464b940419e38dc8e14a613",
+    "content_hash": "594c16ca02c10b5c309df55b9efd2ccd24abafd7c36a03b7ce171472363ad68b",
     "notes_hash": "305c6d964cb09a248828591d2ef57749c47c744083866418c3e7e72e0a4da282",
-    "model_hash": "4129b4b34d7928165edc3cefa14a5c6fe4da600c2a7e8e916472d20e367e9944"
+    "model_hash": "5a90444f2caf97a5773e84562174c474d57c8332a116781d155b15ca4ed116d3"
   },
   "geo_code": "BM",
   "node_type": "country",

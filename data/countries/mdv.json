@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -176,9 +189,9 @@
   },
   "hashes": {
     "code": "mdv",
-    "content_hash": "323cf250ac4f96319a9ac3ad3b954388e78651c94b584dcc379be7a71a5f6165",
+    "content_hash": "554059937105d5bb73ea39704a531e36dfe91af10eb9e9916661c61b54304123",
     "notes_hash": "c006687d7b36aa45333a4599a5d5a5934496fc3730c2f167da7de289dae1e831",
-    "model_hash": "09db74b92640f4a8801c985d180fbb85a1acd7583277eda99e6838311c75cfc0"
+    "model_hash": "4871ec1b7775ef0026f94c6f77a40668761603d3d669bba5d0cab699d65ff465"
   },
   "geo_code": "MV",
   "node_type": "country",

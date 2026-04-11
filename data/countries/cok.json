@@ -32,12 +32,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -181,9 +194,9 @@
   },
   "hashes": {
     "code": "cok",
-    "content_hash": "f87c23e3ae8e33f03ebecf9cd90f9148ec565a11bd6b1bf96f6498f0687b8b16",
+    "content_hash": "1bf09fe7ca77580bcb00918d76f3f6939e7d57b018209b4dad86915e6985944c",
     "notes_hash": "f206341d13f35269325f7829ba7f557fc6725fdd14b5d7abc6ef2a98432ebabf",
-    "model_hash": "1f09a72a251fa38d2b064b512de65ee8307b28f28d1694c9e074628e49343866"
+    "model_hash": "1275502d1509208c0c13617c4fc9c2469ce6caaae5e150b657c4578737694bdf"
   },
   "geo_code": "CK",
   "node_type": "country",

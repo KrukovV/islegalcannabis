@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "regulated",
+      "final_risk": "LIMITED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "high",
       "sources": [
@@ -202,9 +215,9 @@
   },
   "hashes": {
     "code": "chl",
-    "content_hash": "6a12d510ecfcc20dbe23414b9534413d9f39d6181e34141409c2bba851183922",
+    "content_hash": "5c9c16ce36f914a8ada189c9c6b32030ae129a9b06ade712eb181b299e20e1df",
     "notes_hash": "0fb9e2027a8491a8c8a8745e797bc8f538d92c04ff5146e721aacc324183dcdf",
-    "model_hash": "55ea75c1fe6c96f37ccc64f1726aee478558a5e27854056c22ac404c6f1167d8"
+    "model_hash": "788704251954f959a2c36187a21eb219bbc4a7084721349122f7755c03128952"
   },
   "geo_code": "CL",
   "node_type": "country",

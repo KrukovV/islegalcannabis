@@ -32,12 +32,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -79,13 +92,14 @@
         }
       ],
       "explain": [
+        "rule: raw_illegal | source: Botswana | type: summary | priority: 1 | scope: general",
         "rule: illegal | source: Botswana | type: summary | priority: 1 | scope: general",
         "no traversal evidence"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Botswana. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -160,22 +174,22 @@
     ],
     "legal_similarity": [
       {
+        "code": "lso",
+        "name": "Lesotho"
+      },
+      {
         "code": "swz",
         "name": "Eswatini"
       },
       {
         "code": "zmb",
         "name": "Zambia"
-      },
-      {
-        "code": "ago",
-        "name": "Angola"
       }
     ],
     "cluster_links": [
       {
-        "code": "lso",
-        "name": "Lesotho"
+        "code": "ago",
+        "name": "Angola"
       },
       {
         "code": "moz",
@@ -187,9 +201,9 @@
   },
   "hashes": {
     "code": "bwa",
-    "content_hash": "7efda43463eff7ce8966e20be578e6214f738f44bc9444401ea26fad801735eb",
+    "content_hash": "dc1bd6a9ea5e8e1f5de52efe4ab9e06d8a951d4a17b94840f45bb07dfc5c6343",
     "notes_hash": "9feffd55e2541d0b4d6749635736d5260bf8e60010d039dcd76d51d8320a8a06",
-    "model_hash": "6092da8f7dcb4726f99c9d07d04e2380967b7bd721b99cc6c4bc2bec4eb0f225"
+    "model_hash": "e5c3542d487b0151c9017a5cad1dd28e45efe27ef5818b73b7e40c74d1839605"
   },
   "geo_code": "BW",
   "node_type": "country",

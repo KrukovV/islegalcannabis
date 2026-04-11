@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -170,9 +183,9 @@
   },
   "hashes": {
     "code": "stp",
-    "content_hash": "66f3b30458f5f8ddbfd86454aaffc2f7b9673f3cc0ccd2a66704eff8f837550a",
+    "content_hash": "fa991c3a7a2662b4e4fe02c65e19cd69c5b7df826349a788c84f2372ed20e0a1",
     "notes_hash": "542cec5ccb9e02af28c6647ab82b49170839e1011d8edbf51a5e60de5e9e9637",
-    "model_hash": "6422281f9fc12b7b733bb0833bc2d78557a63f2bda192499039661a171364e0b"
+    "model_hash": "73f58e97d60704bdabf528622f765457a2a8d3ebc4cc257de8e171b4bee909ca"
   },
   "geo_code": "ST",
   "node_type": "country",

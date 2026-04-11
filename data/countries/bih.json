@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -195,9 +208,9 @@
   },
   "hashes": {
     "code": "bih",
-    "content_hash": "8481963c8741149cdd952ae59f1eaeb9997266d4f7db839ba76a87ae3da063d0",
+    "content_hash": "d1bbef7b18ff39f7b3f61959bedb88058aa1612e7dc7e3074ae436bd573b161a",
     "notes_hash": "d321b095b67c333e2269e008fd48c59ce91aa4357c4ce0d40d9bddf76177ae42",
-    "model_hash": "3bf7f3cf3e3ef54b6f8727c112ffc97cc5d9c0ab5b4df3fd246d5077a847e32a"
+    "model_hash": "e54bdbe84fd82d8acecd0598cf9ffdebd6676e976c1e298a44e953f1f5c8e6ad"
   },
   "geo_code": "BA",
   "node_type": "country",

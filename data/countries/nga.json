@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -165,18 +178,18 @@
         "name": "Togo"
       },
       {
-        "code": "stp",
-        "name": "São Tomé and Príncipe / São Tomé e Príncipe"
+        "code": "gnq",
+        "name": "Equatorial Guinea / Guinée équatoriale"
       },
       {
-        "code": "gha",
-        "name": "Ghana"
+        "code": "stp",
+        "name": "São Tomé and Príncipe / São Tomé e Príncipe"
       }
     ],
     "cluster_links": [
       {
-        "code": "gnq",
-        "name": "Equatorial Guinea / Guinée équatoriale"
+        "code": "gha",
+        "name": "Ghana"
       },
       {
         "code": "bfa",
@@ -188,9 +201,9 @@
   },
   "hashes": {
     "code": "nga",
-    "content_hash": "3481de61b5bcd1716e9aa53da5eb4fd875e07990c9f1270cd74a15303f5805b4",
+    "content_hash": "3f52219faf487995699b6a645508c22916690d0c22c53ff7b6d45e2af5d51e57",
     "notes_hash": "08e3614e5c9ae4e796c3659e40443fcce645d69b1f023d453d2f4a3cc880b0f9",
-    "model_hash": "c0edc18b15a1fc61de6b30f9119d906229ec512df89139c095a31b55d052260e"
+    "model_hash": "a93963e085dfb892c27a0313e12a101c2c056a444e4c5bde1a7800375b843dca"
   },
   "geo_code": "NG",
   "node_type": "country",

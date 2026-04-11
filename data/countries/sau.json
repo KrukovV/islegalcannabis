@@ -36,13 +36,26 @@
       ]
     },
     "signals": {
-      "status": "mixed",
+      "status": "illegal",
+      "final_risk": "HIGH_RISK",
       "penalties": {
         "prison": true,
         "prison_priority": 1,
         "arrest": false,
         "fine": false,
-        "severity_score": 4
+        "severity_score": 4,
+        "possession": {
+          "prison": true,
+          "arrest": false,
+          "fine": false,
+          "severe": true
+        },
+        "trafficking": {
+          "prison": true,
+          "arrest": false,
+          "fine": false,
+          "severe": true
+        }
       },
       "confidence": "high",
       "sources": [
@@ -85,6 +98,7 @@
       ],
       "explain": [
         "rule: penalty_prison | source: Saudi Arabia / السعودية | type: summary | priority: 1 | scope: possession",
+        "rule: penalty_criminal_offense | source: Saudi Arabia / السعودية | type: summary | priority: 1 | scope: possession",
         "rule: penalty_prison | source: Saudi Arabia / السعودية | type: summary | priority: 1 | scope: use",
         "rule: penalty_prison | source: Saudi Arabia / السعودية | type: summary | priority: 1 | scope: trafficking",
         "rule: import_illegal | source: Saudi Arabia / السعودية | type: summary | priority: 1 | scope: trafficking",
@@ -95,12 +109,13 @@
     "enforcement_flags": [],
     "applied_rules": [
       "penalty_prison",
+      "penalty_criminal_offense",
       "import_illegal",
       "trafficking_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Saudi Arabia / السعودية. Medical cannabis is illegal. Distribution is mixed. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Saudi Arabia / السعودية. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Saudi Arabia / السعودية. Medical cannabis is illegal. Distribution is mixed. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Saudi Arabia / السعودية. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Saudi Arabia}} Use and possession for personal use of any kind of recreational drugs is punishable by imprisonment if caught. Imprisonment for personal use can entail jail time of six months or more. Dealing and smuggling high amounts of drugs usually result in harsher prison time or even execution, although recently executions have been rare. Foreigners who use drugs might be deported.<ref>{{citation|url=https://travel.state.gov/travel/cis_pa_tw/cis/cis_1012.html |title=International Travel – Saudi Arabia |publisher=[[Bureau of Consular Affairs]] |access-date=17 February 2011 |url-status=dead |archive-url=https://web.archive.org/web/20131211183846/http://travel.state.gov/travel/cis_pa_tw/cis/cis_1012.html |archive-date=11 December 2013 }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -175,18 +190,18 @@
         "name": "Iraq / العراق"
       },
       {
-        "code": "yem",
-        "name": "Yemen / اليمن"
+        "code": "are",
+        "name": "United Arab Emirates / الإمارات"
       },
       {
-        "code": "irn",
-        "name": "Iran / ایران"
+        "code": "yem",
+        "name": "Yemen / اليمن"
       }
     ],
     "cluster_links": [
       {
-        "code": "are",
-        "name": "United Arab Emirates / الإمارات"
+        "code": "irn",
+        "name": "Iran / ایران"
       },
       {
         "code": "jor",
@@ -198,9 +213,9 @@
   },
   "hashes": {
     "code": "sau",
-    "content_hash": "f37eab8eac3ad8e981a2eaac48fd816a95d24064f6ded15d0e7a484b40090012",
-    "notes_hash": "f263b88f740b725eb9a3c1e3b69d2a5ed4f3784b69b1dbc677f0b7b8414af3c6",
-    "model_hash": "9ab73bd70065bcb77d89791cd1e8f67a13c1e3b7485a48e6e8241615b3b9c01c"
+    "content_hash": "25229c158074b694edf089d0d9db44f846f00c66335448b0a8e0ca6314f94487",
+    "notes_hash": "0a1fb0fbaf0f647976d8db8de27b3bf3fd0c79ab7079af9691309894536fef25",
+    "model_hash": "22a4b3e44089a3ca17dbc78063c80d004afe2fbf789b3536944736889247a6c9"
   },
   "geo_code": "SA",
   "node_type": "country",

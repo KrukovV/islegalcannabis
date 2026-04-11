@@ -36,12 +36,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -169,22 +182,22 @@
     ],
     "legal_similarity": [
       {
+        "code": "dza",
+        "name": "Algeria / الجزائر"
+      },
+      {
         "code": "esh",
         "name": "Western Sahara / الصحراء الغربية"
       },
       {
         "code": "and",
         "name": "Andorra"
-      },
-      {
-        "code": "mrt",
-        "name": "Mauritania / موريتانيا"
       }
     ],
     "cluster_links": [
       {
-        "code": "dza",
-        "name": "Algeria / الجزائر"
+        "code": "mrt",
+        "name": "Mauritania / موريتانيا"
       },
       {
         "code": "tun",
@@ -196,9 +209,9 @@
   },
   "hashes": {
     "code": "mar",
-    "content_hash": "46dbc2153b268feb64f3afedebca92dbd91818331fa7a80110cd717b9ad287a1",
+    "content_hash": "8f92c4757a7d9a8216b983f2690986feaf0faea83c6d232dca3e8c9123cf4d2a",
     "notes_hash": "dba651ab562317aa41a092cda7e7ba51d7bec10d1c064b9fca070cd932647f38",
-    "model_hash": "0094155783de57d45f912ed2f30830c4d2601e62afcefee428c7c58107a82e53"
+    "model_hash": "9374d226c701464cd99ae492c1307513f0236c38ca45ea92479d6dbf8a75fc06"
   },
   "geo_code": "MA",
   "node_type": "country",

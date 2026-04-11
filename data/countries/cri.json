@@ -32,12 +32,25 @@
     },
     "signals": {
       "status": "restricted",
+      "final_risk": "LIMITED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -86,7 +99,6 @@
       ],
       "explain": [
         "rule: possession_decriminalized | source: Costa Rica | type: summary | priority: 1 | scope: possession",
-        "rule: legal | source: Costa Rica legalized therapeutic marijuana | type: reference | priority: 2 | scope: general",
         "no traversal evidence"
       ]
     },
@@ -175,8 +187,8 @@
         "name": "Jamaica"
       },
       {
-        "code": "cub",
-        "name": "Cuba"
+        "code": "col",
+        "name": "Colombia"
       }
     ],
     "cluster_links": [
@@ -194,9 +206,9 @@
   },
   "hashes": {
     "code": "cri",
-    "content_hash": "8ca61c1dfb146b1e419a63446f909b3f83e0480c792edd2c95ef3f17c5f113e3",
+    "content_hash": "d3dfe2fc5a049b10238fa58affb2f410b14711837f1b1e883ea43e3774891159",
     "notes_hash": "61c87e228c6afa46edcbb7b1d558162aa70bef02fcc488183be558f394751a65",
-    "model_hash": "afd3021a5d6a9906cbc9f93a760c7c467299079aad6e058467190fadaff905c6"
+    "model_hash": "76f55f0c2bd7e88bf4562cff9ba26369111708f0dba7ce4db6d6a187cb3b55b7"
   },
   "geo_code": "CR",
   "node_type": "country",

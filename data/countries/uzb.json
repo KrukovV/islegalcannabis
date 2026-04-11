@@ -32,12 +32,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -61,13 +74,14 @@
         }
       ],
       "explain": [
+        "rule: raw_illegal | source: Uzbekistan / Узбекистан | type: summary | priority: 1 | scope: cultivation",
         "rule: illegal | source: Uzbekistan / Узбекистан | type: summary | priority: 1 | scope: cultivation",
         "no traversal evidence"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Uzbekistan / Узбекистан. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -169,9 +183,9 @@
   },
   "hashes": {
     "code": "uzb",
-    "content_hash": "45ad9829c7a4a8f63e07940a9bc69267c9ff9ff6db75b2d944a6c1a706c8500a",
+    "content_hash": "cee36730d6f0ad37a035bbd716f92be482cc07ab6a34e5cff4ed910431722e69",
     "notes_hash": "4c9c6090e178fce62dfdeef82c0c7156118cf234bfb4a049a970371598a691f8",
-    "model_hash": "cdbc9a5e03e5d45ac68b9b866de75693b93b1f0f94baa6f41136e21cd509a53c"
+    "model_hash": "68abc82d2d415222eab27a385f4c8b88a2b14e1686cdba7167be415bfb26979e"
   },
   "geo_code": "UZ",
   "node_type": "country",

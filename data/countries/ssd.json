@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -170,9 +183,9 @@
   },
   "hashes": {
     "code": "ssd",
-    "content_hash": "cd201e29da81ae8c513dc2f86735b117f9d87e779b1988627b83161965e213ec",
+    "content_hash": "1064d8286aa72819a014dc7446f814374c52e42b5e3a291c201547e2790159f8",
     "notes_hash": "99cebe598f23f2d95f3f865ee4621a2c139b56aa07ae49b39f9bd441366c919b",
-    "model_hash": "eba51ef1f44e339013f75674ec829756a2556fc6246ccac3073c89d13c466d30"
+    "model_hash": "ef0ded77a26d5bf8a4480ae82c594355830bd2108dcf76527c7854da322f925f"
   },
   "geo_code": "SS",
   "node_type": "country",

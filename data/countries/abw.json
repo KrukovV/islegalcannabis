@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "low",
       "sources": [
@@ -151,9 +164,9 @@
   },
   "hashes": {
     "code": "abw",
-    "content_hash": "d8c310cb3fc8d17ec4ccba1be58152995068879073c6efc551a37bc49b670252",
+    "content_hash": "04ce382c831282e1b05a56e297e19419686d69b74a1e78df854a8a23484affa4",
     "notes_hash": "4816523bd30d7fd2f2c57436f3125e6e15aded1b3bda6d4ffc8bacd1ab98106a",
-    "model_hash": "cc794b86af7cb1b048e9035db518d57674e89385fe57a7bf075ccbf9a368e379"
+    "model_hash": "ba3e891a6a024b208685969ed95a5064f3190b69fb946cc4bd4ef765ce9fea44"
   },
   "geo_code": "AW",
   "node_type": "country",

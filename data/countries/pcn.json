@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "low",
       "sources": [
@@ -151,9 +164,9 @@
   },
   "hashes": {
     "code": "pcn",
-    "content_hash": "1880b5c98ec929a312e8fbd9c4a98d31d9defeb16015ead4cdf223e57c3aa514",
+    "content_hash": "51520409a036b8dbd5dab5e6a4e83206d1719107567f7a8fa3e2e8c201c3ee2a",
     "notes_hash": "16d3ae036a4df26e59c2d02c45c12ce11d5925983e1aec3eaec14df3d1a0c8ad",
-    "model_hash": "1afc8fa233e1c3691e707edc70950f994d57d53d9ac138b74c3210597220e019"
+    "model_hash": "a5c73dae0942b0927729c7f65e02139c45296d160d604ce573321623c50997e5"
   },
   "geo_code": "PN",
   "node_type": "country",

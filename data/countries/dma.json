@@ -32,12 +32,25 @@
     },
     "signals": {
       "status": "restricted",
+      "final_risk": "LIMITED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -192,9 +205,9 @@
   },
   "hashes": {
     "code": "dma",
-    "content_hash": "9f6a056b26b109ca55dc7ef8902bccb34af902a0308b44ae28ff8b158313d040",
+    "content_hash": "306b4c8daebfa19f418734f62aada59eb4b0d58d85f7b12412742f589e868a71",
     "notes_hash": "d3649a604bb24f62eeb8f6acd7bdc6dbaafb60dd9008d20e0bcbab7fadc3235e",
-    "model_hash": "c417816e72c1100d13394c16fb39ea6e80b6e38291da8aff62207c134106d8bf"
+    "model_hash": "76b919535d899ec4bb48a5a1449f37830348e13e5c47637b4c2ff3c20a41df40"
   },
   "geo_code": "DM",
   "node_type": "country",

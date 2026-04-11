@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "low",
       "sources": [
@@ -151,9 +164,9 @@
   },
   "hashes": {
     "code": "imn",
-    "content_hash": "8c9020c051598967260b91dcd7d682c58462cf1c34da11e91050007f74190f03",
+    "content_hash": "11cc41d4db53d45bb6804cbc3e781175cfc7e6deecbd83719221dc70f4a5ae33",
     "notes_hash": "b8c881f6f4dfed1356d3052f02b0757a0235565a312954df8c054faf39f3a120",
-    "model_hash": "c8630cae42a12f5f1f4190171e1c65bcbea82f07137e8918482ff9b209aedd12"
+    "model_hash": "c2afa096865de4e8e16803d558d1473070ee05ce1aca2ff431aea00677d6d80d"
   },
   "geo_code": "IM",
   "node_type": "country",

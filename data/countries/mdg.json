@@ -5,39 +5,54 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "LIMITED",
-      "enforcement": "MODERATE",
-      "scope": "MEDICAL_ONLY",
-      "override_reason": "rec_implies_med_floor"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
-        "use": "restricted",
+        "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [],
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
       "modifiers": []
     },
     "signals": {
-      "status": "restricted",
+      "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -85,18 +100,16 @@
         }
       ],
       "explain": [
-        "rule: legal | source: Legal status of cannabis in Madagascar - Cannaconnection.com | type: reference | priority: 2 | scope: general",
         "no traversal evidence"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "legal",
-      "rec_implies_med_floor"
+      "distribution_fallback_illegal"
     ],
-    "notes_normalized": "Cannabis is legal in Madagascar / Madagasikara. Medical cannabis is limited. Distribution is restricted."
+    "notes_normalized": "Cannabis is illegal in Madagascar / Madagasikara. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is legal in Madagascar / Madagasikara. Medical cannabis is limited. Distribution is restricted.",
+  "notes_normalized": "Cannabis is illegal in Madagascar / Madagasikara. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Madagascar}}",
   "facts": {
     "possession_limit": null,
@@ -167,26 +180,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "zwe",
-        "name": "Zimbabwe"
-      },
-      {
-        "code": "lso",
-        "name": "Lesotho"
-      },
-      {
-        "code": "zaf",
-        "name": "South Africa / Sewula Afrika"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "mwi",
         "name": "Malawi / Malaŵi"
       },
       {
         "code": "swz",
         "name": "Eswatini"
+      },
+      {
+        "code": "zwe",
+        "name": "Zimbabwe"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "zmb",
+        "name": "Zambia"
+      },
+      {
+        "code": "tza",
+        "name": "Tanzania"
       }
     ],
     "same_country_states": [],
@@ -194,9 +207,9 @@
   },
   "hashes": {
     "code": "mdg",
-    "content_hash": "f2709fbf4454701bcacab11ae73b166f0c70afd15c291ee00343e6440cac4af7",
-    "notes_hash": "98ca9a89d0af4584ac32f17c896a2dcaf4aa11cdde190695d76b5483db689c0b",
-    "model_hash": "7aa1c9dd18efe4167acaab52e1300e422b12126795e009c48a91a7dd96aa3477"
+    "content_hash": "a859a2ddd0f1ce67335fbc96523461a1575daf850195b33d9f5d6b874f8ad27e",
+    "notes_hash": "13efb8f150d5f45345af69dbca0e836ce03f4e49943972f6c906e65236f21cbe",
+    "model_hash": "1d465522fc5064a954e8f76bfa0f70fd7ad90ff9d239d11c818cd6cc2aa844f9"
   },
   "geo_code": "MG",
   "node_type": "country",

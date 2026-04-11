@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -170,9 +183,9 @@
   },
   "hashes": {
     "code": "mac",
-    "content_hash": "f19853a1b075a9077c0747806bcc66aa3dad16d40d128ad1c1fe30d00fd99c24",
+    "content_hash": "53f3143c9a1ecc447c67e3d60aa15fb84133cbb79dfdbea811ca5f1f99e69f02",
     "notes_hash": "c6e0fe455944aef1a97fe51c11e1cfd42fac0c7b5f0e72e79b7fb8e43c9fa536",
-    "model_hash": "ddf036d8baef6348acf44b485a997f89e78063dc76f714b2fd8b4d8ce5db8c74"
+    "model_hash": "3f642a1bf16412edd56e78527eb9abe654f56a7ecce5474e0f680769535d41d2"
   },
   "geo_code": "MO",
   "node_type": "country",

@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -147,22 +160,22 @@
         "name": "Norfolk Island / Norf'k Ailen"
       },
       {
-        "code": "nru",
-        "name": "Nauru"
-      },
-      {
-        "code": "nzl",
-        "name": "New Zealand / Aotearoa"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "slb",
         "name": "Solomon Islands"
       },
       {
+        "code": "nru",
+        "name": "Nauru"
+      }
+    ],
+    "cluster_links": [
+      {
         "code": "kir",
         "name": "Kiribati"
+      },
+      {
+        "code": "nzl",
+        "name": "New Zealand / Aotearoa"
       }
     ],
     "same_country_states": [],
@@ -170,9 +183,9 @@
   },
   "hashes": {
     "code": "fji",
-    "content_hash": "9852842c411c9bb4eee7616c6e224dc3d03786d30af56c478e4960a9bcee41e8",
+    "content_hash": "83c44199460f4112a8601a5a03cfff33311f3785403fc63a34c4437f40b110c1",
     "notes_hash": "6438cb400f9b44b053194897de6e8fefbedbffc30ba0d5977420695596753789",
-    "model_hash": "1e895fb06c5fed29e5784cd74349e41395b2f3e585da0c5c013d115f07620791"
+    "model_hash": "3119892cb4aafde8e2dc5895159895261695d839ea4dd94ff84d73b599f0aadf"
   },
   "geo_code": "FJ",
   "node_type": "country",

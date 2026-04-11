@@ -32,12 +32,25 @@
     },
     "signals": {
       "status": "restricted",
+      "final_risk": "LIMITED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -147,16 +160,16 @@
     ],
     "legal_similarity": [
       {
-        "code": "mkd",
-        "name": "North Macedonia / Македонија"
+        "code": "est",
+        "name": "Estonia / Eesti"
       },
       {
-        "code": "ltu",
-        "name": "Lithuania / Lietuva"
+        "code": "hrv",
+        "name": "Croatia / Hrvatska"
       },
       {
-        "code": "grc",
-        "name": "Greece / Ελλάδα"
+        "code": "cze",
+        "name": "Czechia / Česko"
       }
     ],
     "cluster_links": [
@@ -174,9 +187,9 @@
   },
   "hashes": {
     "code": "mda",
-    "content_hash": "39c5dd96c2f3b5a7c1f4446e31ce356ef43df9420fbd4cac67b9603d7da7a572",
+    "content_hash": "281b913c7158d3f1e2c125f5266c5e555e740da711edb626f8fddd007d347455",
     "notes_hash": "0ca1fd530c6565e4057fe9230b2d3229b0fee0af962a48369d9904608ff3ed54",
-    "model_hash": "c88b0e036c1933fd8b0c0478623b0e395494314748ee4ab2c50007f0d9b04895"
+    "model_hash": "f52e9429d4a967f18b958cc86df079a7ad150c5da7dd599de6972b87e89aa160"
   },
   "geo_code": "MD",
   "node_type": "country",

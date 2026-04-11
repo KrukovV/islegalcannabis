@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "low",
       "sources": [
@@ -151,9 +164,9 @@
   },
   "hashes": {
     "code": "wlf",
-    "content_hash": "248720c751108a55ecc96d5f7ecd5e4912c9b14bb90869a35250c4c10d5f2e3b",
+    "content_hash": "0609bbec91b80aa25bb7f5609003dfa4ae60185e187f2557ca4c48d5d9be7e26",
     "notes_hash": "4580151da812b8eac19f531183a20e46a1a1230b164c2b50f14d14209c1261ae",
-    "model_hash": "c5a1e71ae327e0489d9cb224f0a79cdb504b8c4735b9116443815579ea64cab2"
+    "model_hash": "5cfced1d9a3190edb8c142838308067a66b4a385775dc168a41090cd3261a7ca"
   },
   "geo_code": "WF",
   "node_type": "country",

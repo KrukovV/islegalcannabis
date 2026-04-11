@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -170,9 +183,9 @@
   },
   "hashes": {
     "code": "and",
-    "content_hash": "b06d306799e95fbee92baea643e58f1e3b34eda7fb2755e45878dcaf8869f56f",
+    "content_hash": "42c979cd2ec558a2236d154de534def85eba10c911dfb226d483252f2e96270b",
     "notes_hash": "0c80a8e0b72519e76aa8b9c29390115d4cc33fe27d5f9c7757daac576ad86893",
-    "model_hash": "e8d4cea41db31d42b349250dc2716750cb4acecb3af2119f77f5b27acac67b7b"
+    "model_hash": "b632fe8e0e8db2b7d582c135e5b817a5942d809270be4fa79e16c6ade6608aa4"
   },
   "geo_code": "AD",
   "node_type": "country",

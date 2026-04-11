@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "low",
       "sources": [
@@ -151,9 +164,9 @@
   },
   "hashes": {
     "code": "ala",
-    "content_hash": "d89d688aecc4d2e74d0a89525fdd9b236277290b190ef59a331e927ca4fb3950",
+    "content_hash": "2b0ce2bb7c83034ada87d5082922ece7849b3fff41dbe1ad20f21eaf6e716e03",
     "notes_hash": "ce3f0432775bf23e4c65d6be21f49c9e38339d6f94b134fdd2b5c3121392b3ae",
-    "model_hash": "9b22817b4a1747b3410e88a3a7f865200f31dfd47a19083d8032318d591e8519"
+    "model_hash": "8f203251427c9df403e35f5ac85a8f41d4c570cf95f90914b6d23411e919c888"
   },
   "geo_code": "AX",
   "node_type": "country",

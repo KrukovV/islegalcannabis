@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -170,9 +183,9 @@
   },
   "hashes": {
     "code": "lao",
-    "content_hash": "4aabaa23f5ea6dd1f931623b1f98c77786a2d6151094274c97a0743984f8442d",
+    "content_hash": "71cb91f384dcccd9f808fbffe3c7238332eb7be3068675b771956757dd97c662",
     "notes_hash": "c7a2938425f1494b70f3f89db6511cf9725d1a13c485fb4e7801e2452299d04b",
-    "model_hash": "6f26e98e3514589a91e19cd07a225f97b229623f43175c0f517c727a5176ced3"
+    "model_hash": "4cc8c6070003d7f83035aa4f5962236593e15c7ea69056ac99bdcde9578022b0"
   },
   "geo_code": "LA",
   "node_type": "country",

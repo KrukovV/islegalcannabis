@@ -5,39 +5,54 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "LIMITED",
-      "enforcement": "MODERATE",
-      "scope": "MEDICAL_ONLY",
-      "override_reason": "rec_implies_med_floor"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
-        "use": "restricted",
+        "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [],
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
       "modifiers": []
     },
     "signals": {
-      "status": "restricted",
+      "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -85,18 +100,16 @@
         }
       ],
       "explain": [
-        "rule: legal | source: Legal status of cannabis in Timor-Leste (East Timor) - Cannaconnection.com | type: reference | priority: 2 | scope: general",
         "no traversal evidence"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "legal",
-      "rec_implies_med_floor"
+      "distribution_fallback_illegal"
     ],
-    "notes_normalized": "Cannabis is legal in Timor-Leste / Timór-Leste. Medical cannabis is limited. Distribution is restricted."
+    "notes_normalized": "Cannabis is illegal in Timor-Leste / Timór-Leste. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is legal in Timor-Leste / Timór-Leste. Medical cannabis is limited. Distribution is restricted.",
+  "notes_normalized": "Cannabis is illegal in Timor-Leste / Timór-Leste. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Timor-Leste}}",
   "facts": {
     "possession_limit": null,
@@ -171,12 +184,12 @@
         "name": "Palau / Belau"
       },
       {
-        "code": "slb",
-        "name": "Solomon Islands"
+        "code": "aus",
+        "name": "Australia"
       },
       {
-        "code": "tha",
-        "name": "Thailand / ประเทศไทย"
+        "code": "png",
+        "name": "Papua New Guinea / Papua Niu Gini"
       }
     ],
     "cluster_links": [
@@ -194,9 +207,9 @@
   },
   "hashes": {
     "code": "tls",
-    "content_hash": "120124a88f141b3b6dfa0f7ea11f7db7cb85f5058b1bc224072dd7f5a73707e0",
-    "notes_hash": "4540aa76c11db04d41d7dddbc1ffdc4e542f154e3792de948e9b3d483a7dd5a1",
-    "model_hash": "18a0a634c4dce82138bcd159b40f39a3965abc4466f8b25619d7c9ffe117ee3a"
+    "content_hash": "e3155fc5780da903fbff991de0da21f99f5b62b56680b6efc46559d4e957dc81",
+    "notes_hash": "4040304985f28144e59bad44a0b5e1b373cc7893e0f0ca46d8cc0cc91a9304f1",
+    "model_hash": "a2f0b668454396fd765735ea9d4cc632047cc26ad89077f5fcafa419ffe66d83"
   },
   "geo_code": "TL",
   "node_type": "country",

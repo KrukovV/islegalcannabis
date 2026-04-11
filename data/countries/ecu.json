@@ -35,12 +35,25 @@
     },
     "signals": {
       "status": "restricted",
+      "final_risk": "LIMITED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -172,9 +185,9 @@
   },
   "hashes": {
     "code": "ecu",
-    "content_hash": "53e2e74639b0031dae9f5e0e97163b26d52e3dc412f8f239e8f6491f15cd4ac1",
+    "content_hash": "9a20c0f0cc8a1e9769a0afde50a2c0ad17057db3262c128c6f6231b895da8c96",
     "notes_hash": "dff02ccae29e6caa00ddda8861b8e4542abec8231c3a7eef3b2ecb2c216055b7",
-    "model_hash": "91d65f86539520bd9eaf97b07cf31342dd850f215d29640e1e84f9a56da50113"
+    "model_hash": "1bd60a2a62481027136fb303faea190cc1666262a8914c5813d7dee2c75f5f2e"
   },
   "geo_code": "EC",
   "node_type": "country",

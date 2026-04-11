@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -170,9 +183,9 @@
   },
   "hashes": {
     "code": "caf",
-    "content_hash": "52d8eb5391bfca5c52c5897c2855080870d3695c302c22c8b6b94003de45c5cc",
+    "content_hash": "e98686e13db273997fcd2cc50b370741ae1d7f40101c1c9d70872b87dfe4d0f6",
     "notes_hash": "2717d7cdddfad0902b1fce5f3ef074ba9a2bb1fa6cd38d832488860fc869849a",
-    "model_hash": "aefc6ac962d2b852130ba00bc936e28d6a69931ad018c5fb03ff0c3635358bbc"
+    "model_hash": "077e2ea1abc691782b458bd872ad92f5bb4c2b8323a5e9d016e1d9ff0f05ac58"
   },
   "geo_code": "CF",
   "node_type": "country",

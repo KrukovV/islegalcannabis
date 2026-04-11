@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -163,8 +176,8 @@
         "name": "Liechtenstein"
       },
       {
-        "code": "che",
-        "name": "Switzerland / Suisse"
+        "code": "mco",
+        "name": "Monaco"
       }
     ],
     "cluster_links": [
@@ -173,8 +186,8 @@
         "name": "Austria / Österreich"
       },
       {
-        "code": "mco",
-        "name": "Monaco"
+        "code": "che",
+        "name": "Switzerland / Suisse"
       }
     ],
     "same_country_states": [],
@@ -182,9 +195,9 @@
   },
   "hashes": {
     "code": "smr",
-    "content_hash": "5eaf88976cd0b1ef0ae2c014977110dfc706e4b43e3a9145742a7029e092078d",
+    "content_hash": "eb52f1401ed60531a0b9ed2a9e662047a6458cde9a49e060fbe6f3efb1e44e6c",
     "notes_hash": "707ab0276636aa01f486cba68c53ef2207a7326fbc5b7c5d7d4944f2847485a6",
-    "model_hash": "a965c690047ed98b673258dfba01d680d116a56047782c9a95d6032be83937b6"
+    "model_hash": "cbea5c29b04a67f7bf7f17ef8df93f5eb3da1cc5e3d2532f2a13e156226ab900"
   },
   "geo_code": "SM",
   "node_type": "country",

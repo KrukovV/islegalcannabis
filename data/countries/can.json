@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "restricted",
+      "final_risk": "LIMITED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -88,14 +101,12 @@
       ],
       "explain": [
         "rule: medical_legal | source: Canada | type: summary | priority: 1 | scope: general",
-        "rule: legal | source: How will legal pot be sold? Three things that might happen, and one that won't | type: reference | priority: 2 | scope: general",
         "no traversal evidence"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "medical_legal",
-      "legal"
+      "medical_legal"
     ],
     "notes_normalized": "Cannabis is legal in Canada. Medical cannabis is legal. Distribution is restricted."
   },
@@ -174,12 +185,12 @@
         "name": "Bermuda"
       },
       {
-        "code": "cub",
-        "name": "Cuba"
-      },
-      {
         "code": "blz",
         "name": "Belize / Belice"
+      },
+      {
+        "code": "jam",
+        "name": "Jamaica"
       }
     ],
     "cluster_links": [
@@ -188,8 +199,8 @@
         "name": "Saint Pierre and Miquelon / Saint-Pierre-et-Miquelon"
       },
       {
-        "code": "cym",
-        "name": "Cayman Islands"
+        "code": "cub",
+        "name": "Cuba"
       }
     ],
     "same_country_states": [],
@@ -197,9 +208,9 @@
   },
   "hashes": {
     "code": "can",
-    "content_hash": "6de0042ad215ae303439c5a509e14b18527687d070dd806bb810a4a843ded65b",
+    "content_hash": "c835233ae09f89b1171e38b8e913bd6a6f55156ee3bf573a5088987ce8588c5c",
     "notes_hash": "44f241c555dbc4ea0434dc127278d50425d33f99737756d596449867ddc77905",
-    "model_hash": "f791366d6bcfd83349936f88d450a71c555062ddaa6f965c057b2431d7ea04c4"
+    "model_hash": "f82e2684e2f9d7c30b0c0b7a9a38f8a7bdefb795677bc91db8a8a40a76ef8bc2"
   },
   "geo_code": "CA",
   "node_type": "country",

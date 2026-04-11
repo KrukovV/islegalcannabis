@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -170,9 +183,9 @@
   },
   "hashes": {
     "code": "fsm",
-    "content_hash": "b17af5b22592ac1e95eb994c3750d1d6908c0309e4f8d6c903373c23650f5fa0",
+    "content_hash": "c071caad3d96dcf05b2dd69163808859029c3fbc4896dc50aaef4837a661bf06",
     "notes_hash": "02e363420e4dd4abcdc053ee3c2d6ede3a1c921f0ee86cc7df8a6dc9b75e0639",
-    "model_hash": "22755a9c3f4f38a5bdcd225154e18a1112fb7e835502ac5e047c32cba73ffe01"
+    "model_hash": "cc3581b6fa65de0161aeb57caff4afb6accb683a363e9bcc9c54a1680e429311"
   },
   "geo_code": "FM",
   "node_type": "country",

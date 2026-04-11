@@ -5,39 +5,54 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "LIMITED",
-      "enforcement": "MODERATE",
-      "scope": "MEDICAL_ONLY",
-      "override_reason": "rec_implies_med_floor"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
-        "use": "restricted",
+        "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [],
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
       "modifiers": []
     },
     "signals": {
-      "status": "restricted",
+      "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -85,18 +100,16 @@
         }
       ],
       "explain": [
-        "rule: legal | source: Is cannabis legal in Algeria? | type: reference | priority: 2 | scope: general",
         "no traversal evidence"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "legal",
-      "rec_implies_med_floor"
+      "distribution_fallback_illegal"
     ],
-    "notes_normalized": "Cannabis is legal in Algeria / الجزائر. Medical cannabis is limited. Distribution is restricted."
+    "notes_normalized": "Cannabis is illegal in Algeria / الجزائر. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is legal in Algeria / الجزائر. Medical cannabis is limited. Distribution is restricted.",
+  "notes_normalized": "Cannabis is illegal in Algeria / الجزائر. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Algeria}}",
   "facts": {
     "possession_limit": null,
@@ -167,26 +180,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "mlt",
-        "name": "Malta"
-      },
-      {
-        "code": "esp",
-        "name": "Spain / España"
-      },
-      {
-        "code": "prt",
-        "name": "Portugal"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "ner",
         "name": "Niger"
       },
       {
         "code": "mli",
         "name": "Mali"
+      },
+      {
+        "code": "lby",
+        "name": "Libya / ليبيا"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "bfa",
+        "name": "Burkina Faso"
+      },
+      {
+        "code": "esh",
+        "name": "Western Sahara / الصحراء الغربية"
       }
     ],
     "same_country_states": [],
@@ -194,9 +207,9 @@
   },
   "hashes": {
     "code": "dza",
-    "content_hash": "dc86847abed645d38212fae2a75e0cd9e71a2ab0ca0fd6ca7df61b6e506b2015",
-    "notes_hash": "c848513ad7123ac3d26ca2ca0e10416e5b51cf543c8793862466a695007cb3b3",
-    "model_hash": "5fc9046ae7d47fb28db5673befa8020e8f9ffcb88b7cf203dc35046b28ac8258"
+    "content_hash": "3c97f9eb441c3ef90bf7c3752bc60f0f5d12b47bc734e0e00b95dfcbee4229d9",
+    "notes_hash": "5ffcddfa424b8f9da42f8d40f65562db962357906b5da65c49024a22d4b8edc2",
+    "model_hash": "74318e1de1db1350e584b397ef51feea018352fe7c070e28eb04edf20bc86f11"
   },
   "geo_code": "DZ",
   "node_type": "country",

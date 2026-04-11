@@ -27,19 +27,30 @@
         "trafficking": null
       },
       "enforcement": "fine-based",
-      "flags": [
-        "sale_illegal"
-      ],
+      "flags": [],
       "modifiers": []
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": true,
-        "severity_score": 1
+        "severity_score": 1,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": true,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "high",
       "sources": [
@@ -88,6 +99,7 @@
       ],
       "explain": [
         "rule: illegal | source: Singapore / Singapura | type: summary | priority: 1 | scope: general",
+        "rule: raw_illegal | source: Singapore / Singapura | type: summary | priority: 1 | scope: sale",
         "rule: sale_illegal | source: Singapore / Singapura | type: summary | priority: 1 | scope: sale",
         "rule: illegal | source: Singapore / Singapura | type: summary | priority: 1 | scope: sale",
         "rule: penalty_fine | source: Singapore / Singapura | type: summary | priority: 1 | scope: general",
@@ -100,7 +112,7 @@
     ],
     "applied_rules": [
       "illegal",
-      "sale_illegal",
+      "raw_illegal",
       "penalty_fine"
     ],
     "notes_normalized": "Cannabis is illegal in Singapore / Singapura. Medical cannabis is illegal. Distribution is illegal."
@@ -203,9 +215,9 @@
   },
   "hashes": {
     "code": "sgp",
-    "content_hash": "f1ba96709f59b21fb8c9a085437060afad27d48ef6505ce2af80094554749d77",
+    "content_hash": "ea3773888639b5750f4445ec05a214253bb6151d9c79aa907a9d97d007a74097",
     "notes_hash": "b63e778bae3602e4c49e8709009289872b0dcb7cb0d85dc1a53f6251033b0797",
-    "model_hash": "557d0339402d4a407609c82e316d76d6f5150a4a37e309134a02a7bb70be50e2"
+    "model_hash": "3501cf6d952fbf5fecefee30a6ebbc14755275173a3a70c3e95b54660b359463"
   },
   "geo_code": "SG",
   "node_type": "country",

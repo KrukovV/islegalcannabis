@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "HIGH_RISK",
       "penalties": {
         "prison": true,
         "prison_priority": 1,
         "arrest": false,
         "fine": false,
-        "severity_score": 4
+        "severity_score": 4,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": true,
+          "arrest": false,
+          "fine": false,
+          "severe": true
+        }
       },
       "confidence": "high",
       "sources": [
@@ -88,6 +101,7 @@
       ],
       "explain": [
         "rule: penalty_prison | source: Italy / Italia | type: summary | priority: 1 | scope: sale",
+        "rule: penalty_criminal_offense | source: Italy / Italia | type: summary | priority: 1 | scope: sale",
         "rule: sale_illegal | source: Italy / Italia | type: summary | priority: 1 | scope: sale",
         "no traversal evidence"
       ]
@@ -95,6 +109,7 @@
     "enforcement_flags": [],
     "applied_rules": [
       "penalty_prison",
+      "penalty_criminal_offense",
       "sale_illegal"
     ],
     "notes_normalized": "Cannabis is decriminalized in Italy / Italia. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
@@ -174,18 +189,18 @@
         "name": "Slovenia / Slovenija"
       },
       {
-        "code": "mco",
-        "name": "Monaco"
-      },
-      {
         "code": "aut",
         "name": "Austria / Österreich"
+      },
+      {
+        "code": "bih",
+        "name": "Bosnia and Herzegovina / Bosna i Hercegovina"
       }
     ],
     "cluster_links": [
       {
-        "code": "bih",
-        "name": "Bosnia and Herzegovina / Bosna i Hercegovina"
+        "code": "mco",
+        "name": "Monaco"
       },
       {
         "code": "lie",
@@ -197,9 +212,9 @@
   },
   "hashes": {
     "code": "ita",
-    "content_hash": "d30655350dcaae8ac67877fcdff82775d257147e696d08703a6c50271e6087a3",
+    "content_hash": "a01d0d3a545ea84783323a218cb3dc3c1b5e47663749d51278292503c3bfbf93",
     "notes_hash": "abb0f40ad9904212e99c0a6bcb5f520b3d7b1fb6e0762dfc45af379f5daad99e",
-    "model_hash": "9f6abc54c4a2489b5973d8e81996745f4bfd2480ed6a5f9315e97bdfdfba61ba"
+    "model_hash": "bf25f6ae5a57801a0308ee78d8e4a12d8071c052bdc4d19713cdfb5ebc44a4a7"
   },
   "geo_code": "IT",
   "node_type": "country",

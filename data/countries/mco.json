@@ -5,39 +5,54 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "LIMITED",
-      "enforcement": "MODERATE",
-      "scope": "MEDICAL_ONLY",
-      "override_reason": "rec_implies_med_floor"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
-        "use": "restricted",
+        "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [],
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
       "modifiers": []
     },
     "signals": {
-      "status": "restricted",
+      "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -85,18 +100,16 @@
         }
       ],
       "explain": [
-        "rule: legal | source: Legal status of cannabis in Monaco - Cannaconnection.com | type: reference | priority: 2 | scope: general",
         "no traversal evidence"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "legal",
-      "rec_implies_med_floor"
+      "distribution_fallback_illegal"
     ],
-    "notes_normalized": "Cannabis is legal in Monaco. Medical cannabis is limited. Distribution is restricted."
+    "notes_normalized": "Cannabis is illegal in Monaco. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is legal in Monaco. Medical cannabis is limited. Distribution is restricted.",
+  "notes_normalized": "Cannabis is illegal in Monaco. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Monaco}}",
   "facts": {
     "possession_limit": null,
@@ -167,26 +180,26 @@
     ],
     "legal_similarity": [
       {
+        "code": "vat",
+        "name": "Vatican City / Vaticano"
+      },
+      {
+        "code": "fra",
+        "name": "France"
+      },
+      {
+        "code": "and",
+        "name": "Andorra"
+      }
+    ],
+    "cluster_links": [
+      {
         "code": "ita",
         "name": "Italy / Italia"
       },
       {
         "code": "lux",
         "name": "Luxembourg / Luxemburg"
-      },
-      {
-        "code": "aut",
-        "name": "Austria / Österreich"
-      }
-    ],
-    "cluster_links": [
-      {
-        "code": "vat",
-        "name": "Vatican City / Vaticano"
-      },
-      {
-        "code": "and",
-        "name": "Andorra"
       }
     ],
     "same_country_states": [],
@@ -194,9 +207,9 @@
   },
   "hashes": {
     "code": "mco",
-    "content_hash": "fb848cb51b7621fb6afdd407385683cddc02100c3efe7fdbe8a300c28ed2fc0e",
-    "notes_hash": "b6d4ddf5e1d952356686b7aab9090ebe1b7b2f64c313f23da7ec7108b3968149",
-    "model_hash": "988c2e83b538bf343e785e4e7259b5082edca0d4b8062c4f5f8d83bab44c7999"
+    "content_hash": "71a096e7623a550cd4fb4376ce4dbf49ef764c9457c3a90b3d68421e711d9c02",
+    "notes_hash": "a71b3ed0582a39d0f6bafae095d12a69c7db7961219c3b211b76a522f3a8c583",
+    "model_hash": "a7182291143e55f3e357beeb3a8d0cad25e94fc313319db5826d53e9ed76bfd8"
   },
   "geo_code": "MC",
   "node_type": "country",

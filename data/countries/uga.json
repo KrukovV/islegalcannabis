@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -170,9 +183,9 @@
   },
   "hashes": {
     "code": "uga",
-    "content_hash": "ee48de77460dc8edffdbe0a07da1a63d85e0f575e1ac37053c991047dc6b9ca3",
+    "content_hash": "c5b726b79a800c9056e077c6aa3bf3fa33d7dcc209d3d2f0786613564b565962",
     "notes_hash": "3cb68ba237789282660edd80366755192891f05b27e7fb5f47d01d1ad2dae77f",
-    "model_hash": "484003956ebb95fc542df943cf1cb9a450b31af22bd0a991d07c5158833baa27"
+    "model_hash": "f92af9f3c9df7831df08d6d7593374c6690ca7f622924b65cab1153962f77fb1"
   },
   "geo_code": "UG",
   "node_type": "country",

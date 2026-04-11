@@ -32,12 +32,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": true,
         "fine": false,
-        "severity_score": 2
+        "severity_score": 2,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -86,6 +99,7 @@
       ],
       "explain": [
         "rule: penalty_arrest | source: Mother, son arrested with 105kgs of cannabis | type: reference | priority: 2 | scope: general",
+        "rule: raw_illegal | source: Special Senate Committee on Illegal Drugs (37th Parliament, 1st Session) | type: reference | priority: 2 | scope: general",
         "rule: illegal | source: Special Senate Committee on Illegal Drugs (37th Parliament, 1st Session) | type: reference | priority: 2 | scope: general",
         "no traversal evidence"
       ]
@@ -93,7 +107,7 @@
     "enforcement_flags": [],
     "applied_rules": [
       "penalty_arrest",
-      "illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Burkina Faso. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -195,9 +209,9 @@
   },
   "hashes": {
     "code": "bfa",
-    "content_hash": "3c79afd8d025ad526e4389d3a11e3115e1133865d002654eba646fbb1404083c",
+    "content_hash": "a4aa58bc217385b773072cb2ae1d46c84ba45e50b7d95579c0c4cfc54bef6e46",
     "notes_hash": "5069fd94c40ccac279a145e698a95917bbcf152f4d32aae4ef9581dca3a847ec",
-    "model_hash": "e76a1d3eaeed2a10cf09250830da32dea573d8e10884817f408f537346f69afa"
+    "model_hash": "34654e885ddc2e9394e1c922f6ae4a075699f9f97d6d721e1f29911af70a7199"
   },
   "geo_code": "BF",
   "node_type": "country",

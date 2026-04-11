@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -147,22 +160,22 @@
         "name": "Norfolk Island / Norf'k Ailen"
       },
       {
-        "code": "nru",
-        "name": "Nauru"
-      },
-      {
-        "code": "png",
-        "name": "Papua New Guinea / Papua Niu Gini"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "tuv",
         "name": "Tuvalu"
       },
       {
+        "code": "nru",
+        "name": "Nauru"
+      }
+    ],
+    "cluster_links": [
+      {
         "code": "kir",
         "name": "Kiribati"
+      },
+      {
+        "code": "png",
+        "name": "Papua New Guinea / Papua Niu Gini"
       }
     ],
     "same_country_states": [],
@@ -170,9 +183,9 @@
   },
   "hashes": {
     "code": "vut",
-    "content_hash": "edb84f9f37640f3bc4721c38dd855ab3004bfda05b2d427df06adeb6ca20b73c",
+    "content_hash": "c70696f51cc28c7cf67f3c607116759d52e09f28f20b0694cebfeaa28722e760",
     "notes_hash": "e90d4ce0250c56fd6ddd61e207f340caf58ca820f9b3642c85305c0af85c625f",
-    "model_hash": "66244a3173b8b61acba88b3f18b50ba412fae0038ccd58f61255f11a2a5d7624"
+    "model_hash": "f4de6c5689113d9159a69cc62406a67e89107095afc605ab06d7bce67512f519"
   },
   "geo_code": "VU",
   "node_type": "country",

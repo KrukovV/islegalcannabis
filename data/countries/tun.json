@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "HIGH_RISK",
       "penalties": {
         "prison": true,
         "prison_priority": 1,
         "arrest": false,
         "fine": true,
-        "severity_score": 4
+        "severity_score": 4,
+        "possession": {
+          "prison": true,
+          "arrest": false,
+          "fine": true,
+          "severe": true
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "high",
       "sources": [
@@ -179,26 +192,26 @@
     ],
     "legal_similarity": [
       {
+        "code": "mco",
+        "name": "Monaco"
+      },
+      {
         "code": "smr",
         "name": "San Marino"
       },
       {
         "code": "and",
         "name": "Andorra"
-      },
-      {
-        "code": "lby",
-        "name": "Libya / ليبيا"
       }
     ],
     "cluster_links": [
       {
-        "code": "mar",
-        "name": "Morocco / المغرب"
+        "code": "lby",
+        "name": "Libya / ليبيا"
       },
       {
-        "code": "ner",
-        "name": "Niger"
+        "code": "mar",
+        "name": "Morocco / المغرب"
       }
     ],
     "same_country_states": [],
@@ -206,9 +219,9 @@
   },
   "hashes": {
     "code": "tun",
-    "content_hash": "e83977082dafd028dae988a53c50c883c00dccdd18a65527da395d10035ad16e",
+    "content_hash": "bcaf64559a07c623ebc023fb582c4087a584bf1efedec39849fd079460681f5f",
     "notes_hash": "cb060f565d93c84c53b5fa2714660d89a8342e7fe4b5ce9801faf4b2006dd22d",
-    "model_hash": "d6b8d7da212f68539186e024a6022edac272273feabffb4495a1b7a57aa41031"
+    "model_hash": "22434917b26d7b9f795868abf8c41c0f57e88658aa6e0c9c7cd16634637f922c"
   },
   "geo_code": "TN",
   "node_type": "country",

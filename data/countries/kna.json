@@ -32,12 +32,25 @@
     },
     "signals": {
       "status": "restricted",
+      "final_risk": "LIMITED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -168,9 +181,9 @@
   },
   "hashes": {
     "code": "kna",
-    "content_hash": "bf02c9ede1b4959ea789c7a311bdc2ab94d175ce69c4b6fd4db9fc6e2deedd84",
+    "content_hash": "6794d7f0b3abd2f6b3336202b470a93effb2c699796392f91e72e36960549c6d",
     "notes_hash": "e494055801302896bd7f378fb48ea55a968825444f8f352b3b7a1e2905f0aa71",
-    "model_hash": "38ef02d4a735fe39f2dcb2bcb360d182dc1c31c989a0b223240af0d2aea55899"
+    "model_hash": "7226e08e925692fb4eafa0f19e6076d977bd43842029ef42ee7ba4ab3fe237a7"
   },
   "geo_code": "KN",
   "node_type": "country",

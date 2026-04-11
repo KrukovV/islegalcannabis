@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "low",
       "sources": [
@@ -151,9 +164,9 @@
   },
   "hashes": {
     "code": "sgs",
-    "content_hash": "8b14605330b47d1df18ae080ce849c541f807a114b0e2bf88a40c1606e6a0e69",
+    "content_hash": "d5e44f17d6ac11d097670693235132d3ad356812e22c340387f3eff10706f364",
     "notes_hash": "871c5a9600488c5dc92eeb242bc9aefcc370e80c7ac4038bbee9e67b0b28c125",
-    "model_hash": "f055ebbd37363586c90fd3257619af50b43ab1e8edbbfc1fbcc868bed3cd382b"
+    "model_hash": "8d5fdd5f273f3aef32835e09ca92b6ae34cb6ae46df4e7d39f4e6cf43a9da58b"
   },
   "geo_code": "GS",
   "node_type": "country",

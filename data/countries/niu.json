@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "low",
       "sources": [
@@ -151,9 +164,9 @@
   },
   "hashes": {
     "code": "niu",
-    "content_hash": "032f5889598e1f58b66c52ea3d2aac32429edd210cbf66d193085baf8a241376",
+    "content_hash": "835c9c6c6e7c731c9ec4c163bb7ae2d9d071f604f805bceef9a98788d81818ce",
     "notes_hash": "97f76473ccff85df1c0d1b7b75dd2e5c0efbac622838350dfda8e2c298892e73",
-    "model_hash": "4515b1b286700cea966b59574108a98b9ed34297b3f55dc1d4ef465c57766016"
+    "model_hash": "72a35ea9eb3de9115bb6f6be849d1e098c9fc103d6bcdde77c1d41eb33a88939"
   },
   "geo_code": "NU",
   "node_type": "country",

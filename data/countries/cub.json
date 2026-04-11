@@ -5,22 +5,22 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "LIMITED",
-      "enforcement": "MODERATE",
-      "scope": "MEDICAL_ONLY",
-      "override_reason": "rec_implies_med_floor"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
-        "use": "restricted",
+        "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -31,15 +31,28 @@
       "modifiers": []
     },
     "signals": {
-      "status": "restricted",
+      "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": true,
-        "severity_score": 1
+        "severity_score": 1,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Cannabis in Cuba",
@@ -85,7 +98,6 @@
         }
       ],
       "explain": [
-        "rule: legal | source: Is weed legal in Cuba? or to be legal in 2023? | type: reference | priority: 2 | scope: general",
         "rule: penalty_fine | source: Cuba - Universal Periodic Review - Death Penalty - the Advocates for Human Rights | type: reference | priority: 2 | scope: general",
         "no traversal evidence"
       ]
@@ -94,13 +106,11 @@
       "fine_based"
     ],
     "applied_rules": [
-      "legal",
-      "penalty_fine",
-      "rec_implies_med_floor"
+      "penalty_fine"
     ],
-    "notes_normalized": "Cannabis is legal in Cuba. Medical cannabis is limited. Distribution is restricted."
+    "notes_normalized": "Cannabis is illegal in Cuba. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is legal in Cuba. Medical cannabis is limited. Distribution is restricted.",
+  "notes_normalized": "Cannabis is illegal in Cuba. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Cuba}}",
   "facts": {
     "possession_limit": null,
@@ -171,26 +181,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "blz",
-        "name": "Belize / Belice"
-      },
-      {
-        "code": "cri",
-        "name": "Costa Rica"
-      },
-      {
-        "code": "kna",
-        "name": "Saint Kitts and Nevis"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "hti",
         "name": "Haiti / Haïti"
       },
       {
         "code": "tca",
         "name": "Turks and Caicos Islands"
+      },
+      {
+        "code": "hnd",
+        "name": "Honduras"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "dom",
+        "name": "Dominican Republic / República Dominicana"
+      },
+      {
+        "code": "blz",
+        "name": "Belize / Belice"
       }
     ],
     "same_country_states": [],
@@ -198,9 +208,9 @@
   },
   "hashes": {
     "code": "cub",
-    "content_hash": "fd986e1f00f2b18ad74c8354ba230f8528aaf6fb05eca429408ba89bdf3b3e11",
-    "notes_hash": "9b638fd3c8f3b9e7ec793b28b91f6c68c3a55e11acdabf703169e61fc50674d9",
-    "model_hash": "f4b59af30b599a1bfab808c05ca63e965d49cce4035277113883b8e3f0d0a979"
+    "content_hash": "50de3b48a5c89727098748c456acf44ae6eae1e951eafddc40bc3374bca507fa",
+    "notes_hash": "42fc664049cf6148809a5d58546f6236db581a2a36b5a2efb926d567ac54b397",
+    "model_hash": "b185571851a8533f58276489fbf49dd91403cc5293b49ffbab7a35b74cdb1d8b"
   },
   "geo_code": "CU",
   "node_type": "country",

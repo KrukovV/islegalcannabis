@@ -5,16 +5,16 @@
   "legal_model": {
     "recreational": {
       "raw_status": "DECRIMINALIZED",
-      "status": "LEGAL",
+      "status": "DECRIMINALIZED",
       "enforcement": "MODERATE",
       "scope": "PERSONAL_USE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "LEGAL",
+      "status": "LIMITED",
       "enforcement": "MODERATE",
       "scope": "MEDICAL_ONLY",
-      "override_reason": null
+      "override_reason": "rec_implies_med_floor"
     },
     "distribution": {
       "status": "tolerated",
@@ -36,12 +36,25 @@
     },
     "signals": {
       "status": "tolerated",
+      "final_risk": "HIGH_RISK",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 2,
         "arrest": false,
         "fine": false,
-        "severity_score": 10
+        "severity_score": 10,
+        "possession": {
+          "prison": true,
+          "arrest": false,
+          "fine": false,
+          "severe": true
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "high",
       "sources": [
@@ -101,14 +114,13 @@
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "medical_legal",
-      "legal",
       "private_cultivation",
-      "penalty_years"
+      "penalty_years",
+      "rec_implies_med_floor"
     ],
-    "notes_normalized": "Cannabis is legal in United States. Medical cannabis is legal. Distribution is tolerated."
+    "notes_normalized": "Cannabis is decriminalized in United States. Medical cannabis is limited. Distribution is tolerated. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is legal in United States. Medical cannabis is legal. Distribution is tolerated.",
+  "notes_normalized": "Cannabis is decriminalized in United States. Medical cannabis is limited. Distribution is tolerated. Prison exposure detected.",
   "notes_raw": "{{Main|Cannabis in the United States|Legality of cannabis by U.S. jurisdiction}} {{See also|Cannabis on American Indian reservations}} Cannabis remains a [[Controlled Substances Act#Schedule I controlled substances|Schedule I drug]] at federal level, prohibiting even its medical use with [[Medical cannabis in the United States#Compassionate IND program|narrow exceptions]]. The [[Rohrabacher–Farr amendment]] prevents federal enforcement in states that have legalized medical, however. No such protections exist regarding recreational, but the federal government has so far generally not intervened. Recognized [[Indian reservation]]s are allowed to legalize for either use under a policy announced in 2014.<ref>{{cite news |url = https://www.nwherald.com/2014/12/12/doj-says-indian-tribes-can-grow-and-sell-marijuana/aee5o5i/ |last1 = Barnard |first1 = Jeff |last2 = Wozniacka |first2 = Gosia |title = the D.O.J. allows indian reservations to grow and sell marijuana |work = [[Northwest Herald]] |agency = [[Associated Press]] |date = 12 December 2014 |access-date = 24 December 2014 |archive-url = https://web.archive.org/web/20160120131029/https://www.nwherald.com/2014/12/12/doj-says-indian-tribes-can-grow-and-sell-marijuana/aee5o5i/ |archive-date = 20 January 2016 |url-status = live}}</ref> Every U.S. state that has legalized recreational use has set a mandatory legal minimum age of 21 for purchase, possession, and use.<ref>{{cite web |url= https://cannabis.net/blog/news/can-you-buy-weed-if-you-under-21-yearsold-the-statebystate-guide-to-cannabis-age-requirements |title= Can You Buy Weed If You Under 21 Years-Old? – The State-By-State Guide to Cannabis Age Requirements |date= 6 May 2022 |website= Cannabis.net |access-date= 23 June 2023}}</ref> In 2024, the [[Drug Enforcement Administration]] and the [[United States Department of Justice|Department of Justice]] indicated they were planning to [[Removal of cannabis from Schedule I of the Controlled Substances Act|reschedule]] cannabis to [[List of Schedule III controlled substances (U.S.)|Schedule III.]]<ref>{{Cite web |date=2024-04-30 |title=US poised to ease restrictions on marijuana in historic shift, but it'll remain controlled substance |url=https://apnews.com/article/marijuana-biden-dea-criminal-justice-pot-f833a8dae6ceb31a8658a5d65832a3b8 |access-date=2024-05-01 |website=AP News |language=en}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -179,16 +191,16 @@
     ],
     "legal_similarity": [
       {
-        "code": "cub",
-        "name": "Cuba"
-      },
-      {
         "code": "jam",
         "name": "Jamaica"
       },
       {
         "code": "cri",
         "name": "Costa Rica"
+      },
+      {
+        "code": "bmu",
+        "name": "Bermuda"
       }
     ],
     "cluster_links": [
@@ -197,8 +209,8 @@
         "name": "Guatemala"
       },
       {
-        "code": "cym",
-        "name": "Cayman Islands"
+        "code": "cub",
+        "name": "Cuba"
       }
     ],
     "same_country_states": [],
@@ -206,9 +218,9 @@
   },
   "hashes": {
     "code": "usa",
-    "content_hash": "371d5d20aa2b471712f3e56f27a1404547da699511e0ecc31bcafdbb82aa16ac",
-    "notes_hash": "5f3614659be716682384a501ea9cc88d38aa0070f4ac426e88da154c4400ecb8",
-    "model_hash": "1bd37787d87d5a9179b689de9718435b49b8d09ae9b77bc9bc239cd0df270ed1"
+    "content_hash": "0bd339073e6bdbfc056a95b6ba136971d4defc1c446c3f1581cd612c5f11a2b1",
+    "notes_hash": "a10f182e18de0e36ac18f103f9402509100fb862db4992aad87b1624b782b097",
+    "model_hash": "6ba7ba1514945c34b2a2a279360666d1694754fb2653a06a94fa44baeb5f28e9"
   },
   "geo_code": "US",
   "node_type": "country",

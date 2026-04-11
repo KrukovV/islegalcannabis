@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -198,9 +211,9 @@
   },
   "hashes": {
     "code": "gbr",
-    "content_hash": "10be7ea806ea4b85ed36452f2700e3600ab61d9940db1078cb9a46727f609844",
+    "content_hash": "8ef9e6866ec8f51d2bf49322abcf573169227ade11a8f9c3d452cc60c6210770",
     "notes_hash": "4ef6b3f53751492fc86513dc5558c489df523c7593b3d9a3cf0a48b4ba59f66d",
-    "model_hash": "2199aaa7bba5b04201fa1b9b8f6cccf0dc99e32f95ea180746ad6fc308bedb95"
+    "model_hash": "f23c28cb0f4da2bb23fd4c742b91af660c46c5eed5d2b8a90f6d67eba3bcb42d"
   },
   "geo_code": "GB",
   "node_type": "country",

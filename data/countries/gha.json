@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -194,9 +207,9 @@
   },
   "hashes": {
     "code": "gha",
-    "content_hash": "3f047eabcc65d67195f8e9604ed54df8f57c4c6e49515097475f53e71ddce261",
+    "content_hash": "43285899b77331030ecd15124f89c05576481d6dff7c64fad65a7146b69d73dc",
     "notes_hash": "0b7bd0510e7312f3379173e13f9d57fbebefc6a9b82e3a7305ce48e23e2372c8",
-    "model_hash": "d7ada1520e5d467d8aa9f3931cf6d59bd852b1189cb3ddd9d5ec5a1560cb6511"
+    "model_hash": "d937c597f672f79fcc80a4a8b8adcf49914ed61ba2b2602169656704e877df41"
   },
   "geo_code": "GH",
   "node_type": "country",

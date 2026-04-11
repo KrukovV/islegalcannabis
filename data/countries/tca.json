@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "low",
       "sources": [
@@ -151,9 +164,9 @@
   },
   "hashes": {
     "code": "tca",
-    "content_hash": "c9b1af89e0402ccbe06a4aac795b9caa8e427a614f18cf5a2c789a933bc6dd38",
+    "content_hash": "dadf7e0cda97a100e42f54612b0c8e6c73f05ddb4228e3ce34054d8ff0a3d772",
     "notes_hash": "21d30bf9bbfbf8ee38a4b643af11e60ced67b55d63d82ebea5729aa81f5ba673",
-    "model_hash": "cdbdf36ce7db2a64a3d3278f935d253d0369c146cd64e16f43b3592f183667eb"
+    "model_hash": "3ba952bfcf17641f59caeeedb0454c18906907ab76f7c20e4cfc9944c3b8cce0"
   },
   "geo_code": "TC",
   "node_type": "country",

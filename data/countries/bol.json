@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -171,12 +184,12 @@
         "name": "Argentina"
       },
       {
-        "code": "guy",
-        "name": "Guyana"
+        "code": "ury",
+        "name": "Uruguay"
       },
       {
-        "code": "sur",
-        "name": "Suriname"
+        "code": "guy",
+        "name": "Guyana"
       }
     ],
     "cluster_links": [
@@ -185,8 +198,8 @@
         "name": "Chile"
       },
       {
-        "code": "ury",
-        "name": "Uruguay"
+        "code": "ecu",
+        "name": "Ecuador"
       }
     ],
     "same_country_states": [],
@@ -194,9 +207,9 @@
   },
   "hashes": {
     "code": "bol",
-    "content_hash": "8f006caf4c32f941e47210c89b0e1ce89a8cfbc40a2324f32808ea8cf28ce159",
+    "content_hash": "64128286715f1947676928484f2d0c78e06e11bc3bfcfac52594b562668e72b0",
     "notes_hash": "cf4edcecc00a3e0ad04dc7563f28951202539d32928173f26c873ac3e7a391ae",
-    "model_hash": "fd889e37c3389e05a520bac0b1c36d334fc52f01713a48e82eece925bb1489c3"
+    "model_hash": "ff7f25bc2e373995a0c221fd3d8784fd453f3dc80c5e1aa9cab41e5ca4b204ab"
   },
   "geo_code": "BO",
   "node_type": "country",

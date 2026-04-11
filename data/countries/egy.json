@@ -35,12 +35,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -88,13 +101,14 @@
         }
       ],
       "explain": [
+        "rule: raw_illegal | source: Egypt / مصر | type: summary | priority: 1 | scope: use",
         "rule: illegal | source: Egypt / مصر | type: summary | priority: 1 | scope: use",
         "no traversal evidence"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Egypt / مصر. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -169,26 +183,26 @@
     ],
     "legal_similarity": [
       {
+        "code": "cyp",
+        "name": "Cyprus / Κύπρος"
+      },
+      {
         "code": "lbn",
         "name": "Lebanon / لبنان"
       },
       {
         "code": "syr",
         "name": "Syria / سوريا"
-      },
-      {
-        "code": "sdn",
-        "name": "Sudan / السودان"
       }
     ],
     "cluster_links": [
       {
-        "code": "lby",
-        "name": "Libya / ليبيا"
+        "code": "sdn",
+        "name": "Sudan / السودان"
       },
       {
-        "code": "eri",
-        "name": "Eritrea / إريتريا"
+        "code": "lby",
+        "name": "Libya / ليبيا"
       }
     ],
     "same_country_states": [],
@@ -196,9 +210,9 @@
   },
   "hashes": {
     "code": "egy",
-    "content_hash": "c808785a69093fd08e0369e063843e1edbbfffa3c2b4a9dba9b8d8b6224e710d",
+    "content_hash": "190e4c27a63b4a50116ac8af2ca0b95837f33ae783c19f9a4a91fbfb29fa494e",
     "notes_hash": "906fcf22273e264acf4c9f6e99377f0f5405e6b902e3b6c7676b566f6d9e913e",
-    "model_hash": "370d311a5fd936cdd76898fbdf60dbc16d6bff2212702d5b5eccb604cdbb9356"
+    "model_hash": "a728516e6af8c46e4bd7ca32b445bbaeb5c1b375bcc64b925c59db8710ec6738"
   },
   "geo_code": "EG",
   "node_type": "country",

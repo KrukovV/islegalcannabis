@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "restricted",
+      "final_risk": "LIMITED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -71,8 +84,6 @@
       "explain": [
         "rule: medical_legal | source: Thailand / ประเทศไทย | type: summary | priority: 1 | scope: use",
         "rule: legal | source: Thailand / ประเทศไทย | type: summary | priority: 1 | scope: use",
-        "rule: legal | source: Medical Cannabis Act | type: reference | priority: 2 | scope: general",
-        "rule: legal | source: Cannabis in Thailand | type: reference | priority: 2 | scope: general",
         "no traversal evidence"
       ]
     },
@@ -154,16 +165,16 @@
     ],
     "legal_similarity": [
       {
-        "code": "mys",
-        "name": "Malaysia / مليسيا"
-      },
-      {
-        "code": "chn",
-        "name": "China / 中国"
-      },
-      {
         "code": "lka",
         "name": "Sri Lanka / ශ්‍රී ලංකාව"
+      },
+      {
+        "code": "ind",
+        "name": "India / भारत"
+      },
+      {
+        "code": "kor",
+        "name": "South Korea / 한국"
       }
     ],
     "cluster_links": [
@@ -181,9 +192,9 @@
   },
   "hashes": {
     "code": "tha",
-    "content_hash": "e50cc89c3580d55b1f1d18ddd7e82aa9cfaa9b351a96c46dd1565c0a599e7359",
+    "content_hash": "bef0136efd223078e837f1859874dde98c439bcddace813996d68de31c15d201",
     "notes_hash": "8335a84932b101aab22bafb82814fe098029353f2a3be503df92eea5a41d9eaa",
-    "model_hash": "0d52681860cec6a72a19e76da2f23519b5901acb745d8a0116d39928f597f781"
+    "model_hash": "269665ca81d8b2fbd0294307edce831e094433d4bf82f2256526a218ef207e1a"
   },
   "geo_code": "TH",
   "node_type": "country",

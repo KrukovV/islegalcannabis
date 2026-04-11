@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -194,9 +207,9 @@
   },
   "hashes": {
     "code": "mrt",
-    "content_hash": "364c5262ba58fe9cdf4130809f273312e875c5959924ab9ec2e97f5ba8c07d64",
+    "content_hash": "1dc17baed49d27f9eb6c14ed5dbbac2fe138d69fba5c5e4218fd99455696e5c4",
     "notes_hash": "de01a0ae140020fac62033fd2e1acebc1926e6a6c58ffb0a1ec835ddb5240b10",
-    "model_hash": "84ec5180ed53aaf900c64461264c1af845a51b0858b8b581677f1103d0f13555"
+    "model_hash": "4fae019671b8ed406bd5a15c1b941f476131387366c550c39f29b9dbd464d430"
   },
   "geo_code": "MR",
   "node_type": "country",

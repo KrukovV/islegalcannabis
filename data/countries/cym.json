@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "low",
       "sources": [
@@ -132,14 +145,14 @@
         "name": "Nicaragua"
       },
       {
-        "code": "blz",
-        "name": "Belize / Belice"
+        "code": "hti",
+        "name": "Haiti / Haïti"
       }
     ],
     "cluster_links": [
       {
-        "code": "hti",
-        "name": "Haiti / Haïti"
+        "code": "blz",
+        "name": "Belize / Belice"
       },
       {
         "code": "slv",
@@ -151,9 +164,9 @@
   },
   "hashes": {
     "code": "cym",
-    "content_hash": "8f8502e06f7ad05f63fc1b6f2c58aaef4e137d802dfef0fe2a7a737392869f82",
+    "content_hash": "a57ab0de32994fb6d32b9dc38db6c144c0ff013d9afc17657f47a8d0547705dd",
     "notes_hash": "4dd9d35fd91a15bb7b46d6ec1d1d1690b80f45d4c41de6a016d547b06227dee3",
-    "model_hash": "ab132ffb06498ac8420ea6e858082e6cba8a02b2ae844334a2866836dc3c1ccf"
+    "model_hash": "96f56ba3fd3e4abea5360c817aa8f97138a3607172404af1ada664d3ada59b09"
   },
   "geo_code": "KY",
   "node_type": "country",

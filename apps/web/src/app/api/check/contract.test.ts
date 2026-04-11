@@ -53,6 +53,7 @@ describe("GET /api/check contract", () => {
     expect(json.med_final).toBe("LIMITED");
     expect(json.distribution_status).toBeTruthy();
     expect(json.legal_status).toBeTruthy();
+    expect(json.final_risk).toBeTruthy();
     expect(json.penalties).toBeTruthy();
     expect(Array.isArray(json.explain)).toBe(true);
     expect(["low", "medium", "high"]).toContain(json.confidence);

@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "low",
       "sources": [
@@ -151,9 +164,9 @@
   },
   "hashes": {
     "code": "maf",
-    "content_hash": "70d2fa5a9e0524a206e8b1e783241a5880f4a597bf90880c4d2afc5c5c462a90",
+    "content_hash": "fe80adfe25480b499ed0519c4d41d6b5ed2e1e9c7be2df46d126fec19f69d002",
     "notes_hash": "9df3110902ee72967249241c35ad3a5985573bcac274eac285032e13369b9bad",
-    "model_hash": "fcf3163e179925fdeca92d82f3d0a752ae01dab49e1d7eb3d09e52021fd7b3e6"
+    "model_hash": "33b35cad1eff44c881dcd11f9ba40a29c0e2691ea48704bf77483def8a2bc24c"
   },
   "geo_code": "MF",
   "node_type": "country",

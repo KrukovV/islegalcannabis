@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "tolerated",
+      "final_risk": "UNKNOWN",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": true,
-        "severity_score": 1
+        "severity_score": 1,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "high",
       "sources": [
@@ -87,12 +100,11 @@
         }
       ],
       "explain": [
+        "rule: raw_illegal | source: Australia | type: summary | priority: 1 | scope: cultivation",
         "rule: private_cultivation | source: Australia | type: summary | priority: 1 | scope: cultivation",
         "rule: illegal | source: Australia | type: summary | priority: 1 | scope: cultivation",
-        "rule: legal | source: Australia | type: summary | priority: 1 | scope: cultivation",
         "rule: medical_legal | source: Medicinal Marijuana has been Legalised in Australia | type: reference | priority: 2 | scope: general",
         "rule: penalty_fine | source: Economic benefit of recreational cannabis now placed at $700m annually, as Greens renew pledge to push legal weed | type: reference | priority: 2 | scope: general",
-        "rule: legal | source: Economic benefit of recreational cannabis now placed at $700m annually, as Greens renew pledge to push legal weed | type: reference | priority: 2 | scope: general",
         "rule: medical_legal | source: Medical marijuana legalized in Australia | type: reference | priority: 2 | scope: general",
         "rule: medical_legal | source: Medicinal cannabis to be legalised in Australia from November | type: reference | priority: 2 | scope: general",
         "no traversal evidence"
@@ -102,8 +114,8 @@
       "fine_based"
     ],
     "applied_rules": [
+      "raw_illegal",
       "private_cultivation",
-      "illegal",
       "medical_legal",
       "penalty_fine"
     ],
@@ -180,9 +192,19 @@
     ],
     "legal_similarity": [
       {
+        "code": "slb",
+        "name": "Solomon Islands"
+      },
+      {
         "code": "ncl",
         "name": "New Caledonia / Nouvelle-Calédonie"
       },
+      {
+        "code": "plw",
+        "name": "Palau / Belau"
+      }
+    ],
+    "cluster_links": [
       {
         "code": "nfk",
         "name": "Norfolk Island / Norf'k Ailen"
@@ -192,24 +214,14 @@
         "name": "Vanuatu"
       }
     ],
-    "cluster_links": [
-      {
-        "code": "slb",
-        "name": "Solomon Islands"
-      },
-      {
-        "code": "plw",
-        "name": "Palau / Belau"
-      }
-    ],
     "same_country_states": [],
     "federal_parent": null
   },
   "hashes": {
     "code": "aus",
-    "content_hash": "8a41851dc6c03730f50321e3315196d4791c4bf97cb44e4f30052bd97eb8d5c4",
+    "content_hash": "c0d3736905fe052339211dcc9a049e3e8e44ba1490751c697afbf91f673659bb",
     "notes_hash": "2030da8c3e4e7854efc3760ab67b99daaa4a6c38184454a9fba25fcfb45f336d",
-    "model_hash": "089251a5220c9b7a50b156d7955cf7ed6f618835230f523489ebf6142105b854"
+    "model_hash": "f2c16d9000b0870c06f4450fc686635fc1274f950255b46ecebada04dcdaac45"
   },
   "geo_code": "AU",
   "node_type": "country",

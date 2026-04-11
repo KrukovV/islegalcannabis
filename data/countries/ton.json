@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -170,9 +183,9 @@
   },
   "hashes": {
     "code": "ton",
-    "content_hash": "64b5be9e0f32b47902342bc5b3e6125fa799c26c098a0ae3b095bb66a6a3dfc6",
+    "content_hash": "9f9c2fbef768bc27d51a3b567be59bf5afa70232e206bcbdc3fbc559248db3ce",
     "notes_hash": "0fbf0bd57240cbf87ad042d92e54038fc350fe36e1ba12662a5147dd64ef8962",
-    "model_hash": "4d58032deb91bf0f359b8573aef3b87a77ce392b40a62c8a3eb9679f4d654356"
+    "model_hash": "d25eb7f522bd170187f5fd7ed4d11619da1efc952f4de90014f422aeab2ffebe"
   },
   "geo_code": "TO",
   "node_type": "country",

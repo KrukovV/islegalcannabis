@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -170,9 +183,9 @@
   },
   "hashes": {
     "code": "ner",
-    "content_hash": "32e5f8530dafe0d0db68cbf5856dba86829d5d90635f09e54adaf745abd6ded0",
+    "content_hash": "e5cb7feda47fd1c655cfc1190a0d8c3605fbf044abadf9c560156a79d3135e1b",
     "notes_hash": "a03af92c170a3ec625bcc6983ddf287e660de6b5282807b6591f1cf69465b866",
-    "model_hash": "a593b3a6e166931208e7abad9a7be76ede0e12bf305831d1bccb473d71aebafa"
+    "model_hash": "97189dd5aa93382fe1bb43db84d6ef1ad64e88e405e4e5d3fcc86ee75e64bbe1"
   },
   "geo_code": "NE",
   "node_type": "country",

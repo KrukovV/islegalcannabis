@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "low",
       "sources": [
@@ -151,9 +164,9 @@
   },
   "hashes": {
     "code": "aia",
-    "content_hash": "c5859c99d2e1d1c781f84cdb752aa465e118eac5f9ad3bb42e1c65557d5f27e7",
+    "content_hash": "b1344d43d0b5b6a6449a3f4387b6ae625aa72b98ece05d512286891abd2d79db",
     "notes_hash": "7a5c0ab32fee09bacae95917e63eeb446e862f0d6ad1c8d42089913522ed2bb0",
-    "model_hash": "99caf0f72351eb1f1fbc524f6e7aae02d385e558bccbf206e1582745e51178d6"
+    "model_hash": "1cbaf347151dd80ed1b2b97dbf18a6d030397f18b5c6e93a9a0216c64c94cdba"
   },
   "geo_code": "AI",
   "node_type": "country",

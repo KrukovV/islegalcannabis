@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "low",
       "sources": [
@@ -151,9 +164,9 @@
   },
   "hashes": {
     "code": "vgb",
-    "content_hash": "b02417b2ddb4e29d6f61ba4b630a11dd95f24ed0ed2c55feee47a0900238a495",
+    "content_hash": "b17ff75dd87844cbf19caea225448af0dfe79b310d839e454d5cbb4cbbeca057",
     "notes_hash": "339a3628dd3950fe5e8bdc876c172b3a9e0fb99e72b1acaefde0424f3592cd42",
-    "model_hash": "4e603c2d00205d1683a165a63b534485dea15e716c9add24cc99b69986927c75"
+    "model_hash": "341fc1b4ee2eaaf15184efbbe1e01f1a138d5fe1f5e6f2c4c6aae33d49aa5f3e"
   },
   "geo_code": "VG",
   "node_type": "country",

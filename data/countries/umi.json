@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "low",
       "sources": [
@@ -151,9 +164,9 @@
   },
   "hashes": {
     "code": "umi",
-    "content_hash": "d995422a22cc6930d17353e872041f8c8eb349a3a407e6864c56cd5cf17ab433",
+    "content_hash": "750923cf35a4d1ca6c0c230440ff203e3245be6da758c224513b64755f70a61b",
     "notes_hash": "76e8c027f7a633e8c22d02e9ecc9ec08c05e0a144c861308238565baca8f869b",
-    "model_hash": "1d05bcce2cdf87960f178968328410712c022e84f14b9bff5fe780eb58906524"
+    "model_hash": "7f56676b41ae7e7b9ec53b316f461b774a507dcb3d491b70089a20488d2ab02b"
   },
   "geo_code": "UM",
   "node_type": "country",

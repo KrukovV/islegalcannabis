@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -155,26 +168,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "hun",
-        "name": "Hungary / Magyarország"
-      },
-      {
-        "code": "bgr",
-        "name": "Bulgaria / България"
-      },
-      {
-        "code": "svk",
-        "name": "Slovakia / Slovensko"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "mkd",
         "name": "North Macedonia / Македонија"
       },
       {
         "code": "grc",
         "name": "Greece / Ελλάδα"
+      },
+      {
+        "code": "hun",
+        "name": "Hungary / Magyarország"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "hrv",
+        "name": "Croatia / Hrvatska"
+      },
+      {
+        "code": "bgr",
+        "name": "Bulgaria / България"
       }
     ],
     "same_country_states": [],
@@ -182,9 +195,9 @@
   },
   "hashes": {
     "code": "mne",
-    "content_hash": "bd6db9f7ad0c968595ddebd9d46ff6ad5d1976e802d585edb85fe4615f1372df",
+    "content_hash": "65c89992037e0469cb79e12569a03c2ecc497b3d10b450739c17f33e0900519f",
     "notes_hash": "15e77900e5e6e1c45922cc10a36b40e5f06d246fc3e75cb155882a9c76f1bfc1",
-    "model_hash": "900c96f9be5663a35dcfe266daeb8691b48adcb86c7b55b27f285087136dda2e"
+    "model_hash": "d1f56ba1deed35783e0cc6e6613e59ed09a654b432d3c24b20130e5144c476b8"
   },
   "geo_code": "ME",
   "node_type": "country",

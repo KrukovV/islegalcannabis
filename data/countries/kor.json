@@ -5,9 +5,9 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "LIMITED",
@@ -17,10 +17,10 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
-        "use": "restricted",
+        "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -35,13 +35,26 @@
       ]
     },
     "signals": {
-      "status": "restricted",
+      "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -90,19 +103,16 @@
       ],
       "explain": [
         "rule: medical_legal | source: South Korea / 한국 | type: summary | priority: 1 | scope: use",
-        "rule: legal | source: Smoking Marijuana Is Legal in Canada, Unless You're South Korean | type: reference | priority: 2 | scope: general",
-        "rule: legal | source: Smoking Marijuana in Canada Is Now Legal—But Not for South Koreans | type: reference | priority: 2 | scope: general",
         "no traversal evidence"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "medical_legal",
-      "legal"
+      "medical_legal"
     ],
-    "notes_normalized": "Cannabis is legal in South Korea / 한국. Medical cannabis is legal. Distribution is restricted."
+    "notes_normalized": "Cannabis is illegal in South Korea / 한국. Medical cannabis is legal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is legal in South Korea / 한국. Medical cannabis is legal. Distribution is restricted.",
+  "notes_normalized": "Cannabis is illegal in South Korea / 한국. Medical cannabis is legal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in South Korea}} Medical use of cannabis was legalized in November 2018. The plant itself, however, remains unavailable due to a policy implemented by the [[Ministry of Food and Drug Safety]].<ref>{{cite news|url=https://www.ft.com/content/ff715088-f2ba-11e8-ae55-df4bf40f9d0d|title=South Korea legalises medical marijuana|work=[[Financial Times]]|access-date=29 November 2018|archive-url=https://archive.today/20181214110836/https://www.ft.com/content/ff715088-f2ba-11e8-ae55-df4bf40f9d0d|archive-date=14 December 2018|url-status=live|url-access=subscription}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -173,26 +183,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "chn",
-        "name": "China / 中国"
-      },
-      {
-        "code": "phl",
-        "name": "Philippines / Pilipinas"
-      },
-      {
-        "code": "plw",
-        "name": "Palau / Belau"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "hkg",
         "name": "Hong Kong / 香港"
       },
       {
         "code": "mac",
         "name": "Macau / 澳门"
+      },
+      {
+        "code": "chn",
+        "name": "China / 中国"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "mng",
+        "name": "Mongolia / Монгол улс"
+      },
+      {
+        "code": "phl",
+        "name": "Philippines / Pilipinas"
       }
     ],
     "same_country_states": [],
@@ -200,9 +210,9 @@
   },
   "hashes": {
     "code": "kor",
-    "content_hash": "a2b7a5406a0420e8924a4d9a0113338a9b9cb38c6f5410ba7f9da92f1f3a8a75",
-    "notes_hash": "5113705aa0059e80fe322a3f20275f96fd7c59df27c04ba577ebdf6cb27fa8f3",
-    "model_hash": "ea21b4c62a63a6b68461702fdd968f0950fe0aed3c012ba4e9ee2ee13a5167f9"
+    "content_hash": "66ca0f817bff1ac6c88facfd3158b6f887ada3ed8782372f216a64531ff50f21",
+    "notes_hash": "574cc968ccdcf56bbf2ead2add86dcf94f8b5282e29a42932d276d66c3015272",
+    "model_hash": "07ad9527eab778b4e8dfc3c8dd24b138256555269ff1e90486f2930bbc634f11"
   },
   "geo_code": "KR",
   "node_type": "country",

@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -167,26 +180,26 @@
     ],
     "legal_similarity": [
       {
+        "code": "mco",
+        "name": "Monaco"
+      },
+      {
         "code": "smr",
         "name": "San Marino"
       },
       {
         "code": "vat",
         "name": "Vatican City / Vaticano"
-      },
-      {
-        "code": "fra",
-        "name": "France"
       }
     ],
     "cluster_links": [
       {
-        "code": "mco",
-        "name": "Monaco"
-      },
-      {
         "code": "lux",
         "name": "Luxembourg / Luxemburg"
+      },
+      {
+        "code": "svn",
+        "name": "Slovenia / Slovenija"
       }
     ],
     "same_country_states": [],
@@ -194,9 +207,9 @@
   },
   "hashes": {
     "code": "lie",
-    "content_hash": "8026ff5fea5dd2c690a5bc90bdc5f73afad25249484e69401795fc12965ac084",
+    "content_hash": "5de468fb1fa92b30e33884287169ab0a7f02448ed815e67599cb2c1a8a2e2c46",
     "notes_hash": "4d51e4a1fa6b084cd9db05bd3c9e11f5c78fd8714e81f102cfec3edca7bf2710",
-    "model_hash": "5afc6f4009b5866da539218387ffd05f0cb3e8394f36d66ca5968f348d746492"
+    "model_hash": "6515b18bad771d64ae01f0357b2a4695a97ed28a2e09d58e451d77451149bcde"
   },
   "geo_code": "LI",
   "node_type": "country",

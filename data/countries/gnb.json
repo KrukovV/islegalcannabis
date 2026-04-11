@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -170,9 +183,9 @@
   },
   "hashes": {
     "code": "gnb",
-    "content_hash": "60cdac375d2025afb0cda7e280fe70c8f1a366d2280c80de1b7a78b0649382da",
+    "content_hash": "02143395da9d13d3640cdc32088e6f60ee531f3049ceed05900af5dd27cd4cad",
     "notes_hash": "83d5cfa09b8eb43709a336352baf79326ce2d68e4b3ed942aaae44df6fa32862",
-    "model_hash": "c74721a6d5ca6f4e3c5a8ca1608a783e32aad865ac8689b7817da47185903ac6"
+    "model_hash": "490f506ca43018f40d729bf1d948b763180b1be0d5dafd6f0a753eac3b65dd6d"
   },
   "geo_code": "GW",
   "node_type": "country",

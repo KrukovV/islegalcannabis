@@ -36,13 +36,26 @@
       ]
     },
     "signals": {
-      "status": "mixed",
+      "status": "illegal",
+      "final_risk": "HIGH_RISK",
       "penalties": {
         "prison": true,
         "prison_priority": 1,
         "arrest": false,
         "fine": false,
-        "severity_score": 4
+        "severity_score": 4,
+        "possession": {
+          "prison": true,
+          "arrest": false,
+          "fine": false,
+          "severe": true
+        },
+        "trafficking": {
+          "prison": true,
+          "arrest": false,
+          "fine": false,
+          "severe": true
+        }
       },
       "confidence": "high",
       "sources": [
@@ -94,12 +107,8 @@
         "rule: penalty_prison | source: Indonesia | type: summary | priority: 1 | scope: trafficking",
         "rule: penalty_years | source: Indonesia | type: summary | priority: 1 | scope: trafficking",
         "rule: trafficking_illegal | source: Indonesia | type: summary | priority: 1 | scope: trafficking",
+        "rule: penalty_prison | source: Indonesia | type: summary | priority: 1 | scope: possession",
         "rule: penalty_years | source: Indonesia | type: summary | priority: 1 | scope: possession",
-        "rule: legal | source: MK Tolak Legalisasi Ganja Medis Untuk Kesehatan, Berikut Alasanya - Kilas Klaten | type: reference | priority: 2 | scope: general",
-        "rule: legal | source: MK Tolak Legalisasi Ganja Medis untuk Kesehatan! | type: reference | priority: 2 | scope: general",
-        "rule: legal | source: Legislator Dorong Pemerintah Segera Kaji Ganja Medis Usai Ada Putusan MK | type: reference | priority: 2 | scope: general",
-        "rule: legal | source: Kepala BNN sepakat putusan MK tolak legalisasi ganja medis | type: reference | priority: 2 | scope: general",
-        "rule: legal | source: Respons Penggugat Usai Gugatan Soal Legalisasi Ganja Medis Ditolak MK, Minta Pemerintah Kaji Ulang | type: reference | priority: 2 | scope: general",
         "no traversal evidence"
       ]
     },
@@ -110,9 +119,9 @@
       "penalty_years",
       "trafficking_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Indonesia. Medical cannabis is illegal. Distribution is mixed. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Indonesia. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Indonesia. Medical cannabis is illegal. Distribution is mixed. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Indonesia. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Indonesia}} Banned in 1927.<ref name=\"Slone2003\">{{cite book|author=Thomas H. Slone|title=Prokem|url=https://books.google.com/books?id=phbLKWrK-9MC&pg=PA26|year=2003|publisher=Masalai Press|isbn=978-0-9714127-5-0|pages=26–}}</ref> Minimum sentence of 4 years in prison (additional fines may apply) if caught dealing / distributing. Rehabilitation or maximum sentence of 4 years if caught in possession alone.<ref>{{cite web |url = http://www.bnn.go.id/portal/_uploads/perundangan/2009/10/27/uu-nomor-35-tahun-2009-tentang-narkotika-ok.pdf |title = Undang-Undang Republik Indonesia No. 35 Tahun 2009 tentang Narkotika |work = BNN RI |access-date = 3 May 2013 |archive-url = https://web.archive.org/web/20180721073120/http://www.bnn.go.id/portal/_uploads/perundangan/2009/10/27/uu-nomor-35-tahun-2009-tentang-narkotika-ok.pdf |archive-date = 21 July 2018 |url-status = dead }}</ref><ref>{{cite web |last1=Aquino |first1=Michael |title=Drug Laws in Bali and the Rest of Indonesia |url=https://www.tripsavvy.com/drug-laws-in-indonesia-1629332 |website=TripSavvy |access-date=17 October 2018 |archive-date=17 October 2018 |archive-url=https://web.archive.org/web/20181017123648/https://www.tripsavvy.com/drug-laws-in-indonesia-1629332 |url-status=dead }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -191,18 +200,18 @@
         "name": "Philippines / Pilipinas"
       },
       {
-        "code": "khm",
-        "name": "Cambodia / Kâmpŭchéa"
+        "code": "plw",
+        "name": "Palau / Belau"
       }
     ],
     "cluster_links": [
       {
-        "code": "vnm",
-        "name": "Vietnam / Việt Nam"
+        "code": "khm",
+        "name": "Cambodia / Kâmpŭchéa"
       },
       {
-        "code": "lao",
-        "name": "Laos / ສປປລາວ"
+        "code": "vnm",
+        "name": "Vietnam / Việt Nam"
       }
     ],
     "same_country_states": [],
@@ -210,9 +219,9 @@
   },
   "hashes": {
     "code": "idn",
-    "content_hash": "4f68431f46bd33d24f01c25ad76f5817678e68fba7786974fcd5ce0fb7492e82",
-    "notes_hash": "0977e53f02388cfbbb6db40fa32d571b2a8ad844ad9bd57f0599e14479217d7b",
-    "model_hash": "d488732bf1858ad21423273c99ec90eaa336775fcade4a0f12641f26e230c105"
+    "content_hash": "67d73fdb5cf9c8fe2c9ee5b26661be8f531347a94d88baec452c56f246dbc97a",
+    "notes_hash": "7dcee981f6290ab5e43d08ff38456bb8efb883b4f1a59f49241670b6bf895722",
+    "model_hash": "8e09edb3e9eaaf910e29aa56c89139007fefac485b5f36b8e397bcbbb239e191"
   },
   "geo_code": "ID",
   "node_type": "country",

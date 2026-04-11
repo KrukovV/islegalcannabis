@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
-        "arrest": true,
+        "arrest": false,
         "fine": true,
-        "severity_score": 2
+        "severity_score": 1,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": true,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -64,7 +77,6 @@
       ],
       "explain": [
         "rule: illegal | source: Iceland / Ísland | type: summary | priority: 1 | scope: general",
-        "rule: penalty_arrest | source: Iceland / Ísland | type: summary | priority: 1 | scope: possession",
         "rule: penalty_fine | source: Iceland / Ísland | type: summary | priority: 1 | scope: possession",
         "rule: illegal | source: Iceland / Ísland | type: summary | priority: 1 | scope: possession",
         "no traversal evidence"
@@ -75,7 +87,6 @@
     ],
     "applied_rules": [
       "illegal",
-      "penalty_arrest",
       "penalty_fine"
     ],
     "notes_normalized": "Cannabis is illegal in Iceland / Ísland. Medical cannabis is illegal. Distribution is illegal."
@@ -178,9 +189,9 @@
   },
   "hashes": {
     "code": "isl",
-    "content_hash": "1a69924af21ac5f5d1663038bcf705827253f44fd0e5e3a9d8bb360420b7da10",
+    "content_hash": "fdd6176716b32170636a7adb622992b4088ea8e35f7c41b35d6cdff0c4d5bb65",
     "notes_hash": "306ee0b6c269294b41b2cedc1264c005d24137450b017fb958ed9575b945cb35",
-    "model_hash": "e5fca04c629149488a4d85e7f85bef2b3ce7a6f5312926859a252f0b607fc73e"
+    "model_hash": "0af14f867f9787cbd6408400a50f3faa43546b5905bdf061a9c40cee9d89f3e4"
   },
   "geo_code": "IS",
   "node_type": "country",

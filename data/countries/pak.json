@@ -5,9 +5,9 @@
   "legal_model": {
     "recreational": {
       "raw_status": "UNKNOWN",
-      "status": "TOLERATED",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "UNKNOWN",
@@ -17,10 +17,10 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
-        "use": "restricted",
+        "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -36,12 +36,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "HIGH_RISK",
       "penalties": {
         "prison": true,
         "prison_priority": 1,
         "arrest": false,
         "fine": false,
-        "severity_score": 4
+        "severity_score": 4,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -65,7 +78,7 @@
         }
       ],
       "explain": [
-        "rule: rec_tolerated | source: Pakistan / پاكستان | type: summary | priority: 1 | scope: general",
+        "rule: raw_illegal | source: Pakistan / پاكستان | type: summary | priority: 1 | scope: general",
         "rule: illegal | source: Pakistan / پاكستان | type: summary | priority: 1 | scope: general",
         "rule: penalty_prison | source: Pakistan / پاكستان | type: summary | priority: 1 | scope: general",
         "rule: legal | source: Pakistan / پاكستان | type: summary | priority: 1 | scope: general",
@@ -74,13 +87,12 @@
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "rec_tolerated",
-      "illegal",
+      "raw_illegal",
       "penalty_prison"
     ],
-    "notes_normalized": "Cannabis is tolerated in Pakistan / پاكستان. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Pakistan / پاكستان. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is tolerated in Pakistan / پاكستان. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Pakistan / پاكستان. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Pakistan}} Prohibited, but the smoking of hashish in [[Peshawar]] and the northern parts of Pakistan tends to be tolerated. One may be sent to jail for up to six months if found with [[charas]] in other parts of the country.<ref>{{citation |url = http://www.erowid.org/plants/cannabis/cannabis_law.shtml#pakistan |title = Cannabis legal status vault – Pakistan/Peshawar |publisher = Erowid.org |access-date = 5 June 2018 |archive-date = 15 December 2019 |archive-url = https://web.archive.org/web/20191215152836/https://www.erowid.org/plants/cannabis/cannabis_law.shtml#pakistan |url-status = live }}</ref> CBD legalized by cabinet announcement in September 2020.<ref name=\"ExpressTribune\" />",
   "facts": {
     "possession_limit": null,
@@ -151,22 +163,22 @@
     ],
     "legal_similarity": [
       {
+        "code": "ind",
+        "name": "India / भारत"
+      },
+      {
         "code": "uzb",
         "name": "Uzbekistan / Узбекистан"
       },
       {
         "code": "npl",
         "name": "Nepal / नेपाल"
-      },
-      {
-        "code": "tkm",
-        "name": "Turkmenistan / Туркмения"
       }
     ],
     "cluster_links": [
       {
-        "code": "ind",
-        "name": "India / भारत"
+        "code": "tkm",
+        "name": "Turkmenistan / Туркмения"
       },
       {
         "code": "omn",
@@ -178,9 +190,9 @@
   },
   "hashes": {
     "code": "pak",
-    "content_hash": "578204da3762d1690f6d915e40900c5e24c55355366e3a36e986588ef41ee312",
-    "notes_hash": "c01d2665468c94d22876aa35cbfc0ba126f369186ccd362b43e09fe8daee71c6",
-    "model_hash": "0b173faa1cf64145ba2d071cde6a4add0a6521df8ad86f18891fa7b24f555e58"
+    "content_hash": "45bff4df9663082fd29e3202f3fd26de00b6933d8ad1deb4751ee13c79143c68",
+    "notes_hash": "8377a9d8390eceebba18bebadccc22aa13956888aaa56c1b22749cd5d4527793",
+    "model_hash": "e616772bc71ab8af305ec0ccee304a6e91fcd9e8afe4fdf5a53297a1e88ba749"
   },
   "geo_code": "PK",
   "node_type": "country",

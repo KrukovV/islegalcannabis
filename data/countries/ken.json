@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -194,9 +207,9 @@
   },
   "hashes": {
     "code": "ken",
-    "content_hash": "d29f7b0ec5b93c3bf3f13ad6c308ed014ea1b7be2814bdebc92aa5dc00de5572",
+    "content_hash": "9e2f879d1105a64a46995d50da74ee4fcbd10d0680713c749cfbd3da10f1fedb",
     "notes_hash": "9d8e9f11e55f34e8f9f5820254d436fe6db52529393113d672cb1d20a8fd44e8",
-    "model_hash": "f0f880fce4bb50e6391ea065c7796c4ee90a37a7a4edf2e3152ab6a03ef83828"
+    "model_hash": "ad0a812f1c0407af59f418118f3ebc85e1dca61424c32739d30b5891097b59f4"
   },
   "geo_code": "KE",
   "node_type": "country",

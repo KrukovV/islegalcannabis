@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "low",
       "sources": [
@@ -132,8 +145,8 @@
         "name": "Botswana"
       },
       {
-        "code": "nam",
-        "name": "Namibia / Namibië"
+        "code": "zwe",
+        "name": "Zimbabwe"
       }
     ],
     "cluster_links": [
@@ -151,9 +164,9 @@
   },
   "hashes": {
     "code": "ata",
-    "content_hash": "a6ea79da06537dd45001b5f1d49ef63ef223f38ad52f1ada9fcb7e263a77002e",
+    "content_hash": "341ac540c55424997ab1b7e1ec23fe7319f756b6fe003808526cb1d9fb351588",
     "notes_hash": "5802a8bd5fd25a6ad5431a89e9ca3ce2685c192d6ee59b8375e3bc2f7782b928",
-    "model_hash": "d9e726be82fa57feca5afc65f5cba717c58ab9e5040cb1668cb5605d3e1d0873"
+    "model_hash": "69d99672cab0d9ebc2a275227a590196326485b45eb37b77193ce816742c1a49"
   },
   "geo_code": "AQ",
   "node_type": "country",

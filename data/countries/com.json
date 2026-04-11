@@ -5,41 +5,56 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "LIMITED",
-      "enforcement": "MODERATE",
-      "scope": "MEDICAL_ONLY",
-      "override_reason": "rec_implies_med_floor"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
-        "use": "restricted",
+        "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [],
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
       "modifiers": [
         "may"
       ]
     },
     "signals": {
-      "status": "restricted",
+      "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -69,12 +84,11 @@
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "legal",
-      "rec_implies_med_floor"
+      "distribution_fallback_illegal"
     ],
-    "notes_normalized": "Cannabis is legal in Comoros / جزر القمر. Medical cannabis is limited. Distribution is restricted."
+    "notes_normalized": "Cannabis is illegal in Comoros / جزر القمر. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is legal in Comoros / جزر القمر. Medical cannabis is limited. Distribution is restricted.",
+  "notes_normalized": "Cannabis is illegal in Comoros / جزر القمر. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Comoros}} Cannabis was legal in Comoros between January 1975 and May 1978, when president [[Ali Soilih]] legalized cannabis consumption among other measures.<ref>{{Cite web|url=http://www.niyel.net/docs/Dossier_1_fr.pdf|archive-url=https://web.archive.org/web/20110723222625/http://www.niyel.net/docs/Dossier_1_fr.pdf|title=Dossiers sur les 30 Chefs d'Etat ou de Gouvernements tués|archive-date=23 July 2011}}</ref><ref name=\"French1997\">{{cite journal|last1=French|first1=Howard|title=The Mercenary Position|journal=Transition |issue=73|year=1997 |pages=110–121|issn=0041-1191|doi=10.2307/2935448 |jstor = 2935448 }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -145,26 +159,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "zwe",
-        "name": "Zimbabwe"
-      },
-      {
-        "code": "lso",
-        "name": "Lesotho"
-      },
-      {
-        "code": "dji",
-        "name": "Djibouti / جيبوتي"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "tza",
         "name": "Tanzania"
       },
       {
+        "code": "syc",
+        "name": "Seychelles / Sesel"
+      },
+      {
         "code": "zmb",
         "name": "Zambia"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "ken",
+        "name": "Kenya"
+      },
+      {
+        "code": "zwe",
+        "name": "Zimbabwe"
       }
     ],
     "same_country_states": [],
@@ -172,9 +186,9 @@
   },
   "hashes": {
     "code": "com",
-    "content_hash": "88293cdbca40f18917f448ff670851fa0de8116e3fac7de1f7acb8c526f7e36d",
-    "notes_hash": "76ee453f406d1dcd616feb41bb6ee2b14da109a0a51b4bdad3fa2017487267ff",
-    "model_hash": "f72c3acaf0e28a31455a49670c8f2076a37fbf3b135186e2374d99772cd281ed"
+    "content_hash": "e75c1cc7a16f119ea3f52d558f896c16b116f96e028cba229ca2ed217ddf26da",
+    "notes_hash": "3d6174dfd855f0ebcf4c61cddf4bc3537322b773f1296a066f70b552cb6c36ba",
+    "model_hash": "46831f660be8d4eeb760de602393a5a3316f05acfa0fda23d7ce3ffcae3aa922"
   },
   "geo_code": "KM",
   "node_type": "country",

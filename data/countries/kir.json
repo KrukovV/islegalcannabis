@@ -5,39 +5,54 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "LIMITED",
-      "enforcement": "MODERATE",
-      "scope": "MEDICAL_ONLY",
-      "override_reason": "rec_implies_med_floor"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
-        "use": "restricted",
+        "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [],
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
       "modifiers": []
     },
     "signals": {
-      "status": "restricted",
+      "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -85,18 +100,16 @@
         }
       ],
       "explain": [
-        "rule: legal | source: Legal status of cannabis in Kiribati - Cannaconnection.com | type: reference | priority: 2 | scope: general",
         "no traversal evidence"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "legal",
-      "rec_implies_med_floor"
+      "distribution_fallback_illegal"
     ],
-    "notes_normalized": "Cannabis is legal in Kiribati. Medical cannabis is limited. Distribution is restricted."
+    "notes_normalized": "Cannabis is illegal in Kiribati. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is legal in Kiribati. Medical cannabis is limited. Distribution is restricted.",
+  "notes_normalized": "Cannabis is illegal in Kiribati. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Kiribati}}",
   "facts": {
     "possession_limit": null,
@@ -167,26 +180,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "slb",
-        "name": "Solomon Islands"
-      },
-      {
-        "code": "plw",
-        "name": "Palau / Belau"
-      },
-      {
-        "code": "tls",
-        "name": "Timor-Leste / Timór-Leste"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "fsm",
         "name": "Micronesia"
       },
       {
+        "code": "slb",
+        "name": "Solomon Islands"
+      },
+      {
         "code": "vut",
         "name": "Vanuatu"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "fji",
+        "name": "Fiji / Viti"
+      },
+      {
+        "code": "ncl",
+        "name": "New Caledonia / Nouvelle-Calédonie"
       }
     ],
     "same_country_states": [],
@@ -194,9 +207,9 @@
   },
   "hashes": {
     "code": "kir",
-    "content_hash": "eaf4e584683b4d2bd812b33e7230c53513bbf21b1c57e0441c1e8f6821cbfaf1",
-    "notes_hash": "de06a274f3ae3443bbf3fe8bb21b51bc42970f2a03d64db27b2e744c7c04e668",
-    "model_hash": "826b599898d5a30721aa94f8d1bc7925717e4d3e74e37759be6a91fb696264c4"
+    "content_hash": "948c8db452f89c39b4fea1ec0006052c118b392af42c4f1f9c0a810ce09b620b",
+    "notes_hash": "5d35511816a2641efbb5e04ecff7fa54ae2b4e62426265c13acb5feba2561a05",
+    "model_hash": "bbdbcc1838c3142cd8ebe726032db93a26c84d9b86e5d2f8982f55f3ac49c609"
   },
   "geo_code": "KI",
   "node_type": "country",

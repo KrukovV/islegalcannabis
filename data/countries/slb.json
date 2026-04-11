@@ -5,22 +5,22 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "LIMITED",
-      "enforcement": "MODERATE",
-      "scope": "MEDICAL_ONLY",
-      "override_reason": "rec_implies_med_floor"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
-        "use": "restricted",
+        "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -31,15 +31,28 @@
       "modifiers": []
     },
     "signals": {
-      "status": "restricted",
+      "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": true,
-        "severity_score": 1
+        "severity_score": 1,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Cannabis in the Solomon Islands",
@@ -79,7 +92,6 @@
         }
       ],
       "explain": [
-        "rule: legal | source: Legal status of cannabis on the Solomon Islands - Cannaconnection.com | type: reference | priority: 2 | scope: general",
         "rule: penalty_fine | source: Marijuana Haul Worth Close to SBD$1 Million - Solomon Times Online | type: reference | priority: 2 | scope: general",
         "no traversal evidence"
       ]
@@ -88,13 +100,11 @@
       "fine_based"
     ],
     "applied_rules": [
-      "legal",
-      "penalty_fine",
-      "rec_implies_med_floor"
+      "penalty_fine"
     ],
-    "notes_normalized": "Cannabis is legal in Solomon Islands. Medical cannabis is limited. Distribution is restricted."
+    "notes_normalized": "Cannabis is illegal in Solomon Islands. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is legal in Solomon Islands. Medical cannabis is limited. Distribution is restricted.",
+  "notes_normalized": "Cannabis is illegal in Solomon Islands. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in the Solomon Islands}}",
   "facts": {
     "possession_limit": null,
@@ -165,26 +175,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "kir",
-        "name": "Kiribati"
-      },
-      {
-        "code": "tuv",
-        "name": "Tuvalu"
-      },
-      {
-        "code": "plw",
-        "name": "Palau / Belau"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "ncl",
         "name": "New Caledonia / Nouvelle-Calédonie"
       },
       {
         "code": "fsm",
         "name": "Micronesia"
+      },
+      {
+        "code": "kir",
+        "name": "Kiribati"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "fji",
+        "name": "Fiji / Viti"
+      },
+      {
+        "code": "tuv",
+        "name": "Tuvalu"
       }
     ],
     "same_country_states": [],
@@ -192,9 +202,9 @@
   },
   "hashes": {
     "code": "slb",
-    "content_hash": "8053949472a9c4f08abbb11baba6d971ee9c2d021024d696beeec1becbeae0b8",
-    "notes_hash": "7ca0c0e51a968ac397236dd67a920f3de1342648fb9ce4d9f12255dedb9f0edd",
-    "model_hash": "512f381bf75a91197e50f1e8a45d5971023f9608c0f2ac65edcdd4e37eb3b6b3"
+    "content_hash": "f7fb467fc3445551f8b0e8625ead80231cb1a8e9297560a2502d7bd95fe8660c",
+    "notes_hash": "fb1cddb57b05653085978786878d674ffa6ddf935f6a69b2ed969e4cf897d1c8",
+    "model_hash": "a9b968c4dd8b2ad0676b7ca4068581fe76f90e7ed9f2d0e37ccb6322fc81fbd9"
   },
   "geo_code": "SB",
   "node_type": "country",

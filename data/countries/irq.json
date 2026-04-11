@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -176,9 +189,9 @@
   },
   "hashes": {
     "code": "irq",
-    "content_hash": "9d804c8715cd3f5cd62226b87d2eec6f7c110abe8d4313b884ae728b7c867913",
+    "content_hash": "1d3c6d07f28c068802e076a9484017f0c3f392ed64dfb763e85d486d64cce0e1",
     "notes_hash": "8892a54e2633e702841f328270f24943c6d846212ca146aecaaa479d33bee001",
-    "model_hash": "91d7f82e466bccb9d3c8cdccff6cf22161ed363e81dfa306d1db64d5f2ecaa71"
+    "model_hash": "2bbf1dec1da0cadb755b55e37f240f1590bed655d4fcea55caec171af56630c6"
   },
   "geo_code": "IQ",
   "node_type": "country",

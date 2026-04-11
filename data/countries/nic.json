@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -143,22 +156,22 @@
     ],
     "legal_similarity": [
       {
-        "code": "blz",
-        "name": "Belize / Belice"
-      },
-      {
         "code": "gtm",
         "name": "Guatemala"
       },
       {
         "code": "pan",
         "name": "Panama / Panamá"
+      },
+      {
+        "code": "cym",
+        "name": "Cayman Islands"
       }
     ],
     "cluster_links": [
       {
-        "code": "cym",
-        "name": "Cayman Islands"
+        "code": "blz",
+        "name": "Belize / Belice"
       },
       {
         "code": "jam",
@@ -170,9 +183,9 @@
   },
   "hashes": {
     "code": "nic",
-    "content_hash": "f869d872cd8e04b36c972ae583d161a41764902712701be4f193e3585fac1c78",
+    "content_hash": "fd1791327024e1d23ab132c8f9cb584a44318a81607a6f524d5ac78f16ae52fe",
     "notes_hash": "58430e80f753709d1524ac8ddafbd1f79b58ac8e5c105e7a763463544d3fdfbe",
-    "model_hash": "84008883a596aefdda6d0efb21dadeab068044b87d6a40a731aeab446bfa93fe"
+    "model_hash": "d17dde2a53978da84114a6c4e4f03ec6d31d2646dce62819cc3489c2b2abe277"
   },
   "geo_code": "NI",
   "node_type": "country",

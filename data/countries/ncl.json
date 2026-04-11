@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "low",
       "sources": [
@@ -124,9 +137,19 @@
     ],
     "legal_similarity": [
       {
+        "code": "slb",
+        "name": "Solomon Islands"
+      },
+      {
+        "code": "tuv",
+        "name": "Tuvalu"
+      },
+      {
         "code": "nru",
         "name": "Nauru"
-      },
+      }
+    ],
+    "cluster_links": [
       {
         "code": "nzl",
         "name": "New Zealand / Aotearoa"
@@ -136,24 +159,14 @@
         "name": "Papua New Guinea / Papua Niu Gini"
       }
     ],
-    "cluster_links": [
-      {
-        "code": "slb",
-        "name": "Solomon Islands"
-      },
-      {
-        "code": "tuv",
-        "name": "Tuvalu"
-      }
-    ],
     "same_country_states": [],
     "federal_parent": null
   },
   "hashes": {
     "code": "ncl",
-    "content_hash": "f16d93e6c4d429af841ed8c8b9452f5a4328c26d2bb8aa8cf8872e2d2fd954d2",
+    "content_hash": "35edcd58948a98ea56ff4da3a9944f9df62158584b1eee514b9ca228fa6e4ea0",
     "notes_hash": "2e7125426540090c29c501ceaf9e332340bb1820a5dab159179f46a9b5a98d0f",
-    "model_hash": "3cb9f8a1d3921c69cd67981270eb815da8b21b98276eace9ce65343cd44d54aa"
+    "model_hash": "5c49682366017db59784249b31eae447702e8845a9c08ce206dd62d4bf30d801"
   },
   "geo_code": "NC",
   "node_type": "country",

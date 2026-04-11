@@ -32,12 +32,25 @@
     },
     "signals": {
       "status": "restricted",
+      "final_risk": "LIMITED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -180,9 +193,9 @@
   },
   "hashes": {
     "code": "aut",
-    "content_hash": "6c5ba5c2265550b67318ffd84c9db7494266adceb33448d4f358c0a1fcac8c6a",
+    "content_hash": "79c6c5fb721b54204708c6ffab9908c7351031059214eb4c2b0dba06953f1bae",
     "notes_hash": "fd36e64dc2e330f1c986416fc0a5c5e9efeaac1c1cc25aa486628f1fb561f909",
-    "model_hash": "f692ad053310b5f7acf85fa2fc8e9d2e00fc5f886aa2c3dff9fdd873c539b1b2"
+    "model_hash": "0c6a93279e07c8f70332d3c1c319f82b073559e1fbba8ef0e38261dbaa9aba14"
   },
   "geo_code": "AT",
   "node_type": "country",

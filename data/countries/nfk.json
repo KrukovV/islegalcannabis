@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "low",
       "sources": [
@@ -128,16 +141,6 @@
         "name": "New Zealand / Aotearoa"
       },
       {
-        "code": "nru",
-        "name": "Nauru"
-      },
-      {
-        "code": "png",
-        "name": "Papua New Guinea / Papua Niu Gini"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "slb",
         "name": "Solomon Islands"
       },
@@ -146,14 +149,24 @@
         "name": "Tuvalu"
       }
     ],
+    "cluster_links": [
+      {
+        "code": "nru",
+        "name": "Nauru"
+      },
+      {
+        "code": "kir",
+        "name": "Kiribati"
+      }
+    ],
     "same_country_states": [],
     "federal_parent": null
   },
   "hashes": {
     "code": "nfk",
-    "content_hash": "9e2db09471e1886091ac86c9e78acbd01a8a6294bdf3b00fda1cb5e326ff0e99",
+    "content_hash": "9f0cd3f51bc507b2fc4e9c3b45b85e96beda023fdf7f53b8c4ec94fbc9b6566e",
     "notes_hash": "9cf281b57d7ebef622d8e371cc87319a89deddc6dcf439241b9700f53b2e5c61",
-    "model_hash": "ebd94d45fc3656a7b98dcc064f69ad2f852af2de801bfbd48426d2951f576f14"
+    "model_hash": "388a45ddd05a3a9264afc455248d606982b63214972d2e3fd6db799648ad52e6"
   },
   "geo_code": "NF",
   "node_type": "country",

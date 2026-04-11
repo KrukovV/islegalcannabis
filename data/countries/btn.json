@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -87,13 +100,14 @@
         }
       ],
       "explain": [
+        "rule: raw_illegal | source: Bhutan / འབྲུག་ཡུལ་ | type: summary | priority: 1 | scope: cultivation",
         "rule: illegal | source: Bhutan / འབྲུག་ཡུལ་ | type: summary | priority: 1 | scope: cultivation",
         "no traversal evidence"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Bhutan / འབྲུག་ཡུལ་. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -172,12 +186,12 @@
         "name": "India / भारत"
       },
       {
-        "code": "lao",
-        "name": "Laos / ສປປລາວ"
+        "code": "chn",
+        "name": "China / 中国"
       },
       {
-        "code": "khm",
-        "name": "Cambodia / Kâmpŭchéa"
+        "code": "lao",
+        "name": "Laos / ສປປລາວ"
       }
     ],
     "cluster_links": [
@@ -186,8 +200,8 @@
         "name": "Thailand / ประเทศไทย"
       },
       {
-        "code": "chn",
-        "name": "China / 中国"
+        "code": "khm",
+        "name": "Cambodia / Kâmpŭchéa"
       }
     ],
     "same_country_states": [],
@@ -195,9 +209,9 @@
   },
   "hashes": {
     "code": "btn",
-    "content_hash": "bb026d8867c957a7284e40b55982abe76039c8e349a562dbdb2dc429b3a665c2",
+    "content_hash": "09a970e6e750dc5a6dca2174d664e6ac0926a22bdf7d9b6b3d55c0c1b713ee5e",
     "notes_hash": "cec92f6f8f088b0b453f72d9417c64373f3af1593e4a988201b09dec7521d332",
-    "model_hash": "e5d13e5984c35afc6ea7ade5c53e673124135e2baaff854b43242bc8ddf0dc24"
+    "model_hash": "8677be8e784accbfa20426e5c4a428e516fcdd4d4c3e9e4fc3aff4568c3adc9b"
   },
   "geo_code": "BT",
   "node_type": "country",

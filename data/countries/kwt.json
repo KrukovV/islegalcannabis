@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -194,9 +207,9 @@
   },
   "hashes": {
     "code": "kwt",
-    "content_hash": "392323112c80878ee549b3d93e2f2b9a6b8e945d3f4b59d3fc9194d44ebaf9e5",
+    "content_hash": "c04f4b177b28414d7eeddc77887d10ec5660d1662a84ae3b80a14f7b4df9d8b4",
     "notes_hash": "9c9c38e3aeb0af44607cb23839ae201180eef0612c858ef0cfa734de89000028",
-    "model_hash": "9bc832217fd64e237f11b69819850ce25ad7cc2ad4fdb3e3ed4ec0b73eda5707"
+    "model_hash": "2f2d68233cd6a74662edfbb0a17bbd9e4c9062fe56f6cf692edde796ea250978"
   },
   "geo_code": "KW",
   "node_type": "country",

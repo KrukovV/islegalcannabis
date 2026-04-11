@@ -5,9 +5,9 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "LEGAL",
@@ -17,10 +17,10 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
-        "use": "restricted",
+        "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -32,12 +32,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "HIGH_RISK",
       "penalties": {
         "prison": true,
         "prison_priority": 1,
         "arrest": false,
         "fine": false,
-        "severity_score": 4
+        "severity_score": 4,
+        "possession": {
+          "prison": true,
+          "arrest": false,
+          "fine": false,
+          "severe": true
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "high",
       "sources": [
@@ -87,22 +100,17 @@
       "explain": [
         "rule: penalty_prison | source: Cyprus / Κύπρος | type: summary | priority: 1 | scope: possession",
         "rule: penalty_years | source: Cyprus / Κύπρος | type: summary | priority: 1 | scope: possession",
-        "rule: legal | source: Overviews of legal topics: possession of cannabis for personal use | type: reference | priority: 2 | scope: possession",
-        "rule: legal | source: Cannabis in Cyprus | type: reference | priority: 2 | scope: general",
-        "rule: legal | source: Medical cannabis law approved in Cyprus | type: reference | priority: 2 | scope: general",
-        "rule: legal | source: Can cannabis be legalised in Cyprus: Pros and cons | type: reference | priority: 2 | scope: general",
         "no traversal evidence"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
       "penalty_prison",
-      "penalty_years",
-      "legal"
+      "penalty_years"
     ],
-    "notes_normalized": "Cannabis is legal in Cyprus / Κύπρος. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Cyprus / Κύπρος. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is legal in Cyprus / Κύπρος. Medical cannabis is legal. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Cyprus / Κύπρος. Medical cannabis is legal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Cyprus}} Class B substance – life imprisonment is possible for use and maximum 8 years for possession (at the maximum 2 years for the first offense for people under 25).<ref>{{cite web|title=Overviews of legal topics: possession of cannabis for personal use|url=http://www.emcdda.europa.eu/legal-topic-overviews/cannabis-possession-for-personal-use|publisher=[[European Monitoring Centre for Drugs and Drug Addiction]]|access-date=26 July 2015|archive-date=30 September 2018|archive-url=https://web.archive.org/web/20180930083140/http://www.emcdda.europa.eu/legal-topic-overviews/cannabis-possession-for-personal-use|url-status=live}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -177,16 +185,6 @@
         "name": "Türkiye"
       },
       {
-        "code": "grc",
-        "name": "Greece / Ελλάδα"
-      },
-      {
-        "code": "geo",
-        "name": "Georgia / საქართველო"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "jor",
         "name": "Jordan / الأردن"
       },
@@ -195,14 +193,24 @@
         "name": "Syria / سوريا"
       }
     ],
+    "cluster_links": [
+      {
+        "code": "irq",
+        "name": "Iraq / العراق"
+      },
+      {
+        "code": "geo",
+        "name": "Georgia / საქართველო"
+      }
+    ],
     "same_country_states": [],
     "federal_parent": null
   },
   "hashes": {
     "code": "cyp",
-    "content_hash": "971f66afeca8a73d818f2a7da6196f8dd37f253dbfd7b4abc5696131f6e00c2a",
-    "notes_hash": "b8f4ad88ab90d6f2396471bd51fa40aae4d77cd058537596414cdabb76854375",
-    "model_hash": "1c27a857e5a4434012433a9a50a3d36963b2a0bf909763872ec270cacb524540"
+    "content_hash": "1bc5e6e09c4c059b21efe8718f8d2681a4f41e8265600ecce8f6c6ec048e5c8b",
+    "notes_hash": "5228c19a8ae74f3b895a821c8e7364014020b72215b37e01cca7cdc5e77a3871",
+    "model_hash": "d4050b387bb3042f20873dba5de622a00bb164fc7a3bb63bd35cd19deb71cba5"
   },
   "geo_code": "CY",
   "node_type": "country",

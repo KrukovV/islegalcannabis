@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -170,9 +183,9 @@
   },
   "hashes": {
     "code": "bhs",
-    "content_hash": "9b6eb17133a1da5e45e86eca43a18de27a310597a1de1cc532e9c6e37c784af1",
+    "content_hash": "51e730b4185584f33652c0b6beebca1d89fa895018e30155b1b392cd0852d02c",
     "notes_hash": "49eee72ab4c5bb6b4c037790c6b1b4dbf20a0f225b50a6172fa92807fa36571a",
-    "model_hash": "698ca65a2201ab593e4349b238e6b5520086fa4ee5d3f4b0126c0118c7e5486a"
+    "model_hash": "cb7d5f248e73fff0823102624d1db47104253fafe6c54003a41092ffed5be80d"
   },
   "geo_code": "BS",
   "node_type": "country",

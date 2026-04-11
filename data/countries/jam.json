@@ -32,12 +32,25 @@
     },
     "signals": {
       "status": "restricted",
+      "final_risk": "LIMITED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -169,9 +182,9 @@
   },
   "hashes": {
     "code": "jam",
-    "content_hash": "3b56d53dfd409f21b837167b8afed2dcd1ca804a2995f0accd4cd5bbc3c73d5f",
+    "content_hash": "142177abaedc7f8156459586080c8b3d7f3783e3bd164a8b9d778d24a2cae1ff",
     "notes_hash": "de5767586b6a6aace9f35062caa006562d7556467b8f209863ed17eb3a51f8c1",
-    "model_hash": "38e3027dc98772b5b4a7cb0065fcac7440a970f5df73f51887f72a6038372e39"
+    "model_hash": "88ed15c7cfc7eb53ee0c03a1d10e67546707c685b002162463ca56ac98888b5c"
   },
   "geo_code": "JM",
   "node_type": "country",

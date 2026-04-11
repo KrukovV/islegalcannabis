@@ -36,12 +36,25 @@
     },
     "signals": {
       "status": "restricted",
+      "final_risk": "LIMITED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": true,
-        "severity_score": 1
+        "severity_score": 1,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": true,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -199,9 +212,9 @@
   },
   "hashes": {
     "code": "che",
-    "content_hash": "73aad56b7ebcc8686bca93d9d842e298492b01e5a6866775f3afa6c6684839ee",
+    "content_hash": "37a115ce17df3e69821427b294a6d5cfe41b26f4f0f5d14567986a11a8568e7d",
     "notes_hash": "7976e34774029c18dc51cd9a6241918553c394c61c3d847fb6511ba380b45900",
-    "model_hash": "ab97bd20575afc639094e888cad2b4ff7413cb81de6562e79c53317ee71ef0ce"
+    "model_hash": "50793513f7de4d9824128b263333008b8ef47e971edefc0802b748d1722fa19f"
   },
   "geo_code": "CH",
   "node_type": "country",

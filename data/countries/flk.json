@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "low",
       "sources": [
@@ -151,9 +164,9 @@
   },
   "hashes": {
     "code": "flk",
-    "content_hash": "f0d5f5f294226b504b28ea7d16b41e74cecfbb9f686552130b7ce4af5a33230d",
+    "content_hash": "6df168addacfbb96c6ddfc97b2b0ced6baf2daae3cb9fc40847f0cf8e436d6b8",
     "notes_hash": "e5f2ee6901fc18c267fa8ddc08ded290b48c060559ac423411e615c906de9c3a",
-    "model_hash": "105861985818247561e27572ba6a187b70c921e778b59b9f80c83520797d81ce"
+    "model_hash": "91f940190310009a8641c9619160b757826deb935f824231473eb9b4a8a348e1"
   },
   "geo_code": "FK",
   "node_type": "country",

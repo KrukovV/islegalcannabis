@@ -32,12 +32,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": true,
         "fine": false,
-        "severity_score": 2
+        "severity_score": 2,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -193,9 +206,9 @@
   },
   "hashes": {
     "code": "guy",
-    "content_hash": "057d168f8a0f8f3951749cd1383e76800d4ac8ef53efcebc83a4ab609819ba6b",
+    "content_hash": "e7a8ec7103f435641c2aa9fd8f00f52311f73d26d21a44274d6bd8257a6b63c3",
     "notes_hash": "9ff08b98b61555d3aacb8ae86bbb64b6dd9499f8bb49bb37a538982b3bf01527",
-    "model_hash": "9b6f3d450f482b958db0a7f121399ced0982d6a882497fbc739a2e42c11bfbe2"
+    "model_hash": "59c3ad2d95a651e597edaef712a2d1f921d48d31677d72226482d97061e9354c"
   },
   "geo_code": "GY",
   "node_type": "country",

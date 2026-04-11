@@ -32,12 +32,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -193,9 +206,9 @@
   },
   "hashes": {
     "code": "sur",
-    "content_hash": "0b214da3854ba18f8274f63ce4bc943c73bae165e3ea381d49dccdd769e25490",
+    "content_hash": "92d56b269dcecda565e6144ab7f6d1afe5de84cf71e1ac725f1af3678db8709f",
     "notes_hash": "7a9e173a147ec86f5a6d0f81cd8c937e5ad9aa7878c95275a1656a11e880d8cb",
-    "model_hash": "7e4f4d775e586019cc502f6563bf13a0a5ea7ca36afdb966e87bb01a73f62427"
+    "model_hash": "0a8214f0efb4e48f7e85ef93b2d137fb119ffc69d7a0648162506f19823559ff"
   },
   "geo_code": "SR",
   "node_type": "country",

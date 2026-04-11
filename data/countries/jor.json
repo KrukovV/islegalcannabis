@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -171,18 +184,18 @@
         "name": "Syria / سوريا"
       },
       {
-        "code": "egy",
-        "name": "Egypt / مصر"
+        "code": "cyp",
+        "name": "Cyprus / Κύπρος"
       },
       {
-        "code": "tur",
-        "name": "Türkiye"
+        "code": "egy",
+        "name": "Egypt / مصر"
       }
     ],
     "cluster_links": [
       {
-        "code": "cyp",
-        "name": "Cyprus / Κύπρος"
+        "code": "tur",
+        "name": "Türkiye"
       },
       {
         "code": "irq",
@@ -194,9 +207,9 @@
   },
   "hashes": {
     "code": "jor",
-    "content_hash": "d8b22e4829a0e4c5fb9a61b152d1132bdf00af2c035ec07fa3f8578a78d29ee2",
+    "content_hash": "a0687ad53931e8d87055632298ed120f9ccb887758a2bc69039eaf34b04d8e60",
     "notes_hash": "72df9d34e587d6ca39332824174b5e604c49dcf69f73be8fe6ef86d7a1bf0429",
-    "model_hash": "d1e174f1ff0c42afac1f2f0c09c7f0c8913268a2ac5d4cfd3f7d02234fd7a5cb"
+    "model_hash": "a28477238b617b285b650e89135ebc26b187adff9252500a913dbe978f79ed2f"
   },
   "geo_code": "JO",
   "node_type": "country",

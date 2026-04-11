@@ -284,7 +284,18 @@ function loadWikiClaimRefsByIso() {
   const items = payload?.items && typeof payload.items === "object" ? payload.items : payload;
   return new Map(
     Object.entries(items || {})
-      .map(([geo, row]) => [String(geo || "").toUpperCase(), Array.isArray(row) ? row : []])
+      .map(([geo, row]) => {
+        let refs = [];
+        if (Array.isArray(row)) {
+          refs = row;
+        } else if (row && typeof row === "object") {
+          const values = Object.values(row);
+          if (values.every((item) => item && typeof item === "object")) {
+            refs = values;
+          }
+        }
+        return [String(geo || "").toUpperCase(), refs];
+      })
       .filter(([geo]) => /^[A-Z]{2}$/.test(geo))
   );
 }

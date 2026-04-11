@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -151,18 +164,18 @@
         "name": "Egypt / مصر"
       },
       {
-        "code": "alb",
-        "name": "Albania / Shqipëria"
+        "code": "dza",
+        "name": "Algeria / الجزائر"
       }
     ],
     "cluster_links": [
       {
-        "code": "dza",
-        "name": "Algeria / الجزائر"
-      },
-      {
         "code": "sdn",
         "name": "Sudan / السودان"
+      },
+      {
+        "code": "nga",
+        "name": "Nigeria"
       }
     ],
     "same_country_states": [],
@@ -170,9 +183,9 @@
   },
   "hashes": {
     "code": "lby",
-    "content_hash": "0e0446a194fa22af860e0ed2bb841e304ad93901796ce6c2a109046131b9fc09",
+    "content_hash": "21358213c886518919b942b2340fa5f905a2e526f6a407d7deacd5847d72c04e",
     "notes_hash": "884d7ec03000a891f87a3cc96275c0d8419b41030d4bef5c47c3d28c653cdce9",
-    "model_hash": "27840f1e06603db142da66cb16d3e77162de3cf86f7419a29dbe4dc99dff0467"
+    "model_hash": "7d090bf71286b1ef4767415e55782da8fc208f709cdab711043ac85e5a8b160e"
   },
   "geo_code": "LY",
   "node_type": "country",

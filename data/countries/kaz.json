@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -170,9 +183,9 @@
   },
   "hashes": {
     "code": "kaz",
-    "content_hash": "577b5bbf5fb49ba2e568b00f9e40983398569a25f401e8d724b02d7fcb45281d",
+    "content_hash": "ce43db67f30f030446e568ce10de0dd593a096c3bee304a78b280de01fd8a2d2",
     "notes_hash": "6439b39b510de3837a1466a290e299282a862310a7f2fa0abad9a6cc2d8b6156",
-    "model_hash": "273cce54686508de47fe671d4a124a2a3b5570fb2be64008bf16a8de6e70d10e"
+    "model_hash": "4dd432d5e3b2084cf591ad04be2f4c7aa35370aa3d2d29c550c21578a57fef43"
   },
   "geo_code": "KZ",
   "node_type": "country",

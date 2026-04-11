@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "low",
       "sources": [
@@ -151,9 +164,9 @@
   },
   "hashes": {
     "code": "pri",
-    "content_hash": "30239b0a77d30a9b6e5f4720534443c7162603e7ead26f21fdd4b8cb85e462ce",
+    "content_hash": "166ac94a625e5bc1389c0b5bb8b057d9e4dea414a51c9ed2603288c78de8b083",
     "notes_hash": "0f575ae29f154d2b783ef9e92c4fedfcee674bd12eddfebaac22cb530c52605d",
-    "model_hash": "144cb7a38c3578ca7cbbbfdabf40b0e0cf3c28f3920c856fa3d331d20aa76510"
+    "model_hash": "5b9ba269565b9fe679ba0f6c95d41916b1854362f60e1b3cbd9b62cc3bf2df82"
   },
   "geo_code": "PR",
   "node_type": "country",

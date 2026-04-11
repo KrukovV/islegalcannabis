@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "low",
       "sources": [
@@ -128,12 +141,12 @@
         "name": "Namibia / Namibië"
       },
       {
-        "code": "civ",
-        "name": "Ivory Coast / Côte d'Ivoire"
+        "code": "gnq",
+        "name": "Equatorial Guinea / Guinée équatoriale"
       },
       {
-        "code": "gha",
-        "name": "Ghana"
+        "code": "civ",
+        "name": "Ivory Coast / Côte d'Ivoire"
       }
     ],
     "cluster_links": [
@@ -151,9 +164,9 @@
   },
   "hashes": {
     "code": "shn",
-    "content_hash": "3a4ed182343cbcb0de2134bed96b4b8a226f9bdbe447d35aee0e467625db1e60",
+    "content_hash": "adae703974c5305eb5db023bdf3450d2fc536fb88a2c89ba6a27b168c14ebd4e",
     "notes_hash": "74cba1386a029a76f55c423fed55828f72052aa661d0171a487cc681f03ebfba",
-    "model_hash": "31adee46c414b838c1d86c63f70d4c0b5857620afa5524c650a7e9063f53f9ea"
+    "model_hash": "55b862224a2debd50b0cd4cbce0f3af29e379f5d7449aeab2570e3562b0b7fc2"
   },
   "geo_code": "SH",
   "node_type": "country",

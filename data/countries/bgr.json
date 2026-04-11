@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -149,26 +162,26 @@
     ],
     "legal_similarity": [
       {
+        "code": "grc",
+        "name": "Greece / Ελλάδα"
+      },
+      {
         "code": "alb",
         "name": "Albania / Shqipëria"
       },
       {
         "code": "mne",
         "name": "Montenegro / Црна Гора"
-      },
-      {
-        "code": "hun",
-        "name": "Hungary / Magyarország"
       }
     ],
     "cluster_links": [
       {
-        "code": "grc",
-        "name": "Greece / Ελλάδα"
-      },
-      {
         "code": "mda",
         "name": "Moldova"
+      },
+      {
+        "code": "hun",
+        "name": "Hungary / Magyarország"
       }
     ],
     "same_country_states": [],
@@ -176,9 +189,9 @@
   },
   "hashes": {
     "code": "bgr",
-    "content_hash": "59004f14afa0fce2847d34e96e078ec7d8b16e63c2aa8894f6aaccb18c5a4aa1",
+    "content_hash": "bf5682e9064cc879d70dd259f4bd885913942d1813d5e882eea6596ba26b359f",
     "notes_hash": "9cdf972c0cf45d5efbf5a7c0ef96193c68ab76295865d50f0acf81ab559e620a",
-    "model_hash": "638fd38a1cfdc2ce4455433870586d2500662b56428e500d3ac6762ac557849b"
+    "model_hash": "b93a250c6a3b5096773a6c8655fbc5bfb4ac7c682742fab3305cb24791502d28"
   },
   "geo_code": "BG",
   "node_type": "country",

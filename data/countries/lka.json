@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "restricted",
+      "final_risk": "LIMITED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -167,12 +180,12 @@
         "name": "Thailand / ประเทศไทย"
       },
       {
-        "code": "npl",
-        "name": "Nepal / नेपाल"
+        "code": "mwi",
+        "name": "Malawi / Malaŵi"
       },
       {
-        "code": "pak",
-        "name": "Pakistan / پاكستان"
+        "code": "geo",
+        "name": "Georgia / საქართველო"
       }
     ],
     "cluster_links": [
@@ -181,8 +194,8 @@
         "name": "Bangladesh / বাংলাদেশ"
       },
       {
-        "code": "btn",
-        "name": "Bhutan / འབྲུག་ཡུལ་"
+        "code": "npl",
+        "name": "Nepal / नेपाल"
       }
     ],
     "same_country_states": [],
@@ -190,9 +203,9 @@
   },
   "hashes": {
     "code": "lka",
-    "content_hash": "c8ea4a3066447bf9bfcc0a86cc2a19a3ab3a487ee75d24c860de244df01430d5",
+    "content_hash": "1cb0e35b3c1c66e52329604021615897d7bf9869efb0562b2779341f6d410efe",
     "notes_hash": "53b6fd02e90e7649e4757896e3d482811c52f43d2b0af2c42a2ff287324c9889",
-    "model_hash": "0f2f5d057ae22083361e90ac1273421acec5e3713101166150bc8e8c5b84ca77"
+    "model_hash": "013c63b39774729f23c69e0d55c03193482beca3fc6007741b445fd5733452d9"
   },
   "geo_code": "LK",
   "node_type": "country",

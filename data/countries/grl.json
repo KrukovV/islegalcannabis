@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -176,9 +189,9 @@
   },
   "hashes": {
     "code": "grl",
-    "content_hash": "434d210c7922320f27f1d4d1d7551b2e56d673ee9f3cb3ebf8eb44e7ab63bd59",
+    "content_hash": "06b21faa3c7270c23d9ebc0e73ac071970e4217e08cffe71db84e3083fbd05bd",
     "notes_hash": "803518579d58996ee5d423f464c3cd63a17568d1fb49c336e44974db824f7596",
-    "model_hash": "1b0979d38c801735823ba65dc6a64142932e68f86ebe17c4b792b3b4b8af5a5b"
+    "model_hash": "6f1c8cc2d5f9275021eab1f2521263a06ad8354f126f011669e6d2dd50113438"
   },
   "geo_code": "GL",
   "node_type": "country",

@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -194,9 +207,9 @@
   },
   "hashes": {
     "code": "vnm",
-    "content_hash": "38cb2425eaff56494a866786e6b7b3e807d44d70476c84a2317b1cc1b65fcc95",
+    "content_hash": "b67af7835a855eec42a676762afc1eb05481838b01c28105a94022fda794f3ad",
     "notes_hash": "40c7359699d8ac6ce9d7141845207f1d15d8e631bb3334620376caefd5aa891e",
-    "model_hash": "433028865baf92b44f643268f0bb83bdd6c40d083adc2b19a57a778fc2b62e05"
+    "model_hash": "9f5d8cbc6730068351d8937b7ebbf5599a74cba880dbf9e84feb45ab9fcf82d0"
   },
   "geo_code": "VN",
   "node_type": "country",

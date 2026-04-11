@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "low",
       "sources": [
@@ -151,9 +164,9 @@
   },
   "hashes": {
     "code": "cuw",
-    "content_hash": "5bd6e2a0cbf6bfafeab4ef47be0b08cbfd48823cc9e179ad5e7f97e21dea3010",
+    "content_hash": "306c0d5d811e2e29bb7fdadaff494321ad409161e59fab95fcc0b73f5f6d7317",
     "notes_hash": "dfcaed8ab4f74fd67e5131121713baa00b71f2e3fa074ad2ca2f80ceb6e90ddd",
-    "model_hash": "5517db79394874163b15fdfb721b415f48d4add724734cd73009d8521662f66a"
+    "model_hash": "fbe9e5ff24229dc15bcc8fa1b2001f05be34946c1d4e4fe7ed8b130c9fb0660d"
   },
   "geo_code": "CW",
   "node_type": "country",

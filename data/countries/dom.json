@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -170,9 +183,9 @@
   },
   "hashes": {
     "code": "dom",
-    "content_hash": "21be2d8f50f2aebf2585250d4a5c53d5031db6d92dc31840e30dbadf3e849275",
+    "content_hash": "bf2063a537721dca83a67aa05ed5cfb8cc23c36c6d0e8c10ca4e54ff7f5608e2",
     "notes_hash": "74c7175f14542926666e9137f4c36f6ab2aafe7cb9020aee87a854726bf0ac6e",
-    "model_hash": "b7807babd03ab5b6485bb6364c37dafcaa0b10d2bafa0967c7cf255e9c4ede2c"
+    "model_hash": "70e01dc8410d2f8a497d363336651713af5ed3b845169108c5f87e5dc742671c"
   },
   "geo_code": "DO",
   "node_type": "country",

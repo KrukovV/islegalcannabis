@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -194,9 +207,9 @@
   },
   "hashes": {
     "code": "rwa",
-    "content_hash": "38e7593b921ab22863fa68493dc79905116ae28950082c52de2d56c34a730ab7",
+    "content_hash": "07bdf53ed1a1b0dd05061374c535e70993751040fc37052c478d45173d753b35",
     "notes_hash": "2a55eb50ad23fe03a02373e7fd695deac3542ff9715a1bad0d3977ca0dc24d18",
-    "model_hash": "e2a8860bf71d1b2a223d6a461046edde58c2a3725ee1023e478d38503846bef0"
+    "model_hash": "742ec42e5dc9ac2ea3be320e35cabcae91f76074bba334d1dd2207dbf6d17d65"
   },
   "geo_code": "RW",
   "node_type": "country",

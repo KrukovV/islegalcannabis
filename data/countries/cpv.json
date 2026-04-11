@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -170,9 +183,9 @@
   },
   "hashes": {
     "code": "cpv",
-    "content_hash": "d6e9f2ba88ea435a656c51d3180a8a649a62482b20b4b0bd843a0a5089ed64c4",
+    "content_hash": "a7cbf98655c6ce0abb3a5019d312912514c16a06673fb03fb995cacb5bd0b437",
     "notes_hash": "1311c9600ef0d8123d9b1c083671f81703c096b860c1688f8b7a990c81146719",
-    "model_hash": "28ca8366894e9506417dafd874e0db8190e4137a18aa543acb9ddb80d210d0de"
+    "model_hash": "b7fb73ae6f438d19dc478949341c747db4d40422455836c10fac8050125c3247"
   },
   "geo_code": "CV",
   "node_type": "country",

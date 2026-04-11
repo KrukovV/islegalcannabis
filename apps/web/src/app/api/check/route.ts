@@ -154,6 +154,7 @@ function withDerivedSsotProfile<T extends JurisdictionLawProfile>(profile: T, co
     medical: toSsotStatusValue(countryPage.legal_model.medical.status),
     distribution: countryPage.legal_model.distribution.status,
     legal_status: countryPage.legal_model.signals?.status || countryPage.legal_model.distribution.status,
+    final_risk: countryPage.legal_model.signals?.final_risk || "UNKNOWN",
     rec_raw: countryPage.legal_model.recreational.raw_status || null,
     med_raw: countryPage.legal_model.medical.raw_status || null,
     distribution_scopes: countryPage.legal_model.distribution.scopes,
@@ -187,6 +188,7 @@ function withDerivedSsotProfile<T extends JurisdictionLawProfile>(profile: T, co
       med_final: countryPage.legal_model.medical.status,
       distribution_status: countryPage.legal_model.distribution.status,
       legal_status: countryPage.legal_model.signals?.status || countryPage.legal_model.distribution.status,
+      final_risk: countryPage.legal_model.signals?.final_risk || "UNKNOWN",
       penalties: countryPage.legal_model.signals?.penalties || {
         prison: false,
         arrest: false,
@@ -431,6 +433,7 @@ export async function GET(req: Request) {
           med_final: derived.med_final,
           distribution_status: derived.distribution_status,
           legal_status: derived.legal_status,
+          final_risk: derived.final_risk,
           penalties: derived.penalties,
           explain: derived.explain,
           confidence: derived.confidence,

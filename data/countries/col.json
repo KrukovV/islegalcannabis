@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "tolerated",
+      "final_risk": "LIMITED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -89,7 +102,6 @@
       "explain": [
         "rule: possession_decriminalized | source: Colombia | type: summary | priority: 1 | scope: use",
         "rule: private_cultivation | source: Colombia | type: summary | priority: 1 | scope: cultivation",
-        "rule: legal | source: Use of Drugs Is Legalized By Colombia | type: reference | priority: 2 | scope: use",
         "no traversal evidence"
       ]
     },
@@ -198,9 +210,9 @@
   },
   "hashes": {
     "code": "col",
-    "content_hash": "1860da7c033c65237a0d772d69223e26521427de5d856fd275da703f884ff508",
+    "content_hash": "9b8ff66545fd878e1f9fce172255bb24b82e6c2766310eba8570375e5bcb8939",
     "notes_hash": "84ea0f3a49bf7b225e081e1de373700234d99ad251b1fc9db53fd8f326f19bc8",
-    "model_hash": "b10dc51d712d3221f5e0e7e2ea78250bf832b38cdfda1ee6701a34aa59883232"
+    "model_hash": "19282ab3be506f06764f465ae3ab5c98a3ef54836af499f2cbf971024ebda62a"
   },
   "geo_code": "CO",
   "node_type": "country",

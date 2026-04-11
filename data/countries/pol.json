@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "HIGH_RISK",
       "penalties": {
         "prison": true,
         "prison_priority": 1,
         "arrest": false,
         "fine": false,
-        "severity_score": 4
+        "severity_score": 4,
+        "possession": {
+          "prison": true,
+          "arrest": false,
+          "fine": false,
+          "severe": true
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "high",
       "sources": [
@@ -170,9 +183,19 @@
     ],
     "legal_similarity": [
       {
+        "code": "ltu",
+        "name": "Lithuania / Lietuva"
+      },
+      {
+        "code": "lva",
+        "name": "Latvia / Latvija"
+      },
+      {
         "code": "rou",
         "name": "Romania / România"
-      },
+      }
+    ],
+    "cluster_links": [
       {
         "code": "svn",
         "name": "Slovenia / Slovenija"
@@ -182,24 +205,14 @@
         "name": "Belarus / Белару́сь"
       }
     ],
-    "cluster_links": [
-      {
-        "code": "ltu",
-        "name": "Lithuania / Lietuva"
-      },
-      {
-        "code": "lva",
-        "name": "Latvia / Latvija"
-      }
-    ],
     "same_country_states": [],
     "federal_parent": null
   },
   "hashes": {
     "code": "pol",
-    "content_hash": "f4a8bfb6253d21ca8883139b8cf54d10d81ad0e59011859e5d507b77ddb47a53",
+    "content_hash": "de8ae4a2fa8c68caa1bd233f96cf618bd30e2fe87fd61d2b6fd8cfb311690121",
     "notes_hash": "5609cffce428e3e9ce7e12362e2510e8052d2b94dc40d199471fd4dd6b100151",
-    "model_hash": "760cb41e74b2d537b9045c291d5849d92b4a2a25a022de37ab620b0b0a69cfb3"
+    "model_hash": "ac953c0ba4a319e2be90dba0e0d00b4689edbbc78b9cb6b3f2efa5e84a70d332"
   },
   "geo_code": "PL",
   "node_type": "country",

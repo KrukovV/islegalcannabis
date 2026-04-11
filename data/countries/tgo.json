@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -170,9 +183,9 @@
   },
   "hashes": {
     "code": "tgo",
-    "content_hash": "e548b65a16d3364d1db77e433b093faf90a1b15b3c7779a31437ece8d144bb21",
+    "content_hash": "c5e9e278e8ccbc574b3206ebde66e68ca5afc790f70e6020a89801a875400ebc",
     "notes_hash": "729a48e64e7c320790012e02ae0f749bbb6907a70bb8501ddab605f7c16a5484",
-    "model_hash": "1dd202c0e14ddddb83be2d72d7dd0a88aa43544e2242fdff9d270119232a71a3"
+    "model_hash": "c7feb23d9cfc13d6f8c53ec1c38144a5a905b9e33081e7e728123bdb0dce98d8"
   },
   "geo_code": "TG",
   "node_type": "country",

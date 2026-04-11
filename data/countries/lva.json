@@ -5,22 +5,22 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "LIMITED",
-      "enforcement": "MODERATE",
-      "scope": "MEDICAL_ONLY",
-      "override_reason": "rec_implies_med_floor"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
-        "use": "restricted",
+        "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "HIGH_RISK",
       "penalties": {
         "prison": true,
         "prison_priority": 1,
         "arrest": false,
         "fine": true,
-        "severity_score": 4
+        "severity_score": 4,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": true,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "high",
       "sources": [
@@ -90,8 +103,6 @@
         "rule: penalty_fine | source: Latvia / Latvija | type: summary | priority: 1 | scope: possession",
         "rule: penalty_prison | source: Latvia / Latvija | type: summary | priority: 1 | scope: general",
         "rule: penalty_years | source: Latvia / Latvija | type: summary | priority: 1 | scope: general",
-        "rule: legal | source: The Criminal Code entered into force and application of | type: reference | priority: 2 | scope: general",
-        "rule: legal | source: Krimināllikums | type: reference | priority: 2 | scope: general",
         "no traversal evidence"
       ]
     },
@@ -101,13 +112,11 @@
     "applied_rules": [
       "penalty_fine",
       "penalty_prison",
-      "penalty_years",
-      "legal",
-      "rec_implies_med_floor"
+      "penalty_years"
     ],
-    "notes_normalized": "Cannabis is legal in Latvia / Latvija. Medical cannabis is limited. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Latvia / Latvija. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is legal in Latvia / Latvija. Medical cannabis is limited. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Latvia / Latvija. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Latvia}} Possession of up to {{cvt|1|g|frac=28}} can result in a €280 fine; for second offenses within a year period, criminal charges are applied. Larger quantities can be punished with up to 15 years in prison.",
   "facts": {
     "possession_limit": "up to 1 g",
@@ -178,26 +187,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "mda",
-        "name": "Moldova"
-      },
-      {
-        "code": "rou",
-        "name": "Romania / România"
-      },
-      {
-        "code": "swe",
-        "name": "Sweden / Sverige"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "ala",
         "name": "Åland Islands / Åland"
       },
       {
         "code": "fin",
         "name": "Finland / Suomi"
+      },
+      {
+        "code": "pol",
+        "name": "Poland / Polska"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "svk",
+        "name": "Slovakia / Slovensko"
+      },
+      {
+        "code": "ukr",
+        "name": "Ukraine / Україна"
       }
     ],
     "same_country_states": [],
@@ -205,9 +214,9 @@
   },
   "hashes": {
     "code": "lva",
-    "content_hash": "578974f3582959bac130c2756c8dc5ccdf607c243496587f2a777641fd29de45",
-    "notes_hash": "1bb192955c7a715d8b5f65a4487b12cbcb864fc3ce8eb8f0198ba6fc511e9f94",
-    "model_hash": "c8892ea71ceaf5ecfccb4854ae9fc527c561f57a2f3ada67de506a80942d4ae8"
+    "content_hash": "41608328df21e5b553c507c1e966c670b85243dbefe6e701d337f78110d3ef33",
+    "notes_hash": "ed2488cb9a4bace3eea1d58033567ffad9e5b7be9ae0e06a25f28c468b5c37a8",
+    "model_hash": "49e65fda8f63409e32f30b4be46eae88a064b3344c4331cbe1418de669881c2d"
   },
   "geo_code": "LV",
   "node_type": "country",

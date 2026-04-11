@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "low",
       "sources": [
@@ -151,9 +164,9 @@
   },
   "hashes": {
     "code": "hmd",
-    "content_hash": "d05884d31eca3678820f014f7ac96c8e072e449efebf8dbea66f7d77ab8119a0",
+    "content_hash": "6044786fa7418352a7140de2b959b06ee8061928e28bd3f624ba155ffcd5d4d0",
     "notes_hash": "9f69830c05e0c67933239bda863a215079e94c6f4a807d1944b61d003493e7cf",
-    "model_hash": "97682ae65dc57c34d1da1ffed0ec3efa085bb81723514b1cfbb5cf06642de240"
+    "model_hash": "484d201a8a470021aacb8eb9b0c5ba57d3c093dd90b8c693dd09de17d496ad3a"
   },
   "geo_code": "HM",
   "node_type": "country",

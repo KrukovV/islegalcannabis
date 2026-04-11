@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "HIGH_RISK",
       "penalties": {
         "prison": true,
         "prison_priority": 1,
         "arrest": false,
         "fine": false,
-        "severity_score": 4
+        "severity_score": 4,
+        "possession": {
+          "prison": true,
+          "arrest": false,
+          "fine": false,
+          "severe": true
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -63,6 +76,7 @@
         }
       ],
       "explain": [
+        "rule: raw_illegal | source: Namibia / Namibië | type: summary | priority: 1 | scope: general",
         "rule: illegal | source: Namibia / Namibië | type: summary | priority: 1 | scope: general",
         "rule: penalty_prison | source: Namibia / Namibië | type: summary | priority: 1 | scope: possession",
         "no traversal evidence"
@@ -70,7 +84,7 @@
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "illegal",
+      "raw_illegal",
       "penalty_prison"
     ],
     "notes_normalized": "Cannabis is illegal in Namibia / Namibië. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
@@ -146,9 +160,19 @@
     ],
     "legal_similarity": [
       {
+        "code": "zwe",
+        "name": "Zimbabwe"
+      },
+      {
+        "code": "lso",
+        "name": "Lesotho"
+      },
+      {
         "code": "zmb",
         "name": "Zambia"
-      },
+      }
+    ],
+    "cluster_links": [
       {
         "code": "swz",
         "name": "Eswatini"
@@ -158,24 +182,14 @@
         "name": "Mozambique / Moçambique"
       }
     ],
-    "cluster_links": [
-      {
-        "code": "zwe",
-        "name": "Zimbabwe"
-      },
-      {
-        "code": "lso",
-        "name": "Lesotho"
-      }
-    ],
     "same_country_states": [],
     "federal_parent": null
   },
   "hashes": {
     "code": "nam",
-    "content_hash": "fd8d7ccb4c76379ca0e6e33666fdbba49a674a2c83ea29cc57be5a85514e9dfd",
+    "content_hash": "5e3ccc056c9d1a85c93079c81042448a4dd6bf56042ae12ca8fc8633071f9ee5",
     "notes_hash": "886ed2402139ba1efab77f0abb0160306b3b26f7e23850615df0160d927b8717",
-    "model_hash": "9bb32ae0ebf74ee81aa1285dd88314632e551b48cc4b4d45d3d7e7c255e02cc5"
+    "model_hash": "b2bfb05828cf377c8fea3854a14024fe4025b050fd4a055531f6883b98664563"
   },
   "geo_code": "NA",
   "node_type": "country",

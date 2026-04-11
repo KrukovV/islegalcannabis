@@ -32,12 +32,25 @@
     },
     "signals": {
       "status": "restricted",
+      "final_risk": "LIMITED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": true,
-        "severity_score": 1
+        "severity_score": 1,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": true,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "high",
       "sources": [
@@ -198,9 +211,9 @@
   },
   "hashes": {
     "code": "prt",
-    "content_hash": "4aef064be604025259259a92fa364187adcad8ecf8df1ef57678f58307699920",
+    "content_hash": "3d7fad17e68541892ff6671e1adb279fc8f5959dd1cb200388f0461e007d5c71",
     "notes_hash": "2b1ada1586dce27f7dae7955d70d2a02915ac0b5b5052669c3c1b1e7c90cd7fd",
-    "model_hash": "a805eb7e93c1fae264a2d6520f8e005c57d0f3dfa2d0cd2a93a5e9aa3234d11c"
+    "model_hash": "0259e40d7945ae808b93013e57128159466d179ee22ab9e728b8ea03f59608b3"
   },
   "geo_code": "PT",
   "node_type": "country",

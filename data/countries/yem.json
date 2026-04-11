@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -147,18 +160,18 @@
         "name": "Saudi Arabia / السعودية"
       },
       {
-        "code": "omn",
-        "name": "Oman / عمان"
+        "code": "are",
+        "name": "United Arab Emirates / الإمارات"
       },
       {
-        "code": "qat",
-        "name": "Qatar / قطر"
+        "code": "omn",
+        "name": "Oman / عمان"
       }
     ],
     "cluster_links": [
       {
-        "code": "are",
-        "name": "United Arab Emirates / الإمارات"
+        "code": "qat",
+        "name": "Qatar / قطر"
       },
       {
         "code": "bhr",
@@ -170,9 +183,9 @@
   },
   "hashes": {
     "code": "yem",
-    "content_hash": "27a9233e06fd954d016003d583ff4641d96abad0ec5f6d8dff9b9f9a50cd465b",
+    "content_hash": "48881292f423d8fde947da98e57595a8a9ace23843475340734cbb2cf2f28280",
     "notes_hash": "6c90f9be1701205c93f3521301b40501435791124b2765a5666926d99177ce63",
-    "model_hash": "b31fba0db059d27bee6fe79ff73071d9a7d32ae9778ced506d3be2d29e67a8f6"
+    "model_hash": "a0bdde848398ac8dcace7e79772bd9fd1092eb910294d3f654f4ba7a36cd4e82"
   },
   "geo_code": "YE",
   "node_type": "country",

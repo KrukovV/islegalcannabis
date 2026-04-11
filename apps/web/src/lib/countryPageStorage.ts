@@ -86,11 +86,25 @@ export type CountryPageData = {
     };
     signals?: {
       status: CountryDistributionStatus;
+      final_risk?: "HIGH_RISK" | "RESTRICTED" | "LIMITED" | "UNKNOWN";
       penalties: {
         prison: boolean;
         arrest: boolean;
         fine: boolean;
         severity_score: number;
+        prison_priority?: number;
+        possession?: {
+          prison: boolean;
+          arrest: boolean;
+          fine: boolean;
+          severe: boolean;
+        };
+        trafficking?: {
+          prison: boolean;
+          arrest: boolean;
+          fine: boolean;
+          severe: boolean;
+        };
       };
       confidence: "low" | "medium" | "high";
       sources: Array<{

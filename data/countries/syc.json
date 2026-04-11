@@ -36,12 +36,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -173,22 +186,22 @@
         "name": "Somalia / الصومال"
       },
       {
-        "code": "ken",
-        "name": "Kenya"
+        "code": "mdg",
+        "name": "Madagascar / Madagasikara"
       },
       {
-        "code": "mdv",
-        "name": "Maldives / ދިވެހިރާއްޖޭގެ"
+        "code": "ken",
+        "name": "Kenya"
       }
     ],
     "cluster_links": [
       {
-        "code": "atf",
-        "name": "French Southern and Antarctic Lands / Terres australes et antarctiques françaises"
+        "code": "mdv",
+        "name": "Maldives / ދިވެހިރާއްޖޭގެ"
       },
       {
-        "code": "hmd",
-        "name": "Heard Island and McDonald Islands"
+        "code": "atf",
+        "name": "French Southern and Antarctic Lands / Terres australes et antarctiques françaises"
       }
     ],
     "same_country_states": [],
@@ -196,9 +209,9 @@
   },
   "hashes": {
     "code": "syc",
-    "content_hash": "b5c34b5d9738fd013017faa242333dacf9f6e3b78bf6be3f6d3c2862e08e5f96",
+    "content_hash": "d82cdf3029408abaa3c06dde42fadd4204cd61a4e58858a1212ea86d9b11b08d",
     "notes_hash": "a3c5e93e6ec723a5dc7ca92f3c0aa29c22cac3735b7af4940928a19c2118e769",
-    "model_hash": "6c1161c97e9979fb83741f3a2f3599587abc35db361239cb49989b5ec8f57412"
+    "model_hash": "e7a9afbdc3af570102b51c5a89cc5b9c673c1eb08d87aa4ec7acad0ee5a81aa5"
   },
   "geo_code": "SC",
   "node_type": "country",

@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -170,9 +183,9 @@
   },
   "hashes": {
     "code": "zmb",
-    "content_hash": "a4f1c8f7aaff5517c793dc13763cf2c69b69aea299c39a51a2e85d84c324e23c",
+    "content_hash": "52a0e7e35e400aa23a4580a960250650c4f94a48dbab38594944a13c7511528e",
     "notes_hash": "078f30f0525830864bd32a29ed2c2272794a7f127f50dfedd6bd6745e9ba2d3e",
-    "model_hash": "9a5cb413e6abe54d45c50e3725ff06e53c7ecef09c96317e6d61c6856a2fbe55"
+    "model_hash": "86772b4ac3c450cda1f98e9917748ca58063713321d09484cd7718e0f79c3863"
   },
   "geo_code": "ZM",
   "node_type": "country",

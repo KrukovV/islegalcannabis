@@ -5,39 +5,54 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "LIMITED",
-      "enforcement": "MODERATE",
-      "scope": "MEDICAL_ONLY",
-      "override_reason": "rec_implies_med_floor"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
-        "use": "restricted",
+        "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [],
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
       "modifiers": []
     },
     "signals": {
-      "status": "restricted",
+      "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -85,18 +100,16 @@
         }
       ],
       "explain": [
-        "rule: legal | source: Legal status of cannabis in Djibouti - Cannaconnection.com | type: reference | priority: 2 | scope: general",
         "no traversal evidence"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "legal",
-      "rec_implies_med_floor"
+      "distribution_fallback_illegal"
     ],
-    "notes_normalized": "Cannabis is legal in Djibouti / جيبوتي. Medical cannabis is limited. Distribution is restricted."
+    "notes_normalized": "Cannabis is illegal in Djibouti / جيبوتي. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is legal in Djibouti / جيبوتي. Medical cannabis is limited. Distribution is restricted.",
+  "notes_normalized": "Cannabis is illegal in Djibouti / جيبوتي. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Djibouti}}",
   "facts": {
     "possession_limit": null,
@@ -167,26 +180,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "are",
-        "name": "United Arab Emirates / الإمارات"
-      },
-      {
-        "code": "isr",
-        "name": "Israel / إسرائيل"
-      },
-      {
-        "code": "com",
-        "name": "Comoros / جزر القمر"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "som",
         "name": "Somalia / الصومال"
       },
       {
         "code": "ken",
         "name": "Kenya"
+      },
+      {
+        "code": "sdn",
+        "name": "Sudan / السودان"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "ssd",
+        "name": "South Sudan"
+      },
+      {
+        "code": "uga",
+        "name": "Uganda"
       }
     ],
     "same_country_states": [],
@@ -194,9 +207,9 @@
   },
   "hashes": {
     "code": "dji",
-    "content_hash": "3d2026c222a57b84abece7201b0257d0df5fa3bee9e8e0f4f3d3f8e7b4648fad",
-    "notes_hash": "c94baa6f2af021605e95a6487d7b4d667ce60cc7e123db25c2e56cefbe14d973",
-    "model_hash": "a43f4f948dac641a52d8b6e8a726bd0f372168fdbe671ef892c397c3cfd25d9a"
+    "content_hash": "5df942b238228b365aa2ccdab34f1e9bd77eae7f65f9125a121eaccc43f78b8b",
+    "notes_hash": "109cdb94ce5821fee29c30ffb909ea6f24110204a760ca3ffb9176b58216a3e5",
+    "model_hash": "aed2c065e46d1d3fd3fe5f1f2ea6b4b38268dcb0a013d3f53aab485d9b8c0c0c"
   },
   "geo_code": "DJ",
   "node_type": "country",

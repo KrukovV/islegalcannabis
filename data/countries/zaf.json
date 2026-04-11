@@ -32,14 +32,27 @@
     },
     "signals": {
       "status": "tolerated",
+      "final_risk": "LIMITED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Cannabis in South Africa",
@@ -88,7 +101,6 @@
         "rule: private_cultivation | source: South Africa / Sewula Afrika | type: summary | priority: 1 | scope: cultivation",
         "rule: legal | source: South Africa / Sewula Afrika | type: summary | priority: 1 | scope: cultivation",
         "rule: legal | source: South Africa / Sewula Afrika | type: summary | priority: 1 | scope: general",
-        "rule: legal | source: The Making of South African Legal Culture 1902-1936: Fear, Favour and Prejudice | type: reference | priority: 2 | scope: general",
         "rule: medical_legal | source: South Africa: How To Get A Medical Cannabis Prescription | type: reference | priority: 2 | scope: general",
         "no traversal evidence"
       ]
@@ -96,7 +108,6 @@
     "enforcement_flags": [],
     "applied_rules": [
       "private_cultivation",
-      "legal",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is legal in South Africa / Sewula Afrika. Medical cannabis is legal. Distribution is tolerated."
@@ -199,9 +210,9 @@
   },
   "hashes": {
     "code": "zaf",
-    "content_hash": "19e986816b7eac01522cbb49e149d31eef396c82b2e177547fa4568a8dd39c53",
+    "content_hash": "fc595ed4c04e38e6c13b9377b1caaae9c71f2c81a4bafe5251e89417d84beb24",
     "notes_hash": "2097314e10f45172483c56002e925365d9082d1fa0666d7669703e994261d60c",
-    "model_hash": "a352ba19be8ca7731a7dd790ce39b1026ab86d169163692de6f613a65a5a8792"
+    "model_hash": "c65425e59a67f798ed7fceef5189247ae57c38d8493c836b18fb15c2aee56b1f"
   },
   "geo_code": "ZA",
   "node_type": "country",

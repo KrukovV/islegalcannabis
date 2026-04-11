@@ -32,12 +32,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -85,6 +98,7 @@
         }
       ],
       "explain": [
+        "rule: raw_illegal | source: Sweden / Sverige | type: summary | priority: 1 | scope: general",
         "rule: illegal | source: Sweden / Sverige | type: summary | priority: 1 | scope: general",
         "rule: zero_tolerance | source: Sweden / Sverige | type: summary | priority: 1 | scope: general",
         "no traversal evidence"
@@ -92,7 +106,7 @@
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "illegal",
+      "raw_illegal",
       "zero_tolerance"
     ],
     "notes_normalized": "Cannabis is illegal in Sweden / Sverige. Medical cannabis is limited. Distribution is illegal."
@@ -195,9 +209,9 @@
   },
   "hashes": {
     "code": "swe",
-    "content_hash": "885f02b78be1c7772b856485c2fd92dba30ed8d67250cb4465963123f10fe1f9",
+    "content_hash": "2cc44edc8317668f010dd64770c3b506300996be58b3a226dc3d0f9c63ed797e",
     "notes_hash": "c64bb7fd28a2e2866e6e1bf28e61b7a914472bcf40f1e846be82de8be85ada93",
-    "model_hash": "a9650445b96c7762850ad33baff821db3284f516706c905881139ddcff4209b3"
+    "model_hash": "7c29bce6496375a9d941860ba8f66169cab36412a09aaa00b1516a2e96067076"
   },
   "geo_code": "SE",
   "node_type": "country",

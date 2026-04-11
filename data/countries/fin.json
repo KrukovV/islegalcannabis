@@ -36,12 +36,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": true,
-        "severity_score": 1
+        "severity_score": 1,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": true,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "high",
       "sources": [
@@ -91,6 +104,7 @@
       "explain": [
         "rule: penalty_fine | source: Finland / Suomi | type: summary | priority: 1 | scope: use",
         "rule: medical_limited | source: Finland / Suomi | type: summary | priority: 1 | scope: general",
+        "rule: raw_illegal | source: Cannabis in Finland | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Finland | type: traversal | priority: 3 | scope: general",
         "rule: penalty_fine | source: Cannabis in Finland | type: traversal | priority: 3 | scope: possession",
         "rule: medical_legal | source: Cannabis in Finland | type: traversal | priority: 3 | scope: general",
@@ -103,7 +117,7 @@
     "applied_rules": [
       "penalty_fine",
       "medical_limited",
-      "illegal",
+      "raw_illegal",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Finland / Suomi. Medical cannabis is legal. Distribution is illegal."
@@ -179,22 +193,22 @@
     ],
     "legal_similarity": [
       {
+        "code": "ltu",
+        "name": "Lithuania / Lietuva"
+      },
+      {
         "code": "blr",
         "name": "Belarus / Белару́сь"
       },
       {
         "code": "swe",
         "name": "Sweden / Sverige"
-      },
-      {
-        "code": "pol",
-        "name": "Poland / Polska"
       }
     ],
     "cluster_links": [
       {
-        "code": "ltu",
-        "name": "Lithuania / Lietuva"
+        "code": "pol",
+        "name": "Poland / Polska"
       },
       {
         "code": "nor",
@@ -206,9 +220,9 @@
   },
   "hashes": {
     "code": "fin",
-    "content_hash": "a500c27f04af2938f740a68df5de20f67a508b329fd6d5afd19fdc6bd661008d",
+    "content_hash": "2ed8ff65fd6de2ed72598fd9a99fa623e20892d09c2528d97721d2698362c346",
     "notes_hash": "d46bfc2ea8581a8bd75af205588e75962a84c89595ec44950f37c75f640db0b2",
-    "model_hash": "3b53a9019080eecc60dc25fc4fc8930a489f531d38784bd6f65df9d73ef1c39b"
+    "model_hash": "6c237d099bc3301adc0b12ac5b30f59cb8d2ada2c5b4f1d898eddf4e9a7f220d"
   },
   "geo_code": "FI",
   "node_type": "country",

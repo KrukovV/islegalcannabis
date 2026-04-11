@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -188,9 +201,9 @@
   },
   "hashes": {
     "code": "civ",
-    "content_hash": "2827e6098b8a9921fa77e08942683112570f74e881760de303abbd058e2d69cd",
+    "content_hash": "f67361fee41912a5c1e46fbd8f40d996f0672618e42cc087fce71c9d045df1de",
     "notes_hash": "36955f4668114cf439ce83a064424602223938e8becab7061efb3e9afaa7d3f8",
-    "model_hash": "273bc60bf3c36378e36fef4881091d6da17bc56b148a2cb28d30bba8b80d3edb"
+    "model_hash": "b4c0ef3fdfed1780bd8900652d2b6675c96e872413ddec29ceeffdc3eee1d1a9"
   },
   "geo_code": "CI",
   "node_type": "country",

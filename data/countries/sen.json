@@ -36,12 +36,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -196,9 +209,9 @@
   },
   "hashes": {
     "code": "sen",
-    "content_hash": "89ab2d359723e8d6b015be70cebeb989f58d53ef75857abe6d59d035c21abda9",
+    "content_hash": "2c9da1290cd0d636c3621b49873f41f09c7d48253621d6796acfe283ea8e8acd",
     "notes_hash": "86b7838e6020c5e1d4bee7730aeaae099c46a8d4d27367977203f546ff2f25a3",
-    "model_hash": "5508cacd6e4b29b72c659842c97fc7b0fdb3e5c13cc3818c3c2f274ea5324ce3"
+    "model_hash": "6c028424e7d614c172c9f6f613b255e64d7ed23f9c9a72821c0b4b53966d0437"
   },
   "geo_code": "SN",
   "node_type": "country",

@@ -34,12 +34,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -175,8 +188,8 @@
         "name": "Cayman Islands"
       },
       {
-        "code": "pan",
-        "name": "Panama / Panamá"
+        "code": "cub",
+        "name": "Cuba"
       }
     ],
     "cluster_links": [
@@ -185,8 +198,8 @@
         "name": "Costa Rica"
       },
       {
-        "code": "cub",
-        "name": "Cuba"
+        "code": "pan",
+        "name": "Panama / Panamá"
       }
     ],
     "same_country_states": [],
@@ -194,9 +207,9 @@
   },
   "hashes": {
     "code": "gtm",
-    "content_hash": "ecc776f8664fd842bc670bc1a7dcebc8e21bd904637e87b9cbb12fd147512c21",
+    "content_hash": "46646a82b5901f792d2b22cf51cbcdb2b9ecace902f7f56bc525e624a547a2be",
     "notes_hash": "0ba23dc1ade910cc81683748249081dd0354fcbb78fabad01fd8aecc0597a8bf",
-    "model_hash": "b2ca958ad73211fcb824cf9fe453785b8d956ba08424c34fa053d6ba3d1f713c"
+    "model_hash": "09beb6d7b8bb6280f8d0cc4137aee44386bd98f3d10280ce0135b502589d65f6"
   },
   "geo_code": "GT",
   "node_type": "country",

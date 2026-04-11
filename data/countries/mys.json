@@ -5,22 +5,22 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "MEDICAL_ONLY",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
       "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
-        "use": "restricted",
+        "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -31,13 +31,26 @@
       "modifiers": []
     },
     "signals": {
-      "status": "restricted",
+      "status": "illegal",
+      "final_risk": "HIGH_RISK",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 2,
         "arrest": false,
         "fine": true,
-        "severity_score": 1
+        "severity_score": 3,
+        "possession": {
+          "prison": true,
+          "arrest": false,
+          "fine": false,
+          "severe": true
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "high",
       "sources": [
@@ -86,7 +99,7 @@
       ],
       "explain": [
         "rule: penalty_fine | source: Malaysia / مليسيا | type: summary | priority: 1 | scope: general",
-        "rule: legal | source: USM Researcher Highlights Legal Hurdle To Cannabis Research | type: reference | priority: 2 | scope: general",
+        "rule: penalty_criminal_offense | source: Use of hemp, cannabis or ketum for medical purposes punishable in Malaysia until legalised, says deputy minister | type: reference | priority: 2 | scope: use",
         "rule: medical_legal | source: Use of hemp, cannabis or ketum for medical purposes punishable in Malaysia until legalised, says deputy minister | type: reference | priority: 2 | scope: use",
         "no traversal evidence"
       ]
@@ -96,12 +109,11 @@
     ],
     "applied_rules": [
       "penalty_fine",
-      "legal",
-      "medical_legal"
+      "penalty_criminal_offense"
     ],
-    "notes_normalized": "Cannabis is legal in Malaysia / مليسيا. Medical cannabis is legal. Distribution is restricted."
+    "notes_normalized": "Cannabis is illegal in Malaysia / مليسيا. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is legal in Malaysia / مليسيا. Medical cannabis is legal. Distribution is restricted.",
+  "notes_normalized": "Cannabis is illegal in Malaysia / مليسيا. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Malaysia}} Mandatory death penalty for convicted drug traffickers, legally defined as individuals possessing more than {{cvt|200|g|0}} of cannabis.<ref>{{citation|url=https://travel.state.gov/travel/cis_pa_tw/cis/cis_960.html |title=Malaysia |publisher=[[Bureau of Consular Affairs]] |access-date=17 February 2011 |url-status=dead |archive-url=https://web.archive.org/web/20110217140806/http://travel.state.gov/travel/cis_pa_tw/cis/cis_960.html |archive-date=17 February 2011 }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -172,26 +184,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "phl",
-        "name": "Philippines / Pilipinas"
-      },
-      {
-        "code": "tls",
-        "name": "Timor-Leste / Timór-Leste"
-      },
-      {
-        "code": "tha",
-        "name": "Thailand / ประเทศไทย"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "khm",
         "name": "Cambodia / Kâmpŭchéa"
       },
       {
+        "code": "phl",
+        "name": "Philippines / Pilipinas"
+      },
+      {
         "code": "vnm",
         "name": "Vietnam / Việt Nam"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "lao",
+        "name": "Laos / ສປປລາວ"
+      },
+      {
+        "code": "tls",
+        "name": "Timor-Leste / Timór-Leste"
       }
     ],
     "same_country_states": [],
@@ -199,9 +211,9 @@
   },
   "hashes": {
     "code": "mys",
-    "content_hash": "9dcb4e342b46ad9b508cd2060a08e0ee97ec7e1db8df0e5cb2a40ec5c48cd342",
-    "notes_hash": "6a1ce450df7adca5a0e77465f4b112b81d01e4b115cfb0d495fd1a5fbba5a6cc",
-    "model_hash": "59a9fbafa820930fd2e21d7e20f551bbd26cac38bc759f9d40c5b4a5c07e72a9"
+    "content_hash": "bfaaae59fd2931c09d47fd48d3199b1097ea83f06f9809cc2557484954232198",
+    "notes_hash": "d4447faa4f9a9d76ba5d0a6459485327231e9ffc32031051f20ac51a99c9477b",
+    "model_hash": "e97b6f66b816ee2fdfd338511eda47fc37956b88a3652f32a5484956f29bcf71"
   },
   "geo_code": "MY",
   "node_type": "country",

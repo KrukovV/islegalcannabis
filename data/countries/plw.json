@@ -5,39 +5,54 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "LIMITED",
-      "enforcement": "MODERATE",
-      "scope": "MEDICAL_ONLY",
-      "override_reason": "rec_implies_med_floor"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
-        "use": "restricted",
+        "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [],
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
       "modifiers": []
     },
     "signals": {
-      "status": "restricted",
+      "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -85,18 +100,16 @@
         }
       ],
       "explain": [
-        "rule: legal | source: Report of the International Narcotics Control Board for 2007 | type: reference | priority: 2 | scope: general",
         "no traversal evidence"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "legal",
-      "rec_implies_med_floor"
+      "distribution_fallback_illegal"
     ],
-    "notes_normalized": "Cannabis is legal in Palau / Belau. Medical cannabis is limited. Distribution is restricted."
+    "notes_normalized": "Cannabis is illegal in Palau / Belau. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is legal in Palau / Belau. Medical cannabis is limited. Distribution is restricted.",
+  "notes_normalized": "Cannabis is illegal in Palau / Belau. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Palau}}",
   "facts": {
     "possession_limit": null,
@@ -167,26 +180,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "tls",
-        "name": "Timor-Leste / Timór-Leste"
-      },
-      {
-        "code": "mys",
-        "name": "Malaysia / مليسيا"
-      },
-      {
-        "code": "slb",
-        "name": "Solomon Islands"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "png",
         "name": "Papua New Guinea / Papua Niu Gini"
       },
       {
+        "code": "tls",
+        "name": "Timor-Leste / Timór-Leste"
+      },
+      {
+        "code": "idn",
+        "name": "Indonesia"
+      }
+    ],
+    "cluster_links": [
+      {
         "code": "fsm",
         "name": "Micronesia"
+      },
+      {
+        "code": "slb",
+        "name": "Solomon Islands"
       }
     ],
     "same_country_states": [],
@@ -194,9 +207,9 @@
   },
   "hashes": {
     "code": "plw",
-    "content_hash": "9e3379d1a6d29b341685a509e48c6d875e7129fc68677480394689b0a00839a2",
-    "notes_hash": "ccfeae3e29a9ac4aeb165a5591fe8a3a719b92a6ca9a831b4abf776423339cda",
-    "model_hash": "b8641619fc511d51743ac1befd7d558fe55c69620c98391f1194c31066eb3df1"
+    "content_hash": "6f65c5dc03b1cf0d48fde3db1f92e0a90f9cf6aed562275325b13ecd4d7b88f0",
+    "notes_hash": "e0d6b9304f86fe6a05d9232050c76c308f6e30801c77acfdb1e11f0850dfdcef",
+    "model_hash": "0a7f74ea8ab273ce8182d33daad40f52b06ae02e465e25c0cabbacb8230610ab"
   },
   "geo_code": "PW",
   "node_type": "country",

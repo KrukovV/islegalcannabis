@@ -32,12 +32,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -176,18 +189,18 @@
         "name": "Türkiye"
       },
       {
-        "code": "est",
-        "name": "Estonia / Eesti"
+        "code": "ltu",
+        "name": "Lithuania / Lietuva"
       }
     ],
     "cluster_links": [
       {
-        "code": "ltu",
-        "name": "Lithuania / Lietuva"
-      },
-      {
         "code": "lva",
         "name": "Latvia / Latvija"
+      },
+      {
+        "code": "est",
+        "name": "Estonia / Eesti"
       }
     ],
     "same_country_states": [],
@@ -195,9 +208,9 @@
   },
   "hashes": {
     "code": "ukr",
-    "content_hash": "242c4a2ab928da38730aa182cf225f9f952508dd642ce957f257a39d28276961",
+    "content_hash": "3f32eb9ee75cc12276b1ac82e4a3f9a5aab639840cd789febd0fb791f53017f5",
     "notes_hash": "fca5e77345ddea24079c2c354076e3a93c651b4f92f42c42afcfb4a40f5bdd63",
-    "model_hash": "05bcf7de7f3bb7e8347f417684d9cf68cde9a7eac63c53cf64bec6464cf06fb0"
+    "model_hash": "2979fcc1722e5a96d6b30918995a94956e091eb89d2f3e9d73abd6343941ff52"
   },
   "geo_code": "UA",
   "node_type": "country",

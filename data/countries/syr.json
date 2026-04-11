@@ -32,12 +32,25 @@
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": true,
-        "severity_score": 1
+        "severity_score": 1,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": true,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
       "confidence": "medium",
       "sources": [
@@ -168,16 +181,16 @@
     ],
     "legal_similarity": [
       {
+        "code": "cyp",
+        "name": "Cyprus / Κύπρος"
+      },
+      {
         "code": "tur",
         "name": "Türkiye"
       },
       {
         "code": "irq",
         "name": "Iraq / العراق"
-      },
-      {
-        "code": "arm",
-        "name": "Armenia / Հայաստան"
       }
     ],
     "cluster_links": [
@@ -186,8 +199,8 @@
         "name": "Israel / إسرائيل"
       },
       {
-        "code": "cyp",
-        "name": "Cyprus / Κύπρος"
+        "code": "arm",
+        "name": "Armenia / Հայաստան"
       }
     ],
     "same_country_states": [],
@@ -195,9 +208,9 @@
   },
   "hashes": {
     "code": "syr",
-    "content_hash": "9c766505754a9bbd92ca1fac7fd14f2599154e586b900753fd0df242001252f5",
+    "content_hash": "817da55335ec2804d9f0292156653de4de748d7cdb53d721497be2096b396955",
     "notes_hash": "c611c6301ce29d6da24a8c2f2c0b1d0ea26a9b9ee386a91157979b7e8a635b77",
-    "model_hash": "458fda4c2f6a836cd1621db7217333520851ae0ba1af567919a166a80231037b"
+    "model_hash": "e991f8a976fc82c97ec76f8d2bd45f6ab14dabe2082adde35067401c75d4a3fa"
   },
   "geo_code": "SY",
   "node_type": "country",

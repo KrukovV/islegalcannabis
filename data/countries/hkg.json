@@ -27,22 +27,32 @@
         "trafficking": "illegal"
       },
       "enforcement": "standard",
-      "flags": [
-        "trafficking_illegal",
-        "sale_illegal"
-      ],
+      "flags": [],
       "modifiers": []
     },
     "signals": {
       "status": "illegal",
+      "final_risk": "RESTRICTED",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 0
+        "severity_score": 0,
+        "possession": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        },
+        "trafficking": {
+          "prison": false,
+          "arrest": false,
+          "fine": false,
+          "severe": false
+        }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Cannabis in Hong Kong",
@@ -76,6 +86,7 @@
         }
       ],
       "explain": [
+        "rule: raw_illegal | source: Hong Kong / 香港 | type: summary | priority: 1 | scope: trafficking",
         "rule: trafficking_illegal | source: Hong Kong / 香港 | type: summary | priority: 1 | scope: trafficking",
         "rule: sale_illegal | source: Hong Kong / 香港 | type: summary | priority: 1 | scope: trafficking",
         "rule: illegal | source: Hong Kong / 香港 | type: summary | priority: 1 | scope: trafficking",
@@ -84,9 +95,7 @@
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "trafficking_illegal",
-      "sale_illegal",
-      "illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Hong Kong / 香港. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -188,9 +197,9 @@
   },
   "hashes": {
     "code": "hkg",
-    "content_hash": "70e70671fc301903e2e7bba73f54797d23693463bee619c96d59b5f5aff2c538",
+    "content_hash": "a10bfc8f30c160fcf4f8e8d96905f25d76ed41095459c958e3d3dadac1d8fd69",
     "notes_hash": "0be942edcd140453763d396ac6b642759ba3b39e24164fccd72b352b4f4cdbd0",
-    "model_hash": "8e5c8f2bd25cb3dbf625133476d9d9b549d81181c902d6858d7e6e72e11763f8"
+    "model_hash": "49ee5dc2631388d435b6ebf6db453895215664b617e18da4ac48fef618acac8f"
   },
   "geo_code": "HK",
   "node_type": "country",
