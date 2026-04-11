@@ -448,6 +448,18 @@ export default function MapRoot({
         mapRef.current = runtime.map;
         void countriesPromise.then((countries) => {
           if (cancelled) return;
+          for (const feature of countries.features) {
+            const status = feature.properties?.result?.status;
+            if (!status) {
+              throw new Error(`MAP_WITHOUT_STATUS: ${String(feature.properties?.geo || "UNKNOWN")}`);
+            }
+          }
+          console.warn(
+            `MAP_RENDER_STATUS sample=${countries.features
+              .slice(0, 5)
+              .map((feature) => `${feature.properties.geo}:${feature.properties.result.status}:${feature.properties.legalColor}`)
+              .join(",")}`
+          );
           runtime.setData(countries);
         });
         await runtime.ready;

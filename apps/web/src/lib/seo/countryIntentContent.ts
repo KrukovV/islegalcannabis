@@ -1,110 +1,268 @@
-import type { CountryPageData } from "@/lib/countryPageStorage";
+import type { CountryLinkRef, CountryPageData } from "@/lib/countryPageStorage";
+
+export type IntentId = "buy" | "possession" | "tourists" | "airport" | "medical";
+
+export type RankedRelatedRegion = CountryLinkRef & {
+  signal: "neighbor" | "cluster" | "legal_similarity";
+  score: number;
+};
 
 export type CountryIntentSection = {
-  id: "buy" | "possession" | "tourists" | "airport" | "medical";
+  id: IntentId;
   heading: string;
   body: string;
+  strength: number;
+  related_heading: string;
+  related_regions: RankedRelatedRegion[];
+};
+
+type IntentSeed = {
+  id: IntentId;
+  heading: string;
+  body: string;
+  strength: number;
+};
+
+const INTENT_QUERY_PATTERNS: Record<IntentId, RegExp> = {
+  buy: /\bbuy\b|\bpurchase\b|\bsale\b|\bdispensary\b|\blicensed\b/,
+  possession: /\bpossess\b|\bpossession\b|\blimit\b|\bcarry\b/,
+  tourists: /\btourist\b|\bvisitor\b|\bpublic use\b/,
+  airport: /\bairport\b|\btransport\b|\bborder\b|\bfederal\b/,
+  medical: /\bmedical\b|\bprescription\b|\bpatient\b/
 };
 
 function regionLabel(data: CountryPageData) {
   return data.name.split(" / ")[0] || data.name;
 }
 
-function sentenceCase(value: string | null | undefined) {
-  return String(value || "")
-    .toLowerCase()
-    .replaceAll("_", " ")
-    .replace(/\b\w/g, (char) => char.toUpperCase());
+function normalizeText(value: string | null | undefined) {
+  return String(value || "").toLowerCase();
 }
 
-function buildBuySection(data: CountryPageData): CountryIntentSection {
+function clampStrength(value: number) {
+  return Math.max(0, Math.min(1, value));
+}
+
+function detectIntentQuery(query: string | null | undefined): IntentId | null {
+  const normalized = normalizeText(query);
+  if (!normalized) return null;
+  for (const [id, pattern] of Object.entries(INTENT_QUERY_PATTERNS) as Array<[IntentId, RegExp]>) {
+    if (pattern.test(normalized)) return id;
+  }
+  return null;
+}
+
+function buildBuyIntent(data: CountryPageData): IntentSeed {
   const label = regionLabel(data);
+  const notes = normalizeText(`${data.notes_normalized} ${data.notes_raw}`);
   const sale = data.legal_model.distribution.scopes.sale;
   const distribution = data.legal_model.distribution.status;
-  let body = `Cannabis retail is ${sentenceCase(distribution)} in ${label}.`;
-  if (sale === "regulated") body = `Licensed or regulated cannabis sales exist in ${label}, but only inside the legal channels described in the normalized source data.`;
-  if (sale === "tolerated") body = `Buying cannabis in ${label} is tolerated only in limited settings noted in the source data, not as a fully open legal market.`;
-  if (sale === "illegal" || distribution === "illegal") body = `Buying cannabis in ${label} is not treated as a legal retail activity in the normalized source data.`;
-  if (distribution === "mixed") body = `Buying cannabis in ${label} is mixed: some consumer-facing access is tolerated or regulated, while other sale or supply channels remain illegal.`;
+  const licensed = /\bsale\b|\bdispensary\b|\blicensed\b/.test(notes);
+  let strength = 0.2;
+  let body = `Buying cannabis in ${label} is illegal in the normalized source data.`;
+
+  if (sale === "regulated" || distribution === "regulated") {
+    strength = 1;
+    body = `Licensed cannabis sales are present in ${label} in the normalized source data.`;
+  } else if (sale === "tolerated" || distribution === "tolerated" || distribution === "mixed" || distribution === "restricted" || licensed) {
+    strength = 0.6;
+    body = `Buying cannabis in ${label} is conditional in the normalized source data and depends on the limited sale channels or restrictions that are explicitly stored.`;
+  }
+
   return {
     id: "buy",
     heading: `Can you buy cannabis in ${label}?`,
-    body
+    body,
+    strength: clampStrength(strength)
   };
 }
 
-function buildPossessionSection(data: CountryPageData): CountryIntentSection {
+function buildPossessionIntent(data: CountryPageData): IntentSeed {
   const label = regionLabel(data);
   const possessionLimit = data.facts.possession_limit;
-  const rec = data.legal_model.recreational.status;
-  const risk = data.legal_model.signals?.final_risk || "UNKNOWN";
-  let body = `Personal possession in ${label} is modeled as ${sentenceCase(rec)} with ${sentenceCase(risk)} overall risk.`;
-  if (possessionLimit) body += ` The stored facts say: ${possessionLimit}`;
-  if (data.legal_model.signals?.penalties?.possession?.prison) body += " Prison exposure is explicitly detected for possession.";
-  else if (data.legal_model.signals?.penalties?.possession?.arrest) body += " Arrest or detention exposure is explicitly detected for possession.";
-  else if (data.legal_model.signals?.penalties?.possession?.fine) body += " Fine-based possession enforcement is explicitly detected.";
+  const notes = normalizeText(`${data.notes_normalized} ${data.notes_raw}`);
+  const penalties = data.legal_model.signals?.penalties;
+  let strength = 0.4;
+  let body = `Personal possession in ${label} is restricted in the normalized source data.`;
+
+  if (possessionLimit) {
+    strength = 0.9;
+    body = `Possession in ${label}: ${possessionLimit}`;
+  } else if (penalties?.possession?.prison) {
+    strength = 0.7;
+    body = `Personal possession in ${label} carries prison exposure in the normalized source data.`;
+  } else if (penalties?.possession?.arrest || penalties?.possession?.fine || /\bpossession\b/.test(notes)) {
+    strength = 0.4;
+    body = `Personal possession in ${label} is limited by the penalty and notes signals stored in the normalized model.`;
+  }
+
   return {
     id: "possession",
     heading: `Possession rules in ${label}`,
-    body
+    body,
+    strength: clampStrength(strength)
   };
 }
 
-function buildTouristsSection(data: CountryPageData): CountryIntentSection {
+function buildTouristsIntent(data: CountryPageData): IntentSeed {
   const label = regionLabel(data);
-  const rec = data.legal_model.recreational.status;
+  const notes = normalizeText(`${data.notes_normalized} ${data.notes_raw}`);
+  const explicit = /\btourist\b|\bvisitor\b|\bpublic use\b/.test(notes);
+  const scope = data.legal_model.recreational.scope;
   const risk = data.legal_model.signals?.final_risk || "UNKNOWN";
-  const enforcement = data.legal_model.signals?.enforcement_level || "active";
-  let body = `Tourists in ${label} should not assume the local market is open just because cannabis is ${sentenceCase(rec)} for some residents.`;
-  if (risk === "HIGH_RISK") body = `Tourists in ${label} face high legal risk in the normalized model, including prison exposure signals.`;
-  if (risk === "RESTRICTED") body = `Tourists in ${label} face restricted conditions: legal access is limited and enforcement can still apply even when everyday use appears common.`;
-  if (enforcement === "rare" || enforcement === "unenforced") body += ` Enforcement is modeled as ${sentenceCase(enforcement)}, which softens practice but does not create a tourist exemption.`;
+  const allowed = data.legal_model.recreational.status === "LEGAL";
+  const strength = explicit ? (allowed ? 1 : 0.5) : 0.5;
+  let body = `Tourists in ${label} should follow the same restricted cannabis rules reflected by the normalized recreational scope.`;
+
+  if (risk === "HIGH_RISK") body = `Tourists in ${label} face high legal risk in the normalized source data.`;
+  else if (allowed && scope === "PERSONAL_USE") body = `Tourists in ${label} have limited access only where the normalized local personal-use rules allow it.`;
+  else if (explicit) body = `Tourists in ${label} are limited by the explicit visitor or public-use signals stored in the normalized notes.`;
+
   return {
     id: "tourists",
     heading: "Is cannabis allowed for tourists?",
-    body
+    body,
+    strength: clampStrength(strength)
   };
 }
 
-function buildAirportSection(data: CountryPageData): CountryIntentSection {
+function buildAirportIntent(data: CountryPageData): IntentSeed {
   const label = regionLabel(data);
-  const importScope = data.legal_model.distribution.scopes.import;
-  const traffickingScope = data.legal_model.distribution.scopes.trafficking;
-  let body = `Airport and border handling in ${label} follows the import and trafficking signals in the legal model.`;
-  if (importScope === "illegal") body = `Airport and border entry into ${label} is modeled as illegal for cannabis import. Carrying cannabis through customs or across the border is not treated as safe.`;
-  else if (traffickingScope === "illegal") body = `Airport and transport risk in ${label} remains restricted because trafficking or transport-related supply signals stay illegal.`;
-  else body += ` No explicit legal import channel is stored, so airport travel should be treated cautiously.`;
-  if (data.facts.penalty) body += ` Stored fact: ${data.facts.penalty}`;
+  const notes = normalizeText(`${data.notes_normalized} ${data.notes_raw}`);
+  const importIllegal = data.legal_model.distribution.scopes.import === "illegal";
+  const traffickingIllegal = data.legal_model.distribution.scopes.trafficking === "illegal";
+  const hasConflict = /\bairport\b|\btransport\b|\bfederal\b/.test(notes) || importIllegal || traffickingIllegal || data.parent_country?.code === "usa";
+  const strength = hasConflict ? 1 : 0.3;
+  let body = `Airport transport in ${label} is restricted by the import and transport signals in the normalized model.`;
+
+  if (data.parent_country?.code === "usa") {
+    body = `Airport rules in ${label} remain restricted because federal law still conflicts with state-level cannabis access.`;
+  } else if (importIllegal) {
+    body = `Airport and border entry into ${label} is illegal for cannabis import in the normalized source data.`;
+  } else if (traffickingIllegal) {
+    body = `Airport and transport handling in ${label} remains restricted because trafficking or transport-related supply signals stay illegal.`;
+  }
+
   return {
     id: "airport",
     heading: "Airport rules",
-    body
+    body,
+    strength: clampStrength(strength)
   };
 }
 
-function buildMedicalSection(data: CountryPageData): CountryIntentSection {
+function buildMedicalIntent(data: CountryPageData): IntentSeed {
   const label = regionLabel(data);
   const medical = data.legal_model.medical.status;
-  const scope = data.legal_model.medical.scope;
-  const override = data.legal_model.medical.override_reason;
-  let body = `Medical cannabis in ${label} is modeled as ${sentenceCase(medical)} with scope ${sentenceCase(scope)}.`;
-  if (medical === "LEGAL") body = `Medical cannabis access exists in ${label}, but it should be interpreted through the official program or prescription path reflected by the normalized model.`;
-  if (medical === "LIMITED") body = `Medical cannabis in ${label} is limited rather than broadly legal, which usually means a narrower program than general adult-use access.`;
-  if (medical === "ILLEGAL") body = `Medical cannabis is not broadly legal in ${label} in the current normalized model.`;
-  if (override === "rec_implies_med_floor") body += " The medical floor was raised from raw wiki truth to keep the final model internally consistent.";
+  let strength = 0.2;
+  let body = `Medical cannabis is illegal in ${label} in the normalized source data.`;
+
+  if (medical === "LEGAL") {
+    strength = 1;
+    body = `Medical cannabis is legal in ${label} through the medical access path reflected in the normalized model.`;
+  } else if (medical === "LIMITED") {
+    strength = 0.7;
+    body = `Medical cannabis is limited in ${label} in the normalized source data.`;
+  }
+
   return {
     id: "medical",
     heading: `Medical cannabis in ${label}`,
-    body
+    body,
+    strength: clampStrength(strength)
   };
 }
 
-export function buildCountryIntentSections(data: CountryPageData): CountryIntentSection[] {
-  return [
-    buildBuySection(data),
-    buildPossessionSection(data),
-    buildTouristsSection(data),
-    buildAirportSection(data),
-    buildMedicalSection(data)
+function intentRelatedHeading(id: IntentId, label: string) {
+  if (id === "buy") return `Related regions for buying cannabis in ${label}`;
+  if (id === "possession") return `Related regions for possession rules in ${label}`;
+  if (id === "tourists") return `Related regions for tourist rules in ${label}`;
+  if (id === "airport") return `Related regions for airport and border rules in ${label}`;
+  return `Related regions for medical cannabis in ${label}`;
+}
+
+function rankRelatedRegions(data: CountryPageData, strength: number) {
+  const seeds: Array<{ ref: CountryLinkRef; signal: RankedRelatedRegion["signal"]; weight: number }> = [
+    ...data.graph.legal_similarity.map((ref) => ({ ref, signal: "legal_similarity" as const, weight: 1 })),
+    ...data.graph.cluster_links.map((ref) => ({ ref, signal: "cluster" as const, weight: 0.8 })),
+    ...data.graph.geo_neighbors.map((ref) => ({ ref, signal: "neighbor" as const, weight: 0.6 }))
   ];
+
+  const seen = new Set<string>();
+  return seeds
+    .filter(({ ref }) => {
+      if (seen.has(ref.code)) return false;
+      seen.add(ref.code);
+      return true;
+    })
+    .map(({ ref, signal, weight }) => ({
+      ...ref,
+      signal,
+      score: Number((strength * weight).toFixed(3))
+    }))
+    .sort((left, right) => right.score - left.score || left.name.localeCompare(right.name))
+    .slice(0, 3);
+}
+
+function validateIntentSeeds(data: CountryPageData, intents: IntentSeed[]) {
+  const errors: string[] = [];
+  for (const intent of intents) {
+    if (!intent.body.trim()) errors.push(`EMPTY_INTENT:${intent.id}`);
+    if (normalizeText(intent.body).includes("unknown")) errors.push(`UNKNOWN_INTENT:${intent.id}`);
+  }
+
+  const buy = intents.find((intent) => intent.id === "buy");
+  const medical = intents.find((intent) => intent.id === "medical");
+  const airport = intents.find((intent) => intent.id === "airport");
+
+  if (buy) {
+    const distribution = data.legal_model.distribution.status;
+    if ((distribution === "illegal" || data.legal_model.distribution.scopes.sale === "illegal") && buy.strength > 0.6) {
+      errors.push("INTENT_CONTRADICTION:buy");
+    }
+  }
+
+  if (medical) {
+    const medicalStatus = data.legal_model.medical.status;
+    if (medicalStatus === "ILLEGAL" && medical.strength > 0.2) errors.push("INTENT_CONTRADICTION:medical");
+    if (medicalStatus === "LEGAL" && medical.strength < 1) errors.push("INTENT_CONTRADICTION:medical");
+  }
+
+  if (airport) {
+    const importIllegal = data.legal_model.distribution.scopes.import === "illegal";
+    const usFederalConflict = data.parent_country?.code === "usa";
+    if ((importIllegal || usFederalConflict) && airport.strength < 1) errors.push("INTENT_CONTRADICTION:airport");
+  }
+
+  return errors;
+}
+
+export function buildCountryIntentSections(data: CountryPageData, options?: { query?: string | null }) {
+  const label = regionLabel(data);
+  const seeds = [
+    buildBuyIntent(data),
+    buildPossessionIntent(data),
+    buildTouristsIntent(data),
+    buildAirportIntent(data),
+    buildMedicalIntent(data)
+  ];
+  const errors = validateIntentSeeds(data, seeds);
+  if (errors.length) {
+    throw new Error(`COUNTRY_INTENT_INVALID:${data.code}:${errors.join(",")}`);
+  }
+
+  const queryIntent = detectIntentQuery(options?.query);
+  return seeds
+    .map((seed) => {
+      const boostedStrength = seed.id === queryIntent ? seed.strength + 1 : seed.strength;
+      return {
+        id: seed.id,
+        heading: seed.heading,
+        body: seed.body,
+        strength: boostedStrength,
+        related_heading: intentRelatedHeading(seed.id, label),
+        related_regions: rankRelatedRegions(data, boostedStrength)
+      } satisfies CountryIntentSection;
+    })
+    .sort((left, right) => right.strength - left.strength || left.heading.localeCompare(right.heading));
 }

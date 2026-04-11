@@ -1,8 +1,13 @@
 import type { Feature, FeatureCollection, MultiPolygon, Point, Polygon } from "geojson";
+import type { ResultStatus } from "@/lib/resultStatus";
 
 export type LegalCountryFeatureProperties = {
   geo: string;
   displayName: string;
+  result: {
+    status: ResultStatus;
+    color: string;
+  };
   mapCategory: "LEGAL_OR_DECRIM" | "LIMITED_OR_MEDICAL" | "ILLEGAL" | "UNKNOWN";
   legalColor: string;
   hoverColor: string;
@@ -25,6 +30,10 @@ export type CountryCardEntry = {
   displayName: string;
   iso2: string | null;
   type: "country" | "state";
+  result: {
+    status: ResultStatus;
+    color: string;
+  };
   normalizedStatusSummary: string;
   recreationalSummary: string;
   medicalSummary: string;

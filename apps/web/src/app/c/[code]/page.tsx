@@ -50,13 +50,21 @@ function ensurePageHash(data: NonNullable<ReturnType<typeof getCountryPageData>>
   console.error(message);
 }
 
-export default async function CountryCodePage({ params }: { params: Promise<{ code: string }> }) {
+export default async function CountryCodePage({
+  params,
+  searchParams
+}: {
+  params: Promise<{ code: string }>;
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
+}) {
   const { code } = await params;
+  const resolvedSearchParams = searchParams ? await searchParams : {};
+  const query = typeof resolvedSearchParams?.q === "string" ? resolvedSearchParams.q : null;
   const data = getCountryPageData(code);
   if (!data) notFound();
   ensurePageHash(data);
   const seoCountryIndex = buildSeoCountryIndex(code);
-  const intentSections = buildCountryIntentSections(data);
+  const intentSections = buildCountryIntentSections(data, { query });
 
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -126,6 +134,18 @@ export default async function CountryCodePage({ params }: { params: Promise<{ co
           <section key={section.id} className={styles.section}>
             <h2>{section.heading}</h2>
             <p>{section.body}</p>
+            {section.related_regions.length > 0 ? (
+              <>
+                <h3 className={styles.subheading}>{section.related_heading}</h3>
+                <ul className={styles.relatedList}>
+                  {section.related_regions.map((item) => (
+                    <li key={`${section.id}-${item.code}`}>
+                      <a href={`/c/${item.code}`}>{item.name}</a>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
           </section>
         ))}
         <section className={styles.section}>

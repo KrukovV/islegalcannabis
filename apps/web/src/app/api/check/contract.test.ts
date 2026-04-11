@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { GET } from "./route";
 import fs from "node:fs";
 import path from "node:path";
+import { statusToColor } from "@/lib/resultStatus";
 
 const STATUS_LEVELS = new Set(["green", "yellow", "red", "gray"]);
 
@@ -54,6 +55,8 @@ describe("GET /api/check contract", () => {
     expect(json.distribution_status).toBeTruthy();
     expect(json.legal_status).toBeTruthy();
     expect(json.final_risk).toBeTruthy();
+    expect(json.result_status).toBe("DECRIMINALIZED");
+    expect(json.result_color).toBe(statusToColor("DECRIMINALIZED"));
     expect(json.penalties).toBeTruthy();
     expect(json.enforcement_level).toBeTruthy();
     expect(Array.isArray(json.explain)).toBe(true);
@@ -80,6 +83,16 @@ describe("GET /api/check contract", () => {
     expect(typeof json.debug.has_article).toBe("boolean");
     expect(typeof json.debug.article_len).toBe("number");
     expect(typeof json.debug.source_confidence).toBe("string");
+  });
+
+  it("keeps result status aligned for strict map consumers", async () => {
+    const req = new Request("http://localhost/api/check?country=IR");
+    const res = await GET(req);
+    const json = await res.json();
+
+    expect(json.ok).toBe(true);
+    expect(json.result_status).toBe("ILLEGAL");
+    expect(json.result_color).toBe(statusToColor("ILLEGAL"));
   });
 
   it("surfaces machine verified evidence when available", async () => {

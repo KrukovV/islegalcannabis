@@ -16,6 +16,9 @@ const RENDER_OFFSET_Y = -20;
 const FALLBACK_RENDER_Y_FACTOR = 0.85;
 const ANTARCTICA_CENTER = { lng: 0, lat: -77 } as const;
 const FALLBACK_ACTOR_TTL = 9999;
+const PARTICLE_LIMIT = 30;
+const PARTICLE_LIFE = 40;
+const TARGET_FRAME_MS = 1000 / 30;
 
 export const IDLE_FRAMES = ASCII_BODY_SSOT.idle.right;
 export const WALK_FRAMES = ASCII_BODY_SSOT.walk.right;
@@ -57,6 +60,17 @@ export type Actor = {
   targetOffsetY?: number;
   isFallback?: boolean;
   facing?: AsciiFacing;
+  effectState?: SmokeState | null;
+};
+
+type Particle = {
+  active: boolean;
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  life: number;
+  alpha: number;
 };
 
 export type ScenarioDef = {
@@ -101,6 +115,86 @@ function frameMetrics(frame: string) {
   return { lines, width, height };
 }
 
+function isBodyHiddenChar(char: string, prev: string, next: string) {
+  const isSmoke = char === "~";
+  const isJoint = char === "_" || char === "-" || char === "`";
+  const isEmber = char === "." && (prev === "_" || prev === "-" || prev === "`" || next === "~" || prev === "~");
+  return isSmoke || isJoint || isEmber;
+}
+
+export function stripJointVisuals(frame: string) {
+  return frame
+    .split("\n")
+    .map((line) =>
+      [...line]
+        .map((char, index) => {
+          const prev = index > 0 ? line[index - 1] : "";
+          const next = index < line.length - 1 ? line[index + 1] : "";
+          return isBodyHiddenChar(char, prev, next) ? " " : char;
+        })
+        .join("")
+    )
+    .join("\n");
+}
+
+type JointAnchor = {
+  baseX: number;
+  baseY: number;
+  emberX: number;
+  emberY: number;
+  side: AsciiFacing;
+};
+
+function findJointAnchor(frame: string, facing: AsciiFacing, originX: number, originY: number): JointAnchor | null {
+  const lines = frame.split("\n");
+  for (let lineIndex = 0; lineIndex < lines.length; lineIndex += 1) {
+    const line = lines[lineIndex];
+    const jointColumns: number[] = [];
+    for (let charIndex = 0; charIndex < line.length; charIndex += 1) {
+      const char = line[charIndex];
+      const prev = charIndex > 0 ? line[charIndex - 1] : "";
+      const next = charIndex < line.length - 1 ? line[charIndex + 1] : "";
+      if (isBodyHiddenChar(char, prev, next)) jointColumns.push(charIndex);
+    }
+    if (!jointColumns.length) continue;
+    const baseColumn = facing === "right" ? Math.min(...jointColumns) : Math.max(...jointColumns);
+    const baseX = originX + baseColumn * CHAR_WIDTH;
+    const baseY = originY + lineIndex * LINE_HEIGHT - LINE_HEIGHT + FONT_SIZE * 0.52;
+    const emberX = facing === "right" ? baseX + 10 : baseX - 10;
+    return { baseX, baseY, emberX, emberY: baseY, side: facing };
+  }
+  return null;
+}
+
+export function getJointAnchor(frame: string, facing: AsciiFacing, originX = 0, originY = 0) {
+  return findJointAnchor(frame, facing, originX, originY);
+}
+
+function createParticlePool() {
+  return Array.from({ length: PARTICLE_LIMIT }, () => ({
+    active: false,
+    x: 0,
+    y: 0,
+    vx: 0,
+    vy: 0,
+    life: 0,
+    alpha: 0
+  })) satisfies Particle[];
+}
+
+function updateParticles(particles: Particle[]) {
+  for (const particle of particles) {
+    if (!particle.active) continue;
+    particle.x += particle.vx;
+    particle.y += particle.vy;
+    particle.life -= 1;
+    particle.alpha *= 0.96;
+    if (particle.life <= 0 || particle.alpha <= 0.02) {
+      particle.active = false;
+    }
+  }
+}
+
 function clampToSafeZone(engine: AsciiEngine, x: number, y: number, width: number, height: number) {
   const minX = SAFE_ZONE.left;
   const maxX = Math.max(minX, engine.width - SAFE_ZONE.right - width);
@@ -125,11 +219,13 @@ function assignFrames(actor: Actor, state: ActorState) {
   if (state === "smoke") {
     actor.smokeState = "idle";
     actor.smokeTick = 0;
+    actor.effectState = null;
     actor.frames = [framesForFacing(ASCII_JOINT_SSOT.carry, facing)[0]];
     return;
   }
   actor.smokeState = undefined;
   actor.smokeTick = 0;
+  actor.effectState = null;
   if (state === "dance" || state === "finale") {
     actor.frames = framesForFacing(ASCII_BODY_SSOT.dance, facing);
     return;
@@ -288,6 +384,8 @@ export class AsciiEngine {
   recentScenarioIds: string[] = [];
   private rafId = 0;
   private dpr = 1;
+  private lastPaintTs = 0;
+  private readonly particles = createParticlePool();
   private readonly canvas: HTMLCanvasElement;
   private readonly registry: ScenarioDef[];
   private readonly readGeo: () => GeoContext;
@@ -311,6 +409,8 @@ export class AsciiEngine {
   stop() {
     this.running = false;
     window.cancelAnimationFrame(this.rafId);
+    this.lastPaintTs = 0;
+    for (const particle of this.particles) particle.active = false;
     this.actors = [];
     this.scenario = null;
     this.scenarioT = 0;
@@ -340,7 +440,8 @@ export class AsciiEngine {
       t: actor.t ?? 0,
       frameIndex: 0,
       frameTick: 0,
-      isFallback: actor.isFallback ?? false
+      isFallback: actor.isFallback ?? false,
+      effectState: actor.effectState ?? null
     });
   }
 
@@ -512,6 +613,78 @@ export class AsciiEngine {
     this.canvas.style.height = `${this.height}px`;
   }
 
+  private spawnSmoke(x: number, y: number, side: AsciiFacing, count = 1) {
+    let remaining = count;
+    for (const particle of this.particles) {
+      if (remaining <= 0) break;
+      if (particle.active) continue;
+      const drift = count > 1 ? remaining - 1 : 0;
+      particle.active = true;
+      particle.x = x;
+      particle.y = y;
+      particle.vx = (side === "right" ? 0.24 : -0.24) + (drift - count / 2) * 0.05;
+      particle.vy = -0.22 - Math.abs(drift) * 0.03;
+      particle.life = PARTICLE_LIFE;
+      particle.alpha = 1;
+      remaining -= 1;
+    }
+  }
+
+  private maybeEmitSmoke(actor: Actor, anchor: JointAnchor) {
+    const smokeState = actor.smokeState;
+    if (!smokeState) return;
+    const stateChanged = actor.effectState !== smokeState;
+    actor.effectState = smokeState;
+    if (smokeState === "lift" && actor.smokeTick && actor.smokeTick % 24 === 0) {
+      this.spawnSmoke(anchor.emberX, anchor.emberY, anchor.side, 1);
+    }
+    if (smokeState === "near" && actor.smokeTick && actor.smokeTick % 10 === 0) {
+      this.spawnSmoke(anchor.emberX, anchor.emberY, anchor.side, 1);
+    }
+    if (smokeState === "inhale" && actor.smokeTick && actor.smokeTick % 18 === 0) {
+      this.spawnSmoke(anchor.emberX, anchor.emberY, anchor.side, 1);
+    }
+    if (smokeState === "exhale") {
+      if (stateChanged) {
+        this.spawnSmoke(anchor.emberX, anchor.emberY, anchor.side, 5);
+      } else if (actor.smokeTick && actor.smokeTick % 8 === 0) {
+        this.spawnSmoke(anchor.emberX, anchor.emberY, anchor.side, 2);
+      }
+    }
+  }
+
+  private renderJoint(ctx: CanvasRenderingContext2D, actor: Actor, anchor: JointAnchor) {
+    const lineEndX = anchor.side === "right" ? anchor.baseX + 10 : anchor.baseX - 10;
+    ctx.save();
+    ctx.lineCap = "round";
+    ctx.beginPath();
+    ctx.moveTo(anchor.baseX, anchor.baseY);
+    ctx.lineTo(lineEndX, anchor.baseY);
+    ctx.strokeStyle = "#d9ddd6";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(anchor.emberX, anchor.emberY, 2.2, 0, Math.PI * 2);
+    ctx.fillStyle = "#d93b31";
+    ctx.shadowColor = "rgba(235, 84, 52, 0.7)";
+    ctx.shadowBlur = 6;
+    ctx.fill();
+    ctx.restore();
+    this.maybeEmitSmoke(actor, anchor);
+  }
+
+  private renderParticles(ctx: CanvasRenderingContext2D) {
+    ctx.save();
+    ctx.fillStyle = "#748595";
+    for (const particle of this.particles) {
+      if (!particle.active) continue;
+      ctx.globalAlpha = particle.alpha;
+      ctx.fillText("~", particle.x, particle.y);
+    }
+    ctx.restore();
+    ctx.globalAlpha = 1;
+  }
+
   private render() {
     const ctx = this.canvas.getContext("2d");
     if (!ctx) return;
@@ -527,31 +700,38 @@ export class AsciiEngine {
     ctx.shadowBlur = 8;
     for (const actor of this.actors) {
       const frame = actor.frames[actor.frameIndex] || actor.frames[0] || "";
-      const { lines } = frameMetrics(frame);
+      const bodyFrame = stripJointVisuals(frame);
+      const { lines } = frameMetrics(bodyFrame);
       const projected = this.projectActor(actor);
+      const jointAnchor =
+        actor.role === "smoker" ? findJointAnchor(frame, actor.facing || "right", projected.x, projected.y) : null;
       ctx.globalAlpha = actor.state === "build" ? 0.94 : 0.98;
       lines.forEach((line, lineIndex) => {
         const drawY = projected.y + lineIndex * LINE_HEIGHT - LINE_HEIGHT;
         [...line].forEach((char, charIndex) => {
           const drawX = projected.x + charIndex * CHAR_WIDTH;
-          const prev = charIndex > 0 ? line[charIndex - 1] : "";
-          const next = charIndex < line.length - 1 ? line[charIndex + 1] : "";
-          const isSmoke = char === "~";
-          const isEmber = char === "." && (prev === "_" || prev === "-" || next === "~" || prev === "~");
-          const isJoint = char === "_" || char === "-" || char === "`";
-          ctx.strokeStyle = isEmber ? "rgba(255, 236, 220, 0.94)" : "rgba(238, 245, 248, 0.82)";
-          ctx.fillStyle = isEmber ? "#df3b31" : isSmoke ? "#728497" : isJoint ? "#243847" : "#1e3141";
+          ctx.strokeStyle = "rgba(238, 245, 248, 0.82)";
+          ctx.fillStyle = "#1e3141";
           ctx.strokeText(char, drawX, drawY);
           ctx.fillText(char, drawX, drawY);
         });
       });
+      if (jointAnchor) {
+        this.renderJoint(ctx, actor, jointAnchor);
+      }
     }
+    this.renderParticles(ctx);
     ctx.globalAlpha = 1;
     ctx.shadowBlur = 0;
   }
 
-  private tick = () => {
+  private tick = (ts = 0) => {
     if (!this.running) return;
+    if (this.lastPaintTs && ts - this.lastPaintTs < TARGET_FRAME_MS) {
+      this.rafId = window.requestAnimationFrame(this.tick);
+      return;
+    }
+    this.lastPaintTs = ts;
     this.frame += 1;
     if (this.frame % 24 === 1) this.resize();
 
@@ -567,6 +747,7 @@ export class AsciiEngine {
     }
 
     for (const actor of this.actors) updateActor(actor, this.frame, this);
+    updateParticles(this.particles);
     this.actors = this.actors.filter((actor) => actor.ttl > 0);
     if (this.autoTriggerEnabled && !this.scenario) {
       const hasLiveActors = this.actors.some(

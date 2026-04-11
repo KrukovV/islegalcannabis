@@ -2,6 +2,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import type { CountryCardEntry } from "@/new-map/map.types";
+import { deriveResultStatusFromCountryPageData, statusToColor } from "@/lib/resultStatus";
 
 type CountryLegalStatus = "LEGAL" | "ILLEGAL" | "DECRIMINALIZED" | "TOLERATED" | "UNKNOWN";
 type CountryMedicalStatus = "LEGAL" | "LIMITED" | "ILLEGAL" | "UNKNOWN";
@@ -385,23 +386,28 @@ function summarizeDistributionModel(data: CountryPageData) {
 }
 
 export function deriveMapCategoryFromCountryPageData(data: CountryPageData) {
-  const recreational = data.legal_model.recreational;
-  const medical = data.legal_model.medical;
-  if (recreational.status === "LEGAL" || recreational.status === "DECRIMINALIZED" || recreational.status === "TOLERATED") {
+  const resultStatus = deriveResultStatusFromCountryPageData(data);
+  if (resultStatus === "LEGAL" || resultStatus === "DECRIMINALIZED") {
     return "LEGAL_OR_DECRIM" as const;
   }
-  if (recreational.enforcement !== "STRICT" || medical.status === "LEGAL" || medical.status === "LIMITED") {
+  if (resultStatus === "LIMITED" || resultStatus === "UNENFORCED") {
     return "LIMITED_OR_MEDICAL" as const;
   }
+  if (resultStatus === "UNKNOWN") return "UNKNOWN" as const;
   return "ILLEGAL" as const;
 }
 
 export function deriveCountryCardEntryFromCountryPageData(data: CountryPageData): CountryCardEntry {
+  const resultStatus = deriveResultStatusFromCountryPageData(data);
   return {
     geo: data.geo_code,
     displayName: data.name,
     iso2: data.node_type === "state" ? data.geo_code : data.iso2,
     type: data.node_type,
+    result: {
+      status: resultStatus,
+      color: statusToColor(resultStatus)
+    },
     normalizedStatusSummary: data.notes_normalized,
     recreationalSummary: summarizeLegalModel(data),
     medicalSummary: summarizeMedicalModel(data),

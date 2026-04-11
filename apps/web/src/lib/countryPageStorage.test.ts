@@ -2,10 +2,13 @@ import { describe, expect, it } from "vitest";
 import {
   buildSeoCountryIndex,
   buildCountryCardIndexFromStorage,
+  deriveMapCategoryFromCountryPageData,
   getCountryGraph,
   getCountryPageData,
   listCountryPageCodes
 } from "@/lib/countryPageStorage";
+import { buildCountrySourceSnapshot } from "@/new-map/countrySource";
+import { deriveResultStatusFromCountryPageData, statusToColor } from "@/lib/resultStatus";
 
 describe("countryPageStorage", () => {
   it("loads generated ISO3 country pages", () => {
@@ -97,5 +100,36 @@ describe("countryPageStorage", () => {
     expect(belgium?.legal_model.medical.status).toBe("LIMITED");
     expect(belgium?.legal_model.medical.override_reason).toBe("rec_implies_med_floor");
     expect(antigua?.legal_model.medical.status).toBe("LIMITED");
+  });
+
+  it("keeps map status and color in sync with the single result status", () => {
+    const fixtures = [
+      { code: "irn", expected: "ILLEGAL" },
+      { code: "sau", expected: "ILLEGAL" },
+      { code: "sgp", expected: "ILLEGAL" },
+      { code: "nld", expected: "DECRIMINALIZED" },
+      { code: "can", expected: "LEGAL" }
+    ] as const;
+    const snapshot = buildCountrySourceSnapshot();
+
+    for (const fixture of fixtures) {
+      const page = getCountryPageData(fixture.code);
+      expect(page).toBeTruthy();
+      const status = deriveResultStatusFromCountryPageData(page!);
+      const feature = snapshot.features.find((item) => item.properties.geo === page!.iso2);
+      expect(status).toBe(fixture.expected);
+      expect(feature?.properties.result.status).toBe(status);
+      expect(feature?.properties.legalColor).toBe(statusToColor(status));
+      expect(feature?.properties.result.color).toBe(statusToColor(status));
+    }
+  });
+
+  it("does not downgrade illegal countries to yellow map categories", () => {
+    const iran = getCountryPageData("irn");
+    const saudiArabia = getCountryPageData("sau");
+    expect(deriveResultStatusFromCountryPageData(iran!)).toBe("ILLEGAL");
+    expect(deriveMapCategoryFromCountryPageData(iran!)).toBe("ILLEGAL");
+    expect(deriveResultStatusFromCountryPageData(saudiArabia!)).toBe("ILLEGAL");
+    expect(deriveMapCategoryFromCountryPageData(saudiArabia!)).toBe("ILLEGAL");
   });
 });

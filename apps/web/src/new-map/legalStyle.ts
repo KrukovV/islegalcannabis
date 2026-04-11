@@ -21,7 +21,11 @@ function brighten(hex: string, factor: number) {
 }
 
 export function resolveLegalFillColor(mapCategory: string) {
-  return BASE_LEGAL_COLORS[mapCategory as keyof typeof BASE_LEGAL_COLORS] || BASE_LEGAL_COLORS.UNKNOWN;
+  const color = BASE_LEGAL_COLORS[mapCategory as keyof typeof BASE_LEGAL_COLORS];
+  if (!color) {
+    throw new Error(`UNKNOWN_MAP_CATEGORY: ${mapCategory}`);
+  }
+  return color;
 }
 
 export function resolveLegalHoverColor(mapCategory: string) {

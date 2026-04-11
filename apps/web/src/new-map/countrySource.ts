@@ -1,22 +1,14 @@
 import type { Feature, FeatureCollection, Geometry, MultiPolygon, Polygon } from "geojson";
 import { buildGeoJson } from "@/lib/mapData";
 import {
-  loadCentroids,
-  loadUsStatesSsot,
-  loadUsStateWikiTableIndex,
-  resolveDataPath
-} from "@/lib/mapDataSources";
-import {
   buildCountryCardIndexFromStorage,
   deriveMapCategoryFromCountryPageData,
   getCountryPageIndexByGeoCode,
   getCountryPageIndexByIso2
 } from "@/lib/countryPageStorage";
-import { deriveUsStateStatusOverrideFromWikiTable } from "@/lib/mapStatusProjection";
-import { resolveMapCategoryFromPair } from "@/lib/statusPairMatrix";
+import { deriveResultStatusFromCountryPageData, statusToColor } from "@/lib/resultStatus";
 import type { AdminBoundaryCollection, LegalCountryCollection, LegalCountryFeatureProperties } from "./map.types";
 import {
-  resolveLegalFillColor,
   resolveLegalHoverColor,
 } from "./legalStyle";
 
@@ -27,48 +19,30 @@ function isPolygonGeometry(geometry: Geometry | null | undefined): geometry is P
   return geometry?.type === "Polygon" || geometry?.type === "MultiPolygon";
 }
 
-function resolveNormalizedMapCategory(properties: Record<string, unknown>) {
-  const status = String(properties.normalizedRecreationalStatus || "").trim().toUpperCase();
-  const enforcement = String(properties.normalizedRecreationalEnforcement || "").trim().toUpperCase();
-  const medicalStatus = String(properties.normalizedMedicalStatus || "").trim().toUpperCase();
-  const flags = Array.isArray(properties.statusFlags)
-    ? properties.statusFlags.map((value) => String(value || "").trim().toUpperCase())
-    : [];
-
-  if (status === "LEGAL" || status === "TOLERATED" || status === "DECRIMINALIZED" || status === "TECHNICALLY_LEGAL") {
-    return "LEGAL_OR_DECRIM" as const;
-  }
-  if (flags.includes("HAS_FINE") || enforcement === "FINES") {
-    return "LIMITED_OR_MEDICAL" as const;
-  }
-  if (status === "ILLEGAL_UNENFORCED" || enforcement === "UNENFORCED") {
-    return "LIMITED_OR_MEDICAL" as const;
-  }
-  if (status === "LIMITED_LEGAL" || medicalStatus === "LEGAL" || medicalStatus === "LIMITED") {
-    return "LIMITED_OR_MEDICAL" as const;
-  }
-  if (status === "ILLEGAL_ENFORCED") {
-    return "ILLEGAL" as const;
-  }
-  return "ILLEGAL" as const;
-}
-
 export function buildCountrySourceSnapshot(): LegalCountryCollection {
   const snapshot = buildGeoJson("countries") as FeatureCollection;
   const countryPageByIso2 = getCountryPageIndexByIso2();
-  return {
-    ...snapshot,
-    features: snapshot.features.filter((feature): feature is Feature<Polygon | MultiPolygon> => isPolygonGeometry(feature.geometry)).map((feature) => {
+  const missingGeos: string[] = [];
+  const features = snapshot.features
+    .filter((feature): feature is Feature<Polygon | MultiPolygon> => isPolygonGeometry(feature.geometry))
+    .flatMap((feature) => {
       const geo = String(feature.properties?.geo || "").trim().toUpperCase();
       const countryPageData = countryPageByIso2.get(geo);
-      const mapCategory = countryPageData
-        ? deriveMapCategoryFromCountryPageData(countryPageData)
-        : resolveNormalizedMapCategory(feature.properties || {});
-      const legalColor = geo === "AQ" ? ANTARCTICA_FILL_COLOR : resolveLegalFillColor(mapCategory);
+      if (!countryPageData) {
+        missingGeos.push(geo);
+        return [];
+      }
+      const resultStatus = deriveResultStatusFromCountryPageData(countryPageData);
+      const mapCategory = deriveMapCategoryFromCountryPageData(countryPageData);
+      const legalColor = geo === "AQ" ? ANTARCTICA_FILL_COLOR : statusToColor(resultStatus);
       const hoverColor = geo === "AQ" ? ANTARCTICA_HOVER_COLOR : resolveLegalHoverColor(mapCategory);
       const nextProperties: LegalCountryFeatureProperties = {
         geo,
         displayName: String(feature.properties?.displayName || feature.properties?.name || geo),
+        result: {
+          status: resultStatus,
+          color: legalColor
+        },
         mapCategory: (geo === "AQ" && !feature.properties?.mapCategory ? "UNKNOWN" : mapCategory) as
           "LEGAL_OR_DECRIM" | "LIMITED_OR_MEDICAL" | "ILLEGAL" | "UNKNOWN",
         legalColor,
@@ -82,11 +56,19 @@ export function buildCountrySourceSnapshot(): LegalCountryCollection {
           ? Number(feature.properties?.labelAnchorLat)
           : null
       };
-      return {
+      return [{
         ...feature,
         properties: nextProperties
-      };
-    })
+      }];
+    });
+
+  if (missingGeos.length) {
+    console.warn(`NEW_MAP_FILTERED_MISSING_STATUS count=${missingGeos.length} geos=${missingGeos.join(",")}`);
+  }
+
+  return {
+    ...snapshot,
+    features
   };
 }
 
@@ -113,24 +95,18 @@ export function buildAdminBoundarySnapshot(): AdminBoundaryCollection {
 export function buildUsStateSourceSnapshot(): LegalCountryCollection {
   const geojson = buildGeoJson("states") as FeatureCollection;
   const statePageByGeo = getCountryPageIndexByGeoCode();
-  const stateCentroids = loadCentroids(resolveDataPath("data", "centroids", "us_adm1.json"));
-  const stateEntries = loadUsStatesSsot();
-  const stateWikiTableIndex = loadUsStateWikiTableIndex(stateCentroids, stateEntries);
   const features = geojson.features
     .filter((feature): feature is Feature<Polygon | MultiPolygon> => isPolygonGeometry(feature.geometry))
     .map((feature) => {
       const geo = String(feature.properties?.geo || feature.properties?.iso_3166_2 || "").trim().toUpperCase();
       if (!geo.startsWith("US-")) return null;
       const statePageData = statePageByGeo.get(geo);
-      const wikiTableRow = stateWikiTableIndex.get(geo);
-      const wikiTableOverride = deriveUsStateStatusOverrideFromWikiTable({
-        recreational_raw: wikiTableRow?.recreational_raw ?? undefined
-      });
-      const stateCategory = statePageData
-        ? deriveMapCategoryFromCountryPageData(statePageData)
-        : wikiTableOverride
-          ? resolveMapCategoryFromPair(wikiTableOverride.rec, wikiTableOverride.med)
-          : String(feature.properties?.mapCategory || feature.properties?.finalMapCategory || "UNKNOWN");
+      if (!statePageData) {
+        throw new Error(`MAP_WITHOUT_STATUS: ${geo}`);
+      }
+      const resultStatus = deriveResultStatusFromCountryPageData(statePageData);
+      const stateCategory = deriveMapCategoryFromCountryPageData(statePageData);
+      const legalColor = statusToColor(resultStatus);
       const displayName = statePageData?.name || String(feature.properties?.displayName || feature.properties?.name || geo);
       const labelAnchorLng = Number(feature.properties?.labelAnchorLng);
       const labelAnchorLat = Number(feature.properties?.labelAnchorLat);
@@ -141,8 +117,12 @@ export function buildUsStateSourceSnapshot(): LegalCountryCollection {
         properties: {
           geo,
           displayName,
+          result: {
+            status: resultStatus,
+            color: legalColor
+          },
           mapCategory: stateCategory as "LEGAL_OR_DECRIM" | "LIMITED_OR_MEDICAL" | "ILLEGAL" | "UNKNOWN",
-          legalColor: resolveLegalFillColor(stateCategory),
+          legalColor,
           hoverColor: resolveLegalHoverColor(stateCategory),
           fillOpacity: 1,
           hoverOpacity: 1,

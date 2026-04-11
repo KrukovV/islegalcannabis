@@ -20,6 +20,7 @@ import { buildExtrasItems, extrasPreview } from "../../../lib/extras";
 import { findNearestLegalForProfile } from "../../../lib/geo/nearestLegal";
 import { findNearestBetterBorder } from "../../../lib/geo/nearestBorder";
 import { getCountryPageIndexByGeoCode, getCountryPageIndexByIso2 } from "../../../lib/countryPageStorage";
+import { deriveResultStatusFromCountryPageData, statusToColor } from "../../../lib/resultStatus";
 import { buildWikiBlock, withWikiClaim } from "../../../core/ssot/wiki_status";
 import {
   buildDisplayStatus,
@@ -149,7 +150,9 @@ function toSsotStatusValue(value: string | null | undefined) {
 function withDerivedSsotProfile<T extends JurisdictionLawProfile>(profile: T, country: string, region?: string | null) {
   const countryPage = getCountryPageForQuery(country, region);
   if (!countryPage) return { profile, derived: null };
+  const resultStatus = deriveResultStatusFromCountryPageData(countryPage);
   const legalSsot = {
+    result_status: resultStatus,
     recreational: toSsotStatusValue(countryPage.legal_model.recreational.status),
     medical: toSsotStatusValue(countryPage.legal_model.medical.status),
     distribution: countryPage.legal_model.distribution.status,
@@ -185,6 +188,8 @@ function withDerivedSsotProfile<T extends JurisdictionLawProfile>(profile: T, co
       legal_ssot: legalSsot
     },
     derived: {
+      result_status: resultStatus,
+      result_color: statusToColor(resultStatus),
       rec_final: countryPage.legal_model.recreational.status,
       med_final: countryPage.legal_model.medical.status,
       distribution_status: countryPage.legal_model.distribution.status,
@@ -443,6 +448,8 @@ export async function GET(req: Request) {
   const buildDerivedPayload = (derived: ReturnType<typeof withDerivedSsotProfile>["derived"]) =>
     derived
       ? {
+          result_status: derived.result_status,
+          result_color: derived.result_color,
           rec_final: derived.rec_final,
           med_final: derived.med_final,
           distribution_status: derived.distribution_status,
@@ -896,6 +903,9 @@ export async function GET(req: Request) {
 
   incrementCounter("check_performed");
   console.warn(`UI_CHECK_PERFORMED request_id=${requestId}`);
+  if (derived?.result_status) {
+    console.warn(`UI_CHECK_RESULT_STATUS request_id=${requestId} code=${country}${region ? `-${region}` : ""} status=${derived.result_status}`);
+  }
 
   const status = buildDisplayStatus(enrichedProfile);
   const statusCode = buildTripStatusCode(enrichedProfile);
