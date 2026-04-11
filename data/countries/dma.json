@@ -17,42 +17,47 @@
       "override_reason": "rec_implies_med_floor"
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
         "possession": "restricted",
         "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
-      "enforcement": "standard",
-      "flags": [],
-      "modifiers": []
+      "enforcement": "fine-based",
+      "flags": [
+        "trafficking_illegal"
+      ],
+      "modifiers": [
+        "but"
+      ]
     },
     "signals": {
-      "status": "restricted",
-      "final_risk": "LIMITED",
+      "status": "illegal",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 3,
         "possession": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
-          "fine": false,
-          "severe": false
+          "fine": true,
+          "severe": true
         },
         "trafficking": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
-          "fine": false,
-          "severe": false
+          "fine": true,
+          "severe": true
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Dominica",
@@ -98,16 +103,28 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: penalty_fine | source: Cannabis in Dominica | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_years | source: Cannabis in Dominica | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_criminal_offense | source: Cannabis in Dominica | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_fine | source: Cannabis in Dominica | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_years | source: Cannabis in Dominica | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_criminal_offense | source: Cannabis in Dominica | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Dominica | type: traversal | priority: 3 | scope: trafficking"
       ]
     },
-    "enforcement_flags": [],
+    "enforcement_flags": [
+      "fine_based"
+    ],
     "applied_rules": [
+      "penalty_fine",
+      "penalty_years",
+      "penalty_criminal_offense",
+      "trafficking_illegal",
       "rec_implies_med_floor"
     ],
-    "notes_normalized": "Cannabis is decriminalized in Dominica. Medical cannabis is limited. Distribution is restricted."
+    "notes_normalized": "Cannabis is decriminalized in Dominica. Medical cannabis is limited. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is decriminalized in Dominica. Medical cannabis is limited. Distribution is restricted.",
+  "notes_normalized": "Cannabis is decriminalized in Dominica. Medical cannabis is limited. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Dominica}}",
   "facts": {
     "possession_limit": null,
@@ -205,9 +222,9 @@
   },
   "hashes": {
     "code": "dma",
-    "content_hash": "306b4c8daebfa19f418734f62aada59eb4b0d58d85f7b12412742f589e868a71",
-    "notes_hash": "d3649a604bb24f62eeb8f6acd7bdc6dbaafb60dd9008d20e0bcbab7fadc3235e",
-    "model_hash": "76b919535d899ec4bb48a5a1449f37830348e13e5c47637b4c2ff3c20a41df40"
+    "content_hash": "effc2bc888e460d354cb6e290b85802080fb2d0b4f271445713ba9b655eafd16",
+    "notes_hash": "7fb616b66794f0407fb2bf81b51a9854ec2bcda06bb8ce2fc449713b65b0d981",
+    "model_hash": "6453ef97b2776ed2ce048edf7fa5c320709714d593ac1a9a001a215d88be0810"
   },
   "geo_code": "DM",
   "node_type": "country",

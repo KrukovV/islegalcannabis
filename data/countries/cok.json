@@ -33,6 +33,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -86,13 +87,15 @@
         }
       ],
       "explain": [
-        "rule: medical_legal | source: Medicinal cannabis now permitted in Cook Islands with prescription | type: reference | priority: 2 | scope: general",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in the Cook Islands | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in the Cook Islands | type: traversal | priority: 3 | scope: general",
+        "rule: medical_legal | source: Cannabis in the Cook Islands | type: traversal | priority: 3 | scope: general",
+        "rule: medical_legal | source: Medicinal cannabis now permitted in Cook Islands with prescription | type: reference | priority: 2 | scope: general"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "medical_legal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Cook Islands / Kūki 'Āirani. Medical cannabis is legal. Distribution is illegal."
   },
@@ -194,9 +197,9 @@
   },
   "hashes": {
     "code": "cok",
-    "content_hash": "1bf09fe7ca77580bcb00918d76f3f6939e7d57b018209b4dad86915e6985944c",
+    "content_hash": "87e44fe75d1c1d2f088de91faab5ac90e129797b42c31f9bab6ad3edb58e3e05",
     "notes_hash": "f206341d13f35269325f7829ba7f557fc6725fdd14b5d7abc6ef2a98432ebabf",
-    "model_hash": "1275502d1509208c0c13617c4fc9c2469ce6caaae5e150b657c4578737694bdf"
+    "model_hash": "f86308a3ae06bbbf4c7d6e43edbb563c7d7af559a1c2b07c75d5f8ef2d469e0a"
   },
   "geo_code": "CK",
   "node_type": "country",

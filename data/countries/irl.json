@@ -19,44 +19,49 @@
     "distribution": {
       "status": "illegal",
       "scopes": {
-        "possession": null,
-        "use": null,
-        "sale": null,
+        "possession": "restricted",
+        "use": "restricted",
+        "sale": "illegal",
         "cultivation": null,
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [
-        "distribution_fallback_illegal"
+        "trafficking_illegal",
+        "sale_illegal"
       ],
       "modifiers": [
-        "may"
+        "may",
+        "but",
+        "up_to",
+        "only"
       ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
-        "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "prison": true,
+        "prison_priority": 3,
+        "arrest": true,
+        "fine": true,
+        "severity_score": 4,
         "possession": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
-          "fine": false,
-          "severe": false
+          "fine": true,
+          "severe": true
         },
         "trafficking": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
-          "fine": false,
-          "severe": false
+          "fine": true,
+          "severe": true
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Ireland",
@@ -102,16 +107,46 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Ireland | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Ireland | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Ireland | type: traversal | priority: 3 | scope: possession",
+        "rule: medical_legal | source: Cannabis in Ireland | type: traversal | priority: 3 | scope: possession",
+        "rule: legal | source: Cannabis in Ireland | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_arrest | source: Cannabis in Ireland | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Ireland | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_fine | source: Cannabis in Ireland | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_criminal_offense | source: Cannabis in Ireland | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Ireland | type: traversal | priority: 3 | scope: trafficking",
+        "rule: sale_illegal | source: Cannabis in Ireland | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_fine | source: Cannabis in Ireland | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_fine | source: Cannabis in Ireland | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Ireland | type: traversal | priority: 3 | scope: general",
+        "rule: medical_legal | source: Cannabis in Ireland | type: traversal | priority: 3 | scope: use",
+        "rule: possession_decriminalized | source: Cannabis in Ireland | type: traversal | priority: 3 | scope: use",
+        "rule: legal | source: Cannabis in Ireland | type: traversal | priority: 3 | scope: sale",
+        "rule: penalty_fine | source: Cannabis in Ireland | type: traversal | priority: 3 | scope: sale",
+        "rule: sale_illegal | source: Cannabis in Ireland | type: traversal | priority: 3 | scope: sale",
+        "rule: sale_regulated | source: Cannabis in Ireland | type: traversal | priority: 3 | scope: sale",
+        "rule: medical_legal | source: Cannabis in Ireland | type: traversal | priority: 3 | scope: sale",
+        "rule: possession_decriminalized | source: Cannabis in Ireland | type: traversal | priority: 3 | scope: general"
       ]
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "distribution_fallback_illegal"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is illegal in Ireland / Éire. Medical cannabis is legal. Distribution is illegal."
+    "applied_rules": [
+      "raw_illegal",
+      "penalty_prison",
+      "penalty_arrest",
+      "penalty_fine",
+      "penalty_criminal_offense",
+      "trafficking_illegal",
+      "sale_illegal",
+      "possession_decriminalized"
+    ],
+    "notes_normalized": "Cannabis is illegal in Ireland / Éire. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Ireland / Éire. Medical cannabis is legal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Ireland / Éire. Medical cannabis is legal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Ireland}} The National Drugs Strategy of 2009–2016 did not favor decriminalizing cannabis.<ref>{{cite web |url=http://health.gov.ie/wp-content/uploads/2014/03/nds_2009-16.pdf#page=28 |title=National Drugs Strategy (interim) 2009–2016 |date=June 2009 |series=Official publications |volume=PN.A7/0508 |publisher=Department of Community, Rural and Gaeltacht Affairs |page=26, sec.2.49 |access-date=5 December 2016 |archive-date=24 April 2018 |archive-url=https://web.archive.org/web/20180424215634/http://health.gov.ie/wp-content/uploads/2014/03/nds_2009-16.pdf#page=28 |url-status=live }}</ref> A new strategy was planned for 2017.<ref>{{cite press release|url=http://health.gov.ie/blog/press-release/minister-catherine-byrne-td-announces-a-public-consultation-on-the-new-national-drugs-strategy/|title=Minister Catherine Byrne TD announces a Public Consultation on the New National Drugs Strategy|date=6 September 2016|publisher=Department of Health|access-date=5 December 2016|location=Ireland|archive-date=17 July 2019|archive-url=https://web.archive.org/web/20190717225521/https://health.gov.ie/blog/press-release/minister-catherine-byrne-td-announces-a-public-consultation-on-the-new-national-drugs-strategy/|url-status=live}}</ref> Cannabis-derived medicines may be licensed since 2014.<ref name=kildare>{{cite web|url=https://www.kildarestreet.com/wrans/?id=2016-10-26a.310|title=Medicinal Products Availability: : Written answers|date=26 October 2016|work=Dáil Éireann debates|publisher=KildareStreet.com|access-date=5 December 2016|archive-date=21 July 2018|archive-url=https://web.archive.org/web/20180721073401/https://www.kildarestreet.com/wrans/?id=2016-10-26a.310|url-status=live}}</ref><ref>{{cite web|url=http://www.irishstatutebook.ie/eli/2014/si/323/made/en/print|title=S.I. No. 323/2014 – Misuse of Drugs (Amendment) Regulations 2014.|work=[[Irish Statute Book]]|access-date=5 December 2016|archive-date=30 September 2018|archive-url=https://web.archive.org/web/20180930052941/http://www.irishstatutebook.ie/eli/2014/si/323/made/en/print|url-status=live}}</ref> A review of policy on medicinal cannabis was announced in November 2016,<ref>{{cite web|url=https://www.kildarestreet.com/committees/?gid=2016-11-10a.1387|title=Joint Oireachtas Committee on Health: Quarterly Update on Health Issues: Discussion|last=Harris|first=Simon|date=10 November 2016|work=Oireachtas Joint and Select Committees proceedings|access-date=5 December 2016|archive-date=29 March 2017|archive-url=https://web.archive.org/web/20170329213512/https://www.kildarestreet.com/committees/?gid=2016-11-10a.1387|url-status=live}}</ref> and a [[private member's bill]] to legalize it passed [[second reading|second stage]] in the [[Dáil Éireann|Dáil]] in December 2016.<ref>{{cite web|url=https://www.kildarestreet.com/debates/?id=2016-12-01a.404|title=Cannabis for Medicinal Use (Regulations) Bill 2016: Second Stage [Private Members]|date=1 December 2016|work=Dáil debates|publisher=kildarestreet.com|access-date=5 December 2016|archive-date=21 July 2018|archive-url=https://web.archive.org/web/20180721073405/https://www.kildarestreet.com/debates/?id=2016-12-01a.404|url-status=live}}</ref><ref>{{Cite news|url=https://www.rte.ie/news/2016/1201/835669-cannabis-medicinal-use-dail/|title=Medicinal cannabis bill passes Dáil without vote|date=1 December 2016|publisher=[[RTÉ]]|access-date=2 December 2016|archive-date=21 July 2018|archive-url=https://web.archive.org/web/20180721073203/https://www.rte.ie/news/2016/1201/835669-cannabis-medicinal-use-dail/|url-status=live}}</ref><ref>{{cite web|url=http://www.oireachtas.ie/viewdoc.asp?DocID=33497&&CatID=59|title=Cannabis for Medicinal Use Regulation Bill 2016 Bill 2016 [PMB]|work=Bills|date=21 July 2016|publisher=Oireachtas|access-date=5 December 2016|archive-date=4 May 2018|archive-url=https://web.archive.org/web/20180504215059/http://www.oireachtas.ie/viewdoc.asp?DocID=33497&&CatID=59|url-status=live}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -209,9 +244,9 @@
   },
   "hashes": {
     "code": "irl",
-    "content_hash": "21ebc1543839d853088040241c95c99f41fa73bf5583b15538b7bbf2bb1d6fff",
-    "notes_hash": "0b1b527617969118eac4aee5591ec4e8edef12b5fe6474df4d7d2a0908e0e94f",
-    "model_hash": "1b9d7bb81f8a33c55f77cfff186d0809781f44f7b2c22a84875e1429f1b9180d"
+    "content_hash": "b689a2a6566b5510665be34d0852e481974b1e73f2fb87926d4705c366cb08d1",
+    "notes_hash": "893e328bb415d11275fecac078fbf648df285e076d74a057d16ecfe7455a4de9",
+    "model_hash": "8db1baf3d507de1c25eb33169fbd4ed56f704968883e21a5714a7c3e330d235d"
   },
   "geo_code": "IE",
   "node_type": "country",

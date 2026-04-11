@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -164,9 +165,9 @@
   },
   "hashes": {
     "code": "fro",
-    "content_hash": "c66b6a043d380320fef8ba03999545599d0fb4446035b341a50ff4c2da9d6283",
+    "content_hash": "ea01a5d8b693d2aea132456e74b9f94d6745d5fadc3f9d5c8d5aa821eb778a0f",
     "notes_hash": "259392571d1f35b9b01cd94b07bc402660754c492e256189005513f8ec27b139",
-    "model_hash": "e510ee61bd08501d4452449ebac921042da03f0f4dbafb00914b8365112a389c"
+    "model_hash": "d4974fc84d88243e954b1c28774280143b3d35a6f2c174f4198fba4d501053ba"
   },
   "geo_code": "FO",
   "node_type": "country",

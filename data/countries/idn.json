@@ -23,27 +23,30 @@
         "use": null,
         "sale": null,
         "cultivation": null,
-        "import": null,
+        "import": "illegal",
         "trafficking": "illegal"
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [
         "trafficking_illegal"
       ],
       "modifiers": [
         "but",
-        "may"
+        "may",
+        "only",
+        "however"
       ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 1,
-        "arrest": false,
-        "fine": false,
-        "severity_score": 4,
+        "prison_priority": 3,
+        "arrest": true,
+        "fine": true,
+        "severity_score": 7,
         "possession": {
           "prison": true,
           "arrest": false,
@@ -53,7 +56,7 @@
         "trafficking": {
           "prison": true,
           "arrest": false,
-          "fine": false,
+          "fine": true,
           "severe": true
         }
       },
@@ -109,15 +112,37 @@
         "rule: trafficking_illegal | source: Indonesia | type: summary | priority: 1 | scope: trafficking",
         "rule: penalty_prison | source: Indonesia | type: summary | priority: 1 | scope: possession",
         "rule: penalty_years | source: Indonesia | type: summary | priority: 1 | scope: possession",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Indonesia | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Indonesia | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Indonesia | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in Indonesia | type: traversal | priority: 3 | scope: trafficking",
+        "rule: import_illegal | source: Cannabis in Indonesia | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Indonesia | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_arrest | source: Cannabis in Indonesia | type: traversal | priority: 3 | scope: cultivation",
+        "rule: legal | source: Cannabis in Indonesia | type: traversal | priority: 3 | scope: import",
+        "rule: penalty_years | source: Cannabis in Indonesia | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_prison | source: Cannabis in Indonesia | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_prison | source: Cannabis in Indonesia | type: traversal | priority: 3 | scope: sale",
+        "rule: penalty_fine | source: Cannabis in Indonesia | type: traversal | priority: 3 | scope: sale",
+        "rule: penalty_prison | source: Cannabis in Indonesia | type: traversal | priority: 3 | scope: cultivation",
+        "rule: penalty_prison | source: Cannabis in Indonesia | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_fine | source: Cannabis in Indonesia | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_fine | source: Cannabis in Indonesia | type: traversal | priority: 3 | scope: cultivation",
+        "rule: penalty_fine | source: Cannabis in Indonesia | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in Indonesia | type: traversal | priority: 3 | scope: general"
       ]
     },
-    "enforcement_flags": [],
+    "enforcement_flags": [
+      "fine_based"
+    ],
     "applied_rules": [
       "illegal",
       "penalty_prison",
       "penalty_years",
-      "trafficking_illegal"
+      "trafficking_illegal",
+      "raw_illegal",
+      "penalty_arrest",
+      "penalty_fine"
     ],
     "notes_normalized": "Cannabis is illegal in Indonesia. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
@@ -219,9 +244,9 @@
   },
   "hashes": {
     "code": "idn",
-    "content_hash": "67d73fdb5cf9c8fe2c9ee5b26661be8f531347a94d88baec452c56f246dbc97a",
+    "content_hash": "f66a34cee51f00b9664668e12ab1159cf5ddffb9627ee88e6c24b4a3e3760620",
     "notes_hash": "7dcee981f6290ab5e43d08ff38456bb8efb883b4f1a59f49241670b6bf895722",
-    "model_hash": "8e09edb3e9eaaf910e29aa56c89139007fefac485b5f36b8e397bcbbb239e191"
+    "model_hash": "13c2c44ae6b31d0f55ffca28242d39c407dcc457715d209bd922dab1866ae519"
   },
   "geo_code": "ID",
   "node_type": "country",

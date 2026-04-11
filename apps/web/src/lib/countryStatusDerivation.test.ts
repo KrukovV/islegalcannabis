@@ -142,6 +142,28 @@ describe("countryStatusDerivation", () => {
     ).toBe(true);
   });
 
+  test("does not let generic traversal illegality erase table-level decriminalization", () => {
+    const derived = deriveCountryStatusModel({
+      geo: "BE",
+      countryName: "Belgium",
+      wikiRecStatus: "Decrim",
+      wikiMedStatus: "Unknown",
+      notes: "Up to 3 g decriminalized for adults since 2003.",
+      traversalPages: [
+        {
+          title: "Cannabis in Belgium",
+          url: "https://en.wikipedia.org/wiki/Cannabis_in_Belgium",
+          depth: 1,
+          text:
+            "Cannabis is illegal in Belgium. Sale and trafficking remain prohibited, while possession of small amounts for personal use is decriminalized."
+        }
+      ]
+    });
+
+    expect(derived.recreational.status).toBe("DECRIMINALIZED");
+    expect(derived.distribution.status).toBe("illegal");
+  });
+
   test("marks germany as regulated without prison for possession", () => {
     const derived = deriveCountryStatusModel({
       geo: "DE",
@@ -196,16 +218,16 @@ describe("countryStatusDerivation", () => {
     const derived = deriveCountryStatusModel({
       geo: "EG",
       countryName: "Egypt",
-      wikiRecStatus: "Illegal",
+      wikiRecStatus: "Unenforced",
       wikiMedStatus: "Illegal",
-      notes: "Cannabis is illegal.",
+      notes: "Illegal but often unenforced.",
       traversalPages: [
         {
           title: "Cannabis in Egypt",
           url: "https://en.wikipedia.org/wiki/Cannabis_in_Egypt",
           depth: 1,
           text:
-            "Trafficking is punishable by prison sentences. Possession penalties vary and may lead to detention or fines."
+            "Illegal since 1925 but use is widespread. Convictions for personal use are rare. Trafficking is punishable by prison sentences. Possession penalties vary and may lead to detention or fines."
         }
       ]
     });
@@ -213,9 +235,11 @@ describe("countryStatusDerivation", () => {
     expect(derived.signals.penalties.trafficking?.prison).toBe(true);
     expect(derived.signals.penalties.possession?.prison).toBe(false);
     expect(derived.signals.penalties.possession?.arrest || derived.signals.penalties.possession?.fine).toBe(true);
-    expect(derived.signals.final_risk).toBe("HIGH_RISK");
-    expect(derived.signals.status).toBe("illegal");
+    expect(["rare", "unenforced"]).toContain(derived.signals.enforcement_level);
+    expect(derived.signals.final_risk).toBe("RESTRICTED");
+    expect(derived.signals.status).toBe("restricted");
     expect(derived.recreational.status).toBe("ILLEGAL");
+    expect(derived.recreational.enforcement).toBe("MODERATE");
   });
 
   test("keeps tolerant legal status for netherlands when prison signal is absent", () => {

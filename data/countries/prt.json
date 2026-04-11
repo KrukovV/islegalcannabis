@@ -33,6 +33,7 @@
     "signals": {
       "status": "restricted",
       "final_risk": "LIMITED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -52,7 +53,7 @@
           "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Cannabis in Portugal",
@@ -108,8 +109,7 @@
     ],
     "applied_rules": [
       "possession_decriminalized",
-      "penalty_fine",
-      "medical_legal"
+      "penalty_fine"
     ],
     "notes_normalized": "Cannabis is decriminalized in Portugal. Medical cannabis is legal. Distribution is restricted."
   },
@@ -211,9 +211,9 @@
   },
   "hashes": {
     "code": "prt",
-    "content_hash": "3d7fad17e68541892ff6671e1adb279fc8f5959dd1cb200388f0461e007d5c71",
+    "content_hash": "fef9a91acf58411c6ec293e19dc97cd6e25b1921bb7a650c2426c411073a546b",
     "notes_hash": "2b1ada1586dce27f7dae7955d70d2a02915ac0b5b5052669c3c1b1e7c90cd7fd",
-    "model_hash": "0259e40d7945ae808b93013e57128159466d179ee22ab9e728b8ea03f59608b3"
+    "model_hash": "4cd45a88caf759d5ea0289d083455d34326dd93958f36b4deb7dc84d99796094"
   },
   "geo_code": "PT",
   "node_type": "country",

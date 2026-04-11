@@ -27,14 +27,15 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "flags": [],
+      "modifiers": [
+        "but"
+      ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -100,12 +101,13 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Kyrgyzstan | type: traversal | priority: 3 | scope: cultivation",
+        "rule: illegal | source: Cannabis in Kyrgyzstan | type: traversal | priority: 3 | scope: cultivation"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Kyrgyzstan / Кыргызстан. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -207,9 +209,9 @@
   },
   "hashes": {
     "code": "kgz",
-    "content_hash": "311f3638968c11f1e2f86a07f52001473fde4642cda653ab35184c552f149b96",
+    "content_hash": "f74c2214abafcaa93bc8596dad20baa7d0e3906306cac7bdf501ba2835621096",
     "notes_hash": "abb86a86c35c233100492243c838f299c58e1ad025a6ba0ed0749c268a70e033",
-    "model_hash": "73a2be5960996e490ade82be019670359fa5471d61f5c44186c11465f1f90edc"
+    "model_hash": "b196923ede7d58017743005e669241acbb35e2a74220455f56def01079bf5e4e"
   },
   "geo_code": "KG",
   "node_type": "country",

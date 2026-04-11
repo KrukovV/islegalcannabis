@@ -21,40 +21,41 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
-        "cultivation": null,
+        "sale": "illegal",
+        "cultivation": "tolerated",
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
-      "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": [
+        "up_to"
+      ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 100,
         "possession": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
           "fine": false,
-          "severe": false
+          "severe": true
         },
         "trafficking": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
-          "fine": false,
-          "severe": false
+          "fine": true,
+          "severe": true
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Tajikistan",
@@ -100,16 +101,28 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Tajikistan | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_fine | source: Cannabis in Tajikistan | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Tajikistan | type: traversal | priority: 3 | scope: trafficking",
+        "rule: sale_illegal | source: Cannabis in Tajikistan | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_prison | source: Cannabis in Tajikistan | type: traversal | priority: 3 | scope: sale",
+        "rule: private_cultivation | source: Cannabis in Tajikistan | type: traversal | priority: 3 | scope: cultivation",
+        "rule: penalty_years | source: Cannabis in Tajikistan | type: traversal | priority: 3 | scope: cultivation"
       ]
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "distribution_fallback_illegal"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is illegal in Tajikistan / Таджикистан. Medical cannabis is illegal. Distribution is illegal."
+    "applied_rules": [
+      "raw_illegal",
+      "penalty_fine",
+      "penalty_prison",
+      "private_cultivation",
+      "penalty_years"
+    ],
+    "notes_normalized": "Cannabis is illegal in Tajikistan / Таджикистан. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Tajikistan / Таджикистан. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Tajikistan / Таджикистан. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Tajikistan}}",
   "facts": {
     "possession_limit": null,
@@ -207,9 +220,9 @@
   },
   "hashes": {
     "code": "tjk",
-    "content_hash": "23d50c095571750444f1853ead3955327098de944e2f95796515a28501fbd3b0",
-    "notes_hash": "7a941df10c1dcfe52481b3d721eff0837547ad8bb24dda1bc87fdeb6539d40be",
-    "model_hash": "17a9d79e03cca0cf7d895987878909be9934c6bf4ffde62b67cf8bde2df12576"
+    "content_hash": "c5dadb43d97d9358778576364d1975dc48c7d9246278584e5f6d62f0ebada053",
+    "notes_hash": "eb6cdbfcf608c11f07cab94846db9716fe7894e4d9c93f35a087aa44d1a87a67",
+    "model_hash": "cb4f3e7ca68c127f24c2bfa5b8fc14b0e7ed84c268886f6d5ccf3846348d4230"
   },
   "geo_code": "TJ",
   "node_type": "country",

@@ -17,24 +17,28 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "tolerated",
       "scopes": {
         "possession": "restricted",
         "use": "restricted",
         "sale": null,
-        "cultivation": null,
+        "cultivation": "tolerated",
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_restricted"
-      ],
-      "modifiers": []
+      "flags": [],
+      "modifiers": [
+        "however",
+        "up_to",
+        "but",
+        "may"
+      ]
     },
     "signals": {
-      "status": "restricted",
+      "status": "tolerated",
       "final_risk": "LIMITED",
+      "enforcement_level": "rare",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -54,7 +58,7 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Bermuda",
@@ -100,16 +104,27 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: possession_decriminalized | source: Cannabis in Bermuda | type: traversal | priority: 3 | scope: use",
+        "rule: medical_legal | source: Cannabis in Bermuda | type: traversal | priority: 3 | scope: use",
+        "rule: possession_decriminalized | source: Cannabis in Bermuda | type: traversal | priority: 3 | scope: possession",
+        "rule: private_cultivation | source: Cannabis in Bermuda | type: traversal | priority: 3 | scope: cultivation",
+        "rule: legal | source: Cannabis in Bermuda | type: traversal | priority: 3 | scope: cultivation",
+        "rule: legal | source: Cannabis in Bermuda | type: traversal | priority: 3 | scope: general",
+        "rule: medical_legal | source: Cannabis in Bermuda | type: traversal | priority: 3 | scope: general",
+        "rule: enforcement_rare | source: Cannabis in Bermuda | type: traversal | priority: 3 | scope: general"
       ]
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "distribution_fallback_restricted"
+    "enforcement_flags": [
+      "weak_enforcement"
     ],
-    "notes_normalized": "Cannabis is decriminalized in Bermuda. Medical cannabis is legal. Distribution is restricted."
+    "applied_rules": [
+      "possession_decriminalized",
+      "private_cultivation",
+      "enforcement_rare"
+    ],
+    "notes_normalized": "Cannabis is decriminalized in Bermuda. Medical cannabis is legal. Distribution is tolerated."
   },
-  "notes_normalized": "Cannabis is decriminalized in Bermuda. Medical cannabis is legal. Distribution is restricted.",
+  "notes_normalized": "Cannabis is decriminalized in Bermuda. Medical cannabis is legal. Distribution is tolerated.",
   "notes_raw": "{{main|Cannabis in Bermuda}} In November 2016, the [[Law of Bermuda#Litigation and the Bermuda Court System|Supreme Court of Bermuda]] ruled in favor of allowing the medical use of cannabis.<ref>{{cite news |last1=Bell |first1=Jonathan |title=People can apply for medical cannabis |url=http://www.royalgazette.com/news/article/20161125/people-can-apply-for-medical-cannabis |access-date=27 October 2018 |work=[[The Royal Gazette (Bermuda)|The Royal Gazette]] |date=25 November 2016 |archive-url=https://web.archive.org/web/20181027232029/http://www.royalgazette.com/news/article/20161125/people-can-apply-for-medical-cannabis |archive-date=27 October 2018 |url-status=live}}</ref> As of July 2018, two doctors have been licensed to prescribe the drug.<ref>{{cite news |last1=Bell |first1=Jonathan |title=Weeks: we need to talk about cannabis |url=http://www.royalgazette.com/politics/article/20180725/weeks-we-need-to-talk-about-cannabis |access-date=27 October 2018 |work=[[The Royal Gazette (Bermuda)|The Royal Gazette]] |date=25 July 2018 |archive-url=https://web.archive.org/web/20181101101737/http://www.royalgazette.com/politics/article/20180725/weeks-we-need-to-talk-about-cannabis |archive-date=1 November 2018 |url-status=live}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -207,9 +222,9 @@
   },
   "hashes": {
     "code": "bmu",
-    "content_hash": "594c16ca02c10b5c309df55b9efd2ccd24abafd7c36a03b7ce171472363ad68b",
-    "notes_hash": "305c6d964cb09a248828591d2ef57749c47c744083866418c3e7e72e0a4da282",
-    "model_hash": "5a90444f2caf97a5773e84562174c474d57c8332a116781d155b15ca4ed116d3"
+    "content_hash": "4b0d2d2d4cc78c61cb1c43d1f3938e854ff2a003832b083a29f92fb71bece55b",
+    "notes_hash": "1acae1e75082529f3c98a8832068b54ece2162826829e15a77bd1461e4056354",
+    "model_hash": "ae584e63055222c08e4462b8739732ea62045012509a57ab5eea16c8e6928b7f"
   },
   "geo_code": "BM",
   "node_type": "country",

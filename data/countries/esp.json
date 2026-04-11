@@ -33,12 +33,17 @@
         "sale_illegal"
       ],
       "modifiers": [
-        "but"
+        "but",
+        "up_to",
+        "only",
+        "however",
+        "may"
       ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
         "prison": true,
         "prison_priority": 3,
@@ -126,6 +131,19 @@
         "rule: legal | source: Cannabis in Spain | type: traversal | priority: 3 | scope: cultivation",
         "rule: social_club_distribution | source: Cannabis in Spain | type: traversal | priority: 3 | scope: sale",
         "rule: legal | source: Cannabis in Spain | type: traversal | priority: 3 | scope: sale",
+        "rule: possession_decriminalized | source: Cannabis in Spain | type: traversal | priority: 3 | scope: sale",
+        "rule: raw_illegal | source: Cannabis in Spain | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Spain | type: traversal | priority: 3 | scope: general",
+        "rule: social_club_distribution | source: Cannabis in Spain | type: traversal | priority: 3 | scope: use",
+        "rule: legal | source: Cannabis in Spain | type: traversal | priority: 3 | scope: use",
+        "rule: legal | source: Cannabis in Spain | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_fine | source: Cannabis in Spain | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_years | source: Cannabis in Spain | type: traversal | priority: 3 | scope: general",
+        "rule: social_club_distribution | source: Cannabis in Spain | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in Spain | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Spain | type: traversal | priority: 3 | scope: sale",
+        "rule: legal | source: Cannabis in Spain | type: traversal | priority: 3 | scope: trafficking",
+        "rule: medical_legal | source: Cannabis in Spain | type: traversal | priority: 3 | scope: general",
         "rule: social_club_distribution | source: Barcelona cannabis clubs face closure in new legal setback | type: reference | priority: 2 | scope: general",
         "rule: penalty_fine | source: Political parties in Spain call for legalisation of weed which 'will bring €1.2 billion' to the economy | type: reference | priority: 2 | scope: general"
       ]
@@ -141,7 +159,9 @@
       "trafficking_illegal",
       "sale_illegal",
       "private_cultivation",
-      "possession_decriminalized"
+      "possession_decriminalized",
+      "raw_illegal",
+      "penalty_years"
     ],
     "notes_normalized": "Cannabis is decriminalized in Spain / España. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
   },
@@ -220,12 +240,12 @@
         "name": "France"
       },
       {
-        "code": "mar",
-        "name": "Morocco / المغرب"
-      },
-      {
         "code": "bel",
         "name": "Belgium / Belgien"
+      },
+      {
+        "code": "irl",
+        "name": "Ireland / Éire"
       }
     ],
     "cluster_links": [
@@ -243,9 +263,9 @@
   },
   "hashes": {
     "code": "esp",
-    "content_hash": "2e5abda92340c223a011577b1d39bdbe118a7a22e09cceb686937ccfe8270c3b",
+    "content_hash": "a8b95b55b82eb97292b219d6e6c89331b0f8c985ab4a6762694c036d61f8dd81",
     "notes_hash": "c02fbd34c1de93bcf3748ab3feed099553f63ed034262dee7259bdd3e0104c7a",
-    "model_hash": "d70161ce5beb700d408d56646a7fb24dd6491e80611f8bc476b9283613773d01"
+    "model_hash": "a09304ab54e18c9fc8b2aee2979131b4c04a447967ab4d350889304dd0464b5e"
   },
   "geo_code": "ES",
   "node_type": "country",

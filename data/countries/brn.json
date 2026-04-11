@@ -26,35 +26,39 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": [
+        "however",
+        "but",
+        "only",
+        "may"
+      ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
-        "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "prison": true,
+        "prison_priority": 3,
+        "arrest": true,
+        "fine": true,
+        "severity_score": 7,
         "possession": {
-          "prison": false,
-          "arrest": false,
-          "fine": false,
-          "severe": false
+          "prison": true,
+          "arrest": true,
+          "fine": true,
+          "severe": true
         },
         "trafficking": {
           "prison": false,
-          "arrest": false,
+          "arrest": true,
           "fine": false,
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Brunei",
@@ -100,16 +104,38 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Brunei | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Brunei | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_criminal_offense | source: Cannabis in Brunei | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Brunei | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Brunei | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_arrest | source: Cannabis in Brunei | type: traversal | priority: 3 | scope: import",
+        "rule: raw_illegal | source: Cannabis in Brunei | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_fine | source: Cannabis in Brunei | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_years | source: Cannabis in Brunei | type: traversal | priority: 3 | scope: possession",
+        "rule: illegal | source: Cannabis in Brunei | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_prison | source: Cannabis in Brunei | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_criminal_offense | source: Cannabis in Brunei | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_years | source: Cannabis in Brunei | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_arrest | source: Cannabis in Brunei | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_arrest | source: Cannabis in Brunei | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_prison | source: Cannabis in Brunei | type: traversal | priority: 3 | scope: use"
       ]
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "distribution_fallback_illegal"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is illegal in Brunei / Negara Brunei Darussalam. Medical cannabis is illegal. Distribution is illegal."
+    "applied_rules": [
+      "raw_illegal",
+      "penalty_fine",
+      "penalty_criminal_offense",
+      "penalty_prison",
+      "penalty_arrest",
+      "penalty_years"
+    ],
+    "notes_normalized": "Cannabis is illegal in Brunei / Negara Brunei Darussalam. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Brunei / Negara Brunei Darussalam. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Brunei / Negara Brunei Darussalam. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Brunei}}",
   "facts": {
     "possession_limit": null,
@@ -207,9 +233,9 @@
   },
   "hashes": {
     "code": "brn",
-    "content_hash": "43f7a5d035ee9324bf4a7a7fa6f0e934fd37d68bde0e4e237411d705130f8f5b",
-    "notes_hash": "a93de3988dbab757d9c3da7fa149797e4cc97d26786f81acfab3252d753fd1f8",
-    "model_hash": "6e034c20b0dc48cfd026fae2e0cee34c91f1cfb445114e8ffc4effb9ac700ff9"
+    "content_hash": "4a3a3c1b1e0db43cd5563873557250f2282eb0635e0b1606d6ba264205be8a92",
+    "notes_hash": "bef03ec7438acfdb0a2bd53b4cff5b6d77c6476fd437fedabd7581f00b11f9b2",
+    "model_hash": "77646fcea65c2d9d5646cf884d20ea57a15cf4967ce0ad0b3718152758fab10a"
   },
   "geo_code": "BN",
   "node_type": "country",

@@ -28,11 +28,14 @@
       },
       "enforcement": "standard",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "but"
+      ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -47,7 +50,7 @@
         },
         "trafficking": {
           "prison": false,
-          "arrest": false,
+          "arrest": true,
           "fine": false,
           "severe": false
         }
@@ -98,12 +101,16 @@
         }
       ],
       "explain": [
-        "rule: penalty_arrest | source: Guyana Politician Arrested On Drug Charges | type: reference | priority: 2 | scope: general",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Guyana | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Guyana | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_arrest | source: Cannabis in Guyana | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_arrest | source: Cannabis in Guyana | type: traversal | priority: 3 | scope: sale",
+        "rule: penalty_arrest | source: Guyana Politician Arrested On Drug Charges | type: reference | priority: 2 | scope: general"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
+      "raw_illegal",
       "penalty_arrest"
     ],
     "notes_normalized": "Cannabis is illegal in Guyana. Medical cannabis is illegal. Distribution is illegal."
@@ -206,9 +213,9 @@
   },
   "hashes": {
     "code": "guy",
-    "content_hash": "e7a8ec7103f435641c2aa9fd8f00f52311f73d26d21a44274d6bd8257a6b63c3",
+    "content_hash": "d742c831ab62685a674a027400bd529399106c315185c13da146ff1b80d9bf80",
     "notes_hash": "9ff08b98b61555d3aacb8ae86bbb64b6dd9499f8bb49bb37a538982b3bf01527",
-    "model_hash": "59c3ad2d95a651e597edaef712a2d1f921d48d31677d72226482d97061e9354c"
+    "model_hash": "8b75606a0651366a70bc73076217dba7446c35ce2e231cd3e6edc6e30e550aea"
   },
   "geo_code": "GY",
   "node_type": "country",

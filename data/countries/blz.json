@@ -30,23 +30,25 @@
       "flags": [],
       "modifiers": [
         "but",
-        "up_to"
+        "up_to",
+        "however"
       ]
     },
     "signals": {
-      "status": "restricted",
-      "final_risk": "LIMITED",
+      "status": "illegal",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
-        "arrest": false,
+        "prison": true,
+        "prison_priority": 3,
+        "arrest": true,
         "fine": false,
-        "severity_score": 0,
+        "severity_score": 4,
         "possession": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
           "fine": false,
-          "severe": false
+          "severe": true
         },
         "trafficking": {
           "prison": false,
@@ -104,18 +106,24 @@
         "rule: raw_illegal | source: Belize / Belice | type: summary | priority: 1 | scope: possession",
         "rule: illegal | source: Belize / Belice | type: summary | priority: 1 | scope: possession",
         "rule: possession_decriminalized | source: Belize / Belice | type: summary | priority: 1 | scope: possession",
-        "no traversal evidence"
+        "rule: rec_tolerated | source: Cannabis in Belize | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_prison | source: Cannabis in Belize | type: traversal | priority: 3 | scope: possession",
+        "rule: possession_decriminalized | source: Cannabis in Belize | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_arrest | source: Cannabis in Belize | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in Belize | type: traversal | priority: 3 | scope: general"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
       "raw_illegal",
       "possession_decriminalized",
+      "penalty_prison",
+      "penalty_arrest",
       "rec_implies_med_floor"
     ],
-    "notes_normalized": "Cannabis is decriminalized in Belize / Belice. Medical cannabis is limited. Distribution is restricted."
+    "notes_normalized": "Cannabis is decriminalized in Belize / Belice. Medical cannabis is limited. Distribution is restricted. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is decriminalized in Belize / Belice. Medical cannabis is limited. Distribution is restricted.",
+  "notes_normalized": "Cannabis is decriminalized in Belize / Belice. Medical cannabis is limited. Distribution is restricted. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Belize}} Possession prohibited, but use is common and largely tolerated.<ref>{{cite web|last=Hubbard|first=Kirsten|title=Drug Laws and Penalties in Central America|url=http://gocentralamerica.about.com/od/culturehistory/p/Central-America-Drug-Laws-And-Penalties.htm|publisher=About.com|access-date=2 January 2014|archive-date=14 May 2017|archive-url=https://web.archive.org/web/20170514082404/http://gocentralamerica.about.com/od/culturehistory/p/Central-America-Drug-Laws-And-Penalties.htm|url-status=dead}}</ref> Possession of up to {{cvt|10|g|frac=8}} decriminalized.<ref>{{cite news |title=The Future of Marijuana under Debate |url=https://edition.channel5belize.com/archives/157025 |access-date=7 January 2024 |work=News 5 |date=5 December 2017}}</ref>",
   "facts": {
     "possession_limit": "up to 10 g",
@@ -194,8 +202,8 @@
         "name": "Jamaica"
       },
       {
-        "code": "mex",
-        "name": "Mexico / México"
+        "code": "pan",
+        "name": "Panama / Panamá"
       }
     ],
     "cluster_links": [
@@ -213,9 +221,9 @@
   },
   "hashes": {
     "code": "blz",
-    "content_hash": "57c115f0e9d03d0829b90736192e1421d1c654fbd40afd423939b25acc93cf36",
-    "notes_hash": "b42909d40bd52dcb175aaacd03342c8db3b2483b3bde05da2e76485e689c251f",
-    "model_hash": "9ca7745be6c38ef2ddd72ee17d85d71faf743cad4ab659dcf982b2edf7ce905d"
+    "content_hash": "33f8d0e8c61bdca01fbb962f64715fb679065ad11fa150698b13660e149c1b1e",
+    "notes_hash": "7b7954cc457456cf4aabb27a8617285c4c85987d865d32898a059d9a2cb958fd",
+    "model_hash": "39fcdfd107f5dca621d3506b6a2b3984a6681c284cbe313057a4035dc156b59e"
   },
   "geo_code": "BZ",
   "node_type": "country",

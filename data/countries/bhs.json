@@ -26,35 +26,38 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": [
+        "but",
+        "may",
+        "unless"
+      ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 8,
         "possession": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
-          "fine": false,
-          "severe": false
+          "fine": true,
+          "severe": true
         },
         "trafficking": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
-          "fine": false,
-          "severe": false
+          "fine": true,
+          "severe": true
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in the Bahamas",
@@ -76,16 +79,31 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in the Bahamas | type: traversal | priority: 3 | scope: use",
+        "rule: medical_legal | source: Cannabis in the Bahamas | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_prison | source: Cannabis in the Bahamas | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_fine | source: Cannabis in the Bahamas | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_years | source: Cannabis in the Bahamas | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_prison | source: Cannabis in the Bahamas | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in the Bahamas | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_years | source: Cannabis in the Bahamas | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in the Bahamas | type: traversal | priority: 3 | scope: sale",
+        "rule: penalty_fine | source: Cannabis in the Bahamas | type: traversal | priority: 3 | scope: sale",
+        "rule: penalty_years | source: Cannabis in the Bahamas | type: traversal | priority: 3 | scope: sale"
       ]
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "distribution_fallback_illegal"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is illegal in Bahamas. Medical cannabis is illegal. Distribution is illegal."
+    "applied_rules": [
+      "raw_illegal",
+      "penalty_prison",
+      "penalty_fine",
+      "penalty_years"
+    ],
+    "notes_normalized": "Cannabis is illegal in Bahamas. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Bahamas. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Bahamas. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in the Bahamas}}",
   "facts": {
     "possession_limit": null,
@@ -183,9 +201,9 @@
   },
   "hashes": {
     "code": "bhs",
-    "content_hash": "51e730b4185584f33652c0b6beebca1d89fa895018e30155b1b392cd0852d02c",
-    "notes_hash": "49eee72ab4c5bb6b4c037790c6b1b4dbf20a0f225b50a6172fa92807fa36571a",
-    "model_hash": "cb7d5f248e73fff0823102624d1db47104253fafe6c54003a41092ffed5be80d"
+    "content_hash": "dc734bab3c3e7c60ca477c304f8ed5c8ad00f98a6b2135a1b00af466f6d8c360",
+    "notes_hash": "b8d118d410b6a781dee5cf48e1a57959df7557c63e6461012ae3316e40321399",
+    "model_hash": "0722dd5f0540d2ce13985196dbaee848c37661e37ac52c7b74f80471cbddbe56"
   },
   "geo_code": "BS",
   "node_type": "country",

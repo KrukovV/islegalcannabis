@@ -17,30 +17,33 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "illegal",
+      "status": "regulated",
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
+        "sale": "regulated",
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [
-        "distribution_fallback_illegal"
+        "sale_regulated"
       ],
-      "modifiers": []
+      "modifiers": [
+        "only"
+      ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 4,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -54,7 +57,7 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Samoa",
@@ -100,16 +103,31 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Samoa | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Samoa | type: traversal | priority: 3 | scope: general",
+        "rule: sale_regulated | source: Cannabis in Samoa | type: traversal | priority: 3 | scope: trafficking",
+        "rule: raw_illegal | source: Cannabis in Samoa | type: traversal | priority: 3 | scope: cultivation",
+        "rule: illegal | source: Cannabis in Samoa | type: traversal | priority: 3 | scope: cultivation",
+        "rule: penalty_prison | source: Cannabis in Samoa | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Samoa | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_years | source: Cannabis in Samoa | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in Samoa | type: traversal | priority: 3 | scope: possession",
+        "rule: illegal | source: Cannabis in Samoa | type: traversal | priority: 3 | scope: possession"
       ]
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "distribution_fallback_illegal"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is illegal in Samoa / Sāmoa. Medical cannabis is illegal. Distribution is illegal."
+    "applied_rules": [
+      "raw_illegal",
+      "sale_regulated",
+      "penalty_prison",
+      "penalty_fine",
+      "penalty_years"
+    ],
+    "notes_normalized": "Cannabis is illegal in Samoa / Sāmoa. Medical cannabis is illegal. Distribution is regulated. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Samoa / Sāmoa. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Samoa / Sāmoa. Medical cannabis is illegal. Distribution is regulated. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Samoa}}",
   "facts": {
     "possession_limit": null,
@@ -207,9 +225,9 @@
   },
   "hashes": {
     "code": "wsm",
-    "content_hash": "a8eaedf9917be87a570d7ad34dd4a7abc5bd4fc6097f829463aeb455336ae032",
-    "notes_hash": "2a5c33004827602668daa588bec75de9334199aee79141ef97ea8e211bf31e30",
-    "model_hash": "3fe4834b9a33f64e3322877700cf25b8cbaf6368301e15cfa33727844d391317"
+    "content_hash": "41217138915638a73b7b33ee5eeaadb5a24dd79588df3afce02b31d793134d76",
+    "notes_hash": "f477063d02c83d25f2434c779849e860b49a57bbdce6135f3c4c8f79d15ca723",
+    "model_hash": "244b1780f4845705455e6e4e75ad0d790705d0a09af9fff1eefa3c490421a325"
   },
   "geo_code": "WS",
   "node_type": "country",

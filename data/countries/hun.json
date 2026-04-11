@@ -6,7 +6,7 @@
     "recreational": {
       "raw_status": "ILLEGAL",
       "status": "ILLEGAL",
-      "enforcement": "STRICT",
+      "enforcement": "MODERATE",
       "scope": "NONE"
     },
     "medical": {
@@ -22,28 +22,34 @@
         "possession": null,
         "use": null,
         "sale": null,
-        "cultivation": null,
+        "cultivation": "tolerated",
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
       "enforcement": "standard",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "but",
+        "only",
+        "up_to",
+        "may"
+      ]
     },
     "signals": {
-      "status": "illegal",
+      "status": "restricted",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "rare",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
         "fine": false,
-        "severity_score": 0,
+        "severity_score": 4,
         "possession": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
           "fine": false,
-          "severe": false
+          "severe": true
         },
         "trafficking": {
           "prison": false,
@@ -52,7 +58,7 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Hungary",
@@ -99,17 +105,37 @@
       ],
       "explain": [
         "rule: legal | source: Hungary / Magyarország | type: summary | priority: 1 | scope: use",
-        "rule: illegal | source: A person is either male or female, drugs and Pride are banned – Hungarian Parliament adopts 15th constitutional amendment | type: reference | priority: 2 | scope: general",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Hungary | type: traversal | priority: 3 | scope: cultivation",
+        "rule: illegal | source: Cannabis in Hungary | type: traversal | priority: 3 | scope: cultivation",
+        "rule: raw_illegal | source: Cannabis in Hungary | type: traversal | priority: 3 | scope: use",
+        "rule: illegal | source: Cannabis in Hungary | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_prison | source: Cannabis in Hungary | type: traversal | priority: 3 | scope: possession",
+        "rule: raw_illegal | source: Cannabis in Hungary | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Hungary | type: traversal | priority: 3 | scope: trafficking",
+        "rule: illegal | source: Cannabis in Hungary | type: traversal | priority: 3 | scope: trafficking",
+        "rule: legal | source: Cannabis in Hungary | type: traversal | priority: 3 | scope: general",
+        "rule: enforcement_rare | source: Cannabis in Hungary | type: traversal | priority: 3 | scope: cultivation",
+        "rule: private_cultivation | source: Cannabis in Hungary | type: traversal | priority: 3 | scope: cultivation",
+        "rule: medical_legal | source: Cannabis in Hungary | type: traversal | priority: 3 | scope: cultivation",
+        "rule: penalty_years | source: Cannabis in Hungary | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_criminal_offense | source: Cannabis in Hungary | type: traversal | priority: 3 | scope: possession",
+        "rule: illegal | source: A person is either male or female, drugs and Pride are banned – Hungarian Parliament adopts 15th constitutional amendment | type: reference | priority: 2 | scope: general"
       ]
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "illegal"
+    "enforcement_flags": [
+      "weak_enforcement"
     ],
-    "notes_normalized": "Cannabis is illegal in Hungary / Magyarország. Medical cannabis is illegal. Distribution is illegal."
+    "applied_rules": [
+      "raw_illegal",
+      "penalty_prison",
+      "enforcement_rare",
+      "private_cultivation",
+      "penalty_years",
+      "penalty_criminal_offense"
+    ],
+    "notes_normalized": "Cannabis is illegal in Hungary / Magyarország. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Hungary / Magyarország. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Hungary / Magyarország. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Hungary}} There is no distinction in Hungarian law between illicit drugs according to dangers. [[Heroin]] use has the same legal consequences as cannabis use.<ref>{{citation |author = Minstrel |url = http://www.daath.hu/showText.php?id=62#chapter3 |title = Társaság a Szabadságjogokért: Drogjog 1999 Voted Vote D2ID : 62 |publisher = Daath.hu |access-date = 17 February 2011 |archive-date = 4 June 2019 |archive-url = https://web.archive.org/web/20190604073510/http://www.daath.hu/showText.php?id=62#chapter3 |url-status = live }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -184,18 +210,18 @@
         "name": "Montenegro / Црна Гора"
       },
       {
-        "code": "pol",
-        "name": "Poland / Polska"
+        "code": "hrv",
+        "name": "Croatia / Hrvatska"
       },
       {
-        "code": "rou",
-        "name": "Romania / România"
+        "code": "pol",
+        "name": "Poland / Polska"
       }
     ],
     "cluster_links": [
       {
-        "code": "hrv",
-        "name": "Croatia / Hrvatska"
+        "code": "rou",
+        "name": "Romania / România"
       },
       {
         "code": "svn",
@@ -207,9 +233,9 @@
   },
   "hashes": {
     "code": "hun",
-    "content_hash": "0048854f673e4678cd00f62f670d273d05b86900b6231633a608037d30719a32",
-    "notes_hash": "0a9f1189750a9a025b3827837deff28ee16373d1143162593263a9894e996dcb",
-    "model_hash": "a97e5339aed4569e03bd6520cca5d776ccb3ddf905ab6229011002046a695131"
+    "content_hash": "db609ec80dfa3df6abdd51e7d31596a6c801e7ac5527cb44ad834c1449531625",
+    "notes_hash": "2103af8c8fc92a89a8e60f18f043cf029288c8aa9a866c01d234ef7d3a9bbca7",
+    "model_hash": "9b91d98fae26f80f376015e8cfccf5639085301645773900473a764744b372fe"
   },
   "geo_code": "HU",
   "node_type": "country",

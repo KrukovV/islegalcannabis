@@ -29,32 +29,34 @@
       "enforcement": "fine-based",
       "flags": [],
       "modifiers": [
-        "but"
+        "but",
+        "only"
       ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
-        "arrest": false,
+        "prison": true,
+        "prison_priority": 3,
+        "arrest": true,
         "fine": true,
-        "severity_score": 1,
+        "severity_score": 4,
         "possession": {
-          "prison": false,
-          "arrest": false,
+          "prison": true,
+          "arrest": true,
           "fine": true,
-          "severe": false
+          "severe": true
         },
         "trafficking": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
           "fine": false,
-          "severe": false
+          "severe": true
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Iceland",
@@ -79,7 +81,12 @@
         "rule: illegal | source: Iceland / Ísland | type: summary | priority: 1 | scope: general",
         "rule: penalty_fine | source: Iceland / Ísland | type: summary | priority: 1 | scope: possession",
         "rule: illegal | source: Iceland / Ísland | type: summary | priority: 1 | scope: possession",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Iceland | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Iceland | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Iceland | type: traversal | priority: 3 | scope: sale",
+        "rule: penalty_prison | source: Cannabis in Iceland | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_arrest | source: Cannabis in Iceland | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_fine | source: Cannabis in Iceland | type: traversal | priority: 3 | scope: possession"
       ]
     },
     "enforcement_flags": [
@@ -87,11 +94,14 @@
     ],
     "applied_rules": [
       "illegal",
-      "penalty_fine"
+      "penalty_fine",
+      "raw_illegal",
+      "penalty_prison",
+      "penalty_arrest"
     ],
-    "notes_normalized": "Cannabis is illegal in Iceland / Ísland. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is illegal in Iceland / Ísland. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Iceland / Ísland. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Iceland / Ísland. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Iceland}} Banned in 1969.<ref>{{cite news|title=Marihuana og LSD loks bannað hér!|url=http://timarit.is/view_page_init.jsp?pageId=3378672|access-date=10 December 2016|issue=235|publisher=Tíminn|date=25 October 1969|language=is|archive-date=21 July 2018|archive-url=https://web.archive.org/web/20180721073157/http://timarit.is/view_page_init.jsp?pageId=3378672|url-status=live}}</ref> Possession of small amounts is subject to arrest and fine but no threat of jail time.<ref>{{cite news |last1=Sveinn Helgason |first1=Magnús |title=Do Icelanders really smoke more cannabis than anyone else? |url=https://icelandmag.is/article/do-icelanders-really-smoke-more-cannabis-anyone-else |access-date=16 January 2019 |work=Iceland Magazine |date=26 August 2015 |archive-date=12 November 2020 |archive-url=https://web.archive.org/web/20201112034312/https://icelandmag.is/article/do-icelanders-really-smoke-more-cannabis-anyone-else |url-status=live }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -189,9 +199,9 @@
   },
   "hashes": {
     "code": "isl",
-    "content_hash": "fdd6176716b32170636a7adb622992b4088ea8e35f7c41b35d6cdff0c4d5bb65",
-    "notes_hash": "306ee0b6c269294b41b2cedc1264c005d24137450b017fb958ed9575b945cb35",
-    "model_hash": "0af14f867f9787cbd6408400a50f3faa43546b5905bdf061a9c40cee9d89f3e4"
+    "content_hash": "7fc9288ff1ae6d277c3bb834d69d0c4fd73f47e5a1540a5fb8b6f4a300abb5d6",
+    "notes_hash": "871ac4fe0e025c62f8394663a84403d12a981aaca255fcb3eaedc6d523e2e073",
+    "model_hash": "760011c2d1453e353a104cde4e7067c11edb9984a19e609854e4c2f269558084"
   },
   "geo_code": "IS",
   "node_type": "country",

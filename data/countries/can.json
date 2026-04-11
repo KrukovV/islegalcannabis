@@ -11,41 +11,50 @@
     },
     "medical": {
       "raw_status": "LEGAL",
-      "status": "LEGAL",
+      "status": "LIMITED",
       "enforcement": "MODERATE",
       "scope": "MEDICAL_ONLY",
-      "override_reason": null
+      "override_reason": "rec_implies_med_floor"
     },
     "distribution": {
-      "status": "restricted",
+      "status": "mixed",
       "scopes": {
         "possession": "restricted",
         "use": "restricted",
-        "sale": null,
-        "cultivation": null,
-        "import": null,
-        "trafficking": null
+        "sale": "regulated",
+        "cultivation": "tolerated",
+        "import": "illegal",
+        "trafficking": "illegal"
       },
-      "enforcement": "standard",
-      "flags": [],
+      "enforcement": "fine-based",
+      "flags": [
+        "sale_regulated",
+        "distribution_mixed_strong_penalty"
+      ],
       "modifiers": [
-        "but"
+        "but",
+        "only",
+        "usually",
+        "up_to",
+        "may",
+        "however"
       ]
     },
     "signals": {
-      "status": "restricted",
-      "final_risk": "LIMITED",
+      "status": "illegal",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 4,
         "possession": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
-          "fine": false,
-          "severe": false
+          "fine": true,
+          "severe": true
         },
         "trafficking": {
           "prison": false,
@@ -54,7 +63,7 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Canada",
@@ -101,16 +110,68 @@
       ],
       "explain": [
         "rule: medical_legal | source: Canada | type: summary | priority: 1 | scope: general",
-        "no traversal evidence"
+        "rule: medical_legal | source: Cannabis in Canada | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in Canada | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Canada | type: traversal | priority: 3 | scope: trafficking",
+        "rule: medical_legal | source: Cannabis in Canada | type: traversal | priority: 3 | scope: trafficking",
+        "rule: raw_illegal | source: Cannabis in Canada | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Canada | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Canada | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_fine | source: Cannabis in Canada | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in Canada | type: traversal | priority: 3 | scope: sale",
+        "rule: legal | source: Cannabis in Canada | type: traversal | priority: 3 | scope: trafficking",
+        "rule: legal | source: Cannabis in Canada | type: traversal | priority: 3 | scope: general",
+        "rule: private_cultivation | source: Cannabis in Canada | type: traversal | priority: 3 | scope: cultivation",
+        "rule: legal | source: Cannabis in Canada | type: traversal | priority: 3 | scope: cultivation",
+        "rule: penalty_fine | source: Cannabis in Canada | type: traversal | priority: 3 | scope: cultivation",
+        "rule: raw_illegal | source: Cannabis in Canada | type: traversal | priority: 3 | scope: use",
+        "rule: illegal | source: Cannabis in Canada | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_fine | source: Cannabis in Canada | type: traversal | priority: 3 | scope: use",
+        "rule: raw_illegal | source: Cannabis in Canada | type: traversal | priority: 3 | scope: import",
+        "rule: import_illegal | source: Cannabis in Canada | type: traversal | priority: 3 | scope: import",
+        "rule: illegal | source: Cannabis in Canada | type: traversal | priority: 3 | scope: import",
+        "rule: penalty_years | source: Cannabis in Canada | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in Canada | type: traversal | priority: 3 | scope: use",
+        "rule: medical_legal | source: Cannabis in Canada | type: traversal | priority: 3 | scope: use",
+        "rule: medical_legal | source: Cannabis laws of Canada by province or territory | type: traversal | priority: 3 | scope: general",
+        "rule: medical_legal | source: Cannabis laws of Canada by province or territory | type: traversal | priority: 3 | scope: trafficking",
+        "rule: legal | source: Cannabis laws of Canada by province or territory | type: traversal | priority: 3 | scope: sale",
+        "rule: private_cultivation | source: Cannabis laws of Canada by province or territory | type: traversal | priority: 3 | scope: cultivation",
+        "rule: legal | source: Cannabis laws of Canada by province or territory | type: traversal | priority: 3 | scope: cultivation",
+        "rule: legal | source: Cannabis laws of Canada by province or territory | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis laws of Canada by province or territory | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis laws of Canada by province or territory | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_years | source: Cannabis laws of Canada by province or territory | type: traversal | priority: 3 | scope: use",
+        "rule: legal | source: Cannabis laws of Canada by province or territory | type: traversal | priority: 3 | scope: use",
+        "rule: sale_regulated | source: Cannabis laws of Canada by province or territory | type: traversal | priority: 3 | scope: sale",
+        "rule: illegal | source: Cannabis laws of Canada by province or territory | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Cannabis laws of Canada by province or territory | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_fine | source: Cannabis laws of Canada by province or territory | type: traversal | priority: 3 | scope: general",
+        "rule: medical_legal | source: Cannabis laws of Canada by province or territory | type: traversal | priority: 3 | scope: cultivation",
+        "rule: raw_illegal | source: Cannabis laws of Canada by province or territory | type: traversal | priority: 3 | scope: possession",
+        "rule: illegal | source: Cannabis laws of Canada by province or territory | type: traversal | priority: 3 | scope: possession",
+        "rule: legal | source: Cannabis laws of Canada by province or territory | type: traversal | priority: 3 | scope: trafficking",
+        "rule: legal | source: Cannabis laws of Canada by province or territory | type: traversal | priority: 3 | scope: possession",
+        "rule: raw_illegal | source: Cannabis laws of Canada by province or territory | type: traversal | priority: 3 | scope: cultivation",
+        "rule: illegal | source: Cannabis laws of Canada by province or territory | type: traversal | priority: 3 | scope: cultivation"
       ]
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "medical_legal"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is legal in Canada. Medical cannabis is legal. Distribution is restricted."
+    "applied_rules": [
+      "medical_legal",
+      "raw_illegal",
+      "penalty_fine",
+      "private_cultivation",
+      "penalty_years",
+      "sale_regulated",
+      "rec_implies_med_floor",
+      "distribution_mixed_strong_penalty"
+    ],
+    "notes_normalized": "Cannabis is legal in Canada. Medical cannabis is limited. Distribution is mixed. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is legal in Canada. Medical cannabis is legal. Distribution is restricted.",
+  "notes_normalized": "Cannabis is legal in Canada. Medical cannabis is limited. Distribution is mixed. Prison exposure detected.",
   "notes_raw": "{{Main|Cannabis in Canada|Cannabis laws of Canada by province or territory}} Legal for medicinal purposes since 2001 and for recreational purposes since 17 October 2018. The age to buy or consume cannabis varies by province: 19 in most provinces, 18 in Alberta, and 21 in Quebec.<ref>{{cite web |title=Cannabis Legalization and Regulation |url=https://www.justice.gc.ca/eng/cj-jp/cannabis/ |publisher=Department of Justice, Government of Canada |date=7 July 2021 |access-date=29 June 2023 }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -208,9 +269,9 @@
   },
   "hashes": {
     "code": "can",
-    "content_hash": "c835233ae09f89b1171e38b8e913bd6a6f55156ee3bf573a5088987ce8588c5c",
-    "notes_hash": "44f241c555dbc4ea0434dc127278d50425d33f99737756d596449867ddc77905",
-    "model_hash": "f82e2684e2f9d7c30b0c0b7a9a38f8a7bdefb795677bc91db8a8a40a76ef8bc2"
+    "content_hash": "58c1cdac32c82ca452c9987760d554a72124b3217990e8ab61c539e4fba8b4e9",
+    "notes_hash": "0c30179102f01394be4dfd424e0de2037573ad185639a8e817d3025666fbd2e0",
+    "model_hash": "fddd039b37e29efe138c38f309c4d3f67c67f9c092a16842d4a8bb49db469a35"
   },
   "geo_code": "CA",
   "node_type": "country",

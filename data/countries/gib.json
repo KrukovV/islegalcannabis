@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -164,9 +165,9 @@
   },
   "hashes": {
     "code": "gib",
-    "content_hash": "0b4cd8253a1ec4ef8777772186fe585d3f367482c8b2a68ca2b9aa99876ce34b",
+    "content_hash": "0713bcc78af607973a72ad923c561a08eb076d88de71d7bbf4a81d469a7e3f6c",
     "notes_hash": "4240bcbe55beb93fac6bb803d5fb46bee93d1d3e28923e10cf55a5c5b40d7b44",
-    "model_hash": "6d99f31ffa56e133b488bd565890e871f93c0df0e4cd75183d7f78174d2b6f16"
+    "model_hash": "42a174273292fa43e7e9ed4fc5e16ac9e9996419004b1aca7bef2d92545ab38f"
   },
   "geo_code": "GI",
   "node_type": "country",

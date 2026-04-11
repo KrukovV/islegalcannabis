@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -164,9 +165,9 @@
   },
   "hashes": {
     "code": "vir",
-    "content_hash": "c478ba034050a73a5181a75a9e42605b0564589a5fa096b1196309fbd904cd2c",
+    "content_hash": "5c0507fb3bc1ac0726fc92fffac4fd98d6b9385b787c0e36accd3df3f62c52d1",
     "notes_hash": "64866710ca3ec9bf13c451d826e4df5939a0ee29d3d5ff7c29801d6e562794ad",
-    "model_hash": "64eaa94feeb0c12e0c72e4039cbe153d6a639d91a776484d14cd50934331de75"
+    "model_hash": "7f627019ef0bd2709ab1e8a79817b0ba32529da0d1851bb27ce5548a36a94961"
   },
   "geo_code": "VI",
   "node_type": "country",

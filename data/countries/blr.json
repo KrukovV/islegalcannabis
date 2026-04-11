@@ -24,17 +24,16 @@
         "sale": null,
         "cultivation": null,
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -76,12 +75,18 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Belarus | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Belarus | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in Belarus | type: traversal | priority: 3 | scope: possession",
+        "rule: illegal | source: Cannabis in Belarus | type: traversal | priority: 3 | scope: possession",
+        "rule: raw_illegal | source: Cannabis in Belarus | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Belarus | type: traversal | priority: 3 | scope: trafficking",
+        "rule: illegal | source: Cannabis in Belarus | type: traversal | priority: 3 | scope: trafficking"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Belarus / Белару́сь. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -183,9 +188,9 @@
   },
   "hashes": {
     "code": "blr",
-    "content_hash": "ba10ad59999755538facbf186224353f558b1587517ae17926107c311c2930a2",
+    "content_hash": "a2cdc40917cd71a0f1452cf09f1f034a403518a425e5f01dcbffcc1528dcd51c",
     "notes_hash": "e4fe433bc1896102206fc1ab00f52d81d3026056bd5307861e55d4592b30d5db",
-    "model_hash": "9006072663c4debbeb061d5a422d5ff221098a345b7600f1b0e43f6f3d0c8907"
+    "model_hash": "c298feec508c8dd020b68f5bc5b1fc2bb96c9cff25c7412c08605a98ad88d5f5"
   },
   "geo_code": "BY",
   "node_type": "country",

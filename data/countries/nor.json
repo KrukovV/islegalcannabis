@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -211,9 +212,9 @@
   },
   "hashes": {
     "code": "nor",
-    "content_hash": "ca14480b89f217f5af590f71ee9ef78e1e4e7a3a53067cc19dd4efc22064c0c4",
+    "content_hash": "1ba7b4377f3010f95a0899900669758f37b0f27fddf26276fd7feab04ce6d66b",
     "notes_hash": "9913b5810c4acb6d57894e6cbec5eed4aefc27eab53036d0bbb98d4b8761aa8b",
-    "model_hash": "9e8c5579d6c0088b75735b318786e9a0943c2a950aea209a3f89adfd1b2a0116"
+    "model_hash": "324dcf07f04ae530d29b570025d9888b11fd1ee4561fc79067c8af627574c2f1"
   },
   "geo_code": "NO",
   "node_type": "country",

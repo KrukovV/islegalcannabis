@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -183,9 +184,9 @@
   },
   "hashes": {
     "code": "fsm",
-    "content_hash": "c071caad3d96dcf05b2dd69163808859029c3fbc4896dc50aaef4837a661bf06",
+    "content_hash": "023522aa97d12b29ea7adc189ea087e23189ab8bd425e20471611bc2f5a63d76",
     "notes_hash": "02e363420e4dd4abcdc053ee3c2d6ede3a1c921f0ee86cc7df8a6dc9b75e0639",
-    "model_hash": "cc3581b6fa65de0161aeb57caff4afb6accb683a363e9bcc9c54a1680e429311"
+    "model_hash": "832f4fc57681c8b597e095751b1840fe8b19c665173c2cdea57e17b08737d693"
   },
   "geo_code": "FM",
   "node_type": "country",

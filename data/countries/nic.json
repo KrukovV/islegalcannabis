@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -183,9 +184,9 @@
   },
   "hashes": {
     "code": "nic",
-    "content_hash": "fd1791327024e1d23ab132c8f9cb584a44318a81607a6f524d5ac78f16ae52fe",
+    "content_hash": "09ddc928ce4a3ee488fff40f107b70af70e6a886cd7f3ee42d216ec70c1a2647",
     "notes_hash": "58430e80f753709d1524ac8ddafbd1f79b58ac8e5c105e7a763463544d3fdfbe",
-    "model_hash": "d17dde2a53978da84114a6c4e4f03ec6d31d2646dce62819cc3489c2b2abe277"
+    "model_hash": "0c2e6bd9aa41535bbff3d1da05fe459a248451f42d260d61bc18ad547ec4d545"
   },
   "geo_code": "NI",
   "node_type": "country",

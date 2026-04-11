@@ -30,12 +30,14 @@
       "flags": [],
       "modifiers": [
         "may",
-        "however"
+        "however",
+        "but"
       ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -104,7 +106,14 @@
         "rule: legal | source: North Korea / 조선 | type: summary | priority: 1 | scope: general",
         "rule: raw_illegal | source: North Korea / 조선 | type: summary | priority: 1 | scope: general",
         "rule: illegal | source: North Korea / 조선 | type: summary | priority: 1 | scope: general",
-        "no traversal evidence"
+        "rule: legal | source: Cannabis in North Korea | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in North Korea | type: traversal | priority: 3 | scope: trafficking",
+        "rule: legal | source: Cannabis in North Korea | type: traversal | priority: 3 | scope: use",
+        "rule: raw_illegal | source: Cannabis in North Korea | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in North Korea | type: traversal | priority: 3 | scope: general",
+        "rule: rec_tolerated | source: Cannabis in North Korea | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in North Korea | type: traversal | priority: 3 | scope: cultivation",
+        "rule: illegal | source: Cannabis in North Korea | type: traversal | priority: 3 | scope: cultivation"
       ]
     },
     "enforcement_flags": [],
@@ -212,9 +221,9 @@
   },
   "hashes": {
     "code": "prk",
-    "content_hash": "d1499c957de5bbbe4fd66951f2fa3e45f4036f5e841d2a070e6ff7c63591d3f2",
+    "content_hash": "7348867e6a62452c61738fbadcbb175be39f5a9d8dfaaf017b674c39721b35f7",
     "notes_hash": "43c8a4031ab4bd1377a76657eaacd2b9e8f3102ea9cc666038eb47b2eee09c0a",
-    "model_hash": "a6b27683969e090f5f1231225f73b05d5c866d5f6b2ffc7552f0e7c3c477861c"
+    "model_hash": "2fe4b6027f053495bbd446cad1fd906a5a9e27158a2a753d766f1b62165d8365"
   },
   "geo_code": "KP",
   "node_type": "country",

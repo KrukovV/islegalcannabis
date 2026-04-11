@@ -29,12 +29,15 @@
       "enforcement": "fine-based",
       "flags": [],
       "modifiers": [
-        "up_to"
+        "up_to",
+        "but",
+        "only"
       ]
     },
     "signals": {
       "status": "tolerated",
       "final_risk": "LIMITED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -106,6 +109,8 @@
         "rule: penalty_fine | source: Cannabis in Trinidad and Tobago | type: traversal | priority: 3 | scope: cultivation",
         "rule: private_cultivation | source: Cannabis in Trinidad and Tobago | type: traversal | priority: 3 | scope: cultivation",
         "rule: legal | source: Cannabis in Trinidad and Tobago | type: traversal | priority: 3 | scope: cultivation",
+        "rule: illegal | source: Cannabis in Trinidad and Tobago | type: traversal | priority: 3 | scope: general",
+        "rule: possession_decriminalized | source: Cannabis in Trinidad and Tobago | type: traversal | priority: 3 | scope: general",
         "rule: private_cultivation | source: Four female plants to be allowed under Cannabis Control Bill | type: reference | priority: 2 | scope: cultivation"
       ]
     },
@@ -219,9 +224,9 @@
   },
   "hashes": {
     "code": "tto",
-    "content_hash": "0320e592a129bf796d3658b1912f9af51cc2b3b4e0c41da0a5775d8bcac37bfa",
+    "content_hash": "8a973061db3dcb3a9c0c9a4630ad176f29cb249b5ac4a05e9135262a96ba0d10",
     "notes_hash": "8c430bc1924ce58217ef8e69637bcf785f8666bd066f75af2af6414229bcc585",
-    "model_hash": "92a976daeed0571b2edac168df6b4d7f70860e55e25ea3c7f4a845266b97004c"
+    "model_hash": "28be4ad8ce517f4b4dd4e2ecf8fe9b531fea37425a72ae24fcbfdbfd89b77f9f"
   },
   "geo_code": "TT",
   "node_type": "country",

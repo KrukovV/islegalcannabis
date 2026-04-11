@@ -165,6 +165,7 @@ function withDerivedSsotProfile<T extends JurisdictionLawProfile>(profile: T, co
       fine: false,
       severity_score: 0
     },
+    enforcement_level: countryPage.legal_model.signals?.enforcement_level || "active",
     explain: countryPage.legal_model.signals?.explain || [],
     enforcement_flags: countryPage.legal_model.enforcement_flags || [],
     applied_rules: countryPage.legal_model.applied_rules || [],
@@ -195,6 +196,7 @@ function withDerivedSsotProfile<T extends JurisdictionLawProfile>(profile: T, co
         fine: false,
         severity_score: 0
       },
+      enforcement_level: countryPage.legal_model.signals?.enforcement_level || "active",
       explain: countryPage.legal_model.signals?.explain || [],
       confidence: countryPage.legal_model.signals?.confidence || "medium",
       sources: countryPage.legal_model.signals?.sources || [],
@@ -435,6 +437,7 @@ export async function GET(req: Request) {
           legal_status: derived.legal_status,
           final_risk: derived.final_risk,
           penalties: derived.penalties,
+          enforcement_level: derived.enforcement_level,
           explain: derived.explain,
           confidence: derived.confidence,
           sources: derived.sources,
@@ -445,7 +448,16 @@ export async function GET(req: Request) {
                 distribution_scopes: derived.distribution_scopes,
                 distribution_flags: derived.distribution_flags,
                 enforcement_flags: derived.enforcement_flags,
-                applied_rules: derived.applied_rules
+                applied_rules: derived.applied_rules,
+                debug: {
+                  has_article: Array.isArray(derived.sources)
+                    ? derived.sources.some((source) => Number(source?.depth || 0) >= 1)
+                    : false,
+                  enforcement: derived.enforcement_level || "active",
+                  penalties_detected: Object.entries(derived.penalties || {})
+                    .filter(([key, value]) => ["prison", "arrest", "fine"].includes(key) && value === true)
+                    .map(([key]) => key)
+                }
               }
             : {})
         }

@@ -6,7 +6,7 @@
     "recreational": {
       "raw_status": "UNKNOWN",
       "status": "ILLEGAL",
-      "enforcement": "STRICT",
+      "enforcement": "MODERATE",
       "scope": "NONE"
     },
     "medical": {
@@ -22,26 +22,31 @@
         "possession": null,
         "use": null,
         "sale": null,
-        "cultivation": null,
-        "import": null,
+        "cultivation": "tolerated",
+        "import": "illegal",
         "trafficking": null
       },
-      "enforcement": "standard",
-      "flags": [],
+      "enforcement": "fine-based",
+      "flags": [
+        "import_illegal"
+      ],
       "modifiers": [
         "but",
-        "may"
+        "may",
+        "however",
+        "only"
       ]
     },
     "signals": {
-      "status": "illegal",
+      "status": "restricted",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "unenforced",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 3,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -49,13 +54,13 @@
           "severe": false
         },
         "trafficking": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
-          "fine": false,
-          "severe": false
+          "fine": true,
+          "severe": true
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Egypt",
@@ -103,16 +108,35 @@
       "explain": [
         "rule: raw_illegal | source: Egypt / مصر | type: summary | priority: 1 | scope: use",
         "rule: illegal | source: Egypt / مصر | type: summary | priority: 1 | scope: use",
-        "no traversal evidence"
+        "rule: enforcement_rare | source: Egypt / مصر | type: summary | priority: 1 | scope: use",
+        "rule: raw_illegal | source: Cannabis in Egypt | type: traversal | priority: 3 | scope: use",
+        "rule: illegal | source: Cannabis in Egypt | type: traversal | priority: 3 | scope: use",
+        "rule: rec_tolerated | source: Cannabis in Egypt | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Egypt | type: traversal | priority: 3 | scope: import",
+        "rule: penalty_criminal_offense | source: Cannabis in Egypt | type: traversal | priority: 3 | scope: import",
+        "rule: import_illegal | source: Cannabis in Egypt | type: traversal | priority: 3 | scope: import",
+        "rule: enforcement_unenforced | source: Cannabis in Egypt | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Egypt | type: traversal | priority: 3 | scope: general",
+        "rule: private_cultivation | source: Cannabis in Egypt | type: traversal | priority: 3 | scope: cultivation",
+        "rule: legal | source: Cannabis in Egypt | type: traversal | priority: 3 | scope: cultivation"
       ]
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "raw_illegal"
+    "enforcement_flags": [
+      "weak_enforcement",
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is illegal in Egypt / مصر. Medical cannabis is illegal. Distribution is illegal."
+    "applied_rules": [
+      "raw_illegal",
+      "enforcement_rare",
+      "penalty_fine",
+      "penalty_criminal_offense",
+      "import_illegal",
+      "enforcement_unenforced",
+      "private_cultivation"
+    ],
+    "notes_normalized": "Cannabis is illegal in Egypt / مصر. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Egypt / مصر. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Egypt / مصر. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Egypt}} Illegal since 1925<ref>{{citation |url = http://sensiseeds.com/en/blog/cannabis-egypt |title = Cannabis in Egypt |publisher = The Sensi Seed Bank |author = Seshata |work = Sensi Seeds Blog |date = 27 December 2013 |access-date = 20 January 2014 |archive-date = 29 June 2019 |archive-url = https://web.archive.org/web/20190629104604/https://sensiseeds.com/en/blog/cannabis-egypt/ |url-status = live }}</ref> but use is widespread. Convictions for personal use are rare.<ref>{{citation |url = http://blogs.abcnews.com/theworldnewser/2010/05/egypts-pot-problem-a-marijuana-shortage.html |title = Egypt's Pot Problem? A Marijuana Shortage |publisher = [[ABC News (United States)|ABC News]] |last = Hasan |first = Lama |date = 5 May 2010 |access-date = 31 January 2011 |url-status = dead |archive-url = https://web.archive.org/web/20110301233324/http://blogs.abcnews.com/theworldnewser/2010/05/egypts-pot-problem-a-marijuana-shortage.html |archive-date = 1 March 2011}}</ref> Formerly a plant of high status with several documented medicinal uses in ancient times.",
   "facts": {
     "possession_limit": null,
@@ -210,9 +234,9 @@
   },
   "hashes": {
     "code": "egy",
-    "content_hash": "190e4c27a63b4a50116ac8af2ca0b95837f33ae783c19f9a4a91fbfb29fa494e",
-    "notes_hash": "906fcf22273e264acf4c9f6e99377f0f5405e6b902e3b6c7676b566f6d9e913e",
-    "model_hash": "a728516e6af8c46e4bd7ca32b445bbaeb5c1b375bcc64b925c59db8710ec6738"
+    "content_hash": "2b0cb17e8c3b57178a5becaf9752a8d6193f7d1533cba96f9b6c4c763986764f",
+    "notes_hash": "3ecc6fb5a17f4ab8412abdef95007cd2dd32cd273eda74c27b7d6d551eb3b0dc",
+    "model_hash": "7b562e6f32bd88d3f49c5dbc8ab37c1f1bb043591cd8071ef0dd697f023eac27"
   },
   "geo_code": "EG",
   "node_type": "country",

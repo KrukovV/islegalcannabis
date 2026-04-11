@@ -27,14 +27,15 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "flags": [],
+      "modifiers": [
+        "but"
+      ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -82,12 +83,13 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Greenland | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Greenland | type: traversal | priority: 3 | scope: general"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Greenland / Kalaallit Nunaat. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -189,9 +191,9 @@
   },
   "hashes": {
     "code": "grl",
-    "content_hash": "06b21faa3c7270c23d9ebc0e73ac071970e4217e08cffe71db84e3083fbd05bd",
+    "content_hash": "62dd2b0aae830d23a86954c37571c7a88a1736ba8e19ad10e3f7b3d662445190",
     "notes_hash": "803518579d58996ee5d423f464c3cd63a17568d1fb49c336e44974db824f7596",
-    "model_hash": "6f1c8cc2d5f9275021eab1f2521263a06ad8354f126f011669e6d2dd50113438"
+    "model_hash": "9241129a2e5df76487284bb72d4599b307d3048b1d79f73f1b2ffee3a15a8fb7"
   },
   "geo_code": "GL",
   "node_type": "country",

@@ -27,14 +27,13 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -76,12 +75,13 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Gabon | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Gabon | type: traversal | priority: 3 | scope: general"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Gabon. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -183,9 +183,9 @@
   },
   "hashes": {
     "code": "gab",
-    "content_hash": "3c95197f6003f7ba1b05c3c88854c648f40ee72d7047b910af4cb2d53a5e9030",
+    "content_hash": "c4bcd96bc6bde043b1839dfd70fc80bf71569c9bbfe164cabcad53e4e539509e",
     "notes_hash": "3f17c313c20d5b14d67a004792d981b3466f3e328c7c3dd92b1c60478294cea3",
-    "model_hash": "7a5d758144d693ec819bf6a44962d2f4942807fcfff32879e63a9dc872d59092"
+    "model_hash": "e0ada36c997a4ce861c688cc8b7f07adfd4e435b69cc5ec21ba0260d03c090c9"
   },
   "geo_code": "GA",
   "node_type": "country",

@@ -29,12 +29,15 @@
       "enforcement": "standard",
       "flags": [],
       "modifiers": [
-        "up_to"
+        "up_to",
+        "but",
+        "however"
       ]
     },
     "signals": {
       "status": "tolerated",
       "final_risk": "LIMITED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -54,7 +57,7 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Colombia",
@@ -102,13 +105,25 @@
       "explain": [
         "rule: possession_decriminalized | source: Colombia | type: summary | priority: 1 | scope: use",
         "rule: private_cultivation | source: Colombia | type: summary | priority: 1 | scope: cultivation",
-        "no traversal evidence"
+        "rule: legal | source: Cannabis in Colombia | type: traversal | priority: 3 | scope: general",
+        "rule: medical_legal | source: Cannabis in Colombia | type: traversal | priority: 3 | scope: sale",
+        "rule: possession_decriminalized | source: Cannabis in Colombia | type: traversal | priority: 3 | scope: cultivation",
+        "rule: raw_illegal | source: Cannabis in Colombia | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Colombia | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in Colombia | type: traversal | priority: 3 | scope: use",
+        "rule: illegal | source: Cannabis in Colombia | type: traversal | priority: 3 | scope: use",
+        "rule: legal | source: Cannabis in Colombia | type: traversal | priority: 3 | scope: possession",
+        "rule: possession_decriminalized | source: Cannabis in Colombia | type: traversal | priority: 3 | scope: possession",
+        "rule: private_cultivation | source: Cannabis in Colombia | type: traversal | priority: 3 | scope: cultivation",
+        "rule: legal | source: Cannabis in Colombia | type: traversal | priority: 3 | scope: cultivation",
+        "rule: medical_legal | source: Cannabis in Colombia | type: traversal | priority: 3 | scope: general"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
       "possession_decriminalized",
-      "private_cultivation"
+      "private_cultivation",
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is decriminalized in Colombia. Medical cannabis is legal. Distribution is tolerated."
   },
@@ -210,9 +225,9 @@
   },
   "hashes": {
     "code": "col",
-    "content_hash": "9b8ff66545fd878e1f9fce172255bb24b82e6c2766310eba8570375e5bcb8939",
+    "content_hash": "dd342739cf6e95eae5bc35cc9aa15413a9273195873c3524521bc6341bf5ab4d",
     "notes_hash": "84ea0f3a49bf7b225e081e1de373700234d99ad251b1fc9db53fd8f326f19bc8",
-    "model_hash": "19282ab3be506f06764f465ae3ab5c98a3ef54836af499f2cbf971024ebda62a"
+    "model_hash": "dbdf094ad4629e65e3e24568abdeebb80fe854c3aef9be6a1c2b892bca60d2d8"
   },
   "geo_code": "CO",
   "node_type": "country",

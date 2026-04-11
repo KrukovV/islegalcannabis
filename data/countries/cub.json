@@ -24,35 +24,39 @@
         "sale": null,
         "cultivation": null,
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
       "enforcement": "fine-based",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "but",
+        "may"
+      ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
         "fine": true,
-        "severity_score": 1,
+        "severity_score": 6,
         "possession": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
           "fine": false,
-          "severe": false
+          "severe": true
         },
         "trafficking": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
-          "fine": false,
-          "severe": false
+          "fine": true,
+          "severe": true
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Cuba",
@@ -98,19 +102,33 @@
         }
       ],
       "explain": [
-        "rule: penalty_fine | source: Cuba - Universal Periodic Review - Death Penalty - the Advocates for Human Rights | type: reference | priority: 2 | scope: general",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Cuba | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Cuba | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Cuba | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_criminal_offense | source: Cannabis in Cuba | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_prison | source: Cannabis in Cuba | type: traversal | priority: 3 | scope: trafficking",
+        "rule: raw_illegal | source: Cannabis in Cuba | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Cuba | type: traversal | priority: 3 | scope: trafficking",
+        "rule: illegal | source: Cannabis in Cuba | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_years | source: Cannabis in Cuba | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_fine | source: Cannabis in Cuba | type: traversal | priority: 3 | scope: cultivation",
+        "rule: penalty_fine | source: Cannabis in Cuba | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_fine | source: Cuba - Universal Periodic Review - Death Penalty - the Advocates for Human Rights | type: reference | priority: 2 | scope: general"
       ]
     },
     "enforcement_flags": [
       "fine_based"
     ],
     "applied_rules": [
+      "raw_illegal",
+      "penalty_prison",
+      "penalty_criminal_offense",
+      "penalty_years",
       "penalty_fine"
     ],
-    "notes_normalized": "Cannabis is illegal in Cuba. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is illegal in Cuba. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Cuba. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Cuba. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Cuba}}",
   "facts": {
     "possession_limit": null,
@@ -208,9 +226,9 @@
   },
   "hashes": {
     "code": "cub",
-    "content_hash": "50de3b48a5c89727098748c456acf44ae6eae1e951eafddc40bc3374bca507fa",
-    "notes_hash": "42fc664049cf6148809a5d58546f6236db581a2a36b5a2efb926d567ac54b397",
-    "model_hash": "b185571851a8533f58276489fbf49dd91403cc5293b49ffbab7a35b74cdb1d8b"
+    "content_hash": "6830707c29e6f67305878d301d93d2917f2ea0a27c53c23b23b76dcc75f30d54",
+    "notes_hash": "f7da2383204920ddb24d6709f655d75380d9c1714dccd340fe5190b55df9302e",
+    "model_hash": "12e1f7e97e6031cb9133af267179da8c529d040b05dd7a90a56df7f2ea74a4a6"
   },
   "geo_code": "CU",
   "node_type": "country",

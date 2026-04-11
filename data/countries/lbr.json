@@ -27,14 +27,13 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -76,12 +75,13 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Liberia | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Liberia | type: traversal | priority: 3 | scope: general"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Liberia. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -183,9 +183,9 @@
   },
   "hashes": {
     "code": "lbr",
-    "content_hash": "30d59094d72dc1ba777b325549facab51f37a7ca355dadd4fbbd2c7cb20c93b8",
+    "content_hash": "4bb3aa6e0a92642c5b223842c7a56c9bfcbca803d3387ba64b0a335b4d84aa84",
     "notes_hash": "d07befd6ce51bc804c545d8a6ca482436c34abc5403a7a6e9bccc8a2cf656913",
-    "model_hash": "37ad820c9e57c377f363674125135c69e1279d0c75b7a02fe1aeb2e2e2d88f01"
+    "model_hash": "dce6925f1d5343b48363c298a55d98b4d6a1f62582bd004a15ee2a8febc7d2b0"
   },
   "geo_code": "LR",
   "node_type": "country",

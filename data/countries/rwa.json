@@ -11,9 +11,9 @@
     },
     "medical": {
       "raw_status": "LEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "MEDICAL_ONLY",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
       "override_reason": null
     },
     "distribution": {
@@ -27,14 +27,15 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "flags": [],
+      "modifiers": [
+        "but"
+      ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -100,16 +101,17 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Rwanda | type: traversal | priority: 3 | scope: general",
+        "rule: medical_legal | source: Cannabis in Rwanda | type: traversal | priority: 3 | scope: general"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Rwanda. Medical cannabis is legal. Distribution is illegal."
+    "notes_normalized": "Cannabis is illegal in Rwanda. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in Rwanda. Medical cannabis is legal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Rwanda. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Rwanda}}",
   "facts": {
     "possession_limit": null,
@@ -207,9 +209,9 @@
   },
   "hashes": {
     "code": "rwa",
-    "content_hash": "07bdf53ed1a1b0dd05061374c535e70993751040fc37052c478d45173d753b35",
-    "notes_hash": "2a55eb50ad23fe03a02373e7fd695deac3542ff9715a1bad0d3977ca0dc24d18",
-    "model_hash": "742ec42e5dc9ac2ea3be320e35cabcae91f76074bba334d1dd2207dbf6d17d65"
+    "content_hash": "e6456f92d36f39dd28cfb49e41266d8649c91dcc7be65316fecf81791ca79f47",
+    "notes_hash": "b0d94ca277f3ebbd4f7e31b1d53c36e5ecb426ecd8a636455d80040fe88aae8a",
+    "model_hash": "5821951329983eaa83fdb2d1955f800dadf1cd908a59a37e27890968deb3dbef"
   },
   "geo_code": "RW",
   "node_type": "country",

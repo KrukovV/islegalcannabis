@@ -26,20 +26,22 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [],
       "modifiers": [
-        "up_to"
+        "up_to",
+        "may"
       ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 1,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
+        "fine": true,
         "severity_score": 4,
         "possession": {
           "prison": true,
@@ -54,7 +56,7 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Taiwan",
@@ -78,13 +80,20 @@
       "explain": [
         "rule: penalty_prison | source: Taiwan / 台灣 | type: summary | priority: 1 | scope: possession",
         "rule: penalty_years | source: Taiwan / 台灣 | type: summary | priority: 1 | scope: possession",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Taiwan | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Taiwan | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Taiwan | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Taiwan | type: traversal | priority: 3 | scope: general"
       ]
     },
-    "enforcement_flags": [],
+    "enforcement_flags": [
+      "fine_based"
+    ],
     "applied_rules": [
       "penalty_prison",
-      "penalty_years"
+      "penalty_years",
+      "raw_illegal",
+      "penalty_fine"
     ],
     "notes_normalized": "Cannabis is illegal in Taiwan / 台灣. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
@@ -186,9 +195,9 @@
   },
   "hashes": {
     "code": "twn",
-    "content_hash": "ff52bb7830f78eaa141da7eac9c6af7d5b2fb17685f6e7577a68418d754b26d4",
+    "content_hash": "33dd8711d59ed6ea01b4ab3746b31cac82d87136c5068d5bf87dceddec0543b5",
     "notes_hash": "29a748c8a21061f9d3497d3c7805ca2b1c0d39db4fabb2363a48844b462b0ba7",
-    "model_hash": "ba1a93f17767a3b0763bd1dd3e7fdf17eb41e488f35320e8c6e49b3e252fa146"
+    "model_hash": "3f2fb2367b9729c67e197e886650a1c6a6e162657a467ffe8a0f4d67e9e10840"
   },
   "geo_code": "TW",
   "node_type": "country",

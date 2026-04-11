@@ -17,28 +17,34 @@
       "override_reason": "rec_implies_med_floor"
     },
     "distribution": {
-      "status": "restricted",
+      "status": "regulated",
       "scopes": {
         "possession": "restricted",
         "use": "restricted",
-        "sale": null,
+        "sale": "regulated",
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
-      "flags": [],
-      "modifiers": []
+      "enforcement": "fine-based",
+      "flags": [
+        "sale_regulated"
+      ],
+      "modifiers": [
+        "but",
+        "up_to"
+      ]
     },
     "signals": {
-      "status": "restricted",
+      "status": "regulated",
       "final_risk": "LIMITED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 1,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -48,11 +54,11 @@
         "trafficking": {
           "prison": false,
           "arrest": false,
-          "fine": false,
+          "fine": true,
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Moldova",
@@ -80,16 +86,29 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Moldova | type: traversal | priority: 3 | scope: general",
+        "rule: possession_decriminalized | source: Cannabis in Moldova | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Moldova | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in Moldova | type: traversal | priority: 3 | scope: possession",
+        "rule: illegal | source: Cannabis in Moldova | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_fine | source: Cannabis in Moldova | type: traversal | priority: 3 | scope: sale",
+        "rule: sale_regulated | source: Cannabis in Moldova | type: traversal | priority: 3 | scope: sale",
+        "rule: medical_legal | source: Cannabis in Moldova | type: traversal | priority: 3 | scope: sale"
       ]
     },
-    "enforcement_flags": [],
+    "enforcement_flags": [
+      "fine_based"
+    ],
     "applied_rules": [
+      "raw_illegal",
+      "possession_decriminalized",
+      "penalty_fine",
+      "sale_regulated",
       "rec_implies_med_floor"
     ],
-    "notes_normalized": "Cannabis is decriminalized in Moldova. Medical cannabis is limited. Distribution is restricted."
+    "notes_normalized": "Cannabis is decriminalized in Moldova. Medical cannabis is limited. Distribution is regulated."
   },
-  "notes_normalized": "Cannabis is decriminalized in Moldova. Medical cannabis is limited. Distribution is restricted.",
+  "notes_normalized": "Cannabis is decriminalized in Moldova. Medical cannabis is limited. Distribution is regulated.",
   "notes_raw": "{{main|Cannabis in Moldova}}",
   "facts": {
     "possession_limit": null,
@@ -160,16 +179,16 @@
     ],
     "legal_similarity": [
       {
+        "code": "hun",
+        "name": "Hungary / Magyarország"
+      },
+      {
+        "code": "alb",
+        "name": "Albania / Shqipëria"
+      },
+      {
         "code": "est",
         "name": "Estonia / Eesti"
-      },
-      {
-        "code": "hrv",
-        "name": "Croatia / Hrvatska"
-      },
-      {
-        "code": "cze",
-        "name": "Czechia / Česko"
       }
     ],
     "cluster_links": [
@@ -187,9 +206,9 @@
   },
   "hashes": {
     "code": "mda",
-    "content_hash": "281b913c7158d3f1e2c125f5266c5e555e740da711edb626f8fddd007d347455",
-    "notes_hash": "0ca1fd530c6565e4057fe9230b2d3229b0fee0af962a48369d9904608ff3ed54",
-    "model_hash": "f52e9429d4a967f18b958cc86df079a7ad150c5da7dd599de6972b87e89aa160"
+    "content_hash": "4a926db94b18a2419bb42718f1b9da8885d1358c9d8a9322403953675b761105",
+    "notes_hash": "c1e72c7a6321d57ddfbf53f91343848c7f82e5f2b212c9718b55ca0baf934933",
+    "model_hash": "73f43222f08f27ad1136f98c934a97fe3835a83033e371cd9e12959d034772e0"
   },
   "geo_code": "MD",
   "node_type": "country",

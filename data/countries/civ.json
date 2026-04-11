@@ -27,14 +27,13 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -94,12 +93,13 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Ivory Coast | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Ivory Coast | type: traversal | priority: 3 | scope: general"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Ivory Coast / Côte d'Ivoire. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -201,9 +201,9 @@
   },
   "hashes": {
     "code": "civ",
-    "content_hash": "f67361fee41912a5c1e46fbd8f40d996f0672618e42cc087fce71c9d045df1de",
+    "content_hash": "b9de18a37f8555477c502309287bd3013cad7f50faeba3512a428ac1ea5d4f8b",
     "notes_hash": "36955f4668114cf439ce83a064424602223938e8becab7061efb3e9afaa7d3f8",
-    "model_hash": "b4c0ef3fdfed1780bd8900652d2b6675c96e872413ddec29ceeffdc3eee1d1a9"
+    "model_hash": "664bb038dd463e02b41443f10e7e1a1a83cb11ccbf1c92ac18790c0b9bf56bc0"
   },
   "geo_code": "CI",
   "node_type": "country",

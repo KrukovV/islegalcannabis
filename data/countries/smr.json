@@ -11,9 +11,9 @@
     },
     "medical": {
       "raw_status": "LEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "MEDICAL_ONLY",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
       "override_reason": null
     },
     "distribution": {
@@ -24,23 +24,27 @@
         "sale": null,
         "cultivation": null,
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [
-        "distribution_fallback_illegal"
+        "trafficking_illegal"
       ],
-      "modifiers": []
+      "modifiers": [
+        "but",
+        "however"
+      ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 4,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -48,13 +52,13 @@
           "severe": false
         },
         "trafficking": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
-          "fine": false,
-          "severe": false
+          "fine": true,
+          "severe": true
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in San Marino",
@@ -88,16 +92,26 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in San Marino | type: traversal | priority: 3 | scope: general",
+        "rule: medical_legal | source: Cannabis in San Marino | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in San Marino | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in San Marino | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_fine | source: Cannabis in San Marino | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in San Marino | type: traversal | priority: 3 | scope: trafficking"
       ]
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "distribution_fallback_illegal"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is illegal in San Marino. Medical cannabis is legal. Distribution is illegal."
+    "applied_rules": [
+      "raw_illegal",
+      "penalty_prison",
+      "penalty_fine",
+      "trafficking_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in San Marino. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in San Marino. Medical cannabis is legal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in San Marino. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in San Marino}}",
   "facts": {
     "possession_limit": null,
@@ -168,26 +182,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "hrv",
-        "name": "Croatia / Hrvatska"
-      },
-      {
         "code": "lie",
         "name": "Liechtenstein"
       },
       {
         "code": "mco",
         "name": "Monaco"
+      },
+      {
+        "code": "bih",
+        "name": "Bosnia and Herzegovina / Bosna i Hercegovina"
       }
     ],
     "cluster_links": [
       {
-        "code": "aut",
-        "name": "Austria / Österreich"
+        "code": "hrv",
+        "name": "Croatia / Hrvatska"
       },
       {
-        "code": "che",
-        "name": "Switzerland / Suisse"
+        "code": "aut",
+        "name": "Austria / Österreich"
       }
     ],
     "same_country_states": [],
@@ -195,9 +209,9 @@
   },
   "hashes": {
     "code": "smr",
-    "content_hash": "eb52f1401ed60531a0b9ed2a9e662047a6458cde9a49e060fbe6f3efb1e44e6c",
-    "notes_hash": "707ab0276636aa01f486cba68c53ef2207a7326fbc5b7c5d7d4944f2847485a6",
-    "model_hash": "cbea5c29b04a67f7bf7f17ef8df93f5eb3da1cc5e3d2532f2a13e156226ab900"
+    "content_hash": "e861c04b405c9c6abe5bb0e675e11b4b1ee75304813e88d1b39f7cfe72b631fa",
+    "notes_hash": "656a6235dbe5708cf496763c0592c2605f048f21b9e89623a7a6c9081a60a2b7",
+    "model_hash": "e0f5af002fdaf1a7e03fdb43f424be76594f67e02c59a18e124facc3766fd307"
   },
   "geo_code": "SM",
   "node_type": "country",

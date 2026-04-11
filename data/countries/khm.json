@@ -21,7 +21,7 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
+        "sale": "illegal",
         "cultivation": null,
         "import": null,
         "trafficking": null
@@ -29,12 +29,14 @@
       "enforcement": "standard",
       "flags": [],
       "modifiers": [
-        "but"
+        "but",
+        "only"
       ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -78,7 +80,11 @@
       "explain": [
         "rule: raw_illegal | source: Cambodia / Kâmpŭchéa | type: summary | priority: 1 | scope: general",
         "rule: illegal | source: Cambodia / Kâmpŭchéa | type: summary | priority: 1 | scope: general",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Cambodia | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Cambodia | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in Cambodia | type: traversal | priority: 3 | scope: sale",
+        "rule: sale_illegal | source: Cannabis in Cambodia | type: traversal | priority: 3 | scope: sale",
+        "rule: illegal | source: Cannabis in Cambodia | type: traversal | priority: 3 | scope: sale"
       ]
     },
     "enforcement_flags": [],
@@ -185,9 +191,9 @@
   },
   "hashes": {
     "code": "khm",
-    "content_hash": "d2fe373b5507039f51dc11e98134509694917a66442f157872d450af92851afb",
+    "content_hash": "b74ea678264ca00558311a259f638f5f6b791dedd8b5e06e2d665d3f046c7515",
     "notes_hash": "8521b7ed18868b41ce6acb4d6902b475e3152e693d683fce2049265aabbaa07b",
-    "model_hash": "3c780af79cd3ba6083cf2944691c79ecd1d944d917fa37c48fb1619e2c54118c"
+    "model_hash": "206a7e5d5f89aeb2f618a9db226de8e2e3238a626727e9e0e3c5ad781b306504"
   },
   "geo_code": "KH",
   "node_type": "country",

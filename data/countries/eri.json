@@ -21,40 +21,43 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
+        "sale": "illegal",
         "cultivation": null,
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
-      "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": [
+        "but",
+        "may",
+        "up_to"
+      ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 4,
         "possession": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
-          "fine": false,
-          "severe": false
+          "fine": true,
+          "severe": true
         },
         "trafficking": {
           "prison": false,
           "arrest": false,
-          "fine": false,
+          "fine": true,
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Eritrea",
@@ -100,16 +103,29 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Eritrea | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_fine | source: Cannabis in Eritrea | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Eritrea | type: traversal | priority: 3 | scope: trafficking",
+        "rule: sale_illegal | source: Cannabis in Eritrea | type: traversal | priority: 3 | scope: trafficking",
+        "rule: raw_illegal | source: Cannabis in Eritrea | type: traversal | priority: 3 | scope: sale",
+        "rule: sale_illegal | source: Cannabis in Eritrea | type: traversal | priority: 3 | scope: sale",
+        "rule: illegal | source: Cannabis in Eritrea | type: traversal | priority: 3 | scope: sale",
+        "rule: legal | source: Cannabis in Eritrea | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Eritrea | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_fine | source: Cannabis in Eritrea | type: traversal | priority: 3 | scope: possession"
       ]
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "distribution_fallback_illegal"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is illegal in Eritrea / إريتريا. Medical cannabis is illegal. Distribution is illegal."
+    "applied_rules": [
+      "raw_illegal",
+      "penalty_fine",
+      "penalty_prison"
+    ],
+    "notes_normalized": "Cannabis is illegal in Eritrea / إريتريا. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Eritrea / إريتريا. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Eritrea / إريتريا. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Eritrea}}",
   "facts": {
     "possession_limit": null,
@@ -207,9 +223,9 @@
   },
   "hashes": {
     "code": "eri",
-    "content_hash": "7e21533965a2be66f57e94479c8e9805a67768c8a47e5b2a3ef9071992cba55f",
-    "notes_hash": "7fd080a4bbf90ea4583d07164570bfaba8d7de7c04d3e5878a13df27c2ce05dd",
-    "model_hash": "97b9f6fc50b4081a67a0be579e17be59244da47f8c3e6122b5181b18efe90116"
+    "content_hash": "36c61ef17ef32e6cb6eaf1a870b8d5444525c69768591e0f032a03b5a9f729c0",
+    "notes_hash": "b30f0fa343f3590f69e1f5f856336ff4f95902fa0090653102782408e0fd0ecd",
+    "model_hash": "aa0f57706ae3a6092285af5faccad0bd3cd7854bd9d4dcff913e1e8bc287d922"
   },
   "geo_code": "ER",
   "node_type": "country",

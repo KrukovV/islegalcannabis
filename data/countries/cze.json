@@ -17,42 +17,49 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "tolerated",
+      "status": "illegal",
       "scopes": {
         "possession": "restricted",
         "use": "restricted",
         "sale": null,
         "cultivation": "tolerated",
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
       "enforcement": "fine-based",
-      "flags": [],
+      "flags": [
+        "trafficking_illegal"
+      ],
       "modifiers": [
         "up_to",
-        "however"
+        "however",
+        "may",
+        "but",
+        "only",
+        "usually"
       ]
     },
     "signals": {
-      "status": "tolerated",
-      "final_risk": "HIGH_RISK",
+      "status": "restricted",
+      "final_risk": "RESTRICTED",
+      "enforcement_level": "rare",
       "penalties": {
         "prison": true,
-        "prison_priority": 1,
+        "prison_priority": 3,
         "arrest": false,
         "fine": true,
         "severity_score": 4,
         "possession": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
           "fine": false,
-          "severe": false
+          "severe": true
         },
         "trafficking": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
-          "fine": false,
-          "severe": false
+          "fine": true,
+          "severe": true
         }
       },
       "confidence": "high",
@@ -106,23 +113,45 @@
         "rule: medical_legal | source: Czechia / Česko | type: summary | priority: 1 | scope: use",
         "rule: penalty_prison | source: Czechia / Česko | type: summary | priority: 1 | scope: cultivation",
         "rule: penalty_fine | source: Czechia / Česko | type: summary | priority: 1 | scope: cultivation",
+        "rule: enforcement_rare | source: Czechia / Česko | type: summary | priority: 1 | scope: possession",
         "rule: private_cultivation | source: Czechia / Česko | type: summary | priority: 1 | scope: cultivation",
-        "no traversal evidence"
+        "rule: legal | source: Cannabis in the Czech Republic | type: traversal | priority: 3 | scope: use",
+        "rule: possession_decriminalized | source: Cannabis in the Czech Republic | type: traversal | priority: 3 | scope: possession",
+        "rule: medical_legal | source: Cannabis in the Czech Republic | type: traversal | priority: 3 | scope: possession",
+        "rule: raw_illegal | source: Cannabis in the Czech Republic | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in the Czech Republic | type: traversal | priority: 3 | scope: general",
+        "rule: private_cultivation | source: Cannabis in the Czech Republic | type: traversal | priority: 3 | scope: cultivation",
+        "rule: penalty_fine | source: Cannabis in the Czech Republic | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in the Czech Republic | type: traversal | priority: 3 | scope: possession",
+        "rule: raw_illegal | source: Cannabis in the Czech Republic | type: traversal | priority: 3 | scope: possession",
+        "rule: illegal | source: Cannabis in the Czech Republic | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_prison | source: Cannabis in the Czech Republic | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_fine | source: Cannabis in the Czech Republic | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_years | source: Cannabis in the Czech Republic | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in the Czech Republic | type: traversal | priority: 3 | scope: trafficking",
+        "rule: medical_legal | source: Cannabis in the Czech Republic | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in the Czech Republic | type: traversal | priority: 3 | scope: trafficking",
+        "rule: medical_legal | source: Cannabis in the Czech Republic | type: traversal | priority: 3 | scope: use"
       ]
     },
     "enforcement_flags": [
-      "fine_based"
+      "fine_based",
+      "weak_enforcement"
     ],
     "applied_rules": [
       "possession_decriminalized",
       "medical_legal",
       "penalty_prison",
       "penalty_fine",
-      "private_cultivation"
+      "enforcement_rare",
+      "private_cultivation",
+      "raw_illegal",
+      "penalty_years",
+      "trafficking_illegal"
     ],
-    "notes_normalized": "Cannabis is decriminalized in Czechia / Česko. Medical cannabis is legal. Distribution is tolerated. Prison exposure detected."
+    "notes_normalized": "Cannabis is decriminalized in Czechia / Česko. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is decriminalized in Czechia / Česko. Medical cannabis is legal. Distribution is tolerated. Prison exposure detected.",
+  "notes_normalized": "Cannabis is decriminalized in Czechia / Česko. Medical cannabis is legal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in the Czech Republic}} Possession of less than 15 grams (½ oz) has been decriminalized since 1 January 2010.{{refn|<ref name=\"kush\">{{cite web |url=http://kushtourism.com/czech-republic-marijuana-information/ |title=Czech Republic Marijuana Information |author=<!--Staff writer(s); no by-line.--> |date=2017 |website=Kush Tourism |publisher=Kush Tourism LLC |access-date=23 January 2017 |quote=If you have more than 15 grams of cannabis or are growing more than five plants, the maximum penalty is a custodial sentence of one year. However, simple possession charges rarely receive the maximum charge. |archive-date=2 February 2017 |archive-url=https://web.archive.org/web/20170202014018/http://kushtourism.com/czech-republic-marijuana-information/ |url-status=dead }}</ref><ref>{{cite web |url=http://www.emcdda.europa.eu/publications/drugnet/online/2010/69/article11 |title=New Czech penal code enters into force |last=Hughes |first=Brendan |date=March 2010 |website=Drugnet Europe |access-date=23 January 2017 |quote=the new penal code criminalises the cultivation or possession of an illicit drug for personal use when the quantity is ‘greater than small’. However, the new code now establishes quantity limits via a binding governmental decree (No 467/2009 Coll.) (2). For example, it stipulates that a crime is committed on possession of more than 5g of cannabis resin (previously 10g), 15g of herbal cannabis or 1g of cocaine, and on cultivation of more than five marijuana plants.}}</ref><ref>{{Cite web |title=40/2009 Sb. Trestní zákoník |url=https://www.zakonyprolidi.cz/cs/2009-40 |access-date=2022-09-27 |website=Zákony pro lidi |language=cs}}</ref><ref>{{Cite web  |title=467/2009 Sb. Nařízení vlády, kterým se pro účely trestního zákoníku stanoví, co se považuje za jedy a jaké je mno... |url=https://www.zakonyprolidi.cz/cs/2009-467 |access-date=2022-09-27 |website=Zákony pro lidi |language=cs}}</ref><ref>http://www.prevence-praha.cz/attachments/article/123/Priloha%20stanoviska%20NS_tabulka.pdf {{Dead link|date=February 2022}}</ref><ref>{{Cite web|url=https://pragueuncensored.com/is-weed-legal-in-prague-2025/|title=Marijuana Laws in Prague |website=Prague Uncensored |date=9 April 2025}}</ref>}} Since January 1, 2026, it has been legal for persons over the age of 21 to possess up to 100 g of cannabis at home and up to 25 g in public, and to grow up to 3 plants. Medical use has been legal and regulated since 2013.<ref>{{cite web |url = http://the420times.com/2013/04/czech-republic-pharmacies-began-selling-medical-cannabis/ |title = Czech Republic Pharmacies Began Selling Medical Cannabis |publisher = The420times.com |access-date = 23 June 2013 |archive-url = https://web.archive.org/web/20130620054056/http://the420times.com/2013/04/czech-republic-pharmacies-began-selling-medical-cannabis/ |archive-date = 20 June 2013 |url-status = dead}}</ref><ref>{{cite news |url = https://huffingtonpost.com/2013/02/15/czech-republic-medical-marijuana_n_2693657.html |title = Czech Republic Legalizes Medical Marijuana Use |work = [[The Huffington Post]] |date = 15 February 2013 |access-date = 23 June 2013 |archive-url = https://web.archive.org/web/20160120125239/https://huffingtonpost.com/2013/02/15/czech-republic-medical-marijuana_n_2693657.html |archive-date = 20 January 2016 | url-status = dead }}</ref>",
   "facts": {
     "possession_limit": "less than 15 grams",
@@ -220,9 +249,9 @@
   },
   "hashes": {
     "code": "cze",
-    "content_hash": "e1570698f4c4f19df74913bcc293a0e7e174ec962b25d2d6b468308260353d4a",
-    "notes_hash": "55f5652b07ee10d15bbb001ba1826d5477107ec3e30d8338c1e2942bd42045e6",
-    "model_hash": "1a86dfbff0ea49f88649ca98bff7adf31afd0c56ff66d5e086fd4aba676ce1ff"
+    "content_hash": "5ccec005bcda31828a95fd93bed12606d91f9a2419165c9b236426e50c7af1ca",
+    "notes_hash": "be0f7bb745951358b4a7bd84995f1153c2d53e16e39a78ee444c42f53b19d562",
+    "model_hash": "8f197fea36b2464e2791e29328ae4a0d9264a4b555f1d221dad2ac4232304a4d"
   },
   "geo_code": "CZ",
   "node_type": "country",

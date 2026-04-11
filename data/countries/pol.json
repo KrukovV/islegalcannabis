@@ -24,22 +24,26 @@
         "sale": null,
         "cultivation": null,
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [],
       "modifiers": [
-        "up_to"
+        "up_to",
+        "but",
+        "however",
+        "may"
       ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 1,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
+        "fine": true,
         "severity_score": 4,
         "possession": {
           "prison": true,
@@ -48,10 +52,10 @@
           "severe": true
         },
         "trafficking": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
-          "fine": false,
-          "severe": false
+          "fine": true,
+          "severe": true
         }
       },
       "confidence": "high",
@@ -102,13 +106,26 @@
       "explain": [
         "rule: penalty_prison | source: Poland / Polska | type: summary | priority: 1 | scope: possession",
         "rule: penalty_years | source: Poland / Polska | type: summary | priority: 1 | scope: possession",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Poland | type: traversal | priority: 3 | scope: possession",
+        "rule: illegal | source: Cannabis in Poland | type: traversal | priority: 3 | scope: possession",
+        "rule: medical_legal | source: Cannabis in Poland | type: traversal | priority: 3 | scope: use",
+        "rule: legal | source: Cannabis in Poland | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in Poland | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Poland | type: traversal | priority: 3 | scope: trafficking",
+        "rule: illegal | source: Cannabis in Poland | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_prison | source: Cannabis in Poland | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_fine | source: Cannabis in Poland | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_years | source: Cannabis in Poland | type: traversal | priority: 3 | scope: trafficking"
       ]
     },
-    "enforcement_flags": [],
+    "enforcement_flags": [
+      "fine_based"
+    ],
     "applied_rules": [
       "penalty_prison",
-      "penalty_years"
+      "penalty_years",
+      "raw_illegal",
+      "penalty_fine"
     ],
     "notes_normalized": "Cannabis is illegal in Poland / Polska. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
   },
@@ -210,9 +227,9 @@
   },
   "hashes": {
     "code": "pol",
-    "content_hash": "de8ae4a2fa8c68caa1bd233f96cf618bd30e2fe87fd61d2b6fd8cfb311690121",
+    "content_hash": "e76479176cba290d365374205cc3e79136f711e2d177c9a9473c3d1421bf7c9f",
     "notes_hash": "5609cffce428e3e9ce7e12362e2510e8052d2b94dc40d199471fd4dd6b100151",
-    "model_hash": "ac953c0ba4a319e2be90dba0e0d00b4689edbbc78b9cb6b3f2efa5e84a70d332"
+    "model_hash": "862455f5a5cfb714d031a6db75be5e5933fe7c2dd07c46a177c02c40b3747df5"
   },
   "geo_code": "PL",
   "node_type": "country",

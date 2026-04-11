@@ -21,20 +21,19 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
+        "sale": "illegal",
         "cultivation": null,
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -100,12 +99,14 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Kiribati | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Kiribati | type: traversal | priority: 3 | scope: trafficking",
+        "rule: sale_illegal | source: Cannabis in Kiribati | type: traversal | priority: 3 | scope: trafficking"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Kiribati. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -207,9 +208,9 @@
   },
   "hashes": {
     "code": "kir",
-    "content_hash": "948c8db452f89c39b4fea1ec0006052c118b392af42c4f1f9c0a810ce09b620b",
+    "content_hash": "b474c9a480402fec7a3629e4474c65f32b9270a924a30d79f7a187a76023c631",
     "notes_hash": "5d35511816a2641efbb5e04ecff7fa54ae2b4e62426265c13acb5feba2561a05",
-    "model_hash": "bbdbcc1838c3142cd8ebe726032db93a26c84d9b86e5d2f8982f55f3ac49c609"
+    "model_hash": "e3f7187812b31c14dfc406cfbd43e0bc4071155c48359e01d8d0750ed352e5e1"
   },
   "geo_code": "KI",
   "node_type": "country",

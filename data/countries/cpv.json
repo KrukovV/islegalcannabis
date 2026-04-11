@@ -27,14 +27,15 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "flags": [],
+      "modifiers": [
+        "but"
+      ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -76,12 +77,13 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Cape Verde | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Cape Verde | type: traversal | priority: 3 | scope: general"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Cape Verde / Cabo Verde. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -183,9 +185,9 @@
   },
   "hashes": {
     "code": "cpv",
-    "content_hash": "a7cbf98655c6ce0abb3a5019d312912514c16a06673fb03fb995cacb5bd0b437",
+    "content_hash": "c71fa3980a49dec3bda93a9f6ac59ce2caa0542e51e3091db493d1b54498394b",
     "notes_hash": "1311c9600ef0d8123d9b1c083671f81703c096b860c1688f8b7a990c81146719",
-    "model_hash": "b7fb73ae6f438d19dc478949341c747db4d40422455836c10fac8050125c3247"
+    "model_hash": "0b83cb9566ca4e6b7250e40f6e078db96646afe0c2d40dd301703bb74019a3a4"
   },
   "geo_code": "CV",
   "node_type": "country",

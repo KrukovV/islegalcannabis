@@ -27,14 +27,15 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "flags": [],
+      "modifiers": [
+        "however"
+      ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -82,12 +83,13 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Iraq | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Iraq | type: traversal | priority: 3 | scope: general"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Iraq / العراق. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -189,9 +191,9 @@
   },
   "hashes": {
     "code": "irq",
-    "content_hash": "1d3c6d07f28c068802e076a9484017f0c3f392ed64dfb763e85d486d64cce0e1",
+    "content_hash": "52b1d4c71e14dda9dbd7edaae03fa9bad154b4690a9727a675ca51494fdf2901",
     "notes_hash": "8892a54e2633e702841f328270f24943c6d846212ca146aecaaa479d33bee001",
-    "model_hash": "2bbf1dec1da0cadb755b55e37f240f1590bed655d4fcea55caec171af56630c6"
+    "model_hash": "43466917cc17686eb5be7bf3ece4886a8e4eaca8a5ba2799a3e4a1b81ea5b757"
   },
   "geo_code": "IQ",
   "node_type": "country",

@@ -27,14 +27,13 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -88,12 +87,13 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Angola | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Angola | type: traversal | priority: 3 | scope: general"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Angola. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -195,9 +195,9 @@
   },
   "hashes": {
     "code": "ago",
-    "content_hash": "ebe1928803c4dd4a5d65a7ad13aaaae6940e38a1ea6cd79b072b823f0cf081cf",
+    "content_hash": "3e4c16cf31bae5bdd179d22d2746abd63239f976a64ecb572405867d4b21bb27",
     "notes_hash": "94362257aa43ea74bd3395187ca76d6cff00a2a6389b2473aeab4739b8dc35f9",
-    "model_hash": "5af0304340c4f0adbf16c824f883bd468e89551e3147285c8daa7e03d5fcd440"
+    "model_hash": "a8832bc40fad8ff6e50e947c1a173067afbc37a2b5227ce6cd63f90bcdab3e23"
   },
   "geo_code": "AO",
   "node_type": "country",

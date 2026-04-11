@@ -23,22 +23,28 @@
         "use": null,
         "sale": null,
         "cultivation": null,
-        "import": null,
+        "import": "illegal",
         "trafficking": null
       },
       "enforcement": "fine-based",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "but",
+        "only",
+        "up_to",
+        "however"
+      ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
-        "arrest": false,
+        "prison": true,
+        "prison_priority": 3,
+        "arrest": true,
         "fine": true,
-        "severity_score": 1,
+        "severity_score": 4,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -47,12 +53,12 @@
         },
         "trafficking": {
           "prison": false,
-          "arrest": false,
+          "arrest": true,
           "fine": false,
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Myanmar",
@@ -86,19 +92,30 @@
         }
       ],
       "explain": [
-        "rule: penalty_fine | source: Death Penalty Possible in Myanmar Cannabis Farm Case | type: reference | priority: 2 | scope: general",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Myanmar | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Myanmar | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Myanmar | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Myanmar | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in Myanmar | type: traversal | priority: 3 | scope: import",
+        "rule: import_illegal | source: Cannabis in Myanmar | type: traversal | priority: 3 | scope: import",
+        "rule: illegal | source: Cannabis in Myanmar | type: traversal | priority: 3 | scope: import",
+        "rule: legal | source: Cannabis in Myanmar | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_arrest | source: Cannabis in Myanmar | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_fine | source: Death Penalty Possible in Myanmar Cannabis Farm Case | type: reference | priority: 2 | scope: general"
       ]
     },
     "enforcement_flags": [
       "fine_based"
     ],
     "applied_rules": [
-      "penalty_fine"
+      "raw_illegal",
+      "penalty_prison",
+      "penalty_fine",
+      "penalty_arrest"
     ],
-    "notes_normalized": "Cannabis is illegal in Myanmar / မြန်မာ. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is illegal in Myanmar / မြန်မာ. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Myanmar / မြန်မာ. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Myanmar / မြန်မာ. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Myanmar}}",
   "facts": {
     "possession_limit": null,
@@ -196,9 +213,9 @@
   },
   "hashes": {
     "code": "mmr",
-    "content_hash": "2b2d02dbdc73b7bb8e1c7b5f3e3778ff136eb3f137af9d4a21f4c71c58ed8428",
-    "notes_hash": "058af50d86e86ab09aed1c9cfac7c5d649e4f9f4be8ed4dfef723cce2b6a7e3a",
-    "model_hash": "d286c60bb3ab25f1df97b33730c7dd51541ba82c5c67267c0071a8b77fff0324"
+    "content_hash": "63830662b9fb838767cb260a5ee424a3fa98380353897e787f8d36197e23b6a9",
+    "notes_hash": "e8334dfa73ed3fda04b2e73c697ee50fc68ae3501f36fd1cdf9b9746ef6d88f8",
+    "model_hash": "718f71c001cc055e74965e4a11085618b1af4539cd83aa00b6ee558b6456e7cb"
   },
   "geo_code": "MM",
   "node_type": "country",

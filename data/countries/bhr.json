@@ -24,23 +24,24 @@
         "sale": null,
         "cultivation": null,
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [
-        "distribution_fallback_illegal"
+        "trafficking_illegal"
       ],
       "modifiers": []
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
-        "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "prison": true,
+        "prison_priority": 3,
+        "arrest": true,
+        "fine": true,
+        "severity_score": 4,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -48,13 +49,13 @@
           "severe": false
         },
         "trafficking": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
-          "fine": false,
-          "severe": false
+          "fine": true,
+          "severe": true
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Bahrain",
@@ -88,16 +89,27 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Bahrain | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Bahrain | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Bahrain | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_arrest | source: Cannabis in Bahrain | type: traversal | priority: 3 | scope: cultivation",
+        "rule: penalty_prison | source: Cannabis in Bahrain | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Bahrain | type: traversal | priority: 3 | scope: trafficking"
       ]
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "distribution_fallback_illegal"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is illegal in Bahrain / البحرين. Medical cannabis is illegal. Distribution is illegal."
+    "applied_rules": [
+      "raw_illegal",
+      "penalty_fine",
+      "penalty_arrest",
+      "penalty_prison",
+      "trafficking_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Bahrain / البحرين. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Bahrain / البحرين. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Bahrain / البحرين. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Bahrain}}",
   "facts": {
     "possession_limit": null,
@@ -195,9 +207,9 @@
   },
   "hashes": {
     "code": "bhr",
-    "content_hash": "a4d25d2ec5e83bd6124244d2c868e6f356e2f46c35ce1c583888c043f9570b9c",
-    "notes_hash": "4099c31635fb6ea498f4d846ff752b49bc7a8bc3dc9823c8edd2cdfe3af29d21",
-    "model_hash": "b18721d32f31b05fd43fd77ac11f460808a59f42aa5ad85f75de42e0e33abde8"
+    "content_hash": "99d56492d4e6b5bca74af6168c1d4a50b792da737904520bce288880c1d6c773",
+    "notes_hash": "de31eb043475de70851cd834341d60f22d345bfdf87fa3c42d7b962a4e15da34",
+    "model_hash": "2a9f84cc0356febac598db322aeb94c0011c35a3bd85d81cc88b0f05a7810b34"
   },
   "geo_code": "BH",
   "node_type": "country",

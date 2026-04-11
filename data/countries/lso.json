@@ -33,6 +33,7 @@
     "signals": {
       "status": "tolerated",
       "final_risk": "UNKNOWN",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -207,9 +208,9 @@
   },
   "hashes": {
     "code": "lso",
-    "content_hash": "b17944c8d2c86a0231e82ff99d52323e7d902e582e3a5c91facfe5611437ac57",
+    "content_hash": "265a0348997cc27c16382fcb48dd6bb24375ebd2342119af47b59cd3da4dbcb4",
     "notes_hash": "c9fb117416651d2e93de5c79ca5302eddf1903c6d5117ec1d51aff9a1a5d4656",
-    "model_hash": "69ca23e8ce9e57536ded1f28ffffbc1bbb976705afd0dea2555cfb908dde045d"
+    "model_hash": "d796c360e0f5131b9132cde733feeadd8bf5872bc90040780cca3b28daeef064"
   },
   "geo_code": "LS",
   "node_type": "country",

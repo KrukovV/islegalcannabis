@@ -27,25 +27,28 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "flags": [],
+      "modifiers": [
+        "however",
+        "only",
+        "up_to"
+      ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
         "fine": false,
-        "severity_score": 0,
+        "severity_score": 5,
         "possession": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
           "fine": false,
-          "severe": false
+          "severe": true
         },
         "trafficking": {
           "prison": false,
@@ -54,7 +57,7 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Kenya",
@@ -100,16 +103,23 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Kenya | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Kenya | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_years | source: Cannabis in Kenya | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Kenya | type: traversal | priority: 3 | scope: use",
+        "rule: raw_illegal | source: Cannabis in Kenya | type: traversal | priority: 3 | scope: use",
+        "rule: illegal | source: Cannabis in Kenya | type: traversal | priority: 3 | scope: use"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal",
+      "penalty_years",
+      "penalty_prison"
     ],
-    "notes_normalized": "Cannabis is illegal in Kenya. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is illegal in Kenya. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Kenya. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Kenya. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Kenya}}",
   "facts": {
     "possession_limit": null,
@@ -207,9 +217,9 @@
   },
   "hashes": {
     "code": "ken",
-    "content_hash": "9e2f879d1105a64a46995d50da74ee4fcbd10d0680713c749cfbd3da10f1fedb",
-    "notes_hash": "9d8e9f11e55f34e8f9f5820254d436fe6db52529393113d672cb1d20a8fd44e8",
-    "model_hash": "ad0a812f1c0407af59f418118f3ebc85e1dca61424c32739d30b5891097b59f4"
+    "content_hash": "6aa8d50acad00ce696b1fd2f95deffea9ded696c4ff40fe0f655bcdd21109eb5",
+    "notes_hash": "b5df4f2aeb7b31754b129fdd495141f856bf372b04d67110201f643b6b33471b",
+    "model_hash": "3ed4230043fd90371e34497c75f996b615bb35feece09ef8686d82234ce98e38"
   },
   "geo_code": "KE",
   "node_type": "country",

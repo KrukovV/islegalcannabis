@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -164,9 +165,9 @@
   },
   "hashes": {
     "code": "esh",
-    "content_hash": "648c0050192ecfd85ae09ee764f540007d6a58e7d718c8e897a9683addd0482e",
+    "content_hash": "eb30ff411bb40d622bc14215e2d7eb776c2cd8f624ebb57ec60a603632266d5d",
     "notes_hash": "cfac79f8a2ce861e52f5f9256e3ff237f79d6be199537e7c6483d9f82d5c6ca2",
-    "model_hash": "4025c5844f64639f8cb9b7887aa649111eacf8e9d70375a495233f6e2f21f6ef"
+    "model_hash": "afc74a4cb4bfc62a8897397046ab16ddf55602525df0cdde509434fe6f6880c4"
   },
   "geo_code": "EH",
   "node_type": "country",

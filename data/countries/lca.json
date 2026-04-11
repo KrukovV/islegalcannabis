@@ -28,11 +28,15 @@
       },
       "enforcement": "standard",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "up_to",
+        "only"
+      ]
     },
     "signals": {
       "status": "restricted",
       "final_risk": "LIMITED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -74,11 +78,13 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: legal | source: Cannabis in Saint Lucia | type: traversal | priority: 3 | scope: general",
+        "rule: possession_decriminalized | source: Cannabis in Saint Lucia | type: traversal | priority: 3 | scope: use"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
+      "possession_decriminalized",
       "rec_implies_med_floor"
     ],
     "notes_normalized": "Cannabis is decriminalized in Saint Lucia. Medical cannabis is limited. Distribution is restricted."
@@ -181,9 +187,9 @@
   },
   "hashes": {
     "code": "lca",
-    "content_hash": "c7d627674e86ad2fea5929e97598b648b82bf2e2de25fbeced6aa6ffb1b38bde",
+    "content_hash": "845eadcef3a9a84f8ce47a57dba620306b519c26fac33b722227dceec844d53a",
     "notes_hash": "83068061f3b552cf968312e6bfdd4a2e41e81d85a8d79c0c83b0f941559889cb",
-    "model_hash": "29274d46a2a9f401a33fc81f63d8135fee38112712201e467d99536b11a01d10"
+    "model_hash": "d0ad805337205f446dd721a99eca5132b0cfc2a47e2bbff16bb39fc08035264d"
   },
   "geo_code": "LC",
   "node_type": "country",

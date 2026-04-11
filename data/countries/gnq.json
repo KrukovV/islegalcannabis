@@ -21,26 +21,27 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
+        "sale": "illegal",
         "cultivation": null,
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
-      "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": [
+        "only"
+      ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
-        "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "arrest": true,
+        "fine": true,
+        "severity_score": 2,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -49,12 +50,12 @@
         },
         "trafficking": {
           "prison": false,
-          "arrest": false,
-          "fine": false,
+          "arrest": true,
+          "fine": true,
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Equatorial Guinea",
@@ -100,12 +101,20 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Equatorial Guinea | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_fine | source: Cannabis in Equatorial Guinea | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Equatorial Guinea | type: traversal | priority: 3 | scope: trafficking",
+        "rule: sale_illegal | source: Cannabis in Equatorial Guinea | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_arrest | source: Cannabis in Equatorial Guinea | type: traversal | priority: 3 | scope: trafficking"
       ]
     },
-    "enforcement_flags": [],
+    "enforcement_flags": [
+      "fine_based"
+    ],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal",
+      "penalty_fine",
+      "penalty_arrest"
     ],
     "notes_normalized": "Cannabis is illegal in Equatorial Guinea / Guinée équatoriale. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -207,9 +216,9 @@
   },
   "hashes": {
     "code": "gnq",
-    "content_hash": "583e57127e2c0ae4a40fe9c5ba06114ef69c34208376414a005ec22c1298c2a1",
+    "content_hash": "c3f3912fca0138a2cd7aa9a284f9a59dc1622ac914008c2712e701f18f60d23f",
     "notes_hash": "9460a5bd07ced8dcbee3ba183d26b4d580e2157528e6cf28277164d75ca349a9",
-    "model_hash": "4bbf56622b23291199222873f96ad5482907b080413676351b823cdce7afd4e2"
+    "model_hash": "31a0539db3656aecc81b049beb8c7215e8c079304cc0653b5eef82b1b88dc9b0"
   },
   "geo_code": "GQ",
   "node_type": "country",

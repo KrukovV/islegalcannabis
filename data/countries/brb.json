@@ -26,25 +26,28 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_restricted"
-      ],
-      "modifiers": []
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": [
+        "but",
+        "only",
+        "up_to"
+      ]
     },
     "signals": {
-      "status": "restricted",
-      "final_risk": "LIMITED",
+      "status": "illegal",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 4,
         "possession": {
           "prison": false,
           "arrest": false,
-          "fine": false,
+          "fine": true,
           "severe": false
         },
         "trafficking": {
@@ -54,7 +57,7 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Barbados",
@@ -100,16 +103,29 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Barbados | type: traversal | priority: 3 | scope: use",
+        "rule: illegal | source: Cannabis in Barbados | type: traversal | priority: 3 | scope: use",
+        "rule: medical_legal | source: Cannabis in Barbados | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_fine | source: Cannabis in Barbados | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_fine | source: Cannabis in Barbados | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Barbados | type: traversal | priority: 3 | scope: cultivation",
+        "rule: raw_illegal | source: Cannabis in Barbados | type: traversal | priority: 3 | scope: cultivation",
+        "rule: penalty_years | source: Cannabis in Barbados | type: traversal | priority: 3 | scope: cultivation",
+        "rule: illegal | source: Cannabis in Barbados | type: traversal | priority: 3 | scope: cultivation"
       ]
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "distribution_fallback_restricted"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is legal in Barbados. Medical cannabis is legal. Distribution is restricted."
+    "applied_rules": [
+      "raw_illegal",
+      "penalty_fine",
+      "penalty_prison",
+      "penalty_years"
+    ],
+    "notes_normalized": "Cannabis is legal in Barbados. Medical cannabis is legal. Distribution is restricted. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is legal in Barbados. Medical cannabis is legal. Distribution is restricted.",
+  "notes_normalized": "Cannabis is legal in Barbados. Medical cannabis is legal. Distribution is restricted. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Barbados}}",
   "facts": {
     "possession_limit": null,
@@ -207,9 +223,9 @@
   },
   "hashes": {
     "code": "brb",
-    "content_hash": "b68604faf9efea4c71868873741b7981627e3709d939e0177dd3da456d4fcd9a",
-    "notes_hash": "4b384b9a4ba7e178bf9d7ac8bc9bb9a51712b7e3d3b0e3f46cd7d81e3e27ac2c",
-    "model_hash": "f0a58541280921d1a37b4522a13219ec150e6e173c503ed5bcddd2d834f010ae"
+    "content_hash": "a8252355d123838c10723f6bb4beb0df6db8256f4f586087ad9e9456012e9067",
+    "notes_hash": "d5d8d924f397aaa02154d34767b9b797d6e8ecbc0cf405409b80fdf6aede6ba5",
+    "model_hash": "11b70d2bf24d97719ae2f2f851648aae7b6cd6d827ba4932bbf78ea75a7a93f8"
   },
   "geo_code": "BB",
   "node_type": "country",

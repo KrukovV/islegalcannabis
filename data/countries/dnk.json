@@ -11,9 +11,9 @@
     },
     "medical": {
       "raw_status": "LEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "MEDICAL_ONLY",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
       "override_reason": null
     },
     "distribution": {
@@ -21,40 +21,45 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
-        "cultivation": null,
+        "sale": "illegal",
+        "cultivation": "tolerated",
         "import": null,
         "trafficking": null
       },
       "enforcement": "fine-based",
       "flags": [],
       "modifiers": [
-        "up_to"
+        "up_to",
+        "but",
+        "however",
+        "only",
+        "may"
       ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 1,
+        "prison_priority": 3,
         "arrest": false,
         "fine": true,
-        "severity_score": 4,
+        "severity_score": 8,
         "possession": {
           "prison": false,
           "arrest": false,
-          "fine": false,
+          "fine": true,
           "severe": false
         },
         "trafficking": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
           "fine": false,
-          "severe": false
+          "severe": true
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Denmark",
@@ -80,7 +85,23 @@
         "rule: penalty_fine | source: Denmark / Danmark | type: summary | priority: 1 | scope: general",
         "rule: penalty_years | source: Denmark / Danmark | type: summary | priority: 1 | scope: general",
         "rule: penalty_criminal_offense | source: Denmark / Danmark | type: summary | priority: 1 | scope: general",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Denmark | type: traversal | priority: 3 | scope: use",
+        "rule: medical_legal | source: Cannabis in Denmark | type: traversal | priority: 3 | scope: use",
+        "rule: raw_illegal | source: Cannabis in Denmark | type: traversal | priority: 3 | scope: sale",
+        "rule: sale_illegal | source: Cannabis in Denmark | type: traversal | priority: 3 | scope: sale",
+        "rule: illegal | source: Cannabis in Denmark | type: traversal | priority: 3 | scope: sale",
+        "rule: sale_tolerated | source: Cannabis in Denmark | type: traversal | priority: 3 | scope: sale",
+        "rule: penalty_fine | source: Cannabis in Denmark | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_fine | source: Cannabis in Denmark | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Denmark | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in Denmark | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Denmark | type: traversal | priority: 3 | scope: general",
+        "rule: private_cultivation | source: Cannabis in Denmark | type: traversal | priority: 3 | scope: cultivation",
+        "rule: medical_legal | source: Cannabis in Denmark | type: traversal | priority: 3 | scope: cultivation",
+        "rule: raw_illegal | source: Cannabis in Denmark | type: traversal | priority: 3 | scope: cultivation",
+        "rule: illegal | source: Cannabis in Denmark | type: traversal | priority: 3 | scope: cultivation",
+        "rule: penalty_years | source: Cannabis in Denmark | type: traversal | priority: 3 | scope: sale",
+        "rule: legal | source: Cannabis in Denmark | type: traversal | priority: 3 | scope: general"
       ]
     },
     "enforcement_flags": [
@@ -90,11 +111,13 @@
       "penalty_prison",
       "penalty_fine",
       "penalty_years",
-      "penalty_criminal_offense"
+      "penalty_criminal_offense",
+      "raw_illegal",
+      "private_cultivation"
     ],
-    "notes_normalized": "Cannabis is illegal in Denmark / Danmark. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Denmark / Danmark. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Denmark / Danmark. Medical cannabis is legal. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Denmark / Danmark. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Denmark}} As with all drugs, cannabis-related offenses are punishable by a fine or imprisonment for up to 2 years.<ref>{{citation |url = http://www.1stmarijuanagrowerspage.com/denmark-marijuana-cannabis-laws.html |title = Denmark marijuana laws – cannabis growing and marijuana seeds |publisher = 1stmarijuanagrowerspage.com |access-date = 17 February 2011 |archive-date = 20 May 2019 |archive-url = https://web.archive.org/web/20190520155622/http://www.1stmarijuanagrowerspage.com/denmark-marijuana-cannabis-laws.html |url-status = live }}</ref> [[Freetown Christiania]], a self-declared autonomous community in [[Copenhagen]], is known for its cannabis trade.<ref>{{cite news |last1=Radicella |first1=Lucas |title=Copenhagen's largest cannabis market shut down |url=https://www.euronews.com/2018/05/22/copenhagen-s-largest-cannabis-market-shut-down |publisher=[[Euronews]] |access-date=17 October 2018 |date=22 May 2018 |archive-date=17 October 2018 |archive-url=https://web.archive.org/web/20181017123732/https://www.euronews.com/2018/05/22/copenhagen-s-largest-cannabis-market-shut-down |url-status=live }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -165,26 +188,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "lux",
-        "name": "Luxembourg / Luxemburg"
-      },
-      {
         "code": "swe",
         "name": "Sweden / Sverige"
       },
       {
-        "code": "cze",
-        "name": "Czechia / Česko"
+        "code": "lie",
+        "name": "Liechtenstein"
+      },
+      {
+        "code": "ala",
+        "name": "Åland Islands / Åland"
       }
     ],
     "cluster_links": [
       {
-        "code": "bel",
-        "name": "Belgium / Belgien"
+        "code": "lux",
+        "name": "Luxembourg / Luxemburg"
       },
       {
-        "code": "lie",
-        "name": "Liechtenstein"
+        "code": "bel",
+        "name": "Belgium / Belgien"
       }
     ],
     "same_country_states": [],
@@ -192,9 +215,9 @@
   },
   "hashes": {
     "code": "dnk",
-    "content_hash": "8d88181343eb686c0fb7c05cce912cbcb154249f73a9640706cd5d414e776ff8",
-    "notes_hash": "effed591065f2c95740deedd08f3e17781a56bc30e018f7134dbfbe55c52b9d9",
-    "model_hash": "5af80fa87d9f59d3dff3f17c9b40255752f616051d083d48e306f41816d0e124"
+    "content_hash": "b7172cfc0113b3bb9afe0f92ad7c54f36dd0896a67e0c9b2b69fb9815e03fcda",
+    "notes_hash": "93387252bdc77a7cd077613dd7ffbb754244d02f0e01aa91dddc983323ba8bc1",
+    "model_hash": "b4f79cc4d4bbf1e63e2cc7f75edc341309782b412b689370ff7d3ddf06fadd73"
   },
   "geo_code": "DK",
   "node_type": "country",

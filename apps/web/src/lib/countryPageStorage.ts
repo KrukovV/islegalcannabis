@@ -87,6 +87,7 @@ export type CountryPageData = {
     signals?: {
       status: CountryDistributionStatus;
       final_risk?: "HIGH_RISK" | "RESTRICTED" | "LIMITED" | "UNKNOWN";
+      enforcement_level?: "active" | "rare" | "unenforced";
       penalties: {
         prison: boolean;
         arrest: boolean;

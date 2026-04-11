@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -207,9 +208,9 @@
   },
   "hashes": {
     "code": "swz",
-    "content_hash": "ad536f2e017ddb67ea2e7bf14897e0cc71a440d0315956ddc0d19a31acd9e622",
+    "content_hash": "3542e3e4c711c6aec50ce90c4ae072f82aeae33c1f1e1e64ded25c90e39c9a04",
     "notes_hash": "a0181ccdfdf53d6a5202a931fca56934d9cf110763c086a10ce26620205e800f",
-    "model_hash": "9dbaf5dc07dd48ab2180be2f92649be26f5d62d0287f1225efade3dd5dab5fea"
+    "model_hash": "53b38dc01d65521a2f25ba0b5856d6ecc1e5c11abed549f07a19cbd7d000fb47"
   },
   "geo_code": "SZ",
   "node_type": "country",

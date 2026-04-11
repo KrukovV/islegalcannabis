@@ -31,12 +31,14 @@
       "modifiers": [
         "however",
         "but",
-        "may"
+        "may",
+        "only"
       ]
     },
     "signals": {
-      "status": "tolerated",
-      "final_risk": "HIGH_RISK",
+      "status": "restricted",
+      "final_risk": "RESTRICTED",
+      "enforcement_level": "unenforced",
       "penalties": {
         "prison": true,
         "prison_priority": 2,
@@ -108,14 +110,25 @@
         "rule: private_cultivation | source: United States | type: summary | priority: 1 | scope: sale",
         "rule: legal | source: United States | type: summary | priority: 1 | scope: sale",
         "rule: penalty_years | source: United States | type: summary | priority: 1 | scope: possession",
-        "rule: penalty_years | source: 50 Years After Nixon's Commission Said Cops Should Stop Busting Pot Users, the Federal Ban Remains Unchanged | type: reference | priority: 2 | scope: general",
-        "no traversal evidence"
+        "rule: medical_legal | source: Legality of cannabis by U.S. jurisdiction | type: traversal | priority: 3 | scope: use",
+        "rule: enforcement_unenforced | source: Legality of cannabis by U.S. jurisdiction | type: traversal | priority: 3 | scope: sale",
+        "rule: legal | source: Legality of cannabis by U.S. jurisdiction | type: traversal | priority: 3 | scope: sale",
+        "rule: legal | source: Legality of cannabis by U.S. jurisdiction | type: traversal | priority: 3 | scope: use",
+        "rule: possession_decriminalized | source: Legality of cannabis by U.S. jurisdiction | type: traversal | priority: 3 | scope: use",
+        "rule: private_cultivation | source: Legality of cannabis by U.S. jurisdiction | type: traversal | priority: 3 | scope: cultivation",
+        "rule: legal | source: Legality of cannabis by U.S. jurisdiction | type: traversal | priority: 3 | scope: cultivation",
+        "rule: legal | source: Legality of cannabis by U.S. jurisdiction | type: traversal | priority: 3 | scope: import",
+        "rule: penalty_years | source: 50 Years After Nixon's Commission Said Cops Should Stop Busting Pot Users, the Federal Ban Remains Unchanged | type: reference | priority: 2 | scope: general"
       ]
     },
-    "enforcement_flags": [],
+    "enforcement_flags": [
+      "weak_enforcement"
+    ],
     "applied_rules": [
       "private_cultivation",
       "penalty_years",
+      "enforcement_unenforced",
+      "possession_decriminalized",
       "rec_implies_med_floor"
     ],
     "notes_normalized": "Cannabis is decriminalized in United States. Medical cannabis is limited. Distribution is tolerated. Prison exposure detected."
@@ -218,9 +231,9 @@
   },
   "hashes": {
     "code": "usa",
-    "content_hash": "0bd339073e6bdbfc056a95b6ba136971d4defc1c446c3f1581cd612c5f11a2b1",
+    "content_hash": "c0d30069d4c2a93a05e70b95fa109859e151f4fcd6bd043ad87c99cfa35890bb",
     "notes_hash": "a10f182e18de0e36ac18f103f9402509100fb862db4992aad87b1624b782b097",
-    "model_hash": "6ba7ba1514945c34b2a2a279360666d1694754fb2653a06a94fa44baeb5f28e9"
+    "model_hash": "8833f17615a2206105bb2006d9585edf14a6d74c1e29a58a6b6db4fd786ef7ea"
   },
   "geo_code": "US",
   "node_type": "country",

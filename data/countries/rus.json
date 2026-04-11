@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
         "prison": true,
         "prison_priority": 2,
@@ -224,9 +225,9 @@
   },
   "hashes": {
     "code": "rus",
-    "content_hash": "d8262de9292414f55d75f19c2c9b530fcc7d3b0916817949ae124b3662f54424",
+    "content_hash": "55233d164dc641b8c924a573473d98fac0cabf1d8f742a1a49f72e75cebfe5d9",
     "notes_hash": "b5e6a5a6c9d3bc84a4a23b66dc7fbedc40f167565121fdc08a39548d59d95289",
-    "model_hash": "d3de948c290570b2ac7ee373bc7dd6fa3daa23f56594ca44a040721d5fa6f700"
+    "model_hash": "d278387590610fa61ac8b8dd47ecf6c1644dc12f67b9d095283d753ed509b008"
   },
   "geo_code": "RU",
   "node_type": "country",

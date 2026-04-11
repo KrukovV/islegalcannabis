@@ -1,12 +1,13 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 
 const CHECK_MS = 30_000;
 const DISMISSED_BUILD_KEY = "build-watcher-dismissed-stamp";
 const PENDING_BUILD_KEY = "build-watcher-pending-stamp";
+const PENDING_RELOAD_COUNT_KEY = "build-watcher-pending-reload-count";
 const REFRESH_PARAM = "__runtime_refresh";
+const MAX_PENDING_RELOADS = 3;
 
 type BuildMeta = {
   buildId?: string;
@@ -44,17 +45,6 @@ function resetClientRuntimePrefetch() {
   delete host.__NEW_MAP_PREFETCH__;
 }
 
-async function waitForRuntimeStamp(expectedStamp: string, timeoutMs = 5_000) {
-  const startedAt = Date.now();
-  while (Date.now() - startedAt < timeoutMs) {
-    if (getClientRuntimeStamp() === expectedStamp) {
-      return true;
-    }
-    await new Promise((resolve) => window.setTimeout(resolve, 120));
-  }
-  return false;
-}
-
 function buildRefreshUrl(expectedStamp: string) {
   if (typeof window === "undefined") {
     return "/";
@@ -65,12 +55,10 @@ function buildRefreshUrl(expectedStamp: string) {
 }
 
 export default function BuildWatcher() {
-  const router = useRouter();
   const isProduction = process.env.NODE_ENV === "production";
   const [nextRuntimeStamp, setNextRuntimeStamp] = useState<string | null>(null);
   const [dismissed, setDismissed] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
-  const isNewMapRoute = typeof window !== "undefined" && window.location.pathname.startsWith("/new-map");
 
   useEffect(() => {
     if (typeof window === "undefined") {
@@ -80,6 +68,7 @@ export default function BuildWatcher() {
     const currentStamp = getClientRuntimeStamp();
     if (pendingStamp && pendingStamp === currentStamp) {
       window.sessionStorage.removeItem(PENDING_BUILD_KEY);
+      window.sessionStorage.removeItem(PENDING_RELOAD_COUNT_KEY);
       const url = new URL(window.location.href);
       if (url.searchParams.has(REFRESH_PARAM)) {
         url.searchParams.delete(REFRESH_PARAM);
@@ -87,6 +76,19 @@ export default function BuildWatcher() {
       }
       setNextRuntimeStamp(null);
       setDismissed(false);
+      setRefreshing(false);
+      return;
+    }
+    if (pendingStamp && pendingStamp !== currentStamp) {
+      const attempts = Number(window.sessionStorage.getItem(PENDING_RELOAD_COUNT_KEY) || "0");
+      if (attempts < MAX_PENDING_RELOADS) {
+        window.sessionStorage.setItem(PENDING_RELOAD_COUNT_KEY, String(attempts + 1));
+        resetClientRuntimePrefetch();
+        window.location.replace(buildRefreshUrl(pendingStamp));
+        return;
+      }
+      window.sessionStorage.removeItem(PENDING_RELOAD_COUNT_KEY);
+      setRefreshing(false);
     }
   }, []);
 
@@ -99,27 +101,17 @@ export default function BuildWatcher() {
       if (typeof window !== "undefined") {
         window.localStorage.removeItem(DISMISSED_BUILD_KEY);
         window.sessionStorage.setItem(PENDING_BUILD_KEY, nextRuntimeStamp);
-      }
-      resetClientRuntimePrefetch();
-      router.refresh();
-      const synced = await waitForRuntimeStamp(nextRuntimeStamp, 1_500);
-      if (synced) {
-        if (typeof window !== "undefined") {
-          window.sessionStorage.removeItem(PENDING_BUILD_KEY);
-        }
+        window.sessionStorage.setItem(PENDING_RELOAD_COUNT_KEY, "0");
         setNextRuntimeStamp(null);
         setDismissed(false);
-        return;
-      }
-      resetClientRuntimePrefetch();
-      if (typeof window !== "undefined") {
-        window.location.assign(buildRefreshUrl(nextRuntimeStamp));
+        resetClientRuntimePrefetch();
+        window.location.replace(buildRefreshUrl(nextRuntimeStamp));
         return;
       }
     } finally {
       setRefreshing(false);
     }
-  }, [nextRuntimeStamp, refreshing, router]);
+  }, [nextRuntimeStamp, refreshing]);
 
   useEffect(() => {
     let alive = true;
@@ -170,7 +162,7 @@ export default function BuildWatcher() {
     };
   }, []);
 
-  if (isProduction || isNewMapRoute || !nextRuntimeStamp || dismissed) {
+  if (isProduction || !nextRuntimeStamp || dismissed) {
     return null;
   }
 

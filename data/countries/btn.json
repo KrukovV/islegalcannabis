@@ -35,12 +35,13 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
-        "arrest": false,
+        "arrest": true,
         "fine": false,
-        "severity_score": 0,
+        "severity_score": 2,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -102,12 +103,15 @@
       "explain": [
         "rule: raw_illegal | source: Bhutan / འབྲུག་ཡུལ་ | type: summary | priority: 1 | scope: cultivation",
         "rule: illegal | source: Bhutan / འབྲུག་ཡུལ་ | type: summary | priority: 1 | scope: cultivation",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Bhutan | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Bhutan | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_arrest | source: Cannabis in Bhutan | type: traversal | priority: 3 | scope: general"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal"
+      "raw_illegal",
+      "penalty_arrest"
     ],
     "notes_normalized": "Cannabis is illegal in Bhutan / འབྲུག་ཡུལ་. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -209,9 +213,9 @@
   },
   "hashes": {
     "code": "btn",
-    "content_hash": "09a970e6e750dc5a6dca2174d664e6ac0926a22bdf7d9b6b3d55c0c1b713ee5e",
+    "content_hash": "14bf77b30241f79b970d3e21007e8ca56ea02bbbdf416e37d09283a8d500a371",
     "notes_hash": "cec92f6f8f088b0b453f72d9417c64373f3af1593e4a988201b09dec7521d332",
-    "model_hash": "8677be8e784accbfa20426e5c4a428e516fcdd4d4c3e9e4fc3aff4568c3adc9b"
+    "model_hash": "7ae9d8343f67acba6618a9b71aad9c94c7fa586c872057d86710939b67e4bbbb"
   },
   "geo_code": "BT",
   "node_type": "country",

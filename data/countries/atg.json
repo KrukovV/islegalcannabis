@@ -26,19 +26,22 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "but"
+      ]
     },
     "signals": {
       "status": "restricted",
       "final_risk": "LIMITED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 1,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -48,11 +51,11 @@
         "trafficking": {
           "prison": false,
           "arrest": false,
-          "fine": false,
+          "fine": true,
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Antigua and Barbuda",
@@ -92,11 +95,20 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Antigua and Barbuda | type: traversal | priority: 3 | scope: general",
+        "rule: possession_decriminalized | source: Cannabis in Antigua and Barbuda | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Antigua and Barbuda | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Antigua and Barbuda | type: traversal | priority: 3 | scope: sale",
+        "rule: legal | source: Cannabis in Antigua and Barbuda | type: traversal | priority: 3 | scope: sale"
       ]
     },
-    "enforcement_flags": [],
+    "enforcement_flags": [
+      "fine_based"
+    ],
     "applied_rules": [
+      "raw_illegal",
+      "possession_decriminalized",
+      "penalty_fine",
       "rec_implies_med_floor"
     ],
     "notes_normalized": "Cannabis is decriminalized in Antigua and Barbuda. Medical cannabis is limited. Distribution is restricted."
@@ -199,9 +211,9 @@
   },
   "hashes": {
     "code": "atg",
-    "content_hash": "e3a29a7469fae9245b82e4371c61b913395ef216950b7385e47e862390816b8e",
+    "content_hash": "f48c38ee5e0600117d8a5548b0cb1d474eb7a70ddd9fdda9bd71415a7a3f6958",
     "notes_hash": "172ac1f0db0866852b2c9f27086532cf9eb91088a96deb5d40762d0e259a4f97",
-    "model_hash": "e9bbd252efcaa2ab6ebfafe6972dd935bceaef188eb27570cb212af69da123af"
+    "model_hash": "8bf7b1f7ae72d0ae44bc53cbdd69f9a50f921c66a83cb86769f27a3412b29e0c"
   },
   "geo_code": "AG",
   "node_type": "country",

@@ -24,37 +24,41 @@
         "sale": null,
         "cultivation": null,
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
       "enforcement": "standard",
       "flags": [
-        "distribution_fallback_illegal"
+        "trafficking_illegal"
       ],
-      "modifiers": []
+      "modifiers": [
+        "up_to",
+        "may"
+      ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
-        "arrest": false,
+        "prison": true,
+        "prison_priority": 3,
+        "arrest": true,
         "fine": false,
-        "severity_score": 0,
+        "severity_score": 4,
         "possession": {
           "prison": false,
-          "arrest": false,
+          "arrest": true,
           "fine": false,
           "severe": false
         },
         "trafficking": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
           "fine": false,
-          "severe": false
+          "severe": true
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Andorra",
@@ -76,16 +80,23 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Andorra | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Andorra | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Andorra | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Andorra | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_arrest | source: Cannabis in Andorra | type: traversal | priority: 3 | scope: use"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal",
+      "penalty_prison",
+      "trafficking_illegal",
+      "penalty_arrest"
     ],
-    "notes_normalized": "Cannabis is illegal in Andorra. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is illegal in Andorra. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Andorra. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Andorra. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Andorra}}",
   "facts": {
     "possession_limit": null,
@@ -183,9 +194,9 @@
   },
   "hashes": {
     "code": "and",
-    "content_hash": "42c979cd2ec558a2236d154de534def85eba10c911dfb226d483252f2e96270b",
-    "notes_hash": "0c80a8e0b72519e76aa8b9c29390115d4cc33fe27d5f9c7757daac576ad86893",
-    "model_hash": "b632fe8e0e8db2b7d582c135e5b817a5942d809270be4fa79e16c6ade6608aa4"
+    "content_hash": "b1236dcc99306a4ec77825c5f9a6713aac3c86e4401c1afba0ff9f304c36f8a7",
+    "notes_hash": "371c9082100d585254d96f48231ddc89aab7e54a3c401257eabb8f56680172f6",
+    "model_hash": "d9cd3a3f2196cc454a8cdf2cf9cb12d57608911548d519ceda6d5607dace70f7"
   },
   "geo_code": "AD",
   "node_type": "country",

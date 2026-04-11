@@ -21,20 +21,19 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
+        "sale": "illegal",
         "cultivation": null,
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -76,12 +75,17 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in the Central African Republic | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in the Central African Republic | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in the Central African Republic | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in the Central African Republic | type: traversal | priority: 3 | scope: trafficking",
+        "rule: sale_illegal | source: Cannabis in the Central African Republic | type: traversal | priority: 3 | scope: trafficking",
+        "rule: illegal | source: Cannabis in the Central African Republic | type: traversal | priority: 3 | scope: trafficking"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Central African Republic / République centrafricaine. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -183,9 +187,9 @@
   },
   "hashes": {
     "code": "caf",
-    "content_hash": "e98686e13db273997fcd2cc50b370741ae1d7f40101c1c9d70872b87dfe4d0f6",
+    "content_hash": "8b627a910fed791aab4dc516559ba27abe56d24dd039d2b732f3c864cf76a30f",
     "notes_hash": "2717d7cdddfad0902b1fce5f3ef074ba9a2bb1fa6cd38d832488860fc869849a",
-    "model_hash": "077e2ea1abc691782b458bd872ad92f5bb4c2b8323a5e9d016e1d9ff0f05ac58"
+    "model_hash": "88aa9b07350fd82860348e29a72bf989111f8f1042a197745ee22c45b1c1fb07"
   },
   "geo_code": "CF",
   "node_type": "country",

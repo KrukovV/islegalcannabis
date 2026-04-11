@@ -21,33 +21,33 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
+        "sale": "illegal",
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": [
+        "but",
         "may"
       ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
         "fine": false,
-        "severity_score": 0,
+        "severity_score": 4,
         "possession": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
           "fine": false,
-          "severe": false
+          "severe": true
         },
         "trafficking": {
           "prison": false,
@@ -56,7 +56,7 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Seychelles",
@@ -102,16 +102,29 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Seychelles | type: traversal | priority: 3 | scope: sale",
+        "rule: sale_illegal | source: Cannabis in Seychelles | type: traversal | priority: 3 | scope: sale",
+        "rule: illegal | source: Cannabis in Seychelles | type: traversal | priority: 3 | scope: sale",
+        "rule: raw_illegal | source: Cannabis in Seychelles | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Seychelles | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in Seychelles | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Seychelles | type: traversal | priority: 3 | scope: general",
+        "rule: medical_legal | source: Cannabis in Seychelles | type: traversal | priority: 3 | scope: use",
+        "rule: raw_illegal | source: Cannabis in Seychelles | type: traversal | priority: 3 | scope: use",
+        "rule: illegal | source: Cannabis in Seychelles | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Cannabis in Seychelles | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_years | source: Cannabis in Seychelles | type: traversal | priority: 3 | scope: use"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal",
+      "penalty_prison",
+      "penalty_years"
     ],
-    "notes_normalized": "Cannabis is illegal in Seychelles / Sesel. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is illegal in Seychelles / Sesel. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Seychelles / Sesel. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Seychelles / Sesel. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Seychelles}}",
   "facts": {
     "possession_limit": null,
@@ -209,9 +222,9 @@
   },
   "hashes": {
     "code": "syc",
-    "content_hash": "d82cdf3029408abaa3c06dde42fadd4204cd61a4e58858a1212ea86d9b11b08d",
-    "notes_hash": "a3c5e93e6ec723a5dc7ca92f3c0aa29c22cac3735b7af4940928a19c2118e769",
-    "model_hash": "e7a9afbdc3af570102b51c5a89cc5b9c673c1eb08d87aa4ec7acad0ee5a81aa5"
+    "content_hash": "96ab3372069a54cf86b211aa6b363fad9dcd5da67b4852c5789fcfe54079126c",
+    "notes_hash": "13c12674406ed29e8d223f24d8b9dea0adf0822fd67f331eaec21c3a09f2fd05",
+    "model_hash": "f608358eb6d4a3a5e6ac52fc889a6861ca40379415298641ef4a5b0dfcb3ce9f"
   },
   "geo_code": "SC",
   "node_type": "country",

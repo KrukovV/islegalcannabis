@@ -21,26 +21,28 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
+        "sale": "illegal",
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "flags": [],
+      "modifiers": [
+        "but",
+        "may"
+      ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
         "fine": false,
-        "severity_score": 0,
+        "severity_score": 4,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -54,7 +56,7 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Mauritania",
@@ -100,16 +102,22 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Mauritania | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Mauritania | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in Mauritania | type: traversal | priority: 3 | scope: sale",
+        "rule: sale_illegal | source: Cannabis in Mauritania | type: traversal | priority: 3 | scope: sale",
+        "rule: illegal | source: Cannabis in Mauritania | type: traversal | priority: 3 | scope: sale",
+        "rule: penalty_prison | source: Cannabis in Mauritania | type: traversal | priority: 3 | scope: general"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal",
+      "penalty_prison"
     ],
-    "notes_normalized": "Cannabis is illegal in Mauritania / موريتانيا. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is illegal in Mauritania / موريتانيا. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Mauritania / موريتانيا. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Mauritania / موريتانيا. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Mauritania}}",
   "facts": {
     "possession_limit": null,
@@ -207,9 +215,9 @@
   },
   "hashes": {
     "code": "mrt",
-    "content_hash": "1dc17baed49d27f9eb6c14ed5dbbac2fe138d69fba5c5e4218fd99455696e5c4",
-    "notes_hash": "de01a0ae140020fac62033fd2e1acebc1926e6a6c58ffb0a1ec835ddb5240b10",
-    "model_hash": "4fae019671b8ed406bd5a15c1b941f476131387366c550c39f29b9dbd464d430"
+    "content_hash": "280266ddb16d3bb034e98e0786b234ee41e9873c9c23bf012547cc6515115f3a",
+    "notes_hash": "7adf7ddce35a3c75a3bd44a8a3dc1c5c2e9f222485142055b988fce8fe615f35",
+    "model_hash": "84e169e22a1eda1c4e5d562827bff2976885526662a4076cb0a868dc40d9b208"
   },
   "geo_code": "MR",
   "node_type": "country",

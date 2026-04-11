@@ -17,6 +17,9 @@ const WIKI_LEGALITY_TABLE_PATH = path.join(ROOT, "data", "wiki", "ssot_legality_
 const WIKI_CLAIMS_MAP_PATH = path.join(ROOT, "data", "wiki", "wiki_claims_map.json");
 const WIKI_CLAIMS_ENRICHED_PATH = path.join(ROOT, "data", "wiki", "wiki_claims_enriched.json");
 const WIKI_TRAVERSAL_CACHE_PATH = path.join(ROOT, "data", "wiki", "wiki_traversal_cache.json");
+const WIKI_API_BASE = "https://en.wikipedia.org/w/api.php";
+const SECONDARY_SOURCE_USER_AGENT = "islegalcannabis/wiki-secondary-enrichment";
+const SECONDARY_SOURCE_AUDIT_CODES = new Set(["EG", "RU", "CN", "NL", "TT"]);
 
 const CLUSTER_MAP = {
   LATAM: new Set(["arg", "bra", "chl", "col", "per", "pry", "ury"]),
@@ -30,6 +33,9 @@ const CLUSTER_MAP = {
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
 }
+
+const wikiExtractCache = new Map();
+const wikiExtractInflight = new Map();
 
 function ensureDir(dirPath) {
   fs.mkdirSync(dirPath, { recursive: true });
@@ -160,6 +166,84 @@ function normalizeStateTitleFromWikiUrl(url, fallbackGeo) {
     .replaceAll("_", " ")
     .replace(/\s*\((?:U\.S\.\s*state|state)\)$/i, "")
     .trim();
+}
+
+function canonicalizeWikiTitle(value) {
+  return String(value || "")
+    .replace(/_/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function mergeText(primaryText, secondaryText) {
+  return [String(primaryText || "").trim(), String(secondaryText || "").trim()].filter(Boolean).join(" ").trim();
+}
+
+async function fetchWikiExtract(title) {
+  const canonicalTitle = canonicalizeWikiTitle(title);
+  if (!canonicalTitle) return "";
+  if (wikiExtractCache.has(canonicalTitle)) {
+    return wikiExtractCache.get(canonicalTitle);
+  }
+  if (wikiExtractInflight.has(canonicalTitle)) {
+    return wikiExtractInflight.get(canonicalTitle);
+  }
+  const task = (async () => {
+    try {
+      const params = new URLSearchParams({
+        action: "query",
+        prop: "extracts",
+        explaintext: "true",
+        titles: canonicalTitle,
+        format: "json",
+        origin: "*"
+      });
+      const response = await fetch(`${WIKI_API_BASE}?${params.toString()}`, {
+        headers: { "user-agent": SECONDARY_SOURCE_USER_AGENT }
+      });
+      if (!response.ok) return "";
+      const payload = await response.json();
+      const pages = payload?.query?.pages && typeof payload.query.pages === "object" ? Object.values(payload.query.pages) : [];
+      const page = pages[0] || {};
+      return String(page?.extract || "").trim();
+    } catch {
+      return "";
+    } finally {
+      wikiExtractInflight.delete(canonicalTitle);
+    }
+  })();
+  wikiExtractInflight.set(canonicalTitle, task);
+  const extract = await task;
+  wikiExtractCache.set(canonicalTitle, extract);
+  return extract;
+}
+
+async function buildSecondaryTraversalPages(countryCode, notesMainArticles, wikiTraversalCache) {
+  const pages = [];
+  for (const item of Array.isArray(notesMainArticles) ? notesMainArticles : []) {
+    const title = canonicalizeWikiTitle(item?.title || "");
+    if (!title) continue;
+    const cachedPage = wikiTraversalCache.get(title);
+    const apiText = await fetchWikiExtract(title);
+    if (item?.url && apiText.length < 200) {
+      console.warn(`EMPTY_MAIN_ARTICLE code=${countryCode} title=${title} extract_len=${apiText.length}`);
+    }
+    const mergedText = mergeText(cachedPage?.text || "", apiText);
+    if (!mergedText) continue;
+    if (SECONDARY_SOURCE_AUDIT_CODES.has(String(countryCode || "").toUpperCase())) {
+      const normalized = mergedText.toLowerCase();
+      console.log(
+        `SECONDARY_SOURCE_AUDIT code=${countryCode} title=${title} extract_len=${apiText.length} merged_len=${mergedText.length} prison=${/\bprison|imprison|jail|death penalty\b/.test(normalized) ? 1 : 0} rare=${/\brare\b|\brarely\b|\bconvictions are rare\b/.test(normalized) ? 1 : 0} unenforced=${/\boften unenforced\b|\bnot enforced\b|\brarely enforced\b/.test(normalized) ? 1 : 0}`
+      );
+    }
+    pages.push({
+      title,
+      url: String(item?.url || cachedPage?.url || "").trim() || null,
+      depth: 1,
+      text: mergedText
+    });
+  }
+  return pages;
 }
 
 function mapLawValueToStatus(value, fallbackStatus = "ILLEGAL") {
@@ -342,7 +426,7 @@ function loadWikiTraversalCache() {
   );
 }
 
-function buildCountryEntries() {
+async function buildCountryEntries() {
   const geojson = readJson(GEOJSON_PATH);
   const wikiLegalityByIso = loadWikiLegalityTableByIso();
   const wikiClaimsByIso = loadWikiClaimsByIso();
@@ -410,9 +494,7 @@ function buildCountryEntries() {
     const wikiClaim = wikiClaimsByIso.get(entry.iso2) || null;
     const wikiRefs = wikiClaimRefsByIso.get(entry.iso2) || [];
     const notesMainArticles = Array.isArray(wikiClaim?.notes_main_articles) ? wikiClaim.notes_main_articles : [];
-    const traversalPages = notesMainArticles
-      .map((item) => wikiTraversalCache.get(String(item?.title || "").trim()))
-      .filter(Boolean);
+    const traversalPages = await buildSecondaryTraversalPages(entry.iso2, notesMainArticles, wikiTraversalCache);
     const statusModel = deriveCountryStatusModel({
       geo: entry.iso2,
       countryName: entry.name,
@@ -714,8 +796,8 @@ function buildEdges(entriesByCode, entries) {
   return edges;
 }
 
-function main() {
-  const { entries: countryEntries, entriesByCode: countryEntriesByCode } = buildCountryEntries();
+async function main() {
+  const { entries: countryEntries, entriesByCode: countryEntriesByCode } = await buildCountryEntries();
   const usaEntry = countryEntriesByCode.usa;
   if (!usaEntry) throw new Error("USA_COUNTRY_ENTRY_MISSING");
   const stateEntries = buildStateEntries(usaEntry);
@@ -753,4 +835,4 @@ function main() {
   console.log(`COUNTRY_PAGE_STORAGE_OK countries=${countryEntries.length} states=${stateEntries.length} graph_nodes=${nodes.length} graph_edges=${edges.length}`);
 }
 
-main();
+await main();

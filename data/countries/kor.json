@@ -6,7 +6,7 @@
     "recreational": {
       "raw_status": "ILLEGAL",
       "status": "ILLEGAL",
-      "enforcement": "STRICT",
+      "enforcement": "MODERATE",
       "scope": "NONE"
     },
     "medical": {
@@ -26,23 +26,26 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [],
       "modifiers": [
         "however",
+        "only",
+        "up_to",
         "unless",
         "but"
       ]
     },
     "signals": {
-      "status": "illegal",
+      "status": "restricted",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "rare",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
-        "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "prison": true,
+        "prison_priority": 3,
+        "arrest": true,
+        "fine": true,
+        "severity_score": 4,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -56,7 +59,7 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in South Korea",
@@ -103,16 +106,36 @@
       ],
       "explain": [
         "rule: medical_legal | source: South Korea / 한국 | type: summary | priority: 1 | scope: use",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in South Korea | type: traversal | priority: 3 | scope: use",
+        "rule: illegal | source: Cannabis in South Korea | type: traversal | priority: 3 | scope: use",
+        "rule: medical_legal | source: Cannabis in South Korea | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_arrest | source: Cannabis in South Korea | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in South Korea | type: traversal | priority: 3 | scope: general",
+        "rule: medical_legal | source: Cannabis in South Korea | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in South Korea | type: traversal | priority: 3 | scope: cultivation",
+        "rule: enforcement_rare | source: Cannabis in South Korea | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in South Korea | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in South Korea | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_criminal_offense | source: Cannabis in South Korea | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in South Korea | type: traversal | priority: 3 | scope: general"
       ]
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "medical_legal"
+    "enforcement_flags": [
+      "weak_enforcement",
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is illegal in South Korea / 한국. Medical cannabis is legal. Distribution is illegal."
+    "applied_rules": [
+      "medical_legal",
+      "raw_illegal",
+      "penalty_arrest",
+      "enforcement_rare",
+      "penalty_prison",
+      "penalty_fine",
+      "penalty_criminal_offense"
+    ],
+    "notes_normalized": "Cannabis is illegal in South Korea / 한국. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in South Korea / 한국. Medical cannabis is legal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in South Korea / 한국. Medical cannabis is legal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in South Korea}} Medical use of cannabis was legalized in November 2018. The plant itself, however, remains unavailable due to a policy implemented by the [[Ministry of Food and Drug Safety]].<ref>{{cite news|url=https://www.ft.com/content/ff715088-f2ba-11e8-ae55-df4bf40f9d0d|title=South Korea legalises medical marijuana|work=[[Financial Times]]|access-date=29 November 2018|archive-url=https://archive.today/20181214110836/https://www.ft.com/content/ff715088-f2ba-11e8-ae55-df4bf40f9d0d|archive-date=14 December 2018|url-status=live|url-access=subscription}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -210,9 +233,9 @@
   },
   "hashes": {
     "code": "kor",
-    "content_hash": "66ca0f817bff1ac6c88facfd3158b6f887ada3ed8782372f216a64531ff50f21",
-    "notes_hash": "574cc968ccdcf56bbf2ead2add86dcf94f8b5282e29a42932d276d66c3015272",
-    "model_hash": "07ad9527eab778b4e8dfc3c8dd24b138256555269ff1e90486f2930bbc634f11"
+    "content_hash": "a2f3d6ef92d42673ac7cf651d0eb48780b45b3504bd7ea7ab4408ec033b1896e",
+    "notes_hash": "debd6cc05edea9dce50665fc6960b9294e24bb05bf616f08b4ea188e9c9dcb15",
+    "model_hash": "e700100065af8c0202c0d6f46d82df8171100b3e8978b5c09b1f191ed767cb00"
   },
   "geo_code": "KR",
   "node_type": "country",

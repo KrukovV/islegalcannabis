@@ -26,35 +26,39 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": [
+        "only",
+        "but",
+        "may",
+        "usually"
+      ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
-        "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "prison": true,
+        "prison_priority": 3,
+        "arrest": true,
+        "fine": true,
+        "severity_score": 4,
         "possession": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
           "fine": false,
-          "severe": false
+          "severe": true
         },
         "trafficking": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
-          "fine": false,
-          "severe": false
+          "fine": true,
+          "severe": true
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Nigeria",
@@ -94,16 +98,34 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Nigeria | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Nigeria | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Nigeria | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_prison | source: Cannabis in Nigeria | type: traversal | priority: 3 | scope: cultivation",
+        "rule: penalty_fine | source: Cannabis in Nigeria | type: traversal | priority: 3 | scope: cultivation",
+        "rule: penalty_prison | source: Cannabis in Nigeria | type: traversal | priority: 3 | scope: possession",
+        "rule: raw_illegal | source: Cannabis in Nigeria | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_years | source: Cannabis in Nigeria | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_criminal_offense | source: Cannabis in Nigeria | type: traversal | priority: 3 | scope: possession",
+        "rule: illegal | source: Cannabis in Nigeria | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_prison | source: Cannabis in Nigeria | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_arrest | source: Cannabis in Nigeria | type: traversal | priority: 3 | scope: general"
       ]
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "distribution_fallback_illegal"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is illegal in Nigeria. Medical cannabis is illegal. Distribution is illegal."
+    "applied_rules": [
+      "raw_illegal",
+      "penalty_fine",
+      "penalty_prison",
+      "penalty_years",
+      "penalty_criminal_offense",
+      "penalty_arrest"
+    ],
+    "notes_normalized": "Cannabis is illegal in Nigeria. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Nigeria. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Nigeria. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Nigeria}}",
   "facts": {
     "possession_limit": null,
@@ -201,9 +223,9 @@
   },
   "hashes": {
     "code": "nga",
-    "content_hash": "3f52219faf487995699b6a645508c22916690d0c22c53ff7b6d45e2af5d51e57",
-    "notes_hash": "08e3614e5c9ae4e796c3659e40443fcce645d69b1f023d453d2f4a3cc880b0f9",
-    "model_hash": "a93963e085dfb892c27a0313e12a101c2c056a444e4c5bde1a7800375b843dca"
+    "content_hash": "a9071b90d949c559c2e650405a61d48ccd83511cc204c9ced5283e5b39a0a338",
+    "notes_hash": "09061725848ece4bee696d2e52e52ad684777a60a1abcf53b29f7cd49369d4fe",
+    "model_hash": "4e185af5e78bd3fbf65a5e79499eccbea7e1c788f7bcac7efdb04ff10bbc5d3f"
   },
   "geo_code": "NG",
   "node_type": "country",

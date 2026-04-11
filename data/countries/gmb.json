@@ -27,14 +27,13 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -76,12 +75,13 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in the Gambia | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in the Gambia | type: traversal | priority: 3 | scope: general"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Gambia. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -183,9 +183,9 @@
   },
   "hashes": {
     "code": "gmb",
-    "content_hash": "152280a0945039cbd194013fdb9695c24e93d75a641bb64a2eeebaaed9871f9c",
+    "content_hash": "bd22db1f5967293f2b1ab7027147dd0f574c17aab97e41ad5aca700853b80c29",
     "notes_hash": "210762848b850a05bc73e2f0bb38e1c1f2687ada2eadd7a632fdbea8016de4bf",
-    "model_hash": "ab5805056e2779da11a9cd0241053824ddb24417808c80a5741a377b298b25f7"
+    "model_hash": "1f8097526d0ad0d7c2d33d8ceda9f305a13c06e9fbbbc4a6d8d8b19c5fe8785f"
   },
   "geo_code": "GM",
   "node_type": "country",

@@ -6,7 +6,7 @@
     "recreational": {
       "raw_status": "ILLEGAL",
       "status": "ILLEGAL",
-      "enforcement": "STRICT",
+      "enforcement": "MODERATE",
       "scope": "NONE"
     },
     "medical": {
@@ -27,14 +27,13 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
     },
     "signals": {
-      "status": "illegal",
+      "status": "restricted",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "rare",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -100,12 +99,18 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Algeria | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Algeria | type: traversal | priority: 3 | scope: general",
+        "rule: enforcement_rare | source: Cannabis in Algeria | type: traversal | priority: 3 | scope: general",
+        "rule: medical_legal | source: Cannabis in Algeria | type: traversal | priority: 3 | scope: general"
       ]
     },
-    "enforcement_flags": [],
+    "enforcement_flags": [
+      "weak_enforcement"
+    ],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal",
+      "enforcement_rare"
     ],
     "notes_normalized": "Cannabis is illegal in Algeria / الجزائر. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -188,18 +193,18 @@
         "name": "Mali"
       },
       {
-        "code": "lby",
-        "name": "Libya / ليبيا"
+        "code": "mlt",
+        "name": "Malta"
       }
     ],
     "cluster_links": [
       {
-        "code": "bfa",
-        "name": "Burkina Faso"
+        "code": "lby",
+        "name": "Libya / ليبيا"
       },
       {
-        "code": "esh",
-        "name": "Western Sahara / الصحراء الغربية"
+        "code": "bfa",
+        "name": "Burkina Faso"
       }
     ],
     "same_country_states": [],
@@ -207,9 +212,9 @@
   },
   "hashes": {
     "code": "dza",
-    "content_hash": "3c97f9eb441c3ef90bf7c3752bc60f0f5d12b47bc734e0e00b95dfcbee4229d9",
+    "content_hash": "1855b382d067f74e5fc342b199b6d34b4fb3b13ca54ce5a45d38d4a1e00cac34",
     "notes_hash": "5ffcddfa424b8f9da42f8d40f65562db962357906b5da65c49024a22d4b8edc2",
-    "model_hash": "74318e1de1db1350e584b397ef51feea018352fe7c070e28eb04edf20bc86f11"
+    "model_hash": "68c2d91a4fdee6038858ceae2d270c8274b74826fba90d101fbf99b0fc0c1f65"
   },
   "geo_code": "DZ",
   "node_type": "country",

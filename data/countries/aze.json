@@ -27,14 +27,15 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "flags": [],
+      "modifiers": [
+        "but"
+      ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -82,12 +83,12 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Azerbaijan | type: traversal | priority: 3 | scope: general"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Azerbaijan / Azərbaycan. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -189,9 +190,9 @@
   },
   "hashes": {
     "code": "aze",
-    "content_hash": "5d76f553fdc482cf4db6894ac11ade431dd363eae404d2889e62464c6e569761",
+    "content_hash": "695a61b106d20315b5a02336754babd2a6e324ee0e9c7f39b5916b4c97aa268d",
     "notes_hash": "3ea8f35858b441dd90f482b38c3b354ee5c773e65433d5e2313da8dbfc144c61",
-    "model_hash": "2c7acc5f9d5a09e7b8d5e8d7374c54c8e028c494f044e875d72a2f7ba58c8f52"
+    "model_hash": "eadd1b84cb83dd685d6f3e1dc8f278770d2478c65f56f0e88bf1ddbf75cb3efe"
   },
   "geo_code": "AZ",
   "node_type": "country",

@@ -21,26 +21,30 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
+        "sale": "illegal",
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": [
+        "may",
+        "only",
+        "however",
+        "but"
+      ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 4,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -48,13 +52,13 @@
           "severe": false
         },
         "trafficking": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
-          "fine": false,
-          "severe": false
+          "fine": true,
+          "severe": true
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in the Philippines",
@@ -102,17 +106,31 @@
       "explain": [
         "rule: medical_legal | source: Philippines / Pilipinas | type: summary | priority: 1 | scope: use",
         "rule: medical_legal | source: Philippines / Pilipinas | type: summary | priority: 1 | scope: general",
-        "rule: medical_legal | source: Fact check: Is medical marijuana already allowed in the Philippines? | type: reference | priority: 2 | scope: general",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in the Philippines | type: traversal | priority: 3 | scope: cultivation",
+        "rule: illegal | source: Cannabis in the Philippines | type: traversal | priority: 3 | scope: cultivation",
+        "rule: raw_illegal | source: Cannabis in the Philippines | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in the Philippines | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in the Philippines | type: traversal | priority: 3 | scope: sale",
+        "rule: sale_illegal | source: Cannabis in the Philippines | type: traversal | priority: 3 | scope: sale",
+        "rule: illegal | source: Cannabis in the Philippines | type: traversal | priority: 3 | scope: sale",
+        "rule: penalty_prison | source: Cannabis in the Philippines | type: traversal | priority: 3 | scope: sale",
+        "rule: penalty_fine | source: Cannabis in the Philippines | type: traversal | priority: 3 | scope: sale",
+        "rule: raw_illegal | source: Cannabis in the Philippines | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_fine | source: Cannabis in the Philippines | type: traversal | priority: 3 | scope: general",
+        "rule: medical_legal | source: Fact check: Is medical marijuana already allowed in the Philippines? | type: reference | priority: 2 | scope: general"
       ]
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "distribution_fallback_illegal"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is illegal in Philippines / Pilipinas. Medical cannabis is illegal. Distribution is illegal."
+    "applied_rules": [
+      "raw_illegal",
+      "penalty_prison",
+      "penalty_fine"
+    ],
+    "notes_normalized": "Cannabis is illegal in Philippines / Pilipinas. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Philippines / Pilipinas. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Philippines / Pilipinas. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in the Philippines}} Medical use of cannabis is possible with a special permit from the Food and Drugs Authority for use by individuals with serious or terminal illness.<ref>{{cite news |last1=Viray |first1=Patricia Lourdes |title=Fact check: Is medical marijuana already allowed in the Philippines? |url=https://www.philstar.com/headlines/2018/12/18/1878036/fact-check-medical-marijuana-already-allowed-philippines |access-date=28 December 2018 |work=[[The Philippine Star]] |date=18 December 2018 |archive-date=20 December 2018 |archive-url=https://web.archive.org/web/20181220091203/https://www.philstar.com/headlines/2018/12/18/1878036/fact-check-medical-marijuana-already-allowed-philippines |url-status=live }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -210,9 +228,9 @@
   },
   "hashes": {
     "code": "phl",
-    "content_hash": "0a2f130158baedbcc2fe03afaa9aca432ed7112a63c6a60705710a0d70d59d2f",
-    "notes_hash": "dac9eded7b4906c6564b84c0a40af63789e94b8f40233680dcade8ab41b58803",
-    "model_hash": "0ac8b76282b974e0f5ffafe6635eb06428acde4fbc1ba20f85ec795fc13e0cdc"
+    "content_hash": "095e2dfe00510b58250bb8d8f3b816fdf81049040337068f4fd3dd4132a4d3d3",
+    "notes_hash": "396bba7e4b1fd5036fed4f3a0e0fc2c67c1348712741f0e989cd23e46f2241f1",
+    "model_hash": "86c75f8e2debb9a7e5bc544ff0017488cb17fbc4147e12f981361afc2f227284"
   },
   "geo_code": "PH",
   "node_type": "country",

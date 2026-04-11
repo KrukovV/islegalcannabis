@@ -6,7 +6,7 @@
     "recreational": {
       "raw_status": "ILLEGAL",
       "status": "ILLEGAL",
-      "enforcement": "STRICT",
+      "enforcement": "MODERATE",
       "scope": "NONE"
     },
     "medical": {
@@ -27,14 +27,13 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
     },
     "signals": {
-      "status": "illegal",
+      "status": "restricted",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "rare",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -100,12 +99,15 @@
         }
       ],
       "explain": [
+        "rule: enforcement_rare | source: Zamal: The Rare Sativa Landrace of Réunion | type: reference | priority: 2 | scope: general",
         "no traversal evidence"
       ]
     },
-    "enforcement_flags": [],
+    "enforcement_flags": [
+      "weak_enforcement"
+    ],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "enforcement_rare"
     ],
     "notes_normalized": "Cannabis is illegal in Mauritius / Maurice. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -207,9 +209,9 @@
   },
   "hashes": {
     "code": "mus",
-    "content_hash": "8585339b50137eb5485ffda428334accf3d9702e3c4a605099b53ac9a07cda7b",
+    "content_hash": "787cc4c08a264b8b998860465607da392f159060c9a173ed69f9022802e17b51",
     "notes_hash": "740cc5fed3f375a2b5a5cdc8ab5cd50d99035127e4b6b794da63ccb238218188",
-    "model_hash": "a6d4cb518a0e23b7895e08edab62036632793c9a21e2726689621e49111354bd"
+    "model_hash": "111aae103ca3f03e2ac65a556b765f8a8a5cbc19852a61efd883253d56cfa76b"
   },
   "geo_code": "MU",
   "node_type": "country",

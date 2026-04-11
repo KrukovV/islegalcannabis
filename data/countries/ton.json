@@ -27,14 +27,15 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "flags": [],
+      "modifiers": [
+        "but"
+      ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -76,12 +77,13 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Tonga | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Tonga | type: traversal | priority: 3 | scope: general"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Tonga. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -183,9 +185,9 @@
   },
   "hashes": {
     "code": "ton",
-    "content_hash": "9f9c2fbef768bc27d51a3b567be59bf5afa70232e206bcbdc3fbc559248db3ce",
+    "content_hash": "eda0ca9c33bedf3ce94f1141ef7e8ea73ae11eaa36097a9596d61da55798a884",
     "notes_hash": "0fbf0bd57240cbf87ad042d92e54038fc350fe36e1ba12662a5147dd64ef8962",
-    "model_hash": "d25eb7f522bd170187f5fd7ed4d11619da1efc952f4de90014f422aeab2ffebe"
+    "model_hash": "0f3679c4fbaf83c423019b799b307ace7c55664b585f1546e823cbffc0f44ae3"
   },
   "geo_code": "TO",
   "node_type": "country",

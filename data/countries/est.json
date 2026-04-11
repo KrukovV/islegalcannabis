@@ -38,9 +38,10 @@
     "signals": {
       "status": "illegal",
       "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 1,
+        "prison_priority": 3,
         "arrest": false,
         "fine": true,
         "severity_score": 4,
@@ -93,7 +94,15 @@
         "rule: medical_legal | source: Estonia / Eesti | type: summary | priority: 1 | scope: general",
         "rule: sale_regulated | source: Estonia / Eesti | type: summary | priority: 1 | scope: sale",
         "rule: medical_legal | source: Estonia / Eesti | type: summary | priority: 1 | scope: sale",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Estonia | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_fine | source: Cannabis in Estonia | type: traversal | priority: 3 | scope: possession",
+        "rule: illegal | source: Cannabis in Estonia | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_prison | source: Cannabis in Estonia | type: traversal | priority: 3 | scope: sale",
+        "rule: penalty_years | source: Cannabis in Estonia | type: traversal | priority: 3 | scope: sale",
+        "rule: penalty_criminal_offense | source: Cannabis in Estonia | type: traversal | priority: 3 | scope: sale",
+        "rule: sale_illegal | source: Cannabis in Estonia | type: traversal | priority: 3 | scope: sale",
+        "rule: penalty_years | source: Cannabis in Estonia | type: traversal | priority: 3 | scope: general",
+        "rule: medical_legal | source: Cannabis in Estonia | type: traversal | priority: 3 | scope: general"
       ]
     },
     "enforcement_flags": [
@@ -105,7 +114,8 @@
       "penalty_years",
       "penalty_criminal_offense",
       "sale_illegal",
-      "medical_legal"
+      "medical_legal",
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is decriminalized in Estonia / Eesti. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
   },
@@ -207,9 +217,9 @@
   },
   "hashes": {
     "code": "est",
-    "content_hash": "c0089ed475acfd6dfd446e788577d35969c16e3cb1553502f806a4b69a5e9677",
+    "content_hash": "9d17836e54498972a7d3b87b013594d32b4bb1063f2ae66e2ce24ed10675cb13",
     "notes_hash": "aac29910bfdfaa63644f443ff0ed58dcef6d273ddfaeaad594d2c6c9e46e60a4",
-    "model_hash": "186e94d4f0820bff1199fec5e95e1f83468eb0feb3e9038a4ad12158dc18180c"
+    "model_hash": "b8ca5871c180561853a1cd76a46572e7f3886d50304d13565569fbe0c1bdb089"
   },
   "geo_code": "EE",
   "node_type": "country",

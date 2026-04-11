@@ -21,26 +21,28 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
+        "sale": "illegal",
         "cultivation": null,
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
-      "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": [
+        "up_to",
+        "may"
+      ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 4,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -50,11 +52,11 @@
         "trafficking": {
           "prison": false,
           "arrest": false,
-          "fine": false,
+          "fine": true,
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Djibouti",
@@ -100,16 +102,26 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Djibouti | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_fine | source: Cannabis in Djibouti | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Djibouti | type: traversal | priority: 3 | scope: trafficking",
+        "rule: sale_illegal | source: Cannabis in Djibouti | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_prison | source: Cannabis in Djibouti | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Djibouti | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in Djibouti | type: traversal | priority: 3 | scope: cultivation"
       ]
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "distribution_fallback_illegal"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is illegal in Djibouti / جيبوتي. Medical cannabis is illegal. Distribution is illegal."
+    "applied_rules": [
+      "raw_illegal",
+      "penalty_fine",
+      "penalty_prison"
+    ],
+    "notes_normalized": "Cannabis is illegal in Djibouti / جيبوتي. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Djibouti / جيبوتي. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Djibouti / جيبوتي. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Djibouti}}",
   "facts": {
     "possession_limit": null,
@@ -207,9 +219,9 @@
   },
   "hashes": {
     "code": "dji",
-    "content_hash": "5df942b238228b365aa2ccdab34f1e9bd77eae7f65f9125a121eaccc43f78b8b",
-    "notes_hash": "109cdb94ce5821fee29c30ffb909ea6f24110204a760ca3ffb9176b58216a3e5",
-    "model_hash": "aed2c065e46d1d3fd3fe5f1f2ea6b4b38268dcb0a013d3f53aab485d9b8c0c0c"
+    "content_hash": "f46d78cce71cbeeaa64b7c5deee42a0c8d25bb7a49b2f78f3809cb21276cb2c7",
+    "notes_hash": "94c08e53f3434d03070adc3a18c8b7fd4dada8ea8ce0723fef17724fa57f8679",
+    "model_hash": "24f24e589d92ead8f9d1fbc2208ab6f71aa01d1dbd1af697cc7a61fe9dd8542f"
   },
   "geo_code": "DJ",
   "node_type": "country",

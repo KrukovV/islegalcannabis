@@ -38,6 +38,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
         "prison": true,
         "prison_priority": 1,
@@ -230,9 +231,9 @@
   },
   "hashes": {
     "code": "srb",
-    "content_hash": "54d377e1d8bf398905552659b5b9ec8d56c7744983698b2c63b3ed5c985b6a0b",
+    "content_hash": "5571e7f40b86949aa5aa65207c0e8f951edcd8c2a2c0f9242b09119c5e645925",
     "notes_hash": "b93ed3e0850eb8830f75069ea25c3fd8d686f59c946e58073045c5e154a8d42a",
-    "model_hash": "ee33892afca5bbc58e9de7972ddd13b38e1ca68c2a3182b9b32340b5ab2c7cfc"
+    "model_hash": "0358afd2bb23ed23eea3c2c5e44cad7d6bcd9bb4a1d61e65193bafac0291dee0"
   },
   "geo_code": "RS",
   "node_type": "country",

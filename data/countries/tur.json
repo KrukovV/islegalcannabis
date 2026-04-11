@@ -36,6 +36,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
         "prison": true,
         "prison_priority": 1,
@@ -227,9 +228,9 @@
   },
   "hashes": {
     "code": "tur",
-    "content_hash": "ce6d7038122b188e20e436a65bda31f7c88cbf3224e1696a101d3e51cbe45309",
+    "content_hash": "96054bbeac7911a0095d0126fe2a6200668b0cad85e563b33985906e5bdeb9d1",
     "notes_hash": "5d8f6fd4e5b3f2c6306a2538de229e93070c9cd3e5ea2e06a451a34815edf832",
-    "model_hash": "fa97c8f6508c52fd71e48137e74438c02aca66d4d843a77fc325f6d5e087eba9"
+    "model_hash": "eddb3b0fb4c06b50405ed657efa1f9963e55c6f6596a38489d7c728c1476b88a"
   },
   "geo_code": "TR",
   "node_type": "country",

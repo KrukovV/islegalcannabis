@@ -17,35 +17,37 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "illegal",
+      "status": "restricted",
       "scopes": {
-        "possession": null,
-        "use": null,
+        "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "flags": [],
+      "modifiers": [
+        "but",
+        "however"
+      ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
         "fine": false,
-        "severity_score": 0,
+        "severity_score": 4,
         "possession": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
           "fine": false,
-          "severe": false
+          "severe": true
         },
         "trafficking": {
           "prison": false,
@@ -54,7 +56,7 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Armenia",
@@ -100,16 +102,22 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Armenia | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Armenia | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Armenia | type: traversal | priority: 3 | scope: use",
+        "rule: possession_decriminalized | source: Cannabis in Armenia | type: traversal | priority: 3 | scope: use",
+        "rule: possession_decriminalized | source: Cannabis in Armenia | type: traversal | priority: 3 | scope: general"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal",
+      "penalty_prison",
+      "possession_decriminalized"
     ],
-    "notes_normalized": "Cannabis is illegal in Armenia / Հայաստան. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is illegal in Armenia / Հայաստան. Medical cannabis is illegal. Distribution is restricted. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Armenia / Հայաստան. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Armenia / Հայաստան. Medical cannabis is illegal. Distribution is restricted. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Armenia}}",
   "facts": {
     "possession_limit": null,
@@ -207,9 +215,9 @@
   },
   "hashes": {
     "code": "arm",
-    "content_hash": "8faf60741b2dd0aa803559251a5127f4707c1d8ee075ce3d8bbb7b644e02efd1",
-    "notes_hash": "166f18daeaf8c166065065e15b871550a530bbcfb9b2dc90ff4ce7a20506e8ac",
-    "model_hash": "8eadc15ba6ac6401cf7e245211e1e5a0d3d5fee435614df011f418751c1e77bc"
+    "content_hash": "f51a5e388810f92a338dd1c071da07f645b2c8424fd04d74af3a5188e349440b",
+    "notes_hash": "004a24d51da8bd9c26ff285564e93d7ab2fc15e1a1bf005c36569d9ba7a5fe3b",
+    "model_hash": "5e737287983c15f8134b7f2a539db970381d67a9a2f4c868cb818de2435d7121"
   },
   "geo_code": "AM",
   "node_type": "country",

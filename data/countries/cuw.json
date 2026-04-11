@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -164,9 +165,9 @@
   },
   "hashes": {
     "code": "cuw",
-    "content_hash": "306c0d5d811e2e29bb7fdadaff494321ad409161e59fab95fcc0b73f5f6d7317",
+    "content_hash": "1d2d8b4e046133cbbc39d9cf18b71769c0441d8d91533ddb592bc4acfb13742a",
     "notes_hash": "dfcaed8ab4f74fd67e5131121713baa00b71f2e3fa074ad2ca2f80ceb6e90ddd",
-    "model_hash": "fbe9e5ff24229dc15bcc8fa1b2001f05be34946c1d4e4fe7ed8b130c9fb0660d"
+    "model_hash": "34b1fca18d03a114230224fb871f0bed815816b3f1f3ba071643c67e9a29e0bc"
   },
   "geo_code": "CW",
   "node_type": "country",

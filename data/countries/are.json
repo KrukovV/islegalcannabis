@@ -21,35 +21,43 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
+        "sale": "illegal",
         "cultivation": null,
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
-      "enforcement": "standard",
-      "flags": [],
-      "modifiers": []
+      "enforcement": "fine-based",
+      "flags": [
+        "trafficking_illegal",
+        "sale_illegal"
+      ],
+      "modifiers": [
+        "may",
+        "up_to",
+        "but"
+      ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 2,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
+        "fine": true,
         "severity_score": 4,
         "possession": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
           "fine": false,
-          "severe": false
+          "severe": true
         },
         "trafficking": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
           "fine": false,
-          "severe": false
+          "severe": true
         }
       },
       "confidence": "high",
@@ -99,13 +107,28 @@
       ],
       "explain": [
         "rule: penalty_prison | source: United Arab Emirates / الإمارات | type: summary | priority: 1 | scope: general",
-        "rule: penalty_prison | source: UAE eases drug laws: No more jail for those bringing in THC | type: reference | priority: 2 | scope: general",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in the United Arab Emirates | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in the United Arab Emirates | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in the United Arab Emirates | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_prison | source: Cannabis in the United Arab Emirates | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_criminal_offense | source: Cannabis in the United Arab Emirates | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in the United Arab Emirates | type: traversal | priority: 3 | scope: trafficking",
+        "rule: sale_illegal | source: Cannabis in the United Arab Emirates | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_fine | source: Cannabis in the United Arab Emirates | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_criminal_offense | source: Cannabis in the United Arab Emirates | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_prison | source: UAE eases drug laws: No more jail for those bringing in THC | type: reference | priority: 2 | scope: general"
       ]
     },
-    "enforcement_flags": [],
+    "enforcement_flags": [
+      "fine_based"
+    ],
     "applied_rules": [
-      "penalty_prison"
+      "penalty_prison",
+      "raw_illegal",
+      "penalty_criminal_offense",
+      "trafficking_illegal",
+      "sale_illegal",
+      "penalty_fine"
     ],
     "notes_normalized": "Cannabis is illegal in United Arab Emirates / الإمارات. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
@@ -207,9 +230,9 @@
   },
   "hashes": {
     "code": "are",
-    "content_hash": "57668c25bbaf22683cb20069e2761eafd0e4760d7a3aae3cd69777331ce460fb",
+    "content_hash": "e12259e0085fa935373eb04f5fd926658ac8a4953c63886804272b8b0fb57cf2",
     "notes_hash": "270c1b8ef022d684b5b5e4d0bbf15c46d3890c620a949657a7952d52cd3f38f9",
-    "model_hash": "dd0ed9c781c526aeecde15fda3aec475d0b8707130728c285b12edcac4b7004e"
+    "model_hash": "612fa52f0f1c366c24417f8aa3a30ab7edc1d94ce92484ae1037ba8466aa6032"
   },
   "geo_code": "AE",
   "node_type": "country",

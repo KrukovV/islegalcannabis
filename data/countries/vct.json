@@ -26,21 +26,25 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_restricted"
-      ],
-      "modifiers": []
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": [
+        "but",
+        "up_to",
+        "only",
+        "may"
+      ]
     },
     "signals": {
-      "status": "restricted",
-      "final_risk": "LIMITED",
+      "status": "illegal",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 4,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -54,7 +58,7 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Saint Vincent and the Grenadines",
@@ -100,16 +104,27 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Saint Vincent and the Grenadines | type: traversal | priority: 3 | scope: general",
+        "rule: possession_decriminalized | source: Cannabis in Saint Vincent and the Grenadines | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Saint Vincent and the Grenadines | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Saint Vincent and the Grenadines | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Saint Vincent and the Grenadines | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in Saint Vincent and the Grenadines | type: traversal | priority: 3 | scope: general",
+        "rule: medical_legal | source: Cannabis in Saint Vincent and the Grenadines | type: traversal | priority: 3 | scope: general"
       ]
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "distribution_fallback_restricted"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is decriminalized in Saint Vincent and the Grenadines. Medical cannabis is legal. Distribution is restricted."
+    "applied_rules": [
+      "raw_illegal",
+      "possession_decriminalized",
+      "penalty_prison",
+      "penalty_fine"
+    ],
+    "notes_normalized": "Cannabis is decriminalized in Saint Vincent and the Grenadines. Medical cannabis is legal. Distribution is restricted. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is decriminalized in Saint Vincent and the Grenadines. Medical cannabis is legal. Distribution is restricted.",
+  "notes_normalized": "Cannabis is decriminalized in Saint Vincent and the Grenadines. Medical cannabis is legal. Distribution is restricted. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Saint Vincent and the Grenadines}}",
   "facts": {
     "possession_limit": null,
@@ -207,9 +222,9 @@
   },
   "hashes": {
     "code": "vct",
-    "content_hash": "dd9756067d2f177b60ceb352aeefce0e39f045b8a4e4ac90000746451029ad8d",
-    "notes_hash": "610bf93bb4eaac1a3fd4f854e5299d17c34008dbeaabd5cf1a291557938e9981",
-    "model_hash": "5f197c5140bae34564fba87f95b7ecf5acf3937c4e2689cf858dfada69514686"
+    "content_hash": "8545e7087f81e4302fbe80dc0025b7e9fa233204066fce34d729804d010b282f",
+    "notes_hash": "9aab728e619745962d35fcaba9ea7bd3a94a1181091a2aae729030e44283f196",
+    "model_hash": "16e2e2b658e20a494f966063860f71ee45964cab19123e68cf75070ad3f0a0fb"
   },
   "geo_code": "VC",
   "node_type": "country",

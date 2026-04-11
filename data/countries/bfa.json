@@ -28,11 +28,16 @@
       },
       "enforcement": "standard",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "however",
+        "but",
+        "only"
+      ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -98,16 +103,17 @@
         }
       ],
       "explain": [
+        "rule: raw_illegal | source: Cannabis in Burkina Faso | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Burkina Faso | type: traversal | priority: 3 | scope: general",
         "rule: penalty_arrest | source: Mother, son arrested with 105kgs of cannabis | type: reference | priority: 2 | scope: general",
         "rule: raw_illegal | source: Special Senate Committee on Illegal Drugs (37th Parliament, 1st Session) | type: reference | priority: 2 | scope: general",
-        "rule: illegal | source: Special Senate Committee on Illegal Drugs (37th Parliament, 1st Session) | type: reference | priority: 2 | scope: general",
-        "no traversal evidence"
+        "rule: illegal | source: Special Senate Committee on Illegal Drugs (37th Parliament, 1st Session) | type: reference | priority: 2 | scope: general"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "penalty_arrest",
-      "raw_illegal"
+      "raw_illegal",
+      "penalty_arrest"
     ],
     "notes_normalized": "Cannabis is illegal in Burkina Faso. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -209,9 +215,9 @@
   },
   "hashes": {
     "code": "bfa",
-    "content_hash": "a4aa58bc217385b773072cb2ae1d46c84ba45e50b7d95579c0c4cfc54bef6e46",
+    "content_hash": "1680ef1f6897044678d7caa80c84b39d16534f0c767bbf7b6ed52b266215217d",
     "notes_hash": "5069fd94c40ccac279a145e698a95917bbcf152f4d32aae4ef9581dca3a847ec",
-    "model_hash": "34654e885ddc2e9394e1c922f6ae4a075699f9f97d6d721e1f29911af70a7199"
+    "model_hash": "b07c61a0df2b18e18ffe3db99ed054458e02192cc7a73789154ab6e79e248a53"
   },
   "geo_code": "BF",
   "node_type": "country",

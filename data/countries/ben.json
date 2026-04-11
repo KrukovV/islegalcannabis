@@ -27,14 +27,16 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "flags": [],
+      "modifiers": [
+        "but",
+        "only"
+      ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -100,12 +102,14 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Benin | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Benin | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in Benin | type: traversal | priority: 3 | scope: general"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Benin / Bénin. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -207,9 +211,9 @@
   },
   "hashes": {
     "code": "ben",
-    "content_hash": "5eb2e967356f94917a81c2d7aed480f68936e23fb2e3e40a645f6e36d343d04c",
+    "content_hash": "ba92a17cb047e9147a26f5e373317a9f1a35603b7f242aedde0dc2a37f50f289",
     "notes_hash": "99505672eae0ace6d34cc373537899c04d90505405bf25d85dc98f56ceca1320",
-    "model_hash": "fe84afbc5bcba62b95039fc5647b6959abd762030706cfd1ef39f94b116b2b76"
+    "model_hash": "5d1794480fccafa706109d75145dc1aeb068736aaa1d308125e61e6bba1680c9"
   },
   "geo_code": "BJ",
   "node_type": "country",

@@ -29,12 +29,16 @@
       "enforcement": "standard",
       "flags": [],
       "modifiers": [
-        "may"
+        "may",
+        "but",
+        "only",
+        "up_to"
       ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -101,9 +105,10 @@
       ],
       "explain": [
         "rule: illegal | source: Sierra Leone | type: summary | priority: 1 | scope: general",
+        "rule: raw_illegal | source: Cannabis in Sierra Leone | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Sierra Leone | type: traversal | priority: 3 | scope: general",
         "rule: raw_illegal | source: Kush: Sierra Leone's new illegal drug | type: reference | priority: 2 | scope: general",
-        "rule: illegal | source: Kush: Sierra Leone's new illegal drug | type: reference | priority: 2 | scope: general",
-        "no traversal evidence"
+        "rule: illegal | source: Kush: Sierra Leone's new illegal drug | type: reference | priority: 2 | scope: general"
       ]
     },
     "enforcement_flags": [],
@@ -211,9 +216,9 @@
   },
   "hashes": {
     "code": "sle",
-    "content_hash": "cce638d062b24213bbf03fe7ed5da13a2473c48d56b42dbd356ee963712b92c8",
+    "content_hash": "d724f553b9dc584f0a0d67411f64622842993d7ec282e00101544743c3f3ea1f",
     "notes_hash": "42e2911c66cf7864c3ef6ca41607a2c0aeecec825f1b352b3fe2976b5647fc1b",
-    "model_hash": "f04d18a5ed146bb925854d1d04f025d0f47c173584c0c166399c00d98039dd3e"
+    "model_hash": "ee4cfac847a2d71c5ce860fb0844ef90ff29304c7895a164de8d9073e2792e7f"
   },
   "geo_code": "SL",
   "node_type": "country",

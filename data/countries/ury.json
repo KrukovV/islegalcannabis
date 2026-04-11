@@ -17,24 +17,31 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "illegal",
+      "status": "regulated",
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
-        "cultivation": null,
+        "sale": "regulated",
+        "cultivation": "tolerated",
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
       "flags": [
-        "distribution_fallback_illegal"
+        "social_club_distribution",
+        "sale_regulated"
       ],
-      "modifiers": []
+      "modifiers": [
+        "up_to",
+        "but",
+        "however",
+        "only"
+      ]
     },
     "signals": {
-      "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "status": "regulated",
+      "final_risk": "UNKNOWN",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -54,7 +61,7 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Uruguay",
@@ -101,16 +108,30 @@
       ],
       "explain": [
         "rule: legal | source: Uruguay | type: summary | priority: 1 | scope: general",
-        "no traversal evidence"
+        "rule: legal | source: Cannabis in Uruguay | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in Uruguay | type: traversal | priority: 3 | scope: sale",
+        "rule: social_club_distribution | source: Cannabis in Uruguay | type: traversal | priority: 3 | scope: cultivation",
+        "rule: private_cultivation | source: Cannabis in Uruguay | type: traversal | priority: 3 | scope: cultivation",
+        "rule: legal | source: Cannabis in Uruguay | type: traversal | priority: 3 | scope: cultivation",
+        "rule: sale_regulated | source: Cannabis in Uruguay | type: traversal | priority: 3 | scope: sale",
+        "rule: legal | source: Cannabis in Uruguay | type: traversal | priority: 3 | scope: possession",
+        "rule: legal | source: Cannabis in Uruguay | type: traversal | priority: 3 | scope: trafficking",
+        "rule: social_club_distribution | source: Cannabis in Uruguay | type: traversal | priority: 3 | scope: sale",
+        "rule: private_cultivation | source: Cannabis in Uruguay | type: traversal | priority: 3 | scope: sale",
+        "rule: raw_illegal | source: Cannabis in Uruguay | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Uruguay | type: traversal | priority: 3 | scope: general"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "social_club_distribution",
+      "private_cultivation",
+      "sale_regulated",
+      "raw_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Uruguay. Medical cannabis is legal. Distribution is illegal."
+    "notes_normalized": "Cannabis is illegal in Uruguay. Medical cannabis is legal. Distribution is regulated."
   },
-  "notes_normalized": "Cannabis is illegal in Uruguay. Medical cannabis is legal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Uruguay. Medical cannabis is legal. Distribution is regulated.",
   "notes_raw": "{{Main|Cannabis in Uruguay}} Legal since late 2013.<ref name=\"erowid-SA\">{{citation |url = http://www.erowid.org/plants/cannabis/cannabis_law2.shtml |title = Cannabis South American laws |publisher = Erowid.org |date = March 1995 |access-date = 5 June 2018 |archive-date = 9 December 2019 |archive-url = https://web.archive.org/web/20191209011625/https://www.erowid.org/plants/cannabis/cannabis_law2.shtml |url-status = live }}</ref> Buyers must be eighteen or older, residents of Uruguay, and must register with the authorities. Authorities grow the cannabis that can be sold legally.<ref>{{cite news |url = https://www.economist.com/news/americas/21582579-another-blow-against-prohibition-experiment |title = The experiment: Another blow against prohibition |date = 1 August 2013 |newspaper = The Economist |access-date = 5 June 2018 |archive-date = 5 September 2017 |archive-url = https://web.archive.org/web/20170905093253/https://www.economist.com/news/americas/21582579-another-blow-against-prohibition-experiment |url-status = live }}</ref><ref>{{cite news |url = https://www.reuters.com/article/us-uruguay-marijuana-vote-idUSBRE9BA01520131211 |title = Uruguay becomes first country to legalize marijuana trade |date = 10 December 2013 |access-date = 10 July 2021 |archive-date = 1 December 2015 |archive-url = https://web.archive.org/web/20151201043200/http://www.reuters.com/article/2013/12/11/us-uruguay-marijuana-vote-idUSBRE9BA01520131211 |url-status = live }}</ref><ref>{{cite web|url=http://www.hurriyetdailynews.com/uruguay-marijuana-sales-delayed-until-2015-president.aspx?pageID=238&nID=68922&NewsCatID=358|title=Uruguay marijuana sales delayed until 2015: President – Americas|date=10 July 2014 |access-date=14 January 2015|archive-date=26 December 2018|archive-url=https://web.archive.org/web/20181226021407/http://www.hurriyetdailynews.com/uruguay-marijuana-sales-delayed-until-2015-president-68922|url-status=live}}</ref> [[Cannabis Social Club|Non-profit Cannabis Clubs]] can also operate.<ref>{{Cite book |last=Junta Nacional de Drogas |url=https://www.ircca.gub.uy/wp-content/uploads/2019/06/Ley19172-Decretos-ingles-espanol.pdf |title=Regulation and Control of Cannabis Market: Law 19.172 & Decrees |publisher=Presidencia de la República, Uruguay |year=2019 |location=[[Montevideo]] |access-date=3 July 2022 |archive-date=27 June 2022 |archive-url=https://web.archive.org/web/20220627170553/https://www.ircca.gub.uy/wp-content/uploads/2019/06/Ley19172-Decretos-ingles-espanol.pdf |url-status=live }}</ref> The minimum age to purchase or obtain cannabis in Uruguay is 18.<ref>{{cite news |date= 19 July 2017 |title=Uruguay pharmacies start selling cannabis straight to consumers |url= https://www.theguardian.com/world/2017/jul/19/uruguay-marijuana-sale-pharmacies |work= [[The Guardian]] |publisher= [[Reuters]] |location= Montevideo |access-date= 23 June 2023}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -208,9 +229,9 @@
   },
   "hashes": {
     "code": "ury",
-    "content_hash": "275999dd6a08738762a15fccf667c08a3f98af81fb55f872b298223a8e39de0c",
-    "notes_hash": "119d9d698027d77f906da916134e546d467b99b9a3625afc0d3817f980df6ae0",
-    "model_hash": "9b3bb0e8478340b866affa45e902cc47ee3e35999687593ef426d9c656dc766e"
+    "content_hash": "95daf6955b59202e7b8a474b5f652a9e7e1f1721e3486360022b6f604360413b",
+    "notes_hash": "7c977fd0dfb0932b3f1b2a302639054d20ef6dfee0efd8eb2b1e9b1ac386c8ad",
+    "model_hash": "2e10923b7a66cc7944c0ad9f1f55493c23f10cbf99c9c0a38acb891f04568da9"
   },
   "geo_code": "UY",
   "node_type": "country",

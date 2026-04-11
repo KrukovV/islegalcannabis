@@ -35,9 +35,10 @@
     "signals": {
       "status": "illegal",
       "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 1,
+        "prison_priority": 3,
         "arrest": false,
         "fine": false,
         "severity_score": 4,
@@ -95,12 +96,15 @@
       ],
       "explain": [
         "rule: penalty_prison | source: Ethiopia / ኢትዮጵያ | type: summary | priority: 1 | scope: possession",
-        "no traversal evidence"
+        "rule: penalty_prison | source: Cannabis in Ethiopia | type: traversal | priority: 3 | scope: possession",
+        "rule: raw_illegal | source: Cannabis in Ethiopia | type: traversal | priority: 3 | scope: possession",
+        "rule: illegal | source: Cannabis in Ethiopia | type: traversal | priority: 3 | scope: possession"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "penalty_prison"
+      "penalty_prison",
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Ethiopia / ኢትዮጵያ. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
@@ -202,9 +206,9 @@
   },
   "hashes": {
     "code": "eth",
-    "content_hash": "c6fded8509ab4e92eebe3496b13e5e98869e0d12c5eda01f90b60633518d058d",
+    "content_hash": "51448ff63b6eac411d19a1141d03db08d1cbac5f51511eab539e52d6b22c8cc7",
     "notes_hash": "7b7cbc1fa2c94de75c60a79ade3af8b0e09942faac2cbb23be66c01e5dfc9157",
-    "model_hash": "9b39897d4ed7f021ff2cd31d016865a0174adea9bc3b0a38570697e9a9543e10"
+    "model_hash": "6eb8cf8933c830b6d942430254e4d28e5d3f6c612fb3c73e78030609c306b6cf"
   },
   "geo_code": "ET",
   "node_type": "country",

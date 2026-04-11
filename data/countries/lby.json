@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -183,9 +184,9 @@
   },
   "hashes": {
     "code": "lby",
-    "content_hash": "21358213c886518919b942b2340fa5f905a2e526f6a407d7deacd5847d72c04e",
+    "content_hash": "b9a3c48bb06bd2b29aa98d3f731c55d977c7301ec7e3598c19f73ae882f07fe4",
     "notes_hash": "884d7ec03000a891f87a3cc96275c0d8419b41030d4bef5c47c3d28c653cdce9",
-    "model_hash": "7d090bf71286b1ef4767415e55782da8fc208f709cdab711043ac85e5a8b160e"
+    "model_hash": "5f0cee762dfeee0f835ed5ec68a86af378a6dbed42e7f026889083160f45ba6b"
   },
   "geo_code": "LY",
   "node_type": "country",

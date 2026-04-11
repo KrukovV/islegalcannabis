@@ -17,31 +17,37 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
         "possession": "restricted",
         "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
       "enforcement": "standard",
-      "flags": [],
+      "flags": [
+        "trafficking_illegal"
+      ],
       "modifiers": [
         "but",
-        "up_to"
+        "up_to",
+        "however",
+        "may",
+        "only"
       ]
     },
     "signals": {
-      "status": "restricted",
-      "final_risk": "LIMITED",
+      "status": "illegal",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
         "fine": false,
-        "severity_score": 0,
+        "severity_score": 5,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -49,13 +55,13 @@
           "severe": false
         },
         "trafficking": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
           "fine": false,
-          "severe": false
+          "severe": true
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Ecuador",
@@ -78,16 +84,30 @@
       ],
       "explain": [
         "rule: possession_decriminalized | source: Ecuador | type: summary | priority: 1 | scope: possession",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Ecuador | type: traversal | priority: 3 | scope: use",
+        "rule: illegal | source: Cannabis in Ecuador | type: traversal | priority: 3 | scope: use",
+        "rule: legal | source: Cannabis in Ecuador | type: traversal | priority: 3 | scope: trafficking",
+        "rule: medical_legal | source: Cannabis in Ecuador | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in Ecuador | type: traversal | priority: 3 | scope: possession",
+        "rule: illegal | source: Cannabis in Ecuador | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_prison | source: Cannabis in Ecuador | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Ecuador | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_years | source: Cannabis in Ecuador | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Ecuador | type: traversal | priority: 3 | scope: trafficking",
+        "rule: legal | source: Cannabis in Ecuador | type: traversal | priority: 3 | scope: cultivation"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "possession_decriminalized"
+      "possession_decriminalized",
+      "raw_illegal",
+      "penalty_prison",
+      "penalty_years",
+      "trafficking_illegal"
     ],
-    "notes_normalized": "Cannabis is decriminalized in Ecuador. Medical cannabis is legal. Distribution is restricted."
+    "notes_normalized": "Cannabis is decriminalized in Ecuador. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is decriminalized in Ecuador. Medical cannabis is legal. Distribution is restricted.",
+  "notes_normalized": "Cannabis is decriminalized in Ecuador. Medical cannabis is legal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Ecuador}} Possession of up to {{cvt|10|g|frac=8}} decriminalized in 2013, but policy was repealed by President [[Daniel Noboa]] in 2023.<ref>{{cite news |title=Ecuador's newly sworn-in president repeals guidelines allowing people to carry limited drug amounts |url=https://apnews.com/article/ecuador-president-noboa-drug-trafficking-repeal-6c2e7b2764516113639817716f208300 |access-date=22 March 2024 |work=Associated Press |date=25 November 2023}}</ref>",
   "facts": {
     "possession_limit": "up to 10 g",
@@ -185,9 +205,9 @@
   },
   "hashes": {
     "code": "ecu",
-    "content_hash": "9a20c0f0cc8a1e9769a0afde50a2c0ad17057db3262c128c6f6231b895da8c96",
-    "notes_hash": "dff02ccae29e6caa00ddda8861b8e4542abec8231c3a7eef3b2ecb2c216055b7",
-    "model_hash": "1bd60a2a62481027136fb303faea190cc1666262a8914c5813d7dee2c75f5f2e"
+    "content_hash": "0981e6c2d0a4af3a01d04a91e0c22cb131f3a71f097b83c964f465b2dde70231",
+    "notes_hash": "4bee2c8ab6f1ade0a0d8fbcec3dcb960bbcf898e15db2359a8de19da050c63f8",
+    "model_hash": "c52c13eceb42803611b1a22fcb02f2160da564ab7bf52cfda269be7fdbbe79dc"
   },
   "geo_code": "EC",
   "node_type": "country",

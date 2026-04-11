@@ -22,9 +22,9 @@
         "possession": null,
         "use": null,
         "sale": null,
-        "cultivation": null,
+        "cultivation": "tolerated",
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
       "enforcement": "standard",
       "flags": [],
@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -54,7 +55,7 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Lebanon",
@@ -103,13 +104,24 @@
         "rule: illegal | source: Lebanon / لبنان | type: summary | priority: 1 | scope: general",
         "rule: illegal | source: Lebanon / لبنان | type: summary | priority: 1 | scope: cultivation",
         "rule: medical_legal | source: Lebanon / لبنان | type: summary | priority: 1 | scope: cultivation",
-        "no traversal evidence"
+        "rule: legal | source: Cannabis in Lebanon | type: traversal | priority: 3 | scope: cultivation",
+        "rule: raw_illegal | source: Cannabis in Lebanon | type: traversal | priority: 3 | scope: cultivation",
+        "rule: private_cultivation | source: Cannabis in Lebanon | type: traversal | priority: 3 | scope: cultivation",
+        "rule: illegal | source: Cannabis in Lebanon | type: traversal | priority: 3 | scope: cultivation",
+        "rule: raw_illegal | source: Cannabis in Lebanon | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Lebanon | type: traversal | priority: 3 | scope: trafficking",
+        "rule: illegal | source: Cannabis in Lebanon | type: traversal | priority: 3 | scope: trafficking",
+        "rule: medical_legal | source: Cannabis in Lebanon | type: traversal | priority: 3 | scope: cultivation",
+        "rule: raw_illegal | source: Cannabis in Lebanon | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Lebanon | type: traversal | priority: 3 | scope: general"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
       "illegal",
-      "medical_legal"
+      "medical_legal",
+      "raw_illegal",
+      "private_cultivation"
     ],
     "notes_normalized": "Cannabis is illegal in Lebanon / لبنان. Medical cannabis is legal. Distribution is illegal."
   },
@@ -211,9 +223,9 @@
   },
   "hashes": {
     "code": "lbn",
-    "content_hash": "ae016fd6dd48472147b5fe207de2b56e14200cbb11e0332431c1b7384297cbe3",
+    "content_hash": "cc276fa45d4f66ad1a0e90e63ff15e3f9141ec34eab4f6ed4c771adb13326b9f",
     "notes_hash": "465283faecce66a0a50a02b7ca506300b1a7f1b72e6583fac58a67a1d684327a",
-    "model_hash": "26e563ae455fc6e3832612257c48a07514859320e24f3abdd7473422375d12db"
+    "model_hash": "9fb8013e1e836345c4611f0222fb0b74a2218d68b5a9aa13bde484a288492543"
   },
   "geo_code": "LB",
   "node_type": "country",

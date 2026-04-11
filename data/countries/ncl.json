@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -164,9 +165,9 @@
   },
   "hashes": {
     "code": "ncl",
-    "content_hash": "35edcd58948a98ea56ff4da3a9944f9df62158584b1eee514b9ca228fa6e4ea0",
+    "content_hash": "2f0afd6ad943247295027d24cfed34e5a2812de87efc8ca17522ef011630c704",
     "notes_hash": "2e7125426540090c29c501ceaf9e332340bb1820a5dab159179f46a9b5a98d0f",
-    "model_hash": "5c49682366017db59784249b31eae447702e8845a9c08ce206dd62d4bf30d801"
+    "model_hash": "e2065c992fde119d42cd5cc99b46db5fff5dad9fa36af7a66d251aefa285a7d6"
   },
   "geo_code": "NC",
   "node_type": "country",

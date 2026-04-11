@@ -27,14 +27,16 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "flags": [],
+      "modifiers": [
+        "may",
+        "but"
+      ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -100,12 +102,15 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Grenada | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Grenada | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in Grenada | type: traversal | priority: 3 | scope: cultivation",
+        "rule: illegal | source: Cannabis in Grenada | type: traversal | priority: 3 | scope: cultivation"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Grenada. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -207,9 +212,9 @@
   },
   "hashes": {
     "code": "grd",
-    "content_hash": "2686ca31e2168c76efa5e70c9bb576b98bdac373a96213a28f23657f85af3274",
+    "content_hash": "85ad17e1509779e21d6dfa392a9b68747249eedb59927b8dfabac1ca1429ec0f",
     "notes_hash": "a70335c7ae621bd114c280a78215927ee733f9eebde29a2c7fc5480aaefd5c8c",
-    "model_hash": "1a7ffbafa4b1eadd1c1dc4bc2a0bc29e0ce893ecb3c0e8d52801414125db08ca"
+    "model_hash": "2e72c8c27fd84c94a6ce4df38fb58345d0683ed4645cb0c30434cf80beba88e5"
   },
   "geo_code": "GD",
   "node_type": "country",

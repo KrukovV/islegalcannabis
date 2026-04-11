@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -164,9 +165,9 @@
   },
   "hashes": {
     "code": "sgs",
-    "content_hash": "d5e44f17d6ac11d097670693235132d3ad356812e22c340387f3eff10706f364",
+    "content_hash": "91c41ac6f7e9e1bb7fc3b40fb594274590507e4cc79eede93c8baa49d82433ff",
     "notes_hash": "871c5a9600488c5dc92eeb242bc9aefcc370e80c7ac4038bbee9e67b0b28c125",
-    "model_hash": "8d5fdd5f273f3aef32835e09ca92b6ae34cb6ae46df4e7d39f4e6cf43a9da58b"
+    "model_hash": "c9a3301c8e44b4ec4af78e11c1f6495757164b37f9c3d82b31b47e666823e46b"
   },
   "geo_code": "GS",
   "node_type": "country",

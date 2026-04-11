@@ -33,6 +33,7 @@
     "signals": {
       "status": "restricted",
       "final_risk": "LIMITED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -108,8 +109,7 @@
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "possession_decriminalized",
-      "medical_legal"
+      "possession_decriminalized"
     ],
     "notes_normalized": "Cannabis is decriminalized in Mexico / México. Medical cannabis is legal. Distribution is restricted."
   },
@@ -211,9 +211,9 @@
   },
   "hashes": {
     "code": "mex",
-    "content_hash": "7fb95900913c661edec9340ca55128d59099ea65a8441a6b938facbf483aa2b8",
+    "content_hash": "507893b00d0652d24b76a82877cc36a6848a319bec8ee7713e55125672d1d5e2",
     "notes_hash": "30a3404e34102f62900307eb1d50b89b03ef24b129f124966d3e1fd4872ad460",
-    "model_hash": "499e4777240dd0d8d2d701d38eaf5bb0d2cd6d25aab5978992ed6902692f271b"
+    "model_hash": "b7aad95bba3f38b66c79833a55b37187d07da373e129f6439c15bcf3ae146812"
   },
   "geo_code": "MX",
   "node_type": "country",

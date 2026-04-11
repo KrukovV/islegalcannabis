@@ -27,14 +27,13 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -76,12 +75,13 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Turkmenistan | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Turkmenistan | type: traversal | priority: 3 | scope: general"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Turkmenistan / Туркмения. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -183,9 +183,9 @@
   },
   "hashes": {
     "code": "tkm",
-    "content_hash": "d486b6c4fb37cd64dcdf71e3c05a53105c344e061af1b180a587cae063b673dc",
+    "content_hash": "b42f203e3e4c58861f862b1567006f43c34f27ba1ade8848f82654d5664dbadd",
     "notes_hash": "dd2d93eecc2817b7f2afddcf828a5cba359f288a4cbefd95bb7b6f2af6a89e77",
-    "model_hash": "39768849a1285e10c05619718f28549ea81e0459f7bfa40bf9cbcc7909a38a11"
+    "model_hash": "864f7feb0d69c77c92ce8cb9ec4c3bb00f20989e2f02e31882c0720e42da3d92"
   },
   "geo_code": "TM",
   "node_type": "country",

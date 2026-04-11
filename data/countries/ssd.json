@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -183,9 +184,9 @@
   },
   "hashes": {
     "code": "ssd",
-    "content_hash": "1064d8286aa72819a014dc7446f814374c52e42b5e3a291c201547e2790159f8",
+    "content_hash": "1b636884e6d242d144c3fed8277d685accc157cc2c8282ecdad3ac768645a337",
     "notes_hash": "99cebe598f23f2d95f3f865ee4621a2c139b56aa07ae49b39f9bd441366c919b",
-    "model_hash": "ef0ded77a26d5bf8a4480ae82c594355830bd2108dcf76527c7854da322f925f"
+    "model_hash": "40631368e06ba70ceeca2f49f8da7d6a4872a9907b3c2a2a3737b8dd0a4a1bd6"
   },
   "geo_code": "SS",
   "node_type": "country",

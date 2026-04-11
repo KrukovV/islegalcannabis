@@ -33,6 +33,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -171,9 +172,9 @@
   },
   "hashes": {
     "code": "vat",
-    "content_hash": "f1ec34e1ff7408b7c15818394247bff548252fb2edc509873d533b89e24b53a4",
+    "content_hash": "d71d7391f3d0fb4cd6af8532ea6b49b8c3ad4d6c3b0ac3ca8d5a566cfc7d7525",
     "notes_hash": "63bd1e0bad631635f192602ae4855cea9be93ec30a87da0560cd08d5f99f3cd7",
-    "model_hash": "bcbd1d0ab8cab74ca9d096f9f867e0d631ecaa263ebf9c0849438107eea1821a"
+    "model_hash": "2d1ecd795ed4193848ac38079041bde8259753137e80f2f4f77690da54e66ce6"
   },
   "geo_code": "VA",
   "node_type": "country",

@@ -55,6 +55,7 @@ describe("GET /api/check contract", () => {
     expect(json.legal_status).toBeTruthy();
     expect(json.final_risk).toBeTruthy();
     expect(json.penalties).toBeTruthy();
+    expect(json.enforcement_level).toBeTruthy();
     expect(Array.isArray(json.explain)).toBe(true);
     expect(["low", "medium", "high"]).toContain(json.confidence);
     expect(Array.isArray(json.sources)).toBe(true);
@@ -73,6 +74,7 @@ describe("GET /api/check contract", () => {
     expect(json.distribution_scopes).toBeTruthy();
     expect(Array.isArray(json.applied_rules)).toBe(true);
     expect(json.penalties).toBeTruthy();
+    expect(json.enforcement_level).toBeTruthy();
     expect(Array.isArray(json.explain)).toBe(true);
   });
 

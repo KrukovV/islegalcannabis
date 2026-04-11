@@ -17,42 +17,49 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "illegal",
+      "status": "regulated",
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
+        "sale": "regulated",
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
-      "flags": [],
-      "modifiers": []
+      "enforcement": "fine-based",
+      "flags": [
+        "sale_regulated"
+      ],
+      "modifiers": [
+        "may",
+        "however",
+        "but"
+      ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 4,
         "possession": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
           "fine": false,
-          "severe": false
+          "severe": true
         },
         "trafficking": {
           "prison": false,
           "arrest": false,
-          "fine": false,
+          "fine": true,
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Argentina",
@@ -99,16 +106,27 @@
       ],
       "explain": [
         "rule: medical_legal | source: Argentina | type: summary | priority: 1 | scope: general",
-        "no traversal evidence"
+        "rule: sale_regulated | source: Cannabis in Argentina | type: traversal | priority: 3 | scope: sale",
+        "rule: medical_legal | source: Cannabis in Argentina | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Argentina | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_criminal_offense | source: Cannabis in Argentina | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_fine | source: Cannabis in Argentina | type: traversal | priority: 3 | scope: trafficking",
+        "rule: sale_regulated | source: Cannabis in Argentina | type: traversal | priority: 3 | scope: trafficking"
       ]
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "medical_legal"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is illegal in Argentina. Medical cannabis is legal. Distribution is illegal."
+    "applied_rules": [
+      "medical_legal",
+      "sale_regulated",
+      "penalty_prison",
+      "penalty_criminal_offense",
+      "penalty_fine"
+    ],
+    "notes_normalized": "Cannabis is illegal in Argentina. Medical cannabis is legal. Distribution is regulated. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Argentina. Medical cannabis is legal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Argentina. Medical cannabis is legal. Distribution is regulated. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Argentina}} Medicinal cannabis was legalized on 22 September 2017.<ref>{{Cite news |url=https://www.infobae.com/politica/2017/09/22/el-gobierno-reglamento-la-ley-de-cannabis-medicinal/ |title=El Gobierno reglamentó la ley de cannabis medicinal |date=22 September 2017 |publisher=[[Infobae]] |access-date=4 January 2023 |archive-date=8 June 2021 |archive-url=https://web.archive.org/web/20210608073626/https://www.infobae.com/politica/2017/09/22/el-gobierno-reglamento-la-ley-de-cannabis-medicinal/ |url-status=live |language=es}}</ref><ref>{{cite web |url=https://www.argentina.gob.ar/justicia/derechofacil/leysimple/cannabis-medicinal |title=Cannabis medicinal |author=<!--not stated--> |website=Argentina.gob.ar |date=12 July 2019 |publisher=[[Government of Argentina]] |trans-title=Medicinal cannabis |language=es |access-date=2024-01-04 |url-status=live |archive-url=https://web.archive.org/web/20231206063257/https://www.argentina.gob.ar/justicia/derechofacil/leysimple/cannabis-medicinal |archive-date=2023-12-06}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -206,9 +224,9 @@
   },
   "hashes": {
     "code": "arg",
-    "content_hash": "ea9edc9cc03fb2ab8d13175be21caa553fd3c880f3ece75633ecc3d804d74a5f",
-    "notes_hash": "aade7e9c80a98bfab82a33a8709add1960b9f7fb97964337882f18fc053df378",
-    "model_hash": "2c077451480bed15199d2285cdc966cb583b739254890a7cc762e0b0112c8669"
+    "content_hash": "2d212254d6e4fafbfdb689eee696da722b8e2f4233af3ec4e115e0ed2275e9bd",
+    "notes_hash": "3836d677b306b5d5e3177ca30d30fe499d686dfd0aa6a3668396e81ac2d90263",
+    "model_hash": "dc154da94a374d30a7a4cf089e41b1690b0afab75a779d4accf48c294844f5c5"
   },
   "geo_code": "AR",
   "node_type": "country",

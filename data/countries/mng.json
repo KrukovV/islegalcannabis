@@ -27,14 +27,15 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "flags": [],
+      "modifiers": [
+        "may"
+      ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -82,12 +83,13 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Mongolia | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Mongolia | type: traversal | priority: 3 | scope: general"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Mongolia / Монгол улс. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -189,9 +191,9 @@
   },
   "hashes": {
     "code": "mng",
-    "content_hash": "9525fa93fcb8f243d11309fd7a8a71cd4f3e70da911c32d34cbe78ae0388ee2e",
+    "content_hash": "bbb3b9a1ed01d62211e16081914ee22c3e3e2d954d4e1caa82cd4ea3c7a9a2fb",
     "notes_hash": "e76125b3f27e8d71a4384c8eb8f743a9dd1bb7183ead44f2b355a0ca4369b085",
-    "model_hash": "9093edb0fad6041be73e5d59295a1687f83107c0399e3d73acccdd196f55d0cf"
+    "model_hash": "d4f95e0954a6de066027125fe2a622054f9b49658a1c2a57f4399659bf564778"
   },
   "geo_code": "MN",
   "node_type": "country",

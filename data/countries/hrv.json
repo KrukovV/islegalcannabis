@@ -26,23 +26,24 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [],
       "modifiers": []
     },
     "signals": {
-      "status": "restricted",
-      "final_risk": "LIMITED",
+      "status": "illegal",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 4,
         "possession": {
           "prison": false,
           "arrest": false,
-          "fine": false,
+          "fine": true,
           "severe": false
         },
         "trafficking": {
@@ -52,7 +53,7 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Croatia",
@@ -99,16 +100,30 @@
       ],
       "explain": [
         "rule: medical_legal | source: Croatia / Hrvatska | type: summary | priority: 1 | scope: general",
-        "no traversal evidence"
+        "rule: possession_decriminalized | source: Cannabis in Croatia | type: traversal | priority: 3 | scope: use",
+        "rule: medical_legal | source: Cannabis in Croatia | type: traversal | priority: 3 | scope: use",
+        "rule: medical_limited | source: Cannabis in Croatia | type: traversal | priority: 3 | scope: use",
+        "rule: raw_illegal | source: Cannabis in Croatia | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Croatia | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Croatia | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_criminal_offense | source: Cannabis in Croatia | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Croatia | type: traversal | priority: 3 | scope: possession"
       ]
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "medical_legal"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is decriminalized in Croatia / Hrvatska. Medical cannabis is legal. Distribution is restricted."
+    "applied_rules": [
+      "medical_legal",
+      "possession_decriminalized",
+      "raw_illegal",
+      "penalty_prison",
+      "penalty_criminal_offense",
+      "penalty_fine"
+    ],
+    "notes_normalized": "Cannabis is decriminalized in Croatia / Hrvatska. Medical cannabis is legal. Distribution is restricted. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is decriminalized in Croatia / Hrvatska. Medical cannabis is legal. Distribution is restricted.",
+  "notes_normalized": "Cannabis is decriminalized in Croatia / Hrvatska. Medical cannabis is legal. Distribution is restricted. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Croatia}} Possession of small amounts is considered a misdemeanor subject to fixed fines. Medicinal cannabis legal for patients with illnesses such as [[cancer]], [[multiple sclerosis]], or [[HIV/AIDS]].<ref name=\"Balkan Insight\"/>",
   "facts": {
     "possession_limit": null,
@@ -179,26 +194,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "smr",
-        "name": "San Marino"
-      },
-      {
         "code": "ita",
         "name": "Italy / Italia"
       },
       {
         "code": "cze",
         "name": "Czechia / Česko"
+      },
+      {
+        "code": "hun",
+        "name": "Hungary / Magyarország"
       }
     ],
     "cluster_links": [
       {
-        "code": "vat",
-        "name": "Vatican City / Vaticano"
+        "code": "smr",
+        "name": "San Marino"
       },
       {
-        "code": "mne",
-        "name": "Montenegro / Црна Гора"
+        "code": "vat",
+        "name": "Vatican City / Vaticano"
       }
     ],
     "same_country_states": [],
@@ -206,9 +221,9 @@
   },
   "hashes": {
     "code": "hrv",
-    "content_hash": "77a93726a75d7d6dd77de6af5203ca8672a5247a1a0a7f12515ea24c8535e69f",
-    "notes_hash": "6dd554d1ca066069f94bcf5ed4addac123c70c56a64312b507a98d0d02bebdb4",
-    "model_hash": "4a70889aabe92c4f496c70e1838a10ea17f5878d79854bd0a5d239e02dde4093"
+    "content_hash": "827622b933bdf314529c892f8a5dcf4d5fae6fbd75ad9731c09bc7c668bb620d",
+    "notes_hash": "18060be1870dd444acdbc87881bf5c3cdb656989a4cfbd9cfba4b9bc1f030ba7",
+    "model_hash": "52883fcb056147615b3cbb29542719b0265044587b92e3cf927f12bf9bd0f1cc"
   },
   "geo_code": "HR",
   "node_type": "country",

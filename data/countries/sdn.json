@@ -26,26 +26,25 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "enforcement": "fine-based",
+      "flags": [],
       "modifiers": []
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 5,
         "possession": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
-          "fine": false,
-          "severe": false
+          "fine": true,
+          "severe": true
         },
         "trafficking": {
           "prison": false,
@@ -54,7 +53,7 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Sudan",
@@ -94,16 +93,23 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Sudan | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Sudan | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Sudan | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Cannabis in Sudan | type: traversal | priority: 3 | scope: use"
       ]
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "distribution_fallback_illegal"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is illegal in Sudan / السودان. Medical cannabis is illegal. Distribution is illegal."
+    "applied_rules": [
+      "raw_illegal",
+      "penalty_fine",
+      "penalty_years"
+    ],
+    "notes_normalized": "Cannabis is illegal in Sudan / السودان. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Sudan / السودان. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Sudan / السودان. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Sudan}}",
   "facts": {
     "possession_limit": null,
@@ -201,9 +207,9 @@
   },
   "hashes": {
     "code": "sdn",
-    "content_hash": "58b71c8e451b36624fb0b648a6689376cd08724445855deeec3b706ad4957229",
-    "notes_hash": "71248747a296c612aed673e638f3f2c1a1d1c1e1843178e712c727dd03682d65",
-    "model_hash": "69da9a9e5c9b41a3b8a222acb5b3b1e8ef8703d81252496b03d675b178a2bee5"
+    "content_hash": "2b31fac810e1375daf86e22b61541907805ed73f90d54a851219fea9eaf19ef3",
+    "notes_hash": "6d5d38bf93e06efee9c5e922e8d80d1cccbe42e2645c8c5405ff7941788583f4",
+    "model_hash": "ebd8896cfdd30aa1600ea3ef105966a84d2e09984c759eea6075d91e6f693e84"
   },
   "geo_code": "SD",
   "node_type": "country",

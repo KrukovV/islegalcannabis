@@ -11,41 +11,44 @@
     },
     "medical": {
       "raw_status": "LEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "MEDICAL_ONLY",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
       "override_reason": null
     },
     "distribution": {
-      "status": "illegal",
+      "status": "tolerated",
       "scopes": {
         "possession": null,
         "use": null,
         "sale": null,
-        "cultivation": null,
+        "cultivation": "tolerated",
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": [
+        "up_to",
+        "may",
+        "but"
+      ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 4,
         "possession": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
           "fine": false,
-          "severe": false
+          "severe": true
         },
         "trafficking": {
           "prison": false,
@@ -54,7 +57,7 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Zimbabwe",
@@ -100,16 +103,29 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Zimbabwe | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_prison | source: Cannabis in Zimbabwe | type: traversal | priority: 3 | scope: possession",
+        "rule: raw_illegal | source: Cannabis in Zimbabwe | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_years | source: Cannabis in Zimbabwe | type: traversal | priority: 3 | scope: possession",
+        "rule: private_cultivation | source: Cannabis in Zimbabwe | type: traversal | priority: 3 | scope: cultivation",
+        "rule: medical_legal | source: Cannabis in Zimbabwe | type: traversal | priority: 3 | scope: cultivation",
+        "rule: penalty_fine | source: Cannabis in Zimbabwe | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in Zimbabwe | type: traversal | priority: 3 | scope: general"
       ]
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "distribution_fallback_illegal"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is illegal in Zimbabwe. Medical cannabis is legal. Distribution is illegal."
+    "applied_rules": [
+      "raw_illegal",
+      "penalty_prison",
+      "penalty_years",
+      "private_cultivation",
+      "penalty_fine"
+    ],
+    "notes_normalized": "Cannabis is illegal in Zimbabwe. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Zimbabwe. Medical cannabis is legal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Zimbabwe. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Zimbabwe}}",
   "facts": {
     "possession_limit": null,
@@ -207,9 +223,9 @@
   },
   "hashes": {
     "code": "zwe",
-    "content_hash": "54fa866fa387651009ded79fa18d8c77b574b7b5b604c68d1c40b537e6f1cbfd",
-    "notes_hash": "8f787912a611106f50e3ecac698ce9d4ab3a15f5ec8859b5dc638d0e6a11ff5a",
-    "model_hash": "fffa7d35f41f310e6f86a7ab252c9082a7067291b31c4f0ee9405f14ee3b3546"
+    "content_hash": "22c7af59c76bcc261dcdf295db7a9a6c8ff08938167caf097ce4c16bfb2b1aa1",
+    "notes_hash": "c6910d3d89ff054566bb6b8fe895932344becdb6c18c45f84c5e3af2f5b60887",
+    "model_hash": "71a1bc132f3b86ca247510df122c9b4e717bdae9276318c5ebd50bc2f884a5d7"
   },
   "geo_code": "ZW",
   "node_type": "country",

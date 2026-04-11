@@ -26,10 +26,8 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "enforcement": "fine-based",
+      "flags": [],
       "modifiers": [
         "but"
       ]
@@ -37,16 +35,17 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 1,
         "possession": {
           "prison": false,
           "arrest": false,
-          "fine": false,
+          "fine": true,
           "severe": false
         },
         "trafficking": {
@@ -102,12 +101,17 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Iran | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Iran | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Iran | type: traversal | priority: 3 | scope: possession"
       ]
     },
-    "enforcement_flags": [],
+    "enforcement_flags": [
+      "fine_based"
+    ],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal",
+      "penalty_fine"
     ],
     "notes_normalized": "Cannabis is illegal in Iran / ایران. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -209,9 +213,9 @@
   },
   "hashes": {
     "code": "irn",
-    "content_hash": "cb3d470262f2fc818312149b82c5facd87a59d6e760df90a8c0a4feaa054cb7a",
+    "content_hash": "5e7b9f736b939a21fa7ebf73f737f9f8800bd71ab5ba613949efc3afc8baf3c2",
     "notes_hash": "eaa6e507f742cdb588d9a1a9a0a181cce7652d3e2b3cfd0e0b0e2c67cb9c2653",
-    "model_hash": "ce0ff05103f2e411657be1d13f1db4b0ab256c27324ccf42dc64760a7e9b8268"
+    "model_hash": "c857efe347b3ef82726440b5ec5cb50d34980edd2117d52504d8ec965b7743b5"
   },
   "geo_code": "IR",
   "node_type": "country",

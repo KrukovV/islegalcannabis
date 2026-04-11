@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
         "prison": true,
         "prison_priority": 1,
@@ -194,9 +195,9 @@
   },
   "hashes": {
     "code": "ven",
-    "content_hash": "d1564de24d982fd391a05e5dc4ba8e345aa563c1cdd16234e2d0bf9d296d569e",
+    "content_hash": "bfa9857205494a78e74d69be57cec2afefe776a42125fe6807de65f6c3b2a20e",
     "notes_hash": "621d0f30994afa165750655a71a41c87c6c10d31b65f78b307f654dfc30382c3",
-    "model_hash": "654b9ab9938cfb28da927e76f48e9bd86fe0ff42cf068fbd9268a3370abcc284"
+    "model_hash": "7efc5223c64440fe93d6158aafcb8e9b4a60ba73e7f432bbfb9b54b7284effec"
   },
   "geo_code": "VE",
   "node_type": "country",

@@ -35,12 +35,14 @@
         "only",
         "but",
         "may",
-        "up_to"
+        "up_to",
+        "however"
       ]
     },
     "signals": {
       "status": "mixed",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -124,6 +126,9 @@
         "rule: trafficking_illegal | source: Cannabis in the Netherlands | type: traversal | priority: 3 | scope: trafficking",
         "rule: illegal | source: Cannabis in the Netherlands | type: traversal | priority: 3 | scope: trafficking",
         "rule: medical_legal | source: Cannabis in the Netherlands | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in the Netherlands | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in the Netherlands | type: traversal | priority: 3 | scope: sale",
+        "rule: sale_regulated | source: Cannabis in the Netherlands | type: traversal | priority: 3 | scope: sale",
         "rule: sale_tolerated | source: Am I committing a criminal offence if I possess, produce or deal in drugs? - Drugs - Government.nl | type: reference | priority: 2 | scope: sale",
         "rule: rec_tolerated | source: Am I committing a criminal offence if I possess, produce or deal in drugs? - Drugs - Government.nl | type: reference | priority: 2 | scope: sale",
         "rule: sale_tolerated | source: Cannabis in the Netherlands | type: reference | priority: 2 | scope: sale",
@@ -141,7 +146,6 @@
       "possession_decriminalized",
       "zero_tolerance",
       "raw_illegal",
-      "medical_legal",
       "distribution_mixed_strong_penalty"
     ],
     "notes_normalized": "Cannabis is tolerated in Netherlands / Nederland. Medical cannabis is legal. Distribution is mixed."
@@ -221,22 +225,22 @@
         "name": "Switzerland / Suisse"
       },
       {
-        "code": "dnk",
-        "name": "Denmark / Danmark"
-      },
-      {
         "code": "fra",
         "name": "France"
-      }
-    ],
-    "cluster_links": [
-      {
-        "code": "lie",
-        "name": "Liechtenstein"
       },
       {
         "code": "gbr",
         "name": "United Kingdom"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "dnk",
+        "name": "Denmark / Danmark"
+      },
+      {
+        "code": "lie",
+        "name": "Liechtenstein"
       }
     ],
     "same_country_states": [],
@@ -244,9 +248,9 @@
   },
   "hashes": {
     "code": "nld",
-    "content_hash": "30ced2477044646f8bb9ef7d698c9a3807cc7ce0eff10f80535acc18bf8cd5cc",
+    "content_hash": "e910d3203a7fe0bfa3c232c901f59cb24101e4b0668190b565f5ab2737885935",
     "notes_hash": "047e0c2c9bce78732303ef221b6ed2086c7f5b2fe8e0916a4266d4a2590dca49",
-    "model_hash": "aaa687f2ca8fc3ebbba16a3323cd0b683707071f692cfd0f365cea11db1569de"
+    "model_hash": "4b63e965f2eaa2db2133ef506bc91eca2c398efbf5086678e9fa31c377031f2b"
   },
   "geo_code": "NL",
   "node_type": "country",

@@ -21,40 +21,45 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
+        "sale": "illegal",
         "cultivation": null,
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [
-        "distribution_fallback_illegal"
+        "trafficking_illegal",
+        "sale_illegal"
       ],
-      "modifiers": []
+      "modifiers": [
+        "but",
+        "up_to"
+      ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 4,
         "possession": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
-          "fine": false,
-          "severe": false
+          "fine": true,
+          "severe": true
         },
         "trafficking": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
           "fine": false,
-          "severe": false
+          "severe": true
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Bulgaria",
@@ -82,16 +87,35 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Bulgaria | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Bulgaria | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_fine | source: Cannabis in Bulgaria | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_years | source: Cannabis in Bulgaria | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_prison | source: Cannabis in Bulgaria | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_years | source: Cannabis in Bulgaria | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Bulgaria | type: traversal | priority: 3 | scope: trafficking",
+        "rule: sale_illegal | source: Cannabis in Bulgaria | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_prison | source: Cannabis in Bulgaria | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Bulgaria | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_years | source: Cannabis in Bulgaria | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_criminal_offense | source: Cannabis in Bulgaria | type: traversal | priority: 3 | scope: general"
       ]
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "distribution_fallback_illegal"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is illegal in Bulgaria / България. Medical cannabis is illegal. Distribution is illegal."
+    "applied_rules": [
+      "raw_illegal",
+      "penalty_prison",
+      "penalty_fine",
+      "penalty_years",
+      "trafficking_illegal",
+      "sale_illegal",
+      "penalty_criminal_offense"
+    ],
+    "notes_normalized": "Cannabis is illegal in Bulgaria / България. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Bulgaria / България. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Bulgaria / България. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Bulgaria}} Cannabis is classified as a class A (High-risk) drug, together with [[heroin]], [[cocaine]], [[amphetamines]], and [[MDMA]] (ecstasy). Until 2004, a loosely defined \"personal dose\" existed.<ref>{{cite web |title=Bulgaria: Country Drug Report 2017 |url=http://www.emcdda.europa.eu/countries/drug-reports/2017/bulgaria/drug-laws-and-offences_en |publisher=European Monitoring Centre for Drugs and Drug Addiction |access-date=17 October 2018 |archive-date=17 October 2018 |archive-url=https://web.archive.org/web/20181017123705/http://www.emcdda.europa.eu/countries/drug-reports/2017/bulgaria/drug-laws-and-offences_en |url-status=live }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -189,9 +213,9 @@
   },
   "hashes": {
     "code": "bgr",
-    "content_hash": "bf5682e9064cc879d70dd259f4bd885913942d1813d5e882eea6596ba26b359f",
-    "notes_hash": "9cdf972c0cf45d5efbf5a7c0ef96193c68ab76295865d50f0acf81ab559e620a",
-    "model_hash": "b93a250c6a3b5096773a6c8655fbc5bfb4ac7c682742fab3305cb24791502d28"
+    "content_hash": "6f2ec0288c1a2d2a1e49e410c418a65d2f43e53755f625f1b3af3318251d7fba",
+    "notes_hash": "5b2231adda2b2e201f166cdcc21983c16da08f8ab4d514da4a90e2745b7f5373",
+    "model_hash": "1e6b284f7684c6354a0a591e82c246de9e28cc40296bf3f9a4e2a14ede92884d"
   },
   "geo_code": "BG",
   "node_type": "country",

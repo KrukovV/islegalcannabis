@@ -11,9 +11,9 @@
     },
     "medical": {
       "raw_status": "LEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "MEDICAL_ONLY",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
       "override_reason": null
     },
     "distribution": {
@@ -24,32 +24,40 @@
         "sale": null,
         "cultivation": null,
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
-      "enforcement": "standard",
-      "flags": [],
-      "modifiers": []
+      "enforcement": "fine-based",
+      "flags": [
+        "trafficking_illegal"
+      ],
+      "modifiers": [
+        "but",
+        "up_to",
+        "however",
+        "only"
+      ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 1,
-        "arrest": false,
-        "fine": false,
+        "prison_priority": 3,
+        "arrest": true,
+        "fine": true,
         "severity_score": 4,
         "possession": {
           "prison": true,
-          "arrest": false,
+          "arrest": true,
           "fine": false,
           "severe": true
         },
         "trafficking": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
           "fine": false,
-          "severe": false
+          "severe": true
         }
       },
       "confidence": "high",
@@ -100,17 +108,33 @@
       "explain": [
         "rule: penalty_prison | source: Cyprus / Κύπρος | type: summary | priority: 1 | scope: possession",
         "rule: penalty_years | source: Cyprus / Κύπρος | type: summary | priority: 1 | scope: possession",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Cyprus | type: traversal | priority: 3 | scope: use",
+        "rule: medical_legal | source: Cannabis in Cyprus | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_prison | source: Cannabis in Cyprus | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_arrest | source: Cannabis in Cyprus | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_fine | source: Cannabis in Cyprus | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Cyprus | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Cyprus | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_prison | source: Cannabis in Cyprus | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in Cyprus | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Cyprus | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in Cyprus | type: traversal | priority: 3 | scope: general"
       ]
     },
-    "enforcement_flags": [],
+    "enforcement_flags": [
+      "fine_based"
+    ],
     "applied_rules": [
       "penalty_prison",
-      "penalty_years"
+      "penalty_years",
+      "raw_illegal",
+      "penalty_arrest",
+      "penalty_fine",
+      "trafficking_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Cyprus / Κύπρος. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Cyprus / Κύπρος. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Cyprus / Κύπρος. Medical cannabis is legal. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Cyprus / Κύπρος. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Cyprus}} Class B substance – life imprisonment is possible for use and maximum 8 years for possession (at the maximum 2 years for the first offense for people under 25).<ref>{{cite web|title=Overviews of legal topics: possession of cannabis for personal use|url=http://www.emcdda.europa.eu/legal-topic-overviews/cannabis-possession-for-personal-use|publisher=[[European Monitoring Centre for Drugs and Drug Addiction]]|access-date=26 July 2015|archive-date=30 September 2018|archive-url=https://web.archive.org/web/20180930083140/http://www.emcdda.europa.eu/legal-topic-overviews/cannabis-possession-for-personal-use|url-status=live}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -208,9 +232,9 @@
   },
   "hashes": {
     "code": "cyp",
-    "content_hash": "1bc5e6e09c4c059b21efe8718f8d2681a4f41e8265600ecce8f6c6ec048e5c8b",
-    "notes_hash": "5228c19a8ae74f3b895a821c8e7364014020b72215b37e01cca7cdc5e77a3871",
-    "model_hash": "d4050b387bb3042f20873dba5de622a00bb164fc7a3bb63bd35cd19deb71cba5"
+    "content_hash": "4f1e723d1c0acde8bd964fab7a81ebae32879e8481f2f7c2865d8200473b7c37",
+    "notes_hash": "66143dea07335d1921fa825eba8ffb31cbe96884d63fc552b0f604701bd69ebf",
+    "model_hash": "df31695f3655eac840a743696d78fd77b2a1016ee7d34c42291d2f918a1007ad"
   },
   "geo_code": "CY",
   "node_type": "country",

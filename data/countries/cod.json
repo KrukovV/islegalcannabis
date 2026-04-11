@@ -24,17 +24,20 @@
         "sale": null,
         "cultivation": null,
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "flags": [],
+      "modifiers": [
+        "unless",
+        "may",
+        "only"
+      ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -100,12 +103,16 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: medical_legal | source: Cannabis in the Democratic Republic of the Congo | type: traversal | priority: 3 | scope: use",
+        "rule: raw_illegal | source: Cannabis in the Democratic Republic of the Congo | type: traversal | priority: 3 | scope: use",
+        "rule: illegal | source: Cannabis in the Democratic Republic of the Congo | type: traversal | priority: 3 | scope: use",
+        "rule: raw_illegal | source: Cannabis in the Democratic Republic of the Congo | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in the Democratic Republic of the Congo | type: traversal | priority: 3 | scope: trafficking"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in DR Congo / RD Congo. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -207,9 +214,9 @@
   },
   "hashes": {
     "code": "cod",
-    "content_hash": "2302f573e72318f8a1c3f2b61575d6479be35ec9342bb97a1dd69acdd5868eb9",
+    "content_hash": "20c3b7da236c9ae3ea6bfd25989d5507474fc8012a3e78765ad05fd75b7c1cdf",
     "notes_hash": "0f9cefbbf623aab804c8c24150a7bbecaf53df6a638ab439b67197686d37dc7b",
-    "model_hash": "cb144ab8b0ad1edeb17e8c32bb6688e6c6313e646b1eb1f5a8f55dd484f4d086"
+    "model_hash": "0718777139ba6b22c193d7af05926dd6ffc1b4430b91446239a203e507a5fa5e"
   },
   "geo_code": "CD",
   "node_type": "country",

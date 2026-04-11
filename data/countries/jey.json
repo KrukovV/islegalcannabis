@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -164,9 +165,9 @@
   },
   "hashes": {
     "code": "jey",
-    "content_hash": "583bd44088050ceaceb464210ec34bf8ce30b93972c81e4511004d86b0c8a888",
+    "content_hash": "39d8f1f62ae0219f1bd0eb0942deff24f2923747f0832b581e60844d3d427f34",
     "notes_hash": "01d37cb218a1274db3789a29e9b94a824878f530f53e66a683e58228bdd8997d",
-    "model_hash": "e17d35a08f04db7236d1e492cf8acfdcc943ea368a786bb3d991e969d738a69a"
+    "model_hash": "13a60656423c7cf2b7b11e728cfeb4d0df965cccf21d785ae2d22e5c6cea7bbc"
   },
   "geo_code": "JE",
   "node_type": "country",

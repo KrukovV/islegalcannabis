@@ -11,30 +11,36 @@
     },
     "medical": {
       "raw_status": "LEGAL",
-      "status": "LEGAL",
+      "status": "LIMITED",
       "enforcement": "MODERATE",
       "scope": "MEDICAL_ONLY",
-      "override_reason": null
+      "override_reason": "rec_implies_med_floor"
     },
     "distribution": {
-      "status": "regulated",
+      "status": "mixed",
       "scopes": {
         "possession": "restricted",
         "use": "restricted",
         "sale": "regulated",
         "cultivation": "tolerated",
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
       "enforcement": "standard",
       "flags": [
-        "sale_regulated"
+        "sale_regulated",
+        "distribution_mixed_strong_penalty"
       ],
-      "modifiers": []
+      "modifiers": [
+        "but",
+        "only",
+        "up_to"
+      ]
     },
     "signals": {
-      "status": "regulated",
-      "final_risk": "LIMITED",
+      "status": "mixed",
+      "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -105,7 +111,10 @@
         "rule: sale_regulated | source: Chile | type: summary | priority: 1 | scope: sale",
         "rule: private_cultivation | source: Chile | type: summary | priority: 1 | scope: sale",
         "rule: medical_legal | source: Chile | type: summary | priority: 1 | scope: sale",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Chile | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Chile | type: traversal | priority: 3 | scope: trafficking",
+        "rule: private_cultivation | source: Cannabis in Chile | type: traversal | priority: 3 | scope: trafficking",
+        "rule: medical_legal | source: Cannabis in Chile | type: traversal | priority: 3 | scope: trafficking"
       ]
     },
     "enforcement_flags": [],
@@ -113,11 +122,14 @@
       "private_cultivation",
       "possession_decriminalized",
       "sale_regulated",
-      "medical_legal"
+      "medical_legal",
+      "raw_illegal",
+      "rec_implies_med_floor",
+      "distribution_mixed_strong_penalty"
     ],
-    "notes_normalized": "Cannabis is decriminalized in Chile. Medical cannabis is legal. Distribution is regulated."
+    "notes_normalized": "Cannabis is decriminalized in Chile. Medical cannabis is limited. Distribution is mixed."
   },
-  "notes_normalized": "Cannabis is decriminalized in Chile. Medical cannabis is legal. Distribution is regulated.",
+  "notes_normalized": "Cannabis is decriminalized in Chile. Medical cannabis is limited. Distribution is mixed.",
   "notes_raw": "{{main|Cannabis in Chile}} Private personal use<ref>{{cite web|url=http://druglawreform.info/en/country-information/latin-america/chile/item/202-chile|title=Chile – Drug Law Reform in Latin America|author=TNI|access-date=25 February 2016|archive-date=6 October 2018|archive-url=https://web.archive.org/web/20181006123221/http://druglawreform.info/en/country-information/latin-america/chile/item/202-chile|url-status=live}}</ref> and recreational cultivation<ref>{{cite web|url=http://www.elquintopoder.cl/ciudadania/el-autocultivo-de-cannabis-es-legal-en-chile-tambien-el-colectivo/|title=El cultivo colectivo de Cannabis, legal en Chile|access-date=25 February 2016|date=24 August 2015|archive-date=21 July 2018|archive-url=https://web.archive.org/web/20180721073404/https://www.elquintopoder.cl/ciudadania/el-autocultivo-de-cannabis-es-legal-en-chile-tambien-el-colectivo/|url-status=live}}</ref><ref>{{cite web|url=http://www.delaferia.cl/noticia/corte-suprema-autocultivo-de-marihuana-es-legal-en-chile/|title=Autocultivo de marihuana es legal en Chile – Delaferia|work=Delaferia|access-date=25 February 2016|archive-url=https://web.archive.org/web/20160225091153/http://www.delaferia.cl/noticia/corte-suprema-autocultivo-de-marihuana-es-legal-en-chile/|archive-date=25 February 2016|url-status=dead|language=es}}</ref><ref>{{cite web|title=Ana María Gazmuri: \"En Chile hoy en día el autocultivo es legal\"|work=Fundación Daya |url=http://www.fundaciondaya.org/en-chile-hoy-en-dia-el-autocultivo-es-legal/|access-date=11 July 2016|language=es-ES|date=24 August 2015|archive-date=12 October 2018|archive-url=https://web.archive.org/web/20181012130524/http://www.fundaciondaya.org/en-chile-hoy-en-dia-el-autocultivo-es-legal/|url-status=live}}</ref> decriminalized. Medicinal cultivation legal with the authorization of The Chilean Agriculture Service (SAG)<ref>{{cite news|url=https://www.bbc.com/news/world-latin-america-29693386|title=Chile plants cannabis for medicinal use|publisher=[[BBC News]]|access-date=25 February 2016|date=29 October 2014|last=Long|first=Gideon|archive-url=https://web.archive.org/web/20170814005239/https://www.bbc.com/news/world-latin-america-29693386|archive-date=14 August 2017|url-status=live}}</ref> and sale of medication allowed on prescription in pharmacies.<ref>{{cite web|url=http://www.latercera.com/noticia/nacional/2015/10/680-652201-9-en-diciembre-estaria-autorizada-la-venta-de-medicamentos-con-cannabis-en.shtml|title=En diciembre estaría autorizada la venta de medicamentos con cannabis en farmacias|author=Grupo Copesa|date=20 October 2015|access-date=25 February 2016|archive-date=4 March 2016|archive-url=https://web.archive.org/web/20160304205156/http://www.latercera.com/noticia/nacional/2015/10/680-652201-9-en-diciembre-estaria-autorizada-la-venta-de-medicamentos-con-cannabis-en.shtml|url-status=dead}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -188,26 +200,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "ury",
-        "name": "Uruguay"
-      },
-      {
         "code": "per",
         "name": "Peru / Piruw"
       },
       {
         "code": "bra",
         "name": "Brazil / Brasil"
-      }
-    ],
-    "cluster_links": [
-      {
-        "code": "flk",
-        "name": "Falkland Islands"
       },
       {
         "code": "ecu",
         "name": "Ecuador"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "ury",
+        "name": "Uruguay"
+      },
+      {
+        "code": "flk",
+        "name": "Falkland Islands"
       }
     ],
     "same_country_states": [],
@@ -215,9 +227,9 @@
   },
   "hashes": {
     "code": "chl",
-    "content_hash": "5c9c16ce36f914a8ada189c9c6b32030ae129a9b06ade712eb181b299e20e1df",
-    "notes_hash": "0fb9e2027a8491a8c8a8745e797bc8f538d92c04ff5146e721aacc324183dcdf",
-    "model_hash": "788704251954f959a2c36187a21eb219bbc4a7084721349122f7755c03128952"
+    "content_hash": "3b47dd1771e47d3fb9ad61b4566fd15f3360be634a740cea48e89a2b7e342323",
+    "notes_hash": "37d7b37b100ab149dc117a65bb020f134518a997b770beb1710fa72813844e49",
+    "model_hash": "e9928a58cefb12c23de320538638838b100cf784993f9cb85c5a1ebcbfffa7bd"
   },
   "geo_code": "CL",
   "node_type": "country",

@@ -29,12 +29,14 @@
       "enforcement": "standard",
       "flags": [],
       "modifiers": [
-        "up_to"
+        "up_to",
+        "but"
       ]
     },
     "signals": {
-      "status": "restricted",
+      "status": "illegal",
       "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
         "prison": true,
         "prison_priority": 1,
@@ -101,12 +103,16 @@
       ],
       "explain": [
         "rule: penalty_criminal_offense | source: Paraguay / Paraguái | type: summary | priority: 1 | scope: possession",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Paraguay | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Paraguay | type: traversal | priority: 3 | scope: general",
+        "rule: possession_decriminalized | source: Cannabis in Paraguay | type: traversal | priority: 3 | scope: possession"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
       "penalty_criminal_offense",
+      "raw_illegal",
+      "possession_decriminalized",
       "rec_implies_med_floor"
     ],
     "notes_normalized": "Cannabis is decriminalized in Paraguay / Paraguái. Medical cannabis is limited. Distribution is restricted. Prison exposure detected."
@@ -209,9 +215,9 @@
   },
   "hashes": {
     "code": "pry",
-    "content_hash": "a4155ef07cae4369eb4710df480bcfa3cab7e2868b2a79bb1430c572d239acd0",
+    "content_hash": "d15c9642c4802b2c589eaef1b861d6d96c990c158e35f7680c333c5855220474",
     "notes_hash": "97c9e4b0f3a066ca9479be8d3f7dbf44cf3a9e51e51194bd779506c8a53f54a0",
-    "model_hash": "2c31a375327d3047875109bb858df042b45e90003124f5ac5bd3e597faa6f1d3"
+    "model_hash": "277021cd9b3f547bf8b743a9d54ab8d6a84b62da4032c70ca1db46936faabe25"
   },
   "geo_code": "PY",
   "node_type": "country",

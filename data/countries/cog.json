@@ -27,14 +27,15 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "flags": [],
+      "modifiers": [
+        "may"
+      ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -100,12 +101,13 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in the Republic of the Congo | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in the Republic of the Congo | type: traversal | priority: 3 | scope: general"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Congo / République du Congo. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -207,9 +209,9 @@
   },
   "hashes": {
     "code": "cog",
-    "content_hash": "75262a3f1f9da771f490b1b9b84e032e55be85d15a605e1f3b12d348bc0eedef",
+    "content_hash": "f418ed58ff8be792c1d015903621a1b043355e5d570dc94185945e2ee016889c",
     "notes_hash": "82d821d7f540f03426e93ac1ef7e74cb3407e03046ad7690f8bf98240dbb6c78",
-    "model_hash": "d5a06593021a1c68825888bc2dd830a514cee9edae3d3f4d5bcc52dc7d42d4bb"
+    "model_hash": "33575ca703beab5f9395b360601cd464a25c4248180f423b0e5ea80dc19ca837"
   },
   "geo_code": "CG",
   "node_type": "country",

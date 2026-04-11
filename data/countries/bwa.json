@@ -28,11 +28,14 @@
       },
       "enforcement": "standard",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "only"
+      ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -94,7 +97,8 @@
       "explain": [
         "rule: raw_illegal | source: Botswana | type: summary | priority: 1 | scope: general",
         "rule: illegal | source: Botswana | type: summary | priority: 1 | scope: general",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Botswana | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Botswana | type: traversal | priority: 3 | scope: general"
       ]
     },
     "enforcement_flags": [],
@@ -201,9 +205,9 @@
   },
   "hashes": {
     "code": "bwa",
-    "content_hash": "dc1bd6a9ea5e8e1f5de52efe4ab9e06d8a951d4a17b94840f45bb07dfc5c6343",
+    "content_hash": "16e69901bdd0050d046deb8fd0454b220fee5d257fed208fd75b92aaa9913c11",
     "notes_hash": "9feffd55e2541d0b4d6749635736d5260bf8e60010d039dcd76d51d8320a8a06",
-    "model_hash": "e5c3542d487b0151c9017a5cad1dd28e45efe27ef5818b73b7e40c74d1839605"
+    "model_hash": "7549d49df098432b94e53f5281df426aec871c50a7e7c6a8c667b5cf26443bdd"
   },
   "geo_code": "BW",
   "node_type": "country",

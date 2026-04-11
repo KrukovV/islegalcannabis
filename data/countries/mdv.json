@@ -27,14 +27,15 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "flags": [],
+      "modifiers": [
+        "may"
+      ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -82,12 +83,13 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in the Maldives | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in the Maldives | type: traversal | priority: 3 | scope: general"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Maldives / ދިވެހިރާއްޖޭގެ. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -189,9 +191,9 @@
   },
   "hashes": {
     "code": "mdv",
-    "content_hash": "554059937105d5bb73ea39704a531e36dfe91af10eb9e9916661c61b54304123",
+    "content_hash": "c43ff3e81f0476614195041fe4cd77d5ca47d528c778b4a60ac29e9fff20dbcf",
     "notes_hash": "c006687d7b36aa45333a4599a5d5a5934496fc3730c2f167da7de289dae1e831",
-    "model_hash": "4871ec1b7775ef0026f94c6f77a40668761603d3d669bba5d0cab699d65ff465"
+    "model_hash": "339fe0255806cd97a4be93af3964c9280c48cf4b883d3dc9c22703610e1da9c8"
   },
   "geo_code": "MV",
   "node_type": "country",

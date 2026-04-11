@@ -17,35 +17,44 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "mixed",
       "scopes": {
         "possession": "restricted",
         "use": "restricted",
-        "sale": null,
+        "sale": "regulated",
         "cultivation": null,
-        "import": null,
+        "import": "illegal",
         "trafficking": null
       },
-      "enforcement": "standard",
-      "flags": [],
+      "enforcement": "fine-based",
+      "flags": [
+        "sale_regulated",
+        "import_illegal",
+        "distribution_mixed_strong_penalty"
+      ],
       "modifiers": [
-        "only"
+        "only",
+        "however",
+        "may",
+        "but",
+        "up_to"
       ]
     },
     "signals": {
-      "status": "restricted",
-      "final_risk": "LIMITED",
+      "status": "illegal",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 4,
         "possession": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
           "fine": false,
-          "severe": false
+          "severe": true
         },
         "trafficking": {
           "prison": false,
@@ -54,7 +63,7 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Sri Lanka",
@@ -96,16 +105,35 @@
       "explain": [
         "rule: possession_decriminalized | source: Sri Lanka / ශ්‍රී ලංකාව | type: summary | priority: 1 | scope: sale",
         "rule: legal | source: Sri Lanka / ශ්‍රී ලංකාව | type: summary | priority: 1 | scope: sale",
-        "no traversal evidence"
+        "rule: medical_limited | source: Cannabis in Sri Lanka | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in Sri Lanka | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Sri Lanka | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_prison | source: Cannabis in Sri Lanka | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in Sri Lanka | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Sri Lanka | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in Sri Lanka | type: traversal | priority: 3 | scope: sale",
+        "rule: medical_legal | source: Cannabis in Sri Lanka | type: traversal | priority: 3 | scope: general",
+        "rule: sale_regulated | source: Cannabis in Sri Lanka | type: traversal | priority: 3 | scope: sale",
+        "rule: import_illegal | source: Cannabis in Sri Lanka | type: traversal | priority: 3 | scope: import",
+        "rule: illegal | source: Cannabis in Sri Lanka | type: traversal | priority: 3 | scope: import",
+        "rule: penalty_fine | source: Cannabis in Sri Lanka | type: traversal | priority: 3 | scope: general"
       ]
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "possession_decriminalized"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is decriminalized in Sri Lanka / ශ්‍රී ලංකාව. Medical cannabis is legal. Distribution is restricted."
+    "applied_rules": [
+      "possession_decriminalized",
+      "penalty_prison",
+      "raw_illegal",
+      "sale_regulated",
+      "import_illegal",
+      "penalty_fine",
+      "distribution_mixed_strong_penalty"
+    ],
+    "notes_normalized": "Cannabis is decriminalized in Sri Lanka / ශ්‍රී ලංකාව. Medical cannabis is legal. Distribution is mixed. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is decriminalized in Sri Lanka / ශ්‍රී ලංකාව. Medical cannabis is legal. Distribution is restricted.",
+  "notes_normalized": "Cannabis is decriminalized in Sri Lanka / ශ්‍රී ලංකාව. Medical cannabis is legal. Distribution is mixed. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Sri Lanka}} The sale of cannabis is decriminalized for traditional medicine vendors and it is commonly used in [[Ayurveda|Ayurvedic]] traditional medicines.<ref>{{citation |url = http://news.nidahasa.com/news.php?go=fullnews&newsid=833 |title = Marijuana Should be Allowed; Sri Lanka Indigenous Medicine Minister Says :: NIDAHASA News |publisher = News.nidahasa.com |date = 2 July 2009 |access-date = 17 February 2011 |archive-date = 17 December 2019 |archive-url = https://web.archive.org/web/20191217032232/http://news.nidahasa.com/news.php?go=fullnews&newsid=833 |url-status = live }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -176,26 +204,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "tha",
-        "name": "Thailand / ประเทศไทย"
-      },
-      {
-        "code": "mwi",
-        "name": "Malawi / Malaŵi"
-      },
-      {
-        "code": "geo",
-        "name": "Georgia / საქართველო"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "bgd",
         "name": "Bangladesh / বাংলাদেশ"
       },
       {
+        "code": "tha",
+        "name": "Thailand / ประเทศไทย"
+      },
+      {
+        "code": "sgp",
+        "name": "Singapore / Singapura"
+      }
+    ],
+    "cluster_links": [
+      {
         "code": "npl",
         "name": "Nepal / नेपाल"
+      },
+      {
+        "code": "btn",
+        "name": "Bhutan / འབྲུག་ཡུལ་"
       }
     ],
     "same_country_states": [],
@@ -203,9 +231,9 @@
   },
   "hashes": {
     "code": "lka",
-    "content_hash": "1cb0e35b3c1c66e52329604021615897d7bf9869efb0562b2779341f6d410efe",
-    "notes_hash": "53b6fd02e90e7649e4757896e3d482811c52f43d2b0af2c42a2ff287324c9889",
-    "model_hash": "013c63b39774729f23c69e0d55c03193482beca3fc6007741b445fd5733452d9"
+    "content_hash": "2ee0491e3202ba7137ffba3f9da44fa8d2f4d91ab3011d7aee9d3f41c1ba631d",
+    "notes_hash": "7b685f4a2e05ed14e256d8c8bcaea179d459886e0ce5b70203805ab603bb194f",
+    "model_hash": "b9cba13d834fdc38ce94991df47085af53a485201d4b34f1593229ca44339f8d"
   },
   "geo_code": "LK",
   "node_type": "country",

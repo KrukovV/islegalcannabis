@@ -11,7 +11,7 @@
     },
     "medical": {
       "raw_status": "LEGAL",
-      "status": "LEGAL",
+      "status": "LIMITED",
       "enforcement": "MODERATE",
       "scope": "MEDICAL_ONLY",
       "override_reason": null
@@ -21,22 +21,24 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
+        "sale": "illegal",
         "cultivation": null,
-        "import": null,
-        "trafficking": null
+        "import": "illegal",
+        "trafficking": "illegal"
       },
       "enforcement": "fine-based",
       "flags": [],
       "modifiers": [
         "but",
         "only",
+        "unless",
         "up_to"
       ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -52,7 +54,7 @@
         "trafficking": {
           "prison": false,
           "arrest": false,
-          "fine": false,
+          "fine": true,
           "severe": false
         }
       },
@@ -108,7 +110,17 @@
         "rule: illegal | source: Cannabis in Finland | type: traversal | priority: 3 | scope: general",
         "rule: penalty_fine | source: Cannabis in Finland | type: traversal | priority: 3 | scope: possession",
         "rule: medical_legal | source: Cannabis in Finland | type: traversal | priority: 3 | scope: general",
-        "rule: medical_limited | source: Cannabis in Finland | type: traversal | priority: 3 | scope: general"
+        "rule: medical_limited | source: Cannabis in Finland | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in Finland | type: traversal | priority: 3 | scope: trafficking",
+        "rule: import_illegal | source: Cannabis in Finland | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Finland | type: traversal | priority: 3 | scope: trafficking",
+        "rule: sale_illegal | source: Cannabis in Finland | type: traversal | priority: 3 | scope: trafficking",
+        "rule: illegal | source: Cannabis in Finland | type: traversal | priority: 3 | scope: trafficking",
+        "rule: raw_illegal | source: Cannabis in Finland | type: traversal | priority: 3 | scope: use",
+        "rule: illegal | source: Cannabis in Finland | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_fine | source: Cannabis in Finland | type: traversal | priority: 3 | scope: sale",
+        "rule: medical_legal | source: Cannabis in Finland | type: traversal | priority: 3 | scope: sale",
+        "rule: medical_limited | source: Cannabis in Finland | type: traversal | priority: 3 | scope: sale"
       ]
     },
     "enforcement_flags": [
@@ -117,12 +129,11 @@
     "applied_rules": [
       "penalty_fine",
       "medical_limited",
-      "raw_illegal",
-      "medical_legal"
+      "raw_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Finland / Suomi. Medical cannabis is legal. Distribution is illegal."
+    "notes_normalized": "Cannabis is illegal in Finland / Suomi. Medical cannabis is limited. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in Finland / Suomi. Medical cannabis is legal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Finland / Suomi. Medical cannabis is limited. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Finland}} Personal use is generally not prosecuted in court but subject to summary fine. Medicinal cannabis possible under a special license since 2006; in 2014, 223 licenses were issued.<ref>{{cite web|last1=Silvàn|first1=Sini|title=Lääkekannabis edelleen marginaalinen lääke|date=20 April 2015 |url=http://yle.fi/aihe/artikkeli/2015/04/20/laakekannabis-edelleen-marginaalinen-laake|publisher=YLE|access-date=6 December 2016|language=fi|archive-date=21 July 2018|archive-url=https://web.archive.org/web/20180721162214/https://yle.fi/aihe/artikkeli/2015/04/20/laakekannabis-edelleen-marginaalinen-laake|url-status=live}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -220,9 +231,9 @@
   },
   "hashes": {
     "code": "fin",
-    "content_hash": "2ed8ff65fd6de2ed72598fd9a99fa623e20892d09c2528d97721d2698362c346",
-    "notes_hash": "d46bfc2ea8581a8bd75af205588e75962a84c89595ec44950f37c75f640db0b2",
-    "model_hash": "6c237d099bc3301adc0b12ac5b30f59cb8d2ada2c5b4f1d898eddf4e9a7f220d"
+    "content_hash": "9e511490d1c879be7bfd4f90a27b4a7e528e320a75aafd1c6cdf995e3bf71d54",
+    "notes_hash": "a76863c8ba05a1b67e0c81877dc1fc953953583f98a4a23e296646059abab040",
+    "model_hash": "4a73ed5c8f56cd06c2c1236213f49bb3b946193dbc3c802ca67f30f808b4d706"
   },
   "geo_code": "FI",
   "node_type": "country",

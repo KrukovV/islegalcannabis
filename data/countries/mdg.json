@@ -27,14 +27,15 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "flags": [],
+      "modifiers": [
+        "but"
+      ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -100,12 +101,13 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Madagascar | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Madagascar | type: traversal | priority: 3 | scope: general"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Madagascar / Madagasikara. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -207,9 +209,9 @@
   },
   "hashes": {
     "code": "mdg",
-    "content_hash": "a859a2ddd0f1ce67335fbc96523461a1575daf850195b33d9f5d6b874f8ad27e",
+    "content_hash": "129499c3f3e948ab6f71879d7748ba7431d8379cd70e9cb8d8f986148e8c0df2",
     "notes_hash": "13efb8f150d5f45345af69dbca0e836ce03f4e49943972f6c906e65236f21cbe",
-    "model_hash": "1d465522fc5064a954e8f76bfa0f70fd7ad90ff9d239d11c818cd6cc2aa844f9"
+    "model_hash": "3753d489b7b0c68cfa53cc90846bd4cdd23f0066de07a10f5b8bb4c8a0ca1c54"
   },
   "geo_code": "MG",
   "node_type": "country",

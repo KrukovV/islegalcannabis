@@ -17,32 +17,36 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "regulated",
+      "status": "illegal",
       "scopes": {
         "possession": "restricted",
         "use": "restricted",
-        "sale": "regulated",
+        "sale": "illegal",
         "cultivation": "tolerated",
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [
         "social_club_distribution"
       ],
       "modifiers": [
-        "may"
+        "may",
+        "but",
+        "up_to",
+        "only"
       ]
     },
     "signals": {
-      "status": "regulated",
-      "final_risk": "LIMITED",
+      "status": "illegal",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 4,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -50,10 +54,10 @@
           "severe": false
         },
         "trafficking": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
-          "fine": false,
-          "severe": false
+          "fine": true,
+          "severe": true
         }
       },
       "confidence": "high",
@@ -109,18 +113,35 @@
         "rule: private_cultivation | source: Cannabis in Germany | type: traversal | priority: 3 | scope: cultivation",
         "rule: social_club_distribution | source: Cannabis in Germany | type: traversal | priority: 3 | scope: sale",
         "rule: legal | source: Cannabis in Germany | type: traversal | priority: 3 | scope: sale",
-        "rule: medical_legal | source: Cannabis in Germany | type: traversal | priority: 3 | scope: general"
+        "rule: medical_legal | source: Cannabis in Germany | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Germany | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in Germany | type: traversal | priority: 3 | scope: cultivation",
+        "rule: private_cultivation | source: Cannabis in Germany | type: traversal | priority: 3 | scope: sale",
+        "rule: social_club_distribution | source: Cannabis in Germany | type: traversal | priority: 3 | scope: cultivation",
+        "rule: raw_illegal | source: Cannabis in Germany | type: traversal | priority: 3 | scope: sale",
+        "rule: sale_illegal | source: Cannabis in Germany | type: traversal | priority: 3 | scope: sale",
+        "rule: illegal | source: Cannabis in Germany | type: traversal | priority: 3 | scope: sale",
+        "rule: penalty_prison | source: Cannabis in Germany | type: traversal | priority: 3 | scope: trafficking",
+        "rule: raw_illegal | source: Cannabis in Germany | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_fine | source: Cannabis in Germany | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Germany | type: traversal | priority: 3 | scope: trafficking",
+        "rule: sale_illegal | source: Cannabis in Germany | type: traversal | priority: 3 | scope: trafficking",
+        "rule: illegal | source: Cannabis in Germany | type: traversal | priority: 3 | scope: trafficking"
       ]
     },
-    "enforcement_flags": [],
+    "enforcement_flags": [
+      "fine_based"
+    ],
     "applied_rules": [
       "private_cultivation",
       "social_club_distribution",
-      "medical_legal"
+      "penalty_fine",
+      "raw_illegal",
+      "penalty_prison"
     ],
-    "notes_normalized": "Cannabis is legal in Germany / Deutschland. Medical cannabis is legal. Distribution is regulated."
+    "notes_normalized": "Cannabis is legal in Germany / Deutschland. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is legal in Germany / Deutschland. Medical cannabis is legal. Distribution is regulated.",
+  "notes_normalized": "Cannabis is legal in Germany / Deutschland. Medical cannabis is legal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Germany}} On 23 February 2024, the German Bundestag passed the Act on the Controlled Use of Cannabis, legalizing possession of {{cvt|25|g|frac=8}} outside the home, {{cvt|50|g|frac=8}} at home, and private cultivation of three plants, for adults 18 and over, since 1 April 2024. Collective, noncommercial cultivation is legal in cultivation associations (i.e. [[cannabis social club]]s) since 1 July 2024.<ref>{{cite news |last1=McGuinness|first1=Damien |title=Germany legalises cannabis, but makes it hard to buy|url=https://www.bbc.com/news/world-europe-68378807 |access-date=23 February 2024 |publisher=[[BBC]] |date=23 February 2024 |archive-date=23 February 2024 |archive-url=https://web.archive.org/web/20240223120314/https://www.bbc.com/news/world-europe-68378807|url-status=live }}</ref><ref>{{cite news |last1=Moulson |first1=Geir |title=Germany's parliament votes to legalize limited marijuana possession and allow 'cannabis clubs' |url=https://apnews.com/article/germany-cannabis-parliament-liberalization-possession-sale-e185bbdb2df1dd43e33e829f7a23051a |access-date=23 February 2024 |work=Associated Press |date=23 February 2024}}</ref><ref>{{cite news |last1=Schmidt |first1=Nadine |title=Germany legalizes recreational cannabis use |url=https://www.cnn.com/2024/02/23/europe/germany-cannabis-legal-parliament-intl/index.html |access-date=23 February 2024 |work=CNN |date=23 February 2024}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -195,18 +216,18 @@
         "name": "Switzerland / Suisse"
       },
       {
-        "code": "dnk",
-        "name": "Denmark / Danmark"
-      },
-      {
         "code": "cze",
         "name": "Czechia / Česko"
+      },
+      {
+        "code": "nld",
+        "name": "Netherlands / Nederland"
       }
     ],
     "cluster_links": [
       {
-        "code": "nld",
-        "name": "Netherlands / Nederland"
+        "code": "dnk",
+        "name": "Denmark / Danmark"
       },
       {
         "code": "bel",
@@ -218,9 +239,9 @@
   },
   "hashes": {
     "code": "deu",
-    "content_hash": "b618a90fbc9575967b92737bc1cfd7af8bd2d8590f951e5e841e9a51d23257e9",
-    "notes_hash": "77add1383c8aede8d19218efe5388b8628f0e1a8d48fc534e9e576dec89d7004",
-    "model_hash": "adad7d235a3ff94bd19125ec0edf5c83157ea1da7f9651bdf7e757058c7dfd6b"
+    "content_hash": "46363f7ca0bfcea79904b2d5e5eb5a6d73720d873a11dc4a8cc615b9082a79c3",
+    "notes_hash": "00bbc5f1e0edba2aa17b1c0116cadbe22deb36b7c2d96d266797076080086b0c",
+    "model_hash": "bd483ee6a335bbd4a9cecefcd77859aedc3853b20c725bdc97156a78bf03bce0"
   },
   "geo_code": "DE",
   "node_type": "country",

@@ -11,9 +11,9 @@
     },
     "medical": {
       "raw_status": "LEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "MEDICAL_ONLY",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
       "override_reason": null
     },
     "distribution": {
@@ -24,25 +24,27 @@
         "sale": null,
         "cultivation": null,
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
-      "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "enforcement": "fine-based",
+      "flags": [],
       "modifiers": [
+        "however",
+        "but",
+        "only",
         "may"
       ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 1,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -56,7 +58,7 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Morocco",
@@ -102,16 +104,31 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Morocco | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Morocco | type: traversal | priority: 3 | scope: general",
+        "rule: medical_legal | source: Cannabis in Morocco | type: traversal | priority: 3 | scope: trafficking",
+        "rule: medical_legal | source: Cannabis in Morocco | type: traversal | priority: 3 | scope: use",
+        "rule: legal | source: Cannabis in Morocco | type: traversal | priority: 3 | scope: cultivation",
+        "rule: penalty_fine | source: Cannabis in Morocco | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in Morocco | type: traversal | priority: 3 | scope: cultivation",
+        "rule: illegal | source: Cannabis in Morocco | type: traversal | priority: 3 | scope: cultivation",
+        "rule: illegal | source: Cannabis in Morocco | type: traversal | priority: 3 | scope: trafficking",
+        "rule: raw_illegal | source: Cannabis in Morocco | type: traversal | priority: 3 | scope: use",
+        "rule: medical_limited | source: Cannabis in Morocco | type: traversal | priority: 3 | scope: use",
+        "rule: illegal | source: Cannabis in Morocco | type: traversal | priority: 3 | scope: use"
       ]
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "distribution_fallback_illegal"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is illegal in Morocco / المغرب. Medical cannabis is legal. Distribution is illegal."
+    "applied_rules": [
+      "raw_illegal",
+      "penalty_fine",
+      "illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Morocco / المغرب. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in Morocco / المغرب. Medical cannabis is legal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Morocco / المغرب. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Morocco}} Morocco is among the world's top producers of hashish.",
   "facts": {
     "possession_limit": null,
@@ -209,9 +226,9 @@
   },
   "hashes": {
     "code": "mar",
-    "content_hash": "8f92c4757a7d9a8216b983f2690986feaf0faea83c6d232dca3e8c9123cf4d2a",
-    "notes_hash": "dba651ab562317aa41a092cda7e7ba51d7bec10d1c064b9fca070cd932647f38",
-    "model_hash": "9374d226c701464cd99ae492c1307513f0236c38ca45ea92479d6dbf8a75fc06"
+    "content_hash": "20a7beeffc50fea6dabd1309abcacccba11a682b6232feac95e7d8152e81e0f7",
+    "notes_hash": "6995fe044d6dc432469dd1dd3c4cbb8aeb3b218a13d2fa4011400dfc5e307a02",
+    "model_hash": "d38df0cd81d61f739f7e53b470298a77df9c169ac82c3e6e8ebbdad211665856"
   },
   "geo_code": "MA",
   "node_type": "country",

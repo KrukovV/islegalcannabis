@@ -26,21 +26,22 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": [
+        "however"
+      ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
-        "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "prison": true,
+        "prison_priority": 3,
+        "arrest": true,
+        "fine": true,
+        "severity_score": 4,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -54,7 +55,7 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Laos",
@@ -76,16 +77,25 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Laos | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Laos | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Laos | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_arrest | source: Cannabis in Laos | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Laos | type: traversal | priority: 3 | scope: general"
       ]
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "distribution_fallback_illegal"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is illegal in Laos / ສປປລາວ. Medical cannabis is illegal. Distribution is illegal."
+    "applied_rules": [
+      "raw_illegal",
+      "penalty_prison",
+      "penalty_arrest",
+      "penalty_fine"
+    ],
+    "notes_normalized": "Cannabis is illegal in Laos / ສປປລາວ. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Laos / ສປປລາວ. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Laos / ສປປລາວ. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{Main|Cannabis in Laos}}",
   "facts": {
     "possession_limit": null,
@@ -183,9 +193,9 @@
   },
   "hashes": {
     "code": "lao",
-    "content_hash": "71cb91f384dcccd9f808fbffe3c7238332eb7be3068675b771956757dd97c662",
-    "notes_hash": "c7a2938425f1494b70f3f89db6511cf9725d1a13c485fb4e7801e2452299d04b",
-    "model_hash": "4cc8c6070003d7f83035aa4f5962236593e15c7ea69056ac99bdcde9578022b0"
+    "content_hash": "4305e89fcb24985345e62dba99562dc08c2411b15013a73d71ebc842783acb6f",
+    "notes_hash": "62ef9b91e37bef15cbaa375ac8ce1abecfde9985591654dd207dfd7e7da8062d",
+    "model_hash": "6c2ef6171f1aadcf1d569c6d5111929f4903fb3bea4c903b8c90350dc8c2cf45"
   },
   "geo_code": "LA",
   "node_type": "country",

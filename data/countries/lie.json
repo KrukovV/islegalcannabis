@@ -27,14 +27,13 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -100,12 +99,13 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Liechtenstein | type: traversal | priority: 3 | scope: use",
+        "rule: illegal | source: Cannabis in Liechtenstein | type: traversal | priority: 3 | scope: use"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Liechtenstein. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -207,9 +207,9 @@
   },
   "hashes": {
     "code": "lie",
-    "content_hash": "5de468fb1fa92b30e33884287169ab0a7f02448ed815e67599cb2c1a8a2e2c46",
+    "content_hash": "2193643dace362b67e62654bf11d44d5e359b71edb6720f7c32343c17f4c41be",
     "notes_hash": "4d51e4a1fa6b084cd9db05bd3c9e11f5c78fd8714e81f102cfec3edca7bf2710",
-    "model_hash": "6515b18bad771d64ae01f0357b2a4695a97ed28a2e09d58e451d77451149bcde"
+    "model_hash": "6f0a2369e5d09b05385634ad281b593c7e25b7fd03d5b3be8147a93d52621ae9"
   },
   "geo_code": "LI",
   "node_type": "country",

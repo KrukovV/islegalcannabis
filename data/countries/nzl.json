@@ -33,6 +33,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -179,9 +180,9 @@
   },
   "hashes": {
     "code": "nzl",
-    "content_hash": "7367b0369421acf53dde6eb2a2ca55eba6083293b775bfbecfa4f66e4fb7f940",
+    "content_hash": "b7b3c7a946a9611121cec3c82e186ff2d9bb58c452243a79bc8817be40c3f167",
     "notes_hash": "a05a95c50b91916d960c9c4e4e2bdbc9fda180c2f4eea4182706a46048959ec4",
-    "model_hash": "e50d1f1f35823bc71930c02356f74b000bb9c32ddd33c1748b3a6e3bdc7dd07e"
+    "model_hash": "d10ecb00e157207cf42bf601b16166f7e2c69496b5eee0bd50f5922661d3e6bd"
   },
   "geo_code": "NZ",
   "node_type": "country",

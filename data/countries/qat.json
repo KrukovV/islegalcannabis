@@ -27,14 +27,15 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "flags": [],
+      "modifiers": [
+        "but"
+      ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -76,12 +77,13 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Qatar | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Qatar | type: traversal | priority: 3 | scope: general"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Qatar / قطر. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -183,9 +185,9 @@
   },
   "hashes": {
     "code": "qat",
-    "content_hash": "aae73a3fbe72cf49edfa6aba4f55ba5b58a68ba7531d50be32c9f36e6770331b",
+    "content_hash": "9af5dc9090caaa3769e2c2e37a4fa29e1a59b8c69e4dd69ce30a62719f6e3ed5",
     "notes_hash": "2f891609507d5143fd3fc6b765cd68d07c7499f8091651fe3563d8ee9f2e4afc",
-    "model_hash": "7765f7b5bb09f52ee0106d7a2888bd20b00ab87a561fd19670df0bcf3858348a"
+    "model_hash": "6be5193d9c1b38624a7f3aca3f001e0ac57170caa0207516ae1438aa5c14d978"
   },
   "geo_code": "QA",
   "node_type": "country",

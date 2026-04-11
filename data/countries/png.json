@@ -26,21 +26,23 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": [
+        "but",
+        "only"
+      ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 1,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -100,12 +102,17 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Papua New Guinea | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Papua New Guinea | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Papua New Guinea | type: traversal | priority: 3 | scope: general"
       ]
     },
-    "enforcement_flags": [],
+    "enforcement_flags": [
+      "fine_based"
+    ],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal",
+      "penalty_fine"
     ],
     "notes_normalized": "Cannabis is illegal in Papua New Guinea / Papua Niu Gini. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -207,9 +214,9 @@
   },
   "hashes": {
     "code": "png",
-    "content_hash": "503170add298d994c1768c3cfd78d86165caf265b7656e5e22a6f47d04f208c7",
+    "content_hash": "9ccbbf4c2490acc81115820f5740a8b59d9ced2285dfe2cc33ce66404523693a",
     "notes_hash": "578e1752120867c3991c9c1ef5627f3de4a11c6e67498f76482519027db744eb",
-    "model_hash": "071812627fd81267a3cb89752391cd68412432ed71b138b008e009c1869dbb96"
+    "model_hash": "c8afe788b33e15bf987dffff412685a388aec520cb3e58bdced0ba511106bd15"
   },
   "geo_code": "PG",
   "node_type": "country",

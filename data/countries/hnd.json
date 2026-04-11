@@ -33,6 +33,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -84,7 +85,10 @@
         "rule: trafficking_illegal | source: Honduras | type: summary | priority: 1 | scope: trafficking",
         "rule: sale_illegal | source: Honduras | type: summary | priority: 1 | scope: trafficking",
         "rule: illegal | source: Honduras | type: summary | priority: 1 | scope: trafficking",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Honduras | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Honduras | type: traversal | priority: 3 | scope: trafficking",
+        "rule: sale_illegal | source: Cannabis in Honduras | type: traversal | priority: 3 | scope: trafficking",
+        "rule: illegal | source: Cannabis in Honduras | type: traversal | priority: 3 | scope: trafficking"
       ]
     },
     "enforcement_flags": [],
@@ -191,9 +195,9 @@
   },
   "hashes": {
     "code": "hnd",
-    "content_hash": "fec278c2c5589334343566e6dab842e53c0dfbbffa730897c19620c5278ae6aa",
+    "content_hash": "5c4115aaa9962bda6aaa641d0c7fcc807acb7ab8a2879142dc92da3a6bebf364",
     "notes_hash": "4fc807051916b0fab6b2053b42f5e74d3f606d41583dec2c09c936d803d8149d",
-    "model_hash": "125a62b6d9d4b2fa0d312c2e4b637fddf2554499833432b4577330172e24c543"
+    "model_hash": "713ed97a80c9050fee75f71bf8fb6b41a941978543a53abea485dec7324928dd"
   },
   "geo_code": "HN",
   "node_type": "country",

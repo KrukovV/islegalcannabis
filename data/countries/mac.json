@@ -23,18 +23,20 @@
         "use": null,
         "sale": null,
         "cultivation": null,
-        "import": null,
+        "import": "illegal",
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "flags": [],
+      "modifiers": [
+        "but",
+        "only"
+      ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -76,12 +78,14 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Macau | type: traversal | priority: 3 | scope: import",
+        "rule: import_illegal | source: Cannabis in Macau | type: traversal | priority: 3 | scope: import",
+        "rule: illegal | source: Cannabis in Macau | type: traversal | priority: 3 | scope: import"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Macau / 澳门. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -183,9 +187,9 @@
   },
   "hashes": {
     "code": "mac",
-    "content_hash": "53f3143c9a1ecc447c67e3d60aa15fb84133cbb79dfdbea811ca5f1f99e69f02",
+    "content_hash": "efa7ff5036cb0b6d991de846013f81acfea3b39591eb7c06b5a68c2ac05fbb01",
     "notes_hash": "c6e0fe455944aef1a97fe51c11e1cfd42fac0c7b5f0e72e79b7fb8e43c9fa536",
-    "model_hash": "3f642a1bf16412edd56e78527eb9abe654f56a7ecce5474e0f680769535d41d2"
+    "model_hash": "f210c1c388dc81125cdd074cd2c1caeb8fc7879991856cdcf09342ab26536c45"
   },
   "geo_code": "MO",
   "node_type": "country",

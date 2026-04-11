@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -100,12 +101,14 @@
         }
       ],
       "explain": [
-        "rule: import_illegal | source: Smuggling in Southeast Europe: The Yugoslav Wars and the Development of Regional Criminal Networks in the Balkans | type: reference | priority: 2 | scope: import",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Bosnia and Herzegovina | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Bosnia and Herzegovina | type: traversal | priority: 3 | scope: general",
+        "rule: import_illegal | source: Smuggling in Southeast Europe: The Yugoslav Wars and the Development of Regional Criminal Networks in the Balkans | type: reference | priority: 2 | scope: import"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
+      "raw_illegal",
       "import_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Bosnia and Herzegovina / Bosna i Hercegovina. Medical cannabis is legal. Distribution is illegal."
@@ -189,14 +192,14 @@
         "name": "Hungary / Magyarország"
       },
       {
-        "code": "svn",
-        "name": "Slovenia / Slovenija"
+        "code": "mkd",
+        "name": "North Macedonia / Македонија"
       }
     ],
     "cluster_links": [
       {
-        "code": "mkd",
-        "name": "North Macedonia / Македонија"
+        "code": "svn",
+        "name": "Slovenia / Slovenija"
       },
       {
         "code": "svk",
@@ -208,9 +211,9 @@
   },
   "hashes": {
     "code": "bih",
-    "content_hash": "d1bbef7b18ff39f7b3f61959bedb88058aa1612e7dc7e3074ae436bd573b161a",
+    "content_hash": "64f674213e945b7315f3b048d999e81ff5ad588a75dccfc334dfd87172c98b79",
     "notes_hash": "d321b095b67c333e2269e008fd48c59ce91aa4357c4ce0d40d9bddf76177ae42",
-    "model_hash": "e54bdbe84fd82d8acecd0598cf9ffdebd6676e976c1e298a44e953f1f5c8e6ad"
+    "model_hash": "34659e3b31282c0854c25cbc6f1543398772a1bbf5a783fb34b438bc8339344e"
   },
   "geo_code": "BA",
   "node_type": "country",

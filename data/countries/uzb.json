@@ -33,6 +33,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -76,7 +77,10 @@
       "explain": [
         "rule: raw_illegal | source: Uzbekistan / Узбекистан | type: summary | priority: 1 | scope: cultivation",
         "rule: illegal | source: Uzbekistan / Узбекистан | type: summary | priority: 1 | scope: cultivation",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Uzbekistan | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Uzbekistan | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in Uzbekistan | type: traversal | priority: 3 | scope: cultivation",
+        "rule: illegal | source: Cannabis in Uzbekistan | type: traversal | priority: 3 | scope: cultivation"
       ]
     },
     "enforcement_flags": [],
@@ -183,9 +187,9 @@
   },
   "hashes": {
     "code": "uzb",
-    "content_hash": "cee36730d6f0ad37a035bbd716f92be482cc07ab6a34e5cff4ed910431722e69",
+    "content_hash": "bda4d6506c9d6bfb140dabd752e04cfd502534cafa261ed909c6aae2512f0afa",
     "notes_hash": "4c9c6090e178fce62dfdeef82c0c7156118cf234bfb4a049a970371598a691f8",
-    "model_hash": "68abc82d2d415222eab27a385f4c8b88a2b14e1686cdba7167be415bfb26979e"
+    "model_hash": "62ef867d9b9549d76d5c7328a800ad36822c351370fe99d6da88607bdc0958e2"
   },
   "geo_code": "UZ",
   "node_type": "country",

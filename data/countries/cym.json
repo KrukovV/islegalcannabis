@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -164,9 +165,9 @@
   },
   "hashes": {
     "code": "cym",
-    "content_hash": "a57ab0de32994fb6d32b9dc38db6c144c0ff013d9afc17657f47a8d0547705dd",
+    "content_hash": "78a95c2fdb9b98eb7c33bea58925ec722bbecf94fe07c2552ce924cbc947be37",
     "notes_hash": "4dd9d35fd91a15bb7b46d6ec1d1d1690b80f45d4c41de6a016d547b06227dee3",
-    "model_hash": "96f56ba3fd3e4abea5360c817aa8f97138a3607172404af1ada664d3ada59b09"
+    "model_hash": "ffc939d51e543a47c20127822892ab0790d6469e54a7ac15ec2efebf10ab9e27"
   },
   "geo_code": "KY",
   "node_type": "country",

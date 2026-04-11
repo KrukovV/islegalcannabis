@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
         "prison": true,
         "prison_priority": 1,
@@ -212,9 +213,9 @@
   },
   "hashes": {
     "code": "svk",
-    "content_hash": "b75c7b784ecc94d35cc03d35cb41db67e70ce9c8a8417dca1de48e34441ac0c6",
+    "content_hash": "4e868694a95d17174f1c35712c1ee10a71a5fb4e5969102b25b55bf0e278812b",
     "notes_hash": "c764bf96840829d2a2ce389c860668d588c9b1802cd5446b541abddb76d88cd3",
-    "model_hash": "62ed1c43d8d5d3a64cb6080b32aa4879941e04ebcd5b7f424eddf3e66433c802"
+    "model_hash": "38c952deb45a2fe9482810ed2ea162811d24592faf986cde5826d6232c5d3251"
   },
   "geo_code": "SK",
   "node_type": "country",

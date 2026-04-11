@@ -21,24 +21,33 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
-        "cultivation": null,
+        "sale": "illegal",
+        "cultivation": "tolerated",
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
-      "flags": [],
-      "modifiers": []
+      "enforcement": "fine-based",
+      "flags": [
+        "sale_illegal"
+      ],
+      "modifiers": [
+        "up_to",
+        "however",
+        "may",
+        "but",
+        "only"
+      ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 1,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -48,11 +57,11 @@
         "trafficking": {
           "prison": false,
           "arrest": false,
-          "fine": false,
+          "fine": true,
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Ukraine",
@@ -98,15 +107,24 @@
         }
       ],
       "explain": [
+        "rule: medical_legal | source: Cannabis in Ukraine | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Ukraine | type: traversal | priority: 3 | scope: sale",
+        "rule: sale_illegal | source: Cannabis in Ukraine | type: traversal | priority: 3 | scope: sale",
+        "rule: legal | source: Cannabis in Ukraine | type: traversal | priority: 3 | scope: general",
+        "rule: private_cultivation | source: Cannabis in Ukraine | type: traversal | priority: 3 | scope: cultivation",
+        "rule: legal | source: Cannabis in Ukraine | type: traversal | priority: 3 | scope: cultivation",
         "rule: medical_legal | source: Medical cannabis has been legalized in Ukraine | type: reference | priority: 2 | scope: general",
         "rule: medical_legal | source: Medical cannabis legalized in Ukraine | type: reference | priority: 2 | scope: general",
-        "rule: medical_legal | source: Medical Cannabis Legalized in Ukraine: Law Now in Effect | type: reference | priority: 2 | scope: general",
-        "no traversal evidence"
+        "rule: medical_legal | source: Medical Cannabis Legalized in Ukraine: Law Now in Effect | type: reference | priority: 2 | scope: general"
       ]
     },
-    "enforcement_flags": [],
+    "enforcement_flags": [
+      "fine_based"
+    ],
     "applied_rules": [
-      "medical_legal"
+      "penalty_fine",
+      "sale_illegal",
+      "private_cultivation"
     ],
     "notes_normalized": "Cannabis is illegal in Ukraine / Україна. Medical cannabis is legal. Distribution is illegal."
   },
@@ -208,9 +226,9 @@
   },
   "hashes": {
     "code": "ukr",
-    "content_hash": "3f32eb9ee75cc12276b1ac82e4a3f9a5aab639840cd789febd0fb791f53017f5",
+    "content_hash": "65548046a58e1d7621bb9b84eb0896e48b210ac425b94d3b7e2f1d4a9ab1655b",
     "notes_hash": "fca5e77345ddea24079c2c354076e3a93c651b4f92f42c42afcfb4a40f5bdd63",
-    "model_hash": "2979fcc1722e5a96d6b30918995a94956e091eb89d2f3e9d73abd6343941ff52"
+    "model_hash": "7aeb36433f16c1ffae87f075f9de78782514d02311e8c25c5b907d9502e80d1a"
   },
   "geo_code": "UA",
   "node_type": "country",

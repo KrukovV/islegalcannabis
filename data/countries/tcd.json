@@ -26,21 +26,22 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": [
+        "but"
+      ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 1,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -82,12 +83,17 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Chad | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Chad | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Chad | type: traversal | priority: 3 | scope: general"
       ]
     },
-    "enforcement_flags": [],
+    "enforcement_flags": [
+      "fine_based"
+    ],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal",
+      "penalty_fine"
     ],
     "notes_normalized": "Cannabis is illegal in Chad / تشاد. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -189,9 +195,9 @@
   },
   "hashes": {
     "code": "tcd",
-    "content_hash": "09322d1ec6ef29df0ab9d25aee485f74183e0a65f5930621f981dbb4ed91c39d",
+    "content_hash": "630877089b64a3040169efe74446aaa99e5326b814e42b3563f8bf229b9f4cb1",
     "notes_hash": "79f0a3f0a60abb4624e47ded14c38c5c58bacb00b8d87dead3fd2de56d97f2c3",
-    "model_hash": "b6af97eb1894219eec8e8bfdea35fcba3d7124babfcbe1810ef3c2276af56950"
+    "model_hash": "6542ebe4062211cb653203e6697dc2a5b6a89fdc3fc59f518e2d1bbbba946b52"
   },
   "geo_code": "TD",
   "node_type": "country",

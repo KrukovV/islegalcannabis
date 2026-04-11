@@ -6,7 +6,7 @@
     "recreational": {
       "raw_status": "ILLEGAL",
       "status": "ILLEGAL",
-      "enforcement": "STRICT",
+      "enforcement": "MODERATE",
       "scope": "NONE"
     },
     "medical": {
@@ -28,27 +28,31 @@
       },
       "enforcement": "fine-based",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "may",
+        "however"
+      ]
     },
     "signals": {
-      "status": "illegal",
+      "status": "restricted",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "rare",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
         "fine": true,
-        "severity_score": 1,
+        "severity_score": 4,
         "possession": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
           "fine": true,
-          "severe": false
+          "severe": true
         },
         "trafficking": {
           "prison": false,
           "arrest": false,
-          "fine": false,
+          "fine": true,
           "severe": false
         }
       },
@@ -103,21 +107,34 @@
         "rule: sale_illegal | source: Singapore / Singapura | type: summary | priority: 1 | scope: sale",
         "rule: illegal | source: Singapore / Singapura | type: summary | priority: 1 | scope: sale",
         "rule: penalty_fine | source: Singapore / Singapura | type: summary | priority: 1 | scope: general",
+        "rule: enforcement_rare | source: Singapore / Singapura | type: summary | priority: 1 | scope: use",
         "rule: penalty_fine | source: Singapore / Singapura | type: summary | priority: 1 | scope: use",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Singapore | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Singapore | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Singapore | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_fine | source: Cannabis in Singapore | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_years | source: Cannabis in Singapore | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_fine | source: Cannabis in Singapore | type: traversal | priority: 3 | scope: trafficking",
+        "rule: medical_legal | source: Cannabis in Singapore | type: traversal | priority: 3 | scope: general",
+        "rule: medical_limited | source: Cannabis in Singapore | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Singapore | type: traversal | priority: 3 | scope: cultivation"
       ]
     },
     "enforcement_flags": [
-      "fine_based"
+      "fine_based",
+      "weak_enforcement"
     ],
     "applied_rules": [
       "illegal",
       "raw_illegal",
-      "penalty_fine"
+      "penalty_fine",
+      "enforcement_rare",
+      "penalty_prison",
+      "penalty_years"
     ],
-    "notes_normalized": "Cannabis is illegal in Singapore / Singapura. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is illegal in Singapore / Singapura. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Singapore / Singapura. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Singapore / Singapura. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Singapore}} Banned in 1870.<ref name=\"Bunyapraphatsō̜n1999\">{{cite book|last=Bunyapraphatsō̜n |first=Nanthawan |title=Medicinal and poisonous plants|url=https://books.google.com/books?id=ifDwAAAAMAAJ|year=1999|publisher=Backhuys Publishers|isbn=978-90-5782-042-7|page=169}}</ref> Cannabis is a Class A drug under the Misuse of Drugs Act, making it illegal to cultivate, sell, or possess. Those who are caught with {{cvt|500|g|lboz}} of cannabis or more are considered drug traffickers and are liable to be punished with an automatic death penalty.<ref>{{citation |url = http://www.erowid.org/plants/cannabis/cannabis_law.shtml#singapore |title = Cannabis legal status vault – Singapore |publisher = Erowid.org |access-date = 17 February 2011 |archive-date = 15 December 2019 |archive-url = https://web.archive.org/web/20191215152836/https://www.erowid.org/plants/cannabis/cannabis_law.shtml#singapore |url-status = live }}</ref><ref>{{cite web|title=MISUSE OF DRUGS ACT|url=http://statutes.agc.gov.sg/aol/search/display/view.w3p;page=0;query=DocId%3Ac13adadb-7d1b-45f8-a3bb-92175f83f4f5%20Depth%3A0%20ValidTime%3A02%2F10%2F2013%20TransactionTime%3A02%2F10%2F2013%20Status%3Ainforce;rec=0;whole=yes|work=Attorney-General's Chamber|publisher=Singapore Government|access-date=3 October 2013|date=31 March 2008|archive-date=7 August 2017|archive-url=https://web.archive.org/web/20170807235438/http://statutes.agc.gov.sg/aol/search/display/view.w3p;page=0;query=DocId%3Ac13adadb-7d1b-45f8-a3bb-92175f83f4f5%20Depth%3A0%20ValidTime%3A02%2F10%2F2013%20TransactionTime%3A02%2F10%2F2013%20Status%3Ainforce;rec=0;whole=yes|url-status=dead}}</ref>  In rare cases, permission has been granted to use cannabis-derived pharmaceuticals for treatment of epilepsy.<ref>{{Cite web|url=https://www.straitstimes.com/singapore/cannabis-derived-drug-approved-for-second-patient|title=Cannabis-derived drug approved for second patient|date=17 June 2021|website=The Straits Times|access-date=19 June 2021|archive-date=19 June 2021|archive-url=https://web.archive.org/web/20210619172901/https://www.straitstimes.com/singapore/cannabis-derived-drug-approved-for-second-patient|url-status=live}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -188,22 +205,22 @@
     ],
     "legal_similarity": [
       {
+        "code": "tha",
+        "name": "Thailand / ประเทศไทย"
+      },
+      {
         "code": "vnm",
         "name": "Vietnam / Việt Nam"
       },
       {
         "code": "lao",
         "name": "Laos / ສປປລາວ"
-      },
-      {
-        "code": "idn",
-        "name": "Indonesia"
       }
     ],
     "cluster_links": [
       {
-        "code": "tha",
-        "name": "Thailand / ประเทศไทย"
+        "code": "idn",
+        "name": "Indonesia"
       },
       {
         "code": "mmr",
@@ -215,9 +232,9 @@
   },
   "hashes": {
     "code": "sgp",
-    "content_hash": "ea3773888639b5750f4445ec05a214253bb6151d9c79aa907a9d97d007a74097",
-    "notes_hash": "b63e778bae3602e4c49e8709009289872b0dcb7cb0d85dc1a53f6251033b0797",
-    "model_hash": "3501cf6d952fbf5fecefee30a6ebbc14755275173a3a70c3e95b54660b359463"
+    "content_hash": "6ac945eabad8d74817a3575e052db73ba69f936bc910da19c1b873109211a5f3",
+    "notes_hash": "d532506f798cc28c65927ec746b845758c8da84c86a18eae9b21429a1f5a044b",
+    "model_hash": "63532ecdbbfd19dd8f10b3219dbd36d0d7de1cbe342ef9abf4447dc39739f7cc"
   },
   "geo_code": "SG",
   "node_type": "country",

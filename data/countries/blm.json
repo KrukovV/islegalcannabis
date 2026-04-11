@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -164,9 +165,9 @@
   },
   "hashes": {
     "code": "blm",
-    "content_hash": "0711cb29681d78e3766c739d73f85979050ce52102fc4a197dbd803b5ecb1a51",
+    "content_hash": "a3f566ec2eac507fdc24c835ec3fa67016a5d4fab4ccaaba19334feca4e5f1ac",
     "notes_hash": "8f322ee93c34cb8f223c787b4e69327321be077aada6ebf047980ecfe5dc0625",
-    "model_hash": "9f0923447db7a1db1c4985b758325571d9b19529de97ee52c92b63bdcdbbac7a"
+    "model_hash": "b14abfc288d8fff86c077937e58d4934c28bbca406704ced53c6ad61b6277919"
   },
   "geo_code": "BL",
   "node_type": "country",

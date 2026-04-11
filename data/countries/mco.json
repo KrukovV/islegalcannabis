@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -207,9 +208,9 @@
   },
   "hashes": {
     "code": "mco",
-    "content_hash": "71a096e7623a550cd4fb4376ce4dbf49ef764c9457c3a90b3d68421e711d9c02",
+    "content_hash": "ca42a0d1c341e3fe349af9a4c70f1f863fbc8f03800e55d6400eaaebd05bb054",
     "notes_hash": "a71b3ed0582a39d0f6bafae095d12a69c7db7961219c3b211b76a522f3a8c583",
-    "model_hash": "a7182291143e55f3e357beeb3a8d0cad25e94fc313319db5826d53e9ed76bfd8"
+    "model_hash": "b5aa4749fb2329a42e8c658522d017e4c226e4e56b506a57c26dd32a3b8a0628"
   },
   "geo_code": "MC",
   "node_type": "country",

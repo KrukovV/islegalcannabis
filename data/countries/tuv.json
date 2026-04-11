@@ -21,20 +21,19 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
+        "sale": "illegal",
         "cultivation": null,
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -100,12 +99,16 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Tuvalu | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Tuvalu | type: traversal | priority: 3 | scope: trafficking",
+        "rule: sale_illegal | source: Cannabis in Tuvalu | type: traversal | priority: 3 | scope: trafficking",
+        "rule: raw_illegal | source: Cannabis in Tuvalu | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Tuvalu | type: traversal | priority: 3 | scope: general"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Tuvalu. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -207,9 +210,9 @@
   },
   "hashes": {
     "code": "tuv",
-    "content_hash": "bb0e6e95358df4feba0d4829b525724ba6d0e194dda43bf35ac8c4efd9b02d01",
+    "content_hash": "5b98af49cf02703372d2c4f040eea6d27e108a42599c8b90765b8d8a82dd7fb2",
     "notes_hash": "f9739f525bea9041c034a98999c04c3915c0d9e52419467070699ae83fd0e1c0",
-    "model_hash": "2bd4340c87b8e98f78d04c540aac1fad20fe2ff74893dc062d7e8ca22173fac6"
+    "model_hash": "77340f7a8107e1860ad318b9c016187013d41476bcbb87f9d501e74d75eae3fe"
   },
   "geo_code": "TV",
   "node_type": "country",

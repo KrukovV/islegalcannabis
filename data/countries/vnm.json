@@ -27,14 +27,17 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "flags": [],
+      "modifiers": [
+        "but",
+        "only",
+        "however"
+      ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -100,12 +103,13 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Vietnam | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Vietnam | type: traversal | priority: 3 | scope: general"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Vietnam / Việt Nam. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -207,9 +211,9 @@
   },
   "hashes": {
     "code": "vnm",
-    "content_hash": "b67af7835a855eec42a676762afc1eb05481838b01c28105a94022fda794f3ad",
+    "content_hash": "6401ea5b5a752015b58f8e57fbd99a80146833ac7e61d5adca5b55acc676b216",
     "notes_hash": "40c7359699d8ac6ce9d7141845207f1d15d8e631bb3334620376caefd5aa891e",
-    "model_hash": "9f5d8cbc6730068351d8937b7ebbf5599a74cba880dbf9e84feb45ab9fcf82d0"
+    "model_hash": "38c7da1c4a0260d7f2f8f11d14091f5d332c7db02cc945cce095765fb9725ed1"
   },
   "geo_code": "VN",
   "node_type": "country",

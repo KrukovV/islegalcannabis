@@ -26,19 +26,23 @@
         "import": null,
         "trafficking": "illegal"
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "but",
+        "however"
+      ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 1,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -48,11 +52,11 @@
         "trafficking": {
           "prison": false,
           "arrest": false,
-          "fine": false,
+          "fine": true,
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Afghanistan",
@@ -75,12 +79,21 @@
       ],
       "explain": [
         "rule: illegal | source: Afghanistan / افغانستان | type: summary | priority: 1 | scope: trafficking",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Afghanistan | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Afghanistan | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Afghanistan | type: traversal | priority: 3 | scope: trafficking",
+        "rule: raw_illegal | source: Cannabis in Afghanistan | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Afghanistan | type: traversal | priority: 3 | scope: trafficking",
+        "rule: illegal | source: Cannabis in Afghanistan | type: traversal | priority: 3 | scope: trafficking"
       ]
     },
-    "enforcement_flags": [],
+    "enforcement_flags": [
+      "fine_based"
+    ],
     "applied_rules": [
-      "illegal"
+      "illegal",
+      "raw_illegal",
+      "penalty_fine"
     ],
     "notes_normalized": "Cannabis is illegal in Afghanistan / افغانستان. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -182,9 +195,9 @@
   },
   "hashes": {
     "code": "afg",
-    "content_hash": "aa52939fb352cd2eb5140ab1d2062d50930de2072efe4c8427a863bfa311a0f6",
+    "content_hash": "88cdd53441cbc37cf57b65472d7c5d0ee5e1136cc25e57b468d99665d1e84058",
     "notes_hash": "0ff300485bc16950b5ad7bbd3f9b0ab172e01242042baa61c3611c46d46c2a14",
-    "model_hash": "afdca05581ce67fdf8b36035e283d34b3a219f15e107c387706b1645e5972b7e"
+    "model_hash": "2a6d2051b999534c63b147e1109035d43629c9603fcb3e1594bbfed77675ff2d"
   },
   "geo_code": "AF",
   "node_type": "country",

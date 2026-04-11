@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -183,9 +184,9 @@
   },
   "hashes": {
     "code": "tgo",
-    "content_hash": "c5e9e278e8ccbc574b3206ebde66e68ca5afc790f70e6020a89801a875400ebc",
+    "content_hash": "f38f2f7d85e9ce99ee37bc6dbb3edefbf383e81f4e650a45ab3019bfeb018e3c",
     "notes_hash": "729a48e64e7c320790012e02ae0f749bbb6907a70bb8501ddab605f7c16a5484",
-    "model_hash": "c7feb23d9cfc13d6f8c53ec1c38144a5a905b9e33081e7e728123bdb0dce98d8"
+    "model_hash": "174a15683c56e5ebf61793806cfd8d6ada3bb2e8bc189c6335a79fe0614a565c"
   },
   "geo_code": "TG",
   "node_type": "country",

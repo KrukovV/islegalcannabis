@@ -21,26 +21,28 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
+        "sale": "illegal",
         "cultivation": null,
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
-      "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": [
+        "but",
+        "however"
+      ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 4,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -50,11 +52,11 @@
         "trafficking": {
           "prison": false,
           "arrest": false,
-          "fine": false,
+          "fine": true,
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Jordan",
@@ -100,16 +102,28 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Jordan | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Jordan | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in Jordan | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Jordan | type: traversal | priority: 3 | scope: trafficking",
+        "rule: raw_illegal | source: Cannabis in Jordan | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Jordan | type: traversal | priority: 3 | scope: trafficking",
+        "rule: sale_illegal | source: Cannabis in Jordan | type: traversal | priority: 3 | scope: trafficking",
+        "rule: illegal | source: Cannabis in Jordan | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_prison | source: Cannabis in Jordan | type: traversal | priority: 3 | scope: general"
       ]
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "distribution_fallback_illegal"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is illegal in Jordan / الأردن. Medical cannabis is illegal. Distribution is illegal."
+    "applied_rules": [
+      "raw_illegal",
+      "penalty_fine",
+      "penalty_prison"
+    ],
+    "notes_normalized": "Cannabis is illegal in Jordan / الأردن. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Jordan / الأردن. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Jordan / الأردن. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Jordan}}",
   "facts": {
     "possession_limit": null,
@@ -207,9 +221,9 @@
   },
   "hashes": {
     "code": "jor",
-    "content_hash": "a0687ad53931e8d87055632298ed120f9ccb887758a2bc69039eaf34b04d8e60",
-    "notes_hash": "72df9d34e587d6ca39332824174b5e604c49dcf69f73be8fe6ef86d7a1bf0429",
-    "model_hash": "a28477238b617b285b650e89135ebc26b187adff9252500a913dbe978f79ed2f"
+    "content_hash": "a205aa45f782ba29a1dcce03559e842e3e423238e0ba94b254236bcdd6487b2e",
+    "notes_hash": "668b6d3b23eb049311702608a05cd59d95e1bd012935bdf5717cdcc1fccb8970",
+    "model_hash": "b536d74f318a112215f02e62db5ff6f6fddc55b1eb642cbf3605d783b811c55d"
   },
   "geo_code": "JO",
   "node_type": "country",

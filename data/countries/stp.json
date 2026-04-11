@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -183,9 +184,9 @@
   },
   "hashes": {
     "code": "stp",
-    "content_hash": "fa991c3a7a2662b4e4fe02c65e19cd69c5b7df826349a788c84f2372ed20e0a1",
+    "content_hash": "2e959aecb8e3beeeb4d084008864f01e05f86af8895663ad03f3e5a3e7594eb7",
     "notes_hash": "542cec5ccb9e02af28c6647ab82b49170839e1011d8edbf51a5e60de5e9e9637",
-    "model_hash": "73f58e97d60704bdabf528622f765457a2a8d3ebc4cc257de8e171b4bee909ca"
+    "model_hash": "6d333d7e104bcce7b1869c0d0a1d61314182d0b9d837a0f48c90cfd32592cac1"
   },
   "geo_code": "ST",
   "node_type": "country",

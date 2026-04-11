@@ -27,14 +27,15 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "flags": [],
+      "modifiers": [
+        "but"
+      ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -100,12 +101,15 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Ghana | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Ghana | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in Ghana | type: traversal | priority: 3 | scope: cultivation",
+        "rule: illegal | source: Cannabis in Ghana | type: traversal | priority: 3 | scope: cultivation"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Ghana. Medical cannabis is legal. Distribution is illegal."
   },
@@ -207,9 +211,9 @@
   },
   "hashes": {
     "code": "gha",
-    "content_hash": "43285899b77331030ecd15124f89c05576481d6dff7c64fad65a7146b69d73dc",
+    "content_hash": "c5ad34182d80937651783a382a3d1bd8dc30bf2e9ed0bcbb9ef8869e7ae29720",
     "notes_hash": "0b7bd0510e7312f3379173e13f9d57fbebefc6a9b82e3a7305ce48e23e2372c8",
-    "model_hash": "d937c597f672f79fcc80a4a8b8adcf49914ed61ba2b2602169656704e877df41"
+    "model_hash": "ffac192548b78813343c583b0f31ba8e587a39f98ff16af4adc1368862ad426b"
   },
   "geo_code": "GH",
   "node_type": "country",

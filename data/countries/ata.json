@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -164,9 +165,9 @@
   },
   "hashes": {
     "code": "ata",
-    "content_hash": "341ac540c55424997ab1b7e1ec23fe7319f756b6fe003808526cb1d9fb351588",
+    "content_hash": "a9d0204e360efc4ba7ae1f37c7f4c1a7648ceb9667ca80c7ee0fcca16c6fb875",
     "notes_hash": "5802a8bd5fd25a6ad5431a89e9ca3ce2685c192d6ee59b8375e3bc2f7782b928",
-    "model_hash": "69d99672cab0d9ebc2a275227a590196326485b45eb37b77193ce816742c1a49"
+    "model_hash": "c503cf8efa27a2a1664c14b3c5ed18267b6442d6a43d388c083852a3258a29e8"
   },
   "geo_code": "AQ",
   "node_type": "country",

@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -164,9 +165,9 @@
   },
   "hashes": {
     "code": "mnp",
-    "content_hash": "02c3be947a7f6fa0179dd7bc5f6434ee4ff898ecf36c7d8cf8f14b91c648afd3",
+    "content_hash": "74b1648de435072e2e2c5298387c363db2be675666b92c2594c0124adb0b9852",
     "notes_hash": "e3733c2e764d3aabb2cbb3cca058bd47216941d2bac2c1cbc5c57e26a8b8e5c7",
-    "model_hash": "54d248f7d78b9d56d7b5c7043c6287e09949c69e519f218f6d06fd6790f0304f"
+    "model_hash": "cb26e27a40682ff343e9825491063874852ed514d0770b196ab22b22c2489434"
   },
   "geo_code": "MP",
   "node_type": "country",

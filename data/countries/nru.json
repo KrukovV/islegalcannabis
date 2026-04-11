@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -183,9 +184,9 @@
   },
   "hashes": {
     "code": "nru",
-    "content_hash": "f23c14496f26445c98589163d8c830ac45a2aed25f5bcf713e82e6070c8c5f9e",
+    "content_hash": "0be3f3bed3db9dde9435695c2e5f65612ad64c48993962c3d3f590313a8ba5ea",
     "notes_hash": "a61aec8f66571228caf8cee5fded96884f83903e4e3e6c4d5fe75a732fa0b425",
-    "model_hash": "5953c27a47576e8b2e57ea270a47a80c879e5c3494a7ad9b1c148903b9a4416d"
+    "model_hash": "13ebd2cc0135df25750f45bb93c7a1d00575e738aa42d3c74f6ddf09d9d04495"
   },
   "geo_code": "NR",
   "node_type": "country",

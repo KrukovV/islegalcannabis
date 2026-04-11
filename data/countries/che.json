@@ -17,32 +17,38 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "mixed",
       "scopes": {
         "possession": "restricted",
         "use": "restricted",
-        "sale": null,
-        "cultivation": null,
+        "sale": "regulated",
+        "cultivation": "tolerated",
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
       "enforcement": "fine-based",
-      "flags": [],
+      "flags": [
+        "sale_regulated",
+        "distribution_mixed_strong_penalty"
+      ],
       "modifiers": [
         "but",
         "up_to",
-        "may"
+        "may",
+        "only",
+        "however"
       ]
     },
     "signals": {
       "status": "restricted",
-      "final_risk": "LIMITED",
+      "final_risk": "RESTRICTED",
+      "enforcement_level": "rare",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
         "fine": true,
-        "severity_score": 1,
+        "severity_score": 4,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -50,13 +56,13 @@
           "severe": false
         },
         "trafficking": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
           "fine": false,
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Switzerland",
@@ -103,18 +109,53 @@
       ],
       "explain": [
         "rule: penalty_fine | source: Switzerland / Suisse | type: summary | priority: 1 | scope: possession",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Switzerland | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_fine | source: Cannabis in Switzerland | type: traversal | priority: 3 | scope: possession",
+        "rule: possession_decriminalized | source: Cannabis in Switzerland | type: traversal | priority: 3 | scope: possession",
+        "rule: illegal | source: Cannabis in Switzerland | type: traversal | priority: 3 | scope: possession",
+        "rule: raw_illegal | source: Cannabis in Switzerland | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Switzerland | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in Switzerland | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Switzerland | type: traversal | priority: 3 | scope: trafficking",
+        "rule: illegal | source: Cannabis in Switzerland | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_prison | source: Cannabis in Switzerland | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Switzerland | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_criminal_offense | source: Cannabis in Switzerland | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in Switzerland | type: traversal | priority: 3 | scope: general",
+        "rule: enforcement_rare | source: Cannabis in Switzerland | type: traversal | priority: 3 | scope: general",
+        "rule: medical_legal | source: Cannabis in Switzerland | type: traversal | priority: 3 | scope: general",
+        "rule: sale_regulated | source: Cannabis in Switzerland | type: traversal | priority: 3 | scope: sale",
+        "rule: raw_illegal | source: Cannabis in Switzerland | type: traversal | priority: 3 | scope: use",
+        "rule: illegal | source: Cannabis in Switzerland | type: traversal | priority: 3 | scope: use",
+        "rule: legal | source: Cannabis in Switzerland | type: traversal | priority: 3 | scope: sale",
+        "rule: penalty_fine | source: Cannabis in Switzerland | type: traversal | priority: 3 | scope: use",
+        "rule: legal | source: Cannabis in Switzerland | type: traversal | priority: 3 | scope: cultivation",
+        "rule: private_cultivation | source: Cannabis in Switzerland | type: traversal | priority: 3 | scope: cultivation",
+        "rule: legal | source: Cannabis in Switzerland | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Cannabis in Switzerland | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_years | source: Cannabis in Switzerland | type: traversal | priority: 3 | scope: general",
+        "rule: private_cultivation | source: Cannabis in Switzerland | type: traversal | priority: 3 | scope: sale"
       ]
     },
     "enforcement_flags": [
-      "fine_based"
+      "fine_based",
+      "weak_enforcement"
     ],
     "applied_rules": [
-      "penalty_fine"
+      "penalty_fine",
+      "raw_illegal",
+      "possession_decriminalized",
+      "penalty_prison",
+      "penalty_criminal_offense",
+      "enforcement_rare",
+      "sale_regulated",
+      "private_cultivation",
+      "penalty_years",
+      "distribution_mixed_strong_penalty"
     ],
-    "notes_normalized": "Cannabis is decriminalized in Switzerland / Suisse. Medical cannabis is legal. Distribution is restricted."
+    "notes_normalized": "Cannabis is decriminalized in Switzerland / Suisse. Medical cannabis is legal. Distribution is mixed. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is decriminalized in Switzerland / Suisse. Medical cannabis is legal. Distribution is restricted.",
+  "notes_normalized": "Cannabis is decriminalized in Switzerland / Suisse. Medical cannabis is legal. Distribution is mixed. Prison exposure detected.",
   "notes_raw": "{{Main|Cannabis in Switzerland}} Since 2017, consuming cannabis in Switzerland may result in a fine, but possession of up to {{cvt|10|g|frac=8}} without evidence of consumption is not penalized; and as of 2023, confiscated amounts under this limit must be returned to the individual.<ref>{{cite web |url=http://www.admin.ch/ch/f/ff/2012/7539.pdf |title=FF 2012 7539 |access-date=16 November 2016 |archive-date=17 May 2020 |archive-url=https://web.archive.org/web/20200517154324/https://www.admin.ch/opc/fr/federal-gazette/2012/7539.pdf |url-status=live }}</ref><ref>{{Cite web |date=2023-07-24 |title=Leiturteil des Bundesgerichts – Cannabis: bis 10 Gramm Eigenkonsum keine Beschlagnahmung möglich |url=https://www.srf.ch/news/schweiz/leiturteil-des-bundesgerichts-cannabis-bis-10-gramm-eigenkonsum-keine-beschlagnahmung-moeglich |access-date=2024-03-10 |website=Schweizer Radio und Fernsehen (SRF) |language=de}}</ref>",
   "facts": {
     "possession_limit": "up to 10 g",
@@ -193,14 +234,14 @@
         "name": "Austria / Österreich"
       },
       {
-        "code": "smr",
-        "name": "San Marino"
+        "code": "bel",
+        "name": "Belgium / Belgien"
       }
     ],
     "cluster_links": [
       {
-        "code": "bel",
-        "name": "Belgium / Belgien"
+        "code": "smr",
+        "name": "San Marino"
       },
       {
         "code": "nld",
@@ -212,9 +253,9 @@
   },
   "hashes": {
     "code": "che",
-    "content_hash": "37a115ce17df3e69821427b294a6d5cfe41b26f4f0f5d14567986a11a8568e7d",
-    "notes_hash": "7976e34774029c18dc51cd9a6241918553c394c61c3d847fb6511ba380b45900",
-    "model_hash": "50793513f7de4d9824128b263333008b8ef47e971edefc0802b748d1722fa19f"
+    "content_hash": "da62beb615486328b4d1c584d1d686f3ba0dd96643fec4245ebf07de605d40e0",
+    "notes_hash": "3183823cbc096749e26bee92b279ae98f7931d48577b6ca1de8486cf0b05004c",
+    "model_hash": "111b8dab2b684c3136896d20348544d9b41fb77210df8e01799fd0bc83a02a03"
   },
   "geo_code": "CH",
   "node_type": "country",

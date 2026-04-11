@@ -27,14 +27,15 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "flags": [],
+      "modifiers": [
+        "but"
+      ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -100,12 +101,13 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Cameroon | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Cameroon | type: traversal | priority: 3 | scope: general"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Cameroon / Cameroun. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -207,9 +209,9 @@
   },
   "hashes": {
     "code": "cmr",
-    "content_hash": "f0987bcad417d1311607fe4d45d1fbe2969bfe05e49a304515728b42ca471d88",
+    "content_hash": "1164d46469d9b1947d3e32604866858f9698463ebc13a8b54b8219c557119bbe",
     "notes_hash": "5d37afb46c1850defec8df196058e5b0b134fbf6ebf98483425bc05ad933e23d",
-    "model_hash": "05b3caaee742bf84f7ad71a2c80c3c251d0e4ab9891e6566499b351b5b239bf1"
+    "model_hash": "95913f4f86ee243f22bbb273337be9a5941ede4b9a1d292510172558a91d046c"
   },
   "geo_code": "CM",
   "node_type": "country",

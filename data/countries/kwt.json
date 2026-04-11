@@ -26,26 +26,27 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": [
+        "up_to"
+      ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 4,
         "possession": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
           "fine": false,
-          "severe": false
+          "severe": true
         },
         "trafficking": {
           "prison": false,
@@ -54,7 +55,7 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Kuwait",
@@ -100,16 +101,23 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: penalty_prison | source: Cannabis in Kuwait | type: traversal | priority: 3 | scope: possession",
+        "rule: raw_illegal | source: Cannabis in Kuwait | type: traversal | priority: 3 | scope: possession",
+        "rule: illegal | source: Cannabis in Kuwait | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_fine | source: Cannabis in Kuwait | type: traversal | priority: 3 | scope: general"
       ]
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "distribution_fallback_illegal"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is illegal in Kuwait / الكويت. Medical cannabis is illegal. Distribution is illegal."
+    "applied_rules": [
+      "penalty_prison",
+      "raw_illegal",
+      "penalty_fine"
+    ],
+    "notes_normalized": "Cannabis is illegal in Kuwait / الكويت. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Kuwait / الكويت. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Kuwait / الكويت. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Kuwait}}",
   "facts": {
     "possession_limit": null,
@@ -207,9 +215,9 @@
   },
   "hashes": {
     "code": "kwt",
-    "content_hash": "c04f4b177b28414d7eeddc77887d10ec5660d1662a84ae3b80a14f7b4df9d8b4",
-    "notes_hash": "9c9c38e3aeb0af44607cb23839ae201180eef0612c858ef0cfa734de89000028",
-    "model_hash": "2f2d68233cd6a74662edfbb0a17bbd9e4c9062fe56f6cf692edde796ea250978"
+    "content_hash": "40edf46f55cdfeb821719d913f3d912cb59549169f361995cfd9dd82db8b9527",
+    "notes_hash": "dfa93b771ce3e7d71a15309d0f95d6c313d9c828070bf25977aa6666e7df268b",
+    "model_hash": "bfcc038bfcf5153c7bbf1d2e4f1d20ea34566334c6018c3c5612c23d22690cbf"
   },
   "geo_code": "KW",
   "node_type": "country",

@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -164,9 +165,9 @@
   },
   "hashes": {
     "code": "nfk",
-    "content_hash": "9f0cd3f51bc507b2fc4e9c3b45b85e96beda023fdf7f53b8c4ec94fbc9b6566e",
+    "content_hash": "7c671fb4f4813bf4d83b88dbdff2a871b5e925f3e468e73c1fe7c007a72d5ffb",
     "notes_hash": "9cf281b57d7ebef622d8e371cc87319a89deddc6dcf439241b9700f53b2e5c61",
-    "model_hash": "388a45ddd05a3a9264afc455248d606982b63214972d2e3fd6db799648ad52e6"
+    "model_hash": "d41602ebcf931a60b86c44aca7775f3bca401eae11432b30a001035114d8a866"
   },
   "geo_code": "NF",
   "node_type": "country",

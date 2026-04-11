@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -164,9 +165,9 @@
   },
   "hashes": {
     "code": "msr",
-    "content_hash": "5ca346f95ef90671e8592ebe1033d6bae5a31eed4f2b13a3137dbee453e72734",
+    "content_hash": "bfd02c2a32ceaa31a8cda34dfb6bf4c97301d2d0d695809efb12b3a1ee9c6659",
     "notes_hash": "206be8467a75ba0b9b1638c3f307021d63f390e187dca7b114d0981e5d883868",
-    "model_hash": "c52d88e3193d1fe455ff89a3fa0b69532ecee661872cdcbd88e73690d15b99c1"
+    "model_hash": "3bba75ec395a5e135b2496ce5d38c5bf6d17fc0caaf2375920c34aa2f1fe3e5b"
   },
   "geo_code": "MS",
   "node_type": "country",

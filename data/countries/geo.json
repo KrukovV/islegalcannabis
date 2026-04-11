@@ -17,11 +17,11 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
         "possession": "restricted",
         "use": "restricted",
-        "sale": null,
+        "sale": "illegal",
         "cultivation": null,
         "import": null,
         "trafficking": null
@@ -29,18 +29,22 @@
       "enforcement": "fine-based",
       "flags": [],
       "modifiers": [
-        "up_to"
+        "only",
+        "up_to",
+        "but",
+        "may"
       ]
     },
     "signals": {
-      "status": "restricted",
+      "status": "illegal",
       "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 2,
+        "prison_priority": 3,
         "arrest": false,
         "fine": true,
-        "severity_score": 4,
+        "severity_score": 140,
         "possession": {
           "prison": true,
           "arrest": false,
@@ -48,10 +52,10 @@
           "severe": true
         },
         "trafficking": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
-          "fine": false,
-          "severe": false
+          "fine": true,
+          "severe": true
         }
       },
       "confidence": "high",
@@ -100,21 +104,36 @@
         }
       ],
       "explain": [
+        "rule: legal | source: Cannabis in Georgia (country) | type: traversal | priority: 3 | scope: possession",
+        "rule: raw_illegal | source: Cannabis in Georgia (country) | type: traversal | priority: 3 | scope: sale",
+        "rule: sale_illegal | source: Cannabis in Georgia (country) | type: traversal | priority: 3 | scope: sale",
+        "rule: illegal | source: Cannabis in Georgia (country) | type: traversal | priority: 3 | scope: sale",
+        "rule: penalty_years | source: Cannabis in Georgia (country) | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in Georgia (country) | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Georgia (country) | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Georgia (country) | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_prison | source: Cannabis in Georgia (country) | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_fine | source: Cannabis in Georgia (country) | type: traversal | priority: 3 | scope: sale",
+        "rule: legal | source: Cannabis in Georgia (country) | type: traversal | priority: 3 | scope: sale",
+        "rule: raw_illegal | source: Cannabis in Georgia (country) | type: traversal | priority: 3 | scope: use",
+        "rule: illegal | source: Cannabis in Georgia (country) | type: traversal | priority: 3 | scope: use",
+        "rule: legal | source: Cannabis in Georgia (country) | type: traversal | priority: 3 | scope: use",
         "rule: penalty_fine | source: Georgia's High Court Removes Marijuana Possession Penalties | type: reference | priority: 2 | scope: possession",
-        "rule: penalty_prison | source: Norms envisaging imprisonment for marijuana use now null and void in Georgia | type: reference | priority: 2 | scope: use",
-        "no traversal evidence"
+        "rule: penalty_prison | source: Norms envisaging imprisonment for marijuana use now null and void in Georgia | type: reference | priority: 2 | scope: use"
       ]
     },
     "enforcement_flags": [
       "fine_based"
     ],
     "applied_rules": [
+      "raw_illegal",
+      "penalty_years",
       "penalty_fine",
       "penalty_prison"
     ],
-    "notes_normalized": "Cannabis is decriminalized in Georgia / საქართველო. Medical cannabis is limited. Distribution is restricted. Prison exposure detected."
+    "notes_normalized": "Cannabis is decriminalized in Georgia / საქართველო. Medical cannabis is limited. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is decriminalized in Georgia / საქართველო. Medical cannabis is limited. Distribution is restricted. Prison exposure detected.",
+  "notes_normalized": "Cannabis is decriminalized in Georgia / საქართველო. Medical cannabis is limited. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Georgia (country)}}",
   "facts": {
     "possession_limit": null,
@@ -193,8 +212,8 @@
         "name": "Moldova"
       },
       {
-        "code": "rou",
-        "name": "Romania / România"
+        "code": "sau",
+        "name": "Saudi Arabia / السعودية"
       }
     ],
     "cluster_links": [
@@ -212,9 +231,9 @@
   },
   "hashes": {
     "code": "geo",
-    "content_hash": "1fd5902b87f8f3679f543256a1fecb5684fc6cce548e514e241aa6bd929006b3",
-    "notes_hash": "5887f13e457a3d22177c822e6179ddd71b742c9013760a15ac203e79e571155b",
-    "model_hash": "50110aba6ef79a5f5baf3e8befe3baaa740951ef111a37245d5d1910e10b9162"
+    "content_hash": "24595c6131377256142e2c548273f478325b72bc73d9e6c26060ae54a7bd0eff",
+    "notes_hash": "111bf5044b2817ded4f120cec61060965f104caa72a638919a632973d7c61b84",
+    "model_hash": "1b7b78931a94be0906717337d3b68d8280e527137af2674cee6773b573679211"
   },
   "geo_code": "GE",
   "node_type": "country",

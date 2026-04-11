@@ -6,7 +6,7 @@
     "recreational": {
       "raw_status": "ILLEGAL",
       "status": "ILLEGAL",
-      "enforcement": "STRICT",
+      "enforcement": "MODERATE",
       "scope": "NONE"
     },
     "medical": {
@@ -26,23 +26,25 @@
         "import": "illegal",
         "trafficking": "illegal"
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [
         "import_illegal",
         "trafficking_illegal"
       ],
       "modifiers": [
-        "usually"
+        "usually",
+        "up_to"
       ]
     },
     "signals": {
-      "status": "illegal",
-      "final_risk": "HIGH_RISK",
+      "status": "restricted",
+      "final_risk": "RESTRICTED",
+      "enforcement_level": "rare",
       "penalties": {
         "prison": true,
-        "prison_priority": 1,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
+        "fine": true,
         "severity_score": 4,
         "possession": {
           "prison": true,
@@ -53,7 +55,7 @@
         "trafficking": {
           "prison": true,
           "arrest": false,
-          "fine": false,
+          "fine": true,
           "severe": true
         }
       },
@@ -101,17 +103,36 @@
         "rule: penalty_criminal_offense | source: Saudi Arabia / السعودية | type: summary | priority: 1 | scope: possession",
         "rule: penalty_prison | source: Saudi Arabia / السعودية | type: summary | priority: 1 | scope: use",
         "rule: penalty_prison | source: Saudi Arabia / السعودية | type: summary | priority: 1 | scope: trafficking",
+        "rule: enforcement_rare | source: Saudi Arabia / السعودية | type: summary | priority: 1 | scope: trafficking",
         "rule: import_illegal | source: Saudi Arabia / السعودية | type: summary | priority: 1 | scope: trafficking",
         "rule: trafficking_illegal | source: Saudi Arabia / السعودية | type: summary | priority: 1 | scope: trafficking",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Saudi Arabia | type: traversal | priority: 3 | scope: possession",
+        "rule: illegal | source: Cannabis in Saudi Arabia | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_prison | source: Cannabis in Saudi Arabia | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_criminal_offense | source: Cannabis in Saudi Arabia | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_prison | source: Cannabis in Saudi Arabia | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_prison | source: Cannabis in Saudi Arabia | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_years | source: Cannabis in Saudi Arabia | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Saudi Arabia | type: traversal | priority: 3 | scope: trafficking",
+        "rule: enforcement_rare | source: Cannabis in Saudi Arabia | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_fine | source: Cannabis in Saudi Arabia | type: traversal | priority: 3 | scope: trafficking",
+        "rule: import_illegal | source: Cannabis in Saudi Arabia | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_fine | source: Cannabis in Saudi Arabia | type: traversal | priority: 3 | scope: general"
       ]
     },
-    "enforcement_flags": [],
+    "enforcement_flags": [
+      "weak_enforcement",
+      "fine_based"
+    ],
     "applied_rules": [
       "penalty_prison",
       "penalty_criminal_offense",
+      "enforcement_rare",
       "import_illegal",
-      "trafficking_illegal"
+      "trafficking_illegal",
+      "raw_illegal",
+      "penalty_years",
+      "penalty_fine"
     ],
     "notes_normalized": "Cannabis is illegal in Saudi Arabia / السعودية. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
@@ -213,9 +234,9 @@
   },
   "hashes": {
     "code": "sau",
-    "content_hash": "25229c158074b694edf089d0d9db44f846f00c66335448b0a8e0ca6314f94487",
+    "content_hash": "da47f67d71289e40e5e322d06a47244b35dc52c0ea0702f0d19d0106d1283e7c",
     "notes_hash": "0a1fb0fbaf0f647976d8db8de27b3bf3fd0c79ab7079af9691309894536fef25",
-    "model_hash": "22a4b3e44089a3ca17dbc78063c80d004afe2fbf789b3536944736889247a6c9"
+    "model_hash": "5a047190056a39dcf2f5fd4b40665e1c1f2b8e424675a93f0bb5a66de17b10e6"
   },
   "geo_code": "SA",
   "node_type": "country",

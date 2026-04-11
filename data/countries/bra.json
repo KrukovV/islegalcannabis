@@ -22,26 +22,33 @@
         "possession": "restricted",
         "use": "restricted",
         "sale": "regulated",
-        "cultivation": null,
+        "cultivation": "tolerated",
         "import": null,
         "trafficking": "illegal"
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [
         "trafficking_illegal",
         "sale_regulated",
         "distribution_mixed_strong_penalty"
       ],
-      "modifiers": []
+      "modifiers": [
+        "but",
+        "up_to",
+        "however",
+        "may",
+        "only"
+      ]
     },
     "signals": {
-      "status": "mixed",
+      "status": "illegal",
       "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 1,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
+        "fine": true,
         "severity_score": 4,
         "possession": {
           "prison": false,
@@ -52,7 +59,7 @@
         "trafficking": {
           "prison": true,
           "arrest": false,
-          "fine": false,
+          "fine": true,
           "severe": true
         }
       },
@@ -105,17 +112,38 @@
         "rule: penalty_prison | source: Brazil / Brasil | type: summary | priority: 1 | scope: general",
         "rule: penalty_prison | source: Brazil / Brasil | type: summary | priority: 1 | scope: trafficking",
         "rule: trafficking_illegal | source: Brazil / Brasil | type: summary | priority: 1 | scope: trafficking",
+        "rule: raw_illegal | source: Cannabis in Brazil | type: traversal | priority: 3 | scope: cultivation",
+        "rule: private_cultivation | source: Cannabis in Brazil | type: traversal | priority: 3 | scope: cultivation",
+        "rule: possession_decriminalized | source: Cannabis in Brazil | type: traversal | priority: 3 | scope: cultivation",
+        "rule: illegal | source: Cannabis in Brazil | type: traversal | priority: 3 | scope: cultivation",
+        "rule: raw_illegal | source: Cannabis in Brazil | type: traversal | priority: 3 | scope: possession",
+        "rule: illegal | source: Cannabis in Brazil | type: traversal | priority: 3 | scope: possession",
+        "rule: legal | source: Cannabis in Brazil | type: traversal | priority: 3 | scope: use",
+        "rule: medical_limited | source: Cannabis in Brazil | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in Brazil | type: traversal | priority: 3 | scope: use",
+        "rule: illegal | source: Cannabis in Brazil | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_prison | source: Cannabis in Brazil | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_fine | source: Cannabis in Brazil | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_years | source: Cannabis in Brazil | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Brazil | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_prison | source: Cannabis in Brazil | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Brazil | type: traversal | priority: 3 | scope: general",
         "rule: sale_regulated | source: Brazil approves sale of medical cannabis in pharmacies | type: reference | priority: 2 | scope: sale",
-        "rule: medical_legal | source: Brazil approves sale of medical cannabis in pharmacies | type: reference | priority: 2 | scope: sale",
-        "no traversal evidence"
+        "rule: medical_legal | source: Brazil approves sale of medical cannabis in pharmacies | type: reference | priority: 2 | scope: sale"
       ]
     },
-    "enforcement_flags": [],
+    "enforcement_flags": [
+      "fine_based"
+    ],
     "applied_rules": [
       "penalty_prison",
       "trafficking_illegal",
+      "raw_illegal",
+      "private_cultivation",
+      "possession_decriminalized",
+      "penalty_fine",
+      "penalty_years",
       "sale_regulated",
-      "medical_legal",
       "distribution_mixed_strong_penalty"
     ],
     "notes_normalized": "Cannabis is decriminalized in Brazil / Brasil. Medical cannabis is legal. Distribution is mixed. Prison exposure detected."
@@ -218,9 +246,9 @@
   },
   "hashes": {
     "code": "bra",
-    "content_hash": "53be41e4c28537d9d910fc13d8bbbeb036ef12fcc34dc4e5adfe53c2a9dd399e",
+    "content_hash": "b44950fd28aaedfe1b0c9fd046d40dd412066d48be9329c193a6c67a1ad8dc53",
     "notes_hash": "b9b79ffed742fb2d97a769a6c2e7e086e9865d39e8236f631a3fac448d413e86",
-    "model_hash": "85963deed1d1dc4d43f95ebd8d3d8d1e9b76afa458d77cccff83d2d3ef57bd6b"
+    "model_hash": "00d61ec4474779ef3b49c92e65496a41ddfec748e6f32508bdba49e7221be07a"
   },
   "geo_code": "BR",
   "node_type": "country",

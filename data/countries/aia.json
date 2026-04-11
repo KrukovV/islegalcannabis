@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -164,9 +165,9 @@
   },
   "hashes": {
     "code": "aia",
-    "content_hash": "b1344d43d0b5b6a6449a3f4387b6ae625aa72b98ece05d512286891abd2d79db",
+    "content_hash": "4845e2ec269847e28dfea44fcade688d195fbdd6b4c609f4be1587d6757f4c78",
     "notes_hash": "7a5c0ab32fee09bacae95917e63eeb446e862f0d6ad1c8d42089913522ed2bb0",
-    "model_hash": "1cbaf347151dd80ed1b2b97dbf18a6d030397f18b5c6e93a9a0216c64c94cdba"
+    "model_hash": "f9d47e40c1c4cdb966485eaf1af11336cc6deddad82659d5d7eec731d5a1baa9"
   },
   "geo_code": "AI",
   "node_type": "country",

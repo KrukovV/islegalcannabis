@@ -17,41 +17,50 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "tolerated",
+      "status": "illegal",
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
+        "sale": "illegal",
         "cultivation": "tolerated",
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
       "enforcement": "fine-based",
-      "flags": [],
+      "flags": [
+        "trafficking_illegal"
+      ],
       "modifiers": [
-        "may"
+        "only",
+        "but",
+        "however",
+        "up_to",
+        "may",
+        "unless",
+        "usually"
       ]
     },
     "signals": {
-      "status": "tolerated",
-      "final_risk": "UNKNOWN",
+      "status": "illegal",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
-        "arrest": false,
+        "prison": true,
+        "prison_priority": 3,
+        "arrest": true,
         "fine": true,
-        "severity_score": 1,
+        "severity_score": 30,
         "possession": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
-          "fine": false,
-          "severe": false
+          "fine": true,
+          "severe": true
         },
         "trafficking": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
-          "fine": false,
-          "severe": false
+          "fine": true,
+          "severe": true
         }
       },
       "confidence": "high",
@@ -103,11 +112,53 @@
         "rule: raw_illegal | source: Australia | type: summary | priority: 1 | scope: cultivation",
         "rule: private_cultivation | source: Australia | type: summary | priority: 1 | scope: cultivation",
         "rule: illegal | source: Australia | type: summary | priority: 1 | scope: cultivation",
+        "rule: medical_legal | source: Cannabis in Australia | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in Australia | type: traversal | priority: 3 | scope: use",
+        "rule: legal | source: Cannabis in Australia | type: traversal | priority: 3 | scope: sale",
+        "rule: penalty_years | source: Cannabis in Australia | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_years | source: Cannabis in Australia | type: traversal | priority: 3 | scope: use",
+        "rule: medical_limited | source: Cannabis in Australia | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_arrest | source: Cannabis in Australia | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Australia | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_years | source: Cannabis in Australia | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Australia | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_fine | source: Cannabis in Australia | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in Australia | type: traversal | priority: 3 | scope: use",
+        "rule: illegal | source: Cannabis in Australia | type: traversal | priority: 3 | scope: use",
+        "rule: raw_illegal | source: Cannabis in Australia | type: traversal | priority: 3 | scope: cultivation",
+        "rule: illegal | source: Cannabis in Australia | type: traversal | priority: 3 | scope: cultivation",
+        "rule: penalty_fine | source: Cannabis in Australia | type: traversal | priority: 3 | scope: use",
+        "rule: raw_illegal | source: Cannabis in Australia | type: traversal | priority: 3 | scope: sale",
+        "rule: sale_illegal | source: Cannabis in Australia | type: traversal | priority: 3 | scope: sale",
+        "rule: illegal | source: Cannabis in Australia | type: traversal | priority: 3 | scope: sale",
+        "rule: penalty_fine | source: Cannabis in Australia | type: traversal | priority: 3 | scope: possession",
+        "rule: legal | source: Cannabis in Australia | type: traversal | priority: 3 | scope: trafficking",
+        "rule: medical_limited | source: Cannabis in Australia | type: traversal | priority: 3 | scope: cultivation",
+        "rule: penalty_prison | source: Cannabis in Australia | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_prison | source: Cannabis in Australia | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Australia | type: traversal | priority: 3 | scope: cultivation",
+        "rule: private_cultivation | source: Cannabis in Australia | type: traversal | priority: 3 | scope: cultivation",
+        "rule: raw_illegal | source: Cannabis in Australia | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Australia | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Australia | type: traversal | priority: 3 | scope: sale",
+        "rule: penalty_criminal_offense | source: Cannabis in Australia | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_years | source: Cannabis in Australia | type: traversal | priority: 3 | scope: cultivation",
+        "rule: penalty_prison | source: Cannabis in Australia | type: traversal | priority: 3 | scope: sale",
+        "rule: penalty_years | source: Cannabis in Australia | type: traversal | priority: 3 | scope: sale",
+        "rule: penalty_prison | source: Cannabis in Australia | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_years | source: Cannabis in Australia | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Australia | type: traversal | priority: 3 | scope: trafficking",
+        "rule: sale_illegal | source: Cannabis in Australia | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_prison | source: Cannabis in Australia | type: traversal | priority: 3 | scope: cultivation",
+        "rule: sale_regulated | source: Cannabis in Australia | type: traversal | priority: 3 | scope: sale",
+        "rule: medical_legal | source: Cannabis in Australia | type: traversal | priority: 3 | scope: sale",
+        "rule: medical_legal | source: Cannabis in Australia | type: traversal | priority: 3 | scope: use",
+        "rule: legal | source: Cannabis in Australia | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in Australia | type: traversal | priority: 3 | scope: cultivation",
         "rule: medical_legal | source: Medicinal Marijuana has been Legalised in Australia | type: reference | priority: 2 | scope: general",
         "rule: penalty_fine | source: Economic benefit of recreational cannabis now placed at $700m annually, as Greens renew pledge to push legal weed | type: reference | priority: 2 | scope: general",
         "rule: medical_legal | source: Medical marijuana legalized in Australia | type: reference | priority: 2 | scope: general",
-        "rule: medical_legal | source: Medicinal cannabis to be legalised in Australia from November | type: reference | priority: 2 | scope: general",
-        "no traversal evidence"
+        "rule: medical_legal | source: Medicinal cannabis to be legalised in Australia from November | type: reference | priority: 2 | scope: general"
       ]
     },
     "enforcement_flags": [
@@ -116,12 +167,16 @@
     "applied_rules": [
       "raw_illegal",
       "private_cultivation",
-      "medical_legal",
-      "penalty_fine"
+      "penalty_years",
+      "penalty_arrest",
+      "penalty_prison",
+      "penalty_fine",
+      "penalty_criminal_offense",
+      "trafficking_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Australia. Medical cannabis is legal. Distribution is tolerated."
+    "notes_normalized": "Cannabis is illegal in Australia. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Australia. Medical cannabis is legal. Distribution is tolerated.",
+  "notes_normalized": "Cannabis is illegal in Australia. Medical cannabis is legal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Australia}} In September 2019, the [[Australian Capital Territory]] became the first state or territory of Australia to legalize recreational use of cannabis. Since 31 January 2020 residents have been allowed to grow two plants and possess {{cvt|50|g|frac=4}}, though sales or other transfer is prohibited, including cannabis seeds. Federal law also remains enforceable.<ref name=\"ACT\">{{cite news |last=Lowrey |first=Tom |title=ACT legalises personal cannabis use but warns smokers they're not safe from federal laws |url=https://www.abc.net.au/news/2019-09-25/act-first-jurisdiction-to-legalise-personal-cannabis-use/11530104 |access-date=11 December 2019 |publisher=[[Australian Broadcasting Corporation|ABC News]] |date=25 September 2019 |archive-url=https://web.archive.org/web/20191005020408/https://www.abc.net.au/news/2019-09-25/act-first-jurisdiction-to-legalise-personal-cannabis-use/11530104 |archive-date=5 October 2019 |url-status=live}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -219,9 +274,9 @@
   },
   "hashes": {
     "code": "aus",
-    "content_hash": "c0d3736905fe052339211dcc9a049e3e8e44ba1490751c697afbf91f673659bb",
-    "notes_hash": "2030da8c3e4e7854efc3760ab67b99daaa4a6c38184454a9fba25fcfb45f336d",
-    "model_hash": "f2c16d9000b0870c06f4450fc686635fc1274f950255b46ecebada04dcdaac45"
+    "content_hash": "de37a70c4fb1c7fa8522b49c197014e577b7fca915e09ed3fa735b8b3a057822",
+    "notes_hash": "68232c768fc86be79b6a370d0cbca5ff80aa8bd7527b52ff657f911e94040894",
+    "model_hash": "ca6fff691afc2a3996c884d5e779a5276b2ca372eff5f4e2fe53af81c6c60138"
   },
   "geo_code": "AU",
   "node_type": "country",

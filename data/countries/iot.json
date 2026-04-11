@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -164,9 +165,9 @@
   },
   "hashes": {
     "code": "iot",
-    "content_hash": "07735c8667b8f08c44981e5387d30687f73b55ecbe15d4657a8f7ef55f427db7",
+    "content_hash": "96302d559457e503ff42d183195e71de0563714bace6f564d01223557b76bbff",
     "notes_hash": "ef70bf9a362ddddd16b8a063c4cffbc737c6702450306b6e5c9390ef4404a1c5",
-    "model_hash": "97307fe7dae435aa1162d6accc5c6ae48c8e6d3156e4dea83c5be1e09b057622"
+    "model_hash": "f3f591d9354fccdcef8c21062aa4215af294571a47ba6d62b4d2ed2e444537e1"
   },
   "geo_code": "IO",
   "node_type": "country",

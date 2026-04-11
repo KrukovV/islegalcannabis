@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -164,9 +165,9 @@
   },
   "hashes": {
     "code": "abw",
-    "content_hash": "04ce382c831282e1b05a56e297e19419686d69b74a1e78df854a8a23484affa4",
+    "content_hash": "079eade3fc472cc976880c124e7d183b9591bdf71b673cc6c95974cb94155663",
     "notes_hash": "4816523bd30d7fd2f2c57436f3125e6e15aded1b3bda6d4ffc8bacd1ab98106a",
-    "model_hash": "ba3e891a6a024b208685969ed95a5064f3190b69fb946cc4bd4ef765ce9fea44"
+    "model_hash": "27f21b6fffba7251fe8bb6dedfd39901ac10db278ff3c76038d588a33306b2a5"
   },
   "geo_code": "AW",
   "node_type": "country",

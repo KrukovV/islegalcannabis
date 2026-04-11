@@ -26,25 +26,29 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [],
       "modifiers": [
-        "but"
+        "but",
+        "only",
+        "may",
+        "however"
       ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 1,
         "possession": {
           "prison": false,
           "arrest": false,
-          "fine": false,
+          "fine": true,
           "severe": false
         },
         "trafficking": {
@@ -101,12 +105,19 @@
       ],
       "explain": [
         "rule: raw_illegal | source: Lithuania / Lietuva | type: summary | priority: 1 | scope: use",
-        "no traversal evidence"
+        "rule: illegal | source: Cannabis in Lithuania | type: traversal | priority: 3 | scope: cultivation",
+        "rule: raw_illegal | source: Cannabis in Lithuania | type: traversal | priority: 3 | scope: cultivation",
+        "rule: legal | source: Cannabis in Lithuania | type: traversal | priority: 3 | scope: trafficking",
+        "rule: medical_legal | source: Cannabis in Lithuania | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_fine | source: Cannabis in Lithuania | type: traversal | priority: 3 | scope: possession"
       ]
     },
-    "enforcement_flags": [],
+    "enforcement_flags": [
+      "fine_based"
+    ],
     "applied_rules": [
-      "raw_illegal"
+      "raw_illegal",
+      "penalty_fine"
     ],
     "notes_normalized": "Cannabis is illegal in Lithuania / Lietuva. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -208,9 +219,9 @@
   },
   "hashes": {
     "code": "ltu",
-    "content_hash": "ea3b5db4efb5e791bffa2ceb7562d50635df0396c149a8ee690d03de53590174",
+    "content_hash": "e300817f9cf6f22f669a912e7db8c4276de474e2f9f0d7cf6a2a24d4761dc747",
     "notes_hash": "7053b128ad50a168d33a8689be99e05331e3bd2fe1930ebe9ac4c363b5e160da",
-    "model_hash": "b60e5207d8a6b9d3207bbc8c942693ec82e687fa5c27dd167ed12f7440fc1dae"
+    "model_hash": "fd76905d23c6830cd30ea770be90ffd612e44265cc8795214d0280be14cd38f6"
   },
   "geo_code": "LT",
   "node_type": "country",

@@ -26,22 +26,27 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "but",
+        "may",
+        "however"
+      ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": true,
-        "fine": false,
+        "fine": true,
         "severity_score": 2,
         "possession": {
           "prison": false,
-          "arrest": false,
+          "arrest": true,
           "fine": false,
           "severe": false
         },
@@ -52,7 +57,7 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Nepal",
@@ -98,12 +103,24 @@
         }
       ],
       "explain": [
-        "rule: penalty_arrest | source: Police to arrest cannabis users at Pashupati this Mahashivaratri festival | type: reference | priority: 2 | scope: general",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Nepal | type: traversal | priority: 3 | scope: use",
+        "rule: illegal | source: Cannabis in Nepal | type: traversal | priority: 3 | scope: use",
+        "rule: medical_legal | source: Cannabis in Nepal | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Nepal | type: traversal | priority: 3 | scope: general",
+        "rule: medical_limited | source: Cannabis in Nepal | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in Nepal | type: traversal | priority: 3 | scope: cultivation",
+        "rule: illegal | source: Cannabis in Nepal | type: traversal | priority: 3 | scope: cultivation",
+        "rule: penalty_arrest | source: Cannabis in Nepal | type: traversal | priority: 3 | scope: use",
+        "rule: rec_tolerated | source: Cannabis in Nepal | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_arrest | source: Police to arrest cannabis users at Pashupati this Mahashivaratri festival | type: reference | priority: 2 | scope: general"
       ]
     },
-    "enforcement_flags": [],
+    "enforcement_flags": [
+      "fine_based"
+    ],
     "applied_rules": [
+      "raw_illegal",
+      "penalty_fine",
       "penalty_arrest"
     ],
     "notes_normalized": "Cannabis is illegal in Nepal / नेपाल. Medical cannabis is illegal. Distribution is illegal."
@@ -206,9 +223,9 @@
   },
   "hashes": {
     "code": "npl",
-    "content_hash": "9e0eabbdbb9e49d83f4b2f7fda97473ab312c7e7a2e320245d1518265a645454",
+    "content_hash": "7c187b05dcf344411ac5d5246dc6a592b76d33275f7c5f54d36a80c5feaa002f",
     "notes_hash": "7a3bb35762a3f228b51b82b9e268be1408e9adb3432d8fa1b426853dcce3f8b1",
-    "model_hash": "bfbd41f567ae1de0973786df53434a6c2f3c936bcadb56304b2e0c24ad1988ff"
+    "model_hash": "f64bcb62910642eafc48a13c385eccac57775f21ac92e756ad6efc6f1abaa94b"
   },
   "geo_code": "NP",
   "node_type": "country",

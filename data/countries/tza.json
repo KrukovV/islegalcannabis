@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -201,9 +202,9 @@
   },
   "hashes": {
     "code": "tza",
-    "content_hash": "e03da8b01de1a82e93d6688b7a114c8ab02078aee07a485114d9c754c2d579d8",
+    "content_hash": "6a73d2c30efe7bc062795c1381688d6cda6f20b194f27f7b1e4af77addb05929",
     "notes_hash": "3a68839b381fff1b45873cde10095732eefb36380a753a5aeb36c8e8ddc32581",
-    "model_hash": "56fb513af2a26ff1f0ccded2bee3c3e8c6eadf4e9b682062148989f1dc661120"
+    "model_hash": "af17a01b57e8f6ff15d1c842b73097f2f0a58d1a756ae7c2074b4d68f5a45047"
   },
   "geo_code": "TZ",
   "node_type": "country",

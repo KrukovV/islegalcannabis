@@ -26,21 +26,25 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [],
       "modifiers": [
-        "but"
+        "but",
+        "up_to",
+        "only",
+        "however"
       ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 1,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -102,12 +106,21 @@
       "explain": [
         "rule: raw_illegal | source: Malawi / Malaŵi | type: summary | priority: 1 | scope: general",
         "rule: illegal | source: Malawi / Malaŵi | type: summary | priority: 1 | scope: general",
-        "no traversal evidence"
+        "rule: medical_legal | source: Cannabis in Malawi | type: traversal | priority: 3 | scope: cultivation",
+        "rule: penalty_fine | source: Cannabis in Malawi | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in Malawi | type: traversal | priority: 3 | scope: cultivation",
+        "rule: illegal | source: Cannabis in Malawi | type: traversal | priority: 3 | scope: cultivation",
+        "rule: raw_illegal | source: Cannabis in Malawi | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Malawi | type: traversal | priority: 3 | scope: general",
+        "rule: medical_legal | source: Cannabis in Malawi | type: traversal | priority: 3 | scope: use"
       ]
     },
-    "enforcement_flags": [],
+    "enforcement_flags": [
+      "fine_based"
+    ],
     "applied_rules": [
-      "raw_illegal"
+      "raw_illegal",
+      "penalty_fine"
     ],
     "notes_normalized": "Cannabis is illegal in Malawi / Malaŵi. Medical cannabis is legal. Distribution is illegal."
   },
@@ -209,9 +222,9 @@
   },
   "hashes": {
     "code": "mwi",
-    "content_hash": "4f238b1ad6889d74c7f649473bd6b5383815e9973cdf4ba8cd08ed3c4985866a",
+    "content_hash": "decf30896acff9ccf554e1f896d927d677538701cdaec547b22e27db01d16943",
     "notes_hash": "a85579dd15710ecf9d1ad3f5ad832bafa952579db6764430a1244fb09aeda84a",
-    "model_hash": "0657b9d69d57aae329420229c864763bb17e6ed949d4cdbb87272a845144ebd7"
+    "model_hash": "71d18c873b6c5b244da0393bb6f4f868a33f4ceec54836386ccbed2425064b02"
   },
   "geo_code": "MW",
   "node_type": "country",

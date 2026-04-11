@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -183,9 +184,9 @@
   },
   "hashes": {
     "code": "ner",
-    "content_hash": "e5cb7feda47fd1c655cfc1190a0d8c3605fbf044abadf9c560156a79d3135e1b",
+    "content_hash": "cd0b9088cd3e8ee60f9a3257c1cf2a79f8eb7d0a2f36b93d1690160901d77de1",
     "notes_hash": "a03af92c170a3ec625bcc6983ddf287e660de6b5282807b6591f1cf69465b866",
-    "model_hash": "97189dd5aa93382fe1bb43db84d6ef1ad64e88e405e4e5d3fcc86ee75e64bbe1"
+    "model_hash": "b571f9f5f0213a2f0a5ed3a05dad383888fcef8e2397fd42adfe79640ffc4067"
   },
   "geo_code": "NE",
   "node_type": "country",

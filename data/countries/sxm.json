@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -164,9 +165,9 @@
   },
   "hashes": {
     "code": "sxm",
-    "content_hash": "78ca4b238a385b34db7e393f41d071c5f5a933459fd5c02b6f04c9ba75fc8ef6",
+    "content_hash": "28a65c78c9501a1053a160dc5d3f44afff1f9a68e28e413c1a4a87af766eac3e",
     "notes_hash": "9e463fd77539e67447b3f34349c2eac64420fa3b2c32f3e9d9b4c25bb89ce211",
-    "model_hash": "c3485f0038ea34790451aa3bc5f01dc87833fd761025ef2126fa580c7ca576da"
+    "model_hash": "663234059a7b35cdc41a9b9abb0f155369fcf16697ea0f18e2b40e0454adcd00"
   },
   "geo_code": "SX",
   "node_type": "country",

@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -164,9 +165,9 @@
   },
   "hashes": {
     "code": "vgb",
-    "content_hash": "b17ff75dd87844cbf19caea225448af0dfe79b310d839e454d5cbb4cbbeca057",
+    "content_hash": "4935e202ac50180e1f12345e5d39b197e5b4e40b31fc4005252f759fd2255a5b",
     "notes_hash": "339a3628dd3950fe5e8bdc876c172b3a9e0fb99e72b1acaefde0424f3592cd42",
-    "model_hash": "341fc1b4ee2eaaf15184efbbe1e01f1a138d5fe1f5e6f2c4c6aae33d49aa5f3e"
+    "model_hash": "1443903a976885f56b728bcb3ace411af6a409edba1211fb2e4b05b809dcbed7"
   },
   "geo_code": "VG",
   "node_type": "country",

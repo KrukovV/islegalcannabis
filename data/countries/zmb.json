@@ -27,14 +27,17 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "flags": [],
+      "modifiers": [
+        "only",
+        "however",
+        "may"
+      ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -76,12 +79,16 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Zambia | type: traversal | priority: 3 | scope: use",
+        "rule: illegal | source: Cannabis in Zambia | type: traversal | priority: 3 | scope: use",
+        "rule: medical_legal | source: Cannabis in Zambia | type: traversal | priority: 3 | scope: general",
+        "rule: medical_legal | source: Cannabis in Zambia | type: traversal | priority: 3 | scope: cultivation",
+        "rule: medical_limited | source: Cannabis in Zambia | type: traversal | priority: 3 | scope: cultivation"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Zambia. Medical cannabis is legal. Distribution is illegal."
   },
@@ -183,9 +190,9 @@
   },
   "hashes": {
     "code": "zmb",
-    "content_hash": "52a0e7e35e400aa23a4580a960250650c4f94a48dbab38594944a13c7511528e",
+    "content_hash": "37367855afc55d719a2319a79733ab820ef8908ff6421afb616842a64d1480f9",
     "notes_hash": "078f30f0525830864bd32a29ed2c2272794a7f127f50dfedd6bd6745e9ba2d3e",
-    "model_hash": "86772b4ac3c450cda1f98e9917748ca58063713321d09484cd7718e0f79c3863"
+    "model_hash": "a94b6fe8268a456b2a97ba5344932eb4ed3e89c0258fcff53c97b576c6117bb7"
   },
   "geo_code": "ZM",
   "node_type": "country",

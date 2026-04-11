@@ -6,7 +6,7 @@
     "recreational": {
       "raw_status": "ILLEGAL",
       "status": "ILLEGAL",
-      "enforcement": "STRICT",
+      "enforcement": "MODERATE",
       "scope": "NONE"
     },
     "medical": {
@@ -23,18 +23,22 @@
         "use": null,
         "sale": null,
         "cultivation": null,
-        "import": null,
+        "import": "illegal",
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [],
+      "flags": [
+        "import_illegal"
+      ],
       "modifiers": [
-        "but"
+        "but",
+        "however"
       ]
     },
     "signals": {
-      "status": "illegal",
+      "status": "restricted",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "unenforced",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -54,7 +58,7 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Albania",
@@ -100,15 +104,23 @@
         }
       ],
       "explain": [
+        "rule: enforcement_unenforced | source: Albania / Shqipëria | type: summary | priority: 1 | scope: cultivation",
         "rule: raw_illegal | source: Albania / Shqipëria | type: summary | priority: 1 | scope: cultivation",
         "rule: illegal | source: Albania / Shqipëria | type: summary | priority: 1 | scope: cultivation",
         "rule: medical_legal | source: Albania / Shqipëria | type: summary | priority: 1 | scope: cultivation",
-        "no traversal evidence"
+        "rule: medical_legal | source: Cannabis in Albania | type: traversal | priority: 3 | scope: general",
+        "rule: enforcement_rare | source: Cannabis in Albania | type: traversal | priority: 3 | scope: general",
+        "rule: import_illegal | source: Cannabis in Albania | type: traversal | priority: 3 | scope: import"
       ]
     },
-    "enforcement_flags": [],
+    "enforcement_flags": [
+      "weak_enforcement"
+    ],
     "applied_rules": [
-      "raw_illegal"
+      "enforcement_unenforced",
+      "raw_illegal",
+      "enforcement_rare",
+      "import_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Albania / Shqipëria. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -210,9 +222,9 @@
   },
   "hashes": {
     "code": "alb",
-    "content_hash": "493c020fc42db437eae143f47d7523dd60e6a1ce11b1297383b75b429d879d19",
+    "content_hash": "3622705b58b27e40533c2afa06e150b695732bc137a3252f881073c7f2e1775c",
     "notes_hash": "a9cf348b17e4e51738067ab789ecadf53715809c3853092746793b3efdfeabe4",
-    "model_hash": "a75492fa0b507ecbaf8e7055af37fbb7e54247deb914d4530c020d1993ddc143"
+    "model_hash": "d0b72bd368fd5bb5790fd185cb3bb7e3579d077bf38e8fbe92754fd70b5ce678"
   },
   "geo_code": "AL",
   "node_type": "country",

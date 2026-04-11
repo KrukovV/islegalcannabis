@@ -21,24 +21,27 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
+        "sale": "illegal",
         "cultivation": null,
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
       "enforcement": "fine-based",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "up_to"
+      ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
         "fine": true,
-        "severity_score": 1,
+        "severity_score": 4,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -52,7 +55,7 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in the Solomon Islands",
@@ -92,19 +95,25 @@
         }
       ],
       "explain": [
-        "rule: penalty_fine | source: Marijuana Haul Worth Close to SBD$1 Million - Solomon Times Online | type: reference | priority: 2 | scope: general",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in the Solomon Islands | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in the Solomon Islands | type: traversal | priority: 3 | scope: trafficking",
+        "rule: sale_illegal | source: Cannabis in the Solomon Islands | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_prison | source: Cannabis in the Solomon Islands | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in the Solomon Islands | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Marijuana Haul Worth Close to SBD$1 Million - Solomon Times Online | type: reference | priority: 2 | scope: general"
       ]
     },
     "enforcement_flags": [
       "fine_based"
     ],
     "applied_rules": [
+      "raw_illegal",
+      "penalty_prison",
       "penalty_fine"
     ],
-    "notes_normalized": "Cannabis is illegal in Solomon Islands. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is illegal in Solomon Islands. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Solomon Islands. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Solomon Islands. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in the Solomon Islands}}",
   "facts": {
     "possession_limit": null,
@@ -202,9 +211,9 @@
   },
   "hashes": {
     "code": "slb",
-    "content_hash": "f7fb467fc3445551f8b0e8625ead80231cb1a8e9297560a2502d7bd95fe8660c",
-    "notes_hash": "fb1cddb57b05653085978786878d674ffa6ddf935f6a69b2ed969e4cf897d1c8",
-    "model_hash": "a9b968c4dd8b2ad0676b7ca4068581fe76f90e7ed9f2d0e37ccb6322fc81fbd9"
+    "content_hash": "925ab2f0291b771513648b6b34c66153735542e0231708e4553cfa930a9535aa",
+    "notes_hash": "490a36e903e86e9357542a9d482a07ef2d9bada63a112b4bad26a9ba2403b021",
+    "model_hash": "aec5d04516e5a107c136a46a9f7e0a1f98e22ccb991de7acb1207fc3f4c3bb19"
   },
   "geo_code": "SB",
   "node_type": "country",

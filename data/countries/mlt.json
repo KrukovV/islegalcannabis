@@ -17,36 +17,41 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "regulated",
       "scopes": {
         "possession": "restricted",
         "use": "restricted",
-        "sale": null,
-        "cultivation": null,
+        "sale": "regulated",
+        "cultivation": "tolerated",
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
-      "flags": [],
+      "enforcement": "fine-based",
+      "flags": [
+        "social_club_distribution"
+      ],
       "modifiers": [
         "up_to",
         "but",
-        "only"
+        "only",
+        "however",
+        "may"
       ]
     },
     "signals": {
-      "status": "restricted",
+      "status": "regulated",
       "final_risk": "LIMITED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 1,
         "possession": {
           "prison": false,
           "arrest": false,
-          "fine": false,
+          "fine": true,
           "severe": false
         },
         "trafficking": {
@@ -56,7 +61,7 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Cannabis in Malta",
@@ -102,17 +107,36 @@
         }
       ],
       "explain": [
-        "rule: medical_legal | source: Malta has officially legalised medical cannabis | type: reference | priority: 2 | scope: general",
-        "no traversal evidence"
+        "rule: possession_decriminalized | source: Cannabis in Malta | type: traversal | priority: 3 | scope: cultivation",
+        "rule: medical_legal | source: Cannabis in Malta | type: traversal | priority: 3 | scope: general",
+        "rule: possession_decriminalized | source: Cannabis in Malta | type: traversal | priority: 3 | scope: possession",
+        "rule: possession_decriminalized | source: Cannabis in Malta | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_fine | source: Cannabis in Malta | type: traversal | priority: 3 | scope: possession",
+        "rule: medical_legal | source: Cannabis in Malta | type: traversal | priority: 3 | scope: use",
+        "rule: private_cultivation | source: Cannabis in Malta | type: traversal | priority: 3 | scope: cultivation",
+        "rule: legal | source: Cannabis in Malta | type: traversal | priority: 3 | scope: cultivation",
+        "rule: social_club_distribution | source: Cannabis in Malta | type: traversal | priority: 3 | scope: sale",
+        "rule: legal | source: Cannabis in Malta | type: traversal | priority: 3 | scope: sale",
+        "rule: private_cultivation | source: Cannabis in Malta | type: traversal | priority: 3 | scope: sale",
+        "rule: illegal | source: Cannabis in Malta | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Malta | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in Malta | type: traversal | priority: 3 | scope: use",
+        "rule: medical_legal | source: Malta has officially legalised medical cannabis | type: reference | priority: 2 | scope: general"
       ]
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "medical_legal"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is legal in Malta. Medical cannabis is legal. Distribution is restricted."
+    "applied_rules": [
+      "possession_decriminalized",
+      "penalty_fine",
+      "private_cultivation",
+      "social_club_distribution",
+      "illegal"
+    ],
+    "notes_normalized": "Cannabis is legal in Malta. Medical cannabis is legal. Distribution is regulated."
   },
-  "notes_normalized": "Cannabis is legal in Malta. Medical cannabis is legal. Distribution is restricted.",
+  "notes_normalized": "Cannabis is legal in Malta. Medical cannabis is legal. Distribution is regulated.",
   "notes_raw": "{{main|Cannabis in Malta}} On 30 March 2021, Prime Minister [[Robert Abela]] announced a proposal to legalize possession of up to {{cvt|7|g|frac=4}} and the cultivation of up to 4 plants, and for people charged with possession in the past to have it expunged from their criminal records.<ref>{{cite news |last1=Meilak |first1=Nicole |title=Cannabis reform: possession up to 7g, cultivation of four plants at home |url=https://www.maltatoday.com.mt/news/national/108696/public_consultation_on_cannabis_whitepaper |access-date=31 March 2021 |work=Malta Today |date=30 March 2021 |archive-date=30 March 2021 |archive-url=https://web.archive.org/web/20210330155031/https://www.maltatoday.com.mt/news/national/108696/public_consultation_on_cannabis_whitepaper |url-status=live }}</ref> In December 2021, legislation was passed by the Maltese Parliament and signed into law by President [[George Vella]].<ref>{{Cite web|title=Cannabis bill approved in parliament, in first for Europe|url=https://timesofmalta.com/articles/view/cannabis-bill-approved-in-parliament-in-first-for-europe.921310|access-date=14 December 2021|website=Times of Malta|date=14 December 2021 |language=en-gb|archive-date=14 December 2021|archive-url=https://web.archive.org/web/20211214210838/https://timesofmalta.com/articles/view/cannabis-bill-approved-in-parliament-in-first-for-europe.921310|url-status=live}}</ref><ref>{{cite news |last1=Jaeger |first1=Kyle |title=Malta Officially Legalizes Marijuana With President's Signature, Becoming First In Europe To End Cannabis Prohibition |url=https://www.marijuanamoment.net/malta-officially-legalizes-marijuana-with-presidents-signature-becoming-first-in-europe-to-end-cannabis-prohibition/ |access-date=18 December 2021 |work=Marijuana Moment |date=18 December 2021 |archive-date=18 December 2021 |archive-url=https://web.archive.org/web/20211218204524/https://www.marijuanamoment.net/malta-officially-legalizes-marijuana-with-presidents-signature-becoming-first-in-europe-to-end-cannabis-prohibition/ |url-status=live }}</ref>",
   "facts": {
     "possession_limit": "up to 7 g",
@@ -183,12 +207,12 @@
     ],
     "legal_similarity": [
       {
-        "code": "grc",
-        "name": "Greece / Ελλάδα"
+        "code": "alb",
+        "name": "Albania / Shqipëria"
       },
       {
-        "code": "smr",
-        "name": "San Marino"
+        "code": "grc",
+        "name": "Greece / Ελλάδα"
       },
       {
         "code": "bih",
@@ -197,12 +221,12 @@
     ],
     "cluster_links": [
       {
-        "code": "alb",
-        "name": "Albania / Shqipëria"
-      },
-      {
         "code": "mne",
         "name": "Montenegro / Црна Гора"
+      },
+      {
+        "code": "smr",
+        "name": "San Marino"
       }
     ],
     "same_country_states": [],
@@ -210,9 +234,9 @@
   },
   "hashes": {
     "code": "mlt",
-    "content_hash": "40a45f2053b2b2a0a56549e9b46eeb7d9037380a51c5c3fb5e184f3ef0602216",
-    "notes_hash": "304418aa4d9b1eb523ddb06cd754d31f28c38478e543d24b82707f32368fa328",
-    "model_hash": "acf39e77db51ad8384c890df9d60647deb16b7ed999a92683f07feb6485f0ea2"
+    "content_hash": "b97145ba3fc00d44af28e6d9e884a617bf693fc9e5a5097fa548168a9e206173",
+    "notes_hash": "0fbf7a6c65ac4b8231acb3af7c30214a3db0d335109686648e4f32fb397dd807",
+    "model_hash": "cb3eb63a0075267b8a8ba4922c20f6f67b7ed422c6186b9bd18ace5fd4aadf4d"
   },
   "geo_code": "MT",
   "node_type": "country",

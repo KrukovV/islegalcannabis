@@ -22,7 +22,7 @@
         "possession": "restricted",
         "use": "restricted",
         "sale": null,
-        "cultivation": null,
+        "cultivation": "tolerated",
         "import": null,
         "trafficking": "illegal"
       },
@@ -31,15 +31,18 @@
         "trafficking_illegal"
       ],
       "modifiers": [
-        "up_to"
+        "up_to",
+        "but",
+        "may"
       ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 1,
+        "prison_priority": 3,
         "arrest": false,
         "fine": false,
         "severity_score": 4,
@@ -106,8 +109,16 @@
         "rule: penalty_prison | source: Peru / Piruw | type: summary | priority: 1 | scope: trafficking",
         "rule: penalty_years | source: Peru / Piruw | type: summary | priority: 1 | scope: trafficking",
         "rule: trafficking_illegal | source: Peru / Piruw | type: summary | priority: 1 | scope: trafficking",
-        "rule: medical_legal | source: Medical marijuana is now legal in Peru | type: reference | priority: 2 | scope: general",
-        "no traversal evidence"
+        "rule: possession_decriminalized | source: Cannabis in Peru | type: traversal | priority: 3 | scope: possession",
+        "rule: medical_legal | source: Cannabis in Peru | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_prison | source: Cannabis in Peru | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_years | source: Cannabis in Peru | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Peru | type: traversal | priority: 3 | scope: trafficking",
+        "rule: private_cultivation | source: Cannabis in Peru | type: traversal | priority: 3 | scope: trafficking",
+        "rule: legal | source: Cannabis in Peru | type: traversal | priority: 3 | scope: trafficking",
+        "rule: medical_legal | source: Cannabis in Peru | type: traversal | priority: 3 | scope: use",
+        "rule: medical_legal | source: Cannabis in Peru | type: traversal | priority: 3 | scope: sale",
+        "rule: medical_legal | source: Medical marijuana is now legal in Peru | type: reference | priority: 2 | scope: general"
       ]
     },
     "enforcement_flags": [],
@@ -116,7 +127,7 @@
       "penalty_prison",
       "penalty_years",
       "trafficking_illegal",
-      "medical_legal"
+      "private_cultivation"
     ],
     "notes_normalized": "Cannabis is decriminalized in Peru / Piruw. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
   },
@@ -218,9 +229,9 @@
   },
   "hashes": {
     "code": "per",
-    "content_hash": "18a656af9808c57603d9ce1a2ad20733541caeaa714a52473f6c4416544fdc1c",
+    "content_hash": "d329f44d7b9c47f9cfa327e31b31fa4bcfead603919e29a9476d60d76431a65d",
     "notes_hash": "4584d0f3294109d0b45d45dbcabfcd826d75bc8a6b728b0e10509681c113671c",
-    "model_hash": "32ba2f27d263da800f19d57d2a89115a0bbba0f815e33fedda6ccbb231766030"
+    "model_hash": "fc215bcf283003a71b5442764bbfa7df0761aec07bae28a1e26558f365cd207e"
   },
   "geo_code": "PE",
   "node_type": "country",

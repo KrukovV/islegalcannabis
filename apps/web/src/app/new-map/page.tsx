@@ -1,7 +1,7 @@
 import NewMapClientEntry from "./NewMapClientEntry";
 import { NEW_MAP_RUNTIME_IDENTITY, NEW_MAP_VISIBLE_STAMP } from "./runtimeConfig";
 
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 
 export default function NewMapPage() {
   return (

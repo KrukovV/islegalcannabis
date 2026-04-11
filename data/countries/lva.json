@@ -21,37 +21,43 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
-        "cultivation": null,
-        "import": null,
-        "trafficking": null
+        "sale": "illegal",
+        "cultivation": "tolerated",
+        "import": "illegal",
+        "trafficking": "illegal"
       },
       "enforcement": "fine-based",
-      "flags": [],
+      "flags": [
+        "import_illegal"
+      ],
       "modifiers": [
-        "up_to"
+        "up_to",
+        "but",
+        "only",
+        "may"
       ]
     },
     "signals": {
       "status": "illegal",
       "final_risk": "HIGH_RISK",
+      "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 1,
+        "prison_priority": 3,
         "arrest": false,
         "fine": true,
-        "severity_score": 4,
+        "severity_score": 13,
         "possession": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
           "fine": true,
-          "severe": false
+          "severe": true
         },
         "trafficking": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
-          "fine": false,
-          "severe": false
+          "fine": true,
+          "severe": true
         }
       },
       "confidence": "high",
@@ -103,7 +109,33 @@
         "rule: penalty_fine | source: Latvia / Latvija | type: summary | priority: 1 | scope: possession",
         "rule: penalty_prison | source: Latvia / Latvija | type: summary | priority: 1 | scope: general",
         "rule: penalty_years | source: Latvia / Latvija | type: summary | priority: 1 | scope: general",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Latvia | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Latvia | type: traversal | priority: 3 | scope: trafficking",
+        "rule: medical_legal | source: Cannabis in Latvia | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_fine | source: Cannabis in Latvia | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_prison | source: Cannabis in Latvia | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_years | source: Cannabis in Latvia | type: traversal | priority: 3 | scope: possession",
+        "rule: raw_illegal | source: Cannabis in Latvia | type: traversal | priority: 3 | scope: sale",
+        "rule: sale_illegal | source: Cannabis in Latvia | type: traversal | priority: 3 | scope: sale",
+        "rule: sale_regulated | source: Cannabis in Latvia | type: traversal | priority: 3 | scope: sale",
+        "rule: illegal | source: Cannabis in Latvia | type: traversal | priority: 3 | scope: sale",
+        "rule: penalty_prison | source: Cannabis in Latvia | type: traversal | priority: 3 | scope: import",
+        "rule: penalty_fine | source: Cannabis in Latvia | type: traversal | priority: 3 | scope: import",
+        "rule: penalty_years | source: Cannabis in Latvia | type: traversal | priority: 3 | scope: import",
+        "rule: import_illegal | source: Cannabis in Latvia | type: traversal | priority: 3 | scope: import",
+        "rule: illegal | source: Cannabis in Latvia | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Latvia | type: traversal | priority: 3 | scope: trafficking",
+        "rule: illegal | source: Cannabis in Latvia | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_years | source: Cannabis in Latvia | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in Latvia | type: traversal | priority: 3 | scope: trafficking",
+        "rule: raw_illegal | source: Cannabis in Latvia | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Latvia | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_prison | source: Cannabis in Latvia | type: traversal | priority: 3 | scope: sale",
+        "rule: penalty_years | source: Cannabis in Latvia | type: traversal | priority: 3 | scope: sale",
+        "rule: penalty_prison | source: Cannabis in Latvia | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Latvia | type: traversal | priority: 3 | scope: cultivation",
+        "rule: private_cultivation | source: Cannabis in Latvia | type: traversal | priority: 3 | scope: cultivation",
+        "rule: legal | source: Cannabis in Latvia | type: traversal | priority: 3 | scope: cultivation"
       ]
     },
     "enforcement_flags": [
@@ -112,7 +144,10 @@
     "applied_rules": [
       "penalty_fine",
       "penalty_prison",
-      "penalty_years"
+      "penalty_years",
+      "raw_illegal",
+      "import_illegal",
+      "private_cultivation"
     ],
     "notes_normalized": "Cannabis is illegal in Latvia / Latvija. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
@@ -214,9 +249,9 @@
   },
   "hashes": {
     "code": "lva",
-    "content_hash": "41608328df21e5b553c507c1e966c670b85243dbefe6e701d337f78110d3ef33",
+    "content_hash": "74702f5d7572f21cc076d27675bf7887d5616059997720b02cbc7d95e1f93073",
     "notes_hash": "ed2488cb9a4bace3eea1d58033567ffad9e5b7be9ae0e06a25f28c468b5c37a8",
-    "model_hash": "49e65fda8f63409e32f30b4be46eae88a064b3344c4331cbe1418de669881c2d"
+    "model_hash": "004d364a2f03cf849cae557d96557e91de94132536cad09b2d13ca7304f7083d"
   },
   "geo_code": "LV",
   "node_type": "country",

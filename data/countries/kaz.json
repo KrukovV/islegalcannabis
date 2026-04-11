@@ -27,14 +27,13 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
     },
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -76,12 +75,13 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Kazakhstan | type: traversal | priority: 3 | scope: possession",
+        "rule: illegal | source: Cannabis in Kazakhstan | type: traversal | priority: 3 | scope: possession"
       ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Kazakhstan / Қазақстан. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -183,9 +183,9 @@
   },
   "hashes": {
     "code": "kaz",
-    "content_hash": "ce43db67f30f030446e568ce10de0dd593a096c3bee304a78b280de01fd8a2d2",
+    "content_hash": "e432865bf4c3107c45873c28efc8129ebdd6c0d72de74795e05da92c4c6d786a",
     "notes_hash": "6439b39b510de3837a1466a290e299282a862310a7f2fa0abad9a6cc2d8b6156",
-    "model_hash": "4dd432d5e3b2084cf591ad04be2f4c7aa35370aa3d2d29c550c21578a57fef43"
+    "model_hash": "5a8500932ea72b904848f9d125dd91e04c3e48be7a8bf4e76a68bd2a677618e5"
   },
   "geo_code": "KZ",
   "node_type": "country",

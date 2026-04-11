@@ -35,6 +35,7 @@
     "signals": {
       "status": "illegal",
       "final_risk": "RESTRICTED",
+      "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -164,9 +165,9 @@
   },
   "hashes": {
     "code": "tca",
-    "content_hash": "dadf7e0cda97a100e42f54612b0c8e6c73f05ddb4228e3ce34054d8ff0a3d772",
+    "content_hash": "81c878f26b428d29b58dc79501ac06eb74f779477e2fd0289cff78140d51d2a8",
     "notes_hash": "21d30bf9bbfbf8ee38a4b643af11e60ced67b55d63d82ebea5729aa81f5ba673",
-    "model_hash": "3ba952bfcf17641f59caeeedb0454c18906907ab76f7c20e4cfc9944c3b8cce0"
+    "model_hash": "ea81bf519ae8c2ca15caf240921bc1fcb31cb96699b2ede5daccc1b656ae0d17"
   },
   "geo_code": "TC",
   "node_type": "country",
