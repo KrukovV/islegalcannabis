@@ -7,10 +7,10 @@
   "normalized_version": "v1",
   "legal_model": {
     "recreational": {
-      "raw_status": "LEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
@@ -20,25 +20,23 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "regulated",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
-        "use": "restricted",
-        "sale": "regulated",
+        "possession": "illegal",
+        "use": "illegal",
+        "sale": "illegal",
         "cultivation": null,
         "import": "illegal",
         "trafficking": "illegal"
       },
-      "enforcement": "fine-based",
+      "enforcement": "standard",
       "flags": [],
       "modifiers": []
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is legal in Kentucky under state law for recreational adult use. Medical cannabis is not broadly legal in Kentucky. Cannabis remains federally illegal in United States.",
+  "notes_normalized": "Cannabis is illegal in Kentucky under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
   "notes_raw": "style=\"background:#80CE69;\" | {{Hs|3}}",
   "facts": {
     "possession_limit": null,
@@ -52,15 +50,15 @@
   "state_modifiers": {
     "recreational": "override",
     "medical": "override",
-    "enforcement_strength": "MEDIUM",
+    "enforcement_strength": "HIGH",
     "federal_conflict": "Cannabis remains federally illegal in United States.",
-    "legalization_status": "State legal"
+    "legalization_status": "State illegal"
   },
   "related_codes": [
     "usa",
     "us-ct",
     "us-de",
-    "us-id"
+    "us-hi"
   ],
   "related_names": [
     {
@@ -76,8 +74,8 @@
       "name": "Delaware"
     },
     {
-      "code": "us-id",
-      "name": "Idaho"
+      "code": "us-hi",
+      "name": "Hawaii"
     }
   ],
   "graph": {
@@ -103,12 +101,12 @@
         "name": "Georgia"
       },
       {
-        "code": "us-hi",
-        "name": "Hawaii"
-      },
-      {
         "code": "us-ia",
         "name": "Iowa"
+      },
+      {
+        "code": "us-id",
+        "name": "Idaho"
       }
     ],
     "cluster_links": [
@@ -131,8 +129,8 @@
         "name": "Delaware"
       },
       {
-        "code": "us-id",
-        "name": "Idaho"
+        "code": "us-hi",
+        "name": "Hawaii"
       }
     ],
     "federal_parent": {
@@ -166,9 +164,9 @@
   },
   "hashes": {
     "code": "us-ky",
-    "content_hash": "a879f8ff5ca5c185e08e3edd509b92d5dffd1c6330beb860cf8ddc72013eec60",
-    "notes_hash": "5db4a3adf3439e2cbf6029e929d6255666d9de78b3fa4838ba2f19fad2818e40",
-    "model_hash": "3ba99d4005f6aab13bfb12e0cb88cb2288ff251d01b3a413efe939dc9f0299ad"
+    "content_hash": "1a1fce5ab0454f1e29197d108871d2449b9d60e8cec73f628d11153b78dcfce6",
+    "notes_hash": "f5a90c87c8c5fd5160a82764b0a2d668b4acb07c2880e62a7c540cbb0a6d10dd",
+    "model_hash": "b0ed8cd48c6ad816fc19023617773fe1b171c53ac5ef394f2bd8e29fd6d6d7d5"
   },
   "updated_at": "2026-04-10"
 }

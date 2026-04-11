@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in New Jersey under state law for recreational adult use. Medical cannabis is also legal in New Jersey. Cannabis remains federally illegal in United States. Possession is limited to varies (see official sources).",
-  "notes_raw": "allowed",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
   "facts": {
     "possession_limit": "varies (see official sources)",
     "cultivation": null,
@@ -175,7 +175,7 @@
     "code": "us-nj",
     "content_hash": "c0323a016b23c774ce45c5c7adafc20ac6d96324173e33071f486a5be6e3925f",
     "notes_hash": "c6ba61ddad11a21ce32a01cb99b43dd442d5649506e0ed47b31ec05ed73de3dc",
-    "model_hash": "8bc438f49e49cb0cd9f3898e50d9e373f302a83301c030291217954dd16afde2"
+    "model_hash": "2d1ec250e66712379cc27690cd4cab1398bb404778ee634a70908b014ead4e40"
   },
   "updated_at": "2024-01-01"
 }

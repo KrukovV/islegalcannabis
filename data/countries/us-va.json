@@ -37,7 +37,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is illegal in Virginia for recreational use under state law, but medical cannabis is available in limited form. Cannabis remains federally illegal in United States. Possession is limited to varies (see official sources).",
-  "notes_raw": "restricted",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
   "facts": {
     "possession_limit": "varies (see official sources)",
     "cultivation": null,
@@ -173,7 +173,7 @@
     "code": "us-va",
     "content_hash": "4d23ea1f248d39dd9dabf4db2b7ad3b34715f45ef053e610e1bd3ccbf56adcdc",
     "notes_hash": "a27597f49e9f10762bd6ecbfd6aab01bbe4cf8e5ed88e4f64bcd12e7e49e6511",
-    "model_hash": "4d5f4c18b18f5dc42132d35daa3a293f29602b1c62d6adecd6e313b126f9d31d"
+    "model_hash": "058139fefdbb8d50d2695a02c342a683c62281c85cd276f7f0f14392b9a73a1c"
   },
   "updated_at": "2024-01-01"
 }

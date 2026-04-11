@@ -37,7 +37,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is illegal in Pennsylvania for recreational use under state law, but medical cannabis is available in limited form. Cannabis remains federally illegal in United States. Possession is limited to varies (see official sources).",
-  "notes_raw": "illegal",
+  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|3}}",
   "facts": {
     "possession_limit": "varies (see official sources)",
     "cultivation": "Home grow remains illegal.",
@@ -173,7 +173,7 @@
     "code": "us-pa",
     "content_hash": "ae2496db623adae46182fd6c53c172e1b339a9c6d43faaf0514cdde4497cbe0f",
     "notes_hash": "6961473301d1cc63225a242a73394e63315285c75a6567bdfcdf4c0c7c99d17a",
-    "model_hash": "3d40814939f338e6617e4bfa6b252f99c0afef816e4a78f4330f53ebfd513a24"
+    "model_hash": "cd5e138d6fe0178f438bfa65623989f37a98e126c45453f077fdf5bb2c6e024a"
   },
   "updated_at": "2024-01-01"
 }

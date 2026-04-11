@@ -7,8 +7,8 @@
   "normalized_version": "v1",
   "legal_model": {
     "recreational": {
-      "raw_status": "LEGAL",
-      "status": "LEGAL",
+      "raw_status": "DECRIMINALIZED",
+      "status": "DECRIMINALIZED",
       "enforcement": "MODERATE",
       "scope": "PERSONAL_USE"
     },
@@ -20,11 +20,11 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "regulated",
+      "status": "restricted",
       "scopes": {
         "possession": "restricted",
         "use": "restricted",
-        "sale": "regulated",
+        "sale": "illegal",
         "cultivation": null,
         "import": "illegal",
         "trafficking": "illegal"
@@ -38,8 +38,8 @@
     ],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is legal in Nebraska under state law for recreational adult use. Medical cannabis is not broadly legal in Nebraska. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
+  "notes_normalized": "Cannabis is decriminalized in Nebraska in limited state-level practice, but it is not fully legal under state law. Medical cannabis is not broadly legal in Nebraska. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#80CE69; color:#000000; text-align:center;\" | {{Hs|2}} <span style=\"font-size:25px;\">●</span>",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -54,13 +54,13 @@
     "medical": "override",
     "enforcement_strength": "MEDIUM",
     "federal_conflict": "Cannabis remains federally illegal in United States.",
-    "legalization_status": "State legal"
+    "legalization_status": "State decriminalized"
   },
   "related_codes": [
     "usa",
     "us-ct",
     "us-de",
-    "us-id"
+    "us-ga"
   ],
   "related_names": [
     {
@@ -76,8 +76,8 @@
       "name": "Delaware"
     },
     {
-      "code": "us-id",
-      "name": "Idaho"
+      "code": "us-ga",
+      "name": "Georgia"
     }
   ],
   "graph": {
@@ -99,16 +99,16 @@
     ],
     "legal_similarity": [
       {
-        "code": "us-ga",
-        "name": "Georgia"
-      },
-      {
         "code": "us-hi",
         "name": "Hawaii"
       },
       {
-        "code": "us-ia",
-        "name": "Iowa"
+        "code": "us-la",
+        "name": "Louisiana"
+      },
+      {
+        "code": "us-ms",
+        "name": "Mississippi"
       }
     ],
     "cluster_links": [
@@ -117,8 +117,8 @@
         "name": "United States"
       },
       {
-        "code": "us-in",
-        "name": "Indiana"
+        "code": "us-ia",
+        "name": "Iowa"
       }
     ],
     "same_country_states": [
@@ -131,8 +131,8 @@
         "name": "Delaware"
       },
       {
-        "code": "us-id",
-        "name": "Idaho"
+        "code": "us-ga",
+        "name": "Georgia"
       }
     ],
     "federal_parent": {
@@ -166,9 +166,9 @@
   },
   "hashes": {
     "code": "us-ne",
-    "content_hash": "5f1c3d8360abfdb12b6e7d891ea6d124d696b278f688737222046b2da7730dec",
-    "notes_hash": "2148a06dc005ece9309b77d016e0e0a0408c4fc29d48f61f3da0c00700aed35c",
-    "model_hash": "1f424c41919baa52126d9a69778731ca45a2df83f9cf699db07bde562cbb8c1e"
+    "content_hash": "0c7b55b36b86143122a47e33caa2bb59768368e63b1b25258c634fed21a82d62",
+    "notes_hash": "d0c19108d6c45d44410238ec02862f7fbab0f5317193966cfdf2f0531eb4e444",
+    "model_hash": "3e8a8b0cb48dd85f66120a7862273be7c4645208d13c2b74f87589833789c657"
   },
   "updated_at": "2026-04-10"
 }

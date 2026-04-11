@@ -7,10 +7,10 @@
   "normalized_version": "v1",
   "legal_model": {
     "recreational": {
-      "raw_status": "LEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
@@ -20,26 +20,24 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "regulated",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
-        "use": "restricted",
-        "sale": "regulated",
+        "possession": "illegal",
+        "use": "illegal",
+        "sale": "illegal",
         "cultivation": null,
         "import": "illegal",
         "trafficking": "illegal"
       },
-      "enforcement": "fine-based",
+      "enforcement": "standard",
       "flags": [],
       "modifiers": []
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is legal in Idaho under state law for recreational adult use. Medical cannabis is not broadly legal in Idaho. Cannabis remains federally illegal in United States.",
-  "notes_raw": "",
+  "notes_normalized": "Cannabis is illegal in Idaho under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}}",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -52,15 +50,15 @@
   "state_modifiers": {
     "recreational": "override",
     "medical": "override",
-    "enforcement_strength": "MEDIUM",
+    "enforcement_strength": "HIGH",
     "federal_conflict": "Cannabis remains federally illegal in United States.",
-    "legalization_status": "State legal"
+    "legalization_status": "State illegal"
   },
   "related_codes": [
     "usa",
     "us-ct",
     "us-de",
-    "us-in"
+    "us-hi"
   ],
   "related_names": [
     {
@@ -76,8 +74,8 @@
       "name": "Delaware"
     },
     {
-      "code": "us-in",
-      "name": "Indiana"
+      "code": "us-hi",
+      "name": "Hawaii"
     }
   ],
   "graph": {
@@ -103,12 +101,12 @@
         "name": "Georgia"
       },
       {
-        "code": "us-hi",
-        "name": "Hawaii"
-      },
-      {
         "code": "us-ia",
         "name": "Iowa"
+      },
+      {
+        "code": "us-in",
+        "name": "Indiana"
       }
     ],
     "cluster_links": [
@@ -131,8 +129,8 @@
         "name": "Delaware"
       },
       {
-        "code": "us-in",
-        "name": "Indiana"
+        "code": "us-hi",
+        "name": "Hawaii"
       }
     ],
     "federal_parent": {
@@ -166,9 +164,9 @@
   },
   "hashes": {
     "code": "us-id",
-    "content_hash": "31b3870c4e4d3b5d6250d7f6783ff190f359d8a5e889f23a2ffae3bd96142775",
-    "notes_hash": "b063e60354a768a728949080285a581338d06ee99ee8ab12924a2cca1984c549",
-    "model_hash": "ab57f490619fda7ccf58ac3763499328afbf1ee770ba2d8903ccf4a926646d5e"
+    "content_hash": "b0437b41baba14cc5f3383ec14cd3532b3ae83b41f8c64fa43446c010b9d559e",
+    "notes_hash": "1c3aed61ed4aaf9c1cb2d6b5337cfd146fba750576636e8059ecd2a665535f7a",
+    "model_hash": "370eb9bc2040c9e3aaa73c22ac6be98a3ee40b5aa6647c874f70da84477a12a5"
   },
   "updated_at": "2026-04-10"
 }

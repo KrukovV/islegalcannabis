@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in Nevada under state law for recreational adult use. Medical cannabis is also legal in Nevada. Cannabis remains federally illegal in United States. Possession is limited to varies (see official sources).",
-  "notes_raw": "allowed",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
   "facts": {
     "possession_limit": "varies (see official sources)",
     "cultivation": null,
@@ -175,7 +175,7 @@
     "code": "us-nv",
     "content_hash": "50a8ae95bf57eb8a3cf54481d623d4aab81ce535be54a5399548efd9d5ffbae9",
     "notes_hash": "d869da2b8cd4fb1d720376f09b9d9ea17bf6deeb4ae44e7db1ac078900721f31",
-    "model_hash": "4e52a875903cd754f0a86add0685b961075871e7805712b04c95b333901a7b10"
+    "model_hash": "52a69782e187593e0e30912ab26605243ccf8c2fdfe12747e8cb351f851a6203"
   },
   "updated_at": "2024-01-01"
 }

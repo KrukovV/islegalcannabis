@@ -7,10 +7,10 @@
   "normalized_version": "v1",
   "legal_model": {
     "recreational": {
-      "raw_status": "LEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
@@ -20,26 +20,24 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "regulated",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
-        "use": "restricted",
-        "sale": "regulated",
+        "possession": "illegal",
+        "use": "illegal",
+        "sale": "illegal",
         "cultivation": null,
         "import": "illegal",
         "trafficking": "illegal"
       },
-      "enforcement": "fine-based",
+      "enforcement": "standard",
       "flags": [],
       "modifiers": []
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is legal in Wisconsin under state law for recreational adult use. Medical cannabis is not broadly legal in Wisconsin. Cannabis remains federally illegal in United States.",
-  "notes_raw": "",
+  "notes_normalized": "Cannabis is illegal in Wisconsin under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}}",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -52,15 +50,15 @@
   "state_modifiers": {
     "recreational": "override",
     "medical": "override",
-    "enforcement_strength": "MEDIUM",
+    "enforcement_strength": "HIGH",
     "federal_conflict": "Cannabis remains federally illegal in United States.",
-    "legalization_status": "State legal"
+    "legalization_status": "State illegal"
   },
   "related_codes": [
     "usa",
     "us-ct",
     "us-de",
-    "us-id"
+    "us-hi"
   ],
   "related_names": [
     {
@@ -76,8 +74,8 @@
       "name": "Delaware"
     },
     {
-      "code": "us-id",
-      "name": "Idaho"
+      "code": "us-hi",
+      "name": "Hawaii"
     }
   ],
   "graph": {
@@ -103,12 +101,12 @@
         "name": "Georgia"
       },
       {
-        "code": "us-hi",
-        "name": "Hawaii"
-      },
-      {
         "code": "us-ia",
         "name": "Iowa"
+      },
+      {
+        "code": "us-id",
+        "name": "Idaho"
       }
     ],
     "cluster_links": [
@@ -131,8 +129,8 @@
         "name": "Delaware"
       },
       {
-        "code": "us-id",
-        "name": "Idaho"
+        "code": "us-hi",
+        "name": "Hawaii"
       }
     ],
     "federal_parent": {
@@ -166,9 +164,9 @@
   },
   "hashes": {
     "code": "us-wi",
-    "content_hash": "fc2218604889dd0f121f50687952f7bfe9e7a11e34d0825ff8f17872ed928a9e",
-    "notes_hash": "fc676119b23f128e25f927b69858fda7bb9fb76739d9f51e34a97bba364aeb4a",
-    "model_hash": "c4371061728a18c0559e2155e1183a33e653b18b32943a62e8357fb63d635136"
+    "content_hash": "e1217320a895b610340c78e7c6edf368c38cfb935250b03e7e86cc2f1936b9db",
+    "notes_hash": "e8df7447c5087fb5901351a4f10c30010f23f6e48705fa04526bfd35f67c6e5c",
+    "model_hash": "e25c2563612ce83a29b64dd60ed1e0189a06cd42c96b41bed00bdc6ea57bfc9f"
   },
   "updated_at": "2026-04-10"
 }

@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in Connecticut under state law for recreational adult use. Medical cannabis is also legal in Connecticut. Cannabis remains federally illegal in United States. Possession is limited to varies (see official sources).",
-  "notes_raw": "allowed",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
   "facts": {
     "possession_limit": "varies (see official sources)",
     "cultivation": null,
@@ -175,7 +175,7 @@
     "code": "us-ct",
     "content_hash": "e1365c52be6dbacc6a422186fb1a94adda54ca48633e3891bdfb31ed87f4b0c1",
     "notes_hash": "6a97b44a92dec5497120903db10e740e5039ebd5f7441aa8f885e06717bad0fe",
-    "model_hash": "b6da2648215fa8b6bf3f9a5f62da130a0a31da7d1b225335a5980a351a841167"
+    "model_hash": "9b735752113c9f1e9281ee7ce61208d66c79e9bf5db562faf9f79e88a58f36aa"
   },
   "updated_at": "2024-01-01"
 }

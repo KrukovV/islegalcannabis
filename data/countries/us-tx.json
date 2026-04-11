@@ -37,7 +37,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is illegal in Texas for recreational use under state law, but medical cannabis is available in limited form. Cannabis remains federally illegal in United States. Possession is limited to Medical only.",
-  "notes_raw": "illegal",
+  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|5}}",
   "facts": {
     "possession_limit": "Medical only",
     "cultivation": "Home grow remains illegal.",
@@ -173,7 +173,7 @@
     "code": "us-tx",
     "content_hash": "77ffe02f33f1c88645719968db0aec96c82c0002e5fc29844d3c0c31ba22ce61",
     "notes_hash": "a159c6246e9c2100158dc079b42ecc6ee62482789b64caf50d30847fb71c68da",
-    "model_hash": "8446f87cad69308d32c18ab443be18e558872dd84d5f2190242d8efcced924da"
+    "model_hash": "3fa07285e547b66c52d155063d3b901ed0a9db029c273c59044b90e31978ec27"
   },
   "updated_at": "2024-01-01"
 }

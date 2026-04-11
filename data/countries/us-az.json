@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in Arizona under state law for recreational adult use. Medical cannabis is also legal in Arizona. Cannabis remains federally illegal in United States. Possession is limited to varies (see official sources).",
-  "notes_raw": "allowed",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
   "facts": {
     "possession_limit": "varies (see official sources)",
     "cultivation": null,
@@ -175,7 +175,7 @@
     "code": "us-az",
     "content_hash": "510eaa099bfe145ff787058444c952911c724c8b0c7f74f42412f5cbba956810",
     "notes_hash": "8ac5c7e0c44735e8a5d67984c235e867ba0d02c93b5f987c59199b5f47ffff04",
-    "model_hash": "be1bd10ec18fcecfbb9e3c67cb7240f8eb4efc6e391d9ec1cb67f373a9b3837e"
+    "model_hash": "7ed0516d84ec64da36685b570220c7a5609e7cfff3554606002c12efe60f031f"
   },
   "updated_at": "2024-01-01"
 }

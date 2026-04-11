@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in California under state law for recreational adult use. Medical cannabis is also legal in California. Cannabis remains federally illegal in United States. Possession is limited to up to 28.5 g (adult).",
-  "notes_raw": "allowed",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
   "facts": {
     "possession_limit": "up to 28.5 g (adult)",
     "cultivation": "Home grow allowed.",
@@ -175,7 +175,7 @@
     "code": "us-ca",
     "content_hash": "137fc3444087705457dd4836cfdf0320d67770d466ae05136a2d3ea12538131b",
     "notes_hash": "4b7f9edd7c44cec6dd60522a361a45c879dcfd87f3f1825e4458a59eecd33bba",
-    "model_hash": "e660cf6c19da7b4d55135e1727000195d78bf591b2161aa9a7d4a8aabc698280"
+    "model_hash": "9da686edc6a69f8a50b3d915504b19012ebc199dc67a8b1fc992bb61c5d5cc16"
   },
   "updated_at": "2025-12-14"
 }

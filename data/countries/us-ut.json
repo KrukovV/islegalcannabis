@@ -7,10 +7,10 @@
   "normalized_version": "v1",
   "legal_model": {
     "recreational": {
-      "raw_status": "LEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
@@ -20,26 +20,24 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "regulated",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
-        "use": "restricted",
-        "sale": "regulated",
+        "possession": "illegal",
+        "use": "illegal",
+        "sale": "illegal",
         "cultivation": null,
         "import": "illegal",
         "trafficking": "illegal"
       },
-      "enforcement": "fine-based",
+      "enforcement": "standard",
       "flags": [],
       "modifiers": []
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is legal in Utah under state law for recreational adult use. Medical cannabis is not broadly legal in Utah. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
+  "notes_normalized": "Cannabis is illegal in Utah under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|3}}",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -52,15 +50,15 @@
   "state_modifiers": {
     "recreational": "override",
     "medical": "override",
-    "enforcement_strength": "MEDIUM",
+    "enforcement_strength": "HIGH",
     "federal_conflict": "Cannabis remains federally illegal in United States.",
-    "legalization_status": "State legal"
+    "legalization_status": "State illegal"
   },
   "related_codes": [
     "usa",
     "us-ct",
     "us-de",
-    "us-id"
+    "us-hi"
   ],
   "related_names": [
     {
@@ -76,8 +74,8 @@
       "name": "Delaware"
     },
     {
-      "code": "us-id",
-      "name": "Idaho"
+      "code": "us-hi",
+      "name": "Hawaii"
     }
   ],
   "graph": {
@@ -103,12 +101,12 @@
         "name": "Georgia"
       },
       {
-        "code": "us-hi",
-        "name": "Hawaii"
-      },
-      {
         "code": "us-ia",
         "name": "Iowa"
+      },
+      {
+        "code": "us-id",
+        "name": "Idaho"
       }
     ],
     "cluster_links": [
@@ -131,8 +129,8 @@
         "name": "Delaware"
       },
       {
-        "code": "us-id",
-        "name": "Idaho"
+        "code": "us-hi",
+        "name": "Hawaii"
       }
     ],
     "federal_parent": {
@@ -166,9 +164,9 @@
   },
   "hashes": {
     "code": "us-ut",
-    "content_hash": "fd9c21af129ba541252d994eccf43b1186a76fac99246220960018810e9dc5e2",
-    "notes_hash": "922be4585e7424514765a4bbb459eb975ed973abfcdfe1df4702ba348243a59d",
-    "model_hash": "421ea46bc0dcd5da1162cd3602c22c8dd0a71bf83df0cb8d385dfa1b444f4f0f"
+    "content_hash": "2f8c8b1ec06ea2dd64a6a82e5ab49f7ae02e2dc7c683ce67e84734289e52aa86",
+    "notes_hash": "b451b47dfa24b16c2bcb911ccc7ecc1b067be999b4147404508488abedad2362",
+    "model_hash": "b99e7a28536120a8c2f658e925563e3fe18974075ccc8e783ba0ef89b7b52b2a"
   },
   "updated_at": "2026-04-10"
 }

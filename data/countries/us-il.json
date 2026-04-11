@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in Illinois under state law for recreational adult use. Medical cannabis is also legal in Illinois. Cannabis remains federally illegal in United States. Possession is limited to Up to 30 g flower or 5 g concentrate (adult).",
-  "notes_raw": "allowed",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
   "facts": {
     "possession_limit": "Up to 30 g flower or 5 g concentrate (adult)",
     "cultivation": "Home grow allowed.",
@@ -175,7 +175,7 @@
     "code": "us-il",
     "content_hash": "0bd2582b4cea67a66e41d59a0d67cfabc0ddcb0df555f55aa93693d23b280e0d",
     "notes_hash": "df9d9ef50301b2c349671a85f582bc9213de97f0773f6892df9d61f4c5149ab8",
-    "model_hash": "32eb56412b8ff2fc39fd3852c96da5bcd6096b704ce011d18d2ac184b04d7214"
+    "model_hash": "4b7db0ad2582b36b77789bfae6e7c0687553b2160f41a9c7f33094daa7d95701"
   },
   "updated_at": "2024-01-01"
 }

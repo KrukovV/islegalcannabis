@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in Washington under state law for recreational adult use. Medical cannabis is also legal in Washington. Cannabis remains federally illegal in United States. Possession is limited to Up to 1 oz flower.",
-  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}}",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
   "facts": {
     "possession_limit": "Up to 1 oz flower",
     "cultivation": null,
@@ -175,7 +175,7 @@
     "code": "us-wa",
     "content_hash": "6507ca2056fc978dc2d8a18a972bb4962e453abd5fa1ab62f7eedb9e10ced5ae",
     "notes_hash": "e8f962db5683ef9e54604916b1548ab57331e287a0096e0704dcc00dffea2223",
-    "model_hash": "c55a505e15e9cfa1ac6f3efce5cddc298edb24db7a0f042a725f81b527f561fa"
+    "model_hash": "89278010d12df31d901c9e99efb8266b55d70f38db212e24c7478e8f99a009a7"
   },
   "updated_at": "2024-01-01"
 }

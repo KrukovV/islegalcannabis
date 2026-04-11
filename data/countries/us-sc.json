@@ -7,10 +7,10 @@
   "normalized_version": "v1",
   "legal_model": {
     "recreational": {
-      "raw_status": "LEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
@@ -20,26 +20,24 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "regulated",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
-        "use": "restricted",
-        "sale": "regulated",
+        "possession": "illegal",
+        "use": "illegal",
+        "sale": "illegal",
         "cultivation": null,
         "import": "illegal",
         "trafficking": "illegal"
       },
-      "enforcement": "fine-based",
+      "enforcement": "standard",
       "flags": [],
       "modifiers": []
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is legal in South Carolina under state law for recreational adult use. Medical cannabis is not broadly legal in South Carolina. Cannabis remains federally illegal in United States.",
-  "notes_raw": "",
+  "notes_normalized": "Cannabis is illegal in South Carolina under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}}",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -52,15 +50,15 @@
   "state_modifiers": {
     "recreational": "override",
     "medical": "override",
-    "enforcement_strength": "MEDIUM",
+    "enforcement_strength": "HIGH",
     "federal_conflict": "Cannabis remains federally illegal in United States.",
-    "legalization_status": "State legal"
+    "legalization_status": "State illegal"
   },
   "related_codes": [
     "usa",
     "us-ct",
     "us-de",
-    "us-id"
+    "us-hi"
   ],
   "related_names": [
     {
@@ -76,8 +74,8 @@
       "name": "Delaware"
     },
     {
-      "code": "us-id",
-      "name": "Idaho"
+      "code": "us-hi",
+      "name": "Hawaii"
     }
   ],
   "graph": {
@@ -103,12 +101,12 @@
         "name": "Georgia"
       },
       {
-        "code": "us-hi",
-        "name": "Hawaii"
-      },
-      {
         "code": "us-ia",
         "name": "Iowa"
+      },
+      {
+        "code": "us-id",
+        "name": "Idaho"
       }
     ],
     "cluster_links": [
@@ -131,8 +129,8 @@
         "name": "Delaware"
       },
       {
-        "code": "us-id",
-        "name": "Idaho"
+        "code": "us-hi",
+        "name": "Hawaii"
       }
     ],
     "federal_parent": {
@@ -166,9 +164,9 @@
   },
   "hashes": {
     "code": "us-sc",
-    "content_hash": "70c61f540f502e429161d36ef51760482a56f12fe58fec22531b16179194c956",
-    "notes_hash": "b8fd08ab21efe099d323aee2cf25e085e76047de9f8bd381ac15e3350f9f23d5",
-    "model_hash": "2d70e832ced9c9c0543cfcc8c4f0abe376514ee9dfee0261bb79872607daa7fa"
+    "content_hash": "5a01b3f0027bc4aeab05dc455e63382c4e4c0acccfec53a38d0a4c5d22ed5190",
+    "notes_hash": "49b54284052c322f9fb99bd07a89e3420a0faba6c492973d422cc0f000c4a471",
+    "model_hash": "53413a6f4238e1b932b9f01ec4b0e82bf27bb7bee9dbd0e5c000e04f9c196a39"
   },
   "updated_at": "2026-04-10"
 }

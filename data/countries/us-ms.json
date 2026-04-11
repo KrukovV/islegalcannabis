@@ -7,8 +7,8 @@
   "normalized_version": "v1",
   "legal_model": {
     "recreational": {
-      "raw_status": "LEGAL",
-      "status": "LEGAL",
+      "raw_status": "DECRIMINALIZED",
+      "status": "DECRIMINALIZED",
       "enforcement": "MODERATE",
       "scope": "PERSONAL_USE"
     },
@@ -20,11 +20,11 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "regulated",
+      "status": "restricted",
       "scopes": {
         "possession": "restricted",
         "use": "restricted",
-        "sale": "regulated",
+        "sale": "illegal",
         "cultivation": null,
         "import": "illegal",
         "trafficking": "illegal"
@@ -38,8 +38,8 @@
     ],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is legal in Mississippi under state law for recreational adult use. Medical cannabis is not broadly legal in Mississippi. Cannabis remains federally illegal in United States.",
-  "notes_raw": "",
+  "notes_normalized": "Cannabis is decriminalized in Mississippi in limited state-level practice, but it is not fully legal under state law. Medical cannabis is not broadly legal in Mississippi. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#80CE69; color:#000000; text-align:center;\" | {{Hs|2}} <span style=\"font-size:25px;\">●</span>",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -54,13 +54,13 @@
     "medical": "override",
     "enforcement_strength": "MEDIUM",
     "federal_conflict": "Cannabis remains federally illegal in United States.",
-    "legalization_status": "State legal"
+    "legalization_status": "State decriminalized"
   },
   "related_codes": [
     "usa",
     "us-ct",
     "us-de",
-    "us-id"
+    "us-ga"
   ],
   "related_names": [
     {
@@ -76,8 +76,8 @@
       "name": "Delaware"
     },
     {
-      "code": "us-id",
-      "name": "Idaho"
+      "code": "us-ga",
+      "name": "Georgia"
     }
   ],
   "graph": {
@@ -99,16 +99,16 @@
     ],
     "legal_similarity": [
       {
-        "code": "us-ga",
-        "name": "Georgia"
-      },
-      {
         "code": "us-hi",
         "name": "Hawaii"
       },
       {
-        "code": "us-ia",
-        "name": "Iowa"
+        "code": "us-la",
+        "name": "Louisiana"
+      },
+      {
+        "code": "us-nc",
+        "name": "North Carolina"
       }
     ],
     "cluster_links": [
@@ -117,8 +117,8 @@
         "name": "United States"
       },
       {
-        "code": "us-in",
-        "name": "Indiana"
+        "code": "us-ia",
+        "name": "Iowa"
       }
     ],
     "same_country_states": [
@@ -131,8 +131,8 @@
         "name": "Delaware"
       },
       {
-        "code": "us-id",
-        "name": "Idaho"
+        "code": "us-ga",
+        "name": "Georgia"
       }
     ],
     "federal_parent": {
@@ -166,9 +166,9 @@
   },
   "hashes": {
     "code": "us-ms",
-    "content_hash": "541169cfa2d0fe9754de7b9e5cec724d2ab17466106a460f7bb47847d9e03304",
-    "notes_hash": "46ecf31e6c48e3719bd62b0ea3563d968b31ab32b484e7f026e937b6535c3c8a",
-    "model_hash": "e3764bdb06fe95d12921f8e809df93fe7e9ddab455602d07ee2cf164f26ec15c"
+    "content_hash": "ed2a551624dcd576d49c65e459d34501b1873d790c867c7084fa4582dd4ca12c",
+    "notes_hash": "fe31a25efce8c9b744e5ecd3cedd396ec966bfc82b554fafb780dc16d41f3532",
+    "model_hash": "a73019c9eb87aee5e984c28756137cd319f0f3b8f3dc9b7239c7d777fa6e73c1"
   },
   "updated_at": "2026-04-10"
 }

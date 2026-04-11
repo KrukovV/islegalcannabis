@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in Michigan under state law for recreational adult use. Medical cannabis is also legal in Michigan. Cannabis remains federally illegal in United States. Possession is limited to varies (see official sources).",
-  "notes_raw": "allowed",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
   "facts": {
     "possession_limit": "varies (see official sources)",
     "cultivation": null,
@@ -175,7 +175,7 @@
     "code": "us-mi",
     "content_hash": "d43ffb051cd830881329527853b455bf432f4b8bfadef58f25e8dd394c721117",
     "notes_hash": "47f08b71aa7e8274c4bf4ceed57fdf5f60a4f2d4a4aecce6175992d832555a65",
-    "model_hash": "53a89b19e71b56d01fa53344c0233e2133e499d310be6e99a660392e8dce2213"
+    "model_hash": "a19a7fdef9972c68f6f69cf21779f8a17a433f8198c310b39e16a2bb2003f9f3"
   },
   "updated_at": "2024-01-01"
 }

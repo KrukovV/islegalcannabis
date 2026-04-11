@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in Alaska under state law for recreational adult use. Medical cannabis is also legal in Alaska. Cannabis remains federally illegal in United States.",
-  "notes_raw": "",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -168,7 +168,7 @@
     "code": "us-ak",
     "content_hash": "7c3daddcda35b7d30c11d69b81f21436778b0b4b69db5670a5c70c22b074d94d",
     "notes_hash": "5e01927b43ea2b2287bd34582755135e37154b9af4f20acb2971a7aef9c0f602",
-    "model_hash": "da2a6f8b8cdda06928cc4ae11b721cde15eaae2e6e32473d22484c71e94d83db"
+    "model_hash": "b445e718c720eee77209cb7054d57ae60673f2162ed9096b91fa0171cb6bc361"
   },
   "updated_at": "2026-04-10"
 }

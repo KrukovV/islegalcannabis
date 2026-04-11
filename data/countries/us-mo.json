@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in Missouri under state law for recreational adult use. Medical cannabis is also legal in Missouri. Cannabis remains federally illegal in United States.",
-  "notes_raw": "",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -168,7 +168,7 @@
     "code": "us-mo",
     "content_hash": "6ca99b17eb94948148de34f70a51ae9e62b531faae8b62f34d98ed596628706e",
     "notes_hash": "069f4336518bc62d4720e75627a2f45d60791a6d4be2d90512429d8fdabc2601",
-    "model_hash": "77082596b2fb787533432e518ced103a5552a5acec7ccf6e2e6c36ad0edd56d7"
+    "model_hash": "cf5a753a20a2e0e2aa4613941ddfddb32785fb9ac983cbb56bbdb7b6f25aeb6b"
   },
   "updated_at": "2026-04-10"
 }

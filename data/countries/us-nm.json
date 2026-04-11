@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in New Mexico under state law for recreational adult use. Medical cannabis is also legal in New Mexico. Cannabis remains federally illegal in United States.",
-  "notes_raw": "",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -168,7 +168,7 @@
     "code": "us-nm",
     "content_hash": "5ce29fe176e89a0a7d3c482cffcde58ff3d4da2d1f6aa323b221d1cbb673c706",
     "notes_hash": "c1291c7b323372c95b0d5e240211b5a0e7cbb5879fe3c972edb1eda43135209a",
-    "model_hash": "0c2bda805e022da4dc19351200c2a44781695d5b1121550a71ddd400b20d71b4"
+    "model_hash": "23137e7dedefdb11da1b567b61dd95cab1c56e0d777d0773f72179bfae53ef6b"
   },
   "updated_at": "2026-04-10"
 }

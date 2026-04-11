@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in Maine under state law for recreational adult use. Medical cannabis is also legal in Maine. Cannabis remains federally illegal in United States.",
-  "notes_raw": "",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -168,7 +168,7 @@
     "code": "us-me",
     "content_hash": "1ab496be4e9a45ea9a629ce05180880422fedf047d69e50f842678b76f36cd69",
     "notes_hash": "004a7fe9494c551fda648a651686f1f8f40f441ae2bfc07b76e2a3213bd8ea28",
-    "model_hash": "10b303c4cd6ba22b2e7f24a3a60d99d847fc8b46b27ff89a16dc70b297109326"
+    "model_hash": "477dd3180c9324965b5490632b6bf7a450b5fd6681530805ec9d2ecb31754228"
   },
   "updated_at": "2026-04-10"
 }

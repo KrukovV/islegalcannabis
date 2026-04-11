@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in Ohio under state law for recreational adult use. Medical cannabis is also legal in Ohio. Cannabis remains federally illegal in United States. Possession is limited to varies (see official sources).",
-  "notes_raw": "allowed",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
   "facts": {
     "possession_limit": "varies (see official sources)",
     "cultivation": null,
@@ -175,7 +175,7 @@
     "code": "us-oh",
     "content_hash": "576184654ea414fd86bb3230bbba9167ba3b03dd64990d9fe7719aada8b019c0",
     "notes_hash": "2a368ff7ace807073e9c7bdeb6104aee6f9a971f1d3c4a79d2a0e656d644259c",
-    "model_hash": "335616a92d0ff720f12eae864212e1ee990ad6ea0b8a104d16c54b76be26c1d5"
+    "model_hash": "99179a50b58ae670085c729c3d2d78c3bcc5eda8489ab5385408091307b2bff1"
   },
   "updated_at": "2024-01-01"
 }

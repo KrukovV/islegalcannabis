@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in Massachusetts under state law for recreational adult use. Medical cannabis is also legal in Massachusetts. Cannabis remains federally illegal in United States. Possession is limited to Up to 1 oz in public; up to 10 oz at home.",
-  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|3}}",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
   "facts": {
     "possession_limit": "Up to 1 oz in public; up to 10 oz at home",
     "cultivation": "Home grow allowed.",
@@ -175,7 +175,7 @@
     "code": "us-ma",
     "content_hash": "9094afba9adf59b60f793f1d43f294c7c4c61ae5ba4442cb89c9872f3d895aef",
     "notes_hash": "f3db6e27f8b4a2e5154ff1d0a20005c08137a5c1fadfbfdc3200a4423bdef339",
-    "model_hash": "eac7c9bd9d8e8ea8e31849717966c4d6e3a0ca2eccc44bc144154d429e58d632"
+    "model_hash": "c567c39c3e26de12241220f1ec42314c4d13a539377018a725b0b5a3d89dc53e"
   },
   "updated_at": "2024-01-01"
 }

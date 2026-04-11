@@ -177,12 +177,34 @@ function mapMedicalValueToStatus(value, fallbackStatus = "ILLEGAL") {
   return fallbackStatus;
 }
 
-function parseStateStatusFromRaw(rawText, wikiFallbackStatus = "ILLEGAL") {
+function decodeUsStateHs(rawText) {
+  const match = String(rawText || "").match(/\{\{Hs\|([0-9.]+)\}\}/i);
+  return match ? match[1] : null;
+}
+
+function parseStateRecStatusFromRaw(rawText, wikiFallbackStatus = "ILLEGAL") {
   const raw = String(rawText || "").toLowerCase();
+  const hs = decodeUsStateHs(rawText);
+  if (hs === "1" || hs === "1.1") return "LEGAL";
+  if (hs === "2" || hs === "4") return "DECRIMINALIZED";
+  if (hs === "3" || hs === "5") return "ILLEGAL";
   if (!raw) return wikiFallbackStatus;
-  if (raw.includes("legal")) return "LEGAL";
-  if (raw.includes("decriminal")) return "DECRIMINALIZED";
+  if (raw.includes("decriminal") || raw.includes("cite and release") || raw.includes("not arresting")) return "DECRIMINALIZED";
   if (raw.includes("tolerat")) return "TOLERATED";
+  if (/\blegal(?:ized)?\b|\ballowed\b|\bpermitted\b/.test(raw) && !/\billegal\b/.test(raw)) return "LEGAL";
+  if (raw.includes("illegal")) return "ILLEGAL";
+  return wikiFallbackStatus;
+}
+
+function parseStateMedicalStatus(rawText, lawValue, wikiFallbackStatus = "ILLEGAL") {
+  if (lawValue) return mapMedicalValueToStatus(lawValue, wikiFallbackStatus);
+  const raw = String(rawText || "").toLowerCase();
+  const hs = decodeUsStateHs(rawText);
+  if (/\blegal(?:ized)?\b|\ballowed\b|\bpermitted\b|\bmedical marijuana\b|\bmedical cannabis\b/.test(raw) && !/\billegal\b/.test(raw)) {
+    return "LEGAL";
+  }
+  if (hs === "3") return "LEGAL";
+  if (/\bde facto legal\b|\bcompassionate use\b|\bcbd\b/.test(raw)) return "LIMITED";
   if (raw.includes("illegal")) return "ILLEGAL";
   return wikiFallbackStatus;
 }
@@ -250,10 +272,20 @@ function loadUsStateWikiByGeo() {
 
 function loadUsStateRawRowsByGeo() {
   const rawPayload = readJson(US_STATE_ROWS_PATH);
+  const wikiPayload = readJson(US_STATE_WIKI_PATH);
+  const titleToGeo = new Map(
+    (Array.isArray(wikiPayload?.items) ? wikiPayload.items : [])
+      .map((row) => [
+        normalizeStateTitleFromWikiUrl(row?.wiki_page_url, row?.geo || row?.state || row?.name || ""),
+        String(row?.geo || "").toUpperCase()
+      ])
+      .filter(([title, geo]) => title && /^US-[A-Z]{2}$/.test(geo))
+  );
   return new Map(
     (Array.isArray(rawPayload?.rows) ? rawPayload.rows : [])
       .map((row) => {
-        const geo = `US-${String(row.name || "").slice(-2).toUpperCase()}`;
+        const title = normalizeStateTitleFromWikiUrl(row?.wiki_row_url || row?.link || row?.name || "", row?.name || "");
+        const geo = titleToGeo.get(title) || "";
         return [geo, row];
       })
       .filter(([geo]) => /^US-[A-Z]{2}$/.test(geo))
@@ -457,14 +489,12 @@ function buildStateEntries(usaEntry) {
     const rawRow = rawRowsByGeo.get(geo);
     const law = lawsByGeo.get(geo);
     const centroid = centroids[geo] || null;
-    const fallbackRec = String(wikiRow.rec_status || "").toLowerCase() === "legal" ? "LEGAL" : "ILLEGAL";
-    const fallbackMed = String(wikiRow.med_status || "").toLowerCase() === "legal" ? "LEGAL" : "ILLEGAL";
+    const fallbackRec = "ILLEGAL";
+    const fallbackMed = "ILLEGAL";
     const recreationalStatus = law
       ? mapLawValueToStatus(law.recreational, fallbackRec)
-      : parseStateStatusFromRaw(rawRow?.recreational_raw, fallbackRec);
-    const medicalStatus = law
-      ? mapMedicalValueToStatus(law.medical, fallbackMed)
-      : mapMedicalValueToStatus(wikiRow.med_status, fallbackMed);
+      : parseStateRecStatusFromRaw(rawRow?.recreational_raw, fallbackRec);
+    const medicalStatus = parseStateMedicalStatus(rawRow?.medical_raw, law?.medical, fallbackMed);
     const recreationalEnforcement = parseStateEnforcement(rawRow?.recreational_raw, recreationalStatus);
     const enforcementStrength = parseStateEnforcementStrength(rawRow?.recreational_raw, recreationalStatus);
     const name = normalizeStateTitleFromWikiUrl(wikiRow.wiki_page_url, geo);

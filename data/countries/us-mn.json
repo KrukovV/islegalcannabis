@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in Minnesota under state law for recreational adult use. Medical cannabis is also legal in Minnesota. Cannabis remains federally illegal in United States.",
-  "notes_raw": "",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -168,7 +168,7 @@
     "code": "us-mn",
     "content_hash": "e50b0185537ec50681e33990fcf53f0f4ca89c7e7e2171d477fb53f765f5c56c",
     "notes_hash": "294cc1ed52b1360ea53dd7e60eaeb1d7caca8c1dc11a8e3c7c53c216ad457f11",
-    "model_hash": "03a9af692094a528177a2147711abf3b98bacb974456c57926b26ef5e0a797af"
+    "model_hash": "5adadb38f36a8fe27a3c139fd240c6142804edf1b22c05e1f0db31f0a6d0d376"
   },
   "updated_at": "2026-04-10"
 }

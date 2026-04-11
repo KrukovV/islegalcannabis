@@ -42,6 +42,9 @@ describe("countryPageStorage", () => {
   it("builds state-level SEO nodes derived from USA", () => {
     const california = getCountryPageData("us-ca");
     const texas = getCountryPageData("us-tx");
+    const florida = getCountryPageData("us-fl");
+    const idaho = getCountryPageData("us-id");
+    const newYork = getCountryPageData("us-ny");
     expect(california?.node_type).toBe("state");
     expect(california?.geo_code).toBe("US-CA");
     expect(california?.parent_country?.code).toBe("usa");
@@ -49,6 +52,19 @@ describe("countryPageStorage", () => {
     expect(california?.notes_normalized).toContain("federally illegal in United States");
     expect(texas?.legal_model.recreational.status).toBe("ILLEGAL");
     expect(texas?.legal_model.medical.status).toBe("LEGAL");
+    expect(florida?.legal_model.recreational.status).toBe("ILLEGAL");
+    expect(florida?.legal_model.medical.status).toBe("LEGAL");
+    expect(idaho?.legal_model.recreational.status).toBe("ILLEGAL");
+    expect(newYork?.legal_model.recreational.status).toBe("LEGAL");
+  });
+
+  it("keeps mixed US state recreational coverage instead of all-legal inheritance", () => {
+    const stateCodes = listCountryPageCodes().filter((code) => code.startsWith("us-"));
+    const statuses = stateCodes.map((code) => getCountryPageData(code)?.legal_model.recreational.status);
+    const uniqueStatuses = Array.from(new Set(statuses.filter(Boolean))).sort();
+    expect(uniqueStatuses).toContain("LEGAL");
+    expect(uniqueStatuses).toContain("ILLEGAL");
+    expect(uniqueStatuses).toContain("DECRIMINALIZED");
   });
 
   it("builds a route-local SEO index for USA and state pages", () => {

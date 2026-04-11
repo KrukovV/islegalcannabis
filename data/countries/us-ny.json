@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in New York under state law for recreational adult use. Medical cannabis is also legal in New York. Cannabis remains federally illegal in United States. Possession is limited to Up to 3 oz flower or 24g concentrate.",
-  "notes_raw": "allowed",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
   "facts": {
     "possession_limit": "Up to 3 oz flower or 24g concentrate",
     "cultivation": "Home grow allowed.",
@@ -175,7 +175,7 @@
     "code": "us-ny",
     "content_hash": "eb78e46c2fdfe593a1f9de1be0213b6724c497f19fd8235f770ddaab096a1417",
     "notes_hash": "04302b3e2cb65e7648f243f3eb07a7996f6411267d36a598f89db7884171af2b",
-    "model_hash": "095eeb07c6362a9e718cdf157d6ecf2dbcd39f089a60597a14b8563e35052bbd"
+    "model_hash": "f8f12fbec2a963d993a3565bee8b965048aafcb5c4c5a2b797ddbdefa0223a36"
   },
   "updated_at": "2024-01-01"
 }

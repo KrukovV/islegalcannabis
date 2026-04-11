@@ -7,10 +7,10 @@
   "normalized_version": "v1",
   "legal_model": {
     "recreational": {
-      "raw_status": "LEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
@@ -20,26 +20,24 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "regulated",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
-        "use": "restricted",
-        "sale": "regulated",
+        "possession": "illegal",
+        "use": "illegal",
+        "sale": "illegal",
         "cultivation": null,
         "import": "illegal",
         "trafficking": "illegal"
       },
-      "enforcement": "fine-based",
+      "enforcement": "standard",
       "flags": [],
       "modifiers": []
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is legal in Alabama under state law for recreational adult use. Medical cannabis is not broadly legal in Alabama. Cannabis remains federally illegal in United States.",
-  "notes_raw": "",
+  "notes_normalized": "Cannabis is illegal in Alabama under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|3}}",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -52,14 +50,14 @@
   "state_modifiers": {
     "recreational": "override",
     "medical": "override",
-    "enforcement_strength": "MEDIUM",
+    "enforcement_strength": "HIGH",
     "federal_conflict": "Cannabis remains federally illegal in United States.",
-    "legalization_status": "State legal"
+    "legalization_status": "State illegal"
   },
   "related_codes": [
     "usa",
     "us-de",
-    "us-id",
+    "us-hi",
     "us-in"
   ],
   "related_names": [
@@ -72,8 +70,8 @@
       "name": "Delaware"
     },
     {
-      "code": "us-id",
-      "name": "Idaho"
+      "code": "us-hi",
+      "name": "Hawaii"
     },
     {
       "code": "us-in",
@@ -103,12 +101,12 @@
         "name": "Georgia"
       },
       {
-        "code": "us-hi",
-        "name": "Hawaii"
-      },
-      {
         "code": "us-ia",
         "name": "Iowa"
+      },
+      {
+        "code": "us-id",
+        "name": "Idaho"
       }
     ],
     "cluster_links": [
@@ -127,8 +125,8 @@
         "name": "Delaware"
       },
       {
-        "code": "us-id",
-        "name": "Idaho"
+        "code": "us-hi",
+        "name": "Hawaii"
       },
       {
         "code": "us-in",
@@ -166,9 +164,9 @@
   },
   "hashes": {
     "code": "us-al",
-    "content_hash": "43cfe7155a898bff94aa317ba5a11bd33f2d133a4e7f9037c5d47b344fa87bf8",
-    "notes_hash": "79093aa8081c76dc0840cb2355cede7ae1f07cff40ec6f9d6d5c763054fc7b14",
-    "model_hash": "5ac215861fe1517b519a45ebc9768beb4c93b94797d31a170064984da3a0e4ff"
+    "content_hash": "eb66ab5634bd7f237cc5b39fdc614582be0d0120347d74b81281bdcbd745ace6",
+    "notes_hash": "3c61cc8e6a13b07b3cc11193634f9270224c4ea66f1518a59836e4c93f4a6220",
+    "model_hash": "721781f884304774c07c2319ec7e2c1a45e90b8a92731071af88e02c70c89be8"
   },
   "updated_at": "2026-04-10"
 }

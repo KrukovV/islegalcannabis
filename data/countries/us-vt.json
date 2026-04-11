@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in Vermont under state law for recreational adult use. Medical cannabis is also legal in Vermont. Cannabis remains federally illegal in United States.",
-  "notes_raw": "",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -168,7 +168,7 @@
     "code": "us-vt",
     "content_hash": "84f4a365d5c41f986c0f5041a754d21d9401bc6d9b7e5204c93c64f82925d1d8",
     "notes_hash": "1636788066b8e3a18ff09192cc12a59a408880d437fd764029abd9b4d37d3972",
-    "model_hash": "cbf30aee8dc1379c3fb968a74a87bb9a417f7c75b28284945cb33803205625c7"
+    "model_hash": "11552bbc02f423351a2d0c7dcc210407286831906a2841566ad0bf6cdd20ea03"
   },
   "updated_at": "2026-04-10"
 }

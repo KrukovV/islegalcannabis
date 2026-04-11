@@ -7,10 +7,10 @@
   "normalized_version": "v1",
   "legal_model": {
     "recreational": {
-      "raw_status": "LEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
@@ -20,26 +20,24 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "regulated",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
-        "use": "restricted",
-        "sale": "regulated",
+        "possession": "illegal",
+        "use": "illegal",
+        "sale": "illegal",
         "cultivation": null,
         "import": "illegal",
         "trafficking": "illegal"
       },
-      "enforcement": "fine-based",
+      "enforcement": "standard",
       "flags": [],
       "modifiers": []
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": []
   },
-  "notes_normalized": "Cannabis is legal in Arkansas under state law for recreational adult use. Medical cannabis is not broadly legal in Arkansas. Cannabis remains federally illegal in United States.",
-  "notes_raw": "",
+  "notes_normalized": "Cannabis is illegal in Arkansas under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|3}}",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -52,14 +50,14 @@
   "state_modifiers": {
     "recreational": "override",
     "medical": "override",
-    "enforcement_strength": "MEDIUM",
+    "enforcement_strength": "HIGH",
     "federal_conflict": "Cannabis remains federally illegal in United States.",
-    "legalization_status": "State legal"
+    "legalization_status": "State illegal"
   },
   "related_codes": [
     "usa",
     "us-de",
-    "us-id",
+    "us-hi",
     "us-in"
   ],
   "related_names": [
@@ -72,8 +70,8 @@
       "name": "Delaware"
     },
     {
-      "code": "us-id",
-      "name": "Idaho"
+      "code": "us-hi",
+      "name": "Hawaii"
     },
     {
       "code": "us-in",
@@ -103,12 +101,12 @@
         "name": "Georgia"
       },
       {
-        "code": "us-hi",
-        "name": "Hawaii"
-      },
-      {
         "code": "us-ia",
         "name": "Iowa"
+      },
+      {
+        "code": "us-id",
+        "name": "Idaho"
       }
     ],
     "cluster_links": [
@@ -127,8 +125,8 @@
         "name": "Delaware"
       },
       {
-        "code": "us-id",
-        "name": "Idaho"
+        "code": "us-hi",
+        "name": "Hawaii"
       },
       {
         "code": "us-in",
@@ -166,9 +164,9 @@
   },
   "hashes": {
     "code": "us-ar",
-    "content_hash": "5768c07aef7a5fdc67f75105b6e8f259f0ea223674fd2c3fb4fbcae064d7c497",
-    "notes_hash": "1344968d5a83e2d995b4a34f5694e8f0ea7b8d572ddb2139a0429d5fca269863",
-    "model_hash": "a9caecfb04f3342242b4f660ad014988470787acabe66e1d69cefd8ad1cfe7fc"
+    "content_hash": "45e0d19b99dba2baf0ff0b2e9772224f796226dbac5f8d55fda7dc86758f6563",
+    "notes_hash": "72de72aa79191ed378371f90b8637b4c991c09131161598d9452a3c8d1323f4e",
+    "model_hash": "0e268010966c7c972d995bf40cf82b0302790ecd2ea28df675e0a360252bcd33"
   },
   "updated_at": "2026-04-10"
 }

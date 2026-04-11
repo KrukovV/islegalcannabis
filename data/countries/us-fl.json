@@ -37,7 +37,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is illegal in Florida for recreational use under state law, but medical cannabis is available in limited form. Cannabis remains federally illegal in United States. Possession is limited to Medical only.",
-  "notes_raw": "illegal",
+  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|3}}",
   "facts": {
     "possession_limit": "Medical only",
     "cultivation": "Home grow remains illegal.",
@@ -173,7 +173,7 @@
     "code": "us-fl",
     "content_hash": "86e75479a90eb1c27e0fb91a75ceef0effbf37dfa59a8d4843e55b0e37b7f4d4",
     "notes_hash": "0630dcb622add49d7fb1772c9d1e3f3cf6d0b1a7299131417c128c10ab591b18",
-    "model_hash": "5e54a2c1f4c8eda4578211d6f7b5ca7a08fe2695d1874dd18dede15a648802e5"
+    "model_hash": "4c52480833367b24a22abf378a8cc9469a4b488746a78861ef9ee693ab10980f"
   },
   "updated_at": "2024-01-01"
 }

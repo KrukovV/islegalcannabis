@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in Delaware under state law for recreational adult use. Medical cannabis is also legal in Delaware. Cannabis remains federally illegal in United States.",
-  "notes_raw": "",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -168,7 +168,7 @@
     "code": "us-de",
     "content_hash": "309e3c1a70c801fa3b51c87a5d8bd9022e39eda0105c0e91a67e9ca85270737f",
     "notes_hash": "9885c9ceffa96af17ea0edf90572cfa49044bea5152e1b90f54e52ca52d63774",
-    "model_hash": "2c74edcae745fbb4976d1c195b6843b02dfcdabe45c29b7df265442a01378ce4"
+    "model_hash": "a8a308e29e662bbeab371a6b4a696e2229d964edda1df986929eac0320cbc896"
   },
   "updated_at": "2026-04-10"
 }
