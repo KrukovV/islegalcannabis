@@ -62,6 +62,16 @@ describe("countryPageStorage", () => {
     expect(californiaIndex["US-NY"]?.name).toBe("New York");
   });
 
+  it("keeps coordinates for every generated US state route", () => {
+    const stateCodes = listCountryPageCodes().filter((code) => code.startsWith("us-"));
+    const missing = stateCodes.filter((code) => {
+      const page = getCountryPageData(code);
+      return !page?.coordinates || typeof page.coordinates.lat !== "number" || typeof page.coordinates.lng !== "number";
+    });
+    expect(stateCodes).toHaveLength(50);
+    expect(missing).toEqual([]);
+  });
+
   it("enforces the derived medical floor for rec freedom conflicts", () => {
     const belgium = getCountryPageData("bel");
     const antigua = getCountryPageData("atg");
