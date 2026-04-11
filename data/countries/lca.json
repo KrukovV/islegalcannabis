@@ -1,0 +1,144 @@
+{
+  "code": "lca",
+  "iso2": "LC",
+  "name": "Saint Lucia",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "DECRIMINALIZED",
+      "status": "DECRIMINALIZED",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "LIMITED",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": "rec_implies_med_floor"
+    },
+    "distribution": {
+      "status": "restricted",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "rec_implies_med_floor"
+    ],
+    "notes_normalized": "Cannabis is decriminalized in Saint Lucia. Medical cannabis is limited. Distribution is restricted."
+  },
+  "notes_normalized": "Cannabis is decriminalized in Saint Lucia. Medical cannabis is limited. Distribution is restricted.",
+  "notes_raw": "{{main|Cannabis in Saint Lucia}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "vct",
+    "dma",
+    "brb"
+  ],
+  "related_names": [
+    {
+      "code": "vct",
+      "name": "Saint Vincent and the Grenadines"
+    },
+    {
+      "code": "dma",
+      "name": "Dominica"
+    },
+    {
+      "code": "brb",
+      "name": "Barbados"
+    }
+  ],
+  "coordinates": {
+    "lat": 13.88333333,
+    "lng": -60.96666666
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Saint_Lucia",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Saint_Lucia",
+        "title": "Wikipedia: Saint Lucia",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "NA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "vct",
+        "name": "Saint Vincent and the Grenadines"
+      },
+      {
+        "code": "dma",
+        "name": "Dominica"
+      },
+      {
+        "code": "brb",
+        "name": "Barbados"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "tto",
+        "name": "Trinidad and Tobago"
+      },
+      {
+        "code": "atg",
+        "name": "Antigua and Barbuda"
+      },
+      {
+        "code": "kna",
+        "name": "Saint Kitts and Nevis"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "grd",
+        "name": "Grenada"
+      },
+      {
+        "code": "msr",
+        "name": "Montserrat"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "lca",
+    "content_hash": "00417b075cb60ba53161427613fce3132c4c6c2f2e4ea2b3eca8bafe79451608",
+    "notes_hash": "83068061f3b552cf968312e6bfdd4a2e41e81d85a8d79c0c83b0f941559889cb",
+    "model_hash": "a8bcdf1c4dbd47f28ec9578536f28ed7aa554693ef1c8f4e0248f98314dcdf72"
+  },
+  "geo_code": "LC",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

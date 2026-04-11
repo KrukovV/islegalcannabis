@@ -1,0 +1,139 @@
+{
+  "code": "cym",
+  "iso2": "KY",
+  "name": "Cayman Islands",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Cayman Islands. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Cayman Islands. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "No notes available.",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "cub",
+    "jam",
+    "hnd"
+  ],
+  "related_names": [
+    {
+      "code": "cub",
+      "name": "Cuba"
+    },
+    {
+      "code": "jam",
+      "name": "Jamaica"
+    },
+    {
+      "code": "hnd",
+      "name": "Honduras"
+    }
+  ],
+  "coordinates": {
+    "lat": 19.319862,
+    "lng": -81.24055
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Cayman_Islands",
+    "wiki_truth": null,
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Cayman_Islands",
+        "title": "Wikipedia: Cayman Islands",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "NA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "cub",
+        "name": "Cuba"
+      },
+      {
+        "code": "jam",
+        "name": "Jamaica"
+      },
+      {
+        "code": "hnd",
+        "name": "Honduras"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "bhs",
+        "name": "Bahamas"
+      },
+      {
+        "code": "nic",
+        "name": "Nicaragua"
+      },
+      {
+        "code": "blz",
+        "name": "Belize / Belice"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "hti",
+        "name": "Haiti / Haïti"
+      },
+      {
+        "code": "slv",
+        "name": "El Salvador"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "cym",
+    "content_hash": "cd8377643b731405389a72834b522e4cc94a8c4971896377b84ade33f409e3b9",
+    "notes_hash": "4dd9d35fd91a15bb7b46d6ec1d1d1690b80f45d4c41de6a016d547b06227dee3",
+    "model_hash": "471c5b382d0beaeab4b6985cc7c7dd6e9c17484aa9f16fcc4196f4e1c0f24f0f"
+  },
+  "geo_code": "KY",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

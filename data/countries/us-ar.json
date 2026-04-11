@@ -1,0 +1,174 @@
+{
+  "code": "us-ar",
+  "geo_code": "US-AR",
+  "iso2": "US-AR",
+  "name": "Arkansas",
+  "node_type": "state",
+  "normalized_version": "v1",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "regulated",
+      "scopes": {
+        "possession": "restricted",
+        "use": "restricted",
+        "sale": "regulated",
+        "cultivation": null,
+        "import": "illegal",
+        "trafficking": "illegal"
+      },
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [
+      "fine_based"
+    ],
+    "applied_rules": []
+  },
+  "notes_normalized": "Cannabis is legal in Arkansas under state law for recreational adult use. Medical cannabis is not broadly legal in Arkansas. Cannabis remains federally illegal in United States.",
+  "notes_raw": "",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "parent_country": {
+    "code": "usa",
+    "name": "United States"
+  },
+  "state_modifiers": {
+    "recreational": "override",
+    "medical": "override",
+    "enforcement_strength": "MEDIUM",
+    "federal_conflict": "Cannabis remains federally illegal in United States.",
+    "legalization_status": "State legal"
+  },
+  "related_codes": [
+    "usa",
+    "us-de",
+    "us-id",
+    "us-in"
+  ],
+  "related_names": [
+    {
+      "code": "usa",
+      "name": "United States"
+    },
+    {
+      "code": "us-de",
+      "name": "Delaware"
+    },
+    {
+      "code": "us-id",
+      "name": "Idaho"
+    },
+    {
+      "code": "us-in",
+      "name": "Indiana"
+    }
+  ],
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "USA_CLUSTER",
+    "geo_neighbors": [
+      {
+        "code": "us-ak",
+        "name": "Alaska"
+      },
+      {
+        "code": "us-al",
+        "name": "Alabama"
+      },
+      {
+        "code": "us-ct",
+        "name": "Connecticut"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "us-ga",
+        "name": "Georgia"
+      },
+      {
+        "code": "us-hi",
+        "name": "Hawaii"
+      },
+      {
+        "code": "us-ia",
+        "name": "Iowa"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "usa",
+        "name": "United States"
+      },
+      {
+        "code": "us-ks",
+        "name": "Kansas"
+      }
+    ],
+    "same_country_states": [
+      {
+        "code": "us-de",
+        "name": "Delaware"
+      },
+      {
+        "code": "us-id",
+        "name": "Idaho"
+      },
+      {
+        "code": "us-in",
+        "name": "Indiana"
+      }
+    ],
+    "federal_parent": {
+      "code": "usa",
+      "name": "United States"
+    }
+  },
+  "coordinates": {
+    "lat": 38,
+    "lng": -97
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Arkansas",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki-us-ar",
+        "url": "https://en.wikipedia.org/wiki/Arkansas",
+        "title": "Wikipedia: Arkansas",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki-truth-us-ar",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "hashes": {
+    "code": "us-ar",
+    "content_hash": "5768c07aef7a5fdc67f75105b6e8f259f0ea223674fd2c3fb4fbcae064d7c497",
+    "notes_hash": "1344968d5a83e2d995b4a34f5694e8f0ea7b8d572ddb2139a0429d5fca269863",
+    "model_hash": "a9caecfb04f3342242b4f660ad014988470787acabe66e1d69cefd8ad1cfe7fc"
+  },
+  "updated_at": "2026-04-10"
+}

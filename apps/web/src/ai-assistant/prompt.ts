@@ -5,8 +5,6 @@ export function buildPrompt(input: {
   geoHint?: string;
   language?: string;
   context: RagChunk[];
-  travelContext?: string;
-  jurisdictionContext?: string;
 }) {
   const context = input.context.map((chunk) => ({
     id: chunk.id,
@@ -26,8 +24,6 @@ export function buildPrompt(input: {
     "",
     `Question: ${input.query}`,
     `Geo hint: ${input.geoHint || "none"}`,
-    `Context: ${JSON.stringify(context)}`,
-    input.jurisdictionContext ? `Jurisdiction context: ${input.jurisdictionContext}` : "",
-    input.travelContext ? `Travel context: ${input.travelContext}` : ""
+    `Context: ${JSON.stringify(context)}`
   ].join("\n");
 }

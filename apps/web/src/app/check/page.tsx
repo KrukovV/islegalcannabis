@@ -141,6 +141,9 @@ export default async function CheckPage({
   const notesTriggerPhrases = Array.isArray(entry.notesTriggerPhrases) ? entry.notesTriggerPhrases : [];
   const notesInterpretationSummary = entry.notesInterpretationSummary || "Notes only explain the SSOT status.";
   const evidenceDelta = entry.evidenceDelta || "NONE";
+  const recSummary = entry.recreationalSummary || explain.recStatusRu;
+  const medSummary = entry.medicalSummary || explain.medStatusRu;
+  const normalizedSummary = entry.normalizedStatusSummary || `${recSummary}; ${medSummary}`;
   const wikiDiffers = entry.wikiRecStatus !== effectiveRec || entry.wikiMedStatus !== effectiveMed;
   const truthBadge = statusTruthBadge(truthLevel);
   const ssotText = SSOTStatusText({
@@ -168,21 +171,32 @@ export default async function CheckPage({
             <h2>Status</h2>
             <div className={styles.metaLabel} data-testid="legal-status">
               <div>
-                Вывод: Recreational — {explain.recStatusRu}; Medical — {explain.medStatusRu}
+                Вывод: Recreational — {recSummary}; Medical — {medSummary}
               </div>
               <div>
                 Основано на: {explain.basisText} · {truthBadge.icon} {truthBadge.label}
               </div>
             </div>
             <div className={styles.metaLabel}>
-              Recreational: Статус (по данным): {explain.recStatusRu}
+              Recreational: Статус (по данным): {recSummary}
             </div>
             <div className={styles.metaLabel}>
               Уверенность: {explain.reliabilityText}
             </div>
             <div className={styles.metaLabel}>
-              Medical: Статус (по данным): {explain.medStatusRu}
+              Medical: Статус (по данным): {medSummary}
             </div>
+            <div className={styles.metaLabel}>Normalized summary: {normalizedSummary}</div>
+            <div className={styles.metaLabel}>
+              Recreational mode: {entry.normalizedRecreationalStatus} · enforcement {entry.normalizedRecreationalEnforcement} · scope{" "}
+              {entry.normalizedRecreationalScope}
+            </div>
+            <div className={styles.metaLabel}>
+              Medical mode: {entry.normalizedMedicalStatus} · scope {entry.normalizedMedicalScope}
+            </div>
+            {entry.statusFlags.length > 0 ? (
+              <div className={styles.metaLabel}>Flags: {entry.statusFlags.join(", ")}</div>
+            ) : null}
             {wikiDiffers ? (
               <>
                 <div className={styles.metaLabel}>Wiki Rec: {entry.wikiRecStatus || "Unknown"}</div>

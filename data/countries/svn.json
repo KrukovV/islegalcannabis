@@ -1,0 +1,145 @@
+{
+  "code": "svn",
+  "iso2": "SI",
+  "name": "Slovenia / Slovenija",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "DECRIMINALIZED",
+      "status": "DECRIMINALIZED",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "restricted",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "decriminalized",
+      "medical_legal"
+    ],
+    "notes_normalized": "Cannabis is decriminalized in Slovenia / Slovenija. Medical cannabis is legal. Distribution is restricted."
+  },
+  "notes_normalized": "Cannabis is decriminalized in Slovenia / Slovenija. Medical cannabis is legal. Distribution is restricted.",
+  "notes_raw": "{{main|Cannabis in Slovenia}} Medical cannabis legalized in 2025.<ref>{{cite news |title=Slovenia legalises medical marijuana |url=https://sloveniatimes.com/44182/slovenia-legalises-medical-marijuana |access-date=5 August 2025 |work=The Slovenia Times |date=16 July 2025}}</ref><ref>{{cite news |title=Slovenian Parliament overturns vetoes on key-laws |url=https://www.ansa.it/nuova_europa/en/news/countries/slovenia/2025/07/24/slovenian-parliament-overturns-vetoes-on-key-laws_c5deaf5f-5a50-4b48-86a1-1b2f3473765c.html |access-date=5 August 2025 |work=Nueova Europa |date=25 July 2025}}</ref> Prior to 2025, cannabis-based drugs were legal for medicinal use, but not cannabis itself.<ref>{{cite web|url=http://www.rtvslo.si/zdravje/novice/slovenija-dovolila-uporabo-konoplje-v-medicinske-namene/339830|title=Slovenija dovolila uporabo konoplje v medicinske namene|work=Prvi interaktivni multimedijski portal, MMC RTV Slovenija|access-date=14 January 2015|archive-date=26 December 2018|archive-url=https://web.archive.org/web/20181226021417/https://www.rtvslo.si/zdravje/novice/slovenija-dovolila-uporabo-konoplje-v-medicinske-namene/339830|url-status=live}}</ref><ref>{{cite web|url=http://www.nijz.si/uporaba-konoplje-v-medicini|title=Uporaba konoplje v medicini|work=NIJZ|date=19 June 2014|access-date=12 September 2015|archive-date=3 August 2021|archive-url=https://web.archive.org/web/20210803080141/https://www.nijz.si/uporaba-konoplje-v-medicini|url-status=live}}</ref> Possession of any drug for personal use is decriminalized.<ref>{{cite web|url=https://www.uradni-list.si/1/content?id=23256|title=Zakon o proizvodnji in prometu s prepovedanimi drogami (ZPPPD)|work=Uradni List|access-date=12 September 2015|archive-date=10 September 2016|archive-url=https://web.archive.org/web/20160910215506/http://www.uradni-list.si/1/content?id=23256|url-status=live}}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "hrv",
+    "aut",
+    "smr"
+  ],
+  "related_names": [
+    {
+      "code": "hrv",
+      "name": "Croatia / Hrvatska"
+    },
+    {
+      "code": "aut",
+      "name": "Austria / Österreich"
+    },
+    {
+      "code": "smr",
+      "name": "San Marino"
+    }
+  ],
+  "coordinates": {
+    "lat": 46.11666666,
+    "lng": 14.81666666
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Slovenia",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Slovenia",
+        "title": "Wikipedia: Slovenia / Slovenija",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "hrv",
+        "name": "Croatia / Hrvatska"
+      },
+      {
+        "code": "aut",
+        "name": "Austria / Österreich"
+      },
+      {
+        "code": "smr",
+        "name": "San Marino"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "cze",
+        "name": "Czechia / Česko"
+      },
+      {
+        "code": "bih",
+        "name": "Bosnia and Herzegovina / Bosna i Hercegovina"
+      },
+      {
+        "code": "ita",
+        "name": "Italy / Italia"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "vat",
+        "name": "Vatican City / Vaticano"
+      },
+      {
+        "code": "hun",
+        "name": "Hungary / Magyarország"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "svn",
+    "content_hash": "555eecaaceafef04f9aeea38b0331cf4178694fbbb883c9c44272fd81f601769",
+    "notes_hash": "98c866cee343ba363c5fd052c87cf272fd06060d52ef4b49368e0d43d68c3518",
+    "model_hash": "3880b23044d6a8f48e9f8ea4b62a443eea0fb5dbd18ff9ac4c5dbf2776d63154"
+  },
+  "geo_code": "SI",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

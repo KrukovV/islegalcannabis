@@ -1,0 +1,139 @@
+{
+  "code": "cuw",
+  "iso2": "CW",
+  "name": "Curaçao / Pais Kòrsou",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Curaçao / Pais Kòrsou. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Curaçao / Pais Kòrsou. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "No notes available.",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "abw",
+    "ven",
+    "pri"
+  ],
+  "related_names": [
+    {
+      "code": "abw",
+      "name": "Aruba"
+    },
+    {
+      "code": "ven",
+      "name": "Venezuela"
+    },
+    {
+      "code": "pri",
+      "name": "Puerto Rico"
+    }
+  ],
+  "coordinates": {
+    "lat": 12.145039,
+    "lng": -68.920578
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Cura%C3%A7ao",
+    "wiki_truth": null,
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Cura%C3%A7ao",
+        "title": "Wikipedia: Curaçao / Pais Kòrsou",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "NA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "abw",
+        "name": "Aruba"
+      },
+      {
+        "code": "ven",
+        "name": "Venezuela"
+      },
+      {
+        "code": "pri",
+        "name": "Puerto Rico"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "vir",
+        "name": "United States Virgin Islands"
+      },
+      {
+        "code": "dom",
+        "name": "Dominican Republic / República Dominicana"
+      },
+      {
+        "code": "grd",
+        "name": "Grenada"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "vgb",
+        "name": "British Virgin Islands"
+      },
+      {
+        "code": "hti",
+        "name": "Haiti / Haïti"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "cuw",
+    "content_hash": "2e25bae62fba7daabd6c780bb018634bac1d8ab69966c096aa65f062dc337206",
+    "notes_hash": "dfcaed8ab4f74fd67e5131121713baa00b71f2e3fa074ad2ca2f80ceb6e90ddd",
+    "model_hash": "47f7c72456a8125c46b93ca02c6c24302edd662e2582a1f1c01f2d405ff16371"
+  },
+  "geo_code": "CW",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

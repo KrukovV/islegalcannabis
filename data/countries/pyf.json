@@ -1,0 +1,139 @@
+{
+  "code": "pyf",
+  "iso2": "PF",
+  "name": "French Polynesia / Polynésie française",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in French Polynesia / Polynésie française. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in French Polynesia / Polynésie française. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "No notes available.",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "cok",
+    "niu",
+    "asm"
+  ],
+  "related_names": [
+    {
+      "code": "cok",
+      "name": "Cook Islands / Kūki 'Āirani"
+    },
+    {
+      "code": "niu",
+      "name": "Niue / Niuē"
+    },
+    {
+      "code": "asm",
+      "name": "American Samoa / Sāmoa Amelika"
+    }
+  ],
+  "coordinates": {
+    "lat": -17.628081,
+    "lng": -149.46157
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/French_Polynesia",
+    "wiki_truth": null,
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/French_Polynesia",
+        "title": "Wikipedia: French Polynesia / Polynésie française",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "OCEANIA",
+    "seo_cluster": "OCEANIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "cok",
+        "name": "Cook Islands / Kūki 'Āirani"
+      },
+      {
+        "code": "niu",
+        "name": "Niue / Niuē"
+      },
+      {
+        "code": "asm",
+        "name": "American Samoa / Sāmoa Amelika"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "pcn",
+        "name": "Pitcairn Islands"
+      },
+      {
+        "code": "wsm",
+        "name": "Samoa / Sāmoa"
+      },
+      {
+        "code": "ton",
+        "name": "Tonga"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "wlf",
+        "name": "Wallis and Futuna / Wallis et Futuna"
+      },
+      {
+        "code": "aus",
+        "name": "Australia"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "pyf",
+    "content_hash": "7ed7f36b23a0c47a52b88b20a0d637f1839c95f821b3ab74b780b58d46af675e",
+    "notes_hash": "3a897e71eef6f82348f8e69e74830e7ad41355b0bb404458e2517010e0711475",
+    "model_hash": "020bb1ed5d3fd73c1fff0b45032153204fbfcc878bdb921a164a37e09413697b"
+  },
+  "geo_code": "PF",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

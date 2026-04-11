@@ -1,0 +1,146 @@
+{
+  "code": "bgr",
+  "iso2": "BG",
+  "name": "Bulgaria / България",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Bulgaria / България. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Bulgaria / България. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Bulgaria}} Cannabis is classified as a class A (High-risk) drug, together with [[heroin]], [[cocaine]], [[amphetamines]], and [[MDMA]] (ecstasy). Until 2004, a loosely defined \"personal dose\" existed.<ref>{{cite web |title=Bulgaria: Country Drug Report 2017 |url=http://www.emcdda.europa.eu/countries/drug-reports/2017/bulgaria/drug-laws-and-offences_en |publisher=European Monitoring Centre for Drugs and Drug Addiction |access-date=17 October 2018 |archive-date=17 October 2018 |archive-url=https://web.archive.org/web/20181017123705/http://www.emcdda.europa.eu/countries/drug-reports/2017/bulgaria/drug-laws-and-offences_en |url-status=live }}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "rou",
+    "mkd",
+    "srb"
+  ],
+  "related_names": [
+    {
+      "code": "rou",
+      "name": "Romania / România"
+    },
+    {
+      "code": "mkd",
+      "name": "North Macedonia / Македонија"
+    },
+    {
+      "code": "srb",
+      "name": "Serbia / Србија"
+    }
+  ],
+  "coordinates": {
+    "lat": 43,
+    "lng": 25
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Bulgaria",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Bulgaria",
+        "title": "Wikipedia: Bulgaria / България",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "rou",
+        "name": "Romania / România"
+      },
+      {
+        "code": "mkd",
+        "name": "North Macedonia / Македонија"
+      },
+      {
+        "code": "srb",
+        "name": "Serbia / Србија"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "grc",
+        "name": "Greece / Ελλάδα"
+      },
+      {
+        "code": "alb",
+        "name": "Albania / Shqipëria"
+      },
+      {
+        "code": "mne",
+        "name": "Montenegro / Црна Гора"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "mda",
+        "name": "Moldova"
+      },
+      {
+        "code": "hun",
+        "name": "Hungary / Magyarország"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "bgr",
+    "content_hash": "2c52fe256deeae066d20823fa649dc27f3d05b4eafaba6e00b5f5453093fae6d",
+    "notes_hash": "9cdf972c0cf45d5efbf5a7c0ef96193c68ab76295865d50f0acf81ab559e620a",
+    "model_hash": "88d433ce2d17e70fb581e30601b664b7e9b528a9ee70c583d19f458423e6501c"
+  },
+  "geo_code": "BG",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

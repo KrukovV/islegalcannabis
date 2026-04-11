@@ -56,11 +56,11 @@ export function normalizeMapCategory(value) {
 export function canonicalizeStatusPair(recValue, medValue) {
   const rec = normalizeStatus(recValue);
   const med = normalizeStatus(medValue);
-  if (rec === "Legal" && med !== "Legal") {
+  if ((rec === "Legal" || rec === "Decrim") && med !== "Legal" && med !== "Limited") {
     return {
-      finalRecStatus: "Legal",
-      finalMedStatus: "Legal",
-      ruleId: "REC_LEGAL_IMPLIES_MED_LEGAL"
+      finalRecStatus: rec,
+      finalMedStatus: "Limited",
+      ruleId: "REC_IMPLIES_MED_FLOOR"
     };
   }
   return {
@@ -73,8 +73,7 @@ export function canonicalizeStatusPair(recValue, medValue) {
 export function isSupportedStatusPair(recValue, medValue) {
   const { finalRecStatus: rec, finalMedStatus: med } = canonicalizeStatusPair(recValue, medValue);
   if (rec === "Unknown") return true;
-  if (rec === "Legal") return med === "Legal";
-  if (rec === "Decrim") return true;
+  if (rec === "Legal" || rec === "Decrim") return med === "Legal" || med === "Limited";
   if (rec === "Limited" || rec === "Unenforced") return true;
   if (rec === "Illegal") return true;
   return false;

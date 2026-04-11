@@ -1,0 +1,145 @@
+{
+  "code": "hun",
+  "iso2": "HU",
+  "name": "Hungary / Magyarország",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "LIMITED",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": "rec_implies_med_floor"
+    },
+    "distribution": {
+      "status": "restricted",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "legal",
+      "rec_implies_med_floor"
+    ],
+    "notes_normalized": "Cannabis is legal in Hungary / Magyarország. Medical cannabis is limited. Distribution is restricted."
+  },
+  "notes_normalized": "Cannabis is legal in Hungary / Magyarország. Medical cannabis is limited. Distribution is restricted.",
+  "notes_raw": "{{main|Cannabis in Hungary}} There is no distinction in Hungarian law between illicit drugs according to dangers. [[Heroin]] use has the same legal consequences as cannabis use.<ref>{{citation |author = Minstrel |url = http://www.daath.hu/showText.php?id=62#chapter3 |title = Társaság a Szabadságjogokért: Drogjog 1999 Voted Vote D2ID : 62 |publisher = Daath.hu |access-date = 17 February 2011 |archive-date = 4 June 2019 |archive-url = https://web.archive.org/web/20190604073510/http://www.daath.hu/showText.php?id=62#chapter3 |url-status = live }}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "svk",
+    "srb",
+    "bih"
+  ],
+  "related_names": [
+    {
+      "code": "svk",
+      "name": "Slovakia / Slovensko"
+    },
+    {
+      "code": "srb",
+      "name": "Serbia / Србија"
+    },
+    {
+      "code": "bih",
+      "name": "Bosnia and Herzegovina / Bosna i Hercegovina"
+    }
+  ],
+  "coordinates": {
+    "lat": 47,
+    "lng": 20
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Hungary",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Hungary",
+        "title": "Wikipedia: Hungary / Magyarország",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "svk",
+        "name": "Slovakia / Slovensko"
+      },
+      {
+        "code": "srb",
+        "name": "Serbia / Србија"
+      },
+      {
+        "code": "bih",
+        "name": "Bosnia and Herzegovina / Bosna i Hercegovina"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "hrv",
+        "name": "Croatia / Hrvatska"
+      },
+      {
+        "code": "svn",
+        "name": "Slovenia / Slovenija"
+      },
+      {
+        "code": "cze",
+        "name": "Czechia / Česko"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "mne",
+        "name": "Montenegro / Црна Гора"
+      },
+      {
+        "code": "pol",
+        "name": "Poland / Polska"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "hun",
+    "content_hash": "7228680b0a18ac0ad2e9299c107677febbf8554d1ccfeb9be8cb8129f94afe19",
+    "notes_hash": "ecb887de25ebe692a6d4970f5e1088e2a2f2bdd6fb7fef8f0d029a7a702fd49b",
+    "model_hash": "f08f4dc01ed48a056fd0d4263be0e24340e37c57f826570d653eda682e55e9a8"
+  },
+  "geo_code": "HU",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

@@ -1,8 +1,10 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 
 const CHECK_MS = 30_000;
+const DISMISSED_BUILD_KEY = "build-watcher-dismissed-stamp";
 
 type BuildMeta = {
   buildId?: string;
@@ -20,7 +22,7 @@ function getClientRuntimeStamp(): string {
   const nextData = (window as unknown as { __NEXT_DATA__?: { buildId?: string } }).__NEXT_DATA__;
   const node = document.querySelector("[data-testid='runtime-stamp']");
   const parts = [
-    String(nextData?.buildId || "dev"),
+    String(node?.getAttribute("data-build-id") || nextData?.buildId || "dev"),
     String(node?.getAttribute("data-commit") || "unknown"),
     String(node?.getAttribute("data-built-at") || "UNCONFIRMED"),
     String(node?.getAttribute("data-dataset-hash") || "UNCONFIRMED"),
@@ -30,11 +32,66 @@ function getClientRuntimeStamp(): string {
   return parts.join("|");
 }
 
+function resetClientRuntimePrefetch() {
+  if (typeof window === "undefined") {
+    return;
+  }
+  const host = window as typeof window & {
+    __NEW_MAP_PREFETCH__?: unknown;
+  };
+  delete host.__NEW_MAP_PREFETCH__;
+}
+
+async function waitForRuntimeStamp(expectedStamp: string, timeoutMs = 5_000) {
+  const startedAt = Date.now();
+  while (Date.now() - startedAt < timeoutMs) {
+    if (getClientRuntimeStamp() === expectedStamp) {
+      return true;
+    }
+    await new Promise((resolve) => window.setTimeout(resolve, 120));
+  }
+  return false;
+}
+
 export default function BuildWatcher() {
+  const router = useRouter();
+  const isProduction = process.env.NODE_ENV === "production";
   const initialRuntimeStamp = useMemo(() => getClientRuntimeStamp(), []);
   const [nextRuntimeStamp, setNextRuntimeStamp] = useState<string | null>(null);
   const [dismissed, setDismissed] = useState(false);
+  const [refreshing, setRefreshing] = useState(false);
   const isNewMapRoute = typeof window !== "undefined" && window.location.pathname.startsWith("/new-map");
+
+  const handleApplyUpdate = useCallback(async () => {
+    if (!nextRuntimeStamp || refreshing) {
+      return;
+    }
+    setRefreshing(true);
+    try {
+      if (typeof window !== "undefined") {
+        window.localStorage.removeItem(DISMISSED_BUILD_KEY);
+      }
+      resetClientRuntimePrefetch();
+      router.refresh();
+      const synced = await waitForRuntimeStamp(nextRuntimeStamp);
+      if (synced) {
+        setNextRuntimeStamp(null);
+        setDismissed(false);
+        return;
+      }
+      resetClientRuntimePrefetch();
+      router.refresh();
+      const retried = await waitForRuntimeStamp(nextRuntimeStamp, 6_500);
+      if (retried) {
+        setNextRuntimeStamp(null);
+        setDismissed(false);
+        return;
+      }
+      window.location.reload();
+    } finally {
+      setRefreshing(false);
+    }
+  }, [nextRuntimeStamp, refreshing, router]);
 
   useEffect(() => {
     let alive = true;
@@ -55,8 +112,17 @@ export default function BuildWatcher() {
           String(payload.snapshotBuiltAt || "UNCONFIRMED")
         ].join("|");
         if (!observed || observed === initialRuntimeStamp) {
+          setNextRuntimeStamp(null);
           return;
         }
+        const dismissedStamp =
+          typeof window !== "undefined" ? window.localStorage.getItem(DISMISSED_BUILD_KEY) : null;
+        if (dismissedStamp === observed) {
+          setDismissed(true);
+          setNextRuntimeStamp(observed);
+          return;
+        }
+        setDismissed(false);
         setNextRuntimeStamp(observed);
       } catch {
         // build check is best-effort only
@@ -74,7 +140,7 @@ export default function BuildWatcher() {
     };
   }, [initialRuntimeStamp]);
 
-  if (isNewMapRoute || !nextRuntimeStamp || dismissed) {
+  if (isProduction || isNewMapRoute || !nextRuntimeStamp || dismissed) {
     return null;
   }
 
@@ -102,29 +168,40 @@ export default function BuildWatcher() {
       <div style={{ display: "flex", gap: 8 }}>
         <button
           type="button"
-          onClick={() => window.location.reload()}
+          onClick={() => {
+            void handleApplyUpdate();
+          }}
+          disabled={refreshing}
           style={{
             borderRadius: 8,
             border: "1px solid rgba(20,40,30,0.2)",
             padding: "6px 10px",
             background: "#0f766e",
             color: "#fff",
-            cursor: "pointer"
+            cursor: refreshing ? "wait" : "pointer",
+            opacity: refreshing ? 0.72 : 1
           }}
         >
-          Обновить
+          {refreshing ? "Обновляем…" : "Обновить"}
         </button>
         <button
           type="button"
-          onClick={() => setDismissed(true)}
+          onClick={() => {
+            if (nextRuntimeStamp && typeof window !== "undefined") {
+              window.localStorage.setItem(DISMISSED_BUILD_KEY, nextRuntimeStamp);
+            }
+            setDismissed(true);
+          }}
           style={{
             borderRadius: 8,
             border: "1px solid rgba(20,40,30,0.2)",
             padding: "6px 10px",
             background: "transparent",
             color: "#1f2937",
-            cursor: "pointer"
+            cursor: refreshing ? "default" : "pointer",
+            opacity: refreshing ? 0.5 : 1
           }}
+          disabled={refreshing}
         >
           Позже
         </button>

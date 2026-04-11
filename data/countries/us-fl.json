@@ -1,0 +1,179 @@
+{
+  "code": "us-fl",
+  "geo_code": "US-FL",
+  "iso2": "US-FL",
+  "name": "Florida",
+  "node_type": "state",
+  "normalized_version": "v1",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "restricted",
+      "scopes": {
+        "possession": "illegal",
+        "use": "illegal",
+        "sale": "illegal",
+        "cultivation": "illegal",
+        "import": "illegal",
+        "trafficking": "illegal"
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": []
+  },
+  "notes_normalized": "Cannabis is illegal in Florida for recreational use under state law, but medical cannabis is available in limited form. Cannabis remains federally illegal in United States. Possession is limited to Medical only.",
+  "notes_raw": "illegal",
+  "facts": {
+    "possession_limit": "Medical only",
+    "cultivation": "Home grow remains illegal.",
+    "penalty": "Public use remains illegal."
+  },
+  "parent_country": {
+    "code": "usa",
+    "name": "United States"
+  },
+  "state_modifiers": {
+    "recreational": "override",
+    "medical": "override",
+    "enforcement_strength": "HIGH",
+    "federal_conflict": "Cannabis remains federally illegal in United States.",
+    "legalization_status": "Medical only"
+  },
+  "related_codes": [
+    "usa",
+    "us-mi",
+    "us-ma",
+    "us-ak"
+  ],
+  "related_names": [
+    {
+      "code": "usa",
+      "name": "United States"
+    },
+    {
+      "code": "us-mi",
+      "name": "Michigan"
+    },
+    {
+      "code": "us-ma",
+      "name": "Massachusetts"
+    },
+    {
+      "code": "us-ak",
+      "name": "Alaska"
+    }
+  ],
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "USA_CLUSTER",
+    "geo_neighbors": [
+      {
+        "code": "us-nj",
+        "name": "New Jersey"
+      },
+      {
+        "code": "us-il",
+        "name": "Illinois"
+      },
+      {
+        "code": "us-ny",
+        "name": "New York"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "us-pa",
+        "name": "Pennsylvania"
+      },
+      {
+        "code": "us-va",
+        "name": "Virginia"
+      },
+      {
+        "code": "us-tx",
+        "name": "Texas"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "usa",
+        "name": "United States"
+      },
+      {
+        "code": "us-al",
+        "name": "Alabama"
+      }
+    ],
+    "same_country_states": [
+      {
+        "code": "us-mi",
+        "name": "Michigan"
+      },
+      {
+        "code": "us-ma",
+        "name": "Massachusetts"
+      },
+      {
+        "code": "us-ak",
+        "name": "Alaska"
+      }
+    ],
+    "federal_parent": {
+      "code": "usa",
+      "name": "United States"
+    }
+  },
+  "coordinates": {
+    "lat": 27.6648,
+    "lng": -81.5158
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Florida",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "official-us-fl",
+        "url": "https://knowthefactsmmj.com/",
+        "title": "Florida Medical Marijuana",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki-us-fl",
+        "url": "https://en.wikipedia.org/wiki/Florida",
+        "title": "Wikipedia: Florida",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki-truth-us-fl",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "hashes": {
+    "code": "us-fl",
+    "content_hash": "86e75479a90eb1c27e0fb91a75ceef0effbf37dfa59a8d4843e55b0e37b7f4d4",
+    "notes_hash": "0630dcb622add49d7fb1772c9d1e3f3cf6d0b1a7299131417c128c10ab591b18",
+    "model_hash": "5e54a2c1f4c8eda4578211d6f7b5ca7a08fe2695d1874dd18dede15a648802e5"
+  },
+  "updated_at": "2024-01-01"
+}

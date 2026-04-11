@@ -1,0 +1,144 @@
+{
+  "code": "bgd",
+  "iso2": "BD",
+  "name": "Bangladesh / বাংলাদেশ",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Bangladesh / বাংলাদেশ. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Bangladesh / বাংলাদেশ. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Bangladesh}} Sale banned in 1989,<ref>{{cite web |url=http://dhakainsider.com/bangladesh-news/drug-abuse-where-is-the-way-of-remedy-part-ii-some-dangerous-silent-killers/ |title=Drug Abuse: Where is The Way of Remedy? (Part II- Some Dangerous Silent Killers) |publisher=DhakaInsider |date=20 June 2014 |access-date=15 November 2016 |archive-url=https://web.archive.org/web/20161115140731/http://dhakainsider.com/bangladesh-news/drug-abuse-where-is-the-way-of-remedy-part-ii-some-dangerous-silent-killers/ |archive-date=15 November 2016 |url-status=dead}}</ref> but laws are rarely enforced and cannabis is openly sold in many parts of the country.<ref>{{cite web |author1=Government of Bangladesh |author-link1=Government of Bangladesh |title=Narcotics Substances Control Act, 2018 |url=http://bdlaws.minlaw.gov.bd/act-details-1276.html |access-date=11 November 2016 |archive-date=11 October 2019 |archive-url=https://web.archive.org/web/20191011034412/http://bdlaws.minlaw.gov.bd/act-details-1276.html |url-status=live }}</ref><ref>{{cite web |title=Dhaka, Bangladesh – We Be High |url=http://webehigh.org/dhaka-bangladesh/ |website=webehigh.org |publisher=webehigh |access-date=5 December 2015 |archive-date=30 June 2018 |archive-url=https://web.archive.org/web/20180630024753/http://webehigh.org/dhaka-bangladesh/ |url-status=live }}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "btn",
+    "npl",
+    "mmr"
+  ],
+  "related_names": [
+    {
+      "code": "btn",
+      "name": "Bhutan / འབྲུག་ཡུལ་"
+    },
+    {
+      "code": "npl",
+      "name": "Nepal / नेपाल"
+    },
+    {
+      "code": "mmr",
+      "name": "Myanmar / မြန်မာ"
+    }
+  ],
+  "coordinates": {
+    "lat": 24,
+    "lng": 90
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Bangladesh",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Bangladesh",
+        "title": "Wikipedia: Bangladesh / বাংলাদেশ",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "ASIA",
+    "seo_cluster": "ASIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "btn",
+        "name": "Bhutan / འབྲུག་ཡུལ་"
+      },
+      {
+        "code": "npl",
+        "name": "Nepal / नेपाल"
+      },
+      {
+        "code": "mmr",
+        "name": "Myanmar / မြန်မာ"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "ind",
+        "name": "India / भारत"
+      },
+      {
+        "code": "lao",
+        "name": "Laos / ສປປລາວ"
+      },
+      {
+        "code": "chn",
+        "name": "China / 中国"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "tha",
+        "name": "Thailand / ประเทศไทย"
+      },
+      {
+        "code": "khm",
+        "name": "Cambodia / Kâmpŭchéa"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "bgd",
+    "content_hash": "dac7c5a6dd58bd896bbd6097a733f62634d38fac456e619edd8b5b744aee6ac4",
+    "notes_hash": "11357b36c53661bc63ebbe5fb700881afced94cfa7433c329fff23564fa629ad",
+    "model_hash": "52168f766b40f7c348853d73aa36e263d01934002b8b70746417f2a678d06e32"
+  },
+  "geo_code": "BD",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

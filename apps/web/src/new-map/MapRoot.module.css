@@ -3,30 +3,35 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background: #c6d0d7;
+  background: var(--new-map-water-color, #d4dadc);
 }
 
 .mapSurface {
   position: absolute;
   inset: 0;
-  background: #c6d0d7;
+  background: var(--new-map-water-color, #d4dadc);
+  visibility: hidden;
 }
 
-.mapSurface :global(.maplibregl-map) {
-  background: #c6d0d7;
+.mapSurfaceReady {
+  visibility: visible;
 }
 
-.mapSurface :global(.maplibregl-canvas) {
-  background: #c6d0d7 !important;
-}
-
-.mapSurface :global(.maplibregl-canvas-container) {
-  background: #c6d0d7;
+.asciiCanvas {
+  position: absolute;
+  inset: 0;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: 25;
+  pointer-events: none;
 }
 
 .overlay {
   position: absolute;
-  z-index: 2;
+  z-index: 30;
   left: 20px;
   top: 20px;
   display: grid;
@@ -86,18 +91,112 @@
 
 .errorBox {
   position: absolute;
-  z-index: 3;
+  z-index: 31;
   right: 20px;
   bottom: 20px;
   max-width: min(420px, calc(100vw - 40px));
   color: #8d1f1f;
 }
 
+.seoOverlayPanel {
+  position: absolute;
+  z-index: 31;
+  top: 20px;
+  right: 20px;
+  width: min(420px, calc(100vw - 40px));
+  max-height: min(78vh, 840px);
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(103, 120, 133, 0.2);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(40, 55, 70, 0.12);
+  padding: 18px 18px 14px;
+  color: #283746;
+  backdrop-filter: blur(18px);
+}
+
+.seoPanelHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.seoPanelTitle {
+  margin: 0;
+  font-size: 1.28rem;
+  line-height: 1.18;
+}
+
+.seoPanelClose {
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(86, 110, 128, 0.12);
+  color: #33485b;
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+
+.seoPanelIntro {
+  margin: 12px 0 0;
+  color: #344b5d;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.seoPanelSection {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(103, 120, 133, 0.14);
+}
+
+.seoPanelSection h2 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+}
+
+.seoPanelSection p,
+.seoPanelSection li {
+  margin: 0;
+  color: #344b5d;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.seoPanelSubheading {
+  margin: 10px 0 6px;
+  color: #4f6677;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.seoPanelList {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 8px;
+}
+
+.seoPanelList a {
+  color: #1d5966;
+  text-decoration: none;
+}
+
+.seoPanelList a:hover {
+  text-decoration: underline;
+}
+
 .aiDock {
   position: absolute;
-  z-index: 4;
+  z-index: 32;
   left: 50%;
-  bottom: 24px;
+  bottom: 72px;
   width: min(720px, 90vw);
   transform: translateX(-50%);
   display: grid;
@@ -200,20 +299,6 @@
   box-shadow: 0 12px 30px rgba(40, 55, 70, 0.16);
   backdrop-filter: blur(18px);
   padding: 16px 18px 8px;
-}
-
-.aiAnswerBlock + .aiAnswerBlock {
-  margin-top: 14px;
-  padding-top: 14px;
-  border-top: 1px solid rgba(103, 120, 133, 0.12);
-}
-
-.aiAnswerPrompt {
-  color: #35516a;
-  font-size: 0.9rem;
-  font-weight: 700;
-  line-height: 1.45;
-  white-space: pre-wrap;
 }
 
 .aiGeoHint {
@@ -324,6 +409,34 @@
   transform: translate(-50%, -50%) rotate(45deg);
 }
 
+.infoMarker {
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.96);
+  color: #29495d;
+  box-shadow: 0 10px 24px rgba(40, 55, 70, 0.22);
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.infoMarker[data-active="true"] {
+  background: #29495d;
+  color: #ffffff;
+}
+
+.stateMarker {
+  width: 24px;
+  height: 24px;
+  font-size: 0.82rem;
+  box-shadow: 0 8px 18px rgba(40, 55, 70, 0.18);
+}
+
 @media (max-width: 720px) {
   .overlay {
     left: 12px;
@@ -337,8 +450,17 @@
     padding: 14px;
   }
 
+  .seoOverlayPanel {
+    top: 12px;
+    right: 12px;
+    width: min(420px, calc(100vw - 24px));
+    max-height: min(72vh, 760px);
+    border-radius: 14px;
+    padding: 14px;
+  }
+
   .aiDock {
-    bottom: 16px;
+    bottom: 56px;
     width: calc(100vw - 24px);
   }
 

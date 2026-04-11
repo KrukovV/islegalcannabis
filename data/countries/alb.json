@@ -1,0 +1,147 @@
+{
+  "code": "alb",
+  "iso2": "AL",
+  "name": "Albania / Shqipëria",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": "illegal"
+      },
+      "enforcement": "standard",
+      "flags": [
+        "trafficking_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "trafficking_illegal",
+      "illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Albania / Shqipëria. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Albania / Shqipëria. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Albania}} Prohibited but plants highly available throughout the country and law often unenforced.<ref name=\"setimes-albania\">{{citation |url = http://www.setimes.com/cocoon/setimes/xhtml/en_GB/features/setimes/features/2012/08/07/feature-03 |title = Growing marijuana is an increasing regional problem |publisher = SETimes.com |date = 7 August 2012 |access-date = 18 April 2013 |archive-date = 4 March 2016 |archive-url = https://web.archive.org/web/20160304045944/http://www.setimes.com/cocoon/setimes/xhtml/en_GB/features/setimes/features/2012/08/07/feature-03 |url-status = live }}</ref><ref name=\"balkaninsight-albania-1\">{{citation |url = http://www.balkaninsight.com/en/article/report-cannabis-growth-mounts-in-albania |title = Report Says Albania Cannabis Growth Mounting |date = 7 March 2013 |access-date = 18 April 2013 |publisher = balkaninsight.com |archive-date = 30 September 2018 |archive-url = https://web.archive.org/web/20180930100941/http://www.balkaninsight.com/en/article/report-cannabis-growth-mounts-in-albania |url-status = live }}</ref><ref name=\"balkaninsight-albania-2\">{{citation |url = http://www.balkaninsight.com/en/article/albania-police-bust-major-cannabis-shipments |title = Albanian Police Seize Cannabis Shipment |publisher = balkaninsight.com |date = 28 December 2011 |access-date = 5 June 2018 |archive-date = 5 September 2017 |archive-url = https://web.archive.org/web/20170905095749/http://www.balkaninsight.com/en/article/albania-police-bust-major-cannabis-shipments |url-status = live }}</ref>\nOn 21 July 2023 the [[Albanian Parliament]] voted 69–23 to legalize medical cannabis.<ref>{{cite news |title=Albanian Parliament legalizes medical cannabis despite harsh opposition |url=https://apnews.com/article/albania-legalize-medical-cannabis-trafficking-drugs-81c423f05a08537f606fb4dc535f8bfa |access-date=24 July 2023 |publisher=[[Associated Press]] |date=21 July 2023 |archive-url=https://web.archive.org/web/20230813230102/https://apnews.com/article/albania-legalize-medical-cannabis-trafficking-drugs-81c423f05a08537f606fb4dc535f8bfa |archive-date=13 August 2023 |url-status=live}}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": "plants highly available throughout the country and law often unenforced.",
+    "penalty": null
+  },
+  "related_codes": [
+    "mne",
+    "mkd",
+    "grc"
+  ],
+  "related_names": [
+    {
+      "code": "mne",
+      "name": "Montenegro / Црна Гора"
+    },
+    {
+      "code": "mkd",
+      "name": "North Macedonia / Македонија"
+    },
+    {
+      "code": "grc",
+      "name": "Greece / Ελλάδα"
+    }
+  ],
+  "coordinates": {
+    "lat": 41,
+    "lng": 20
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Albania",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Albania",
+        "title": "Wikipedia: Albania / Shqipëria",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "mne",
+        "name": "Montenegro / Црна Гора"
+      },
+      {
+        "code": "mkd",
+        "name": "North Macedonia / Македонија"
+      },
+      {
+        "code": "grc",
+        "name": "Greece / Ελλάδα"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "srb",
+        "name": "Serbia / Србија"
+      },
+      {
+        "code": "bih",
+        "name": "Bosnia and Herzegovina / Bosna i Hercegovina"
+      },
+      {
+        "code": "bgr",
+        "name": "Bulgaria / България"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "hun",
+        "name": "Hungary / Magyarország"
+      },
+      {
+        "code": "hrv",
+        "name": "Croatia / Hrvatska"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "alb",
+    "content_hash": "dead0afdc902d2ba8da37a015e8d99a017ac1f421be17bc9c1fd923b14221efa",
+    "notes_hash": "a9cf348b17e4e51738067ab789ecadf53715809c3853092746793b3efdfeabe4",
+    "model_hash": "4cc8364d9d6689112047693bad91ad3ec24467333aec3c93af92c1aea60dd7a0"
+  },
+  "geo_code": "AL",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

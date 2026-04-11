@@ -1,0 +1,146 @@
+{
+  "code": "mar",
+  "iso2": "MA",
+  "name": "Morocco / المغرب",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Morocco / المغرب. Medical cannabis is legal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Morocco / المغرب. Medical cannabis is legal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Morocco}} Morocco is among the world's top producers of hashish.",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "gib",
+    "prt",
+    "esp"
+  ],
+  "related_names": [
+    {
+      "code": "gib",
+      "name": "Gibraltar"
+    },
+    {
+      "code": "prt",
+      "name": "Portugal"
+    },
+    {
+      "code": "esp",
+      "name": "Spain / España"
+    }
+  ],
+  "coordinates": {
+    "lat": 32,
+    "lng": -5
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Morocco",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Morocco",
+        "title": "Wikipedia: Morocco / المغرب",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "AFRICA",
+    "seo_cluster": "AFRICA",
+    "geo_neighbors": [
+      {
+        "code": "gib",
+        "name": "Gibraltar"
+      },
+      {
+        "code": "prt",
+        "name": "Portugal"
+      },
+      {
+        "code": "esp",
+        "name": "Spain / España"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "dza",
+        "name": "Algeria / الجزائر"
+      },
+      {
+        "code": "esh",
+        "name": "Western Sahara / الصحراء الغربية"
+      },
+      {
+        "code": "and",
+        "name": "Andorra"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "mrt",
+        "name": "Mauritania / موريتانيا"
+      },
+      {
+        "code": "tun",
+        "name": "Tunisia / تونس"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "mar",
+    "content_hash": "ccc21960080801322e3ed0e572f3862b4a056f3ae345dd2eed2706b8fa833d3f",
+    "notes_hash": "dba651ab562317aa41a092cda7e7ba51d7bec10d1c064b9fca070cd932647f38",
+    "model_hash": "e0b22d93570ba3be53f4b8d35eb4cdf69c8e7573680d52abfa2cd5d299e7e0d0"
+  },
+  "geo_code": "MA",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

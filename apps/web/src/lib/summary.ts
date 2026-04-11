@@ -20,15 +20,17 @@ function formatStatusValue(value?: string) {
 export function buildBullets(profile: JurisdictionLawProfile): SummaryBullet[] {
   const isVerified = profile.status === "known";
   const unverifiedSuffix = isVerified ? "" : " (unverified)";
+  const medicalStatus = profile.legal_ssot?.medical || profile.medical;
+  const recreationalStatus = profile.legal_ssot?.recreational || profile.recreational;
 
   return [
     {
       label: "Medical",
-      value: `${formatStatusValue(profile.medical)}${unverifiedSuffix}`
+      value: `${formatStatusValue(medicalStatus)}${unverifiedSuffix}`
     },
     {
       label: "Recreational",
-      value: `${formatStatusValue(profile.recreational)}${unverifiedSuffix}`
+      value: `${formatStatusValue(recreationalStatus)}${unverifiedSuffix}`
     },
     {
       label: "Possession limit",

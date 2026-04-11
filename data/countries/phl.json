@@ -1,0 +1,145 @@
+{
+  "code": "phl",
+  "iso2": "PH",
+  "name": "Philippines / Pilipinas",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "restricted",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "medical_legal",
+      "legal"
+    ],
+    "notes_normalized": "Cannabis is legal in Philippines / Pilipinas. Medical cannabis is legal. Distribution is restricted."
+  },
+  "notes_normalized": "Cannabis is legal in Philippines / Pilipinas. Medical cannabis is legal. Distribution is restricted.",
+  "notes_raw": "{{main|Cannabis in the Philippines}} Medical use of cannabis is possible with a special permit from the Food and Drugs Authority for use by individuals with serious or terminal illness.<ref>{{cite news |last1=Viray |first1=Patricia Lourdes |title=Fact check: Is medical marijuana already allowed in the Philippines? |url=https://www.philstar.com/headlines/2018/12/18/1878036/fact-check-medical-marijuana-already-allowed-philippines |access-date=28 December 2018 |work=[[The Philippine Star]] |date=18 December 2018 |archive-date=20 December 2018 |archive-url=https://web.archive.org/web/20181220091203/https://www.philstar.com/headlines/2018/12/18/1878036/fact-check-medical-marijuana-already-allowed-philippines |url-status=live }}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "twn",
+    "brn",
+    "hkg"
+  ],
+  "related_names": [
+    {
+      "code": "twn",
+      "name": "Taiwan / 台灣"
+    },
+    {
+      "code": "brn",
+      "name": "Brunei / Negara Brunei Darussalam"
+    },
+    {
+      "code": "hkg",
+      "name": "Hong Kong / 香港"
+    }
+  ],
+  "coordinates": {
+    "lat": 13,
+    "lng": 122
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Philippines",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Philippines",
+        "title": "Wikipedia: Philippines / Pilipinas",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "ASIA",
+    "seo_cluster": "ASIA",
+    "geo_neighbors": [
+      {
+        "code": "twn",
+        "name": "Taiwan / 台灣"
+      },
+      {
+        "code": "brn",
+        "name": "Brunei / Negara Brunei Darussalam"
+      },
+      {
+        "code": "hkg",
+        "name": "Hong Kong / 香港"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "sgp",
+        "name": "Singapore / Singapura"
+      },
+      {
+        "code": "tha",
+        "name": "Thailand / ประเทศไทย"
+      },
+      {
+        "code": "kor",
+        "name": "South Korea / 한국"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "mac",
+        "name": "Macau / 澳门"
+      },
+      {
+        "code": "mys",
+        "name": "Malaysia / مليسيا"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "phl",
+    "content_hash": "1a18480c8826b062c32c1b1176d10e55622d94d6bc5b116f72403a1fe2dc446e",
+    "notes_hash": "a72e09971e1831924bf9c0c42f7646755e41a2c865b3e5fb6f9c9ecc2945f3a0",
+    "model_hash": "e1d19443c4fab6123ee6b4be4eefe094686bb15f91954acd7a3c5411ce215178"
+  },
+  "geo_code": "PH",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

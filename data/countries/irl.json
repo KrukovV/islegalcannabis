@@ -1,0 +1,146 @@
+{
+  "code": "irl",
+  "iso2": "IE",
+  "name": "Ireland / Éire",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Ireland / Éire. Medical cannabis is legal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Ireland / Éire. Medical cannabis is legal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Ireland}} The National Drugs Strategy of 2009–2016 did not favor decriminalizing cannabis.<ref>{{cite web |url=http://health.gov.ie/wp-content/uploads/2014/03/nds_2009-16.pdf#page=28 |title=National Drugs Strategy (interim) 2009–2016 |date=June 2009 |series=Official publications |volume=PN.A7/0508 |publisher=Department of Community, Rural and Gaeltacht Affairs |page=26, sec.2.49 |access-date=5 December 2016 |archive-date=24 April 2018 |archive-url=https://web.archive.org/web/20180424215634/http://health.gov.ie/wp-content/uploads/2014/03/nds_2009-16.pdf#page=28 |url-status=live }}</ref> A new strategy was planned for 2017.<ref>{{cite press release|url=http://health.gov.ie/blog/press-release/minister-catherine-byrne-td-announces-a-public-consultation-on-the-new-national-drugs-strategy/|title=Minister Catherine Byrne TD announces a Public Consultation on the New National Drugs Strategy|date=6 September 2016|publisher=Department of Health|access-date=5 December 2016|location=Ireland|archive-date=17 July 2019|archive-url=https://web.archive.org/web/20190717225521/https://health.gov.ie/blog/press-release/minister-catherine-byrne-td-announces-a-public-consultation-on-the-new-national-drugs-strategy/|url-status=live}}</ref> Cannabis-derived medicines may be licensed since 2014.<ref name=kildare>{{cite web|url=https://www.kildarestreet.com/wrans/?id=2016-10-26a.310|title=Medicinal Products Availability: : Written answers|date=26 October 2016|work=Dáil Éireann debates|publisher=KildareStreet.com|access-date=5 December 2016|archive-date=21 July 2018|archive-url=https://web.archive.org/web/20180721073401/https://www.kildarestreet.com/wrans/?id=2016-10-26a.310|url-status=live}}</ref><ref>{{cite web|url=http://www.irishstatutebook.ie/eli/2014/si/323/made/en/print|title=S.I. No. 323/2014 – Misuse of Drugs (Amendment) Regulations 2014.|work=[[Irish Statute Book]]|access-date=5 December 2016|archive-date=30 September 2018|archive-url=https://web.archive.org/web/20180930052941/http://www.irishstatutebook.ie/eli/2014/si/323/made/en/print|url-status=live}}</ref> A review of policy on medicinal cannabis was announced in November 2016,<ref>{{cite web|url=https://www.kildarestreet.com/committees/?gid=2016-11-10a.1387|title=Joint Oireachtas Committee on Health: Quarterly Update on Health Issues: Discussion|last=Harris|first=Simon|date=10 November 2016|work=Oireachtas Joint and Select Committees proceedings|access-date=5 December 2016|archive-date=29 March 2017|archive-url=https://web.archive.org/web/20170329213512/https://www.kildarestreet.com/committees/?gid=2016-11-10a.1387|url-status=live}}</ref> and a [[private member's bill]] to legalize it passed [[second reading|second stage]] in the [[Dáil Éireann|Dáil]] in December 2016.<ref>{{cite web|url=https://www.kildarestreet.com/debates/?id=2016-12-01a.404|title=Cannabis for Medicinal Use (Regulations) Bill 2016: Second Stage [Private Members]|date=1 December 2016|work=Dáil debates|publisher=kildarestreet.com|access-date=5 December 2016|archive-date=21 July 2018|archive-url=https://web.archive.org/web/20180721073405/https://www.kildarestreet.com/debates/?id=2016-12-01a.404|url-status=live}}</ref><ref>{{Cite news|url=https://www.rte.ie/news/2016/1201/835669-cannabis-medicinal-use-dail/|title=Medicinal cannabis bill passes Dáil without vote|date=1 December 2016|publisher=[[RTÉ]]|access-date=2 December 2016|archive-date=21 July 2018|archive-url=https://web.archive.org/web/20180721073203/https://www.rte.ie/news/2016/1201/835669-cannabis-medicinal-use-dail/|url-status=live}}</ref><ref>{{cite web|url=http://www.oireachtas.ie/viewdoc.asp?DocID=33497&&CatID=59|title=Cannabis for Medicinal Use Regulation Bill 2016 Bill 2016 [PMB]|work=Bills|date=21 July 2016|publisher=Oireachtas|access-date=5 December 2016|archive-date=4 May 2018|archive-url=https://web.archive.org/web/20180504215059/http://www.oireachtas.ie/viewdoc.asp?DocID=33497&&CatID=59|url-status=live}}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "imn",
+    "gbr",
+    "ggy"
+  ],
+  "related_names": [
+    {
+      "code": "imn",
+      "name": "Isle of Man / Mannin"
+    },
+    {
+      "code": "gbr",
+      "name": "United Kingdom"
+    },
+    {
+      "code": "ggy",
+      "name": "Guernsey / Guernesey"
+    }
+  ],
+  "coordinates": {
+    "lat": 53,
+    "lng": -8
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Ireland",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Ireland",
+        "title": "Wikipedia: Ireland / Éire",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "imn",
+        "name": "Isle of Man / Mannin"
+      },
+      {
+        "code": "gbr",
+        "name": "United Kingdom"
+      },
+      {
+        "code": "ggy",
+        "name": "Guernsey / Guernesey"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "jey",
+        "name": "Jersey / Jèrri"
+      },
+      {
+        "code": "fro",
+        "name": "Faroe Islands / Færøerne"
+      },
+      {
+        "code": "fra",
+        "name": "France"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "bel",
+        "name": "Belgium / Belgien"
+      },
+      {
+        "code": "esp",
+        "name": "Spain / España"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "irl",
+    "content_hash": "38c167a0e6050a197d35b19b0d2238e6ebe3e2f3bdf14a878f206f83ac080113",
+    "notes_hash": "0b1b527617969118eac4aee5591ec4e8edef12b5fe6474df4d7d2a0908e0e94f",
+    "model_hash": "7c901ccbedb7c71ef56854d3ca616b15a5eca643a2f4035c9905fd741bcc393d"
+  },
+  "geo_code": "IE",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

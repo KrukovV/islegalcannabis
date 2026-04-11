@@ -1,0 +1,144 @@
+{
+  "code": "idn",
+  "iso2": "ID",
+  "name": "Indonesia",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Indonesia. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Indonesia. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Indonesia}} Banned in 1927.<ref name=\"Slone2003\">{{cite book|author=Thomas H. Slone|title=Prokem|url=https://books.google.com/books?id=phbLKWrK-9MC&pg=PA26|year=2003|publisher=Masalai Press|isbn=978-0-9714127-5-0|pages=26–}}</ref> Minimum sentence of 4 years in prison (additional fines may apply) if caught dealing / distributing. Rehabilitation or maximum sentence of 4 years if caught in possession alone.<ref>{{cite web |url = http://www.bnn.go.id/portal/_uploads/perundangan/2009/10/27/uu-nomor-35-tahun-2009-tentang-narkotika-ok.pdf |title = Undang-Undang Republik Indonesia No. 35 Tahun 2009 tentang Narkotika |work = BNN RI |access-date = 3 May 2013 |archive-url = https://web.archive.org/web/20180721073120/http://www.bnn.go.id/portal/_uploads/perundangan/2009/10/27/uu-nomor-35-tahun-2009-tentang-narkotika-ok.pdf |archive-date = 21 July 2018 |url-status = dead }}</ref><ref>{{cite web |last1=Aquino |first1=Michael |title=Drug Laws in Bali and the Rest of Indonesia |url=https://www.tripsavvy.com/drug-laws-in-indonesia-1629332 |website=TripSavvy |access-date=17 October 2018 |archive-date=17 October 2018 |archive-url=https://web.archive.org/web/20181017123648/https://www.tripsavvy.com/drug-laws-in-indonesia-1629332 |url-status=dead }}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": "fines may apply) if caught dealing / distributing."
+  },
+  "related_codes": [
+    "tls",
+    "mys",
+    "brn"
+  ],
+  "related_names": [
+    {
+      "code": "tls",
+      "name": "Timor-Leste / Timór-Leste"
+    },
+    {
+      "code": "mys",
+      "name": "Malaysia / مليسيا"
+    },
+    {
+      "code": "brn",
+      "name": "Brunei / Negara Brunei Darussalam"
+    }
+  ],
+  "coordinates": {
+    "lat": -5,
+    "lng": 120
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Indonesia",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Indonesia",
+        "title": "Wikipedia: Indonesia",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "ASIA",
+    "seo_cluster": "ASIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "tls",
+        "name": "Timor-Leste / Timór-Leste"
+      },
+      {
+        "code": "mys",
+        "name": "Malaysia / مليسيا"
+      },
+      {
+        "code": "brn",
+        "name": "Brunei / Negara Brunei Darussalam"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "plw",
+        "name": "Palau / Belau"
+      },
+      {
+        "code": "khm",
+        "name": "Cambodia / Kâmpŭchéa"
+      },
+      {
+        "code": "vnm",
+        "name": "Vietnam / Việt Nam"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "sgp",
+        "name": "Singapore / Singapura"
+      },
+      {
+        "code": "phl",
+        "name": "Philippines / Pilipinas"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "idn",
+    "content_hash": "7cb941af6bcfcefb1b2c0409fba3bc6f35e870d93cfc4d3f006b0f202af91640",
+    "notes_hash": "5c020ae177b8f69174b6fff49b3f5028b3d1ee02c31462eefb8f610a150a172d",
+    "model_hash": "567561fd741301d17432235f3b773e1e5aa2b19a147a8ea52ad82efc73a89dc1"
+  },
+  "geo_code": "ID",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

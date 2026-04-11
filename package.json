@@ -42,6 +42,7 @@
     "allowlist:merge": "node tools/sources/merge_official_allowlist.mjs",
     "ci": "bash tools/ci-local.sh",
     "publish:preview": "node tools/github/preview_publish_state.mjs",
-    "test:ui": "playwright test"
+    "test:ui": "playwright test",
+    "diag:playwright-interactive": "node tools/diagnostics/check_playwright_interactive_runtime.mjs"
   }
 }

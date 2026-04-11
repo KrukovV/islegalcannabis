@@ -1,0 +1,174 @@
+{
+  "code": "us-ms",
+  "geo_code": "US-MS",
+  "iso2": "US-MS",
+  "name": "Mississippi",
+  "node_type": "state",
+  "normalized_version": "v1",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "regulated",
+      "scopes": {
+        "possession": "restricted",
+        "use": "restricted",
+        "sale": "regulated",
+        "cultivation": null,
+        "import": "illegal",
+        "trafficking": "illegal"
+      },
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [
+      "fine_based"
+    ],
+    "applied_rules": []
+  },
+  "notes_normalized": "Cannabis is legal in Mississippi under state law for recreational adult use. Medical cannabis is not broadly legal in Mississippi. Cannabis remains federally illegal in United States.",
+  "notes_raw": "",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "parent_country": {
+    "code": "usa",
+    "name": "United States"
+  },
+  "state_modifiers": {
+    "recreational": "override",
+    "medical": "override",
+    "enforcement_strength": "MEDIUM",
+    "federal_conflict": "Cannabis remains federally illegal in United States.",
+    "legalization_status": "State legal"
+  },
+  "related_codes": [
+    "usa",
+    "us-ct",
+    "us-de",
+    "us-id"
+  ],
+  "related_names": [
+    {
+      "code": "usa",
+      "name": "United States"
+    },
+    {
+      "code": "us-ct",
+      "name": "Connecticut"
+    },
+    {
+      "code": "us-de",
+      "name": "Delaware"
+    },
+    {
+      "code": "us-id",
+      "name": "Idaho"
+    }
+  ],
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "USA_CLUSTER",
+    "geo_neighbors": [
+      {
+        "code": "us-ak",
+        "name": "Alaska"
+      },
+      {
+        "code": "us-al",
+        "name": "Alabama"
+      },
+      {
+        "code": "us-ar",
+        "name": "Arkansas"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "us-ga",
+        "name": "Georgia"
+      },
+      {
+        "code": "us-hi",
+        "name": "Hawaii"
+      },
+      {
+        "code": "us-ia",
+        "name": "Iowa"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "usa",
+        "name": "United States"
+      },
+      {
+        "code": "us-in",
+        "name": "Indiana"
+      }
+    ],
+    "same_country_states": [
+      {
+        "code": "us-ct",
+        "name": "Connecticut"
+      },
+      {
+        "code": "us-de",
+        "name": "Delaware"
+      },
+      {
+        "code": "us-id",
+        "name": "Idaho"
+      }
+    ],
+    "federal_parent": {
+      "code": "usa",
+      "name": "United States"
+    }
+  },
+  "coordinates": {
+    "lat": 38,
+    "lng": -97
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Mississippi",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki-us-ms",
+        "url": "https://en.wikipedia.org/wiki/Mississippi",
+        "title": "Wikipedia: Mississippi",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki-truth-us-ms",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "hashes": {
+    "code": "us-ms",
+    "content_hash": "541169cfa2d0fe9754de7b9e5cec724d2ab17466106a460f7bb47847d9e03304",
+    "notes_hash": "46ecf31e6c48e3719bd62b0ea3563d968b31ab32b484e7f026e937b6535c3c8a",
+    "model_hash": "e3764bdb06fe95d12921f8e809df93fe7e9ddab455602d07ee2cf164f26ec15c"
+  },
+  "updated_at": "2026-04-10"
+}

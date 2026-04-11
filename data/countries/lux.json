@@ -1,0 +1,145 @@
+{
+  "code": "lux",
+  "iso2": "LU",
+  "name": "Luxembourg / Luxemburg",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "DECRIMINALIZED",
+      "status": "DECRIMINALIZED",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "restricted",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "decriminalized",
+      "medical_legal"
+    ],
+    "notes_normalized": "Cannabis is decriminalized in Luxembourg / Luxemburg. Medical cannabis is legal. Distribution is restricted."
+  },
+  "notes_normalized": "Cannabis is decriminalized in Luxembourg / Luxemburg. Medical cannabis is legal. Distribution is restricted.",
+  "notes_raw": "{{main|Cannabis in Luxembourg}} Decriminalized in 2001.<ref>{{citation |title=Decriminalisation in Europe? |url=https://www.emcdda.europa.eu/attachements.cfm/att_5741_EN_Decriminalisation_Legal_Approaches.pdf |publisher=European Monitoring Centre for Drugs and Drug Addiction |date=November 2001}}</ref> Home use and cultivation legal since 21 July 2023.<ref name=\"lu\" /><ref name=\"law Luxembourg\">{{Cite act |language=fr |date=10 July 2023 |title=Loi du 10 juillet 2023 portant modification de la loi modifiée du 19 février 1973 concernant la vente de substances médicamenteuses et la lutte contre la toxicomanie |trans-title=Law of 10 July 2023 amending the amended law of 19 February 1973 concerning the sale of medicinal substances and the fight against drug addiction |url=https://mj.gouvernement.lu/dam-assets/dossiers/cannabis/loi-du-10-juillet-2023-cannabis.pdf |access-date=2024-01-16 |url-status=live |archive-url=https://web.archive.org/web/20240109044110/https://mj.gouvernement.lu/dam-assets/dossiers/cannabis/loi-du-10-juillet-2023-cannabis.pdf |archive-date=2024-01-09}}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": "cultivation legal since 21 July 2023.",
+    "penalty": null
+  },
+  "related_codes": [
+    "bel",
+    "nld",
+    "che"
+  ],
+  "related_names": [
+    {
+      "code": "bel",
+      "name": "Belgium / Belgien"
+    },
+    {
+      "code": "nld",
+      "name": "Netherlands / Nederland"
+    },
+    {
+      "code": "che",
+      "name": "Switzerland / Suisse"
+    }
+  ],
+  "coordinates": {
+    "lat": 49.75,
+    "lng": 6.16666666
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Luxembourg",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Luxembourg",
+        "title": "Wikipedia: Luxembourg / Luxemburg",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "bel",
+        "name": "Belgium / Belgien"
+      },
+      {
+        "code": "nld",
+        "name": "Netherlands / Nederland"
+      },
+      {
+        "code": "che",
+        "name": "Switzerland / Suisse"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "deu",
+        "name": "Germany / Deutschland"
+      },
+      {
+        "code": "fra",
+        "name": "France"
+      },
+      {
+        "code": "dnk",
+        "name": "Denmark / Danmark"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "lie",
+        "name": "Liechtenstein"
+      },
+      {
+        "code": "mco",
+        "name": "Monaco"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "lux",
+    "content_hash": "d9fde1822025b3504b207639750c1f31b1f5b59b414f10a0aba7db06f1f070b3",
+    "notes_hash": "bad819dc486e0c832a2cb0bb914f72aff7938492bc62358b4b16cfb2bdcac872",
+    "model_hash": "bda78671278f0aa8e1b96daad5c34f838eaaaaf78759ecd082576c93c58e8575"
+  },
+  "geo_code": "LU",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

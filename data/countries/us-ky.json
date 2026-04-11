@@ -1,0 +1,174 @@
+{
+  "code": "us-ky",
+  "geo_code": "US-KY",
+  "iso2": "US-KY",
+  "name": "Kentucky",
+  "node_type": "state",
+  "normalized_version": "v1",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "regulated",
+      "scopes": {
+        "possession": "restricted",
+        "use": "restricted",
+        "sale": "regulated",
+        "cultivation": null,
+        "import": "illegal",
+        "trafficking": "illegal"
+      },
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [
+      "fine_based"
+    ],
+    "applied_rules": []
+  },
+  "notes_normalized": "Cannabis is legal in Kentucky under state law for recreational adult use. Medical cannabis is not broadly legal in Kentucky. Cannabis remains federally illegal in United States.",
+  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|3}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "parent_country": {
+    "code": "usa",
+    "name": "United States"
+  },
+  "state_modifiers": {
+    "recreational": "override",
+    "medical": "override",
+    "enforcement_strength": "MEDIUM",
+    "federal_conflict": "Cannabis remains federally illegal in United States.",
+    "legalization_status": "State legal"
+  },
+  "related_codes": [
+    "usa",
+    "us-ct",
+    "us-de",
+    "us-id"
+  ],
+  "related_names": [
+    {
+      "code": "usa",
+      "name": "United States"
+    },
+    {
+      "code": "us-ct",
+      "name": "Connecticut"
+    },
+    {
+      "code": "us-de",
+      "name": "Delaware"
+    },
+    {
+      "code": "us-id",
+      "name": "Idaho"
+    }
+  ],
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "USA_CLUSTER",
+    "geo_neighbors": [
+      {
+        "code": "us-ak",
+        "name": "Alaska"
+      },
+      {
+        "code": "us-al",
+        "name": "Alabama"
+      },
+      {
+        "code": "us-ar",
+        "name": "Arkansas"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "us-ga",
+        "name": "Georgia"
+      },
+      {
+        "code": "us-hi",
+        "name": "Hawaii"
+      },
+      {
+        "code": "us-ia",
+        "name": "Iowa"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "usa",
+        "name": "United States"
+      },
+      {
+        "code": "us-in",
+        "name": "Indiana"
+      }
+    ],
+    "same_country_states": [
+      {
+        "code": "us-ct",
+        "name": "Connecticut"
+      },
+      {
+        "code": "us-de",
+        "name": "Delaware"
+      },
+      {
+        "code": "us-id",
+        "name": "Idaho"
+      }
+    ],
+    "federal_parent": {
+      "code": "usa",
+      "name": "United States"
+    }
+  },
+  "coordinates": {
+    "lat": 38,
+    "lng": -97
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Kentucky",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki-us-ky",
+        "url": "https://en.wikipedia.org/wiki/Kentucky",
+        "title": "Wikipedia: Kentucky",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki-truth-us-ky",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "hashes": {
+    "code": "us-ky",
+    "content_hash": "a879f8ff5ca5c185e08e3edd509b92d5dffd1c6330beb860cf8ddc72013eec60",
+    "notes_hash": "5db4a3adf3439e2cbf6029e929d6255666d9de78b3fa4838ba2f19fad2818e40",
+    "model_hash": "3ba99d4005f6aab13bfb12e0cb88cb2288ff251d01b3a413efe939dc9f0299ad"
+  },
+  "updated_at": "2026-04-10"
+}

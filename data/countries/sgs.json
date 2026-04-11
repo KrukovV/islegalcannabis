@@ -1,0 +1,139 @@
+{
+  "code": "sgs",
+  "iso2": "GS",
+  "name": "South Georgia",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in South Georgia. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in South Georgia. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "No notes available.",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "flk",
+    "ury",
+    "arg"
+  ],
+  "related_names": [
+    {
+      "code": "flk",
+      "name": "Falkland Islands"
+    },
+    {
+      "code": "ury",
+      "name": "Uruguay"
+    },
+    {
+      "code": "arg",
+      "name": "Argentina"
+    }
+  ],
+  "coordinates": {
+    "lat": -55.683402,
+    "lng": -31.063179
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/South_Georgia_%26_South_Sandwich_Islands",
+    "wiki_truth": null,
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/South_Georgia_%26_South_Sandwich_Islands",
+        "title": "Wikipedia: South Georgia",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "OTHER",
+    "seo_cluster": "GLOBAL",
+    "geo_neighbors": [
+      {
+        "code": "flk",
+        "name": "Falkland Islands"
+      },
+      {
+        "code": "ury",
+        "name": "Uruguay"
+      },
+      {
+        "code": "arg",
+        "name": "Argentina"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "shn",
+        "name": "Saint Helena, Ascension and Tristan da Cunha"
+      },
+      {
+        "code": "bol",
+        "name": "Bolivia / Wuliwya"
+      },
+      {
+        "code": "nam",
+        "name": "Namibia / Namibië"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "ata",
+        "name": "Antarctica"
+      },
+      {
+        "code": "mus",
+        "name": "Mauritius / Maurice"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "sgs",
+    "content_hash": "fab8dad1d63ce996d03b91f4cfe2673ca1a4498e98292359f133782a2a0b3e6b",
+    "notes_hash": "871c5a9600488c5dc92eeb242bc9aefcc370e80c7ac4038bbee9e67b0b28c125",
+    "model_hash": "2d91fd72982979bf635392f785adeffc2dd187122f117bb7645f3d7fb0111032"
+  },
+  "geo_code": "GS",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

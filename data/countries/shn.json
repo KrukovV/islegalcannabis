@@ -1,0 +1,139 @@
+{
+  "code": "shn",
+  "iso2": "SH",
+  "name": "Saint Helena, Ascension and Tristan da Cunha",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Saint Helena, Ascension and Tristan da Cunha. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Saint Helena, Ascension and Tristan da Cunha. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "No notes available.",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "stp",
+    "lbr",
+    "gab"
+  ],
+  "related_names": [
+    {
+      "code": "stp",
+      "name": "São Tomé and Príncipe / São Tomé e Príncipe"
+    },
+    {
+      "code": "lbr",
+      "name": "Liberia"
+    },
+    {
+      "code": "gab",
+      "name": "Gabon"
+    }
+  ],
+  "coordinates": {
+    "lat": -15.950487,
+    "lng": -5.71262
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/St._Helena",
+    "wiki_truth": null,
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/St._Helena",
+        "title": "Wikipedia: Saint Helena, Ascension and Tristan da Cunha",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "OTHER",
+    "seo_cluster": "GLOBAL",
+    "geo_neighbors": [
+      {
+        "code": "stp",
+        "name": "São Tomé and Príncipe / São Tomé e Príncipe"
+      },
+      {
+        "code": "lbr",
+        "name": "Liberia"
+      },
+      {
+        "code": "gab",
+        "name": "Gabon"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "nam",
+        "name": "Namibia / Namibië"
+      },
+      {
+        "code": "gnq",
+        "name": "Equatorial Guinea / Guinée équatoriale"
+      },
+      {
+        "code": "civ",
+        "name": "Ivory Coast / Côte d'Ivoire"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "sgs",
+        "name": "South Georgia"
+      },
+      {
+        "code": "syc",
+        "name": "Seychelles / Sesel"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "shn",
+    "content_hash": "11ddda2e621046f5b0ab82279584b2421542d810762f2a480733a432a7d964ed",
+    "notes_hash": "74cba1386a029a76f55c423fed55828f72052aa661d0171a487cc681f03ebfba",
+    "model_hash": "49e2362878b83657663afdeff9f03b1bb9b60551f5cd32bd69d296adb64187f7"
+  },
+  "geo_code": "SH",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

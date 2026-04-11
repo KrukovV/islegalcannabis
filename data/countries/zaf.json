@@ -1,0 +1,145 @@
+{
+  "code": "zaf",
+  "iso2": "ZA",
+  "name": "South Africa / Sewula Afrika",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "tolerated",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": "tolerated",
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "private_cultivation_tolerated",
+      "legal"
+    ],
+    "notes_normalized": "Cannabis is legal in South Africa / Sewula Afrika. Medical cannabis is legal. Distribution is tolerated."
+  },
+  "notes_normalized": "Cannabis is legal in South Africa / Sewula Afrika. Medical cannabis is legal. Distribution is tolerated.",
+  "notes_raw": "{{main|Cannabis in South Africa}} Private use and cultivation have been legal since September 2018.<ref>{{cite web|url=https://ewn.co.za/2018/09/18/concourt-upholds-ruling-that-private-use-of-dagga-is-legal|title=ConCourt upholds ruling that private use of dagga is legal|first=Mia|last=Lindeque|access-date=18 September 2018|archive-date=30 June 2019|archive-url=https://web.archive.org/web/20190630092912/https://ewn.co.za/2018/09/18/concourt-upholds-ruling-that-private-use-of-dagga-is-legal|url-status=live}}</ref><ref>{{Cite web|url=https://www.timeslive.co.za/news/south-africa/2018-09-18-ban-on-private-use-of-dagga-at-home-is-ruled-unconstitutional/|title=The highest court has spoken: You are allowed to smoke – and grow – dagga at home|website=TimesLIVE|date=18 September 2018 |access-date=18 September 2018|archive-date=27 November 2018|archive-url=https://web.archive.org/web/20181127234223/https://www.timeslive.co.za/news/south-africa/2018-09-18-ban-on-private-use-of-dagga-at-home-is-ruled-unconstitutional/|url-status=live}}</ref><ref>{{cite news |date= 18 September 2018 |title= South Africa's highest court legalises cannabis use |url= https://www.bbc.co.uk/news/world-africa-45559954 |publisher= BBC News |access-date= 4 November 2021 |archive-date= 4 November 2021 |archive-url= https://web.archive.org/web/20211104002656/https://www.bbc.co.uk/news/world-africa-45559954 |url-status= live }}</ref><ref>{{cite news |last= Gwegwe |first= Siseko |date= 12 October 2021 |title= Cannabis weed in South Africa – What's legal and what's not? |url= https://www.thesouthafrican.com/news/cannabis-marijuana-weed-legal-status-in-south-africa-law-government/ |work= TheSouthAfrican.com |access-date= 4 November 2021 |archive-date= 4 November 2021 |archive-url= https://web.archive.org/web/20211104004200/https://www.thesouthafrican.com/news/cannabis-marijuana-weed-legal-status-in-south-africa-law-government/ |url-status= live }}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": "cultivation have been legal since September 2018.",
+    "penalty": null
+  },
+  "related_codes": [
+    "lso",
+    "bwa",
+    "swz"
+  ],
+  "related_names": [
+    {
+      "code": "lso",
+      "name": "Lesotho"
+    },
+    {
+      "code": "bwa",
+      "name": "Botswana"
+    },
+    {
+      "code": "swz",
+      "name": "Eswatini"
+    }
+  ],
+  "coordinates": {
+    "lat": -29,
+    "lng": 24
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/South_Africa",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/South_Africa",
+        "title": "Wikipedia: South Africa / Sewula Afrika",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "AFRICA",
+    "seo_cluster": "AFRICA",
+    "geo_neighbors": [
+      {
+        "code": "lso",
+        "name": "Lesotho"
+      },
+      {
+        "code": "bwa",
+        "name": "Botswana"
+      },
+      {
+        "code": "swz",
+        "name": "Eswatini"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "zwe",
+        "name": "Zimbabwe"
+      },
+      {
+        "code": "zmb",
+        "name": "Zambia"
+      },
+      {
+        "code": "com",
+        "name": "Comoros / جزر القمر"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "nam",
+        "name": "Namibia / Namibië"
+      },
+      {
+        "code": "moz",
+        "name": "Mozambique / Moçambique"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "zaf",
+    "content_hash": "cf3c6b33b114d5c73145b22f4db89c57490fbbc421419949e4ded43531dc3da5",
+    "notes_hash": "2097314e10f45172483c56002e925365d9082d1fa0666d7669703e994261d60c",
+    "model_hash": "ad1bbe22b007af6949f7bd3d28f5a8f9dd5e6532e1a3e8cc301154a049d7e295"
+  },
+  "geo_code": "ZA",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

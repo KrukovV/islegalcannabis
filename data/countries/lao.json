@@ -1,0 +1,146 @@
+{
+  "code": "lao",
+  "iso2": "LA",
+  "name": "Laos / ສປປລາວ",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Laos / ສປປລາວ. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Laos / ສປປລາວ. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{Main|Cannabis in Laos}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "vnm",
+    "khm",
+    "tha"
+  ],
+  "related_names": [
+    {
+      "code": "vnm",
+      "name": "Vietnam / Việt Nam"
+    },
+    {
+      "code": "khm",
+      "name": "Cambodia / Kâmpŭchéa"
+    },
+    {
+      "code": "tha",
+      "name": "Thailand / ประเทศไทย"
+    }
+  ],
+  "coordinates": {
+    "lat": 18,
+    "lng": 105
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Laos",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Laos",
+        "title": "Wikipedia: Laos / ສປປລາວ",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "ASIA",
+    "seo_cluster": "ASIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "vnm",
+        "name": "Vietnam / Việt Nam"
+      },
+      {
+        "code": "khm",
+        "name": "Cambodia / Kâmpŭchéa"
+      },
+      {
+        "code": "tha",
+        "name": "Thailand / ประเทศไทย"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "mmr",
+        "name": "Myanmar / မြန်မာ"
+      },
+      {
+        "code": "mac",
+        "name": "Macau / 澳门"
+      },
+      {
+        "code": "hkg",
+        "name": "Hong Kong / 香港"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "bgd",
+        "name": "Bangladesh / বাংলাদেশ"
+      },
+      {
+        "code": "brn",
+        "name": "Brunei / Negara Brunei Darussalam"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "lao",
+    "content_hash": "08a703d85f2513424873882b87e82aa2badd537f5d503bfff23bae2e9022d771",
+    "notes_hash": "c7a2938425f1494b70f3f89db6511cf9725d1a13c485fb4e7801e2452299d04b",
+    "model_hash": "8be76ce05c11917060afa6188dfb9cad34d35f94380e705380060446cbb9d895"
+  },
+  "geo_code": "LA",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

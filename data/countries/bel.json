@@ -1,0 +1,145 @@
+{
+  "code": "bel",
+  "iso2": "BE",
+  "name": "Belgium / Belgien",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "DECRIMINALIZED",
+      "status": "DECRIMINALIZED",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "LIMITED",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": "rec_implies_med_floor"
+    },
+    "distribution": {
+      "status": "restricted",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "decriminalized",
+      "rec_implies_med_floor"
+    ],
+    "notes_normalized": "Cannabis is decriminalized in Belgium / Belgien. Medical cannabis is limited. Distribution is restricted."
+  },
+  "notes_normalized": "Cannabis is decriminalized in Belgium / Belgien. Medical cannabis is limited. Distribution is restricted.",
+  "notes_raw": "{{main|Cannabis in Belgium}} Up to {{cvt|3|g|frac=10}} decriminalized for adults since 2003.<ref>{{cite web|url=http://www.polfed-fedpol.be/|title=Federale politie – Police fédérale|author=Police fédérale – CGPR Webteam|access-date=14 January 2015|archive-date=26 December 2018|archive-url=https://web.archive.org/web/20181226021500/https://www.politie.be//nl|url-status=live}}</ref><ref>{{cite web |title = Cannabis legal status vault – Belgium |url = http://www.erowid.org/plants/cannabis/cannabis_law.shtml#belgium |website = www.erowid.org |publisher = Erowid.org |access-date = 17 February 2011 |archive-date = 15 December 2019 |archive-url = https://web.archive.org/web/20191215152836/https://www.erowid.org/plants/cannabis/cannabis_law.shtml#belgium |url-status = live }}</ref>",
+  "facts": {
+    "possession_limit": "Up to 3 g",
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "nld",
+    "lux",
+    "fra"
+  ],
+  "related_names": [
+    {
+      "code": "nld",
+      "name": "Netherlands / Nederland"
+    },
+    {
+      "code": "lux",
+      "name": "Luxembourg / Luxemburg"
+    },
+    {
+      "code": "fra",
+      "name": "France"
+    }
+  ],
+  "coordinates": {
+    "lat": 50.83333333,
+    "lng": 4
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Belgium",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Belgium",
+        "title": "Wikipedia: Belgium / Belgien",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "nld",
+        "name": "Netherlands / Nederland"
+      },
+      {
+        "code": "lux",
+        "name": "Luxembourg / Luxemburg"
+      },
+      {
+        "code": "fra",
+        "name": "France"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "che",
+        "name": "Switzerland / Suisse"
+      },
+      {
+        "code": "deu",
+        "name": "Germany / Deutschland"
+      },
+      {
+        "code": "gbr",
+        "name": "United Kingdom"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "jey",
+        "name": "Jersey / Jèrri"
+      },
+      {
+        "code": "lie",
+        "name": "Liechtenstein"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "bel",
+    "content_hash": "8c0fe8c069ca756078238442b97f0cb66baf67cc3d19a116258b9c2a2d9fcfd5",
+    "notes_hash": "085254dabeb657217f18d4cebc2a8313034acae0bbbf786ab6b8931b1b3dbb19",
+    "model_hash": "67abce0773c49dd08f89828f3c415a236545e21d2d087ac87ad103d6e8a68f53"
+  },
+  "geo_code": "BE",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

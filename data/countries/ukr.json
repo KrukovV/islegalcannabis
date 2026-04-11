@@ -1,0 +1,146 @@
+{
+  "code": "ukr",
+  "iso2": "UA",
+  "name": "Ukraine / Україна",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Ukraine / Україна. Medical cannabis is legal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Ukraine / Україна. Medical cannabis is legal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Ukraine}} In December 2023, Parliament adopted a bill to legalize medical cannabis on second reading.<ref>{{Cite news |last=Hilsman |first=Patrick |date=2023-07-13 |title=Ukrainian legislature passes medical marijuana law |url=https://www.upi.com/Top_News/World-News/2023/12/21/ukraine-Ukraine-medical-marijuana/2351703169298/ |access-date=2023-12-21 |publisher=[[United Press International]] |language=en-US}}</ref> It was signed into law by President Zelensky on 15 February 2024.<ref>{{cite news|title= Ukraine legalises cannabis for medical use|work=Reuters|date=15 February 2024 |url= https://www.reuters.com/world/europe/ukraine-legalises-cannabis-medical-use-2024-02-15/}}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "mda",
+    "blr",
+    "rou"
+  ],
+  "related_names": [
+    {
+      "code": "mda",
+      "name": "Moldova"
+    },
+    {
+      "code": "blr",
+      "name": "Belarus / Белару́сь"
+    },
+    {
+      "code": "rou",
+      "name": "Romania / România"
+    }
+  ],
+  "coordinates": {
+    "lat": 49,
+    "lng": 32
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Ukraine",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Ukraine",
+        "title": "Wikipedia: Ukraine / Україна",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "mda",
+        "name": "Moldova"
+      },
+      {
+        "code": "blr",
+        "name": "Belarus / Белару́сь"
+      },
+      {
+        "code": "rou",
+        "name": "Romania / România"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "bgr",
+        "name": "Bulgaria / България"
+      },
+      {
+        "code": "tur",
+        "name": "Türkiye"
+      },
+      {
+        "code": "ltu",
+        "name": "Lithuania / Lietuva"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "lva",
+        "name": "Latvia / Latvija"
+      },
+      {
+        "code": "est",
+        "name": "Estonia / Eesti"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "ukr",
+    "content_hash": "d2d6e0aab81c5febfa7061b9eb0d4b66e115431ca08a1e834cc9843438a970ba",
+    "notes_hash": "fca5e77345ddea24079c2c354076e3a93c651b4f92f42c42afcfb4a40f5bdd63",
+    "model_hash": "52b6d2205889c654adc22827f61d3e0826f409aa05c9a68dd67b883582fac24f"
+  },
+  "geo_code": "UA",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

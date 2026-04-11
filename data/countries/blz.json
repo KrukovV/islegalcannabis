@@ -1,0 +1,149 @@
+{
+  "code": "blz",
+  "iso2": "BZ",
+  "name": "Belize / Belice",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "DECRIMINALIZED",
+      "status": "TOLERATED",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "restricted",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [
+      "fine_based"
+    ],
+    "applied_rules": [
+      "rec_tolerated",
+      "decriminalized",
+      "fine_based",
+      "illegal"
+    ],
+    "notes_normalized": "Cannabis is tolerated in Belize / Belice. Medical cannabis is illegal. Distribution is restricted."
+  },
+  "notes_normalized": "Cannabis is tolerated in Belize / Belice. Medical cannabis is illegal. Distribution is restricted.",
+  "notes_raw": "{{main|Cannabis in Belize}} Possession prohibited, but use is common and largely tolerated.<ref>{{cite web|last=Hubbard|first=Kirsten|title=Drug Laws and Penalties in Central America|url=http://gocentralamerica.about.com/od/culturehistory/p/Central-America-Drug-Laws-And-Penalties.htm|publisher=About.com|access-date=2 January 2014|archive-date=14 May 2017|archive-url=https://web.archive.org/web/20170514082404/http://gocentralamerica.about.com/od/culturehistory/p/Central-America-Drug-Laws-And-Penalties.htm|url-status=dead}}</ref> Possession of up to {{cvt|10|g|frac=8}} decriminalized.<ref>{{cite news |title=The Future of Marijuana under Debate |url=https://edition.channel5belize.com/archives/157025 |access-date=7 January 2024 |work=News 5 |date=5 December 2017}}</ref>",
+  "facts": {
+    "possession_limit": "up to 10 g",
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "gtm",
+    "hnd",
+    "slv"
+  ],
+  "related_names": [
+    {
+      "code": "gtm",
+      "name": "Guatemala"
+    },
+    {
+      "code": "hnd",
+      "name": "Honduras"
+    },
+    {
+      "code": "slv",
+      "name": "El Salvador"
+    }
+  ],
+  "coordinates": {
+    "lat": 17.25,
+    "lng": -88.75
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Belize",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Belize",
+        "title": "Wikipedia: Belize / Belice",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "NA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "gtm",
+        "name": "Guatemala"
+      },
+      {
+        "code": "hnd",
+        "name": "Honduras"
+      },
+      {
+        "code": "slv",
+        "name": "El Salvador"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "nic",
+        "name": "Nicaragua"
+      },
+      {
+        "code": "cym",
+        "name": "Cayman Islands"
+      },
+      {
+        "code": "cri",
+        "name": "Costa Rica"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "cub",
+        "name": "Cuba"
+      },
+      {
+        "code": "jam",
+        "name": "Jamaica"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "blz",
+    "content_hash": "f73ae6501b29f68614520bba338cbfb159dfba30ecd3dee3eaae15e118410b11",
+    "notes_hash": "a77f3d57e11b63d63ee6d9a2721545811a0d54f70c6c619e7750aec2fe80ddcc",
+    "model_hash": "656f08dc8be7d3c088cd296d9ef5984d492f0ac5a60f5e164547ec62a13bc361"
+  },
+  "geo_code": "BZ",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

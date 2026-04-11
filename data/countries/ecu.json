@@ -1,0 +1,144 @@
+{
+  "code": "ecu",
+  "iso2": "EC",
+  "name": "Ecuador",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "DECRIMINALIZED",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "restricted",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "decriminalized"
+    ],
+    "notes_normalized": "Cannabis is decriminalized in Ecuador. Medical cannabis is legal. Distribution is restricted."
+  },
+  "notes_normalized": "Cannabis is decriminalized in Ecuador. Medical cannabis is legal. Distribution is restricted.",
+  "notes_raw": "{{main|Cannabis in Ecuador}} Possession of up to {{cvt|10|g|frac=8}} decriminalized in 2013, but policy was repealed by President [[Daniel Noboa]] in 2023.<ref>{{cite news |title=Ecuador's newly sworn-in president repeals guidelines allowing people to carry limited drug amounts |url=https://apnews.com/article/ecuador-president-noboa-drug-trafficking-repeal-6c2e7b2764516113639817716f208300 |access-date=22 March 2024 |work=Associated Press |date=25 November 2023}}</ref>",
+  "facts": {
+    "possession_limit": "up to 10 g",
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "col",
+    "per",
+    "pan"
+  ],
+  "related_names": [
+    {
+      "code": "col",
+      "name": "Colombia"
+    },
+    {
+      "code": "per",
+      "name": "Peru / Piruw"
+    },
+    {
+      "code": "pan",
+      "name": "Panama / Panamá"
+    }
+  ],
+  "coordinates": {
+    "lat": -2,
+    "lng": -77.5
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Ecuador",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Ecuador",
+        "title": "Wikipedia: Ecuador",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "LATAM",
+    "seo_cluster": "LATAM_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "col",
+        "name": "Colombia"
+      },
+      {
+        "code": "per",
+        "name": "Peru / Piruw"
+      },
+      {
+        "code": "pan",
+        "name": "Panama / Panamá"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "cri",
+        "name": "Costa Rica"
+      },
+      {
+        "code": "jam",
+        "name": "Jamaica"
+      },
+      {
+        "code": "tto",
+        "name": "Trinidad and Tobago"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "ven",
+        "name": "Venezuela"
+      },
+      {
+        "code": "bol",
+        "name": "Bolivia / Wuliwya"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "ecu",
+    "content_hash": "0998c97cf2a25c7b8e7a3160f5601260e08fc54422ce90e6acc19ce537a07d99",
+    "notes_hash": "dff02ccae29e6caa00ddda8861b8e4542abec8231c3a7eef3b2ecb2c216055b7",
+    "model_hash": "f858fa6e9511081cf805ff9fb1f0a11d099434e85944e76137b3967952be3c72"
+  },
+  "geo_code": "EC",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

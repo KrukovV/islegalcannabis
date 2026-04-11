@@ -1,0 +1,147 @@
+{
+  "code": "fin",
+  "iso2": "FI",
+  "name": "Finland / Suomi",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LIMITED",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [
+      "fine_based"
+    ],
+    "applied_rules": [
+      "fine_based",
+      "medical_limited"
+    ],
+    "notes_normalized": "Cannabis is illegal in Finland / Suomi. Medical cannabis is limited. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Finland / Suomi. Medical cannabis is limited. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Finland}} Personal use is generally not prosecuted in court but subject to summary fine. Medicinal cannabis possible under a special license since 2006; in 2014, 223 licenses were issued.<ref>{{cite web|last1=Silvàn|first1=Sini|title=Lääkekannabis edelleen marginaalinen lääke|date=20 April 2015 |url=http://yle.fi/aihe/artikkeli/2015/04/20/laakekannabis-edelleen-marginaalinen-laake|publisher=YLE|access-date=6 December 2016|language=fi|archive-date=21 July 2018|archive-url=https://web.archive.org/web/20180721162214/https://yle.fi/aihe/artikkeli/2015/04/20/laakekannabis-edelleen-marginaalinen-laake|url-status=live}}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": "fine."
+  },
+  "related_codes": [
+    "est",
+    "lva",
+    "ala"
+  ],
+  "related_names": [
+    {
+      "code": "est",
+      "name": "Estonia / Eesti"
+    },
+    {
+      "code": "lva",
+      "name": "Latvia / Latvija"
+    },
+    {
+      "code": "ala",
+      "name": "Åland Islands / Åland"
+    }
+  ],
+  "coordinates": {
+    "lat": 64,
+    "lng": 26
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Finland",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Finland",
+        "title": "Wikipedia: Finland / Suomi",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "est",
+        "name": "Estonia / Eesti"
+      },
+      {
+        "code": "lva",
+        "name": "Latvia / Latvija"
+      },
+      {
+        "code": "ala",
+        "name": "Åland Islands / Åland"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "ltu",
+        "name": "Lithuania / Lietuva"
+      },
+      {
+        "code": "blr",
+        "name": "Belarus / Белару́сь"
+      },
+      {
+        "code": "swe",
+        "name": "Sweden / Sverige"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "pol",
+        "name": "Poland / Polska"
+      },
+      {
+        "code": "nor",
+        "name": "Norway / Noreg"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "fin",
+    "content_hash": "950919f557ef8a3f53fba413d8ccf467bb10b27e8c44654d076b8bc90ec17f68",
+    "notes_hash": "a76863c8ba05a1b67e0c81877dc1fc953953583f98a4a23e296646059abab040",
+    "model_hash": "e144ce16954a17f48bda2b5f309ecdbdd29e99ff35587dbd1c1f4ef3955f7ed2"
+  },
+  "geo_code": "FI",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

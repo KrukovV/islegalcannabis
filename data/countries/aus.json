@@ -1,0 +1,147 @@
+{
+  "code": "aus",
+  "iso2": "AU",
+  "name": "Australia",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "DECRIMINALIZED",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LIMITED",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": "rec_implies_med_floor"
+    },
+    "distribution": {
+      "status": "tolerated",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": "tolerated",
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "private_cultivation_tolerated",
+      "illegal",
+      "legal",
+      "rec_implies_med_floor"
+    ],
+    "notes_normalized": "Cannabis is legal in Australia. Medical cannabis is limited. Distribution is tolerated."
+  },
+  "notes_normalized": "Cannabis is legal in Australia. Medical cannabis is limited. Distribution is tolerated.",
+  "notes_raw": "{{main|Cannabis in Australia}} In September 2019, the [[Australian Capital Territory]] became the first state or territory of Australia to legalize recreational use of cannabis. Since 31 January 2020 residents have been allowed to grow two plants and possess {{cvt|50|g|frac=4}}, though sales or other transfer is prohibited, including cannabis seeds. Federal law also remains enforceable.<ref name=\"ACT\">{{cite news |last=Lowrey |first=Tom |title=ACT legalises personal cannabis use but warns smokers they're not safe from federal laws |url=https://www.abc.net.au/news/2019-09-25/act-first-jurisdiction-to-legalise-personal-cannabis-use/11530104 |access-date=11 December 2019 |publisher=[[Australian Broadcasting Corporation|ABC News]] |date=25 September 2019 |archive-url=https://web.archive.org/web/20191005020408/https://www.abc.net.au/news/2019-09-25/act-first-jurisdiction-to-legalise-personal-cannabis-use/11530104 |archive-date=5 October 2019 |url-status=live}}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": "grow two plants and possess 50 g ( 1 + 3 ⁄ 4 oz), though sales or other transfer is prohibited, including cannabis seeds.",
+    "penalty": null
+  },
+  "related_codes": [
+    "tls",
+    "png",
+    "idn"
+  ],
+  "related_names": [
+    {
+      "code": "tls",
+      "name": "Timor-Leste / Timór-Leste"
+    },
+    {
+      "code": "png",
+      "name": "Papua New Guinea / Papua Niu Gini"
+    },
+    {
+      "code": "idn",
+      "name": "Indonesia"
+    }
+  ],
+  "coordinates": {
+    "lat": -27,
+    "lng": 133
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Australia",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Australia",
+        "title": "Wikipedia: Australia",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "OCEANIA",
+    "seo_cluster": "OCEANIA",
+    "geo_neighbors": [
+      {
+        "code": "tls",
+        "name": "Timor-Leste / Timór-Leste"
+      },
+      {
+        "code": "png",
+        "name": "Papua New Guinea / Papua Niu Gini"
+      },
+      {
+        "code": "idn",
+        "name": "Indonesia"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "sgp",
+        "name": "Singapore / Singapura"
+      },
+      {
+        "code": "phl",
+        "name": "Philippines / Pilipinas"
+      },
+      {
+        "code": "nzl",
+        "name": "New Zealand / Aotearoa"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "slb",
+        "name": "Solomon Islands"
+      },
+      {
+        "code": "ncl",
+        "name": "New Caledonia / Nouvelle-Calédonie"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "aus",
+    "content_hash": "a12a4b6ca562dcd744685ddd09838e9ab47491c8204db9aa269b6acb3107c674",
+    "notes_hash": "b2f2048a03ed85631ceb4219a778614bb1bae5c4b3265821c674c72e22f9272e",
+    "model_hash": "249a578276976e8d4beda9c6768a9f2a3c41ca7500ae3dc089f9646b0b38b46e"
+  },
+  "geo_code": "AU",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

@@ -1,0 +1,146 @@
+{
+  "code": "irn",
+  "iso2": "IR",
+  "name": "Iran / ایران",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Iran / ایران. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Iran / ایران. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Iran}} Maximum of capital punishment to possess [[hashish]] over {{cvt|5|kg|lb}}<ref name=\"Afshari2011\">{{cite book|author=Reza Afshari|title=Human Rights in Iran: The Abuse of Cultural Relativism|url=https://books.google.com/books?id=3e_SBQAAQBAJ&pg=PA40|date=7 June 2011|publisher=University of Pennsylvania Press|isbn=978-0-8122-0105-5|pages=40–|access-date=8 October 2020|archive-date=20 April 2023|archive-url=https://web.archive.org/web/20230420090922/https://books.google.com/books?id=3e_SBQAAQBAJ&pg=PA40|url-status=live}}</ref> but unenforced.<ref>{{cite web |title=Cannabis Use in Present-Day Iran |url=https://sensiseeds.com/en/blog/cannabis-iran-en/ |website=Sensi Seeds |date=8 March 2014 |access-date=30 July 2018 |archive-date=25 August 2018 |archive-url=https://web.archive.org/web/20180825053141/https://sensiseeds.com/en/blog/cannabis-iran-en/ |url-status=live }}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "bhr",
+    "qat",
+    "kwt"
+  ],
+  "related_names": [
+    {
+      "code": "bhr",
+      "name": "Bahrain / البحرين"
+    },
+    {
+      "code": "qat",
+      "name": "Qatar / قطر"
+    },
+    {
+      "code": "kwt",
+      "name": "Kuwait / الكويت"
+    }
+  ],
+  "coordinates": {
+    "lat": 32,
+    "lng": 53
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Iran",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Iran",
+        "title": "Wikipedia: Iran / ایران",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "ASIA",
+    "seo_cluster": "ASIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "bhr",
+        "name": "Bahrain / البحرين"
+      },
+      {
+        "code": "qat",
+        "name": "Qatar / قطر"
+      },
+      {
+        "code": "kwt",
+        "name": "Kuwait / الكويت"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "are",
+        "name": "United Arab Emirates / الإمارات"
+      },
+      {
+        "code": "irq",
+        "name": "Iraq / العراق"
+      },
+      {
+        "code": "aze",
+        "name": "Azerbaijan / Azərbaycan"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "sau",
+        "name": "Saudi Arabia / السعودية"
+      },
+      {
+        "code": "tkm",
+        "name": "Turkmenistan / Туркмения"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "irn",
+    "content_hash": "048da52a13f16082bf90c55c1dcd4f403d6a151cd2d5e14b2d064d9d2021fdfd",
+    "notes_hash": "eaa6e507f742cdb588d9a1a9a0a181cce7652d3e2b3cfd0e0b0e2c67cb9c2653",
+    "model_hash": "fd5225e93c2cd7ed69845d0b6dafc3757ecd6bda3418be12a5b5a77ba9299ef6"
+  },
+  "geo_code": "IR",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

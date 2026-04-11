@@ -1,0 +1,144 @@
+{
+  "code": "bwa",
+  "iso2": "BW",
+  "name": "Botswana",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Botswana. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Botswana. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Botswana}} Cannabis (or ''dagga'') is illegal.<ref>{{cite web |url = http://www.issafrica.org/cdct/mainpages/pdf/Organised%20Crime/Legislation/Botswana/Botswana%20Drugs%20and%20Related%20Substances%20Act%2018%20of%201992%20.pdf |title = Drugs and related substances act no. 18 of 1992 |publisher = Government of Botswana |access-date = 3 October 2013 |url-status = dead |archive-url = https://web.archive.org/web/20131006215219/http://www.issafrica.org/cdct/mainpages/pdf/Organised%20Crime/Legislation/Botswana/Botswana%20Drugs%20and%20Related%20Substances%20Act%2018%20of%201992%20.pdf |archive-date = 6 October 2013}}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "zwe",
+    "nam",
+    "zaf"
+  ],
+  "related_names": [
+    {
+      "code": "zwe",
+      "name": "Zimbabwe"
+    },
+    {
+      "code": "nam",
+      "name": "Namibia / Namibië"
+    },
+    {
+      "code": "zaf",
+      "name": "South Africa / Sewula Afrika"
+    }
+  ],
+  "coordinates": {
+    "lat": -22,
+    "lng": 24
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Botswana",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Botswana",
+        "title": "Wikipedia: Botswana",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "AFRICA",
+    "seo_cluster": "AFRICA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "zwe",
+        "name": "Zimbabwe"
+      },
+      {
+        "code": "nam",
+        "name": "Namibia / Namibië"
+      },
+      {
+        "code": "zaf",
+        "name": "South Africa / Sewula Afrika"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "swz",
+        "name": "Eswatini"
+      },
+      {
+        "code": "zmb",
+        "name": "Zambia"
+      },
+      {
+        "code": "ago",
+        "name": "Angola"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "lso",
+        "name": "Lesotho"
+      },
+      {
+        "code": "moz",
+        "name": "Mozambique / Moçambique"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "bwa",
+    "content_hash": "2a61f50ea70993d836b1af17d313f4e40a3642260c0a18eec73fa3f1b42edd14",
+    "notes_hash": "9feffd55e2541d0b4d6749635736d5260bf8e60010d039dcd76d51d8320a8a06",
+    "model_hash": "6cd762cf30f8582f9441581ed077e25406042d21f01b79fa584d99fb98183527"
+  },
+  "geo_code": "BW",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

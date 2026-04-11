@@ -1,0 +1,147 @@
+{
+  "code": "hnd",
+  "iso2": "HN",
+  "name": "Honduras",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": "illegal",
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "sale_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "sale_illegal",
+      "illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Honduras. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Honduras. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Honduras}} The possession, sale, transportation, and cultivation of cannabis is illegal.<ref>{{Cite web|url=http://www.poderjudicial.gob.hn/juris/Leyes/Ley%20sobre%20uso%20Indebido%20y%20Trafico%20Ilicito%20de%20Drogas%20y%20Sustancias%20Psicotropicas.pdf|title=Ley Sobre Uso Indebido y Trafico Ilicito de Drogas y Sustancias Psicotropicas|access-date=5 June 2018|archive-date=18 November 2017|archive-url=https://web.archive.org/web/20171118051130/http://www.poderjudicial.gob.hn/juris/Leyes/Ley%20sobre%20uso%20Indebido%20y%20Trafico%20Ilicito%20de%20Drogas%20y%20Sustancias%20Psicotropicas.pdf|url-status=dead}}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": "cultivation of cannabis is illegal.",
+    "penalty": null
+  },
+  "related_codes": [
+    "nic",
+    "slv",
+    "blz"
+  ],
+  "related_names": [
+    {
+      "code": "nic",
+      "name": "Nicaragua"
+    },
+    {
+      "code": "slv",
+      "name": "El Salvador"
+    },
+    {
+      "code": "blz",
+      "name": "Belize / Belice"
+    }
+  ],
+  "coordinates": {
+    "lat": 15,
+    "lng": -86.5
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Honduras",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Honduras",
+        "title": "Wikipedia: Honduras",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "NA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "nic",
+        "name": "Nicaragua"
+      },
+      {
+        "code": "slv",
+        "name": "El Salvador"
+      },
+      {
+        "code": "blz",
+        "name": "Belize / Belice"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "gtm",
+        "name": "Guatemala"
+      },
+      {
+        "code": "cym",
+        "name": "Cayman Islands"
+      },
+      {
+        "code": "pan",
+        "name": "Panama / Panamá"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "cri",
+        "name": "Costa Rica"
+      },
+      {
+        "code": "cub",
+        "name": "Cuba"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "hnd",
+    "content_hash": "6aa271268ebad50a7dad21d3f62f96414adffd5b1d4f4854b83569d2fc42b2e2",
+    "notes_hash": "4fc807051916b0fab6b2053b42f5e74d3f606d41583dec2c09c936d803d8149d",
+    "model_hash": "6680f3f96ab2842541e6bfa944d7549f2be6d2ccc0378fca598bd2c8901d37b8"
+  },
+  "geo_code": "HN",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

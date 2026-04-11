@@ -1,0 +1,146 @@
+{
+  "code": "mco",
+  "iso2": "MC",
+  "name": "Monaco",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Monaco. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Monaco. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Monaco}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "che",
+    "lie",
+    "smr"
+  ],
+  "related_names": [
+    {
+      "code": "che",
+      "name": "Switzerland / Suisse"
+    },
+    {
+      "code": "lie",
+      "name": "Liechtenstein"
+    },
+    {
+      "code": "smr",
+      "name": "San Marino"
+    }
+  ],
+  "coordinates": {
+    "lat": 43.73333333,
+    "lng": 7.4
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Monaco",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Monaco",
+        "title": "Wikipedia: Monaco",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "che",
+        "name": "Switzerland / Suisse"
+      },
+      {
+        "code": "lie",
+        "name": "Liechtenstein"
+      },
+      {
+        "code": "smr",
+        "name": "San Marino"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "vat",
+        "name": "Vatican City / Vaticano"
+      },
+      {
+        "code": "and",
+        "name": "Andorra"
+      },
+      {
+        "code": "tun",
+        "name": "Tunisia / تونس"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "ita",
+        "name": "Italy / Italia"
+      },
+      {
+        "code": "lux",
+        "name": "Luxembourg / Luxemburg"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "mco",
+    "content_hash": "89fe38cd43e32bad4ee9a649588461434d5631b30d47d234838d4a7012797ad7",
+    "notes_hash": "a71b3ed0582a39d0f6bafae095d12a69c7db7961219c3b211b76a522f3a8c583",
+    "model_hash": "aac59fd0238c24450bfeb461dde03bad37258c45fbd057896f5dd0c0a2e44184"
+  },
+  "geo_code": "MC",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

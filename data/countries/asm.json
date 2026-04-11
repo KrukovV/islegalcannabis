@@ -1,0 +1,139 @@
+{
+  "code": "asm",
+  "iso2": "AS",
+  "name": "American Samoa / Sāmoa Amelika",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in American Samoa / Sāmoa Amelika. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in American Samoa / Sāmoa Amelika. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "No notes available.",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "wsm",
+    "niu",
+    "ton"
+  ],
+  "related_names": [
+    {
+      "code": "wsm",
+      "name": "Samoa / Sāmoa"
+    },
+    {
+      "code": "niu",
+      "name": "Niue / Niuē"
+    },
+    {
+      "code": "ton",
+      "name": "Tonga"
+    }
+  ],
+  "coordinates": {
+    "lat": -14.33333333,
+    "lng": -170
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/American_Samoa",
+    "wiki_truth": null,
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/American_Samoa",
+        "title": "Wikipedia: American Samoa / Sāmoa Amelika",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "OCEANIA",
+    "seo_cluster": "OCEANIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "wsm",
+        "name": "Samoa / Sāmoa"
+      },
+      {
+        "code": "niu",
+        "name": "Niue / Niuē"
+      },
+      {
+        "code": "ton",
+        "name": "Tonga"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "wlf",
+        "name": "Wallis and Futuna / Wallis et Futuna"
+      },
+      {
+        "code": "cok",
+        "name": "Cook Islands / Kūki 'Āirani"
+      },
+      {
+        "code": "pyf",
+        "name": "French Polynesia / Polynésie française"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "pcn",
+        "name": "Pitcairn Islands"
+      },
+      {
+        "code": "aus",
+        "name": "Australia"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "asm",
+    "content_hash": "1ffd6cc63b80b67088b0b158d9da8a527656395f32cedfb839cb2cbc828193a5",
+    "notes_hash": "85f87348a7ef5cbdd8953a71785ace5d6b98dc07b92d35a6ab420092516d1ca4",
+    "model_hash": "f4e4b3908e53e589d5355b857410ce9bfc3aef1407d351e0f826f732cd5e102e"
+  },
+  "geo_code": "AS",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

@@ -1,0 +1,146 @@
+{
+  "code": "svk",
+  "iso2": "SK",
+  "name": "Slovakia / Slovensko",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Slovakia / Slovensko. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Slovakia / Slovensko. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Slovakia}} Possession of small amounts punishable by up to 8 years in prison.<ref>{{cite news |title = High contrast |url = https://www.economist.com/europe/2010/08/26/high-contrast |newspaper = [[The Economist]] |location = London |issn = 0013-0613 |oclc = 60625410 |date = 26 August 2010 |access-date = 25 June 2012 |archive-url = https://archive.today/20190110221328/https://www.economist.com/europe/2010/08/26/high-contrast |archive-date = 10 January 2019 |url-status = live}}</ref><ref name=\"WSJSlovakia\">{{cite news |title = Slovakia's Incoming Leftist Premier Wants to Relax Tough Cannabis Laws |first = Leos |last = Rousek |url = https://blogs.wsj.com/emergingeurope/2012/04/03/slovakias-incoming-leftist-premier-wants-to-relax-tough-cannabis-laws/ |work = [[The Wall Street Journal]] |date = 3 April 2012 |access-date = 25 June 2012 |archive-date = 21 July 2018 |archive-url = https://web.archive.org/web/20180721073421/https://blogs.wsj.com/emergingeurope/2012/04/03/slovakias-incoming-leftist-premier-wants-to-relax-tough-cannabis-laws/ |url-status = live }}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": "punishable by up to 8 years in prison."
+  },
+  "related_codes": [
+    "hun",
+    "pol",
+    "cze"
+  ],
+  "related_names": [
+    {
+      "code": "hun",
+      "name": "Hungary / Magyarország"
+    },
+    {
+      "code": "pol",
+      "name": "Poland / Polska"
+    },
+    {
+      "code": "cze",
+      "name": "Czechia / Česko"
+    }
+  ],
+  "coordinates": {
+    "lat": 48.66666666,
+    "lng": 19.5
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Slovakia",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Slovakia",
+        "title": "Wikipedia: Slovakia / Slovensko",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "hun",
+        "name": "Hungary / Magyarország"
+      },
+      {
+        "code": "pol",
+        "name": "Poland / Polska"
+      },
+      {
+        "code": "cze",
+        "name": "Czechia / Česko"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "bih",
+        "name": "Bosnia and Herzegovina / Bosna i Hercegovina"
+      },
+      {
+        "code": "srb",
+        "name": "Serbia / Србија"
+      },
+      {
+        "code": "rou",
+        "name": "Romania / România"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "hrv",
+        "name": "Croatia / Hrvatska"
+      },
+      {
+        "code": "svn",
+        "name": "Slovenia / Slovenija"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "svk",
+    "content_hash": "7f8515290e4652ce23e881f8ff2b7984b2de610466a3f6b63c766af308cbbc86",
+    "notes_hash": "28c8b3aba1e90c0c295b806d265e1b519e429d6bea381f5a74cc3bc5705f9407",
+    "model_hash": "3a8508353363017a8ba7bc89d9e06a0763663fe81ee4cc6e8be630e14c0efb2c"
+  },
+  "geo_code": "SK",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

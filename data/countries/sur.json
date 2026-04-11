@@ -1,0 +1,144 @@
+{
+  "code": "sur",
+  "iso2": "SR",
+  "name": "Suriname",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Suriname. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Suriname. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Suriname}} Cannabis was banned in Suriname in the early 20th century, having been popularized there by Asian immigrants.<ref name=\"Hoefte1998\">{{cite book|author=Rosemarijn Hoefte|title=In Place of Slavery: A Social History of British Indian and Javanese Laborers in Suriname|url=https://books.google.com/books?id=EPzT5AYLvL0C&pg=PA160|year=1998|publisher=University Press of Florida|isbn=978-0-8130-1625-2|pages=160–}}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "guy",
+    "tto",
+    "brb"
+  ],
+  "related_names": [
+    {
+      "code": "guy",
+      "name": "Guyana"
+    },
+    {
+      "code": "tto",
+      "name": "Trinidad and Tobago"
+    },
+    {
+      "code": "brb",
+      "name": "Barbados"
+    }
+  ],
+  "coordinates": {
+    "lat": 4,
+    "lng": -56
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Suriname",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Suriname",
+        "title": "Wikipedia: Suriname",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "LATAM",
+    "seo_cluster": "LATAM_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "guy",
+        "name": "Guyana"
+      },
+      {
+        "code": "tto",
+        "name": "Trinidad and Tobago"
+      },
+      {
+        "code": "brb",
+        "name": "Barbados"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "grd",
+        "name": "Grenada"
+      },
+      {
+        "code": "ven",
+        "name": "Venezuela"
+      },
+      {
+        "code": "msr",
+        "name": "Montserrat"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "bra",
+        "name": "Brazil / Brasil"
+      },
+      {
+        "code": "col",
+        "name": "Colombia"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "sur",
+    "content_hash": "39d79d80ee214979915c4b3ee9976199635f201fb5c25f070ed2d80c3608efbe",
+    "notes_hash": "7a9e173a147ec86f5a6d0f81cd8c937e5ad9aa7878c95275a1656a11e880d8cb",
+    "model_hash": "0db6d825c270f46f4fcd0f53ac4abfe4d683f6a30a21a1a61dcee3c1bcb4f3c1"
+  },
+  "geo_code": "SR",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

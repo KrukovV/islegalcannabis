@@ -2,9 +2,6 @@ import { createRequestId, errorResponse, okResponse } from "@/lib/api/response";
 import { answerWithAssistant } from "@/ai-assistant/aiRuntime";
 import { retrieveTopChunks } from "@/ai-assistant/rag";
 import type { AIRequest } from "@/ai-assistant/types";
-import { isTravelQuery, resolveAssistantGeo } from "@/ai-assistant/travel";
-import { isAssistantChatEnabled } from "@/ai-assistant/config";
-import { detectIntent } from "@/ai-assistant/dialog";
 
 export const runtime = "nodejs";
 
@@ -41,7 +38,7 @@ function sanitizeMessage(value: string | null | undefined) {
 
 function sanitizeGeoHint(value: string | null | undefined) {
   const hint = String(value || "").trim().toUpperCase();
-  return /^[A-Z]{2}(?:-[A-Z0-9]{2,3})?$/.test(hint) ? hint : undefined;
+  return /^[A-Z]{2}$/.test(hint) ? hint : undefined;
 }
 
 function sanitizeLanguage(value: string | null | undefined) {
@@ -51,9 +48,6 @@ function sanitizeLanguage(value: string | null | undefined) {
 
 export async function POST(req: Request) {
   const requestId = createRequestId(req);
-  if (!isAssistantChatEnabled()) {
-    return errorResponse(requestId, 403, "AI_DISABLED", "AI assistant is disabled in production.");
-  }
   let body: AIRequest;
   try {
     body = (await req.json()) as AIRequest;
@@ -71,30 +65,9 @@ export async function POST(req: Request) {
   }
 
   const geoHint = sanitizeGeoHint(body.geo_hint);
-  const effectiveGeoHint = resolveAssistantGeo(message, geoHint);
-  let context = retrieveTopChunks(message, effectiveGeoHint, 5);
-  const intent = detectIntent(message);
-  if (intent === "culture") {
-    context = context.filter((chunk) => chunk.kind === "culture");
-  } else if (intent === "legal") {
-    context = context.filter(
-      (chunk) =>
-        chunk.kind === "legal" &&
-        (!effectiveGeoHint ||
-          chunk.geo === effectiveGeoHint ||
-          (effectiveGeoHint.startsWith("US-") && chunk.geo === "US"))
-    );
-  } else if (isTravelQuery(message)) {
-    context = context.filter(
-      (chunk) =>
-        chunk.kind === "legal" &&
-        (!effectiveGeoHint ||
-          chunk.geo === effectiveGeoHint ||
-          (effectiveGeoHint.startsWith("US-") && chunk.geo === "US"))
-    );
-  }
+  const context = retrieveTopChunks(message, geoHint, 5);
   const language = sanitizeLanguage(req.headers.get("accept-language"));
-  const result = await answerWithAssistant(message, effectiveGeoHint, context, language);
+  const result = await answerWithAssistant(message, geoHint, context, language);
 
   return okResponse(requestId, result);
 }

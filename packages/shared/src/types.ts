@@ -126,8 +126,8 @@ export type JurisdictionLawProfile = {
     effective_date?: string | null;
     text_snippet?: string | null;
   }>;
-  status_recreational?: "legal" | "decriminalized" | "illegal";
-  status_medical?: "legal" | "decriminalized" | "illegal";
+  status_recreational?: "legal" | "decriminalized" | "tolerated" | "illegal" | "unknown";
+  status_medical?: "legal" | "limited" | "illegal" | "unknown";
   official_sources?: string[];
   wiki_source?: string | null;
   wiki_claim?: {
@@ -140,8 +140,15 @@ export type JurisdictionLawProfile = {
     fetched_at?: string;
   } | null;
   legal_ssot?: {
-    recreational: "legal" | "decriminalized" | "illegal";
-    medical: "legal" | "decriminalized" | "illegal";
+    recreational: "legal" | "decriminalized" | "tolerated" | "illegal" | "unknown";
+    medical: "legal" | "limited" | "illegal" | "unknown";
+    distribution?: "legal" | "regulated" | "tolerated" | "restricted" | "illegal" | "mixed";
+    rec_raw?: string | null;
+    med_raw?: string | null;
+    distribution_scopes?: Record<string, string | null>;
+    distribution_flags?: string[];
+    enforcement_flags?: string[];
+    applied_rules?: string[];
     notes?: string | null;
     confidence?: ConfidenceLevel;
     sources?: Source[];

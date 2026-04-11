@@ -1,0 +1,139 @@
+{
+  "code": "spm",
+  "iso2": "PM",
+  "name": "Saint Pierre and Miquelon / Saint-Pierre-et-Miquelon",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Saint Pierre and Miquelon / Saint-Pierre-et-Miquelon. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Saint Pierre and Miquelon / Saint-Pierre-et-Miquelon. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "No notes available.",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "bmu",
+    "tca",
+    "aia"
+  ],
+  "related_names": [
+    {
+      "code": "bmu",
+      "name": "Bermuda"
+    },
+    {
+      "code": "tca",
+      "name": "Turks and Caicos Islands"
+    },
+    {
+      "code": "aia",
+      "name": "Anguilla"
+    }
+  ],
+  "coordinates": {
+    "lat": 47.040344,
+    "lng": -56.332352
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/St._Pierre_%26_Miquelon",
+    "wiki_truth": null,
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/St._Pierre_%26_Miquelon",
+        "title": "Wikipedia: Saint Pierre and Miquelon / Saint-Pierre-et-Miquelon",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "NA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "bmu",
+        "name": "Bermuda"
+      },
+      {
+        "code": "tca",
+        "name": "Turks and Caicos Islands"
+      },
+      {
+        "code": "aia",
+        "name": "Anguilla"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "maf",
+        "name": "Saint Martin"
+      },
+      {
+        "code": "sxm",
+        "name": "Sint Maarten / Saint-Martin"
+      },
+      {
+        "code": "vgb",
+        "name": "British Virgin Islands"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "grl",
+        "name": "Greenland / Kalaallit Nunaat"
+      },
+      {
+        "code": "blm",
+        "name": "Saint Barthélemy"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "spm",
+    "content_hash": "a3b256fcbf046f7ce2e3f13f3f0993ffe427ee00d356120ca9aeecc5eaa79346",
+    "notes_hash": "0c9bf3682ccf803094092e16431a334085a9643ff0eb4142d3f7abb30737fda6",
+    "model_hash": "f6e5426ab895260e898f6fd83decc5340841dc8b0040b671ca37180bfef5ebd3"
+  },
+  "geo_code": "PM",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

@@ -1,100 +1,111 @@
-import fs from "node:fs";
-import path from "node:path";
 import type { JurisdictionLawProfile, ResultStatusLevel } from "@islegal/shared";
 import { computeStatus, haversineKm } from "@islegal/shared";
-import countryCentroids from "../../../../../data/geo/country_centroids.json";
-import usStateCentroids from "../../../../../data/geo/us_state_centroids.json";
+import {
+  getNearbyDisplayStatus,
+  getSocialReality,
+  includeBySocialReality,
+  socialRealityEntries,
+  type SocialRealityEntity
+} from "@/data/socialRealityIndex";
 
-type Centroid = { lat: number; lon: number; name: string };
-type CentroidMap = Record<string, Centroid>;
+type NearbyDisplayStatus = ResultStatusLevel | "orange" | "blue";
 
 type NearbyEntry = {
   id: string;
-  status: ResultStatusLevel;
+  name?: string;
+  status: NearbyDisplayStatus;
   summary: string;
   distanceKm: number;
+  score: number;
 };
 
 type NearbyResult = {
   current: { id: string; status: ResultStatusLevel; summary: string };
-  nearby: Array<{ id: string; status: ResultStatusLevel; summary: string }>;
+  nearby: Array<{ id: string; status: NearbyDisplayStatus; summary: string; name?: string }>;
 };
-
-function readProfiles(dir: string): JurisdictionLawProfile[] {
-  if (!fs.existsSync(dir)) return [];
-  const files = fs.readdirSync(dir).filter((name) => name.endsWith(".json"));
-  return files.map((name) => {
-    const raw = fs.readFileSync(path.join(dir, name), "utf8");
-    return JSON.parse(raw) as JurisdictionLawProfile;
-  });
-}
 
 function buildSummary(profile: JurisdictionLawProfile) {
   const status = computeStatus(profile);
   return { status: status.level, summary: status.label };
 }
 
-function listCountryProfiles(root: string) {
-  const worldDir = path.join(root, "data", "laws", "world");
-  const euDir = path.join(root, "data", "laws", "eu");
-  const seen = new Set<string>();
-  const profiles: JurisdictionLawProfile[] = [];
-  for (const profile of readProfiles(worldDir)) {
-    const id = profile.id.toUpperCase();
-    if (profile.region) continue;
-    if (seen.has(id)) continue;
-    seen.add(id);
-    profiles.push(profile);
-  }
-  for (const profile of readProfiles(euDir)) {
-    const id = profile.id.toUpperCase();
-    if (profile.region) continue;
-    if (seen.has(id)) continue;
-    seen.add(id);
-    profiles.push(profile);
-  }
-  return profiles;
+function baseStatusAllowed(status: string) {
+  return status === "green" || status === "yellow" || status === "blue";
 }
 
-function listStateProfiles(root: string) {
-  const usDir = path.join(root, "data", "laws", "us");
-  return readProfiles(usDir).filter((profile) => profile.country === "US");
+function entryScore(distanceKm: number, status: NearbyDisplayStatus, confidenceScore: number) {
+  const statusBonus =
+    status === "green" ? 180 :
+    status === "yellow" ? 120 :
+    status === "blue" ? 100 :
+    status === "orange" ? 70 :
+    0;
+  return distanceKm - statusBonus - confidenceScore * 100;
 }
 
-function centroidFor(key: string, map: CentroidMap): Centroid | null {
-  const item = map[key];
-  if (!item) return null;
-  return item;
+function buildEntrySummary(entity: SocialRealityEntity, displayStatus: NearbyDisplayStatus) {
+  if (displayStatus === "orange" && entity.note_summary) {
+    return entity.note_summary;
+  }
+  if (displayStatus === "yellow" && entity.note_summary) {
+    return entity.note_summary;
+  }
+  if (displayStatus === "green") {
+    return entity.note_summary || "Cannabis is legally available here.";
+  }
+  return entity.note_summary || "Illegal or highly restricted.";
 }
 
 function buildNearby(
   currentKey: string,
-  currentStatus: ResultStatusLevel,
   currentPoint: { lat: number; lon: number },
-  candidates: JurisdictionLawProfile[],
-  centroidMap: CentroidMap
+  candidates: SocialRealityEntity[]
 ): NearbyEntry[] {
   const items: NearbyEntry[] = [];
-  for (const profile of candidates) {
-    const id = profile.id.toUpperCase();
+  for (const candidate of candidates) {
+    const id = candidate.id.toUpperCase();
     if (id === currentKey) continue;
-    const centroid = centroidFor(id, centroidMap);
-    if (!centroid) continue;
-    const { status, summary } = buildSummary(profile);
-    if (status === currentStatus) continue;
+    if (!candidate.coordinates) continue;
+
+    const socialReality = getSocialReality(id);
+    const socialIncluded = includeBySocialReality(id);
+    const displayStatus = getNearbyDisplayStatus(candidate.base_status, id);
+    if (!baseStatusAllowed(candidate.base_status) && !socialIncluded) {
+      continue;
+    }
+
     const distanceKm = haversineKm(currentPoint, {
-      lat: centroid.lat,
-      lon: centroid.lon
+      lat: candidate.coordinates.lat,
+      lon: candidate.coordinates.lng
     });
-    items.push({ id, status, summary, distanceKm });
+
+    items.push({
+      id,
+      name: candidate.display_name,
+      status: displayStatus,
+      summary: buildEntrySummary(candidate, displayStatus),
+      distanceKm,
+      score: entryScore(distanceKm, displayStatus, socialReality?.confidence_score || 0)
+    });
   }
-  return items.sort((a, b) => a.distanceKm - b.distanceKm);
+
+  return items.sort((a, b) => a.score - b.score || a.distanceKm - b.distanceKm);
 }
 
-export function findNearbyStatus(
-  profile: JurisdictionLawProfile
-): NearbyResult | null {
-  const root = path.resolve(process.cwd(), "..", "..");
+function resolveCurrentCoordinates(profile: JurisdictionLawProfile) {
+  const current = getSocialReality(profile.id.toUpperCase());
+  if (!current?.coordinates) return null;
+  return { lat: current.coordinates.lat, lon: current.coordinates.lng };
+}
+
+function listCandidates(profile: JurisdictionLawProfile) {
+  if (profile.country === "US" && profile.region) {
+    return socialRealityEntries.filter((entry) => entry.country === "US" && entry.region);
+  }
+  return socialRealityEntries.filter((entry) => entry.entity_type === "country");
+}
+
+export function findNearbyStatus(profile: JurisdictionLawProfile): NearbyResult | null {
   const currentId = profile.id.toUpperCase();
   const currentSummary = buildSummary(profile);
   const current = {
@@ -103,36 +114,14 @@ export function findNearbyStatus(
     summary: currentSummary.summary
   };
 
-  if (profile.country === "US" && profile.region) {
-    const items = (usStateCentroids as { items: CentroidMap }).items;
-    const centroid = centroidFor(currentId, items);
-    if (!centroid) return { current, nearby: [] };
-    const candidates = listStateProfiles(root);
-    const nearby = buildNearby(
-      currentId,
-      current.status,
-      { lat: centroid.lat, lon: centroid.lon },
-      candidates,
-      items
-    )
-      .slice(0, 5)
-      .map(({ id, status, summary }) => ({ id, status, summary }));
-    return { current, nearby };
+  const currentPoint = resolveCurrentCoordinates(profile);
+  if (!currentPoint) {
+    return { current, nearby: [] };
   }
 
-  const items = (countryCentroids as { items: CentroidMap }).items;
-  const centroid = centroidFor(currentId, items);
-  if (!centroid) return { current, nearby: [] };
-  const candidates = listCountryProfiles(root);
-  const nearby = buildNearby(
-    currentId,
-    current.status,
-    { lat: centroid.lat, lon: centroid.lon },
-    candidates,
-    items
-  )
+  const nearby = buildNearby(currentId, currentPoint, listCandidates(profile))
     .slice(0, 5)
-    .map(({ id, status, summary }) => ({ id, status, summary }));
+    .map(({ id, status, summary, name }) => ({ id, status, summary, name }));
 
   return { current, nearby };
 }

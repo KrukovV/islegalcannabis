@@ -1,0 +1,174 @@
+{
+  "code": "us-ks",
+  "geo_code": "US-KS",
+  "iso2": "US-KS",
+  "name": "Kansas",
+  "node_type": "state",
+  "normalized_version": "v1",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "regulated",
+      "scopes": {
+        "possession": "restricted",
+        "use": "restricted",
+        "sale": "regulated",
+        "cultivation": null,
+        "import": "illegal",
+        "trafficking": "illegal"
+      },
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [
+      "fine_based"
+    ],
+    "applied_rules": []
+  },
+  "notes_normalized": "Cannabis is legal in Kansas under state law for recreational adult use. Medical cannabis is not broadly legal in Kansas. Cannabis remains federally illegal in United States.",
+  "notes_raw": "",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "parent_country": {
+    "code": "usa",
+    "name": "United States"
+  },
+  "state_modifiers": {
+    "recreational": "override",
+    "medical": "override",
+    "enforcement_strength": "MEDIUM",
+    "federal_conflict": "Cannabis remains federally illegal in United States.",
+    "legalization_status": "State legal"
+  },
+  "related_codes": [
+    "usa",
+    "us-ct",
+    "us-de",
+    "us-id"
+  ],
+  "related_names": [
+    {
+      "code": "usa",
+      "name": "United States"
+    },
+    {
+      "code": "us-ct",
+      "name": "Connecticut"
+    },
+    {
+      "code": "us-de",
+      "name": "Delaware"
+    },
+    {
+      "code": "us-id",
+      "name": "Idaho"
+    }
+  ],
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "USA_CLUSTER",
+    "geo_neighbors": [
+      {
+        "code": "us-ak",
+        "name": "Alaska"
+      },
+      {
+        "code": "us-al",
+        "name": "Alabama"
+      },
+      {
+        "code": "us-ar",
+        "name": "Arkansas"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "us-ga",
+        "name": "Georgia"
+      },
+      {
+        "code": "us-hi",
+        "name": "Hawaii"
+      },
+      {
+        "code": "us-ia",
+        "name": "Iowa"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "usa",
+        "name": "United States"
+      },
+      {
+        "code": "us-in",
+        "name": "Indiana"
+      }
+    ],
+    "same_country_states": [
+      {
+        "code": "us-ct",
+        "name": "Connecticut"
+      },
+      {
+        "code": "us-de",
+        "name": "Delaware"
+      },
+      {
+        "code": "us-id",
+        "name": "Idaho"
+      }
+    ],
+    "federal_parent": {
+      "code": "usa",
+      "name": "United States"
+    }
+  },
+  "coordinates": {
+    "lat": 38,
+    "lng": -97
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Kansas",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki-us-ks",
+        "url": "https://en.wikipedia.org/wiki/Kansas",
+        "title": "Wikipedia: Kansas",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki-truth-us-ks",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "hashes": {
+    "code": "us-ks",
+    "content_hash": "de9ba83d9843ebc69eccf5c6d428d15988981b51126012e6388b434936ddde04",
+    "notes_hash": "3ccf7a86defed366c09f13e16ba4fa7fa166e4f4e4445dd9dfbbe76eb69c6306",
+    "model_hash": "94c520f9eb5e5df7f5afae85bc5d164e8e114bdc360ddbf01e8c8610592a52cf"
+  },
+  "updated_at": "2026-04-10"
+}

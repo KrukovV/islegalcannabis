@@ -1,0 +1,174 @@
+{
+  "code": "us-al",
+  "geo_code": "US-AL",
+  "iso2": "US-AL",
+  "name": "Alabama",
+  "node_type": "state",
+  "normalized_version": "v1",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "regulated",
+      "scopes": {
+        "possession": "restricted",
+        "use": "restricted",
+        "sale": "regulated",
+        "cultivation": null,
+        "import": "illegal",
+        "trafficking": "illegal"
+      },
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [
+      "fine_based"
+    ],
+    "applied_rules": []
+  },
+  "notes_normalized": "Cannabis is legal in Alabama under state law for recreational adult use. Medical cannabis is not broadly legal in Alabama. Cannabis remains federally illegal in United States.",
+  "notes_raw": "",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "parent_country": {
+    "code": "usa",
+    "name": "United States"
+  },
+  "state_modifiers": {
+    "recreational": "override",
+    "medical": "override",
+    "enforcement_strength": "MEDIUM",
+    "federal_conflict": "Cannabis remains federally illegal in United States.",
+    "legalization_status": "State legal"
+  },
+  "related_codes": [
+    "usa",
+    "us-de",
+    "us-id",
+    "us-in"
+  ],
+  "related_names": [
+    {
+      "code": "usa",
+      "name": "United States"
+    },
+    {
+      "code": "us-de",
+      "name": "Delaware"
+    },
+    {
+      "code": "us-id",
+      "name": "Idaho"
+    },
+    {
+      "code": "us-in",
+      "name": "Indiana"
+    }
+  ],
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "USA_CLUSTER",
+    "geo_neighbors": [
+      {
+        "code": "us-ak",
+        "name": "Alaska"
+      },
+      {
+        "code": "us-ar",
+        "name": "Arkansas"
+      },
+      {
+        "code": "us-ct",
+        "name": "Connecticut"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "us-ga",
+        "name": "Georgia"
+      },
+      {
+        "code": "us-hi",
+        "name": "Hawaii"
+      },
+      {
+        "code": "us-ia",
+        "name": "Iowa"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "usa",
+        "name": "United States"
+      },
+      {
+        "code": "us-ks",
+        "name": "Kansas"
+      }
+    ],
+    "same_country_states": [
+      {
+        "code": "us-de",
+        "name": "Delaware"
+      },
+      {
+        "code": "us-id",
+        "name": "Idaho"
+      },
+      {
+        "code": "us-in",
+        "name": "Indiana"
+      }
+    ],
+    "federal_parent": {
+      "code": "usa",
+      "name": "United States"
+    }
+  },
+  "coordinates": {
+    "lat": 38,
+    "lng": -97
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Alabama",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki-us-al",
+        "url": "https://en.wikipedia.org/wiki/Alabama",
+        "title": "Wikipedia: Alabama",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki-truth-us-al",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "hashes": {
+    "code": "us-al",
+    "content_hash": "43cfe7155a898bff94aa317ba5a11bd33f2d133a4e7f9037c5d47b344fa87bf8",
+    "notes_hash": "79093aa8081c76dc0840cb2355cede7ae1f07cff40ec6f9d6d5c763054fc7b14",
+    "model_hash": "5ac215861fe1517b519a45ebc9768beb4c93b94797d31a170064984da3a0e4ff"
+  },
+  "updated_at": "2026-04-10"
+}

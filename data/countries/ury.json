@@ -1,0 +1,144 @@
+{
+  "code": "ury",
+  "iso2": "UY",
+  "name": "Uruguay",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "restricted",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "legal"
+    ],
+    "notes_normalized": "Cannabis is legal in Uruguay. Medical cannabis is legal. Distribution is restricted."
+  },
+  "notes_normalized": "Cannabis is legal in Uruguay. Medical cannabis is legal. Distribution is restricted.",
+  "notes_raw": "{{Main|Cannabis in Uruguay}} Legal since late 2013.<ref name=\"erowid-SA\">{{citation |url = http://www.erowid.org/plants/cannabis/cannabis_law2.shtml |title = Cannabis South American laws |publisher = Erowid.org |date = March 1995 |access-date = 5 June 2018 |archive-date = 9 December 2019 |archive-url = https://web.archive.org/web/20191209011625/https://www.erowid.org/plants/cannabis/cannabis_law2.shtml |url-status = live }}</ref> Buyers must be eighteen or older, residents of Uruguay, and must register with the authorities. Authorities grow the cannabis that can be sold legally.<ref>{{cite news |url = https://www.economist.com/news/americas/21582579-another-blow-against-prohibition-experiment |title = The experiment: Another blow against prohibition |date = 1 August 2013 |newspaper = The Economist |access-date = 5 June 2018 |archive-date = 5 September 2017 |archive-url = https://web.archive.org/web/20170905093253/https://www.economist.com/news/americas/21582579-another-blow-against-prohibition-experiment |url-status = live }}</ref><ref>{{cite news |url = https://www.reuters.com/article/us-uruguay-marijuana-vote-idUSBRE9BA01520131211 |title = Uruguay becomes first country to legalize marijuana trade |date = 10 December 2013 |access-date = 10 July 2021 |archive-date = 1 December 2015 |archive-url = https://web.archive.org/web/20151201043200/http://www.reuters.com/article/2013/12/11/us-uruguay-marijuana-vote-idUSBRE9BA01520131211 |url-status = live }}</ref><ref>{{cite web|url=http://www.hurriyetdailynews.com/uruguay-marijuana-sales-delayed-until-2015-president.aspx?pageID=238&nID=68922&NewsCatID=358|title=Uruguay marijuana sales delayed until 2015: President – Americas|date=10 July 2014 |access-date=14 January 2015|archive-date=26 December 2018|archive-url=https://web.archive.org/web/20181226021407/http://www.hurriyetdailynews.com/uruguay-marijuana-sales-delayed-until-2015-president-68922|url-status=live}}</ref> [[Cannabis Social Club|Non-profit Cannabis Clubs]] can also operate.<ref>{{Cite book |last=Junta Nacional de Drogas |url=https://www.ircca.gub.uy/wp-content/uploads/2019/06/Ley19172-Decretos-ingles-espanol.pdf |title=Regulation and Control of Cannabis Market: Law 19.172 & Decrees |publisher=Presidencia de la República, Uruguay |year=2019 |location=[[Montevideo]] |access-date=3 July 2022 |archive-date=27 June 2022 |archive-url=https://web.archive.org/web/20220627170553/https://www.ircca.gub.uy/wp-content/uploads/2019/06/Ley19172-Decretos-ingles-espanol.pdf |url-status=live }}</ref> The minimum age to purchase or obtain cannabis in Uruguay is 18.<ref>{{cite news |date= 19 July 2017 |title=Uruguay pharmacies start selling cannabis straight to consumers |url= https://www.theguardian.com/world/2017/jul/19/uruguay-marijuana-sale-pharmacies |work= [[The Guardian]] |publisher= [[Reuters]] |location= Montevideo |access-date= 23 June 2023}}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": "grow the cannabis that can be sold legally.",
+    "penalty": null
+  },
+  "related_codes": [
+    "arg",
+    "pry",
+    "chl"
+  ],
+  "related_names": [
+    {
+      "code": "arg",
+      "name": "Argentina"
+    },
+    {
+      "code": "pry",
+      "name": "Paraguay / Paraguái"
+    },
+    {
+      "code": "chl",
+      "name": "Chile"
+    }
+  ],
+  "coordinates": {
+    "lat": -33,
+    "lng": -56
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Uruguay",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Uruguay",
+        "title": "Wikipedia: Uruguay",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "LATAM",
+    "seo_cluster": "LATAM",
+    "geo_neighbors": [
+      {
+        "code": "arg",
+        "name": "Argentina"
+      },
+      {
+        "code": "pry",
+        "name": "Paraguay / Paraguái"
+      },
+      {
+        "code": "chl",
+        "name": "Chile"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "bra",
+        "name": "Brazil / Brasil"
+      },
+      {
+        "code": "per",
+        "name": "Peru / Piruw"
+      },
+      {
+        "code": "ecu",
+        "name": "Ecuador"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "bol",
+        "name": "Bolivia / Wuliwya"
+      },
+      {
+        "code": "flk",
+        "name": "Falkland Islands"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "ury",
+    "content_hash": "6dc840e9a6d66082c30e23af5c7639032cf0af653802eb60b3be558bb98d9ad5",
+    "notes_hash": "caa89bc7fce6380b5ec3f10299147ebc9f078ab78928ae6e1b98b23fe499bb55",
+    "model_hash": "e207822c2554861630a99728fcf0f21292f7a2cb9ec3506f83ead560a07ba4b9"
+  },
+  "geo_code": "UY",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

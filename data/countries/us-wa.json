@@ -1,0 +1,181 @@
+{
+  "code": "us-wa",
+  "geo_code": "US-WA",
+  "iso2": "US-WA",
+  "name": "Washington",
+  "node_type": "state",
+  "normalized_version": "v1",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "regulated",
+      "scopes": {
+        "possession": "restricted",
+        "use": "restricted",
+        "sale": "regulated",
+        "cultivation": null,
+        "import": "illegal",
+        "trafficking": "illegal"
+      },
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [
+      "fine_based"
+    ],
+    "applied_rules": []
+  },
+  "notes_normalized": "Cannabis is legal in Washington under state law for recreational adult use. Medical cannabis is also legal in Washington. Cannabis remains federally illegal in United States. Possession is limited to Up to 1 oz flower.",
+  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}}",
+  "facts": {
+    "possession_limit": "Up to 1 oz flower",
+    "cultivation": null,
+    "penalty": "Public use remains illegal."
+  },
+  "parent_country": {
+    "code": "usa",
+    "name": "United States"
+  },
+  "state_modifiers": {
+    "recreational": "override",
+    "medical": "override",
+    "enforcement_strength": "MEDIUM",
+    "federal_conflict": "Cannabis remains federally illegal in United States.",
+    "legalization_status": "State legal"
+  },
+  "related_codes": [
+    "usa",
+    "us-al",
+    "us-ar",
+    "us-de"
+  ],
+  "related_names": [
+    {
+      "code": "usa",
+      "name": "United States"
+    },
+    {
+      "code": "us-al",
+      "name": "Alabama"
+    },
+    {
+      "code": "us-ar",
+      "name": "Arkansas"
+    },
+    {
+      "code": "us-de",
+      "name": "Delaware"
+    }
+  ],
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "USA_CLUSTER",
+    "geo_neighbors": [
+      {
+        "code": "us-nv",
+        "name": "Nevada"
+      },
+      {
+        "code": "us-ca",
+        "name": "California"
+      },
+      {
+        "code": "us-az",
+        "name": "Arizona"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "us-co",
+        "name": "Colorado"
+      },
+      {
+        "code": "us-ak",
+        "name": "Alaska"
+      },
+      {
+        "code": "us-ct",
+        "name": "Connecticut"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "usa",
+        "name": "United States"
+      },
+      {
+        "code": "us-ga",
+        "name": "Georgia"
+      }
+    ],
+    "same_country_states": [
+      {
+        "code": "us-al",
+        "name": "Alabama"
+      },
+      {
+        "code": "us-ar",
+        "name": "Arkansas"
+      },
+      {
+        "code": "us-de",
+        "name": "Delaware"
+      }
+    ],
+    "federal_parent": {
+      "code": "usa",
+      "name": "United States"
+    }
+  },
+  "coordinates": {
+    "lat": 47.7511,
+    "lng": -120.7401
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Washington",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "official-us-wa",
+        "url": "https://lcb.wa.gov/mj2015/related-laws",
+        "title": "Washington State Liquor and Cannabis Board",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki-us-wa",
+        "url": "https://en.wikipedia.org/wiki/Washington",
+        "title": "Wikipedia: Washington",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki-truth-us-wa",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "hashes": {
+    "code": "us-wa",
+    "content_hash": "6507ca2056fc978dc2d8a18a972bb4962e453abd5fa1ab62f7eedb9e10ced5ae",
+    "notes_hash": "e8f962db5683ef9e54604916b1548ab57331e287a0096e0704dcc00dffea2223",
+    "model_hash": "c55a505e15e9cfa1ac6f3efce5cddc298edb24db7a0f042a725f81b527f561fa"
+  },
+  "updated_at": "2024-01-01"
+}

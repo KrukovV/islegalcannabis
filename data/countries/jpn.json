@@ -1,0 +1,146 @@
+{
+  "code": "jpn",
+  "iso2": "JP",
+  "name": "Japan / 日本",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [
+      "fine_based"
+    ],
+    "applied_rules": [
+      "fine_based"
+    ],
+    "notes_normalized": "Cannabis is illegal in Japan / 日本. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Japan / 日本. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Japan}} Restricted in 1948.<ref name=\"ShikitaTsuchiya2012\">{{cite book|author1=Minoru Shikita|author2=Shinichi Tsuchiya|title=Crime and Criminal Policy in Japan: Analysis and Evaluation of the Showa Era, 1926–1988|url=https://books.google.com/books?id=9pHfBwAAQBAJ&pg=PA13|date=6 December 2012|publisher=Springer Science & Business Media|isbn=978-1-4612-2816-5|pages=13–}}</ref> Use and possession are punishable by up to 5 years imprisonment and a fine. Cultivation, sale, and transport are punishable by 7–10 years imprisonment and a fine.<ref>{{citation |url = http://www.japanhemp.org/en/taimalaw.htm |title = Cannabis Control Law |publisher = japanhemp.org |access-date = 4 August 2015 |archive-date = 17 May 2020 |archive-url = https://web.archive.org/web/20200517153638/http://www.japanhemp.org/en/taimalaw.htm |url-status = live }}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": "Cultivation, sale, and transport are punishable by 7–10 years imprisonment and a fine.",
+    "penalty": "punishable by up to 5 years imprisonment and a fine."
+  },
+  "related_codes": [
+    "kor",
+    "prk",
+    "twn"
+  ],
+  "related_names": [
+    {
+      "code": "kor",
+      "name": "South Korea / 한국"
+    },
+    {
+      "code": "prk",
+      "name": "North Korea / 조선"
+    },
+    {
+      "code": "twn",
+      "name": "Taiwan / 台灣"
+    }
+  ],
+  "coordinates": {
+    "lat": 36,
+    "lng": 138
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Japan",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Japan",
+        "title": "Wikipedia: Japan / 日本",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "ASIA",
+    "seo_cluster": "ASIA",
+    "geo_neighbors": [
+      {
+        "code": "kor",
+        "name": "South Korea / 한국"
+      },
+      {
+        "code": "prk",
+        "name": "North Korea / 조선"
+      },
+      {
+        "code": "twn",
+        "name": "Taiwan / 台灣"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "mnp",
+        "name": "Northern Mariana Islands / Na Islas Mariånas"
+      },
+      {
+        "code": "gum",
+        "name": "Guam / Guåhån"
+      },
+      {
+        "code": "hkg",
+        "name": "Hong Kong / 香港"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "phl",
+        "name": "Philippines / Pilipinas"
+      },
+      {
+        "code": "mac",
+        "name": "Macau / 澳门"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "jpn",
+    "content_hash": "ca6ca77f30bf259b029d3a92a23e8bfd251ae174f8a16df3d60557b2bd507cc5",
+    "notes_hash": "3bd7f765ff3c3551da85709c0c219efc96663801df7d3ebbf7f802ba39537a8f",
+    "model_hash": "16a2365e009f017dd0a4ec444bd1cc24624b0d514abfa98b55e1ba94f0feb161"
+  },
+  "geo_code": "JP",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

@@ -1,0 +1,145 @@
+{
+  "code": "ita",
+  "iso2": "IT",
+  "name": "Italy / Italia",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "DECRIMINALIZED",
+      "status": "DECRIMINALIZED",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "regulated",
+      "scopes": {
+        "possession": "restricted",
+        "sale": "regulated",
+        "cultivation": "tolerated",
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "licensed_sale",
+      "private_cultivation_tolerated"
+    ],
+    "notes_normalized": "Cannabis is decriminalized in Italy / Italia. Medical cannabis is legal. Distribution is regulated."
+  },
+  "notes_normalized": "Cannabis is decriminalized in Italy / Italia. Medical cannabis is legal. Distribution is regulated.",
+  "notes_raw": "{{main|Cannabis in Italy}} Possession of small amounts for personal use is a misdemeanor subject to fines and the suspension of documents (passports or driver's licenses). Sale is punishable by imprisonment, even if in small amounts. Licensed cultivation for medicinal and industrial use strictly regulated.<ref>{{cite web|url=http://www.prefetturateramo.linkonline.it/REFERENDUM/PRECEDENTI/1974-1993.htm|title=linkonline.it|access-date=14 January 2015|archive-date=26 December 2018|archive-url=https://web.archive.org/web/20181226021414/http://www.prefetturateramo.linkonline.it/REFERENDUM/PRECEDENTI/1974-1993.htm|url-status=live}}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": "cultivation for medicinal and industrial use strictly regulated.",
+    "penalty": "fines and the suspension of documents (passports or driver's licenses)."
+  },
+  "related_codes": [
+    "vat",
+    "smr",
+    "hrv"
+  ],
+  "related_names": [
+    {
+      "code": "vat",
+      "name": "Vatican City / Vaticano"
+    },
+    {
+      "code": "smr",
+      "name": "San Marino"
+    },
+    {
+      "code": "hrv",
+      "name": "Croatia / Hrvatska"
+    }
+  ],
+  "coordinates": {
+    "lat": 41.8719,
+    "lng": 12.5674
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Italy",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Italy",
+        "title": "Wikipedia: Italy / Italia",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU",
+    "geo_neighbors": [
+      {
+        "code": "vat",
+        "name": "Vatican City / Vaticano"
+      },
+      {
+        "code": "smr",
+        "name": "San Marino"
+      },
+      {
+        "code": "hrv",
+        "name": "Croatia / Hrvatska"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "svn",
+        "name": "Slovenia / Slovenija"
+      },
+      {
+        "code": "aut",
+        "name": "Austria / Österreich"
+      },
+      {
+        "code": "bih",
+        "name": "Bosnia and Herzegovina / Bosna i Hercegovina"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "mco",
+        "name": "Monaco"
+      },
+      {
+        "code": "lie",
+        "name": "Liechtenstein"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "ita",
+    "content_hash": "13994b7e91d8ff77dc6e45c5013f20d9b3f20dd5f9baa7299a6676e5c0202f61",
+    "notes_hash": "58a49947a6fc4b7fae1a9f8eea88bceac7be806187c624c89434ab94a23737a1",
+    "model_hash": "0b9c8a57e3d53ff7dcf55dc60bfea20839f5513aac42a86130f2c9cab1b77a2f"
+  },
+  "geo_code": "IT",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

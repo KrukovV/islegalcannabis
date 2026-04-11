@@ -1,0 +1,146 @@
+{
+  "code": "ken",
+  "iso2": "KE",
+  "name": "Kenya",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Kenya. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Kenya. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Kenya}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "uga",
+    "eth",
+    "tza"
+  ],
+  "related_names": [
+    {
+      "code": "uga",
+      "name": "Uganda"
+    },
+    {
+      "code": "eth",
+      "name": "Ethiopia / ኢትዮጵያ"
+    },
+    {
+      "code": "tza",
+      "name": "Tanzania"
+    }
+  ],
+  "coordinates": {
+    "lat": 1,
+    "lng": 38
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Kenya",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Kenya",
+        "title": "Wikipedia: Kenya",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "AFRICA",
+    "seo_cluster": "AFRICA",
+    "geo_neighbors": [
+      {
+        "code": "uga",
+        "name": "Uganda"
+      },
+      {
+        "code": "eth",
+        "name": "Ethiopia / ኢትዮጵያ"
+      },
+      {
+        "code": "tza",
+        "name": "Tanzania"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "rwa",
+        "name": "Rwanda"
+      },
+      {
+        "code": "bdi",
+        "name": "Burundi / Uburundi"
+      },
+      {
+        "code": "ssd",
+        "name": "South Sudan"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "dji",
+        "name": "Djibouti / جيبوتي"
+      },
+      {
+        "code": "cod",
+        "name": "DR Congo / RD Congo"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "ken",
+    "content_hash": "74f69ad9ae66ed093f7b910efd221451d1d730aa83393d7c7b3463236d413743",
+    "notes_hash": "9d8e9f11e55f34e8f9f5820254d436fe6db52529393113d672cb1d20a8fd44e8",
+    "model_hash": "a4ee2cf7a01933ac45e248dd1d7e67793cb42731c3dfb754ba10d54f56be7fcd"
+  },
+  "geo_code": "KE",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

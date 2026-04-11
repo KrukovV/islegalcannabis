@@ -1,0 +1,146 @@
+{
+  "code": "bih",
+  "iso2": "BA",
+  "name": "Bosnia and Herzegovina / Bosna i Hercegovina",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Bosnia and Herzegovina / Bosna i Hercegovina. Medical cannabis is legal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Bosnia and Herzegovina / Bosna i Hercegovina. Medical cannabis is legal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Bosnia and Herzegovina}} In 2016, the Ministry of Civil Affairs formed a task force to explore the legalization of cannabis and [[cannabinoids]] for medicinal purposes.<ref>{{cite web |url=http://www.bosniatoday.ba/bosnia-to-legalize-medical-marijuana-this-year/ |title=Bosnia to legalize medical marijuana this year |website=Bosnia Today |access-date=30 November 2016 |url-status=dead |archive-url=https://web.archive.org/web/20160924221422/http://www.bosniatoday.ba/bosnia-to-legalize-medical-marijuana-this-year/ |archive-date=24 September 2016}}</ref><ref>{{cite web |url=https://n1info.hr/regija/bih-legalizirala-medicinski-kanabis/ |title=BiH legalizirala medicinski kanabis |language=bs |website=n1info.hr |date=2025-12-29 |access-date=2026-01-10}}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "mne",
+    "hrv",
+    "srb"
+  ],
+  "related_names": [
+    {
+      "code": "mne",
+      "name": "Montenegro / Црна Гора"
+    },
+    {
+      "code": "hrv",
+      "name": "Croatia / Hrvatska"
+    },
+    {
+      "code": "srb",
+      "name": "Serbia / Србија"
+    }
+  ],
+  "coordinates": {
+    "lat": 44,
+    "lng": 18
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Bosnia_and_Herzegovina",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Bosnia_and_Herzegovina",
+        "title": "Wikipedia: Bosnia and Herzegovina / Bosna i Hercegovina",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "mne",
+        "name": "Montenegro / Црна Гора"
+      },
+      {
+        "code": "hrv",
+        "name": "Croatia / Hrvatska"
+      },
+      {
+        "code": "srb",
+        "name": "Serbia / Србија"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "alb",
+        "name": "Albania / Shqipëria"
+      },
+      {
+        "code": "svn",
+        "name": "Slovenia / Slovenija"
+      },
+      {
+        "code": "mkd",
+        "name": "North Macedonia / Македонија"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "hun",
+        "name": "Hungary / Magyarország"
+      },
+      {
+        "code": "svk",
+        "name": "Slovakia / Slovensko"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "bih",
+    "content_hash": "01531cf140d928dccec87a3f9336b2d7cd7efeeb4c82cd7ab0e5aa4da97181ce",
+    "notes_hash": "d321b095b67c333e2269e008fd48c59ce91aa4357c4ce0d40d9bddf76177ae42",
+    "model_hash": "cacc299770169721ae05ee9e181bc6a1c8bf4378050ed79b6b0f01cf785f4b52"
+  },
+  "geo_code": "BA",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

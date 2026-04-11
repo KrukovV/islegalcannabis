@@ -1,0 +1,139 @@
+{
+  "code": "iot",
+  "iso2": "IO",
+  "name": "British Indian Ocean Territory",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in British Indian Ocean Territory. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in British Indian Ocean Territory. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "No notes available.",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "mdv",
+    "syc",
+    "lka"
+  ],
+  "related_names": [
+    {
+      "code": "mdv",
+      "name": "Maldives / ދިވެހިރާއްޖޭގެ"
+    },
+    {
+      "code": "syc",
+      "name": "Seychelles / Sesel"
+    },
+    {
+      "code": "lka",
+      "name": "Sri Lanka / ශ්‍රී ලංකාව"
+    }
+  ],
+  "coordinates": {
+    "lat": -6.190826,
+    "lng": 71.348349
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/British_Indian_Ocean_Territory",
+    "wiki_truth": null,
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/British_Indian_Ocean_Territory",
+        "title": "Wikipedia: British Indian Ocean Territory",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "OTHER",
+    "seo_cluster": "GLOBAL",
+    "geo_neighbors": [
+      {
+        "code": "mdv",
+        "name": "Maldives / ދިވެހިރާއްޖޭގެ"
+      },
+      {
+        "code": "syc",
+        "name": "Seychelles / Sesel"
+      },
+      {
+        "code": "lka",
+        "name": "Sri Lanka / ශ්‍රී ලංකාව"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "mus",
+        "name": "Mauritius / Maurice"
+      },
+      {
+        "code": "ind",
+        "name": "India / भारत"
+      },
+      {
+        "code": "som",
+        "name": "Somalia / الصومال"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "atf",
+        "name": "French Southern and Antarctic Lands / Terres australes et antarctiques françaises"
+      },
+      {
+        "code": "hmd",
+        "name": "Heard Island and McDonald Islands"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "iot",
+    "content_hash": "ea705da7c4816490cdcc9755296984b66771a8eac1f750696db17d186df1dd92",
+    "notes_hash": "ef70bf9a362ddddd16b8a063c4cffbc737c6702450306b6e5c9390ef4404a1c5",
+    "model_hash": "dda4b31169fd7ff185d68a916cdbef861bbf566a1b7f38b730cab16df4cf3141"
+  },
+  "geo_code": "IO",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

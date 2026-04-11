@@ -1,0 +1,181 @@
+{
+  "code": "us-co",
+  "geo_code": "US-CO",
+  "iso2": "US-CO",
+  "name": "Colorado",
+  "node_type": "state",
+  "normalized_version": "v1",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "regulated",
+      "scopes": {
+        "possession": "restricted",
+        "use": "restricted",
+        "sale": "regulated",
+        "cultivation": null,
+        "import": "illegal",
+        "trafficking": "illegal"
+      },
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [
+      "fine_based"
+    ],
+    "applied_rules": []
+  },
+  "notes_normalized": "Cannabis is legal in Colorado under state law for recreational adult use. Medical cannabis is also legal in Colorado. Cannabis remains federally illegal in United States. Possession is limited to varies (see official sources).",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
+  "facts": {
+    "possession_limit": "varies (see official sources)",
+    "cultivation": null,
+    "penalty": "Cross-border transport remains illegal."
+  },
+  "parent_country": {
+    "code": "usa",
+    "name": "United States"
+  },
+  "state_modifiers": {
+    "recreational": "override",
+    "medical": "override",
+    "enforcement_strength": "MEDIUM",
+    "federal_conflict": "Cannabis remains federally illegal in United States.",
+    "legalization_status": "State legal"
+  },
+  "related_codes": [
+    "usa",
+    "us-ar",
+    "us-ga",
+    "us-hi"
+  ],
+  "related_names": [
+    {
+      "code": "usa",
+      "name": "United States"
+    },
+    {
+      "code": "us-ar",
+      "name": "Arkansas"
+    },
+    {
+      "code": "us-ga",
+      "name": "Georgia"
+    },
+    {
+      "code": "us-hi",
+      "name": "Hawaii"
+    }
+  ],
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "USA_CLUSTER",
+    "geo_neighbors": [
+      {
+        "code": "us-az",
+        "name": "Arizona"
+      },
+      {
+        "code": "us-ak",
+        "name": "Alaska"
+      },
+      {
+        "code": "us-al",
+        "name": "Alabama"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "us-ct",
+        "name": "Connecticut"
+      },
+      {
+        "code": "us-de",
+        "name": "Delaware"
+      },
+      {
+        "code": "us-md",
+        "name": "Maryland"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "usa",
+        "name": "United States"
+      },
+      {
+        "code": "us-ia",
+        "name": "Iowa"
+      }
+    ],
+    "same_country_states": [
+      {
+        "code": "us-ar",
+        "name": "Arkansas"
+      },
+      {
+        "code": "us-ga",
+        "name": "Georgia"
+      },
+      {
+        "code": "us-hi",
+        "name": "Hawaii"
+      }
+    ],
+    "federal_parent": {
+      "code": "usa",
+      "name": "United States"
+    }
+  },
+  "coordinates": {
+    "lat": 39.5501,
+    "lng": -105.7821
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Colorado",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "official-us-co",
+        "url": "https://sbg.colorado.gov/marijuana",
+        "title": "Colorado Marijuana Enforcement Division",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki-us-co",
+        "url": "https://en.wikipedia.org/wiki/Colorado",
+        "title": "Wikipedia: Colorado",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki-truth-us-co",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "hashes": {
+    "code": "us-co",
+    "content_hash": "9f56360406c39d741969cdb6c88016e2d8ab0bb4f7b8b6ebc39a84d5e20209a4",
+    "notes_hash": "f4f78d5507cffefe13d041ea5eedd8fd397e2dddf124744b3dc5168754e733d2",
+    "model_hash": "246885ea434186a0f9d56cf8c2743dc95a684744c247af4bb0b13993d1283ce8"
+  },
+  "updated_at": "2024-01-01"
+}

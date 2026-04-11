@@ -1,0 +1,145 @@
+{
+  "code": "mex",
+  "iso2": "MX",
+  "name": "Mexico / México",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "LEGAL",
+      "status": "DECRIMINALIZED",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "tolerated",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": "tolerated",
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "decriminalized",
+      "private_cultivation_tolerated"
+    ],
+    "notes_normalized": "Cannabis is decriminalized in Mexico / México. Medical cannabis is legal. Distribution is tolerated."
+  },
+  "notes_normalized": "Cannabis is decriminalized in Mexico / México. Medical cannabis is legal. Distribution is tolerated.",
+  "notes_raw": "{{Main|Cannabis in Mexico}} Possession of {{cvt|5|g|frac=16}} was decriminalized in 2009.<ref>{{cite news |url = https://www.nytimes.com/2009/08/21/world/americas/21mexico.html |work = [[The New York Times]] |agency = [[Associated Press]] |title = Mexico Legalizes Drug Possession |date = 21 August 2009 |access-date = 4 April 2010 |archive-url = https://web.archive.org/web/20180401103237/https://www.nytimes.com/2009/08/21/world/americas/21mexico.html |archive-date = 1 April 2018 |url-status = live}}</ref> In 2015 the Supreme Court voted 4–1 that prohibiting people from growing the drug for personal use was unconstitutional.<ref>{{cite news |url = https://www.bbc.co.uk/news/world-us-canada-34726693 |publisher = [[BBC News]] |title = Mexico court ruling could eventually lead to legal marijuana |date = 4 November 2015 |access-date = 5 November 2015 |archive-date = 3 December 2017 |archive-url = https://web.archive.org/web/20171203223457/http://www.bbc.co.uk/news/world-us-canada-34726693 |url-status = live }}</ref> In 2018 the Supreme Court reaffirmed the ruling and requested that the legislature update the country's laws regarding cannabis.<ref>{{cite news |last=McDonnell-Parry |first=Amelia |title=Did Mexico Just Legalize Pot? |url=https://www.rollingstone.com/culture/culture-news/mexico-marijuana-legal-decriminalize-pot-weed-751030/ |access-date=14 January 2019 |magazine=[[Rolling Stone]] |date=2 November 2018 |archive-date=15 January 2019 |archive-url=https://web.archive.org/web/20190115023120/https://www.rollingstone.com/culture/culture-news/mexico-marijuana-legal-decriminalize-pot-weed-751030/ |url-status=live }}</ref><ref>{{cite news |last=Adlin |first=Ben |title=FAQ: Mexico Legalized Cannabis? Not Exactly |url=https://www.leafly.com/news/politics/is-marijuana-legal-in-mexico-after-supreme-court-ruling |access-date=14 January 2019 |work=[[Leafly]] |date=1 November 2018 |archive-date=15 January 2019 |archive-url=https://web.archive.org/web/20190115023146/https://www.leafly.com/news/politics/is-marijuana-legal-in-mexico-after-supreme-court-ruling |url-status=live }}</ref> After the legislature failed to act, the Supreme Court in 2021 invalidated laws regarding the personal possession and cultivation of cannabis.<ref name=\"mexico062821\" />",
+  "facts": {
+    "possession_limit": "personal possession and cultivation of cannabis.",
+    "cultivation": "growing the drug for personal use was unconstitutional.",
+    "penalty": null
+  },
+  "related_codes": [
+    "gtm",
+    "blz",
+    "usa"
+  ],
+  "related_names": [
+    {
+      "code": "gtm",
+      "name": "Guatemala"
+    },
+    {
+      "code": "blz",
+      "name": "Belize / Belice"
+    },
+    {
+      "code": "usa",
+      "name": "United States"
+    }
+  ],
+  "coordinates": {
+    "lat": 23,
+    "lng": -102
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Mexico",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Mexico",
+        "title": "Wikipedia: Mexico / México",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "NA",
+    "geo_neighbors": [
+      {
+        "code": "gtm",
+        "name": "Guatemala"
+      },
+      {
+        "code": "blz",
+        "name": "Belize / Belice"
+      },
+      {
+        "code": "usa",
+        "name": "United States"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "cri",
+        "name": "Costa Rica"
+      },
+      {
+        "code": "jam",
+        "name": "Jamaica"
+      },
+      {
+        "code": "pan",
+        "name": "Panama / Panamá"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "slv",
+        "name": "El Salvador"
+      },
+      {
+        "code": "hnd",
+        "name": "Honduras"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "mex",
+    "content_hash": "5d122c1babc6255b64242289100ab930b172511ee9982628d7377f1a45099aa9",
+    "notes_hash": "f38744f14b78d3c4925585e2ce0dd0a457b3abcc755008968a8dc0f6a2ce391a",
+    "model_hash": "56e3ca544622ed218014434d59e6c0158c6f14f7030db832c2a98d2c5c3271d3"
+  },
+  "geo_code": "MX",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

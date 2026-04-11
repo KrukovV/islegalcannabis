@@ -1,0 +1,146 @@
+{
+  "code": "dnk",
+  "iso2": "DK",
+  "name": "Denmark / Danmark",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [
+      "fine_based"
+    ],
+    "applied_rules": [
+      "fine_based"
+    ],
+    "notes_normalized": "Cannabis is illegal in Denmark / Danmark. Medical cannabis is legal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Denmark / Danmark. Medical cannabis is legal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Denmark}} As with all drugs, cannabis-related offenses are punishable by a fine or imprisonment for up to 2 years.<ref>{{citation |url = http://www.1stmarijuanagrowerspage.com/denmark-marijuana-cannabis-laws.html |title = Denmark marijuana laws – cannabis growing and marijuana seeds |publisher = 1stmarijuanagrowerspage.com |access-date = 17 February 2011 |archive-date = 20 May 2019 |archive-url = https://web.archive.org/web/20190520155622/http://www.1stmarijuanagrowerspage.com/denmark-marijuana-cannabis-laws.html |url-status = live }}</ref> [[Freetown Christiania]], a self-declared autonomous community in [[Copenhagen]], is known for its cannabis trade.<ref>{{cite news |last1=Radicella |first1=Lucas |title=Copenhagen's largest cannabis market shut down |url=https://www.euronews.com/2018/05/22/copenhagen-s-largest-cannabis-market-shut-down |publisher=[[Euronews]] |access-date=17 October 2018 |date=22 May 2018 |archive-date=17 October 2018 |archive-url=https://web.archive.org/web/20181017123732/https://www.euronews.com/2018/05/22/copenhagen-s-largest-cannabis-market-shut-down |url-status=live }}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": "punishable by a fine or imprisonment for up to 2 years."
+  },
+  "related_codes": [
+    "deu",
+    "nor",
+    "nld"
+  ],
+  "related_names": [
+    {
+      "code": "deu",
+      "name": "Germany / Deutschland"
+    },
+    {
+      "code": "nor",
+      "name": "Norway / Noreg"
+    },
+    {
+      "code": "nld",
+      "name": "Netherlands / Nederland"
+    }
+  ],
+  "coordinates": {
+    "lat": 56,
+    "lng": 10
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Denmark",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Denmark",
+        "title": "Wikipedia: Denmark / Danmark",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "deu",
+        "name": "Germany / Deutschland"
+      },
+      {
+        "code": "nor",
+        "name": "Norway / Noreg"
+      },
+      {
+        "code": "nld",
+        "name": "Netherlands / Nederland"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "lux",
+        "name": "Luxembourg / Luxemburg"
+      },
+      {
+        "code": "swe",
+        "name": "Sweden / Sverige"
+      },
+      {
+        "code": "cze",
+        "name": "Czechia / Česko"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "bel",
+        "name": "Belgium / Belgien"
+      },
+      {
+        "code": "lie",
+        "name": "Liechtenstein"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "dnk",
+    "content_hash": "259c35ba7a4cfb27ea2fd902c068acee4be99cdbeff63d34018f5191a7e43a41",
+    "notes_hash": "f2b6a2ad2e814d98191c19b23e269f77ec05ff5d8a7089409bafa6538a17fdeb",
+    "model_hash": "0864006a89971c0502a7d28067499c5087113b3681547d30103a5b19a6f00423"
+  },
+  "geo_code": "DK",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

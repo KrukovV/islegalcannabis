@@ -1,0 +1,139 @@
+{
+  "code": "msr",
+  "iso2": "MS",
+  "name": "Montserrat",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Montserrat. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Montserrat. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "No notes available.",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "atg",
+    "kna",
+    "blm"
+  ],
+  "related_names": [
+    {
+      "code": "atg",
+      "name": "Antigua and Barbuda"
+    },
+    {
+      "code": "kna",
+      "name": "Saint Kitts and Nevis"
+    },
+    {
+      "code": "blm",
+      "name": "Saint Barthélemy"
+    }
+  ],
+  "coordinates": {
+    "lat": 16.73717,
+    "lng": -62.188252
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Montserrat",
+    "wiki_truth": null,
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Montserrat",
+        "title": "Wikipedia: Montserrat",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "NA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "atg",
+        "name": "Antigua and Barbuda"
+      },
+      {
+        "code": "kna",
+        "name": "Saint Kitts and Nevis"
+      },
+      {
+        "code": "blm",
+        "name": "Saint Barthélemy"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "sxm",
+        "name": "Sint Maarten / Saint-Martin"
+      },
+      {
+        "code": "maf",
+        "name": "Saint Martin"
+      },
+      {
+        "code": "aia",
+        "name": "Anguilla"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "dma",
+        "name": "Dominica"
+      },
+      {
+        "code": "vir",
+        "name": "United States Virgin Islands"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "msr",
+    "content_hash": "c54ad31067955affa1d14dd2cd83d813577c2f69561a77f5255b48d6aeab0773",
+    "notes_hash": "206be8467a75ba0b9b1638c3f307021d63f390e187dca7b114d0981e5d883868",
+    "model_hash": "6bf03539d40023274eb047e3a4822e9157c4ea99d0a523d6e5717188deef14f9"
+  },
+  "geo_code": "MS",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

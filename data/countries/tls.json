@@ -1,0 +1,146 @@
+{
+  "code": "tls",
+  "iso2": "TL",
+  "name": "Timor-Leste / Timór-Leste",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Timor-Leste / Timór-Leste. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Timor-Leste / Timór-Leste. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Timor-Leste}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "idn",
+    "brn",
+    "mys"
+  ],
+  "related_names": [
+    {
+      "code": "idn",
+      "name": "Indonesia"
+    },
+    {
+      "code": "brn",
+      "name": "Brunei / Negara Brunei Darussalam"
+    },
+    {
+      "code": "mys",
+      "name": "Malaysia / مليسيا"
+    }
+  ],
+  "coordinates": {
+    "lat": -8.83333333,
+    "lng": 125.91666666
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Timor-Leste",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Timor-Leste",
+        "title": "Wikipedia: Timor-Leste / Timór-Leste",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "ASIA",
+    "seo_cluster": "ASIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "idn",
+        "name": "Indonesia"
+      },
+      {
+        "code": "brn",
+        "name": "Brunei / Negara Brunei Darussalam"
+      },
+      {
+        "code": "mys",
+        "name": "Malaysia / مليسيا"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "plw",
+        "name": "Palau / Belau"
+      },
+      {
+        "code": "png",
+        "name": "Papua New Guinea / Papua Niu Gini"
+      },
+      {
+        "code": "gum",
+        "name": "Guam / Guåhån"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "phl",
+        "name": "Philippines / Pilipinas"
+      },
+      {
+        "code": "sgp",
+        "name": "Singapore / Singapura"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "tls",
+    "content_hash": "930d5a2bce01fea68a0c8847ec9399d64c596e20b49efb9a66715231a94b8e4e",
+    "notes_hash": "4040304985f28144e59bad44a0b5e1b373cc7893e0f0ca46d8cc0cc91a9304f1",
+    "model_hash": "fa05fa6de3dde8633d461a477dc7f50f7ef167a6b97f52edcfc0dd7310cb7514"
+  },
+  "geo_code": "TL",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

@@ -1,0 +1,146 @@
+{
+  "code": "chl",
+  "iso2": "CL",
+  "name": "Chile",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "DECRIMINALIZED",
+      "status": "DECRIMINALIZED",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "tolerated",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": "tolerated",
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "decriminalized",
+      "medical_legal",
+      "private_cultivation_tolerated"
+    ],
+    "notes_normalized": "Cannabis is decriminalized in Chile. Medical cannabis is legal. Distribution is tolerated."
+  },
+  "notes_normalized": "Cannabis is decriminalized in Chile. Medical cannabis is legal. Distribution is tolerated.",
+  "notes_raw": "{{main|Cannabis in Chile}} Private personal use<ref>{{cite web|url=http://druglawreform.info/en/country-information/latin-america/chile/item/202-chile|title=Chile – Drug Law Reform in Latin America|author=TNI|access-date=25 February 2016|archive-date=6 October 2018|archive-url=https://web.archive.org/web/20181006123221/http://druglawreform.info/en/country-information/latin-america/chile/item/202-chile|url-status=live}}</ref> and recreational cultivation<ref>{{cite web|url=http://www.elquintopoder.cl/ciudadania/el-autocultivo-de-cannabis-es-legal-en-chile-tambien-el-colectivo/|title=El cultivo colectivo de Cannabis, legal en Chile|access-date=25 February 2016|date=24 August 2015|archive-date=21 July 2018|archive-url=https://web.archive.org/web/20180721073404/https://www.elquintopoder.cl/ciudadania/el-autocultivo-de-cannabis-es-legal-en-chile-tambien-el-colectivo/|url-status=live}}</ref><ref>{{cite web|url=http://www.delaferia.cl/noticia/corte-suprema-autocultivo-de-marihuana-es-legal-en-chile/|title=Autocultivo de marihuana es legal en Chile – Delaferia|work=Delaferia|access-date=25 February 2016|archive-url=https://web.archive.org/web/20160225091153/http://www.delaferia.cl/noticia/corte-suprema-autocultivo-de-marihuana-es-legal-en-chile/|archive-date=25 February 2016|url-status=dead|language=es}}</ref><ref>{{cite web|title=Ana María Gazmuri: \"En Chile hoy en día el autocultivo es legal\"|work=Fundación Daya |url=http://www.fundaciondaya.org/en-chile-hoy-en-dia-el-autocultivo-es-legal/|access-date=11 July 2016|language=es-ES|date=24 August 2015|archive-date=12 October 2018|archive-url=https://web.archive.org/web/20181012130524/http://www.fundaciondaya.org/en-chile-hoy-en-dia-el-autocultivo-es-legal/|url-status=live}}</ref> decriminalized. Medicinal cultivation legal with the authorization of The Chilean Agriculture Service (SAG)<ref>{{cite news|url=https://www.bbc.com/news/world-latin-america-29693386|title=Chile plants cannabis for medicinal use|publisher=[[BBC News]]|access-date=25 February 2016|date=29 October 2014|last=Long|first=Gideon|archive-url=https://web.archive.org/web/20170814005239/https://www.bbc.com/news/world-latin-america-29693386|archive-date=14 August 2017|url-status=live}}</ref> and sale of medication allowed on prescription in pharmacies.<ref>{{cite web|url=http://www.latercera.com/noticia/nacional/2015/10/680-652201-9-en-diciembre-estaria-autorizada-la-venta-de-medicamentos-con-cannabis-en.shtml|title=En diciembre estaría autorizada la venta de medicamentos con cannabis en farmacias|author=Grupo Copesa|date=20 October 2015|access-date=25 February 2016|archive-date=4 March 2016|archive-url=https://web.archive.org/web/20160304205156/http://www.latercera.com/noticia/nacional/2015/10/680-652201-9-en-diciembre-estaria-autorizada-la-venta-de-medicamentos-con-cannabis-en.shtml|url-status=dead}}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": "cultivation decriminalized.",
+    "penalty": null
+  },
+  "related_codes": [
+    "arg",
+    "bol",
+    "pry"
+  ],
+  "related_names": [
+    {
+      "code": "arg",
+      "name": "Argentina"
+    },
+    {
+      "code": "bol",
+      "name": "Bolivia / Wuliwya"
+    },
+    {
+      "code": "pry",
+      "name": "Paraguay / Paraguái"
+    }
+  ],
+  "coordinates": {
+    "lat": -30,
+    "lng": -71
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Chile",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Chile",
+        "title": "Wikipedia: Chile",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "LATAM",
+    "seo_cluster": "LATAM",
+    "geo_neighbors": [
+      {
+        "code": "arg",
+        "name": "Argentina"
+      },
+      {
+        "code": "bol",
+        "name": "Bolivia / Wuliwya"
+      },
+      {
+        "code": "pry",
+        "name": "Paraguay / Paraguái"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "ury",
+        "name": "Uruguay"
+      },
+      {
+        "code": "per",
+        "name": "Peru / Piruw"
+      },
+      {
+        "code": "bra",
+        "name": "Brazil / Brasil"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "flk",
+        "name": "Falkland Islands"
+      },
+      {
+        "code": "ecu",
+        "name": "Ecuador"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "chl",
+    "content_hash": "e23f70de6b2134efc6e2e45f29718fbae4f46d69f41b2fb55c9f08d4d9578ea7",
+    "notes_hash": "3d052e861eeb8860fe02447a5ad0393cb64fc585a7458cbd3333a077b134297f",
+    "model_hash": "52a44c86c6b3b46970e885672fe4c10cb2e460c8dbae7137066b9d6d715258f7"
+  },
+  "geo_code": "CL",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

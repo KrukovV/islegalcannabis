@@ -1,0 +1,146 @@
+{
+  "code": "bhs",
+  "iso2": "BS",
+  "name": "Bahamas",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Bahamas. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Bahamas. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in the Bahamas}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "cub",
+    "tca",
+    "jam"
+  ],
+  "related_names": [
+    {
+      "code": "cub",
+      "name": "Cuba"
+    },
+    {
+      "code": "tca",
+      "name": "Turks and Caicos Islands"
+    },
+    {
+      "code": "jam",
+      "name": "Jamaica"
+    }
+  ],
+  "coordinates": {
+    "lat": 24.25,
+    "lng": -76
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Bahamas",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Bahamas",
+        "title": "Wikipedia: Bahamas",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "NA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "cub",
+        "name": "Cuba"
+      },
+      {
+        "code": "tca",
+        "name": "Turks and Caicos Islands"
+      },
+      {
+        "code": "jam",
+        "name": "Jamaica"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "hti",
+        "name": "Haiti / Haïti"
+      },
+      {
+        "code": "cym",
+        "name": "Cayman Islands"
+      },
+      {
+        "code": "dom",
+        "name": "Dominican Republic / República Dominicana"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "pri",
+        "name": "Puerto Rico"
+      },
+      {
+        "code": "vgb",
+        "name": "British Virgin Islands"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "bhs",
+    "content_hash": "3c3ef21ae5932ea6ca5b7502fb35593b6567562f27bcdf36320009a4bd3c4c8f",
+    "notes_hash": "49eee72ab4c5bb6b4c037790c6b1b4dbf20a0f225b50a6172fa92807fa36571a",
+    "model_hash": "2f2f03bc509a5f58c1e01db0e672241966cee2403cd246019a924bee984b7c59"
+  },
+  "geo_code": "BS",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

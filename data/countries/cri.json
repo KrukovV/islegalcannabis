@@ -1,0 +1,144 @@
+{
+  "code": "cri",
+  "iso2": "CR",
+  "name": "Costa Rica",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "DECRIMINALIZED",
+      "status": "DECRIMINALIZED",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "restricted",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "decriminalized"
+    ],
+    "notes_normalized": "Cannabis is decriminalized in Costa Rica. Medical cannabis is legal. Distribution is restricted."
+  },
+  "notes_normalized": "Cannabis is decriminalized in Costa Rica. Medical cannabis is legal. Distribution is restricted.",
+  "notes_raw": "{{main|Cannabis in Costa Rica}} Decriminalized since police officers do not detain people for personal use, yet no amount has been defined as a minimum for possession. Use of cannabis is widespread throughout the country.<ref name=\"nacion1\" /><ref name=\"tcrn\" />",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "nic",
+    "pan",
+    "hnd"
+  ],
+  "related_names": [
+    {
+      "code": "nic",
+      "name": "Nicaragua"
+    },
+    {
+      "code": "pan",
+      "name": "Panama / Panamá"
+    },
+    {
+      "code": "hnd",
+      "name": "Honduras"
+    }
+  ],
+  "coordinates": {
+    "lat": 10,
+    "lng": -84
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Costa_Rica",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Costa_Rica",
+        "title": "Wikipedia: Costa Rica",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "NA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "nic",
+        "name": "Nicaragua"
+      },
+      {
+        "code": "pan",
+        "name": "Panama / Panamá"
+      },
+      {
+        "code": "hnd",
+        "name": "Honduras"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "blz",
+        "name": "Belize / Belice"
+      },
+      {
+        "code": "jam",
+        "name": "Jamaica"
+      },
+      {
+        "code": "col",
+        "name": "Colombia"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "slv",
+        "name": "El Salvador"
+      },
+      {
+        "code": "gtm",
+        "name": "Guatemala"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "cri",
+    "content_hash": "90a58bc8e45f7bd4c255ecdd633b3d18011e1e18abe6dbfb3cc79d8b263a81a1",
+    "notes_hash": "61c87e228c6afa46edcbb7b1d558162aa70bef02fcc488183be558f394751a65",
+    "model_hash": "0ca4ac408961fe12db8d739bc1eedf15036319c0dc9eb8f80fde8e9d00fd57e8"
+  },
+  "geo_code": "CR",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

@@ -1,0 +1,146 @@
+{
+  "code": "geo",
+  "iso2": "GE",
+  "name": "Georgia / საქართველო",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "DECRIMINALIZED",
+      "status": "DECRIMINALIZED",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "LIMITED",
+      "status": "LIMITED",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "restricted",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_restricted"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_restricted"
+    ],
+    "notes_normalized": "Cannabis is decriminalized in Georgia / საქართველო. Medical cannabis is limited. Distribution is restricted."
+  },
+  "notes_normalized": "Cannabis is decriminalized in Georgia / საქართველო. Medical cannabis is limited. Distribution is restricted.",
+  "notes_raw": "{{main|Cannabis in Georgia (country)}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "arm",
+    "aze",
+    "syr"
+  ],
+  "related_names": [
+    {
+      "code": "arm",
+      "name": "Armenia / Հայաստան"
+    },
+    {
+      "code": "aze",
+      "name": "Azerbaijan / Azərbaycan"
+    },
+    {
+      "code": "syr",
+      "name": "Syria / سوريا"
+    }
+  ],
+  "coordinates": {
+    "lat": 42,
+    "lng": 43.5
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Georgia",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Georgia",
+        "title": "Wikipedia: Georgia / საქართველო",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "ASIA",
+    "seo_cluster": "ASIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "arm",
+        "name": "Armenia / Հայաստան"
+      },
+      {
+        "code": "aze",
+        "name": "Azerbaijan / Azərbaycan"
+      },
+      {
+        "code": "syr",
+        "name": "Syria / سوريا"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "tur",
+        "name": "Türkiye"
+      },
+      {
+        "code": "lbn",
+        "name": "Lebanon / لبنان"
+      },
+      {
+        "code": "cyp",
+        "name": "Cyprus / Κύπρος"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "irq",
+        "name": "Iraq / العراق"
+      },
+      {
+        "code": "kwt",
+        "name": "Kuwait / الكويت"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "geo",
+    "content_hash": "2fea24ffa53e697b5253fa0f072ef3fc0e88fa963212e66d0a7331472e718dc2",
+    "notes_hash": "9a6ba161e964c4356c432190a839350975705e613681ff4ebca32b193426eadf",
+    "model_hash": "5adfa553c5bde8607a9206515f378463c86015111e4e025aaed07bc77d5bc23d"
+  },
+  "geo_code": "GE",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

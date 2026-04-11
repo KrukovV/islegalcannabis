@@ -1,0 +1,149 @@
+{
+  "code": "cze",
+  "iso2": "CZ",
+  "name": "Czechia / Česko",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "DECRIMINALIZED",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "tolerated",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": "tolerated",
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [
+      "fine_based"
+    ],
+    "applied_rules": [
+      "decriminalized",
+      "fine_based",
+      "medical_legal",
+      "private_cultivation_tolerated"
+    ],
+    "notes_normalized": "Cannabis is decriminalized in Czechia / Česko. Medical cannabis is legal. Distribution is tolerated."
+  },
+  "notes_normalized": "Cannabis is decriminalized in Czechia / Česko. Medical cannabis is legal. Distribution is tolerated.",
+  "notes_raw": "{{main|Cannabis in the Czech Republic}} Possession of less than 15 grams (½ oz) has been decriminalized since 1 January 2010.{{refn|<ref name=\"kush\">{{cite web |url=http://kushtourism.com/czech-republic-marijuana-information/ |title=Czech Republic Marijuana Information |author=<!--Staff writer(s); no by-line.--> |date=2017 |website=Kush Tourism |publisher=Kush Tourism LLC |access-date=23 January 2017 |quote=If you have more than 15 grams of cannabis or are growing more than five plants, the maximum penalty is a custodial sentence of one year. However, simple possession charges rarely receive the maximum charge. |archive-date=2 February 2017 |archive-url=https://web.archive.org/web/20170202014018/http://kushtourism.com/czech-republic-marijuana-information/ |url-status=dead }}</ref><ref>{{cite web |url=http://www.emcdda.europa.eu/publications/drugnet/online/2010/69/article11 |title=New Czech penal code enters into force |last=Hughes |first=Brendan |date=March 2010 |website=Drugnet Europe |access-date=23 January 2017 |quote=the new penal code criminalises the cultivation or possession of an illicit drug for personal use when the quantity is ‘greater than small’. However, the new code now establishes quantity limits via a binding governmental decree (No 467/2009 Coll.) (2). For example, it stipulates that a crime is committed on possession of more than 5g of cannabis resin (previously 10g), 15g of herbal cannabis or 1g of cocaine, and on cultivation of more than five marijuana plants.}}</ref><ref>{{Cite web |title=40/2009 Sb. Trestní zákoník |url=https://www.zakonyprolidi.cz/cs/2009-40 |access-date=2022-09-27 |website=Zákony pro lidi |language=cs}}</ref><ref>{{Cite web  |title=467/2009 Sb. Nařízení vlády, kterým se pro účely trestního zákoníku stanoví, co se považuje za jedy a jaké je mno... |url=https://www.zakonyprolidi.cz/cs/2009-467 |access-date=2022-09-27 |website=Zákony pro lidi |language=cs}}</ref><ref>http://www.prevence-praha.cz/attachments/article/123/Priloha%20stanoviska%20NS_tabulka.pdf {{Dead link|date=February 2022}}</ref><ref>{{Cite web|url=https://pragueuncensored.com/is-weed-legal-in-prague-2025/|title=Marijuana Laws in Prague |website=Prague Uncensored |date=9 April 2025}}</ref>}} Since January 1, 2026, it has been legal for persons over the age of 21 to possess up to 100 g of cannabis at home and up to 25 g in public, and to grow up to 3 plants. Medical use has been legal and regulated since 2013.<ref>{{cite web |url = http://the420times.com/2013/04/czech-republic-pharmacies-began-selling-medical-cannabis/ |title = Czech Republic Pharmacies Began Selling Medical Cannabis |publisher = The420times.com |access-date = 23 June 2013 |archive-url = https://web.archive.org/web/20130620054056/http://the420times.com/2013/04/czech-republic-pharmacies-began-selling-medical-cannabis/ |archive-date = 20 June 2013 |url-status = dead}}</ref><ref>{{cite news |url = https://huffingtonpost.com/2013/02/15/czech-republic-medical-marijuana_n_2693657.html |title = Czech Republic Legalizes Medical Marijuana Use |work = [[The Huffington Post]] |date = 15 February 2013 |access-date = 23 June 2013 |archive-url = https://web.archive.org/web/20160120125239/https://huffingtonpost.com/2013/02/15/czech-republic-medical-marijuana_n_2693657.html |archive-date = 20 January 2016 | url-status = dead }}</ref>",
+  "facts": {
+    "possession_limit": "less than 15 grams",
+    "cultivation": "grow up to 3 plants.",
+    "penalty": null
+  },
+  "related_codes": [
+    "aut",
+    "svn",
+    "svk"
+  ],
+  "related_names": [
+    {
+      "code": "aut",
+      "name": "Austria / Österreich"
+    },
+    {
+      "code": "svn",
+      "name": "Slovenia / Slovenija"
+    },
+    {
+      "code": "svk",
+      "name": "Slovakia / Slovensko"
+    }
+  ],
+  "coordinates": {
+    "lat": 49.75,
+    "lng": 15.5
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Czech_Republic",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Czech_Republic",
+        "title": "Wikipedia: Czechia / Česko",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU",
+    "geo_neighbors": [
+      {
+        "code": "aut",
+        "name": "Austria / Österreich"
+      },
+      {
+        "code": "svn",
+        "name": "Slovenia / Slovenija"
+      },
+      {
+        "code": "svk",
+        "name": "Slovakia / Slovensko"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "hrv",
+        "name": "Croatia / Hrvatska"
+      },
+      {
+        "code": "pol",
+        "name": "Poland / Polska"
+      },
+      {
+        "code": "deu",
+        "name": "Germany / Deutschland"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "hun",
+        "name": "Hungary / Magyarország"
+      },
+      {
+        "code": "bih",
+        "name": "Bosnia and Herzegovina / Bosna i Hercegovina"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "cze",
+    "content_hash": "90f7072c2da774b49cef2f408b0aba77290f1e519a889f8f5bfe1fa77ed0d8ac",
+    "notes_hash": "4bdd0a308e9023f8a5a35ebafd2e88b1ea8c25759ef459be331c2d10620b894e",
+    "model_hash": "10e061df21ed2d6d698f7ddd8b834c32c5ae8ec72ce0f04edc7f76f8cf7a1eed"
+  },
+  "geo_code": "CZ",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

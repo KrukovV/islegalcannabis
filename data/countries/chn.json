@@ -1,0 +1,146 @@
+{
+  "code": "chn",
+  "iso2": "CN",
+  "name": "China / 中国",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [
+      "fine_based"
+    ],
+    "applied_rules": [
+      "fine_based"
+    ],
+    "notes_normalized": "Cannabis is illegal in China / 中国. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in China / 中国. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in China}} Penalty for possession or consumption: 10–15 days' detention without prosecution and a fine.<ref>{{Cite web|title=Cannabis Use in China – Laws, History, Uses and More Info|url=https://sensiseeds.com/en/blog/countries/cannabis-in-china-laws-use-history/|access-date=23 December 2020|website=Sensi Seeds|date=21 September 2020 |language=en-GB|archive-date=21 December 2020|archive-url=https://web.archive.org/web/20201221161749/https://sensiseeds.com/en/blog/countries/cannabis-in-china-laws-use-history/|url-status=live}}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": "Penalty for possession or consumption: 10–15 days' detention without prosecution and a fine."
+  },
+  "related_codes": [
+    "mng",
+    "mmr",
+    "mac"
+  ],
+  "related_names": [
+    {
+      "code": "mng",
+      "name": "Mongolia / Монгол улс"
+    },
+    {
+      "code": "mmr",
+      "name": "Myanmar / မြန်မာ"
+    },
+    {
+      "code": "mac",
+      "name": "Macau / 澳门"
+    }
+  ],
+  "coordinates": {
+    "lat": 35,
+    "lng": 105
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/People's_Republic_of_China",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/People's_Republic_of_China",
+        "title": "Wikipedia: China / 中国",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "ASIA",
+    "seo_cluster": "ASIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "mng",
+        "name": "Mongolia / Монгол улс"
+      },
+      {
+        "code": "mmr",
+        "name": "Myanmar / မြန်မာ"
+      },
+      {
+        "code": "mac",
+        "name": "Macau / 澳门"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "hkg",
+        "name": "Hong Kong / 香港"
+      },
+      {
+        "code": "btn",
+        "name": "Bhutan / འབྲུག་ཡུལ་"
+      },
+      {
+        "code": "lao",
+        "name": "Laos / ສປປລາວ"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "bgd",
+        "name": "Bangladesh / বাংলাদেশ"
+      },
+      {
+        "code": "vnm",
+        "name": "Vietnam / Việt Nam"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "chn",
+    "content_hash": "39f73aa1c6f3227b565d65726d320f22647d4718c552ab3dacb45f37ba8802c9",
+    "notes_hash": "428159c753d9caad47d252d05946b9e231d4b3d676c9bd9135f1f990f83505d9",
+    "model_hash": "5575ac3d4542a0d2d8173a48e8391d756ac77c999239253f07c37c92a4e66f51"
+  },
+  "geo_code": "CN",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

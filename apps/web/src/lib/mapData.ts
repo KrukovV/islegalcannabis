@@ -1,5 +1,6 @@
 import { getCountryMetaByIso2, getDisplayName, getEnglishName } from "./countryNames";
 import { buildNotesExplainability, type NotesEvidenceDelta, type NotesEvidenceSourceType } from "./notesExplainability";
+import { normalizeCannabisStatusRecord } from "./cannabisStatusRuleEngine.js";
 import { getEffectiveOfficialLinksByGeo, matchesOfficialGeoOwnership } from "./officialSources/officialLinkOwnership";
 import {
   computeTruthLevel,
@@ -81,6 +82,15 @@ type RegionEntry = {
   evidenceSourceType?: NotesEvidenceSourceType;
   triggerPhraseExcerpt?: string | null;
   doesChangeFinalStatus?: boolean;
+  normalizedStatusSummary?: string;
+  recreationalSummary?: string;
+  medicalSummary?: string;
+  statusFlags?: string[];
+  normalizedRecreationalStatus?: string;
+  normalizedRecreationalEnforcement?: string;
+  normalizedRecreationalScope?: string;
+  normalizedMedicalStatus?: string;
+  normalizedMedicalScope?: string;
   wikiPageUrl?: string | null;
   officialSources?: string[];
   wikiSources?: string[];
@@ -166,8 +176,14 @@ function buildMapRenderFallbackEntry(params: {
   const geo = String(params.geo || "").toUpperCase();
   if (!params.forceFallback && !MAP_RENDER_FALLBACK_GEOS.has(geo)) return null;
 
-  const recWiki = mapLegalStatus(params.wiki?.wiki_rec ?? params.wiki?.recreational_status);
-  const medWiki = mapMedicalStatus(params.wiki?.wiki_med ?? params.wiki?.medical_status);
+  const normalizedWiki = normalizeCannabisStatusRecord({
+    country: geo,
+    recreational: params.wiki?.wiki_rec ?? params.wiki?.recreational_status,
+    medical: params.wiki?.wiki_med ?? params.wiki?.medical_status,
+    notes: params.wiki?.notes ?? params.wiki?.notes_text
+  });
+  const recWiki = normalizedWiki.effective_pair.recreational;
+  const medWiki = normalizedWiki.effective_pair.medical;
   const displayName =
     String(params.fallbackName || "").trim() ||
     getDisplayName(geo) ||
@@ -215,6 +231,15 @@ function buildMapRenderFallbackEntry(params: {
     mapCategory: contract.mapCategory as MapCategory,
     notesOur: null,
     notesWiki: params.wiki?.notes ?? params.wiki?.notes_text ?? null,
+    normalizedStatusSummary: normalizedWiki.summary,
+    recreationalSummary: normalizedWiki.recreational_summary,
+    medicalSummary: normalizedWiki.medical_summary,
+    statusFlags: normalizedWiki.notes.parsed_flags,
+    normalizedRecreationalStatus: normalizedWiki.recreational.normalized_status,
+    normalizedRecreationalEnforcement: normalizedWiki.recreational.enforcement,
+    normalizedRecreationalScope: normalizedWiki.recreational.scope,
+    normalizedMedicalStatus: normalizedWiki.medical.normalized_status,
+    normalizedMedicalScope: normalizedWiki.medical.scope,
     wikiPageUrl,
     officialSources,
     wikiSources: wikiPageUrl ? [wikiPageUrl] : [],
@@ -245,8 +270,14 @@ export function buildRegions() {
     const centroid = centroids[geo] || null;
     const wiki = wikiClaims[geo] || {};
     const wikiTruthRow = wikiLegalityTableByIso[geo] || null;
-    const recWiki = mapLegalStatus(wikiTruthRow?.rec_status ?? wiki?.wiki_rec ?? wiki?.recreational_status);
-    const medWiki = mapMedicalStatus(wikiTruthRow?.med_status ?? wiki?.wiki_med ?? wiki?.medical_status);
+    const normalizedWiki = normalizeCannabisStatusRecord({
+      country: geo,
+      recreational: wikiTruthRow?.rec_status ?? wiki?.wiki_rec ?? wiki?.recreational_status,
+      medical: wikiTruthRow?.med_status ?? wiki?.wiki_med ?? wiki?.medical_status,
+      notes: wikiTruthRow?.wiki_notes_hint ?? wiki?.notes ?? wiki?.notes_text ?? null
+    });
+    const recWiki = normalizedWiki.effective_pair.recreational;
+    const medWiki = normalizedWiki.effective_pair.medical;
     const officialOverrideRec = entry?.official_override_rec
       ? mapLegalStatus(entry?.official_override_rec)
       : null;
@@ -309,6 +340,15 @@ export function buildRegions() {
       mapCategory: contract.mapCategory as MapCategory,
       notesOur: entry?.notes || entry?.extracted_facts?.notes || null,
       notesWiki: wikiTruthRow?.wiki_notes_hint ?? wiki?.notes ?? wiki?.notes_text ?? null,
+      normalizedStatusSummary: normalizedWiki.summary,
+      recreationalSummary: normalizedWiki.recreational_summary,
+      medicalSummary: normalizedWiki.medical_summary,
+      statusFlags: normalizedWiki.notes.parsed_flags,
+      normalizedRecreationalStatus: normalizedWiki.recreational.normalized_status,
+      normalizedRecreationalEnforcement: normalizedWiki.recreational.enforcement,
+      normalizedRecreationalScope: normalizedWiki.recreational.scope,
+      normalizedMedicalStatus: normalizedWiki.medical.normalized_status,
+      normalizedMedicalScope: normalizedWiki.medical.scope,
       notesInterpretationSummary: notesExplainability.notesInterpretationSummary,
       notesTriggerPhrases: notesExplainability.notesTriggerPhrases,
       evidenceDelta: notesExplainability.evidenceDelta,
@@ -658,6 +698,15 @@ export function buildGeoJson(type: string) {
       evidenceSourceType: statusModel.evidenceSourceType,
       triggerPhraseExcerpt: statusModel.triggerPhraseExcerpt,
       doesChangeFinalStatus: statusModel.doesChangeFinalStatus,
+      normalizedStatusSummary: statusModel.normalizedStatusSummary,
+      recreationalSummary: statusModel.recreationalSummary,
+      medicalSummary: statusModel.medicalSummary,
+      statusFlags: statusModel.statusFlags,
+      normalizedRecreationalStatus: statusModel.normalizedRecreationalStatus,
+      normalizedRecreationalEnforcement: statusModel.normalizedRecreationalEnforcement,
+      normalizedRecreationalScope: statusModel.normalizedRecreationalScope,
+      normalizedMedicalStatus: statusModel.normalizedMedicalStatus,
+      normalizedMedicalScope: statusModel.normalizedMedicalScope,
       wikiPage: statusModel.wikiPage,
       officialLinksCount: statusModel.officialLinksCount,
       sources: statusModel.sources,

@@ -1,0 +1,146 @@
+{
+  "code": "mdg",
+  "iso2": "MG",
+  "name": "Madagascar / Madagasikara",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Madagascar / Madagasikara. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Madagascar / Madagasikara. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Madagascar}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "com",
+    "mus",
+    "moz"
+  ],
+  "related_names": [
+    {
+      "code": "com",
+      "name": "Comoros / جزر القمر"
+    },
+    {
+      "code": "mus",
+      "name": "Mauritius / Maurice"
+    },
+    {
+      "code": "moz",
+      "name": "Mozambique / Moçambique"
+    }
+  ],
+  "coordinates": {
+    "lat": -20,
+    "lng": 47
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Madagascar",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Madagascar",
+        "title": "Wikipedia: Madagascar / Madagasikara",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "AFRICA",
+    "seo_cluster": "AFRICA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "com",
+        "name": "Comoros / جزر القمر"
+      },
+      {
+        "code": "mus",
+        "name": "Mauritius / Maurice"
+      },
+      {
+        "code": "moz",
+        "name": "Mozambique / Moçambique"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "mwi",
+        "name": "Malawi / Malaŵi"
+      },
+      {
+        "code": "swz",
+        "name": "Eswatini"
+      },
+      {
+        "code": "zwe",
+        "name": "Zimbabwe"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "zmb",
+        "name": "Zambia"
+      },
+      {
+        "code": "tza",
+        "name": "Tanzania"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "mdg",
+    "content_hash": "74f7aabd14358993581500cd4685636c2f6a5a3bc14c68874177a6de12f3c2bf",
+    "notes_hash": "13efb8f150d5f45345af69dbca0e836ce03f4e49943972f6c906e65236f21cbe",
+    "model_hash": "0e109e03e6dd2a58810cfe1300c13ae2479c50c1181377ec8627f28f52e6e985"
+  },
+  "geo_code": "MG",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

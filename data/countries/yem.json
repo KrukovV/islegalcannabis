@@ -1,0 +1,146 @@
+{
+  "code": "yem",
+  "iso2": "YE",
+  "name": "Yemen / اليمن",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Yemen / اليمن. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Yemen / اليمن. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Yemen}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "som",
+    "dji",
+    "eri"
+  ],
+  "related_names": [
+    {
+      "code": "som",
+      "name": "Somalia / الصومال"
+    },
+    {
+      "code": "dji",
+      "name": "Djibouti / جيبوتي"
+    },
+    {
+      "code": "eri",
+      "name": "Eritrea / إريتريا"
+    }
+  ],
+  "coordinates": {
+    "lat": 15,
+    "lng": 48
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Yemen",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Yemen",
+        "title": "Wikipedia: Yemen / اليمن",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "ASIA",
+    "seo_cluster": "ASIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "som",
+        "name": "Somalia / الصومال"
+      },
+      {
+        "code": "dji",
+        "name": "Djibouti / جيبوتي"
+      },
+      {
+        "code": "eri",
+        "name": "Eritrea / إريتريا"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "sau",
+        "name": "Saudi Arabia / السعودية"
+      },
+      {
+        "code": "are",
+        "name": "United Arab Emirates / الإمارات"
+      },
+      {
+        "code": "omn",
+        "name": "Oman / عمان"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "qat",
+        "name": "Qatar / قطر"
+      },
+      {
+        "code": "bhr",
+        "name": "Bahrain / البحرين"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "yem",
+    "content_hash": "a06707bcde94e1a0acb88a140d2660280ff8396f9676437f8f9014bd33148600",
+    "notes_hash": "6c90f9be1701205c93f3521301b40501435791124b2765a5666926d99177ce63",
+    "model_hash": "6c54db2357a1d2773eb365ea5af1c8994ccec73230379f5697bc9395fbd28333"
+  },
+  "geo_code": "YE",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

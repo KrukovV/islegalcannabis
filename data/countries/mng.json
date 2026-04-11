@@ -1,0 +1,146 @@
+{
+  "code": "mng",
+  "iso2": "MN",
+  "name": "Mongolia / Монгол улс",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Mongolia / Монгол улс. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Mongolia / Монгол улс. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Mongolia}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "chn",
+    "rus",
+    "prk"
+  ],
+  "related_names": [
+    {
+      "code": "chn",
+      "name": "China / 中国"
+    },
+    {
+      "code": "rus",
+      "name": "Russia / Россия"
+    },
+    {
+      "code": "prk",
+      "name": "North Korea / 조선"
+    }
+  ],
+  "coordinates": {
+    "lat": 46,
+    "lng": 105
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Mongolia",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Mongolia",
+        "title": "Wikipedia: Mongolia / Монгол улс",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "ASIA",
+    "seo_cluster": "ASIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "chn",
+        "name": "China / 中国"
+      },
+      {
+        "code": "rus",
+        "name": "Russia / Россия"
+      },
+      {
+        "code": "prk",
+        "name": "North Korea / 조선"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "btn",
+        "name": "Bhutan / འབྲུག་ཡུལ་"
+      },
+      {
+        "code": "mmr",
+        "name": "Myanmar / မြန်မာ"
+      },
+      {
+        "code": "mac",
+        "name": "Macau / 澳门"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "kor",
+        "name": "South Korea / 한국"
+      },
+      {
+        "code": "hkg",
+        "name": "Hong Kong / 香港"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "mng",
+    "content_hash": "2c9e500e3e32715845eef94cb14c4b8f853a68263a160cf7652f0af5384b1fb8",
+    "notes_hash": "e76125b3f27e8d71a4384c8eb8f743a9dd1bb7183ead44f2b355a0ca4369b085",
+    "model_hash": "2adfda60096f06c381c441b89da531a1ce270dd6477d76115964f34c28a3b2c2"
+  },
+  "geo_code": "MN",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

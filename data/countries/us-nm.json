@@ -1,0 +1,174 @@
+{
+  "code": "us-nm",
+  "geo_code": "US-NM",
+  "iso2": "US-NM",
+  "name": "New Mexico",
+  "node_type": "state",
+  "normalized_version": "v1",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "regulated",
+      "scopes": {
+        "possession": "restricted",
+        "use": "restricted",
+        "sale": "regulated",
+        "cultivation": null,
+        "import": "illegal",
+        "trafficking": "illegal"
+      },
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [
+      "fine_based"
+    ],
+    "applied_rules": []
+  },
+  "notes_normalized": "Cannabis is legal in New Mexico under state law for recreational adult use. Medical cannabis is also legal in New Mexico. Cannabis remains federally illegal in United States.",
+  "notes_raw": "",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "parent_country": {
+    "code": "usa",
+    "name": "United States"
+  },
+  "state_modifiers": {
+    "recreational": "override",
+    "medical": "override",
+    "enforcement_strength": "MEDIUM",
+    "federal_conflict": "Cannabis remains federally illegal in United States.",
+    "legalization_status": "State legal"
+  },
+  "related_codes": [
+    "usa",
+    "us-ga",
+    "us-hi",
+    "us-ia"
+  ],
+  "related_names": [
+    {
+      "code": "usa",
+      "name": "United States"
+    },
+    {
+      "code": "us-ga",
+      "name": "Georgia"
+    },
+    {
+      "code": "us-hi",
+      "name": "Hawaii"
+    },
+    {
+      "code": "us-ia",
+      "name": "Iowa"
+    }
+  ],
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "USA_CLUSTER",
+    "geo_neighbors": [
+      {
+        "code": "us-ak",
+        "name": "Alaska"
+      },
+      {
+        "code": "us-al",
+        "name": "Alabama"
+      },
+      {
+        "code": "us-ar",
+        "name": "Arkansas"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "us-ct",
+        "name": "Connecticut"
+      },
+      {
+        "code": "us-de",
+        "name": "Delaware"
+      },
+      {
+        "code": "us-md",
+        "name": "Maryland"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "usa",
+        "name": "United States"
+      },
+      {
+        "code": "us-id",
+        "name": "Idaho"
+      }
+    ],
+    "same_country_states": [
+      {
+        "code": "us-ga",
+        "name": "Georgia"
+      },
+      {
+        "code": "us-hi",
+        "name": "Hawaii"
+      },
+      {
+        "code": "us-ia",
+        "name": "Iowa"
+      }
+    ],
+    "federal_parent": {
+      "code": "usa",
+      "name": "United States"
+    }
+  },
+  "coordinates": {
+    "lat": 38,
+    "lng": -97
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/New_Mexico",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki-us-nm",
+        "url": "https://en.wikipedia.org/wiki/New_Mexico",
+        "title": "Wikipedia: New Mexico",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki-truth-us-nm",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "hashes": {
+    "code": "us-nm",
+    "content_hash": "5ce29fe176e89a0a7d3c482cffcde58ff3d4da2d1f6aa323b221d1cbb673c706",
+    "notes_hash": "c1291c7b323372c95b0d5e240211b5a0e7cbb5879fe3c972edb1eda43135209a",
+    "model_hash": "0c2bda805e022da4dc19351200c2a44781695d5b1121550a71ddd400b20d71b4"
+  },
+  "updated_at": "2026-04-10"
+}

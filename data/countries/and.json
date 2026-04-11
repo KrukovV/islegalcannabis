@@ -1,0 +1,146 @@
+{
+  "code": "and",
+  "iso2": "AD",
+  "name": "Andorra",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Andorra. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Andorra. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Andorra}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "fra",
+    "esp",
+    "mco"
+  ],
+  "related_names": [
+    {
+      "code": "fra",
+      "name": "France"
+    },
+    {
+      "code": "esp",
+      "name": "Spain / España"
+    },
+    {
+      "code": "mco",
+      "name": "Monaco"
+    }
+  ],
+  "coordinates": {
+    "lat": 42.5,
+    "lng": 1.5
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Andorra",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Andorra",
+        "title": "Wikipedia: Andorra",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "fra",
+        "name": "France"
+      },
+      {
+        "code": "esp",
+        "name": "Spain / España"
+      },
+      {
+        "code": "mco",
+        "name": "Monaco"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "jey",
+        "name": "Jersey / Jèrri"
+      },
+      {
+        "code": "ggy",
+        "name": "Guernsey / Guernesey"
+      },
+      {
+        "code": "lie",
+        "name": "Liechtenstein"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "che",
+        "name": "Switzerland / Suisse"
+      },
+      {
+        "code": "lux",
+        "name": "Luxembourg / Luxemburg"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "and",
+    "content_hash": "274bf2ce11b99e6e45971f60de5eb4bab85761484f13cbbc88ee5244a03c8dce",
+    "notes_hash": "0c80a8e0b72519e76aa8b9c29390115d4cc33fe27d5f9c7757daac576ad86893",
+    "model_hash": "7b6ab6858e67048bf3d50537996462b9e7406b601385e940656f0c5f20f91394"
+  },
+  "geo_code": "AD",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

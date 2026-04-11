@@ -1,0 +1,146 @@
+{
+  "code": "bol",
+  "iso2": "BO",
+  "name": "Bolivia / Wuliwya",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Bolivia / Wuliwya. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Bolivia / Wuliwya. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Bolivia}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "pry",
+    "bra",
+    "per"
+  ],
+  "related_names": [
+    {
+      "code": "pry",
+      "name": "Paraguay / Paraguái"
+    },
+    {
+      "code": "bra",
+      "name": "Brazil / Brasil"
+    },
+    {
+      "code": "per",
+      "name": "Peru / Piruw"
+    }
+  ],
+  "coordinates": {
+    "lat": -17,
+    "lng": -65
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Bolivia",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Bolivia",
+        "title": "Wikipedia: Bolivia / Wuliwya",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "LATAM",
+    "seo_cluster": "LATAM_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "pry",
+        "name": "Paraguay / Paraguái"
+      },
+      {
+        "code": "bra",
+        "name": "Brazil / Brasil"
+      },
+      {
+        "code": "per",
+        "name": "Peru / Piruw"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "guy",
+        "name": "Guyana"
+      },
+      {
+        "code": "sur",
+        "name": "Suriname"
+      },
+      {
+        "code": "ven",
+        "name": "Venezuela"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "chl",
+        "name": "Chile"
+      },
+      {
+        "code": "arg",
+        "name": "Argentina"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "bol",
+    "content_hash": "28320f73f96506116b901321b8efb20c3af9e50bd24470cf078190f3cb46dc32",
+    "notes_hash": "cf4edcecc00a3e0ad04dc7563f28951202539d32928173f26c873ac3e7a391ae",
+    "model_hash": "2942c7f45905ee28301e14179cefbcc51adffe9de3936441dc73f89abd59638e"
+  },
+  "geo_code": "BO",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

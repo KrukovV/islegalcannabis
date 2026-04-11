@@ -1,0 +1,146 @@
+{
+  "code": "gbr",
+  "iso2": "GB",
+  "name": "United Kingdom",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "restricted",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "medical_legal",
+      "illegal",
+      "legal"
+    ],
+    "notes_normalized": "Cannabis is legal in United Kingdom. Medical cannabis is legal. Distribution is restricted."
+  },
+  "notes_normalized": "Cannabis is legal in United Kingdom. Medical cannabis is legal. Distribution is restricted.",
+  "notes_raw": "{{Main|Cannabis in the United Kingdom}} Banned in 1928.<ref name=\"Manning2013\">{{cite book|author=Paul Manning|title=Drugs and Popular Culture|url=https://books.google.com/books?id=K2QQBAAAQBAJ&pg=PA136|date=11 January 2013|publisher=Routledge|isbn=978-1-134-01211-4|pages=136–}}</ref> A [[Cannabis classification in the United Kingdom|class B drug]] under the [[Misuse of Drugs Act 1971]].<ref>{{cite web |publisher=United Kingdom Home Office |url=http://www.homeoffice.gov.uk/drugs/drug-law/ |title=Drug Laws |access-date=9 March 2016 |archive-date=15 March 2013 |archive-url=https://web.archive.org/web/20130315190739/http://www.homeoffice.gov.uk/drugs/drug-law/ |url-status=live }}</ref> Limited medical use legal since 1 November 2018<ref name=\"BBC News2\">{{cite news |url= https://www.bbc.co.uk/news/health-46045487 |title= Medical cannabis products available on prescription |publisher= [[BBC News]] |date= 1 November 2018 |access-date= 6 March 2019 |archive-date= 2 March 2019 |archive-url= https://web.archive.org/web/20190302122340/https://www.bbc.co.uk/news/health-46045487 |url-status= live }}</ref> when prescribed by a specialist consultant, not a [[General practitioner|GP]]. Guidance: only prescribe when clearly beneficial and no other option available.<ref name=\"BBC News1\" />",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "imn",
+    "ggy",
+    "jey"
+  ],
+  "related_names": [
+    {
+      "code": "imn",
+      "name": "Isle of Man / Mannin"
+    },
+    {
+      "code": "ggy",
+      "name": "Guernsey / Guernesey"
+    },
+    {
+      "code": "jey",
+      "name": "Jersey / Jèrri"
+    }
+  ],
+  "coordinates": {
+    "lat": 54,
+    "lng": -2
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/United_Kingdom",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/United_Kingdom",
+        "title": "Wikipedia: United Kingdom",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "imn",
+        "name": "Isle of Man / Mannin"
+      },
+      {
+        "code": "ggy",
+        "name": "Guernsey / Guernesey"
+      },
+      {
+        "code": "jey",
+        "name": "Jersey / Jèrri"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "irl",
+        "name": "Ireland / Éire"
+      },
+      {
+        "code": "bel",
+        "name": "Belgium / Belgien"
+      },
+      {
+        "code": "nld",
+        "name": "Netherlands / Nederland"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "lux",
+        "name": "Luxembourg / Luxemburg"
+      },
+      {
+        "code": "fro",
+        "name": "Faroe Islands / Færøerne"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "gbr",
+    "content_hash": "60e82bcb6ab801aacd962bbc64e8b0e27815980bb033f256af7829e7a7a66156",
+    "notes_hash": "f891e9e7fe4b7169b77049044a402fdab0d7b4e629c5c6bb4ad7ff13daf35406",
+    "model_hash": "068d219f96ba580256896c0a030e7faeeaef18a45f2af33ee3d21525c7dd6993"
+  },
+  "geo_code": "GB",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

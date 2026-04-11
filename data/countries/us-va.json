@@ -1,0 +1,179 @@
+{
+  "code": "us-va",
+  "geo_code": "US-VA",
+  "iso2": "US-VA",
+  "name": "Virginia",
+  "node_type": "state",
+  "normalized_version": "v1",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "restricted",
+      "scopes": {
+        "possession": "illegal",
+        "use": "illegal",
+        "sale": "illegal",
+        "cultivation": null,
+        "import": "illegal",
+        "trafficking": "illegal"
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": []
+  },
+  "notes_normalized": "Cannabis is illegal in Virginia for recreational use under state law, but medical cannabis is available in limited form. Cannabis remains federally illegal in United States. Possession is limited to varies (see official sources).",
+  "notes_raw": "restricted",
+  "facts": {
+    "possession_limit": "varies (see official sources)",
+    "cultivation": null,
+    "penalty": "Cross-border transport remains illegal."
+  },
+  "parent_country": {
+    "code": "usa",
+    "name": "United States"
+  },
+  "state_modifiers": {
+    "recreational": "override",
+    "medical": "override",
+    "enforcement_strength": "HIGH",
+    "federal_conflict": "Cannabis remains federally illegal in United States.",
+    "legalization_status": "Medical only"
+  },
+  "related_codes": [
+    "usa",
+    "us-ct",
+    "us-de",
+    "us-ga"
+  ],
+  "related_names": [
+    {
+      "code": "usa",
+      "name": "United States"
+    },
+    {
+      "code": "us-ct",
+      "name": "Connecticut"
+    },
+    {
+      "code": "us-de",
+      "name": "Delaware"
+    },
+    {
+      "code": "us-ga",
+      "name": "Georgia"
+    }
+  ],
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "USA_CLUSTER",
+    "geo_neighbors": [
+      {
+        "code": "us-ak",
+        "name": "Alaska"
+      },
+      {
+        "code": "us-al",
+        "name": "Alabama"
+      },
+      {
+        "code": "us-ar",
+        "name": "Arkansas"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "us-pa",
+        "name": "Pennsylvania"
+      },
+      {
+        "code": "us-tx",
+        "name": "Texas"
+      },
+      {
+        "code": "us-fl",
+        "name": "Florida"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "usa",
+        "name": "United States"
+      },
+      {
+        "code": "us-hi",
+        "name": "Hawaii"
+      }
+    ],
+    "same_country_states": [
+      {
+        "code": "us-ct",
+        "name": "Connecticut"
+      },
+      {
+        "code": "us-de",
+        "name": "Delaware"
+      },
+      {
+        "code": "us-ga",
+        "name": "Georgia"
+      }
+    ],
+    "federal_parent": {
+      "code": "usa",
+      "name": "United States"
+    }
+  },
+  "coordinates": {
+    "lat": 38,
+    "lng": -97
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Virginia",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "official-us-va",
+        "url": "https://cca.virginia.gov/",
+        "title": "Virginia Cannabis Control Authority",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki-us-va",
+        "url": "https://en.wikipedia.org/wiki/Virginia",
+        "title": "Wikipedia: Virginia",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki-truth-us-va",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "hashes": {
+    "code": "us-va",
+    "content_hash": "4d23ea1f248d39dd9dabf4db2b7ad3b34715f45ef053e610e1bd3ccbf56adcdc",
+    "notes_hash": "a27597f49e9f10762bd6ecbfd6aab01bbe4cf8e5ed88e4f64bcd12e7e49e6511",
+    "model_hash": "4d5f4c18b18f5dc42132d35daa3a293f29602b1c62d6adecd6e313b126f9d31d"
+  },
+  "updated_at": "2024-01-01"
+}

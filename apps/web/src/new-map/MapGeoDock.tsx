@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef } from "react";
-import type { CountryCardEntry } from "./components/CountryCard";
+import type { CountryCardEntry } from "./map.types";
 import AIBar from "./components/AIBar";
 import { useGeoStatus } from "./hooks/useGeoStatus";
 import { markNewMapTrace } from "./startupTrace";
@@ -32,6 +32,7 @@ export default function MapGeoDock({
 }: Props) {
   const lastAutoCenterKeyRef = useRef<string | null>(null);
   const ipBootstrapStartedRef = useRef(false);
+  const gpsCenterPendingRef = useRef(false);
   const { geoStatus, retry, currentGeo, refreshIpGeo, ipStatus, geoReady } = useGeoStatus();
   const currentGeoEntry = currentGeo?.iso2 ? cardIndex[currentGeo.iso2] : null;
   const currentGeoView: ActiveGeo = useMemo(() => {
@@ -50,10 +51,12 @@ export default function MapGeoDock({
 
   const handleGpsClick = useCallback(() => {
     if (geoStatus.status === "resolved" && currentGeoView) {
+      gpsCenterPendingRef.current = false;
       clearSelectedGeo();
       centerMapToGeo(currentGeoView);
       return;
     }
+    gpsCenterPendingRef.current = true;
     retry();
   }, [centerMapToGeo, clearSelectedGeo, currentGeoView, geoStatus.status, retry]);
 
@@ -88,11 +91,23 @@ export default function MapGeoDock({
     if (!mapReady) return;
     if (selectedGeo) return;
     if (!currentGeoView) return;
+    if (currentGeo?.source !== "gps") return;
     const autoCenterKey = `${currentGeo?.source || "none"}:${currentGeoView.iso2}:${currentGeoView.lat ?? "?"}:${currentGeoView.lng ?? "?"}`;
     if (lastAutoCenterKeyRef.current === autoCenterKey) return;
     lastAutoCenterKeyRef.current = autoCenterKey;
     applyGeoToMap(currentGeoView, { recenter: true });
   }, [applyGeoToMap, currentGeo?.source, currentGeoView, mapReady, selectedGeo]);
+
+  useEffect(() => {
+    if (!gpsCenterPendingRef.current) return;
+    if (!mapReady) return;
+    if (geoStatus.status !== "resolved") return;
+    if (currentGeo?.source !== "gps") return;
+    if (!currentGeoView) return;
+    gpsCenterPendingRef.current = false;
+    clearSelectedGeo();
+    centerMapToGeo(currentGeoView);
+  }, [centerMapToGeo, clearSelectedGeo, currentGeo?.source, currentGeoView, geoStatus.status, mapReady]);
 
   return (
     <AIBar

@@ -1,0 +1,144 @@
+{
+  "code": "kna",
+  "iso2": "KN",
+  "name": "Saint Kitts and Nevis",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "DECRIMINALIZED",
+      "status": "DECRIMINALIZED",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "LIMITED",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": "rec_implies_med_floor"
+    },
+    "distribution": {
+      "status": "restricted",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "rec_implies_med_floor"
+    ],
+    "notes_normalized": "Cannabis is decriminalized in Saint Kitts and Nevis. Medical cannabis is limited. Distribution is restricted."
+  },
+  "notes_normalized": "Cannabis is decriminalized in Saint Kitts and Nevis. Medical cannabis is limited. Distribution is restricted.",
+  "notes_raw": "{{main|Cannabis in Saint Kitts and Nevis}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "blm",
+    "sxm",
+    "maf"
+  ],
+  "related_names": [
+    {
+      "code": "blm",
+      "name": "Saint Barthélemy"
+    },
+    {
+      "code": "sxm",
+      "name": "Sint Maarten / Saint-Martin"
+    },
+    {
+      "code": "maf",
+      "name": "Saint Martin"
+    }
+  ],
+  "coordinates": {
+    "lat": 17.33333333,
+    "lng": -62.75
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Saint_Kitts_and_Nevis",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Saint_Kitts_and_Nevis",
+        "title": "Wikipedia: Saint Kitts and Nevis",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "NA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "blm",
+        "name": "Saint Barthélemy"
+      },
+      {
+        "code": "sxm",
+        "name": "Sint Maarten / Saint-Martin"
+      },
+      {
+        "code": "maf",
+        "name": "Saint Martin"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "atg",
+        "name": "Antigua and Barbuda"
+      },
+      {
+        "code": "dma",
+        "name": "Dominica"
+      },
+      {
+        "code": "lca",
+        "name": "Saint Lucia"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "msr",
+        "name": "Montserrat"
+      },
+      {
+        "code": "aia",
+        "name": "Anguilla"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "kna",
+    "content_hash": "9415bb065277e09e9e1fb0f3c1d283a4d248c9e5b63fad7bd295670c851ce03d",
+    "notes_hash": "e494055801302896bd7f378fb48ea55a968825444f8f352b3b7a1e2905f0aa71",
+    "model_hash": "52a80bec73cf426992bd669b86a5ba2939f6b617d06f667d2d10571617feb117"
+  },
+  "geo_code": "KN",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

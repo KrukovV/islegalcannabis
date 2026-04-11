@@ -1,0 +1,144 @@
+{
+  "code": "aut",
+  "iso2": "AT",
+  "name": "Austria / Österreich",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "DECRIMINALIZED",
+      "status": "DECRIMINALIZED",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "LIMITED",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": "rec_implies_med_floor"
+    },
+    "distribution": {
+      "status": "restricted",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "rec_implies_med_floor"
+    ],
+    "notes_normalized": "Cannabis is decriminalized in Austria / Österreich. Medical cannabis is limited. Distribution is restricted."
+  },
+  "notes_normalized": "Cannabis is decriminalized in Austria / Österreich. Medical cannabis is limited. Distribution is restricted.",
+  "notes_raw": "{{main|Cannabis in Austria}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "svn",
+    "hrv",
+    "cze"
+  ],
+  "related_names": [
+    {
+      "code": "svn",
+      "name": "Slovenia / Slovenija"
+    },
+    {
+      "code": "hrv",
+      "name": "Croatia / Hrvatska"
+    },
+    {
+      "code": "cze",
+      "name": "Czechia / Česko"
+    }
+  ],
+  "coordinates": {
+    "lat": 47.33333333,
+    "lng": 13.33333333
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Austria",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Austria",
+        "title": "Wikipedia: Austria / Österreich",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "svn",
+        "name": "Slovenia / Slovenija"
+      },
+      {
+        "code": "hrv",
+        "name": "Croatia / Hrvatska"
+      },
+      {
+        "code": "cze",
+        "name": "Czechia / Česko"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "deu",
+        "name": "Germany / Deutschland"
+      },
+      {
+        "code": "che",
+        "name": "Switzerland / Suisse"
+      },
+      {
+        "code": "ita",
+        "name": "Italy / Italia"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "smr",
+        "name": "San Marino"
+      },
+      {
+        "code": "lie",
+        "name": "Liechtenstein"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "aut",
+    "content_hash": "9f421c4bd59cdd3f00cde91a5bb4da96c0063d62f212b30037e12241230b5bbd",
+    "notes_hash": "fd36e64dc2e330f1c986416fc0a5c5e9efeaac1c1cc25aa486628f1fb561f909",
+    "model_hash": "deea02c03c80968277ebea1a13aabf5ee1bd2615fa37f185f34dfca69ca84ee5"
+  },
+  "geo_code": "AT",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

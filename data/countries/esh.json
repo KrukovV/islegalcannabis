@@ -1,0 +1,139 @@
+{
+  "code": "esh",
+  "iso2": "EH",
+  "name": "Western Sahara / الصحراء الغربية",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Western Sahara / الصحراء الغربية. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Western Sahara / الصحراء الغربية. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "No notes available.",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "mrt",
+    "sen",
+    "mar"
+  ],
+  "related_names": [
+    {
+      "code": "mrt",
+      "name": "Mauritania / موريتانيا"
+    },
+    {
+      "code": "sen",
+      "name": "Senegal / Sénégal"
+    },
+    {
+      "code": "mar",
+      "name": "Morocco / المغرب"
+    }
+  ],
+  "coordinates": {
+    "lat": 23.967592,
+    "lng": -12.630304
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Western_Sahara",
+    "wiki_truth": null,
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Western_Sahara",
+        "title": "Wikipedia: Western Sahara / الصحراء الغربية",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "AFRICA",
+    "seo_cluster": "AFRICA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "mrt",
+        "name": "Mauritania / موريتانيا"
+      },
+      {
+        "code": "sen",
+        "name": "Senegal / Sénégal"
+      },
+      {
+        "code": "mar",
+        "name": "Morocco / المغرب"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "mli",
+        "name": "Mali"
+      },
+      {
+        "code": "gmb",
+        "name": "Gambia"
+      },
+      {
+        "code": "gnb",
+        "name": "Guinea-Bissau / Guiné-Bissau"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "gin",
+        "name": "Guinea / Guinée"
+      },
+      {
+        "code": "cpv",
+        "name": "Cape Verde / Cabo Verde"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "esh",
+    "content_hash": "caa6219cb75448d9618301d104af9fd9bba619503686bee35b944c57f0ebca52",
+    "notes_hash": "cfac79f8a2ce861e52f5f9256e3ff237f79d6be199537e7c6483d9f82d5c6ca2",
+    "model_hash": "3f3e8f24de83e2be9ab0fe4fe085f9297bb87b7d5a212d9242895fff31fe41c5"
+  },
+  "geo_code": "EH",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

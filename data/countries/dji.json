@@ -1,0 +1,146 @@
+{
+  "code": "dji",
+  "iso2": "DJ",
+  "name": "Djibouti / جيبوتي",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Djibouti / جيبوتي. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Djibouti / جيبوتي. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Djibouti}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "eri",
+    "eth",
+    "yem"
+  ],
+  "related_names": [
+    {
+      "code": "eri",
+      "name": "Eritrea / إريتريا"
+    },
+    {
+      "code": "eth",
+      "name": "Ethiopia / ኢትዮጵያ"
+    },
+    {
+      "code": "yem",
+      "name": "Yemen / اليمن"
+    }
+  ],
+  "coordinates": {
+    "lat": 11.5,
+    "lng": 43
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Djibouti",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Djibouti",
+        "title": "Wikipedia: Djibouti / جيبوتي",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "AFRICA",
+    "seo_cluster": "AFRICA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "eri",
+        "name": "Eritrea / إريتريا"
+      },
+      {
+        "code": "eth",
+        "name": "Ethiopia / ኢትዮጵያ"
+      },
+      {
+        "code": "yem",
+        "name": "Yemen / اليمن"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "som",
+        "name": "Somalia / الصومال"
+      },
+      {
+        "code": "ken",
+        "name": "Kenya"
+      },
+      {
+        "code": "sdn",
+        "name": "Sudan / السودان"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "ssd",
+        "name": "South Sudan"
+      },
+      {
+        "code": "uga",
+        "name": "Uganda"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "dji",
+    "content_hash": "a055319942c0050ef07ad5397c2f967c1165b7db761c8ed6eb5c06e20327768a",
+    "notes_hash": "109cdb94ce5821fee29c30ffb909ea6f24110204a760ca3ffb9176b58216a3e5",
+    "model_hash": "603da0fda1424c6ffee1dd186685a791381d9be4ed04cb302dca20a3ccdee615"
+  },
+  "geo_code": "DJ",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

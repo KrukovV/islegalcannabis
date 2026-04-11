@@ -1,17 +1,8 @@
 "use client";
 
 import styles from "../MapRoot.module.css";
-
-export type CountryCardEntry = {
-  geo: string;
-  displayName: string;
-  iso2: string | null;
-  type: "country" | "state";
-  legalStatus: string;
-  medicalStatus: string;
-  notes: string;
-  coordinates?: { lat: number; lng: number };
-};
+import type { CountryCardEntry } from "../map.types";
+import { formatDistributionDetail, formatFlags, formatMedicalDetail, formatRecreationalDetail } from "../statusPresentation";
 
 type Props = {
   geo: string | null;
@@ -24,11 +15,19 @@ export default function CountryCard({ geo, cardIndex }: Props) {
   if (!entry) return null;
 
   return (
-    <div className={styles.countryCard} data-testid="new-map-country-card">
+      <div className={styles.countryCard} data-testid="new-map-country-card">
       <div className={styles.countryCardTitle}>{entry.displayName}</div>
       <div className={styles.countryCardMeta}>ISO2: {entry.iso2 || "Unknown"}</div>
-      <div className={styles.countryCardMeta}>Rec: {entry.legalStatus}</div>
-      <div className={styles.countryCardMeta}>Med: {entry.medicalStatus}</div>
+      <div className={styles.countryCardMeta}>{entry.normalizedStatusSummary}</div>
+      <div className={styles.countryCardMeta}>Recreational: {formatRecreationalDetail(entry)}</div>
+      <div className={styles.countryCardMeta}>Medical: {formatMedicalDetail(entry)}</div>
+      <div className={styles.countryCardMeta}>Distribution: {formatDistributionDetail(entry)}</div>
+      {entry.distributionFlags.length > 0 ? (
+        <div className={styles.countryCardMeta}>Distribution flags: {formatFlags(entry.distributionFlags)}</div>
+      ) : null}
+      {entry.statusFlags.length > 0 ? (
+        <div className={styles.countryCardMeta}>Flags: {formatFlags(entry.statusFlags)}</div>
+      ) : null}
       <div className={styles.countryCardNotes}>
         {entry.notes || "No notes available."}
       </div>

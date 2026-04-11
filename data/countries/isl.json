@@ -1,0 +1,147 @@
+{
+  "code": "isl",
+  "iso2": "IS",
+  "name": "Iceland / Ísland",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [
+      "fine_based"
+    ],
+    "applied_rules": [
+      "fine_based",
+      "illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Iceland / Ísland. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Iceland / Ísland. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Iceland}} Banned in 1969.<ref>{{cite news|title=Marihuana og LSD loks bannað hér!|url=http://timarit.is/view_page_init.jsp?pageId=3378672|access-date=10 December 2016|issue=235|publisher=Tíminn|date=25 October 1969|language=is|archive-date=21 July 2018|archive-url=https://web.archive.org/web/20180721073157/http://timarit.is/view_page_init.jsp?pageId=3378672|url-status=live}}</ref> Possession of small amounts is subject to arrest and fine but no threat of jail time.<ref>{{cite news |last1=Sveinn Helgason |first1=Magnús |title=Do Icelanders really smoke more cannabis than anyone else? |url=https://icelandmag.is/article/do-icelanders-really-smoke-more-cannabis-anyone-else |access-date=16 January 2019 |work=Iceland Magazine |date=26 August 2015 |archive-date=12 November 2020 |archive-url=https://web.archive.org/web/20201112034312/https://icelandmag.is/article/do-icelanders-really-smoke-more-cannabis-anyone-else |url-status=live }}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": "fine but no threat of jail time."
+  },
+  "related_codes": [
+    "fro",
+    "irl",
+    "imn"
+  ],
+  "related_names": [
+    {
+      "code": "fro",
+      "name": "Faroe Islands / Færøerne"
+    },
+    {
+      "code": "irl",
+      "name": "Ireland / Éire"
+    },
+    {
+      "code": "imn",
+      "name": "Isle of Man / Mannin"
+    }
+  ],
+  "coordinates": {
+    "lat": 65,
+    "lng": -18
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Iceland",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Iceland",
+        "title": "Wikipedia: Iceland / Ísland",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "fro",
+        "name": "Faroe Islands / Færøerne"
+      },
+      {
+        "code": "irl",
+        "name": "Ireland / Éire"
+      },
+      {
+        "code": "imn",
+        "name": "Isle of Man / Mannin"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "ggy",
+        "name": "Guernsey / Guernesey"
+      },
+      {
+        "code": "jey",
+        "name": "Jersey / Jèrri"
+      },
+      {
+        "code": "grl",
+        "name": "Greenland / Kalaallit Nunaat"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "gbr",
+        "name": "United Kingdom"
+      },
+      {
+        "code": "bel",
+        "name": "Belgium / Belgien"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "isl",
+    "content_hash": "3ec53d5bf1210e8d13f6198ab2f5b93ac425ad2ba848e9c2c9779077a05bdd4f",
+    "notes_hash": "306ee0b6c269294b41b2cedc1264c005d24137450b017fb958ed9575b945cb35",
+    "model_hash": "1599e203b7151856bacb719b059f7fe792f324dda8f5ad0e28a0bbca86f58de6"
+  },
+  "geo_code": "IS",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

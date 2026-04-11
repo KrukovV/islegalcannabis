@@ -1,0 +1,146 @@
+{
+  "code": "grl",
+  "iso2": "GL",
+  "name": "Greenland / Kalaallit Nunaat",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Greenland / Kalaallit Nunaat. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Greenland / Kalaallit Nunaat. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Greenland}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "isl",
+    "spm",
+    "fro"
+  ],
+  "related_names": [
+    {
+      "code": "isl",
+      "name": "Iceland / Ísland"
+    },
+    {
+      "code": "spm",
+      "name": "Saint Pierre and Miquelon / Saint-Pierre-et-Miquelon"
+    },
+    {
+      "code": "fro",
+      "name": "Faroe Islands / Færøerne"
+    }
+  ],
+  "coordinates": {
+    "lat": 72,
+    "lng": -40
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Greenland",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Greenland",
+        "title": "Wikipedia: Greenland / Kalaallit Nunaat",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "NA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "isl",
+        "name": "Iceland / Ísland"
+      },
+      {
+        "code": "spm",
+        "name": "Saint Pierre and Miquelon / Saint-Pierre-et-Miquelon"
+      },
+      {
+        "code": "fro",
+        "name": "Faroe Islands / Færøerne"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "irl",
+        "name": "Ireland / Éire"
+      },
+      {
+        "code": "imn",
+        "name": "Isle of Man / Mannin"
+      },
+      {
+        "code": "ggy",
+        "name": "Guernsey / Guernesey"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "bmu",
+        "name": "Bermuda"
+      },
+      {
+        "code": "can",
+        "name": "Canada"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "grl",
+    "content_hash": "2120dea260c9731e5367ce2dedcdfac585a644a38b18da480e0e05466ca552f2",
+    "notes_hash": "803518579d58996ee5d423f464c3cd63a17568d1fb49c336e44974db824f7596",
+    "model_hash": "fc8dca866cc442be50de3ea2921f2810d1dbb804cc45ae1643ba3a5b5a4d9cdb"
+  },
+  "geo_code": "GL",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

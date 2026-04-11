@@ -1,0 +1,146 @@
+{
+  "code": "gin",
+  "iso2": "GN",
+  "name": "Guinea / Guinée",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Guinea / Guinée. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Guinea / Guinée. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Guinea}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "sle",
+    "lbr",
+    "sen"
+  ],
+  "related_names": [
+    {
+      "code": "sle",
+      "name": "Sierra Leone"
+    },
+    {
+      "code": "lbr",
+      "name": "Liberia"
+    },
+    {
+      "code": "sen",
+      "name": "Senegal / Sénégal"
+    }
+  ],
+  "coordinates": {
+    "lat": 11,
+    "lng": -10
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Guinea",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Guinea",
+        "title": "Wikipedia: Guinea / Guinée",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "AFRICA",
+    "seo_cluster": "AFRICA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "sle",
+        "name": "Sierra Leone"
+      },
+      {
+        "code": "lbr",
+        "name": "Liberia"
+      },
+      {
+        "code": "sen",
+        "name": "Senegal / Sénégal"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "gnb",
+        "name": "Guinea-Bissau / Guiné-Bissau"
+      },
+      {
+        "code": "civ",
+        "name": "Ivory Coast / Côte d'Ivoire"
+      },
+      {
+        "code": "gmb",
+        "name": "Gambia"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "bfa",
+        "name": "Burkina Faso"
+      },
+      {
+        "code": "mli",
+        "name": "Mali"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "gin",
+    "content_hash": "7f8f76411cfb8b33d779f6b6bb9c1e0a6ae5a3195663af7823a0c741ec8eb2ea",
+    "notes_hash": "edf905aad043bfb3bb6d2bb72d9bfc5be9afb381797cc7af901fb9d444d9899c",
+    "model_hash": "e3bc973d8f2cf0c93fbf55d3c936588bf295c94721e2841b9169c3e19eeae613"
+  },
+  "geo_code": "GN",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

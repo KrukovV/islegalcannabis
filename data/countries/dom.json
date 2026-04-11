@@ -1,0 +1,146 @@
+{
+  "code": "dom",
+  "iso2": "DO",
+  "name": "Dominican Republic / República Dominicana",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Dominican Republic / República Dominicana. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Dominican Republic / República Dominicana. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in the Dominican Republic}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "hti",
+    "tca",
+    "pri"
+  ],
+  "related_names": [
+    {
+      "code": "hti",
+      "name": "Haiti / Haïti"
+    },
+    {
+      "code": "tca",
+      "name": "Turks and Caicos Islands"
+    },
+    {
+      "code": "pri",
+      "name": "Puerto Rico"
+    }
+  ],
+  "coordinates": {
+    "lat": 19,
+    "lng": -70.66666666
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Dominican_Republic",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Dominican_Republic",
+        "title": "Wikipedia: Dominican Republic / República Dominicana",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "NA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "hti",
+        "name": "Haiti / Haïti"
+      },
+      {
+        "code": "tca",
+        "name": "Turks and Caicos Islands"
+      },
+      {
+        "code": "pri",
+        "name": "Puerto Rico"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "vir",
+        "name": "United States Virgin Islands"
+      },
+      {
+        "code": "vgb",
+        "name": "British Virgin Islands"
+      },
+      {
+        "code": "abw",
+        "name": "Aruba"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "jam",
+        "name": "Jamaica"
+      },
+      {
+        "code": "cuw",
+        "name": "Curaçao / Pais Kòrsou"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "dom",
+    "content_hash": "08d7971093de958d25250917ecd1ef1b7bc181a24153d268634105e8e43fe050",
+    "notes_hash": "74c7175f14542926666e9137f4c36f6ab2aafe7cb9020aee87a854726bf0ac6e",
+    "model_hash": "4d5b2d466656b8b66af1e382f155d1b3f2ad809bd07e51b002b1403df1eecfac"
+  },
+  "geo_code": "DO",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

@@ -1,0 +1,146 @@
+{
+  "code": "cok",
+  "iso2": "CK",
+  "name": "Cook Islands / Kūki 'Āirani",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Cook Islands / Kūki 'Āirani. Medical cannabis is legal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Cook Islands / Kūki 'Āirani. Medical cannabis is legal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in the Cook Islands}} A [[2022 Cook Islands medical cannabis referendum|non-binding referendum]] in August 2022 asked \"Should we review our cannabis laws to allow for research and medicinal use?\" 62% voted yes.<ref>{{cite news |last1=Kumar |first1=Rashneel |title=62 per cent vote yes for cannabis law reform |url=https://www.cookislandsnews.com/internal/national/breaking-news/62-per-cent-vote-yes-for-cannabis-law-reform/ |access-date=11 January 2023 |work=Cook Islands News |date=11 August 2022 |archive-date=11 January 2023 |archive-url=https://web.archive.org/web/20230111204302/https://www.cookislandsnews.com/internal/national/breaking-news/62-per-cent-vote-yes-for-cannabis-law-reform/ |url-status=live }}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "niu",
+    "pyf",
+    "asm"
+  ],
+  "related_names": [
+    {
+      "code": "niu",
+      "name": "Niue / Niuē"
+    },
+    {
+      "code": "pyf",
+      "name": "French Polynesia / Polynésie française"
+    },
+    {
+      "code": "asm",
+      "name": "American Samoa / Sāmoa Amelika"
+    }
+  ],
+  "coordinates": {
+    "lat": -21.23333333,
+    "lng": -159.76666666
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Cook_Islands",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Cook_Islands",
+        "title": "Wikipedia: Cook Islands / Kūki 'Āirani",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "OCEANIA",
+    "seo_cluster": "OCEANIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "niu",
+        "name": "Niue / Niuē"
+      },
+      {
+        "code": "pyf",
+        "name": "French Polynesia / Polynésie française"
+      },
+      {
+        "code": "asm",
+        "name": "American Samoa / Sāmoa Amelika"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "wsm",
+        "name": "Samoa / Sāmoa"
+      },
+      {
+        "code": "ton",
+        "name": "Tonga"
+      },
+      {
+        "code": "wlf",
+        "name": "Wallis and Futuna / Wallis et Futuna"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "pcn",
+        "name": "Pitcairn Islands"
+      },
+      {
+        "code": "aus",
+        "name": "Australia"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "cok",
+    "content_hash": "b7e98adef940cfd2688e378e737204fc36c61d181594d9a3e26c0d6aa4a04bcb",
+    "notes_hash": "f206341d13f35269325f7829ba7f557fc6725fdd14b5d7abc6ef2a98432ebabf",
+    "model_hash": "4eaed87360ced1f06b53cb2cd4e80c8bed0a9c65ce4cb52af71a089487c1b625"
+  },
+  "geo_code": "CK",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

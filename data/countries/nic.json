@@ -1,0 +1,146 @@
+{
+  "code": "nic",
+  "iso2": "NI",
+  "name": "Nicaragua",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Nicaragua. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Nicaragua. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Nicaragua}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "hnd",
+    "cri",
+    "slv"
+  ],
+  "related_names": [
+    {
+      "code": "hnd",
+      "name": "Honduras"
+    },
+    {
+      "code": "cri",
+      "name": "Costa Rica"
+    },
+    {
+      "code": "slv",
+      "name": "El Salvador"
+    }
+  ],
+  "coordinates": {
+    "lat": 13,
+    "lng": -85
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Nicaragua",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Nicaragua",
+        "title": "Wikipedia: Nicaragua",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "NA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "hnd",
+        "name": "Honduras"
+      },
+      {
+        "code": "cri",
+        "name": "Costa Rica"
+      },
+      {
+        "code": "slv",
+        "name": "El Salvador"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "blz",
+        "name": "Belize / Belice"
+      },
+      {
+        "code": "gtm",
+        "name": "Guatemala"
+      },
+      {
+        "code": "pan",
+        "name": "Panama / Panamá"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "cym",
+        "name": "Cayman Islands"
+      },
+      {
+        "code": "jam",
+        "name": "Jamaica"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "nic",
+    "content_hash": "e2d2908b965824362eceea5f6d8dcd9697f736437013cc301cf6389e08e115b8",
+    "notes_hash": "58430e80f753709d1524ac8ddafbd1f79b58ac8e5c105e7a763463544d3fdfbe",
+    "model_hash": "0279474ef38f93f641025f7b61ddb9714753f766cbf17c95f9fa71b5c010f75e"
+  },
+  "geo_code": "NI",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

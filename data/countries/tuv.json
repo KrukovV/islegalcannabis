@@ -1,0 +1,146 @@
+{
+  "code": "tuv",
+  "iso2": "TV",
+  "name": "Tuvalu",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Tuvalu. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Tuvalu. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Tuvalu}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "fji",
+    "kir",
+    "nru"
+  ],
+  "related_names": [
+    {
+      "code": "fji",
+      "name": "Fiji / Viti"
+    },
+    {
+      "code": "kir",
+      "name": "Kiribati"
+    },
+    {
+      "code": "nru",
+      "name": "Nauru"
+    }
+  ],
+  "coordinates": {
+    "lat": -8,
+    "lng": 178
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Tuvalu",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Tuvalu",
+        "title": "Wikipedia: Tuvalu",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "OCEANIA",
+    "seo_cluster": "OCEANIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "fji",
+        "name": "Fiji / Viti"
+      },
+      {
+        "code": "kir",
+        "name": "Kiribati"
+      },
+      {
+        "code": "nru",
+        "name": "Nauru"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "vut",
+        "name": "Vanuatu"
+      },
+      {
+        "code": "ncl",
+        "name": "New Caledonia / Nouvelle-Calédonie"
+      },
+      {
+        "code": "slb",
+        "name": "Solomon Islands"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "mhl",
+        "name": "Marshall Islands / M̧ajeļ"
+      },
+      {
+        "code": "nfk",
+        "name": "Norfolk Island / Norf'k Ailen"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "tuv",
+    "content_hash": "70ab260274f388bea8174b4cccc748af5949fea075a70a5487fcd7f0da942241",
+    "notes_hash": "f9739f525bea9041c034a98999c04c3915c0d9e52419467070699ae83fd0e1c0",
+    "model_hash": "6710f17206bd2b7c396171536871d928f97bc0a00da536575039c4a3afd2f540"
+  },
+  "geo_code": "TV",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

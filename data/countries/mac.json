@@ -1,0 +1,146 @@
+{
+  "code": "mac",
+  "iso2": "MO",
+  "name": "Macau / 澳门",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Macau / 澳门. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Macau / 澳门. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Macau}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "hkg",
+    "twn",
+    "vnm"
+  ],
+  "related_names": [
+    {
+      "code": "hkg",
+      "name": "Hong Kong / 香港"
+    },
+    {
+      "code": "twn",
+      "name": "Taiwan / 台灣"
+    },
+    {
+      "code": "vnm",
+      "name": "Vietnam / Việt Nam"
+    }
+  ],
+  "coordinates": {
+    "lat": 22.16666666,
+    "lng": 113.55
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Macau",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Macau",
+        "title": "Wikipedia: Macau / 澳门",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "ASIA",
+    "seo_cluster": "ASIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "hkg",
+        "name": "Hong Kong / 香港"
+      },
+      {
+        "code": "twn",
+        "name": "Taiwan / 台灣"
+      },
+      {
+        "code": "vnm",
+        "name": "Vietnam / Việt Nam"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "lao",
+        "name": "Laos / ສປປລາວ"
+      },
+      {
+        "code": "khm",
+        "name": "Cambodia / Kâmpŭchéa"
+      },
+      {
+        "code": "chn",
+        "name": "China / 中国"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "phl",
+        "name": "Philippines / Pilipinas"
+      },
+      {
+        "code": "tha",
+        "name": "Thailand / ประเทศไทย"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "mac",
+    "content_hash": "d4a9bcdc4f9efa860772bb01460160eb2949fbaa7f86295ed23c2fa5e48801a3",
+    "notes_hash": "c6e0fe455944aef1a97fe51c11e1cfd42fac0c7b5f0e72e79b7fb8e43c9fa536",
+    "model_hash": "567cf3bef6460b63dd427d855c990244c629b3f68a76d06e8f611ad57cd5fe8f"
+  },
+  "geo_code": "MO",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

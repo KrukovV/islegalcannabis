@@ -1,0 +1,144 @@
+{
+  "code": "mda",
+  "iso2": "MD",
+  "name": "Moldova",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "DECRIMINALIZED",
+      "status": "DECRIMINALIZED",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "LIMITED",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": "rec_implies_med_floor"
+    },
+    "distribution": {
+      "status": "restricted",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "rec_implies_med_floor"
+    ],
+    "notes_normalized": "Cannabis is decriminalized in Moldova. Medical cannabis is limited. Distribution is restricted."
+  },
+  "notes_normalized": "Cannabis is decriminalized in Moldova. Medical cannabis is limited. Distribution is restricted.",
+  "notes_raw": "{{main|Cannabis in Moldova}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "ukr",
+    "rou",
+    "bgr"
+  ],
+  "related_names": [
+    {
+      "code": "ukr",
+      "name": "Ukraine / Україна"
+    },
+    {
+      "code": "rou",
+      "name": "Romania / România"
+    },
+    {
+      "code": "bgr",
+      "name": "Bulgaria / България"
+    }
+  ],
+  "coordinates": {
+    "lat": 47,
+    "lng": 29
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Moldova",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Moldova",
+        "title": "Wikipedia: Moldova",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "ukr",
+        "name": "Ukraine / Україна"
+      },
+      {
+        "code": "rou",
+        "name": "Romania / România"
+      },
+      {
+        "code": "bgr",
+        "name": "Bulgaria / България"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "mkd",
+        "name": "North Macedonia / Македонија"
+      },
+      {
+        "code": "hun",
+        "name": "Hungary / Magyarország"
+      },
+      {
+        "code": "tur",
+        "name": "Türkiye"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "blr",
+        "name": "Belarus / Белару́сь"
+      },
+      {
+        "code": "srb",
+        "name": "Serbia / Србија"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "mda",
+    "content_hash": "60ac8b98b0502546dacc624bb2c79b2e73c1d7d08222a7c5e915a45179743334",
+    "notes_hash": "0ca1fd530c6565e4057fe9230b2d3229b0fee0af962a48369d9904608ff3ed54",
+    "model_hash": "9beb7cdcdee28ee4384a410adacac77b58e90e176f3aa7c261bb3e1878ebc993"
+  },
+  "geo_code": "MD",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

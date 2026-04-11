@@ -61,6 +61,12 @@ export function hasFirstVisualReady() {
   return Boolean(host?.__NEW_MAP_FIRST_VISUAL_READY__);
 }
 
+export function resetFirstVisualReady() {
+  const host = getHost();
+  if (!host) return;
+  host.__NEW_MAP_FIRST_VISUAL_READY__ = false;
+}
+
 export function onFirstVisualReady(callback: () => void) {
   const host = getHost();
   if (!host) return () => {};

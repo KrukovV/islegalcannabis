@@ -1,0 +1,148 @@
+{
+  "code": "fra",
+  "iso2": "FR",
+  "name": "France",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "restricted",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [
+      "fine_based"
+    ],
+    "applied_rules": [
+      "fine_based",
+      "medical_legal",
+      "legal"
+    ],
+    "notes_normalized": "Cannabis is legal in France. Medical cannabis is legal. Distribution is restricted."
+  },
+  "notes_normalized": "Cannabis is legal in France. Medical cannabis is legal. Distribution is restricted.",
+  "notes_raw": "{{main|Cannabis in France}} Possession up to {{cvt|100|g|frac=2}} entails a €200 fine since November 2018,<ref>{{Cite news|date=31 August 2020|title=L'amende forfaitaire pour les fumeurs de cannabis généralisée mardi|url=https://www.leparisien.fr/faits-divers/l-amende-forfaitaire-pour-les-fumeurs-de-cannabis-generalisee-mardi-31-08-2020-8376006.php|work=[[Le Parisien]]|language=fr-FR|access-date=31 March 2021|archive-date=5 March 2021|archive-url=https://web.archive.org/web/20210305204027/https://www.leparisien.fr/faits-divers/l-amende-forfaitaire-pour-les-fumeurs-de-cannabis-generalisee-mardi-31-08-2020-8376006.php|url-status=live}}</ref> although a judge is still legally able to pronounce a stricter sentence.<ref>{{Cite web|last=Forbes|date=9 February 2021|title=Cannabis : vers une dépénalisation en France ?|url=https://www.forbes.fr/business/cannabis-vers-une-depenalisation-en-france/|access-date=1 April 2021|website=Forbes France|language=fr-FR|archive-date=20 April 2021|archive-url=https://web.archive.org/web/20210420204537/https://www.forbes.fr/business/cannabis-vers-une-depenalisation-en-france/|url-status=live}}</ref> Medical use of some cannabinoid drugs legalized in 2013.<ref>{{cite news|title=Legalising or decriminalizing cannabis in France: not that easy|url=http://www.euronews.com/2013/11/06/france-legalising-or-decriminalizing-cannabis-not-that-easy|access-date=15 December 2013|publisher=[[Euronews]]|date=6 November 2013|author=Marie Jamet|archive-date=26 December 2018|archive-url=https://web.archive.org/web/20181226021356/https://www.euronews.com/2013/11/06/france-legalising-or-decriminalizing-cannabis-not-that-easy|url-status=live}}</ref><ref>{{cite news|title=French law on pot-based medicine takes effect|url=http://www.thelocal.fr/20130610/legalized-cannabis-tea-could-be-on-drug-menu-for-french-patients-in-pharmacies|access-date=15 December 2013|work=[[The Local]]|date=10 June 2013|author=Ann Törnkvist|archive-date=26 December 2018|archive-url=https://web.archive.org/web/20181226021452/https://www.thelocal.fr/20130610/legalized-cannabis-tea-could-be-on-drug-menu-for-french-patients-in-pharmacies|url-status=live}}</ref>",
+  "facts": {
+    "possession_limit": "up to 100 g",
+    "cultivation": null,
+    "penalty": "fine since November 2018, although a judge is still legally able to pronounce a stricter sentence."
+  },
+  "related_codes": [
+    "and",
+    "bel",
+    "jey"
+  ],
+  "related_names": [
+    {
+      "code": "and",
+      "name": "Andorra"
+    },
+    {
+      "code": "bel",
+      "name": "Belgium / Belgien"
+    },
+    {
+      "code": "jey",
+      "name": "Jersey / Jèrri"
+    }
+  ],
+  "coordinates": {
+    "lat": 46.2276,
+    "lng": 2.2137
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/France",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/France",
+        "title": "Wikipedia: France",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "OTHER",
+    "seo_cluster": "EU",
+    "geo_neighbors": [
+      {
+        "code": "and",
+        "name": "Andorra"
+      },
+      {
+        "code": "bel",
+        "name": "Belgium / Belgien"
+      },
+      {
+        "code": "jey",
+        "name": "Jersey / Jèrri"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "lux",
+        "name": "Luxembourg / Luxemburg"
+      },
+      {
+        "code": "che",
+        "name": "Switzerland / Suisse"
+      },
+      {
+        "code": "nld",
+        "name": "Netherlands / Nederland"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "esp",
+        "name": "Spain / España"
+      },
+      {
+        "code": "deu",
+        "name": "Germany / Deutschland"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "fra",
+    "content_hash": "cdf2050b32a8bd4aa16056fddcb6f49192f74136aa53fe776e84267c80a896aa",
+    "notes_hash": "fe419cc6bc181b7b93bfef40f05171b8b133305e6eee3c9969487d697dd3f522",
+    "model_hash": "9de19f666b02443bd28670115c3a09b72399316c89ecc9b8c8ab0752946a9b41"
+  },
+  "geo_code": "FR",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

@@ -1,0 +1,146 @@
+{
+  "code": "mli",
+  "iso2": "ML",
+  "name": "Mali",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Mali. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Mali. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Mali}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "bfa",
+    "gin",
+    "mrt"
+  ],
+  "related_names": [
+    {
+      "code": "bfa",
+      "name": "Burkina Faso"
+    },
+    {
+      "code": "gin",
+      "name": "Guinea / Guinée"
+    },
+    {
+      "code": "mrt",
+      "name": "Mauritania / موريتانيا"
+    }
+  ],
+  "coordinates": {
+    "lat": 17,
+    "lng": -4
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Mali",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Mali",
+        "title": "Wikipedia: Mali",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "AFRICA",
+    "seo_cluster": "AFRICA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "bfa",
+        "name": "Burkina Faso"
+      },
+      {
+        "code": "gin",
+        "name": "Guinea / Guinée"
+      },
+      {
+        "code": "mrt",
+        "name": "Mauritania / موريتانيا"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "civ",
+        "name": "Ivory Coast / Côte d'Ivoire"
+      },
+      {
+        "code": "gha",
+        "name": "Ghana"
+      },
+      {
+        "code": "ben",
+        "name": "Benin / Bénin"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "tgo",
+        "name": "Togo"
+      },
+      {
+        "code": "sen",
+        "name": "Senegal / Sénégal"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "mli",
+    "content_hash": "808e8035f867098c1e8491b45ba97ef573fad1f1c7e1f3ec687d8d7bd9497ad6",
+    "notes_hash": "07c738f77574066bc00bcb0ad373fdfe5e0c1c154a5a03a4e002f3aa98e1a24d",
+    "model_hash": "5191fe7f149acfbf8eef4c83dbf71e70a6ee7b6c95341f1d88bb42f841f6f61d"
+  },
+  "geo_code": "ML",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

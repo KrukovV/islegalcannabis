@@ -1,4 +1,5 @@
 import { getDisplayName } from "@/lib/countryNames";
+import { normalizeCannabisStatusRecord } from "@/lib/cannabisStatusRuleEngine.js";
 import { buildStatusDomainModel } from "@/lib/statusDomainModel";
 import type { NotesEvidenceDelta, NotesEvidenceSourceType } from "@/lib/notesExplainability";
 import type { EffectiveOfficialStrength } from "@/lib/mapStatusProjection";
@@ -24,6 +25,15 @@ type RegionEntry = {
   mapCategory?: MapCategory;
   notesOur?: string | null;
   notesWiki?: string | null;
+  normalizedStatusSummary?: string;
+  recreationalSummary?: string;
+  medicalSummary?: string;
+  statusFlags?: string[];
+  normalizedRecreationalStatus?: string;
+  normalizedRecreationalEnforcement?: string;
+  normalizedRecreationalScope?: string;
+  normalizedMedicalStatus?: string;
+  normalizedMedicalScope?: string;
   officialSources?: string[];
   wikiSources?: string[];
   truthLevel?: string;
@@ -69,12 +79,27 @@ export type SSOTStatusModel = {
   evidenceSourceType: NotesEvidenceSourceType;
   triggerPhraseExcerpt: string | null;
   doesChangeFinalStatus: boolean;
+  normalizedStatusSummary: string;
+  recreationalSummary: string;
+  medicalSummary: string;
+  statusFlags: string[];
+  normalizedRecreationalStatus: string;
+  normalizedRecreationalEnforcement: string;
+  normalizedRecreationalScope: string;
+  normalizedMedicalStatus: string;
+  normalizedMedicalScope: string;
 };
 
 export function buildSSOTStatusModel(
   entry: RegionEntry,
   snapshotMeta: { finalSnapshotId: string; builtAt: string; datasetHash: string }
 ): SSOTStatusModel {
+  const normalizedStatus = normalizeCannabisStatusRecord({
+    country: entry.geo,
+    recreational: entry.wikiRecStatus || entry.recWiki,
+    medical: entry.wikiMedStatus || entry.medWiki,
+    notes: entry.notesWiki || entry.notesOur
+  });
   const domainModel = buildStatusDomainModel({
     geoKey: entry.geo,
     wikiRecStatus: entry.wikiRecStatus || entry.recWiki,
@@ -138,7 +163,19 @@ export function buildSSOTStatusModel(
     evidenceDeltaReason: domainModel.contextExplainability.evidenceDeltaReason,
     evidenceSourceType: domainModel.contextExplainability.evidenceSourceType as NotesEvidenceSourceType,
     triggerPhraseExcerpt: domainModel.contextExplainability.triggerPhraseExcerpt,
-    doesChangeFinalStatus: domainModel.contextExplainability.doesChangeFinalStatus
+    doesChangeFinalStatus: domainModel.contextExplainability.doesChangeFinalStatus,
+    normalizedStatusSummary: entry.normalizedStatusSummary || normalizedStatus.summary,
+    recreationalSummary: entry.recreationalSummary || normalizedStatus.recreational_summary,
+    medicalSummary: entry.medicalSummary || normalizedStatus.medical_summary,
+    statusFlags: Array.isArray(entry.statusFlags) ? entry.statusFlags : normalizedStatus.notes.parsed_flags,
+    normalizedRecreationalStatus:
+      entry.normalizedRecreationalStatus || normalizedStatus.recreational.normalized_status,
+    normalizedRecreationalEnforcement:
+      entry.normalizedRecreationalEnforcement || normalizedStatus.recreational.enforcement,
+    normalizedRecreationalScope:
+      entry.normalizedRecreationalScope || normalizedStatus.recreational.scope,
+    normalizedMedicalStatus: entry.normalizedMedicalStatus || normalizedStatus.medical.normalized_status,
+    normalizedMedicalScope: entry.normalizedMedicalScope || normalizedStatus.medical.scope
   };
 }
 

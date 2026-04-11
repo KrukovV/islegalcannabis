@@ -1,0 +1,144 @@
+{
+  "code": "mwi",
+  "iso2": "MW",
+  "name": "Malawi / Malaŵi",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Malawi / Malaŵi. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Malawi / Malaŵi. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Malawi}} Illegal but widely used and cultivated; Malawian cannabis is famed internationally for its quality.<ref>{{cite news|url=https://news.bbc.co.uk/2/hi/africa/920052.stm |title=Malawi Rastas' marijuana struggle |publisher=[[BBC News]] |date=11 September 2000 |access-date=20 April 2011 |archive-url=https://web.archive.org/web/20180227110028/http://news.bbc.co.uk/2/hi/africa/920052.stm |archive-date=27 February 2018 |url-status=live}}</ref> Chamba is grown mainly in central and northern regions like [[Mzuzu]].<ref>{{cite news|url=https://www.nytimes.com/1998/12/17/world/marijuana-cultivation-increases-in-malawi.html |title=Marijuana Cultivation Increases in Malawi |work=[[The New York Times]] |agency=[[Agence France-Presse]] |date=17 December 1998 |access-date=20 April 2011 |archive-url=https://web.archive.org/web/20180615010423/https://www.nytimes.com/1998/12/17/world/marijuana-cultivation-increases-in-malawi.html |archive-date=15 June 2018 |url-status=live |url-access=limited}}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": "grown mainly in central and northern regions like Mzuzu .",
+    "penalty": null
+  },
+  "related_codes": [
+    "zmb",
+    "moz",
+    "tza"
+  ],
+  "related_names": [
+    {
+      "code": "zmb",
+      "name": "Zambia"
+    },
+    {
+      "code": "moz",
+      "name": "Mozambique / Moçambique"
+    },
+    {
+      "code": "tza",
+      "name": "Tanzania"
+    }
+  ],
+  "coordinates": {
+    "lat": -13.5,
+    "lng": 34
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Malawi",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Malawi",
+        "title": "Wikipedia: Malawi / Malaŵi",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "AFRICA",
+    "seo_cluster": "AFRICA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "zmb",
+        "name": "Zambia"
+      },
+      {
+        "code": "moz",
+        "name": "Mozambique / Moçambique"
+      },
+      {
+        "code": "tza",
+        "name": "Tanzania"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "zwe",
+        "name": "Zimbabwe"
+      },
+      {
+        "code": "bdi",
+        "name": "Burundi / Uburundi"
+      },
+      {
+        "code": "rwa",
+        "name": "Rwanda"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "com",
+        "name": "Comoros / جزر القمر"
+      },
+      {
+        "code": "bwa",
+        "name": "Botswana"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "mwi",
+    "content_hash": "841c9c2fd17ea5b5c25ac0736e8ae71fd47f0170459643570d5d4d77b035fe50",
+    "notes_hash": "6435e5d2043d68bf10c1618cd3c23de0f177974c1ddd5e592580b05a75dfa2ec",
+    "model_hash": "9ee9b0c8af5886c4eb7eb8dc1514d9be2c9f22bde1a994f8014ed6b87b1e2c03"
+  },
+  "geo_code": "MW",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

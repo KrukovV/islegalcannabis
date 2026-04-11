@@ -1,0 +1,139 @@
+{
+  "code": "fro",
+  "iso2": "FO",
+  "name": "Faroe Islands / Færøerne",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Faroe Islands / Færøerne. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Faroe Islands / Færøerne. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "No notes available.",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "imn",
+    "irl",
+    "gbr"
+  ],
+  "related_names": [
+    {
+      "code": "imn",
+      "name": "Isle of Man / Mannin"
+    },
+    {
+      "code": "irl",
+      "name": "Ireland / Éire"
+    },
+    {
+      "code": "gbr",
+      "name": "United Kingdom"
+    }
+  ],
+  "coordinates": {
+    "lat": 62.185604,
+    "lng": -7.058429
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Faroe_Islands",
+    "wiki_truth": null,
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Faroe_Islands",
+        "title": "Wikipedia: Faroe Islands / Færøerne",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "imn",
+        "name": "Isle of Man / Mannin"
+      },
+      {
+        "code": "irl",
+        "name": "Ireland / Éire"
+      },
+      {
+        "code": "gbr",
+        "name": "United Kingdom"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "isl",
+        "name": "Iceland / Ísland"
+      },
+      {
+        "code": "ggy",
+        "name": "Guernsey / Guernesey"
+      },
+      {
+        "code": "jey",
+        "name": "Jersey / Jèrri"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "bel",
+        "name": "Belgium / Belgien"
+      },
+      {
+        "code": "nld",
+        "name": "Netherlands / Nederland"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "fro",
+    "content_hash": "3ddc8d921dd0624feb219e64eb69db46c62e9cefaac3e4556cb205873f463734",
+    "notes_hash": "259392571d1f35b9b01cd94b07bc402660754c492e256189005513f8ec27b139",
+    "model_hash": "51088f585b910b5efbd3eb35e881d62a8ebaf714150c537d291910c75369c80d"
+  },
+  "geo_code": "FO",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

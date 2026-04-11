@@ -1,0 +1,146 @@
+{
+  "code": "ton",
+  "iso2": "TO",
+  "name": "Tonga",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Tonga. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Tonga. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Tonga}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "niu",
+    "wlf",
+    "wsm"
+  ],
+  "related_names": [
+    {
+      "code": "niu",
+      "name": "Niue / Niuē"
+    },
+    {
+      "code": "wlf",
+      "name": "Wallis and Futuna / Wallis et Futuna"
+    },
+    {
+      "code": "wsm",
+      "name": "Samoa / Sāmoa"
+    }
+  ],
+  "coordinates": {
+    "lat": -20,
+    "lng": -175
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Tonga",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Tonga",
+        "title": "Wikipedia: Tonga",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "OCEANIA",
+    "seo_cluster": "OCEANIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "niu",
+        "name": "Niue / Niuē"
+      },
+      {
+        "code": "wlf",
+        "name": "Wallis and Futuna / Wallis et Futuna"
+      },
+      {
+        "code": "wsm",
+        "name": "Samoa / Sāmoa"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "asm",
+        "name": "American Samoa / Sāmoa Amelika"
+      },
+      {
+        "code": "cok",
+        "name": "Cook Islands / Kūki 'Āirani"
+      },
+      {
+        "code": "pyf",
+        "name": "French Polynesia / Polynésie française"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "pcn",
+        "name": "Pitcairn Islands"
+      },
+      {
+        "code": "aus",
+        "name": "Australia"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "ton",
+    "content_hash": "65826eaf1b0faa840d9d8c75bdbfb0d2f6e671914a6f73ddc19e50d9a9764c20",
+    "notes_hash": "0fbf0bd57240cbf87ad042d92e54038fc350fe36e1ba12662a5147dd64ef8962",
+    "model_hash": "0516244ead264eb7ff6259225f3f023a022e358871f8ea09060547b070c98a59"
+  },
+  "geo_code": "TO",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

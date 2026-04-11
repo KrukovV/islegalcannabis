@@ -1,0 +1,146 @@
+{
+  "code": "gha",
+  "iso2": "GH",
+  "name": "Ghana",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Ghana. Medical cannabis is legal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Ghana. Medical cannabis is legal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Ghana}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "civ",
+    "tgo",
+    "ben"
+  ],
+  "related_names": [
+    {
+      "code": "civ",
+      "name": "Ivory Coast / Côte d'Ivoire"
+    },
+    {
+      "code": "tgo",
+      "name": "Togo"
+    },
+    {
+      "code": "ben",
+      "name": "Benin / Bénin"
+    }
+  ],
+  "coordinates": {
+    "lat": 8,
+    "lng": -2
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Ghana",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Ghana",
+        "title": "Wikipedia: Ghana",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "AFRICA",
+    "seo_cluster": "AFRICA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "civ",
+        "name": "Ivory Coast / Côte d'Ivoire"
+      },
+      {
+        "code": "tgo",
+        "name": "Togo"
+      },
+      {
+        "code": "ben",
+        "name": "Benin / Bénin"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "bfa",
+        "name": "Burkina Faso"
+      },
+      {
+        "code": "lbr",
+        "name": "Liberia"
+      },
+      {
+        "code": "gin",
+        "name": "Guinea / Guinée"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "mli",
+        "name": "Mali"
+      },
+      {
+        "code": "sle",
+        "name": "Sierra Leone"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "gha",
+    "content_hash": "172dd323f8e595e14bf29616062b1d5aa60e2ea60abf690c7b340411f5edd148",
+    "notes_hash": "0b7bd0510e7312f3379173e13f9d57fbebefc6a9b82e3a7305ce48e23e2372c8",
+    "model_hash": "1e09bfeb966f7e4b275304c9236a85338d471266ff4cee35458e7f92c9fa1241"
+  },
+  "geo_code": "GH",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

@@ -1,0 +1,146 @@
+{
+  "code": "jor",
+  "iso2": "JO",
+  "name": "Jordan / الأردن",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Jordan / الأردن. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Jordan / الأردن. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Jordan}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "isr",
+    "pse",
+    "lbn"
+  ],
+  "related_names": [
+    {
+      "code": "isr",
+      "name": "Israel / إسرائيل"
+    },
+    {
+      "code": "pse",
+      "name": "Palestine / فلسطين"
+    },
+    {
+      "code": "lbn",
+      "name": "Lebanon / لبنان"
+    }
+  ],
+  "coordinates": {
+    "lat": 31,
+    "lng": 36
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Jordan",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Jordan",
+        "title": "Wikipedia: Jordan / الأردن",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "ASIA",
+    "seo_cluster": "ASIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "isr",
+        "name": "Israel / إسرائيل"
+      },
+      {
+        "code": "pse",
+        "name": "Palestine / فلسطين"
+      },
+      {
+        "code": "lbn",
+        "name": "Lebanon / لبنان"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "syr",
+        "name": "Syria / سوريا"
+      },
+      {
+        "code": "egy",
+        "name": "Egypt / مصر"
+      },
+      {
+        "code": "irq",
+        "name": "Iraq / العراق"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "cyp",
+        "name": "Cyprus / Κύπρος"
+      },
+      {
+        "code": "tur",
+        "name": "Türkiye"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "jor",
+    "content_hash": "12d449abac392c63ad704554b3e1a0aceaa29ff31a7bdc08d98217f152373636",
+    "notes_hash": "72df9d34e587d6ca39332824174b5e604c49dcf69f73be8fe6ef86d7a1bf0429",
+    "model_hash": "d5acf66caedfbce8e71e53c9a1e3ae826deaa0b5f87761e2da696fbc02946421"
+  },
+  "geo_code": "JO",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

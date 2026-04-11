@@ -1,0 +1,146 @@
+{
+  "code": "tcd",
+  "iso2": "TD",
+  "name": "Chad / تشاد",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Chad / تشاد. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Chad / تشاد. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Chad}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "caf",
+    "lby",
+    "sdn"
+  ],
+  "related_names": [
+    {
+      "code": "caf",
+      "name": "Central African Republic / République centrafricaine"
+    },
+    {
+      "code": "lby",
+      "name": "Libya / ليبيا"
+    },
+    {
+      "code": "sdn",
+      "name": "Sudan / السودان"
+    }
+  ],
+  "coordinates": {
+    "lat": 15,
+    "lng": 19
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Chad",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Chad",
+        "title": "Wikipedia: Chad / تشاد",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "AFRICA",
+    "seo_cluster": "AFRICA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "caf",
+        "name": "Central African Republic / République centrafricaine"
+      },
+      {
+        "code": "lby",
+        "name": "Libya / ليبيا"
+      },
+      {
+        "code": "sdn",
+        "name": "Sudan / السودان"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "ner",
+        "name": "Niger"
+      },
+      {
+        "code": "cmr",
+        "name": "Cameroon / Cameroun"
+      },
+      {
+        "code": "nga",
+        "name": "Nigeria"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "ssd",
+        "name": "South Sudan"
+      },
+      {
+        "code": "gnq",
+        "name": "Equatorial Guinea / Guinée équatoriale"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "tcd",
+    "content_hash": "14e8df5052af7f4802132d1f6a8fe97e2ac111aa42c1b36d828ecb55e5056bb2",
+    "notes_hash": "79f0a3f0a60abb4624e47ded14c38c5c58bacb00b8d87dead3fd2de56d97f2c3",
+    "model_hash": "cc8d762d4249ea72788da06fcf8375f68e85da7880715462d9903dd5723077ff"
+  },
+  "geo_code": "TD",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

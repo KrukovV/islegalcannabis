@@ -1,0 +1,146 @@
+{
+  "code": "syc",
+  "iso2": "SC",
+  "name": "Seychelles / Sesel",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Seychelles / Sesel. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Seychelles / Sesel. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Seychelles}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "com",
+    "iot",
+    "mus"
+  ],
+  "related_names": [
+    {
+      "code": "com",
+      "name": "Comoros / جزر القمر"
+    },
+    {
+      "code": "iot",
+      "name": "British Indian Ocean Territory"
+    },
+    {
+      "code": "mus",
+      "name": "Mauritius / Maurice"
+    }
+  ],
+  "coordinates": {
+    "lat": -4.58333333,
+    "lng": 55.66666666
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Seychelles",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Seychelles",
+        "title": "Wikipedia: Seychelles / Sesel",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "OTHER",
+    "seo_cluster": "GLOBAL",
+    "geo_neighbors": [
+      {
+        "code": "com",
+        "name": "Comoros / جزر القمر"
+      },
+      {
+        "code": "iot",
+        "name": "British Indian Ocean Territory"
+      },
+      {
+        "code": "mus",
+        "name": "Mauritius / Maurice"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "som",
+        "name": "Somalia / الصومال"
+      },
+      {
+        "code": "mdg",
+        "name": "Madagascar / Madagasikara"
+      },
+      {
+        "code": "ken",
+        "name": "Kenya"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "mdv",
+        "name": "Maldives / ދިވެހިރާއްޖޭގެ"
+      },
+      {
+        "code": "atf",
+        "name": "French Southern and Antarctic Lands / Terres australes et antarctiques françaises"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "syc",
+    "content_hash": "d5047a06655aa6cc2d40d74ad3e34f33ef7b8f991fd4dc570a74a269941487c2",
+    "notes_hash": "a3c5e93e6ec723a5dc7ca92f3c0aa29c22cac3735b7af4940928a19c2118e769",
+    "model_hash": "1bdee80c87739eb2a861fd2327598bb28e1a80c404810f22f4d9360aaeb1c8a8"
+  },
+  "geo_code": "SC",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

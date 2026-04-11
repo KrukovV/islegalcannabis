@@ -1,0 +1,145 @@
+{
+  "code": "arg",
+  "iso2": "AR",
+  "name": "Argentina",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "restricted",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "medical_legal",
+      "legal"
+    ],
+    "notes_normalized": "Cannabis is legal in Argentina. Medical cannabis is legal. Distribution is restricted."
+  },
+  "notes_normalized": "Cannabis is legal in Argentina. Medical cannabis is legal. Distribution is restricted.",
+  "notes_raw": "{{main|Cannabis in Argentina}} Medicinal cannabis was legalized on 22 September 2017.<ref>{{Cite news |url=https://www.infobae.com/politica/2017/09/22/el-gobierno-reglamento-la-ley-de-cannabis-medicinal/ |title=El Gobierno reglamentó la ley de cannabis medicinal |date=22 September 2017 |publisher=[[Infobae]] |access-date=4 January 2023 |archive-date=8 June 2021 |archive-url=https://web.archive.org/web/20210608073626/https://www.infobae.com/politica/2017/09/22/el-gobierno-reglamento-la-ley-de-cannabis-medicinal/ |url-status=live |language=es}}</ref><ref>{{cite web |url=https://www.argentina.gob.ar/justicia/derechofacil/leysimple/cannabis-medicinal |title=Cannabis medicinal |author=<!--not stated--> |website=Argentina.gob.ar |date=12 July 2019 |publisher=[[Government of Argentina]] |trans-title=Medicinal cannabis |language=es |access-date=2024-01-04 |url-status=live |archive-url=https://web.archive.org/web/20231206063257/https://www.argentina.gob.ar/justicia/derechofacil/leysimple/cannabis-medicinal |archive-date=2023-12-06}}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "chl",
+    "ury",
+    "pry"
+  ],
+  "related_names": [
+    {
+      "code": "chl",
+      "name": "Chile"
+    },
+    {
+      "code": "ury",
+      "name": "Uruguay"
+    },
+    {
+      "code": "pry",
+      "name": "Paraguay / Paraguái"
+    }
+  ],
+  "coordinates": {
+    "lat": -34,
+    "lng": -64
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Argentina",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Argentina",
+        "title": "Wikipedia: Argentina",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "LATAM",
+    "seo_cluster": "LATAM",
+    "geo_neighbors": [
+      {
+        "code": "chl",
+        "name": "Chile"
+      },
+      {
+        "code": "ury",
+        "name": "Uruguay"
+      },
+      {
+        "code": "pry",
+        "name": "Paraguay / Paraguái"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "bra",
+        "name": "Brazil / Brasil"
+      },
+      {
+        "code": "per",
+        "name": "Peru / Piruw"
+      },
+      {
+        "code": "ecu",
+        "name": "Ecuador"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "bol",
+        "name": "Bolivia / Wuliwya"
+      },
+      {
+        "code": "flk",
+        "name": "Falkland Islands"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "arg",
+    "content_hash": "9abe18c6c961613ac515c0525e3dd6a96aa436862df2c1ebf1b8585f9ef559fe",
+    "notes_hash": "aa5de6e8435ff0c05e9568d2c973198235926871b6396d0f37db5286e2282ed3",
+    "model_hash": "963424a28f69e99fdb5515a742746a4ea3feb9fe67b31233c8f4234f7606c6c7"
+  },
+  "geo_code": "AR",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

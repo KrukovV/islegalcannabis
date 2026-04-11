@@ -1,0 +1,150 @@
+.page {
+  min-height: 100vh;
+  background: #f4f7f8;
+  color: #243748;
+}
+
+.hero {
+  position: relative;
+}
+
+.panel {
+  position: relative;
+  z-index: 40;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 32px 20px 16px;
+}
+
+.panelCard {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(103, 120, 133, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 16px 34px rgba(40, 55, 70, 0.12);
+  padding: 24px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #5b7083;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  line-height: 1.12;
+}
+
+.intro {
+  margin: 14px 0 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #344b5d;
+}
+
+.metaGrid {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.metaBlock {
+  border-radius: 14px;
+  background: rgba(212, 225, 228, 0.24);
+  padding: 14px;
+}
+
+.metaLabel {
+  margin: 0 0 6px;
+  color: #5b7083;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.metaText {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.mapWrap {
+  position: relative;
+}
+
+.article {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 28px 20px 64px;
+  display: grid;
+  gap: 18px;
+}
+
+.section {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(103, 120, 133, 0.16);
+  border-radius: 18px;
+  padding: 22px 24px;
+  box-shadow: 0 12px 30px rgba(40, 55, 70, 0.08);
+}
+
+.section h2 {
+  margin: 0 0 10px;
+  font-size: 1.15rem;
+}
+
+.subheading {
+  margin: 14px 0 8px;
+  color: #4f6677;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.section p,
+.section li {
+  margin: 0;
+  font-size: 0.97rem;
+  line-height: 1.6;
+  color: #344b5d;
+}
+
+.factsList,
+.relatedList {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 8px;
+}
+
+.relatedList a {
+  color: #1d5966;
+  text-decoration: none;
+}
+
+.relatedList a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 720px) {
+  .panel {
+    padding: 16px 12px 12px;
+  }
+
+  .panelCard,
+  .section {
+    border-radius: 16px;
+    padding: 18px;
+  }
+
+  .article {
+    padding: 18px 12px 40px;
+  }
+}

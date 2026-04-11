@@ -1,0 +1,146 @@
+{
+  "code": "sdn",
+  "iso2": "SD",
+  "name": "Sudan / السودان",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Sudan / السودان. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Sudan / السودان. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Sudan}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "ssd",
+    "eri",
+    "eth"
+  ],
+  "related_names": [
+    {
+      "code": "ssd",
+      "name": "South Sudan"
+    },
+    {
+      "code": "eri",
+      "name": "Eritrea / إريتريا"
+    },
+    {
+      "code": "eth",
+      "name": "Ethiopia / ኢትዮጵያ"
+    }
+  ],
+  "coordinates": {
+    "lat": 15,
+    "lng": 30
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Sudan",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Sudan",
+        "title": "Wikipedia: Sudan / السودان",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "AFRICA",
+    "seo_cluster": "AFRICA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "ssd",
+        "name": "South Sudan"
+      },
+      {
+        "code": "eri",
+        "name": "Eritrea / إريتريا"
+      },
+      {
+        "code": "eth",
+        "name": "Ethiopia / ኢትዮጵያ"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "tcd",
+        "name": "Chad / تشاد"
+      },
+      {
+        "code": "egy",
+        "name": "Egypt / مصر"
+      },
+      {
+        "code": "caf",
+        "name": "Central African Republic / République centrafricaine"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "dji",
+        "name": "Djibouti / جيبوتي"
+      },
+      {
+        "code": "uga",
+        "name": "Uganda"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "sdn",
+    "content_hash": "4aa3b8bbc20a60b7b9c5fec7a7fb7c2c1bf06000441ba661006b303f9b899895",
+    "notes_hash": "71248747a296c612aed673e638f3f2c1a1d1c1e1843178e712c727dd03682d65",
+    "model_hash": "d35b55d4f481f78ab53ea5a8af3c8bd7b0d9cf40bf46be8bde27e755285a69df"
+  },
+  "geo_code": "SD",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

@@ -1,0 +1,139 @@
+{
+  "code": "pri",
+  "iso2": "PR",
+  "name": "Puerto Rico",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Puerto Rico. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Puerto Rico. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "No notes available.",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "vir",
+    "vgb",
+    "sxm"
+  ],
+  "related_names": [
+    {
+      "code": "vir",
+      "name": "United States Virgin Islands"
+    },
+    {
+      "code": "vgb",
+      "name": "British Virgin Islands"
+    },
+    {
+      "code": "sxm",
+      "name": "Sint Maarten / Saint-Martin"
+    }
+  ],
+  "coordinates": {
+    "lat": 18.234668,
+    "lng": -66.481065
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Puerto_Rico",
+    "wiki_truth": null,
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Puerto_Rico",
+        "title": "Wikipedia: Puerto Rico",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "NA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "vir",
+        "name": "United States Virgin Islands"
+      },
+      {
+        "code": "vgb",
+        "name": "British Virgin Islands"
+      },
+      {
+        "code": "sxm",
+        "name": "Sint Maarten / Saint-Martin"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "maf",
+        "name": "Saint Martin"
+      },
+      {
+        "code": "aia",
+        "name": "Anguilla"
+      },
+      {
+        "code": "blm",
+        "name": "Saint Barthélemy"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "kna",
+        "name": "Saint Kitts and Nevis"
+      },
+      {
+        "code": "dom",
+        "name": "Dominican Republic / República Dominicana"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "pri",
+    "content_hash": "5f52d0278f7b67500b71dd8612cf338a34dbca2f3f47bdb5e2da9bee3afd8c56",
+    "notes_hash": "0f575ae29f154d2b783ef9e92c4fedfcee674bd12eddfebaac22cb530c52605d",
+    "model_hash": "97708038a731fbc002ee36c0dc69c3e8f2b5b80719d2033e04ecb48049ca5236"
+  },
+  "geo_code": "PR",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

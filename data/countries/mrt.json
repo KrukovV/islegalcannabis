@@ -1,0 +1,146 @@
+{
+  "code": "mrt",
+  "iso2": "MR",
+  "name": "Mauritania / موريتانيا",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Mauritania / موريتانيا. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Mauritania / موريتانيا. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Mauritania}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "esh",
+    "sen",
+    "gmb"
+  ],
+  "related_names": [
+    {
+      "code": "esh",
+      "name": "Western Sahara / الصحراء الغربية"
+    },
+    {
+      "code": "sen",
+      "name": "Senegal / Sénégal"
+    },
+    {
+      "code": "gmb",
+      "name": "Gambia"
+    }
+  ],
+  "coordinates": {
+    "lat": 20,
+    "lng": -12
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Mauritania",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Mauritania",
+        "title": "Wikipedia: Mauritania / موريتانيا",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "AFRICA",
+    "seo_cluster": "AFRICA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "esh",
+        "name": "Western Sahara / الصحراء الغربية"
+      },
+      {
+        "code": "sen",
+        "name": "Senegal / Sénégal"
+      },
+      {
+        "code": "gmb",
+        "name": "Gambia"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "gnb",
+        "name": "Guinea-Bissau / Guiné-Bissau"
+      },
+      {
+        "code": "mli",
+        "name": "Mali"
+      },
+      {
+        "code": "gin",
+        "name": "Guinea / Guinée"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "sle",
+        "name": "Sierra Leone"
+      },
+      {
+        "code": "bfa",
+        "name": "Burkina Faso"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "mrt",
+    "content_hash": "873539ab17da79d1783bd076f635b38a19ae441f075cd07e118a96420be877a6",
+    "notes_hash": "de01a0ae140020fac62033fd2e1acebc1926e6a6c58ffb0a1ec835ddb5240b10",
+    "model_hash": "ab1eba25056042579d0cf82d2a9f0ff065896f0275ffa763c1202a128ae83a45"
+  },
+  "geo_code": "MR",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

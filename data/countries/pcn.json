@@ -1,0 +1,139 @@
+{
+  "code": "pcn",
+  "iso2": "PN",
+  "name": "Pitcairn Islands",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Pitcairn Islands. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Pitcairn Islands. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "No notes available.",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "pyf",
+    "cok",
+    "niu"
+  ],
+  "related_names": [
+    {
+      "code": "pyf",
+      "name": "French Polynesia / Polynésie française"
+    },
+    {
+      "code": "cok",
+      "name": "Cook Islands / Kūki 'Āirani"
+    },
+    {
+      "code": "niu",
+      "name": "Niue / Niuē"
+    }
+  ],
+  "coordinates": {
+    "lat": -24.364576,
+    "lng": -128.317536
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Pitcairn_Islands",
+    "wiki_truth": null,
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Pitcairn_Islands",
+        "title": "Wikipedia: Pitcairn Islands",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "OCEANIA",
+    "seo_cluster": "OCEANIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "pyf",
+        "name": "French Polynesia / Polynésie française"
+      },
+      {
+        "code": "cok",
+        "name": "Cook Islands / Kūki 'Āirani"
+      },
+      {
+        "code": "niu",
+        "name": "Niue / Niuē"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "asm",
+        "name": "American Samoa / Sāmoa Amelika"
+      },
+      {
+        "code": "wsm",
+        "name": "Samoa / Sāmoa"
+      },
+      {
+        "code": "ton",
+        "name": "Tonga"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "wlf",
+        "name": "Wallis and Futuna / Wallis et Futuna"
+      },
+      {
+        "code": "aus",
+        "name": "Australia"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "pcn",
+    "content_hash": "2828881706e573d607995ce6672381158d74ae1d23007585365225ba0603b1e3",
+    "notes_hash": "16d3ae036a4df26e59c2d02c45c12ce11d5925983e1aec3eaec14df3d1a0c8ad",
+    "model_hash": "319d749dee9b06417fa0e3927699b704ae7cdd08883e4f521568311f57a86da9"
+  },
+  "geo_code": "PN",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

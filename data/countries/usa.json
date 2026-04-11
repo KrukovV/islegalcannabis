@@ -1,0 +1,145 @@
+{
+  "code": "usa",
+  "iso2": "US",
+  "name": "United States",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "DECRIMINALIZED",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "restricted",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "medical_legal",
+      "legal"
+    ],
+    "notes_normalized": "Cannabis is legal in United States. Medical cannabis is legal. Distribution is restricted."
+  },
+  "notes_normalized": "Cannabis is legal in United States. Medical cannabis is legal. Distribution is restricted.",
+  "notes_raw": "{{Main|Cannabis in the United States|Legality of cannabis by U.S. jurisdiction}} {{See also|Cannabis on American Indian reservations}} Cannabis remains a [[Controlled Substances Act#Schedule I controlled substances|Schedule I drug]] at federal level, prohibiting even its medical use with [[Medical cannabis in the United States#Compassionate IND program|narrow exceptions]]. The [[Rohrabacher–Farr amendment]] prevents federal enforcement in states that have legalized medical, however. No such protections exist regarding recreational, but the federal government has so far generally not intervened. Recognized [[Indian reservation]]s are allowed to legalize for either use under a policy announced in 2014.<ref>{{cite news |url = https://www.nwherald.com/2014/12/12/doj-says-indian-tribes-can-grow-and-sell-marijuana/aee5o5i/ |last1 = Barnard |first1 = Jeff |last2 = Wozniacka |first2 = Gosia |title = the D.O.J. allows indian reservations to grow and sell marijuana |work = [[Northwest Herald]] |agency = [[Associated Press]] |date = 12 December 2014 |access-date = 24 December 2014 |archive-url = https://web.archive.org/web/20160120131029/https://www.nwherald.com/2014/12/12/doj-says-indian-tribes-can-grow-and-sell-marijuana/aee5o5i/ |archive-date = 20 January 2016 |url-status = live}}</ref> Every U.S. state that has legalized recreational use has set a mandatory legal minimum age of 21 for purchase, possession, and use.<ref>{{cite web |url= https://cannabis.net/blog/news/can-you-buy-weed-if-you-under-21-yearsold-the-statebystate-guide-to-cannabis-age-requirements |title= Can You Buy Weed If You Under 21 Years-Old? – The State-By-State Guide to Cannabis Age Requirements |date= 6 May 2022 |website= Cannabis.net |access-date= 23 June 2023}}</ref> In 2024, the [[Drug Enforcement Administration]] and the [[United States Department of Justice|Department of Justice]] indicated they were planning to [[Removal of cannabis from Schedule I of the Controlled Substances Act|reschedule]] cannabis to [[List of Schedule III controlled substances (U.S.)|Schedule III.]]<ref>{{Cite web |date=2024-04-30 |title=US poised to ease restrictions on marijuana in historic shift, but it'll remain controlled substance |url=https://apnews.com/article/marijuana-biden-dea-criminal-justice-pot-f833a8dae6ceb31a8658a5d65832a3b8 |access-date=2024-05-01 |website=AP News |language=en}}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "mex",
+    "can",
+    "blz"
+  ],
+  "related_names": [
+    {
+      "code": "mex",
+      "name": "Mexico / México"
+    },
+    {
+      "code": "can",
+      "name": "Canada"
+    },
+    {
+      "code": "blz",
+      "name": "Belize / Belice"
+    }
+  ],
+  "coordinates": {
+    "lat": 38,
+    "lng": -97
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/United_States",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/United_States",
+        "title": "Wikipedia: United States",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "NA",
+    "geo_neighbors": [
+      {
+        "code": "mex",
+        "name": "Mexico / México"
+      },
+      {
+        "code": "can",
+        "name": "Canada"
+      },
+      {
+        "code": "blz",
+        "name": "Belize / Belice"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "jam",
+        "name": "Jamaica"
+      },
+      {
+        "code": "cri",
+        "name": "Costa Rica"
+      },
+      {
+        "code": "bmu",
+        "name": "Bermuda"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "gtm",
+        "name": "Guatemala"
+      },
+      {
+        "code": "cub",
+        "name": "Cuba"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "usa",
+    "content_hash": "b3ba69b3a584b7c4cac30aec467f283862f06ef932375e20bf4ea93657cb3e46",
+    "notes_hash": "b5c7c35ba2a0be810ac03a9292653b5e240bec144a3a8b7e9141329c55236fc9",
+    "model_hash": "1d3838cdd920fe19f7953b70a3a7fca09182ca2c9d745c1c5d87a79feb863cc9"
+  },
+  "geo_code": "US",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

@@ -13,13 +13,13 @@ test("new-map render and restored gps marker are visible", async ({ page }) => {
   await page.goto("/new-map", { waitUntil: "domcontentloaded" });
   await page.waitForSelector('[data-testid="new-map-root"]', { timeout: 3000, state: "attached" });
   await page.waitForSelector('[data-testid="new-map-surface"]', { timeout: 3000, state: "attached" });
-  await page.waitForSelector('[data-map-ready="1"]', { timeout: 20000 });
-  await page.waitForSelector('[data-user-marker="1"]', { timeout: 20000 });
+  await page.waitForFunction(() => document.querySelector('[data-testid="new-map-surface"]')?.getAttribute("data-map-ready") === "1", { timeout: 20000 });
+  await page.waitForSelector('[data-user-marker="1"]', { timeout: 20000, state: "attached" });
   await page.reload({ waitUntil: "domcontentloaded" });
   await page.waitForSelector('[data-testid="new-map-root"]', { timeout: 3000, state: "attached" });
   await page.waitForSelector('[data-testid="new-map-surface"]', { timeout: 3000, state: "attached" });
-  await page.waitForSelector('[data-map-ready="1"]', { timeout: 20000 });
-  await page.waitForSelector('[data-user-marker="1"]', { timeout: 20000 });
+  await page.waitForFunction(() => document.querySelector('[data-testid="new-map-surface"]')?.getAttribute("data-map-ready") === "1", { timeout: 20000 });
+  await page.waitForSelector('[data-user-marker="1"]', { timeout: 20000, state: "attached" });
 
   const markerPosition = await page.locator('[data-user-marker="1"]').getAttribute("data-user-marker-position");
   expect(markerPosition).toBe("14.4378,50.0755");

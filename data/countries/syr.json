@@ -1,0 +1,146 @@
+{
+  "code": "syr",
+  "iso2": "SY",
+  "name": "Syria / سوريا",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [
+      "fine_based"
+    ],
+    "applied_rules": [
+      "fine_based"
+    ],
+    "notes_normalized": "Cannabis is illegal in Syria / سوريا. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Syria / سوريا. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Syria}} If someone is considered an addict by the Syrian government then they face no criminal penalties for drug possession.<ref>{{cite news |url=https://raseef22.net/article/1069955-syrians-turn-drugs-forget-burden-war |last=Ali |first=Tareq |title=Syrians Turn to Drugs to Forget the Burden of War |date=18 May 2017 |work=Raseef |access-date=2 August 2022 |archive-date=28 June 2022 |archive-url=https://web.archive.org/web/20220628193018/https://raseef22.net/article/1069955-syrians-turn-drugs-forget-burden-war |url-status=live }}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": "penalties for drug possession."
+  },
+  "related_codes": [
+    "lbn",
+    "pse",
+    "jor"
+  ],
+  "related_names": [
+    {
+      "code": "lbn",
+      "name": "Lebanon / لبنان"
+    },
+    {
+      "code": "pse",
+      "name": "Palestine / فلسطين"
+    },
+    {
+      "code": "jor",
+      "name": "Jordan / الأردن"
+    }
+  ],
+  "coordinates": {
+    "lat": 35,
+    "lng": 38
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Syria",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Syria",
+        "title": "Wikipedia: Syria / سوريا",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "ASIA",
+    "seo_cluster": "ASIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "lbn",
+        "name": "Lebanon / لبنان"
+      },
+      {
+        "code": "pse",
+        "name": "Palestine / فلسطين"
+      },
+      {
+        "code": "jor",
+        "name": "Jordan / الأردن"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "irq",
+        "name": "Iraq / العراق"
+      },
+      {
+        "code": "arm",
+        "name": "Armenia / Հայաստան"
+      },
+      {
+        "code": "kwt",
+        "name": "Kuwait / الكويت"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "isr",
+        "name": "Israel / إسرائيل"
+      },
+      {
+        "code": "cyp",
+        "name": "Cyprus / Κύπρος"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "syr",
+    "content_hash": "ef8819556fa51210c54b84763a1d3a230dbecb037c7f0c62f5598bbc5f079744",
+    "notes_hash": "c611c6301ce29d6da24a8c2f2c0b1d0ea26a9b9ee386a91157979b7e8a635b77",
+    "model_hash": "f05ed526f5a663f728ba3907e241ac55199f4980b32903f0829f55f69aa6ce5a"
+  },
+  "geo_code": "SY",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

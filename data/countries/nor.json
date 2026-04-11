@@ -1,0 +1,144 @@
+{
+  "code": "nor",
+  "iso2": "NO",
+  "name": "Norway / Noreg",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Norway / Noreg. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Norway / Noreg. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Norway}} Illegal since 1965. As of 2022, use and possession of up to {{cvt|15|g|frac=2}} are punished with heavy fines and possible loss of driver's license.<ref>{{cite web |url=https://www.regjeringen.no/no/dokumenter/nou-2019-26/id2683531/?ch=1 |title=NOU 2019: 26 |publisher=regjeringen.no |date=19 December 2019 |access-date=14 January 2020 |archive-date=31 December 2019 |archive-url=https://web.archive.org/web/20191231164125/https://www.regjeringen.no/no/dokumenter/nou-2019-26/id2683531/?ch=1 |url-status=live }}</ref><ref>{{cite web|url=https://www.regjeringen.no/no/dep/hod/org/styrer-rad-og-utvalg/rusreformutvalget/id2594880/|title=The Drug Policy Working Group|date=23 March 2018|publisher=The Office of the Prime Minister|access-date=17 December 2018|archive-date=6 March 2021|archive-url=https://web.archive.org/web/20210306172036/https://www.regjeringen.no/no/dep/hod/org/styrer-rad-og-utvalg/rusreformutvalget/id2594880/|url-status=live}}</ref><ref>{{Cite web|url=https://www.riksadvokaten.no/wp-content/uploads/2017/09/Rundskriv-2014-2-Narkotikasaker.pdf|title=Riksadvokatens rundskriv nr. 2 2014|access-date=17 December 2018|archive-date=5 March 2021|archive-url=https://web.archive.org/web/20210305100104/https://www.riksadvokaten.no/wp-content/uploads/2017/09/Rundskriv-2014-2-Narkotikasaker.pdf|url-status=live}}</ref> [[Solberg's Cabinet]] proposed a decriminalization bill in 2021 that would remove all sanctions for illegal drug use, including possession of up to {{cvt|10|g|frac=8}} of cannabis. Six parties (43,8%) voted for, while three parties (56,2%) voted against. As a result, the bill did not pass the parliament.<ref>{{cite web|url=https://www.nrk.no/norge/store-sier-nei---rusreformen-splitter-ap-1.15458738|title=Støre sier nei – rusreformen splitter ap|date=16 April 2021|publisher=nrk|access-date=17 April 2021|archive-date=16 April 2021|archive-url=https://web.archive.org/web/20210416092904/https://www.nrk.no/norge/store-sier-nei---rusreformen-splitter-ap-1.15458738|url-status=live}}</ref><ref>{{cite web|url=https://frifagbevegelse.no/nyheter/mdglandsmotet-avsluttet--dette-er-de-viktigste-vedtakene-6.158.779191.eb57a0bc61|title=MDG landsmøtet avsluttet–dette er de viktigste vedtakene|date=29 March 2021|publisher=frifagbevegelse|access-date=17 April 2021|archive-date=17 April 2021|archive-url=https://web.archive.org/web/20210417101843/https://frifagbevegelse.no/nyheter/mdglandsmotet-avsluttet--dette-er-de-viktigste-vedtakene-6.158.779191.eb57a0bc61|url-status=live}}</ref>",
+  "facts": {
+    "possession_limit": "up to 15 g",
+    "cultivation": null,
+    "penalty": "fines and possible loss of driver's license."
+  },
+  "related_codes": [
+    "swe",
+    "dnk",
+    "ala"
+  ],
+  "related_names": [
+    {
+      "code": "swe",
+      "name": "Sweden / Sverige"
+    },
+    {
+      "code": "dnk",
+      "name": "Denmark / Danmark"
+    },
+    {
+      "code": "ala",
+      "name": "Åland Islands / Åland"
+    }
+  ],
+  "coordinates": {
+    "lat": 62,
+    "lng": 10
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Norway",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Norway",
+        "title": "Wikipedia: Norway / Noreg",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "swe",
+        "name": "Sweden / Sverige"
+      },
+      {
+        "code": "dnk",
+        "name": "Denmark / Danmark"
+      },
+      {
+        "code": "ala",
+        "name": "Åland Islands / Åland"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "pol",
+        "name": "Poland / Polska"
+      },
+      {
+        "code": "lie",
+        "name": "Liechtenstein"
+      },
+      {
+        "code": "ltu",
+        "name": "Lithuania / Lietuva"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "deu",
+        "name": "Germany / Deutschland"
+      },
+      {
+        "code": "nld",
+        "name": "Netherlands / Nederland"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "nor",
+    "content_hash": "a92aaf7d76e4a577bc05bc7181f093ac0339feb3e36364f93ed0df0d70f1422d",
+    "notes_hash": "26d5e727e0acb04028aea18af0eac8b68847863a10c46880f42fd5cfba36d48b",
+    "model_hash": "66640a0ae241aee0de5dde94ef3783109169f833f27f4d2327f62a4c7ad1fd6f"
+  },
+  "geo_code": "NO",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

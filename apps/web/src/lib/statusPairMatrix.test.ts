@@ -40,7 +40,7 @@ describe("statusPairMatrix", () => {
     expect(isSupportedStatusPair("Limited", "Illegal")).toBe(true);
   });
 
-  test("canonicalizes legal recreational status to legal medical status", () => {
+  test("canonicalizes rec freedom to medical floor", () => {
     const contract = buildStatusContract({
       wikiRecStatus: "legal",
       wikiMedStatus: "illegal",
@@ -49,8 +49,21 @@ describe("statusPairMatrix", () => {
     });
 
     expect(contract.finalRecStatus).toBe("Legal");
-    expect(contract.finalMedStatus).toBe("Legal");
-    expect(contract.ruleId).toBe("REC_LEGAL_IMPLIES_MED_LEGAL");
+    expect(contract.finalMedStatus).toBe("Limited");
+    expect(contract.ruleId).toBe("REC_IMPLIES_MED_FLOOR");
+  });
+
+  test("canonicalizes decriminalized recreational status to medical floor", () => {
+    const contract = buildStatusContract({
+      wikiRecStatus: "decrim",
+      wikiMedStatus: "illegal",
+      finalRecStatus: "decrim",
+      finalMedStatus: "illegal"
+    });
+
+    expect(contract.finalRecStatus).toBe("Decrim");
+    expect(contract.finalMedStatus).toBe("Limited");
+    expect(contract.ruleId).toBe("REC_IMPLIES_MED_FLOOR");
   });
 
   test("resolves popup contract from primary and fallback sources without local derives", () => {

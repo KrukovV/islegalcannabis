@@ -1,0 +1,146 @@
+{
+  "code": "kwt",
+  "iso2": "KW",
+  "name": "Kuwait / الكويت",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Kuwait / الكويت. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Kuwait / الكويت. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Kuwait}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "irq",
+    "sau",
+    "bhr"
+  ],
+  "related_names": [
+    {
+      "code": "irq",
+      "name": "Iraq / العراق"
+    },
+    {
+      "code": "sau",
+      "name": "Saudi Arabia / السعودية"
+    },
+    {
+      "code": "bhr",
+      "name": "Bahrain / البحرين"
+    }
+  ],
+  "coordinates": {
+    "lat": 29.5,
+    "lng": 45.75
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Kuwait",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Kuwait",
+        "title": "Wikipedia: Kuwait / الكويت",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "ASIA",
+    "seo_cluster": "ASIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "irq",
+        "name": "Iraq / العراق"
+      },
+      {
+        "code": "sau",
+        "name": "Saudi Arabia / السعودية"
+      },
+      {
+        "code": "bhr",
+        "name": "Bahrain / البحرين"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "qat",
+        "name": "Qatar / قطر"
+      },
+      {
+        "code": "irn",
+        "name": "Iran / ایران"
+      },
+      {
+        "code": "syr",
+        "name": "Syria / سوريا"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "jor",
+        "name": "Jordan / الأردن"
+      },
+      {
+        "code": "are",
+        "name": "United Arab Emirates / الإمارات"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "kwt",
+    "content_hash": "4cdd6b5eef9a6cb0ac266f949a4d65241247ebc413ab33bdbbbb7b1a9e8d1ac4",
+    "notes_hash": "9c9c38e3aeb0af44607cb23839ae201180eef0612c858ef0cfa734de89000028",
+    "model_hash": "fb3fb4f50b7ed5821ce099fc19eb1b1f6286b97e3e4184a9c6852fd876e13cba"
+  },
+  "geo_code": "KW",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

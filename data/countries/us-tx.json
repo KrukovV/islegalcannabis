@@ -1,0 +1,179 @@
+{
+  "code": "us-tx",
+  "geo_code": "US-TX",
+  "iso2": "US-TX",
+  "name": "Texas",
+  "node_type": "state",
+  "normalized_version": "v1",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "restricted",
+      "scopes": {
+        "possession": "illegal",
+        "use": "illegal",
+        "sale": "illegal",
+        "cultivation": "illegal",
+        "import": "illegal",
+        "trafficking": "illegal"
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": []
+  },
+  "notes_normalized": "Cannabis is illegal in Texas for recreational use under state law, but medical cannabis is available in limited form. Cannabis remains federally illegal in United States. Possession is limited to Medical only.",
+  "notes_raw": "illegal",
+  "facts": {
+    "possession_limit": "Medical only",
+    "cultivation": "Home grow remains illegal.",
+    "penalty": "Public use remains illegal."
+  },
+  "parent_country": {
+    "code": "usa",
+    "name": "United States"
+  },
+  "state_modifiers": {
+    "recreational": "override",
+    "medical": "override",
+    "enforcement_strength": "HIGH",
+    "federal_conflict": "Cannabis remains federally illegal in United States.",
+    "legalization_status": "Medical only"
+  },
+  "related_codes": [
+    "usa",
+    "us-ct",
+    "us-de",
+    "us-ga"
+  ],
+  "related_names": [
+    {
+      "code": "usa",
+      "name": "United States"
+    },
+    {
+      "code": "us-ct",
+      "name": "Connecticut"
+    },
+    {
+      "code": "us-de",
+      "name": "Delaware"
+    },
+    {
+      "code": "us-ga",
+      "name": "Georgia"
+    }
+  ],
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "USA_CLUSTER",
+    "geo_neighbors": [
+      {
+        "code": "us-ak",
+        "name": "Alaska"
+      },
+      {
+        "code": "us-al",
+        "name": "Alabama"
+      },
+      {
+        "code": "us-ar",
+        "name": "Arkansas"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "us-pa",
+        "name": "Pennsylvania"
+      },
+      {
+        "code": "us-va",
+        "name": "Virginia"
+      },
+      {
+        "code": "us-fl",
+        "name": "Florida"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "usa",
+        "name": "United States"
+      },
+      {
+        "code": "us-hi",
+        "name": "Hawaii"
+      }
+    ],
+    "same_country_states": [
+      {
+        "code": "us-ct",
+        "name": "Connecticut"
+      },
+      {
+        "code": "us-de",
+        "name": "Delaware"
+      },
+      {
+        "code": "us-ga",
+        "name": "Georgia"
+      }
+    ],
+    "federal_parent": {
+      "code": "usa",
+      "name": "United States"
+    }
+  },
+  "coordinates": {
+    "lat": 31.9686,
+    "lng": -99.9018
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Texas",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "official-us-tx",
+        "url": "https://www.dps.texas.gov/section/compassionate-use-program",
+        "title": "Texas Compassionate Use Program",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki-us-tx",
+        "url": "https://en.wikipedia.org/wiki/Texas",
+        "title": "Wikipedia: Texas",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki-truth-us-tx",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "hashes": {
+    "code": "us-tx",
+    "content_hash": "77ffe02f33f1c88645719968db0aec96c82c0002e5fc29844d3c0c31ba22ce61",
+    "notes_hash": "a159c6246e9c2100158dc079b42ecc6ee62482789b64caf50d30847fb71c68da",
+    "model_hash": "8446f87cad69308d32c18ab443be18e558872dd84d5f2190242d8efcced924da"
+  },
+  "updated_at": "2024-01-01"
+}

@@ -1,0 +1,146 @@
+{
+  "code": "lso",
+  "iso2": "LS",
+  "name": "Lesotho",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "LIMITED",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": "rec_implies_med_floor"
+    },
+    "distribution": {
+      "status": "tolerated",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": "tolerated",
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "private_cultivation_tolerated",
+      "legal",
+      "rec_implies_med_floor"
+    ],
+    "notes_normalized": "Cannabis is legal in Lesotho. Medical cannabis is limited. Distribution is tolerated."
+  },
+  "notes_normalized": "Cannabis is legal in Lesotho. Medical cannabis is limited. Distribution is tolerated.",
+  "notes_raw": "{{main|Cannabis in Lesotho}} Licensed cultivation allowed for export to other countries. Also widely grown for illicit purposes.<ref>{{cite web|url=http://www.okayafrica.com/lesotho-granted-first-legal-marijuana-license-africa/|title=Lesotho Just Granted Africa's First Legal Marijuana License|date=13 September 2017|access-date=5 June 2018|archive-date=27 June 2018|archive-url=https://web.archive.org/web/20180627230922/http://www.okayafrica.com/lesotho-granted-first-legal-marijuana-license-africa/|url-status=live}}</ref><ref>{{cite news |title=Marijuana, mountains and money: How Lesotho is cashing in |url=https://www.bbc.com/news/world-africa-46288374 |access-date=20 January 2019 |publisher=[[BBC News]] |date=28 November 2018 |archive-url=https://web.archive.org/web/20190420011629/https://www.bbc.com/news/world-africa-46288374|archive-date=20 April 2019}}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": "grown for illicit purposes.",
+    "penalty": null
+  },
+  "related_codes": [
+    "swz",
+    "zaf",
+    "bwa"
+  ],
+  "related_names": [
+    {
+      "code": "swz",
+      "name": "Eswatini"
+    },
+    {
+      "code": "zaf",
+      "name": "South Africa / Sewula Afrika"
+    },
+    {
+      "code": "bwa",
+      "name": "Botswana"
+    }
+  ],
+  "coordinates": {
+    "lat": -29.5,
+    "lng": 28.5
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Lesotho",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Lesotho",
+        "title": "Wikipedia: Lesotho",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "AFRICA",
+    "seo_cluster": "AFRICA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "swz",
+        "name": "Eswatini"
+      },
+      {
+        "code": "zaf",
+        "name": "South Africa / Sewula Afrika"
+      },
+      {
+        "code": "bwa",
+        "name": "Botswana"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "com",
+        "name": "Comoros / جزر القمر"
+      },
+      {
+        "code": "isr",
+        "name": "Israel / إسرائيل"
+      },
+      {
+        "code": "lbn",
+        "name": "Lebanon / لبنان"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "zwe",
+        "name": "Zimbabwe"
+      },
+      {
+        "code": "moz",
+        "name": "Mozambique / Moçambique"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "lso",
+    "content_hash": "533445d966e648331ec50ff40b89946e53fd6c7403e539c098a09c2a6c4bd169",
+    "notes_hash": "f8706a8225c40256dc44cab178e4d35212c5b31ba095df587fd834a9f1f6d0f5",
+    "model_hash": "288bea35435d3153873f911e9ac1db5848ce592b2119650cf8b971aa18fd0dba"
+  },
+  "geo_code": "LS",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

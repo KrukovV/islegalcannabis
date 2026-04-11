@@ -1,0 +1,146 @@
+{
+  "code": "are",
+  "iso2": "AE",
+  "name": "United Arab Emirates / الإمارات",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in United Arab Emirates / الإمارات. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in United Arab Emirates / الإمارات. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in the United Arab Emirates}} In 2008, even the smallest amounts of the drug could lead to a mandatory 4-year prison sentence.<ref>{{cite news |url = https://news.bbc.co.uk/1/hi/uk/7234786.stm |title = Tourists warned of UAE drug laws |publisher = [[BBC News]] |date = 8 February 2008 |access-date = 17 February 2011 |archive-url=https://web.archive.org/web/20170420193949/http://news.bbc.co.uk/2/hi/uk_news/7234786.stm |archive-date=20 April 2017 |url-status=live}}</ref>{{Update inline|date=October 2023|reason=Laws changed in 2016 and again in 2022.}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "qat",
+    "bhr",
+    "omn"
+  ],
+  "related_names": [
+    {
+      "code": "qat",
+      "name": "Qatar / قطر"
+    },
+    {
+      "code": "bhr",
+      "name": "Bahrain / البحرين"
+    },
+    {
+      "code": "omn",
+      "name": "Oman / عمان"
+    }
+  ],
+  "coordinates": {
+    "lat": 24,
+    "lng": 54
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/United_Arab_Emirates",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/United_Arab_Emirates",
+        "title": "Wikipedia: United Arab Emirates / الإمارات",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "ASIA",
+    "seo_cluster": "ASIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "qat",
+        "name": "Qatar / قطر"
+      },
+      {
+        "code": "bhr",
+        "name": "Bahrain / البحرين"
+      },
+      {
+        "code": "omn",
+        "name": "Oman / عمان"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "irn",
+        "name": "Iran / ایران"
+      },
+      {
+        "code": "sau",
+        "name": "Saudi Arabia / السعودية"
+      },
+      {
+        "code": "kwt",
+        "name": "Kuwait / الكويت"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "yem",
+        "name": "Yemen / اليمن"
+      },
+      {
+        "code": "irq",
+        "name": "Iraq / العراق"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "are",
+    "content_hash": "eb0d0ec051f410582df654aed2b10174df549d1d51a8c401129e07062b5ca6d8",
+    "notes_hash": "1afffc95860c2b08e1905f3d2a153a9d5ab7d73c21d302cec083e641dc53fc73",
+    "model_hash": "0368b4b9ad3bee907fb04b8e480dbf25ed88a5ff71b08d2419eff9e3acee8a83"
+  },
+  "geo_code": "AE",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

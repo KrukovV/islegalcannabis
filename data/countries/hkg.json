@@ -1,0 +1,147 @@
+{
+  "code": "hkg",
+  "iso2": "HK",
+  "name": "Hong Kong / 香港",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": "illegal",
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "sale_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "sale_illegal",
+      "illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Hong Kong / 香港. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Hong Kong / 香港. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Hong Kong}} Possession, sale, transportation, and cultivation illegal under the Dangerous Drug Ordinance.<ref name=\"Police.gov.hk\">{{citation |url = http://www.police.gov.hk/ppp_en/04_crime_matters/drug/law_pen.html |title = Information on the official web site of the Hong Kong Police Force |publisher = Police.gov.hk |access-date = 14 December 2011 |archive-date = 5 October 2019 |archive-url = https://web.archive.org/web/20191005070448/https://www.police.gov.hk/ppp_en/04_crime_matters/drug/law_pen.html |url-status = live }}</ref> (Chapter 134 of the [[Law of Hong Kong]])",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": "cultivation illegal under the Dangerous Drug Ordinance.",
+    "penalty": null
+  },
+  "related_codes": [
+    "mac",
+    "twn",
+    "vnm"
+  ],
+  "related_names": [
+    {
+      "code": "mac",
+      "name": "Macau / 澳门"
+    },
+    {
+      "code": "twn",
+      "name": "Taiwan / 台灣"
+    },
+    {
+      "code": "vnm",
+      "name": "Vietnam / Việt Nam"
+    }
+  ],
+  "coordinates": {
+    "lat": 22.267,
+    "lng": 114.188
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Hong_Kong",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Hong_Kong",
+        "title": "Wikipedia: Hong Kong / 香港",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "ASIA",
+    "seo_cluster": "ASIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "mac",
+        "name": "Macau / 澳门"
+      },
+      {
+        "code": "twn",
+        "name": "Taiwan / 台灣"
+      },
+      {
+        "code": "vnm",
+        "name": "Vietnam / Việt Nam"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "lao",
+        "name": "Laos / ສປປລາວ"
+      },
+      {
+        "code": "khm",
+        "name": "Cambodia / Kâmpŭchéa"
+      },
+      {
+        "code": "chn",
+        "name": "China / 中国"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "phl",
+        "name": "Philippines / Pilipinas"
+      },
+      {
+        "code": "tha",
+        "name": "Thailand / ประเทศไทย"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "hkg",
+    "content_hash": "b4dc4858d499d3f278a5474ffb6674bacb7bc21235377900309a91464c51fee5",
+    "notes_hash": "0be942edcd140453763d396ac6b642759ba3b39e24164fccd72b352b4f4cdbd0",
+    "model_hash": "25904469f16a62f0768e962b3780d0a9383568099ce6d23e15b90c89ea44eee3"
+  },
+  "geo_code": "HK",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

@@ -1,0 +1,146 @@
+{
+  "code": "lie",
+  "iso2": "LI",
+  "name": "Liechtenstein",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Liechtenstein. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Liechtenstein. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Liechtenstein}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "che",
+    "aut",
+    "deu"
+  ],
+  "related_names": [
+    {
+      "code": "che",
+      "name": "Switzerland / Suisse"
+    },
+    {
+      "code": "aut",
+      "name": "Austria / Österreich"
+    },
+    {
+      "code": "deu",
+      "name": "Germany / Deutschland"
+    }
+  ],
+  "coordinates": {
+    "lat": 47.26666666,
+    "lng": 9.53333333
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Liechtenstein",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Liechtenstein",
+        "title": "Wikipedia: Liechtenstein",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "che",
+        "name": "Switzerland / Suisse"
+      },
+      {
+        "code": "aut",
+        "name": "Austria / Österreich"
+      },
+      {
+        "code": "deu",
+        "name": "Germany / Deutschland"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "mco",
+        "name": "Monaco"
+      },
+      {
+        "code": "smr",
+        "name": "San Marino"
+      },
+      {
+        "code": "vat",
+        "name": "Vatican City / Vaticano"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "lux",
+        "name": "Luxembourg / Luxemburg"
+      },
+      {
+        "code": "svn",
+        "name": "Slovenia / Slovenija"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "lie",
+    "content_hash": "095e95a424b58beb73cece100c7bdb383f90e7c9f40d50510dd3b6883e5b1642",
+    "notes_hash": "4d51e4a1fa6b084cd9db05bd3c9e11f5c78fd8714e81f102cfec3edca7bf2710",
+    "model_hash": "989ade6e1c4ea3feef4cba0e864814d908fcca0821e3581a38451c6e2e9be023"
+  },
+  "geo_code": "LI",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

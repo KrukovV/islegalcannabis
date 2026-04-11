@@ -1,0 +1,139 @@
+{
+  "code": "gib",
+  "iso2": "GI",
+  "name": "Gibraltar",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Gibraltar. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Gibraltar. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "No notes available.",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "mar",
+    "prt",
+    "esp"
+  ],
+  "related_names": [
+    {
+      "code": "mar",
+      "name": "Morocco / المغرب"
+    },
+    {
+      "code": "prt",
+      "name": "Portugal"
+    },
+    {
+      "code": "esp",
+      "name": "Spain / España"
+    }
+  ],
+  "coordinates": {
+    "lat": 36.129426,
+    "lng": -5.3467
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Gibraltar",
+    "wiki_truth": null,
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Gibraltar",
+        "title": "Wikipedia: Gibraltar",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "mar",
+        "name": "Morocco / المغرب"
+      },
+      {
+        "code": "prt",
+        "name": "Portugal"
+      },
+      {
+        "code": "esp",
+        "name": "Spain / España"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "and",
+        "name": "Andorra"
+      },
+      {
+        "code": "dza",
+        "name": "Algeria / الجزائر"
+      },
+      {
+        "code": "jey",
+        "name": "Jersey / Jèrri"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "ggy",
+        "name": "Guernsey / Guernesey"
+      },
+      {
+        "code": "mco",
+        "name": "Monaco"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "gib",
+    "content_hash": "3950c8b48347e4742fd27377a4d80a82a6814e63e3c3d5df99c792b8bb7df43f",
+    "notes_hash": "4240bcbe55beb93fac6bb803d5fb46bee93d1d3e28923e10cf55a5c5b40d7b44",
+    "model_hash": "b18d6a727356c35594395f493edfdd14dee7b5c8f026667ba5971afff21cdbd0"
+  },
+  "geo_code": "GI",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

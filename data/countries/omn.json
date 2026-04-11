@@ -1,0 +1,146 @@
+{
+  "code": "omn",
+  "iso2": "OM",
+  "name": "Oman / عمان",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Oman / عمان. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Oman / عمان. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Oman}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "are",
+    "qat",
+    "bhr"
+  ],
+  "related_names": [
+    {
+      "code": "are",
+      "name": "United Arab Emirates / الإمارات"
+    },
+    {
+      "code": "qat",
+      "name": "Qatar / قطر"
+    },
+    {
+      "code": "bhr",
+      "name": "Bahrain / البحرين"
+    }
+  ],
+  "coordinates": {
+    "lat": 21,
+    "lng": 57
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Oman",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Oman",
+        "title": "Wikipedia: Oman / عمان",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "ASIA",
+    "seo_cluster": "ASIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "are",
+        "name": "United Arab Emirates / الإمارات"
+      },
+      {
+        "code": "qat",
+        "name": "Qatar / قطر"
+      },
+      {
+        "code": "bhr",
+        "name": "Bahrain / البحرين"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "yem",
+        "name": "Yemen / اليمن"
+      },
+      {
+        "code": "irn",
+        "name": "Iran / ایران"
+      },
+      {
+        "code": "sau",
+        "name": "Saudi Arabia / السعودية"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "kwt",
+        "name": "Kuwait / الكويت"
+      },
+      {
+        "code": "afg",
+        "name": "Afghanistan / افغانستان"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "omn",
+    "content_hash": "c52089ceaeddb7b2441cbd8ccfdd685fa511ceba7e2e8c0bd428f8d9487de7e1",
+    "notes_hash": "047949de036e190683a1e006b6bcf6ae1c3aea07cd6c72fbd10441b725344130",
+    "model_hash": "f4544221aaee7053511aafac1c6c9ac8b2e5249516bf1618007cb77ce975cf5a"
+  },
+  "geo_code": "OM",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

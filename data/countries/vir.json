@@ -1,0 +1,139 @@
+{
+  "code": "vir",
+  "iso2": "VI",
+  "name": "United States Virgin Islands",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in United States Virgin Islands. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in United States Virgin Islands. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "No notes available.",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "vgb",
+    "sxm",
+    "maf"
+  ],
+  "related_names": [
+    {
+      "code": "vgb",
+      "name": "British Virgin Islands"
+    },
+    {
+      "code": "sxm",
+      "name": "Sint Maarten / Saint-Martin"
+    },
+    {
+      "code": "maf",
+      "name": "Saint Martin"
+    }
+  ],
+  "coordinates": {
+    "lat": 17.746706,
+    "lng": -64.779172
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/U.S._Virgin_Islands",
+    "wiki_truth": null,
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/U.S._Virgin_Islands",
+        "title": "Wikipedia: United States Virgin Islands",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "NA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "vgb",
+        "name": "British Virgin Islands"
+      },
+      {
+        "code": "sxm",
+        "name": "Sint Maarten / Saint-Martin"
+      },
+      {
+        "code": "maf",
+        "name": "Saint Martin"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "pri",
+        "name": "Puerto Rico"
+      },
+      {
+        "code": "aia",
+        "name": "Anguilla"
+      },
+      {
+        "code": "blm",
+        "name": "Saint Barthélemy"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "kna",
+        "name": "Saint Kitts and Nevis"
+      },
+      {
+        "code": "msr",
+        "name": "Montserrat"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "vir",
+    "content_hash": "4e516021f0951653a7e5907e121350932d1fda711e27b9124c84a8d9cb3cd794",
+    "notes_hash": "64866710ca3ec9bf13c451d826e4df5939a0ee29d3d5ff7c29801d6e562794ad",
+    "model_hash": "c33fd0697657f6beaf2133ae041fcd9263f25c8072558c8f49cf147870d95c8c"
+  },
+  "geo_code": "VI",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

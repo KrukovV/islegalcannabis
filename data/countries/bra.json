@@ -1,0 +1,146 @@
+{
+  "code": "bra",
+  "iso2": "BR",
+  "name": "Brazil / Brasil",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "DECRIMINALIZED",
+      "status": "DECRIMINALIZED",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "restricted",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_restricted"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_restricted"
+    ],
+    "notes_normalized": "Cannabis is decriminalized in Brazil / Brasil. Medical cannabis is legal. Distribution is restricted."
+  },
+  "notes_normalized": "Cannabis is decriminalized in Brazil / Brasil. Medical cannabis is legal. Distribution is restricted.",
+  "notes_raw": "{{main|Cannabis in Brazil}} Legislation passed in 2006 to require treatment and community service for possessing small amounts of drugs instead of jail time.<ref>{{cite news |last1=Smith |first1=Phillip |title=Brazilian President Signs New Drug Law – No Jail for Users |url=https://stopthedrugwar.org/chronicle/2006/aug/31/feature_brazilian_president_sign |access-date=3 August 2021 |work=stopthedrugwar.org |date=31 August 2006 |archive-date=3 August 2021 |archive-url=https://web.archive.org/web/20210803165114/https://stopthedrugwar.org/chronicle/2006/aug/31/feature_brazilian_president_sign |url-status=live }}</ref> Possession of large amounts, as well as sale, transportation, and cultivation, are considered drug trafficking.<ref>{{cite web |author1=Congresso Nacional |author-link1=Congress of Brazil |title=Lei nº 11.343 |url=http://www.planalto.gov.br/ccivil_03/_Ato2004-2006/2006/Lei/L11343.htm |website=www.planalto.gov.br |publisher=Presidência da República – Casa Civil |location=Brasília |language=pt-br |date=23 August 2006 |access-date=13 October 2009 |archive-date=25 November 2018 |archive-url=https://web.archive.org/web/20181125030720/http://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/lei/l11343.htm |url-status=live }}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": "cultivation, are considered drug trafficking.",
+    "penalty": "jail time."
+  },
+  "related_codes": [
+    "bol",
+    "pry",
+    "sur"
+  ],
+  "related_names": [
+    {
+      "code": "bol",
+      "name": "Bolivia / Wuliwya"
+    },
+    {
+      "code": "pry",
+      "name": "Paraguay / Paraguái"
+    },
+    {
+      "code": "sur",
+      "name": "Suriname"
+    }
+  ],
+  "coordinates": {
+    "lat": -10,
+    "lng": -55
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Brazil",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Brazil",
+        "title": "Wikipedia: Brazil / Brasil",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "LATAM",
+    "seo_cluster": "LATAM",
+    "geo_neighbors": [
+      {
+        "code": "bol",
+        "name": "Bolivia / Wuliwya"
+      },
+      {
+        "code": "pry",
+        "name": "Paraguay / Paraguái"
+      },
+      {
+        "code": "sur",
+        "name": "Suriname"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "per",
+        "name": "Peru / Piruw"
+      },
+      {
+        "code": "tto",
+        "name": "Trinidad and Tobago"
+      },
+      {
+        "code": "col",
+        "name": "Colombia"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "guy",
+        "name": "Guyana"
+      },
+      {
+        "code": "ven",
+        "name": "Venezuela"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "bra",
+    "content_hash": "61c864d4f580fead7bcea1628d47b49be109712b08f870d521b6e297bddc124d",
+    "notes_hash": "1b94cba4d5d285c9cd245808f93fbab46d1cda7d237686315c41ed5f4d7b04a6",
+    "model_hash": "e5f65e6390c087789a3b6477e399ecd128484012a6ec25003049bb733dbfc30e"
+  },
+  "geo_code": "BR",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

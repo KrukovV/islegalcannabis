@@ -1,0 +1,146 @@
+{
+  "code": "tjk",
+  "iso2": "TJ",
+  "name": "Tajikistan / Таджикистан",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Tajikistan / Таджикистан. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Tajikistan / Таджикистан. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Tajikistan}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "kgz",
+    "uzb",
+    "afg"
+  ],
+  "related_names": [
+    {
+      "code": "kgz",
+      "name": "Kyrgyzstan / Кыргызстан"
+    },
+    {
+      "code": "uzb",
+      "name": "Uzbekistan / Узбекистан"
+    },
+    {
+      "code": "afg",
+      "name": "Afghanistan / افغانستان"
+    }
+  ],
+  "coordinates": {
+    "lat": 39,
+    "lng": 71
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Tajikistan",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Tajikistan",
+        "title": "Wikipedia: Tajikistan / Таджикистан",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "ASIA",
+    "seo_cluster": "ASIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "kgz",
+        "name": "Kyrgyzstan / Кыргызстан"
+      },
+      {
+        "code": "uzb",
+        "name": "Uzbekistan / Узбекистан"
+      },
+      {
+        "code": "afg",
+        "name": "Afghanistan / افغانستان"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "pak",
+        "name": "Pakistan / پاكستان"
+      },
+      {
+        "code": "kaz",
+        "name": "Kazakhstan / Қазақстан"
+      },
+      {
+        "code": "tkm",
+        "name": "Turkmenistan / Туркмения"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "npl",
+        "name": "Nepal / नेपाल"
+      },
+      {
+        "code": "irn",
+        "name": "Iran / ایران"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "tjk",
+    "content_hash": "8ecdf30f768441299bbdaa45a7e94b63b9a8d2c8970d4115026ac4bf82333279",
+    "notes_hash": "7a941df10c1dcfe52481b3d721eff0837547ad8bb24dda1bc87fdeb6539d40be",
+    "model_hash": "885faeca1175ae3a9ef494164895027b85afc8bcbf683bcbe1c9386bd8c289c9"
+  },
+  "geo_code": "TJ",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

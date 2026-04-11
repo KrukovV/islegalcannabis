@@ -1,0 +1,146 @@
+{
+  "code": "mdv",
+  "iso2": "MV",
+  "name": "Maldives / ދިވެހިރާއްޖޭގެ",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Maldives / ދިވެހިރާއްޖޭގެ. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Maldives / ދިވެހިރާއްޖޭގެ. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in the Maldives}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "lka",
+    "iot",
+    "ind"
+  ],
+  "related_names": [
+    {
+      "code": "lka",
+      "name": "Sri Lanka / ශ්‍රී ලංකාව"
+    },
+    {
+      "code": "iot",
+      "name": "British Indian Ocean Territory"
+    },
+    {
+      "code": "ind",
+      "name": "India / भारत"
+    }
+  ],
+  "coordinates": {
+    "lat": 3.25,
+    "lng": 73
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Maldives",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Maldives",
+        "title": "Wikipedia: Maldives / ދިވެހިރާއްޖޭގެ",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "OTHER",
+    "seo_cluster": "GLOBAL",
+    "geo_neighbors": [
+      {
+        "code": "lka",
+        "name": "Sri Lanka / ශ්‍රී ලංකාව"
+      },
+      {
+        "code": "iot",
+        "name": "British Indian Ocean Territory"
+      },
+      {
+        "code": "ind",
+        "name": "India / भारत"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "syc",
+        "name": "Seychelles / Sesel"
+      },
+      {
+        "code": "omn",
+        "name": "Oman / عمان"
+      },
+      {
+        "code": "som",
+        "name": "Somalia / الصومال"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "mus",
+        "name": "Mauritius / Maurice"
+      },
+      {
+        "code": "atf",
+        "name": "French Southern and Antarctic Lands / Terres australes et antarctiques françaises"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "mdv",
+    "content_hash": "18c65ed95c6962372a09b17834b323551a8538d4142c05e00f6955d21e8f84e0",
+    "notes_hash": "c006687d7b36aa45333a4599a5d5a5934496fc3730c2f167da7de289dae1e831",
+    "model_hash": "798c79e8e9c7813a33c7add982f15e2a165d1f8fcd83f8a3dfeac3ea20685f9d"
+  },
+  "geo_code": "MV",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

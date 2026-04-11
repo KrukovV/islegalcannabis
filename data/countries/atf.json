@@ -1,0 +1,139 @@
+{
+  "code": "atf",
+  "iso2": "TF",
+  "name": "French Southern and Antarctic Lands / Terres australes et antarctiques françaises",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in French Southern and Antarctic Lands / Terres australes et antarctiques françaises. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in French Southern and Antarctic Lands / Terres australes et antarctiques françaises. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "No notes available.",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "hmd",
+    "mus",
+    "mdg"
+  ],
+  "related_names": [
+    {
+      "code": "hmd",
+      "name": "Heard Island and McDonald Islands"
+    },
+    {
+      "code": "mus",
+      "name": "Mauritius / Maurice"
+    },
+    {
+      "code": "mdg",
+      "name": "Madagascar / Madagasikara"
+    }
+  ],
+  "coordinates": {
+    "lat": -49.303721,
+    "lng": 69.122136
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/French_Southern_Territories",
+    "wiki_truth": null,
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/French_Southern_Territories",
+        "title": "Wikipedia: French Southern and Antarctic Lands / Terres australes et antarctiques françaises",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "OTHER",
+    "seo_cluster": "GLOBAL",
+    "geo_neighbors": [
+      {
+        "code": "hmd",
+        "name": "Heard Island and McDonald Islands"
+      },
+      {
+        "code": "mus",
+        "name": "Mauritius / Maurice"
+      },
+      {
+        "code": "mdg",
+        "name": "Madagascar / Madagasikara"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "iot",
+        "name": "British Indian Ocean Territory"
+      },
+      {
+        "code": "swz",
+        "name": "Eswatini"
+      },
+      {
+        "code": "ata",
+        "name": "Antarctica"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "syc",
+        "name": "Seychelles / Sesel"
+      },
+      {
+        "code": "mdv",
+        "name": "Maldives / ދިވެހިރާއްޖޭގެ"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "atf",
+    "content_hash": "0e6aa87a330221e77218b1a25739897720ef48213a41b880223a0029db346f32",
+    "notes_hash": "e6f7d5cb539abecac8bdf037b08b109cc9f58276d073765090bb1c984b641cdf",
+    "model_hash": "c0074cbfba4479a9aabde6d36fc940f7dfa2417ad6b2cd2dbd5646014484ff3f"
+  },
+  "geo_code": "TF",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

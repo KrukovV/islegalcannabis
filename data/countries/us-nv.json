@@ -1,0 +1,181 @@
+{
+  "code": "us-nv",
+  "geo_code": "US-NV",
+  "iso2": "US-NV",
+  "name": "Nevada",
+  "node_type": "state",
+  "normalized_version": "v1",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "regulated",
+      "scopes": {
+        "possession": "restricted",
+        "use": "restricted",
+        "sale": "regulated",
+        "cultivation": null,
+        "import": "illegal",
+        "trafficking": "illegal"
+      },
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [
+      "fine_based"
+    ],
+    "applied_rules": []
+  },
+  "notes_normalized": "Cannabis is legal in Nevada under state law for recreational adult use. Medical cannabis is also legal in Nevada. Cannabis remains federally illegal in United States. Possession is limited to varies (see official sources).",
+  "notes_raw": "allowed",
+  "facts": {
+    "possession_limit": "varies (see official sources)",
+    "cultivation": null,
+    "penalty": "Cross-border transport remains illegal."
+  },
+  "parent_country": {
+    "code": "usa",
+    "name": "United States"
+  },
+  "state_modifiers": {
+    "recreational": "override",
+    "medical": "override",
+    "enforcement_strength": "MEDIUM",
+    "federal_conflict": "Cannabis remains federally illegal in United States.",
+    "legalization_status": "State legal"
+  },
+  "related_codes": [
+    "usa",
+    "us-tx",
+    "us-al",
+    "us-ar"
+  ],
+  "related_names": [
+    {
+      "code": "usa",
+      "name": "United States"
+    },
+    {
+      "code": "us-tx",
+      "name": "Texas"
+    },
+    {
+      "code": "us-al",
+      "name": "Alabama"
+    },
+    {
+      "code": "us-ar",
+      "name": "Arkansas"
+    }
+  ],
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "USA_CLUSTER",
+    "geo_neighbors": [
+      {
+        "code": "us-ca",
+        "name": "California"
+      },
+      {
+        "code": "us-az",
+        "name": "Arizona"
+      },
+      {
+        "code": "us-wa",
+        "name": "Washington"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "us-co",
+        "name": "Colorado"
+      },
+      {
+        "code": "us-ak",
+        "name": "Alaska"
+      },
+      {
+        "code": "us-ct",
+        "name": "Connecticut"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "usa",
+        "name": "United States"
+      },
+      {
+        "code": "us-de",
+        "name": "Delaware"
+      }
+    ],
+    "same_country_states": [
+      {
+        "code": "us-tx",
+        "name": "Texas"
+      },
+      {
+        "code": "us-al",
+        "name": "Alabama"
+      },
+      {
+        "code": "us-ar",
+        "name": "Arkansas"
+      }
+    ],
+    "federal_parent": {
+      "code": "usa",
+      "name": "United States"
+    }
+  },
+  "coordinates": {
+    "lat": 38.8026,
+    "lng": -116.4194
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Nevada",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "official-us-nv",
+        "url": "https://cannabis.nv.gov/",
+        "title": "Nevada Cannabis Compliance Board",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki-us-nv",
+        "url": "https://en.wikipedia.org/wiki/Nevada",
+        "title": "Wikipedia: Nevada",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki-truth-us-nv",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "hashes": {
+    "code": "us-nv",
+    "content_hash": "50a8ae95bf57eb8a3cf54481d623d4aab81ce535be54a5399548efd9d5ffbae9",
+    "notes_hash": "d869da2b8cd4fb1d720376f09b9d9ea17bf6deeb4ae44e7db1ac078900721f31",
+    "model_hash": "4e52a875903cd754f0a86add0685b961075871e7805712b04c95b333901a7b10"
+  },
+  "updated_at": "2024-01-01"
+}

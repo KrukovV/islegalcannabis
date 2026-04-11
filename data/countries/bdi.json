@@ -1,0 +1,146 @@
+{
+  "code": "bdi",
+  "iso2": "BI",
+  "name": "Burundi / Uburundi",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Burundi / Uburundi. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Burundi / Uburundi. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Burundi}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "rwa",
+    "uga",
+    "tza"
+  ],
+  "related_names": [
+    {
+      "code": "rwa",
+      "name": "Rwanda"
+    },
+    {
+      "code": "uga",
+      "name": "Uganda"
+    },
+    {
+      "code": "tza",
+      "name": "Tanzania"
+    }
+  ],
+  "coordinates": {
+    "lat": -3.5,
+    "lng": 30
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Burundi",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Burundi",
+        "title": "Wikipedia: Burundi / Uburundi",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "AFRICA",
+    "seo_cluster": "AFRICA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "rwa",
+        "name": "Rwanda"
+      },
+      {
+        "code": "uga",
+        "name": "Uganda"
+      },
+      {
+        "code": "tza",
+        "name": "Tanzania"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "cod",
+        "name": "DR Congo / RD Congo"
+      },
+      {
+        "code": "ken",
+        "name": "Kenya"
+      },
+      {
+        "code": "ssd",
+        "name": "South Sudan"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "mwi",
+        "name": "Malawi / Malaŵi"
+      },
+      {
+        "code": "zmb",
+        "name": "Zambia"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "bdi",
+    "content_hash": "b01bd8a1888410381898468dd5809e080c2de24ccd16433c9236624ece8b5535",
+    "notes_hash": "3334d6e743544361f423c2bb09ab6508499e48a16c6b9da543f8114f22f07333",
+    "model_hash": "5451abe328c4b5054f201e6d792964ad613c29f523fe64bfb994d7ec713e8877"
+  },
+  "geo_code": "BI",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

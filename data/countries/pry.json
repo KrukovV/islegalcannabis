@@ -1,0 +1,145 @@
+{
+  "code": "pry",
+  "iso2": "PY",
+  "name": "Paraguay / Paraguái",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "DECRIMINALIZED",
+      "status": "DECRIMINALIZED",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "LIMITED",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": "rec_implies_med_floor"
+    },
+    "distribution": {
+      "status": "restricted",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "decriminalized",
+      "rec_implies_med_floor"
+    ],
+    "notes_normalized": "Cannabis is decriminalized in Paraguay / Paraguái. Medical cannabis is limited. Distribution is restricted."
+  },
+  "notes_normalized": "Cannabis is decriminalized in Paraguay / Paraguái. Medical cannabis is limited. Distribution is restricted.",
+  "notes_raw": "{{main|Cannabis in Paraguay}} The possession of up to {{cvt|10|g|frac=8}} of cannabis is not punishable.<ref>{{cite web|url=http://www.druglawreform.info/en/country-information/latin-america/paraguay/item/206-paraguay|title=Paraguay – Drug Law Reform in Latin America|author=TNI|access-date=25 February 2016|archive-date=21 July 2018|archive-url=https://web.archive.org/web/20180721045343/http://www.druglawreform.info/en/country-information/latin-america/paraguay/item/206-paraguay|url-status=live}}</ref><ref>{{cite web|url=http://ea.com.py/v2/en-paraguay-la-posesion-y-consumo-personal-de-la-marihuana-es-legal/|title=En Paraguay, la posesión y consumo personal de la marihuana es legal|work=E'a|access-date=25 February 2016|archive-date=21 July 2018|archive-url=https://web.archive.org/web/20180721044110/http://ea.com.py/v2/en-paraguay-la-posesion-y-consumo-personal-de-la-marihuana-es-legal/|url-status=live}}</ref>",
+  "facts": {
+    "possession_limit": "up to 10 g",
+    "cultivation": null,
+    "penalty": "punishable."
+  },
+  "related_codes": [
+    "bol",
+    "ury",
+    "arg"
+  ],
+  "related_names": [
+    {
+      "code": "bol",
+      "name": "Bolivia / Wuliwya"
+    },
+    {
+      "code": "ury",
+      "name": "Uruguay"
+    },
+    {
+      "code": "arg",
+      "name": "Argentina"
+    }
+  ],
+  "coordinates": {
+    "lat": -23,
+    "lng": -58
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Paraguay",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Paraguay",
+        "title": "Wikipedia: Paraguay / Paraguái",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "LATAM",
+    "seo_cluster": "LATAM",
+    "geo_neighbors": [
+      {
+        "code": "bol",
+        "name": "Bolivia / Wuliwya"
+      },
+      {
+        "code": "ury",
+        "name": "Uruguay"
+      },
+      {
+        "code": "arg",
+        "name": "Argentina"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "bra",
+        "name": "Brazil / Brasil"
+      },
+      {
+        "code": "chl",
+        "name": "Chile"
+      },
+      {
+        "code": "per",
+        "name": "Peru / Piruw"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "sur",
+        "name": "Suriname"
+      },
+      {
+        "code": "guy",
+        "name": "Guyana"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "pry",
+    "content_hash": "60645ce7bd95ffc53756ea34c55ba4e726223923399fe57523c2ad0ed65e30c4",
+    "notes_hash": "59c6b5a1303c1e786ea2614db249e6a5b2b3efe2e4a2a81da7596969b53f7aae",
+    "model_hash": "ac9dfbf0848261d06b9255d78b13c0e4843e39eb2e3768dbbdbf71d3d9c2daeb"
+  },
+  "geo_code": "PY",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

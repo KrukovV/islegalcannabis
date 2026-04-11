@@ -1,0 +1,146 @@
+{
+  "code": "sau",
+  "iso2": "SA",
+  "name": "Saudi Arabia / السعودية",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Saudi Arabia / السعودية. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Saudi Arabia / السعودية. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Saudi Arabia}} Use and possession for personal use of any kind of recreational drugs is punishable by imprisonment if caught. Imprisonment for personal use can entail jail time of six months or more. Dealing and smuggling high amounts of drugs usually result in harsher prison time or even execution, although recently executions have been rare. Foreigners who use drugs might be deported.<ref>{{citation|url=https://travel.state.gov/travel/cis_pa_tw/cis/cis_1012.html |title=International Travel – Saudi Arabia |publisher=[[Bureau of Consular Affairs]] |access-date=17 February 2011 |url-status=dead |archive-url=https://web.archive.org/web/20131211183846/http://travel.state.gov/travel/cis_pa_tw/cis/cis_1012.html |archive-date=11 December 2013 }}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": "punishable by imprisonment if caught."
+  },
+  "related_codes": [
+    "kwt",
+    "bhr",
+    "qat"
+  ],
+  "related_names": [
+    {
+      "code": "kwt",
+      "name": "Kuwait / الكويت"
+    },
+    {
+      "code": "bhr",
+      "name": "Bahrain / البحرين"
+    },
+    {
+      "code": "qat",
+      "name": "Qatar / قطر"
+    }
+  ],
+  "coordinates": {
+    "lat": 25,
+    "lng": 45
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Saudi_Arabia",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Saudi_Arabia",
+        "title": "Wikipedia: Saudi Arabia / السعودية",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "ASIA",
+    "seo_cluster": "ASIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "kwt",
+        "name": "Kuwait / الكويت"
+      },
+      {
+        "code": "bhr",
+        "name": "Bahrain / البحرين"
+      },
+      {
+        "code": "qat",
+        "name": "Qatar / قطر"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "irq",
+        "name": "Iraq / العراق"
+      },
+      {
+        "code": "are",
+        "name": "United Arab Emirates / الإمارات"
+      },
+      {
+        "code": "yem",
+        "name": "Yemen / اليمن"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "irn",
+        "name": "Iran / ایران"
+      },
+      {
+        "code": "jor",
+        "name": "Jordan / الأردن"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "sau",
+    "content_hash": "d60d53b5f89eb7e44a30eaea1f7749ed45811b457ba229563790f16b22d174a7",
+    "notes_hash": "2ba0534cf16c8504ab79f6326a4d91f976b987b8c705736a22f492a783b999db",
+    "model_hash": "67b561e46939d5003df54de27a1c3e002ddedb1cd7d7206368ee8cb26ce78d46"
+  },
+  "geo_code": "SA",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

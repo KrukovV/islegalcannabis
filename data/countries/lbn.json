@@ -1,0 +1,146 @@
+{
+  "code": "lbn",
+  "iso2": "LB",
+  "name": "Lebanon / لبنان",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "restricted",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "medical_legal",
+      "illegal",
+      "legal"
+    ],
+    "notes_normalized": "Cannabis is legal in Lebanon / لبنان. Medical cannabis is legal. Distribution is restricted."
+  },
+  "notes_normalized": "Cannabis is legal in Lebanon / لبنان. Medical cannabis is legal. Distribution is restricted.",
+  "notes_raw": "{{main|Cannabis in Lebanon}} Hashish banned in 1926;<ref name=\"Clarke1998\">{{cite book|author=Robert Connell Clarke|title=Hashish!|url=https://books.google.com/books?id=hblBKeAE9rgC|year=1998|publisher=Red Eye Press|isbn=978-0-929349-05-3}}</ref> cultivation banned in 1992.<ref>{{cite book|title=Réalités|url=https://books.google.com/books?id=yPU7AQAAIAAJ|date=May 1996|publisher=Spectacle du monde|page=354|quote=Les Américains ne lâchant pas prise, le gouvernement libanais interdisait officiellement la culture du pavot et du cannabis en 1992.}}</ref> Large amounts of cannabis are still grown within the country illicitly, however.<ref>{{citation |url = https://www.csmonitor.com/2007/1016/p06s02-wome.html |title = In Lebanon, a comeback for cannabis |work = [[The Christian Science Monitor]] |date = 16 October 2007 |access-date = 17 February 2011 |archive-date = 20 April 2019 |archive-url = https://web.archive.org/web/20190420011630/https://www.csmonitor.com/2007/1016/p06s02-wome.html |url-status = live }}</ref> Cultivation of cannabis for medical use was legalized in April 2020.<ref>{{cite news |url = https://www.nytimes.com/reuters/2020/04/21/world/middleeast/21reuters-lebanon-crisis-cannabis.html | title = Lebanon Legalizes Cannabis Farming for Medicinal Use | work = [[The New York Times]] | agency = [[Reuters]] | date = 21 April 2020 | archive-url = https://web.archive.org/web/20200423112646/https://www.nytimes.com/reuters/2020/04/21/world/middleeast/21reuters-lebanon-crisis-cannabis.html | archive-date = 23 April 2020 | url-status=dead }}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": "grown within the country illicitly, however.",
+    "penalty": null
+  },
+  "related_codes": [
+    "pse",
+    "syr",
+    "isr"
+  ],
+  "related_names": [
+    {
+      "code": "pse",
+      "name": "Palestine / فلسطين"
+    },
+    {
+      "code": "syr",
+      "name": "Syria / سوريا"
+    },
+    {
+      "code": "isr",
+      "name": "Israel / إسرائيل"
+    }
+  ],
+  "coordinates": {
+    "lat": 33.83333333,
+    "lng": 35.83333333
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Lebanon",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Lebanon",
+        "title": "Wikipedia: Lebanon / لبنان",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "ASIA",
+    "seo_cluster": "ASIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "pse",
+        "name": "Palestine / فلسطين"
+      },
+      {
+        "code": "syr",
+        "name": "Syria / سوريا"
+      },
+      {
+        "code": "isr",
+        "name": "Israel / إسرائيل"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "cyp",
+        "name": "Cyprus / Κύπρος"
+      },
+      {
+        "code": "tur",
+        "name": "Türkiye"
+      },
+      {
+        "code": "geo",
+        "name": "Georgia / საქართველო"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "jor",
+        "name": "Jordan / الأردن"
+      },
+      {
+        "code": "irq",
+        "name": "Iraq / العراق"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "lbn",
+    "content_hash": "d37d19e11567fe6bfc21663b9a45f701015ea8b4b176a3980ae06ffb142d55b2",
+    "notes_hash": "427f98a59ec1a3e5e2fc74f9cab8dbac77e7ef34700d294bfc940ef62ea6e91a",
+    "model_hash": "cdd348497e55897de68ac60c9983637d9b94e5af5ceafe79bc0f779f2f6da518"
+  },
+  "geo_code": "LB",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

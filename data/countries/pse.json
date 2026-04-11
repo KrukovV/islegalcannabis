@@ -1,0 +1,139 @@
+{
+  "code": "pse",
+  "iso2": "PS",
+  "name": "Palestine / فلسطين",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Palestine / فلسطين. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Palestine / فلسطين. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "No notes available.",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "isr",
+    "jor",
+    "lbn"
+  ],
+  "related_names": [
+    {
+      "code": "isr",
+      "name": "Israel / إسرائيل"
+    },
+    {
+      "code": "jor",
+      "name": "Jordan / الأردن"
+    },
+    {
+      "code": "lbn",
+      "name": "Lebanon / لبنان"
+    }
+  ],
+  "coordinates": {
+    "lat": 32.047431,
+    "lng": 35.291341
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Palestinian_Territories",
+    "wiki_truth": null,
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Palestinian_Territories",
+        "title": "Wikipedia: Palestine / فلسطين",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "ASIA",
+    "seo_cluster": "ASIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "isr",
+        "name": "Israel / إسرائيل"
+      },
+      {
+        "code": "jor",
+        "name": "Jordan / الأردن"
+      },
+      {
+        "code": "lbn",
+        "name": "Lebanon / لبنان"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "syr",
+        "name": "Syria / سوريا"
+      },
+      {
+        "code": "egy",
+        "name": "Egypt / مصر"
+      },
+      {
+        "code": "irq",
+        "name": "Iraq / العراق"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "cyp",
+        "name": "Cyprus / Κύπρος"
+      },
+      {
+        "code": "tur",
+        "name": "Türkiye"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "pse",
+    "content_hash": "cf71506e2b7e25bb1f54abe176962455772e70d8be00a9420e591ee4250a8421",
+    "notes_hash": "bff540f93b923d60183dc231bbc4c3b3ac0f9baf70c18dbbafcf2cc560f0c04f",
+    "model_hash": "18eff6781e7b3f0a9e45a284166eac54810e801533d057ece26a28cece6615bc"
+  },
+  "geo_code": "PS",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

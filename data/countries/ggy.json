@@ -1,0 +1,139 @@
+{
+  "code": "ggy",
+  "iso2": "GG",
+  "name": "Guernsey / Guernesey",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Guernsey / Guernesey. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Guernsey / Guernesey. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "No notes available.",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "jey",
+    "gbr",
+    "imn"
+  ],
+  "related_names": [
+    {
+      "code": "jey",
+      "name": "Jersey / Jèrri"
+    },
+    {
+      "code": "gbr",
+      "name": "United Kingdom"
+    },
+    {
+      "code": "imn",
+      "name": "Isle of Man / Mannin"
+    }
+  ],
+  "coordinates": {
+    "lat": 49.463533,
+    "lng": -2.561736
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Guernsey",
+    "wiki_truth": null,
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Guernsey",
+        "title": "Wikipedia: Guernsey / Guernesey",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "jey",
+        "name": "Jersey / Jèrri"
+      },
+      {
+        "code": "gbr",
+        "name": "United Kingdom"
+      },
+      {
+        "code": "imn",
+        "name": "Isle of Man / Mannin"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "irl",
+        "name": "Ireland / Éire"
+      },
+      {
+        "code": "and",
+        "name": "Andorra"
+      },
+      {
+        "code": "mco",
+        "name": "Monaco"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "bel",
+        "name": "Belgium / Belgien"
+      },
+      {
+        "code": "nld",
+        "name": "Netherlands / Nederland"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "ggy",
+    "content_hash": "dd91b9c7906de2da8205aa6882b17c855f626704f76c9f5700447c5f2ea48662",
+    "notes_hash": "45a02024d06c4fa1c349a611f697060356b676a95a08ddc6ae3396828715a183",
+    "model_hash": "af1accb5caf998cc222d4fa75ba6566e1b37b3c64f776042e5660ef2686c99df"
+  },
+  "geo_code": "GG",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

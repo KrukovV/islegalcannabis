@@ -1,0 +1,146 @@
+{
+  "code": "gab",
+  "iso2": "GA",
+  "name": "Gabon",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Gabon. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Gabon. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Gabon}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "cog",
+    "gnq",
+    "stp"
+  ],
+  "related_names": [
+    {
+      "code": "cog",
+      "name": "Congo / République du Congo"
+    },
+    {
+      "code": "gnq",
+      "name": "Equatorial Guinea / Guinée équatoriale"
+    },
+    {
+      "code": "stp",
+      "name": "São Tomé and Príncipe / São Tomé e Príncipe"
+    }
+  ],
+  "coordinates": {
+    "lat": -1,
+    "lng": 11.75
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Gabon",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Gabon",
+        "title": "Wikipedia: Gabon",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "AFRICA",
+    "seo_cluster": "AFRICA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "cog",
+        "name": "Congo / République du Congo"
+      },
+      {
+        "code": "gnq",
+        "name": "Equatorial Guinea / Guinée équatoriale"
+      },
+      {
+        "code": "stp",
+        "name": "São Tomé and Príncipe / São Tomé e Príncipe"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "cmr",
+        "name": "Cameroon / Cameroun"
+      },
+      {
+        "code": "nga",
+        "name": "Nigeria"
+      },
+      {
+        "code": "caf",
+        "name": "Central African Republic / République centrafricaine"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "cod",
+        "name": "DR Congo / RD Congo"
+      },
+      {
+        "code": "ago",
+        "name": "Angola"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "gab",
+    "content_hash": "fbd7708928a16c543a4ae9f7e0d78098136ef497710dd507508b308c5a7d430e",
+    "notes_hash": "3f17c313c20d5b14d67a004792d981b3466f3e328c7c3dd92b1c60478294cea3",
+    "model_hash": "8e06235c891aa15c947dcfab64c1c664e6472024b7caae3c423b8c8217cedb44"
+  },
+  "geo_code": "GA",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

@@ -1,0 +1,146 @@
+{
+  "code": "npl",
+  "iso2": "NP",
+  "name": "Nepal / नेपाल",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Nepal / नेपाल. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Nepal / नेपाल. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Nepal}} All cannabis licenses canceled in 1973.<ref name=\"Booth2011\"/>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "btn",
+    "bgd",
+    "ind"
+  ],
+  "related_names": [
+    {
+      "code": "btn",
+      "name": "Bhutan / འབྲུག་ཡུལ་"
+    },
+    {
+      "code": "bgd",
+      "name": "Bangladesh / বাংলাদেশ"
+    },
+    {
+      "code": "ind",
+      "name": "India / भारत"
+    }
+  ],
+  "coordinates": {
+    "lat": 28,
+    "lng": 84
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Nepal",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Nepal",
+        "title": "Wikipedia: Nepal / नेपाल",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "ASIA",
+    "seo_cluster": "ASIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "btn",
+        "name": "Bhutan / འབྲུག་ཡུལ་"
+      },
+      {
+        "code": "bgd",
+        "name": "Bangladesh / বাংলাদেশ"
+      },
+      {
+        "code": "ind",
+        "name": "India / भारत"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "pak",
+        "name": "Pakistan / پاكستان"
+      },
+      {
+        "code": "mmr",
+        "name": "Myanmar / မြန်မာ"
+      },
+      {
+        "code": "kgz",
+        "name": "Kyrgyzstan / Кыргызстан"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "tjk",
+        "name": "Tajikistan / Таджикистан"
+      },
+      {
+        "code": "afg",
+        "name": "Afghanistan / افغانستان"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "npl",
+    "content_hash": "9eb218234ae0a8869081fb15a0ff9f11fd8e4456ddf89b2e10e4ab6ffa8f67ae",
+    "notes_hash": "7a3bb35762a3f228b51b82b9e268be1408e9adb3432d8fa1b426853dcce3f8b1",
+    "model_hash": "380b789d473f81d95029453930e8321a4c17f63f059f498a48e785a6949122c5"
+  },
+  "geo_code": "NP",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

@@ -1,0 +1,144 @@
+{
+  "code": "uzb",
+  "iso2": "UZ",
+  "name": "Uzbekistan / Узбекистан",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Uzbekistan / Узбекистан. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Uzbekistan / Узбекистан. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Uzbekistan}} Opiates, cannabis and other plants containing psychotropic substances are illegal.<ref>{{cite web |url = http://www.lex.uz/Pages/GetAct.aspx?lact_id=111453 |title = Criminal Code of the Republic of Uzbekistan |access-date = 2 August 2013 |language = uz |publisher = The national database of legislation of the Republic of Uzbekistan |archive-date = 26 December 2018 |archive-url = https://web.archive.org/web/20181226021514/http://www.lex.uz/acts/111453 |url-status = live }}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": "plants containing psychotropic substances are illegal.",
+    "penalty": null
+  },
+  "related_codes": [
+    "tkm",
+    "tjk",
+    "afg"
+  ],
+  "related_names": [
+    {
+      "code": "tkm",
+      "name": "Turkmenistan / Туркмения"
+    },
+    {
+      "code": "tjk",
+      "name": "Tajikistan / Таджикистан"
+    },
+    {
+      "code": "afg",
+      "name": "Afghanistan / افغانستان"
+    }
+  ],
+  "coordinates": {
+    "lat": 41,
+    "lng": 64
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Uzbekistan",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Uzbekistan",
+        "title": "Wikipedia: Uzbekistan / Узбекистан",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "ASIA",
+    "seo_cluster": "ASIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "tkm",
+        "name": "Turkmenistan / Туркмения"
+      },
+      {
+        "code": "tjk",
+        "name": "Tajikistan / Таджикистан"
+      },
+      {
+        "code": "afg",
+        "name": "Afghanistan / افغانستان"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "kaz",
+        "name": "Kazakhstan / Қазақстан"
+      },
+      {
+        "code": "kgz",
+        "name": "Kyrgyzstan / Кыргызстан"
+      },
+      {
+        "code": "pak",
+        "name": "Pakistan / پاكستان"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "irn",
+        "name": "Iran / ایران"
+      },
+      {
+        "code": "aze",
+        "name": "Azerbaijan / Azərbaycan"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "uzb",
+    "content_hash": "e4db47803d6b0730aad09cdb43c8364e8231acba01e9da967cde6fd149db3806",
+    "notes_hash": "4c9c6090e178fce62dfdeef82c0c7156118cf234bfb4a049a970371598a691f8",
+    "model_hash": "14deadcb759db48d3c7815741104933cea8a15908a7a10e47c4653712f2211f3"
+  },
+  "geo_code": "UZ",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

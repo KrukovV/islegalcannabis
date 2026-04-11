@@ -1,0 +1,5962 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-04-10T20:41:08.939Z",
+  "total_entries": 255,
+  "entries": [
+    {
+      "id": "AW",
+      "entity_type": "country",
+      "country": "AW",
+      "region": null,
+      "display_name": "Aruba",
+      "coordinates": {
+        "lat": 12.5174,
+        "lng": -69.972795
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Aruba remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "AF",
+      "entity_type": "country",
+      "country": "AF",
+      "region": null,
+      "display_name": "Afghanistan / افغانستان",
+      "coordinates": {
+        "lat": 33,
+        "lng": 65
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Afghanistan / افغانستان remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "AO",
+      "entity_type": "country",
+      "country": "AO",
+      "region": null,
+      "display_name": "Angola",
+      "coordinates": {
+        "lat": -12.5,
+        "lng": 18.5
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Angola remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "AI",
+      "entity_type": "country",
+      "country": "AI",
+      "region": null,
+      "display_name": "Anguilla",
+      "coordinates": {
+        "lat": 18.242979,
+        "lng": -63.026361
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Anguilla remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "AX",
+      "entity_type": "country",
+      "country": "AX",
+      "region": null,
+      "display_name": "Åland Islands / Åland",
+      "coordinates": {
+        "lat": 60.156467,
+        "lng": 19.869671
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Åland Islands / Åland remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "AL",
+      "entity_type": "country",
+      "country": "AL",
+      "region": null,
+      "display_name": "Albania / Shqipëria",
+      "coordinates": {
+        "lat": 41,
+        "lng": 20
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.38,
+      "confidence_reason": "wiki_only",
+      "notes": [
+        "police_non_priority_area",
+        "enforcement_varies_by_region"
+      ],
+      "note_summary": "Albania / Shqipëria remains illegal in law, but small-scale enforcement is often low-priority.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "AD",
+      "entity_type": "country",
+      "country": "AD",
+      "region": null,
+      "display_name": "Andorra",
+      "coordinates": {
+        "lat": 42.5,
+        "lng": 1.5
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Andorra remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "AE",
+      "entity_type": "country",
+      "country": "AE",
+      "region": null,
+      "display_name": "United Arab Emirates / الإمارات",
+      "coordinates": {
+        "lat": 24,
+        "lng": 54
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "United Arab Emirates / الإمارات remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "AR",
+      "entity_type": "country",
+      "country": "AR",
+      "region": null,
+      "display_name": "Argentina",
+      "coordinates": {
+        "lat": -34,
+        "lng": -64
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Argentina remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "AM",
+      "entity_type": "country",
+      "country": "AM",
+      "region": null,
+      "display_name": "Armenia / Հայաստան",
+      "coordinates": {
+        "lat": 40,
+        "lng": 45
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Armenia / Հայաստան remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "AS",
+      "entity_type": "country",
+      "country": "AS",
+      "region": null,
+      "display_name": "American Samoa / Sāmoa Amelika",
+      "coordinates": {
+        "lat": -14.33333333,
+        "lng": -170
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "American Samoa / Sāmoa Amelika remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "AQ",
+      "entity_type": "country",
+      "country": "AQ",
+      "region": null,
+      "display_name": "Antarctica",
+      "coordinates": {
+        "lat": -79.843222,
+        "lng": 35.885455
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Antarctica remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "TF",
+      "entity_type": "country",
+      "country": "TF",
+      "region": null,
+      "display_name": "French Southern and Antarctic Lands / Terres australes et antarctiques françaises",
+      "coordinates": {
+        "lat": -49.303721,
+        "lng": 69.122136
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "French Southern and Antarctic Lands / Terres australes et antarctiques françaises remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "AG",
+      "entity_type": "country",
+      "country": "AG",
+      "region": null,
+      "display_name": "Antigua and Barbuda",
+      "coordinates": {
+        "lat": 17.05,
+        "lng": -61.8
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.32,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Antigua and Barbuda remains decriminalized in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "AU",
+      "entity_type": "country",
+      "country": "AU",
+      "region": null,
+      "display_name": "Australia",
+      "coordinates": {
+        "lat": -27,
+        "lng": 133
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Australia remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "AT",
+      "entity_type": "country",
+      "country": "AT",
+      "region": null,
+      "display_name": "Austria / Österreich",
+      "coordinates": {
+        "lat": 47.33333333,
+        "lng": 13.33333333
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.32,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Austria / Österreich remains decriminalized in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "AZ",
+      "entity_type": "country",
+      "country": "AZ",
+      "region": null,
+      "display_name": "Azerbaijan / Azərbaycan",
+      "coordinates": {
+        "lat": 40.5,
+        "lng": 47.5
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Azerbaijan / Azərbaycan remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "BI",
+      "entity_type": "country",
+      "country": "BI",
+      "region": null,
+      "display_name": "Burundi / Uburundi",
+      "coordinates": {
+        "lat": -3.5,
+        "lng": 30
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Burundi / Uburundi remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "BE",
+      "entity_type": "country",
+      "country": "BE",
+      "region": null,
+      "display_name": "Belgium / Belgien",
+      "coordinates": {
+        "lat": 50.83333333,
+        "lng": 4
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.5,
+      "confidence_reason": "wiki_only",
+      "notes": [
+        "police_non_priority_area"
+      ],
+      "note_summary": "Belgium / Belgien remains decriminalized in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "BJ",
+      "entity_type": "country",
+      "country": "BJ",
+      "region": null,
+      "display_name": "Benin / Bénin",
+      "coordinates": {
+        "lat": 9.5,
+        "lng": 2.25
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Benin / Bénin remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "BF",
+      "entity_type": "country",
+      "country": "BF",
+      "region": null,
+      "display_name": "Burkina Faso",
+      "coordinates": {
+        "lat": 13,
+        "lng": -2
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Burkina Faso remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "BD",
+      "entity_type": "country",
+      "country": "BD",
+      "region": null,
+      "display_name": "Bangladesh / বাংলাদেশ",
+      "coordinates": {
+        "lat": 24,
+        "lng": 90
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": true,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.62,
+      "confidence_reason": "multi_source",
+      "notes": [
+        "police_non_priority_area",
+        "enforcement_varies_by_region",
+        "nightlife_tolerated_use",
+        "tourism_tolerated_use"
+      ],
+      "note_summary": "Bangladesh / বাংলাদেশ remains illegal in law, but small-scale enforcement is often low-priority.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "BG",
+      "entity_type": "country",
+      "country": "BG",
+      "region": null,
+      "display_name": "Bulgaria / България",
+      "coordinates": {
+        "lat": 43,
+        "lng": 25
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Bulgaria / България remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "BH",
+      "entity_type": "country",
+      "country": "BH",
+      "region": null,
+      "display_name": "Bahrain / البحرين",
+      "coordinates": {
+        "lat": 26,
+        "lng": 50.55
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Bahrain / البحرين remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "BS",
+      "entity_type": "country",
+      "country": "BS",
+      "region": null,
+      "display_name": "Bahamas",
+      "coordinates": {
+        "lat": 24.25,
+        "lng": -76
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Bahamas remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "BA",
+      "entity_type": "country",
+      "country": "BA",
+      "region": null,
+      "display_name": "Bosnia and Herzegovina / Bosna i Hercegovina",
+      "coordinates": {
+        "lat": 44,
+        "lng": 18
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Bosnia and Herzegovina / Bosna i Hercegovina remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "BL",
+      "entity_type": "country",
+      "country": "BL",
+      "region": null,
+      "display_name": "Saint Barthélemy",
+      "coordinates": {
+        "lat": 17.901987,
+        "lng": -62.833193
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Saint Barthélemy remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "BY",
+      "entity_type": "country",
+      "country": "BY",
+      "region": null,
+      "display_name": "Belarus / Белару́сь",
+      "coordinates": {
+        "lat": 53,
+        "lng": 28
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Belarus / Белару́сь remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "BZ",
+      "entity_type": "country",
+      "country": "BZ",
+      "region": null,
+      "display_name": "Belize / Belice",
+      "coordinates": {
+        "lat": 17.25,
+        "lng": -88.75
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": true,
+        "widely_used": true,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.95,
+      "confidence_reason": "mixed_conflict",
+      "notes": [
+        "de_facto_legal_in_practice",
+        "informal_tolerance_zones",
+        "nightlife_tolerated_use",
+        "tourism_tolerated_use",
+        "police_non_priority_area"
+      ],
+      "note_summary": "Belize / Belice remains tolerated in law, but use is tolerated in practice. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "BM",
+      "entity_type": "country",
+      "country": "BM",
+      "region": null,
+      "display_name": "Bermuda",
+      "coordinates": {
+        "lat": 32.33333333,
+        "lng": -64.75
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.32,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Bermuda remains decriminalized in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "BO",
+      "entity_type": "country",
+      "country": "BO",
+      "region": null,
+      "display_name": "Bolivia / Wuliwya",
+      "coordinates": {
+        "lat": -17,
+        "lng": -65
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Bolivia / Wuliwya remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "BR",
+      "entity_type": "country",
+      "country": "BR",
+      "region": null,
+      "display_name": "Brazil / Brasil",
+      "coordinates": {
+        "lat": -10,
+        "lng": -55
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.32,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Brazil / Brasil remains decriminalized in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "BB",
+      "entity_type": "country",
+      "country": "BB",
+      "region": null,
+      "display_name": "Barbados",
+      "coordinates": {
+        "lat": 13.16666666,
+        "lng": -59.53333333
+      },
+      "base_status": "green",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Barbados remains legal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "BN",
+      "entity_type": "country",
+      "country": "BN",
+      "region": null,
+      "display_name": "Brunei / Negara Brunei Darussalam",
+      "coordinates": {
+        "lat": 4.5,
+        "lng": 114.66666666
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Brunei / Negara Brunei Darussalam remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "BT",
+      "entity_type": "country",
+      "country": "BT",
+      "region": null,
+      "display_name": "Bhutan / འབྲུག་ཡུལ་",
+      "coordinates": {
+        "lat": 27.5,
+        "lng": 90.5
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Bhutan / འབྲུག་ཡུལ་ remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "BW",
+      "entity_type": "country",
+      "country": "BW",
+      "region": null,
+      "display_name": "Botswana",
+      "coordinates": {
+        "lat": -22,
+        "lng": 24
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Botswana remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "CF",
+      "entity_type": "country",
+      "country": "CF",
+      "region": null,
+      "display_name": "Central African Republic / République centrafricaine",
+      "coordinates": {
+        "lat": 7,
+        "lng": 21
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Central African Republic / République centrafricaine remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "CA",
+      "entity_type": "country",
+      "country": "CA",
+      "region": null,
+      "display_name": "Canada",
+      "coordinates": {
+        "lat": 60,
+        "lng": -95
+      },
+      "base_status": "green",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Canada remains legal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "CH",
+      "entity_type": "country",
+      "country": "CH",
+      "region": null,
+      "display_name": "Switzerland / Suisse",
+      "coordinates": {
+        "lat": 47,
+        "lng": 8
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.32,
+      "confidence_reason": "wiki_only",
+      "notes": [
+        "police_non_priority_area"
+      ],
+      "note_summary": "Switzerland / Suisse remains decriminalized in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "CL",
+      "entity_type": "country",
+      "country": "CL",
+      "region": null,
+      "display_name": "Chile",
+      "coordinates": {
+        "lat": -30,
+        "lng": -71
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.5,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Chile remains decriminalized in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "CN",
+      "entity_type": "country",
+      "country": "CN",
+      "region": null,
+      "display_name": "China / 中国",
+      "coordinates": {
+        "lat": 35,
+        "lng": 105
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.38,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "China / 中国 remains illegal in law, but small-scale enforcement is often low-priority.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "CI",
+      "entity_type": "country",
+      "country": "CI",
+      "region": null,
+      "display_name": "Ivory Coast / Côte d'Ivoire",
+      "coordinates": {
+        "lat": 8,
+        "lng": -5
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Ivory Coast / Côte d'Ivoire remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "CM",
+      "entity_type": "country",
+      "country": "CM",
+      "region": null,
+      "display_name": "Cameroon / Cameroun",
+      "coordinates": {
+        "lat": 6,
+        "lng": 12
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Cameroon / Cameroun remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "CD",
+      "entity_type": "country",
+      "country": "CD",
+      "region": null,
+      "display_name": "DR Congo / RD Congo",
+      "coordinates": {
+        "lat": 0,
+        "lng": 25
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "DR Congo / RD Congo remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "CG",
+      "entity_type": "country",
+      "country": "CG",
+      "region": null,
+      "display_name": "Congo / République du Congo",
+      "coordinates": {
+        "lat": -1,
+        "lng": 15
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Congo / République du Congo remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "CK",
+      "entity_type": "country",
+      "country": "CK",
+      "region": null,
+      "display_name": "Cook Islands / Kūki 'Āirani",
+      "coordinates": {
+        "lat": -21.23333333,
+        "lng": -159.76666666
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Cook Islands / Kūki 'Āirani remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "CO",
+      "entity_type": "country",
+      "country": "CO",
+      "region": null,
+      "display_name": "Colombia",
+      "coordinates": {
+        "lat": 4,
+        "lng": -72
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.5,
+      "confidence_reason": "wiki_only",
+      "notes": [
+        "police_non_priority_area"
+      ],
+      "note_summary": "Colombia remains decriminalized in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "KM",
+      "entity_type": "country",
+      "country": "KM",
+      "region": null,
+      "display_name": "Comoros / جزر القمر",
+      "coordinates": {
+        "lat": -12.16666666,
+        "lng": 44.25
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Comoros / جزر القمر remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "CV",
+      "entity_type": "country",
+      "country": "CV",
+      "region": null,
+      "display_name": "Cape Verde / Cabo Verde",
+      "coordinates": {
+        "lat": 16,
+        "lng": -24
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Cape Verde / Cabo Verde remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "CR",
+      "entity_type": "country",
+      "country": "CR",
+      "region": null,
+      "display_name": "Costa Rica",
+      "coordinates": {
+        "lat": 10,
+        "lng": -84
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.5,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Costa Rica remains decriminalized in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "CU",
+      "entity_type": "country",
+      "country": "CU",
+      "region": null,
+      "display_name": "Cuba",
+      "coordinates": {
+        "lat": 21.5,
+        "lng": -80
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Cuba remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "CW",
+      "entity_type": "country",
+      "country": "CW",
+      "region": null,
+      "display_name": "Curaçao / Pais Kòrsou",
+      "coordinates": {
+        "lat": 12.145039,
+        "lng": -68.920578
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Curaçao / Pais Kòrsou remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "KY",
+      "entity_type": "country",
+      "country": "KY",
+      "region": null,
+      "display_name": "Cayman Islands",
+      "coordinates": {
+        "lat": 19.319862,
+        "lng": -81.24055
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Cayman Islands remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "CY",
+      "entity_type": "country",
+      "country": "CY",
+      "region": null,
+      "display_name": "Cyprus / Κύπρος",
+      "coordinates": {
+        "lat": 35,
+        "lng": 33
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Cyprus / Κύπρος remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "CZ",
+      "entity_type": "country",
+      "country": "CZ",
+      "region": null,
+      "display_name": "Czechia / Česko",
+      "coordinates": {
+        "lat": 49.75,
+        "lng": 15.5
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.5,
+      "confidence_reason": "wiki_only",
+      "notes": [
+        "police_non_priority_area"
+      ],
+      "note_summary": "Czechia / Česko remains decriminalized in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "DE",
+      "entity_type": "country",
+      "country": "DE",
+      "region": null,
+      "display_name": "Germany / Deutschland",
+      "coordinates": {
+        "lat": 51.1657,
+        "lng": 10.4515
+      },
+      "base_status": "green",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Germany / Deutschland remains legal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "DJ",
+      "entity_type": "country",
+      "country": "DJ",
+      "region": null,
+      "display_name": "Djibouti / جيبوتي",
+      "coordinates": {
+        "lat": 11.5,
+        "lng": 43
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Djibouti / جيبوتي remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "DM",
+      "entity_type": "country",
+      "country": "DM",
+      "region": null,
+      "display_name": "Dominica",
+      "coordinates": {
+        "lat": 15.41666666,
+        "lng": -61.33333333
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.32,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Dominica remains decriminalized in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "DK",
+      "entity_type": "country",
+      "country": "DK",
+      "region": null,
+      "display_name": "Denmark / Danmark",
+      "coordinates": {
+        "lat": 56,
+        "lng": 10
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Denmark / Danmark remains illegal in law, but small-scale enforcement is often low-priority.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "DO",
+      "entity_type": "country",
+      "country": "DO",
+      "region": null,
+      "display_name": "Dominican Republic / República Dominicana",
+      "coordinates": {
+        "lat": 19,
+        "lng": -70.66666666
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Dominican Republic / República Dominicana remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "DZ",
+      "entity_type": "country",
+      "country": "DZ",
+      "region": null,
+      "display_name": "Algeria / الجزائر",
+      "coordinates": {
+        "lat": 28,
+        "lng": 3
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Algeria / الجزائر remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "EC",
+      "entity_type": "country",
+      "country": "EC",
+      "region": null,
+      "display_name": "Ecuador",
+      "coordinates": {
+        "lat": -2,
+        "lng": -77.5
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.32,
+      "confidence_reason": "wiki_only",
+      "notes": [
+        "police_non_priority_area"
+      ],
+      "note_summary": "Ecuador remains illegal in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "EG",
+      "entity_type": "country",
+      "country": "EG",
+      "region": null,
+      "display_name": "Egypt / مصر",
+      "coordinates": {
+        "lat": 27,
+        "lng": 30
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.38,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Egypt / مصر remains illegal in law, but small-scale enforcement is often low-priority.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "ER",
+      "entity_type": "country",
+      "country": "ER",
+      "region": null,
+      "display_name": "Eritrea / إريتريا",
+      "coordinates": {
+        "lat": 15,
+        "lng": 39
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Eritrea / إريتريا remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "EH",
+      "entity_type": "country",
+      "country": "EH",
+      "region": null,
+      "display_name": "Western Sahara / الصحراء الغربية",
+      "coordinates": {
+        "lat": 23.967592,
+        "lng": -12.630304
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Western Sahara / الصحراء الغربية remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "ES",
+      "entity_type": "country",
+      "country": "ES",
+      "region": null,
+      "display_name": "Spain / España",
+      "coordinates": {
+        "lat": 40.4637,
+        "lng": -3.7492
+      },
+      "base_status": "green",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.02,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Spain / España remains legal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "EE",
+      "entity_type": "country",
+      "country": "EE",
+      "region": null,
+      "display_name": "Estonia / Eesti",
+      "coordinates": {
+        "lat": 59,
+        "lng": 26
+      },
+      "base_status": "green",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.5,
+      "confidence_reason": "wiki_only",
+      "notes": [
+        "police_non_priority_area"
+      ],
+      "note_summary": "Estonia / Eesti remains legal in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "ET",
+      "entity_type": "country",
+      "country": "ET",
+      "region": null,
+      "display_name": "Ethiopia / ኢትዮጵያ",
+      "coordinates": {
+        "lat": 8,
+        "lng": 38
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Ethiopia / ኢትዮጵያ remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "FI",
+      "entity_type": "country",
+      "country": "FI",
+      "region": null,
+      "display_name": "Finland / Suomi",
+      "coordinates": {
+        "lat": 64,
+        "lng": 26
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.5,
+      "confidence_reason": "wiki_only",
+      "notes": [
+        "police_non_priority_area"
+      ],
+      "note_summary": "Finland / Suomi remains illegal in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "FJ",
+      "entity_type": "country",
+      "country": "FJ",
+      "region": null,
+      "display_name": "Fiji / Viti",
+      "coordinates": {
+        "lat": -18,
+        "lng": 175
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Fiji / Viti remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "FK",
+      "entity_type": "country",
+      "country": "FK",
+      "region": null,
+      "display_name": "Falkland Islands",
+      "coordinates": {
+        "lat": -51.608913,
+        "lng": -58.738602
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Falkland Islands remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "FR",
+      "entity_type": "country",
+      "country": "FR",
+      "region": null,
+      "display_name": "France",
+      "coordinates": {
+        "lat": 46.2276,
+        "lng": 2.2137
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.5,
+      "confidence_reason": "wiki_only",
+      "notes": [
+        "police_non_priority_area"
+      ],
+      "note_summary": "France remains illegal in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "FO",
+      "entity_type": "country",
+      "country": "FO",
+      "region": null,
+      "display_name": "Faroe Islands / Færøerne",
+      "coordinates": {
+        "lat": 62.185604,
+        "lng": -7.058429
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Faroe Islands / Færøerne remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "FM",
+      "entity_type": "country",
+      "country": "FM",
+      "region": null,
+      "display_name": "Micronesia",
+      "coordinates": {
+        "lat": 6.91666666,
+        "lng": 158.25
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Micronesia remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "GA",
+      "entity_type": "country",
+      "country": "GA",
+      "region": null,
+      "display_name": "Gabon",
+      "coordinates": {
+        "lat": -1,
+        "lng": 11.75
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Gabon remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "GB",
+      "entity_type": "country",
+      "country": "GB",
+      "region": null,
+      "display_name": "United Kingdom",
+      "coordinates": {
+        "lat": 54,
+        "lng": -2
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "United Kingdom remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "GE",
+      "entity_type": "country",
+      "country": "GE",
+      "region": null,
+      "display_name": "Georgia / საქართველო",
+      "coordinates": {
+        "lat": 42,
+        "lng": 43.5
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.32,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Georgia / საქართველო remains decriminalized in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "GG",
+      "entity_type": "country",
+      "country": "GG",
+      "region": null,
+      "display_name": "Guernsey / Guernesey",
+      "coordinates": {
+        "lat": 49.463533,
+        "lng": -2.561736
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Guernsey / Guernesey remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "GH",
+      "entity_type": "country",
+      "country": "GH",
+      "region": null,
+      "display_name": "Ghana",
+      "coordinates": {
+        "lat": 8,
+        "lng": -2
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Ghana remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "GI",
+      "entity_type": "country",
+      "country": "GI",
+      "region": null,
+      "display_name": "Gibraltar",
+      "coordinates": {
+        "lat": 36.129426,
+        "lng": -5.3467
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Gibraltar remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "GN",
+      "entity_type": "country",
+      "country": "GN",
+      "region": null,
+      "display_name": "Guinea / Guinée",
+      "coordinates": {
+        "lat": 11,
+        "lng": -10
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Guinea / Guinée remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "GM",
+      "entity_type": "country",
+      "country": "GM",
+      "region": null,
+      "display_name": "Gambia",
+      "coordinates": {
+        "lat": 13.46666666,
+        "lng": -16.56666666
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Gambia remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "GW",
+      "entity_type": "country",
+      "country": "GW",
+      "region": null,
+      "display_name": "Guinea-Bissau / Guiné-Bissau",
+      "coordinates": {
+        "lat": 12,
+        "lng": -15
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Guinea-Bissau / Guiné-Bissau remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "GQ",
+      "entity_type": "country",
+      "country": "GQ",
+      "region": null,
+      "display_name": "Equatorial Guinea / Guinée équatoriale",
+      "coordinates": {
+        "lat": 2,
+        "lng": 10
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Equatorial Guinea / Guinée équatoriale remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "GR",
+      "entity_type": "country",
+      "country": "GR",
+      "region": null,
+      "display_name": "Greece / Ελλάδα",
+      "coordinates": {
+        "lat": 39,
+        "lng": 22
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Greece / Ελλάδα remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "GD",
+      "entity_type": "country",
+      "country": "GD",
+      "region": null,
+      "display_name": "Grenada",
+      "coordinates": {
+        "lat": 12.11666666,
+        "lng": -61.66666666
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Grenada remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "GL",
+      "entity_type": "country",
+      "country": "GL",
+      "region": null,
+      "display_name": "Greenland / Kalaallit Nunaat",
+      "coordinates": {
+        "lat": 72,
+        "lng": -40
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Greenland / Kalaallit Nunaat remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "GT",
+      "entity_type": "country",
+      "country": "GT",
+      "region": null,
+      "display_name": "Guatemala",
+      "coordinates": {
+        "lat": 15.5,
+        "lng": -90.25
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Guatemala remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "GU",
+      "entity_type": "country",
+      "country": "GU",
+      "region": null,
+      "display_name": "Guam / Guåhån",
+      "coordinates": {
+        "lat": 13.354173,
+        "lng": 144.703614
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Guam / Guåhån remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "GY",
+      "entity_type": "country",
+      "country": "GY",
+      "region": null,
+      "display_name": "Guyana",
+      "coordinates": {
+        "lat": 5,
+        "lng": -59
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Guyana remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "HK",
+      "entity_type": "country",
+      "country": "HK",
+      "region": null,
+      "display_name": "Hong Kong / 香港",
+      "coordinates": {
+        "lat": 22.267,
+        "lng": 114.188
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Hong Kong / 香港 remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "HM",
+      "entity_type": "country",
+      "country": "HM",
+      "region": null,
+      "display_name": "Heard Island and McDonald Islands",
+      "coordinates": {
+        "lat": -53.103462,
+        "lng": 73.50521
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Heard Island and McDonald Islands remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "HN",
+      "entity_type": "country",
+      "country": "HN",
+      "region": null,
+      "display_name": "Honduras",
+      "coordinates": {
+        "lat": 15,
+        "lng": -86.5
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Honduras remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "HR",
+      "entity_type": "country",
+      "country": "HR",
+      "region": null,
+      "display_name": "Croatia / Hrvatska",
+      "coordinates": {
+        "lat": 45.16666666,
+        "lng": 15.5
+      },
+      "base_status": "green",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Croatia / Hrvatska remains legal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "HT",
+      "entity_type": "country",
+      "country": "HT",
+      "region": null,
+      "display_name": "Haiti / Haïti",
+      "coordinates": {
+        "lat": 19,
+        "lng": -72.41666666
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Haiti / Haïti remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "HU",
+      "entity_type": "country",
+      "country": "HU",
+      "region": null,
+      "display_name": "Hungary / Magyarország",
+      "coordinates": {
+        "lat": 47,
+        "lng": 20
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Hungary / Magyarország remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "ID",
+      "entity_type": "country",
+      "country": "ID",
+      "region": null,
+      "display_name": "Indonesia",
+      "coordinates": {
+        "lat": -5,
+        "lng": 120
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.28,
+      "confidence_reason": "signal_only",
+      "notes": [
+        "tourism_tolerated_use"
+      ],
+      "note_summary": "Cannabis remains illegal in Indonesia and strong enforcement dominates, with only weak tourism-related tolerance signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "IM",
+      "entity_type": "country",
+      "country": "IM",
+      "region": null,
+      "display_name": "Isle of Man / Mannin",
+      "coordinates": {
+        "lat": 54.220833,
+        "lng": -4.530069
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Isle of Man / Mannin remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "IN",
+      "entity_type": "country",
+      "country": "IN",
+      "region": null,
+      "display_name": "India / भारत",
+      "coordinates": {
+        "lat": 20,
+        "lng": 77
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": true,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.61,
+      "confidence_reason": "mixed_conflict",
+      "notes": [
+        "enforcement_varies_by_region",
+        "event_based",
+        "tourism_tolerated_use"
+      ],
+      "note_summary": "Cannabis rules remain restrictive in India overall, but enforcement varies by region and social tolerance persists in specific contexts.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "IO",
+      "entity_type": "country",
+      "country": "IO",
+      "region": null,
+      "display_name": "British Indian Ocean Territory",
+      "coordinates": {
+        "lat": -6.190826,
+        "lng": 71.348349
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "British Indian Ocean Territory remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "IE",
+      "entity_type": "country",
+      "country": "IE",
+      "region": null,
+      "display_name": "Ireland / Éire",
+      "coordinates": {
+        "lat": 53,
+        "lng": -8
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.5,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Ireland / Éire remains decriminalized in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "IR",
+      "entity_type": "country",
+      "country": "IR",
+      "region": null,
+      "display_name": "Iran / ایران",
+      "coordinates": {
+        "lat": 32,
+        "lng": 53
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.38,
+      "confidence_reason": "wiki_only",
+      "notes": [
+        "police_non_priority_area",
+        "enforcement_varies_by_region"
+      ],
+      "note_summary": "Iran / ایران remains illegal in law, but small-scale enforcement is often low-priority.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "IQ",
+      "entity_type": "country",
+      "country": "IQ",
+      "region": null,
+      "display_name": "Iraq / العراق",
+      "coordinates": {
+        "lat": 33,
+        "lng": 44
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Iraq / العراق remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "IS",
+      "entity_type": "country",
+      "country": "IS",
+      "region": null,
+      "display_name": "Iceland / Ísland",
+      "coordinates": {
+        "lat": 65,
+        "lng": -18
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.38,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Iceland / Ísland remains illegal in law, but small-scale enforcement is often low-priority.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "IL",
+      "entity_type": "country",
+      "country": "IL",
+      "region": null,
+      "display_name": "Israel / إسرائيل",
+      "coordinates": {
+        "lat": 31.47,
+        "lng": 35.13
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.32,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Israel / إسرائيل remains decriminalized in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "IT",
+      "entity_type": "country",
+      "country": "IT",
+      "region": null,
+      "display_name": "Italy / Italia",
+      "coordinates": {
+        "lat": 41.8719,
+        "lng": 12.5674
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.14,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Italy / Italia remains decriminalized in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "JM",
+      "entity_type": "country",
+      "country": "JM",
+      "region": null,
+      "display_name": "Jamaica",
+      "coordinates": {
+        "lat": 18.25,
+        "lng": -77.5
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.5,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Jamaica remains decriminalized in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "JE",
+      "entity_type": "country",
+      "country": "JE",
+      "region": null,
+      "display_name": "Jersey / Jèrri",
+      "coordinates": {
+        "lat": 49.220808,
+        "lng": -2.090146
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Jersey / Jèrri remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "JO",
+      "entity_type": "country",
+      "country": "JO",
+      "region": null,
+      "display_name": "Jordan / الأردن",
+      "coordinates": {
+        "lat": 31,
+        "lng": 36
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Jordan / الأردن remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "JP",
+      "entity_type": "country",
+      "country": "JP",
+      "region": null,
+      "display_name": "Japan / 日本",
+      "coordinates": {
+        "lat": 36,
+        "lng": 138
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Cannabis remains illegal in Japan and social-reality signals stay weak compared with formal enforcement.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "KZ",
+      "entity_type": "country",
+      "country": "KZ",
+      "region": null,
+      "display_name": "Kazakhstan / Қазақстан",
+      "coordinates": {
+        "lat": 48,
+        "lng": 68
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Kazakhstan / Қазақстан remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "KE",
+      "entity_type": "country",
+      "country": "KE",
+      "region": null,
+      "display_name": "Kenya",
+      "coordinates": {
+        "lat": 1,
+        "lng": 38
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Kenya remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "KG",
+      "entity_type": "country",
+      "country": "KG",
+      "region": null,
+      "display_name": "Kyrgyzstan / Кыргызстан",
+      "coordinates": {
+        "lat": 41,
+        "lng": 75
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Kyrgyzstan / Кыргызстан remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "KH",
+      "entity_type": "country",
+      "country": "KH",
+      "region": null,
+      "display_name": "Cambodia / Kâmpŭchéa",
+      "coordinates": {
+        "lat": 13,
+        "lng": 105
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.38,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Cambodia / Kâmpŭchéa remains illegal in law, but small-scale enforcement is often low-priority.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "KI",
+      "entity_type": "country",
+      "country": "KI",
+      "region": null,
+      "display_name": "Kiribati",
+      "coordinates": {
+        "lat": 1.41666666,
+        "lng": 173
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Kiribati remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "KN",
+      "entity_type": "country",
+      "country": "KN",
+      "region": null,
+      "display_name": "Saint Kitts and Nevis",
+      "coordinates": {
+        "lat": 17.33333333,
+        "lng": -62.75
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.32,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Saint Kitts and Nevis remains decriminalized in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "KR",
+      "entity_type": "country",
+      "country": "KR",
+      "region": null,
+      "display_name": "South Korea / 한국",
+      "coordinates": {
+        "lat": 37,
+        "lng": 127.5
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "South Korea / 한국 remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "KW",
+      "entity_type": "country",
+      "country": "KW",
+      "region": null,
+      "display_name": "Kuwait / الكويت",
+      "coordinates": {
+        "lat": 29.5,
+        "lng": 45.75
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Kuwait / الكويت remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "LA",
+      "entity_type": "country",
+      "country": "LA",
+      "region": null,
+      "display_name": "Laos / ສປປລາວ",
+      "coordinates": {
+        "lat": 18,
+        "lng": 105
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.38,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Laos / ສປປລາວ remains illegal in law, but small-scale enforcement is often low-priority.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "LB",
+      "entity_type": "country",
+      "country": "LB",
+      "region": null,
+      "display_name": "Lebanon / لبنان",
+      "coordinates": {
+        "lat": 33.83333333,
+        "lng": 35.83333333
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.57,
+      "confidence_reason": "mixed_conflict",
+      "notes": [
+        "enforcement_varies_by_region",
+        "informal_tolerance_zones"
+      ],
+      "note_summary": "Cannabis remains illegal in Lebanon for recreational use, but enforcement varies and cultivation tolerance signals persist in some areas.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "LR",
+      "entity_type": "country",
+      "country": "LR",
+      "region": null,
+      "display_name": "Liberia",
+      "coordinates": {
+        "lat": 6.5,
+        "lng": -9.5
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Liberia remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "LY",
+      "entity_type": "country",
+      "country": "LY",
+      "region": null,
+      "display_name": "Libya / ليبيا",
+      "coordinates": {
+        "lat": 25,
+        "lng": 17
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Libya / ليبيا remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "LC",
+      "entity_type": "country",
+      "country": "LC",
+      "region": null,
+      "display_name": "Saint Lucia",
+      "coordinates": {
+        "lat": 13.88333333,
+        "lng": -60.96666666
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.32,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Saint Lucia remains decriminalized in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "LI",
+      "entity_type": "country",
+      "country": "LI",
+      "region": null,
+      "display_name": "Liechtenstein",
+      "coordinates": {
+        "lat": 47.26666666,
+        "lng": 9.53333333
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Liechtenstein remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "LK",
+      "entity_type": "country",
+      "country": "LK",
+      "region": null,
+      "display_name": "Sri Lanka / ශ්‍රී ලංකාව",
+      "coordinates": {
+        "lat": 7,
+        "lng": 81
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.5,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Sri Lanka / ශ්‍රී ලංකාව remains decriminalized in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "LS",
+      "entity_type": "country",
+      "country": "LS",
+      "region": null,
+      "display_name": "Lesotho",
+      "coordinates": {
+        "lat": -29.5,
+        "lng": 28.5
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Lesotho remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "LT",
+      "entity_type": "country",
+      "country": "LT",
+      "region": null,
+      "display_name": "Lithuania / Lietuva",
+      "coordinates": {
+        "lat": 56,
+        "lng": 24
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Lithuania / Lietuva remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "LU",
+      "entity_type": "country",
+      "country": "LU",
+      "region": null,
+      "display_name": "Luxembourg / Luxemburg",
+      "coordinates": {
+        "lat": 49.75,
+        "lng": 6.16666666
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.5,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Luxembourg / Luxemburg remains decriminalized in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "LV",
+      "entity_type": "country",
+      "country": "LV",
+      "region": null,
+      "display_name": "Latvia / Latvija",
+      "coordinates": {
+        "lat": 57,
+        "lng": 25
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.5,
+      "confidence_reason": "wiki_only",
+      "notes": [
+        "police_non_priority_area"
+      ],
+      "note_summary": "Latvia / Latvija remains illegal in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "MO",
+      "entity_type": "country",
+      "country": "MO",
+      "region": null,
+      "display_name": "Macau / 澳门",
+      "coordinates": {
+        "lat": 22.16666666,
+        "lng": 113.55
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Macau / 澳门 remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "MF",
+      "entity_type": "country",
+      "country": "MF",
+      "region": null,
+      "display_name": "Saint Martin",
+      "coordinates": {
+        "lat": 18.081302,
+        "lng": -63.049399
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Saint Martin remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "MA",
+      "entity_type": "country",
+      "country": "MA",
+      "region": null,
+      "display_name": "Morocco / المغرب",
+      "coordinates": {
+        "lat": 32,
+        "lng": -5
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": true,
+        "widely_used": true,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.66,
+      "confidence_reason": "mixed_conflict",
+      "notes": [
+        "informal_tolerance_zones",
+        "widely_used",
+        "police_non_priority_area"
+      ],
+      "note_summary": "Cannabis remains illegal in Morocco, but informal tolerance zones and low-enforcement cultivation signals are widely reported.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "MC",
+      "entity_type": "country",
+      "country": "MC",
+      "region": null,
+      "display_name": "Monaco",
+      "coordinates": {
+        "lat": 43.73333333,
+        "lng": 7.4
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Monaco remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "MD",
+      "entity_type": "country",
+      "country": "MD",
+      "region": null,
+      "display_name": "Moldova",
+      "coordinates": {
+        "lat": 47,
+        "lng": 29
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.32,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Moldova remains decriminalized in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "MG",
+      "entity_type": "country",
+      "country": "MG",
+      "region": null,
+      "display_name": "Madagascar / Madagasikara",
+      "coordinates": {
+        "lat": -20,
+        "lng": 47
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Madagascar / Madagasikara remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "MV",
+      "entity_type": "country",
+      "country": "MV",
+      "region": null,
+      "display_name": "Maldives / ދިވެހިރާއްޖޭގެ",
+      "coordinates": {
+        "lat": 3.25,
+        "lng": 73
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Maldives / ދިވެހިރާއްޖޭގެ remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "MX",
+      "entity_type": "country",
+      "country": "MX",
+      "region": null,
+      "display_name": "Mexico / México",
+      "coordinates": {
+        "lat": 23,
+        "lng": -102
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.5,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Mexico / México remains decriminalized in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "MH",
+      "entity_type": "country",
+      "country": "MH",
+      "region": null,
+      "display_name": "Marshall Islands / M̧ajeļ",
+      "coordinates": {
+        "lat": 9,
+        "lng": 168
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Marshall Islands / M̧ajeļ remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "MK",
+      "entity_type": "country",
+      "country": "MK",
+      "region": null,
+      "display_name": "North Macedonia / Македонија",
+      "coordinates": {
+        "lat": 41.83333333,
+        "lng": 22
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "North Macedonia / Македонија remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "ML",
+      "entity_type": "country",
+      "country": "ML",
+      "region": null,
+      "display_name": "Mali",
+      "coordinates": {
+        "lat": 17,
+        "lng": -4
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Mali remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "MT",
+      "entity_type": "country",
+      "country": "MT",
+      "region": null,
+      "display_name": "Malta",
+      "coordinates": {
+        "lat": 35.83333333,
+        "lng": 14.58333333
+      },
+      "base_status": "green",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.32,
+      "confidence_reason": "wiki_only",
+      "notes": [
+        "police_non_priority_area"
+      ],
+      "note_summary": "Malta remains legal in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "MM",
+      "entity_type": "country",
+      "country": "MM",
+      "region": null,
+      "display_name": "Myanmar / မြန်မာ",
+      "coordinates": {
+        "lat": 22,
+        "lng": 98
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.58,
+      "confidence_reason": "signal_only",
+      "notes": [
+        "enforcement_varies_by_region",
+        "police_non_priority_area"
+      ],
+      "note_summary": "Cannabis remains illegal in Myanmar, but enforcement signals are inconsistent and can be weak outside headline crackdowns.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "ME",
+      "entity_type": "country",
+      "country": "ME",
+      "region": null,
+      "display_name": "Montenegro / Црна Гора",
+      "coordinates": {
+        "lat": 42.5,
+        "lng": 19.3
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Montenegro / Црна Гора remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "MN",
+      "entity_type": "country",
+      "country": "MN",
+      "region": null,
+      "display_name": "Mongolia / Монгол улс",
+      "coordinates": {
+        "lat": 46,
+        "lng": 105
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Mongolia / Монгол улс remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "MP",
+      "entity_type": "country",
+      "country": "MP",
+      "region": null,
+      "display_name": "Northern Mariana Islands / Na Islas Mariånas",
+      "coordinates": {
+        "lat": 15.188188,
+        "lng": 145.734397
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Northern Mariana Islands / Na Islas Mariånas remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "MZ",
+      "entity_type": "country",
+      "country": "MZ",
+      "region": null,
+      "display_name": "Mozambique / Moçambique",
+      "coordinates": {
+        "lat": -18.25,
+        "lng": 35
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Mozambique / Moçambique remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "MR",
+      "entity_type": "country",
+      "country": "MR",
+      "region": null,
+      "display_name": "Mauritania / موريتانيا",
+      "coordinates": {
+        "lat": 20,
+        "lng": -12
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Mauritania / موريتانيا remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "MS",
+      "entity_type": "country",
+      "country": "MS",
+      "region": null,
+      "display_name": "Montserrat",
+      "coordinates": {
+        "lat": 16.73717,
+        "lng": -62.188252
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Montserrat remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "MU",
+      "entity_type": "country",
+      "country": "MU",
+      "region": null,
+      "display_name": "Mauritius / Maurice",
+      "coordinates": {
+        "lat": -20.28333333,
+        "lng": 57.55
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Mauritius / Maurice remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "MW",
+      "entity_type": "country",
+      "country": "MW",
+      "region": null,
+      "display_name": "Malawi / Malaŵi",
+      "coordinates": {
+        "lat": -13.5,
+        "lng": 34
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": true,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.32,
+      "confidence_reason": "wiki_only",
+      "notes": [
+        "nightlife_tolerated_use",
+        "tourism_tolerated_use"
+      ],
+      "note_summary": "Malawi / Malaŵi remains illegal in law, but social use signals remain visible in practice.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "MY",
+      "entity_type": "country",
+      "country": "MY",
+      "region": null,
+      "display_name": "Malaysia / مليسيا",
+      "coordinates": {
+        "lat": 2.5,
+        "lng": 112.5
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Malaysia / مليسيا remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "NA",
+      "entity_type": "country",
+      "country": "NA",
+      "region": null,
+      "display_name": "Namibia / Namibië",
+      "coordinates": {
+        "lat": -22,
+        "lng": 17
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Namibia / Namibië remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "NC",
+      "entity_type": "country",
+      "country": "NC",
+      "region": null,
+      "display_name": "New Caledonia / Nouvelle-Calédonie",
+      "coordinates": {
+        "lat": -21.064697,
+        "lng": 165.084004
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "New Caledonia / Nouvelle-Calédonie remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "NE",
+      "entity_type": "country",
+      "country": "NE",
+      "region": null,
+      "display_name": "Niger",
+      "coordinates": {
+        "lat": 16,
+        "lng": 8
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Niger remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "NF",
+      "entity_type": "country",
+      "country": "NF",
+      "region": null,
+      "display_name": "Norfolk Island / Norf'k Ailen",
+      "coordinates": {
+        "lat": -29.033042,
+        "lng": 167.954531
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Norfolk Island / Norf'k Ailen remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "NG",
+      "entity_type": "country",
+      "country": "NG",
+      "region": null,
+      "display_name": "Nigeria",
+      "coordinates": {
+        "lat": 10,
+        "lng": 8
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": true,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.59,
+      "confidence_reason": "mixed_conflict",
+      "notes": [
+        "widely_used",
+        "police_non_priority_area"
+      ],
+      "note_summary": "Cannabis remains illegal in Nigeria, but urban usage and low-priority enforcement signals appear in practice.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "NI",
+      "entity_type": "country",
+      "country": "NI",
+      "region": null,
+      "display_name": "Nicaragua",
+      "coordinates": {
+        "lat": 13,
+        "lng": -85
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Nicaragua remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "NU",
+      "entity_type": "country",
+      "country": "NU",
+      "region": null,
+      "display_name": "Niue / Niuē",
+      "coordinates": {
+        "lat": -19.045956,
+        "lng": -169.862565
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Niue / Niuē remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "NL",
+      "entity_type": "country",
+      "country": "NL",
+      "region": null,
+      "display_name": "Netherlands / Nederland",
+      "coordinates": {
+        "lat": 52.1326,
+        "lng": 5.2913
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": true,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.6,
+      "confidence_reason": "mixed_conflict",
+      "notes": [
+        "de_facto_legal_in_practice",
+        "informal_tolerance_zones"
+      ],
+      "note_summary": "Netherlands / Nederland remains tolerated in law, but use is tolerated in practice.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "NO",
+      "entity_type": "country",
+      "country": "NO",
+      "region": null,
+      "display_name": "Norway / Noreg",
+      "coordinates": {
+        "lat": 62,
+        "lng": 10
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.5,
+      "confidence_reason": "wiki_only",
+      "notes": [
+        "police_non_priority_area"
+      ],
+      "note_summary": "Norway / Noreg remains decriminalized in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "NP",
+      "entity_type": "country",
+      "country": "NP",
+      "region": null,
+      "display_name": "Nepal / नेपाल",
+      "coordinates": {
+        "lat": 28,
+        "lng": 84
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": true,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.57,
+      "confidence_reason": "signal_only",
+      "notes": [
+        "event_based",
+        "tourism_tolerated_use"
+      ],
+      "note_summary": "Cannabis remains illegal in Nepal, but event-based and cultural tolerance signals still appear around specific contexts.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "NR",
+      "entity_type": "country",
+      "country": "NR",
+      "region": null,
+      "display_name": "Nauru",
+      "coordinates": {
+        "lat": -0.53333333,
+        "lng": 166.91666666
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Nauru remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "NZ",
+      "entity_type": "country",
+      "country": "NZ",
+      "region": null,
+      "display_name": "New Zealand / Aotearoa",
+      "coordinates": {
+        "lat": -41,
+        "lng": 174
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "New Zealand / Aotearoa remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "OM",
+      "entity_type": "country",
+      "country": "OM",
+      "region": null,
+      "display_name": "Oman / عمان",
+      "coordinates": {
+        "lat": 21,
+        "lng": 57
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Oman / عمان remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "PK",
+      "entity_type": "country",
+      "country": "PK",
+      "region": null,
+      "display_name": "Pakistan / پاكستان",
+      "coordinates": {
+        "lat": 30,
+        "lng": 70
+      },
+      "base_status": "green",
+      "signals": {
+        "tolerated": true,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.6,
+      "confidence_reason": "mixed_conflict",
+      "notes": [
+        "de_facto_legal_in_practice",
+        "informal_tolerance_zones"
+      ],
+      "note_summary": "Pakistan / پاكستان remains legal in law, but use is tolerated in practice.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "PA",
+      "entity_type": "country",
+      "country": "PA",
+      "region": null,
+      "display_name": "Panama / Panamá",
+      "coordinates": {
+        "lat": 9,
+        "lng": -80
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Panama / Panamá remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "PN",
+      "entity_type": "country",
+      "country": "PN",
+      "region": null,
+      "display_name": "Pitcairn Islands",
+      "coordinates": {
+        "lat": -24.364576,
+        "lng": -128.317536
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Pitcairn Islands remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "PE",
+      "entity_type": "country",
+      "country": "PE",
+      "region": null,
+      "display_name": "Peru / Piruw",
+      "coordinates": {
+        "lat": -10,
+        "lng": -76
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.32,
+      "confidence_reason": "wiki_only",
+      "notes": [
+        "police_non_priority_area"
+      ],
+      "note_summary": "Peru / Piruw remains decriminalized in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "PH",
+      "entity_type": "country",
+      "country": "PH",
+      "region": null,
+      "display_name": "Philippines / Pilipinas",
+      "coordinates": {
+        "lat": 13,
+        "lng": 122
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Philippines / Pilipinas remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "PW",
+      "entity_type": "country",
+      "country": "PW",
+      "region": null,
+      "display_name": "Palau / Belau",
+      "coordinates": {
+        "lat": 7.5,
+        "lng": 134.5
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Palau / Belau remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "PG",
+      "entity_type": "country",
+      "country": "PG",
+      "region": null,
+      "display_name": "Papua New Guinea / Papua Niu Gini",
+      "coordinates": {
+        "lat": -6,
+        "lng": 147
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Papua New Guinea / Papua Niu Gini remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "PL",
+      "entity_type": "country",
+      "country": "PL",
+      "region": null,
+      "display_name": "Poland / Polska",
+      "coordinates": {
+        "lat": 52,
+        "lng": 20
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Poland / Polska remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "PR",
+      "entity_type": "country",
+      "country": "PR",
+      "region": null,
+      "display_name": "Puerto Rico",
+      "coordinates": {
+        "lat": 18.234668,
+        "lng": -66.481065
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Puerto Rico remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "KP",
+      "entity_type": "country",
+      "country": "KP",
+      "region": null,
+      "display_name": "North Korea / 조선",
+      "coordinates": {
+        "lat": 40,
+        "lng": 127
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": true,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.62,
+      "confidence_reason": "multi_source",
+      "notes": [
+        "police_non_priority_area",
+        "enforcement_varies_by_region",
+        "nightlife_tolerated_use",
+        "tourism_tolerated_use"
+      ],
+      "note_summary": "North Korea / 조선 remains illegal in law, but small-scale enforcement is often low-priority.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "PT",
+      "entity_type": "country",
+      "country": "PT",
+      "region": null,
+      "display_name": "Portugal",
+      "coordinates": {
+        "lat": 39.3999,
+        "lng": -8.2245
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.5,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Portugal remains decriminalized in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "PY",
+      "entity_type": "country",
+      "country": "PY",
+      "region": null,
+      "display_name": "Paraguay / Paraguái",
+      "coordinates": {
+        "lat": -23,
+        "lng": -58
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.32,
+      "confidence_reason": "wiki_only",
+      "notes": [
+        "police_non_priority_area"
+      ],
+      "note_summary": "Paraguay / Paraguái remains decriminalized in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "PS",
+      "entity_type": "country",
+      "country": "PS",
+      "region": null,
+      "display_name": "Palestine / فلسطين",
+      "coordinates": {
+        "lat": 32.047431,
+        "lng": 35.291341
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Palestine / فلسطين remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "PF",
+      "entity_type": "country",
+      "country": "PF",
+      "region": null,
+      "display_name": "French Polynesia / Polynésie française",
+      "coordinates": {
+        "lat": -17.628081,
+        "lng": -149.46157
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "French Polynesia / Polynésie française remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "QA",
+      "entity_type": "country",
+      "country": "QA",
+      "region": null,
+      "display_name": "Qatar / قطر",
+      "coordinates": {
+        "lat": 25.5,
+        "lng": 51.25
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Qatar / قطر remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "RO",
+      "entity_type": "country",
+      "country": "RO",
+      "region": null,
+      "display_name": "Romania / România",
+      "coordinates": {
+        "lat": 46,
+        "lng": 25
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.32,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Romania / România remains decriminalized in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "RU",
+      "entity_type": "country",
+      "country": "RU",
+      "region": null,
+      "display_name": "Russia / Россия",
+      "coordinates": {
+        "lat": 60,
+        "lng": 100
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.32,
+      "confidence_reason": "wiki_only",
+      "notes": [
+        "police_non_priority_area"
+      ],
+      "note_summary": "Russia / Россия remains illegal in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "RW",
+      "entity_type": "country",
+      "country": "RW",
+      "region": null,
+      "display_name": "Rwanda",
+      "coordinates": {
+        "lat": -2,
+        "lng": 30
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Rwanda remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "SA",
+      "entity_type": "country",
+      "country": "SA",
+      "region": null,
+      "display_name": "Saudi Arabia / السعودية",
+      "coordinates": {
+        "lat": 25,
+        "lng": 45
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.02,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Saudi Arabia / السعودية remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "SD",
+      "entity_type": "country",
+      "country": "SD",
+      "region": null,
+      "display_name": "Sudan / السودان",
+      "coordinates": {
+        "lat": 15,
+        "lng": 30
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Sudan / السودان remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "SN",
+      "entity_type": "country",
+      "country": "SN",
+      "region": null,
+      "display_name": "Senegal / Sénégal",
+      "coordinates": {
+        "lat": 14,
+        "lng": -14
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Senegal / Sénégal remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "SG",
+      "entity_type": "country",
+      "country": "SG",
+      "region": null,
+      "display_name": "Singapore / Singapura",
+      "coordinates": {
+        "lat": 1.36666666,
+        "lng": 103.8
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Singapore / Singapura remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "GS",
+      "entity_type": "country",
+      "country": "GS",
+      "region": null,
+      "display_name": "South Georgia",
+      "coordinates": {
+        "lat": -55.683402,
+        "lng": -31.063179
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "South Georgia remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "SH",
+      "entity_type": "country",
+      "country": "SH",
+      "region": null,
+      "display_name": "Saint Helena, Ascension and Tristan da Cunha",
+      "coordinates": {
+        "lat": -15.950487,
+        "lng": -5.71262
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Saint Helena, Ascension and Tristan da Cunha remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "SB",
+      "entity_type": "country",
+      "country": "SB",
+      "region": null,
+      "display_name": "Solomon Islands",
+      "coordinates": {
+        "lat": -8,
+        "lng": 159
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Solomon Islands remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "SL",
+      "entity_type": "country",
+      "country": "SL",
+      "region": null,
+      "display_name": "Sierra Leone",
+      "coordinates": {
+        "lat": 8.5,
+        "lng": -11.5
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Sierra Leone remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "SV",
+      "entity_type": "country",
+      "country": "SV",
+      "region": null,
+      "display_name": "El Salvador",
+      "coordinates": {
+        "lat": 13.83333333,
+        "lng": -88.91666666
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "El Salvador remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "SM",
+      "entity_type": "country",
+      "country": "SM",
+      "region": null,
+      "display_name": "San Marino",
+      "coordinates": {
+        "lat": 43.76666666,
+        "lng": 12.41666666
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "San Marino remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "SO",
+      "entity_type": "country",
+      "country": "SO",
+      "region": null,
+      "display_name": "Somalia / الصومال",
+      "coordinates": {
+        "lat": 10,
+        "lng": 49
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Somalia / الصومال remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "PM",
+      "entity_type": "country",
+      "country": "PM",
+      "region": null,
+      "display_name": "Saint Pierre and Miquelon / Saint-Pierre-et-Miquelon",
+      "coordinates": {
+        "lat": 47.040344,
+        "lng": -56.332352
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Saint Pierre and Miquelon / Saint-Pierre-et-Miquelon remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "RS",
+      "entity_type": "country",
+      "country": "RS",
+      "region": null,
+      "display_name": "Serbia / Србија",
+      "coordinates": {
+        "lat": 44,
+        "lng": 21
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Serbia / Србија remains illegal in law, but small-scale enforcement is often low-priority.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "SS",
+      "entity_type": "country",
+      "country": "SS",
+      "region": null,
+      "display_name": "South Sudan",
+      "coordinates": {
+        "lat": 7,
+        "lng": 30
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "South Sudan remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "ST",
+      "entity_type": "country",
+      "country": "ST",
+      "region": null,
+      "display_name": "São Tomé and Príncipe / São Tomé e Príncipe",
+      "coordinates": {
+        "lat": 1,
+        "lng": 7
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "São Tomé and Príncipe / São Tomé e Príncipe remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "SR",
+      "entity_type": "country",
+      "country": "SR",
+      "region": null,
+      "display_name": "Suriname",
+      "coordinates": {
+        "lat": 4,
+        "lng": -56
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Suriname remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "SK",
+      "entity_type": "country",
+      "country": "SK",
+      "region": null,
+      "display_name": "Slovakia / Slovensko",
+      "coordinates": {
+        "lat": 48.66666666,
+        "lng": 19.5
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.02,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Slovakia / Slovensko remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "SI",
+      "entity_type": "country",
+      "country": "SI",
+      "region": null,
+      "display_name": "Slovenia / Slovenija",
+      "coordinates": {
+        "lat": 46.11666666,
+        "lng": 14.81666666
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.5,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Slovenia / Slovenija remains decriminalized in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "SE",
+      "entity_type": "country",
+      "country": "SE",
+      "region": null,
+      "display_name": "Sweden / Sverige",
+      "coordinates": {
+        "lat": 62,
+        "lng": 15
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.02,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Sweden / Sverige remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "SZ",
+      "entity_type": "country",
+      "country": "SZ",
+      "region": null,
+      "display_name": "Eswatini",
+      "coordinates": {
+        "lat": -26.5,
+        "lng": 31.5
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Eswatini remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "SX",
+      "entity_type": "country",
+      "country": "SX",
+      "region": null,
+      "display_name": "Sint Maarten / Saint-Martin",
+      "coordinates": {
+        "lat": 18.04088,
+        "lng": -63.070133
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Sint Maarten / Saint-Martin remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "SC",
+      "entity_type": "country",
+      "country": "SC",
+      "region": null,
+      "display_name": "Seychelles / Sesel",
+      "coordinates": {
+        "lat": -4.58333333,
+        "lng": 55.66666666
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Seychelles / Sesel remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "SY",
+      "entity_type": "country",
+      "country": "SY",
+      "region": null,
+      "display_name": "Syria / سوريا",
+      "coordinates": {
+        "lat": 35,
+        "lng": 38
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.38,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Syria / سوريا remains illegal in law, but small-scale enforcement is often low-priority.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "TC",
+      "entity_type": "country",
+      "country": "TC",
+      "region": null,
+      "display_name": "Turks and Caicos Islands",
+      "coordinates": {
+        "lat": 21.81663,
+        "lng": -71.752704
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Turks and Caicos Islands remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "TD",
+      "entity_type": "country",
+      "country": "TD",
+      "region": null,
+      "display_name": "Chad / تشاد",
+      "coordinates": {
+        "lat": 15,
+        "lng": 19
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Chad / تشاد remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "TG",
+      "entity_type": "country",
+      "country": "TG",
+      "region": null,
+      "display_name": "Togo",
+      "coordinates": {
+        "lat": 8,
+        "lng": 1.16666666
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Togo remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "TH",
+      "entity_type": "country",
+      "country": "TH",
+      "region": null,
+      "display_name": "Thailand / ประเทศไทย",
+      "coordinates": {
+        "lat": 15,
+        "lng": 100
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.38,
+      "confidence_reason": "wiki_only",
+      "notes": [
+        "police_non_priority_area",
+        "enforcement_varies_by_region"
+      ],
+      "note_summary": "Thailand / ประเทศไทย remains illegal in law, but small-scale enforcement is often low-priority.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "TJ",
+      "entity_type": "country",
+      "country": "TJ",
+      "region": null,
+      "display_name": "Tajikistan / Таджикистан",
+      "coordinates": {
+        "lat": 39,
+        "lng": 71
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Tajikistan / Таджикистан remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "TM",
+      "entity_type": "country",
+      "country": "TM",
+      "region": null,
+      "display_name": "Turkmenistan / Туркмения",
+      "coordinates": {
+        "lat": 40,
+        "lng": 60
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Turkmenistan / Туркмения remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "TL",
+      "entity_type": "country",
+      "country": "TL",
+      "region": null,
+      "display_name": "Timor-Leste / Timór-Leste",
+      "coordinates": {
+        "lat": -8.83333333,
+        "lng": 125.91666666
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Timor-Leste / Timór-Leste remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "TO",
+      "entity_type": "country",
+      "country": "TO",
+      "region": null,
+      "display_name": "Tonga",
+      "coordinates": {
+        "lat": -20,
+        "lng": -175
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Tonga remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "TT",
+      "entity_type": "country",
+      "country": "TT",
+      "region": null,
+      "display_name": "Trinidad and Tobago",
+      "coordinates": {
+        "lat": 11,
+        "lng": -61
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.5,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Trinidad and Tobago remains decriminalized in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "TN",
+      "entity_type": "country",
+      "country": "TN",
+      "region": null,
+      "display_name": "Tunisia / تونس",
+      "coordinates": {
+        "lat": 34,
+        "lng": 9
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Tunisia / تونس remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "TR",
+      "entity_type": "country",
+      "country": "TR",
+      "region": null,
+      "display_name": "Türkiye",
+      "coordinates": {
+        "lat": 39,
+        "lng": 35
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.02,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Türkiye remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "TV",
+      "entity_type": "country",
+      "country": "TV",
+      "region": null,
+      "display_name": "Tuvalu",
+      "coordinates": {
+        "lat": -8,
+        "lng": 178
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Tuvalu remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "TW",
+      "entity_type": "country",
+      "country": "TW",
+      "region": null,
+      "display_name": "Taiwan / 台灣",
+      "coordinates": {
+        "lat": 23.5,
+        "lng": 121
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.02,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Taiwan / 台灣 remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "TZ",
+      "entity_type": "country",
+      "country": "TZ",
+      "region": null,
+      "display_name": "Tanzania",
+      "coordinates": {
+        "lat": -6,
+        "lng": 35
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Tanzania remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "UG",
+      "entity_type": "country",
+      "country": "UG",
+      "region": null,
+      "display_name": "Uganda",
+      "coordinates": {
+        "lat": 1,
+        "lng": 32
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Uganda remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "UA",
+      "entity_type": "country",
+      "country": "UA",
+      "region": null,
+      "display_name": "Ukraine / Україна",
+      "coordinates": {
+        "lat": 49,
+        "lng": 32
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Ukraine / Україна remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "UM",
+      "entity_type": "country",
+      "country": "UM",
+      "region": null,
+      "display_name": "United States Minor Outlying Islands",
+      "coordinates": {
+        "lat": 19.285663,
+        "lng": 166.644535
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "United States Minor Outlying Islands remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "UY",
+      "entity_type": "country",
+      "country": "UY",
+      "region": null,
+      "display_name": "Uruguay",
+      "coordinates": {
+        "lat": -33,
+        "lng": -56
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Uruguay remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "US",
+      "entity_type": "country",
+      "country": "US",
+      "region": null,
+      "display_name": "United States",
+      "coordinates": {
+        "lat": 38,
+        "lng": -97
+      },
+      "base_status": "green",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "United States remains legal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "UZ",
+      "entity_type": "country",
+      "country": "UZ",
+      "region": null,
+      "display_name": "Uzbekistan / Узбекистан",
+      "coordinates": {
+        "lat": 41,
+        "lng": 64
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Uzbekistan / Узбекистан remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "VA",
+      "entity_type": "country",
+      "country": "VA",
+      "region": null,
+      "display_name": "Vatican City / Vaticano",
+      "coordinates": {
+        "lat": 41.9,
+        "lng": 12.45
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Vatican City / Vaticano remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "VC",
+      "entity_type": "country",
+      "country": "VC",
+      "region": null,
+      "display_name": "Saint Vincent and the Grenadines",
+      "coordinates": {
+        "lat": 13.25,
+        "lng": -61.2
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.32,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Saint Vincent and the Grenadines remains decriminalized in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "VE",
+      "entity_type": "country",
+      "country": "VE",
+      "region": null,
+      "display_name": "Venezuela",
+      "coordinates": {
+        "lat": 8,
+        "lng": -66
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.14,
+      "confidence_reason": "wiki_only",
+      "notes": [
+        "police_non_priority_area"
+      ],
+      "note_summary": "Venezuela remains illegal in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "VG",
+      "entity_type": "country",
+      "country": "VG",
+      "region": null,
+      "display_name": "British Virgin Islands",
+      "coordinates": {
+        "lat": 18.426606,
+        "lng": -64.63661
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "British Virgin Islands remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "VI",
+      "entity_type": "country",
+      "country": "VI",
+      "region": null,
+      "display_name": "United States Virgin Islands",
+      "coordinates": {
+        "lat": 17.746706,
+        "lng": -64.779172
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "United States Virgin Islands remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "VN",
+      "entity_type": "country",
+      "country": "VN",
+      "region": null,
+      "display_name": "Vietnam / Việt Nam",
+      "coordinates": {
+        "lat": 16.16666666,
+        "lng": 107.83333333
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Vietnam / Việt Nam remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "VU",
+      "entity_type": "country",
+      "country": "VU",
+      "region": null,
+      "display_name": "Vanuatu",
+      "coordinates": {
+        "lat": -16,
+        "lng": 167
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Vanuatu remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "WF",
+      "entity_type": "country",
+      "country": "WF",
+      "region": null,
+      "display_name": "Wallis and Futuna / Wallis et Futuna",
+      "coordinates": {
+        "lat": -14.286415,
+        "lng": -178.137436
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Wallis and Futuna / Wallis et Futuna remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "WS",
+      "entity_type": "country",
+      "country": "WS",
+      "region": null,
+      "display_name": "Samoa / Sāmoa",
+      "coordinates": {
+        "lat": -13.58333333,
+        "lng": -172.33333333
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Samoa / Sāmoa remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "YE",
+      "entity_type": "country",
+      "country": "YE",
+      "region": null,
+      "display_name": "Yemen / اليمن",
+      "coordinates": {
+        "lat": 15,
+        "lng": 48
+      },
+      "base_status": "red",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Yemen / اليمن remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "ZA",
+      "entity_type": "country",
+      "country": "ZA",
+      "region": null,
+      "display_name": "South Africa / Sewula Afrika",
+      "coordinates": {
+        "lat": -29,
+        "lng": 24
+      },
+      "base_status": "green",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "South Africa / Sewula Afrika remains legal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "ZM",
+      "entity_type": "country",
+      "country": "ZM",
+      "region": null,
+      "display_name": "Zambia",
+      "coordinates": {
+        "lat": -15,
+        "lng": 30
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Zambia remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "ZW",
+      "entity_type": "country",
+      "country": "ZW",
+      "region": null,
+      "display_name": "Zimbabwe",
+      "coordinates": {
+        "lat": -20,
+        "lng": 30
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": false,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.2,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "Zimbabwe remains illegal in law.",
+      "updated_at": "2026-04-10"
+    },
+    {
+      "id": "US-AZ",
+      "entity_type": "region",
+      "country": "US",
+      "region": "AZ",
+      "display_name": "United States (AZ)",
+      "coordinates": {
+        "lat": 34.0489,
+        "lng": -111.0937
+      },
+      "base_status": "green",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.38,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "United States (AZ) remains legal in law, but small-scale enforcement is often low-priority.",
+      "updated_at": "2024-01-01"
+    },
+    {
+      "id": "US-CA",
+      "entity_type": "region",
+      "country": "US",
+      "region": "CA",
+      "display_name": "United States (CA)",
+      "coordinates": {
+        "lat": 36.7783,
+        "lng": -119.4179
+      },
+      "base_status": "green",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.5,
+      "confidence_reason": "wiki_only",
+      "notes": [
+        "police_non_priority_area"
+      ],
+      "note_summary": "United States (CA) remains legal in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2025-12-14"
+    },
+    {
+      "id": "US-CO",
+      "entity_type": "region",
+      "country": "US",
+      "region": "CO",
+      "display_name": "United States (CO)",
+      "coordinates": {
+        "lat": 39.5501,
+        "lng": -105.7821
+      },
+      "base_status": "green",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.38,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "United States (CO) remains legal in law, but small-scale enforcement is often low-priority.",
+      "updated_at": "2024-01-01"
+    },
+    {
+      "id": "US-CT",
+      "entity_type": "region",
+      "country": "US",
+      "region": "CT",
+      "display_name": "United States (CT)",
+      "coordinates": {
+        "lat": 41.6032,
+        "lng": -73.0877
+      },
+      "base_status": "green",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.38,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "United States (CT) remains legal in law, but small-scale enforcement is often low-priority.",
+      "updated_at": "2024-01-01"
+    },
+    {
+      "id": "US-FL",
+      "entity_type": "region",
+      "country": "US",
+      "region": "FL",
+      "display_name": "United States (FL)",
+      "coordinates": {
+        "lat": 27.6648,
+        "lng": -81.5158
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.38,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "United States (FL) remains limited_legal in law, but small-scale enforcement is often low-priority.",
+      "updated_at": "2024-01-01"
+    },
+    {
+      "id": "US-IL",
+      "entity_type": "region",
+      "country": "US",
+      "region": "IL",
+      "display_name": "United States (IL)",
+      "coordinates": {
+        "lat": 40.6331,
+        "lng": -89.3985
+      },
+      "base_status": "green",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": true
+      },
+      "confidence_score": 0.5,
+      "confidence_reason": "wiki_only",
+      "notes": [
+        "police_non_priority_area"
+      ],
+      "note_summary": "United States (IL) remains legal in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals.",
+      "updated_at": "2024-01-01"
+    },
+    {
+      "id": "US-MA",
+      "entity_type": "region",
+      "country": "US",
+      "region": "MA",
+      "display_name": "United States (MA)",
+      "coordinates": {
+        "lat": 42.4072,
+        "lng": -71.3824
+      },
+      "base_status": "green",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.38,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "United States (MA) remains legal in law, but small-scale enforcement is often low-priority.",
+      "updated_at": "2024-01-01"
+    },
+    {
+      "id": "US-MI",
+      "entity_type": "region",
+      "country": "US",
+      "region": "MI",
+      "display_name": "United States (MI)",
+      "coordinates": {
+        "lat": 44.3148,
+        "lng": -85.6024
+      },
+      "base_status": "green",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.38,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "United States (MI) remains legal in law, but small-scale enforcement is often low-priority.",
+      "updated_at": "2024-01-01"
+    },
+    {
+      "id": "US-NJ",
+      "entity_type": "region",
+      "country": "US",
+      "region": "NJ",
+      "display_name": "United States (NJ)",
+      "coordinates": {
+        "lat": 40.0583,
+        "lng": -74.4057
+      },
+      "base_status": "green",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.38,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "United States (NJ) remains legal in law, but small-scale enforcement is often low-priority.",
+      "updated_at": "2024-01-01"
+    },
+    {
+      "id": "US-NV",
+      "entity_type": "region",
+      "country": "US",
+      "region": "NV",
+      "display_name": "United States (NV)",
+      "coordinates": {
+        "lat": 38.8026,
+        "lng": -116.4194
+      },
+      "base_status": "green",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.38,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "United States (NV) remains legal in law, but small-scale enforcement is often low-priority.",
+      "updated_at": "2024-01-01"
+    },
+    {
+      "id": "US-NY",
+      "entity_type": "region",
+      "country": "US",
+      "region": "NY",
+      "display_name": "United States (NY)",
+      "coordinates": {
+        "lat": 43,
+        "lng": -75
+      },
+      "base_status": "green",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.38,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "United States (NY) remains legal in law, but small-scale enforcement is often low-priority.",
+      "updated_at": "2024-01-01"
+    },
+    {
+      "id": "US-OH",
+      "entity_type": "region",
+      "country": "US",
+      "region": "OH",
+      "display_name": "United States (OH)",
+      "coordinates": {
+        "lat": 40.4173,
+        "lng": -82.9071
+      },
+      "base_status": "green",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.38,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "United States (OH) remains legal in law, but small-scale enforcement is often low-priority.",
+      "updated_at": "2024-01-01"
+    },
+    {
+      "id": "US-OR",
+      "entity_type": "region",
+      "country": "US",
+      "region": "OR",
+      "display_name": "United States (OR)",
+      "coordinates": {
+        "lat": 43.8041,
+        "lng": -120.5542
+      },
+      "base_status": "green",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.38,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "United States (OR) remains legal in law, but small-scale enforcement is often low-priority.",
+      "updated_at": "2024-01-01"
+    },
+    {
+      "id": "US-PA",
+      "entity_type": "region",
+      "country": "US",
+      "region": "PA",
+      "display_name": "United States (PA)",
+      "coordinates": {
+        "lat": 41.2033,
+        "lng": -77.1945
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.38,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "United States (PA) remains limited_legal in law, but small-scale enforcement is often low-priority.",
+      "updated_at": "2024-01-01"
+    },
+    {
+      "id": "US-TX",
+      "entity_type": "region",
+      "country": "US",
+      "region": "TX",
+      "display_name": "United States (TX)",
+      "coordinates": {
+        "lat": 31.9686,
+        "lng": -99.9018
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.38,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "United States (TX) remains illegal in law, but small-scale enforcement is often low-priority.",
+      "updated_at": "2024-01-01"
+    },
+    {
+      "id": "US-VA",
+      "entity_type": "region",
+      "country": "US",
+      "region": "VA",
+      "display_name": "United States (VA)",
+      "coordinates": {
+        "lat": 37.4316,
+        "lng": -78.6569
+      },
+      "base_status": "yellow",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.38,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "United States (VA) remains limited_legal in law, but small-scale enforcement is often low-priority.",
+      "updated_at": "2024-01-01"
+    },
+    {
+      "id": "US-WA",
+      "entity_type": "region",
+      "country": "US",
+      "region": "WA",
+      "display_name": "United States (WA)",
+      "coordinates": {
+        "lat": 47.7511,
+        "lng": -120.7401
+      },
+      "base_status": "green",
+      "signals": {
+        "tolerated": false,
+        "widely_used": false,
+        "low_enforcement": true,
+        "not_prosecuted_small_amount": false
+      },
+      "confidence_score": 0.38,
+      "confidence_reason": "signal_only",
+      "notes": [],
+      "note_summary": "United States (WA) remains legal in law, but small-scale enforcement is often low-priority.",
+      "updated_at": "2024-01-01"
+    }
+  ]
+}

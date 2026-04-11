@@ -9,7 +9,10 @@
     "start": "next start",
     "lint": "eslint . --max-warnings=0",
     "test": "vitest run",
-    "ui:e2e": "npx -y playwright test e2e/favicon.spec.ts e2e/map-render.spec.ts e2e/new-map.geo-perf.spec.ts e2e/new-map.geo.spec.ts e2e/new-map.popup.spec.ts e2e/new-map.preload.spec.ts",
+    "ui:e2e": "npx -y playwright test e2e/favicon.spec.ts e2e/map-render.spec.ts e2e/new-map.geo-perf.spec.ts e2e/new-map.geo.spec.ts e2e/new-map.popup.spec.ts e2e/new-map.preload.spec.ts e2e/us-state-route.spec.ts",
+    "pw:ui": "npx -y playwright test --ui",
+    "pw:headed": "npx -y playwright test --headed",
+    "pw:state": "npx -y playwright test e2e/us-state-route.spec.ts --headed --project=webkit",
     "version:show": "cat ../../VERSION",
     "validate:laws": "node ../../tools/validate-laws.js"
   },

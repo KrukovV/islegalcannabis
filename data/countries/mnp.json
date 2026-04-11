@@ -1,0 +1,139 @@
+{
+  "code": "mnp",
+  "iso2": "MP",
+  "name": "Northern Mariana Islands / Na Islas Mariånas",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Northern Mariana Islands / Na Islas Mariånas. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Northern Mariana Islands / Na Islas Mariånas. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "No notes available.",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "gum",
+    "plw",
+    "fsm"
+  ],
+  "related_names": [
+    {
+      "code": "gum",
+      "name": "Guam / Guåhån"
+    },
+    {
+      "code": "plw",
+      "name": "Palau / Belau"
+    },
+    {
+      "code": "fsm",
+      "name": "Micronesia"
+    }
+  ],
+  "coordinates": {
+    "lat": 15.188188,
+    "lng": 145.734397
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Northern_Mariana_Islands",
+    "wiki_truth": null,
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Northern_Mariana_Islands",
+        "title": "Wikipedia: Northern Mariana Islands / Na Islas Mariånas",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "OCEANIA",
+    "seo_cluster": "OCEANIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "gum",
+        "name": "Guam / Guåhån"
+      },
+      {
+        "code": "plw",
+        "name": "Palau / Belau"
+      },
+      {
+        "code": "fsm",
+        "name": "Micronesia"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "png",
+        "name": "Papua New Guinea / Papua Niu Gini"
+      },
+      {
+        "code": "umi",
+        "name": "United States Minor Outlying Islands"
+      },
+      {
+        "code": "jpn",
+        "name": "Japan / 日本"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "mhl",
+        "name": "Marshall Islands / M̧ajeļ"
+      },
+      {
+        "code": "nru",
+        "name": "Nauru"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "mnp",
+    "content_hash": "da49c4819f449dd8ce5b77966430f6a78a466ab75460337b47f20c8a533146e9",
+    "notes_hash": "e3733c2e764d3aabb2cbb3cca058bd47216941d2bac2c1cbc5c57e26a8b8e5c7",
+    "model_hash": "73db17abc5dd49dac069bc08056692e9ff7fde45c0c361d93216e35647d68f27"
+  },
+  "geo_code": "MP",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

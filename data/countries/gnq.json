@@ -1,0 +1,146 @@
+{
+  "code": "gnq",
+  "iso2": "GQ",
+  "name": "Equatorial Guinea / Guinée équatoriale",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Equatorial Guinea / Guinée équatoriale. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Equatorial Guinea / Guinée équatoriale. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Equatorial Guinea}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "stp",
+    "gab",
+    "cmr"
+  ],
+  "related_names": [
+    {
+      "code": "stp",
+      "name": "São Tomé and Príncipe / São Tomé e Príncipe"
+    },
+    {
+      "code": "gab",
+      "name": "Gabon"
+    },
+    {
+      "code": "cmr",
+      "name": "Cameroon / Cameroun"
+    }
+  ],
+  "coordinates": {
+    "lat": 2,
+    "lng": 10
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Equatorial_Guinea",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Equatorial_Guinea",
+        "title": "Wikipedia: Equatorial Guinea / Guinée équatoriale",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "AFRICA",
+    "seo_cluster": "AFRICA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "stp",
+        "name": "São Tomé and Príncipe / São Tomé e Príncipe"
+      },
+      {
+        "code": "gab",
+        "name": "Gabon"
+      },
+      {
+        "code": "cmr",
+        "name": "Cameroon / Cameroun"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "cog",
+        "name": "Congo / République du Congo"
+      },
+      {
+        "code": "nga",
+        "name": "Nigeria"
+      },
+      {
+        "code": "tgo",
+        "name": "Togo"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "ben",
+        "name": "Benin / Bénin"
+      },
+      {
+        "code": "caf",
+        "name": "Central African Republic / République centrafricaine"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "gnq",
+    "content_hash": "099adbfc8b19b5205fc8813b7382597c3f3be7ce0d55d66535951116017bbd27",
+    "notes_hash": "9460a5bd07ced8dcbee3ba183d26b4d580e2157528e6cf28277164d75ca349a9",
+    "model_hash": "847cc197ea40c5ddd48addd948d5d0a526803aded9c03fb92e08189470eac801"
+  },
+  "geo_code": "GQ",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

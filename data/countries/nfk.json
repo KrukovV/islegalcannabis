@@ -1,0 +1,139 @@
+{
+  "code": "nfk",
+  "iso2": "NF",
+  "name": "Norfolk Island / Norf'k Ailen",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Norfolk Island / Norf'k Ailen. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Norfolk Island / Norf'k Ailen. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "No notes available.",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "ncl",
+    "vut",
+    "fji"
+  ],
+  "related_names": [
+    {
+      "code": "ncl",
+      "name": "New Caledonia / Nouvelle-Calédonie"
+    },
+    {
+      "code": "vut",
+      "name": "Vanuatu"
+    },
+    {
+      "code": "fji",
+      "name": "Fiji / Viti"
+    }
+  ],
+  "coordinates": {
+    "lat": -29.033042,
+    "lng": 167.954531
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Norfolk_Island",
+    "wiki_truth": null,
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Norfolk_Island",
+        "title": "Wikipedia: Norfolk Island / Norf'k Ailen",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "OCEANIA",
+    "seo_cluster": "OCEANIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "ncl",
+        "name": "New Caledonia / Nouvelle-Calédonie"
+      },
+      {
+        "code": "vut",
+        "name": "Vanuatu"
+      },
+      {
+        "code": "fji",
+        "name": "Fiji / Viti"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "slb",
+        "name": "Solomon Islands"
+      },
+      {
+        "code": "tuv",
+        "name": "Tuvalu"
+      },
+      {
+        "code": "nru",
+        "name": "Nauru"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "nzl",
+        "name": "New Zealand / Aotearoa"
+      },
+      {
+        "code": "kir",
+        "name": "Kiribati"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "nfk",
+    "content_hash": "69bd6f332d261b70f88a329cff4dd9a58d7b3af2f1168a41981990f29e903460",
+    "notes_hash": "9cf281b57d7ebef622d8e371cc87319a89deddc6dcf439241b9700f53b2e5c61",
+    "model_hash": "786f5579fb0357350d4fa2d97906668adf2860ac14421af77298eb9aefe4ed9c"
+  },
+  "geo_code": "NF",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

@@ -1,0 +1,146 @@
+{
+  "code": "eth",
+  "iso2": "ET",
+  "name": "Ethiopia / ኢትዮጵያ",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Ethiopia / ኢትዮጵያ. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Ethiopia / ኢትዮጵያ. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Ethiopia}} Despite being the spiritual homeland of the [[Rastafari movement]], possession of cannabis can result in up to six months imprisonment.<ref>{{citation |url = http://www.iol.co.za/news/world/us-warns-american-rastas-about-ethiopian-laws-1.232633 |title = US warns American Rastas about Ethiopian laws |publisher = iol.co.za |date = 29 January 2005 |access-date = 8 October 2011 |archive-date = 20 January 2016 |archive-url = https://web.archive.org/web/20160120125239/http://www.iol.co.za/news/world/us-warns-american-rastas-about-ethiopian-laws-1.232633 |url-status = live }}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "dji",
+    "ken",
+    "eri"
+  ],
+  "related_names": [
+    {
+      "code": "dji",
+      "name": "Djibouti / جيبوتي"
+    },
+    {
+      "code": "ken",
+      "name": "Kenya"
+    },
+    {
+      "code": "eri",
+      "name": "Eritrea / إريتريا"
+    }
+  ],
+  "coordinates": {
+    "lat": 8,
+    "lng": 38
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Ethiopia",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Ethiopia",
+        "title": "Wikipedia: Ethiopia / ኢትዮጵያ",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "AFRICA",
+    "seo_cluster": "AFRICA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "dji",
+        "name": "Djibouti / جيبوتي"
+      },
+      {
+        "code": "ken",
+        "name": "Kenya"
+      },
+      {
+        "code": "eri",
+        "name": "Eritrea / إريتريا"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "ssd",
+        "name": "South Sudan"
+      },
+      {
+        "code": "uga",
+        "name": "Uganda"
+      },
+      {
+        "code": "sdn",
+        "name": "Sudan / السودان"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "som",
+        "name": "Somalia / الصومال"
+      },
+      {
+        "code": "rwa",
+        "name": "Rwanda"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "eth",
+    "content_hash": "a3c3519fb3e8db79e4087e791719a6ea6620669fa31da93964589466be059a42",
+    "notes_hash": "92ce0406ace804eb812270ca10eeb31954be5d1b411609010b7d943a0e48379f",
+    "model_hash": "546c05875c604d7b30088ca736fd3f90f39f53708fef5708d6bece9d95389314"
+  },
+  "geo_code": "ET",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

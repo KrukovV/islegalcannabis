@@ -220,6 +220,9 @@ export default function ResultCard({
   const medicalLevel = levelFromLawStatus(profile.medical ?? "illegal");
   const recreationalLevel = levelFromLawStatus(profile.recreational ?? "illegal");
   const legalSsot = profile.legal_ssot;
+  const displayMedicalStatus = legalSsot?.medical ?? profile.medical ?? "unknown";
+  const displayRecreationalStatus = legalSsot?.recreational ?? profile.recreational ?? "unknown";
+  const displayDistributionStatus = legalSsot?.distribution ?? null;
   const machineVerifiedEntry = profile.machine_verified ?? profile.auto_verified;
   const legalSources = Array.isArray(legalSsot?.sources) ? legalSsot?.sources : [];
   const legalOfficialSources = Array.isArray(profile.official_sources)
@@ -485,10 +488,10 @@ export default function ResultCard({
           {resultIcon} {displayTitle}
         </div>
         <div className={styles.metaLabel} data-testid="medical-breakdown">
-          Medical: {profile.medical ?? "unknown"}
+          Medical: {displayMedicalStatus}
         </div>
         <div className={styles.metaLabel} data-testid="recreational-breakdown">
-          Recreational: {profile.recreational ?? "unknown"}
+          Recreational: {displayRecreationalStatus}
         </div>
         {legalSsot || profile.status_recreational || profile.status_medical ? (
           <div className={styles.metaLabel} data-testid="legal-status">
@@ -497,6 +500,7 @@ export default function ResultCard({
               {legalSsot?.recreational ?? profile.status_recreational}
             </div>
             <div>Medical: {legalSsot?.medical ?? profile.status_medical}</div>
+            {displayDistributionStatus ? <div>Distribution: {displayDistributionStatus}</div> : null}
             {legalVerifyLinks.length > 0 ? (
               <div>
                 Sources:{" "}

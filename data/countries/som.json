@@ -1,0 +1,146 @@
+{
+  "code": "som",
+  "iso2": "SO",
+  "name": "Somalia / الصومال",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Somalia / الصومال. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Somalia / الصومال. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Somalia}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "yem",
+    "dji",
+    "eri"
+  ],
+  "related_names": [
+    {
+      "code": "yem",
+      "name": "Yemen / اليمن"
+    },
+    {
+      "code": "dji",
+      "name": "Djibouti / جيبوتي"
+    },
+    {
+      "code": "eri",
+      "name": "Eritrea / إريتريا"
+    }
+  ],
+  "coordinates": {
+    "lat": 10,
+    "lng": 49
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Somalia",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Somalia",
+        "title": "Wikipedia: Somalia / الصومال",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "AFRICA",
+    "seo_cluster": "AFRICA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "yem",
+        "name": "Yemen / اليمن"
+      },
+      {
+        "code": "dji",
+        "name": "Djibouti / جيبوتي"
+      },
+      {
+        "code": "eri",
+        "name": "Eritrea / إريتريا"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "eth",
+        "name": "Ethiopia / ኢትዮጵያ"
+      },
+      {
+        "code": "omn",
+        "name": "Oman / عمان"
+      },
+      {
+        "code": "ken",
+        "name": "Kenya"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "ssd",
+        "name": "South Sudan"
+      },
+      {
+        "code": "uga",
+        "name": "Uganda"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "som",
+    "content_hash": "08faa896a82fa158056d821e7aaa7647c2af1533e03df124716fa23bb9067adf",
+    "notes_hash": "da040a0a86b6063ebde8e340aaf1db88cb2dc25a649acfe0dae986dded3365b0",
+    "model_hash": "20dacf18055c943786df3619003045e13089cd77ea50a2c21f574863be532f75"
+  },
+  "geo_code": "SO",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

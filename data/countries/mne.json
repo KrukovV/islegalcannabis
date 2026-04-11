@@ -1,0 +1,146 @@
+{
+  "code": "mne",
+  "iso2": "ME",
+  "name": "Montenegro / Црна Гора",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Montenegro / Црна Гора. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Montenegro / Црна Гора. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Montenegro}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "alb",
+    "bih",
+    "srb"
+  ],
+  "related_names": [
+    {
+      "code": "alb",
+      "name": "Albania / Shqipëria"
+    },
+    {
+      "code": "bih",
+      "name": "Bosnia and Herzegovina / Bosna i Hercegovina"
+    },
+    {
+      "code": "srb",
+      "name": "Serbia / Србија"
+    }
+  ],
+  "coordinates": {
+    "lat": 42.5,
+    "lng": 19.3
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Montenegro",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Montenegro",
+        "title": "Wikipedia: Montenegro / Црна Гора",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "alb",
+        "name": "Albania / Shqipëria"
+      },
+      {
+        "code": "bih",
+        "name": "Bosnia and Herzegovina / Bosna i Hercegovina"
+      },
+      {
+        "code": "srb",
+        "name": "Serbia / Србија"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "grc",
+        "name": "Greece / Ελλάδα"
+      },
+      {
+        "code": "bgr",
+        "name": "Bulgaria / България"
+      },
+      {
+        "code": "svk",
+        "name": "Slovakia / Slovensko"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "mkd",
+        "name": "North Macedonia / Македонија"
+      },
+      {
+        "code": "hun",
+        "name": "Hungary / Magyarország"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "mne",
+    "content_hash": "41aae7898e02d2e57c0481e7ec5c78e3b66cc78661a635d7b79f0d596ae16514",
+    "notes_hash": "15e77900e5e6e1c45922cc10a36b40e5f06d246fc3e75cb155882a9c76f1bfc1",
+    "model_hash": "df4a6ba8b90263ce7372960b8b7f6dfde7d9c8c27e59eb7ffa36d714ccb3f3a3"
+  },
+  "geo_code": "ME",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

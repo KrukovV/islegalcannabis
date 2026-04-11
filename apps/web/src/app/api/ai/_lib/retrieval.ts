@@ -78,9 +78,15 @@ function toContext(entry: RegionRow): AiGeoContext {
     displayName: String(entry.name || entry.geo),
     iso2: countryGeo || null,
     type: entry.type === "state" ? "state" : "country",
-    legalStatus: String(entry.finalRecStatus || entry.legalStatusGlobal || "Unknown"),
-    medicalStatus: String(entry.finalMedStatus || entry.medicalStatusGlobal || "Unknown"),
-    notes: String(entry.notesInterpretationSummary || entry.notesWiki || entry.notesOur || "").trim(),
+    legalStatus: String((entry as { recreationalSummary?: string | null }).recreationalSummary || entry.finalRecStatus || entry.legalStatusGlobal || "Unknown"),
+    medicalStatus: String((entry as { medicalSummary?: string | null }).medicalSummary || entry.finalMedStatus || entry.medicalStatusGlobal || "Unknown"),
+    notes: String(
+      (entry as { normalizedStatusSummary?: string | null }).normalizedStatusSummary ||
+      entry.notesInterpretationSummary ||
+      entry.notesWiki ||
+      entry.notesOur ||
+      ""
+    ).trim(),
     officialSources: Array.isArray(entry.officialSources) ? entry.officialSources.filter(Boolean) : [],
     wikiPageUrl: entry.wikiPageUrl || null
   };

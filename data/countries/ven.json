@@ -1,0 +1,146 @@
+{
+  "code": "ven",
+  "iso2": "VE",
+  "name": "Venezuela",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Venezuela. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Venezuela. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Venezuela}} Possession of up to {{cvt|20|g|frac=4}} of marijuana or {{cvt|5|g|frac=16}} of genetically modified marijuana for commercial purposes is punishable by 1–2 years in prison at judge's discretion. If deemed to be for personal consumption, the user is subject to security measures involving rehabilitation and detoxification procedures.<ref>{{citation |url = http://www.eee.com.ve/upload/LeyOrganicadeDrogas.sept10.pdf |title = Ley Orgánica de Drogas – Sept.10 |access-date = 17 February 2011 |archive-url = https://web.archive.org/web/20120319163247/http://www.eee.com.ve/upload/LeyOrganicadeDrogas.sept10.pdf |archive-date = 19 March 2012 |url-status = dead}}</ref>",
+  "facts": {
+    "possession_limit": "up to 20 g",
+    "cultivation": null,
+    "penalty": "punishable by 1–2 years in prison at judge's discretion."
+  },
+  "related_codes": [
+    "cuw",
+    "tto",
+    "grd"
+  ],
+  "related_names": [
+    {
+      "code": "cuw",
+      "name": "Curaçao / Pais Kòrsou"
+    },
+    {
+      "code": "tto",
+      "name": "Trinidad and Tobago"
+    },
+    {
+      "code": "grd",
+      "name": "Grenada"
+    }
+  ],
+  "coordinates": {
+    "lat": 8,
+    "lng": -66
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Venezuela",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Venezuela",
+        "title": "Wikipedia: Venezuela",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "LATAM",
+    "seo_cluster": "LATAM_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "cuw",
+        "name": "Curaçao / Pais Kòrsou"
+      },
+      {
+        "code": "tto",
+        "name": "Trinidad and Tobago"
+      },
+      {
+        "code": "grd",
+        "name": "Grenada"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "abw",
+        "name": "Aruba"
+      },
+      {
+        "code": "guy",
+        "name": "Guyana"
+      },
+      {
+        "code": "msr",
+        "name": "Montserrat"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "col",
+        "name": "Colombia"
+      },
+      {
+        "code": "sur",
+        "name": "Suriname"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "ven",
+    "content_hash": "2cfcf58f5ce6103fdfc5032ed4e4382a6004cdea50b72f1a2c276f9d8046943b",
+    "notes_hash": "d16bc089cdd5d36e827a74ac0c069ff5fdaa9675d25020b0cda01f56719e16fb",
+    "model_hash": "d78daa31ad904139e62d9b2ad91650c6d5cf6cc8a4278b0dcc3c981abdf44a60"
+  },
+  "geo_code": "VE",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

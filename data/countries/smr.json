@@ -1,0 +1,146 @@
+{
+  "code": "smr",
+  "iso2": "SM",
+  "name": "San Marino",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in San Marino. Medical cannabis is legal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in San Marino. Medical cannabis is legal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in San Marino}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "vat",
+    "ita",
+    "svn"
+  ],
+  "related_names": [
+    {
+      "code": "vat",
+      "name": "Vatican City / Vaticano"
+    },
+    {
+      "code": "ita",
+      "name": "Italy / Italia"
+    },
+    {
+      "code": "svn",
+      "name": "Slovenia / Slovenija"
+    }
+  ],
+  "coordinates": {
+    "lat": 43.76666666,
+    "lng": 12.41666666
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/San_Marino",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/San_Marino",
+        "title": "Wikipedia: San Marino",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "vat",
+        "name": "Vatican City / Vaticano"
+      },
+      {
+        "code": "ita",
+        "name": "Italy / Italia"
+      },
+      {
+        "code": "svn",
+        "name": "Slovenia / Slovenija"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "hrv",
+        "name": "Croatia / Hrvatska"
+      },
+      {
+        "code": "lie",
+        "name": "Liechtenstein"
+      },
+      {
+        "code": "mco",
+        "name": "Monaco"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "aut",
+        "name": "Austria / Österreich"
+      },
+      {
+        "code": "che",
+        "name": "Switzerland / Suisse"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "smr",
+    "content_hash": "78ca93dea0f785ef3e26a0a4e30c264fdf36b30c2e2f8ea743096dfe6ad5ddc2",
+    "notes_hash": "707ab0276636aa01f486cba68c53ef2207a7326fbc5b7c5d7d4944f2847485a6",
+    "model_hash": "065da7104e903aae0f0b2326e258b67b3574fdbbcf4c947c1cab3efb6d44d6d6"
+  },
+  "geo_code": "SM",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

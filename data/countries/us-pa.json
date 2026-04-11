@@ -1,0 +1,179 @@
+{
+  "code": "us-pa",
+  "geo_code": "US-PA",
+  "iso2": "US-PA",
+  "name": "Pennsylvania",
+  "node_type": "state",
+  "normalized_version": "v1",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "restricted",
+      "scopes": {
+        "possession": "illegal",
+        "use": "illegal",
+        "sale": "illegal",
+        "cultivation": "illegal",
+        "import": "illegal",
+        "trafficking": "illegal"
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": []
+  },
+  "notes_normalized": "Cannabis is illegal in Pennsylvania for recreational use under state law, but medical cannabis is available in limited form. Cannabis remains federally illegal in United States. Possession is limited to varies (see official sources).",
+  "notes_raw": "illegal",
+  "facts": {
+    "possession_limit": "varies (see official sources)",
+    "cultivation": "Home grow remains illegal.",
+    "penalty": "Cross-border transport remains illegal."
+  },
+  "parent_country": {
+    "code": "usa",
+    "name": "United States"
+  },
+  "state_modifiers": {
+    "recreational": "override",
+    "medical": "override",
+    "enforcement_strength": "HIGH",
+    "federal_conflict": "Cannabis remains federally illegal in United States.",
+    "legalization_status": "Medical only"
+  },
+  "related_codes": [
+    "usa",
+    "us-ct",
+    "us-de",
+    "us-ga"
+  ],
+  "related_names": [
+    {
+      "code": "usa",
+      "name": "United States"
+    },
+    {
+      "code": "us-ct",
+      "name": "Connecticut"
+    },
+    {
+      "code": "us-de",
+      "name": "Delaware"
+    },
+    {
+      "code": "us-ga",
+      "name": "Georgia"
+    }
+  ],
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "USA_CLUSTER",
+    "geo_neighbors": [
+      {
+        "code": "us-ak",
+        "name": "Alaska"
+      },
+      {
+        "code": "us-al",
+        "name": "Alabama"
+      },
+      {
+        "code": "us-ar",
+        "name": "Arkansas"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "us-va",
+        "name": "Virginia"
+      },
+      {
+        "code": "us-tx",
+        "name": "Texas"
+      },
+      {
+        "code": "us-fl",
+        "name": "Florida"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "usa",
+        "name": "United States"
+      },
+      {
+        "code": "us-hi",
+        "name": "Hawaii"
+      }
+    ],
+    "same_country_states": [
+      {
+        "code": "us-ct",
+        "name": "Connecticut"
+      },
+      {
+        "code": "us-de",
+        "name": "Delaware"
+      },
+      {
+        "code": "us-ga",
+        "name": "Georgia"
+      }
+    ],
+    "federal_parent": {
+      "code": "usa",
+      "name": "United States"
+    }
+  },
+  "coordinates": {
+    "lat": 38,
+    "lng": -97
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Pennsylvania",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "official-us-pa",
+        "url": "https://www.health.pa.gov/topics/programs/Medical%20Marijuana/Pages/Medical-Marijuana.aspx",
+        "title": "Pennsylvania Medical Marijuana Program",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki-us-pa",
+        "url": "https://en.wikipedia.org/wiki/Pennsylvania",
+        "title": "Wikipedia: Pennsylvania",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki-truth-us-pa",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "hashes": {
+    "code": "us-pa",
+    "content_hash": "ae2496db623adae46182fd6c53c172e1b339a9c6d43faaf0514cdde4497cbe0f",
+    "notes_hash": "6961473301d1cc63225a242a73394e63315285c75a6567bdfcdf4c0c7c99d17a",
+    "model_hash": "3d40814939f338e6617e4bfa6b252f99c0afef816e4a78f4330f53ebfd513a24"
+  },
+  "updated_at": "2024-01-01"
+}

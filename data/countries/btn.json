@@ -1,0 +1,144 @@
+{
+  "code": "btn",
+  "iso2": "BT",
+  "name": "Bhutan / འབྲུག་ཡུལ་",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Bhutan / འབྲུག་ཡུལ་. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Bhutan / འབྲུག་ཡུལ་. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Bhutan}} Illegal, but plants grow prolifically and have multiple traditional uses, such as feeding pigs and producing textiles.<ref>{{cite journal|title=Bhutan|journal=UNODC: South Asia Regional Profile|date=September 2005|pages=21–26|url=https://www.unodc.org/pdf/india/publications/south_Asia_Regional_Profile_Sept_2005/09_bhutan.pdf|access-date=30 November 2016|archive-url=https://web.archive.org/web/20180630080824/https://www.unodc.org/pdf/india/publications/south_Asia_Regional_Profile_Sept_2005/09_bhutan.pdf|archive-date=30 June 2018|url-status=live}}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": "grow prolifically and have multiple traditional uses, such as feeding pigs and producing textiles.",
+    "penalty": null
+  },
+  "related_codes": [
+    "bgd",
+    "npl",
+    "mmr"
+  ],
+  "related_names": [
+    {
+      "code": "bgd",
+      "name": "Bangladesh / বাংলাদেশ"
+    },
+    {
+      "code": "npl",
+      "name": "Nepal / नेपाल"
+    },
+    {
+      "code": "mmr",
+      "name": "Myanmar / မြန်မာ"
+    }
+  ],
+  "coordinates": {
+    "lat": 27.5,
+    "lng": 90.5
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Bhutan",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Bhutan",
+        "title": "Wikipedia: Bhutan / འབྲུག་ཡུལ་",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "ASIA",
+    "seo_cluster": "ASIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "bgd",
+        "name": "Bangladesh / বাংলাদেশ"
+      },
+      {
+        "code": "npl",
+        "name": "Nepal / नेपाल"
+      },
+      {
+        "code": "mmr",
+        "name": "Myanmar / မြန်မာ"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "ind",
+        "name": "India / भारत"
+      },
+      {
+        "code": "chn",
+        "name": "China / 中国"
+      },
+      {
+        "code": "lao",
+        "name": "Laos / ສປປລາວ"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "tha",
+        "name": "Thailand / ประเทศไทย"
+      },
+      {
+        "code": "khm",
+        "name": "Cambodia / Kâmpŭchéa"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "btn",
+    "content_hash": "483fc4edac5dc3ae4d027bc50cf234b248c10569084c089fefdf742e82250734",
+    "notes_hash": "cec92f6f8f088b0b453f72d9417c64373f3af1593e4a988201b09dec7521d332",
+    "model_hash": "d4b3d53a6aff1a378ae441b4b2f52882601dce9cc26414f671de4a3167fad283"
+  },
+  "geo_code": "BT",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

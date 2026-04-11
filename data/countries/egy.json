@@ -1,0 +1,145 @@
+{
+  "code": "egy",
+  "iso2": "EG",
+  "name": "Egypt / مصر",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "tolerated",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": "tolerated",
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "private_cultivation_tolerated",
+      "illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Egypt / مصر. Medical cannabis is illegal. Distribution is tolerated."
+  },
+  "notes_normalized": "Cannabis is illegal in Egypt / مصر. Medical cannabis is illegal. Distribution is tolerated.",
+  "notes_raw": "{{main|Cannabis in Egypt}} Illegal since 1925<ref>{{citation |url = http://sensiseeds.com/en/blog/cannabis-egypt |title = Cannabis in Egypt |publisher = The Sensi Seed Bank |author = Seshata |work = Sensi Seeds Blog |date = 27 December 2013 |access-date = 20 January 2014 |archive-date = 29 June 2019 |archive-url = https://web.archive.org/web/20190629104604/https://sensiseeds.com/en/blog/cannabis-egypt/ |url-status = live }}</ref> but use is widespread. Convictions for personal use are rare.<ref>{{citation |url = http://blogs.abcnews.com/theworldnewser/2010/05/egypts-pot-problem-a-marijuana-shortage.html |title = Egypt's Pot Problem? A Marijuana Shortage |publisher = [[ABC News (United States)|ABC News]] |last = Hasan |first = Lama |date = 5 May 2010 |access-date = 31 January 2011 |url-status = dead |archive-url = https://web.archive.org/web/20110301233324/http://blogs.abcnews.com/theworldnewser/2010/05/egypts-pot-problem-a-marijuana-shortage.html |archive-date = 1 March 2011}}</ref> Formerly a plant of high status with several documented medicinal uses in ancient times.",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": "plant of high status with several documented medicinal uses in ancient times.",
+    "penalty": null
+  },
+  "related_codes": [
+    "isr",
+    "jor",
+    "pse"
+  ],
+  "related_names": [
+    {
+      "code": "isr",
+      "name": "Israel / إسرائيل"
+    },
+    {
+      "code": "jor",
+      "name": "Jordan / الأردن"
+    },
+    {
+      "code": "pse",
+      "name": "Palestine / فلسطين"
+    }
+  ],
+  "coordinates": {
+    "lat": 27,
+    "lng": 30
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Egypt",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Egypt",
+        "title": "Wikipedia: Egypt / مصر",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "AFRICA",
+    "seo_cluster": "AFRICA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "isr",
+        "name": "Israel / إسرائيل"
+      },
+      {
+        "code": "jor",
+        "name": "Jordan / الأردن"
+      },
+      {
+        "code": "pse",
+        "name": "Palestine / فلسطين"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "syr",
+        "name": "Syria / سوريا"
+      },
+      {
+        "code": "sdn",
+        "name": "Sudan / السودان"
+      },
+      {
+        "code": "lby",
+        "name": "Libya / ليبيا"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "eri",
+        "name": "Eritrea / إريتريا"
+      },
+      {
+        "code": "tcd",
+        "name": "Chad / تشاد"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "egy",
+    "content_hash": "c6c8e993e5109f56a20efd10b7aaf920000fcc1966fba923b2b9a937343783cc",
+    "notes_hash": "c59a9a8a55bb9207d69262950e93ecbed9d797b78086fb012f20663237c095dd",
+    "model_hash": "f1a43d441161c534075e8b86773094c57767e3dae5b4b885b23def60325e18c0"
+  },
+  "geo_code": "EG",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

@@ -1,0 +1,139 @@
+{
+  "code": "ata",
+  "iso2": "AQ",
+  "name": "Antarctica",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Antarctica. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Antarctica. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "No notes available.",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "atf",
+    "hmd",
+    "lso"
+  ],
+  "related_names": [
+    {
+      "code": "atf",
+      "name": "French Southern and Antarctic Lands / Terres australes et antarctiques françaises"
+    },
+    {
+      "code": "hmd",
+      "name": "Heard Island and McDonald Islands"
+    },
+    {
+      "code": "lso",
+      "name": "Lesotho"
+    }
+  ],
+  "coordinates": {
+    "lat": -79.843222,
+    "lng": 35.885455
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Antarctica",
+    "wiki_truth": null,
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Antarctica",
+        "title": "Wikipedia: Antarctica",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "OTHER",
+    "seo_cluster": "GLOBAL",
+    "geo_neighbors": [
+      {
+        "code": "atf",
+        "name": "French Southern and Antarctic Lands / Terres australes et antarctiques françaises"
+      },
+      {
+        "code": "hmd",
+        "name": "Heard Island and McDonald Islands"
+      },
+      {
+        "code": "lso",
+        "name": "Lesotho"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "swz",
+        "name": "Eswatini"
+      },
+      {
+        "code": "bwa",
+        "name": "Botswana"
+      },
+      {
+        "code": "zwe",
+        "name": "Zimbabwe"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "mus",
+        "name": "Mauritius / Maurice"
+      },
+      {
+        "code": "sgs",
+        "name": "South Georgia"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "ata",
+    "content_hash": "9ae0acc15662972e270a0fd3fc882c754b844d5ea449952e55735401e7fcb942",
+    "notes_hash": "5802a8bd5fd25a6ad5431a89e9ca3ce2685c192d6ee59b8375e3bc2f7782b928",
+    "model_hash": "588321cc3fd22a9ac2a5ee05d27a16abc0bf055ab0d62002921c97fce3d93fc3"
+  },
+  "geo_code": "AQ",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

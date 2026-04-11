@@ -1,0 +1,146 @@
+{
+  "code": "gtm",
+  "iso2": "GT",
+  "name": "Guatemala",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Guatemala. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Guatemala. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Guatemala}} In 2016 a constitutional commission rejected proposals to legalize medicinal or recreational use of cannabis.<ref>{{cite web |author=Milena Lopez |url=http://www.tn8.tv/cronica-tn8/373406-comision-rechaza-uso-medicinal-marihuana-guatemala/ |title=Comisión Rechaza Uso Medicinal De La Marihuana En Guatemala |date=2 November 2016 |publisher=Tn8.tv |access-date=30 November 2016 |archive-date=5 September 2017 |archive-url=https://web.archive.org/web/20170905095333/http://www.tn8.tv/cronica-tn8/373406-comision-rechaza-uso-medicinal-marihuana-guatemala/ |url-status=live }}</ref><ref>{{cite web |author=Juan Toro |url=http://clustersalud.americaeconomia.com/guatemala-rechazan-uso-marihuana-medicinal/ |title=Guatemala: Rechazan uso de marihuana medicinal |website=Cluster Salud |access-date=30 November 2016 |archive-date=3 October 2018 |archive-url=https://web.archive.org/web/20181003102740/https://clustersalud.americaeconomia.com/guatemala-rechazan-uso-marihuana-medicinal/ |url-status=dead }}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "slv",
+    "blz",
+    "hnd"
+  ],
+  "related_names": [
+    {
+      "code": "slv",
+      "name": "El Salvador"
+    },
+    {
+      "code": "blz",
+      "name": "Belize / Belice"
+    },
+    {
+      "code": "hnd",
+      "name": "Honduras"
+    }
+  ],
+  "coordinates": {
+    "lat": 15.5,
+    "lng": -90.25
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Guatemala",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Guatemala",
+        "title": "Wikipedia: Guatemala",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "NA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "slv",
+        "name": "El Salvador"
+      },
+      {
+        "code": "blz",
+        "name": "Belize / Belice"
+      },
+      {
+        "code": "hnd",
+        "name": "Honduras"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "nic",
+        "name": "Nicaragua"
+      },
+      {
+        "code": "cym",
+        "name": "Cayman Islands"
+      },
+      {
+        "code": "cub",
+        "name": "Cuba"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "cri",
+        "name": "Costa Rica"
+      },
+      {
+        "code": "pan",
+        "name": "Panama / Panamá"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "gtm",
+    "content_hash": "89e30c0c272bfb41f1be0c73b42ede034fe7b7cd544042980ea8cd0d2581c882",
+    "notes_hash": "0ba23dc1ade910cc81683748249081dd0354fcbb78fabad01fd8aecc0597a8bf",
+    "model_hash": "70d620e78df1ba52a000b02a9fa148b2e3d9be2575fb8dd6d2486b56363886b1"
+  },
+  "geo_code": "GT",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

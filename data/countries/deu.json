@@ -1,0 +1,144 @@
+{
+  "code": "deu",
+  "iso2": "DE",
+  "name": "Germany / Deutschland",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "restricted",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "legal"
+    ],
+    "notes_normalized": "Cannabis is legal in Germany / Deutschland. Medical cannabis is legal. Distribution is restricted."
+  },
+  "notes_normalized": "Cannabis is legal in Germany / Deutschland. Medical cannabis is legal. Distribution is restricted.",
+  "notes_raw": "{{main|Cannabis in Germany}} On 23 February 2024, the German Bundestag passed the Act on the Controlled Use of Cannabis, legalizing possession of {{cvt|25|g|frac=8}} outside the home, {{cvt|50|g|frac=8}} at home, and private cultivation of three plants, for adults 18 and over, since 1 April 2024. Collective, noncommercial cultivation is legal in cultivation associations (i.e. [[cannabis social club]]s) since 1 July 2024.<ref>{{cite news |last1=McGuinness|first1=Damien |title=Germany legalises cannabis, but makes it hard to buy|url=https://www.bbc.com/news/world-europe-68378807 |access-date=23 February 2024 |publisher=[[BBC]] |date=23 February 2024 |archive-date=23 February 2024 |archive-url=https://web.archive.org/web/20240223120314/https://www.bbc.com/news/world-europe-68378807|url-status=live }}</ref><ref>{{cite news |last1=Moulson |first1=Geir |title=Germany's parliament votes to legalize limited marijuana possession and allow 'cannabis clubs' |url=https://apnews.com/article/germany-cannabis-parliament-liberalization-possession-sale-e185bbdb2df1dd43e33e829f7a23051a |access-date=23 February 2024 |work=Associated Press |date=23 February 2024}}</ref><ref>{{cite news |last1=Schmidt |first1=Nadine |title=Germany legalizes recreational cannabis use |url=https://www.cnn.com/2024/02/23/europe/germany-cannabis-legal-parliament-intl/index.html |access-date=23 February 2024 |work=CNN |date=23 February 2024}}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": "cultivation of three plants, for adults 18 and over, since 1 April 2024.",
+    "penalty": null
+  },
+  "related_codes": [
+    "lie",
+    "lux",
+    "aut"
+  ],
+  "related_names": [
+    {
+      "code": "lie",
+      "name": "Liechtenstein"
+    },
+    {
+      "code": "lux",
+      "name": "Luxembourg / Luxemburg"
+    },
+    {
+      "code": "aut",
+      "name": "Austria / Österreich"
+    }
+  ],
+  "coordinates": {
+    "lat": 51.1657,
+    "lng": 10.4515
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Germany",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Germany",
+        "title": "Wikipedia: Germany / Deutschland",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU",
+    "geo_neighbors": [
+      {
+        "code": "lie",
+        "name": "Liechtenstein"
+      },
+      {
+        "code": "lux",
+        "name": "Luxembourg / Luxemburg"
+      },
+      {
+        "code": "aut",
+        "name": "Austria / Österreich"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "che",
+        "name": "Switzerland / Suisse"
+      },
+      {
+        "code": "dnk",
+        "name": "Denmark / Danmark"
+      },
+      {
+        "code": "cze",
+        "name": "Czechia / Česko"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "nld",
+        "name": "Netherlands / Nederland"
+      },
+      {
+        "code": "bel",
+        "name": "Belgium / Belgien"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "deu",
+    "content_hash": "58721cdcf5f16b0360902ce59e314b5559aa7a0cd569c9cab95e075a4a5f7e88",
+    "notes_hash": "0b023165ac48219c080c29de3fef84f71b5e70e0010e065e2ec798442f32394f",
+    "model_hash": "899f1a1509f083a5fbcebefee3369131e941925767e79db8ccfe13f167fe50da"
+  },
+  "geo_code": "DE",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

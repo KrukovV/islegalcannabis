@@ -1,0 +1,181 @@
+{
+  "code": "us-ma",
+  "geo_code": "US-MA",
+  "iso2": "US-MA",
+  "name": "Massachusetts",
+  "node_type": "state",
+  "normalized_version": "v1",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "regulated",
+      "scopes": {
+        "possession": "restricted",
+        "use": "restricted",
+        "sale": "regulated",
+        "cultivation": "regulated",
+        "import": "illegal",
+        "trafficking": "illegal"
+      },
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [
+      "fine_based"
+    ],
+    "applied_rules": []
+  },
+  "notes_normalized": "Cannabis is legal in Massachusetts under state law for recreational adult use. Medical cannabis is also legal in Massachusetts. Cannabis remains federally illegal in United States. Possession is limited to Up to 1 oz in public; up to 10 oz at home.",
+  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|3}}",
+  "facts": {
+    "possession_limit": "Up to 1 oz in public; up to 10 oz at home",
+    "cultivation": "Home grow allowed.",
+    "penalty": "Public use remains illegal."
+  },
+  "parent_country": {
+    "code": "usa",
+    "name": "United States"
+  },
+  "state_modifiers": {
+    "recreational": "override",
+    "medical": "override",
+    "enforcement_strength": "MEDIUM",
+    "federal_conflict": "Cannabis remains federally illegal in United States.",
+    "legalization_status": "State legal"
+  },
+  "related_codes": [
+    "usa",
+    "us-fl",
+    "us-al",
+    "us-ar"
+  ],
+  "related_names": [
+    {
+      "code": "usa",
+      "name": "United States"
+    },
+    {
+      "code": "us-fl",
+      "name": "Florida"
+    },
+    {
+      "code": "us-al",
+      "name": "Alabama"
+    },
+    {
+      "code": "us-ar",
+      "name": "Arkansas"
+    }
+  ],
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "USA_CLUSTER",
+    "geo_neighbors": [
+      {
+        "code": "us-ny",
+        "name": "New York"
+      },
+      {
+        "code": "us-nj",
+        "name": "New Jersey"
+      },
+      {
+        "code": "us-mi",
+        "name": "Michigan"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "us-il",
+        "name": "Illinois"
+      },
+      {
+        "code": "us-ak",
+        "name": "Alaska"
+      },
+      {
+        "code": "us-ct",
+        "name": "Connecticut"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "usa",
+        "name": "United States"
+      },
+      {
+        "code": "us-de",
+        "name": "Delaware"
+      }
+    ],
+    "same_country_states": [
+      {
+        "code": "us-fl",
+        "name": "Florida"
+      },
+      {
+        "code": "us-al",
+        "name": "Alabama"
+      },
+      {
+        "code": "us-ar",
+        "name": "Arkansas"
+      }
+    ],
+    "federal_parent": {
+      "code": "usa",
+      "name": "United States"
+    }
+  },
+  "coordinates": {
+    "lat": 42.4072,
+    "lng": -71.3824
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Massachusetts",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "official-us-ma",
+        "url": "https://masscannabiscontrol.com/",
+        "title": "Massachusetts Cannabis Control Commission",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki-us-ma",
+        "url": "https://en.wikipedia.org/wiki/Massachusetts",
+        "title": "Wikipedia: Massachusetts",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki-truth-us-ma",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "hashes": {
+    "code": "us-ma",
+    "content_hash": "9094afba9adf59b60f793f1d43f294c7c4c61ae5ba4442cb89c9872f3d895aef",
+    "notes_hash": "f3db6e27f8b4a2e5154ff1d0a20005c08137a5c1fadfbfdc3200a4423bdef339",
+    "model_hash": "eac7c9bd9d8e8ea8e31849717966c4d6e3a0ca2eccc44bc144154d429e58d632"
+  },
+  "updated_at": "2024-01-01"
+}

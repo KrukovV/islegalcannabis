@@ -1,0 +1,139 @@
+{
+  "code": "tca",
+  "iso2": "TC",
+  "name": "Turks and Caicos Islands",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Turks and Caicos Islands. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Turks and Caicos Islands. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "No notes available.",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "hti",
+    "dom",
+    "bhs"
+  ],
+  "related_names": [
+    {
+      "code": "hti",
+      "name": "Haiti / Haïti"
+    },
+    {
+      "code": "dom",
+      "name": "Dominican Republic / República Dominicana"
+    },
+    {
+      "code": "bhs",
+      "name": "Bahamas"
+    }
+  ],
+  "coordinates": {
+    "lat": 21.81663,
+    "lng": -71.752704
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Turks_%26_Caicos_Islands",
+    "wiki_truth": null,
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Turks_%26_Caicos_Islands",
+        "title": "Wikipedia: Turks and Caicos Islands",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "NA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "hti",
+        "name": "Haiti / Haïti"
+      },
+      {
+        "code": "dom",
+        "name": "Dominican Republic / República Dominicana"
+      },
+      {
+        "code": "bhs",
+        "name": "Bahamas"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "pri",
+        "name": "Puerto Rico"
+      },
+      {
+        "code": "vgb",
+        "name": "British Virgin Islands"
+      },
+      {
+        "code": "vir",
+        "name": "United States Virgin Islands"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "jam",
+        "name": "Jamaica"
+      },
+      {
+        "code": "cub",
+        "name": "Cuba"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "tca",
+    "content_hash": "3bff0d0435123f21afd4a5529b4ce2e100c72475faeb93a4fbbdbd96272b8ede",
+    "notes_hash": "21d30bf9bbfbf8ee38a4b643af11e60ced67b55d63d82ebea5729aa81f5ba673",
+    "model_hash": "5456d495b408f407b7f47085e5912ecb6995f562d31e3cd3a0a35ef5e617607d"
+  },
+  "geo_code": "TC",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

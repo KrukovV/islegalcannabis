@@ -1,0 +1,146 @@
+{
+  "code": "civ",
+  "iso2": "CI",
+  "name": "Ivory Coast / Côte d'Ivoire",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Ivory Coast / Côte d'Ivoire. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Ivory Coast / Côte d'Ivoire. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Ivory Coast}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "gha",
+    "lbr",
+    "bfa"
+  ],
+  "related_names": [
+    {
+      "code": "gha",
+      "name": "Ghana"
+    },
+    {
+      "code": "lbr",
+      "name": "Liberia"
+    },
+    {
+      "code": "bfa",
+      "name": "Burkina Faso"
+    }
+  ],
+  "coordinates": {
+    "lat": 8,
+    "lng": -5
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Ivory_Coast",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Ivory_Coast",
+        "title": "Wikipedia: Ivory Coast / Côte d'Ivoire",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "AFRICA",
+    "seo_cluster": "AFRICA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "gha",
+        "name": "Ghana"
+      },
+      {
+        "code": "lbr",
+        "name": "Liberia"
+      },
+      {
+        "code": "bfa",
+        "name": "Burkina Faso"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "gin",
+        "name": "Guinea / Guinée"
+      },
+      {
+        "code": "tgo",
+        "name": "Togo"
+      },
+      {
+        "code": "sle",
+        "name": "Sierra Leone"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "ben",
+        "name": "Benin / Bénin"
+      },
+      {
+        "code": "mli",
+        "name": "Mali"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "civ",
+    "content_hash": "0fcf717ea16cffe02c163a49801eab91e852f61af4a8993486bbf6d96c978a83",
+    "notes_hash": "36955f4668114cf439ce83a064424602223938e8becab7061efb3e9afaa7d3f8",
+    "model_hash": "04c86bc72fdaab11092a8a1df853204ef033f4f4bfdcf059b8504ed6029ec6cf"
+  },
+  "geo_code": "CI",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

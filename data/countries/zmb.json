@@ -1,0 +1,146 @@
+{
+  "code": "zmb",
+  "iso2": "ZM",
+  "name": "Zambia",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Zambia. Medical cannabis is legal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Zambia. Medical cannabis is legal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Zambia}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "mwi",
+    "zwe",
+    "moz"
+  ],
+  "related_names": [
+    {
+      "code": "mwi",
+      "name": "Malawi / Malaŵi"
+    },
+    {
+      "code": "zwe",
+      "name": "Zimbabwe"
+    },
+    {
+      "code": "moz",
+      "name": "Mozambique / Moçambique"
+    }
+  ],
+  "coordinates": {
+    "lat": -15,
+    "lng": 30
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Zambia",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Zambia",
+        "title": "Wikipedia: Zambia",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "AFRICA",
+    "seo_cluster": "AFRICA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "mwi",
+        "name": "Malawi / Malaŵi"
+      },
+      {
+        "code": "zwe",
+        "name": "Zimbabwe"
+      },
+      {
+        "code": "moz",
+        "name": "Mozambique / Moçambique"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "bwa",
+        "name": "Botswana"
+      },
+      {
+        "code": "tza",
+        "name": "Tanzania"
+      },
+      {
+        "code": "bdi",
+        "name": "Burundi / Uburundi"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "swz",
+        "name": "Eswatini"
+      },
+      {
+        "code": "ago",
+        "name": "Angola"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "zmb",
+    "content_hash": "020badbbe8319318aba8807992a88ce5eae4cc6d89ea8143626111fdddbae03e",
+    "notes_hash": "078f30f0525830864bd32a29ed2c2272794a7f127f50dfedd6bd6745e9ba2d3e",
+    "model_hash": "cebdea427ec6bfc6f957caeba14fe083e3cf722a2c68b80794ec7c71ce2bbc93"
+  },
+  "geo_code": "ZM",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

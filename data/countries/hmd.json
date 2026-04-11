@@ -1,0 +1,139 @@
+{
+  "code": "hmd",
+  "iso2": "HM",
+  "name": "Heard Island and McDonald Islands",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Heard Island and McDonald Islands. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Heard Island and McDonald Islands. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "No notes available.",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "atf",
+    "mus",
+    "mdg"
+  ],
+  "related_names": [
+    {
+      "code": "atf",
+      "name": "French Southern and Antarctic Lands / Terres australes et antarctiques françaises"
+    },
+    {
+      "code": "mus",
+      "name": "Mauritius / Maurice"
+    },
+    {
+      "code": "mdg",
+      "name": "Madagascar / Madagasikara"
+    }
+  ],
+  "coordinates": {
+    "lat": -53.103462,
+    "lng": 73.50521
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Heard_%26_McDonald_Islands",
+    "wiki_truth": null,
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Heard_%26_McDonald_Islands",
+        "title": "Wikipedia: Heard Island and McDonald Islands",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "OTHER",
+    "seo_cluster": "GLOBAL",
+    "geo_neighbors": [
+      {
+        "code": "atf",
+        "name": "French Southern and Antarctic Lands / Terres australes et antarctiques françaises"
+      },
+      {
+        "code": "mus",
+        "name": "Mauritius / Maurice"
+      },
+      {
+        "code": "mdg",
+        "name": "Madagascar / Madagasikara"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "ata",
+        "name": "Antarctica"
+      },
+      {
+        "code": "iot",
+        "name": "British Indian Ocean Territory"
+      },
+      {
+        "code": "swz",
+        "name": "Eswatini"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "syc",
+        "name": "Seychelles / Sesel"
+      },
+      {
+        "code": "mdv",
+        "name": "Maldives / ދިވެހިރާއްޖޭގެ"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "hmd",
+    "content_hash": "b88065a2c687082eebabe2f5be82e2efa24bde1c6057b417446cc74c466a472f",
+    "notes_hash": "9f69830c05e0c67933239bda863a215079e94c6f4a807d1944b61d003493e7cf",
+    "model_hash": "e919cc203be1865f725325bfa4a1fcedb99998dd0a6eb3880876328fe0ebaa45"
+  },
+  "geo_code": "HM",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

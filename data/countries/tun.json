@@ -1,0 +1,144 @@
+{
+  "code": "tun",
+  "iso2": "TN",
+  "name": "Tunisia / تونس",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Tunisia / تونس. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Tunisia / تونس. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Tunisia}} Banned in 1953.<ref name=\"Drugs1949\">{{cite book|author=United Nations. Commission on Narcotic Drugs|title=Summary of Annual Reports of Governments Relating to Opium and Other Narcotic Drugs|url=https://books.google.com/books?id=GXMqAQAAMAAJ|year=1949|quote=''TUNISIA 18. A Decree of 23 April 1953\" (published in the Journal Officiel Tunisien of 28 April 1953) prohibits the cultivation of cannabis and the use of takrouri (cannabis) and specifies the conditions under which ...''|access-date=5 June 2018|archive-date=20 April 2023|archive-url=https://web.archive.org/web/20230420090936/https://books.google.com/books?id=GXMqAQAAMAAJ|url-status=live}}</ref> Using or possessing entails 1–5 years of imprisonment and 1000–3000 [[Tunisian dinar|dinars]] (around $500–1500).<ref>{{cite book |url = https://books.google.com/books?id=k2By-NdV93AC&q=tunisia+cannabis&pg=PP60 |title = The Rough Guide to Tunisia – Daniel Jacobs, Peter Morris – Google grâmatas |access-date = 23 June 2013 |isbn = 9781858287485 |year = 2001 |last1 = Jacobs |first1 = Daniel |last2 = Morris |first2 = Peter |publisher = Rough Guides |archive-date = 20 April 2023 |archive-url = https://web.archive.org/web/20230420090917/https://books.google.com/books?id=k2By-NdV93AC&q=tunisia+cannabis&pg=PP60 |url-status = live }}</ref><ref>{{cite news |url = https://timesofmalta.com/articles/view/tunisia-accuses-missing-maltese-of-smuggling-cannabis.319346 |last = Massa |first = Ariadne |title = Tunisia accuses 'missing' Maltese of smuggling cannabis |work = [[Times of Malta]] |access-date = 23 June 2013 |archive-url = https://web.archive.org/web/20200517154342/https://timesofmalta.com/articles/view/tunisia-accuses-missing-maltese-of-smuggling-cannabis.319346 |archive-date = 17 May 2020 |url-status = live}}</ref><ref>{{cite web|url =http://www.legislation-securite.tn/ar/node/34556|url-status =dead|archive-url =https://web.archive.org/web/20151219114432/http://www.legislation-securite.tn/ar/node/34556| script-title=ar:قانون عدد 52 لسنة 1992 مؤرخ في 18 ماي 1992 يتعلق بالمخدرات | trans-title=Law No. 52 of 1992, dated 18 May 1992 concerning drugs | language=ar | publisher=DCAF / legislation-securite.tn | location=Tunisia | archive-date =19 December 2015}}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "mlt",
+    "dza",
+    "vat"
+  ],
+  "related_names": [
+    {
+      "code": "mlt",
+      "name": "Malta"
+    },
+    {
+      "code": "dza",
+      "name": "Algeria / الجزائر"
+    },
+    {
+      "code": "vat",
+      "name": "Vatican City / Vaticano"
+    }
+  ],
+  "coordinates": {
+    "lat": 34,
+    "lng": 9
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Tunisia",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Tunisia",
+        "title": "Wikipedia: Tunisia / تونس",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "AFRICA",
+    "seo_cluster": "AFRICA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "mlt",
+        "name": "Malta"
+      },
+      {
+        "code": "dza",
+        "name": "Algeria / الجزائر"
+      },
+      {
+        "code": "vat",
+        "name": "Vatican City / Vaticano"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "mco",
+        "name": "Monaco"
+      },
+      {
+        "code": "smr",
+        "name": "San Marino"
+      },
+      {
+        "code": "and",
+        "name": "Andorra"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "lby",
+        "name": "Libya / ليبيا"
+      },
+      {
+        "code": "mar",
+        "name": "Morocco / المغرب"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "tun",
+    "content_hash": "3126808b0e1c8af0581297a17855aaf7ae4eb4daa2acd43797c56cb464ab97ac",
+    "notes_hash": "51b13fdc4ca62ddf12d562cb44db2f6e3fc19835d2455a3eab26fdfc825e0a05",
+    "model_hash": "c79fcc500aa4a295069d39ef66d3e8563da55d56d5d8e7d80d120f3241931a4f"
+  },
+  "geo_code": "TN",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

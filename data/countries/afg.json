@@ -1,0 +1,144 @@
+{
+  "code": "afg",
+  "iso2": "AF",
+  "name": "Afghanistan / افغانستان",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Afghanistan / افغانستان. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Afghanistan / افغانستان. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Afghanistan}} Production banned by King [[Zahir Shah]] in 1973.<ref name=\"Booth2011\">{{cite book|author=Martin Booth|title=Cannabis: A History|url=https://books.google.com/books?id=Mjn6sCiHoFIC&pg=PA325|date=30 September 2011|publisher=Transworld|isbn=978-1-4090-8489-1|pages=325–}}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "pak",
+    "uzb",
+    "tjk"
+  ],
+  "related_names": [
+    {
+      "code": "pak",
+      "name": "Pakistan / پاكستان"
+    },
+    {
+      "code": "uzb",
+      "name": "Uzbekistan / Узбекистан"
+    },
+    {
+      "code": "tjk",
+      "name": "Tajikistan / Таджикистан"
+    }
+  ],
+  "coordinates": {
+    "lat": 33,
+    "lng": 65
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Afghanistan",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Afghanistan",
+        "title": "Wikipedia: Afghanistan / افغانستان",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "ASIA",
+    "seo_cluster": "ASIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "pak",
+        "name": "Pakistan / پاكستان"
+      },
+      {
+        "code": "uzb",
+        "name": "Uzbekistan / Узбекистан"
+      },
+      {
+        "code": "tjk",
+        "name": "Tajikistan / Таджикистан"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "tkm",
+        "name": "Turkmenistan / Туркмения"
+      },
+      {
+        "code": "irn",
+        "name": "Iran / ایران"
+      },
+      {
+        "code": "kgz",
+        "name": "Kyrgyzstan / Кыргызстан"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "are",
+        "name": "United Arab Emirates / الإمارات"
+      },
+      {
+        "code": "omn",
+        "name": "Oman / عمان"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "afg",
+    "content_hash": "771e24111eb40d535019eb3ea0fe9acc5430ce5e0a64d016ec95bda539da93b3",
+    "notes_hash": "0ff300485bc16950b5ad7bbd3f9b0ab172e01242042baa61c3611c46d46c2a14",
+    "model_hash": "8b45938d2523759cd5a5f0a5e117d79608d641f4b58c464bd8e555765df85be3"
+  },
+  "geo_code": "AF",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

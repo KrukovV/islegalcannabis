@@ -1,0 +1,181 @@
+{
+  "code": "us-ca",
+  "geo_code": "US-CA",
+  "iso2": "US-CA",
+  "name": "California",
+  "node_type": "state",
+  "normalized_version": "v1",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "regulated",
+      "scopes": {
+        "possession": "restricted",
+        "use": "restricted",
+        "sale": "regulated",
+        "cultivation": "regulated",
+        "import": "illegal",
+        "trafficking": "illegal"
+      },
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [
+      "fine_based"
+    ],
+    "applied_rules": []
+  },
+  "notes_normalized": "Cannabis is legal in California under state law for recreational adult use. Medical cannabis is also legal in California. Cannabis remains federally illegal in United States. Possession is limited to up to 28.5 g (adult).",
+  "notes_raw": "allowed",
+  "facts": {
+    "possession_limit": "up to 28.5 g (adult)",
+    "cultivation": "Home grow allowed.",
+    "penalty": "Public use remains illegal."
+  },
+  "parent_country": {
+    "code": "usa",
+    "name": "United States"
+  },
+  "state_modifiers": {
+    "recreational": "override",
+    "medical": "override",
+    "enforcement_strength": "MEDIUM",
+    "federal_conflict": "Cannabis remains federally illegal in United States.",
+    "legalization_status": "State legal"
+  },
+  "related_codes": [
+    "usa",
+    "us-tx",
+    "us-al",
+    "us-ar"
+  ],
+  "related_names": [
+    {
+      "code": "usa",
+      "name": "United States"
+    },
+    {
+      "code": "us-tx",
+      "name": "Texas"
+    },
+    {
+      "code": "us-al",
+      "name": "Alabama"
+    },
+    {
+      "code": "us-ar",
+      "name": "Arkansas"
+    }
+  ],
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "USA_CLUSTER",
+    "geo_neighbors": [
+      {
+        "code": "us-nv",
+        "name": "Nevada"
+      },
+      {
+        "code": "us-az",
+        "name": "Arizona"
+      },
+      {
+        "code": "us-wa",
+        "name": "Washington"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "us-co",
+        "name": "Colorado"
+      },
+      {
+        "code": "us-ak",
+        "name": "Alaska"
+      },
+      {
+        "code": "us-ct",
+        "name": "Connecticut"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "usa",
+        "name": "United States"
+      },
+      {
+        "code": "us-de",
+        "name": "Delaware"
+      }
+    ],
+    "same_country_states": [
+      {
+        "code": "us-tx",
+        "name": "Texas"
+      },
+      {
+        "code": "us-al",
+        "name": "Alabama"
+      },
+      {
+        "code": "us-ar",
+        "name": "Arkansas"
+      }
+    ],
+    "federal_parent": {
+      "code": "usa",
+      "name": "United States"
+    }
+  },
+  "coordinates": {
+    "lat": 36.7783,
+    "lng": -119.4179
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/California",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "official-us-ca",
+        "url": "https://cannabis.ca.gov/",
+        "title": "California Cannabis Portal (official)",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki-us-ca",
+        "url": "https://en.wikipedia.org/wiki/California",
+        "title": "Wikipedia: California",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki-truth-us-ca",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "hashes": {
+    "code": "us-ca",
+    "content_hash": "137fc3444087705457dd4836cfdf0320d67770d466ae05136a2d3ea12538131b",
+    "notes_hash": "4b7f9edd7c44cec6dd60522a361a45c879dcfd87f3f1825e4458a59eecd33bba",
+    "model_hash": "e660cf6c19da7b4d55135e1727000195d78bf591b2161aa9a7d4a8aabc698280"
+  },
+  "updated_at": "2025-12-14"
+}

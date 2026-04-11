@@ -1,0 +1,148 @@
+{
+  "code": "est",
+  "iso2": "EE",
+  "name": "Estonia / Eesti",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "DECRIMINALIZED",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "restricted",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [
+      "fine_based"
+    ],
+    "applied_rules": [
+      "fine_based",
+      "medical_legal",
+      "legal"
+    ],
+    "notes_normalized": "Cannabis is legal in Estonia / Eesti. Medical cannabis is legal. Distribution is restricted."
+  },
+  "notes_normalized": "Cannabis is legal in Estonia / Eesti. Medical cannabis is legal. Distribution is restricted.",
+  "notes_raw": "{{main|Cannabis in Estonia}} Up to {{cvt|7.5|g|frac=4}} is considered an amount for personal use, and is punished with a fine. Large amounts and distribution are criminal offenses punishable with a custodial sentence of up to 5 years.<ref>{{citation |url = http://www.eupedia.com/europe/maps_of_europe.shtml#cannabis |title = Europe Guide : Maps of Europe by language, religion, population density, hair and eye color, etc |publisher = Eupedia.com |date = 19 April 1994 |access-date = 17 February 2011 |archive-date = 28 August 2019 |archive-url = https://web.archive.org/web/20190828073814/https://www.eupedia.com/europe/maps_of_europe.shtml#cannabis |url-status = live }}</ref> Medical cannabis is technically legal, but to get a prescription is an arduous process and is practically never given, with a single patient having received Sativex preparation.<ref>{{Cite web |title=Ravikanepi taotlemine {{!}} Ravikanep |url=https://ravikanep.ee/ravikanepi-taotlemine/ |access-date=2024-10-13 |language=et}}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": "fine."
+  },
+  "related_codes": [
+    "lva",
+    "ltu",
+    "fin"
+  ],
+  "related_names": [
+    {
+      "code": "lva",
+      "name": "Latvia / Latvija"
+    },
+    {
+      "code": "ltu",
+      "name": "Lithuania / Lietuva"
+    },
+    {
+      "code": "fin",
+      "name": "Finland / Suomi"
+    }
+  ],
+  "coordinates": {
+    "lat": 59,
+    "lng": 26
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Estonia",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Estonia",
+        "title": "Wikipedia: Estonia / Eesti",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "lva",
+        "name": "Latvia / Latvija"
+      },
+      {
+        "code": "ltu",
+        "name": "Lithuania / Lietuva"
+      },
+      {
+        "code": "fin",
+        "name": "Finland / Suomi"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "pol",
+        "name": "Poland / Polska"
+      },
+      {
+        "code": "ukr",
+        "name": "Ukraine / Україна"
+      },
+      {
+        "code": "mda",
+        "name": "Moldova"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "ala",
+        "name": "Åland Islands / Åland"
+      },
+      {
+        "code": "blr",
+        "name": "Belarus / Белару́сь"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "est",
+    "content_hash": "f83fb6f8ade1f57e2eb77dfcf06116e89a49a135964ebf30bb7fc1ff7b8c21f4",
+    "notes_hash": "a79a5c4cf628f8f0e3b0152f725559b2a8b03823bd040fd30b53711038fd935e",
+    "model_hash": "8fc447ecea17e6b5ee03750fb7b17ef88870390720649eed4526444ea4e00c5b"
+  },
+  "geo_code": "EE",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

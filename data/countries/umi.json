@@ -1,0 +1,139 @@
+{
+  "code": "umi",
+  "iso2": "UM",
+  "name": "United States Minor Outlying Islands",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in United States Minor Outlying Islands. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in United States Minor Outlying Islands. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "No notes available.",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "mhl",
+    "fsm",
+    "kir"
+  ],
+  "related_names": [
+    {
+      "code": "mhl",
+      "name": "Marshall Islands / M̧ajeļ"
+    },
+    {
+      "code": "fsm",
+      "name": "Micronesia"
+    },
+    {
+      "code": "kir",
+      "name": "Kiribati"
+    }
+  ],
+  "coordinates": {
+    "lat": 19.285663,
+    "lng": 166.644535
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/U.S._Outlying_Islands",
+    "wiki_truth": null,
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/U.S._Outlying_Islands",
+        "title": "Wikipedia: United States Minor Outlying Islands",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "NA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "mhl",
+        "name": "Marshall Islands / M̧ajeļ"
+      },
+      {
+        "code": "fsm",
+        "name": "Micronesia"
+      },
+      {
+        "code": "kir",
+        "name": "Kiribati"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "nru",
+        "name": "Nauru"
+      },
+      {
+        "code": "mnp",
+        "name": "Northern Mariana Islands / Na Islas Mariånas"
+      },
+      {
+        "code": "gum",
+        "name": "Guam / Guåhån"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "grl",
+        "name": "Greenland / Kalaallit Nunaat"
+      },
+      {
+        "code": "spm",
+        "name": "Saint Pierre and Miquelon / Saint-Pierre-et-Miquelon"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "umi",
+    "content_hash": "dc6ccdb33daa5b6cdc333d07a86caf3df0389cf450fb1594a704161de18d984b",
+    "notes_hash": "76e8c027f7a633e8c22d02e9ecc9ec08c05e0a144c861308238565baca8f869b",
+    "model_hash": "609e7d6948f4765113823f023b6d60d4ba806a7820182a857301edbacd17af24"
+  },
+  "geo_code": "UM",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

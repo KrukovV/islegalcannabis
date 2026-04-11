@@ -1,0 +1,145 @@
+{
+  "code": "can",
+  "iso2": "CA",
+  "name": "Canada",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "restricted",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "medical_legal",
+      "legal"
+    ],
+    "notes_normalized": "Cannabis is legal in Canada. Medical cannabis is legal. Distribution is restricted."
+  },
+  "notes_normalized": "Cannabis is legal in Canada. Medical cannabis is legal. Distribution is restricted.",
+  "notes_raw": "{{Main|Cannabis in Canada|Cannabis laws of Canada by province or territory}} Legal for medicinal purposes since 2001 and for recreational purposes since 17 October 2018. The age to buy or consume cannabis varies by province: 19 in most provinces, 18 in Alberta, and 21 in Quebec.<ref>{{cite web |title=Cannabis Legalization and Regulation |url=https://www.justice.gc.ca/eng/cj-jp/cannabis/ |publisher=Department of Justice, Government of Canada |date=7 July 2021 |access-date=29 June 2023 }}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "usa",
+    "mex",
+    "bhs"
+  ],
+  "related_names": [
+    {
+      "code": "usa",
+      "name": "United States"
+    },
+    {
+      "code": "mex",
+      "name": "Mexico / México"
+    },
+    {
+      "code": "bhs",
+      "name": "Bahamas"
+    }
+  ],
+  "coordinates": {
+    "lat": 60,
+    "lng": -95
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Canada",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Canada",
+        "title": "Wikipedia: Canada",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "NA",
+    "geo_neighbors": [
+      {
+        "code": "usa",
+        "name": "United States"
+      },
+      {
+        "code": "mex",
+        "name": "Mexico / México"
+      },
+      {
+        "code": "bhs",
+        "name": "Bahamas"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "bmu",
+        "name": "Bermuda"
+      },
+      {
+        "code": "blz",
+        "name": "Belize / Belice"
+      },
+      {
+        "code": "jam",
+        "name": "Jamaica"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "spm",
+        "name": "Saint Pierre and Miquelon / Saint-Pierre-et-Miquelon"
+      },
+      {
+        "code": "cub",
+        "name": "Cuba"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "can",
+    "content_hash": "b93540e1746363fff1e8f2cbc3a48ee3079d5a342247259206c4bfddf56312da",
+    "notes_hash": "44f241c555dbc4ea0434dc127278d50425d33f99737756d596449867ddc77905",
+    "model_hash": "878ceab1fce148c13c742964d8f30bfd97d373a29f2655feba0dc16639d69f88"
+  },
+  "geo_code": "CA",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

@@ -1,0 +1,146 @@
+{
+  "code": "grc",
+  "iso2": "GR",
+  "name": "Greece / Ελλάδα",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Greece / Ελλάδα. Medical cannabis is legal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Greece / Ελλάδα. Medical cannabis is legal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Greece}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "alb",
+    "mkd",
+    "mne"
+  ],
+  "related_names": [
+    {
+      "code": "alb",
+      "name": "Albania / Shqipëria"
+    },
+    {
+      "code": "mkd",
+      "name": "North Macedonia / Македонија"
+    },
+    {
+      "code": "mne",
+      "name": "Montenegro / Црна Гора"
+    }
+  ],
+  "coordinates": {
+    "lat": 39,
+    "lng": 22
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Greece",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Greece",
+        "title": "Wikipedia: Greece / Ελλάδα",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "alb",
+        "name": "Albania / Shqipëria"
+      },
+      {
+        "code": "mkd",
+        "name": "North Macedonia / Македонија"
+      },
+      {
+        "code": "mne",
+        "name": "Montenegro / Црна Гора"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "bgr",
+        "name": "Bulgaria / България"
+      },
+      {
+        "code": "srb",
+        "name": "Serbia / Србија"
+      },
+      {
+        "code": "bih",
+        "name": "Bosnia and Herzegovina / Bosna i Hercegovina"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "rou",
+        "name": "Romania / România"
+      },
+      {
+        "code": "mlt",
+        "name": "Malta"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "grc",
+    "content_hash": "27a0e9450a35df408aa4fd38684e624eea20ffc6e68862916f9a3916d96e8cd4",
+    "notes_hash": "136ac3029799f98fda4d76749f747d7aa15c03a9c560dfb19e1ab5b3c7fc5899",
+    "model_hash": "b94a103166bfefeafb69421168937e6c9ccdfab53ba07d1b0c78e4b779f4c0f4"
+  },
+  "geo_code": "GR",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

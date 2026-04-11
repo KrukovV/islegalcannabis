@@ -1,0 +1,144 @@
+{
+  "code": "sle",
+  "iso2": "SL",
+  "name": "Sierra Leone",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Sierra Leone. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Sierra Leone. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Sierra Leone}} Cannabis banned in 1920.<ref name=\"AkyeampongHill2015\">{{cite book|last1=Akyeampong |first1=Emmanuel |last2=Hill |first2=Allan G. |last3=Kleinman |first3=Arthur |title=The Culture of Mental Illness and Psychiatric Practice in Africa|url=https://books.google.com/books?id=wUd9CAAAQBAJ&pg=PA39|date=1 May 2015|publisher=Indiana University Press|isbn=978-0-253-01304-0|jstor=j.ctt16gz69f|pages=39–}}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "lbr",
+    "gin",
+    "gnb"
+  ],
+  "related_names": [
+    {
+      "code": "lbr",
+      "name": "Liberia"
+    },
+    {
+      "code": "gin",
+      "name": "Guinea / Guinée"
+    },
+    {
+      "code": "gnb",
+      "name": "Guinea-Bissau / Guiné-Bissau"
+    }
+  ],
+  "coordinates": {
+    "lat": 8.5,
+    "lng": -11.5
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Sierra_Leone",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Sierra_Leone",
+        "title": "Wikipedia: Sierra Leone",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "AFRICA",
+    "seo_cluster": "AFRICA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "lbr",
+        "name": "Liberia"
+      },
+      {
+        "code": "gin",
+        "name": "Guinea / Guinée"
+      },
+      {
+        "code": "gnb",
+        "name": "Guinea-Bissau / Guiné-Bissau"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "sen",
+        "name": "Senegal / Sénégal"
+      },
+      {
+        "code": "civ",
+        "name": "Ivory Coast / Côte d'Ivoire"
+      },
+      {
+        "code": "gmb",
+        "name": "Gambia"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "gha",
+        "name": "Ghana"
+      },
+      {
+        "code": "bfa",
+        "name": "Burkina Faso"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "sle",
+    "content_hash": "cb987cb3b66429eb30021d9ae9d09c175e5246977f12fbee3dc09cb57ed8d003",
+    "notes_hash": "42e2911c66cf7864c3ef6ca41607a2c0aeecec825f1b352b3fe2976b5647fc1b",
+    "model_hash": "0844f92ae8161901ae10d7e4a0e99bb8fa283291d4c34bf5bc1ab65ffad270c7"
+  },
+  "geo_code": "SL",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

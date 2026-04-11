@@ -1,0 +1,139 @@
+{
+  "code": "flk",
+  "iso2": "FK",
+  "name": "Falkland Islands",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Falkland Islands. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Falkland Islands. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "No notes available.",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "arg",
+    "ury",
+    "chl"
+  ],
+  "related_names": [
+    {
+      "code": "arg",
+      "name": "Argentina"
+    },
+    {
+      "code": "ury",
+      "name": "Uruguay"
+    },
+    {
+      "code": "chl",
+      "name": "Chile"
+    }
+  ],
+  "coordinates": {
+    "lat": -51.608913,
+    "lng": -58.738602
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Falkland_Islands",
+    "wiki_truth": null,
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Falkland_Islands",
+        "title": "Wikipedia: Falkland Islands",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "LATAM",
+    "seo_cluster": "LATAM_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "arg",
+        "name": "Argentina"
+      },
+      {
+        "code": "ury",
+        "name": "Uruguay"
+      },
+      {
+        "code": "chl",
+        "name": "Chile"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "sgs",
+        "name": "South Georgia"
+      },
+      {
+        "code": "bol",
+        "name": "Bolivia / Wuliwya"
+      },
+      {
+        "code": "sur",
+        "name": "Suriname"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "pry",
+        "name": "Paraguay / Paraguái"
+      },
+      {
+        "code": "bra",
+        "name": "Brazil / Brasil"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "flk",
+    "content_hash": "92e3bc53b0380d55945346b5c9b32fa9c10f94ff3d123e969cccea4fd1ac8ac0",
+    "notes_hash": "e5f2ee6901fc18c267fa8ddc08ded290b48c060559ac423411e615c906de9c3a",
+    "model_hash": "9272ec80c0caa6faf48a898036c1b75cdb5e5106a83ccb1905e45c399428e19a"
+  },
+  "geo_code": "FK",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

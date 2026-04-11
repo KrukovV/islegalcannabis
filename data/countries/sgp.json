@@ -1,0 +1,149 @@
+{
+  "code": "sgp",
+  "iso2": "SG",
+  "name": "Singapore / Singapura",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "restricted",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [
+      "fine_based"
+    ],
+    "applied_rules": [
+      "fine_based",
+      "medical_legal",
+      "illegal",
+      "legal"
+    ],
+    "notes_normalized": "Cannabis is legal in Singapore / Singapura. Medical cannabis is legal. Distribution is restricted."
+  },
+  "notes_normalized": "Cannabis is legal in Singapore / Singapura. Medical cannabis is legal. Distribution is restricted.",
+  "notes_raw": "{{main|Cannabis in Singapore}} Banned in 1870.<ref name=\"Bunyapraphatsō̜n1999\">{{cite book|last=Bunyapraphatsō̜n |first=Nanthawan |title=Medicinal and poisonous plants|url=https://books.google.com/books?id=ifDwAAAAMAAJ|year=1999|publisher=Backhuys Publishers|isbn=978-90-5782-042-7|page=169}}</ref> Cannabis is a Class A drug under the Misuse of Drugs Act, making it illegal to cultivate, sell, or possess. Those who are caught with {{cvt|500|g|lboz}} of cannabis or more are considered drug traffickers and are liable to be punished with an automatic death penalty.<ref>{{citation |url = http://www.erowid.org/plants/cannabis/cannabis_law.shtml#singapore |title = Cannabis legal status vault – Singapore |publisher = Erowid.org |access-date = 17 February 2011 |archive-date = 15 December 2019 |archive-url = https://web.archive.org/web/20191215152836/https://www.erowid.org/plants/cannabis/cannabis_law.shtml#singapore |url-status = live }}</ref><ref>{{cite web|title=MISUSE OF DRUGS ACT|url=http://statutes.agc.gov.sg/aol/search/display/view.w3p;page=0;query=DocId%3Ac13adadb-7d1b-45f8-a3bb-92175f83f4f5%20Depth%3A0%20ValidTime%3A02%2F10%2F2013%20TransactionTime%3A02%2F10%2F2013%20Status%3Ainforce;rec=0;whole=yes|work=Attorney-General's Chamber|publisher=Singapore Government|access-date=3 October 2013|date=31 March 2008|archive-date=7 August 2017|archive-url=https://web.archive.org/web/20170807235438/http://statutes.agc.gov.sg/aol/search/display/view.w3p;page=0;query=DocId%3Ac13adadb-7d1b-45f8-a3bb-92175f83f4f5%20Depth%3A0%20ValidTime%3A02%2F10%2F2013%20TransactionTime%3A02%2F10%2F2013%20Status%3Ainforce;rec=0;whole=yes|url-status=dead}}</ref>  In rare cases, permission has been granted to use cannabis-derived pharmaceuticals for treatment of epilepsy.<ref>{{Cite web|url=https://www.straitstimes.com/singapore/cannabis-derived-drug-approved-for-second-patient|title=Cannabis-derived drug approved for second patient|date=17 June 2021|website=The Straits Times|access-date=19 June 2021|archive-date=19 June 2021|archive-url=https://web.archive.org/web/20210619172901/https://www.straitstimes.com/singapore/cannabis-derived-drug-approved-for-second-patient|url-status=live}}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": "cultivate, sell, or possess.",
+    "penalty": "penalty."
+  },
+  "related_codes": [
+    "mys",
+    "brn",
+    "khm"
+  ],
+  "related_names": [
+    {
+      "code": "mys",
+      "name": "Malaysia / مليسيا"
+    },
+    {
+      "code": "brn",
+      "name": "Brunei / Negara Brunei Darussalam"
+    },
+    {
+      "code": "khm",
+      "name": "Cambodia / Kâmpŭchéa"
+    }
+  ],
+  "coordinates": {
+    "lat": 1.36666666,
+    "lng": 103.8
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Singapore",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Singapore",
+        "title": "Wikipedia: Singapore / Singapura",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "ASIA",
+    "seo_cluster": "ASIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "mys",
+        "name": "Malaysia / مليسيا"
+      },
+      {
+        "code": "brn",
+        "name": "Brunei / Negara Brunei Darussalam"
+      },
+      {
+        "code": "khm",
+        "name": "Cambodia / Kâmpŭchéa"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "tha",
+        "name": "Thailand / ประเทศไทย"
+      },
+      {
+        "code": "phl",
+        "name": "Philippines / Pilipinas"
+      },
+      {
+        "code": "lka",
+        "name": "Sri Lanka / ශ්‍රී ලංකාව"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "vnm",
+        "name": "Vietnam / Việt Nam"
+      },
+      {
+        "code": "lao",
+        "name": "Laos / ສປປລາວ"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "sgp",
+    "content_hash": "15a0ea00d6ffa4a7223ee9ba255d9662e1f5a8bfe88b5b1408f89f7fb9712815",
+    "notes_hash": "da037e0231c57355908f3e47e0c7ea5955b9ba2af88d184bedc89d2597822c17",
+    "model_hash": "229786e3ee872295534ff509a318fc6376c068ab5593de4cf9e6df50bd6bdfd6"
+  },
+  "geo_code": "SG",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

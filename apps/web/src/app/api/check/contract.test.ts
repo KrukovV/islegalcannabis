@@ -43,6 +43,31 @@ describe("GET /api/check contract", () => {
     expect(STATUS_LEVELS.has(json.status?.level)).toBe(true);
   });
 
+  it("returns derived final statuses and hides raw by default", async () => {
+    const req = new Request("http://localhost/api/check?country=BE");
+    const res = await GET(req);
+    const json = await res.json();
+
+    expect(json.ok).toBe(true);
+    expect(json.rec_final).toBe("DECRIMINALIZED");
+    expect(json.med_final).toBe("LIMITED");
+    expect(json.distribution_status).toBeTruthy();
+    expect("rec_raw" in json).toBe(false);
+    expect(json.profile?.legal_ssot?.medical).toBe("limited");
+  });
+
+  it("returns raw statuses only in debug mode", async () => {
+    const req = new Request("http://localhost/api/check?country=BE&debug=1");
+    const res = await GET(req);
+    const json = await res.json();
+
+    expect(json.ok).toBe(true);
+    expect(json.rec_raw).toBeTruthy();
+    expect(json.med_raw).toBeTruthy();
+    expect(json.distribution_scopes).toBeTruthy();
+    expect(Array.isArray(json.applied_rules)).toBe(true);
+  });
+
   it("surfaces machine verified evidence when available", async () => {
     const mvPath = path.join(
       process.cwd(),

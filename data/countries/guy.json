@@ -1,0 +1,146 @@
+{
+  "code": "guy",
+  "iso2": "GY",
+  "name": "Guyana",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Guyana. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Guyana. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Guyana}} Possession of {{cvt|15|g|frac=2}} or over can result in charges of drug trafficking.<ref name=\"stabroeknews1\">{{cite web |url=http://www.stabroeknews.com/2015/news/stories/12/04/rastafarian-community-protests-unjust-marijuana-laws/ |title=Rastafarian community protests against 'unjust' marijuana laws |publisher=Stabroek News |date=4 December 2015 |access-date=6 December 2015 |archive-date=5 September 2017 |archive-url=https://web.archive.org/web/20170905185119/https://www.stabroeknews.com/2015/news/stories/12/04/rastafarian-community-protests-unjust-marijuana-laws/ |url-status=live }}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "sur",
+    "tto",
+    "grd"
+  ],
+  "related_names": [
+    {
+      "code": "sur",
+      "name": "Suriname"
+    },
+    {
+      "code": "tto",
+      "name": "Trinidad and Tobago"
+    },
+    {
+      "code": "grd",
+      "name": "Grenada"
+    }
+  ],
+  "coordinates": {
+    "lat": 5,
+    "lng": -59
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Guyana",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Guyana",
+        "title": "Wikipedia: Guyana",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "LATAM",
+    "seo_cluster": "LATAM_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "sur",
+        "name": "Suriname"
+      },
+      {
+        "code": "tto",
+        "name": "Trinidad and Tobago"
+      },
+      {
+        "code": "grd",
+        "name": "Grenada"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "ven",
+        "name": "Venezuela"
+      },
+      {
+        "code": "msr",
+        "name": "Montserrat"
+      },
+      {
+        "code": "cuw",
+        "name": "Curaçao / Pais Kòrsou"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "col",
+        "name": "Colombia"
+      },
+      {
+        "code": "bra",
+        "name": "Brazil / Brasil"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "guy",
+    "content_hash": "f9b288a2f0e0a277c8656413919d7e8e20a4915b7f30dad4b04beeb9eaaa2caa",
+    "notes_hash": "9ff08b98b61555d3aacb8ae86bbb64b6dd9499f8bb49bb37a538982b3bf01527",
+    "model_hash": "2b7332ce4b39783137182e844c3809a0ba53c097577ce3471b9be6a32425c20e"
+  },
+  "geo_code": "GY",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

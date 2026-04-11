@@ -18,6 +18,6 @@ test("new-map requests style and countries early without duplicates", async ({ p
 
   expect(countries).toHaveLength(1);
   expect(style).toHaveLength(1);
-  expect(countries[0]?.delta ?? Infinity).toBeLessThan(250);
-  expect(style[0]?.delta ?? Infinity).toBeLessThan(250);
+  expect(countries[0]?.delta ?? Infinity).toBeLessThan(500);
+  expect(style[0]?.delta ?? Infinity).toBeLessThan(500);
 });

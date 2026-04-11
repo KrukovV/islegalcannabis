@@ -1,0 +1,150 @@
+{
+  "code": "rou",
+  "iso2": "RO",
+  "name": "Romania / România",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": "illegal"
+      },
+      "enforcement": "fine-based",
+      "flags": [
+        "trafficking_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [
+      "fine_based"
+    ],
+    "applied_rules": [
+      "trafficking_illegal",
+      "fine_based",
+      "medical_legal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Romania / România. Medical cannabis is legal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Romania / România. Medical cannabis is legal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Romania}} Small quantities punishable by a large fine for first offenders or 6 months to 2 years in prison if the person has been convicted before. Possession of large amounts or trafficking is punishable by 2–7 years of jail time.<ref>{{citation | url=http://www.reporterntv.ro/stire/pedepsele-pentru-traficul-si-consumul-de-droguri-s-au-redus-totusi | title=Pedepsele pentru traficul și consumul de droguri s-au redus. Totuși... | publisher=Reporter NTV | date=10 February 2015 | access-date=4 September 2017 | archive-url=https://web.archive.org/web/20170904213425/http://www.reporterntv.ro/stire/pedepsele-pentru-traficul-si-consumul-de-droguri-s-au-redus-totusi | archive-date=4 September 2017 | url-status=dead }}</ref> Decriminalization proposed.<ref>{{citation |url = http://www.antena3.ro/stiri/politica/raport-prezidential-pentru-eba-comisia-lui-basescu-propune-dezincriminarea-consumului-de-droguri_80829.html |title = Raport pentru EBA: Comisia prezidenţială susţine dezincriminarea consumului de droguri şi sexul comercial |publisher = Antena3.ro |date = 22 September 2009 |access-date = 17 February 2011 |archive-date = 18 March 2016 |archive-url = https://web.archive.org/web/20160318161358/http://www.antena3.ro/stiri/politica/raport-prezidential-pentru-eba-comisia-lui-basescu-propune-dezincriminarea-consumului-de-droguri_80829.html |url-status = live }}</ref> Limited medical use approved in 2013.<ref>{{cite news|title=Romania Legalizes Medical Marijuana, Becomes 10th EU Country To Permit Therapeutic Use|url=http://www.novinite.com/view_news.php?id=154315|access-date=14 October 2013|work=[[Novinite]]|date=6 October 2013|archive-date=21 June 2018|archive-url=https://web.archive.org/web/20180621015758/https://www.novinite.com/view_news.php?id=154315|url-status=live}}</ref><ref>{{cite web |url = http://www.gandul.info/stiri/anm-nu-avem-nicio-cerere-de-punere-pe-piata-a-canabisului-medicinal-daca-ar-fi-am-aproba-o-11448832 |title = ANM: Nu avem nicio cerere de punere pe piaţă a canabisului medicinal; dacă ar fi, am aproba-o |date = 3 October 2013 |access-date = 3 October 2013 |archive-date = 26 December 2018 |archive-url = https://web.archive.org/web/20181226021504/https://www.gandul.info/stiri/anm-nu-avem-nicio-cerere-de-punere-pe-piata-a-canabisului-medicinal-daca-ar-fi-am-aproba-o-11448832%20 |url-status = live }}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": "punishable by a large fine for first offenders or 6 months to 2 years in prison if the person has been convicted before."
+  },
+  "related_codes": [
+    "bgr",
+    "mda",
+    "srb"
+  ],
+  "related_names": [
+    {
+      "code": "bgr",
+      "name": "Bulgaria / България"
+    },
+    {
+      "code": "mda",
+      "name": "Moldova"
+    },
+    {
+      "code": "srb",
+      "name": "Serbia / Србија"
+    }
+  ],
+  "coordinates": {
+    "lat": 46,
+    "lng": 25
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Romania",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Romania",
+        "title": "Wikipedia: Romania / România",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "bgr",
+        "name": "Bulgaria / България"
+      },
+      {
+        "code": "mda",
+        "name": "Moldova"
+      },
+      {
+        "code": "srb",
+        "name": "Serbia / Србија"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "mkd",
+        "name": "North Macedonia / Македонија"
+      },
+      {
+        "code": "svk",
+        "name": "Slovakia / Slovensko"
+      },
+      {
+        "code": "mne",
+        "name": "Montenegro / Црна Гора"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "hun",
+        "name": "Hungary / Magyarország"
+      },
+      {
+        "code": "alb",
+        "name": "Albania / Shqipëria"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "rou",
+    "content_hash": "f2f0a1e48e36f1f5bf15dddfd2c58e65a1104b78db8535ce6db0509d5226913e",
+    "notes_hash": "d52040ce4f2cbc4e03c9ea423c090ddf6b6028bd45e7cda4e7070cccc5bd1b29",
+    "model_hash": "1913919cad2a94c35e25833740ae57629d5fefb0f4bd17056dec29b1afc28400"
+  },
+  "geo_code": "RO",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

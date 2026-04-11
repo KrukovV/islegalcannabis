@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-01-10T00:00:00Z",
+  "source": "offline_fallback",
+  "countries": {
+    "US": {
+      "status_recreational": "illegal",
+      "status_medical": "allowed",
+      "sources": [
+        "https://www.congress.gov/"
+      ],
+      "confidence": "low",
+      "notes": "pulled from verified local SSOT"
+    }
+  }
+}

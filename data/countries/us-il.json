@@ -1,0 +1,181 @@
+{
+  "code": "us-il",
+  "geo_code": "US-IL",
+  "iso2": "US-IL",
+  "name": "Illinois",
+  "node_type": "state",
+  "normalized_version": "v1",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "regulated",
+      "scopes": {
+        "possession": "restricted",
+        "use": "restricted",
+        "sale": "regulated",
+        "cultivation": "regulated",
+        "import": "illegal",
+        "trafficking": "illegal"
+      },
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [
+      "fine_based"
+    ],
+    "applied_rules": []
+  },
+  "notes_normalized": "Cannabis is legal in Illinois under state law for recreational adult use. Medical cannabis is also legal in Illinois. Cannabis remains federally illegal in United States. Possession is limited to Up to 30 g flower or 5 g concentrate (adult).",
+  "notes_raw": "allowed",
+  "facts": {
+    "possession_limit": "Up to 30 g flower or 5 g concentrate (adult)",
+    "cultivation": "Home grow allowed.",
+    "penalty": "Public use remains illegal."
+  },
+  "parent_country": {
+    "code": "usa",
+    "name": "United States"
+  },
+  "state_modifiers": {
+    "recreational": "override",
+    "medical": "override",
+    "enforcement_strength": "MEDIUM",
+    "federal_conflict": "Cannabis remains federally illegal in United States.",
+    "legalization_status": "State legal"
+  },
+  "related_codes": [
+    "usa",
+    "us-ar",
+    "us-ga",
+    "us-hi"
+  ],
+  "related_names": [
+    {
+      "code": "usa",
+      "name": "United States"
+    },
+    {
+      "code": "us-ar",
+      "name": "Arkansas"
+    },
+    {
+      "code": "us-ga",
+      "name": "Georgia"
+    },
+    {
+      "code": "us-hi",
+      "name": "Hawaii"
+    }
+  ],
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "USA_CLUSTER",
+    "geo_neighbors": [
+      {
+        "code": "us-mi",
+        "name": "Michigan"
+      },
+      {
+        "code": "us-ak",
+        "name": "Alaska"
+      },
+      {
+        "code": "us-al",
+        "name": "Alabama"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "us-ct",
+        "name": "Connecticut"
+      },
+      {
+        "code": "us-de",
+        "name": "Delaware"
+      },
+      {
+        "code": "us-md",
+        "name": "Maryland"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "usa",
+        "name": "United States"
+      },
+      {
+        "code": "us-ia",
+        "name": "Iowa"
+      }
+    ],
+    "same_country_states": [
+      {
+        "code": "us-ar",
+        "name": "Arkansas"
+      },
+      {
+        "code": "us-ga",
+        "name": "Georgia"
+      },
+      {
+        "code": "us-hi",
+        "name": "Hawaii"
+      }
+    ],
+    "federal_parent": {
+      "code": "usa",
+      "name": "United States"
+    }
+  },
+  "coordinates": {
+    "lat": 40.6331,
+    "lng": -89.3985
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Illinois",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "official-us-il",
+        "url": "https://cannabis.illinois.gov/",
+        "title": "Illinois Cannabis Regulation and Tax Act (official portal)",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki-us-il",
+        "url": "https://en.wikipedia.org/wiki/Illinois",
+        "title": "Wikipedia: Illinois",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki-truth-us-il",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "hashes": {
+    "code": "us-il",
+    "content_hash": "0bd2582b4cea67a66e41d59a0d67cfabc0ddcb0df555f55aa93693d23b280e0d",
+    "notes_hash": "df9d9ef50301b2c349671a85f582bc9213de97f0773f6892df9d61f4c5149ab8",
+    "model_hash": "32eb56412b8ff2fc39fd3852c96da5bcd6096b704ce011d18d2ac184b04d7214"
+  },
+  "updated_at": "2024-01-01"
+}

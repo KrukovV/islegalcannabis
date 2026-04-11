@@ -1,0 +1,146 @@
+{
+  "code": "nzl",
+  "iso2": "NZ",
+  "name": "New Zealand / Aotearoa",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "restricted",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "medical_legal",
+      "illegal",
+      "legal"
+    ],
+    "notes_normalized": "Cannabis is legal in New Zealand / Aotearoa. Medical cannabis is legal. Distribution is restricted."
+  },
+  "notes_normalized": "Cannabis is legal in New Zealand / Aotearoa. Medical cannabis is legal. Distribution is restricted.",
+  "notes_raw": "{{See also|Cannabis in New Zealand}} Banned in 1927.<ref>{{Cite web|url=http://www.enzs.auckland.ac.nz/docs/1927/1927A018.pdf|title=Dangerous Drugs Act, 1927|access-date=5 June 2018|archive-date=29 January 2019|archive-url=https://web.archive.org/web/20190129222420/http://www.enzs.auckland.ac.nz/docs/1927/1927A018.pdf|url-status=live}}</ref> Possession over {{cvt|28|g|0}} is [[Presumption of supply in New Zealand|presumed for supply]]. Medical use was legalized in 2018.<ref>{{cite news |last1=Ainge Roy |first1=Eleanor |title=New Zealand passes laws to make medical marijuana widely available |url=https://www.theguardian.com/world/2018/dec/11/new-zealand-passes-laws-to-make-medical-marijuana-widely-available |access-date=12 January 2019 |work=[[The Guardian]] |date=11 December 2018 |archive-date=13 January 2019 |archive-url=https://web.archive.org/web/20190113005629/https://www.theguardian.com/world/2018/dec/11/new-zealand-passes-laws-to-make-medical-marijuana-widely-available |url-status=live }}</ref> In 2020, a [[2020 New Zealand cannabis referendum|referendum to legalize recreational use]] failed by a 50.7% to 48.4% margin.<ref>{{cite news |title='No' vote for cannabis legalisation shrinks to 50.7 percent after final votes |url=https://www.rnz.co.nz/news/national/430007/no-vote-for-cannabis-legalisation-shrinks-to-50-point-7-percent-after-final-votes |access-date=10 November 2020 |publisher=[[Radio New Zealand]] |date=6 November 2020 |archive-date=13 November 2020 |archive-url=https://web.archive.org/web/20201113105908/https://www.rnz.co.nz/news/national/430007/no-vote-for-cannabis-legalisation-shrinks-to-50-point-7-percent-after-final-votes |url-status=live }}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "nfk",
+    "ncl",
+    "fji"
+  ],
+  "related_names": [
+    {
+      "code": "nfk",
+      "name": "Norfolk Island / Norf'k Ailen"
+    },
+    {
+      "code": "ncl",
+      "name": "New Caledonia / Nouvelle-Calédonie"
+    },
+    {
+      "code": "fji",
+      "name": "Fiji / Viti"
+    }
+  ],
+  "coordinates": {
+    "lat": -41,
+    "lng": 174
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/New_Zealand",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/New_Zealand",
+        "title": "Wikipedia: New Zealand / Aotearoa",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "OCEANIA",
+    "seo_cluster": "OCEANIA",
+    "geo_neighbors": [
+      {
+        "code": "nfk",
+        "name": "Norfolk Island / Norf'k Ailen"
+      },
+      {
+        "code": "ncl",
+        "name": "New Caledonia / Nouvelle-Calédonie"
+      },
+      {
+        "code": "fji",
+        "name": "Fiji / Viti"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "vut",
+        "name": "Vanuatu"
+      },
+      {
+        "code": "aus",
+        "name": "Australia"
+      },
+      {
+        "code": "phl",
+        "name": "Philippines / Pilipinas"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "tuv",
+        "name": "Tuvalu"
+      },
+      {
+        "code": "slb",
+        "name": "Solomon Islands"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "nzl",
+    "content_hash": "e20584b4d5c06323ce86eff0cfdccf39b9ff1ddc75c49289fa2a4109eda587f5",
+    "notes_hash": "83d6af55022a4a020363973758bec806f28d31ad66dc25e91b8278ddb1d31383",
+    "model_hash": "19b3ddc5ad5a688c7d42ec5ff9b9ddf6c30efc365b5141fba0f147f747355893"
+  },
+  "geo_code": "NZ",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

@@ -1,0 +1,146 @@
+{
+  "code": "tto",
+  "iso2": "TT",
+  "name": "Trinidad and Tobago",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "DECRIMINALIZED",
+      "status": "DECRIMINALIZED",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "LIMITED",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": "rec_implies_med_floor"
+    },
+    "distribution": {
+      "status": "restricted",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "decriminalized",
+      "illegal",
+      "rec_implies_med_floor"
+    ],
+    "notes_normalized": "Cannabis is decriminalized in Trinidad and Tobago. Medical cannabis is limited. Distribution is restricted."
+  },
+  "notes_normalized": "Cannabis is decriminalized in Trinidad and Tobago. Medical cannabis is limited. Distribution is restricted.",
+  "notes_raw": "{{main|Cannabis in Trinidad and Tobago}} Banned in 1925.<ref name=\"KleinDay2004\">{{cite book|author1=Axel Klein|author2=Marcus Day|author3=Anthony Harriott|title=Caribbean Drugs: From Criminalization to Harm Reduction|url=https://books.google.com/books?id=KlJyez-Nr70C&pg=PA58|date=13 November 2004|publisher=Zed Books|isbn=978-1-84277-499-1|pages=58–}}</ref> Decriminalized in 2019.<ref>{{cite news |last1=Ramdass |first1=Anna |title=Merry Christmas: Weed decriminalisation law to be proclaimed December 23 |url=https://trinidadexpress.com/newsextra/merry-christmas-weed-decriminalisation-law-to-be-proclaimed-december/article_3188b0a6-22a9-11ea-85e9-f71de3bf932a.html |access-date=20 December 2019 |work=[[Trinidad Express]] |date=19 December 2019 |archive-date=20 December 2019 |archive-url=https://web.archive.org/web/20191220030055/https://trinidadexpress.com/newsextra/merry-christmas-weed-decriminalisation-law-to-be-proclaimed-december/article_3188b0a6-22a9-11ea-85e9-f71de3bf932a.html |url-status=live }}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "grd",
+    "vct",
+    "brb"
+  ],
+  "related_names": [
+    {
+      "code": "grd",
+      "name": "Grenada"
+    },
+    {
+      "code": "vct",
+      "name": "Saint Vincent and the Grenadines"
+    },
+    {
+      "code": "brb",
+      "name": "Barbados"
+    }
+  ],
+  "coordinates": {
+    "lat": 11,
+    "lng": -61
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Trinidad_and_Tobago",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Trinidad_and_Tobago",
+        "title": "Wikipedia: Trinidad and Tobago",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "NA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "grd",
+        "name": "Grenada"
+      },
+      {
+        "code": "vct",
+        "name": "Saint Vincent and the Grenadines"
+      },
+      {
+        "code": "brb",
+        "name": "Barbados"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "lca",
+        "name": "Saint Lucia"
+      },
+      {
+        "code": "dma",
+        "name": "Dominica"
+      },
+      {
+        "code": "atg",
+        "name": "Antigua and Barbuda"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "msr",
+        "name": "Montserrat"
+      },
+      {
+        "code": "kna",
+        "name": "Saint Kitts and Nevis"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "tto",
+    "content_hash": "bf10d56e575a9784c7b885a77df06608da7095ab7c126e7bcddb944bcb9bb08d",
+    "notes_hash": "3fff4fcdce03c79eee5df513190f63ee0399b3f1f68ec848e77a45bf880ffa84",
+    "model_hash": "497783d5db141f7c52eb7a220817940f1af7c34468d3aba27d1f925c22abdefd"
+  },
+  "geo_code": "TT",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

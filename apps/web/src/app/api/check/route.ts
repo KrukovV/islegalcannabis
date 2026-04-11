@@ -19,6 +19,7 @@ import { titleForJurisdiction } from "../../../lib/jurisdictionTitle";
 import { buildExtrasItems, extrasPreview } from "../../../lib/extras";
 import { findNearestLegalForProfile } from "../../../lib/geo/nearestLegal";
 import { findNearestBetterBorder } from "../../../lib/geo/nearestBorder";
+import { getCountryPageIndexByGeoCode, getCountryPageIndexByIso2 } from "../../../lib/countryPageStorage";
 import { buildWikiBlock, withWikiClaim } from "../../../core/ssot/wiki_status";
 import {
   buildDisplayStatus,
@@ -121,6 +122,68 @@ function writeGeoLocSsot(
 let offlineFallbackCache: Record<string, unknown> | null = null;
 let autoVerifiedCache: Record<string, unknown> | null = null;
 let onDemandTouched = false;
+let countryPageIndexByIso2Cache: ReturnType<typeof getCountryPageIndexByIso2> | null = null;
+let countryPageIndexByGeoCodeCache: ReturnType<typeof getCountryPageIndexByGeoCode> | null = null;
+
+function getCountryPageForQuery(country: string, region?: string | null) {
+  if (!countryPageIndexByIso2Cache) countryPageIndexByIso2Cache = getCountryPageIndexByIso2();
+  if (!countryPageIndexByGeoCodeCache) countryPageIndexByGeoCodeCache = getCountryPageIndexByGeoCode();
+  const upperCountry = String(country || "").trim().toUpperCase();
+  const upperRegion = String(region || "").trim().toUpperCase();
+  if (upperCountry === "US" && upperRegion) {
+    return countryPageIndexByGeoCodeCache.get(`US-${upperRegion}`) || null;
+  }
+  return countryPageIndexByIso2Cache.get(upperCountry) || null;
+}
+
+function toSsotStatusValue(value: string | null | undefined) {
+  const normalized = String(value || "").trim().toUpperCase();
+  if (normalized === "LEGAL") return "legal";
+  if (normalized === "DECRIMINALIZED") return "decriminalized";
+  if (normalized === "TOLERATED") return "tolerated";
+  if (normalized === "LIMITED") return "limited";
+  if (normalized === "UNKNOWN") return "unknown";
+  return "illegal";
+}
+
+function withDerivedSsotProfile<T extends JurisdictionLawProfile>(profile: T, country: string, region?: string | null) {
+  const countryPage = getCountryPageForQuery(country, region);
+  if (!countryPage) return { profile, derived: null };
+  const legalSsot = {
+    recreational: toSsotStatusValue(countryPage.legal_model.recreational.status),
+    medical: toSsotStatusValue(countryPage.legal_model.medical.status),
+    distribution: countryPage.legal_model.distribution.status,
+    rec_raw: countryPage.legal_model.recreational.raw_status || null,
+    med_raw: countryPage.legal_model.medical.raw_status || null,
+    distribution_scopes: countryPage.legal_model.distribution.scopes,
+    distribution_flags: countryPage.legal_model.distribution.flags,
+    enforcement_flags: countryPage.legal_model.enforcement_flags || [],
+    applied_rules: countryPage.legal_model.applied_rules || [],
+    notes: countryPage.notes_normalized || countryPage.notes_raw || null,
+    confidence: "high" as const,
+    sources: profile.legal_ssot?.sources || [],
+    generated_at: countryPage.updated_at || null
+  };
+  return {
+    profile: {
+      ...profile,
+      status_recreational: legalSsot.recreational,
+      status_medical: legalSsot.medical,
+      legal_ssot: legalSsot
+    },
+    derived: {
+      rec_final: countryPage.legal_model.recreational.status,
+      med_final: countryPage.legal_model.medical.status,
+      distribution_status: countryPage.legal_model.distribution.status,
+      rec_raw: countryPage.legal_model.recreational.raw_status || null,
+      med_raw: countryPage.legal_model.medical.raw_status || null,
+      distribution_scopes: countryPage.legal_model.distribution.scopes,
+      distribution_flags: countryPage.legal_model.distribution.flags,
+      enforcement_flags: countryPage.legal_model.enforcement_flags || [],
+      applied_rules: countryPage.legal_model.applied_rules || []
+    }
+  };
+}
 
 function loadOfflineFallback() {
   if (offlineFallbackCache) return offlineFallbackCache;
@@ -305,14 +368,9 @@ function isPaidRequest(req: Request) {
 export async function GET(req: Request) {
   const requestId = createRequestId(req);
   const { searchParams } = new URL(req.url);
-  const rawCountry = searchParams.get("country") ?? "";
-  const combinedGeo = rawCountry.trim().toUpperCase();
-  const splitGeo =
-    !searchParams.get("region") && /^[A-Z]{2}-[A-Z0-9]{2,3}$/.test(combinedGeo)
-      ? combinedGeo.split("-", 2)
-      : null;
-  const country = splitGeo?.[0] ?? rawCountry;
-  const regionInput = splitGeo?.[1] ?? searchParams.get("region") ?? undefined;
+  const debug = searchParams.get("debug") === "1";
+  const country = searchParams.get("country") ?? "";
+  const regionInput = searchParams.get("region") ?? undefined;
   const resolvedRegion = resolveUsRegion(country, regionInput);
   const region = resolvedRegion.region;
   if (resolvedRegion.source && regionInput) {
@@ -345,6 +403,24 @@ export async function GET(req: Request) {
     Number.isFinite(approxLon)
       ? { lat: approxLat, lon: approxLon }
       : null;
+  const buildDerivedPayload = (derived: ReturnType<typeof withDerivedSsotProfile>["derived"]) =>
+    derived
+      ? {
+          rec_final: derived.rec_final,
+          med_final: derived.med_final,
+          distribution_status: derived.distribution_status,
+          ...(debug
+            ? {
+                rec_raw: derived.rec_raw,
+                med_raw: derived.med_raw,
+                distribution_scopes: derived.distribution_scopes,
+                distribution_flags: derived.distribution_flags,
+                enforcement_flags: derived.enforcement_flags,
+                applied_rules: derived.applied_rules
+              }
+            : {})
+        }
+      : {};
 
   if (!country.trim()) {
     return errorResponse(
@@ -454,7 +530,8 @@ export async function GET(req: Request) {
       const profileHash = profile ? hashLawProfile(profile) : null;
       if (profile && profileHash === cacheProfileHash) {
         const autoProfile: JurisdictionLawProfile = withAutoVerified(profile, country);
-        const enrichedProfile = withWikiClaim(autoProfile, jurisdictionKey ?? autoProfile.id);
+        const { profile: derivedAutoProfile, derived } = withDerivedSsotProfile(autoProfile, country, region);
+        const enrichedProfile = withWikiClaim(derivedAutoProfile, jurisdictionKey ?? derivedAutoProfile.id);
         const wikiBlock = buildWikiBlock(jurisdictionKey ?? autoProfile.id);
         if (method === "gps") {
           if (!cacheApproxCell || !cell || cacheApproxCell !== cell) {
@@ -506,6 +583,7 @@ export async function GET(req: Request) {
                 status: buildNeedsReviewStatus(),
                 profile: enrichedProfile,
                 machine_verified: enrichedProfile.machine_verified ?? null,
+                ...buildDerivedPayload(derived),
                 ...wikiBlock,
                 viewModel,
                 nearest: nearestBorder ?? undefined,
@@ -557,6 +635,7 @@ export async function GET(req: Request) {
               status: buildDisplayStatus(enrichedProfile),
               profile: enrichedProfile,
               machine_verified: enrichedProfile.machine_verified ?? null,
+              ...buildDerivedPayload(derived),
               ...wikiBlock,
               viewModel,
               nearest: nearestBorder ?? undefined,
@@ -620,6 +699,7 @@ export async function GET(req: Request) {
               status: buildNeedsReviewStatus(),
               profile: enrichedProfile,
               machine_verified: enrichedProfile.machine_verified ?? null,
+              ...buildDerivedPayload(derived),
               ...wikiBlock,
               viewModel,
               nearest: nearestBorder ?? undefined,
@@ -671,6 +751,7 @@ export async function GET(req: Request) {
             status: buildDisplayStatus(enrichedProfile),
             profile: enrichedProfile,
             machine_verified: enrichedProfile.machine_verified ?? null,
+            ...buildDerivedPayload(derived),
             ...wikiBlock,
             viewModel,
             nearest: nearestBorder ?? undefined,
@@ -752,7 +833,8 @@ export async function GET(req: Request) {
   }
 
   const autoProfile = withAutoVerified(profile, country);
-  const enrichedProfile = withWikiClaim(autoProfile, jurisdictionKey ?? autoProfile.id);
+  const { profile: derivedAutoProfile, derived } = withDerivedSsotProfile(autoProfile, country, region);
+  const enrichedProfile = withWikiClaim(derivedAutoProfile, jurisdictionKey ?? derivedAutoProfile.id);
   const wikiBlock = buildWikiBlock(jurisdictionKey ?? autoProfile.id);
 
   incrementCounter("check_performed");
@@ -791,6 +873,7 @@ export async function GET(req: Request) {
     status,
     profile: enrichedProfile,
     machine_verified: enrichedProfile.machine_verified ?? null,
+    ...buildDerivedPayload(derived),
     ...wikiBlock,
     viewModel,
     nearest: nearestBorder ?? undefined,

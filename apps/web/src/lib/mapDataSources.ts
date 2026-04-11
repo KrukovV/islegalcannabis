@@ -5,6 +5,7 @@ import {
   readOfficialLinkOwnership
 } from "./officialSources/officialLinkOwnership";
 import type { OfficialLinkOwnershipDataset } from "./officialSources/officialLinkOwnershipTypes";
+import { US_STATE_WIKI_TABLE_ROWS } from "./usStateWikiTable.snapshot";
 
 type CentroidItem = {
   lat: number;
@@ -184,8 +185,9 @@ export function loadUsStateWikiTableIndex(
   stateEntries: UsStateSsotEntry[]
 ) {
   const file = resolveDataPath("data", "wiki", "cache", "legality_us_states.json");
-  if (!fs.existsSync(file)) return new Map<string, UsStateWikiTableEntry>();
-  const payload = JSON.parse(fs.readFileSync(file, "utf8"));
+  const payload = fs.existsSync(file)
+    ? JSON.parse(fs.readFileSync(file, "utf8"))
+    : { rows: US_STATE_WIKI_TABLE_ROWS };
   const items = Array.isArray(payload?.rows) ? payload.rows : Array.isArray(payload?.items) ? payload.items : [];
   const geoByStateName = new Map<string, string>();
   const geoByWikiRowUrl = new Map<string, string>();

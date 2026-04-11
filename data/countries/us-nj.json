@@ -1,0 +1,181 @@
+{
+  "code": "us-nj",
+  "geo_code": "US-NJ",
+  "iso2": "US-NJ",
+  "name": "New Jersey",
+  "node_type": "state",
+  "normalized_version": "v1",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "regulated",
+      "scopes": {
+        "possession": "restricted",
+        "use": "restricted",
+        "sale": "regulated",
+        "cultivation": null,
+        "import": "illegal",
+        "trafficking": "illegal"
+      },
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [
+      "fine_based"
+    ],
+    "applied_rules": []
+  },
+  "notes_normalized": "Cannabis is legal in New Jersey under state law for recreational adult use. Medical cannabis is also legal in New Jersey. Cannabis remains federally illegal in United States. Possession is limited to varies (see official sources).",
+  "notes_raw": "allowed",
+  "facts": {
+    "possession_limit": "varies (see official sources)",
+    "cultivation": null,
+    "penalty": "Cross-border transport remains illegal."
+  },
+  "parent_country": {
+    "code": "usa",
+    "name": "United States"
+  },
+  "state_modifiers": {
+    "recreational": "override",
+    "medical": "override",
+    "enforcement_strength": "MEDIUM",
+    "federal_conflict": "Cannabis remains federally illegal in United States.",
+    "legalization_status": "State legal"
+  },
+  "related_codes": [
+    "usa",
+    "us-fl",
+    "us-al",
+    "us-ar"
+  ],
+  "related_names": [
+    {
+      "code": "usa",
+      "name": "United States"
+    },
+    {
+      "code": "us-fl",
+      "name": "Florida"
+    },
+    {
+      "code": "us-al",
+      "name": "Alabama"
+    },
+    {
+      "code": "us-ar",
+      "name": "Arkansas"
+    }
+  ],
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "USA_CLUSTER",
+    "geo_neighbors": [
+      {
+        "code": "us-ny",
+        "name": "New York"
+      },
+      {
+        "code": "us-ma",
+        "name": "Massachusetts"
+      },
+      {
+        "code": "us-mi",
+        "name": "Michigan"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "us-il",
+        "name": "Illinois"
+      },
+      {
+        "code": "us-ak",
+        "name": "Alaska"
+      },
+      {
+        "code": "us-ct",
+        "name": "Connecticut"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "usa",
+        "name": "United States"
+      },
+      {
+        "code": "us-de",
+        "name": "Delaware"
+      }
+    ],
+    "same_country_states": [
+      {
+        "code": "us-fl",
+        "name": "Florida"
+      },
+      {
+        "code": "us-al",
+        "name": "Alabama"
+      },
+      {
+        "code": "us-ar",
+        "name": "Arkansas"
+      }
+    ],
+    "federal_parent": {
+      "code": "usa",
+      "name": "United States"
+    }
+  },
+  "coordinates": {
+    "lat": 40.0583,
+    "lng": -74.4057
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/New_Jersey",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "official-us-nj",
+        "url": "https://www.nj.gov/cannabis/",
+        "title": "New Jersey Cannabis Regulatory Commission",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki-us-nj",
+        "url": "https://en.wikipedia.org/wiki/New_Jersey",
+        "title": "Wikipedia: New Jersey",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki-truth-us-nj",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "hashes": {
+    "code": "us-nj",
+    "content_hash": "c0323a016b23c774ce45c5c7adafc20ac6d96324173e33071f486a5be6e3925f",
+    "notes_hash": "c6ba61ddad11a21ce32a01cb99b43dd442d5649506e0ed47b31ec05ed73de3dc",
+    "model_hash": "8bc438f49e49cb0cd9f3898e50d9e373f302a83301c030291217954dd16afde2"
+  },
+  "updated_at": "2024-01-01"
+}

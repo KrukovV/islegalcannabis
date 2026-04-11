@@ -1,0 +1,145 @@
+{
+  "code": "kor",
+  "iso2": "KR",
+  "name": "South Korea / 한국",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "LIMITED",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "restricted",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "medical_legal",
+      "legal"
+    ],
+    "notes_normalized": "Cannabis is legal in South Korea / 한국. Medical cannabis is legal. Distribution is restricted."
+  },
+  "notes_normalized": "Cannabis is legal in South Korea / 한국. Medical cannabis is legal. Distribution is restricted.",
+  "notes_raw": "{{main|Cannabis in South Korea}} Medical use of cannabis was legalized in November 2018. The plant itself, however, remains unavailable due to a policy implemented by the [[Ministry of Food and Drug Safety]].<ref>{{cite news|url=https://www.ft.com/content/ff715088-f2ba-11e8-ae55-df4bf40f9d0d|title=South Korea legalises medical marijuana|work=[[Financial Times]]|access-date=29 November 2018|archive-url=https://archive.today/20181214110836/https://www.ft.com/content/ff715088-f2ba-11e8-ae55-df4bf40f9d0d|archive-date=14 December 2018|url-status=live|url-access=subscription}}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": "plant itself, however, remains unavailable due to a policy implemented by the Ministry of Food and Drug Safety .",
+    "penalty": null
+  },
+  "related_codes": [
+    "prk",
+    "jpn",
+    "twn"
+  ],
+  "related_names": [
+    {
+      "code": "prk",
+      "name": "North Korea / 조선"
+    },
+    {
+      "code": "jpn",
+      "name": "Japan / 日本"
+    },
+    {
+      "code": "twn",
+      "name": "Taiwan / 台灣"
+    }
+  ],
+  "coordinates": {
+    "lat": 37,
+    "lng": 127.5
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Korea%2C_South",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Korea%2C_South",
+        "title": "Wikipedia: South Korea / 한국",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "ASIA",
+    "seo_cluster": "ASIA",
+    "geo_neighbors": [
+      {
+        "code": "prk",
+        "name": "North Korea / 조선"
+      },
+      {
+        "code": "jpn",
+        "name": "Japan / 日本"
+      },
+      {
+        "code": "twn",
+        "name": "Taiwan / 台灣"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "phl",
+        "name": "Philippines / Pilipinas"
+      },
+      {
+        "code": "tha",
+        "name": "Thailand / ประเทศไทย"
+      },
+      {
+        "code": "sgp",
+        "name": "Singapore / Singapura"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "hkg",
+        "name": "Hong Kong / 香港"
+      },
+      {
+        "code": "mac",
+        "name": "Macau / 澳门"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "kor",
+    "content_hash": "8921e86b2d4f66764a93afbbb059d569964e6899df085ee7bd1be6c269e888b7",
+    "notes_hash": "5113705aa0059e80fe322a3f20275f96fd7c59df27c04ba577ebdf6cb27fa8f3",
+    "model_hash": "277256191dc4bafdfbad50a0d1e8277b0b98bf7cbb5b260949820abd295f3879"
+  },
+  "geo_code": "KR",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

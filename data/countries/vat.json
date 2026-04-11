@@ -1,0 +1,144 @@
+{
+  "code": "vat",
+  "iso2": "VA",
+  "name": "Vatican City / Vaticano",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Vatican City / Vaticano. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Vatican City / Vaticano. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "Cannabis is illegal in Vatican City, and possession or use is prosecuted under Italian-based criminal law applied within the Holy See.",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "ita",
+    "smr",
+    "hrv"
+  ],
+  "related_names": [
+    {
+      "code": "ita",
+      "name": "Italy / Italia"
+    },
+    {
+      "code": "smr",
+      "name": "San Marino"
+    },
+    {
+      "code": "hrv",
+      "name": "Croatia / Hrvatska"
+    }
+  ],
+  "coordinates": {
+    "lat": 41.9,
+    "lng": 12.45
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Vatican_City",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Vatican_City",
+        "title": "Wikipedia: Vatican City / Vaticano",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "ita",
+        "name": "Italy / Italia"
+      },
+      {
+        "code": "smr",
+        "name": "San Marino"
+      },
+      {
+        "code": "hrv",
+        "name": "Croatia / Hrvatska"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "mco",
+        "name": "Monaco"
+      },
+      {
+        "code": "bih",
+        "name": "Bosnia and Herzegovina / Bosna i Hercegovina"
+      },
+      {
+        "code": "lie",
+        "name": "Liechtenstein"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "svn",
+        "name": "Slovenia / Slovenija"
+      },
+      {
+        "code": "aut",
+        "name": "Austria / Österreich"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "vat",
+    "content_hash": "ef1217f3434f03cf9ded0ac156d6d4e5252d25712e5c8eaf042d00cf51c889b1",
+    "notes_hash": "63bd1e0bad631635f192602ae4855cea9be93ec30a87da0560cd08d5f99f3cd7",
+    "model_hash": "ec9dedcf02bc430e4d7d083049aac61423c67546ae22034da9c6ce4aab2a7550"
+  },
+  "geo_code": "VA",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

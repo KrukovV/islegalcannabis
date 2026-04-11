@@ -1,0 +1,146 @@
+{
+  "code": "mys",
+  "iso2": "MY",
+  "name": "Malaysia / مليسيا",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [
+      "fine_based"
+    ],
+    "applied_rules": [
+      "fine_based"
+    ],
+    "notes_normalized": "Cannabis is illegal in Malaysia / مليسيا. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Malaysia / مليسيا. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Malaysia}} Mandatory death penalty for convicted drug traffickers, legally defined as individuals possessing more than {{cvt|200|g|0}} of cannabis.<ref>{{citation|url=https://travel.state.gov/travel/cis_pa_tw/cis/cis_960.html |title=Malaysia |publisher=[[Bureau of Consular Affairs]] |access-date=17 February 2011 |url-status=dead |archive-url=https://web.archive.org/web/20110217140806/http://travel.state.gov/travel/cis_pa_tw/cis/cis_960.html |archive-date=17 February 2011 }}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": "penalty for convicted drug traffickers, legally defined as individuals possessing more than 200 g (7 oz) of cannabis."
+  },
+  "related_codes": [
+    "brn",
+    "sgp",
+    "idn"
+  ],
+  "related_names": [
+    {
+      "code": "brn",
+      "name": "Brunei / Negara Brunei Darussalam"
+    },
+    {
+      "code": "sgp",
+      "name": "Singapore / Singapura"
+    },
+    {
+      "code": "idn",
+      "name": "Indonesia"
+    }
+  ],
+  "coordinates": {
+    "lat": 2.5,
+    "lng": 112.5
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Malaysia",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Malaysia",
+        "title": "Wikipedia: Malaysia / مليسيا",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "ASIA",
+    "seo_cluster": "ASIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "brn",
+        "name": "Brunei / Negara Brunei Darussalam"
+      },
+      {
+        "code": "sgp",
+        "name": "Singapore / Singapura"
+      },
+      {
+        "code": "idn",
+        "name": "Indonesia"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "khm",
+        "name": "Cambodia / Kâmpŭchéa"
+      },
+      {
+        "code": "vnm",
+        "name": "Vietnam / Việt Nam"
+      },
+      {
+        "code": "lao",
+        "name": "Laos / ສປປລາວ"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "phl",
+        "name": "Philippines / Pilipinas"
+      },
+      {
+        "code": "tls",
+        "name": "Timor-Leste / Timór-Leste"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "mys",
+    "content_hash": "e82fac1450ad0651a773806004e7f71d05bec35e3d2990aa2978c7976bd60e30",
+    "notes_hash": "745d4eeec31b52a08dd299e1f84252379e5e19904bebe1a3284678cb7f9d35a4",
+    "model_hash": "a836fda28b19b372e952edd92eebeccafea9eabb5abcb7b0c37e39337b5371e8"
+  },
+  "geo_code": "MY",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

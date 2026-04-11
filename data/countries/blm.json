@@ -1,0 +1,139 @@
+{
+  "code": "blm",
+  "iso2": "BL",
+  "name": "Saint Barthélemy",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Saint Barthélemy. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Saint Barthélemy. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "No notes available.",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "sxm",
+    "maf",
+    "aia"
+  ],
+  "related_names": [
+    {
+      "code": "sxm",
+      "name": "Sint Maarten / Saint-Martin"
+    },
+    {
+      "code": "maf",
+      "name": "Saint Martin"
+    },
+    {
+      "code": "aia",
+      "name": "Anguilla"
+    }
+  ],
+  "coordinates": {
+    "lat": 17.901987,
+    "lng": -62.833193
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/St._Barth%C3%A9lemy",
+    "wiki_truth": null,
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/St._Barth%C3%A9lemy",
+        "title": "Wikipedia: Saint Barthélemy",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "NA",
+    "seo_cluster": "NA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "sxm",
+        "name": "Sint Maarten / Saint-Martin"
+      },
+      {
+        "code": "maf",
+        "name": "Saint Martin"
+      },
+      {
+        "code": "aia",
+        "name": "Anguilla"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "msr",
+        "name": "Montserrat"
+      },
+      {
+        "code": "vgb",
+        "name": "British Virgin Islands"
+      },
+      {
+        "code": "vir",
+        "name": "United States Virgin Islands"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "kna",
+        "name": "Saint Kitts and Nevis"
+      },
+      {
+        "code": "atg",
+        "name": "Antigua and Barbuda"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "blm",
+    "content_hash": "aa50a3644980f1ee7899dcf6caee6a2220ee8ba302c784181da20a0725f105f4",
+    "notes_hash": "8f322ee93c34cb8f223c787b4e69327321be077aada6ebf047980ecfe5dc0625",
+    "model_hash": "658c5bc3ecebbea2416a1f25168cec176101fa6a4ac9570ac2fb1d6b02d1af2e"
+  },
+  "geo_code": "BL",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

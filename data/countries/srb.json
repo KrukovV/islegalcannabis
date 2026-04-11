@@ -1,0 +1,146 @@
+{
+  "code": "srb",
+  "iso2": "RS",
+  "name": "Serbia / Србија",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [
+      "fine_based"
+    ],
+    "applied_rules": [
+      "fine_based"
+    ],
+    "notes_normalized": "Cannabis is illegal in Serbia / Србија. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Serbia / Србија. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Serbia}} Possession of small amounts is punishable by fine or imprisonment of up to 3 years. Sale and transportation punishable by imprisonment of 3–12 years. Cultivation punishable by imprisonment from 6 months to 5 years. Higher penalties for [[organized crime]].<ref>{{citation |url = http://www.paragraf.rs/propisi/krivicni_zakonik.html |title = Krivični zakonik (''The Criminal Code'') |via = [[Paragraf Lex]] |date = 2013 |access-date = 17 February 2011 |archive-date = 5 September 2019 |archive-url = https://web.archive.org/web/20190905020735/https://www.paragraf.rs/propisi/krivicni_zakonik.html |url-status = live }}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": "Cultivation punishable by imprisonment from 6 months to 5 years.",
+    "penalty": "punishable by fine or imprisonment of up to 3 years."
+  },
+  "related_codes": [
+    "mne",
+    "mkd",
+    "bih"
+  ],
+  "related_names": [
+    {
+      "code": "mne",
+      "name": "Montenegro / Црна Гора"
+    },
+    {
+      "code": "mkd",
+      "name": "North Macedonia / Македонија"
+    },
+    {
+      "code": "bih",
+      "name": "Bosnia and Herzegovina / Bosna i Hercegovina"
+    }
+  ],
+  "coordinates": {
+    "lat": 44,
+    "lng": 21
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Serbia",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Serbia",
+        "title": "Wikipedia: Serbia / Србија",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "mne",
+        "name": "Montenegro / Црна Гора"
+      },
+      {
+        "code": "mkd",
+        "name": "North Macedonia / Македонија"
+      },
+      {
+        "code": "bih",
+        "name": "Bosnia and Herzegovina / Bosna i Hercegovina"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "alb",
+        "name": "Albania / Shqipëria"
+      },
+      {
+        "code": "bgr",
+        "name": "Bulgaria / България"
+      },
+      {
+        "code": "rou",
+        "name": "Romania / România"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "hun",
+        "name": "Hungary / Magyarország"
+      },
+      {
+        "code": "svk",
+        "name": "Slovakia / Slovensko"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "srb",
+    "content_hash": "a4a1011275b4f0024f7de563e973e97375dd50d4bf66a4dacaf418e0cdc1486c",
+    "notes_hash": "b4eb86397fb6690e6a950e8bbec2174725dddae79459ce449fed54ceeed25b94",
+    "model_hash": "b7b7240e263ff89a92f94efd6b11367bf701759ba39fb266bd0a7340b69d0e9a"
+  },
+  "geo_code": "RS",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

@@ -1,0 +1,146 @@
+{
+  "code": "dza",
+  "iso2": "DZ",
+  "name": "Algeria / الجزائر",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Algeria / الجزائر. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Algeria / الجزائر. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Algeria}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "tun",
+    "mar",
+    "gib"
+  ],
+  "related_names": [
+    {
+      "code": "tun",
+      "name": "Tunisia / تونس"
+    },
+    {
+      "code": "mar",
+      "name": "Morocco / المغرب"
+    },
+    {
+      "code": "gib",
+      "name": "Gibraltar"
+    }
+  ],
+  "coordinates": {
+    "lat": 28,
+    "lng": 3
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Algeria",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Algeria",
+        "title": "Wikipedia: Algeria / الجزائر",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "AFRICA",
+    "seo_cluster": "AFRICA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "tun",
+        "name": "Tunisia / تونس"
+      },
+      {
+        "code": "mar",
+        "name": "Morocco / المغرب"
+      },
+      {
+        "code": "gib",
+        "name": "Gibraltar"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "ner",
+        "name": "Niger"
+      },
+      {
+        "code": "mli",
+        "name": "Mali"
+      },
+      {
+        "code": "lby",
+        "name": "Libya / ليبيا"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "bfa",
+        "name": "Burkina Faso"
+      },
+      {
+        "code": "esh",
+        "name": "Western Sahara / الصحراء الغربية"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "dza",
+    "content_hash": "b648f1aec0ff562c55db6e25ee87a022c9f72a665afb18b01a70485973e6b522",
+    "notes_hash": "5ffcddfa424b8f9da42f8d40f65562db962357906b5da65c49024a22d4b8edc2",
+    "model_hash": "4f88f36e671e8ef66ac37be8119a689d70c926cd97833bcc31f062bec7b7e67f"
+  },
+  "geo_code": "DZ",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

@@ -1,0 +1,146 @@
+{
+  "code": "fsm",
+  "iso2": "FM",
+  "name": "Micronesia",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Micronesia. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Micronesia. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Micronesia}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "mhl",
+    "nru",
+    "slb"
+  ],
+  "related_names": [
+    {
+      "code": "mhl",
+      "name": "Marshall Islands / M̧ajeļ"
+    },
+    {
+      "code": "nru",
+      "name": "Nauru"
+    },
+    {
+      "code": "slb",
+      "name": "Solomon Islands"
+    }
+  ],
+  "coordinates": {
+    "lat": 6.91666666,
+    "lng": 158.25
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Micronesia",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Micronesia",
+        "title": "Wikipedia: Micronesia",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "OCEANIA",
+    "seo_cluster": "OCEANIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "mhl",
+        "name": "Marshall Islands / M̧ajeļ"
+      },
+      {
+        "code": "nru",
+        "name": "Nauru"
+      },
+      {
+        "code": "slb",
+        "name": "Solomon Islands"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "umi",
+        "name": "United States Minor Outlying Islands"
+      },
+      {
+        "code": "gum",
+        "name": "Guam / Guåhån"
+      },
+      {
+        "code": "mnp",
+        "name": "Northern Mariana Islands / Na Islas Mariånas"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "kir",
+        "name": "Kiribati"
+      },
+      {
+        "code": "png",
+        "name": "Papua New Guinea / Papua Niu Gini"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "fsm",
+    "content_hash": "70851d805334379a11503629906a0f4221f354864e2289261f5e2577cef7d482",
+    "notes_hash": "02e363420e4dd4abcdc053ee3c2d6ede3a1c921f0ee86cc7df8a6dc9b75e0639",
+    "model_hash": "f03c13711ba84cd0d9bb66b7098ec4c505bc69482ab233954cd6afee7a844d7e"
+  },
+  "geo_code": "FM",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

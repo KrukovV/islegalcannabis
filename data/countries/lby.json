@@ -1,0 +1,146 @@
+{
+  "code": "lby",
+  "iso2": "LY",
+  "name": "Libya / ليبيا",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Libya / ليبيا. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Libya / ليبيا. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Libya}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "tcd",
+    "mlt",
+    "tun"
+  ],
+  "related_names": [
+    {
+      "code": "tcd",
+      "name": "Chad / تشاد"
+    },
+    {
+      "code": "mlt",
+      "name": "Malta"
+    },
+    {
+      "code": "tun",
+      "name": "Tunisia / تونس"
+    }
+  ],
+  "coordinates": {
+    "lat": 25,
+    "lng": 17
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Libya",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Libya",
+        "title": "Wikipedia: Libya / ليبيا",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "AFRICA",
+    "seo_cluster": "AFRICA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "tcd",
+        "name": "Chad / تشاد"
+      },
+      {
+        "code": "mlt",
+        "name": "Malta"
+      },
+      {
+        "code": "tun",
+        "name": "Tunisia / تونس"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "ner",
+        "name": "Niger"
+      },
+      {
+        "code": "egy",
+        "name": "Egypt / مصر"
+      },
+      {
+        "code": "dza",
+        "name": "Algeria / الجزائر"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "sdn",
+        "name": "Sudan / السودان"
+      },
+      {
+        "code": "nga",
+        "name": "Nigeria"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "lby",
+    "content_hash": "c6a1bebaabc30de2291133f01fbfa9c103162691d3f682d53cb1354cdad92a56",
+    "notes_hash": "884d7ec03000a891f87a3cc96275c0d8419b41030d4bef5c47c3d28c653cdce9",
+    "model_hash": "f84ec628b0da05a032e6143811d0261e37efbe675ccb7d3250231db930390c41"
+  },
+  "geo_code": "LY",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

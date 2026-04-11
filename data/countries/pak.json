@@ -1,0 +1,145 @@
+{
+  "code": "pak",
+  "iso2": "PK",
+  "name": "Pakistan / پاكستان",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "TOLERATED",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "restricted",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "rec_tolerated",
+      "illegal"
+    ],
+    "notes_normalized": "Cannabis is tolerated in Pakistan / پاكستان. Medical cannabis is illegal. Distribution is restricted."
+  },
+  "notes_normalized": "Cannabis is tolerated in Pakistan / پاكستان. Medical cannabis is illegal. Distribution is restricted.",
+  "notes_raw": "{{main|Cannabis in Pakistan}} Prohibited, but the smoking of hashish in [[Peshawar]] and the northern parts of Pakistan tends to be tolerated. One may be sent to jail for up to six months if found with [[charas]] in other parts of the country.<ref>{{citation |url = http://www.erowid.org/plants/cannabis/cannabis_law.shtml#pakistan |title = Cannabis legal status vault – Pakistan/Peshawar |publisher = Erowid.org |access-date = 5 June 2018 |archive-date = 15 December 2019 |archive-url = https://web.archive.org/web/20191215152836/https://www.erowid.org/plants/cannabis/cannabis_law.shtml#pakistan |url-status = live }}</ref> CBD legalized by cabinet announcement in September 2020.<ref name=\"ExpressTribune\" />",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": "jail for up to six months if found with charas in other parts of the country."
+  },
+  "related_codes": [
+    "afg",
+    "tjk",
+    "kgz"
+  ],
+  "related_names": [
+    {
+      "code": "afg",
+      "name": "Afghanistan / افغانستان"
+    },
+    {
+      "code": "tjk",
+      "name": "Tajikistan / Таджикистан"
+    },
+    {
+      "code": "kgz",
+      "name": "Kyrgyzstan / Кыргызстан"
+    }
+  ],
+  "coordinates": {
+    "lat": 30,
+    "lng": 70
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Pakistan",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Pakistan",
+        "title": "Wikipedia: Pakistan / پاكستان",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "ASIA",
+    "seo_cluster": "ASIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "afg",
+        "name": "Afghanistan / افغانستان"
+      },
+      {
+        "code": "tjk",
+        "name": "Tajikistan / Таджикистан"
+      },
+      {
+        "code": "kgz",
+        "name": "Kyrgyzstan / Кыргызстан"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "ind",
+        "name": "India / भारत"
+      },
+      {
+        "code": "uzb",
+        "name": "Uzbekistan / Узбекистан"
+      },
+      {
+        "code": "npl",
+        "name": "Nepal / नेपाल"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "tkm",
+        "name": "Turkmenistan / Туркмения"
+      },
+      {
+        "code": "omn",
+        "name": "Oman / عمان"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "pak",
+    "content_hash": "d4415e4116dbf3d8dfcf01448e04da0f670623ad6f95c3a428ba0dee34624d8f",
+    "notes_hash": "4503d4f547e876efe193ab02a9735d7c9b42f8f8634652508920c30f152474be",
+    "model_hash": "405bd8c8b654c3e1603cc36cd770af220feb32f8d25906969ac1c7c6a778c64b"
+  },
+  "geo_code": "PK",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

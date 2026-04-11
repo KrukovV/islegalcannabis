@@ -1,0 +1,139 @@
+{
+  "code": "imn",
+  "iso2": "IM",
+  "name": "Isle of Man / Mannin",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Isle of Man / Mannin. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Isle of Man / Mannin. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "No notes available.",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "gbr",
+    "irl",
+    "ggy"
+  ],
+  "related_names": [
+    {
+      "code": "gbr",
+      "name": "United Kingdom"
+    },
+    {
+      "code": "irl",
+      "name": "Ireland / Éire"
+    },
+    {
+      "code": "ggy",
+      "name": "Guernsey / Guernesey"
+    }
+  ],
+  "coordinates": {
+    "lat": 54.220833,
+    "lng": -4.530069
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Isle_of_Man",
+    "wiki_truth": null,
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Isle_of_Man",
+        "title": "Wikipedia: Isle of Man / Mannin",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "gbr",
+        "name": "United Kingdom"
+      },
+      {
+        "code": "irl",
+        "name": "Ireland / Éire"
+      },
+      {
+        "code": "ggy",
+        "name": "Guernsey / Guernesey"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "jey",
+        "name": "Jersey / Jèrri"
+      },
+      {
+        "code": "fro",
+        "name": "Faroe Islands / Færøerne"
+      },
+      {
+        "code": "and",
+        "name": "Andorra"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "bel",
+        "name": "Belgium / Belgien"
+      },
+      {
+        "code": "nld",
+        "name": "Netherlands / Nederland"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "imn",
+    "content_hash": "a8ebe55b5bf3548eceb9fe7b0fcbebae41dacf9efd20a714cd3e5f815cb4a56d",
+    "notes_hash": "b8c881f6f4dfed1356d3052f02b0757a0235565a312954df8c054faf39f3a120",
+    "model_hash": "c16590ae4c1cf0f964b2c0e3c23486448e1ab73bbe90acd82a5cce7c77332823"
+  },
+  "geo_code": "IM",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

@@ -1,0 +1,139 @@
+{
+  "code": "ala",
+  "iso2": "AX",
+  "name": "Åland Islands / Åland",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Åland Islands / Åland. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Åland Islands / Åland. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "No notes available.",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "swe",
+    "ltu",
+    "lva"
+  ],
+  "related_names": [
+    {
+      "code": "swe",
+      "name": "Sweden / Sverige"
+    },
+    {
+      "code": "ltu",
+      "name": "Lithuania / Lietuva"
+    },
+    {
+      "code": "lva",
+      "name": "Latvia / Latvija"
+    }
+  ],
+  "coordinates": {
+    "lat": 60.156467,
+    "lng": 19.869671
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/%C3%85land_Islands",
+    "wiki_truth": null,
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/%C3%85land_Islands",
+        "title": "Wikipedia: Åland Islands / Åland",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "EU",
+    "seo_cluster": "EU_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "swe",
+        "name": "Sweden / Sverige"
+      },
+      {
+        "code": "ltu",
+        "name": "Lithuania / Lietuva"
+      },
+      {
+        "code": "lva",
+        "name": "Latvia / Latvija"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "fin",
+        "name": "Finland / Suomi"
+      },
+      {
+        "code": "pol",
+        "name": "Poland / Polska"
+      },
+      {
+        "code": "nor",
+        "name": "Norway / Noreg"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "est",
+        "name": "Estonia / Eesti"
+      },
+      {
+        "code": "dnk",
+        "name": "Denmark / Danmark"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "ala",
+    "content_hash": "9996086c2de22c34b4ea79804e9823f670d3efb1de4abb741c41f79009b3770f",
+    "notes_hash": "ce3f0432775bf23e4c65d6be21f49c9e38339d6f94b134fdd2b5c3121392b3ae",
+    "model_hash": "0822041b4301caf817ef276d0b16b1ce4442035db068cbd5afbd7cb55d7d13c4"
+  },
+  "geo_code": "AX",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

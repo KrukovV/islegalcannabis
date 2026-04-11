@@ -1,0 +1,144 @@
+{
+  "code": "khm",
+  "iso2": "KH",
+  "name": "Cambodia / Kâmpŭchéa",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "UNKNOWN",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Cambodia / Kâmpŭchéa. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Cambodia / Kâmpŭchéa. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Cambodia}} Illegal,<ref>{{cite web|title=Law on Drug Management (Drug Control)|url=http://www.cambodiainvestment.gov.kh/law-on-drug-management-drug-control_961209.html|publisher=Council for the Development of Cambodia|access-date=16 July 2017|quote=Article 2 : Except for the cases of the article 14, the cultivation of opium poppy, cocoa plants, cannabis indica and cannabis saliva in the Kingdom of Cambodia, shall be prohibited.|archive-date=3 August 2021|archive-url=https://web.archive.org/web/20210803075909/http://www.cambodiainvestment.gov.kh/law-on-drug-management-drug-control_961209.html|url-status=dead}}</ref> but this prohibition is lax and enforced opportunistically.<ref>{{cite news|last1=Soenthrith|first1=Saing|title=Foreigners Arrested in Siem Reap Marijuana Bust|url=https://www.cambodiadaily.com/archives/foreigners-arrested-in-siem-reap-marijuana-bust-14816/|access-date=16 July 2017|work=[[The Phnom Penh Post]]|date=15 March 2013|quote=Police in Siem Reap City on Tuesday arrested 18 people, including 14 foreign nationals, during raids on two establishments, where they confiscated a stash of marijuana and an as-yet-unidentified powder, police said.|archive-date=8 September 2017|archive-url=https://web.archive.org/web/20170908032328/https://www.cambodiadaily.com/archives/foreigners-arrested-in-siem-reap-marijuana-bust-14816/|url-status=dead}}</ref><ref>{{cite web|last1=Goldberg|first1=Lina|title=Recreational drugs in Cambodia|url=http://www.movetocambodia.com/living-in-cambodia/safety-and-security/recreational-drugs-in-cambodia/|website=Move To Cambodia|access-date=16 July 2017|quote=Foreigners are rarely prosecuted for small amounts of marijuana, but expect to pay a few bribes if you do get caught.|archive-date=21 July 2018|archive-url=https://web.archive.org/web/20180721044036/http://www.movetocambodia.com/living-in-cambodia/safety-and-security/recreational-drugs-in-cambodia/|url-status=live}}</ref><ref>{{cite news|last1=Harfenist|first1=Ethan|title=The high life|url=http://www.phnompenhpost.com/post-weekend/high-life|access-date=16 July 2017|agency=Phnom Penh Post|date=30 May 2015|archive-date=8 June 2021|archive-url=https://web.archive.org/web/20210608070551/https://www.phnompenhpost.com/post-weekend/high-life|url-status=live}}</ref> \"Happy\" restaurants in cities publicly offer food cooked with marijuana, or as a side garnish.<ref>{{citation |url = http://www.gosihanoukville.com/dining/happy/index.html |title = Happy Restaurants (sic) in Sihanoukville |publisher = GoSihanoukville.com |access-date = 17 February 2011 |archive-date = 20 April 2019 |archive-url = https://web.archive.org/web/20190420011629/http://www.gosihanoukville.com/dining/happy/index.html |url-status = usurped }}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "vnm",
+    "lao",
+    "tha"
+  ],
+  "related_names": [
+    {
+      "code": "vnm",
+      "name": "Vietnam / Việt Nam"
+    },
+    {
+      "code": "lao",
+      "name": "Laos / ສປປລາວ"
+    },
+    {
+      "code": "tha",
+      "name": "Thailand / ประเทศไทย"
+    }
+  ],
+  "coordinates": {
+    "lat": 13,
+    "lng": 105
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Cambodia",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Cambodia",
+        "title": "Wikipedia: Cambodia / Kâmpŭchéa",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "ASIA",
+    "seo_cluster": "ASIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "vnm",
+        "name": "Vietnam / Việt Nam"
+      },
+      {
+        "code": "lao",
+        "name": "Laos / ສປປລາວ"
+      },
+      {
+        "code": "tha",
+        "name": "Thailand / ประเทศไทย"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "mmr",
+        "name": "Myanmar / မြန်မာ"
+      },
+      {
+        "code": "mac",
+        "name": "Macau / 澳门"
+      },
+      {
+        "code": "brn",
+        "name": "Brunei / Negara Brunei Darussalam"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "sgp",
+        "name": "Singapore / Singapura"
+      },
+      {
+        "code": "mys",
+        "name": "Malaysia / مليسيا"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "khm",
+    "content_hash": "5ef5085998b1d360679492ffe50725f93cf69f9b4612a5e01616821dc33ff826",
+    "notes_hash": "8521b7ed18868b41ce6acb4d6902b475e3152e693d683fce2049265aabbaa07b",
+    "model_hash": "867414a283379b019b340ef9df8b3a37d3e999ee9c2e387c9e56e04c384fd031"
+  },
+  "geo_code": "KH",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

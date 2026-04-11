@@ -1,0 +1,146 @@
+{
+  "code": "plw",
+  "iso2": "PW",
+  "name": "Palau / Belau",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
+    },
+    "medical": {
+      "raw_status": "ILLEGAL",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "illegal",
+      "scopes": {
+        "possession": null,
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "distribution_fallback_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Palau / Belau. Medical cannabis is illegal. Distribution is illegal."
+  },
+  "notes_normalized": "Cannabis is illegal in Palau / Belau. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_raw": "{{main|Cannabis in Palau}}",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "gum",
+    "mnp",
+    "phl"
+  ],
+  "related_names": [
+    {
+      "code": "gum",
+      "name": "Guam / Guåhån"
+    },
+    {
+      "code": "mnp",
+      "name": "Northern Mariana Islands / Na Islas Mariånas"
+    },
+    {
+      "code": "phl",
+      "name": "Philippines / Pilipinas"
+    }
+  ],
+  "coordinates": {
+    "lat": 7.5,
+    "lng": 134.5
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Palau",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Palau",
+        "title": "Wikipedia: Palau / Belau",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "OCEANIA",
+    "seo_cluster": "OCEANIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "gum",
+        "name": "Guam / Guåhån"
+      },
+      {
+        "code": "mnp",
+        "name": "Northern Mariana Islands / Na Islas Mariånas"
+      },
+      {
+        "code": "phl",
+        "name": "Philippines / Pilipinas"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "png",
+        "name": "Papua New Guinea / Papua Niu Gini"
+      },
+      {
+        "code": "tls",
+        "name": "Timor-Leste / Timór-Leste"
+      },
+      {
+        "code": "idn",
+        "name": "Indonesia"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "fsm",
+        "name": "Micronesia"
+      },
+      {
+        "code": "slb",
+        "name": "Solomon Islands"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "plw",
+    "content_hash": "bfe684dc818425d8e212482aeb82503303ad267d8f582b56486d4c4a3db6f7dd",
+    "notes_hash": "e0d6b9304f86fe6a05d9232050c76c308f6e30801c77acfdb1e11f0850dfdcef",
+    "model_hash": "5db4bae10893fb96d8fa5eda39f6d75285d4c2ec85740d54cfbbf2d829379f3f"
+  },
+  "geo_code": "PW",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}

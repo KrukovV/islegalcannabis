@@ -1,15 +1,6 @@
 import cultureData from "../../../../data/ai/culture.json";
 import cultureDeepData from "../../../../data/ai/culture_deep.json";
 import artistsExtendedData from "../../../../data/ai/artists_extended.json";
-import culture420Data from "../../../../data/ai/culture/420.json";
-import cultureDelta8Data from "../../../../data/ai/culture/delta8.json";
-import cultureReggaeData from "../../../../data/ai/culture/reggae.json";
-import cultureRastafariData from "../../../../data/ai/culture/rastafari.json";
-import cultureJamaicaKingstonData from "../../../../data/ai/culture/jamaica_kingston.json";
-import cultureArtistsData from "../../../../data/ai/culture/artists.json";
-import culturePersonalitiesData from "../../../../data/ai/culture/personalities.json";
-import cultureFilmsData from "../../../../data/ai/culture/films.json";
-import cultureFunFactsData from "../../../../data/ai/culture/fun_facts.json";
 import legalBaselineData from "../../../../data/ai/legal_baseline.json";
 import moviesData from "../../../../data/ai/movies.json";
 import travelRisksData from "../../../../data/ai/travel_risks.json";
@@ -24,9 +15,7 @@ type LegalBaselineRow = {
 
 type CultureRow = {
   topic: string;
-  content?: string;
-  content_en?: string;
-  content_ru?: string;
+  content: string;
   keywords?: string[];
 };
 
@@ -40,16 +29,7 @@ const cultureRows = [
   ...(cultureData as CultureRow[]),
   ...(cultureDeepData as CultureRow[]),
   ...(artistsExtendedData as CultureRow[]),
-  ...(moviesData as CultureRow[]),
-  ...(culture420Data as CultureRow[]),
-  ...(cultureDelta8Data as CultureRow[]),
-  ...(cultureReggaeData as CultureRow[]),
-  ...(cultureRastafariData as CultureRow[]),
-  ...(cultureJamaicaKingstonData as CultureRow[]),
-  ...(cultureArtistsData as CultureRow[]),
-  ...(culturePersonalitiesData as CultureRow[]),
-  ...(cultureFilmsData as CultureRow[]),
-  ...(cultureFunFactsData as CultureRow[])
+  ...(moviesData as CultureRow[])
 ];
 const travelRisks = travelRisksData as TravelRisksRow[];
 
@@ -68,7 +48,7 @@ const corpus: RagChunk[] = [
     source: `culture:${row.topic}`,
     kind: "culture" as const,
     title: row.topic,
-    text: [row.content, row.content_en, row.content_ru].filter(Boolean).join(" "),
+    text: row.content,
     keywords: row.keywords || [row.topic]
   }))
 ];

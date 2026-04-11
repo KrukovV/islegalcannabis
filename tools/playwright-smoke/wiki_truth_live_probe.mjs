@@ -14,6 +14,18 @@ const screenshotAfterPath =
   process.env.SCREENSHOT_AFTER_PATH || path.join(ROOT, "Artifacts", `${browserName}-wiki-truth-after.png`);
 const jsonPath = process.env.JSON_PATH || path.join(ROOT, "Artifacts", `${browserName}-wiki-truth.json`);
 
+async function safeScreenshot(page, screenshotPath) {
+  if (browserName === "chromium" && headless) {
+    return "skipped:chromium-headless-screenshot-disabled";
+  }
+  try {
+    await page.screenshot({ path: screenshotPath, fullPage: true });
+    return null;
+  } catch (error) {
+    return error instanceof Error ? error.message : String(error || "unknown_screenshot_error");
+  }
+}
+
 function browserTypeFor(name) {
   return name === "webkit" ? webkit : chromium;
 }
@@ -25,11 +37,11 @@ const page = await context.newPage();
 
 try {
   await page.goto(`${BASE_URL}/wiki-truth`, { waitUntil: "domcontentloaded" });
-  await page.screenshot({ path: screenshotBeforePath, fullPage: true });
+  const screenshotBeforeError = await safeScreenshot(page, screenshotBeforePath);
   await page.waitForSelector("[data-testid='wiki-truth-summary']", { timeout: 30000 });
   await page.waitForSelector("[data-testid='wiki-truth-table']", { timeout: 30000 });
   await page.waitForSelector("[data-testid='wiki-truth-diagnostics']", { timeout: 30000 });
-  await page.screenshot({ path: screenshotAfterPath, fullPage: true });
+  const screenshotAfterError = await safeScreenshot(page, screenshotAfterPath);
 
   const details = await page.evaluate(async () => {
     const metaResponse = await fetch("/api/build-meta", { cache: "no-store" });
@@ -43,7 +55,7 @@ try {
       diagnosticsPresent: Boolean(document.querySelector("[data-testid='wiki-truth-diagnostics']")),
       recentChangesPresent: Boolean(document.querySelector("[data-testid='wiki-truth-recent-changes']")),
       rowCount: document.querySelectorAll("[data-testid='wiki-truth-table'] tbody tr").length,
-      buildMeta
+    buildMeta
     };
   });
 
@@ -62,6 +74,8 @@ try {
     browserName,
     headless,
     pass,
+    screenshotBeforeError,
+    screenshotAfterError,
     ...details,
     screenshotBeforePath: path.relative(ROOT, screenshotBeforePath),
     screenshotAfterPath: path.relative(ROOT, screenshotAfterPath)

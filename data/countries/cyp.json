@@ -1,0 +1,144 @@
+{
+  "code": "cyp",
+  "iso2": "CY",
+  "name": "Cyprus / Κύπρος",
+  "legal_model": {
+    "recreational": {
+      "raw_status": "ILLEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
+    },
+    "medical": {
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": null
+    },
+    "distribution": {
+      "status": "restricted",
+      "scopes": {
+        "possession": "restricted",
+        "sale": null,
+        "cultivation": null,
+        "import": null,
+        "trafficking": null
+      },
+      "enforcement": "standard",
+      "flags": [],
+      "modifiers": []
+    },
+    "enforcement_flags": [],
+    "applied_rules": [
+      "legal"
+    ],
+    "notes_normalized": "Cannabis is legal in Cyprus / Κύπρος. Medical cannabis is legal. Distribution is restricted."
+  },
+  "notes_normalized": "Cannabis is legal in Cyprus / Κύπρος. Medical cannabis is legal. Distribution is restricted.",
+  "notes_raw": "{{main|Cannabis in Cyprus}} Class B substance – life imprisonment is possible for use and maximum 8 years for possession (at the maximum 2 years for the first offense for people under 25).<ref>{{cite web|title=Overviews of legal topics: possession of cannabis for personal use|url=http://www.emcdda.europa.eu/legal-topic-overviews/cannabis-possession-for-personal-use|publisher=[[European Monitoring Centre for Drugs and Drug Addiction]]|access-date=26 July 2015|archive-date=30 September 2018|archive-url=https://web.archive.org/web/20180930083140/http://www.emcdda.europa.eu/legal-topic-overviews/cannabis-possession-for-personal-use|url-status=live}}</ref>",
+  "facts": {
+    "possession_limit": null,
+    "cultivation": null,
+    "penalty": null
+  },
+  "related_codes": [
+    "lbn",
+    "pse",
+    "isr"
+  ],
+  "related_names": [
+    {
+      "code": "lbn",
+      "name": "Lebanon / لبنان"
+    },
+    {
+      "code": "pse",
+      "name": "Palestine / فلسطين"
+    },
+    {
+      "code": "isr",
+      "name": "Israel / إسرائيل"
+    }
+  ],
+  "coordinates": {
+    "lat": 35,
+    "lng": 33
+  },
+  "sources": {
+    "wiki": "https://en.wikipedia.org/wiki/Cyprus",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "citations": [
+      {
+        "id": "wiki_country",
+        "url": "https://en.wikipedia.org/wiki/Cyprus",
+        "title": "Wikipedia: Cyprus / Κύπρος",
+        "type": "external",
+        "weight": "low"
+      },
+      {
+        "id": "wiki_truth",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+        "title": "Wikipedia: Legality of cannabis",
+        "type": "external",
+        "weight": "low"
+      }
+    ]
+  },
+  "updated_at": "2026-04-10",
+  "normalized_version": "v1",
+  "graph": {
+    "region": "ASIA",
+    "seo_cluster": "ASIA_GENERAL",
+    "geo_neighbors": [
+      {
+        "code": "lbn",
+        "name": "Lebanon / لبنان"
+      },
+      {
+        "code": "pse",
+        "name": "Palestine / فلسطين"
+      },
+      {
+        "code": "isr",
+        "name": "Israel / إسرائيل"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "tur",
+        "name": "Türkiye"
+      },
+      {
+        "code": "grc",
+        "name": "Greece / Ελλάδα"
+      },
+      {
+        "code": "geo",
+        "name": "Georgia / საქართველო"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "jor",
+        "name": "Jordan / الأردن"
+      },
+      {
+        "code": "syr",
+        "name": "Syria / سوريا"
+      }
+    ],
+    "same_country_states": [],
+    "federal_parent": null
+  },
+  "hashes": {
+    "code": "cyp",
+    "content_hash": "f3bd17366e832d0ee8a9422129b81535125d1a23d00df1685ee91e3e893fd9cc",
+    "notes_hash": "549e846a5cb842a65eaa1031d4a2f0e7bb9cf6e5494c02e4001867051b30c373",
+    "model_hash": "7150c0455de0710d9b31bf91477ccc9d72afbfe0034a753ca02e3095796f1707"
+  },
+  "geo_code": "CY",
+  "node_type": "country",
+  "parent_country": null,
+  "state_modifiers": null
+}
