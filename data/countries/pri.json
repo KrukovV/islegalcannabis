@@ -66,7 +66,20 @@
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -165,9 +178,9 @@
   },
   "hashes": {
     "code": "pri",
-    "content_hash": "3446234666cf7aafdc341f6ba61b0acd7484930210b499fe1e08b5177e57fe67",
+    "content_hash": "177d13eff09460a27231cb82effc1edc3541f6edd701da69236b60e239819e8f",
     "notes_hash": "0f575ae29f154d2b783ef9e92c4fedfcee674bd12eddfebaac22cb530c52605d",
-    "model_hash": "dadaefa67662553f1db0287cb5f9a2a84cb926d4e381e663c2d69c0f950edb62"
+    "model_hash": "4e86c89ae4d9c90bfc6925afee4fcd15fdab50962f2cade9d98dd4659ab972ef"
   },
   "geo_code": "PR",
   "node_type": "country",

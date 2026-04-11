@@ -59,46 +59,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Costa Rica",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Costa_Rica",
+          "title": "Costa Rica",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Costa Rica",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Costa_Rica",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Landmark ruling upholds de facto marijuana decriminalization in Costa Rica",
           "url": "https://extract.suntimes.com/news/10/153/13022/costa-rica-court-says-growing-marijuana-home-not-criminal-offense",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Costa Rica",
           "url": "https://web.archive.org/web/20161123003644/http://extract.suntimes.com/news/10/153/13022/costa-rica-court-says-growing-marijuana-home-not-criminal-offense/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Costa Rica legalized therapeutic marijuana",
           "url": "https://www.newsendip.com/costa-rica-legalized-therapeutic-marijuana/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Costa Rica",
           "url": "https://thecostaricanews.com/crime-courts/weed-in-costa-rica/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Costa Rica",
           "url": "https://web.archive.org/web/20161110192237/http://thecostaricanews.com/crime-courts/weed-in-costa-rica/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Costa Rica",
-          "url": "https://thecostaricanews.com/a-project-proposes-legalizing-essential-oils-of-marijuana-for-medical-purposes/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -114,7 +114,20 @@
         "rule: private_cultivation | source: Cannabis in Costa Rica | type: traversal | priority: 3 | scope: cultivation",
         "rule: legal | source: Cannabis in Costa Rica | type: traversal | priority: 3 | scope: cultivation",
         "rule: penalty_arrest | source: Cannabis in Costa Rica | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 1555,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "restricted",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -226,9 +239,9 @@
   },
   "hashes": {
     "code": "cri",
-    "content_hash": "47371037e78ef784114153ad325703a2a08bf6c37dd53123ca083ea5f9c00e3d",
+    "content_hash": "26ebe86c1a6c8600abb52f8b11fe0ddd99566c6fa3cc3ddbee232b26c088bb25",
     "notes_hash": "7de6cad858881be8dde83b6a74c23bb87155f13dceab9cf904243b86147db16c",
-    "model_hash": "2332e5c16e3132353374e3c3ac9b990114cb3e32c82593aac382bcef7500f2d3"
+    "model_hash": "a203394ef165f1ab033483050315709219610bdf01f1ffa789a64f6a2d979abf"
   },
   "geo_code": "CR",
   "node_type": "country",

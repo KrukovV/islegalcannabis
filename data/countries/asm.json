@@ -66,7 +66,20 @@
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -165,9 +178,9 @@
   },
   "hashes": {
     "code": "asm",
-    "content_hash": "c0dbba2be50157a9d285e52e2b56ee0c4c09d0342c6bf136ec89132e019dbd4b",
+    "content_hash": "4626bcc853c12feee245df85c1864f9a291cbf7002fddf547cf1917a82c5a863",
     "notes_hash": "85f87348a7ef5cbdd8953a71785ace5d6b98dc07b92d35a6ab420092516d1ca4",
-    "model_hash": "11d4bf08a807af0c1bf08f712b7735da6d6ee0c47d42a122aa81c76824556da2"
+    "model_hash": "ec88db51a40be56879d3abb12dbcb3a8a594cefbaa1f178e8d4835c339a436bc"
   },
   "geo_code": "AS",
   "node_type": "country",

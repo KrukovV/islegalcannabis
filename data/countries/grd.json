@@ -59,46 +59,46 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Grenada",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Grenada",
+          "title": "Grenada",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Grenada",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Grenada",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "World Drug Report 2010",
           "url": "https://books.google.com/books?id=HB9PuEhHahQC&pg=PA197",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "BDM Interview with Wilbur Adams",
           "url": "https://www.bigdrumnation.org/comments/BDN_WAdams_interview1.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Drugs in America: Sociology, Economics, and Politics",
           "url": "https://books.google.com/books?id=uc2Le4tBxwcC&pg=PA162",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Grenada: a history of its people",
           "url": "https://books.google.com/books?id=Ofp6AAAAMAAJ",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Grenada",
           "url": "https://web.archive.org/web/20210703132952/http://www.bigdrumnation.org/comments/BDN_WAdams_interview1.pdf",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "International Narcotics Control Strategy Report: Volume I: Drug and Chemical Control",
-          "url": "https://books.google.com/books?id=0jnyNWFuhXYC&pg=PA252",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -106,7 +106,20 @@
         "rule: illegal | source: Cannabis in Grenada | type: traversal | priority: 3 | scope: general",
         "rule: raw_illegal | source: Cannabis in Grenada | type: traversal | priority: 3 | scope: cultivation",
         "rule: illegal | source: Cannabis in Grenada | type: traversal | priority: 3 | scope: cultivation"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 1844,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -212,9 +225,9 @@
   },
   "hashes": {
     "code": "grd",
-    "content_hash": "85ad17e1509779e21d6dfa392a9b68747249eedb59927b8dfabac1ca1429ec0f",
+    "content_hash": "a337e1e0a0134244ae5d1233bf400aaf50363eaa6823a8d5b8fa51f8fbda66e6",
     "notes_hash": "a70335c7ae621bd114c280a78215927ee733f9eebde29a2c7fc5480aaefd5c8c",
-    "model_hash": "2e72c8c27fd84c94a6ce4df38fb58345d0683ed4645cb0c30434cf80beba88e5"
+    "model_hash": "830eefb3b17f52c4c5ffed2000047af0895752eb6406d1051c1c7d2785bd8994"
   },
   "geo_code": "GD",
   "node_type": "country",

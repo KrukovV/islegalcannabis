@@ -66,7 +66,20 @@
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -165,9 +178,9 @@
   },
   "hashes": {
     "code": "maf",
-    "content_hash": "be91c65aeb824f129c4f38af73b4552781c83585b23ef5fe17cd07c415f59529",
+    "content_hash": "874913cdeb73163714c02bb30668ab869165570475285e66192c639eab5b59d2",
     "notes_hash": "9df3110902ee72967249241c35ad3a5985573bcac274eac285032e13369b9bad",
-    "model_hash": "ce7e019e59624061ff09bdb07777f6e52ebf2f9eee4fcb58cabb486f9831d39f"
+    "model_hash": "7481284abee6556da0d2ed4ddd9c5c99e9b35852dc261edc5acada28c7886155"
   },
   "geo_code": "MF",
   "node_type": "country",

@@ -56,22 +56,22 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Burundi",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Burundi",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Decriminalization of Marihuana: Hearings Before the Select Committee on Narcotics Abuse and Control, House of Representatives, Ninety-fifth Congress, First Session, March 14, 15, and 16, 1977",
-          "url": "https://books.google.com/books?id=MFMtAAAAMAAJ&pg=PA22",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Burundi / Uburundi",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Burundi",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Burundi",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Decriminalization of Marihuana: Hearings Before the Select Committee on Narcotics Abuse and Control, House of Representatives, Ninety-fifth Congress, First Session, March 14, 15, and 16, 1977",
+          "url": "https://books.google.com/books?id=MFMtAAAAMAAJ&pg=PA22",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -83,7 +83,20 @@
         "rule: penalty_criminal_offense | source: Cannabis in Burundi | type: traversal | priority: 3 | scope: trafficking",
         "rule: trafficking_illegal | source: Cannabis in Burundi | type: traversal | priority: 3 | scope: trafficking",
         "rule: illegal | source: Cannabis in Burundi | type: traversal | priority: 3 | scope: trafficking"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 393,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": "unenforced",
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "weak_enforcement"
@@ -194,9 +207,9 @@
   },
   "hashes": {
     "code": "bdi",
-    "content_hash": "5a2e452a4a63524d4ccfb8d85dfbf0b0f39fe2bbdcf9243af49522532147d3a3",
+    "content_hash": "3099a59ba93c6d7ac1fc8e32671dd10768199c473c09645d565e0fa265e60843",
     "notes_hash": "d36fd22f5ba1cc8656fc4eac7f9a0057de3bea055f778c541b479e6358616bcc",
-    "model_hash": "d3fedc7b5a613d25d07d8718d17671175eed1fa6b25404408ae78cfbd8ab4fd5"
+    "model_hash": "f10efb0a71f573a585f6bc505e3de5589bc36c4d4e44c8922ccefaeb7a75ee0c"
   },
   "geo_code": "BI",
   "node_type": "country",

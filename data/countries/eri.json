@@ -60,46 +60,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Eritrea",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Eritrea",
+          "title": "Eritrea / إريتريا",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Eritrea",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Eritrea",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Drug Trafficking Patterns",
           "url": "https://www.unodc.org/easternafrica/en/illicit-drugs/drug-trafficking-patterns.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Eritrea – Laws, Use, History, and More Info",
           "url": "https://sensiseeds.com/en/blog/countries/cannabis-in-eritrea-laws-use-history/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Is Weed Legal in Eritrea? Cannabis Laws Explored",
           "url": "https://merrittimes.com/weed-in-eritrea/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Legal status of cannabis in Eritrea - Cannaconnection.com",
           "url": "https://www.cannaconnection.com/blog/14821-legal-status-eritrea",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "COUNTRY OF ORIGIN INFORMATION REPORT ERITREA",
           "url": "https://www.refworld.org/pdfid/4860d1462.pdf",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Eritrea",
-          "url": "https://web.archive.org/web/20241213092536/https://sensiseeds.com/en/blog/countries/cannabis-in-eritrea-laws-use-history/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -113,7 +113,20 @@
         "rule: legal | source: Cannabis in Eritrea | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Cannabis in Eritrea | type: traversal | priority: 3 | scope: possession",
         "rule: penalty_fine | source: Cannabis in Eritrea | type: traversal | priority: 3 | scope: possession"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 2825,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -223,9 +236,9 @@
   },
   "hashes": {
     "code": "eri",
-    "content_hash": "36c61ef17ef32e6cb6eaf1a870b8d5444525c69768591e0f032a03b5a9f729c0",
+    "content_hash": "f7152d9427bb674d61c20bfbc04cefe94b2d5211769e26df7307acc1c7473e51",
     "notes_hash": "b30f0fa343f3590f69e1f5f856336ff4f95902fa0090653102782408e0fd0ecd",
-    "model_hash": "aa0f57706ae3a6092285af5faccad0bd3cd7854bd9d4dcff913e1e8bc287d922"
+    "model_hash": "635cdf2132183352e9871386f02a74e4b283bba3bd6fcca6af17e48b5cf24160"
   },
   "geo_code": "ER",
   "node_type": "country",

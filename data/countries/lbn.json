@@ -58,46 +58,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Lebanon",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Lebanon",
+          "title": "Lebanon / لبنان",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Lebanon",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Lebanon",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Hashish!",
           "url": "https://books.google.com/books?id=hblBKeAE9rgC",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Lebanon becomes first Arab country to legalise cannabis for medical use",
           "url": "https://www.thenationalnews.com/world/mena/lebanon-becomes-first-arab-country-to-legalise-cannabis-for-medical-use-1.1009334",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Lebanon passes legislation legalizing medical marijuana cultivation",
           "url": "https://www.newsweek.com/lebanon-passes-legislation-legalizing-medical-marijuana-cultivation-economy-struggles-amid-1499319",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Lebanon preparing to legalize growing cannabis, says House speaker",
           "url": "https://www.cnn.com/2018/07/18/health/lebanon-medicinal-cannabis-intl/index.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Lebanon",
           "url": "https://www.lbcgroup.tv/news/lebanon-news/867538/lebanon-sees-high-economic-hopes-in-regulated-cannabis-sector/en",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Rapport sur la situation de la Syrie et du Liban",
-          "url": "https://books.google.com/books?id=ks_mAAAAMAAJ",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -114,7 +114,20 @@
         "rule: medical_legal | source: Cannabis in Lebanon | type: traversal | priority: 3 | scope: cultivation",
         "rule: raw_illegal | source: Cannabis in Lebanon | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Lebanon | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 2261,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "illegal",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -223,9 +236,9 @@
   },
   "hashes": {
     "code": "lbn",
-    "content_hash": "cc276fa45d4f66ad1a0e90e63ff15e3f9141ec34eab4f6ed4c771adb13326b9f",
+    "content_hash": "aa060a3e5b20243fa87e156307d7ef90acb32e2b1fe1b929532767700fe4146c",
     "notes_hash": "465283faecce66a0a50a02b7ca506300b1a7f1b72e6583fac58a67a1d684327a",
-    "model_hash": "9fb8013e1e836345c4611f0222fb0b74a2218d68b5a9aa13bde484a288492543"
+    "model_hash": "787652e0e87ef72a22490334d3d6630c23d18be5aa6913c102244e772f66ac17"
   },
   "geo_code": "LB",
   "node_type": "country",

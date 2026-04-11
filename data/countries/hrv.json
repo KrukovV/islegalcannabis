@@ -56,46 +56,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Croatia",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Croatia",
+          "title": "Croatia / Hrvatska",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Croatia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Croatia",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Cannabis in Croatia",
           "url": "https://www.emcdda.europa.eu/system/files/publications/4135/TD0217210ENN.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Croatia Decriminalizes Drug Use",
           "url": "https://idpc.net/alerts/2012/12/croatia-decriminalizes-drug-use",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Croatia To Decriminalize Drug Possession",
           "url": "https://www.encod.org/info/CROATIA-TO-DECRIMINALIZE-DRUG.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Croatia",
           "url": "https://web.archive.org/web/20120817091744/http://www.encod.org/info/CROATIA-TO-DECRIMINALIZE-DRUG.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Živi zid",
           "url": "https://www.zivizid.hr/wp-content/uploads/2016/07/Program-Zivi-zid.pdf",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Croatia",
-          "url": "https://web.archive.org/web/20161213055207/http://www.zivizid.hr/wp-content/uploads/2016/07/Program-Zivi-zid.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -108,7 +108,20 @@
         "rule: penalty_prison | source: Cannabis in Croatia | type: traversal | priority: 3 | scope: general",
         "rule: penalty_criminal_offense | source: Cannabis in Croatia | type: traversal | priority: 3 | scope: general",
         "rule: penalty_fine | source: Cannabis in Croatia | type: traversal | priority: 3 | scope: possession"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 1137,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -194,26 +207,26 @@
     ],
     "legal_similarity": [
       {
+        "code": "smr",
+        "name": "San Marino"
+      },
+      {
         "code": "ita",
         "name": "Italy / Italia"
       },
       {
         "code": "cze",
         "name": "Czechia / Česko"
-      },
-      {
-        "code": "hun",
-        "name": "Hungary / Magyarország"
       }
     ],
     "cluster_links": [
       {
-        "code": "smr",
-        "name": "San Marino"
-      },
-      {
         "code": "vat",
         "name": "Vatican City / Vaticano"
+      },
+      {
+        "code": "mne",
+        "name": "Montenegro / Црна Гора"
       }
     ],
     "same_country_states": [],
@@ -221,9 +234,9 @@
   },
   "hashes": {
     "code": "hrv",
-    "content_hash": "827622b933bdf314529c892f8a5dcf4d5fae6fbd75ad9731c09bc7c668bb620d",
+    "content_hash": "b3fee8ac0eccf1fc5b0d751dcc427eba19205f2a79895c15c2847dfaea265dfc",
     "notes_hash": "18060be1870dd444acdbc87881bf5c3cdb656989a4cfbd9cfba4b9bc1f030ba7",
-    "model_hash": "52883fcb056147615b3cbb29542719b0265044587b92e3cf927f12bf9bd0f1cc"
+    "model_hash": "c131e7c6dbe76e87476586e2feaf5558c63f211f1b7adf8e7e552a8b3237e873"
   },
   "geo_code": "HR",
   "node_type": "country",

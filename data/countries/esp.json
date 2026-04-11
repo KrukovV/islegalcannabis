@@ -66,46 +66,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Spain",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Spain",
+          "title": "Spain / España",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Spain",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Spain",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Cannabis is indigenous to Europe and cultivation began during the Copper or Bronze age: a probabilistic synthesis of fossil pollen studies",
           "url": "https://link.springer.com/10.1007/s00334-018-0678-7",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Historical biogeography of Cannabis in the Iberian Peninsula: A probabilistic approach using palynological evidence",
           "url": "https://linkinghub.elsevier.com/retrieve/pii/S1433831922000464",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis is indigenous to Europe and cultivation began during the Copper or Bronze age: a probabilistic synthesis of fossil pollen studies",
           "url": "https://link.springer.com/article/10.1007/s00334-018-0678-7",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "The therapeutic use of Cannabis sativa (L.) in Arabic medicine",
           "url": "https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=c7f06d864b02716130e2494108e693bffc292a42",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "La arqueología de las drogas en la Península Ibérica: una síntesis de las recientes investigaciones arqueobotánicas",
           "url": "https://archive.org/details/jordi-juan-tresserras-arqueologia-drogas-peninsula-iberica-espana-portugal",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Disputatio medica, an cannabis & aqua, in qua mollitur possint aërem inficere: opus recens recognitum & indicibus suis insignitum (In Michaelis Ioannis Paschalis, methodum curandi scholia)",
-          "url": "https://www.europeana.eu/es/item/9200110/BibliographicResource_1000126618708",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -146,7 +146,20 @@
         "rule: medical_legal | source: Cannabis in Spain | type: traversal | priority: 3 | scope: general",
         "rule: social_club_distribution | source: Barcelona cannabis clubs face closure in new legal setback | type: reference | priority: 2 | scope: general",
         "rule: penalty_fine | source: Political parties in Spain call for legalisation of weed which 'will bring €1.2 billion' to the economy | type: reference | priority: 2 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 9308,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": true,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "illegal",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -240,12 +253,12 @@
         "name": "France"
       },
       {
-        "code": "bel",
-        "name": "Belgium / Belgien"
+        "code": "mar",
+        "name": "Morocco / المغرب"
       },
       {
-        "code": "irl",
-        "name": "Ireland / Éire"
+        "code": "bel",
+        "name": "Belgium / Belgien"
       }
     ],
     "cluster_links": [
@@ -263,9 +276,9 @@
   },
   "hashes": {
     "code": "esp",
-    "content_hash": "a8b95b55b82eb97292b219d6e6c89331b0f8c985ab4a6762694c036d61f8dd81",
+    "content_hash": "2ba6c589d90923bd491156021b88724847f3711b00c91c86d953a42109a7efd8",
     "notes_hash": "c02fbd34c1de93bcf3748ab3feed099553f63ed034262dee7259bdd3e0104c7a",
-    "model_hash": "a09304ab54e18c9fc8b2aee2979131b4c04a447967ab4d350889304dd0464b5e"
+    "model_hash": "e6609274114b7a087767b5647d217e60039ff00d46a92b9d436a72bb6bb41b98"
   },
   "geo_code": "ES",
   "node_type": "country",

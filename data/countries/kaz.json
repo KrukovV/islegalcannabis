@@ -56,28 +56,41 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Kazakhstan",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kazakhstan",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Legality of cannabis (notes)",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kazakhstan",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Kazakhstan / Қазақстан",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Kazakhstan",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kazakhstan",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kazakhstan",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: raw_illegal | source: Cannabis in Kazakhstan | type: traversal | priority: 3 | scope: possession",
         "rule: illegal | source: Cannabis in Kazakhstan | type: traversal | priority: 3 | scope: possession"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 342,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -183,9 +196,9 @@
   },
   "hashes": {
     "code": "kaz",
-    "content_hash": "e432865bf4c3107c45873c28efc8129ebdd6c0d72de74795e05da92c4c6d786a",
+    "content_hash": "0df1cec349f320332fcde4129656b4a8830bb912b59d1a4c675a3b1bb897f2bf",
     "notes_hash": "6439b39b510de3837a1466a290e299282a862310a7f2fa0abad9a6cc2d8b6156",
-    "model_hash": "5a8500932ea72b904848f9d125dd91e04c3e48be7a8bf4e76a68bd2a677618e5"
+    "model_hash": "19501cd0760740446d41e122a64bae60b17b9417429ccb0c8642a8b027c15a23"
   },
   "geo_code": "KZ",
   "node_type": "country",

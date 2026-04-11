@@ -61,46 +61,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Belgium",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Belgium",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "EMCDDA &#124; Country Profile - Belgium",
-          "url": "https://www.emcdda.europa.eu/html.cfm/index5174EN.html?pluginMethod=eldd.countryprofiles&country=BE",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Belgium",
-          "url": "https://www.emcdda.europa.eu/countries/drug-reports/2019/belgium/drug-laws-and-drug-law-offences_en",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Assessing the harms of cannabis cultivation in Belgium",
-          "url": "https://biblio.ugent.be/publication/3229068",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Brussels' weed wave hits new high",
-          "url": "https://www.politico.eu/article/the-weed-wave-hitting-brussels-streets/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Belgium",
-          "url": "https://web.archive.org/web/20180930082257/http://www.emcdda.europa.eu/html.cfm/index5174EN.html?pluginMethod=eldd.countryprofiles&country=BE",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Belgium / Belgien",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Belgium",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Belgium",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "EMCDDA &#124; Country Profile - Belgium",
+          "url": "https://www.emcdda.europa.eu/html.cfm/index5174EN.html?pluginMethod=eldd.countryprofiles&country=BE",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis in Belgium",
+          "url": "https://www.emcdda.europa.eu/countries/drug-reports/2019/belgium/drug-laws-and-drug-law-offences_en",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Assessing the harms of cannabis cultivation in Belgium",
+          "url": "https://biblio.ugent.be/publication/3229068",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Brussels' weed wave hits new high",
+          "url": "https://www.politico.eu/article/the-weed-wave-hitting-brussels-streets/",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis in Belgium",
+          "url": "https://web.archive.org/web/20180930082257/http://www.emcdda.europa.eu/html.cfm/index5174EN.html?pluginMethod=eldd.countryprofiles&country=BE",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -130,7 +130,20 @@
         "rule: raw_illegal | source: Cannabis in Belgium | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Belgium | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Cannabis in Belgium | type: traversal | priority: 3 | scope: cultivation"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 11714,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "restricted",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -243,9 +256,9 @@
   },
   "hashes": {
     "code": "bel",
-    "content_hash": "bba3f1e9b6bd741a5e6c27fbf22cd483c531c86b53a45928e9357b608e93509e",
+    "content_hash": "1c750aacde52445a5bf978f39a077833b5f82821c5a7b1d847bf1c267e0adbbd",
     "notes_hash": "02abd7c7028804a4352091cc90a3784beda7d388222066fb38ccecc059db81b2",
-    "model_hash": "b5b553d760785d6d06db7ce29e6447c034a35668ebb4b03dda79767800328154"
+    "model_hash": "42548c9885b25f60b90126b5a20b906ed0a3d4b7e0f1881385e95775dc7b7213"
   },
   "geo_code": "BE",
   "node_type": "country",

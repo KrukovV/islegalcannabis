@@ -59,46 +59,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Cuba",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cuba",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Will Cuba Update its Drug Policy for the Twenty First Century?",
-          "url": "https://igarape.org.br/wp-content/uploads/2017/12/08-11-2017-NE-29-Cuba-Drog-Policy.pdf",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Marihuana: The First Twelve Thousand Years",
-          "url": "https://books.google.com/books?id=pGgzBgAAQBAJ&pg=PA102",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Marihuana in Latin America: the threat it constitutes",
-          "url": "https://books.google.com/books?id=WSJXAAAAMAAJ",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Is weed legal in Cuba? or to be legal in 2023?",
-          "url": "https://420expertadviser.com/legal/is-weed-legal-in-cuba/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cuba - Universal Periodic Review - Death Penalty - the Advocates for Human Rights",
-          "url": "https://www.theadvocatesforhumanrights.org/Publications/A/Index?id=656",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Cuba",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Cuba",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cuba",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Will Cuba Update its Drug Policy for the Twenty First Century?",
+          "url": "https://igarape.org.br/wp-content/uploads/2017/12/08-11-2017-NE-29-Cuba-Drog-Policy.pdf",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Marihuana: The First Twelve Thousand Years",
+          "url": "https://books.google.com/books?id=pGgzBgAAQBAJ&pg=PA102",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Marihuana in Latin America: the threat it constitutes",
+          "url": "https://books.google.com/books?id=WSJXAAAAMAAJ",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Is weed legal in Cuba? or to be legal in 2023?",
+          "url": "https://420expertadviser.com/legal/is-weed-legal-in-cuba/",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cuba - Universal Periodic Review - Death Penalty - the Advocates for Human Rights",
+          "url": "https://www.theadvocatesforhumanrights.org/Publications/A/Index?id=656",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -114,7 +114,20 @@
         "rule: penalty_fine | source: Cannabis in Cuba | type: traversal | priority: 3 | scope: cultivation",
         "rule: penalty_fine | source: Cannabis in Cuba | type: traversal | priority: 3 | scope: trafficking",
         "rule: penalty_fine | source: Cuba - Universal Periodic Review - Death Penalty - the Advocates for Human Rights | type: reference | priority: 2 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 1347,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -226,9 +239,9 @@
   },
   "hashes": {
     "code": "cub",
-    "content_hash": "6830707c29e6f67305878d301d93d2917f2ea0a27c53c23b23b76dcc75f30d54",
+    "content_hash": "18710df66cf195b085834789349d01f38b5ed58758a83dd60bc9487e414b888c",
     "notes_hash": "f7da2383204920ddb24d6709f655d75380d9c1714dccd340fe5190b55df9302e",
-    "model_hash": "12e1f7e97e6031cb9133af267179da8c529d040b05dd7a90a56df7f2ea74a4a6"
+    "model_hash": "6fcb2eb0d6ccf32d7a3e8d157f2c08c0f2c080ccd401d2efadd9badfea939d8e"
   },
   "geo_code": "CU",
   "node_type": "country",

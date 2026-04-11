@@ -76,6 +76,10 @@ describe("GET /api/check contract", () => {
     expect(json.penalties).toBeTruthy();
     expect(json.enforcement_level).toBeTruthy();
     expect(Array.isArray(json.explain)).toBe(true);
+    expect(json.debug).toBeTruthy();
+    expect(typeof json.debug.has_article).toBe("boolean");
+    expect(typeof json.debug.article_len).toBe("number");
+    expect(typeof json.debug.source_confidence).toBe("string");
   });
 
   it("surfaces machine verified evidence when available", async () => {

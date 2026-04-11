@@ -21,28 +21,27 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": "illegal",
+        "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [],
-      "modifiers": [
-        "but",
-        "may"
-      ]
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "HIGH_RISK",
+      "final_risk": "RESTRICTED",
       "enforcement_level": "active",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
+        "prison": false,
+        "prison_priority": 0,
         "arrest": false,
         "fine": false,
-        "severity_score": 4,
+        "severity_score": 0,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -56,68 +55,75 @@
           "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Mauritania",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Mauritania",
+          "title": "Mauritania / موريتانيا",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
         },
         {
           "title": "Cannabis in Mauritania",
           "url": "https://books.google.com/books?id=pdDUAAAAMAAJ",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Report of the International Narcotics Control Board (2007)",
           "url": "https://books.google.com/books?id=5zPbkldHMq4C&pg=PA53",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Transatlantic Security from the Sahel to the Horn of Africa",
           "url": "https://books.google.com/books?id=2y-pAwAAQBAJ&pg=PA65",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Perilous Desert: Insecurity in the Sahara",
           "url": "https://books.google.com/books?id=iQuVCwAAQBAJ&pg=PA67",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Mauritania",
           "url": "https://carnegieendowment.org/research/2012/09/organized-crime-and-conflict-in-the-sahel-sahara-region?lang=en",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Mauritania",
           "url": "https://allafrica.com/stories/201504202237.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Mauritania | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Mauritania | type: traversal | priority: 3 | scope: general",
-        "rule: raw_illegal | source: Cannabis in Mauritania | type: traversal | priority: 3 | scope: sale",
-        "rule: sale_illegal | source: Cannabis in Mauritania | type: traversal | priority: 3 | scope: sale",
-        "rule: illegal | source: Cannabis in Mauritania | type: traversal | priority: 3 | scope: sale",
-        "rule: penalty_prison | source: Cannabis in Mauritania | type: traversal | priority: 3 | scope: general"
-      ]
+        "no traversal evidence"
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal",
-      "penalty_prison"
+      "distribution_fallback_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Mauritania / موريتانيا. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Mauritania / موريتانيا. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in Mauritania / موريتانيا. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Mauritania / موريتانيا. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Mauritania}}",
   "facts": {
     "possession_limit": null,
@@ -215,9 +221,9 @@
   },
   "hashes": {
     "code": "mrt",
-    "content_hash": "280266ddb16d3bb034e98e0786b234ee41e9873c9c23bf012547cc6515115f3a",
-    "notes_hash": "7adf7ddce35a3c75a3bd44a8a3dc1c5c2e9f222485142055b988fce8fe615f35",
-    "model_hash": "84e169e22a1eda1c4e5d562827bff2976885526662a4076cb0a868dc40d9b208"
+    "content_hash": "3445ffadefe5a9a31d80293841c2abc06908062116c10020b2660a8a2eab015d",
+    "notes_hash": "de01a0ae140020fac62033fd2e1acebc1926e6a6c58ffb0a1ec835ddb5240b10",
+    "model_hash": "785fe400f2e29d003c6eaba265742de461896ed347b80fc4d8645dd0ee3b0d84"
   },
   "geo_code": "MR",
   "node_type": "country",

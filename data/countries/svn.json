@@ -11,10 +11,10 @@
     },
     "medical": {
       "raw_status": "LEGAL",
-      "status": "LIMITED",
+      "status": "LEGAL",
       "enforcement": "MODERATE",
       "scope": "MEDICAL_ONLY",
-      "override_reason": "rec_implies_med_floor"
+      "override_reason": null
     },
     "distribution": {
       "status": "restricted",
@@ -58,46 +58,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Slovenia",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Slovenia",
+          "title": "Slovenia / Slovenija",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Slovenia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Slovenia",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Slovenia legalises medical marijuana",
           "url": "https://sloveniatimes.com/44182/slovenia-legalises-medical-marijuana",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Slovenian Parliament overturns vetoes on key-laws",
           "url": "https://www.ansa.it/nuova_europa/en/news/countries/slovenia/2025/07/24/slovenian-parliament-overturns-vetoes-on-key-laws_c5deaf5f-5a50-4b48-86a1-1b2f3473765c.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "za4zakone",
           "url": "https://za4zakone.webs.com/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Zakon - SKSK",
           "url": "https://sksk.si/index.php?topic=zakon",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Slovenija dovolila uporabo konoplje v medicinske namene",
           "url": "https://www.rtvslo.si/zdravje/novice/slovenija-dovolila-uporabo-konoplje-v-medicinske-namene/339830",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Uporaba konoplje v medicini",
-          "url": "https://www.nijz.si/uporaba-konoplje-v-medicini",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -112,7 +112,20 @@
         "rule: penalty_fine | source: Cannabis in Slovenia | type: traversal | priority: 3 | scope: possession",
         "rule: penalty_criminal_offense | source: Cannabis in Slovenia | type: traversal | priority: 3 | scope: possession",
         "rule: possession_decriminalized | source: Cannabis in Slovenia | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 990,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "restricted",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -122,12 +135,11 @@
       "possession_decriminalized",
       "raw_illegal",
       "penalty_fine",
-      "penalty_criminal_offense",
-      "rec_implies_med_floor"
+      "penalty_criminal_offense"
     ],
-    "notes_normalized": "Cannabis is decriminalized in Slovenia / Slovenija. Medical cannabis is limited. Distribution is restricted. Prison exposure detected."
+    "notes_normalized": "Cannabis is decriminalized in Slovenia / Slovenija. Medical cannabis is legal. Distribution is restricted. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is decriminalized in Slovenia / Slovenija. Medical cannabis is limited. Distribution is restricted. Prison exposure detected.",
+  "notes_normalized": "Cannabis is decriminalized in Slovenia / Slovenija. Medical cannabis is legal. Distribution is restricted. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Slovenia}} Medical cannabis legalized in 2025.<ref>{{cite news |title=Slovenia legalises medical marijuana |url=https://sloveniatimes.com/44182/slovenia-legalises-medical-marijuana |access-date=5 August 2025 |work=The Slovenia Times |date=16 July 2025}}</ref><ref>{{cite news |title=Slovenian Parliament overturns vetoes on key-laws |url=https://www.ansa.it/nuova_europa/en/news/countries/slovenia/2025/07/24/slovenian-parliament-overturns-vetoes-on-key-laws_c5deaf5f-5a50-4b48-86a1-1b2f3473765c.html |access-date=5 August 2025 |work=Nueova Europa |date=25 July 2025}}</ref> Prior to 2025, cannabis-based drugs were legal for medicinal use, but not cannabis itself.<ref>{{cite web|url=http://www.rtvslo.si/zdravje/novice/slovenija-dovolila-uporabo-konoplje-v-medicinske-namene/339830|title=Slovenija dovolila uporabo konoplje v medicinske namene|work=Prvi interaktivni multimedijski portal, MMC RTV Slovenija|access-date=14 January 2015|archive-date=26 December 2018|archive-url=https://web.archive.org/web/20181226021417/https://www.rtvslo.si/zdravje/novice/slovenija-dovolila-uporabo-konoplje-v-medicinske-namene/339830|url-status=live}}</ref><ref>{{cite web|url=http://www.nijz.si/uporaba-konoplje-v-medicini|title=Uporaba konoplje v medicini|work=NIJZ|date=19 June 2014|access-date=12 September 2015|archive-date=3 August 2021|archive-url=https://web.archive.org/web/20210803080141/https://www.nijz.si/uporaba-konoplje-v-medicini|url-status=live}}</ref> Possession of any drug for personal use is decriminalized.<ref>{{cite web|url=https://www.uradni-list.si/1/content?id=23256|title=Zakon o proizvodnji in prometu s prepovedanimi drogami (ZPPPD)|work=Uradni List|access-date=12 September 2015|archive-date=10 September 2016|archive-url=https://web.archive.org/web/20160910215506/http://www.uradni-list.si/1/content?id=23256|url-status=live}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -202,22 +214,22 @@
         "name": "Czechia / Česko"
       },
       {
-        "code": "ita",
-        "name": "Italy / Italia"
-      },
-      {
-        "code": "hun",
-        "name": "Hungary / Magyarország"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "bih",
         "name": "Bosnia and Herzegovina / Bosna i Hercegovina"
       },
       {
+        "code": "ita",
+        "name": "Italy / Italia"
+      }
+    ],
+    "cluster_links": [
+      {
         "code": "vat",
         "name": "Vatican City / Vaticano"
+      },
+      {
+        "code": "hun",
+        "name": "Hungary / Magyarország"
       }
     ],
     "same_country_states": [],
@@ -225,9 +237,9 @@
   },
   "hashes": {
     "code": "svn",
-    "content_hash": "cec7d61ebec26c7aa4c29ad3a0f83adc43658b9d333fcbada00baa0335a89195",
-    "notes_hash": "76ba45ba73be288d80cc4eb07295d9af0a673085b3e6d4fb2c78cf767dd38142",
-    "model_hash": "246c411fc36679e8e622cd3cbd09a52450581e4c0f549858cbb5a2160c53e5d9"
+    "content_hash": "38c5816f0fe6305d087a73f66261939a32cb6912b626bb9f34f2961430d67d90",
+    "notes_hash": "8304d9c9e265b3e796cfe277af859b3898cf087d94398aa9f1c942f1dbf60d18",
+    "model_hash": "6905957d1c9237581558f8b59a76768f43a4aae918bfc9f336d37e59e851a12d"
   },
   "geo_code": "SI",
   "node_type": "country",

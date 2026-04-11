@@ -27,10 +27,13 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "flags": [],
+      "modifiers": [
+        "but",
+        "however",
+        "only",
+        "may"
+      ]
     },
     "signals": {
       "status": "illegal",
@@ -58,55 +61,70 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Palau",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Palau",
+          "title": "Palau / Belau",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Palau",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Palau",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "International Law Issues in the South Pacific",
           "url": "https://books.google.com/books?id=In6bAAAAMAAJ",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Opponents slam UN's 'unfair' research on Palau's pot problem",
           "url": "https://pacific.scoop.co.nz/2012/08/opponents-slam-uns-unfair-research-on-palaus-pot-problem/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Palau: Is it the world's cannabis capital? - BBC News",
           "url": "https://www.bbc.com/news/magazine-18736585",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Implementation and amendments to the Insular Areas Drug Abuse Act: oversight hearing before the Subcommittee on Insular and International Affairs of the Committee on Interior and Insular Affairs, House of Representatives, One Hundredth Congress, second session ... hearing held in Washington, DC, June 16, 1988",
           "url": "https://books.google.com/books?id=ZvHw5WvF-KoC",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Palau: Detailed Assessment Report on Anti-Money Laundering and Combating the Financing of Terrorism",
           "url": "https://books.google.com/books?id=uH1BcMbPXCsC&pg=PA14",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Islands at Risk?: Environments, Economies and Contemporary Change",
-          "url": "https://books.google.com/books?id=JZ8DfSm2uXsC&pg=PA65",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
-        "no traversal evidence"
-      ]
+        "rule: raw_illegal | source: Cannabis in Palau | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Palau | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in Palau | type: traversal | priority: 3 | scope: general"
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 1797,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Palau / Belau. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -208,9 +226,9 @@
   },
   "hashes": {
     "code": "plw",
-    "content_hash": "6ab2c382d1d696596ea68d3925bbd8c40503e0e302ef4498e2efebc0a539e3af",
+    "content_hash": "945870987ecc91f6d22d05a62d4416eccf7623c3a993b83d5a5ca110d336ee44",
     "notes_hash": "e0d6b9304f86fe6a05d9232050c76c308f6e30801c77acfdb1e11f0850dfdcef",
-    "model_hash": "7d0eabbfd67a6e3c245782415557791f17c3608e71ea7c1ab5ce092c8619c087"
+    "model_hash": "70ea6b2ed285a43b8aaa7825b8a36b8255d95601540ac28c1fd59997135511f7"
   },
   "geo_code": "PW",
   "node_type": "country",

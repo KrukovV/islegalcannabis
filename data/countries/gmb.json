@@ -56,28 +56,41 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in the Gambia",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Gambia",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Crime and Punishment around the World &#91;4 volumes&#93;: &#91;Four Volumes&#93;",
-          "url": "https://books.google.com/books?id=2uK6bR9byVIC&pg=PA83",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Gambia",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in the Gambia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Gambia",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Crime and Punishment around the World &#91;4 volumes&#93;: &#91;Four Volumes&#93;",
+          "url": "https://books.google.com/books?id=2uK6bR9byVIC&pg=PA83",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: raw_illegal | source: Cannabis in the Gambia | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in the Gambia | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 141,
+        "source_confidence": "weak_article",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -183,9 +196,9 @@
   },
   "hashes": {
     "code": "gmb",
-    "content_hash": "bd22db1f5967293f2b1ab7027147dd0f574c17aab97e41ad5aca700853b80c29",
+    "content_hash": "c47e78b3c78ab1f0595c840062f81a3ce15de4ecc4596cd858c87aaa7007617e",
     "notes_hash": "210762848b850a05bc73e2f0bb38e1c1f2687ada2eadd7a632fdbea8016de4bf",
-    "model_hash": "1f8097526d0ad0d7c2d33d8ceda9f305a13c06e9fbbbc4a6d8d8b19c5fe8785f"
+    "model_hash": "bcebe17f6e7833681edd870043d51cfd8a38cd7f3e37eced7388b02790bd4697"
   },
   "geo_code": "GM",
   "node_type": "country",

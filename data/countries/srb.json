@@ -32,7 +32,9 @@
         "sale_illegal"
       ],
       "modifiers": [
-        "up_to"
+        "up_to",
+        "may",
+        "however"
       ]
     },
     "signals": {
@@ -41,7 +43,7 @@
       "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 1,
+        "prison_priority": 3,
         "arrest": false,
         "fine": true,
         "severity_score": 4,
@@ -61,46 +63,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Serbia",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Serbia",
+          "title": "Serbia / Србија",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Serbia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Serbia",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "United Nations Treaty Collection",
           "url": "https://treaties.un.org/pages/ViewDetails.aspx?src=TREATY&mtdsg_no=VI-6-a&chapter=6&clang=_en",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Serbia",
           "url": "https://www.paragraf.rs/propisi/krivicni_zakonik.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis",
           "url": "https://books.google.com/books?id=SVU8BQAAQBAJ&pg=PT57",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis: Evolution and Ethnobotany",
           "url": "https://books.google.com/books?id=poenY6QMq8UC&pg=PA287",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Serbia",
           "url": "https://arhiva.glas-javnosti.rs/arhiva/2005/05/07/srpski/D05050602.shtml",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Serbia",
-          "url": "https://www.b92.net/info/vesti/index.php?yyyy=2007&mm=05&dd=03&nav_id=244865",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -117,8 +119,38 @@
         "rule: penalty_years | source: Serbia / Србија | type: summary | priority: 1 | scope: cultivation",
         "rule: penalty_criminal_offense | source: Serbia / Србија | type: summary | priority: 1 | scope: cultivation",
         "rule: penalty_fine | source: Serbia / Србија | type: summary | priority: 1 | scope: general",
-        "no traversal evidence"
-      ]
+        "rule: raw_illegal | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_fine | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_years | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_criminal_offense | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_prison | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_years | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_criminal_offense | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: trafficking",
+        "rule: sale_illegal | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_prison | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: cultivation",
+        "rule: penalty_years | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: cultivation",
+        "rule: penalty_criminal_offense | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: cultivation",
+        "rule: penalty_fine | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: general",
+        "rule: medical_legal | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: use"
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 3851,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": true,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "illegal",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -129,7 +161,8 @@
       "penalty_years",
       "penalty_criminal_offense",
       "trafficking_illegal",
-      "sale_illegal"
+      "sale_illegal",
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Serbia / Србија. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
@@ -231,9 +264,9 @@
   },
   "hashes": {
     "code": "srb",
-    "content_hash": "5571e7f40b86949aa5aa65207c0e8f951edcd8c2a2c0f9242b09119c5e645925",
+    "content_hash": "a041de4e97b6e266415be10ccc138e6d5c7d0aa47845ed21aed6c200a3f0e4d3",
     "notes_hash": "b93ed3e0850eb8830f75069ea25c3fd8d686f59c946e58073045c5e154a8d42a",
-    "model_hash": "0358afd2bb23ed23eea3c2c5e44cad7d6bcd9bb4a1d61e65193bafac0291dee0"
+    "model_hash": "b8b84b52d058010f4cfcbc06f8bd63876bd4edfbf577432b3ba18cc2b941accd"
   },
   "geo_code": "RS",
   "node_type": "country",

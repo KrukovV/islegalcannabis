@@ -29,9 +29,14 @@
       "enforcement": "standard",
       "flags": [
         "trafficking_illegal",
-        "sale_illegal"
+        "sale_illegal",
+        "sale_regulated"
       ],
-      "modifiers": []
+      "modifiers": [
+        "but",
+        "however",
+        "up_to"
+      ]
     },
     "signals": {
       "status": "illegal",
@@ -39,7 +44,7 @@
       "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 1,
+        "prison_priority": 3,
         "arrest": false,
         "fine": false,
         "severity_score": 4,
@@ -59,46 +64,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Turkey",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Turkey",
+          "title": "Türkiye",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Turkey",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Turkey",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Cannabis in Turkey",
           "url": "https://www.emcdda.europa.eu/publications/country-overviews/tr",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "زهر العريش في احكام الحشيش: Haschish Versus Medieval Muslim Society",
           "url": "https://books.google.com/books?id=scgUAAAAIAAJ&pg=PA68",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Medical Marijuana in Turkey",
           "url": "https://www.marijuanadoctors.com/international-patients/turkey/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Turkish MPs pass bill to legalize pharmacy sale of medicinal cannabis",
           "url": "https://www.hurriyetdailynews.com/turkish-mps-pass-bill-to-legalize-pharmacy-sale-of-medicinal-cannabis-211713?utm_source=chatgpt.com",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Turkey",
           "url": "https://www.haberler.com/politika/saglikla-ilgili-kanun-teklifi-tbmm-komisyonunda-kabul-edildi-18815091-haberi/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Turkey",
-          "url": "https://halktv.com.tr/ekonomi/izin-verildi-ama-sadece-eczanelerde-satilacak-953269h",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -114,9 +119,40 @@
         "rule: sale_illegal | source: Türkiye | type: summary | priority: 1 | scope: trafficking",
         "rule: raw_illegal | source: Türkiye | type: summary | priority: 1 | scope: trafficking",
         "rule: medical_legal | source: Türkiye | type: summary | priority: 1 | scope: trafficking",
-        "rule: sale_regulated | source: Turkish MPs pass bill to legalize pharmacy sale of medicinal cannabis | type: reference | priority: 2 | scope: sale",
-        "no traversal evidence"
-      ]
+        "rule: raw_illegal | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: use",
+        "rule: medical_legal | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: use",
+        "rule: medical_limited | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: use",
+        "rule: raw_illegal | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: cultivation",
+        "rule: illegal | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: cultivation",
+        "rule: sale_regulated | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: sale",
+        "rule: medical_legal | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: sale",
+        "rule: medical_legal | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: cultivation",
+        "rule: illegal | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_prison | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_years | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_criminal_offense | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_years | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_criminal_offense | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: trafficking",
+        "rule: sale_illegal | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: trafficking",
+        "rule: sale_regulated | source: Turkish MPs pass bill to legalize pharmacy sale of medicinal cannabis | type: reference | priority: 2 | scope: sale"
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 2281,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": true,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "illegal",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -126,7 +162,8 @@
       "penalty_criminal_offense",
       "penalty_prison",
       "trafficking_illegal",
-      "sale_illegal"
+      "sale_illegal",
+      "sale_regulated"
     ],
     "notes_normalized": "Cannabis is illegal in Türkiye. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
@@ -228,9 +265,9 @@
   },
   "hashes": {
     "code": "tur",
-    "content_hash": "96054bbeac7911a0095d0126fe2a6200668b0cad85e563b33985906e5bdeb9d1",
+    "content_hash": "e32cb0adcd25cd7d9d5fca062844d4779fd0be54efa026a98f122fb24610ffa1",
     "notes_hash": "5d8f6fd4e5b3f2c6306a2538de229e93070c9cd3e5ea2e06a451a34815edf832",
-    "model_hash": "eddb3b0fb4c06b50405ed657efa1f9963e55c6f6596a38489d7c728c1476b88a"
+    "model_hash": "8faeae4f731353b0e438848a79cd38c27dfdabfece6046a5ebead822a937e0d3"
   },
   "geo_code": "TR",
   "node_type": "country",

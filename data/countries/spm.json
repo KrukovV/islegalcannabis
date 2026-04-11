@@ -66,7 +66,20 @@
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -165,9 +178,9 @@
   },
   "hashes": {
     "code": "spm",
-    "content_hash": "a2f3149bfc757299b7d5aa8f12833ae686edf889bb3f174f77b35db28d001c00",
+    "content_hash": "e59a0a8c7b53b428f8b8cd7885654dac32b2dfd4c095ba3bd38b0a8b6f182d09",
     "notes_hash": "0c9bf3682ccf803094092e16431a334085a9643ff0eb4142d3f7abb30737fda6",
-    "model_hash": "7877350c5e8362a95e0e2952736aa37adac588e4e0009c0f0c619d2b50460c6d"
+    "model_hash": "883839fe34510f7c8688dad9be3dc32e17262d94a9640697c4822846b720eb2d"
   },
   "geo_code": "PM",
   "node_type": "country",

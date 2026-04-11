@@ -58,27 +58,34 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Guinea-Bissau",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Guinea-Bissau",
+          "title": "Guinea-Bissau / Guiné-Bissau",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
         },
         {
           "title": "Legality of cannabis (notes)",
           "url": "https://en.wikipedia.org/wiki/Cannabis_in_Guinea-Bissau",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Guinea-Bissau / Guiné-Bissau",
-          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -184,9 +191,9 @@
   },
   "hashes": {
     "code": "gnb",
-    "content_hash": "43c6ca855b126d0484b1aaef95e764780ca074bf8852c2371e1fcc44cf2fc41b",
+    "content_hash": "8237e0f6ba99741a9a5c5e99e734bc2c09227953b2811fcef658f9b19c9eea26",
     "notes_hash": "83d5cfa09b8eb43709a336352baf79326ce2d68e4b3ed942aaae44df6fa32862",
-    "model_hash": "5728c74c5e54c877bfc7f79e283a505fae37787cb517d5f7bb4bdd4272f8c7aa"
+    "model_hash": "c326b688ac2cdb20989a9c3490c233795d6e66dfde3b5a89c07c0e13bc5038e9"
   },
   "geo_code": "GW",
   "node_type": "country",

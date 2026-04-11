@@ -24,6 +24,8 @@ describe("countryPageStorage", () => {
     expect(netherlands?.legal_model.distribution.scopes.sale).toBe("tolerated");
     expect(netherlands?.legal_model.distribution.scopes.import).toBe("illegal");
     expect(netherlands?.notes_normalized).toContain("tolerated");
+    expect(netherlands?.legal_model.signals?.secondary_source?.has_article).toBe(true);
+    expect(typeof netherlands?.legal_model.signals?.secondary_source?.article_len).toBe("number");
     expect(netherlands?.graph.geo_neighbors.length).toBeGreaterThanOrEqual(3);
     expect(netherlands?.graph.legal_similarity.length).toBeGreaterThanOrEqual(3);
     expect(netherlands?.graph.cluster_links.length).toBeGreaterThanOrEqual(2);

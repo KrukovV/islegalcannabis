@@ -58,27 +58,34 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Nicaragua",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Nicaragua",
+          "title": "Nicaragua",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
         },
         {
           "title": "Legality of cannabis (notes)",
           "url": "https://en.wikipedia.org/wiki/Cannabis_in_Nicaragua",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Nicaragua",
-          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -184,9 +191,9 @@
   },
   "hashes": {
     "code": "nic",
-    "content_hash": "09ddc928ce4a3ee488fff40f107b70af70e6a886cd7f3ee42d216ec70c1a2647",
+    "content_hash": "1375f9fb2aaa412088de7dacd8c5f132c16da4455d041b1678c2f85c021ef3fa",
     "notes_hash": "58430e80f753709d1524ac8ddafbd1f79b58ac8e5c105e7a763463544d3fdfbe",
-    "model_hash": "0c2e6bd9aa41535bbff3d1da05fe459a248451f42d260d61bc18ad547ec4d545"
+    "model_hash": "4b06630838e38a8ebf8504b1a37482890b26fecc4629f4a835ca8ca95d21e2c7"
   },
   "geo_code": "NI",
   "node_type": "country",

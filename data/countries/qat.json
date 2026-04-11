@@ -58,28 +58,41 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Qatar",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Qatar",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Legality of cannabis (notes)",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Qatar",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Qatar / قطر",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Qatar",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Qatar",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Qatar",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: raw_illegal | source: Cannabis in Qatar | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Qatar | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 167,
+        "source_confidence": "weak_article",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -185,9 +198,9 @@
   },
   "hashes": {
     "code": "qat",
-    "content_hash": "9af5dc9090caaa3769e2c2e37a4fa29e1a59b8c69e4dd69ce30a62719f6e3ed5",
+    "content_hash": "a3bfc9a2e6816d4db8276a2b1257d9006db103b1f4f44993c0a02090f2e55275",
     "notes_hash": "2f891609507d5143fd3fc6b765cd68d07c7499f8091651fe3563d8ee9f2e4afc",
-    "model_hash": "6be5193d9c1b38624a7f3aca3f001e0ac57170caa0207516ae1438aa5c14d978"
+    "model_hash": "3543365de4e08ad8dadecea34922748ca8569aaf7ab445a66efba156492abf7f"
   },
   "geo_code": "QA",
   "node_type": "country",

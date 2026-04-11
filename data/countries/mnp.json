@@ -66,7 +66,20 @@
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -165,9 +178,9 @@
   },
   "hashes": {
     "code": "mnp",
-    "content_hash": "74b1648de435072e2e2c5298387c363db2be675666b92c2594c0124adb0b9852",
+    "content_hash": "05d2afa482d3b9fe62080301876d45d45d3738e120a5b237fd4b3250b8837b9b",
     "notes_hash": "e3733c2e764d3aabb2cbb3cca058bd47216941d2bac2c1cbc5c57e26a8b8e5c7",
-    "model_hash": "cb26e27a40682ff343e9825491063874852ed514d0770b196ab22b22c2489434"
+    "model_hash": "aa5d68fd81f40cbecd87a4ea6eb9d67b1a69d9e70734e5a8772334a82dcef9fa"
   },
   "geo_code": "MP",
   "node_type": "country",

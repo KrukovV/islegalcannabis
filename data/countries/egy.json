@@ -63,46 +63,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Egypt",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Egypt",
+          "title": "Egypt / مصر",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Egypt",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Egypt",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Egypt's Pot Problem? A Marijuana Shortage",
           "url": "https://blogs.abcnews.com/theworldnewser/2010/05/egypts-pot-problem-a-marijuana-shortage.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Hookahs, hash and the Muslim Brotherhood",
           "url": "https://www.pri.org/stories/2013-02-27/hookahs-hash-and-muslim-brotherhood",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Egypt",
           "url": "https://sensiseeds.com/en/blog/cannabis-egypt/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Egypt",
           "url": "https://web.archive.org/web/20110301233324/http://blogs.abcnews.com/theworldnewser/2010/05/egypts-pot-problem-a-marijuana-shortage.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis: Evolution and Ethnobotany",
           "url": "https://books.google.com/books?id=poenY6QMq8UC&pg=PA234",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Timeline: the use of cannabis",
-          "url": "https://news.bbc.co.uk/2/hi/programmes/panorama/4079668.stm",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -119,7 +119,20 @@
         "rule: illegal | source: Cannabis in Egypt | type: traversal | priority: 3 | scope: general",
         "rule: private_cultivation | source: Cannabis in Egypt | type: traversal | priority: 3 | scope: cultivation",
         "rule: legal | source: Cannabis in Egypt | type: traversal | priority: 3 | scope: cultivation"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 4886,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": "rare",
+          "enforcement_article": "unenforced",
+          "distribution_notes": "illegal",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "weak_enforcement",
@@ -234,9 +247,9 @@
   },
   "hashes": {
     "code": "egy",
-    "content_hash": "2b0cb17e8c3b57178a5becaf9752a8d6193f7d1533cba96f9b6c4c763986764f",
+    "content_hash": "f1dd4784055b3d02629a46562d668395371cdbb48e1d411c477fc2a2800167d3",
     "notes_hash": "3ecc6fb5a17f4ab8412abdef95007cd2dd32cd273eda74c27b7d6d551eb3b0dc",
-    "model_hash": "7b562e6f32bd88d3f49c5dbc8ab37c1f1bb043591cd8071ef0dd697f023eac27"
+    "model_hash": "e8737bd02e9dce806c7202fe8cb8de16d85b0919819b425708be4efde0412804"
   },
   "geo_code": "EG",
   "node_type": "country",

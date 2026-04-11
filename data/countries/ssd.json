@@ -58,27 +58,34 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in South Sudan",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_South_Sudan",
+          "title": "South Sudan",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
         },
         {
           "title": "Legality of cannabis (notes)",
           "url": "https://en.wikipedia.org/wiki/Cannabis_in_South_Sudan",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "South Sudan",
-          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -184,9 +191,9 @@
   },
   "hashes": {
     "code": "ssd",
-    "content_hash": "1b636884e6d242d144c3fed8277d685accc157cc2c8282ecdad3ac768645a337",
+    "content_hash": "03cff3bb6b3fd3393009bb9c982842b85f1e741396df5120a44b3a9a813183f6",
     "notes_hash": "99cebe598f23f2d95f3f865ee4621a2c139b56aa07ae49b39f9bd441366c919b",
-    "model_hash": "40631368e06ba70ceeca2f49f8da7d6a4872a9907b3c2a2a3737b8dd0a4a1bd6"
+    "model_hash": "43dcc0f7c30e8b072f3d2ad1d653e9aec2c2e1d0e3a94dcf988a7f02ceea67de"
   },
   "geo_code": "SS",
   "node_type": "country",

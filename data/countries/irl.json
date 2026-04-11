@@ -64,46 +64,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Ireland",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ireland",
+          "title": "Ireland / Éire",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Ireland",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ireland",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Ireland",
           "url": "https://www.emcdda.europa.eu/system/files/publications/737/TDAP12001ENC_408266.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Drug offences",
           "url": "https://www.citizensinformation.ie/en/justice/criminal_law/criminal_offences/drug_offences.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Report on an Examination of the Present Approach to Sanctions for Possession of Certain Amounts of Drugs for Personal Use",
           "url": "https://data.oireachtas.ie/ie/oireachtas/committee/dail/33/joint_committee_on_justice/reports/2022/2022-12-14_report-on-an-examination-of-the-present-approach-to-sanctions-for-possession-of-certain-amounts-of-drugs-for-personal-use_en.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cork toddler gets cannabis oil permit for epilepsy",
           "url": "https://www.rte.ie/news/2016/1223/841009-tristan-forde-cannabis/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis for Medicinal Use (Regulations) Bill 2016: Second Stage [Private Members]",
           "url": "https://www.kildarestreet.com/debates/?id=2016-12-01a.404",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "TD faces sanction after describing Dáil as 'a kip'",
-          "url": "https://www.independent.ie/irish-news/politics/td-faces-sanction-after-describing-dail-as-a-kip/35928439.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -129,7 +129,20 @@
         "rule: sale_regulated | source: Cannabis in Ireland | type: traversal | priority: 3 | scope: sale",
         "rule: medical_legal | source: Cannabis in Ireland | type: traversal | priority: 3 | scope: sale",
         "rule: possession_decriminalized | source: Cannabis in Ireland | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 17444,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -244,9 +257,9 @@
   },
   "hashes": {
     "code": "irl",
-    "content_hash": "b689a2a6566b5510665be34d0852e481974b1e73f2fb87926d4705c366cb08d1",
+    "content_hash": "ad0bceff2d3a9a216ba40333edc1a05b9e0af26ff05733df52b836fc1888b910",
     "notes_hash": "893e328bb415d11275fecac078fbf648df285e076d74a057d16ecfe7455a4de9",
-    "model_hash": "8db1baf3d507de1c25eb33169fbd4ed56f704968883e21a5714a7c3e330d235d"
+    "model_hash": "38815d0e80cc8c4db4d6bdafd0b11bde6409dc262510094e278d03ff37c0c5c5"
   },
   "geo_code": "IE",
   "node_type": "country",

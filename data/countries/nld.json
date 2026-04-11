@@ -65,46 +65,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in the Netherlands",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Netherlands",
+          "title": "Netherlands / Nederland",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in the Netherlands",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Netherlands",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Am I committing a criminal offence if I possess, produce or deal in drugs? - Drugs - Government.nl",
           "url": "https://www.government.nl/topics/drugs/am-i-committing-a-criminal-offence-if-i-possess-produce-or-deal-in-drugs",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in the Netherlands",
           "url": "https://eldd.emcdda.europa.eu/html.cfm/index5174EN.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Dutch Treat: Formal Control and Illicit Drug Use in the Netherlands",
           "url": "https://books.google.com/books?id=m8fxAAAAMAAJ",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "In Place of Slavery: A Social History of British Indian and Javanese Laborers in Suriname",
           "url": "https://books.google.com/books?id=EPzT5AYLvL0C&pg=PA160",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Prokem",
           "url": "https://books.google.com/books?id=phbLKWrK-9MC&pg=PA26",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis: A History",
-          "url": "https://books.google.com/books?id=O7AoY6ljSygC&pg=PA338",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -137,7 +137,20 @@
         "rule: rec_tolerated | source: Crime and Justice, Volume 44: A Review of Research | type: reference | priority: 2 | scope: sale",
         "rule: sale_tolerated | source: Amsterdam Will Ban Tourists from Pot Coffee Shops | type: reference | priority: 2 | scope: sale",
         "rule: rec_tolerated | source: Amsterdam Will Ban Tourists from Pot Coffee Shops | type: reference | priority: 2 | scope: sale"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 2979,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "illegal",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -225,22 +238,22 @@
         "name": "Switzerland / Suisse"
       },
       {
-        "code": "fra",
-        "name": "France"
-      },
-      {
-        "code": "gbr",
-        "name": "United Kingdom"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "dnk",
         "name": "Denmark / Danmark"
       },
       {
+        "code": "fra",
+        "name": "France"
+      }
+    ],
+    "cluster_links": [
+      {
         "code": "lie",
         "name": "Liechtenstein"
+      },
+      {
+        "code": "gbr",
+        "name": "United Kingdom"
       }
     ],
     "same_country_states": [],
@@ -248,9 +261,9 @@
   },
   "hashes": {
     "code": "nld",
-    "content_hash": "e910d3203a7fe0bfa3c232c901f59cb24101e4b0668190b565f5ab2737885935",
+    "content_hash": "57f9c38ed0f3f893dc8735bb27fb342cad3ad48e9a2ef0b1b216e8ee83750a62",
     "notes_hash": "047e0c2c9bce78732303ef221b6ed2086c7f5b2fe8e0916a4266d4a2590dca49",
-    "model_hash": "4b63e965f2eaa2db2133ef506bc91eca2c398efbf5086678e9fa31c377031f2b"
+    "model_hash": "bcfc89925494ed2710bb22b792b95f5c2d712c4f493813bfeebae6115bff3da8"
   },
   "geo_code": "NL",
   "node_type": "country",

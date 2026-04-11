@@ -59,22 +59,22 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Afghanistan",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Afghanistan",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Legality of cannabis (notes)",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Afghanistan",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Afghanistan / افغانستان",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Afghanistan",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Afghanistan",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Afghanistan",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -85,7 +85,20 @@
         "rule: raw_illegal | source: Cannabis in Afghanistan | type: traversal | priority: 3 | scope: trafficking",
         "rule: trafficking_illegal | source: Cannabis in Afghanistan | type: traversal | priority: 3 | scope: trafficking",
         "rule: illegal | source: Cannabis in Afghanistan | type: traversal | priority: 3 | scope: trafficking"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 2836,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "illegal",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -195,9 +208,9 @@
   },
   "hashes": {
     "code": "afg",
-    "content_hash": "88cdd53441cbc37cf57b65472d7c5d0ee5e1136cc25e57b468d99665d1e84058",
+    "content_hash": "63009d7ddafc769c264955ad105e82fe2d459262e280ce25b196ea2aeb733eb3",
     "notes_hash": "0ff300485bc16950b5ad7bbd3f9b0ab172e01242042baa61c3611c46d46c2a14",
-    "model_hash": "2a6d2051b999534c63b147e1109035d43629c9603fcb3e1594bbfed77675ff2d"
+    "model_hash": "70f10548d1fbadd053bb57f743f1c0aab976291ea8accf1514081cb29e1cc2c4"
   },
   "geo_code": "AF",
   "node_type": "country",

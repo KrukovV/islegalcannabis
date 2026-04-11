@@ -66,7 +66,20 @@
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -165,9 +178,9 @@
   },
   "hashes": {
     "code": "pyf",
-    "content_hash": "812ca5f3425de2c7016b87c7ef50d50bea7e8844c2700fc79dc8df3bb3ed153a",
+    "content_hash": "12e89d7ffaf881084bf334160dd629689ee130bd5941bf0d358063174e7608f0",
     "notes_hash": "3a897e71eef6f82348f8e69e74830e7ad41355b0bb404458e2517010e0711475",
-    "model_hash": "7aa36e85a3f9a7c3148dab862371b2dc090d05c93b37cae53ace9ae367b3a8e7"
+    "model_hash": "ffacb0cce820b4f1163882b013f4e1a5a9a9165a509f08a3495da60df19f4076"
   },
   "geo_code": "PF",
   "node_type": "country",

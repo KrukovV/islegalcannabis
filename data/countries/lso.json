@@ -28,18 +28,21 @@
       },
       "enforcement": "standard",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "but",
+        "however"
+      ]
     },
     "signals": {
-      "status": "tolerated",
-      "final_risk": "UNKNOWN",
+      "status": "restricted",
+      "final_risk": "RESTRICTED",
       "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
-        "arrest": false,
+        "arrest": true,
         "fine": false,
-        "severity_score": 0,
+        "severity_score": 2,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -48,65 +51,87 @@
         },
         "trafficking": {
           "prison": false,
-          "arrest": false,
+          "arrest": true,
           "fine": false,
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
+        {
+          "title": "Lesotho",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        },
         {
           "title": "Cannabis in Lesotho",
           "url": "https://en.wikipedia.org/wiki/Cannabis_in_Lesotho",
-          "depth": 0,
-          "type": "summary"
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Cannabis in Lesotho",
           "url": "https://sensiseeds.com/en/blog/cannabis-lesotho-en/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "The Palgrave Handbook of International Development",
           "url": "https://books.google.com/books?id=tfljDAAAQBAJ&pg=PA408",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis: el movimiento cannábico en España",
           "url": "https://books.google.com/books?id=dOVBAQAAIAAJ",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "The World Geopolitics of Drugs, 1998/1999",
           "url": "https://books.google.com/books?id=x2kcBQAAQBAJ&pg=PA246",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Turning Cannabis Into Cash: Agrarian Change and Lesotho's Evolving Experience",
           "url": "https://journals.openedition.org/echogeo/17612",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Crime and Punishment around the World &#91;4 volumes&#93;: &#91;Four Volumes&#93;",
-          "url": "https://books.google.com/books?id=2uK6bR9byVIC&pg=PA113",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: private_cultivation | source: Lesotho | type: summary | priority: 1 | scope: cultivation",
         "rule: legal | source: Lesotho | type: summary | priority: 1 | scope: cultivation",
-        "no traversal evidence"
-      ]
+        "rule: raw_illegal | source: Cannabis in Lesotho | type: traversal | priority: 3 | scope: use",
+        "rule: medical_limited | source: Cannabis in Lesotho | type: traversal | priority: 3 | scope: cultivation",
+        "rule: rec_tolerated | source: Cannabis in Lesotho | type: traversal | priority: 3 | scope: cultivation",
+        "rule: raw_illegal | source: Cannabis in Lesotho | type: traversal | priority: 3 | scope: cultivation",
+        "rule: private_cultivation | source: Cannabis in Lesotho | type: traversal | priority: 3 | scope: cultivation",
+        "rule: medical_legal | source: Cannabis in Lesotho | type: traversal | priority: 3 | scope: cultivation",
+        "rule: penalty_arrest | source: Cannabis in Lesotho | type: traversal | priority: 3 | scope: import",
+        "rule: legal | source: Cannabis in Lesotho | type: traversal | priority: 3 | scope: cultivation"
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 4122,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "tolerated",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "private_cultivation"
+      "private_cultivation",
+      "raw_illegal",
+      "penalty_arrest"
     ],
     "notes_normalized": "Cannabis is illegal in Lesotho. Medical cannabis is illegal. Distribution is tolerated."
   },
@@ -208,9 +233,9 @@
   },
   "hashes": {
     "code": "lso",
-    "content_hash": "265a0348997cc27c16382fcb48dd6bb24375ebd2342119af47b59cd3da4dbcb4",
+    "content_hash": "c7da40e697b99dad14eee2f65297b378abe8077bb99f59554c0cfc5d5cddd59f",
     "notes_hash": "c9fb117416651d2e93de5c79ca5302eddf1903c6d5117ec1d51aff9a1a5d4656",
-    "model_hash": "d796c360e0f5131b9132cde733feeadd8bf5872bc90040780cca3b28daeef064"
+    "model_hash": "d01f55269e71b372f4bb09c1a6336933711f0f9e1d2223f5196a7cda74e901b4"
   },
   "geo_code": "LS",
   "node_type": "country",

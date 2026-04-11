@@ -58,52 +58,65 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Kyrgyzstan",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kyrgyzstan",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "The Medicinal Uses of Cannabis and Cannabinoids",
-          "url": "https://books.google.com/books?id=t-JsAAAAMAAJ",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis and the Soma Solution",
-          "url": "https://books.google.com/books?id=-AMCBAAAQBAJ&pg=PT208",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Kyrgyzstan",
-          "url": "https://www.rferl.org/amp/kyrgyzstan-mariajuana-legalization/25222681.html",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Kyrgyzstan",
-          "url": "https://hightimes.com/news/kyrgyzstan-could-bring-legal-cannabis-to-central-asia/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Kyrgyzstan",
-          "url": "https://iwpr.net/global-voices/kyrgyz-cannabis-boom-tourist-trade-slumps",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Kyrgyzstan / Кыргызстан",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Kyrgyzstan",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kyrgyzstan",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "The Medicinal Uses of Cannabis and Cannabinoids",
+          "url": "https://books.google.com/books?id=t-JsAAAAMAAJ",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis and the Soma Solution",
+          "url": "https://books.google.com/books?id=-AMCBAAAQBAJ&pg=PT208",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis in Kyrgyzstan",
+          "url": "https://www.rferl.org/amp/kyrgyzstan-mariajuana-legalization/25222681.html",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis in Kyrgyzstan",
+          "url": "https://hightimes.com/news/kyrgyzstan-could-bring-legal-cannabis-to-central-asia/",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis in Kyrgyzstan",
+          "url": "https://iwpr.net/global-voices/kyrgyz-cannabis-boom-tourist-trade-slumps",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: raw_illegal | source: Cannabis in Kyrgyzstan | type: traversal | priority: 3 | scope: cultivation",
         "rule: illegal | source: Cannabis in Kyrgyzstan | type: traversal | priority: 3 | scope: cultivation"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 735,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -209,9 +222,9 @@
   },
   "hashes": {
     "code": "kgz",
-    "content_hash": "f74c2214abafcaa93bc8596dad20baa7d0e3906306cac7bdf501ba2835621096",
+    "content_hash": "a0a4edcc10a2a0af63f192bec9c43163dbe96f5b6c4068e1071cc4486042bd28",
     "notes_hash": "abb86a86c35c233100492243c838f299c58e1ad025a6ba0ed0749c268a70e033",
-    "model_hash": "b196923ede7d58017743005e669241acbb35e2a74220455f56def01079bf5e4e"
+    "model_hash": "9f6260cd0de912fb20ef744d6807150da603c29425aa662e7b7cd9e2ba4ecb8b"
   },
   "geo_code": "KG",
   "node_type": "country",

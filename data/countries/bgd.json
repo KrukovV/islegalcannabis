@@ -60,46 +60,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Bangladesh",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bangladesh",
+          "title": "Bangladesh / বাংলাদেশ",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Bangladesh",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bangladesh",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Narcotics Control Act, 1990 (Bangladesh)",
           "url": "https://www.unodc.org/res/cld/document/the-narcotic-control-act-1990_html/The_Narcotic_Drugs_and_Psychotropic_Substances_Control_Act_1990.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Asia Regional Profile: Bangladesh",
           "url": "https://www.unodc.org/pdf/india/publications/south_Asia_Regional_Profile_Sept_2005/08_bangladesh.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Drug Abuse: Where is The Way of Remedy? (Part II- Some Dangerous Silent Killers)",
           "url": "https://dhakainsider.com/bangladesh-news/drug-abuse-where-is-the-way-of-remedy-part-ii-some-dangerous-silent-killers/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "From the archive, 25 March 1982: Martial law after coup in Bangladesh",
           "url": "https://www.theguardian.com/theguardian/2010/jun/23/archive-martial-law-coup-bangladesh",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Your Advocate",
           "url": "https://archive.thedailystar.net/law/2010/03/04/advocate.htm",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "The Death Penalty: A Worldwide Perspective",
-          "url": "https://books.google.com/books?id=fSZwglgRnHsC&pg=PA138",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -118,7 +118,20 @@
         "rule: penalty_prison | source: Cannabis in Bangladesh | type: traversal | priority: 3 | scope: possession",
         "rule: rec_tolerated | source: Cannabis in Bangladesh | type: traversal | priority: 3 | scope: use",
         "rule: penalty_fine | source: The Death Penalty: A Worldwide Perspective | type: reference | priority: 2 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 2107,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": "unenforced",
+          "enforcement_article": null,
+          "distribution_notes": "illegal",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "weak_enforcement",
@@ -232,9 +245,9 @@
   },
   "hashes": {
     "code": "bgd",
-    "content_hash": "f7c55362133badb220c22043e7e9e3ad3f7e151314b2624d8d27842fafef40f0",
+    "content_hash": "4ae56ce36933dba546d613b9042c666cf8416b3e9a27b66911671bc18a430479",
     "notes_hash": "e337b70b4e23270206c51809ddbffc29e714032e33444c918019e75ea1eb6501",
-    "model_hash": "f6ed9723a4b20d579fc3d45fa3fbfa7776bedb962211935c57797414ba55d2c4"
+    "model_hash": "e6658f3c4fd35be649cb86d229d6d253da0c3718cc45da05d69bf94d186076ba"
   },
   "geo_code": "BD",
   "node_type": "country",

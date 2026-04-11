@@ -17,22 +17,26 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
         "possession": "restricted",
         "use": "restricted",
-        "sale": null,
-        "cultivation": null,
+        "sale": "illegal",
+        "cultivation": "tolerated",
         "import": null,
         "trafficking": null
       },
       "enforcement": "fine-based",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "but",
+        "may",
+        "up_to"
+      ]
     },
     "signals": {
       "status": "restricted",
-      "final_risk": "LIMITED",
+      "final_risk": "RESTRICTED",
       "enforcement_level": "active",
       "penalties": {
         "prison": false,
@@ -49,71 +53,94 @@
         "trafficking": {
           "prison": false,
           "arrest": false,
-          "fine": false,
+          "fine": true,
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
+        {
+          "title": "Portugal",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        },
         {
           "title": "Cannabis in Portugal",
           "url": "https://en.wikipedia.org/wiki/Cannabis_in_Portugal",
-          "depth": 0,
-          "type": "summary"
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Cannabis: A History",
           "url": "https://books.google.com/books?id=ecITBwAAQBAJ&pg=PA74",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Las relaciones entre Portugal y Castilla en la época de los descubrimientos y la expansión colonial",
           "url": "https://books.google.com/books?id=t2Zyi4lXfN0C&pg=PA284",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis: Evolution and Ethnobotany",
           "url": "https://books.google.com/books?id=poenY6QMq8UC&pg=PA182",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Drugs: Breaking the Cycle, Ninth Report of Session 2012-13, Vol. 2: Oral and Written Evidence",
           "url": "https://books.google.com/books?id=iaWK9XRfOhoC&pg=PA135",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis Policy: Moving Beyond Stalemate",
           "url": "https://books.google.com/books?id=4vSA4F2Qb3QC&pg=PA89",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Portugal",
-          "url": "https://sensiseeds.com/en/blog/cannabis-portugal-en/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: possession_decriminalized | source: Cannabis in Portugal | type: traversal | priority: 3 | scope: general",
         "rule: penalty_fine | source: Cannabis in Portugal | type: traversal | priority: 3 | scope: possession",
-        "rule: medical_legal | source: Cannabis in Portugal | type: traversal | priority: 3 | scope: use"
-      ]
+        "rule: medical_legal | source: Cannabis in Portugal | type: traversal | priority: 3 | scope: use",
+        "rule: private_cultivation | source: Cannabis in Portugal | type: traversal | priority: 3 | scope: cultivation",
+        "rule: possession_decriminalized | source: Cannabis in Portugal | type: traversal | priority: 3 | scope: cultivation",
+        "rule: raw_illegal | source: Cannabis in Portugal | type: traversal | priority: 3 | scope: sale",
+        "rule: penalty_fine | source: Cannabis in Portugal | type: traversal | priority: 3 | scope: sale",
+        "rule: sale_illegal | source: Cannabis in Portugal | type: traversal | priority: 3 | scope: sale",
+        "rule: possession_decriminalized | source: Cannabis in Portugal | type: traversal | priority: 3 | scope: sale",
+        "rule: illegal | source: Cannabis in Portugal | type: traversal | priority: 3 | scope: sale",
+        "rule: penalty_fine | source: Cannabis in Portugal | type: traversal | priority: 3 | scope: general"
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 2657,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
     ],
     "applied_rules": [
       "possession_decriminalized",
-      "penalty_fine"
+      "penalty_fine",
+      "private_cultivation",
+      "raw_illegal"
     ],
-    "notes_normalized": "Cannabis is decriminalized in Portugal. Medical cannabis is legal. Distribution is restricted."
+    "notes_normalized": "Cannabis is decriminalized in Portugal. Medical cannabis is legal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is decriminalized in Portugal. Medical cannabis is legal. Distribution is restricted.",
+  "notes_normalized": "Cannabis is decriminalized in Portugal. Medical cannabis is legal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Portugal}} In 2001, Portugal became the first country in the world to decriminalize the use of all drugs.<ref name=\"Emdrug\">{{citation |url = http://www.emcdda.europa.eu/publications/drug-policy-profiles/portugal |title = EMCDDA: Drug policy profiles, Portugal |publisher = Emcdda.europa.eu |date = 17 August 2011 |access-date = 14 December 2011 |archive-date = 17 September 2019 |archive-url = https://web.archive.org/web/20190917122923/http://www.emcdda.europa.eu/publications/drug-policy-profiles/portugal |url-status = live }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -211,9 +238,9 @@
   },
   "hashes": {
     "code": "prt",
-    "content_hash": "fef9a91acf58411c6ec293e19dc97cd6e25b1921bb7a650c2426c411073a546b",
-    "notes_hash": "2b1ada1586dce27f7dae7955d70d2a02915ac0b5b5052669c3c1b1e7c90cd7fd",
-    "model_hash": "4cd45a88caf759d5ea0289d083455d34326dd93958f36b4deb7dc84d99796094"
+    "content_hash": "f57eed9b4e507854cd4ca1a2fc134a5fe02e0b92e9bdaaee794828ef2d24a592",
+    "notes_hash": "edbe8049272729c10315c70fea7db5eec96034d380fc68ab5e58c66be21483db",
+    "model_hash": "f06ca66f51b8e9f9dcf096af6e9df7fb7f1e8376e0de443bd19ace0228ee60b7"
   },
   "geo_code": "PT",
   "node_type": "country",

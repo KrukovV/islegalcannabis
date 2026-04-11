@@ -64,46 +64,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Israel",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Israel",
+          "title": "Israel / إسرائيل",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Israel",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Israel",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Ministry of Health - Medical Cannabis Unit",
           "url": "https://www.gov.il/en/Departments/General/cannabis-export",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Israel Decriminalized Cannabis (Kind Of)",
           "url": "https://www.xn--4dbcyzi5a.com/en/2018/07/%D7%90%D7%95%D7%A9%D7%A8-%D7%A1%D7%95%D7%A4%D7%99%D7%AA-%D7%97%D7%95%D7%A7-%D7%A7%D7%A0%D7%A1%D7%95%D7%AA-%D7%94%D7%A7%D7%A0%D7%90%D7%91%D7%99%D7%A1-%D7%90%D7%99-%D7%94%D7%A4%D7%9C%D7%9C%D7%94/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis Decriminalization Starting April 1st 2019",
           "url": "https://www.xn--4dbcyzi5a.com/en/2018/07/%D7%A7%D7%A0%D7%A1%D7%95%D7%AA-%D7%A7%D7%A0%D7%90%D7%91%D7%99%D7%A1-%D7%94%D7%97%D7%9C-%D7%91-1-%D7%91%D7%90%D7%A4%D7%A8%D7%99%D7%9C-2019/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "i24NEWS",
           "url": "https://www.i24news.tv/en/news/israel/1593000637-israel-ultra-orthodox-lawmakers-walk-out-as-bills-to-legalize-cannabis-clear-preliminary-reading",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Israel moves a step closer to decriminalizing cannabis",
           "url": "https://www.jns.org/israel-moves-a-step-closer-to-decriminalizing-cannabis/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Will Marijuana Soon Be Legal In Israel?",
-          "url": "https://www.theyeshivaworld.com/news/headlines-breaking-stories/1875026/will-marijuana-soon-be-legal-in-israel.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -126,7 +126,20 @@
         "rule: legal | source: Cannabis in Israel | type: traversal | priority: 3 | scope: general",
         "rule: penalty_criminal_offense | source: Cannabis in Israel | type: traversal | priority: 3 | scope: cultivation",
         "rule: possession_decriminalized | source: Israel Decriminalized Cannabis (Kind Of) | type: reference | priority: 2 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 12076,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "restricted",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -213,26 +226,26 @@
     ],
     "legal_similarity": [
       {
+        "code": "cyp",
+        "name": "Cyprus / Κύπρος"
+      },
+      {
         "code": "egy",
         "name": "Egypt / مصر"
       },
       {
         "code": "sau",
         "name": "Saudi Arabia / السعودية"
-      },
-      {
-        "code": "geo",
-        "name": "Georgia / საქართველო"
       }
     ],
     "cluster_links": [
       {
-        "code": "cyp",
-        "name": "Cyprus / Κύπρος"
-      },
-      {
         "code": "syr",
         "name": "Syria / سوريا"
+      },
+      {
+        "code": "tur",
+        "name": "Türkiye"
       }
     ],
     "same_country_states": [],
@@ -240,9 +253,9 @@
   },
   "hashes": {
     "code": "isr",
-    "content_hash": "946801adc6b6d8b00cfb134250c182692187c541f44ed85f35eb3af7c923fd0a",
+    "content_hash": "4d5770302a073d19679478b851e1b08c4c2d4dea2385c493ae6eaef48c8bc6c0",
     "notes_hash": "7bcfa5c7c5c0175fd6028696e31aacb76d95824f0ab35d46c5f84dac1ff30182",
-    "model_hash": "25d571d352005a44fb734cb6de97b8e96ec7c28b8c5d2b03b818efc7fb2b21ad"
+    "model_hash": "33f164463eeda1074c541d0d5e4e46a97518a538c2bff383adf362d9bd6283b5"
   },
   "geo_code": "IL",
   "node_type": "country",

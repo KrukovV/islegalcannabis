@@ -63,46 +63,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Panama",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Panama",
+          "title": "Panama / Panamá",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Panama",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Panama",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Registro judicial: Organo del poder judicial de la República de Panamá",
           "url": "https://books.google.com/books?id=VR0rAQAAMAAJ",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "The Great Book of Hemp: The Complete Guide to the Environmental, Commercial, and Medicinal Uses of the World's Most Extraordinary Plant",
           "url": "https://books.google.com/books?id=w0qvkVGO0sgC&pg=PA58",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "MARIJUANA SMOKING IS REPORTED SAFE; Hemp Leaves, Classed in Some States With Drugs, Tested by Canal Zone Committee. EXPERIMENT MADE ON 17 Panaman Judge Recently Gave Sailor a Year's Sentence for Possessing the Weed.",
           "url": "https://www.nytimes.com/1926/11/21/archives/marijuana-smoking-is-reported-safe-hemp-leaves-classed-in-some.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Panama Noriega’s Money Machine",
           "url": "https://time.com/archive/6711596/panama-noriegas-money-machine/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "PANAMA PRAISED FOR DRUG CURBS",
           "url": "https://www.nytimes.com/1973/09/23/archives/panama-praised-for-drug-curbs-training-course-for-agents.html",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "A Panamanian Freighter, Loaded With Marijuana, Is Towed to Miami Base",
-          "url": "https://www.nytimes.com/1976/10/20/archives/a-panamanian-freighter-loaded-with-marijuana-is-towed-to-miami-base.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -120,7 +120,20 @@
         "rule: illegal | source: Cannabis in Panama | type: traversal | priority: 3 | scope: use",
         "rule: penalty_prison | source: MARIJUANA SMOKING IS REPORTED SAFE; Hemp Leaves, Classed in Some States With Drugs, Tested by Canal Zone Committee. EXPERIMENT MADE ON 17 Panaman Judge Recently Gave Sailor a Year's Sentence for Possessing the Weed. | type: reference | priority: 2 | scope: general",
         "rule: penalty_arrest | source: Four Tons of Cocaine Seized and 64 Arrested in Massive Panama Drug Bust | type: reference | priority: 2 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 6134,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": "unenforced",
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based",
@@ -235,9 +248,9 @@
   },
   "hashes": {
     "code": "pan",
-    "content_hash": "a15a99a4c215675f95017ebd392c466f2bcaa94f5cf3bfee22dda90ba43ef8da",
+    "content_hash": "b2d6fb04314155fd39c459467be3a6f1ef2d9a1608ef0849da32978080a09b20",
     "notes_hash": "16b5e51439301047d57486b9e3de3368ad6570095592179f7d4163576b14264c",
-    "model_hash": "dbabc3806fe1f1a00ceac81a87dadb9afee2ed6082221d01226185177ea078a6"
+    "model_hash": "7ae51499432db636626d25ef891bfcb9955f74842e14b8d8845402e4f6b8354f"
   },
   "geo_code": "PA",
   "node_type": "country",

@@ -60,46 +60,46 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Burkina Faso",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Burkina_Faso",
+          "title": "Burkina Faso",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Burkina Faso",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Burkina_Faso",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Cannabis in Africa",
           "url": "https://www.unodc.org/documents/data-and-analysis/Can_Afr_EN_09_11_07.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "2003 International Narcotics Control Strategy Report",
           "url": "https://2009-2017.state.gov/j/inl/rls/nrcrpt/2003/index.htm",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Burkina Faso",
           "url": "https://2009-2017.state.gov/documents/organization/29963.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Substance Use and Abuse: Everything Matters",
           "url": "https://books.google.com/books?id=ncj_CwAAQBAJ&pg=PA36",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Clandestine cannabis farmers feed growing drug abuse",
           "url": "https://www.thenewhumanitarian.org/report/81212/west-africa-clandestine-cannabis-farmers-feed-growing-drug-abuse",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Mother, son arrested with 105kgs of cannabis",
-          "url": "https://police.gov.rw/media/news-detail/news/mother-son-arrested-with-105kgs-of-cannabis/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -108,7 +108,20 @@
         "rule: penalty_arrest | source: Mother, son arrested with 105kgs of cannabis | type: reference | priority: 2 | scope: general",
         "rule: raw_illegal | source: Special Senate Committee on Illegal Drugs (37th Parliament, 1st Session) | type: reference | priority: 2 | scope: general",
         "rule: illegal | source: Special Senate Committee on Illegal Drugs (37th Parliament, 1st Session) | type: reference | priority: 2 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 1033,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -215,9 +228,9 @@
   },
   "hashes": {
     "code": "bfa",
-    "content_hash": "1680ef1f6897044678d7caa80c84b39d16534f0c767bbf7b6ed52b266215217d",
+    "content_hash": "2f3224e086fb6115f6ea3e1b3446b6fa932bc98bf3d0a825be76bc442b9cf34e",
     "notes_hash": "5069fd94c40ccac279a145e698a95917bbcf152f4d32aae4ef9581dca3a847ec",
-    "model_hash": "b07c61a0df2b18e18ffe3db99ed054458e02192cc7a73789154ab6e79e248a53"
+    "model_hash": "35b4359107755550e7182c0d7c61e8120fab901b2ea9c200738016caed7125f0"
   },
   "geo_code": "BF",
   "node_type": "country",

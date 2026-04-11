@@ -60,22 +60,22 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Zambia",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Zambia",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Legality of cannabis (notes)",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Zambia",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Zambia",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Zambia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Zambia",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Zambia",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -84,7 +84,20 @@
         "rule: medical_legal | source: Cannabis in Zambia | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Cannabis in Zambia | type: traversal | priority: 3 | scope: cultivation",
         "rule: medical_limited | source: Cannabis in Zambia | type: traversal | priority: 3 | scope: cultivation"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 536,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -190,9 +203,9 @@
   },
   "hashes": {
     "code": "zmb",
-    "content_hash": "37367855afc55d719a2319a79733ab820ef8908ff6421afb616842a64d1480f9",
+    "content_hash": "91dd344467882f25cdb6bf7f772aee3db6e808262bdf82c0ac959ae353dfd325",
     "notes_hash": "078f30f0525830864bd32a29ed2c2272794a7f127f50dfedd6bd6745e9ba2d3e",
-    "model_hash": "a94b6fe8268a456b2a97ba5344932eb4ed3e89c0258fcff53c97b576c6117bb7"
+    "model_hash": "1aeda91f7350c7e59274710306c98906c3bb95849a83a6f9c66219a08dd99def"
   },
   "geo_code": "ZM",
   "node_type": "country",

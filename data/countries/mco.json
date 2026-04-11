@@ -58,51 +58,58 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Monaco",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Monaco",
+          "title": "Monaco",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
         },
         {
           "title": "Cannabis in Monaco",
           "url": "https://www.unodc.org/unodc/en/data-and-analysis/WDR-2011.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Monaco",
           "url": "https://www.unodc.org/documents/data-and-analysis/WDR2011/StatAnnex-consumption.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Legal status of cannabis in Monaco - Cannaconnection.com",
           "url": "https://www.cannaconnection.com/blog/14757-legal-status-monaco",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Monaco – We Be High",
           "url": "https://webehigh.org/monaco/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Monaco",
           "url": "https://web.archive.org/web/20200504120850/http://webehigh.org/monaco/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Monaco",
-          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -208,9 +215,9 @@
   },
   "hashes": {
     "code": "mco",
-    "content_hash": "ca42a0d1c341e3fe349af9a4c70f1f863fbc8f03800e55d6400eaaebd05bb054",
+    "content_hash": "35ffdd7b4c875d98c319ea1883cd6df727eee1847b799df7b9199ce693ff7232",
     "notes_hash": "a71b3ed0582a39d0f6bafae095d12a69c7db7961219c3b211b76a522f3a8c583",
-    "model_hash": "b5aa4749fb2329a42e8c658522d017e4c226e4e56b506a57c26dd32a3b8a0628"
+    "model_hash": "93b8b300b8ccf75c7551b09495423e165f51c2b521803134cca3aa89af1a55e5"
   },
   "geo_code": "MC",
   "node_type": "country",

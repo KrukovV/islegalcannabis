@@ -63,46 +63,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in France",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_France",
+          "title": "France",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in France",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_France",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Cannabis à visée thérapeutique en France : L'ANSM publie la proposition du Comité d'experts sur le cadre de la phase expérimentale de mise à disposition",
           "url": "https://ansm.sante.fr/actualites/cannabis-a-visee-therapeutique-en-france-lansm-publie-la-proposition-du-comite-dexperts-sur-le-cadre-de-la-phase-experimentale-de-mise-a-disposition",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "French law on pot-based medicine takes effect",
           "url": "https://www.thelocal.fr/20130610/legalized-cannabis-tea-could-be-on-drug-menu-for-french-patients-in-pharmacies",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "L'expérimentation thérapeutique du cannabis finalement prévue pour «septembre»",
           "url": "https://www.leparisien.fr/societe/l-experimentation-therapeutique-du-cannabis-finalement-prevue-pour-septembre-23-01-2020-8242296.php",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis Thérapeutique : il arrive en France dès cette année !",
           "url": "https://www.lelynx.fr/mutuelle-sante/medecine/drogue-psychotropes/cannabis-therapeutique-2/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis thérapeutique : où en est la France ?",
           "url": "https://www.futura-sciences.com/sante/breves/cannabis-cannabis-therapeutique-france-2656/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "France extends medical cannabis trial to help patients find alternatives",
-          "url": "https://www.rfi.fr/en/france/20241222-france-extends-medical-cannabis-trial-to-help-patients-find-alternatives",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -135,7 +135,20 @@
         "rule: penalty_prison | source: Cannabis in France | type: traversal | priority: 3 | scope: use",
         "rule: penalty_fine | source: Cannabis in France | type: traversal | priority: 3 | scope: use",
         "rule: penalty_arrest | source: Cannabis in France | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 9384,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": true,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -250,9 +263,9 @@
   },
   "hashes": {
     "code": "fra",
-    "content_hash": "a71b51a5cda910cd8eff1c5b2e9646e8491c2f52a5269807f775113d86c52e77",
+    "content_hash": "cd5380d9709b238cb54694095a8d0ff062f3fddc07c5c38e2a4d053255db8d72",
     "notes_hash": "15440b589840319aed174927933052bb47f9e3ae7a74cf19c437e61e9271d87f",
-    "model_hash": "1fe603555a03654340084832d7360cc7d3c64e43a3cbf008d168ca331ce1aeb2"
+    "model_hash": "37523d3af586a727c4616b2b7427b28c568295540246eeba1c64c83ef7557240"
   },
   "geo_code": "FR",
   "node_type": "country",

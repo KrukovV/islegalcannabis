@@ -58,51 +58,58 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Mali",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Mali",
+          "title": "Mali",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
         },
         {
           "title": "Decriminalization of Marihuana: Hearings Before the Select Committee on Narcotics Abuse and Control, House of Representatives, Ninety-fifth Congress, First Session, March 14, 15, and 16, 1977",
           "url": "https://books.google.com/books?id=pdDUAAAAMAAJ",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Drug use in America: problem in perspective: second report",
           "url": "https://books.google.com/books?id=ZZ1qAAAAMAAJ",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Marijuana Medicine: A World Tour of the Healing and Visionary Powers of Cannabis",
           "url": "https://books.google.com/books?id=o_dKbMFRSzUC&pg=PA128",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Report of the International Narcotics Control Board (2007)",
           "url": "https://books.google.com/books?id=5zPbkldHMq4C&pg=PA53",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Perilous Desert: Insecurity in the Sahara",
           "url": "https://books.google.com/books?id=iQuVCwAAQBAJ&pg=PA67",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Mali",
-          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -208,9 +215,9 @@
   },
   "hashes": {
     "code": "mli",
-    "content_hash": "7f5dd6e16a7ba7d61fe4a4641383a660fb444447c128b34e01e91069fdddcf24",
+    "content_hash": "823c00b565b8839628e55ac3bf58ac78223f8255a04dc84c9aaa8dd0d7f06979",
     "notes_hash": "07c738f77574066bc00bcb0ad373fdfe5e0c1c154a5a03a4e002f3aa98e1a24d",
-    "model_hash": "73fa2ef5389fa2522b3cd6b0014f5a141086a1b309a61e51e4a36a296284ca35"
+    "model_hash": "ce9055542816b5972d89e8480e99f61e51c0c838a9101c589c6ab061ab779849"
   },
   "geo_code": "ML",
   "node_type": "country",

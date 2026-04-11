@@ -60,52 +60,65 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Vietnam",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Vietnam",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "The Therapeutic Potential of Marihuana",
-          "url": "https://books.google.com/books?id=89vTBwAAQBAJ&pg=PA3",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Vietnam Studies: Law at War: Vietnam 1964-1973",
-          "url": "https://books.google.com/books?id=0_GdRa3z4YcC&pg=PT120",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "The Myth of the Addicted Army: Vietnam and the Modern War on Drugs",
-          "url": "https://books.google.com/books?id=qDbtvEIxWigC&pg=PA206",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "US Army Psychiatry in the Vietnam War: New Challenges in Extended Counterinsurgency Warfare: New Challenges in Extended Counterinsurgency Warfare",
-          "url": "https://books.google.com/books?id=ty3BDgAAQBAJ&pg=PT556",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "American Psychiatry After World War II (1944-1994)",
-          "url": "https://books.google.com/books?id=Gk-XSoU3A-0C&pg=PA23",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Vietnam / Việt Nam",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Vietnam",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Vietnam",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "The Therapeutic Potential of Marihuana",
+          "url": "https://books.google.com/books?id=89vTBwAAQBAJ&pg=PA3",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Vietnam Studies: Law at War: Vietnam 1964-1973",
+          "url": "https://books.google.com/books?id=0_GdRa3z4YcC&pg=PT120",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "The Myth of the Addicted Army: Vietnam and the Modern War on Drugs",
+          "url": "https://books.google.com/books?id=qDbtvEIxWigC&pg=PA206",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "US Army Psychiatry in the Vietnam War: New Challenges in Extended Counterinsurgency Warfare: New Challenges in Extended Counterinsurgency Warfare",
+          "url": "https://books.google.com/books?id=ty3BDgAAQBAJ&pg=PT556",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "American Psychiatry After World War II (1944-1994)",
+          "url": "https://books.google.com/books?id=Gk-XSoU3A-0C&pg=PA23",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: raw_illegal | source: Cannabis in Vietnam | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Vietnam | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 1428,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -211,9 +224,9 @@
   },
   "hashes": {
     "code": "vnm",
-    "content_hash": "6401ea5b5a752015b58f8e57fbd99a80146833ac7e61d5adca5b55acc676b216",
+    "content_hash": "4f3bc55663a63f4e1cb91574f0eae34725e18555e7ffc7df6d00e9cda379d11f",
     "notes_hash": "40c7359699d8ac6ce9d7141845207f1d15d8e631bb3334620376caefd5aa891e",
-    "model_hash": "38c7da1c4a0260d7f2f8f11d14091f5d332c7db02cc945cce095765fb9725ed1"
+    "model_hash": "613b96a3a30fe8a77dc74f2d533631ca74be53fc0d41edada8500c9758fd133e"
   },
   "geo_code": "VN",
   "node_type": "country",

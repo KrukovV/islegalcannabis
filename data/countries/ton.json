@@ -58,28 +58,41 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Tonga",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Tonga",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Report of the International Narcotics Control Board 2006",
-          "url": "https://www.incb.org/incb/en/publications/annual-reports/annual-report-2006.html",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Tonga",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Tonga",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Tonga",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Report of the International Narcotics Control Board 2006",
+          "url": "https://www.incb.org/incb/en/publications/annual-reports/annual-report-2006.html",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: raw_illegal | source: Cannabis in Tonga | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Tonga | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 184,
+        "source_confidence": "weak_article",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -185,9 +198,9 @@
   },
   "hashes": {
     "code": "ton",
-    "content_hash": "eda0ca9c33bedf3ce94f1141ef7e8ea73ae11eaa36097a9596d61da55798a884",
+    "content_hash": "db76305f2143ece4229723a08dc2af5632acc4b3d0012cb04c502172e4f5ec12",
     "notes_hash": "0fbf0bd57240cbf87ad042d92e54038fc350fe36e1ba12662a5147dd64ef8962",
-    "model_hash": "0f3679c4fbaf83c423019b799b307ace7c55664b585f1546e823cbffc0f44ae3"
+    "model_hash": "3b70b49440cbdaa94c36a64a6346cf47de03e5d9907e1534ce0f2ea65c990f3e"
   },
   "geo_code": "TO",
   "node_type": "country",

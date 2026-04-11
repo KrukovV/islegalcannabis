@@ -11,10 +11,10 @@
     },
     "medical": {
       "raw_status": "LEGAL",
-      "status": "LIMITED",
+      "status": "LEGAL",
       "enforcement": "MODERATE",
       "scope": "MEDICAL_ONLY",
-      "override_reason": "rec_implies_med_floor"
+      "override_reason": null
     },
     "distribution": {
       "status": "restricted",
@@ -62,28 +62,28 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Thailand",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Thailand",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Medical Cannabis Act",
-          "url": "https://www.moph.go.th/cannabis-law",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Thailand",
-          "url": "https://news.example.com/article",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Thailand / ประเทศไทย",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Thailand",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Thailand",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Medical Cannabis Act",
+          "url": "https://www.moph.go.th/cannabis-law",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis in Thailand",
+          "url": "https://news.example.com/article",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -107,7 +107,20 @@
         "rule: raw_illegal | source: Cannabis in Thailand | type: traversal | priority: 3 | scope: possession",
         "rule: illegal | source: Cannabis in Thailand | type: traversal | priority: 3 | scope: possession",
         "rule: legal | source: Cannabis in Thailand | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 8366,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": "unenforced",
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "weak_enforcement",
@@ -120,12 +133,11 @@
       "possession_decriminalized",
       "raw_illegal",
       "penalty_fine",
-      "penalty_prison",
-      "rec_implies_med_floor"
+      "penalty_prison"
     ],
-    "notes_normalized": "Cannabis is legal in Thailand / ประเทศไทย. Medical cannabis is limited. Distribution is restricted. Prison exposure detected."
+    "notes_normalized": "Cannabis is legal in Thailand / ประเทศไทย. Medical cannabis is legal. Distribution is restricted. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is legal in Thailand / ประเทศไทย. Medical cannabis is limited. Distribution is restricted. Prison exposure detected.",
+  "notes_normalized": "Cannabis is legal in Thailand / ประเทศไทย. Medical cannabis is legal. Distribution is restricted. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Thailand}} Criminalized in 1935, medical use legalized in 2018. Recreational use legalized in 2022 for those aged 20 and over. Unprescribed products with over 0.2% THC were recriminalized in 2025, but this law is often unenforced.<ref>{{cite news |last= Bush |first= Austin |date= 30 August 2022 |title= Cannabis is now legal in Thailand, but it's complicated: what travelers need to know |url= https://www.lonelyplanet.com/news/thailand-cannabis-guide |work= Lonely Planet |access-date= 24 June 2023}}</ref><ref>{{Cite web |date=2025-06-25 |title=Country bans recreational cannabis again in major blow to tourism |url=https://www.independent.co.uk/asia/southeast-asia/thailand-cannabis-illegal-law-b2776598.html |access-date=2025-06-25 |website=The Independent |language=en}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -223,9 +235,9 @@
   },
   "hashes": {
     "code": "tha",
-    "content_hash": "077c199acf0d21e82f7820b47f786b55140453ebb4d9c265b91b9e776a1dddae",
-    "notes_hash": "79be81f442c9ea7aeee26645699e5b88eeb23e69d2cbc1724a00f7a83eabfa5b",
-    "model_hash": "e9c131df21d08b9a001ba82763d4a3acc98cd8bde259c822741bc8d1bd7593b3"
+    "content_hash": "257760f618464c2d1c8e3dc48d10ecd6cc8b2cc252ece040c788537f6403a4c6",
+    "notes_hash": "f196a03c1db162dc5d6ea1ac0e7ab56f495eae1ff9bdb42cf6f2974b8c763078",
+    "model_hash": "267f7935d3527d429fc51dd112e0911e105f6916564f4338f8c2adfebc6d85e9"
   },
   "geo_code": "TH",
   "node_type": "country",

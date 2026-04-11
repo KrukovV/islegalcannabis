@@ -56,46 +56,46 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Algeria",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Algeria",
+          "title": "Algeria / الجزائر",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Algeria",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Algeria",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Loi No. 04-18 du 13 Dhou El Kaada 1425, Correspondant au 25 Décembre 2004, Relative à la Prévention et à la Répression de l'Usage et du Trafic Illicites de Stupéfiants et de Substances Psychotropes",
           "url": "https://www.unodc.org/res/cld/document/dza/loi-04-18_html/algeria-loi04-18.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Amnésique, la presse algérienne s'attaque au Maroc au sujet du cannabis",
           "url": "https://fr.hespress.com/192136-amnesique-la-presse-algerienne-sattaque-au-maroc-au-sujet-du-cannabis.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Algeria",
           "url": "https://web.archive.org/web/20200205160500/https://www.unodc.org/res/cld/document/dza/loi-04-18_html/algeria-loi04-18.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis Physiopathology Epidemiology Detection",
           "url": "https://books.google.com/books?id=6doGy7klT88C&pg=PA208",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Consuming Pleasures: Australia and the International Drug Business",
           "url": "https://books.google.com/books?id=S3FQCgAAQBAJ&pg=PT134",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Intoxicating Minds: How Drugs Work",
-          "url": "https://books.google.com/books?id=Wz9bGD0GToUC&pg=PT134",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -103,7 +103,20 @@
         "rule: illegal | source: Cannabis in Algeria | type: traversal | priority: 3 | scope: general",
         "rule: enforcement_rare | source: Cannabis in Algeria | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Cannabis in Algeria | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 1986,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": "rare",
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "weak_enforcement"
@@ -212,9 +225,9 @@
   },
   "hashes": {
     "code": "dza",
-    "content_hash": "1855b382d067f74e5fc342b199b6d34b4fb3b13ca54ce5a45d38d4a1e00cac34",
+    "content_hash": "c0584ab6a4f16f7a1ae7e2373e3f9cf94483e941d148114070372ec414f4732f",
     "notes_hash": "5ffcddfa424b8f9da42f8d40f65562db962357906b5da65c49024a22d4b8edc2",
-    "model_hash": "68c2d91a4fdee6038858ceae2d270c8274b74826fba90d101fbf99b0fc0c1f65"
+    "model_hash": "501774daaa898b109de5054f88be14431e147b2c6cffce7373f894e548dbf095"
   },
   "geo_code": "DZ",
   "node_type": "country",

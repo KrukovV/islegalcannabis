@@ -66,7 +66,20 @@
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -165,9 +178,9 @@
   },
   "hashes": {
     "code": "jey",
-    "content_hash": "39d8f1f62ae0219f1bd0eb0942deff24f2923747f0832b581e60844d3d427f34",
+    "content_hash": "f9f7b47536ddff78fd093dac739bd96ef6968d03f52e71cb16662a5200a1afd2",
     "notes_hash": "01d37cb218a1274db3789a29e9b94a824878f530f53e66a683e58228bdd8997d",
-    "model_hash": "13a60656423c7cf2b7b11e728cfeb4d0df965cccf21d785ae2d22e5c6cea7bbc"
+    "model_hash": "2c71ad10b6d4100099593478ddc798d2b03779b6831c30922c98116918c8a3ec"
   },
   "geo_code": "JE",
   "node_type": "country",

@@ -66,7 +66,20 @@
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -165,9 +178,9 @@
   },
   "hashes": {
     "code": "ggy",
-    "content_hash": "4ca8c0316f20d6cab4b30cd6d5922d40e80fba2b5e4c1c1da00a28da114b18b7",
+    "content_hash": "7bd980b75e77b19d64b180e2e7b90e858f82fb19cdc3af1120252fdf9850f908",
     "notes_hash": "45a02024d06c4fa1c349a611f697060356b676a95a08ddc6ae3396828715a183",
-    "model_hash": "6fa1d7c5f3029b0f598d84a6e886de2a2c7237fe92116a803ad4ebc037db0a95"
+    "model_hash": "95f40bdd2262f951aa4a705e23dc1ad68a93bec7d07882fff488bc850e26d270"
   },
   "geo_code": "GG",
   "node_type": "country",

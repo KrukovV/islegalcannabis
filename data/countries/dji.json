@@ -59,46 +59,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Djibouti",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Djibouti",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Drug Trafficking Patterns",
-          "url": "https://www.unodc.org/easternafrica/en/illicit-drugs/drug-trafficking-patterns.html",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Legal status of cannabis in Djibouti - Cannaconnection.com",
-          "url": "https://www.cannaconnection.com/blog/14826-legal-status-djibouti",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Djibouti – Laws, Use, and History – The Peace Dealings",
-          "url": "https://thepeacedealings.com/2020/03/13/cannabis-in-djibouti-laws-use-and-history/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Djibouti – Laws, Use, and More Info - Sensi Seeds",
-          "url": "https://sensiseeds.com/en/blog/countries/cannabis-in-djibouti-laws-use-history/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Djibouti",
-          "url": "https://web.archive.org/web/20210303075335/https://thepeacedealings.com/2020/03/13/cannabis-in-djibouti-laws-use-and-history/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Djibouti / جيبوتي",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Djibouti",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Djibouti",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Drug Trafficking Patterns",
+          "url": "https://www.unodc.org/easternafrica/en/illicit-drugs/drug-trafficking-patterns.html",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Legal status of cannabis in Djibouti - Cannaconnection.com",
+          "url": "https://www.cannaconnection.com/blog/14826-legal-status-djibouti",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis in Djibouti – Laws, Use, and History – The Peace Dealings",
+          "url": "https://thepeacedealings.com/2020/03/13/cannabis-in-djibouti-laws-use-and-history/",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis in Djibouti – Laws, Use, and More Info - Sensi Seeds",
+          "url": "https://sensiseeds.com/en/blog/countries/cannabis-in-djibouti-laws-use-history/",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis in Djibouti",
+          "url": "https://web.archive.org/web/20210303075335/https://thepeacedealings.com/2020/03/13/cannabis-in-djibouti-laws-use-and-history/",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -109,7 +109,20 @@
         "rule: penalty_prison | source: Cannabis in Djibouti | type: traversal | priority: 3 | scope: general",
         "rule: penalty_fine | source: Cannabis in Djibouti | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Cannabis in Djibouti | type: traversal | priority: 3 | scope: cultivation"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 539,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -219,9 +232,9 @@
   },
   "hashes": {
     "code": "dji",
-    "content_hash": "f46d78cce71cbeeaa64b7c5deee42a0c8d25bb7a49b2f78f3809cb21276cb2c7",
+    "content_hash": "6e845d9082d52d62b3cf5e697f7f91add26bda19812526ad20abcaeefe17831e",
     "notes_hash": "94c08e53f3434d03070adc3a18c8b7fd4dada8ea8ce0723fef17724fa57f8679",
-    "model_hash": "24f24e589d92ead8f9d1fbc2208ab6f71aa01d1dbd1af697cc7a61fe9dd8542f"
+    "model_hash": "e1984651b658d97d27b0d0e1d5a5c8aca10f56329860eacbd3f0bac165de9f7e"
   },
   "geo_code": "DJ",
   "node_type": "country",

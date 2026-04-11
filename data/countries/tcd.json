@@ -58,35 +58,48 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Chad",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Chad",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "5000 Francs CFA, Chad",
-          "url": "https://en.numista.com/catalogue/pieces391028.html",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Tchad et culture",
-          "url": "https://books.google.com/books?id=1XAwAQAAIAAJ",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Chad / تشاد",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Chad",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Chad",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "5000 Francs CFA, Chad",
+          "url": "https://en.numista.com/catalogue/pieces391028.html",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Tchad et culture",
+          "url": "https://books.google.com/books?id=1XAwAQAAIAAJ",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: raw_illegal | source: Cannabis in Chad | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Chad | type: traversal | priority: 3 | scope: general",
         "rule: penalty_fine | source: Cannabis in Chad | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 434,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -195,9 +208,9 @@
   },
   "hashes": {
     "code": "tcd",
-    "content_hash": "630877089b64a3040169efe74446aaa99e5326b814e42b3563f8bf229b9f4cb1",
+    "content_hash": "7bf30954cc3d5363d6b3da7ff24f29df5a5c658121d194873f6f1c9de172f786",
     "notes_hash": "79f0a3f0a60abb4624e47ded14c38c5c58bacb00b8d87dead3fd2de56d97f2c3",
-    "model_hash": "6542ebe4062211cb653203e6697dc2a5b6a89fdc3fc59f518e2d1bbbba946b52"
+    "model_hash": "967bc90c3c134424c10ca202febd94963294b1252b433602408b294578be7924"
   },
   "geo_code": "TD",
   "node_type": "country",

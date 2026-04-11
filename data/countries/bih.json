@@ -58,53 +58,66 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Bosnia and Herzegovina",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bosnia_and_Herzegovina",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "92 percent of students support marijuana legalization in Bosnia and Herzegovina - Bosnia Today",
-          "url": "https://www.bosniatoday.ba/92-percent-of-students-support-marijuana-legalization-in-bosnia-and-herzegovina/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Bosnia and Herzegovina",
-          "url": "https://web.archive.org/web/20161201083715/http://www.bosniatoday.ba/92-percent-of-students-support-marijuana-legalization-in-bosnia-and-herzegovina/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Bosnia to legalize medical marijuana this year - Bosnia Today",
-          "url": "https://www.bosniatoday.ba/bosnia-to-legalize-medical-marijuana-this-year/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Bosnia and Herzegovina",
-          "url": "https://web.archive.org/web/20160924221422/http://www.bosniatoday.ba/bosnia-to-legalize-medical-marijuana-this-year/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Smuggling in Southeast Europe: The Yugoslav Wars and the Development of Regional Criminal Networks in the Balkans",
-          "url": "https://books.google.com/books?id=srjE2eFi_nsC&pg=PA43",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Bosnia and Herzegovina / Bosna i Hercegovina",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Bosnia and Herzegovina",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bosnia_and_Herzegovina",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "92 percent of students support marijuana legalization in Bosnia and Herzegovina - Bosnia Today",
+          "url": "https://www.bosniatoday.ba/92-percent-of-students-support-marijuana-legalization-in-bosnia-and-herzegovina/",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis in Bosnia and Herzegovina",
+          "url": "https://web.archive.org/web/20161201083715/http://www.bosniatoday.ba/92-percent-of-students-support-marijuana-legalization-in-bosnia-and-herzegovina/",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Bosnia to legalize medical marijuana this year - Bosnia Today",
+          "url": "https://www.bosniatoday.ba/bosnia-to-legalize-medical-marijuana-this-year/",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis in Bosnia and Herzegovina",
+          "url": "https://web.archive.org/web/20160924221422/http://www.bosniatoday.ba/bosnia-to-legalize-medical-marijuana-this-year/",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Smuggling in Southeast Europe: The Yugoslav Wars and the Development of Regional Criminal Networks in the Balkans",
+          "url": "https://books.google.com/books?id=srjE2eFi_nsC&pg=PA43",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: raw_illegal | source: Cannabis in Bosnia and Herzegovina | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Bosnia and Herzegovina | type: traversal | priority: 3 | scope: general",
         "rule: import_illegal | source: Smuggling in Southeast Europe: The Yugoslav Wars and the Development of Regional Criminal Networks in the Balkans | type: reference | priority: 2 | scope: import"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 648,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -192,14 +205,14 @@
         "name": "Hungary / Magyarország"
       },
       {
-        "code": "mkd",
-        "name": "North Macedonia / Македонија"
+        "code": "svn",
+        "name": "Slovenia / Slovenija"
       }
     ],
     "cluster_links": [
       {
-        "code": "svn",
-        "name": "Slovenia / Slovenija"
+        "code": "mkd",
+        "name": "North Macedonia / Македонија"
       },
       {
         "code": "svk",
@@ -211,9 +224,9 @@
   },
   "hashes": {
     "code": "bih",
-    "content_hash": "64f674213e945b7315f3b048d999e81ff5ad588a75dccfc334dfd87172c98b79",
+    "content_hash": "1c9b33b6eb910ebba63ddc89f0d3a885a5857a39201db6d7543c40d3a8e0d1f3",
     "notes_hash": "d321b095b67c333e2269e008fd48c59ce91aa4357c4ce0d40d9bddf76177ae42",
-    "model_hash": "34659e3b31282c0854c25cbc6f1543398772a1bbf5a783fb34b438bc8339344e"
+    "model_hash": "30184c6089f476ad1af8bc20b309b540848d218eaa83076c66361cebfe058ef1"
   },
   "geo_code": "BA",
   "node_type": "country",

@@ -63,46 +63,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Germany",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Germany",
+          "title": "Germany / Deutschland",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Germany",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Germany",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Cannabis als Medizin",
           "url": "https://www.bundesgesundheitsministerium.de/ministerium/meldungen/2016/cannabisarzneimittel-kabinett.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Germany",
           "url": "https://web.archive.org/web/20161012044035/https://www.bundesgesundheitsministerium.de/ministerium/meldungen/2016/cannabisarzneimittel-kabinett.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Gesetz über den Verkehr mit Betäubungsmitteln (Betäubungsmittelgesetz – BtMG)",
           "url": "https://www.gesetze-im-internet.de/btmg_1981/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Rezepturhinweise: Dronabinol- und Cannabis-Zubereitungen",
           "url": "https://www.pharmazeutische-zeitung.de/fileadmin/nrf/PDF/1-Dronabinol.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Germany: First Patients to Receive Cannabis from the Pharmacy",
           "url": "https://cannabis-med.org/bulletin/iacm-bulletin-of-february-15-2009",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Germany to legalize medicinal marijuana by 2017",
-          "url": "https://edition.cnn.com/2016/05/04/europe/germany-medicinal-marijuana/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -127,7 +127,20 @@
         "rule: trafficking_illegal | source: Cannabis in Germany | type: traversal | priority: 3 | scope: trafficking",
         "rule: sale_illegal | source: Cannabis in Germany | type: traversal | priority: 3 | scope: trafficking",
         "rule: illegal | source: Cannabis in Germany | type: traversal | priority: 3 | scope: trafficking"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 7259,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "tolerated",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -216,18 +229,18 @@
         "name": "Switzerland / Suisse"
       },
       {
-        "code": "cze",
-        "name": "Czechia / Česko"
+        "code": "dnk",
+        "name": "Denmark / Danmark"
       },
       {
-        "code": "nld",
-        "name": "Netherlands / Nederland"
+        "code": "cze",
+        "name": "Czechia / Česko"
       }
     ],
     "cluster_links": [
       {
-        "code": "dnk",
-        "name": "Denmark / Danmark"
+        "code": "nld",
+        "name": "Netherlands / Nederland"
       },
       {
         "code": "bel",
@@ -239,9 +252,9 @@
   },
   "hashes": {
     "code": "deu",
-    "content_hash": "46363f7ca0bfcea79904b2d5e5eb5a6d73720d873a11dc4a8cc615b9082a79c3",
+    "content_hash": "bd4581d48d1bd04f95fc0d0e967eb770a2a634e49d74149daea090896d75ebaa",
     "notes_hash": "00bbc5f1e0edba2aa17b1c0116cadbe22deb36b7c2d96d266797076080086b0c",
-    "model_hash": "bd483ee6a335bbd4a9cecefcd77859aedc3853b20c725bdc97156a78bf03bce0"
+    "model_hash": "d396ef38edcbb9d66e8ae543a41a5f6eb0c289874cf9346d1d17cb9351ae99ca"
   },
   "geo_code": "DE",
   "node_type": "country",

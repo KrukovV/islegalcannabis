@@ -58,46 +58,46 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Guyana",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Guyana",
+          "title": "Guyana",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Guyana",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Guyana",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Rastafarian community protests against 'unjust' marijuana laws",
           "url": "https://www.stabroeknews.com/2015/news/stories/12/04/rastafarian-community-protests-unjust-marijuana-laws/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "The Ganja Complex: Rastafari and Marijuana",
           "url": "https://books.google.com/books?id=lyoqwS_89ckC&pg=PR41",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "The Laws of British Guiana",
           "url": "https://books.google.com/books?id=6jJFAAAAYAAJ&pg=PA88",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis Britannica: Empire, Trade, and Prohibition 1800-1928",
           "url": "https://books.google.com/books?id=gMhaD7iuF8gC&pg=PA139",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Musical Life in Guyana: History and Politics of Controlling Creativity",
           "url": "https://books.google.com/books?id=gRARCgAAQBAJ&pg=PT273",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Crime and Punishment around the World: &#91;Four Volumes&#93;",
-          "url": "https://books.google.com/books?id=2uK6bR9byVIC&pg=RA1-PA190",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -106,7 +106,20 @@
         "rule: penalty_arrest | source: Cannabis in Guyana | type: traversal | priority: 3 | scope: general",
         "rule: penalty_arrest | source: Cannabis in Guyana | type: traversal | priority: 3 | scope: sale",
         "rule: penalty_arrest | source: Guyana Politician Arrested On Drug Charges | type: reference | priority: 2 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 1692,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -213,9 +226,9 @@
   },
   "hashes": {
     "code": "guy",
-    "content_hash": "d742c831ab62685a674a027400bd529399106c315185c13da146ff1b80d9bf80",
+    "content_hash": "411168ef6a789407e7b3188c5fa1700b88b551eaabf52b42efe3dc761c223a68",
     "notes_hash": "9ff08b98b61555d3aacb8ae86bbb64b6dd9499f8bb49bb37a538982b3bf01527",
-    "model_hash": "8b75606a0651366a70bc73076217dba7446c35ce2e231cd3e6edc6e30e550aea"
+    "model_hash": "f15c282fee600c1fb76c1a5d7fdceb1b3e1e4a89f6fde5608f714e701fa7ecc3"
   },
   "geo_code": "GY",
   "node_type": "country",

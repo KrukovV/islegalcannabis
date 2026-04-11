@@ -58,40 +58,40 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Antigua and Barbuda",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Antigua_and_Barbuda",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "After decriminalizing cannabis, Antigua preps full legalization",
-          "url": "https://mjbizdaily.com/after-decriminalizing-cannabis-antigua-preps-full-legalization/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Antigua to Legalize Marijuana – Urges other Countries to Follow Suit – HTS News 4orce",
-          "url": "https://cannabisafterdark.com/2018/10/antigua-to-legalize-marijuana-urges-other-countries-to-follow-suit-hts-news-4orce/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "International Narcotics Control Strategy Report: Volume I: Drug and Chemical Control",
-          "url": "https://books.google.com/books?id=0jnyNWFuhXYC&pg=PA248",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Antigua and Barbuda",
-          "url": "https://web.archive.org/web/20181027144555/http://cannabisafterdark.com/2018/10/antigua-to-legalize-marijuana-urges-other-countries-to-follow-suit-hts-news-4orce/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Antigua and Barbuda",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Antigua and Barbuda",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Antigua_and_Barbuda",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "After decriminalizing cannabis, Antigua preps full legalization",
+          "url": "https://mjbizdaily.com/after-decriminalizing-cannabis-antigua-preps-full-legalization/",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Antigua to Legalize Marijuana – Urges other Countries to Follow Suit – HTS News 4orce",
+          "url": "https://cannabisafterdark.com/2018/10/antigua-to-legalize-marijuana-urges-other-countries-to-follow-suit-hts-news-4orce/",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "International Narcotics Control Strategy Report: Volume I: Drug and Chemical Control",
+          "url": "https://books.google.com/books?id=0jnyNWFuhXYC&pg=PA248",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis in Antigua and Barbuda",
+          "url": "https://web.archive.org/web/20181027144555/http://cannabisafterdark.com/2018/10/antigua-to-legalize-marijuana-urges-other-countries-to-follow-suit-hts-news-4orce/",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -100,7 +100,20 @@
         "rule: illegal | source: Cannabis in Antigua and Barbuda | type: traversal | priority: 3 | scope: general",
         "rule: penalty_fine | source: Cannabis in Antigua and Barbuda | type: traversal | priority: 3 | scope: sale",
         "rule: legal | source: Cannabis in Antigua and Barbuda | type: traversal | priority: 3 | scope: sale"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 785,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -211,9 +224,9 @@
   },
   "hashes": {
     "code": "atg",
-    "content_hash": "f48c38ee5e0600117d8a5548b0cb1d474eb7a70ddd9fdda9bd71415a7a3f6958",
+    "content_hash": "fb80bd07a52492888697e5c527e640d2954dd5f2ffbc56f8b590215c9cd7234d",
     "notes_hash": "172ac1f0db0866852b2c9f27086532cf9eb91088a96deb5d40762d0e259a4f97",
-    "model_hash": "8bf7b1f7ae72d0ae44bc53cbdd69f9a50f921c66a83cb86769f27a3412b29e0c"
+    "model_hash": "67f35297a0917a17d6cb0137b8cf70d1627f41819a8253e43c362e572836dfaf"
   },
   "geo_code": "AG",
   "node_type": "country",

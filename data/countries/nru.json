@@ -58,27 +58,34 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Nauru",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Nauru",
+          "title": "Nauru",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
         },
         {
           "title": "Legality of cannabis (notes)",
           "url": "https://en.wikipedia.org/wiki/Cannabis_in_Nauru",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Nauru",
-          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -184,9 +191,9 @@
   },
   "hashes": {
     "code": "nru",
-    "content_hash": "0be3f3bed3db9dde9435695c2e5f65612ad64c48993962c3d3f590313a8ba5ea",
+    "content_hash": "08061763d1c79512eb6f8a36dafe1abf41df71b0d957652da6e054762c6819b2",
     "notes_hash": "a61aec8f66571228caf8cee5fded96884f83903e4e3e6c4d5fe75a732fa0b425",
-    "model_hash": "13ebd2cc0135df25750f45bb93c7a1d00575e738aa42d3c74f6ddf09d9d04495"
+    "model_hash": "ae4cb6119418a685adccb9e0a9edc469da161b15db3dac0f28dc4e514f449d51"
   },
   "geo_code": "NR",
   "node_type": "country",

@@ -59,22 +59,22 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Cambodia",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cambodia",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Legality of cannabis (notes)",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cambodia",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Cambodia / Kâmpŭchéa",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Cambodia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cambodia",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cambodia",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -85,7 +85,20 @@
         "rule: raw_illegal | source: Cannabis in Cambodia | type: traversal | priority: 3 | scope: sale",
         "rule: sale_illegal | source: Cannabis in Cambodia | type: traversal | priority: 3 | scope: sale",
         "rule: illegal | source: Cannabis in Cambodia | type: traversal | priority: 3 | scope: sale"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 1379,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "illegal",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -191,9 +204,9 @@
   },
   "hashes": {
     "code": "khm",
-    "content_hash": "b74ea678264ca00558311a259f638f5f6b791dedd8b5e06e2d665d3f046c7515",
+    "content_hash": "a4456391688faee6eddf9635b00c0e4034bed42564bbfa47ae5ccef37c5f134a",
     "notes_hash": "8521b7ed18868b41ce6acb4d6902b475e3152e693d683fce2049265aabbaa07b",
-    "model_hash": "206a7e5d5f89aeb2f618a9db226de8e2e3238a626727e9e0e3c5ad781b306504"
+    "model_hash": "d972fbebd24f5300ee5f0d5e971ac7b30c1c2c9089bf3c47009f38a70b1e88e3"
   },
   "geo_code": "KH",
   "node_type": "country",

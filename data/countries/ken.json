@@ -60,46 +60,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Kenya",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kenya",
+          "title": "Kenya",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Kenya",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kenya",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Cannabis in Kenya",
           "url": "https://www.unodc.org/unodc/en/data-and-analysis/world-drug-report-2022.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "The Supply of Illicit Drugs to the United States: The Nnicc Report",
           "url": "https://books.google.com/books?id=LvbJsQgnlXwC&pg=PA64",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Kenya",
           "url": "https://books.google.com/books?id=99x5ea1Gq-cC&pg=PA568",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Kenya Gazette",
           "url": "https://books.google.com/books?id=-tucX8G18BkC&pg=PA882",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Kenya Gazette",
           "url": "https://books.google.com/books?id=MmQ16P1RMmAC&pg=PA203",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Kibra MP Ken Okoth in push for marijuana legalisation",
-          "url": "https://www.sde.co.ke/article/2001296589/kibra-mp-ken-okoth-in-push-for-marijuana-legalisation",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -109,7 +109,20 @@
         "rule: penalty_prison | source: Cannabis in Kenya | type: traversal | priority: 3 | scope: use",
         "rule: raw_illegal | source: Cannabis in Kenya | type: traversal | priority: 3 | scope: use",
         "rule: illegal | source: Cannabis in Kenya | type: traversal | priority: 3 | scope: use"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 2448,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -217,9 +230,9 @@
   },
   "hashes": {
     "code": "ken",
-    "content_hash": "6aa8d50acad00ce696b1fd2f95deffea9ded696c4ff40fe0f655bcdd21109eb5",
+    "content_hash": "470e54e7821febb43b835c9c337d1c13229c760893314a7873359c486d681772",
     "notes_hash": "b5df4f2aeb7b31754b129fdd495141f856bf372b04d67110201f643b6b33471b",
-    "model_hash": "3ed4230043fd90371e34497c75f996b615bb35feece09ef8686d82234ce98e38"
+    "model_hash": "df66774653c88d01120723ad6cdee48519dfa7adfb01d686f8fd70dafa3ce00e"
   },
   "geo_code": "KE",
   "node_type": "country",

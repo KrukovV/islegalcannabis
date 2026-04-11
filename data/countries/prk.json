@@ -60,46 +60,46 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in North Korea",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_North_Korea",
+          "title": "North Korea / 조선",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in North Korea",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_North_Korea",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "조선민주주의인민공화국 마약관리법",
           "url": "https://www.unilaw.go.kr/image_skin/doc.html?imageConverting=true&key=202103260508599891&contextPath=/synapsoft/out/202103260508599891&fileNm=%EC%A1%B0%EC%84%A0%EB%AF%BC%EC%A3%BC%EC%A3%BC%EC%9D%98%EC%9D%B8%EB%AF%BC%EA%B3%B5%ED%99%94%EA%B5%AD+%EB%A7%88%EC%95%BD%EA%B4%80%EB%A6%AC%EB%B2%95%282005.5.17.%29.hwp",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Drug Users Face Firing Squad",
           "url": "https://english.nkradio.org/news/286",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "North Korea Smokes Weed Every Day, Explaining a Lot",
           "url": "https://www.vice.com/en/article/north-korea-is-stoned-all-the-time-which-explains-a-lot/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "North Korea is a bad trip if you're looking to get high",
           "url": "https://apnews.com/article/474c4e8ea8d74bc8905c791c05f9ecac",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in North Korea",
           "url": "https://web.archive.org/web/20130330080133/https://english.nkradio.org/news/286",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in North Korea",
-          "url": "https://web.archive.org/web/20210111123420/https://apnews.com/article/474c4e8ea8d74bc8905c791c05f9ecac",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -114,7 +114,20 @@
         "rule: rec_tolerated | source: Cannabis in North Korea | type: traversal | priority: 3 | scope: general",
         "rule: raw_illegal | source: Cannabis in North Korea | type: traversal | priority: 3 | scope: cultivation",
         "rule: illegal | source: Cannabis in North Korea | type: traversal | priority: 3 | scope: cultivation"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 2592,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "illegal",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -221,9 +234,9 @@
   },
   "hashes": {
     "code": "prk",
-    "content_hash": "7348867e6a62452c61738fbadcbb175be39f5a9d8dfaaf017b674c39721b35f7",
+    "content_hash": "4a60b16f8b43bd219ab1e07af0b703efd82ee760bd689af752b3fc9a3953166b",
     "notes_hash": "43c8a4031ab4bd1377a76657eaacd2b9e8f3102ea9cc666038eb47b2eee09c0a",
-    "model_hash": "2fe4b6027f053495bbd446cad1fd906a5a9e27158a2a753d766f1b62165d8365"
+    "model_hash": "fcdf6ddd4fb6f7a5a4b80d53d5a6dbbf8417564fac1acede71e814a085dcfbc3"
   },
   "geo_code": "KP",
   "node_type": "country",

@@ -58,40 +58,40 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Ethiopia",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ethiopia",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Ethiopia",
-          "url": "https://www.iol.co.za/news/world/us-warns-american-rastas-about-ethiopian-laws-1.232633",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis and Culture",
-          "url": "https://books.google.com/books?id=gCRNRGOhNA4C&pg=PA77",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Visions of Zion: Ethiopians and Rastafari in the Search for the Promised Land",
-          "url": "https://books.google.com/books?id=_YMVCgAAQBAJ&pg=PA90",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "International Narcotics Control Strategy Report",
-          "url": "https://books.google.com/books?id=bNIWAAAAYAAJ",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Ethiopia / ኢትዮጵያ",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Ethiopia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ethiopia",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Cannabis in Ethiopia",
+          "url": "https://www.iol.co.za/news/world/us-warns-american-rastas-about-ethiopian-laws-1.232633",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis and Culture",
+          "url": "https://books.google.com/books?id=gCRNRGOhNA4C&pg=PA77",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Visions of Zion: Ethiopians and Rastafari in the Search for the Promised Land",
+          "url": "https://books.google.com/books?id=_YMVCgAAQBAJ&pg=PA90",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "International Narcotics Control Strategy Report",
+          "url": "https://books.google.com/books?id=bNIWAAAAYAAJ",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -99,7 +99,20 @@
         "rule: penalty_prison | source: Cannabis in Ethiopia | type: traversal | priority: 3 | scope: possession",
         "rule: raw_illegal | source: Cannabis in Ethiopia | type: traversal | priority: 3 | scope: possession",
         "rule: illegal | source: Cannabis in Ethiopia | type: traversal | priority: 3 | scope: possession"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 532,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": true,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -206,9 +219,9 @@
   },
   "hashes": {
     "code": "eth",
-    "content_hash": "51448ff63b6eac411d19a1141d03db08d1cbac5f51511eab539e52d6b22c8cc7",
+    "content_hash": "723cccb4b3ba6fcc647d5bec76f68a71caa6df5f21602474076d8d7a3658628d",
     "notes_hash": "7b7cbc1fa2c94de75c60a79ade3af8b0e09942faac2cbb23be66c01e5dfc9157",
-    "model_hash": "6eb8cf8933c830b6d942430254e4d28e5d3f6c612fb3c73e78030609c306b6cf"
+    "model_hash": "7b4f13709070b30c88ee7d1612393d65550bb51f02fa9dced2acd33aa585764e"
   },
   "geo_code": "ET",
   "node_type": "country",

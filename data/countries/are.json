@@ -63,46 +63,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in the United Arab Emirates",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_United_Arab_Emirates",
+          "title": "United Arab Emirates / الإمارات",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in the United Arab Emirates",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_United_Arab_Emirates",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "UAE's new drug laws cut sentences and end mandatory deportation for expats",
           "url": "https://www.thenationalnews.com/uae/courts/2021/11/28/uaes-new-drug-laws-cut-sentences-and-end-mandatory-deportation-for-expats/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "UAE eases drug laws: No more jail for those bringing in THC",
           "url": "https://apnews.com/article/health-middle-east-dubai-united-arab-emirates-medication-080fb48e5b6b97ac364e720b1459710d",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "UAE legal reforms: what the new law says about products containing cannabis extracts",
           "url": "https://www.thenationalnews.com/uae/2021/12/29/uae-legal-reforms-what-the-new-law-says-about-products-containing-cannabis-extracts/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "New UAE law cracks down on those promoting images of drugs on clothes, cars",
           "url": "https://gulfnews.com/uae/new-uae-law-cracks-down-on-those-promoting-images-of-drugs-on-clothes-cars-1.88282636",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in the United Arab Emirates",
           "url": "https://web.archive.org/web/20250106142729/https://apnews.com/article/health-middle-east-dubai-united-arab-emirates-medication-080fb48e5b6b97ac364e720b1459710d",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in the United Arab Emirates",
-          "url": "https://web.archive.org/web/20240908110722/https://www.thenationalnews.com/uae/2021/12/29/uae-legal-reforms-what-the-new-law-says-about-products-containing-cannabis-extracts/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -117,7 +117,20 @@
         "rule: penalty_fine | source: Cannabis in the United Arab Emirates | type: traversal | priority: 3 | scope: general",
         "rule: penalty_criminal_offense | source: Cannabis in the United Arab Emirates | type: traversal | priority: 3 | scope: use",
         "rule: penalty_prison | source: UAE eases drug laws: No more jail for those bringing in THC | type: reference | priority: 2 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 925,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": true,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -230,9 +243,9 @@
   },
   "hashes": {
     "code": "are",
-    "content_hash": "e12259e0085fa935373eb04f5fd926658ac8a4953c63886804272b8b0fb57cf2",
+    "content_hash": "f17d8f6643300efb2ff648678398777ad538e53a63bdc5db162adf345aa1384b",
     "notes_hash": "270c1b8ef022d684b5b5e4d0bbf15c46d3890c620a949657a7952d52cd3f38f9",
-    "model_hash": "612fa52f0f1c366c24417f8aa3a30ab7edc1d94ce92484ae1037ba8466aa6032"
+    "model_hash": "9942037f6c5c4b9707140cc6933431f955720fddc8fa7e96d595d02cc646c4aa"
   },
   "geo_code": "AE",
   "node_type": "country",

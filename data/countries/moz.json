@@ -56,52 +56,65 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Mozambique",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Mozambique",
+          "title": "Mozambique / Moçambique",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Mozambique",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Mozambique",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Carlos Cardoso: Telling the Truth in Mozambique",
           "url": "https://books.google.com/books?id=dnOIJThvRssC&pg=PA269",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis and Culture",
           "url": "https://books.google.com/books?id=gCRNRGOhNA4C&pg=PA83",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Drugs, Law, People, Place and the State: Ongoing regulation, resistance and change",
           "url": "https://books.google.com/books?id=yRE4DwAAQBAJ&pg=PT33",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "International Narcotics Control Strategy Report: Volume I: Drug and Chemical Control",
           "url": "https://books.google.com/books?id=0jnyNWFuhXYC&pg=PA455",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "The Supply of Illicit Drugs to the United States: The Nnicc Report",
           "url": "https://books.google.com/books?id=LvbJsQgnlXwC&pg=PA65",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Non-Timber Forest Products in the Global Context",
-          "url": "https://books.google.com/books?id=eQiSxsvuZ9kC&pg=PA93",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: raw_illegal | source: Cannabis in Mozambique | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Mozambique | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 812,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -207,9 +220,9 @@
   },
   "hashes": {
     "code": "moz",
-    "content_hash": "cfa9ea9baba34a45456f0766c5c61c54b8f5230bdce753e6851519aaf4604f7a",
+    "content_hash": "a0ddeb659b3e7bbc4be4c6975abdc0a3652d52a39a3216ca7c294fe1bf324f9c",
     "notes_hash": "ebc793619c31796b8002bb3ef3a2549263bac9c6ff79979dbaffed9a6f71cc99",
-    "model_hash": "098d0b2eb447394fc8eb670f8119ff87538d0434c4f66badd2040ec01aa05908"
+    "model_hash": "22b025f661fc3cfd433e51a8d36f97cd1f4c53d4fb216b2fcbbf52b95d556c10"
   },
   "geo_code": "MZ",
   "node_type": "country",

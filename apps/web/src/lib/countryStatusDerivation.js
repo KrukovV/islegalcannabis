@@ -51,21 +51,6 @@ function canonicalizeWikiTitle(value) {
     .trim();
 }
 
-function extractMainArticlesFromRaw(rawNotes) {
-  const raw = String(rawNotes || "");
-  const match = raw.match(/\{\{\s*main\s*\|([^}]+)\}\}/i);
-  if (!match) return [];
-  return match[1]
-    .split("|")
-    .slice(1)
-    .map((value) => canonicalizeWikiTitle(value))
-    .filter(Boolean)
-    .map((title) => ({
-      title,
-      url: `https://en.wikipedia.org/wiki/${encodeURIComponent(title.replace(/ /g, "_"))}`
-    }));
-}
-
 function normalizeSource(input, depth = 0) {
   const title = canonicalizeWikiTitle(input?.title || input?.title_hint || "");
   const url = typeof input?.url === "string" ? input.url.trim() : "";
@@ -149,7 +134,13 @@ function createState(input) {
     source_titles: [],
     modifiers: [],
     explain: [],
-    applied_rules: []
+    applied_rules: [],
+    debug: {
+      summary_len: 0,
+      article_len: 0,
+      reference_len: 0,
+      has_article: false
+    }
   };
 }
 
@@ -338,14 +329,15 @@ function sentenceSoftensRecreationalIllegality(normalizedSentence) {
 }
 
 function sentenceDocs(input) {
-  const docs = [];
+  const summaryDocs = [];
+  const secondaryDocs = [];
   const seen = new Set();
-  const pushDoc = (doc) => {
+  const pushDoc = (bucket, doc) => {
     const text = String(doc?.text || "").trim();
     const key = `${doc?.title || "-"}|${doc?.url || "-"}|${doc?.depth || 0}|${text}`;
     if (!text || seen.has(key)) return;
     seen.add(key);
-    docs.push({
+    bucket.push({
       title: canonicalizeWikiTitle(doc?.title || ""),
       url: typeof doc?.url === "string" ? doc.url.trim() : null,
       depth: Number.isFinite(doc?.depth) ? doc.depth : 0,
@@ -354,7 +346,7 @@ function sentenceDocs(input) {
     });
   };
 
-  pushDoc({
+  pushDoc(summaryDocs, {
     title: input?.countryName || input?.geo || "country_row",
     url: input?.sourceUrl || null,
     depth: 0,
@@ -362,13 +354,13 @@ function sentenceDocs(input) {
     text: `${input?.notes || ""} ${input?.rawNotes || ""}`.trim()
   });
   const traversalPages = Array.isArray(input?.traversalPages) ? input.traversalPages : [];
-  for (const page of traversalPages) pushDoc({ ...page, type: "traversal" });
+  for (const page of traversalPages) pushDoc(secondaryDocs, { ...page, type: "traversal" });
 
   const referenceSources = Array.isArray(input?.referenceSources) ? input.referenceSources : [];
   for (const source of referenceSources) {
     const hint = [source?.title_hint, source?.section_hint].filter(Boolean).join(". ").trim();
     if (!hint) continue;
-    pushDoc({
+    pushDoc(secondaryDocs, {
       title: source?.title_hint || source?.section_hint || "reference_hint",
       url: source?.url || null,
       depth: 2,
@@ -377,7 +369,10 @@ function sentenceDocs(input) {
     });
   }
 
-  return docs;
+  return {
+    summaryDocs,
+    secondaryDocs
+  };
 }
 
 const RULES_TABLE = [
@@ -648,18 +643,16 @@ const RULES_TABLE = [
   }
 ].sort((left, right) => right.priority - left.priority);
 
-function classify(input) {
+function classifyDocs(input, docs) {
   const state = createState(input);
-  const docs = sentenceDocs(input);
-  const baseSources = [
-    ...(Array.isArray(input?.notesMainArticles) ? input.notesMainArticles : []),
-    ...extractMainArticlesFromRaw(input?.rawNotes),
-    ...(Array.isArray(input?.referenceSources) ? input.referenceSources : [])
-  ];
-  for (const source of baseSources) addSource(state, source);
-
   for (const doc of docs) {
     addSource(state, doc);
+    if (doc.type === "summary") state.debug.summary_len += doc.text.length;
+    if (doc.type === "traversal") {
+      state.debug.article_len += doc.text.length;
+      state.debug.has_article = true;
+    }
+    if (doc.type === "reference") state.debug.reference_len += doc.text.length;
     const { sentences } = tokenize(doc.text);
     for (const sentence of sentences) {
       if (!sentence.normalized) continue;
@@ -679,11 +672,129 @@ function classify(input) {
     }
   }
 
-  if (!(Array.isArray(input?.traversalPages) && input.traversalPages.length > 0)) {
-    pushUnique(state.explain, "no traversal evidence");
+  return state;
+}
+
+function hasDetectedEnforcement(state) {
+  return state.enforcement_level.priority > 0 || state.enforcement_flags.includes("weak_enforcement");
+}
+
+function hasDetectedDistribution(state) {
+  return (
+    state.distribution.priority >= 0 ||
+    Object.values(state.scopes).some(Boolean) ||
+    state.applied_rules.some(
+      (ruleId) =>
+        ruleId.startsWith("distribution_") ||
+        ruleId.startsWith("sale_") ||
+        ruleId.startsWith("import_") ||
+        ruleId.startsWith("trafficking_") ||
+        ruleId.startsWith("cultivation_")
+    )
+  );
+}
+
+function mergeStates(input, notesState, articleState) {
+  const merged = createState(input);
+  merged.rec = { ...notesState.rec };
+  merged.med = { ...notesState.med };
+
+  merged.distribution =
+    hasDetectedDistribution(articleState) && articleState.distribution.priority >= 0
+      ? { ...articleState.distribution }
+      : { ...notesState.distribution };
+
+  for (const scope of Object.keys(DEFAULT_SCOPES)) {
+    if (articleState.scopes[scope]) {
+      merged.scopes[scope] = articleState.scopes[scope];
+      merged.scopePriority[scope] = articleState.scopePriority[scope];
+    } else {
+      merged.scopes[scope] = notesState.scopes[scope];
+      merged.scopePriority[scope] = notesState.scopePriority[scope];
+    }
   }
 
-  return state;
+  merged.enforcement_level = hasDetectedEnforcement(articleState)
+    ? { ...articleState.enforcement_level }
+    : { ...notesState.enforcement_level };
+
+  merged.enforcement_flags = [...notesState.enforcement_flags];
+  for (const flag of articleState.enforcement_flags) pushUnique(merged.enforcement_flags, flag);
+
+  merged.penalties = {
+    prison: notesState.penalties.prison || articleState.penalties.prison,
+    prison_priority: Math.max(notesState.penalties.prison_priority, articleState.penalties.prison_priority),
+    arrest: notesState.penalties.arrest || articleState.penalties.arrest,
+    fine: notesState.penalties.fine || articleState.penalties.fine,
+    severity_score: Math.max(notesState.penalties.severity_score, articleState.penalties.severity_score),
+    possession: {
+      prison: Boolean(notesState.penalties.possession?.prison || articleState.penalties.possession?.prison),
+      arrest: Boolean(notesState.penalties.possession?.arrest || articleState.penalties.possession?.arrest),
+      fine: Boolean(notesState.penalties.possession?.fine || articleState.penalties.possession?.fine),
+      severe: Boolean(notesState.penalties.possession?.severe || articleState.penalties.possession?.severe)
+    },
+    trafficking: {
+      prison: Boolean(notesState.penalties.trafficking?.prison || articleState.penalties.trafficking?.prison),
+      arrest: Boolean(notesState.penalties.trafficking?.arrest || articleState.penalties.trafficking?.arrest),
+      fine: Boolean(notesState.penalties.trafficking?.fine || articleState.penalties.trafficking?.fine),
+      severe: Boolean(notesState.penalties.trafficking?.severe || articleState.penalties.trafficking?.severe)
+    }
+  };
+
+  for (const source of notesState.sources) addSource(merged, source);
+  for (const source of articleState.sources) addSource(merged, source);
+  for (const modifier of notesState.modifiers) pushUnique(merged.modifiers, modifier);
+  for (const modifier of articleState.modifiers) pushUnique(merged.modifiers, modifier);
+  for (const line of notesState.explain) pushUnique(merged.explain, line);
+  for (const line of articleState.explain) pushUnique(merged.explain, line);
+  for (const ruleId of notesState.applied_rules) pushUnique(merged.applied_rules, ruleId);
+  for (const ruleId of articleState.applied_rules) pushUnique(merged.applied_rules, ruleId);
+
+  merged.debug = {
+    summary_len: notesState.debug.summary_len,
+    article_len: articleState.debug.article_len,
+    reference_len: articleState.debug.reference_len,
+    has_article: articleState.debug.has_article
+  };
+
+  if (!merged.debug.has_article) {
+    pushUnique(merged.explain, "no traversal evidence");
+  }
+
+  return merged;
+}
+
+function buildSecondarySourceDebug(mergedState, notesState, articleState) {
+  const hasArticle = mergedState.debug.has_article;
+  const articleLen = mergedState.debug.article_len;
+  let sourceConfidence = "no_secondary_source";
+  if (hasArticle && articleState.penalties.prison) sourceConfidence = "prison_signal";
+  else if (hasArticle) sourceConfidence = "no_prison_signal";
+
+  return {
+    has_article: hasArticle,
+    article_len: articleLen,
+    source_confidence: sourceConfidence,
+    signals: {
+      prison_notes: notesState.penalties.prison,
+      prison_article: articleState.penalties.prison,
+      enforcement_notes: hasDetectedEnforcement(notesState) ? notesState.enforcement_level.status : null,
+      enforcement_article: hasDetectedEnforcement(articleState) ? articleState.enforcement_level.status : null,
+      distribution_notes: hasDetectedDistribution(notesState) ? notesState.distribution.status : null,
+      distribution_article: hasDetectedDistribution(articleState) ? articleState.distribution.status : null
+    }
+  };
+}
+
+function classify(input) {
+  const docGroups = sentenceDocs(input);
+  const notesState = classifyDocs(input, docGroups.summaryDocs);
+  const articleState = classifyDocs(input, docGroups.secondaryDocs);
+  return {
+    notesState,
+    articleState,
+    mergedState: mergeStates(input, notesState, articleState)
+  };
 }
 
 function resolveRecFinal(state) {
@@ -764,7 +875,7 @@ function buildNotesSummary(params) {
   return `Cannabis is ${rec} in ${country}. Medical cannabis is ${med}. Distribution is ${distribution}.${prison}`;
 }
 
-function normalize(state) {
+function normalize(state, sourceStates = null) {
   const recFinal = resolveRecFinal(state);
   const medFinal = resolveMedFinal(state, recFinal);
   const distributionFinal = resolveDistributionFinal(state, recFinal);
@@ -835,7 +946,10 @@ function normalize(state) {
       penalties: { ...state.penalties },
       confidence,
       sources: [...state.sources],
-      explain: [...state.explain]
+      explain: [...state.explain],
+      secondary_source: sourceStates
+        ? buildSecondarySourceDebug(state, sourceStates.notesState, sourceStates.articleState)
+        : buildSecondarySourceDebug(state, state, createState(state.input))
     },
     enforcement_flags: [...state.enforcement_flags],
     applied_rules: [...state.applied_rules]
@@ -852,12 +966,12 @@ export function parseDistributionModel(input) {
     referenceSources: input?.referenceSources || [],
     notesMainArticles: input?.notesMainArticles || []
   });
-  return normalize(classified).distribution;
+  return normalize(classified.mergedState, classified).distribution;
 }
 
 export function deriveCountryStatusModel(input) {
   const classified = classify(input);
-  const normalized = normalize(classified);
+  const normalized = normalize(classified.mergedState, classified);
 
   return {
     recreational: normalized.recreational,

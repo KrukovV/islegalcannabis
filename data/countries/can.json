@@ -11,10 +11,10 @@
     },
     "medical": {
       "raw_status": "LEGAL",
-      "status": "LIMITED",
+      "status": "LEGAL",
       "enforcement": "MODERATE",
       "scope": "MEDICAL_ONLY",
-      "override_reason": "rec_implies_med_floor"
+      "override_reason": null
     },
     "distribution": {
       "status": "mixed",
@@ -66,46 +66,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Canada",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Canada",
+          "title": "Canada",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Canada",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Canada",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Cannabis laws of Canada by province or territory",
           "url": "https://en.wikipedia.org/wiki/Cannabis_laws_of_Canada_by_province_or_territory",
-          "depth": 0,
-          "type": "summary"
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Cannabis in Canada",
           "url": "https://www.parl.gc.ca/common/Committee_SenHome.asp?Language=E&Parl=37&Ses=1&comm_id=85",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Canada",
           "url": "https://www2.parl.gc.ca/HousePublications/Publication.aspx?pub=bill&doc=C-38&parl=37&ses=2&language=E",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Canada",
           "url": "https://www.statcan.gc.ca/pub/13-610-x/13-610-x2018001-eng.htm",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Canada Begins to Move on Legalizing Marijuana",
           "url": "https://time.com/4115711/marijuana-legalization-justin-trudeau/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Task force recommends setting 18 as minimum age for pot purchases",
-          "url": "https://www.bnnbloomberg.ca/ottawa-to-release-task-force-report-on-marijuana-legalization-1.630354",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -154,7 +154,20 @@
         "rule: legal | source: Cannabis laws of Canada by province or territory | type: traversal | priority: 3 | scope: possession",
         "rule: raw_illegal | source: Cannabis laws of Canada by province or territory | type: traversal | priority: 3 | scope: cultivation",
         "rule: illegal | source: Cannabis laws of Canada by province or territory | type: traversal | priority: 3 | scope: cultivation"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 47896,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -166,12 +179,11 @@
       "private_cultivation",
       "penalty_years",
       "sale_regulated",
-      "rec_implies_med_floor",
       "distribution_mixed_strong_penalty"
     ],
-    "notes_normalized": "Cannabis is legal in Canada. Medical cannabis is limited. Distribution is mixed. Prison exposure detected."
+    "notes_normalized": "Cannabis is legal in Canada. Medical cannabis is legal. Distribution is mixed. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is legal in Canada. Medical cannabis is limited. Distribution is mixed. Prison exposure detected.",
+  "notes_normalized": "Cannabis is legal in Canada. Medical cannabis is legal. Distribution is mixed. Prison exposure detected.",
   "notes_raw": "{{Main|Cannabis in Canada|Cannabis laws of Canada by province or territory}} Legal for medicinal purposes since 2001 and for recreational purposes since 17 October 2018. The age to buy or consume cannabis varies by province: 19 in most provinces, 18 in Alberta, and 21 in Quebec.<ref>{{cite web |title=Cannabis Legalization and Regulation |url=https://www.justice.gc.ca/eng/cj-jp/cannabis/ |publisher=Department of Justice, Government of Canada |date=7 July 2021 |access-date=29 June 2023 }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -269,9 +281,9 @@
   },
   "hashes": {
     "code": "can",
-    "content_hash": "58c1cdac32c82ca452c9987760d554a72124b3217990e8ab61c539e4fba8b4e9",
-    "notes_hash": "0c30179102f01394be4dfd424e0de2037573ad185639a8e817d3025666fbd2e0",
-    "model_hash": "fddd039b37e29efe138c38f309c4d3f67c67f9c092a16842d4a8bb49db469a35"
+    "content_hash": "e6bb9d51633bf9302844607c8e6bb1b709ef030cdc6ec61290ea2db37bc4e0e1",
+    "notes_hash": "537f720e1cb23a0c3dd9b4395af7da0df5b3f8571c1550cc47a97ecc4f08f187",
+    "model_hash": "ef08d0436ef6873703f65ff843483840a128eff00c2e4583553c7b39c7516daa"
   },
   "geo_code": "CA",
   "node_type": "country",

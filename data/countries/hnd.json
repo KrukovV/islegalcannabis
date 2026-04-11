@@ -56,28 +56,28 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Honduras",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Honduras",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Honduras",
-          "url": "https://www.poderjudicial.gob.hn/juris/Leyes/Ley%20sobre%20uso%20Indebido%20y%20Trafico%20Ilicito%20de%20Drogas%20y%20Sustancias%20Psicotropicas.pdf",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Honduras",
-          "url": "https://web.archive.org/web/20131006222109/http://www.poderjudicial.gob.hn/juris/Leyes/Ley%20sobre%20uso%20Indebido%20y%20Trafico%20Ilicito%20de%20Drogas%20y%20Sustancias%20Psicotropicas.pdf",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Honduras",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Honduras",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Honduras",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Cannabis in Honduras",
+          "url": "https://www.poderjudicial.gob.hn/juris/Leyes/Ley%20sobre%20uso%20Indebido%20y%20Trafico%20Ilicito%20de%20Drogas%20y%20Sustancias%20Psicotropicas.pdf",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis in Honduras",
+          "url": "https://web.archive.org/web/20131006222109/http://www.poderjudicial.gob.hn/juris/Leyes/Ley%20sobre%20uso%20Indebido%20y%20Trafico%20Ilicito%20de%20Drogas%20y%20Sustancias%20Psicotropicas.pdf",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -89,7 +89,20 @@
         "rule: trafficking_illegal | source: Cannabis in Honduras | type: traversal | priority: 3 | scope: trafficking",
         "rule: sale_illegal | source: Cannabis in Honduras | type: traversal | priority: 3 | scope: trafficking",
         "rule: illegal | source: Cannabis in Honduras | type: traversal | priority: 3 | scope: trafficking"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 104,
+        "source_confidence": "weak_article",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "illegal",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -195,9 +208,9 @@
   },
   "hashes": {
     "code": "hnd",
-    "content_hash": "5c4115aaa9962bda6aaa641d0c7fcc807acb7ab8a2879142dc92da3a6bebf364",
+    "content_hash": "43ab23c912df66e7705d120fd47b2bd9f7d03e6b36cdab579d16b07d201347c9",
     "notes_hash": "4fc807051916b0fab6b2053b42f5e74d3f606d41583dec2c09c936d803d8149d",
-    "model_hash": "713ed97a80c9050fee75f71bf8fb6b41a941978543a53abea485dec7324928dd"
+    "model_hash": "b4a6cdf0515883cf27d4cc029658b1a93bed1a1f7e93b8493e68b18db285cddb"
   },
   "geo_code": "HN",
   "node_type": "country",

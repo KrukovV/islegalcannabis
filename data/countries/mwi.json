@@ -61,46 +61,46 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Malawi",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Malawi",
+          "title": "Malawi / Malaŵi",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Malawi",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Malawi",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Malawi ready to produce cannabis for industrial and medicinal use",
           "url": "https://www.reuters.com/article/malawi-cannabis-idUSL8N2IA4VV",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Marijuana Wikipedia : Malawi Gold",
           "url": "https://www.marijuanatipster.com/tiki-index.php?page=Malawi%20Gold",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "BNL Times - Malawi's Premier News",
           "url": "https://www.bnltimes.com/index.php?option=com_content&view=article&id=2877:malawis-chamba-valued-at-k1-4-billion&catid=42:national&Itemid=401",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "What Will the Cannabis Economy Mean for Africa? Small farmers are fighting for their fair share",
           "url": "https://www.projectcbd.org/cannabis-in-africa",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Malawi legalises cannabis amid hopes of fresh economic growth - Law change hailed by supporters as chance for country to benefit from rising global demand for medicinal cannabis products",
           "url": "https://www.theguardian.com/global-development/2020/feb/28/malawi-legalises-cannabis-amid-hopes-of-fresh-economic-growth",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Malawi",
-          "url": "https://web.archive.org/web/20110714034016/http://www.marijuanatipster.com/tiki-index.php?page=Malawi%20Gold",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -113,7 +113,20 @@
         "rule: raw_illegal | source: Cannabis in Malawi | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Malawi | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Cannabis in Malawi | type: traversal | priority: 3 | scope: use"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 8863,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "illegal",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -222,9 +235,9 @@
   },
   "hashes": {
     "code": "mwi",
-    "content_hash": "decf30896acff9ccf554e1f896d927d677538701cdaec547b22e27db01d16943",
+    "content_hash": "89014105df22cd94b41b658ee23bd6c5fe96b73d25b00a21ec4ad164bb58cc3b",
     "notes_hash": "a85579dd15710ecf9d1ad3f5ad832bafa952579db6764430a1244fb09aeda84a",
-    "model_hash": "71d18c873b6c5b244da0393bb6f4f868a33f4ceec54836386ccbed2425064b02"
+    "model_hash": "49f59fd17c8941e385ac63f3bd75ffcb3098b34d6f61a922b29abbd92415ee89"
   },
   "geo_code": "MW",
   "node_type": "country",

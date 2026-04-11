@@ -27,9 +27,7 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
     },
     "signals": {
@@ -58,31 +56,45 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Yemen",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Yemen",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Legality of cannabis (notes)",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Yemen",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Yemen / اليمن",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Yemen",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Yemen",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Yemen",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
-        "no traversal evidence"
-      ]
+        "rule: raw_illegal | source: Cannabis in Yemen | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Yemen | type: traversal | priority: 3 | scope: general"
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 399,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Yemen / اليمن. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -184,9 +196,9 @@
   },
   "hashes": {
     "code": "yem",
-    "content_hash": "59a363fe1a42a2cb0e057569c0ce44fcd05fcb45f472d1051b91c94fd2ae6071",
+    "content_hash": "6bd553afc0714692e381101be457186d819c73ad196e8340ca3dd124eca066de",
     "notes_hash": "6c90f9be1701205c93f3521301b40501435791124b2765a5666926d99177ce63",
-    "model_hash": "a56ffb6dacf48ccd7b5b947d6efb34d3922b1bd5a1f1f7b71c74fab108dae9d9"
+    "model_hash": "56cda2f38a8bfb94af3ea09b07655760679188c266664fc0b86af1fc5812ae67"
   },
   "geo_code": "YE",
   "node_type": "country",

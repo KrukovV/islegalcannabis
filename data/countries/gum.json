@@ -66,7 +66,20 @@
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -165,9 +178,9 @@
   },
   "hashes": {
     "code": "gum",
-    "content_hash": "d20712209ad0ca91f06ca1ad775bc992ccfad47e87bba43a1e43fba5fccb70a6",
+    "content_hash": "be6e04232d91c6006b05c57d20f8fc4927b6ec00b6245e69bc115eda25f7477e",
     "notes_hash": "99f3ab179b85fe6020607577b709a35c98b7b2cce4f00a05b7832308c9abd445",
-    "model_hash": "90309404105df22bba98c64128829399c9557fd876bfefb51ed11a5d5052ec3b"
+    "model_hash": "323633ee499cf262d16dfe699a08cc9e9dfaf3620f882db110e789f10df3b455"
   },
   "geo_code": "GU",
   "node_type": "country",

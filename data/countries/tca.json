@@ -66,7 +66,20 @@
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -165,9 +178,9 @@
   },
   "hashes": {
     "code": "tca",
-    "content_hash": "81c878f26b428d29b58dc79501ac06eb74f779477e2fd0289cff78140d51d2a8",
+    "content_hash": "e82e0f509f8cef51b870734451fe55ae7cea415ca1ff1560dc05a6cc997d4808",
     "notes_hash": "21d30bf9bbfbf8ee38a4b643af11e60ced67b55d63d82ebea5729aa81f5ba673",
-    "model_hash": "ea81bf519ae8c2ca15caf240921bc1fcb31cb96699b2ede5daccc1b656ae0d17"
+    "model_hash": "8ea8e86da17ab32b2f4d4ce3f519d75a582c1fe70ffa1cb1f33a24627055e4e0"
   },
   "geo_code": "TC",
   "node_type": "country",

@@ -58,39 +58,46 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Montenegro",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Montenegro",
+          "title": "Montenegro / Црна Гора",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
         },
         {
           "title": "International Narcotics Control Strategy Report: Volume I: Drug and Chemical Control",
           "url": "https://books.google.com/books?id=0jnyNWFuhXYC&pg=PA447",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Montenegro",
           "url": "https://www.bbc.com/news/magazine-38111945",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Montenegro",
           "url": "https://www.stopdrogama.org/projekti1.htm",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Montenegro / Црна Гора",
-          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -196,9 +203,9 @@
   },
   "hashes": {
     "code": "mne",
-    "content_hash": "e8936117f72ec7fc067eacc9863e062117be91d9c8c22e4905b41d5c4920785f",
+    "content_hash": "fb44bb6abd8afc3499932466d9b128da09e27cbd5b9dd0f3712fa60259ccfa82",
     "notes_hash": "15e77900e5e6e1c45922cc10a36b40e5f06d246fc3e75cb155882a9c76f1bfc1",
-    "model_hash": "80efa71ad305e242a9ee89e3be71cd36a3831f49717a3d97a1c263828f364b45"
+    "model_hash": "fab1595f7811c4b3cac845fe47c2b3408e42be9983808be21ebd0d0e873691ea"
   },
   "geo_code": "ME",
   "node_type": "country",

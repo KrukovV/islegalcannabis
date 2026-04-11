@@ -56,22 +56,22 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in the Central African Republic",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Central_African_Republic",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Decriminalization of Marihuana: Hearings Before the Select Committee on Narcotics Abuse and Control, House of Representatives, Ninety-fifth Congress, First Session, March 14, 15, and 16, 1977",
-          "url": "https://books.google.com/books?id=pdDUAAAAMAAJ",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Central African Republic / République centrafricaine",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in the Central African Republic",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Central_African_Republic",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Decriminalization of Marihuana: Hearings Before the Select Committee on Narcotics Abuse and Control, House of Representatives, Ninety-fifth Congress, First Session, March 14, 15, and 16, 1977",
+          "url": "https://books.google.com/books?id=pdDUAAAAMAAJ",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -81,7 +81,20 @@
         "rule: trafficking_illegal | source: Cannabis in the Central African Republic | type: traversal | priority: 3 | scope: trafficking",
         "rule: sale_illegal | source: Cannabis in the Central African Republic | type: traversal | priority: 3 | scope: trafficking",
         "rule: illegal | source: Cannabis in the Central African Republic | type: traversal | priority: 3 | scope: trafficking"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 206,
+        "source_confidence": "weak_article",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -187,9 +200,9 @@
   },
   "hashes": {
     "code": "caf",
-    "content_hash": "8b627a910fed791aab4dc516559ba27abe56d24dd039d2b732f3c864cf76a30f",
+    "content_hash": "90e33c1335136287ce93a9887ac72dd13736966a5a0c84c0f86bd4b2a712a366",
     "notes_hash": "2717d7cdddfad0902b1fce5f3ef074ba9a2bb1fa6cd38d832488860fc869849a",
-    "model_hash": "88aa9b07350fd82860348e29a72bf989111f8f1042a197745ee22c45b1c1fb07"
+    "model_hash": "e8a26a4a4a92c5f76a025816a51d3f44a7cacae6010c01a664c532b0fce05dca"
   },
   "geo_code": "CF",
   "node_type": "country",

@@ -65,46 +65,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in the Czech Republic",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Czech_Republic",
+          "title": "Czechia / Česko",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in the Czech Republic",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Czech_Republic",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "New Czech penal code enters into force",
           "url": "https://www.emcdda.europa.eu/publications/drugnet/online/2010/69/article11",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Decriminalization of Narcotics: Czech Republic",
           "url": "https://www.loc.gov/law/help/decriminalization-of-narcotics/czechrepublic.php",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Marijuana Laws in Prague",
           "url": "https://pragueuncensored.com/is-weed-legal-in-prague-2025/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "40/2009 Sb. Trestní zákoník",
           "url": "https://www.zakonyprolidi.cz/cs/2009-40",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "467/2009 Sb. Nařízení vlády, kterým se pro účely trestního zákoníku stanoví, co se považuje za jedy a jaké je mno...",
           "url": "https://www.zakonyprolidi.cz/cs/2009-467",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Czech Republic Marijuana Information",
-          "url": "https://kushtourism.com/czech-republic-marijuana-information/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -132,7 +132,20 @@
         "rule: medical_legal | source: Cannabis in the Czech Republic | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Cannabis in the Czech Republic | type: traversal | priority: 3 | scope: trafficking",
         "rule: medical_legal | source: Cannabis in the Czech Republic | type: traversal | priority: 3 | scope: use"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 3343,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": true,
+          "prison_article": true,
+          "enforcement_notes": "rare",
+          "enforcement_article": null,
+          "distribution_notes": "restricted",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based",
@@ -249,9 +262,9 @@
   },
   "hashes": {
     "code": "cze",
-    "content_hash": "5ccec005bcda31828a95fd93bed12606d91f9a2419165c9b236426e50c7af1ca",
+    "content_hash": "9c05eb336baf329160fa008a9e75303fe7037e2d3f1f375f7415713834e0acbe",
     "notes_hash": "be0f7bb745951358b4a7bd84995f1153c2d53e16e39a78ee444c42f53b19d562",
-    "model_hash": "8f197fea36b2464e2791e29328ae4a0d9264a4b555f1d221dad2ac4232304a4d"
+    "model_hash": "36ab9d1ca4283e034843f92b46265c82d0afe01258082c4019f18a32a4444fcd"
   },
   "geo_code": "CZ",
   "node_type": "country",

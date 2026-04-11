@@ -58,46 +58,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Syria",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Syria",
+          "title": "Syria / سوريا",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Syria",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Syria",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Syrians Turn to Drugs to Forget the Burden of War",
           "url": "https://raseef22.net/article/1069955-syrians-turn-drugs-forget-burden-war",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "In Idlib, a Thriving Marijuana Industry Comes Under Assault",
           "url": "https://deeply.thenewhumanitarian.org/syria/articles/2014/07/23/in-idlib-a-thriving-marijuana-industry-comes-under-assault",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Syria's Assad grants amnesties before presidential election",
           "url": "https://abcnews.go.com/amp/International/wireStory/syrias-assad-grants-amnesties-presidential-election-77450821",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Syria",
           "url": "https://www.cannaconnection.com/blog/14704-legal-status-syria",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Syria",
           "url": "https://web.archive.org/web/20210504120344/https://www.cannaconnection.com/blog/14704-legal-status-syria",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "The League of Nations' Work on Social Issues",
-          "url": "https://www.un-ilibrary.org/content/books/9789210577021c006",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -114,7 +114,20 @@
         "rule: penalty_arrest | source: Cannabis in Syria | type: traversal | priority: 3 | scope: general",
         "rule: raw_illegal | source: Cannabis in Syria | type: traversal | priority: 3 | scope: sale",
         "rule: sale_illegal | source: Cannabis in Syria | type: traversal | priority: 3 | scope: sale"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 1950,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -227,9 +240,9 @@
   },
   "hashes": {
     "code": "syr",
-    "content_hash": "8db8451b6995568608054ff4d9c623da30dceb04b8decc926119cc7d65367210",
+    "content_hash": "e0714b55c387dd37d042bbdf5fb021b8be75060defad7bc74bc7c0f05e414e0e",
     "notes_hash": "1f175ae592dbf03341ded38f37b3cc0e75c3defc7e7f8012b512bd0f533fdf0b",
-    "model_hash": "06c1a6545a289647960a73b6cbe6388f84f841513700be6f7e761a8560c8eac2"
+    "model_hash": "7c2c6a4b57781c9f12bb55567fedcb8e179f44f0ce73c155541942d9d728ab4f"
   },
   "geo_code": "SY",
   "node_type": "country",

@@ -66,7 +66,20 @@
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -165,9 +178,9 @@
   },
   "hashes": {
     "code": "sgs",
-    "content_hash": "91c41ac6f7e9e1bb7fc3b40fb594274590507e4cc79eede93c8baa49d82433ff",
+    "content_hash": "8004b49c9c1758c3d6bc990f73af07580579ece2e6cf51ebd81994dfc757363a",
     "notes_hash": "871c5a9600488c5dc92eeb242bc9aefcc370e80c7ac4038bbee9e67b0b28c125",
-    "model_hash": "c9a3301c8e44b4ec4af78e11c1f6495757164b37f9c3d82b31b47e666823e46b"
+    "model_hash": "bd78128316ab48347caae502b0b70af07e493741d6c153e262f050a0af7bf71f"
   },
   "geo_code": "GS",
   "node_type": "country",

@@ -59,46 +59,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Armenia",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Armenia",
+          "title": "Armenia / Հայաստան",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Armenia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Armenia",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Armenia",
           "url": "https://2009-2017.state.gov/j/inl/rls/nrcrpt/2014/vol1/222844.htm",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "International Drugs Trade",
           "url": "https://books.google.com/books?id=aiaGBqo-kZkC&pg=PA174",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Armenia reports an increase in officially registered drug user rates – JAMnews",
           "url": "https://jam-news.net/?p=90340",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Armenia Goes Soft on Drugs",
           "url": "https://iwpr.net/global-voices/armenia-goes-soft-drugs",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Armenia",
           "url": "https://web.archive.org/web/20180309235237/https://jam-news.net/?p=90340",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "No plans to legalize weed in Armenia",
-          "url": "https://armenpress.am/eng/news/965400.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -107,7 +107,20 @@
         "rule: penalty_prison | source: Cannabis in Armenia | type: traversal | priority: 3 | scope: use",
         "rule: possession_decriminalized | source: Cannabis in Armenia | type: traversal | priority: 3 | scope: use",
         "rule: possession_decriminalized | source: Cannabis in Armenia | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 1699,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -215,9 +228,9 @@
   },
   "hashes": {
     "code": "arm",
-    "content_hash": "f51a5e388810f92a338dd1c071da07f645b2c8424fd04d74af3a5188e349440b",
+    "content_hash": "cca94616fbcbe9ff7334a374b5b12bcb74aafb97e62f24846846ca9a355b67e7",
     "notes_hash": "004a24d51da8bd9c26ff285564e93d7ab2fc15e1a1bf005c36569d9ba7a5fe3b",
-    "model_hash": "5e737287983c15f8134b7f2a539db970381d67a9a2f4c868cb818de2435d7121"
+    "model_hash": "6db528f709d8d60bbdb128ba0b3d9a0fe855cf13b589f2b853651f3a023cb824"
   },
   "geo_code": "AM",
   "node_type": "country",

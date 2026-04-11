@@ -58,27 +58,34 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Togo",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Togo",
+          "title": "Togo",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
         },
         {
           "title": "International Narcotics Control Strategy Report, 1995",
           "url": "https://books.google.com/books?id=w0DlWjK3YCEC&pg=PA452",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Togo",
-          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -184,9 +191,9 @@
   },
   "hashes": {
     "code": "tgo",
-    "content_hash": "f38f2f7d85e9ce99ee37bc6dbb3edefbf383e81f4e650a45ab3019bfeb018e3c",
+    "content_hash": "ca553580b1ec4015ad1565958bb2356c6e8d87cd7a07fa55e8e3c4e39c54ddc2",
     "notes_hash": "729a48e64e7c320790012e02ae0f749bbb6907a70bb8501ddab605f7c16a5484",
-    "model_hash": "174a15683c56e5ebf61793806cfd8d6ada3bb2e8bc189c6335a79fe0614a565c"
+    "model_hash": "55004b478947b2b67936afce695f6555426037a6fb7c07021ecc145850acff72"
   },
   "geo_code": "TG",
   "node_type": "country",

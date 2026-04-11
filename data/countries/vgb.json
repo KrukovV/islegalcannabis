@@ -66,7 +66,20 @@
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -165,9 +178,9 @@
   },
   "hashes": {
     "code": "vgb",
-    "content_hash": "4935e202ac50180e1f12345e5d39b197e5b4e40b31fc4005252f759fd2255a5b",
+    "content_hash": "637a35444094c080072479945e87f5c794a75a9f29ff179267f53cbbcc058082",
     "notes_hash": "339a3628dd3950fe5e8bdc876c172b3a9e0fb99e72b1acaefde0424f3592cd42",
-    "model_hash": "1443903a976885f56b728bcb3ace411af6a409edba1211fb2e4b05b809dcbed7"
+    "model_hash": "7f499e9845dcb8063847ea913188b41958e785e2b72dfc19e316aa4b1e14df70"
   },
   "geo_code": "VG",
   "node_type": "country",

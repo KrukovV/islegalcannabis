@@ -112,8 +112,22 @@ export type CountryPageData = {
         title: string;
         url: string | null;
         depth: number;
+        type?: "summary" | "traversal" | "reference";
       }>;
       explain: string[];
+      secondary_source?: {
+        has_article: boolean;
+        article_len: number;
+        source_confidence: "no_secondary_source" | "weak_article" | "no_prison_signal" | "prison_signal";
+        signals: {
+          prison_notes: boolean;
+          prison_article: boolean;
+          enforcement_notes: "active" | "rare" | "unenforced" | null;
+          enforcement_article: "active" | "rare" | "unenforced" | null;
+          distribution_notes: CountryDistributionStatus | null;
+          distribution_article: CountryDistributionStatus | null;
+        };
+      };
     };
     enforcement_flags?: string[];
     applied_rules?: string[];

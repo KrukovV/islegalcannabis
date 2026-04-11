@@ -58,28 +58,41 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Cape Verde",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cape_Verde",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "International Narcotics Control Strategy Report: Volume I: Drug and Chemical Control",
-          "url": "https://books.google.com/books?id=0jnyNWFuhXYC&pg=PA187",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Cape Verde / Cabo Verde",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Cape Verde",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cape_Verde",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "International Narcotics Control Strategy Report: Volume I: Drug and Chemical Control",
+          "url": "https://books.google.com/books?id=0jnyNWFuhXYC&pg=PA187",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: raw_illegal | source: Cannabis in Cape Verde | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Cape Verde | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 236,
+        "source_confidence": "weak_article",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -185,9 +198,9 @@
   },
   "hashes": {
     "code": "cpv",
-    "content_hash": "c71fa3980a49dec3bda93a9f6ac59ce2caa0542e51e3091db493d1b54498394b",
+    "content_hash": "bfbd66d0030a306a3f5c50ccce1e3012f7dd5235e9978f85bbfb5cae797d0bba",
     "notes_hash": "1311c9600ef0d8123d9b1c083671f81703c096b860c1688f8b7a990c81146719",
-    "model_hash": "0b83cb9566ca4e6b7250e40f6e078db96646afe0c2d40dd301703bb74019a3a4"
+    "model_hash": "cd97a13782a86f1e8c3a724661147a3df05bd67b4e673b1c21045bbccf0e4f79"
   },
   "geo_code": "CV",
   "node_type": "country",

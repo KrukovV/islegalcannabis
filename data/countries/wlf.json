@@ -66,7 +66,20 @@
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -165,9 +178,9 @@
   },
   "hashes": {
     "code": "wlf",
-    "content_hash": "2ab019bd59556528157de12b6375c85a021cca9d71693db3ff241aa635e0e930",
+    "content_hash": "5cc0b5d67239239ad70be3d24f84e918cefdf405fde7235e3be45f5a20db4cba",
     "notes_hash": "4580151da812b8eac19f531183a20e46a1a1230b164c2b50f14d14209c1261ae",
-    "model_hash": "0e1370347dce166026846b0ec35a473646059adecb9d263a271fec72f21c2a6a"
+    "model_hash": "c4c05df3d02da5566a7c5c463dc76a35acabdced20c37f0653311b9d305b5acc"
   },
   "geo_code": "WF",
   "node_type": "country",

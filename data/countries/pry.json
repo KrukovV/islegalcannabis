@@ -29,8 +29,7 @@
       "enforcement": "standard",
       "flags": [],
       "modifiers": [
-        "up_to",
-        "but"
+        "up_to"
       ]
     },
     "signals": {
@@ -59,60 +58,69 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Paraguay",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Paraguay",
+          "title": "Paraguay / Paraguái",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
         },
         {
           "title": "Paraguay deploys anti-narco top guns to combat economic need for weed &#124; Laurence Blair &#124; Global development",
           "url": "https://www.theguardian.com/global-development/2015/jun/25/paraguay-drugs-small-farmers-marijuana-cocaine",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Mexico, Paraguay top pot producers, U.N. report says - CNN.com",
           "url": "https://edition.cnn.com/2008/WORLD/americas/11/25/paraguay.mexico.marijuana/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Paraguay Next to Legalize Marijuana Says President of Congress",
           "url": "https://panampost.com/panam-staff/2015/03/03/paraguay-next-to-legalize-marijuana-says-president-of-congress/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Paraguay - Drug Law Reform in Latin America",
           "url": "https://www.druglawreform.info/en/country-information/latin-america/paraguay/item/206-paraguay",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "En Paraguay, la posesión y consumo personal de la marihuana es legal",
           "url": "https://ea.com.py/v2/en-paraguay-la-posesion-y-consumo-personal-de-la-marihuana-es-legal/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Paraguay",
           "url": "https://web.archive.org/web/20190420013131/http://www.druglawreform.info/en/country-information/latin-america/paraguay/item/206-paraguay",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: penalty_criminal_offense | source: Paraguay / Paraguái | type: summary | priority: 1 | scope: possession",
-        "rule: raw_illegal | source: Cannabis in Paraguay | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Paraguay | type: traversal | priority: 3 | scope: general",
-        "rule: possession_decriminalized | source: Cannabis in Paraguay | type: traversal | priority: 3 | scope: possession"
-      ]
+        "no traversal evidence"
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": true,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
       "penalty_criminal_offense",
-      "raw_illegal",
-      "possession_decriminalized",
       "rec_implies_med_floor"
     ],
     "notes_normalized": "Cannabis is decriminalized in Paraguay / Paraguái. Medical cannabis is limited. Distribution is restricted. Prison exposure detected."
@@ -215,9 +223,9 @@
   },
   "hashes": {
     "code": "pry",
-    "content_hash": "d15c9642c4802b2c589eaef1b861d6d96c990c158e35f7680c333c5855220474",
+    "content_hash": "f16ef6108801dc9c2a78f1b0a37aef3f239e59deee7c244966ca47da66d1a7ed",
     "notes_hash": "97c9e4b0f3a066ca9479be8d3f7dbf44cf3a9e51e51194bd779506c8a53f54a0",
-    "model_hash": "277021cd9b3f547bf8b743a9d54ab8d6a84b62da4032c70ca1db46936faabe25"
+    "model_hash": "b17cf9fa1f7862d8b1c8df75b5515d03f3e4947037f00e54f6317bc345408041"
   },
   "geo_code": "PY",
   "node_type": "country",

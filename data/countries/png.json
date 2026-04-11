@@ -59,53 +59,66 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Papua New Guinea",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Papua_New_Guinea",
+          "title": "Papua New Guinea / Papua Niu Gini",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Papua New Guinea",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Papua_New_Guinea",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Encyclopedia of Drug Policy",
           "url": "https://books.google.com/books?id=dip1AwAAQBAJ&pg=PA630",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Food and Agriculture in Papua New Guinea",
           "url": "https://books.google.com/books?id=p92MsquxOEwC&pg=PA227",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Australia and Papua New Guinea: Crime and the Bilateral Relationship",
           "url": "https://books.google.com/books?id=4ojaAAAAMAAJ",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Report of the International Narcotics Control Board 2006",
           "url": "https://books.google.com/books?id=qGjTNqElWJoC&pg=PA84",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Report of the International Narcotics Control Board for 2001",
           "url": "https://books.google.com/books?id=rGxOtNMYQawC&pg=PA80",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Papua New Guinea: The Struggle for Development",
-          "url": "https://books.google.com/books?id=jMeHAgAAQBAJ&pg=PA73",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: raw_illegal | source: Cannabis in Papua New Guinea | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Papua New Guinea | type: traversal | priority: 3 | scope: general",
         "rule: penalty_fine | source: Cannabis in Papua New Guinea | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 1780,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -214,9 +227,9 @@
   },
   "hashes": {
     "code": "png",
-    "content_hash": "9ccbbf4c2490acc81115820f5740a8b59d9ced2285dfe2cc33ce66404523693a",
+    "content_hash": "6464fc9f1b661fa4c1bb46086e0a1b4d2794530e7cd8802c7e5cedc1ed2159cc",
     "notes_hash": "578e1752120867c3991c9c1ef5627f3de4a11c6e67498f76482519027db744eb",
-    "model_hash": "c8afe788b33e15bf987dffff412685a388aec520cb3e58bdced0ba511106bd15"
+    "model_hash": "276487e994cba536866351363462ddd8b3ca477fe273f944fd9690f848db99a1"
   },
   "geo_code": "PG",
   "node_type": "country",

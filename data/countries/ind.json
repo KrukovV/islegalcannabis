@@ -11,9 +11,9 @@
     },
     "medical": {
       "raw_status": "LEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
       "override_reason": null
     },
     "distribution": {
@@ -27,7 +27,9 @@
         "trafficking": "illegal"
       },
       "enforcement": "fine-based",
-      "flags": [],
+      "flags": [
+        "sale_illegal"
+      ],
       "modifiers": [
         "may",
         "however",
@@ -62,46 +64,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in India",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_India",
+          "title": "India / भारत",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in India",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_India",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Cannabis in India",
           "url": "https://www.unodc.org/documents/treaties/organized_crime/Drug%20Convention/Commentary_on_the_single_convention_1961.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "A Cannabis Reader: Global Issues and Local Experiences : Perspectives on Cannabis Controversies, Treatment and Regulation in Europe",
           "url": "https://books.google.com/books?id=d_ElAQAAMAAJ",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Drug Abuse in the Modern World: A Perspective for the Eighties",
           "url": "https://books.google.com/books?id=Ka8gBQAAQBAJ&pg=PA262",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Recreational use of marijuana: Of highs and laws",
           "url": "https://timesofindia.indiatimes.com/india/Recreational-use-of-marijuana-Of-highs-and-laws/articleshow/17165524.cms?referral=PM",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Marijuana Legalization: What Everyone Needs to KnowRG",
           "url": "https://books.google.com/books?id=MRFpAgAAQBAJ&pg=PA139",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "India's cannabis economy has a new hope—Patanjali",
-          "url": "https://qz.com/1191203/patanjali-the-indian-cannabis-economys-new-hope/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -130,7 +132,20 @@
         "rule: raw_illegal | source: Cannabis in India | type: traversal | priority: 3 | scope: general",
         "rule: raw_illegal | source: 'Bhang'is intoxicant, its possession is prohibited: HC | type: reference | priority: 2 | scope: possession",
         "rule: illegal | source: 'Bhang'is intoxicant, its possession is prohibited: HC | type: reference | priority: 2 | scope: possession"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 19802,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": "rare",
+          "distribution_notes": "illegal",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based",
@@ -141,11 +156,13 @@
       "penalty_years",
       "penalty_fine",
       "enforcement_rare",
+      "illegal",
+      "sale_illegal",
       "penalty_prison"
     ],
-    "notes_normalized": "Cannabis is illegal in India / भारत. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in India / भारत. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in India / भारत. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in India / भारत. Medical cannabis is legal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in India}} Albeit illegal, usage is prevalent and some government-owned shops sell cannabis in the form of bhang. States have their own laws regarding cannabis, locally known as ''ganja''.",
   "facts": {
     "possession_limit": null,
@@ -243,9 +260,9 @@
   },
   "hashes": {
     "code": "ind",
-    "content_hash": "5ec53ae92d264842510cab4baeb2368aec95a7bd35bc17df768d5e3c43753f3c",
-    "notes_hash": "2d87041d60e4364ad3c19ae6b96fa099b11475863495172bd85c53ee5a156b28",
-    "model_hash": "8d336fe3c3c52ce33880b6a02097798e4465123ff1a4431d75fb54af41e2cff0"
+    "content_hash": "602c42699713375b3ad78b5fad6f8bbce8f090030d10eace363e1c9901bcffb4",
+    "notes_hash": "f2a752ffd7783d8a8adcdc355525e8c018d546a1dc3f70135820b8a5706ed9bc",
+    "model_hash": "75beba60af45ee41796080b475922b8cdcf8a333c8726fc4f632ec12d99200be"
   },
   "geo_code": "IN",
   "node_type": "country",

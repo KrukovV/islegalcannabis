@@ -66,7 +66,20 @@
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -165,9 +178,9 @@
   },
   "hashes": {
     "code": "atf",
-    "content_hash": "3bf92f526047cc310add15ea527c3cb3800d2613885f962ed868c2324b78ed38",
+    "content_hash": "aed9e4fde9bce8a77c96bba52727496cbf2975d97671343a26190585cb94a5cf",
     "notes_hash": "e6f7d5cb539abecac8bdf037b08b109cc9f58276d073765090bb1c984b641cdf",
-    "model_hash": "4918e58d45efb3f0846fe46adf578dbd5d9c58044655096e80506deac7ce03cb"
+    "model_hash": "9c1a521be98e2068eafaeb18f7da50420458fab04bd7311126e37fbe7aa1667f"
   },
   "geo_code": "TF",
   "node_type": "country",

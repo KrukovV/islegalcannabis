@@ -66,7 +66,20 @@
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -165,9 +178,9 @@
   },
   "hashes": {
     "code": "cuw",
-    "content_hash": "1d2d8b4e046133cbbc39d9cf18b71769c0441d8d91533ddb592bc4acfb13742a",
+    "content_hash": "d6a010609d3c83c568377650e4fbc034880185d18a81c14b71b818785fc34982",
     "notes_hash": "dfcaed8ab4f74fd67e5131121713baa00b71f2e3fa074ad2ca2f80ceb6e90ddd",
-    "model_hash": "34b1fca18d03a114230224fb871f0bed815816b3f1f3ba071643c67e9a29e0bc"
+    "model_hash": "4d6199fc71fac3d9b206a12892d3e8366f425b45b97d1fb7f4387d54543ac6f4"
   },
   "geo_code": "CW",
   "node_type": "country",

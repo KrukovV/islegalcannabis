@@ -66,7 +66,20 @@
         "rule: raw_illegal | source: Vatican City / Vaticano | type: summary | priority: 1 | scope: possession",
         "rule: illegal | source: Vatican City / Vaticano | type: summary | priority: 1 | scope: possession",
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "illegal",
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -172,9 +185,9 @@
   },
   "hashes": {
     "code": "vat",
-    "content_hash": "d71d7391f3d0fb4cd6af8532ea6b49b8c3ad4d6c3b0ac3ca8d5a566cfc7d7525",
+    "content_hash": "5a884e8fc18e8f9d8ef811f0cc72bf2a5a5cdeb0fdddc11064a4e6bcbdc6ba09",
     "notes_hash": "63bd1e0bad631635f192602ae4855cea9be93ec30a87da0560cd08d5f99f3cd7",
-    "model_hash": "2d1ecd795ed4193848ac38079041bde8259753137e80f2f4f77690da54e66ce6"
+    "model_hash": "e83a6ce6b989ef3e841a3cc2529d079a1bc5af80c16445cbc3bbffee148dc455"
   },
   "geo_code": "VA",
   "node_type": "country",

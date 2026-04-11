@@ -58,22 +58,22 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Laos",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Laos",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Legality of cannabis (notes)",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Laos",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Laos / ສປປລາວ",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Laos",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Laos",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Laos",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -82,7 +82,20 @@
         "rule: penalty_prison | source: Cannabis in Laos | type: traversal | priority: 3 | scope: general",
         "rule: penalty_arrest | source: Cannabis in Laos | type: traversal | priority: 3 | scope: general",
         "rule: penalty_fine | source: Cannabis in Laos | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 930,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -193,9 +206,9 @@
   },
   "hashes": {
     "code": "lao",
-    "content_hash": "4305e89fcb24985345e62dba99562dc08c2411b15013a73d71ebc842783acb6f",
+    "content_hash": "1d17f72eaafbe04634c80f53b813097a3f83a6f1ee1c0f88a031ca32f3a22d88",
     "notes_hash": "62ef9b91e37bef15cbaa375ac8ce1abecfde9985591654dd207dfd7e7da8062d",
-    "model_hash": "6c2ef6171f1aadcf1d569c6d5111929f4903fb3bea4c903b8c90350dc8c2cf45"
+    "model_hash": "e0bd06715a19113f36fd095ef066616c7a4bd5022975a525bba4c41e0039ff0e"
   },
   "geo_code": "LA",
   "node_type": "country",

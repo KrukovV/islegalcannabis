@@ -27,10 +27,12 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "flags": [],
+      "modifiers": [
+        "but",
+        "only",
+        "however"
+      ]
     },
     "signals": {
       "status": "illegal",
@@ -58,49 +60,62 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in El Salvador",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_El_Salvador",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Piden que se permita plantar y consumir marihuana en El Salvador",
-          "url": "https://www.laprensagrafica.com/elsalvador/Piden-que-se-permita-plantar-y-consumir-marihuana-en-El-Salvador-20170520-0002.html",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Promueven despenalizar la marihuana en El Salvador",
-          "url": "https://www.elnuevodiario.com.ni/internacionales/318677-promueven-despenalizar-marihuana-salvador/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in El Salvador",
-          "url": "https://web.archive.org/web/20171225092019/https://www.elnuevodiario.com.ni/internacionales/318677-promueven-despenalizar-marihuana-salvador/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Attitudes towards drug policies in Latin America: Results from a Latin-American Survey",
-          "url": "https://eprints.bbk.ac.uk/17688/3/17688.pdf",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "El Salvador",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in El Salvador",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_El_Salvador",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Piden que se permita plantar y consumir marihuana en El Salvador",
+          "url": "https://www.laprensagrafica.com/elsalvador/Piden-que-se-permita-plantar-y-consumir-marihuana-en-El-Salvador-20170520-0002.html",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Promueven despenalizar la marihuana en El Salvador",
+          "url": "https://www.elnuevodiario.com.ni/internacionales/318677-promueven-despenalizar-marihuana-salvador/",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis in El Salvador",
+          "url": "https://web.archive.org/web/20171225092019/https://www.elnuevodiario.com.ni/internacionales/318677-promueven-despenalizar-marihuana-salvador/",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Attitudes towards drug policies in Latin America: Results from a Latin-American Survey",
+          "url": "https://eprints.bbk.ac.uk/17688/3/17688.pdf",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
-        "no traversal evidence"
-      ]
+        "rule: raw_illegal | source: Cannabis in El Salvador | type: traversal | priority: 3 | scope: possession"
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 1936,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in El Salvador. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -202,9 +217,9 @@
   },
   "hashes": {
     "code": "slv",
-    "content_hash": "5ed0433212309b86b9b25e907824d91a33c64dc7f1da2a7912fb512d690d6ecf",
+    "content_hash": "81d432e5c59886373ebb311249224eadd2b287d2c21e2ecd453a8dec15ea5f75",
     "notes_hash": "43e605994bcda80e31f7bd31e1dde83b035b05bb2226bfcc231e3f113fdbbd0a",
-    "model_hash": "56b4a76a747b92eff15f343b1ce7f2dba991b55c3a1171fa9018886fbd9d746c"
+    "model_hash": "c67ee7a0d34a2d96bec31cdaa5fc5dca97540f9fedb585347d7c149f4b93e122"
   },
   "geo_code": "SV",
   "node_type": "country",

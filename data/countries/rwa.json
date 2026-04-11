@@ -11,9 +11,9 @@
     },
     "medical": {
       "raw_status": "LEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
       "override_reason": null
     },
     "distribution": {
@@ -58,60 +58,73 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Rwanda",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Rwanda",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Rwanda legalises medical use of Cannabis",
-          "url": "https://www.theeastafrican.co.ke/tea/news/east-africa/rwanda-legalises-medical-use-of-cannabis--3456728",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis and Culture",
-          "url": "https://books.google.com/books?id=gCRNRGOhNA4C&pg=PA217",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Africa and the War on Drugs",
-          "url": "https://archive.org/details/africawarondrugs0000carr",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Rwanda",
-          "url": "https://archive.org/details/africawarondrugs0000carr/page/85",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Rwanda",
-          "url": "https://www.theeastafrican.co.ke/news/Ill-and-need-marijuana-Head-south-to-Rwanda/2558-1145978-jsjiv1z/index.html",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Rwanda",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Rwanda",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Rwanda",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Rwanda legalises medical use of Cannabis",
+          "url": "https://www.theeastafrican.co.ke/tea/news/east-africa/rwanda-legalises-medical-use-of-cannabis--3456728",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis and Culture",
+          "url": "https://books.google.com/books?id=gCRNRGOhNA4C&pg=PA217",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Africa and the War on Drugs",
+          "url": "https://archive.org/details/africawarondrugs0000carr",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis in Rwanda",
+          "url": "https://archive.org/details/africawarondrugs0000carr/page/85",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis in Rwanda",
+          "url": "https://www.theeastafrican.co.ke/news/Ill-and-need-marijuana-Head-south-to-Rwanda/2558-1145978-jsjiv1z/index.html",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: raw_illegal | source: Cannabis in Rwanda | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Cannabis in Rwanda | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 609,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
       "raw_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Rwanda. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is illegal in Rwanda. Medical cannabis is legal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in Rwanda. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Rwanda. Medical cannabis is legal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Rwanda}}",
   "facts": {
     "possession_limit": null,
@@ -209,9 +222,9 @@
   },
   "hashes": {
     "code": "rwa",
-    "content_hash": "e6456f92d36f39dd28cfb49e41266d8649c91dcc7be65316fecf81791ca79f47",
-    "notes_hash": "b0d94ca277f3ebbd4f7e31b1d53c36e5ecb426ecd8a636455d80040fe88aae8a",
-    "model_hash": "5821951329983eaa83fdb2d1955f800dadf1cd908a59a37e27890968deb3dbef"
+    "content_hash": "6e6e2446455eccd579a0e84c3539df9cfc56147086f69f4f85e57e59f9543efe",
+    "notes_hash": "2a55eb50ad23fe03a02373e7fd695deac3542ff9715a1bad0d3977ca0dc24d18",
+    "model_hash": "fbe89820a190c850422d2930eed4db9c0df50ce0058bc6d61aea57de10613f8f"
   },
   "geo_code": "RW",
   "node_type": "country",

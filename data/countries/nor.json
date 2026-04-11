@@ -26,27 +26,30 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [],
       "modifiers": [
-        "up_to"
+        "up_to",
+        "may",
+        "only",
+        "but"
       ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
       "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 4,
         "possession": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
-          "fine": false,
-          "severe": false
+          "fine": true,
+          "severe": true
         },
         "trafficking": {
           "prison": false,
@@ -55,49 +58,49 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
+        {
+          "title": "Norway / Noreg",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        },
         {
           "title": "Cannabis in Norway",
           "url": "https://en.wikipedia.org/wiki/Cannabis_in_Norway",
-          "depth": 0,
-          "type": "summary"
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Mandate for the Drug Policy Working Group",
           "url": "https://www.regjeringen.no/no/dep/hod/org/styrer-rad-og-utvalg/rusreformutvalget/mandat-for-rusreforutvalget/id2594883/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "The Drug Policy Working Group",
           "url": "https://www.regjeringen.no/no/dep/hod/org/styrer-rad-og-utvalg/rusreformutvalget/id2594880/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Behandling med medisinsk cannabis innenfor dagens regelverk",
           "url": "https://legemiddelverket.no/nyheter/behandling-med-medisinsk-cannabis-innenfor-dagens-regelverk",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Støre sier nei - rusreformen splitter ap",
           "url": "https://www.nrk.no/norge/store-sier-nei---rusreformen-splitter-ap-1.15458738",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Stopper straffeforfølgning av rusavhengige med brukerdoser",
           "url": "https://rett24.no/articles/stopper-straffeforfolgning-av-rusavhengige-med-brukerdoser",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Retningslinjer etter Høyesterettsdommer om rusavhengige",
-          "url": "https://www.riksadvokaten.no/document/retningslinjer-etter-hoyesterettsdommer-om-rusavhengige/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -105,16 +108,45 @@
         "rule: illegal | source: Norway / Noreg | type: summary | priority: 1 | scope: general",
         "rule: raw_illegal | source: Norway / Noreg | type: summary | priority: 1 | scope: possession",
         "rule: illegal | source: Norway / Noreg | type: summary | priority: 1 | scope: possession",
-        "no traversal evidence"
-      ]
+        "rule: medical_legal | source: Cannabis in Norway | type: traversal | priority: 3 | scope: use",
+        "rule: medical_limited | source: Cannabis in Norway | type: traversal | priority: 3 | scope: use",
+        "rule: raw_illegal | source: Cannabis in Norway | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Norway | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Norway | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_criminal_offense | source: Cannabis in Norway | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_fine | source: Cannabis in Norway | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_prison | source: Cannabis in Norway | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Norway | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_years | source: Cannabis in Norway | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in Norway | type: traversal | priority: 3 | scope: general"
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 3090,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "illegal",
+          "distribution_article": "illegal"
+        }
+      }
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "raw_illegal"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is illegal in Norway / Noreg. Medical cannabis is legal. Distribution is illegal."
+    "applied_rules": [
+      "raw_illegal",
+      "penalty_prison",
+      "penalty_criminal_offense",
+      "penalty_fine",
+      "penalty_years"
+    ],
+    "notes_normalized": "Cannabis is illegal in Norway / Noreg. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Norway / Noreg. Medical cannabis is legal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Norway / Noreg. Medical cannabis is legal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Norway}} Illegal since 1965. As of 2022, use and possession of up to {{cvt|15|g|frac=2}} are punished with heavy fines and possible loss of driver's license.<ref>{{cite web |url=https://www.regjeringen.no/no/dokumenter/nou-2019-26/id2683531/?ch=1 |title=NOU 2019: 26 |publisher=regjeringen.no |date=19 December 2019 |access-date=14 January 2020 |archive-date=31 December 2019 |archive-url=https://web.archive.org/web/20191231164125/https://www.regjeringen.no/no/dokumenter/nou-2019-26/id2683531/?ch=1 |url-status=live }}</ref><ref>{{cite web|url=https://www.regjeringen.no/no/dep/hod/org/styrer-rad-og-utvalg/rusreformutvalget/id2594880/|title=The Drug Policy Working Group|date=23 March 2018|publisher=The Office of the Prime Minister|access-date=17 December 2018|archive-date=6 March 2021|archive-url=https://web.archive.org/web/20210306172036/https://www.regjeringen.no/no/dep/hod/org/styrer-rad-og-utvalg/rusreformutvalget/id2594880/|url-status=live}}</ref><ref>{{Cite web|url=https://www.riksadvokaten.no/wp-content/uploads/2017/09/Rundskriv-2014-2-Narkotikasaker.pdf|title=Riksadvokatens rundskriv nr. 2 2014|access-date=17 December 2018|archive-date=5 March 2021|archive-url=https://web.archive.org/web/20210305100104/https://www.riksadvokaten.no/wp-content/uploads/2017/09/Rundskriv-2014-2-Narkotikasaker.pdf|url-status=live}}</ref> [[Solberg's Cabinet]] proposed a decriminalization bill in 2021 that would remove all sanctions for illegal drug use, including possession of up to {{cvt|10|g|frac=8}} of cannabis. Six parties (43,8%) voted for, while three parties (56,2%) voted against. As a result, the bill did not pass the parliament.<ref>{{cite web|url=https://www.nrk.no/norge/store-sier-nei---rusreformen-splitter-ap-1.15458738|title=Støre sier nei – rusreformen splitter ap|date=16 April 2021|publisher=nrk|access-date=17 April 2021|archive-date=16 April 2021|archive-url=https://web.archive.org/web/20210416092904/https://www.nrk.no/norge/store-sier-nei---rusreformen-splitter-ap-1.15458738|url-status=live}}</ref><ref>{{cite web|url=https://frifagbevegelse.no/nyheter/mdglandsmotet-avsluttet--dette-er-de-viktigste-vedtakene-6.158.779191.eb57a0bc61|title=MDG landsmøtet avsluttet–dette er de viktigste vedtakene|date=29 March 2021|publisher=frifagbevegelse|access-date=17 April 2021|archive-date=17 April 2021|archive-url=https://web.archive.org/web/20210417101843/https://frifagbevegelse.no/nyheter/mdglandsmotet-avsluttet--dette-er-de-viktigste-vedtakene-6.158.779191.eb57a0bc61|url-status=live}}</ref>",
   "facts": {
     "possession_limit": "up to 15 g",
@@ -212,9 +244,9 @@
   },
   "hashes": {
     "code": "nor",
-    "content_hash": "1ba7b4377f3010f95a0899900669758f37b0f27fddf26276fd7feab04ce6d66b",
-    "notes_hash": "9913b5810c4acb6d57894e6cbec5eed4aefc27eab53036d0bbb98d4b8761aa8b",
-    "model_hash": "324dcf07f04ae530d29b570025d9888b11fd1ee4561fc79067c8af627574c2f1"
+    "content_hash": "e3616482b5c0053e60a14f96535fc9c406208eaf982f73a560bf9d9420ec7ea2",
+    "notes_hash": "4a13216d6f02fc1b541b3da51f623d9980e7433947bc2476d213eaa9574e7621",
+    "model_hash": "43f1d46b24834774288c033984eb1c9cdcbdef4c23a06d20eb9c7491ba7cd775"
   },
   "geo_code": "NO",
   "node_type": "country",

@@ -66,7 +66,20 @@
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -165,9 +178,9 @@
   },
   "hashes": {
     "code": "fro",
-    "content_hash": "ea01a5d8b693d2aea132456e74b9f94d6745d5fadc3f9d5c8d5aa821eb778a0f",
+    "content_hash": "fdbf35a9935d25c6ad8a8c269393c1e98c6384134901b8e48ec3b536f4eba6f8",
     "notes_hash": "259392571d1f35b9b01cd94b07bc402660754c492e256189005513f8ec27b139",
-    "model_hash": "d4974fc84d88243e954b1c28774280143b3d35a6f2c174f4198fba4d501053ba"
+    "model_hash": "7736e6da6a9f2f7c2ac826b074a08c426478df7911a719224ba4cea3425e64f0"
   },
   "geo_code": "FO",
   "node_type": "country",

@@ -28,9 +28,7 @@
       },
       "enforcement": "standard",
       "flags": [],
-      "modifiers": [
-        "but"
-      ]
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
@@ -58,58 +56,69 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Suriname",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Suriname",
+          "title": "Suriname",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
         },
         {
           "title": "Crime and Punishment around the World &#91;4 volumes&#93;: &#91;Four Volumes&#93;",
           "url": "https://books.google.com/books?id=2uK6bR9byVIC&pg=RA1-PA311",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "In Place of Slavery: A Social History of British Indian and Javanese Laborers in Suriname",
           "url": "https://books.google.com/books?id=EPzT5AYLvL0C&pg=PA160",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis Eradication in Foreign Western Hemisphere Nations, Effects in the U.S.: Environmental Impact Statement",
           "url": "https://books.google.com/books?id=a-83AQAAMAAJ&pg=SL5-PA12",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "International Narcotics Control Strategy Report",
           "url": "https://books.google.com/books?id=BSlJAQAAIAAJ&q=cannabis+suriname",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Suriname wants focus on food security, not marijuana – Dominica News Online",
           "url": "https://dominicanewsonline.com/news/homepage/news/agriculture/suriname-wants-focus-food-security-marijuana/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Report of the International Narcotics Control Board (2007)",
           "url": "https://books.google.com/books?id=5zPbkldHMq4C&pg=PA72",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: illegal | source: Suriname | type: summary | priority: 1 | scope: general",
-        "rule: raw_illegal | source: Cannabis in Suriname | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Suriname | type: traversal | priority: 3 | scope: general"
-      ]
+        "no traversal evidence"
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "illegal",
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "illegal",
-      "raw_illegal"
+      "illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Suriname. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -211,9 +220,9 @@
   },
   "hashes": {
     "code": "sur",
-    "content_hash": "ad0a70db31c780aa96acaede80ac0d7aa4132800d9b66bf635530e4162dc223d",
+    "content_hash": "868ab9b586452ad1568c37b39b39b66ca213b4fa2daad8bbbc5f1e4ef317ba25",
     "notes_hash": "7a9e173a147ec86f5a6d0f81cd8c937e5ad9aa7878c95275a1656a11e880d8cb",
-    "model_hash": "eee716768a421f99a94089bff8112e471173fc4f6ee1dd1a00613de5799bbd11"
+    "model_hash": "7157ba93ceeb48051607dc9e0dee8171fec2c24762aa77a0f6a3fb6e1e862334"
   },
   "geo_code": "SR",
   "node_type": "country",

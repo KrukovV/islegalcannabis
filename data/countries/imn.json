@@ -66,7 +66,20 @@
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -165,9 +178,9 @@
   },
   "hashes": {
     "code": "imn",
-    "content_hash": "39db5624b2a98e3a2e29f1951fea3f8e908fc496c7548096c7fb35548c84c047",
+    "content_hash": "b7466a34d52f5336f55d1bf8716366c733392c69abf7ffc40e6831b2d28d3f10",
     "notes_hash": "b8c881f6f4dfed1356d3052f02b0757a0235565a312954df8c054faf39f3a120",
-    "model_hash": "816de8df7a18a3a594d3d39caca77414d2dd8c70591a64bfe78265508686e9eb"
+    "model_hash": "8b12654ac9107b43b2ebf00bcad71323e3c7e5aae86c5fb6aea45e36d581e6cf"
   },
   "geo_code": "IM",
   "node_type": "country",

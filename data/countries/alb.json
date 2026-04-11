@@ -38,7 +38,7 @@
     "signals": {
       "status": "restricted",
       "final_risk": "RESTRICTED",
-      "enforcement_level": "unenforced",
+      "enforcement_level": "rare",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
@@ -61,46 +61,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Albania",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Albania",
+          "title": "Albania / Shqipëria",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Albania",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Albania",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Organised Crime in Europe: Concepts, Patterns and Control Policies in the European Union and Beyond",
           "url": "https://books.google.com/books?id=-XtKAAAAQBAJ&pg=PA553",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "2006 World Drug Report: Analysis",
           "url": "https://books.google.com/books?id=Lk8wDdoxTZsC&pg=PA2095",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "World Drug Report 2009",
           "url": "https://archive.org/details/worlddrugreport20000unse",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Albania",
           "url": "https://sensiseeds.com/en/blog/cannabis-in-albania/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Albania",
           "url": "https://archive.org/details/worlddrugreport20000unse/page/96",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Report Says Albania Cannabis Growth Mounting",
-          "url": "https://www.balkaninsight.com/en/article/report-cannabis-growth-mounts-in-albania",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -111,7 +111,20 @@
         "rule: medical_legal | source: Cannabis in Albania | type: traversal | priority: 3 | scope: general",
         "rule: enforcement_rare | source: Cannabis in Albania | type: traversal | priority: 3 | scope: general",
         "rule: import_illegal | source: Cannabis in Albania | type: traversal | priority: 3 | scope: import"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 3149,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": "unenforced",
+          "enforcement_article": "rare",
+          "distribution_notes": "illegal",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "weak_enforcement"
@@ -222,9 +235,9 @@
   },
   "hashes": {
     "code": "alb",
-    "content_hash": "3622705b58b27e40533c2afa06e150b695732bc137a3252f881073c7f2e1775c",
+    "content_hash": "535002d92a678621615abdc939bbc7d89a9e05156b4387fd1b572655e24648cb",
     "notes_hash": "a9cf348b17e4e51738067ab789ecadf53715809c3853092746793b3efdfeabe4",
-    "model_hash": "d0b72bd368fd5bb5790fd185cb3bb7e3579d077bf38e8fbe92754fd70b5ce678"
+    "model_hash": "d6b1b47232d5b0759cb9fff611b998d5d281da2b8bbf48eaa7cc4e012343720a"
   },
   "geo_code": "AL",
   "node_type": "country",

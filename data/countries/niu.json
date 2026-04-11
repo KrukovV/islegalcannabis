@@ -66,7 +66,20 @@
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -165,9 +178,9 @@
   },
   "hashes": {
     "code": "niu",
-    "content_hash": "d75a4ba567d1641bcbee0cd25cd74bb42bbe03276903a6eb7a2dc6d4b852ff50",
+    "content_hash": "3646900fe612756d179f2cd1d77765f8332cea68672f0034f09c0335ed169c47",
     "notes_hash": "97f76473ccff85df1c0d1b7b75dd2e5c0efbac622838350dfda8e2c298892e73",
-    "model_hash": "e2f522275e0b9c38dd4542059f6132e9203df4fcf6c5814afc09f591b8fde16c"
+    "model_hash": "6f7d4d0d6237df766942a88adcb150d4bea87114e0f4a09ed09601d662f1009e"
   },
   "geo_code": "NU",
   "node_type": "country",

@@ -62,46 +62,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in South Korea",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_South_Korea",
+          "title": "South Korea / 한국",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in South Korea",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_South_Korea",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Cannabis-based medicines for personal use available starting next year",
           "url": "https://www.mfds.go.kr/brd/m_99/view.do?seq=43140&srchFr=&srchTo=&srchWord=&srchTp=&itm_seq_1=0&itm_seq_2=0&multi_itm_seq=0&company_cd=&company_nm=&page=1",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "South Korea Legalises Medical Marijuana",
           "url": "https://www.ft.com/content/ff715088-f2ba-11e8-ae55-df4bf40f9d0d",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Korea to import medical marijuana starting early next year",
           "url": "https://www.koreaherald.com/view.php?ud=20181129000668",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Smoking Marijuana Is Legal in Canada, Unless You're South Korean",
           "url": "https://www.nytimes.com/2018/10/23/world/asia/cannabis-canada-south-korea.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Smoking Marijuana in Canada Is Now Legal—But Not for South Koreans",
           "url": "https://fortune.com/2018/10/23/canada-marijuana-south-korea/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in South Korea",
-          "url": "https://web.archive.org/web/20221118062201/https://twitter.com/koremb_canada/status/1052316916008738816",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -118,7 +118,20 @@
         "rule: penalty_fine | source: Cannabis in South Korea | type: traversal | priority: 3 | scope: general",
         "rule: penalty_criminal_offense | source: Cannabis in South Korea | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Cannabis in South Korea | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 6452,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": "rare",
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "weak_enforcement",
@@ -233,9 +246,9 @@
   },
   "hashes": {
     "code": "kor",
-    "content_hash": "a2f3d6ef92d42673ac7cf651d0eb48780b45b3504bd7ea7ab4408ec033b1896e",
+    "content_hash": "c184b202b4812628a5025e99b04d58bfd8c87ab125feaf7dd16e7c971d0da3de",
     "notes_hash": "debd6cc05edea9dce50665fc6960b9294e24bb05bf616f08b4ea188e9c9dcb15",
-    "model_hash": "e700100065af8c0202c0d6f46d82df8171100b3e8978b5c09b1f191ed767cb00"
+    "model_hash": "51d8699ebb5babf60a24bbd3819c720da435f73a7331bb86ced2f35be4589aee"
   },
   "geo_code": "KR",
   "node_type": "country",

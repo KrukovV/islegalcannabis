@@ -64,22 +64,22 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Ecuador",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ecuador",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Legality of cannabis (notes)",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ecuador",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Ecuador",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Ecuador",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ecuador",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ecuador",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -95,7 +95,20 @@
         "rule: penalty_years | source: Cannabis in Ecuador | type: traversal | priority: 3 | scope: trafficking",
         "rule: trafficking_illegal | source: Cannabis in Ecuador | type: traversal | priority: 3 | scope: trafficking",
         "rule: legal | source: Cannabis in Ecuador | type: traversal | priority: 3 | scope: cultivation"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 1581,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "restricted",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -205,9 +218,9 @@
   },
   "hashes": {
     "code": "ecu",
-    "content_hash": "0981e6c2d0a4af3a01d04a91e0c22cb131f3a71f097b83c964f465b2dde70231",
+    "content_hash": "2a8ccff367c3e3394d1d810b8d2a0feb7fd2c10ecb7f2fc3d5de720c18f77f81",
     "notes_hash": "4bee2c8ab6f1ade0a0d8fbcec3dcb960bbcf898e15db2359a8de19da050c63f8",
-    "model_hash": "c52c13eceb42803611b1a22fcb02f2160da564ab7bf52cfda269be7fdbbe79dc"
+    "model_hash": "7dd5cd3bfc4928703fa662b2750f39e1ba1d2c16e206fd45c658b0b8cce6ce1c"
   },
   "geo_code": "EC",
   "node_type": "country",

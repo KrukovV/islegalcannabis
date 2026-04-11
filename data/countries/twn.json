@@ -59,22 +59,22 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Taiwan",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Taiwan",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Legality of cannabis (notes)",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Taiwan",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Taiwan / 台灣",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Taiwan",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Taiwan",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Taiwan",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -84,7 +84,20 @@
         "rule: illegal | source: Cannabis in Taiwan | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Cannabis in Taiwan | type: traversal | priority: 3 | scope: general",
         "rule: penalty_fine | source: Cannabis in Taiwan | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 351,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": true,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -195,9 +208,9 @@
   },
   "hashes": {
     "code": "twn",
-    "content_hash": "33dd8711d59ed6ea01b4ab3746b31cac82d87136c5068d5bf87dceddec0543b5",
+    "content_hash": "e843570c1891f30d78d22fbace9be4e6c31b8737f9e28d01e00501ad5bca647a",
     "notes_hash": "29a748c8a21061f9d3497d3c7805ca2b1c0d39db4fabb2363a48844b462b0ba7",
-    "model_hash": "3f2fb2367b9729c67e197e886650a1c6a6e162657a467ffe8a0f4d67e9e10840"
+    "model_hash": "0ea8ceb2acbd28668634bd39790006aea8673b28df85ea3fbd25f026b1490042"
   },
   "geo_code": "TW",
   "node_type": "country",

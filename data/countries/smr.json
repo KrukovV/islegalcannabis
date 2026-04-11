@@ -11,9 +11,9 @@
     },
     "medical": {
       "raw_status": "LEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
       "override_reason": null
     },
     "distribution": {
@@ -61,34 +61,34 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in San Marino",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_San_Marino",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Drug Use in America: Problem in Perspective: Second Report",
-          "url": "https://books.google.com/books?id=qn3aAAAAMAAJ",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in San Marino",
-          "url": "https://www.ilrestodelcarlino.it/rimini/cronaca/cannabis-marijuana-san-marino-1.2357222",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in San Marino",
-          "url": "https://giornalesm.com/san-marino-istanza-darengo-inutile-cannabis-gia-dispensata-gratuitamente-ai-malati-dott-nicolino-monachese-il-sativex-viene-gia-dato-ai-malati-di-slerosi-multipla/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "San Marino",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in San Marino",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_San_Marino",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Drug Use in America: Problem in Perspective: Second Report",
+          "url": "https://books.google.com/books?id=qn3aAAAAMAAJ",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis in San Marino",
+          "url": "https://www.ilrestodelcarlino.it/rimini/cronaca/cannabis-marijuana-san-marino-1.2357222",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis in San Marino",
+          "url": "https://giornalesm.com/san-marino-istanza-darengo-inutile-cannabis-gia-dispensata-gratuitamente-ai-malati-dott-nicolino-monachese-il-sativex-viene-gia-dato-ai-malati-di-slerosi-multipla/",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -98,7 +98,20 @@
         "rule: penalty_prison | source: Cannabis in San Marino | type: traversal | priority: 3 | scope: trafficking",
         "rule: penalty_fine | source: Cannabis in San Marino | type: traversal | priority: 3 | scope: trafficking",
         "rule: trafficking_illegal | source: Cannabis in San Marino | type: traversal | priority: 3 | scope: trafficking"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 1105,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -109,9 +122,9 @@
       "penalty_fine",
       "trafficking_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in San Marino. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in San Marino. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in San Marino. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in San Marino. Medical cannabis is legal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in San Marino}}",
   "facts": {
     "possession_limit": null,
@@ -182,26 +195,26 @@
     ],
     "legal_similarity": [
       {
+        "code": "hrv",
+        "name": "Croatia / Hrvatska"
+      },
+      {
         "code": "lie",
         "name": "Liechtenstein"
       },
       {
         "code": "mco",
         "name": "Monaco"
-      },
-      {
-        "code": "bih",
-        "name": "Bosnia and Herzegovina / Bosna i Hercegovina"
       }
     ],
     "cluster_links": [
       {
-        "code": "hrv",
-        "name": "Croatia / Hrvatska"
-      },
-      {
         "code": "aut",
         "name": "Austria / Österreich"
+      },
+      {
+        "code": "che",
+        "name": "Switzerland / Suisse"
       }
     ],
     "same_country_states": [],
@@ -209,9 +222,9 @@
   },
   "hashes": {
     "code": "smr",
-    "content_hash": "e861c04b405c9c6abe5bb0e675e11b4b1ee75304813e88d1b39f7cfe72b631fa",
-    "notes_hash": "656a6235dbe5708cf496763c0592c2605f048f21b9e89623a7a6c9081a60a2b7",
-    "model_hash": "e0f5af002fdaf1a7e03fdb43f424be76594f67e02c59a18e124facc3766fd307"
+    "content_hash": "3a706422dddd82ca45a844badd9122adb5b3151be1b56d716e438e41e1c7694f",
+    "notes_hash": "a4daea930b0413f11ee7a81ec382c48a014ae98e2c60c6efa40e150056c34c93",
+    "model_hash": "c099fef137d8bb859d53cdde27f1bd144ebdf0a362cc6d0056a4efe1dde2f74c"
   },
   "geo_code": "SM",
   "node_type": "country",

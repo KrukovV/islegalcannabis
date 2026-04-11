@@ -58,46 +58,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Equatorial Guinea",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Equatorial_Guinea",
+          "title": "Equatorial Guinea / Guinée équatoriale",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Equatorial Guinea",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Equatorial_Guinea",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Equatorial Guinea 2019 Crime & Safety Report",
           "url": "https://www.osac.gov/Country/EquatorialGuinea/Content/Detail/Report/3d67999c-89fc-4740-a0d8-15f4aeb5e0b8",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Legal status of cannabis in Equatorial Guinea - Cannaconnection.com",
           "url": "https://www.cannaconnection.com/blog/14822-legal-status-equatorial-guinea",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "'Sacred weed' makes for happy Guineans",
           "url": "https://www.iol.co.za/news/africa/sacred-weed-makes-for-happy-guineans-24968",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "17 More African Countries Ranked For Marijuana Tolerance: Part 2",
           "url": "https://moguldom.com/96613/17-more-african-countries-ranked-for-marijuana-tolerance-part-2/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Profession Dictateur",
           "url": "https://books.google.com/books?id=5xuGDwAAQBAJ&dq=Macias+Nguema+cannabis&pg=PT297",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "International Terrorism in the Contemporary World",
-          "url": "https://books.google.com/books?id=nd_cAAAAIAAJ&q=Macias+Nguema+cannabis",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -106,7 +106,20 @@
         "rule: trafficking_illegal | source: Cannabis in Equatorial Guinea | type: traversal | priority: 3 | scope: trafficking",
         "rule: sale_illegal | source: Cannabis in Equatorial Guinea | type: traversal | priority: 3 | scope: trafficking",
         "rule: penalty_arrest | source: Cannabis in Equatorial Guinea | type: traversal | priority: 3 | scope: trafficking"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 893,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -216,9 +229,9 @@
   },
   "hashes": {
     "code": "gnq",
-    "content_hash": "c3f3912fca0138a2cd7aa9a284f9a59dc1622ac914008c2712e701f18f60d23f",
+    "content_hash": "ab449522456515821a3b37f6c1230df16ac16e14d5846c2eab0a2d3dc3a7ed94",
     "notes_hash": "9460a5bd07ced8dcbee3ba183d26b4d580e2157528e6cf28277164d75ca349a9",
-    "model_hash": "31a0539db3656aecc81b049beb8c7215e8c079304cc0653b5eef82b1b88dc9b0"
+    "model_hash": "031e2536d4deb9515c128ceaf7bcf9c41e2b26ea5ef01311d581991d83788480"
   },
   "geo_code": "GQ",
   "node_type": "country",

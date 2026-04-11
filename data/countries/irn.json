@@ -58,53 +58,66 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Iran",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Iran",
+          "title": "Iran / ایران",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Iran",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Iran",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "A guide to smoking weed around the world",
           "url": "https://www.pri.org/stories/2015-03-13/guide-smoking-weed-around-world",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Iran Has a Drug Problem and It Doesn't Include Cannabis",
           "url": "https://hightimes.com/news/iran-has-a-drug-problem-and-it-doesnt-include-cannabis/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis Use in Present-Day Iran",
           "url": "https://sensiseeds.com/en/blog/cannabis-iran-en/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Marijuana Use Rises in Iran, With Little Interference",
           "url": "https://www.nytimes.com/2016/06/26/world/middleeast/marijuana-use-rises-in-iran-with-little-interference.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "As Iran's Marijuana Trade Thrives, Is It Becoming a Nation of Stoners?",
           "url": "https://www.thedailybeast.com/as-irans-marijuana-trade-thrives-is-it-becoming-a-nation-of-stoners",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Human Rights in Iran: The Abuse of Cultural Relativism",
-          "url": "https://books.google.com/books?id=3e_SBQAAQBAJ&pg=PA40",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: raw_illegal | source: Cannabis in Iran | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Iran | type: traversal | priority: 3 | scope: general",
         "rule: penalty_fine | source: Cannabis in Iran | type: traversal | priority: 3 | scope: possession"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 886,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -213,9 +226,9 @@
   },
   "hashes": {
     "code": "irn",
-    "content_hash": "5e7b9f736b939a21fa7ebf73f737f9f8800bd71ab5ba613949efc3afc8baf3c2",
+    "content_hash": "9f1c3bd076acfbf4b3e5f1aa08130059f005ad5b9ef6ba11105bcdf9445441fb",
     "notes_hash": "eaa6e507f742cdb588d9a1a9a0a181cce7652d3e2b3cfd0e0b0e2c67cb9c2653",
-    "model_hash": "c857efe347b3ef82726440b5ec5cb50d34980edd2117d52504d8ec965b7743b5"
+    "model_hash": "06c4751fc41464306fd2b0e6396fdd6c0fa478b4e992ebb85c6d11f513497072"
   },
   "geo_code": "IR",
   "node_type": "country",

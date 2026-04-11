@@ -59,53 +59,66 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Benin",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Benin",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "The International Drugs Trade",
-          "url": "https://books.google.com/books?id=WHH1ON4EEXsC&pg=PA191",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "International Narcotics Control Strategy Report",
-          "url": "https://books.google.com/books?id=w0DlWjK3YCEC&pg=PA446",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Encyclopedia of Drug Policy",
-          "url": "https://books.google.com/books?id=OePnCgAAQBAJ&pg=PT117",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Narcotic Drugs: Estimated World Requirements for 2008, Statistics for 2006",
-          "url": "https://www.incb.org/documents/Narcotic-Drugs/Technical-Publications/2007/narcotic_drugs_2007_final.pdf",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Narcotic Drugs: Estimated World Requirements for 2023, Statistics for 2021",
-          "url": "https://www.incb.org/documents/Narcotic-Drugs/Technical-Publications/2022/Narcotic_Drugs_Technical_Publication_2022.pdf",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Benin / Bénin",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Benin",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Benin",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "The International Drugs Trade",
+          "url": "https://books.google.com/books?id=WHH1ON4EEXsC&pg=PA191",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "International Narcotics Control Strategy Report",
+          "url": "https://books.google.com/books?id=w0DlWjK3YCEC&pg=PA446",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Encyclopedia of Drug Policy",
+          "url": "https://books.google.com/books?id=OePnCgAAQBAJ&pg=PT117",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Narcotic Drugs: Estimated World Requirements for 2008, Statistics for 2006",
+          "url": "https://www.incb.org/documents/Narcotic-Drugs/Technical-Publications/2007/narcotic_drugs_2007_final.pdf",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Narcotic Drugs: Estimated World Requirements for 2023, Statistics for 2021",
+          "url": "https://www.incb.org/documents/Narcotic-Drugs/Technical-Publications/2022/Narcotic_Drugs_Technical_Publication_2022.pdf",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: raw_illegal | source: Cannabis in Benin | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Benin | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Cannabis in Benin | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 743,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -211,9 +224,9 @@
   },
   "hashes": {
     "code": "ben",
-    "content_hash": "ba92a17cb047e9147a26f5e373317a9f1a35603b7f242aedde0dc2a37f50f289",
+    "content_hash": "2854345fc6c6f4c5be6ff3c19152ef36fb808b891f75518489847784e9cd36d6",
     "notes_hash": "99505672eae0ace6d34cc373537899c04d90505405bf25d85dc98f56ceca1320",
-    "model_hash": "5d1794480fccafa706109d75145dc1aeb068736aaa1d308125e61e6bba1680c9"
+    "model_hash": "d8029559a46d21e78ecad6f90554f373f5663931d381088c4bed1a6a259c29aa"
   },
   "geo_code": "BJ",
   "node_type": "country",

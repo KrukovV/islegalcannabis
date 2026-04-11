@@ -61,22 +61,22 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Saint Kitts and Nevis",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Saint_Kitts_and_Nevis",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Legality of cannabis (notes)",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Saint_Kitts_and_Nevis",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Saint Kitts and Nevis",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Saint Kitts and Nevis",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Saint_Kitts_and_Nevis",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Saint_Kitts_and_Nevis",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -88,7 +88,20 @@
         "rule: penalty_criminal_offense | source: Cannabis in Saint Kitts and Nevis | type: traversal | priority: 3 | scope: general",
         "rule: penalty_fine | source: Cannabis in Saint Kitts and Nevis | type: traversal | priority: 3 | scope: use",
         "rule: legal | source: Cannabis in Saint Kitts and Nevis | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 1273,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -201,9 +214,9 @@
   },
   "hashes": {
     "code": "kna",
-    "content_hash": "acf0a2012c34e62b32607df3d0afb45549e94300d63e5e1c9313198c64aedad2",
+    "content_hash": "1110765d6977bb7f566cfdbcb393dfb5e0c432be7165326b012f2abe0470c447",
     "notes_hash": "2ae54cbbc6f8a96d7a0e9f119305355d7b9b7060fb995a6ed108071c5241df6e",
-    "model_hash": "8492be346d97964ac194cad522c8b13c9cb24c544bd76ceb1ced524ef0175076"
+    "model_hash": "483c7e52869b3d245b67eced883ee0ffe0568fdcd957c0dff7d566f689913d34"
   },
   "geo_code": "KN",
   "node_type": "country",

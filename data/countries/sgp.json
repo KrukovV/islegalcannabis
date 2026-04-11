@@ -59,46 +59,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Singapore",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Singapore",
+          "title": "Singapore / Singapura",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Singapore",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Singapore",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Drugs and Inhalants",
           "url": "https://www.cnb.gov.sg/drugs/bannedsubstance/cannabis.aspx",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "MISUSE OF DRUGS ACT",
           "url": "https://statutes.agc.gov.sg/aol/search/display/view.w3p;page=0;query=DocId%3Ac13adadb-7d1b-45f8-a3bb-92175f83f4f5%20Depth%3A0%20ValidTime%3A02%2F10%2F2013%20TransactionTime%3A02%2F10%2F2013%20Status%3Ainforce;rec=0;whole=yes",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Central Narcotics Bureau Singapore",
           "url": "https://www.cnb.gov.sg/drugs/bannedsubstance/cannabis.aspx;rec=0;whole=yes",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Singapore",
           "url": "https://web.archive.org/web/20150907172739/http://www.cnb.gov.sg/drugs/bannedsubstance/cannabis.aspx",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Singapore",
           "url": "https://web.archive.org/web/20170807235438/http://statutes.agc.gov.sg/aol/search/display/view.w3p;page=0;query=DocId%3Ac13adadb-7d1b-45f8-a3bb-92175f83f4f5%20Depth%3A0%20ValidTime%3A02%2F10%2F2013%20TransactionTime%3A02%2F10%2F2013%20Status%3Ainforce;rec=0;whole=yes",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Singapore",
-          "url": "https://web.archive.org/web/20170808000038/https://www.cnb.gov.sg/drugs/bannedsubstance/cannabis.aspx;rec=0;whole=yes",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -118,7 +118,20 @@
         "rule: medical_legal | source: Cannabis in Singapore | type: traversal | priority: 3 | scope: general",
         "rule: medical_limited | source: Cannabis in Singapore | type: traversal | priority: 3 | scope: general",
         "rule: penalty_fine | source: Cannabis in Singapore | type: traversal | priority: 3 | scope: cultivation"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 3033,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": "rare",
+          "enforcement_article": null,
+          "distribution_notes": "illegal",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based",
@@ -232,9 +245,9 @@
   },
   "hashes": {
     "code": "sgp",
-    "content_hash": "6ac945eabad8d74817a3575e052db73ba69f936bc910da19c1b873109211a5f3",
+    "content_hash": "110cd46235bafc7b94afefd7c656b17fa6c03950192fac2577395b9bb21e8d06",
     "notes_hash": "d532506f798cc28c65927ec746b845758c8da84c86a18eae9b21429a1f5a044b",
-    "model_hash": "63532ecdbbfd19dd8f10b3219dbd36d0d7de1cbe342ef9abf4447dc39739f7cc"
+    "model_hash": "5546525ffb9b8d045bb90927604c617be43d4c4fff3883b422d90145529a654f"
   },
   "geo_code": "SG",
   "node_type": "country",

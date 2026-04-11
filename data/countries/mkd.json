@@ -11,9 +11,9 @@
     },
     "medical": {
       "raw_status": "LEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
       "override_reason": null
     },
     "distribution": {
@@ -60,34 +60,34 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in North Macedonia",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_North_Macedonia",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Macedonia: Parliament Legalizes Medical Marijuana",
-          "url": "https://www.eurasiareview.com/10022016-macedonia-parliament-legalizes-medical-marijuana/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Macedonia Allows Medical Marijuana in Pharmacies",
-          "url": "https://www.balkaninsight.com/en/article/macedonia-allows-medical-marijuana-in-pharmacies-05-31-2016",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "North Macedonia Moves to Make Recreational Marijuana Use Legal",
-          "url": "https://balkaninsight.com/2020/11/20/north-macedonia-moves-to-make-recreational-marijuana-use-legal/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "North Macedonia / Македонија",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in North Macedonia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_North_Macedonia",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Macedonia: Parliament Legalizes Medical Marijuana",
+          "url": "https://www.eurasiareview.com/10022016-macedonia-parliament-legalizes-medical-marijuana/",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Macedonia Allows Medical Marijuana in Pharmacies",
+          "url": "https://www.balkaninsight.com/en/article/macedonia-allows-medical-marijuana-in-pharmacies-05-31-2016",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "North Macedonia Moves to Make Recreational Marijuana Use Legal",
+          "url": "https://balkaninsight.com/2020/11/20/north-macedonia-moves-to-make-recreational-marijuana-use-legal/",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -98,7 +98,20 @@
         "rule: medical_legal | source: Cannabis in North Macedonia | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Cannabis in North Macedonia | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Macedonia Allows Medical Marijuana in Pharmacies | type: reference | priority: 2 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 796,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": true,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -107,9 +120,9 @@
       "medical_legal",
       "raw_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in North Macedonia / Македонија. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in North Macedonia / Македонија. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in North Macedonia / Македонија. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in North Macedonia / Македонија. Medical cannabis is legal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in North Macedonia}} If one possesses large amounts, a jail sentence of anywhere from 3 months to 5 years may be given.<ref>{{citation |url = http://www.encod.org/info/MACEDONIA.html |title = European Coalition for Just and Effective Drug Policies |publisher = Encod.org |access-date = 17 February 2011 |url-status = dead |archive-url = https://web.archive.org/web/20110518004610/http://www.encod.org/info/MACEDONIA.html |archive-date = 18 May 2011}}</ref> Medicinal cannabis legalized since 2016.<ref>{{cite web|url=http://www.balkanews.org/index.php/2016/02/10/macedonia-parliament-legalizes-medical-marijuana/|title=Macedonia: Parliament Legalizes Medical Marijuana|work=Eurasia Review|date=22 April 2015|access-date=5 June 2018|archive-date=12 March 2020|archive-url=https://web.archive.org/web/20200312221640/http://www.ezyspot.com/|url-status=dead}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -207,9 +220,9 @@
   },
   "hashes": {
     "code": "mkd",
-    "content_hash": "c9d79544fac30c9336263b26495d913d61ac9f96737d94bf6f520550be310c52",
-    "notes_hash": "62805183631cd651f6901707cbce8f24167485686a63b51ec5b221ebe3290d16",
-    "model_hash": "f76596ded29c8820c63f8b9788795e2ee7cd9ca4594318952a15d612ceb1e3c6"
+    "content_hash": "fba0a96ef8fdbc06e9b6275b7f321f728697de76cbd09142d50d8bdfb3496fc2",
+    "notes_hash": "9125716cf1e06891fecbb38ce0bfb8b67e1738c586bdd498810e9f955b069d2b",
+    "model_hash": "f88901619d0d359b95c922d9ea1e84c7d1d13ce80f7d21965f2801af7de603f1"
   },
   "geo_code": "MK",
   "node_type": "country",

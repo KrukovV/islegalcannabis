@@ -58,27 +58,34 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Micronesia",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Micronesia",
+          "title": "Micronesia",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
         },
         {
           "title": "Legality of cannabis (notes)",
           "url": "https://en.wikipedia.org/wiki/Cannabis_in_Micronesia",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Micronesia",
-          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -184,9 +191,9 @@
   },
   "hashes": {
     "code": "fsm",
-    "content_hash": "023522aa97d12b29ea7adc189ea087e23189ab8bd425e20471611bc2f5a63d76",
+    "content_hash": "8043a93fe33e88809fc4b3d0b9f7b40c668fd82aa21f78f8d4398911a3d228d7",
     "notes_hash": "02e363420e4dd4abcdc053ee3c2d6ede3a1c921f0ee86cc7df8a6dc9b75e0639",
-    "model_hash": "832f4fc57681c8b597e095751b1840fe8b19c665173c2cdea57e17b08737d693"
+    "model_hash": "f1ddfacbabb8254f3ef726370e3b35fc781e07742082a5557be10765ec660824"
   },
   "geo_code": "FM",
   "node_type": "country",

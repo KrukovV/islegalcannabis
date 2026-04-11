@@ -56,28 +56,41 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Gabon",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Gabon",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Legality of cannabis (notes)",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Gabon",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Gabon",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Gabon",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Gabon",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Gabon",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: raw_illegal | source: Cannabis in Gabon | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Gabon | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 134,
+        "source_confidence": "weak_article",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -183,9 +196,9 @@
   },
   "hashes": {
     "code": "gab",
-    "content_hash": "c4bcd96bc6bde043b1839dfd70fc80bf71569c9bbfe164cabcad53e4e539509e",
+    "content_hash": "135950257e3356e9d973991c053e30d3e46ab1e4f30fe7ab8e7f2afb4de270fb",
     "notes_hash": "3f17c313c20d5b14d67a004792d981b3466f3e328c7c3dd92b1c60478294cea3",
-    "model_hash": "e0ada36c997a4ce861c688cc8b7f07adfd4e435b69cc5ec21ba0260d03c090c9"
+    "model_hash": "070d9ba65de6d1ac4fb40352f0cfe40a76d0a54d87320fcea057624d410034bd"
   },
   "geo_code": "GA",
   "node_type": "country",

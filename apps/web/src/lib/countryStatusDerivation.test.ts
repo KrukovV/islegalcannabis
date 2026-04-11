@@ -94,6 +94,7 @@ describe("countryStatusDerivation", () => {
     expect(derived.signals.final_risk).toBe("HIGH_RISK");
     expect(derived.signals.penalties.prison).toBe(true);
     expect(derived.signals.penalties.prison_priority).toBe(3);
+    expect(derived.signals.secondary_source?.source_confidence).toBe("prison_signal");
     expect(derived.signals.confidence).toBe("medium");
     expect(derived.applied_rules).toContain("possession_decriminalized");
     expect(
@@ -122,6 +123,7 @@ describe("countryStatusDerivation", () => {
     expect(derived.signals.penalties.prison_priority).toBe(0);
     expect(derived.signals.explain).toContain("no traversal evidence");
     expect(["low", "medium"]).toContain(derived.signals.confidence);
+    expect(derived.signals.secondary_source?.source_confidence).toBe("no_secondary_source");
   });
 
   test("keeps prison from summary when cache is silent", () => {
@@ -264,6 +266,7 @@ describe("countryStatusDerivation", () => {
     expect(derived.signals.penalties.prison).toBe(false);
     expect(derived.signals.status).toBe("tolerated");
     expect(derived.signals.final_risk).toBe("LIMITED");
+    expect(derived.signals.secondary_source?.source_confidence).toBe("no_prison_signal");
   });
 
   test("keeps netherlands recreational status soft when illegality is only bulk/commercial", () => {

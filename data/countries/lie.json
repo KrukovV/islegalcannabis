@@ -27,7 +27,9 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [],
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
       "modifiers": []
     },
     "signals": {
@@ -56,56 +58,68 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Liechtenstein",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Liechtenstein",
+          "title": "Liechtenstein",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
         },
         {
           "title": "Cannabis in Liechtenstein",
           "url": "https://www.unodc.org/unodc/en/data-and-analysis/WDR-2011.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Liechtenstein",
           "url": "https://www.unodc.org/documents/data-and-analysis/WDR2011/StatAnnex-consumption.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Epidyolex",
           "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/epidyolex",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Medicinal cannabis policies and practices around the world",
           "url": "https://www.unodc.org/documents/commissions/CND/2019/Contributions/October/Thematic_Debate/23_October/Tania_Ramirez.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Bulgarian school teenagers above European average for smoking, drinking and marijuana use",
           "url": "https://sofiaglobe.com/2016/09/20/bulgarian-school-teenagers-above-european-average-for-smoking-drinking-and-marijuana-use/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Liechtenstein",
           "url": "https://web.archive.org/web/20210427112723/http://www.unodc.org/unodc/en/data-and-analysis/WDR-2011.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Liechtenstein | type: traversal | priority: 3 | scope: use",
-        "rule: illegal | source: Cannabis in Liechtenstein | type: traversal | priority: 3 | scope: use"
-      ]
+        "no traversal evidence"
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal"
+      "distribution_fallback_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Liechtenstein. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -207,9 +221,9 @@
   },
   "hashes": {
     "code": "lie",
-    "content_hash": "2193643dace362b67e62654bf11d44d5e359b71edb6720f7c32343c17f4c41be",
+    "content_hash": "54a208a40617165aebe9c02758f2a4fc252b987390128a22b8a77186521f84f5",
     "notes_hash": "4d51e4a1fa6b084cd9db05bd3c9e11f5c78fd8714e81f102cfec3edca7bf2710",
-    "model_hash": "6f0a2369e5d09b05385634ad281b593c7e25b7fd03d5b3be8147a93d52621ae9"
+    "model_hash": "d196ddb210c303e1942f0ffdbb4beb651a8223709c5e13b9aeb7710df6972ec9"
   },
   "geo_code": "LI",
   "node_type": "country",

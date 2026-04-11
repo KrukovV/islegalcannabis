@@ -11,9 +11,9 @@
     },
     "medical": {
       "raw_status": "LEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
       "override_reason": null
     },
     "distribution": {
@@ -60,46 +60,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Zimbabwe",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Zimbabwe",
+          "title": "Zimbabwe",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Zimbabwe",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Zimbabwe",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Cannabis in Zimbabwe",
           "url": "https://www.sundaynews.co.zw/zim-to-legalise-mbanje-govt-considers-drug-use-for-medical-purposes/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis policy reform in Zimbabwe should prioritise small-scale producers PolicyBristol – influencing policy through world-class research",
           "url": "https://cannabisembassy.org/wp-content/uploads/2024/07/cannabisembassy-cannabisafricana2024-Briefing-154_Zimbabwe.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Zimbabwe legalises marijuana for medical and scientific use",
           "url": "https://www.telegraph.co.uk/news/2018/04/28/zimbabwe-legalises-marijuana-medical-scientific-use/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "It is now legal to grow cannabis in Zimbabwe {{!",
           "url": "https://www.iol.co.za/business-report/economy/it-is-now-legal-to-grow-cannabis-in-zimbabwe-14711506",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "MPs want cannabis fees reduced",
           "url": "https://www.thezimbabwemail.com/parliament-parliament/mps-want-cannabis-fees-reduced/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Zimbabwe: Govt Offers Mbanje Growers 100 Percent Farm Ownership",
-          "url": "https://allafrica.com/stories/202005260497.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -111,7 +111,20 @@
         "rule: medical_legal | source: Cannabis in Zimbabwe | type: traversal | priority: 3 | scope: cultivation",
         "rule: penalty_fine | source: Cannabis in Zimbabwe | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Cannabis in Zimbabwe | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 3085,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -123,9 +136,9 @@
       "private_cultivation",
       "penalty_fine"
     ],
-    "notes_normalized": "Cannabis is illegal in Zimbabwe. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Zimbabwe. Medical cannabis is legal. Distribution is tolerated. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Zimbabwe. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Zimbabwe. Medical cannabis is legal. Distribution is tolerated. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Zimbabwe}}",
   "facts": {
     "possession_limit": null,
@@ -223,9 +236,9 @@
   },
   "hashes": {
     "code": "zwe",
-    "content_hash": "22c7af59c76bcc261dcdf295db7a9a6c8ff08938167caf097ce4c16bfb2b1aa1",
-    "notes_hash": "c6910d3d89ff054566bb6b8fe895932344becdb6c18c45f84c5e3af2f5b60887",
-    "model_hash": "71a1bc132f3b86ca247510df122c9b4e717bdae9276318c5ebd50bc2f884a5d7"
+    "content_hash": "97ba06dc0ea83d987351a8d1886fe112a6d0bceed739b5a21798f124ef067e42",
+    "notes_hash": "ce6f2d393218f60cf08c664122f3fcddcd145bab6db9ddd8395fcd970812a615",
+    "model_hash": "6735c760ddf59e24054d9769889a3045752c6621c0d3fe356e219f9ce05c9e25"
   },
   "geo_code": "ZW",
   "node_type": "country",

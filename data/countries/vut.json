@@ -11,9 +11,9 @@
     },
     "medical": {
       "raw_status": "LEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
       "override_reason": null
     },
     "distribution": {
@@ -27,10 +27,10 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [],
-      "modifiers": [
-        "but"
-      ]
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
@@ -58,36 +58,42 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Vanuatu",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Vanuatu",
+          "title": "Vanuatu",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
         },
         {
           "title": "Legality of cannabis (notes)",
           "url": "https://en.wikipedia.org/wiki/Cannabis_in_Vanuatu",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Vanuatu",
-          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Vanuatu | type: traversal | priority: 3 | scope: general",
-        "rule: medical_legal | source: Cannabis in Vanuatu | type: traversal | priority: 3 | scope: general"
-      ]
+        "no traversal evidence"
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal"
+      "distribution_fallback_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Vanuatu. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is illegal in Vanuatu. Medical cannabis is legal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in Vanuatu. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Vanuatu. Medical cannabis is legal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Vanuatu}}",
   "facts": {
     "possession_limit": null,
@@ -185,9 +191,9 @@
   },
   "hashes": {
     "code": "vut",
-    "content_hash": "3b282a53bcfc4f7efde5561d91499cace9a0ca83c13816b60d5e26199ddc2ee3",
-    "notes_hash": "8761a25ba3a4c802a41a74c16106a5db3d3049f7d9bfa8d4c218733e2c67b08f",
-    "model_hash": "1c946b98e5b18c981aa088a0139c4307d2eb88acfbaa04a5a7541b9895c34c86"
+    "content_hash": "103aa23ab776c4edbfd7a4c2b985637e882f95723da722e9c86af8db742de004",
+    "notes_hash": "e90d4ce0250c56fd6ddd61e207f340caf58ca820f9b3642c85305c0af85c625f",
+    "model_hash": "56b90c910cf34966d4cece4e3e28c97ec43cad7982ae31611c0d6a859770d299"
   },
   "geo_code": "VU",
   "node_type": "country",

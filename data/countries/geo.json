@@ -61,46 +61,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Georgia (country)",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Georgia_(country)",
+          "title": "Georgia / საქართველო",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Georgia (country)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Georgia_(country)",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Georgia's High Court Removes Marijuana Possession Penalties",
           "url": "https://www.marijuanamoment.net/georgias-high-court-removes-marijuana-possession-penalties/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Georgian Court Abolishes Fines For Marijuana Consumption",
           "url": "https://www.rferl.org/a/georgian-constitutional-court-abolishes-fines-for-marijuana-consumption/29399496.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Criminal Justice Reform",
           "url": "https://studentsforliberty.org/criminal-justice-reform/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Georgia (country)",
           "url": "https://oc-media.org/explainer-the-16-legislative-changes-that-have-shaped-georgias-authoritarian-slide/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Georgia (country)",
           "url": "https://www.entrepreneur.com/article/321898",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Georgia (country)",
-          "url": "https://web.archive.org/web/20220209113700/https://www.entrepreneur.com/article/321898",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -120,7 +120,20 @@
         "rule: legal | source: Cannabis in Georgia (country) | type: traversal | priority: 3 | scope: use",
         "rule: penalty_fine | source: Georgia's High Court Removes Marijuana Possession Penalties | type: reference | priority: 2 | scope: possession",
         "rule: penalty_prison | source: Norms envisaging imprisonment for marijuana use now null and void in Georgia | type: reference | priority: 2 | scope: use"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 4451,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -231,9 +244,9 @@
   },
   "hashes": {
     "code": "geo",
-    "content_hash": "24595c6131377256142e2c548273f478325b72bc73d9e6c26060ae54a7bd0eff",
+    "content_hash": "20c6a9fb4883da795d067a555b619e08dc09de77ba809cba780dcbce1d858274",
     "notes_hash": "111bf5044b2817ded4f120cec61060965f104caa72a638919a632973d7c61b84",
-    "model_hash": "1b7b78931a94be0906717337d3b68d8280e527137af2674cee6773b573679211"
+    "model_hash": "a5d670f9f202acb1d5a6da64ad05461cbc085796a62b830c4dbae2c4227140b7"
   },
   "geo_code": "GE",
   "node_type": "country",

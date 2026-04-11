@@ -66,7 +66,20 @@
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -165,9 +178,9 @@
   },
   "hashes": {
     "code": "ncl",
-    "content_hash": "2f0afd6ad943247295027d24cfed34e5a2812de87efc8ca17522ef011630c704",
+    "content_hash": "24270a948bf291775f1b58932fd93bfd2abf359f63b2d01847f70072c2dcc442",
     "notes_hash": "2e7125426540090c29c501ceaf9e332340bb1820a5dab159179f46a9b5a98d0f",
-    "model_hash": "e2065c992fde119d42cd5cc99b46db5fff5dad9fa36af7a66d251aefa285a7d6"
+    "model_hash": "3a8c6272f962a66a48c08b1650280a9b04005b73b2fd5365e6a0794afc82a8e1"
   },
   "geo_code": "NC",
   "node_type": "country",

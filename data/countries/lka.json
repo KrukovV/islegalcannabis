@@ -66,40 +66,40 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Sri Lanka",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Sri_Lanka",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "AN ORDINANCE TO AMEND AND CONSOLIDATE THE LAW RELATING TO POISONS,OPIUM, AND DANGEROUS DRUGS.",
-          "url": "https://www.nddcb.gov.lk/Docs/acts/25345.pdf",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Getting High And Low In The 'Mal' Capital",
-          "url": "https://www.colombotelegraph.com/index.php/getting-high-and-low-in-the-mal-capital/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Sri Lanka",
-          "url": "https://sensiseeds.com/en/blog/cannabis-sri-lanka-en/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "A history of medicine in Sri Lanka from the earliest times to 1948",
-          "url": "https://books.google.com/books?id=Gj9rAAAAMAAJ",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Sri Lanka / ශ්‍රී ලංකාව",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Sri Lanka",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Sri_Lanka",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "AN ORDINANCE TO AMEND AND CONSOLIDATE THE LAW RELATING TO POISONS,OPIUM, AND DANGEROUS DRUGS.",
+          "url": "https://www.nddcb.gov.lk/Docs/acts/25345.pdf",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Getting High And Low In The 'Mal' Capital",
+          "url": "https://www.colombotelegraph.com/index.php/getting-high-and-low-in-the-mal-capital/",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis in Sri Lanka",
+          "url": "https://sensiseeds.com/en/blog/cannabis-sri-lanka-en/",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "A history of medicine in Sri Lanka from the earliest times to 1948",
+          "url": "https://books.google.com/books?id=Gj9rAAAAMAAJ",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -117,7 +117,20 @@
         "rule: import_illegal | source: Cannabis in Sri Lanka | type: traversal | priority: 3 | scope: import",
         "rule: illegal | source: Cannabis in Sri Lanka | type: traversal | priority: 3 | scope: import",
         "rule: penalty_fine | source: Cannabis in Sri Lanka | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 4173,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "restricted",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -231,9 +244,9 @@
   },
   "hashes": {
     "code": "lka",
-    "content_hash": "2ee0491e3202ba7137ffba3f9da44fa8d2f4d91ab3011d7aee9d3f41c1ba631d",
+    "content_hash": "e85c6e55a5d28d9b1d0804d95d23a3970e3bb59753bd5df77657b0e0db0a8977",
     "notes_hash": "7b685f4a2e05ed14e256d8c8bcaea179d459886e0ce5b70203805ab603bb194f",
-    "model_hash": "b9cba13d834fdc38ce94991df47085af53a485201d4b34f1593229ca44339f8d"
+    "model_hash": "16365303fab1c8a3f55f47d4088aa8bb4106129032e4ae707bcb0128a672bf04"
   },
   "geo_code": "LK",
   "node_type": "country",

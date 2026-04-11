@@ -58,51 +58,58 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Timor-Leste",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Timor-Leste",
+          "title": "Timor-Leste / Timór-Leste",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
         },
         {
           "title": "Legal status of cannabis in Timor-Leste (East Timor) - Cannaconnection.com",
           "url": "https://www.cannaconnection.com/blog/14700-legal-status-timor-leste-east-timor",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Drug Use in Timor-Leste: An Assessment",
           "url": "https://countryoffice.unfpa.org/timor-leste/drive/Druguse.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Timor-Leste: Drug policy should distinguish cannabis from dangerous drugs – president",
           "url": "https://www.macaubusiness.com/timor-leste-drug-policy-should-distinguish-cannabis-from-dangerous-drugs-president/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "East Timor: President calls for new drug policy",
           "url": "https://cannareporter.eu/en/2022/09/19/East-Timor-President-Calls-for-New-Drug-Policy-Needs-to-differentiate-between-cannabis-and-other-narcotics/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Timor-Leste",
           "url": "https://web.archive.org/web/20170517043036/http://countryoffice.unfpa.org/timor-leste/drive/Druguse.pdf",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Timor-Leste / Timór-Leste",
-          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -208,9 +215,9 @@
   },
   "hashes": {
     "code": "tls",
-    "content_hash": "06a8483c5ab63b6023b73ba79d76b3c9f4ee74208aa204584b18fe2b8d415b58",
+    "content_hash": "bd5a1c8fae2a469a6b7b13427e093811f883b34e56d64ee64c8c381d483758ce",
     "notes_hash": "4040304985f28144e59bad44a0b5e1b373cc7893e0f0ca46d8cc0cc91a9304f1",
-    "model_hash": "4dfba90ff3939f84fe8230ba4c141dca1f993e68b05f35ae62e766e6c1bc479c"
+    "model_hash": "b1abd01cf9c9ede9101e52ec48dd4a0e356facc8eb2c946b80ee5f90303e1ce8"
   },
   "geo_code": "TL",
   "node_type": "country",

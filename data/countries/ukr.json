@@ -21,22 +21,16 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": "illegal",
-        "cultivation": "tolerated",
+        "sale": null,
+        "cultivation": null,
         "import": null,
         "trafficking": null
       },
-      "enforcement": "fine-based",
+      "enforcement": "standard",
       "flags": [
-        "sale_illegal"
+        "distribution_fallback_illegal"
       ],
-      "modifiers": [
-        "up_to",
-        "however",
-        "may",
-        "but",
-        "only"
-      ]
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
@@ -46,8 +40,8 @@
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
-        "fine": true,
-        "severity_score": 1,
+        "fine": false,
+        "severity_score": 0,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -57,74 +51,78 @@
         "trafficking": {
           "prison": false,
           "arrest": false,
-          "fine": true,
+          "fine": false,
           "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Ukraine",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ukraine",
+          "title": "Ukraine / Україна",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
         },
         {
           "title": "Про внесення змін до Кодексу України про адміністративні правопорушення та Кримінального кодексу України щодо посилення відповідальності за незаконний посів або незаконне вирощування снотворного маку чи конопель (№ 1165-VI)",
           "url": "https://zakon4.rada.gov.ua/laws/show/1165-17/print1462851647388498",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "МОЗ: обіг медичного канабісу в Україні буде прозорим і на 100% простежуваним",
           "url": "https://moz.gov.ua/uk/moz-obig-medichnogo-kanabisu-v-ukrayini-bude-prozorim-i-na-100-prostezhuvanim",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Medical cannabis has been legalized in Ukraine",
           "url": "https://babel.ua/en/news/109929-medical-cannabis-has-been-legalized-in-ukraine",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Medical cannabis legalized in Ukraine",
           "url": "https://english.nv.ua/nation/medical-cannabis-legalized-in-ukraine-50443433.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Hemp research and growing in Ukraine",
           "url": "https://www.internationalhempassociation.org/jiha/iha02113.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "The permissible limit of possession of marijuana is planned to be increased",
           "url": "https://www.golosua.com/ua/main/article/podiyi/20100701_dopustimu-mezhu-zberigannya-marihuani-planuyut-zbi",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
-        "rule: medical_legal | source: Cannabis in Ukraine | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_fine | source: Cannabis in Ukraine | type: traversal | priority: 3 | scope: sale",
-        "rule: sale_illegal | source: Cannabis in Ukraine | type: traversal | priority: 3 | scope: sale",
-        "rule: legal | source: Cannabis in Ukraine | type: traversal | priority: 3 | scope: general",
-        "rule: private_cultivation | source: Cannabis in Ukraine | type: traversal | priority: 3 | scope: cultivation",
-        "rule: legal | source: Cannabis in Ukraine | type: traversal | priority: 3 | scope: cultivation",
         "rule: medical_legal | source: Medical cannabis has been legalized in Ukraine | type: reference | priority: 2 | scope: general",
         "rule: medical_legal | source: Medical cannabis legalized in Ukraine | type: reference | priority: 2 | scope: general",
-        "rule: medical_legal | source: Medical Cannabis Legalized in Ukraine: Law Now in Effect | type: reference | priority: 2 | scope: general"
-      ]
+        "rule: medical_legal | source: Medical Cannabis Legalized in Ukraine: Law Now in Effect | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
-      "penalty_fine",
-      "sale_illegal",
-      "private_cultivation"
+      "distribution_fallback_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Ukraine / Україна. Medical cannabis is legal. Distribution is illegal."
   },
@@ -226,9 +224,9 @@
   },
   "hashes": {
     "code": "ukr",
-    "content_hash": "65548046a58e1d7621bb9b84eb0896e48b210ac425b94d3b7e2f1d4a9ab1655b",
+    "content_hash": "5f548bc981d7ce66166cca9d6c508bd382771a5c21d09945e642774a91ae03fc",
     "notes_hash": "fca5e77345ddea24079c2c354076e3a93c651b4f92f42c42afcfb4a40f5bdd63",
-    "model_hash": "7aeb36433f16c1ffae87f075f9de78782514d02311e8c25c5b907d9502e80d1a"
+    "model_hash": "a63c4ab930c61ce7b13c993d6545ac027dd39b7a1d2d64fda713c907e759c738"
   },
   "geo_code": "UA",
   "node_type": "country",

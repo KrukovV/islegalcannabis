@@ -220,11 +220,17 @@ async function fetchWikiExtract(title) {
 
 async function buildSecondaryTraversalPages(countryCode, notesMainArticles, wikiTraversalCache) {
   const pages = [];
+  if (!(Array.isArray(notesMainArticles) && notesMainArticles.length > 0)) {
+    console.warn(`NO_SECONDARY_SOURCE code=${countryCode}`);
+  }
   for (const item of Array.isArray(notesMainArticles) ? notesMainArticles : []) {
     const title = canonicalizeWikiTitle(item?.title || "");
     if (!title) continue;
     const cachedPage = wikiTraversalCache.get(title);
     const apiText = await fetchWikiExtract(title);
+    if (item?.url && apiText.length < 300) {
+      console.warn(`SECONDARY_SOURCE_WEAK code=${countryCode} title=${title} extract_len=${apiText.length}`);
+    }
     if (item?.url && apiText.length < 200) {
       console.warn(`EMPTY_MAIN_ARTICLE code=${countryCode} title=${title} extract_len=${apiText.length}`);
     }

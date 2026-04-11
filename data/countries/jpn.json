@@ -64,46 +64,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Japan",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Japan",
+          "title": "Japan / 日本",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Japan",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Japan",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "A review of drug abuse and countermeasures in Japan since World War II",
           "url": "https://www.unodc.org/unodc/en/data-and-analysis/bulletin/bulletin_1968-01-01_3_page004.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "大麻取締法",
           "url": "https://elaws.e-gov.go.jp/document?lawid=323AC0000000124",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Japan: The Japanese Market for CBD and Hemp Extracts",
           "url": "https://www.fas.usda.gov/data/japan-japanese-market-cbd-and-hemp-extracts",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "International Narcotics Control Strategy Report: Volume I: Drug and Chemical Control",
           "url": "https://2009-2017.state.gov/j/inl/rls/nrcrpt/2010/index.htm",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Japan's war against medical marijuana",
           "url": "https://www.japantimes.co.jp/news/2016/11/05/national/media-national/japans-war-medical-marijuana/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "A Loophole in Japan's Weed Laws Is Getting Tens of Thousands High",
-          "url": "https://www.vice.com/en/article/japan-weed-law-thc-thco-cannabis-ban/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -140,7 +140,20 @@
         "rule: legal | source: Cannabis in Japan | type: traversal | priority: 3 | scope: general",
         "rule: penalty_arrest | source: Cannabis in Japan | type: traversal | priority: 3 | scope: possession",
         "rule: legal | source: Cannabis in Japan | type: traversal | priority: 3 | scope: possession"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 20450,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": true,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": "rare",
+          "distribution_notes": "illegal",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based",
@@ -258,9 +271,9 @@
   },
   "hashes": {
     "code": "jpn",
-    "content_hash": "6b0f15ff20cf2841675abccba95573d56fd3c54a6802054b19868037f86fca7b",
+    "content_hash": "f61ed5cc352ef96a2098d0778e2a4253627f808162c8657c052a975447812652",
     "notes_hash": "51d2bf04605ee687ed3abbc6ce70456da90381bab5f16488933d86c7aadfdf38",
-    "model_hash": "6d3d372c911f8671c992e0f18328c5794fd207c6770fc48f4df441c09b4fa10f"
+    "model_hash": "efe83644b9e0d142c71b26ccfabcd448e330eaedcaf1e3635d772576995fc600"
   },
   "geo_code": "JP",
   "node_type": "country",

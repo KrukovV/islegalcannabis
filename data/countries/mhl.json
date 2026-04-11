@@ -60,22 +60,22 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in the Marshall Islands",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Marshall_Islands",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Narcotic Drugs (Prohibition and Control) Act 1987 - 7 MIRC Ch.9",
-          "url": "https://rmiparliament.org/cms/images/LEGISLATION/PRINCIPAL/1987/1987-0011/NarcoticDrugsProhibitionandControlAct1987_1.pdf",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Marshall Islands / M̧ajeļ",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in the Marshall Islands",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Marshall_Islands",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Narcotic Drugs (Prohibition and Control) Act 1987 - 7 MIRC Ch.9",
+          "url": "https://rmiparliament.org/cms/images/LEGISLATION/PRINCIPAL/1987/1987-0011/NarcoticDrugsProhibitionandControlAct1987_1.pdf",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -88,7 +88,20 @@
         "rule: medical_legal | source: Cannabis in the Marshall Islands | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Cannabis in the Marshall Islands | type: traversal | priority: 3 | scope: possession",
         "rule: penalty_fine | source: Cannabis in the Marshall Islands | type: traversal | priority: 3 | scope: possession"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 1708,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -199,9 +212,9 @@
   },
   "hashes": {
     "code": "mhl",
-    "content_hash": "a3ff50ccb5379462a56a52fb326575ce1861ff65b6cfb0386a6b4732260096da",
+    "content_hash": "54f4d0dfbad839816d469a6676de850ddbccb54dce22cb5af8cc3b82b6ea7791",
     "notes_hash": "b3d999da5311a1b01390093538bc86d145956c084794a22c0772ff1a4bce46ae",
-    "model_hash": "04345c9b338d2c3084b398aba7896d834b19add20ad953984d662f7cdcdfd320"
+    "model_hash": "40cfc45fde81ca77b80fcf06941ecc5592d280fb4c7ce6e020ce9a3065dcc8a6"
   },
   "geo_code": "MH",
   "node_type": "country",

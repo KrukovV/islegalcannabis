@@ -58,49 +58,49 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
+        {
+          "title": "Lithuania / Lietuva",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        },
         {
           "title": "Cannabis in Lithuania",
           "url": "https://en.wikipedia.org/wiki/Cannabis_in_Lithuania",
-          "depth": 0,
-          "type": "summary"
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Timeline of Cannabis Law",
           "url": "https://en.wikipedia.org/wiki/Timeline_of_cannabis_law",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "More hemp produce to become legal in Lithuania",
           "url": "https://www.lrt.lt/en/news-in-english/19/1429345/more-hemp-produce-to-become-legal-in-lithuania",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Seimas leido auginti daugiau pluoštinių kanapių",
           "url": "https://www.15min.lt/verslas/naujiena/finansai/seimas-leido-auginti-daugiau-pluostiniu-kanapiu-662-1984512",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Kas yra medicininės kanapės ir kodėl Lietuvoje jos nėra įteisintos",
           "url": "https://kanapiukultura.org/kas-yra-medicinines-kanapes-ir-kodel-lietuvoje-jos-nera-iteisintos/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Vaistų iš kanapių kol kas nebus: ministerija kaltinama abejingumu",
           "url": "https://www.lrt.lt/naujienos/lietuvoje/2/1051215/vaistu-is-kanapiu-kol-kas-nebus-ministerija-kaltinama-abejingumu",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Lithuania",
-          "url": "https://web.archive.org/web/20230103052755/https://kanapiukultura.org/kas-yra-medicinines-kanapes-ir-kodel-lietuvoje-jos-nera-iteisintos/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -110,13 +110,27 @@
         "rule: legal | source: Cannabis in Lithuania | type: traversal | priority: 3 | scope: trafficking",
         "rule: medical_legal | source: Cannabis in Lithuania | type: traversal | priority: 3 | scope: use",
         "rule: penalty_fine | source: Cannabis in Lithuania | type: traversal | priority: 3 | scope: possession"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 1607,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "illegal",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
     ],
     "applied_rules": [
       "raw_illegal",
+      "illegal",
       "penalty_fine"
     ],
     "notes_normalized": "Cannabis is illegal in Lithuania / Lietuva. Medical cannabis is illegal. Distribution is illegal."
@@ -219,9 +233,9 @@
   },
   "hashes": {
     "code": "ltu",
-    "content_hash": "e300817f9cf6f22f669a912e7db8c4276de474e2f9f0d7cf6a2a24d4761dc747",
+    "content_hash": "b17f91e1428273f33b4b7f1865166875f1a4e2331f164f773fecf8664a8e741a",
     "notes_hash": "7053b128ad50a168d33a8689be99e05331e3bd2fe1930ebe9ac4c363b5e160da",
-    "model_hash": "fd76905d23c6830cd30ea770be90ffd612e44265cc8795214d0280be14cd38f6"
+    "model_hash": "5fda508387d88beafb652f3037a7c7f29eb6ed8b40e064dab74772f7fd05fc55"
   },
   "geo_code": "LT",
   "node_type": "country",

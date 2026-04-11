@@ -26,12 +26,10 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "fine-based",
+      "enforcement": "standard",
       "flags": [],
       "modifiers": [
-        "but",
-        "however",
-        "only"
+        "but"
       ]
     },
     "signals": {
@@ -40,10 +38,10 @@
       "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 3,
-        "arrest": true,
-        "fine": true,
-        "severity_score": 8,
+        "prison_priority": 1,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 4,
         "possession": {
           "prison": true,
           "arrest": false,
@@ -57,49 +55,45 @@
           "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Namibia",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Namibia",
+          "title": "Namibia / Namibië",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
         },
         {
           "title": "Legality of cannabis (notes)",
           "url": "https://en.wikipedia.org/wiki/Cannabis_in_Namibia",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Namibia / Namibië",
-          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: raw_illegal | source: Namibia / Namibië | type: summary | priority: 1 | scope: general",
         "rule: illegal | source: Namibia / Namibië | type: summary | priority: 1 | scope: general",
         "rule: penalty_prison | source: Namibia / Namibië | type: summary | priority: 1 | scope: possession",
-        "rule: raw_illegal | source: Cannabis in Namibia | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_prison | source: Cannabis in Namibia | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_fine | source: Cannabis in Namibia | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_years | source: Cannabis in Namibia | type: traversal | priority: 3 | scope: general",
-        "rule: legal | source: Cannabis in Namibia | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_arrest | source: Cannabis in Namibia | type: traversal | priority: 3 | scope: general",
-        "rule: medical_legal | source: Cannabis in Namibia | type: traversal | priority: 3 | scope: cultivation"
-      ]
+        "no traversal evidence"
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": true,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "illegal",
+          "distribution_article": null
+        }
+      }
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
       "raw_illegal",
-      "penalty_prison",
-      "penalty_fine",
-      "penalty_years",
-      "penalty_arrest"
+      "penalty_prison"
     ],
     "notes_normalized": "Cannabis is illegal in Namibia / Namibië. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
@@ -201,9 +195,9 @@
   },
   "hashes": {
     "code": "nam",
-    "content_hash": "eb1d27b44fdcc4c45d8ef49908da7dbadb7925006990963e62e31ad3441fb3a3",
+    "content_hash": "931d9ca4cef553891621f43680c200d4f079f23547375648073438417aae530b",
     "notes_hash": "886ed2402139ba1efab77f0abb0160306b3b26f7e23850615df0160d927b8717",
-    "model_hash": "1050d1cc0568a38628b104211d1f7f5973ec77fd4ff1198b0ce9bbb4eaf9e0a6"
+    "model_hash": "303e044a110c08167f9cee9adb3164e7da4f3f9c41324059dd2baf208344f9aa"
   },
   "geo_code": "NA",
   "node_type": "country",

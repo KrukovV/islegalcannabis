@@ -61,46 +61,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Saint Vincent and the Grenadines",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Saint_Vincent_and_the_Grenadines",
+          "title": "Saint Vincent and the Grenadines",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Saint Vincent and the Grenadines",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Saint_Vincent_and_the_Grenadines",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Archived copy",
           "url": "https://www.gov.vc/images/PoliciesActsAndBills/DRAFT_Medicinal_Cannabis_Industry_Bill2.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Saint Vincent And The Grenadines Decriminalizes Marijuana",
           "url": "https://www.forbes.com/sites/sarabrittanysomerset/2018/12/26/saint-vincent-and-the-grenadines-decriminalize-marijuana/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "No arrest for two ounces or less of cannabis",
           "url": "https://searchlight.vc/searchlight/front-page/2019/08/02/no-arrest-for-two-ounces-or-less-of-cannabis/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "MP concerned about local ganja as SVG gets plant breeders' law",
           "url": "https://www.iwnsvg.com/2019/12/20/mp-concerned-about-local-ganja-as-svg-gets-plant-breeders-law/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Caribbean and Southern: Transnational Perspectives on the U.S. South",
           "url": "https://books.google.com/books?id=nTR0jVgkvNoC&pg=PA147",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Saint Vincent and the Grenadines",
-          "url": "https://web.archive.org/web/20191223132646/http://www.gov.vc/images/PoliciesActsAndBills/DRAFT_Medicinal_Cannabis_Industry_Bill2.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -111,7 +111,20 @@
         "rule: penalty_fine | source: Cannabis in Saint Vincent and the Grenadines | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Cannabis in Saint Vincent and the Grenadines | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Cannabis in Saint Vincent and the Grenadines | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 4746,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -222,9 +235,9 @@
   },
   "hashes": {
     "code": "vct",
-    "content_hash": "8545e7087f81e4302fbe80dc0025b7e9fa233204066fce34d729804d010b282f",
+    "content_hash": "7f43a0aace2ab5f3f60a207561f733de91bf2a480e702ee96f859bf2ec502355",
     "notes_hash": "9aab728e619745962d35fcaba9ea7bd3a94a1181091a2aae729030e44283f196",
-    "model_hash": "16e2e2b658e20a494f966063860f71ee45964cab19123e68cf75070ad3f0a0fb"
+    "model_hash": "49dbccaac006a9cd196b7f7c1f11469526b0945ecbbb67dd6e11b9b4a7cd1133"
   },
   "geo_code": "VC",
   "node_type": "country",

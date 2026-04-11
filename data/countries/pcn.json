@@ -66,7 +66,20 @@
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -165,9 +178,9 @@
   },
   "hashes": {
     "code": "pcn",
-    "content_hash": "a73850b6f58ad61c96b35020c18c0bc6ec87e5d5f38be43eaba02948190b796f",
+    "content_hash": "0d550ae294b014dc74e2f77a50693c5aaa39d87d90691277bfff2e658b90987e",
     "notes_hash": "16d3ae036a4df26e59c2d02c45c12ce11d5925983e1aec3eaec14df3d1a0c8ad",
-    "model_hash": "afbb48b7546ec13bebe63c109146f2837d4b4ace6b06053d45bd2f93f7ea7246"
+    "model_hash": "a87f72a7f47ec28c4c71d96e91f0875f5f7cd7d55c512f8e94a106a60ebad7b3"
   },
   "geo_code": "PN",
   "node_type": "country",

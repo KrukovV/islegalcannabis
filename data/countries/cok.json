@@ -56,34 +56,34 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in the Cook Islands",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Cook_Islands",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cook Islands looks into producing medicinal cannabis itself",
-          "url": "https://www.rnz.co.nz/international/pacific-news/483490/cook-islands-looks-into-producing-medicinal-cannabis-itself",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Medicinal cannabis now permitted in Cook Islands with prescription",
-          "url": "https://islandsbusiness.com/news-break/medicinal-cannabis-now-permitted-in-cook-islands-with-prescription/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cop used dope for stress",
-          "url": "https://www.stuff.co.nz/national/crime/9195133/Cop-used-dope-for-stress",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Cook Islands / Kūki 'Āirani",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in the Cook Islands",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Cook_Islands",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Cook Islands looks into producing medicinal cannabis itself",
+          "url": "https://www.rnz.co.nz/international/pacific-news/483490/cook-islands-looks-into-producing-medicinal-cannabis-itself",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Medicinal cannabis now permitted in Cook Islands with prescription",
+          "url": "https://islandsbusiness.com/news-break/medicinal-cannabis-now-permitted-in-cook-islands-with-prescription/",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cop used dope for stress",
+          "url": "https://www.stuff.co.nz/national/crime/9195133/Cop-used-dope-for-stress",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -91,7 +91,20 @@
         "rule: illegal | source: Cannabis in the Cook Islands | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Cannabis in the Cook Islands | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Medicinal cannabis now permitted in Cook Islands with prescription | type: reference | priority: 2 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 386,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -197,9 +210,9 @@
   },
   "hashes": {
     "code": "cok",
-    "content_hash": "87e44fe75d1c1d2f088de91faab5ac90e129797b42c31f9bab6ad3edb58e3e05",
+    "content_hash": "b6193d1164f5040e134a6d536fcac08b7929f2070da8ee4325dbf86b1b827a98",
     "notes_hash": "f206341d13f35269325f7829ba7f557fc6725fdd14b5d7abc6ef2a98432ebabf",
-    "model_hash": "f86308a3ae06bbbf4c7d6e43edbb563c7d7af559a1c2b07c75d5f8ef2d469e0a"
+    "model_hash": "b6a082d4079ddde7865fe849227ff08b7ebdda755d690979943c6ba6795059e7"
   },
   "geo_code": "CK",
   "node_type": "country",

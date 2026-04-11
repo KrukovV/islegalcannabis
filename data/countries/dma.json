@@ -60,46 +60,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Dominica",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Dominica",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Drugs (Prevention of Misuse) Act, Chapter 40:07",
-          "url": "https://www.dominica.gov.dm/laws/chapters/chap40-07.pdf",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "2020 DRUGS (PREVENTION OF MISUSE) ACT (AMENDMENT)",
-          "url": "https://dominica.gov.dm/images/documents/bills_for_review/Bill_-_Drugs_Prevention_of_Misuse_Amd_Act_2020.pdf",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "International Narcotics Control Strategy Report, 1995",
-          "url": "https://en.wikipedia.org/wiki/%7B%7BGBurl",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Dominica parliament passes legislation to decriminalize small amounts of marijuana",
-          "url": "https://dominicanewsonline.com/news/homepage/news/general/dominica-parliament-passes-legislation-to-decriminalize-small-amounts-of-marijuana/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Dominica",
-          "url": "https://web.archive.org/web/20201031063501/https://dominica.gov.dm/images/documents/bills_for_review/Bill_-_Drugs_Prevention_of_Misuse_Amd_Act_2020.pdf",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Dominica",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Dominica",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Dominica",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Drugs (Prevention of Misuse) Act, Chapter 40:07",
+          "url": "https://www.dominica.gov.dm/laws/chapters/chap40-07.pdf",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "2020 DRUGS (PREVENTION OF MISUSE) ACT (AMENDMENT)",
+          "url": "https://dominica.gov.dm/images/documents/bills_for_review/Bill_-_Drugs_Prevention_of_Misuse_Amd_Act_2020.pdf",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "International Narcotics Control Strategy Report, 1995",
+          "url": "https://en.wikipedia.org/wiki/%7B%7BGBurl",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Dominica parliament passes legislation to decriminalize small amounts of marijuana",
+          "url": "https://dominicanewsonline.com/news/homepage/news/general/dominica-parliament-passes-legislation-to-decriminalize-small-amounts-of-marijuana/",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis in Dominica",
+          "url": "https://web.archive.org/web/20201031063501/https://dominica.gov.dm/images/documents/bills_for_review/Bill_-_Drugs_Prevention_of_Misuse_Amd_Act_2020.pdf",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -110,7 +110,20 @@
         "rule: penalty_years | source: Cannabis in Dominica | type: traversal | priority: 3 | scope: trafficking",
         "rule: penalty_criminal_offense | source: Cannabis in Dominica | type: traversal | priority: 3 | scope: trafficking",
         "rule: trafficking_illegal | source: Cannabis in Dominica | type: traversal | priority: 3 | scope: trafficking"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 1317,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -222,9 +235,9 @@
   },
   "hashes": {
     "code": "dma",
-    "content_hash": "effc2bc888e460d354cb6e290b85802080fb2d0b4f271445713ba9b655eafd16",
+    "content_hash": "03ab73ddb92f4fe761bd38f09dfe5f792b21cd99f0db5e7a01a8995128ed0906",
     "notes_hash": "7fb616b66794f0407fb2bf81b51a9854ec2bcda06bb8ce2fc449713b65b0d981",
-    "model_hash": "6453ef97b2776ed2ce048edf7fa5c320709714d593ac1a9a001a215d88be0810"
+    "model_hash": "6af154efb6bb70a8ee714631e30229d464d329eed5dc3b7e0f141078f619bf87"
   },
   "geo_code": "DM",
   "node_type": "country",

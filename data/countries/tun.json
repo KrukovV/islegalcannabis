@@ -59,46 +59,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Tunisia",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Tunisia",
+          "title": "Tunisia / تونس",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Tunisia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Tunisia",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Summary of Annual Reports of Governments Relating to Opium and Other Narcotic Drugs",
           "url": "https://books.google.com/books?id=GXMqAQAAMAAJ",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Summary of Annual Reports of Governments Relating to Opium and Other Narcotic Drugs",
           "url": "https://books.google.com/books?id=pXA_AAAAMAAJ",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Marihuana and Medicine",
           "url": "https://books.google.com/books?id=AYH5BwAAQBAJ&pg=PA4",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "The History and Description of Africa: And of the Notable Things Therein Contained",
           "url": "https://archive.org/details/historyanddescr00leogoog",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Some Arab governments are rethinking harsh cannabis laws",
           "url": "https://www.economist.com/middle-east-and-africa/2017/04/12/some-arab-governments-are-rethinking-harsh-cannabis-laws",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Tunisia",
-          "url": "https://archive.org/details/historyanddescr00leogoog/page/n36",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -112,7 +112,20 @@
         "rule: raw_illegal | source: Cannabis in Tunisia | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Tunisia | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Cannabis in Tunisia | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 916,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": true,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "illegal",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -224,9 +237,9 @@
   },
   "hashes": {
     "code": "tun",
-    "content_hash": "796b1895bf2f66add97b38690da856802590bb862282c9cbda162b53849ec030",
+    "content_hash": "390030871fea036e2c262df94f6431aef4b094979e6942439cd2403bcd7d27cd",
     "notes_hash": "cb060f565d93c84c53b5fa2714660d89a8342e7fe4b5ce9801faf4b2006dd22d",
-    "model_hash": "3f5a6ac2115fcf54b0c4ed1043467f8f48b3acee7effa1d112224ff9dad5e66d"
+    "model_hash": "9ec5b6bbadada4a6ad16bb773a272d1391afca8897353718feb457c9170ae3a8"
   },
   "geo_code": "TN",
   "node_type": "country",

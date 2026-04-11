@@ -61,28 +61,28 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Moldova",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Moldova",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Biden pardons weed convicts: how does legality in Europe compare?",
-          "url": "https://www.euronews.com/culture/2022/10/07/biden-pardons-weed-convicts-how-does-legality-in-europe-compare",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Criminal Code of Moldova",
-          "url": "https://sherloc.unodc.org/cld/uploads/res/document/criminal-code-of-the-republic-of-moldova_html/Republic_of_Moldova_Criminal_Code.pdf",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Moldova",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Moldova",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Moldova",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Biden pardons weed convicts: how does legality in Europe compare?",
+          "url": "https://www.euronews.com/culture/2022/10/07/biden-pardons-weed-convicts-how-does-legality-in-europe-compare",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Criminal Code of Moldova",
+          "url": "https://sherloc.unodc.org/cld/uploads/res/document/criminal-code-of-the-republic-of-moldova_html/Republic_of_Moldova_Criminal_Code.pdf",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -94,7 +94,20 @@
         "rule: penalty_fine | source: Cannabis in Moldova | type: traversal | priority: 3 | scope: sale",
         "rule: sale_regulated | source: Cannabis in Moldova | type: traversal | priority: 3 | scope: sale",
         "rule: medical_legal | source: Cannabis in Moldova | type: traversal | priority: 3 | scope: sale"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 516,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -206,9 +219,9 @@
   },
   "hashes": {
     "code": "mda",
-    "content_hash": "4a926db94b18a2419bb42718f1b9da8885d1358c9d8a9322403953675b761105",
+    "content_hash": "40f914b1324cbc5428734462874eb239a18290ffd1ba240d50668ae63a1984c7",
     "notes_hash": "c1e72c7a6321d57ddfbf53f91343848c7f82e5f2b212c9718b55ca0baf934933",
-    "model_hash": "73f43222f08f27ad1136f98c934a97fe3835a83033e371cd9e12959d034772e0"
+    "model_hash": "f7c01dde00e1a28439177487a47a0aeb7fc6de9973f8fcdb9744a14fa670bd16"
   },
   "geo_code": "MD",
   "node_type": "country",

@@ -60,22 +60,22 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in the Bahamas",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Bahamas",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Legality of cannabis (notes)",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Bahamas",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Bahamas",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in the Bahamas",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Bahamas",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Bahamas",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -90,7 +90,20 @@
         "rule: penalty_prison | source: Cannabis in the Bahamas | type: traversal | priority: 3 | scope: sale",
         "rule: penalty_fine | source: Cannabis in the Bahamas | type: traversal | priority: 3 | scope: sale",
         "rule: penalty_years | source: Cannabis in the Bahamas | type: traversal | priority: 3 | scope: sale"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 4659,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -201,9 +214,9 @@
   },
   "hashes": {
     "code": "bhs",
-    "content_hash": "dc734bab3c3e7c60ca477c304f8ed5c8ad00f98a6b2135a1b00af466f6d8c360",
+    "content_hash": "4b01d49b254f154eb06f7446dddfd2722fd85622ca113f96b21100d73701012e",
     "notes_hash": "b8d118d410b6a781dee5cf48e1a57959df7557c63e6461012ae3316e40321399",
-    "model_hash": "0722dd5f0540d2ce13985196dbaee848c37661e37ac52c7b74f80471cbddbe56"
+    "model_hash": "1d2a7bd5098c1d30d6b1536030b3b7d4741271cdf47ea54fd71a5e928f111bcd"
   },
   "geo_code": "BS",
   "node_type": "country",

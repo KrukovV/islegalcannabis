@@ -66,7 +66,20 @@
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -165,9 +178,9 @@
   },
   "hashes": {
     "code": "abw",
-    "content_hash": "079eade3fc472cc976880c124e7d183b9591bdf71b673cc6c95974cb94155663",
+    "content_hash": "6e9470d1e2a17b5a1a516a4b960e4e0f247d1341ef05241ccdefbf243981f6a2",
     "notes_hash": "4816523bd30d7fd2f2c57436f3125e6e15aded1b3bda6d4ffc8bacd1ab98106a",
-    "model_hash": "27f21b6fffba7251fe8bb6dedfd39901ac10db278ff3c76038d588a33306b2a5"
+    "model_hash": "06c0f04e792e51e1df844d3583e1881abed87e0d1d6ac57b1470cbdafb2b7f81"
   },
   "geo_code": "AW",
   "node_type": "country",

@@ -66,46 +66,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Italy",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Italy",
+          "title": "Italy / Italia",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Italy",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Italy",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Uso medico della cannabis – Impiego farmaceutico",
           "url": "https://www.salute.gov.it/portale/medicinaliStupefacenti/dettaglioContenutiMedicinaliStupefacenti.jsp?lingua=italiano&id=4587&area=sostanzeStupefacenti&menu=organismo&tab=2",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Organismo statale per la cannabis",
           "url": "https://www.salute.gov.it/portale/medicinaliStupefacenti/dettaglioContenutiMedicinaliStupefacenti.jsp?lingua=italiano&id=4592&area=sostanzeStupefacenti&menu=organismo",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Uso medico della cannabis",
           "url": "https://www.salute.gov.it/portale/medicinaliStupefacenti/dettaglioContenutiMedicinaliStupefacenti.jsp?lingua=italiano&id=4587&area=sostanzeStupefacenti&menu=organismo",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Uso medico della cannabis – Progetto pilota per la produzione nazionale",
           "url": "https://www.salute.gov.it/portale/medicinaliStupefacenti/dettaglioContenutiMedicinaliStupefacenti.jsp?lingua=italiano&id=4587&area=sostanzeStupefacenti&menu=organismo&tab=3",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "La produzione nazionale di sostanze attive di origine vegetale a base di Cannabis",
           "url": "https://www.salute.gov.it/portale/medicinaliStupefacenti/dettaglioContenutiMedicinaliStupefacenti.jsp?lingua=italiano&id=4588&area=sostanzeStupefacenti&menu=organismo",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "La distribuzione della cannabis ad uso medico",
-          "url": "https://www.salute.gov.it/portale/medicinaliStupefacenti/dettaglioContenutiMedicinaliStupefacenti.jsp?lingua=italiano&id=5066&area=sostanzeStupefacenti&menu=organismo",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -162,7 +162,20 @@
         "rule: enforcement_rare | source: Cannabis in Italy | type: traversal | priority: 3 | scope: trafficking",
         "rule: sale_regulated | source: Cannabis in Italy | type: traversal | priority: 3 | scope: import",
         "rule: medical_legal | source: Cannabis in Italy | type: traversal | priority: 3 | scope: import"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 81342,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": true,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": "rare",
+          "distribution_notes": "illegal",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based",
@@ -280,9 +293,9 @@
   },
   "hashes": {
     "code": "ita",
-    "content_hash": "7a9816e8972ed6c8f773c1214ea8f4dea1622abcbbd7a776b1d35fb6e1d25188",
+    "content_hash": "deb92d25b9fa5a26d2a7e39cb08d9c4e0c84123ba999b4d3de47fbac53b56ee9",
     "notes_hash": "abb0f40ad9904212e99c0a6bcb5f520b3d7b1fb6e0762dfc45af379f5daad99e",
-    "model_hash": "c3eef58c180d07751834043f385d365b6f9905954d7a2896cd8eb773ddd93031"
+    "model_hash": "6e9f218eeb02ad229e07e576fce1242e2e1989d3b535d10345b127e8c371e381"
   },
   "geo_code": "IT",
   "node_type": "country",

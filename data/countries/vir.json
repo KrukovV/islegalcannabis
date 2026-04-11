@@ -66,7 +66,20 @@
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -165,9 +178,9 @@
   },
   "hashes": {
     "code": "vir",
-    "content_hash": "5c0507fb3bc1ac0726fc92fffac4fd98d6b9385b787c0e36accd3df3f62c52d1",
+    "content_hash": "0897ba8fcf0d28e60da4f5e157472702d66fade9205f86b1d0437efe3d90812c",
     "notes_hash": "64866710ca3ec9bf13c451d826e4df5939a0ee29d3d5ff7c29801d6e562794ad",
-    "model_hash": "7f627019ef0bd2709ab1e8a79817b0ba32529da0d1851bb27ce5548a36a94961"
+    "model_hash": "b1fe07dcb032512edaa790b1db5f287040376a42345c0c80e2341f8a77fde6d1"
   },
   "geo_code": "VI",
   "node_type": "country",

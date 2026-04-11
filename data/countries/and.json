@@ -61,22 +61,22 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Andorra",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Andorra",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Legality of cannabis (notes)",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Andorra",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Andorra",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Andorra",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Andorra",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Andorra",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -85,7 +85,20 @@
         "rule: penalty_prison | source: Cannabis in Andorra | type: traversal | priority: 3 | scope: trafficking",
         "rule: trafficking_illegal | source: Cannabis in Andorra | type: traversal | priority: 3 | scope: trafficking",
         "rule: penalty_arrest | source: Cannabis in Andorra | type: traversal | priority: 3 | scope: use"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 283,
+        "source_confidence": "weak_article",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -194,9 +207,9 @@
   },
   "hashes": {
     "code": "and",
-    "content_hash": "b1236dcc99306a4ec77825c5f9a6713aac3c86e4401c1afba0ff9f304c36f8a7",
+    "content_hash": "4ab89a24120c407a7add819e3b7159e1c8869540e5baf5bf21bea9d7d8098fb0",
     "notes_hash": "371c9082100d585254d96f48231ddc89aab7e54a3c401257eabb8f56680172f6",
-    "model_hash": "d9cd3a3f2196cc454a8cdf2cf9cb12d57608911548d519ceda6d5607dace70f7"
+    "model_hash": "f22575219e409608daaf0bdd0d30907de26fe26c49438ac30a921faf2c06c3b7"
   },
   "geo_code": "AD",
   "node_type": "country",

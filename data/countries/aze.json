@@ -58,33 +58,46 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Azerbaijan",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Azerbaijan",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Women and Cannabis: Medicine, Science, and Sociology",
-          "url": "https://books.google.com/books?id=gZJ7m3Uf6FQC&pg=PA8",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "International Narcotics Control Strategy Report: Volume I: Drug and Chemical Control",
-          "url": "https://books.google.com/books?id=0jnyNWFuhXYC&pg=PA129",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Azerbaijan / Azərbaycan",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Azerbaijan",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Azerbaijan",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Women and Cannabis: Medicine, Science, and Sociology",
+          "url": "https://books.google.com/books?id=gZJ7m3Uf6FQC&pg=PA8",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "International Narcotics Control Strategy Report: Volume I: Drug and Chemical Control",
+          "url": "https://books.google.com/books?id=0jnyNWFuhXYC&pg=PA129",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: raw_illegal | source: Cannabis in Azerbaijan | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 435,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -190,9 +203,9 @@
   },
   "hashes": {
     "code": "aze",
-    "content_hash": "695a61b106d20315b5a02336754babd2a6e324ee0e9c7f39b5916b4c97aa268d",
+    "content_hash": "d70d7056e7f2d82d2e443773df62228cf1febcaa42223e69fb67015eb69c63d3",
     "notes_hash": "3ea8f35858b441dd90f482b38c3b354ee5c773e65433d5e2313da8dbfc144c61",
-    "model_hash": "eadd1b84cb83dd685d6f3e1dc8f278770d2478c65f56f0e88bf1ddbf75cb3efe"
+    "model_hash": "d02f19f6a8e520f027d818c1ba2187460bf356037fd24a8758e2a54d91ade7d5"
   },
   "geo_code": "AZ",
   "node_type": "country",

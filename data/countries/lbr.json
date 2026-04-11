@@ -56,28 +56,41 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Liberia",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Liberia",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "The International Drugs Trade",
-          "url": "https://books.google.com/books?id=WHH1ON4EEXsC&pg=PA183",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Liberia",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Liberia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Liberia",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "The International Drugs Trade",
+          "url": "https://books.google.com/books?id=WHH1ON4EEXsC&pg=PA183",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: raw_illegal | source: Cannabis in Liberia | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Liberia | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 281,
+        "source_confidence": "weak_article",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -183,9 +196,9 @@
   },
   "hashes": {
     "code": "lbr",
-    "content_hash": "4bb3aa6e0a92642c5b223842c7a56c9bfcbca803d3387ba64b0a335b4d84aa84",
+    "content_hash": "d66a84bb60f05cea4392382c3ecf9de90a009bdea3a9969e68244854e0178788",
     "notes_hash": "d07befd6ce51bc804c545d8a6ca482436c34abc5403a7a6e9bccc8a2cf656913",
-    "model_hash": "dce6925f1d5343b48363c298a55d98b4d6a1f62582bd004a15ee2a8febc7d2b0"
+    "model_hash": "4deb8eb22b172e4efca0582e3d9f63c07a4b7d6a26a60f3e86bf8da0de5f0417"
   },
   "geo_code": "LR",
   "node_type": "country",

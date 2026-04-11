@@ -60,46 +60,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Colombia",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Colombia",
+          "title": "Colombia",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Colombia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Colombia",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Colombia's Narcotics Nightmare: How the Drug Trade Destroyed Peace",
           "url": "https://books.google.com/books?id=RytzBgAAQBAJ&pg=PA27",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Marihuana and Medicine",
           "url": "https://books.google.com/books?id=AYH5BwAAQBAJ&pg=PA640",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Use of Drugs Is Legalized By Colombia",
           "url": "https://www.nytimes.com/1994/05/07/world/use-of-drugs-is-legalized-by-colombia.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Colombia decriminalizes cocaine, marijuana &#124; Public Radio International",
           "url": "https://www.pri.org/stories/2012-06-30/colombia-decriminalizes-cocaine-marijuana",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Colombia decriminalizes marijuana cultivation up to 20 plants",
           "url": "https://colombiareports.com/colombia-decriminalizes-marijuana-cultivation-up-to-20-plants/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Colombia legalizes medical marijuana",
-          "url": "https://www.yahoo.com/news/colombia-legalizes-medical-marijuana-171023547.html?ref=gs",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -117,7 +117,20 @@
         "rule: private_cultivation | source: Cannabis in Colombia | type: traversal | priority: 3 | scope: cultivation",
         "rule: legal | source: Cannabis in Colombia | type: traversal | priority: 3 | scope: cultivation",
         "rule: medical_legal | source: Cannabis in Colombia | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 2902,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "restricted",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -225,9 +238,9 @@
   },
   "hashes": {
     "code": "col",
-    "content_hash": "dd342739cf6e95eae5bc35cc9aa15413a9273195873c3524521bc6341bf5ab4d",
+    "content_hash": "4151e70cb33a6b3b4d91a22d9d029d73e30db1748cdec7a3c00e97b63e8a4e86",
     "notes_hash": "84ea0f3a49bf7b225e081e1de373700234d99ad251b1fc9db53fd8f326f19bc8",
-    "model_hash": "dbdf094ad4629e65e3e24568abdeebb80fe854c3aef9be6a1c2b892bca60d2d8"
+    "model_hash": "44e26be916c6b1fee4d45844628164f542965ac4dc55a9219ba119af2f6718d5"
   },
   "geo_code": "CO",
   "node_type": "country",

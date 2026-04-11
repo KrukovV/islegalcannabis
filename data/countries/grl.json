@@ -58,34 +58,47 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Greenland",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Greenland",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Crime and Punishment around the World &#91;4 volumes&#93;: &#91;Four Volumes&#93;",
-          "url": "https://books.google.com/books?id=2uK6bR9byVIC&pg=RA1-PA160",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "The Greenland Dilemma: The quest for independence, the underground riches and the troubled relations with Denmark",
-          "url": "https://books.google.com/books?id=1vlvCQAAQBAJ&pg=PT46",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Greenland / Kalaallit Nunaat",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Greenland",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Greenland",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Crime and Punishment around the World &#91;4 volumes&#93;: &#91;Four Volumes&#93;",
+          "url": "https://books.google.com/books?id=2uK6bR9byVIC&pg=RA1-PA160",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "The Greenland Dilemma: The quest for independence, the underground riches and the troubled relations with Denmark",
+          "url": "https://books.google.com/books?id=1vlvCQAAQBAJ&pg=PT46",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: raw_illegal | source: Cannabis in Greenland | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Greenland | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 158,
+        "source_confidence": "weak_article",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -191,9 +204,9 @@
   },
   "hashes": {
     "code": "grl",
-    "content_hash": "62dd2b0aae830d23a86954c37571c7a88a1736ba8e19ad10e3f7b3d662445190",
+    "content_hash": "639744ec279577071c1b550a5aee1ea0d5feff51952b4642fcdf4c8210c06d96",
     "notes_hash": "803518579d58996ee5d423f464c3cd63a17568d1fb49c336e44974db824f7596",
-    "model_hash": "9241129a2e5df76487284bb72d4599b307d3048b1d79f73f1b2ffee3a15a8fb7"
+    "model_hash": "b09a776ce91483dec88292377026efeba3bc19410be0e83188122e4d2aa4f769"
   },
   "geo_code": "GL",
   "node_type": "country",

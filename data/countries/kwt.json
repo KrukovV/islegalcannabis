@@ -58,46 +58,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Kuwait",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kuwait",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Kuwait",
-          "url": "https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Kuwait.html",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Kuwait",
-          "url": "https://news.kuwaittimes.net/website/marijuana-law-kuwait/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Kuwait",
-          "url": "https://news.kuwaittimes.net/website/embassy-releases-advisory-regarding-drugs-for-indian-community-in-kuwait/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Kuwait",
-          "url": "https://web.archive.org/web/20181004224529/http://news.kuwaittimes.net/website/embassy-releases-advisory-regarding-drugs-for-indian-community-in-kuwait/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Insecure Gulf: The End of Certainty and the Transition to the Post-oil Era",
-          "url": "https://books.google.com/books?id=jpr4BQAAQBAJ&pg=PT44",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Kuwait / الكويت",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Kuwait",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kuwait",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Cannabis in Kuwait",
+          "url": "https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Kuwait.html",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis in Kuwait",
+          "url": "https://news.kuwaittimes.net/website/marijuana-law-kuwait/",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis in Kuwait",
+          "url": "https://news.kuwaittimes.net/website/embassy-releases-advisory-regarding-drugs-for-indian-community-in-kuwait/",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis in Kuwait",
+          "url": "https://web.archive.org/web/20181004224529/http://news.kuwaittimes.net/website/embassy-releases-advisory-regarding-drugs-for-indian-community-in-kuwait/",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Insecure Gulf: The End of Certainty and the Transition to the Post-oil Era",
+          "url": "https://books.google.com/books?id=jpr4BQAAQBAJ&pg=PT44",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -105,7 +105,20 @@
         "rule: raw_illegal | source: Cannabis in Kuwait | type: traversal | priority: 3 | scope: possession",
         "rule: illegal | source: Cannabis in Kuwait | type: traversal | priority: 3 | scope: possession",
         "rule: penalty_fine | source: Cannabis in Kuwait | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 522,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -215,9 +228,9 @@
   },
   "hashes": {
     "code": "kwt",
-    "content_hash": "40edf46f55cdfeb821719d913f3d912cb59549169f361995cfd9dd82db8b9527",
+    "content_hash": "0784815a3e82ff8c186ea57ec167056ed412919ccb49fa2ee2c7a4ccb8fcf065",
     "notes_hash": "dfa93b771ce3e7d71a15309d0f95d6c313d9c828070bf25977aa6666e7df268b",
-    "model_hash": "bfcc038bfcf5153c7bbf1d2e4f1d20ea34566334c6018c3c5612c23d22690cbf"
+    "model_hash": "3e210962438366ab3c38e39d59480b4f06e1ec55f31c6164fc32e42c75971bbe"
   },
   "geo_code": "KW",
   "node_type": "country",

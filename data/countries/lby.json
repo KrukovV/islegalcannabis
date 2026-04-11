@@ -58,27 +58,34 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Libya",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Libya",
+          "title": "Libya / ليبيا",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
         },
         {
           "title": "Legality of cannabis (notes)",
           "url": "https://en.wikipedia.org/wiki/Cannabis_in_Libya",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Libya / ليبيا",
-          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -184,9 +191,9 @@
   },
   "hashes": {
     "code": "lby",
-    "content_hash": "b9a3c48bb06bd2b29aa98d3f731c55d977c7301ec7e3598c19f73ae882f07fe4",
+    "content_hash": "34a297f7e8b874bc8cb10a920c3d8b3a4bf8357f22f4bba420d7549d95a94715",
     "notes_hash": "884d7ec03000a891f87a3cc96275c0d8419b41030d4bef5c47c3d28c653cdce9",
-    "model_hash": "5f0cee762dfeee0f835ed5ec68a86af378a6dbed42e7f026889083160f45ba6b"
+    "model_hash": "0c7c8447adbcd1c7db82f697204419ec9b5bb4e02d0426b4bdb9a30b960afbd4"
   },
   "geo_code": "LY",
   "node_type": "country",

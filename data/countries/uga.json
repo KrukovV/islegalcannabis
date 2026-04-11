@@ -61,22 +61,22 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Uganda",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Uganda",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Legality of cannabis (notes)",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Uganda",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Uganda",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Uganda",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Uganda",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Uganda",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -90,7 +90,20 @@
         "rule: penalty_arrest | source: Cannabis in Uganda | type: traversal | priority: 3 | scope: possession",
         "rule: penalty_fine | source: Cannabis in Uganda | type: traversal | priority: 3 | scope: general",
         "rule: medical_limited | source: Cannabis in Uganda | type: traversal | priority: 3 | scope: cultivation"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 6032,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -200,9 +213,9 @@
   },
   "hashes": {
     "code": "uga",
-    "content_hash": "7b4b9cf8a3ab9d7274edb8ef69e4d111ba3237a9cec85adc9fe7887feeb82fcf",
+    "content_hash": "07c1880ced13479f16f9a506c39fee3118b08492b3cc30972ddb5a57b36bf948",
     "notes_hash": "3cb68ba237789282660edd80366755192891f05b27e7fb5f47d01d1ad2dae77f",
-    "model_hash": "2633f4f5d2250597864a808a6e5badacf09aca50d8bc32446980e62777c71fc8"
+    "model_hash": "47ffcf5dc28dda91228db842c7a48e8356a7ca310b29be7f8169fde22ad274a6"
   },
   "geo_code": "UG",
   "node_type": "country",

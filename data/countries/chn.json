@@ -59,28 +59,28 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in China",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_China",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Public Security Administration Punishment Law of The People's Republic of China, Article 72",
-          "url": "https://www.cecc.gov/resources/legal-provisions/public-security-administration-punishment-law-chinese-text",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis Use in China – Laws, History, Uses and More Info",
-          "url": "https://sensiseeds.com/en/blog/countries/cannabis-in-china-laws-use-history/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "China / 中国",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in China",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_China",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Public Security Administration Punishment Law of The People's Republic of China, Article 72",
+          "url": "https://www.cecc.gov/resources/legal-provisions/public-security-administration-punishment-law-chinese-text",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis Use in China – Laws, History, Uses and More Info",
+          "url": "https://sensiseeds.com/en/blog/countries/cannabis-in-china-laws-use-history/",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -95,7 +95,20 @@
         "rule: penalty_fine | source: Cannabis in China | type: traversal | priority: 3 | scope: possession",
         "rule: raw_illegal | source: Cannabis in China | type: traversal | priority: 3 | scope: cultivation",
         "rule: illegal | source: Cannabis in China | type: traversal | priority: 3 | scope: cultivation"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 6798,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -205,9 +218,9 @@
   },
   "hashes": {
     "code": "chn",
-    "content_hash": "e40d7281550b228e939d683287d7262c0e1426c3742da552df53dd4162a2b9b5",
+    "content_hash": "caa180646306fed2a8860037420191385060705dae4348e1f9e8db67c699bdb2",
     "notes_hash": "428159c753d9caad47d252d05946b9e231d4b3d676c9bd9135f1f990f83505d9",
-    "model_hash": "74173b6c245aa54c7fa3add8c66759d26e0cd772030d64cda816222c09a4defe"
+    "model_hash": "e6abcca70fd729898f4b10838e28a368dbad59cb5c49d009887d9f4107ec80ef"
   },
   "geo_code": "CN",
   "node_type": "country",

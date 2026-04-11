@@ -386,7 +386,7 @@
       "legal_similarity": [
         "alb",
         "hun",
-        "mkd"
+        "svn"
       ],
       "seo_cluster": "EU_GENERAL"
     },
@@ -581,7 +581,7 @@
       "legal_similarity": [
         "deu",
         "aut",
-        "bel"
+        "smr"
       ],
       "seo_cluster": "EU_GENERAL"
     },
@@ -594,9 +594,9 @@
         "pry"
       ],
       "legal_similarity": [
+        "ury",
         "per",
-        "bra",
-        "ecu"
+        "bra"
       ],
       "seo_cluster": "LATAM"
     },
@@ -835,8 +835,8 @@
       ],
       "legal_similarity": [
         "che",
-        "cze",
-        "nld"
+        "dnk",
+        "cze"
       ],
       "seo_cluster": "EU"
     },
@@ -879,9 +879,9 @@
         "nld"
       ],
       "legal_similarity": [
+        "lux",
         "swe",
-        "lie",
-        "ala"
+        "cze"
       ],
       "seo_cluster": "EU_GENERAL"
     },
@@ -985,8 +985,8 @@
       ],
       "legal_similarity": [
         "fra",
-        "bel",
-        "irl"
+        "mar",
+        "bel"
       ],
       "seo_cluster": "EU"
     },
@@ -1404,9 +1404,9 @@
         "aut"
       ],
       "legal_similarity": [
+        "smr",
         "ita",
-        "cze",
-        "hun"
+        "cze"
       ],
       "seo_cluster": "EU_GENERAL"
     },
@@ -1569,9 +1569,9 @@
         "lbn"
       ],
       "legal_similarity": [
+        "cyp",
         "egy",
-        "sau",
-        "geo"
+        "sau"
       ],
       "seo_cluster": "ASIA_GENERAL"
     },
@@ -1916,7 +1916,7 @@
       "legal_similarity": [
         "deu",
         "fra",
-        "aut"
+        "dnk"
       ],
       "seo_cluster": "EU_GENERAL"
     },
@@ -2111,7 +2111,7 @@
       "legal_similarity": [
         "alb",
         "grc",
-        "bih"
+        "smr"
       ],
       "seo_cluster": "EU_GENERAL"
     },
@@ -2380,8 +2380,8 @@
       ],
       "legal_similarity": [
         "che",
-        "fra",
-        "gbr"
+        "dnk",
+        "fra"
       ],
       "seo_cluster": "EU"
     },
@@ -2874,9 +2874,9 @@
         "svn"
       ],
       "legal_similarity": [
+        "hrv",
         "lie",
-        "mco",
-        "bih"
+        "mco"
       ],
       "seo_cluster": "EU_GENERAL"
     },
@@ -2995,8 +2995,8 @@
       ],
       "legal_similarity": [
         "cze",
-        "ita",
-        "hun"
+        "bih",
+        "ita"
       ],
       "seo_cluster": "EU_GENERAL"
     },
@@ -3534,9 +3534,9 @@
         "swz"
       ],
       "legal_similarity": [
-        "bdi",
-        "mus",
-        "egy"
+        "zwe",
+        "zmb",
+        "mwi"
       ],
       "seo_cluster": "AFRICA"
     },
@@ -5389,12 +5389,12 @@
     },
     {
       "from": "bih",
-      "to": "mkd",
+      "to": "svn",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "bih",
-      "to": "svn",
+      "to": "mkd",
       "type": "CULTURAL_CLUSTER"
     },
     {
@@ -5979,12 +5979,12 @@
     },
     {
       "from": "che",
-      "to": "bel",
+      "to": "smr",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "che",
-      "to": "smr",
+      "to": "bel",
       "type": "CULTURAL_CLUSTER"
     },
     {
@@ -6000,11 +6000,6 @@
     {
       "from": "che",
       "to": "aut",
-      "type": "POLICY_CONTINUUM"
-    },
-    {
-      "from": "che",
-      "to": "bel",
       "type": "POLICY_CONTINUUM"
     },
     {
@@ -6024,6 +6019,11 @@
     },
     {
       "from": "chl",
+      "to": "ury",
+      "type": "LEGAL_SIMILARITY"
+    },
+    {
+      "from": "chl",
       "to": "per",
       "type": "LEGAL_SIMILARITY"
     },
@@ -6031,16 +6031,6 @@
       "from": "chl",
       "to": "bra",
       "type": "LEGAL_SIMILARITY"
-    },
-    {
-      "from": "chl",
-      "to": "ecu",
-      "type": "LEGAL_SIMILARITY"
-    },
-    {
-      "from": "chl",
-      "to": "ury",
-      "type": "CULTURAL_CLUSTER"
     },
     {
       "from": "chl",
@@ -6049,17 +6039,17 @@
     },
     {
       "from": "chl",
+      "to": "ecu",
+      "type": "CULTURAL_CLUSTER"
+    },
+    {
+      "from": "chl",
       "to": "per",
       "type": "POLICY_CONTINUUM"
     },
     {
       "from": "chl",
       "to": "bra",
-      "type": "POLICY_CONTINUUM"
-    },
-    {
-      "from": "chl",
-      "to": "ecu",
       "type": "POLICY_CONTINUUM"
     },
     {
@@ -6719,17 +6709,17 @@
     },
     {
       "from": "deu",
+      "to": "dnk",
+      "type": "LEGAL_SIMILARITY"
+    },
+    {
+      "from": "deu",
       "to": "cze",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "deu",
       "to": "nld",
-      "type": "LEGAL_SIMILARITY"
-    },
-    {
-      "from": "deu",
-      "to": "dnk",
       "type": "CULTURAL_CLUSTER"
     },
     {
@@ -6745,11 +6735,6 @@
     {
       "from": "deu",
       "to": "cze",
-      "type": "POLICY_CONTINUUM"
-    },
-    {
-      "from": "deu",
-      "to": "nld",
       "type": "POLICY_CONTINUUM"
     },
     {
@@ -6864,27 +6849,27 @@
     },
     {
       "from": "dnk",
+      "to": "lux",
+      "type": "LEGAL_SIMILARITY"
+    },
+    {
+      "from": "dnk",
       "to": "swe",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "dnk",
-      "to": "lie",
+      "to": "cze",
       "type": "LEGAL_SIMILARITY"
-    },
-    {
-      "from": "dnk",
-      "to": "ala",
-      "type": "LEGAL_SIMILARITY"
-    },
-    {
-      "from": "dnk",
-      "to": "lux",
-      "type": "CULTURAL_CLUSTER"
     },
     {
       "from": "dnk",
       "to": "bel",
+      "type": "CULTURAL_CLUSTER"
+    },
+    {
+      "from": "dnk",
+      "to": "lie",
       "type": "CULTURAL_CLUSTER"
     },
     {
@@ -7164,12 +7149,12 @@
     },
     {
       "from": "esp",
-      "to": "bel",
+      "to": "mar",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "esp",
-      "to": "irl",
+      "to": "bel",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -8299,6 +8284,11 @@
     },
     {
       "from": "hrv",
+      "to": "smr",
+      "type": "LEGAL_SIMILARITY"
+    },
+    {
+      "from": "hrv",
       "to": "ita",
       "type": "LEGAL_SIMILARITY"
     },
@@ -8309,17 +8299,12 @@
     },
     {
       "from": "hrv",
-      "to": "hun",
-      "type": "LEGAL_SIMILARITY"
-    },
-    {
-      "from": "hrv",
-      "to": "smr",
+      "to": "vat",
       "type": "CULTURAL_CLUSTER"
     },
     {
       "from": "hrv",
-      "to": "vat",
+      "to": "mne",
       "type": "CULTURAL_CLUSTER"
     },
     {
@@ -8749,6 +8734,11 @@
     },
     {
       "from": "isr",
+      "to": "cyp",
+      "type": "LEGAL_SIMILARITY"
+    },
+    {
+      "from": "isr",
       "to": "egy",
       "type": "LEGAL_SIMILARITY"
     },
@@ -8759,23 +8749,13 @@
     },
     {
       "from": "isr",
-      "to": "geo",
-      "type": "LEGAL_SIMILARITY"
-    },
-    {
-      "from": "isr",
-      "to": "cyp",
-      "type": "CULTURAL_CLUSTER"
-    },
-    {
-      "from": "isr",
       "to": "syr",
       "type": "CULTURAL_CLUSTER"
     },
     {
       "from": "isr",
-      "to": "geo",
-      "type": "POLICY_CONTINUUM"
+      "to": "tur",
+      "type": "CULTURAL_CLUSTER"
     },
     {
       "from": "ita",
@@ -9739,7 +9719,7 @@
     },
     {
       "from": "lux",
-      "to": "aut",
+      "to": "dnk",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -9755,11 +9735,6 @@
     {
       "from": "lux",
       "to": "deu",
-      "type": "POLICY_CONTINUUM"
-    },
-    {
-      "from": "lux",
-      "to": "aut",
       "type": "POLICY_CONTINUUM"
     },
     {
@@ -10284,7 +10259,7 @@
     },
     {
       "from": "mlt",
-      "to": "bih",
+      "to": "smr",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -10294,7 +10269,7 @@
     },
     {
       "from": "mlt",
-      "to": "smr",
+      "to": "bih",
       "type": "CULTURAL_CLUSTER"
     },
     {
@@ -10999,22 +10974,22 @@
     },
     {
       "from": "nld",
+      "to": "dnk",
+      "type": "LEGAL_SIMILARITY"
+    },
+    {
+      "from": "nld",
       "to": "fra",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "nld",
-      "to": "gbr",
-      "type": "LEGAL_SIMILARITY"
-    },
-    {
-      "from": "nld",
-      "to": "dnk",
+      "to": "lie",
       "type": "CULTURAL_CLUSTER"
     },
     {
       "from": "nld",
-      "to": "lie",
+      "to": "gbr",
       "type": "CULTURAL_CLUSTER"
     },
     {
@@ -12344,6 +12319,11 @@
     },
     {
       "from": "smr",
+      "to": "hrv",
+      "type": "LEGAL_SIMILARITY"
+    },
+    {
+      "from": "smr",
       "to": "lie",
       "type": "LEGAL_SIMILARITY"
     },
@@ -12354,17 +12334,12 @@
     },
     {
       "from": "smr",
-      "to": "bih",
-      "type": "LEGAL_SIMILARITY"
-    },
-    {
-      "from": "smr",
-      "to": "hrv",
+      "to": "aut",
       "type": "CULTURAL_CLUSTER"
     },
     {
       "from": "smr",
-      "to": "aut",
+      "to": "che",
       "type": "CULTURAL_CLUSTER"
     },
     {
@@ -12669,22 +12644,22 @@
     },
     {
       "from": "svn",
+      "to": "bih",
+      "type": "LEGAL_SIMILARITY"
+    },
+    {
+      "from": "svn",
       "to": "ita",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "svn",
-      "to": "hun",
-      "type": "LEGAL_SIMILARITY"
-    },
-    {
-      "from": "svn",
-      "to": "bih",
+      "to": "vat",
       "type": "CULTURAL_CLUSTER"
     },
     {
       "from": "svn",
-      "to": "vat",
+      "to": "hun",
       "type": "CULTURAL_CLUSTER"
     },
     {
@@ -14159,17 +14134,17 @@
     },
     {
       "from": "zaf",
-      "to": "bdi",
+      "to": "zwe",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "zaf",
-      "to": "mus",
+      "to": "zmb",
       "type": "LEGAL_SIMILARITY"
     },
     {
       "from": "zaf",
-      "to": "egy",
+      "to": "mwi",
       "type": "LEGAL_SIMILARITY"
     },
     {
@@ -14179,7 +14154,7 @@
     },
     {
       "from": "zaf",
-      "to": "zwe",
+      "to": "moz",
       "type": "CULTURAL_CLUSTER"
     },
     {

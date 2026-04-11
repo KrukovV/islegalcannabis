@@ -61,34 +61,34 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Austria",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Austria",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Änderung des Suchtmittelgesetzes – SMG",
-          "url": "https://www.ris.bka.gv.at/Dokumente/BgblAuth/BGBLA_2008_I_143/BGBLA_2008_I_143.pdf",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "AFP: Austria allows cannabis for medical purposes",
-          "url": "https://afp.google.com/article/ALeqM5gMXaMnzKEu6FxfDVlCHd4xMcmEbg",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Austria",
-          "url": "https://web.archive.org/web/20080905104155/http://afp.google.com/article/ALeqM5gMXaMnzKEu6FxfDVlCHd4xMcmEbg",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Austria / Österreich",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Austria",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Austria",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Änderung des Suchtmittelgesetzes – SMG",
+          "url": "https://www.ris.bka.gv.at/Dokumente/BgblAuth/BGBLA_2008_I_143/BGBLA_2008_I_143.pdf",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "AFP: Austria allows cannabis for medical purposes",
+          "url": "https://afp.google.com/article/ALeqM5gMXaMnzKEu6FxfDVlCHd4xMcmEbg",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis in Austria",
+          "url": "https://web.archive.org/web/20080905104155/http://afp.google.com/article/ALeqM5gMXaMnzKEu6FxfDVlCHd4xMcmEbg",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -101,7 +101,20 @@
         "rule: trafficking_illegal | source: Cannabis in Austria | type: traversal | priority: 3 | scope: trafficking",
         "rule: legal | source: Cannabis in Austria | type: traversal | priority: 3 | scope: trafficking",
         "rule: penalty_prison | source: Cannabis in Austria | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 1590,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -212,9 +225,9 @@
   },
   "hashes": {
     "code": "aut",
-    "content_hash": "4b09c3740f08c09f552dbf3c8935698a73170cfe507275acf614db9d12f64665",
+    "content_hash": "4460874df5ae1640e7f0bc5c5d5b99b607142f654fa29d5e0582cf875046d7af",
     "notes_hash": "ba66ff8c46749485479b924a392f957dc23318693b4c08b50f7135452509a5c0",
-    "model_hash": "ef4ab83de70b9289b53e2cbaad887b8726a36fd2c80ad76bac8233cfb34ea6fc"
+    "model_hash": "6992b2c4b6af19ae811e0a7a0bec3d211f6a29d63420a5f90d962d0bbd7f5aa2"
   },
   "geo_code": "AT",
   "node_type": "country",

@@ -58,40 +58,40 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in the Solomon Islands",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Solomon_Islands",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in the Solomon Islands",
-          "url": "https://www.rsipf.gov.sb/?q=node/52",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Legal status of cannabis on the Solomon Islands - Cannaconnection.com",
-          "url": "https://www.cannaconnection.com/blog/14712-legal-status-solomon-islands",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Marijuana Haul Worth Close to SBD$1 Million - Solomon Times Online",
-          "url": "https://www.solomontimes.com/news/marijuana-haul-worth-close-to-sbd1-million/9176",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Tourism Flaws Jewels of the Pacific",
-          "url": "https://www.austlii.edu.au/au/journals/AUFPPlatypus/1990/3.pdf",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Solomon Islands",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in the Solomon Islands",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Solomon_Islands",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Cannabis in the Solomon Islands",
+          "url": "https://www.rsipf.gov.sb/?q=node/52",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Legal status of cannabis on the Solomon Islands - Cannaconnection.com",
+          "url": "https://www.cannaconnection.com/blog/14712-legal-status-solomon-islands",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Marijuana Haul Worth Close to SBD$1 Million - Solomon Times Online",
+          "url": "https://www.solomontimes.com/news/marijuana-haul-worth-close-to-sbd1-million/9176",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Tourism Flaws Jewels of the Pacific",
+          "url": "https://www.austlii.edu.au/au/journals/AUFPPlatypus/1990/3.pdf",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -101,7 +101,20 @@
         "rule: penalty_prison | source: Cannabis in the Solomon Islands | type: traversal | priority: 3 | scope: general",
         "rule: penalty_fine | source: Cannabis in the Solomon Islands | type: traversal | priority: 3 | scope: general",
         "rule: penalty_fine | source: Marijuana Haul Worth Close to SBD$1 Million - Solomon Times Online | type: reference | priority: 2 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 531,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -211,9 +224,9 @@
   },
   "hashes": {
     "code": "slb",
-    "content_hash": "925ab2f0291b771513648b6b34c66153735542e0231708e4553cfa930a9535aa",
+    "content_hash": "71647c188d77f6f54126b96eef1c56b4c10c664ad4ce76a66bdf4472542da1cb",
     "notes_hash": "490a36e903e86e9357542a9d482a07ef2d9bada63a112b4bad26a9ba2403b021",
-    "model_hash": "aec5d04516e5a107c136a46a9f7e0a1f98e22ccb991de7acb1207fc3f4c3bb19"
+    "model_hash": "9ef51608c8afc491f7ed21ce4e1c1f04d8bb93c62295b8ba9a674b41a63325f7"
   },
   "geo_code": "SB",
   "node_type": "country",

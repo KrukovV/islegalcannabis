@@ -58,46 +58,46 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Ghana",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ghana",
+          "title": "Ghana",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Ghana",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ghana",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "The International Drugs Trade",
           "url": "https://books.google.com/books?id=WHH1ON4EEXsC&pg=PA183",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis and Culture",
           "url": "https://books.google.com/books?id=gCRNRGOhNA4C&pg=PA101",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Diaspora and drug trafficking in West Africa: A case study of Ghana",
           "url": "https://doi.org/10.1093/afraf/adi015",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Ghana",
           "url": "https://www.ghanaweb.com/GhanaHomePage/NewsArchive/Cannabis-is-legal-in-Ghana-but-Lawyer-419205",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Food Cults: How Fads, Dogma, and Doctrine Influence Diet",
           "url": "https://books.google.com/books?id=UIZwDQAAQBAJ&pg=PA222",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis",
-          "url": "https://books.google.com/books?id=SVU8BQAAQBAJ&pg=PT99",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -105,7 +105,20 @@
         "rule: illegal | source: Cannabis in Ghana | type: traversal | priority: 3 | scope: general",
         "rule: raw_illegal | source: Cannabis in Ghana | type: traversal | priority: 3 | scope: cultivation",
         "rule: illegal | source: Cannabis in Ghana | type: traversal | priority: 3 | scope: cultivation"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 1664,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -211,9 +224,9 @@
   },
   "hashes": {
     "code": "gha",
-    "content_hash": "c5ad34182d80937651783a382a3d1bd8dc30bf2e9ed0bcbb9ef8869e7ae29720",
+    "content_hash": "ebe54731d42fef3bf8298bdb88a7426a360cf31ac788b6a13f2682929f752393",
     "notes_hash": "0b7bd0510e7312f3379173e13f9d57fbebefc6a9b82e3a7305ce48e23e2372c8",
-    "model_hash": "ffac192548b78813343c583b0f31ba8e587a39f98ff16af4adc1368862ad426b"
+    "model_hash": "f087183b633109a1843c68b9a55be826b1a0ea3e73c6c5763ecd8dd816c3bb90"
   },
   "geo_code": "GH",
   "node_type": "country",

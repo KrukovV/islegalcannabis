@@ -58,27 +58,34 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Niger",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Niger",
+          "title": "Niger",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
         },
         {
           "title": "Legality of cannabis (notes)",
           "url": "https://en.wikipedia.org/wiki/Cannabis_in_Niger",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Niger",
-          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -184,9 +191,9 @@
   },
   "hashes": {
     "code": "ner",
-    "content_hash": "cd0b9088cd3e8ee60f9a3257c1cf2a79f8eb7d0a2f36b93d1690160901d77de1",
+    "content_hash": "c6e12cb216c765a724b0b76b1f36ee6ec7b0696bd127bb285e7b8a9d2028e446",
     "notes_hash": "a03af92c170a3ec625bcc6983ddf287e660de6b5282807b6591f1cf69465b866",
-    "model_hash": "b571f9f5f0213a2f0a5ed3a05dad383888fcef8e2397fd42adfe79640ffc4067"
+    "model_hash": "ea505ec530bfd37b0f422e343f12887c9ce8412c53cab4b38bb4838876430f17"
   },
   "geo_code": "NE",
   "node_type": "country",

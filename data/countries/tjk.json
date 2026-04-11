@@ -58,46 +58,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Tajikistan",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Tajikistan",
+          "title": "Tajikistan / Таджикистан",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Tajikistan",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Tajikistan",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "EMCDDA {{!",
           "url": "https://www.emcdda.europa.eu/publications/country-overviews/tj",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Illicit Drug Trends in Central Asia",
           "url": "https://www.unodc.org/documents/regional/central-asia/Illicit%20Drug%20Trends_Central%20Asia-final.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Tajikistan",
           "url": "https://www.unodc.org/unodc/en/data-and-analysis/WDR-2006.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Tajikistan",
           "url": "https://www.unodc.org/pdf/WDR_2006/wdr2006_chap6_consumption.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Legal status of cannabis in Tajikistan - Cannaconnection.com",
           "url": "https://www.cannaconnection.com/blog/14702-legal-status-tajikistan",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Tajikistan – Laws, Drug Trade and More Info - Sensi Seeds",
-          "url": "https://sensiseeds.com/en/blog/countries/cannabis-in-tajikistan-laws-use-history/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -108,7 +108,20 @@
         "rule: penalty_prison | source: Cannabis in Tajikistan | type: traversal | priority: 3 | scope: sale",
         "rule: private_cultivation | source: Cannabis in Tajikistan | type: traversal | priority: 3 | scope: cultivation",
         "rule: penalty_years | source: Cannabis in Tajikistan | type: traversal | priority: 3 | scope: cultivation"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 1094,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -220,9 +233,9 @@
   },
   "hashes": {
     "code": "tjk",
-    "content_hash": "c5dadb43d97d9358778576364d1975dc48c7d9246278584e5f6d62f0ebada053",
+    "content_hash": "2a5d6fd2184c443753e743454a8ba9e97341514acd6cecc3cf8db4a08598e1d2",
     "notes_hash": "eb6cdbfcf608c11f07cab94846db9716fe7894e4d9c93f35a087aa44d1a87a67",
-    "model_hash": "cb4f3e7ca68c127f24c2bfa5b8fc14b0e7ed84c268886f6d5ccf3846348d4230"
+    "model_hash": "dd32b6528c7ff44a50fc7f4d8fc95776a12f5618c61760522bfd96b06c274f19"
   },
   "geo_code": "TJ",
   "node_type": "country",

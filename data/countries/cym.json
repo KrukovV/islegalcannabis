@@ -66,7 +66,20 @@
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -165,9 +178,9 @@
   },
   "hashes": {
     "code": "cym",
-    "content_hash": "78a95c2fdb9b98eb7c33bea58925ec722bbecf94fe07c2552ce924cbc947be37",
+    "content_hash": "62f58b4e43abeb100fd4bd2f5afa7c2e5967f9301ae0bf9e045969d37676c827",
     "notes_hash": "4dd9d35fd91a15bb7b46d6ec1d1d1690b80f45d4c41de6a016d547b06227dee3",
-    "model_hash": "ffc939d51e543a47c20127822892ab0790d6469e54a7ac15ec2efebf10ab9e27"
+    "model_hash": "187f519249c27bf01b2e8f235a3df4f1beabd3476697ff61efdd8a03cd2fc2ca"
   },
   "geo_code": "KY",
   "node_type": "country",

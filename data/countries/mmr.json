@@ -61,34 +61,34 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Myanmar",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Myanmar",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Death Penalty Possible in Myanmar Cannabis Farm Case",
-          "url": "https://www.voanews.com/a/myanmar-canabis-farm-case/4926377.html",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis: Evolution and Ethnobotany",
-          "url": "https://books.google.com/books?id=bs4hEAAAQBAJ",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Revolutionizing the Potential of Hemp and Its Products in Changing the Global Economy",
-          "url": "https://books.google.com/books?id=OUp3EAAAQBAJ",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Myanmar / မြန်မာ",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Myanmar",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Myanmar",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Death Penalty Possible in Myanmar Cannabis Farm Case",
+          "url": "https://www.voanews.com/a/myanmar-canabis-farm-case/4926377.html",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis: Evolution and Ethnobotany",
+          "url": "https://books.google.com/books?id=bs4hEAAAQBAJ",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Revolutionizing the Potential of Hemp and Its Products in Changing the Global Economy",
+          "url": "https://books.google.com/books?id=OUp3EAAAQBAJ",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -102,7 +102,20 @@
         "rule: legal | source: Cannabis in Myanmar | type: traversal | priority: 3 | scope: general",
         "rule: penalty_arrest | source: Cannabis in Myanmar | type: traversal | priority: 3 | scope: trafficking",
         "rule: penalty_fine | source: Death Penalty Possible in Myanmar Cannabis Farm Case | type: reference | priority: 2 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 2137,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -213,9 +226,9 @@
   },
   "hashes": {
     "code": "mmr",
-    "content_hash": "63830662b9fb838767cb260a5ee424a3fa98380353897e787f8d36197e23b6a9",
+    "content_hash": "a9b9ae6f7927fdae206577a029a3722426d66817e5904b0b8229ccc14d0b8160",
     "notes_hash": "e8334dfa73ed3fda04b2e73c697ee50fc68ae3501f36fd1cdf9b9746ef6d88f8",
-    "model_hash": "718f71c001cc055e74965e4a11085618b1af4539cd83aa00b6ee558b6456e7cb"
+    "model_hash": "b5e5e567c764478dfe4f6755c82e3f7a211abe67449c957d80630484d4632d3c"
   },
   "geo_code": "MM",
   "node_type": "country",

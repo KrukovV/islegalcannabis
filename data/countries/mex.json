@@ -17,29 +17,36 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
         "possession": "restricted",
         "use": "restricted",
-        "sale": null,
-        "cultivation": null,
+        "sale": "illegal",
+        "cultivation": "tolerated",
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
-      "enforcement": "standard",
-      "flags": [],
-      "modifiers": []
+      "enforcement": "fine-based",
+      "flags": [
+        "sale_illegal"
+      ],
+      "modifiers": [
+        "up_to",
+        "however",
+        "only",
+        "but"
+      ]
     },
     "signals": {
       "status": "restricted",
-      "final_risk": "LIMITED",
+      "final_risk": "RESTRICTED",
       "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
-        "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "arrest": true,
+        "fine": true,
+        "severity_score": 2,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -53,67 +60,103 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
+        {
+          "title": "Mexico / México",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        },
         {
           "title": "Cannabis in Mexico",
           "url": "https://en.wikipedia.org/wiki/Cannabis_in_Mexico",
-          "depth": 0,
-          "type": "summary"
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Cannabis in Mexico",
           "url": "https://www.marijuanamoment.net/mexican-lawmakers-fail-to-legalize-marijuana-ahead-of-supreme-court-deadline/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Ruling in Mexico Sets Into Motion Legal Marijuana",
           "url": "https://www.nytimes.com/2015/11/05/world/americas/mexico-supreme-court-marijuana-ruling.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Mexico's Supreme Court overturns country's ban on recreational marijuana",
           "url": "https://www.washingtonpost.com/business/2018/11/01/mexicos-supreme-court-overturns-countrys-recreational-marijuana-ban/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Mexico",
           "url": "https://www.mjmxweekly.com/post/the-supreme-court-of-justice-of-the-nation-to-rule-on-unconstitutionality-of-marijuana-prohibition",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Mexico",
           "url": "https://web.archive.org/web/20210615151622/https://www.mjmxweekly.com/post/the-supreme-court-of-justice-of-the-nation-to-rule-on-unconstitutionality-of-marijuana-prohibition",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Mexico marijuana: Top court decriminalises recreational use of cannabis",
-          "url": "https://www.bbc.com/news/world-latin-america-57645016",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: possession_decriminalized | source: Mexico / México | type: summary | priority: 1 | scope: possession",
         "rule: legal | source: Mexico / México | type: summary | priority: 1 | scope: general",
         "rule: legal | source: Mexico / México | type: summary | priority: 1 | scope: cultivation",
+        "rule: possession_decriminalized | source: Cannabis in Mexico | type: traversal | priority: 3 | scope: use",
+        "rule: medical_legal | source: Cannabis in Mexico | type: traversal | priority: 3 | scope: use",
+        "rule: possession_decriminalized | source: Cannabis in Mexico | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in Mexico | type: traversal | priority: 3 | scope: possession",
+        "rule: possession_decriminalized | source: Cannabis in Mexico | type: traversal | priority: 3 | scope: possession",
+        "rule: medical_legal | source: Cannabis in Mexico | type: traversal | priority: 3 | scope: possession",
+        "rule: illegal | source: Cannabis in Mexico | type: traversal | priority: 3 | scope: general",
+        "rule: sale_illegal | source: Cannabis in Mexico | type: traversal | priority: 3 | scope: trafficking",
+        "rule: illegal | source: Cannabis in Mexico | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_arrest | source: Cannabis in Mexico | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Mexico | type: traversal | priority: 3 | scope: general",
+        "rule: rec_tolerated | source: Cannabis in Mexico | type: traversal | priority: 3 | scope: possession",
+        "rule: private_cultivation | source: Cannabis in Mexico | type: traversal | priority: 3 | scope: cultivation",
+        "rule: legal | source: Cannabis in Mexico | type: traversal | priority: 3 | scope: cultivation",
+        "rule: medical_limited | source: Cannabis in Mexico | type: traversal | priority: 3 | scope: use",
+        "rule: legal | source: Cannabis in Mexico | type: traversal | priority: 3 | scope: trafficking",
         "rule: medical_legal | source: Legal Pot In Mexico: Everything You Need to Know | type: reference | priority: 2 | scope: use",
-        "rule: medical_limited | source: Legal Pot In Mexico: Everything You Need to Know | type: reference | priority: 2 | scope: use",
-        "no traversal evidence"
-      ]
+        "rule: medical_limited | source: Legal Pot In Mexico: Everything You Need to Know | type: reference | priority: 2 | scope: use"
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 8516,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "restricted",
+          "distribution_article": "illegal"
+        }
+      }
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "possession_decriminalized"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is decriminalized in Mexico / México. Medical cannabis is legal. Distribution is restricted."
+    "applied_rules": [
+      "possession_decriminalized",
+      "raw_illegal",
+      "sale_illegal",
+      "illegal",
+      "penalty_arrest",
+      "penalty_fine",
+      "private_cultivation"
+    ],
+    "notes_normalized": "Cannabis is decriminalized in Mexico / México. Medical cannabis is legal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is decriminalized in Mexico / México. Medical cannabis is legal. Distribution is restricted.",
+  "notes_normalized": "Cannabis is decriminalized in Mexico / México. Medical cannabis is legal. Distribution is illegal.",
   "notes_raw": "{{Main|Cannabis in Mexico}} Possession of {{cvt|5|g|frac=16}} was decriminalized in 2009.<ref>{{cite news |url = https://www.nytimes.com/2009/08/21/world/americas/21mexico.html |work = [[The New York Times]] |agency = [[Associated Press]] |title = Mexico Legalizes Drug Possession |date = 21 August 2009 |access-date = 4 April 2010 |archive-url = https://web.archive.org/web/20180401103237/https://www.nytimes.com/2009/08/21/world/americas/21mexico.html |archive-date = 1 April 2018 |url-status = live}}</ref> In 2015 the Supreme Court voted 4–1 that prohibiting people from growing the drug for personal use was unconstitutional.<ref>{{cite news |url = https://www.bbc.co.uk/news/world-us-canada-34726693 |publisher = [[BBC News]] |title = Mexico court ruling could eventually lead to legal marijuana |date = 4 November 2015 |access-date = 5 November 2015 |archive-date = 3 December 2017 |archive-url = https://web.archive.org/web/20171203223457/http://www.bbc.co.uk/news/world-us-canada-34726693 |url-status = live }}</ref> In 2018 the Supreme Court reaffirmed the ruling and requested that the legislature update the country's laws regarding cannabis.<ref>{{cite news |last=McDonnell-Parry |first=Amelia |title=Did Mexico Just Legalize Pot? |url=https://www.rollingstone.com/culture/culture-news/mexico-marijuana-legal-decriminalize-pot-weed-751030/ |access-date=14 January 2019 |magazine=[[Rolling Stone]] |date=2 November 2018 |archive-date=15 January 2019 |archive-url=https://web.archive.org/web/20190115023120/https://www.rollingstone.com/culture/culture-news/mexico-marijuana-legal-decriminalize-pot-weed-751030/ |url-status=live }}</ref><ref>{{cite news |last=Adlin |first=Ben |title=FAQ: Mexico Legalized Cannabis? Not Exactly |url=https://www.leafly.com/news/politics/is-marijuana-legal-in-mexico-after-supreme-court-ruling |access-date=14 January 2019 |work=[[Leafly]] |date=1 November 2018 |archive-date=15 January 2019 |archive-url=https://web.archive.org/web/20190115023146/https://www.leafly.com/news/politics/is-marijuana-legal-in-mexico-after-supreme-court-ruling |url-status=live }}</ref> After the legislature failed to act, the Supreme Court in 2021 invalidated laws regarding the personal possession and cultivation of cannabis.<ref name=\"mexico062821\" />",
   "facts": {
     "possession_limit": "personal possession and cultivation of cannabis.",
@@ -211,9 +254,9 @@
   },
   "hashes": {
     "code": "mex",
-    "content_hash": "507893b00d0652d24b76a82877cc36a6848a319bec8ee7713e55125672d1d5e2",
-    "notes_hash": "30a3404e34102f62900307eb1d50b89b03ef24b129f124966d3e1fd4872ad460",
-    "model_hash": "b7aad95bba3f38b66c79833a55b37187d07da373e129f6439c15bcf3ae146812"
+    "content_hash": "bc1debf95b470871b24ac9bc4eb05f0eb21b2daf055cd4f6fd2e0690bb292818",
+    "notes_hash": "c05b60f3193af55438d2237a48dfc88640378532135d8e91c525ad47bd35f96c",
+    "model_hash": "d4400ce74eb3bb5fba62969006d4bf26ba54d9815ef2b07710372205074065d7"
   },
   "geo_code": "MX",
   "node_type": "country",

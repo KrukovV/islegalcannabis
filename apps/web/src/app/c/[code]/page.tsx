@@ -9,6 +9,7 @@ import {
   listCountryPageCodes,
   stripCountryPageHashes
 } from "@/lib/countryPageStorage";
+import { buildCountryIntentSections } from "@/lib/seo/countryIntentContent";
 import styles from "./page.module.css";
 
 export const revalidate = 604800;
@@ -55,6 +56,7 @@ export default async function CountryCodePage({ params }: { params: Promise<{ co
   if (!data) notFound();
   ensurePageHash(data);
   const seoCountryIndex = buildSeoCountryIndex(code);
+  const intentSections = buildCountryIntentSections(data);
 
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -78,6 +80,39 @@ export default async function CountryCodePage({ params }: { params: Promise<{ co
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
+      <section className={styles.hero}>
+        <div className={styles.panel}>
+          <div className={styles.panelCard}>
+            <p className={styles.eyebrow}>{data.node_type === "state" ? "State View" : "Country View"}</p>
+            <h1 className={styles.title}>{getSeoTitle(data).replace(/\s*\(.*\)$/, "")}</h1>
+            <p className={styles.intro}>{data.notes_normalized}</p>
+            <div className={styles.metaGrid}>
+              <div className={styles.metaBlock}>
+                <p className={styles.metaLabel}>Recreational</p>
+                <p className={styles.metaText}>
+                  {data.legal_model.recreational.status} · {data.legal_model.recreational.enforcement} · {data.legal_model.recreational.scope}
+                </p>
+              </div>
+              <div className={styles.metaBlock}>
+                <p className={styles.metaLabel}>Medical</p>
+                <p className={styles.metaText}>
+                  {data.legal_model.medical.status} · {data.legal_model.medical.scope}
+                </p>
+              </div>
+              <div className={styles.metaBlock}>
+                <p className={styles.metaLabel}>Distribution</p>
+                <p className={styles.metaText}>{data.legal_model.distribution.status}</p>
+              </div>
+              <div className={styles.metaBlock}>
+                <p className={styles.metaLabel}>Risk</p>
+                <p className={styles.metaText}>
+                  {data.legal_model.signals?.final_risk || "UNKNOWN"} · prison {data.legal_model.signals?.penalties?.prison ? "yes" : "no"}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <NewMapClientEntry
         countriesUrl="/api/new-map/countries"
         visibleStamp={NEW_MAP_VISIBLE_STAMP}
@@ -86,6 +121,32 @@ export default async function CountryCodePage({ params }: { params: Promise<{ co
         seoCountryData={data}
         seoCountryIndex={seoCountryIndex}
       />
+      <article className={styles.article}>
+        {intentSections.map((section) => (
+          <section key={section.id} className={styles.section}>
+            <h2>{section.heading}</h2>
+            <p>{section.body}</p>
+          </section>
+        ))}
+        <section className={styles.section}>
+          <h2>Key facts</h2>
+          <ul className={styles.factsList}>
+            <li>Possession: {data.facts.possession_limit || "No stable possession fact found in normalized storage."}</li>
+            <li>Cultivation: {data.facts.cultivation || "No stable cultivation fact found in normalized storage."}</li>
+            <li>Penalty: {data.facts.penalty || "No stable penalty fact found in normalized storage."}</li>
+          </ul>
+        </section>
+        <section className={styles.section}>
+          <h2>Related places</h2>
+          <ul className={styles.relatedList}>
+            {data.related_names.map((item) => (
+              <li key={item.code}>
+                <a href={`/c/${item.code}`}>{item.name}</a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </article>
     </main>
   );
 }

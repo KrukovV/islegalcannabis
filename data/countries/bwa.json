@@ -58,40 +58,40 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Botswana",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Botswana",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Botswana",
-          "url": "https://www.issafrica.org/cdct/mainpages/pdf/Organised%20Crime/Legislation/Botswana/Botswana%20Drugs%20and%20Related%20Substances%20Act%2018%20of%201992%20.pdf",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Botswana",
-          "url": "https://web.archive.org/web/20131006215219/http://www.issafrica.org/cdct/mainpages/pdf/Organised%20Crime/Legislation/Botswana/Botswana%20Drugs%20and%20Related%20Substances%20Act%2018%20of%201992%20.pdf",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Botswana",
-          "url": "https://www.sundaystandard.info/print_article.php?NewsID=13507",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Botswana",
-          "url": "https://web.archive.org/web/20131007004351/http://www.sundaystandard.info/print_article.php?NewsID=13507",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Botswana",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Botswana",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Botswana",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Cannabis in Botswana",
+          "url": "https://www.issafrica.org/cdct/mainpages/pdf/Organised%20Crime/Legislation/Botswana/Botswana%20Drugs%20and%20Related%20Substances%20Act%2018%20of%201992%20.pdf",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis in Botswana",
+          "url": "https://web.archive.org/web/20131006215219/http://www.issafrica.org/cdct/mainpages/pdf/Organised%20Crime/Legislation/Botswana/Botswana%20Drugs%20and%20Related%20Substances%20Act%2018%20of%201992%20.pdf",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis in Botswana",
+          "url": "https://www.sundaystandard.info/print_article.php?NewsID=13507",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis in Botswana",
+          "url": "https://web.archive.org/web/20131007004351/http://www.sundaystandard.info/print_article.php?NewsID=13507",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -99,7 +99,20 @@
         "rule: illegal | source: Botswana | type: summary | priority: 1 | scope: general",
         "rule: raw_illegal | source: Cannabis in Botswana | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Botswana | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 190,
+        "source_confidence": "weak_article",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "illegal",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -205,9 +218,9 @@
   },
   "hashes": {
     "code": "bwa",
-    "content_hash": "16e69901bdd0050d046deb8fd0454b220fee5d257fed208fd75b92aaa9913c11",
+    "content_hash": "c8774b0876236e278bde7fb387f6e17ea6203aede9ae5badcee975844a21ac44",
     "notes_hash": "9feffd55e2541d0b4d6749635736d5260bf8e60010d039dcd76d51d8320a8a06",
-    "model_hash": "7549d49df098432b94e53f5281df426aec871c50a7e7c6a8c667b5cf26443bdd"
+    "model_hash": "f9c85e519b754d3d28c50551dbe14da1275f1198340ccb62b661768aa5fc82de"
   },
   "geo_code": "BW",
   "node_type": "country",

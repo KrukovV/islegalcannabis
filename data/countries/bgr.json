@@ -62,28 +62,28 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Bulgaria",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bulgaria",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Bulgaria",
-          "url": "https://www.segabg.com/online/article.asp?issueid=2403&sectionid=5&id=0002301",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Bulgaria",
-          "url": "https://archive.today/20120919053312/http://www.segabg.com/online/article.asp?issueid=2403&sectionid=5&id=0002301",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Bulgaria / България",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Bulgaria",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bulgaria",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Cannabis in Bulgaria",
+          "url": "https://www.segabg.com/online/article.asp?issueid=2403&sectionid=5&id=0002301",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis in Bulgaria",
+          "url": "https://archive.today/20120919053312/http://www.segabg.com/online/article.asp?issueid=2403&sectionid=5&id=0002301",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -99,7 +99,20 @@
         "rule: penalty_fine | source: Cannabis in Bulgaria | type: traversal | priority: 3 | scope: general",
         "rule: penalty_years | source: Cannabis in Bulgaria | type: traversal | priority: 3 | scope: general",
         "rule: penalty_criminal_offense | source: Cannabis in Bulgaria | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 1117,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -213,9 +226,9 @@
   },
   "hashes": {
     "code": "bgr",
-    "content_hash": "6f2ec0288c1a2d2a1e49e410c418a65d2f43e53755f625f1b3af3318251d7fba",
+    "content_hash": "65c8a7dd6a142f0d7136523df21466ccbcff9f3a4411674838973e771f4d7c85",
     "notes_hash": "5b2231adda2b2e201f166cdcc21983c16da08f8ab4d514da4a90e2745b7f5373",
-    "model_hash": "1e6b284f7684c6354a0a591e82c246de9e28cc40296bf3f9a4e2a14ede92884d"
+    "model_hash": "f9c7484cb377203a2dda9b93e3aac4c400df72ca897f01909c32efb17c760237"
   },
   "geo_code": "BG",
   "node_type": "country",

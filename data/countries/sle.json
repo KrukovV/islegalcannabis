@@ -29,10 +29,7 @@
       "enforcement": "standard",
       "flags": [],
       "modifiers": [
-        "may",
-        "but",
-        "only",
-        "up_to"
+        "may"
       ]
     },
     "signals": {
@@ -61,55 +58,67 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Sierra Leone",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Sierra_Leone",
+          "title": "Sierra Leone",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
         },
         {
           "title": "International Narcotics Control Strategy Report: Volume I: Drug and Chemical Control",
           "url": "https://books.google.com/books?id=0jnyNWFuhXYC&pg=PA543",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Hooker's Journal of Botany and Kew Garden Miscellany",
           "url": "https://archive.org/details/hookersjournalb03hookgoog",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Food Cults: How Fads, Dogma, and Doctrine Influence Diet",
           "url": "https://books.google.com/books?id=UIZwDQAAQBAJ&pg=PA222",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis",
           "url": "https://books.google.com/books?id=SVU8BQAAQBAJ&pg=PT99",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "The Culture of Mental Illness and Psychiatric Practice in Africa",
           "url": "https://books.google.com/books?id=wUd9CAAAQBAJ&pg=PA39",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Sierra Leone",
           "url": "https://archive.org/details/hookersjournalb03hookgoog/page/n18",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: illegal | source: Sierra Leone | type: summary | priority: 1 | scope: general",
-        "rule: raw_illegal | source: Cannabis in Sierra Leone | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Sierra Leone | type: traversal | priority: 3 | scope: general",
         "rule: raw_illegal | source: Kush: Sierra Leone's new illegal drug | type: reference | priority: 2 | scope: general",
-        "rule: illegal | source: Kush: Sierra Leone's new illegal drug | type: reference | priority: 2 | scope: general"
-      ]
+        "rule: illegal | source: Kush: Sierra Leone's new illegal drug | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "illegal",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -216,9 +225,9 @@
   },
   "hashes": {
     "code": "sle",
-    "content_hash": "d724f553b9dc584f0a0d67411f64622842993d7ec282e00101544743c3f3ea1f",
+    "content_hash": "a500f49cef7b8ac44b8167ae7ff05be7479f179209f46631d38872e0227da91c",
     "notes_hash": "42e2911c66cf7864c3ef6ca41607a2c0aeecec825f1b352b3fe2976b5647fc1b",
-    "model_hash": "ee4cfac847a2d71c5ce860fb0844ef90ff29304c7895a164de8d9073e2792e7f"
+    "model_hash": "ddd2f7dff247d4aac69725073ba9a4d571f05cb3b5e6d783d5945a51523772c7"
   },
   "geo_code": "SL",
   "node_type": "country",

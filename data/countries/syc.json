@@ -59,46 +59,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Seychelles",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Seychelles",
+          "title": "Seychelles / Sesel",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Seychelles",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Seychelles",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Board holds first meeting",
           "url": "https://www.nation.sc/archive/256946/agency-for-the-prevention-of-drug-abuse-and-rehabilitation-",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "2015 Seychelles Global School-based Student Health Survey",
           "url": "https://core.ac.uk/download/pdf/77145877.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Misuse of Drugs Act, 2016",
           "url": "https://seylii.org/sc/sc/legislation/Act%205%20of%202016%20Misuse%20of%20Drugs%20Act%2C%202016.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Seychelles",
           "url": "https://web.archive.org/web/20210620152758/https://seylii.org/sc/sc/legislation/Act%205%20of%202016%20Misuse%20of%20Drugs%20Act%2C%202016.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "The Laws of Seychelles Revised",
           "url": "https://books.google.com/books?id=LIdDAQAAMAAJ&pg=PA579",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "New law to boost fight against drugs",
-          "url": "https://www.nation.sc/archive/248994/new-law-to-boost-fight-against-drugs",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -114,7 +114,20 @@
         "rule: illegal | source: Cannabis in Seychelles | type: traversal | priority: 3 | scope: use",
         "rule: penalty_years | source: Cannabis in Seychelles | type: traversal | priority: 3 | scope: general",
         "rule: penalty_years | source: Cannabis in Seychelles | type: traversal | priority: 3 | scope: use"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 11046,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -222,9 +235,9 @@
   },
   "hashes": {
     "code": "syc",
-    "content_hash": "96ab3372069a54cf86b211aa6b363fad9dcd5da67b4852c5789fcfe54079126c",
+    "content_hash": "b018e30f0b36b6899457946320823de5ee987c883f2fbd6c88a79b52f27858e8",
     "notes_hash": "13c12674406ed29e8d223f24d8b9dea0adf0822fd67f331eaec21c3a09f2fd05",
-    "model_hash": "f608358eb6d4a3a5e6ac52fc889a6861ca40379415298641ef4a5b0dfcb3ce9f"
+    "model_hash": "cd4948a0556c5d0b59fbacd8dcbe73d74ab3294ef19845845026db2c70ea4b1d"
   },
   "geo_code": "SC",
   "node_type": "country",

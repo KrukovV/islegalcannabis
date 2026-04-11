@@ -17,22 +17,23 @@
       "override_reason": "rec_implies_med_floor"
     },
     "distribution": {
-      "status": "tolerated",
+      "status": "illegal",
       "scopes": {
         "possession": "restricted",
         "use": "restricted",
-        "sale": null,
+        "sale": "illegal",
         "cultivation": "tolerated",
-        "import": null,
+        "import": "illegal",
         "trafficking": null
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [],
       "modifiers": [
         "however",
         "but",
         "may",
-        "only"
+        "only",
+        "up_to"
       ]
     },
     "signals": {
@@ -41,9 +42,9 @@
       "enforcement_level": "unenforced",
       "penalties": {
         "prison": true,
-        "prison_priority": 2,
-        "arrest": false,
-        "fine": false,
+        "prison_priority": 3,
+        "arrest": true,
+        "fine": true,
         "severity_score": 10,
         "possession": {
           "prison": true,
@@ -61,46 +62,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in the United States",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_United_States",
+          "title": "United States",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in the United States",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_United_States",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Legality of cannabis by U.S. jurisdiction",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
-          "depth": 0,
-          "type": "summary"
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "The DEA Position on Marijuana",
           "url": "https://www.dea.gov/docs/marijuana_position_2011.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Increasing Medical Marijuana and Cannabidiol Research",
           "url": "https://www.whitehouse.gov/presidential-actions/2025/12/increasing-medical-marijuana-and-cannabidiol-research/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in the United States",
           "url": "https://www.bjs.gov/content/dcf/enforce.cfm",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "50 Years After Nixon's Commission Said Cops Should Stop Busting Pot Users, the Federal Ban Remains Unchanged",
           "url": "https://reason.com/2022/03/22/50-years-after-nixons-commission-said-cops-should-stop-busting-pot-users-the-federal-ban-remains-unchanged/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Results from the 2007 National Survey on Drug Use and Health: National Findings",
-          "url": "https://www.samhsa.gov/data/nsduh/2k7nsduh/2k7Results.htm",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -110,6 +111,31 @@
         "rule: private_cultivation | source: United States | type: summary | priority: 1 | scope: sale",
         "rule: legal | source: United States | type: summary | priority: 1 | scope: sale",
         "rule: penalty_years | source: United States | type: summary | priority: 1 | scope: possession",
+        "rule: raw_illegal | source: Cannabis in the United States | type: traversal | priority: 3 | scope: sale",
+        "rule: sale_illegal | source: Cannabis in the United States | type: traversal | priority: 3 | scope: sale",
+        "rule: illegal | source: Cannabis in the United States | type: traversal | priority: 3 | scope: sale",
+        "rule: medical_legal | source: Cannabis in the United States | type: traversal | priority: 3 | scope: use",
+        "rule: raw_illegal | source: Cannabis in the United States | type: traversal | priority: 3 | scope: use",
+        "rule: illegal | source: Cannabis in the United States | type: traversal | priority: 3 | scope: use",
+        "rule: raw_illegal | source: Cannabis in the United States | type: traversal | priority: 3 | scope: cultivation",
+        "rule: zero_tolerance | source: Cannabis in the United States | type: traversal | priority: 3 | scope: cultivation",
+        "rule: illegal | source: Cannabis in the United States | type: traversal | priority: 3 | scope: cultivation",
+        "rule: legal | source: Cannabis in the United States | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in the United States | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_fine | source: Cannabis in the United States | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_arrest | source: Cannabis in the United States | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in the United States | type: traversal | priority: 3 | scope: possession",
+        "rule: enforcement_rare | source: Cannabis in the United States | type: traversal | priority: 3 | scope: possession",
+        "rule: medical_legal | source: Cannabis in the United States | type: traversal | priority: 3 | scope: general",
+        "rule: sale_tolerated | source: Cannabis in the United States | type: traversal | priority: 3 | scope: sale",
+        "rule: private_cultivation | source: Cannabis in the United States | type: traversal | priority: 3 | scope: cultivation",
+        "rule: legal | source: Cannabis in the United States | type: traversal | priority: 3 | scope: cultivation",
+        "rule: possession_decriminalized | source: Cannabis in the United States | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in the United States | type: traversal | priority: 3 | scope: sale",
+        "rule: penalty_prison | source: Cannabis in the United States | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in the United States | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in the United States | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_years | source: Cannabis in the United States | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Legality of cannabis by U.S. jurisdiction | type: traversal | priority: 3 | scope: use",
         "rule: enforcement_unenforced | source: Legality of cannabis by U.S. jurisdiction | type: traversal | priority: 3 | scope: sale",
         "rule: legal | source: Legality of cannabis by U.S. jurisdiction | type: traversal | priority: 3 | scope: sale",
@@ -119,21 +145,41 @@
         "rule: legal | source: Legality of cannabis by U.S. jurisdiction | type: traversal | priority: 3 | scope: cultivation",
         "rule: legal | source: Legality of cannabis by U.S. jurisdiction | type: traversal | priority: 3 | scope: import",
         "rule: penalty_years | source: 50 Years After Nixon's Commission Said Cops Should Stop Busting Pot Users, the Federal Ban Remains Unchanged | type: reference | priority: 2 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 35409,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": true,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": "unenforced",
+          "distribution_notes": "tolerated",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
+      "fine_based",
       "weak_enforcement"
     ],
     "applied_rules": [
       "private_cultivation",
       "penalty_years",
-      "enforcement_unenforced",
+      "raw_illegal",
+      "zero_tolerance",
+      "penalty_fine",
+      "penalty_arrest",
+      "penalty_prison",
+      "enforcement_rare",
       "possession_decriminalized",
+      "enforcement_unenforced",
       "rec_implies_med_floor"
     ],
-    "notes_normalized": "Cannabis is decriminalized in United States. Medical cannabis is limited. Distribution is tolerated. Prison exposure detected."
+    "notes_normalized": "Cannabis is decriminalized in United States. Medical cannabis is limited. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is decriminalized in United States. Medical cannabis is limited. Distribution is tolerated. Prison exposure detected.",
+  "notes_normalized": "Cannabis is decriminalized in United States. Medical cannabis is limited. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{Main|Cannabis in the United States|Legality of cannabis by U.S. jurisdiction}} {{See also|Cannabis on American Indian reservations}} Cannabis remains a [[Controlled Substances Act#Schedule I controlled substances|Schedule I drug]] at federal level, prohibiting even its medical use with [[Medical cannabis in the United States#Compassionate IND program|narrow exceptions]]. The [[Rohrabacher–Farr amendment]] prevents federal enforcement in states that have legalized medical, however. No such protections exist regarding recreational, but the federal government has so far generally not intervened. Recognized [[Indian reservation]]s are allowed to legalize for either use under a policy announced in 2014.<ref>{{cite news |url = https://www.nwherald.com/2014/12/12/doj-says-indian-tribes-can-grow-and-sell-marijuana/aee5o5i/ |last1 = Barnard |first1 = Jeff |last2 = Wozniacka |first2 = Gosia |title = the D.O.J. allows indian reservations to grow and sell marijuana |work = [[Northwest Herald]] |agency = [[Associated Press]] |date = 12 December 2014 |access-date = 24 December 2014 |archive-url = https://web.archive.org/web/20160120131029/https://www.nwherald.com/2014/12/12/doj-says-indian-tribes-can-grow-and-sell-marijuana/aee5o5i/ |archive-date = 20 January 2016 |url-status = live}}</ref> Every U.S. state that has legalized recreational use has set a mandatory legal minimum age of 21 for purchase, possession, and use.<ref>{{cite web |url= https://cannabis.net/blog/news/can-you-buy-weed-if-you-under-21-yearsold-the-statebystate-guide-to-cannabis-age-requirements |title= Can You Buy Weed If You Under 21 Years-Old? – The State-By-State Guide to Cannabis Age Requirements |date= 6 May 2022 |website= Cannabis.net |access-date= 23 June 2023}}</ref> In 2024, the [[Drug Enforcement Administration]] and the [[United States Department of Justice|Department of Justice]] indicated they were planning to [[Removal of cannabis from Schedule I of the Controlled Substances Act|reschedule]] cannabis to [[List of Schedule III controlled substances (U.S.)|Schedule III.]]<ref>{{Cite web |date=2024-04-30 |title=US poised to ease restrictions on marijuana in historic shift, but it'll remain controlled substance |url=https://apnews.com/article/marijuana-biden-dea-criminal-justice-pot-f833a8dae6ceb31a8658a5d65832a3b8 |access-date=2024-05-01 |website=AP News |language=en}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -231,9 +277,9 @@
   },
   "hashes": {
     "code": "usa",
-    "content_hash": "c0d30069d4c2a93a05e70b95fa109859e151f4fcd6bd043ad87c99cfa35890bb",
-    "notes_hash": "a10f182e18de0e36ac18f103f9402509100fb862db4992aad87b1624b782b097",
-    "model_hash": "8833f17615a2206105bb2006d9585edf14a6d74c1e29a58a6b6db4fd786ef7ea"
+    "content_hash": "bdd12ab324a81138313f1a928ecf30c72731a69d285a8af67827ace5f4b3374e",
+    "notes_hash": "5f78e1ea536e9cd42003d6a5b3e6afb0b813ce6688740bd8d341f63003810994",
+    "model_hash": "d9315a35b34531363b3c6df77bea26c835ec1a28ba62d6fae524d011e26d60cf"
   },
   "geo_code": "US",
   "node_type": "country",

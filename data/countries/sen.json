@@ -26,12 +26,12 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "enforcement": "fine-based",
+      "flags": [],
       "modifiers": [
-        "but"
+        "but",
+        "only",
+        "may"
       ]
     },
     "signals": {
@@ -42,8 +42,8 @@
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 1,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -60,55 +60,73 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Senegal",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Senegal",
+          "title": "Senegal / Sénégal",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Senegal",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Senegal",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Cannabis in Africa",
           "url": "https://www.unodc.org/documents/data-and-analysis/Can_Afr_EN_09_11_07.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "West Africa",
           "url": "https://books.google.com/books?id=6DMOAQAAMAAJ",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "The International Drugs Trade",
           "url": "https://books.google.com/books?id=WHH1ON4EEXsC&pg=PA183",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Global Organized Crime: Trends and Developments",
           "url": "https://books.google.com/books?id=yrSLBQAAQBAJ&pg=PA28",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "International Narcotics Control Strategy Report, 1995",
           "url": "https://books.google.com/books?id=w0DlWjK3YCEC&pg=PA439",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "International Narcotics Control Strategy Report",
-          "url": "https://books.google.com/books?id=1ilJAQAAIAAJ&pg=PA525",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
-        "no traversal evidence"
-      ]
+        "rule: raw_illegal | source: Cannabis in Senegal | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Senegal | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Senegal | type: traversal | priority: 3 | scope: general"
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 1598,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
-    "enforcement_flags": [],
+    "enforcement_flags": [
+      "fine_based"
+    ],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal",
+      "penalty_fine"
     ],
     "notes_normalized": "Cannabis is illegal in Senegal / Sénégal. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -210,9 +228,9 @@
   },
   "hashes": {
     "code": "sen",
-    "content_hash": "2bb1898f366e69abc0574cc613b50eb97649e6b9b476192ec05e72d90a66466d",
+    "content_hash": "d1128e9350ec9a4e2d5e988b755f2325d69248ac53f9bdcae9a9511984e0d7c3",
     "notes_hash": "86b7838e6020c5e1d4bee7730aeaae099c46a8d4d27367977203f546ff2f25a3",
-    "model_hash": "f6229ce1ea8dcc2696fe853bae5e70ddf1891440668071def1186997b281e0ef"
+    "model_hash": "73553f3fe7b9324183ce2dbb010ef8ccf2806b2217840e057e41e124ab4c099a"
   },
   "geo_code": "SN",
   "node_type": "country",

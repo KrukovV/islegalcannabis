@@ -56,32 +56,36 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Uzbekistan",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Uzbekistan",
+          "title": "Uzbekistan / Узбекистан",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
         },
         {
           "title": "Criminal Code of the Republic of Uzbekistan",
           "url": "https://www.lex.uz/Pages/GetAct.aspx?lact_id=111453",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Uzbekistan / Узбекистан",
-          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: raw_illegal | source: Uzbekistan / Узбекистан | type: summary | priority: 1 | scope: cultivation",
         "rule: illegal | source: Uzbekistan / Узбекистан | type: summary | priority: 1 | scope: cultivation",
-        "rule: raw_illegal | source: Cannabis in Uzbekistan | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Uzbekistan | type: traversal | priority: 3 | scope: general",
-        "rule: raw_illegal | source: Cannabis in Uzbekistan | type: traversal | priority: 3 | scope: cultivation",
-        "rule: illegal | source: Cannabis in Uzbekistan | type: traversal | priority: 3 | scope: cultivation"
-      ]
+        "no traversal evidence"
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "illegal",
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -187,9 +191,9 @@
   },
   "hashes": {
     "code": "uzb",
-    "content_hash": "bda4d6506c9d6bfb140dabd752e04cfd502534cafa261ed909c6aae2512f0afa",
+    "content_hash": "1933e89a263c08decd3fd1b49b26bba4cf2b9a368702d74b6adfbf24008d3d3a",
     "notes_hash": "4c9c6090e178fce62dfdeef82c0c7156118cf234bfb4a049a970371598a691f8",
-    "model_hash": "62ef867d9b9549d76d5c7328a800ad36822c351370fe99d6da88607bdc0958e2"
+    "model_hash": "23665ef2462a58c0cb8ef1a0ccd8960bda68cab634409eed0067b5383aa223ec"
   },
   "geo_code": "UZ",
   "node_type": "country",

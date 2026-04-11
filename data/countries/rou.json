@@ -11,9 +11,9 @@
     },
     "medical": {
       "raw_status": "UNKNOWN",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
+      "status": "LIMITED",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
       "override_reason": null
     },
     "distribution": {
@@ -60,22 +60,22 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Romania",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Romania",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Legality of cannabis (notes)",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Romania",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Romania / România",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Romania",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Romania",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Romania",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -92,7 +92,20 @@
         "rule: medical_legal | source: Cannabis in Romania | type: traversal | priority: 3 | scope: use",
         "rule: medical_limited | source: Cannabis in Romania | type: traversal | priority: 3 | scope: cultivation",
         "rule: medical_legal | source: Cannabis in Romania | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 1486,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": true,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "illegal",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -106,9 +119,9 @@
       "medical_limited",
       "raw_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Romania / România. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Romania / România. Medical cannabis is limited. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Romania / România. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Romania / România. Medical cannabis is limited. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Romania}} Small quantities punishable by a large fine for first offenders or 6 months to 2 years in prison if the person has been convicted before. Possession of large amounts or trafficking is punishable by 2–7 years of jail time.<ref>{{citation | url=http://www.reporterntv.ro/stire/pedepsele-pentru-traficul-si-consumul-de-droguri-s-au-redus-totusi | title=Pedepsele pentru traficul și consumul de droguri s-au redus. Totuși... | publisher=Reporter NTV | date=10 February 2015 | access-date=4 September 2017 | archive-url=https://web.archive.org/web/20170904213425/http://www.reporterntv.ro/stire/pedepsele-pentru-traficul-si-consumul-de-droguri-s-au-redus-totusi | archive-date=4 September 2017 | url-status=dead }}</ref> Decriminalization proposed.<ref>{{citation |url = http://www.antena3.ro/stiri/politica/raport-prezidential-pentru-eba-comisia-lui-basescu-propune-dezincriminarea-consumului-de-droguri_80829.html |title = Raport pentru EBA: Comisia prezidenţială susţine dezincriminarea consumului de droguri şi sexul comercial |publisher = Antena3.ro |date = 22 September 2009 |access-date = 17 February 2011 |archive-date = 18 March 2016 |archive-url = https://web.archive.org/web/20160318161358/http://www.antena3.ro/stiri/politica/raport-prezidential-pentru-eba-comisia-lui-basescu-propune-dezincriminarea-consumului-de-droguri_80829.html |url-status = live }}</ref> Limited medical use approved in 2013.<ref>{{cite news|title=Romania Legalizes Medical Marijuana, Becomes 10th EU Country To Permit Therapeutic Use|url=http://www.novinite.com/view_news.php?id=154315|access-date=14 October 2013|work=[[Novinite]]|date=6 October 2013|archive-date=21 June 2018|archive-url=https://web.archive.org/web/20180621015758/https://www.novinite.com/view_news.php?id=154315|url-status=live}}</ref><ref>{{cite web |url = http://www.gandul.info/stiri/anm-nu-avem-nicio-cerere-de-punere-pe-piata-a-canabisului-medicinal-daca-ar-fi-am-aproba-o-11448832 |title = ANM: Nu avem nicio cerere de punere pe piaţă a canabisului medicinal; dacă ar fi, am aproba-o |date = 3 October 2013 |access-date = 3 October 2013 |archive-date = 26 December 2018 |archive-url = https://web.archive.org/web/20181226021504/https://www.gandul.info/stiri/anm-nu-avem-nicio-cerere-de-punere-pe-piata-a-canabisului-medicinal-daca-ar-fi-am-aproba-o-11448832%20 |url-status = live }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -206,9 +219,9 @@
   },
   "hashes": {
     "code": "rou",
-    "content_hash": "0e7afa5442314dd0b3b5157ff83337179adc8efb9acd2d9b8be558fca13dce5b",
-    "notes_hash": "e269a6693edf42b29667db16aef82f8e2a259cfcf286a075f455cf1ad35d068b",
-    "model_hash": "b308e849bc0efc33b5023667a779cb4f21808f1a2f640ed171c07ce2167a4f8e"
+    "content_hash": "3d3a323e0bf352563bb69eae5d15937eb70742b770b916de60154ddd2172407d",
+    "notes_hash": "03df59b08957be863fbdb8a7185f91ed2dca6a35a8102c4869e0ba6188077230",
+    "model_hash": "440d27ba5a6ef7e8de45929d33b54b09ce588e5cf44d3b5e7764ce2722d86cff"
   },
   "geo_code": "RO",
   "node_type": "country",

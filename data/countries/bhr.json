@@ -58,34 +58,34 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Bahrain",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bahrain",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Bahrain",
-          "url": "https://www.cannaconnection.com/blog/14846-legal-status-bahrain",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Drug and Alcohol Consumption as Functions of Social Structures: A Cross-cultural Sociology",
-          "url": "https://books.google.com/books?id=SpMbAQAAMAAJ",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Marijuana plant grower jailed in Bahrain",
-          "url": "https://www.tradearabia.com/news/MISC_259810.html",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Bahrain / البحرين",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Bahrain",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bahrain",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Cannabis in Bahrain",
+          "url": "https://www.cannaconnection.com/blog/14846-legal-status-bahrain",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Drug and Alcohol Consumption as Functions of Social Structures: A Cross-cultural Sociology",
+          "url": "https://books.google.com/books?id=SpMbAQAAMAAJ",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Marijuana plant grower jailed in Bahrain",
+          "url": "https://www.tradearabia.com/news/MISC_259810.html",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -95,7 +95,20 @@
         "rule: penalty_arrest | source: Cannabis in Bahrain | type: traversal | priority: 3 | scope: cultivation",
         "rule: penalty_prison | source: Cannabis in Bahrain | type: traversal | priority: 3 | scope: trafficking",
         "rule: trafficking_illegal | source: Cannabis in Bahrain | type: traversal | priority: 3 | scope: trafficking"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 720,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -207,9 +220,9 @@
   },
   "hashes": {
     "code": "bhr",
-    "content_hash": "99d56492d4e6b5bca74af6168c1d4a50b792da737904520bce288880c1d6c773",
+    "content_hash": "e5efb5809c46d86fcbf13107dd009f126999725904fe73b647fc6f901c94de5a",
     "notes_hash": "de31eb043475de70851cd834341d60f22d345bfdf87fa3c42d7b962a4e15da34",
-    "model_hash": "2a9f84cc0356febac598db322aeb94c0011c35a3bd85d81cc88b0f05a7810b34"
+    "model_hash": "00de1f157d060de2549fb9d1522f71c02f3f0ed4cf63504e32731b6079a29883"
   },
   "geo_code": "BH",
   "node_type": "country",

@@ -66,46 +66,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Australia",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Australia",
+          "title": "Australia",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Australia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Australia",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Single Convention on Narcotic Drugs, 1961",
           "url": "https://treaties.un.org/pages/ViewDetails.aspx?src=TREATY&mtdsg_no=VI-15&chapter=6",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Narcotic Drugs Act 1967",
           "url": "https://www.legislation.gov.au/Details/C2016C01132",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Australia",
           "url": "https://www.legislation.gov.au/Details/C2004C05442",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Medicinal cannabis)",
           "url": "https://www.tga.gov.au/medicinal-cannabis",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Over-the-counter access to low dose cannabidiol",
           "url": "https://www.tga.gov.au/media-release/over-counter-access-low-dose-cannabidiol",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "ParlInfo - Legalising Cannabis Bill 2023",
-          "url": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;page=0;query=BillId:s1353%20Recstruct:billhome",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -159,7 +159,20 @@
         "rule: penalty_fine | source: Economic benefit of recreational cannabis now placed at $700m annually, as Greens renew pledge to push legal weed | type: reference | priority: 2 | scope: general",
         "rule: medical_legal | source: Medical marijuana legalized in Australia | type: reference | priority: 2 | scope: general",
         "rule: medical_legal | source: Medicinal cannabis to be legalised in Australia from November | type: reference | priority: 2 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 89570,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "illegal",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -274,9 +287,9 @@
   },
   "hashes": {
     "code": "aus",
-    "content_hash": "de37a70c4fb1c7fa8522b49c197014e577b7fca915e09ed3fa735b8b3a057822",
+    "content_hash": "9cf54f23fc09460c077ea1aeffd67fffef570efcbd59ddcd713d00d72e0fc60f",
     "notes_hash": "68232c768fc86be79b6a370d0cbca5ff80aa8bd7527b52ff657f911e94040894",
-    "model_hash": "ca6fff691afc2a3996c884d5e779a5276b2ca372eff5f4e2fe53af81c6c60138"
+    "model_hash": "d352c2cc10935266cc941c3885266470ea085e1d060e0734d759d17a76e001d6"
   },
   "geo_code": "AU",
   "node_type": "country",

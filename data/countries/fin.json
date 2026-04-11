@@ -61,46 +61,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Finland",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Finland",
+          "title": "Finland / Suomi",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Finland",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Finland",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "National Report on the Drugs Situation in Finland",
           "url": "https://www.emcdda.europa.eu/attachements.cfm/att_34736_EN_NR2001Finland.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "39/1889: The Criminal Code of Finland",
           "url": "https://www.finlex.fi/en/laki/kaannokset/1889/en18890039",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Huumeiden käyttäjien rikosoikeudellinen kontroll",
           "url": "https://www.haaste.om.fi/fi/index/lehtiarkisto/haaste32009/huumeidenkayttajienrikosoikeudellinenkontrolli.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Finland",
           "url": "https://web.archive.org/web/20050225222432/http://www.finlex.fi/en/laki/kaannokset/1889/en18890039",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Finland",
           "url": "https://web.archive.org/web/20161221003116/http://www.haaste.om.fi/fi/index/lehtiarkisto/haaste32009/huumeidenkayttajienrikosoikeudellinenkontrolli.html",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "VKS:2006:1 Seuraamuksen määrääminen huumausaineen käyttörikoksesta",
-          "url": "https://www.vksv.fi/fi/index/julkaisutjaohjeet/valtakunnansyyttajanyleisetohjeet/syyteharkinta/vks20061seuraamuksenmaaraaminenhuumausaineenkayttorikoksesta.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -121,7 +121,20 @@
         "rule: penalty_fine | source: Cannabis in Finland | type: traversal | priority: 3 | scope: sale",
         "rule: medical_legal | source: Cannabis in Finland | type: traversal | priority: 3 | scope: sale",
         "rule: medical_limited | source: Cannabis in Finland | type: traversal | priority: 3 | scope: sale"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 3348,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -231,9 +244,9 @@
   },
   "hashes": {
     "code": "fin",
-    "content_hash": "9e511490d1c879be7bfd4f90a27b4a7e528e320a75aafd1c6cdf995e3bf71d54",
+    "content_hash": "78a92805b5062eabc2691f383ded315a0f40ac1b415c384c5ffafddefe3d5aaf",
     "notes_hash": "a76863c8ba05a1b67e0c81877dc1fc953953583f98a4a23e296646059abab040",
-    "model_hash": "4a73ed5c8f56cd06c2c1236213f49bb3b946193dbc3c802ca67f30f808b4d706"
+    "model_hash": "387d9c290b007274786399fd683ff48d2eac1f9cf7820d31272651a13064c818"
   },
   "geo_code": "FI",
   "node_type": "country",

@@ -58,52 +58,65 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Cameroon",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cameroon",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis",
-          "url": "https://books.google.com/books?id=SVU8BQAAQBAJ&pg=PT89",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Marijuana Medicine: A World Tour of the Healing and Visionary Powers of Cannabis",
-          "url": "https://books.google.com/books?id=o_dKbMFRSzUC&pg=PA130",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Pan-African Issues in Drugs and Drug Control: An International Perspective",
-          "url": "https://books.google.com/books?id=WhirCwAAQBAJ&pg=PT40",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis: A History",
-          "url": "https://books.google.com/books?id=ecITBwAAQBAJ&pg=PA362",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "The Supply of Illicit Drugs to the United States: The Nnicc Report",
-          "url": "https://books.google.com/books?id=LvbJsQgnlXwC&pg=PA63",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Cameroon / Cameroun",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Cameroon",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cameroon",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Cannabis",
+          "url": "https://books.google.com/books?id=SVU8BQAAQBAJ&pg=PT89",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Marijuana Medicine: A World Tour of the Healing and Visionary Powers of Cannabis",
+          "url": "https://books.google.com/books?id=o_dKbMFRSzUC&pg=PA130",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Pan-African Issues in Drugs and Drug Control: An International Perspective",
+          "url": "https://books.google.com/books?id=WhirCwAAQBAJ&pg=PT40",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis: A History",
+          "url": "https://books.google.com/books?id=ecITBwAAQBAJ&pg=PA362",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "The Supply of Illicit Drugs to the United States: The Nnicc Report",
+          "url": "https://books.google.com/books?id=LvbJsQgnlXwC&pg=PA63",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: raw_illegal | source: Cannabis in Cameroon | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Cameroon | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 685,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -209,9 +222,9 @@
   },
   "hashes": {
     "code": "cmr",
-    "content_hash": "1164d46469d9b1947d3e32604866858f9698463ebc13a8b54b8219c557119bbe",
+    "content_hash": "e85f12a07f7a44c6ba8f82db4d9d5adb3279508855413bc23082f32bcd021d7a",
     "notes_hash": "5d37afb46c1850defec8df196058e5b0b134fbf6ebf98483425bc05ad933e23d",
-    "model_hash": "95913f4f86ee243f22bbb273337be9a5941ede4b9a1d292510172558a91d046c"
+    "model_hash": "820a28969dc8a0c21b289392481e2aa04fa4f7e17aa44d80c28fd59111286db2"
   },
   "geo_code": "CM",
   "node_type": "country",

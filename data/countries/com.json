@@ -60,28 +60,35 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Comoros",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Comoros",
+          "title": "Comoros / جزر القمر",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
         },
         {
           "title": "Legality of cannabis (notes)",
           "url": "https://en.wikipedia.org/wiki/Cannabis_in_Comoros",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Comoros / جزر القمر",
-          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: legal | source: Comoros / جزر القمر | type: summary | priority: 1 | scope: use",
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -187,9 +194,9 @@
   },
   "hashes": {
     "code": "com",
-    "content_hash": "b30932ae57a13dba43989d87b8dd50e5aef40bc7abc4a8fab1e058ead2b5721d",
+    "content_hash": "099e8ab06b0adac61299b7ab12b78734c35de736062f67c16816390653b564bd",
     "notes_hash": "3d6174dfd855f0ebcf4c61cddf4bc3537322b773f1296a066f70b552cb6c36ba",
-    "model_hash": "ad161317f52cbe5c1200b681ce137a5120c4df73a64b78df744d18eed823ce81"
+    "model_hash": "ebb9d43a3949af92d543f8769d192640229ded6663a20ea5a4b34df428e553c0"
   },
   "geo_code": "KM",
   "node_type": "country",

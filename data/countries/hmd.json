@@ -66,7 +66,20 @@
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -165,9 +178,9 @@
   },
   "hashes": {
     "code": "hmd",
-    "content_hash": "8bf5df214ba98b37a527c353ccebf1bb15f362192291aa08afaf75eee48018c4",
+    "content_hash": "773b0d0bde9141469e2857a2c6dcbbb2bf210e23fe350c725ef24581351bac91",
     "notes_hash": "9f69830c05e0c67933239bda863a215079e94c6f4a807d1944b61d003493e7cf",
-    "model_hash": "d2caee93b10ce8e2161fe1bfed2c6b3ce5d1c33d2868d5a0ec62876362bed2ea"
+    "model_hash": "948ef5864fb459554dc5b2b9669af2cbd4e0e90b809c00a1ec71c5fb3320ee79"
   },
   "geo_code": "HM",
   "node_type": "country",

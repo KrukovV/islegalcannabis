@@ -56,28 +56,41 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Turkmenistan",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Turkmenistan",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis",
-          "url": "https://books.google.com/books?id=SVU8BQAAQBAJ&q=cannabis+turkmenistan&pg=PT116",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Turkmenistan / Туркмения",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Turkmenistan",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Turkmenistan",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Cannabis",
+          "url": "https://books.google.com/books?id=SVU8BQAAQBAJ&q=cannabis+turkmenistan&pg=PT116",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: raw_illegal | source: Cannabis in Turkmenistan | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Turkmenistan | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 311,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -183,9 +196,9 @@
   },
   "hashes": {
     "code": "tkm",
-    "content_hash": "b42f203e3e4c58861f862b1567006f43c34f27ba1ade8848f82654d5664dbadd",
+    "content_hash": "2b6fab7eb16afb928f62209f65be8fecdfaa9cd4be75382783eb87ae3180b503",
     "notes_hash": "dd2d93eecc2817b7f2afddcf828a5cba359f288a4cbefd95bb7b6f2af6a89e77",
-    "model_hash": "864f7feb0d69c77c92ce8cb9ec4c3bb00f20989e2f02e31882c0720e42da3d92"
+    "model_hash": "fbdbc37f8886ac9889320fb75e4ee1d9af492b29da759ea75b41aa6298a9686e"
   },
   "geo_code": "TM",
   "node_type": "country",

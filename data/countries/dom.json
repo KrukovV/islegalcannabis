@@ -59,22 +59,22 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in the Dominican Republic",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Dominican_Republic",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Decree No. 288-96, establishing the Regulation of Law 50-88 on Drugs and Controlled Substances of the Dominican Republic",
-          "url": "https://www.oas.org/juridico/mla/en/dom/en_dom_50_88.html",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Dominican Republic / República Dominicana",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in the Dominican Republic",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Dominican_Republic",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Decree No. 288-96, establishing the Regulation of Law 50-88 on Drugs and Controlled Substances of the Dominican Republic",
+          "url": "https://www.oas.org/juridico/mla/en/dom/en_dom_50_88.html",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -84,7 +84,20 @@
         "rule: legal | source: Cannabis in the Dominican Republic | type: traversal | priority: 3 | scope: possession",
         "rule: penalty_fine | source: Cannabis in the Dominican Republic | type: traversal | priority: 3 | scope: general",
         "rule: penalty_prison | source: Cannabis in the Dominican Republic | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 1470,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -195,9 +208,9 @@
   },
   "hashes": {
     "code": "dom",
-    "content_hash": "975b4244653d3bedf2b55eb3d21a482794a2d638d2599d306adf2a1363e3cd50",
+    "content_hash": "cb53e5cbd67357c9b630c57ec6eb718a25d1e021a7e509fdeb7297d8950da495",
     "notes_hash": "394ae726aa8f4508957f8d7231d3f8dc4d6ffbf7bde47b373cd0f4654d74c415",
-    "model_hash": "10ae49fc2dc851b1fc2eed3182932594a5b82abca6ef8806c6c6a32ec81fa12e"
+    "model_hash": "1b0dbafa565478d31198a9a19dc1b4125c770dac0b7bfaa99f7e7e477c41a17c"
   },
   "geo_code": "DO",
   "node_type": "country",

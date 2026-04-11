@@ -66,7 +66,20 @@
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -165,9 +178,9 @@
   },
   "hashes": {
     "code": "umi",
-    "content_hash": "916e51d3b496049c3f7d9ea30bbc2ee8a36515b1d454e12b271a8cb89594fecc",
+    "content_hash": "a7288a23021cc6193c3744016f3175ec1a28c62d8e9dc97d82faaa46a2cbdf8c",
     "notes_hash": "76e8c027f7a633e8c22d02e9ecc9ec08c05e0a144c861308238565baca8f869b",
-    "model_hash": "88f75cbe33246f443405f7ae92a05357465cad6e4df026001ab9554950ed9872"
+    "model_hash": "6211484d59dac91cf0c18af98e8c6b99bdf08d704b04016b11d32ed8d0c7623c"
   },
   "geo_code": "UM",
   "node_type": "country",

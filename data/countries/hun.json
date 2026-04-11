@@ -61,46 +61,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Hungary",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Hungary",
+          "title": "Hungary / Magyarország",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Hungary",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Hungary",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Late Holocene hemp (Cannabis sativa) retting in NE Hungary and the Holocene spread of hemp cultivation in eastern-central Europe",
           "url": "https://doi.org/10.1007/s00334-025-01046-7",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Magyar Gyógyszerkönyv = Pharmacopoea Hungarica",
           "url": "https://www.digitale-sammlungen.de/en/view/bsb11043300",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Magyar Gyógyszerkönyv, Második Kiadás = Pharmacopoea Hungarica, Editio Secunda",
           "url": "https://gyogyszeresztortenet.hu/letolt/ph_hg_2.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Magyar Gyógyszerkönyv, Harmadik Kiadás = Pharmacopoea Hungarica, Editio Tertia",
           "url": "https://gyogyszeresztortenet.hu/letolt/ph_hg_3.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Is Marijuana Legal in Hungary?",
           "url": "https://leafwell.com/blog/is-marijuana-legal-in-hungary",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Legális az orvosi marihuána Magyarországon, csak nagyon nehéz hozzájutni",
-          "url": "https://444.hu/2019/10/15/legalis-az-orvosi-marihuana-magyarorszagon-csak-nagyon-nehez-hozzajutni",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -120,7 +120,20 @@
         "rule: penalty_years | source: Cannabis in Hungary | type: traversal | priority: 3 | scope: possession",
         "rule: penalty_criminal_offense | source: Cannabis in Hungary | type: traversal | priority: 3 | scope: possession",
         "rule: illegal | source: A person is either male or female, drugs and Pride are banned – Hungarian Parliament adopts 15th constitutional amendment | type: reference | priority: 2 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 2573,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": "rare",
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "weak_enforcement"
@@ -233,9 +246,9 @@
   },
   "hashes": {
     "code": "hun",
-    "content_hash": "db609ec80dfa3df6abdd51e7d31596a6c801e7ac5527cb44ad834c1449531625",
+    "content_hash": "dc1752a1079beedf89afe3f7d658c9e32910bf8b14f35c534f1d0cc2b8356bd3",
     "notes_hash": "2103af8c8fc92a89a8e60f18f043cf029288c8aa9a866c01d234ef7d3a9bbca7",
-    "model_hash": "9b91d98fae26f80f376015e8cfccf5639085301645773900473a764744b372fe"
+    "model_hash": "8b44ca854c30280e5d76de84e289b4b237ae734d5c26c04d8605ca21b79c1530"
   },
   "geo_code": "HU",
   "node_type": "country",

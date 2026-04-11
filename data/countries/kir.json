@@ -56,53 +56,66 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Kiribati",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kiribati",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Legal status of cannabis in Kiribati - Cannaconnection.com",
-          "url": "https://www.cannaconnection.com/blog/14799-legal-status-kiribati",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Dangerous Drugs Ordinance",
-          "url": "https://www.paclii.org/ki/legis/consol_act/ddo233/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Tourism Flaws Jewels of the Pacific",
-          "url": "https://www.austlii.edu.au/au/journals/AUFPPlatypus/1990/3.pdf",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Drug trafficking at sea is devastating island states, ministers say",
-          "url": "https://www.theguardian.com/environment/2018/oct/16/drug-trafficking-at-sea-is-devastating-island-states-ministers-say",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Kiribati police find cocaine and marijuana packages",
-          "url": "https://www.looppng.com/node/89010",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Kiribati",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Kiribati",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kiribati",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Legal status of cannabis in Kiribati - Cannaconnection.com",
+          "url": "https://www.cannaconnection.com/blog/14799-legal-status-kiribati",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Dangerous Drugs Ordinance",
+          "url": "https://www.paclii.org/ki/legis/consol_act/ddo233/",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Tourism Flaws Jewels of the Pacific",
+          "url": "https://www.austlii.edu.au/au/journals/AUFPPlatypus/1990/3.pdf",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Drug trafficking at sea is devastating island states, ministers say",
+          "url": "https://www.theguardian.com/environment/2018/oct/16/drug-trafficking-at-sea-is-devastating-island-states-ministers-say",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Kiribati police find cocaine and marijuana packages",
+          "url": "https://www.looppng.com/node/89010",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: raw_illegal | source: Cannabis in Kiribati | type: traversal | priority: 3 | scope: trafficking",
         "rule: trafficking_illegal | source: Cannabis in Kiribati | type: traversal | priority: 3 | scope: trafficking",
         "rule: sale_illegal | source: Cannabis in Kiribati | type: traversal | priority: 3 | scope: trafficking"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 818,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -208,9 +221,9 @@
   },
   "hashes": {
     "code": "kir",
-    "content_hash": "b474c9a480402fec7a3629e4474c65f32b9270a924a30d79f7a187a76023c631",
+    "content_hash": "d5a983d7059c7c7bfd1b6539fe524bc4ebe93dfe2a8c9ed9155e4747802acb62",
     "notes_hash": "5d35511816a2641efbb5e04ecff7fa54ae2b4e62426265c13acb5feba2561a05",
-    "model_hash": "e3f7187812b31c14dfc406cfbd43e0bc4071155c48359e01d8d0750ed352e5e1"
+    "model_hash": "de34a0b1f7c343b12c682bd59b3f03fde4ed96b3d7e85c210d1ab11a6d0d72fe"
   },
   "geo_code": "KI",
   "node_type": "country",

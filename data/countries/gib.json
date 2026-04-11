@@ -66,7 +66,20 @@
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -165,9 +178,9 @@
   },
   "hashes": {
     "code": "gib",
-    "content_hash": "0713bcc78af607973a72ad923c561a08eb076d88de71d7bbf4a81d469a7e3f6c",
+    "content_hash": "e7e68df83db5741a7b2da6f6c08438ae3da9e1106d7fca0529536f292c982b45",
     "notes_hash": "4240bcbe55beb93fac6bb803d5fb46bee93d1d3e28923e10cf55a5c5b40d7b44",
-    "model_hash": "42a174273292fa43e7e9ed4fc5e16ac9e9996419004b1aca7bef2d92545ab38f"
+    "model_hash": "2b70ad7fc5c8bcd99ea831211534ab44789b28b2a97ca2425b9646489553e046"
   },
   "geo_code": "GI",
   "node_type": "country",

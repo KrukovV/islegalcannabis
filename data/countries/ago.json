@@ -56,40 +56,53 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Angola",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Angola",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Man and Cannabis in Africa: A Study of Diffusion",
-          "url": "https://www.jstor.org/stable/4617576",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis: A History",
-          "url": "https://books.google.com/books?id=Mjn6sCiHoFIC&pg=PA84",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Report of the International Narcotics Control Board for 2009",
-          "url": "https://www.incb.org/documents/Publications/AnnualReports/AR2009/AR_09_English.pdf",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Angola",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Angola",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Angola",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Man and Cannabis in Africa: A Study of Diffusion",
+          "url": "https://www.jstor.org/stable/4617576",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis: A History",
+          "url": "https://books.google.com/books?id=Mjn6sCiHoFIC&pg=PA84",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Report of the International Narcotics Control Board for 2009",
+          "url": "https://www.incb.org/documents/Publications/AnnualReports/AR2009/AR_09_English.pdf",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: raw_illegal | source: Cannabis in Angola | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Angola | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 384,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -195,9 +208,9 @@
   },
   "hashes": {
     "code": "ago",
-    "content_hash": "3e4c16cf31bae5bdd179d22d2746abd63239f976a64ecb572405867d4b21bb27",
+    "content_hash": "8edd462cbc64eefdde3ceee4d758aa59ff2d2a8e5120cff584469a59b97541ff",
     "notes_hash": "94362257aa43ea74bd3395187ca76d6cff00a2a6389b2473aeab4739b8dc35f9",
-    "model_hash": "a8832bc40fad8ff6e50e947c1a173067afbc37a2b5227ce6cd63f90bcdab3e23"
+    "model_hash": "0c42d9a1a52939c1f56a1f60aca28cf5946e35298bcc3c2cb235b9618af32842"
   },
   "geo_code": "AO",
   "node_type": "country",

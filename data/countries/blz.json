@@ -60,46 +60,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Belize",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Belize",
+          "title": "Belize / Belice",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Belize",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Belize",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Decriminalization of Marijuana",
           "url": "https://www.belize.gov.bz/public/Data/271616513971.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Belize Decriminalization",
           "url": "https://www.everydayoptimalcbd.com/belize-decriminalization",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Marijuana Decriminalization Legislation Passed By House",
           "url": "https://7newsbelize.com/sstory.php?nid=42333",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Weedmaps News - the Latest Marijuana & Cannabis News Today",
           "url": "https://www.marijuana.com/news/2017/11/belize-decriminalizes-marijuana-possession/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "The Guardian Newspaper &#124; News",
           "url": "https://www.guardian.bz/index.php?option=com_content&view=article&id=14372:churches-complain-about-marijuana-law&catid=40:politics&Itemid=90",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Belize",
-          "url": "https://web.archive.org/web/20130505234807/http://www.belize.gov.bz/public/Data/271616513971.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -111,7 +111,20 @@
         "rule: possession_decriminalized | source: Cannabis in Belize | type: traversal | priority: 3 | scope: possession",
         "rule: penalty_arrest | source: Cannabis in Belize | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Cannabis in Belize | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 2561,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "illegal",
+          "distribution_article": "restricted"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -221,9 +234,9 @@
   },
   "hashes": {
     "code": "blz",
-    "content_hash": "33f8d0e8c61bdca01fbb962f64715fb679065ad11fa150698b13660e149c1b1e",
+    "content_hash": "6d22d50cf2c8e26f87cc329ad30c120d52e89631a779d8999e506dcd97769d97",
     "notes_hash": "7b7954cc457456cf4aabb27a8617285c4c85987d865d32898a059d9a2cb958fd",
-    "model_hash": "39fcdfd107f5dca621d3506b6a2b3984a6681c284cbe313057a4035dc156b59e"
+    "model_hash": "f9ada4b8321a67b014e3e1ca316f7f23bf4d0f1732d7b504ebf3f085b86829fd"
   },
   "geo_code": "BZ",
   "node_type": "country",

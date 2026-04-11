@@ -56,22 +56,22 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Fiji",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Fiji",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Legality of cannabis (notes)",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Fiji",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Fiji / Viti",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Fiji",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Fiji",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Fiji",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -81,7 +81,20 @@
         "rule: legal | source: Cannabis in Fiji | type: traversal | priority: 3 | scope: general",
         "rule: raw_illegal | source: Cannabis in Fiji | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Cannabis in Fiji | type: traversal | priority: 3 | scope: cultivation"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 1345,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -188,9 +201,9 @@
   },
   "hashes": {
     "code": "fji",
-    "content_hash": "e34a3ee2a8352b272b1c344be83b598cf2f7716ac288ab7f4e370941e78d7cfe",
+    "content_hash": "ba89a8c3b2ea823d30a7581d3ead42acf787f823529005a4621c0e951e3560cd",
     "notes_hash": "83a693914290dd386f0436731817cdeddc8fe1bcef9780aae84e62548c4c8d0c",
-    "model_hash": "6b132fed83138713de66a5cd9891961890fe9829a45e807b784fd3eb776a1b13"
+    "model_hash": "90b800265b74b69848046de45696d8380f50f4f1c9b9ea54ec59c471808ed2c6"
   },
   "geo_code": "FJ",
   "node_type": "country",

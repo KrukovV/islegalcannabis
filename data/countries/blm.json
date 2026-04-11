@@ -66,7 +66,20 @@
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -165,9 +178,9 @@
   },
   "hashes": {
     "code": "blm",
-    "content_hash": "a3f566ec2eac507fdc24c835ec3fa67016a5d4fab4ccaaba19334feca4e5f1ac",
+    "content_hash": "48304a960709d990790069212cc6dce85e0412444d35a3d65235d6d286b7f970",
     "notes_hash": "8f322ee93c34cb8f223c787b4e69327321be077aada6ebf047980ecfe5dc0625",
-    "model_hash": "b14abfc288d8fff86c077937e58d4934c28bbca406704ced53c6ad61b6277919"
+    "model_hash": "b8d2803ae08c11a4cc0510dccabbbb36942180c36d1dd5e472992a89ba95315f"
   },
   "geo_code": "BL",
   "node_type": "country",

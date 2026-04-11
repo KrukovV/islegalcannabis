@@ -60,46 +60,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Nepal",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Nepal",
+          "title": "Nepal / नेपाल",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Nepal",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Nepal",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Nepal to legalise marijuana cultivation for medicinal purposes - The Economic Times",
           "url": "https://m.economictimes.com/news/international/world-news/nepal-to-legalise-marijuana-cultivation-for-medicinal-purposes/articleshow/110503965.cms",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis: A History",
           "url": "https://books.google.com/books?id=Mjn6sCiHoFIC&pg=PA325",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "An Account of the Kingdom of Nepal: And of the Territories Annexed to this Dominion by the House of Gorkha",
           "url": "https://archive.org/details/bub_gb_67gWAAAAQAAJ",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Nepal",
           "url": "https://archive.org/details/bub_gb_67gWAAAAQAAJ/page/n243",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis and Culture",
           "url": "https://books.google.com/books?id=gCRNRGOhNA4C&pg=PA255",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "How the Drug War Destroyed a Hippie Paradise in Kathmandu",
-          "url": "https://reason.com/video/2019/09/13/how-the-drug-war-destroyed-a-hippie-paradise-in-kathmandu/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -113,7 +113,20 @@
         "rule: penalty_arrest | source: Cannabis in Nepal | type: traversal | priority: 3 | scope: use",
         "rule: rec_tolerated | source: Cannabis in Nepal | type: traversal | priority: 3 | scope: use",
         "rule: penalty_arrest | source: Police to arrest cannabis users at Pashupati this Mahashivaratri festival | type: reference | priority: 2 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 4874,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -223,9 +236,9 @@
   },
   "hashes": {
     "code": "npl",
-    "content_hash": "7c187b05dcf344411ac5d5246dc6a592b76d33275f7c5f54d36a80c5feaa002f",
+    "content_hash": "75dda6472d146b754e4297a532d7c2160ae711b2965b1f1c6ef644f72dde83b7",
     "notes_hash": "7a3bb35762a3f228b51b82b9e268be1408e9adb3432d8fa1b426853dcce3f8b1",
-    "model_hash": "f64bcb62910642eafc48a13c385eccac57775f21ac92e756ad6efc6f1abaa94b"
+    "model_hash": "a444f588f00e08e67657ecb9c9c74720090b024924c74c34e165102bc8a7f480"
   },
   "geo_code": "NP",
   "node_type": "country",

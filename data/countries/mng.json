@@ -58,34 +58,47 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Mongolia",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Mongolia",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Report of the International Narcotics Control Board for 2009",
-          "url": "https://books.google.com/books?id=BEELAflkpPEC&pg=PA87",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "The Encyclopedia of Psychoactive Plants: Ethnopharmacology and Its Applications",
-          "url": "https://books.google.com/books?id=8V0oDwAAQBAJ&pg=PT573",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Mongolia / Монгол улс",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Mongolia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Mongolia",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Report of the International Narcotics Control Board for 2009",
+          "url": "https://books.google.com/books?id=BEELAflkpPEC&pg=PA87",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "The Encyclopedia of Psychoactive Plants: Ethnopharmacology and Its Applications",
+          "url": "https://books.google.com/books?id=8V0oDwAAQBAJ&pg=PT573",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: raw_illegal | source: Cannabis in Mongolia | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Mongolia | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 296,
+        "source_confidence": "weak_article",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -191,9 +204,9 @@
   },
   "hashes": {
     "code": "mng",
-    "content_hash": "bbb3b9a1ed01d62211e16081914ee22c3e3e2d954d4e1caa82cd4ea3c7a9a2fb",
+    "content_hash": "a835b16988a87b439526b902eb2a72daac6313afa64ce68fdcd482c4abd0df08",
     "notes_hash": "e76125b3f27e8d71a4384c8eb8f743a9dd1bb7183ead44f2b355a0ca4369b085",
-    "model_hash": "d4f95e0954a6de066027125fe2a622054f9b49658a1c2a57f4399659bf564778"
+    "model_hash": "7321ea3be2d5806dafea10a3919c386e4ed2a2cdb4928fb8c8a5315a6c583845"
   },
   "geo_code": "MN",
   "node_type": "country",

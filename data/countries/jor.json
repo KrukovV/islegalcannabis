@@ -59,46 +59,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Jordan",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Jordan",
+          "title": "Jordan / الأردن",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Jordan",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Jordan",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "1961 UN Single Convention on Narcotic Drugs",
           "url": "https://www.unodc.org/pdf/convention_1961_en.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis: the most consumed drug in Jordan",
           "url": "https://en.royanews.tv/news/15606/Cannabis--the-most-consumed-drug-in-Jordan",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Jordan",
           "url": "https://web.archive.org/web/20210502125925/https://en.royanews.tv/news/15606/Cannabis--the-most-consumed-drug-in-Jordan",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Jordan",
           "url": "https://web.archive.org/web/20170517081940/http://www.unodc.org/pdf/convention_1961_en.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Jordan",
           "url": "https://doi.org/10.18356/5f5bd72f-en.%3C/ref%3E",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Jordan",
-          "url": "https://sensiseeds.com/en/blog/countries/cannabis-in-jordan-laws-use-history/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -111,7 +111,20 @@
         "rule: sale_illegal | source: Cannabis in Jordan | type: traversal | priority: 3 | scope: trafficking",
         "rule: illegal | source: Cannabis in Jordan | type: traversal | priority: 3 | scope: trafficking",
         "rule: penalty_prison | source: Cannabis in Jordan | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 3109,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -221,9 +234,9 @@
   },
   "hashes": {
     "code": "jor",
-    "content_hash": "a205aa45f782ba29a1dcce03559e842e3e423238e0ba94b254236bcdd6487b2e",
+    "content_hash": "65deff477035ce63b2e69ecc14319703e356654f4697c0895910e5ff45949141",
     "notes_hash": "668b6d3b23eb049311702608a05cd59d95e1bd012935bdf5717cdcc1fccb8970",
-    "model_hash": "b536d74f318a112215f02e62db5ff6f6fddc55b1eb642cbf3605d783b811c55d"
+    "model_hash": "8085d35500946c927cc067580fc7d69a60f1052f3712295927bbe2520651e6a2"
   },
   "geo_code": "JO",
   "node_type": "country",

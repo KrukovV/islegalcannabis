@@ -21,13 +21,15 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": "illegal",
+        "sale": null,
         "cultivation": null,
         "import": null,
-        "trafficking": "illegal"
+        "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [],
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
       "modifiers": []
     },
     "signals": {
@@ -56,59 +58,68 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Tuvalu",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Tuvalu",
+          "title": "Tuvalu",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
         },
         {
           "title": "Tuvalu 2019 Crime & Safety Report",
           "url": "https://www.osac.gov/Content/Report/11b5cbbc-4a38-4e62-9a53-15f4aec3f5ae",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Tuvalu 2020 Crime & Safety Report",
           "url": "https://www.osac.gov/Content/Report/dd02daff-b98f-4b5c-96b2-18e3f7c65320",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Legal status of cannabis in Tuvalu - Cannaconnection.com",
           "url": "https://www.cannaconnection.com/blog/14694-legal-status-tuvalu",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "DANGEROUS DRUGS ACT",
           "url": "https://tuvalu-legislation.tv/cms/images/LEGISLATION/PRINCIPAL/1948/1948-0006/DangerousDrugsAct_1.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "International Labour Organization",
           "url": "https://www.ilo.org/public/english/bureau/program/dwcp/download/tuvalu.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Tourism Flaws Jewels of the Pacific",
           "url": "https://www.austlii.edu.au/au/journals/AUFPPlatypus/1990/3.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Tuvalu | type: traversal | priority: 3 | scope: trafficking",
-        "rule: trafficking_illegal | source: Cannabis in Tuvalu | type: traversal | priority: 3 | scope: trafficking",
-        "rule: sale_illegal | source: Cannabis in Tuvalu | type: traversal | priority: 3 | scope: trafficking",
-        "rule: raw_illegal | source: Cannabis in Tuvalu | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Tuvalu | type: traversal | priority: 3 | scope: general"
-      ]
+        "no traversal evidence"
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal"
+      "distribution_fallback_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Tuvalu. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -210,9 +221,9 @@
   },
   "hashes": {
     "code": "tuv",
-    "content_hash": "5b98af49cf02703372d2c4f040eea6d27e108a42599c8b90765b8d8a82dd7fb2",
+    "content_hash": "73eff58210bdad3b55ed6bbc3ec7e49b03bb5c94401480183a6bb52e10c5f95a",
     "notes_hash": "f9739f525bea9041c034a98999c04c3915c0d9e52419467070699ae83fd0e1c0",
-    "model_hash": "77340f7a8107e1860ad318b9c016187013d41476bcbb87f9d501e74d75eae3fe"
+    "model_hash": "026bd760002a4c9dd9fb67f1a179b470ec10aea4ff48112d56660924e285ae36"
   },
   "geo_code": "TV",
   "node_type": "country",

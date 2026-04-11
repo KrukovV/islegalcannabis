@@ -60,46 +60,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Barbados",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Barbados",
+          "title": "Barbados",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Barbados",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Barbados",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "International Narcotics Control Strategy Report: Volume I: Drug and Chemical Control",
           "url": "https://books.google.com/books?id=0jnyNWFuhXYC",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Barbados medical cannabis law clears final hurdle in Parliament",
           "url": "https://mjbizdaily.com/barbados-medical-cannabis-law-clears-final-hurdle-in-parliament/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Barbados boards marijuana train",
           "url": "https://www.jamaicaobserver.com/news/barbados-boards-marijuana-train-island-to-begin-issuing-licences-for-cultivation-next-month_184584?profile=1470",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Barbados' Premier Therapeutic Facility, Licensed by the Barbados Medicinal Cannabis Licensing AuthorityLegal Cannabis in Barbados",
           "url": "https://www.bajebud.com/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Barbados officially opens first licensed medicinal cannabis therapeutics facility",
           "url": "https://barbadostoday.bb/2025/06/14/barbados-officially-opens-first-licensed-medicinal-cannabis-therapeutics-facility/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Barbados Tiptoes Ahead With Cannabis Plans—Carefully",
-          "url": "https://cannabiswire.com/2020/01/17/barbados-tiptoes-ahead-with-cannabis-plans-carefully/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -112,7 +112,20 @@
         "rule: raw_illegal | source: Cannabis in Barbados | type: traversal | priority: 3 | scope: cultivation",
         "rule: penalty_years | source: Cannabis in Barbados | type: traversal | priority: 3 | scope: cultivation",
         "rule: illegal | source: Cannabis in Barbados | type: traversal | priority: 3 | scope: cultivation"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 1300,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -223,9 +236,9 @@
   },
   "hashes": {
     "code": "brb",
-    "content_hash": "a8252355d123838c10723f6bb4beb0df6db8256f4f586087ad9e9456012e9067",
+    "content_hash": "4fb275b6e9253d5ef908f0a1c8e5bbe94f7ac565976ed7f3676324b3bfce1f10",
     "notes_hash": "d5d8d924f397aaa02154d34767b9b797d6e8ecbc0cf405409b80fdf6aede6ba5",
-    "model_hash": "11b70d2bf24d97719ae2f2f851648aae7b6cd6d827ba4932bbf78ea75a7a93f8"
+    "model_hash": "6604e4ed0722f5e4e4834de53c1e31d0d630bf656dc25f74b8e297a590f49b32"
   },
   "geo_code": "BB",
   "node_type": "country",

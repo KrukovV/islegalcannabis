@@ -61,46 +61,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in the Philippines",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Philippines",
+          "title": "Philippines / Pilipinas",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in the Philippines",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Philippines",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "An Act Instituting the Comprehensive Dangerous Drugs Act of 2002, Repealing Republic Act No. 6425, Otherwise Known as the Dangerous Drugs Act of 1972, as Amended, Providing its Funds Therefor, and for Other Purposes",
           "url": "https://pdea.gov.ph/images/Laws/RA9165.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Solon re-files \"Philippine Compassionate Medical Cannabis Bill\"",
           "url": "https://www.congress.gov.ph/press/details.php?pressid=9655",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Senators not keen yet on medical marijuana bill",
           "url": "https://www.pna.gov.ph/articles/1190702",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "The Dangerous Drugs Act of 1972",
           "url": "https://www.lawphil.net/statutes/repacts/ra1972/ra_6425_1972.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Fact check: Is medical marijuana already allowed in the Philippines?",
           "url": "https://www.philstar.com/headlines/2018/12/18/1878036/fact-check-medical-marijuana-already-allowed-philippines",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Bill on medical use of marijuana filed in Congress",
-          "url": "https://www.rappler.com/nation/59118-compassionate-use-medical-cannabis-bill",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -118,7 +118,20 @@
         "rule: raw_illegal | source: Cannabis in the Philippines | type: traversal | priority: 3 | scope: use",
         "rule: penalty_fine | source: Cannabis in the Philippines | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Fact check: Is medical marijuana already allowed in the Philippines? | type: reference | priority: 2 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 4552,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -228,9 +241,9 @@
   },
   "hashes": {
     "code": "phl",
-    "content_hash": "095e2dfe00510b58250bb8d8f3b816fdf81049040337068f4fd3dd4132a4d3d3",
+    "content_hash": "de71a520e556c3cc763ac95da75fff28859560ee246bbedafdb82dee6fe7534d",
     "notes_hash": "396bba7e4b1fd5036fed4f3a0e0fc2c67c1348712741f0e989cd23e46f2241f1",
-    "model_hash": "86c75f8e2debb9a7e5bc544ff0017488cb17fbc4147e12f981361afc2f227284"
+    "model_hash": "3e4b61cdc2976c39033737a27dd517a549e9d60ea07904fa68dbfe3721edeb24"
   },
   "geo_code": "PH",
   "node_type": "country",

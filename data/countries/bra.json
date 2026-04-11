@@ -66,46 +66,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Brazil",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Brazil",
+          "title": "Brazil / Brasil",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Brazil",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Brazil",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Cannabis in Brazil",
           "url": "https://www.planalto.gov.br/ccivil_03/_Ato2004-2006/2006/Lei/L11343.htm",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Pan-African Issues in Drugs and Drug Control: An International Perspective",
           "url": "https://books.google.com/books?id=PlsdCgAAQBAJ&pg=PA242",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Brazil Becomes the Largest Nation to Decriminalize Marijuana",
           "url": "https://www.nytimes.com/2024/06/26/world/americas/brazil-marijuana-decriminalize-weed.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Brazil",
           "url": "https://web.archive.org/web/20240626201524/https://www.nytimes.com/2024/06/26/world/americas/brazil-marijuana-decriminalize-weed.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Brazil",
           "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-a-legal-roadmap-to-cannabis/brazil",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis: Evolution and Ethnobotany",
-          "url": "https://books.google.com/books?id=poenY6QMq8UC&pg=PA182",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -130,7 +130,20 @@
         "rule: penalty_fine | source: Cannabis in Brazil | type: traversal | priority: 3 | scope: general",
         "rule: sale_regulated | source: Brazil approves sale of medical cannabis in pharmacies | type: reference | priority: 2 | scope: sale",
         "rule: medical_legal | source: Brazil approves sale of medical cannabis in pharmacies | type: reference | priority: 2 | scope: sale"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 2527,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": true,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "illegal",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -246,9 +259,9 @@
   },
   "hashes": {
     "code": "bra",
-    "content_hash": "b44950fd28aaedfe1b0c9fd046d40dd412066d48be9329c193a6c67a1ad8dc53",
+    "content_hash": "0264c2063dc878cb0ecc0a5ceda26529f604fb53e426a154ac58dbd39806675a",
     "notes_hash": "b9b79ffed742fb2d97a769a6c2e7e086e9865d39e8236f631a3fac448d413e86",
-    "model_hash": "00d61ec4474779ef3b49c92e65496a41ddfec748e6f32508bdba49e7221be07a"
+    "model_hash": "4741fbecbe95668d8206199e318c464d7314041ad7f9423bccdca890c0542a19"
   },
   "geo_code": "BR",
   "node_type": "country",

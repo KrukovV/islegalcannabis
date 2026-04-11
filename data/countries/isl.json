@@ -59,22 +59,22 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Iceland",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Iceland",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Legality of cannabis (notes)",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Iceland",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Iceland / Ísland",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Iceland",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Iceland",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Iceland",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -87,7 +87,20 @@
         "rule: penalty_prison | source: Cannabis in Iceland | type: traversal | priority: 3 | scope: possession",
         "rule: penalty_arrest | source: Cannabis in Iceland | type: traversal | priority: 3 | scope: possession",
         "rule: penalty_fine | source: Cannabis in Iceland | type: traversal | priority: 3 | scope: possession"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 820,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "illegal",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -199,9 +212,9 @@
   },
   "hashes": {
     "code": "isl",
-    "content_hash": "7fc9288ff1ae6d277c3bb834d69d0c4fd73f47e5a1540a5fb8b6f4a300abb5d6",
+    "content_hash": "78b61e8510e0a5b38fcbec125e1256183a26204abf3e7c09e8c6d7695b4deb9b",
     "notes_hash": "871ac4fe0e025c62f8394663a84403d12a981aaca255fcb3eaedc6d523e2e073",
-    "model_hash": "760011c2d1453e353a104cde4e7067c11edb9984a19e609854e4c2f269558084"
+    "model_hash": "8999d790191c81a159490d1878722309d6e043710224bf573f0787fc7bcca6b2"
   },
   "geo_code": "IS",
   "node_type": "country",

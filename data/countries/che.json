@@ -65,46 +65,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Switzerland",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Switzerland",
+          "title": "Switzerland / Suisse",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Switzerland",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Switzerland",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Cannabis in Switzerland",
           "url": "https://www.swissmedic.ch/swissmedic/de/home/humanarzneimittel/authorisations/new-medicines/sativex---spray-zur-anwendung-in-der-mundhoehle--cannabis-sativa.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Switzerland",
           "url": "https://www.swissmedic.ch/dam/swissmedic/en/dokumente/marktueberwachung/abrenzungsfragen/produkte_mit_cannabidiolcbdueberblickundvollzugshilfe.pdf.download.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Switzerland",
           "url": "https://www.bag.admin.ch/bag/en/home/medizin-und-forschung/heilmittel/med-anwend-cannabis.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Switzerland",
           "url": "https://www.bag.admin.ch/bag/en/home/medizin-und-forschung/heilmittel/med-anwend-cannabis/gesetzesaenderung-cannabisarzneimittel.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Switzerland",
           "url": "https://www.swissmedic.ch/swissmedic/en/home/humanarzneimittel/betm/medicinal-cannabis.html",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "FF 2012 7539",
-          "url": "https://www.admin.ch/ch/f/ff/2012/7539.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -135,7 +135,20 @@
         "rule: penalty_years | source: Cannabis in Switzerland | type: traversal | priority: 3 | scope: trafficking",
         "rule: penalty_years | source: Cannabis in Switzerland | type: traversal | priority: 3 | scope: general",
         "rule: private_cultivation | source: Cannabis in Switzerland | type: traversal | priority: 3 | scope: sale"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 15048,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": "rare",
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based",
@@ -234,14 +247,14 @@
         "name": "Austria / Österreich"
       },
       {
-        "code": "bel",
-        "name": "Belgium / Belgien"
+        "code": "smr",
+        "name": "San Marino"
       }
     ],
     "cluster_links": [
       {
-        "code": "smr",
-        "name": "San Marino"
+        "code": "bel",
+        "name": "Belgium / Belgien"
       },
       {
         "code": "nld",
@@ -253,9 +266,9 @@
   },
   "hashes": {
     "code": "che",
-    "content_hash": "da62beb615486328b4d1c584d1d686f3ba0dd96643fec4245ebf07de605d40e0",
+    "content_hash": "bf0e4bee4000150631659f9f0e875fd2f031fd58e67a3c11cd798fb7f8d49217",
     "notes_hash": "3183823cbc096749e26bee92b279ae98f7931d48577b6ca1de8486cf0b05004c",
-    "model_hash": "111b8dab2b684c3136896d20348544d9b41fb77210df8e01799fd0bc83a02a03"
+    "model_hash": "7dc0169b03ea2c0c2a3badef4dcc97d1f92124a45d42f2308c4fe1087a4c7470"
   },
   "geo_code": "CH",
   "node_type": "country",

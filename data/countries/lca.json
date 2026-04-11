@@ -59,28 +59,41 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Saint Lucia",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Saint_Lucia",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "International Narcotics Control Strategy Report: Volume I: Drug and Chemical Control",
-          "url": "https://books.google.com/books?id=0jnyNWFuhXYC&pg=PA248",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Saint Lucia",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Saint Lucia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Saint_Lucia",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "International Narcotics Control Strategy Report: Volume I: Drug and Chemical Control",
+          "url": "https://books.google.com/books?id=0jnyNWFuhXYC&pg=PA248",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: legal | source: Cannabis in Saint Lucia | type: traversal | priority: 3 | scope: general",
         "rule: possession_decriminalized | source: Cannabis in Saint Lucia | type: traversal | priority: 3 | scope: use"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 540,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "restricted"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -187,9 +200,9 @@
   },
   "hashes": {
     "code": "lca",
-    "content_hash": "845eadcef3a9a84f8ce47a57dba620306b519c26fac33b722227dceec844d53a",
+    "content_hash": "0d153978f52cb43e09a29c8a0deeae5f1ce1991525fc0a113ce91bc0ac0b4567",
     "notes_hash": "83068061f3b552cf968312e6bfdd4a2e41e81d85a8d79c0c83b0f941559889cb",
-    "model_hash": "d0ad805337205f446dd721a99eca5132b0cfc2a47e2bbff16bb39fc08035264d"
+    "model_hash": "fafde70753ae76eaff3411059acaeecc99b8a0cfb00917c55c04173ae50eb3b6"
   },
   "geo_code": "LC",
   "node_type": "country",

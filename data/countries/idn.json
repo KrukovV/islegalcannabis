@@ -63,46 +63,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Indonesia",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Indonesia",
+          "title": "Indonesia",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Indonesia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Indonesia",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Undang-Undang Republik Indonesia No. 35 Tahun 2009 tentang Narkotika",
           "url": "https://www.bnn.go.id/portal/_uploads/perundangan/2009/10/27/uu-nomor-35-tahun-2009-tentang-narkotika-ok.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Historical Dictionary of Indonesia",
           "url": "https://books.google.com/books?id=SawyrExg75cC",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Indonesia",
           "url": "https://www.tni.org/en/publication/cannabis-in-indonesia",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Indonesia",
           "url": "https://web.archive.org/web/20180721073120/http://www.bnn.go.id/portal/_uploads/perundangan/2009/10/27/uu-nomor-35-tahun-2009-tentang-narkotika-ok.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Gevonden in Delpher - Bataviaasch handelsblad",
           "url": "https://www.delpher.nl/nl/kranten/view?coll=ddd&identifier=ddd:110534929:mpeg21:a0009",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Indonesia",
-          "url": "https://www.botanicus.org/%20item/31753000819455%3C/ref%3E",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -130,7 +130,20 @@
         "rule: penalty_fine | source: Cannabis in Indonesia | type: traversal | priority: 3 | scope: cultivation",
         "rule: penalty_fine | source: Cannabis in Indonesia | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Cannabis in Indonesia | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 8754,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": true,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "illegal",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -244,9 +257,9 @@
   },
   "hashes": {
     "code": "idn",
-    "content_hash": "f66a34cee51f00b9664668e12ab1159cf5ddffb9627ee88e6c24b4a3e3760620",
+    "content_hash": "f3724ebac2157bf5a91b12a8af1eb180a19e2d5a4b66b3502c2589f1c814da4c",
     "notes_hash": "7dcee981f6290ab5e43d08ff38456bb8efb883b4f1a59f49241670b6bf895722",
-    "model_hash": "13c2c44ae6b31d0f55ffca28242d39c407dcc457715d209bd922dab1866ae519"
+    "model_hash": "a80d6b73fd438d1ab78aed94264fa535513214aeb8faaff00fe27b2059683859"
   },
   "geo_code": "ID",
   "node_type": "country",

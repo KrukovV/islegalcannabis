@@ -66,7 +66,20 @@
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -165,9 +178,9 @@
   },
   "hashes": {
     "code": "esh",
-    "content_hash": "eb30ff411bb40d622bc14215e2d7eb776c2cd8f624ebb57ec60a603632266d5d",
+    "content_hash": "33e71869c3ae2643bdf26b2818bb6b5212fec96cee0e814506bdf9b81462ddcf",
     "notes_hash": "cfac79f8a2ce861e52f5f9256e3ff237f79d6be199537e7c6483d9f82d5c6ca2",
-    "model_hash": "afc74a4cb4bfc62a8897397046ab16ddf55602525df0cdde509434fe6f6880c4"
+    "model_hash": "205e2153c3458ac3e6ff7592f27ab7f078b25dbf008410c8afdbafdde83db7a6"
   },
   "geo_code": "EH",
   "node_type": "country",

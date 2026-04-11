@@ -66,7 +66,20 @@
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -165,9 +178,9 @@
   },
   "hashes": {
     "code": "flk",
-    "content_hash": "23b18189361578ef3bf0e1834993490df6ece1cd36d46e2d41c221d33101e41f",
+    "content_hash": "0b2d89fc7110abf11511c2ee326c3d39de87cd666a4ca169e9bb08746abcc75b",
     "notes_hash": "e5f2ee6901fc18c267fa8ddc08ded290b48c060559ac423411e615c906de9c3a",
-    "model_hash": "b7b24de205ad3a25b9bbc9906b25c501f3ec5e5c0040e001f7401a1d54ef94f6"
+    "model_hash": "dbef437ba53ca4e2ba4c1cf53cfec02b2f4cc813fb48cd689272156649ba39da"
   },
   "geo_code": "FK",
   "node_type": "country",

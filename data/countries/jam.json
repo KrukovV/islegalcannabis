@@ -62,22 +62,22 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Jamaica",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Jamaica",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Legality of cannabis (notes)",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Jamaica",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Jamaica",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Jamaica",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Jamaica",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Jamaica",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -91,7 +91,20 @@
         "rule: medical_legal | source: Cannabis in Jamaica | type: traversal | priority: 3 | scope: sale",
         "rule: medical_legal | source: Cannabis in Jamaica | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Cannabis in Jamaica | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 3875,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "restricted",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -200,9 +213,9 @@
   },
   "hashes": {
     "code": "jam",
-    "content_hash": "a701ea1f8780fd7854f34c0b08cc5be215600ff688f7838d49ef1b7abfec1495",
+    "content_hash": "b80b41aec00411217ec1c91e41f7dcb703126874d5d403bfdf94d3ba1109979c",
     "notes_hash": "6ff41ce9b07bcadeb9ef069bc98849c9be0ebe339948fcca4245c90e3a00b33c",
-    "model_hash": "651ee4ba4a26ad057fb993f63564f52664e19fa2e847e77cb33c9cf419e7b31f"
+    "model_hash": "5d7c3210deb01ccd83dd9d6e0cb507d928f9e657fcc08006c30ea0bbc492070d"
   },
   "geo_code": "JM",
   "node_type": "country",

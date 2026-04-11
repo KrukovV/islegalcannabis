@@ -66,7 +66,20 @@
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -165,9 +178,9 @@
   },
   "hashes": {
     "code": "sxm",
-    "content_hash": "28a65c78c9501a1053a160dc5d3f44afff1f9a68e28e413c1a4a87af766eac3e",
+    "content_hash": "da470ebad96a67a5f8d62743737353f91f0e24b1c7df44ac869d96c6f6e15f04",
     "notes_hash": "9e463fd77539e67447b3f34349c2eac64420fa3b2c32f3e9d9b4c25bb89ce211",
-    "model_hash": "663234059a7b35cdc41a9b9abb0f155369fcf16697ea0f18e2b40e0454adcd00"
+    "model_hash": "a2114a27080735a37502206e2ab33a2429db4b3f67bdf6766ba0940c603fa095"
   },
   "geo_code": "SX",
   "node_type": "country",

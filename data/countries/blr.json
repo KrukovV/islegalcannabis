@@ -56,22 +56,22 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Belarus",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Belarus",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "International narcotics control strategy report",
-          "url": "https://books.google.com/books?id=nNEWAAAAYAAJ",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Belarus / Белару́сь",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Belarus",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Belarus",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "International narcotics control strategy report",
+          "url": "https://books.google.com/books?id=nNEWAAAAYAAJ",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -82,7 +82,20 @@
         "rule: raw_illegal | source: Cannabis in Belarus | type: traversal | priority: 3 | scope: trafficking",
         "rule: trafficking_illegal | source: Cannabis in Belarus | type: traversal | priority: 3 | scope: trafficking",
         "rule: illegal | source: Cannabis in Belarus | type: traversal | priority: 3 | scope: trafficking"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 390,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -188,9 +201,9 @@
   },
   "hashes": {
     "code": "blr",
-    "content_hash": "a2cdc40917cd71a0f1452cf09f1f034a403518a425e5f01dcbffcc1528dcd51c",
+    "content_hash": "e3e9a3bb5df9b6c7a50961cbbc1054a31b9ebb32a93d25c765336cbe17d0dd29",
     "notes_hash": "e4fe433bc1896102206fc1ab00f52d81d3026056bd5307861e55d4592b30d5db",
-    "model_hash": "c298feec508c8dd020b68f5bc5b1fc2bb96c9cff25c7412c08605a98ad88d5f5"
+    "model_hash": "8e89cc50eb58b7e4f076c9f01a93025743d0a92591e05bcef9e5ae35dbbdd310"
   },
   "geo_code": "BY",
   "node_type": "country",

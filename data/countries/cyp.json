@@ -11,9 +11,9 @@
     },
     "medical": {
       "raw_status": "LEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
       "override_reason": null
     },
     "distribution": {
@@ -63,46 +63,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Cyprus",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cyprus",
+          "title": "Cyprus / Κύπρος",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Cyprus",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cyprus",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Overviews of legal topics: possession of cannabis for personal use",
           "url": "https://www.emcdda.europa.eu/legal-topic-overviews/cannabis-possession-for-personal-use",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cyprus Set to Provide Cannabis Oil to Cancer Patients",
           "url": "https://www.talkingdrugs.org/cyprus-set-to-provide-cannabis-oil-to-cancer-patients",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cyprus legalises medicinal cannabis cultivation and use",
           "url": "https://www.financialmirror.com/news-details.php?nid=36540",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Cyprus",
           "url": "https://web.archive.org/web/20190215181154/http://www.financialmirror.com/news-details.php?nid=36540",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Medical cannabis law approved in Cyprus",
           "url": "https://www.healtheuropa.eu/medical-cannabis-law-cyprus/90507/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Cyprus",
-          "url": "https://web.archive.org/web/20190227011611/https://www.healtheuropa.eu/medical-cannabis-law-cyprus/90507/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -119,7 +119,20 @@
         "rule: raw_illegal | source: Cannabis in Cyprus | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Cyprus | type: traversal | priority: 3 | scope: general",
         "rule: legal | source: Cannabis in Cyprus | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 4124,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": true,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -132,9 +145,9 @@
       "penalty_fine",
       "trafficking_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Cyprus / Κύπρος. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Cyprus / Κύπρος. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Cyprus / Κύπρος. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Cyprus / Κύπρος. Medical cannabis is legal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Cyprus}} Class B substance – life imprisonment is possible for use and maximum 8 years for possession (at the maximum 2 years for the first offense for people under 25).<ref>{{cite web|title=Overviews of legal topics: possession of cannabis for personal use|url=http://www.emcdda.europa.eu/legal-topic-overviews/cannabis-possession-for-personal-use|publisher=[[European Monitoring Centre for Drugs and Drug Addiction]]|access-date=26 July 2015|archive-date=30 September 2018|archive-url=https://web.archive.org/web/20180930083140/http://www.emcdda.europa.eu/legal-topic-overviews/cannabis-possession-for-personal-use|url-status=live}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -232,9 +245,9 @@
   },
   "hashes": {
     "code": "cyp",
-    "content_hash": "4f1e723d1c0acde8bd964fab7a81ebae32879e8481f2f7c2865d8200473b7c37",
-    "notes_hash": "66143dea07335d1921fa825eba8ffb31cbe96884d63fc552b0f604701bd69ebf",
-    "model_hash": "df31695f3655eac840a743696d78fd77b2a1016ee7d34c42291d2f918a1007ad"
+    "content_hash": "ac50ad553135b65c07ff7b83350c225503281eb56b758d8f06f8be6ddc4334cd",
+    "notes_hash": "5228c19a8ae74f3b895a821c8e7364014020b72215b37e01cca7cdc5e77a3871",
+    "model_hash": "bcda195aa48a0683573d92f370274eb850624a014a48af9dceb8810438b377ad"
   },
   "geo_code": "CY",
   "node_type": "country",

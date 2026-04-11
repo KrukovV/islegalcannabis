@@ -28,18 +28,21 @@
       },
       "enforcement": "standard",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "only",
+        "usually"
+      ]
     },
     "signals": {
       "status": "restricted",
       "final_risk": "RESTRICTED",
       "enforcement_level": "rare",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
-        "arrest": false,
+        "prison": true,
+        "prison_priority": 3,
+        "arrest": true,
         "fine": false,
-        "severity_score": 0,
+        "severity_score": 4,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -53,65 +56,86 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
-        {
-          "title": "Cannabis in Mauritius",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Mauritius",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Zamal",
-          "url": "https://en.seedfinder.eu/strain-info/Zamal/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Zamal: The Rare Sativa Landrace of Réunion",
-          "url": "https://cannabisculture.com/zamal-the-rare-sativa-landrace-of-reunion/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "A Collection of the Laws of Mauritius and Its Dependencies",
-          "url": "https://books.google.com/books?id=0ktHAQAAMAAJ&pg=PA541",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Association of Psychiatrists in Africa 1974 Workshop: Alcoholism and Drug Addiction, 18-24 September, 1974, Nairobi, Kenya",
-          "url": "https://books.google.com/books?id=TIQbAQAAMAAJ",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Ethnicity, Nationalism, and Minority Rights",
-          "url": "https://books.google.com/books?id=0ulPgoN0gBMC&pg=PA86",
-          "depth": 0,
-          "type": "summary"
-        },
         {
           "title": "Mauritius / Maurice",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Mauritius",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Mauritius",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Zamal",
+          "url": "https://en.seedfinder.eu/strain-info/Zamal/",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Zamal: The Rare Sativa Landrace of Réunion",
+          "url": "https://cannabisculture.com/zamal-the-rare-sativa-landrace-of-reunion/",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "A Collection of the Laws of Mauritius and Its Dependencies",
+          "url": "https://books.google.com/books?id=0ktHAQAAMAAJ&pg=PA541",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Association of Psychiatrists in Africa 1974 Workshop: Alcoholism and Drug Addiction, 18-24 September, 1974, Nairobi, Kenya",
+          "url": "https://books.google.com/books?id=TIQbAQAAMAAJ",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Ethnicity, Nationalism, and Minority Rights",
+          "url": "https://books.google.com/books?id=0ulPgoN0gBMC&pg=PA86",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
-        "rule: enforcement_rare | source: Zamal: The Rare Sativa Landrace of Réunion | type: reference | priority: 2 | scope: general",
-        "no traversal evidence"
-      ]
+        "rule: raw_illegal | source: Cannabis in Mauritius | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Mauritius | type: traversal | priority: 3 | scope: general",
+        "rule: enforcement_rare | source: Cannabis in Mauritius | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Mauritius | type: traversal | priority: 3 | scope: cultivation",
+        "rule: penalty_prison | source: Cannabis in Mauritius | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_arrest | source: Cannabis in Mauritius | type: traversal | priority: 3 | scope: general",
+        "rule: enforcement_rare | source: Zamal: The Rare Sativa Landrace of Réunion | type: reference | priority: 2 | scope: general"
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 2316,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": "rare",
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "weak_enforcement"
     ],
     "applied_rules": [
-      "enforcement_rare"
+      "raw_illegal",
+      "enforcement_rare",
+      "penalty_prison",
+      "penalty_arrest"
     ],
-    "notes_normalized": "Cannabis is illegal in Mauritius / Maurice. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is illegal in Mauritius / Maurice. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Mauritius / Maurice. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Mauritius / Maurice. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Mauritius}}",
   "facts": {
     "possession_limit": null,
@@ -209,9 +233,9 @@
   },
   "hashes": {
     "code": "mus",
-    "content_hash": "787cc4c08a264b8b998860465607da392f159060c9a173ed69f9022802e17b51",
-    "notes_hash": "740cc5fed3f375a2b5a5cdc8ab5cd50d99035127e4b6b794da63ccb238218188",
-    "model_hash": "111aae103ca3f03e2ac65a556b765f8a8a5cbc19852a61efd883253d56cfa76b"
+    "content_hash": "46c86a46b51c0eb7e612e9f708273309cfbb85aa4dd6368359d79fc37974173a",
+    "notes_hash": "bc4ea297ee9928bf15f99f0430c3e25163ecc58a302e1f201da3949e5f329dbc",
+    "model_hash": "bf9dc8b799c378507e5393d001c464e5e63bac01aea66c51bb3dafd5c06a4db9"
   },
   "geo_code": "MU",
   "node_type": "country",

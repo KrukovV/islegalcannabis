@@ -66,7 +66,20 @@
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -165,9 +178,9 @@
   },
   "hashes": {
     "code": "ata",
-    "content_hash": "a9d0204e360efc4ba7ae1f37c7f4c1a7648ceb9667ca80c7ee0fcca16c6fb875",
+    "content_hash": "b343673e79270e4a4cb7281ffaa695e06b9043267ef8a77e8f08d563bc43da97",
     "notes_hash": "5802a8bd5fd25a6ad5431a89e9ca3ce2685c192d6ee59b8375e3bc2f7782b928",
-    "model_hash": "c503cf8efa27a2a1664c14b3c5ed18267b6442d6a43d388c083852a3258a29e8"
+    "model_hash": "1440ab8e6b6933ea5ff0e2c1a226d7d8afa511eed9febde0978c36a9631af76e"
   },
   "geo_code": "AQ",
   "node_type": "country",

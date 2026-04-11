@@ -24,15 +24,12 @@
         "sale": null,
         "cultivation": null,
         "import": null,
-        "trafficking": "illegal"
+        "trafficking": null
       },
-      "enforcement": "fine-based",
+      "enforcement": "standard",
       "flags": [],
       "modifiers": [
-        "up_to",
-        "but",
-        "however",
-        "may"
+        "up_to"
       ]
     },
     "signals": {
@@ -41,9 +38,9 @@
       "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 3,
+        "prison_priority": 1,
         "arrest": false,
-        "fine": true,
+        "fine": false,
         "severity_score": 4,
         "possession": {
           "prison": true,
@@ -52,80 +49,80 @@
           "severe": true
         },
         "trafficking": {
-          "prison": true,
+          "prison": false,
           "arrest": false,
-          "fine": true,
-          "severe": true
+          "fine": false,
+          "severe": false
         }
       },
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Poland",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Poland",
+          "title": "Poland / Polska",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
         },
         {
           "title": "Internetowy System Aktów Prawnych",
           "url": "https://isap.sejm.gov.pl/isap.nsf/download.xsp/WDU20051791485/U/D20051485Lj.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Poland Approves Drug Decriminalization -- Sort Of",
           "url": "https://stopthedrugwar.org/chronicle/2011/jun/08/poland_approves_drug_decriminali",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "KRYMINOLOGICZNE I PRAWNE ASPEKTY POSIADANIA NARKOTYKÓW W POLSCE (NA PRZYKŁADZIE POCHODNYCH KONOPI INNYCH NIŻ WŁÓKNISTE)",
           "url": "https://repozytorium.uwb.edu.pl/jspui/bitstream/11320/2597/1/P.Bo%C5%82tryk%20-%20rozprawa%20doktorska.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Dorocie kazano pogodzić się ze śmiercią dziecka, Mateusz przez dwa lata nie wychodził z domu. Pomogła marihuana",
           "url": "https://wyborcza.pl/1,75398,18183668,Dorocie_kazano_pogodzic_sie_ze_smiercia_dziecka__Mateusz.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Szef Wolnych Konopi: PiS rozmawia z nami o legalizacji marihuany medycznej",
           "url": "https://wiadomosci.onet.pl/kraj/szef-wolnych-konopi-pis-rozmawia-z-nami-o-legalizacji-marihuany-medycznej/fhz1v8",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Medyczna marihuana coraz bliżej",
           "url": "https://wiadomosci.wp.pl/kat,1339,title,Medyczna-marihuana-coraz-blizej,wid,18553232,wiadomosc.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: penalty_prison | source: Poland / Polska | type: summary | priority: 1 | scope: possession",
         "rule: penalty_years | source: Poland / Polska | type: summary | priority: 1 | scope: possession",
-        "rule: raw_illegal | source: Cannabis in Poland | type: traversal | priority: 3 | scope: possession",
-        "rule: illegal | source: Cannabis in Poland | type: traversal | priority: 3 | scope: possession",
-        "rule: medical_legal | source: Cannabis in Poland | type: traversal | priority: 3 | scope: use",
-        "rule: legal | source: Cannabis in Poland | type: traversal | priority: 3 | scope: general",
-        "rule: raw_illegal | source: Cannabis in Poland | type: traversal | priority: 3 | scope: trafficking",
-        "rule: trafficking_illegal | source: Cannabis in Poland | type: traversal | priority: 3 | scope: trafficking",
-        "rule: illegal | source: Cannabis in Poland | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_prison | source: Cannabis in Poland | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_fine | source: Cannabis in Poland | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_years | source: Cannabis in Poland | type: traversal | priority: 3 | scope: trafficking"
-      ]
+        "no traversal evidence"
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": true,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
       "penalty_prison",
-      "penalty_years",
-      "raw_illegal",
-      "penalty_fine"
+      "penalty_years"
     ],
     "notes_normalized": "Cannabis is illegal in Poland / Polska. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
   },
@@ -227,9 +224,9 @@
   },
   "hashes": {
     "code": "pol",
-    "content_hash": "e76479176cba290d365374205cc3e79136f711e2d177c9a9473c3d1421bf7c9f",
+    "content_hash": "7ecbf55d8c399a0be64c17c50c5cb265a5fa08fced3ba059f528855ef841f4a9",
     "notes_hash": "5609cffce428e3e9ce7e12362e2510e8052d2b94dc40d199471fd4dd6b100151",
-    "model_hash": "862455f5a5cfb714d031a6db75be5e5933fe7c2dd07c46a177c02c40b3747df5"
+    "model_hash": "bf078f69a54e099ff2451ffe56a0352bf370fb7542cca5292ee8652a8ee1cfb6"
   },
   "geo_code": "PL",
   "node_type": "country",

@@ -60,46 +60,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Samoa",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Samoa",
+          "title": "Samoa / Sāmoa",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Samoa",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Samoa",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Review of the Narcotics Act 1967 (Drugs Reform)",
           "url": "https://www.samoalawreform.gov.ws/wp-content/uploads/2018/12/Drugs-Final-Report-English.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Narcotics Act 1967",
           "url": "https://www.paclii.org/ws/legis/consol_act/na1967114/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Narcotics Act outdated, Law Commission says",
           "url": "https://www.samoaobserver.ws/category/samoa/9001",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Commission completes review of Narcotics Act",
           "url": "https://www.samoaobserver.ws/category/samoa/26454",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Lawyer calls on Govt. to legalise marijuana",
           "url": "https://www.samoaobserver.ws/category/samoa/15561",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "P.M. rejects call to legalise marijuana",
-          "url": "https://www.samoaobserver.ws/category/samoa/16795",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -113,7 +113,20 @@
         "rule: penalty_years | source: Cannabis in Samoa | type: traversal | priority: 3 | scope: general",
         "rule: raw_illegal | source: Cannabis in Samoa | type: traversal | priority: 3 | scope: possession",
         "rule: illegal | source: Cannabis in Samoa | type: traversal | priority: 3 | scope: possession"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 1350,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -225,9 +238,9 @@
   },
   "hashes": {
     "code": "wsm",
-    "content_hash": "41217138915638a73b7b33ee5eeaadb5a24dd79588df3afce02b31d793134d76",
+    "content_hash": "1653288397a513a5bb9bebee4773675d1527d6d8d17fb4cd3cd395f193281d21",
     "notes_hash": "f477063d02c83d25f2434c779849e860b49a57bbdce6135f3c4c8f79d15ca723",
-    "model_hash": "244b1780f4845705455e6e4e75ad0d790705d0a09af9fff1eefa3c490421a325"
+    "model_hash": "82c3a447c2a60d61ebd9765652690a5eef79b7ff21a1fa14579ecfd485f2aa19"
   },
   "geo_code": "WS",
   "node_type": "country",

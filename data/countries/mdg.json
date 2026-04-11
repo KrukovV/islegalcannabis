@@ -58,52 +58,65 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Madagascar",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Madagascar",
+          "title": "Madagascar / Madagasikara",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Madagascar",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Madagascar",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Madagascar & Comoros: a travel survival kit",
           "url": "https://books.google.com/books?id=nB4uAQAAIAAJ",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis and Culture",
           "url": "https://books.google.com/books?id=gCRNRGOhNA4C&pg=PA228",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Oceanic Migration: Paths, Sequence, Timing and Range of Prehistoric Migration in the Pacific and Indian Oceans",
           "url": "https://books.google.com/books?id=rhQxc4GW8soC&pg=PA77",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "David Griffiths and the Missionary \"History of Madagascar\"",
           "url": "https://books.google.com/books?id=7pDNL4apVpgC&pg=PA437",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Crime and Punishment around the World: &#91;Four Volumes&#93;",
           "url": "https://books.google.com/books?id=2uK6bR9byVIC&pg=PA124",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Legal status of cannabis in Madagascar - Cannaconnection.com",
-          "url": "https://www.cannaconnection.com/blog/14772-legal-status-madagascar",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: raw_illegal | source: Cannabis in Madagascar | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Madagascar | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 1498,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -209,9 +222,9 @@
   },
   "hashes": {
     "code": "mdg",
-    "content_hash": "129499c3f3e948ab6f71879d7748ba7431d8379cd70e9cb8d8f986148e8c0df2",
+    "content_hash": "86e99e4fab04417e5b941ceb7c6e6008d21d4c822487b355385c4ef65d2c08d8",
     "notes_hash": "13efb8f150d5f45345af69dbca0e836ce03f4e49943972f6c906e65236f21cbe",
-    "model_hash": "3753d489b7b0c68cfa53cc90846bd4cdd23f0066de07a10f5b8bb4c8a0ca1c54"
+    "model_hash": "cfd6dff09b719da24a3987a960a246f8ef1c8aa0b87aa9d5136130c273a07e3f"
   },
   "geo_code": "MG",
   "node_type": "country",

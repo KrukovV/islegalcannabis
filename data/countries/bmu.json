@@ -61,46 +61,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Bermuda",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bermuda",
+          "title": "Bermuda",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Bermuda",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bermuda",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Weeks: we need to talk about cannabis",
           "url": "https://www.royalgazette.com/politics/article/20180725/weeks-we-need-to-talk-about-cannabis",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Limit on imported medical cannabis increased",
           "url": "https://www.royalgazette.com/health/article/20200330/limit-on-imported-medical-cannabis-increased",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Bermuda",
           "url": "https://www.royalgazette.com/politics/article/20171209/house-cannabis-decriminalisation-passes",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "People can apply for medical cannabis",
           "url": "https://www.royalgazette.com/news/article/20161125/people-can-apply-for-medical-cannabis",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Premier: Domestic Medicinal Cannabis Production",
           "url": "https://bernews.com/2018/10/premier-domestic-medical-cannabis-production/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Bermuda",
-          "url": "https://www.royalgazette.com/news/article/20171213/cannabis-decriminalisation-backed-in-senate",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -112,7 +112,20 @@
         "rule: legal | source: Cannabis in Bermuda | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Cannabis in Bermuda | type: traversal | priority: 3 | scope: general",
         "rule: enforcement_rare | source: Cannabis in Bermuda | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 4817,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": "rare",
+          "distribution_notes": null,
+          "distribution_article": "restricted"
+        }
+      }
     },
     "enforcement_flags": [
       "weak_enforcement"
@@ -222,9 +235,9 @@
   },
   "hashes": {
     "code": "bmu",
-    "content_hash": "4b0d2d2d4cc78c61cb1c43d1f3938e854ff2a003832b083a29f92fb71bece55b",
+    "content_hash": "e49254d4ce0e5a0afe09563bd4b51b1f107247d61b34106c5473da2725afe635",
     "notes_hash": "1acae1e75082529f3c98a8832068b54ece2162826829e15a77bd1461e4056354",
-    "model_hash": "ae584e63055222c08e4462b8739732ea62045012509a57ab5eea16c8e6928b7f"
+    "model_hash": "d476ce4943a94957304cd956e8f21be9fee005272fecb7fb2fec33b25ea5ef00"
   },
   "geo_code": "BM",
   "node_type": "country",

@@ -61,46 +61,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Greece",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Greece",
+          "title": "Greece / Ελλάδα",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Greece",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Greece",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Cannabis in Greece – laws, attitudes and other info",
           "url": "https://sensiseeds.com/en/blog/countries/cannabis-in-greece-laws-use-history/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Marihuana: The First Twelve Thousand Years",
           "url": "https://books.google.com/books?id=pGgzBgAAQBAJ&pg=PA135",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis for Medical Use to be Legalized in Greece",
           "url": "https://greece.greekreporter.com/2016/07/21/cannabis-for-medical-use-to-be-legalized-in-greece/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Νόμιμη η φαρμακευτική κάνναβη στην Ελλάδα - Δημοσιεύθηκε η υπουργική απόφαση",
           "url": "https://tvxs.gr/news/ygeia/nomimi-i-farmakeytiki-kannabi-stin-ellada-dimosieythike-i-ypoyrgiki-apofasi",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Greece legalises marijuana for medical purposes",
           "url": "https://www.independent.co.uk/news/world/europe/greece-marijuana-legal-medical-cannabis-weed-law-passes-a7821771.html",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Greek Parliament approves law for medical cannabis",
-          "url": "https://www.keeptalkinggreece.com/2018/03/02/greece-medical-cannabis-law/",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -112,7 +112,20 @@
         "rule: penalty_prison | source: Cannabis in Greece | type: traversal | priority: 3 | scope: possession",
         "rule: medical_legal | source: Cannabis for Medical Use to be Legalized in Greece | type: reference | priority: 2 | scope: use",
         "rule: penalty_fine | source: Is Cannabis Legal in Greece? Laws Penalties, and More | type: reference | priority: 2 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 1968,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -222,9 +235,9 @@
   },
   "hashes": {
     "code": "grc",
-    "content_hash": "ce0a15675a84e72239fec56da5376715f8a41a3d2f3c206419b9be93485534ea",
+    "content_hash": "3b38fe4e68f7e6c054385066ffd0a24a96aeec82b9d66b93549f624cbebe26a8",
     "notes_hash": "4ff79f8ee3439772aada89ac53eb96d4bb2be215d96a410e1e38bbd5b666cabc",
-    "model_hash": "376dea68972f65ba10f5e6435009c8bd5edbff52ef32159cb0e69e10c387f21b"
+    "model_hash": "421fc086b2ea8ce1fb285efc7f5b8cf45c37f1715fbe49e7541eda13baa90bfd"
   },
   "geo_code": "GR",
   "node_type": "country",

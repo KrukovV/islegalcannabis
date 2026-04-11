@@ -61,46 +61,46 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Brunei",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Brunei",
+          "title": "Brunei / Negara Brunei Darussalam",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Brunei",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Brunei",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Cannabis in Brunei",
           "url": "https://www.agc.gov.bn/AGC%20Images/LOB/pdf/Cap27.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Cannabis in Brunei",
           "url": "https://www.narcotics.gov.bn/Shared%20Documents/Acts/Misuse%20of%20Drugs%20Act%20CAP%2027.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Brunei's Preventive Drug Education Approach",
           "url": "https://www.cnb.gov.sg/aseanpde/who-we-are/preventive-drug-education-approaches/brunei",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "ASEAN Drug Monitoring Report 2017",
           "url": "https://aseannarco.oncb.go.th/ebook/B0073/index.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Synthetic Drugs in East and South-East Asia",
           "url": "https://www.unodc.org/documents/southeastasiaandpacific/Publications/2019/2019_The_Challenge_of_Synthetic_Drugs_in_East_and_SEA.pdf",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Preventive Drug Education",
-          "url": "https://www.narcotics.gov.bn/SitePages/Preventive%20Drug%20Education.aspx",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -120,7 +120,20 @@
         "rule: penalty_arrest | source: Cannabis in Brunei | type: traversal | priority: 3 | scope: general",
         "rule: penalty_arrest | source: Cannabis in Brunei | type: traversal | priority: 3 | scope: use",
         "rule: penalty_prison | source: Cannabis in Brunei | type: traversal | priority: 3 | scope: use"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 12626,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -233,9 +246,9 @@
   },
   "hashes": {
     "code": "brn",
-    "content_hash": "4a3a3c1b1e0db43cd5563873557250f2282eb0635e0b1606d6ba264205be8a92",
+    "content_hash": "cc6da7bda4f6264e899790a3c4bdc4598808b103574583d84e5cec3bb39358d1",
     "notes_hash": "bef03ec7438acfdb0a2bd53b4cff5b6d77c6476fd437fedabd7581f00b11f9b2",
-    "model_hash": "77646fcea65c2d9d5646cf884d20ea57a15cf4967ce0ad0b3718152758fab10a"
+    "model_hash": "685d0df2f30307d095875a946294d0cf382fa8c08f26ab3b1b847cb8457ccc02"
   },
   "geo_code": "BN",
   "node_type": "country",

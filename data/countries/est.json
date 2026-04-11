@@ -61,28 +61,28 @@
       "confidence": "high",
       "sources": [
         {
-          "title": "Cannabis in Estonia",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Estonia",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Estonia",
-          "url": "https://www.eupedia.com/europe/maps_of_europe.shtml",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Estonia",
-          "url": "https://news.err.ee/687702/kanepi-municipality-residents-choose-cannabis-leaf-for-flag-coat-of-arms",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Estonia / Eesti",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Estonia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Estonia",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "Cannabis in Estonia",
+          "url": "https://www.eupedia.com/europe/maps_of_europe.shtml",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis in Estonia",
+          "url": "https://news.err.ee/687702/kanepi-municipality-residents-choose-cannabis-leaf-for-flag-coat-of-arms",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -103,7 +103,20 @@
         "rule: sale_illegal | source: Cannabis in Estonia | type: traversal | priority: 3 | scope: sale",
         "rule: penalty_years | source: Cannabis in Estonia | type: traversal | priority: 3 | scope: general",
         "rule: medical_legal | source: Cannabis in Estonia | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 856,
+        "source_confidence": "prison_signal",
+        "signals": {
+          "prison_notes": true,
+          "prison_article": true,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "illegal",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [
       "fine_based"
@@ -217,9 +230,9 @@
   },
   "hashes": {
     "code": "est",
-    "content_hash": "9d17836e54498972a7d3b87b013594d32b4bb1063f2ae66e2ce24ed10675cb13",
+    "content_hash": "782febee390cc95bd743b2063a53be2a974eef4219ec1c59695549b055b0b52f",
     "notes_hash": "aac29910bfdfaa63644f443ff0ed58dcef6d273ddfaeaad594d2c6c9e46e60a4",
-    "model_hash": "b8ca5871c180561853a1cd76a46572e7f3886d50304d13565569fbe0c1bdb089"
+    "model_hash": "05b46a8bc6cd83c136b191d1523d88edf3fcbb364c14191366c6a5eaedbdeca5"
   },
   "geo_code": "EE",
   "node_type": "country",

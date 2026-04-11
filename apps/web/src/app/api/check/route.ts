@@ -205,7 +205,19 @@ function withDerivedSsotProfile<T extends JurisdictionLawProfile>(profile: T, co
       distribution_scopes: countryPage.legal_model.distribution.scopes,
       distribution_flags: countryPage.legal_model.distribution.flags,
       enforcement_flags: countryPage.legal_model.enforcement_flags || [],
-      applied_rules: countryPage.legal_model.applied_rules || []
+      applied_rules: countryPage.legal_model.applied_rules || [],
+      debug: {
+        has_article: countryPage.legal_model.signals?.secondary_source?.has_article || false,
+        article_len: countryPage.legal_model.signals?.secondary_source?.article_len || 0,
+        source_confidence: countryPage.legal_model.signals?.secondary_source?.source_confidence || "no_secondary_source",
+        enforcement: countryPage.legal_model.signals?.enforcement_level || "active",
+        penalties_detected: {
+          prison: Boolean(countryPage.legal_model.signals?.penalties?.prison),
+          arrest: Boolean(countryPage.legal_model.signals?.penalties?.arrest),
+          fine: Boolean(countryPage.legal_model.signals?.penalties?.fine)
+        },
+        signals: countryPage.legal_model.signals?.secondary_source?.signals || null
+      }
     }
   };
 }
@@ -450,13 +462,17 @@ export async function GET(req: Request) {
                 enforcement_flags: derived.enforcement_flags,
                 applied_rules: derived.applied_rules,
                 debug: {
-                  has_article: Array.isArray(derived.sources)
-                    ? derived.sources.some((source) => Number(source?.depth || 0) >= 1)
-                    : false,
+                  has_article: Boolean((derived as { debug?: { has_article?: boolean } }).debug?.has_article),
+                  article_len: Number((derived as { debug?: { article_len?: number } }).debug?.article_len || 0),
+                  source_confidence:
+                    (derived as { debug?: { source_confidence?: string } }).debug?.source_confidence || "no_secondary_source",
                   enforcement: derived.enforcement_level || "active",
-                  penalties_detected: Object.entries(derived.penalties || {})
-                    .filter(([key, value]) => ["prison", "arrest", "fine"].includes(key) && value === true)
-                    .map(([key]) => key)
+                  penalties_detected: {
+                    prison: Boolean((derived.penalties || {}).prison),
+                    arrest: Boolean((derived.penalties || {}).arrest),
+                    fine: Boolean((derived.penalties || {}).fine)
+                  },
+                  signals: (derived as { debug?: { signals?: unknown } }).debug?.signals || null
                 }
               }
             : {})

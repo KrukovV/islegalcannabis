@@ -66,7 +66,20 @@
       ],
       "explain": [
         "no traversal evidence"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": null
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -165,9 +178,9 @@
   },
   "hashes": {
     "code": "nfk",
-    "content_hash": "7c671fb4f4813bf4d83b88dbdff2a871b5e925f3e468e73c1fe7c007a72d5ffb",
+    "content_hash": "e090ae235cb1ebc282118092c7e28a5c8d268d0ad2fce3221bfd96eb476b4c4d",
     "notes_hash": "9cf281b57d7ebef622d8e371cc87319a89deddc6dcf439241b9700f53b2e5c61",
-    "model_hash": "d41602ebcf931a60b86c44aca7775f3bca401eae11432b30a001035114d8a866"
+    "model_hash": "2bf0ee0eee1e03a4137eac4b932711a06fb7ada6e498ff478961ca0f9832ef99"
   },
   "geo_code": "NF",
   "node_type": "country",

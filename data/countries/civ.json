@@ -56,46 +56,59 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Ivory Coast",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ivory_Coast",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "International Narcotics Control Strategy Report, 1995",
-          "url": "https://books.google.com/books?id=w0DlWjK3YCEC&pg=PA415",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "The International Drugs Trade",
-          "url": "https://books.google.com/books?id=WHH1ON4EEXsC&pg=PA191",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Africa and the War on Drugs",
-          "url": "https://archive.org/details/africawarondrugs0000carr",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Cannabis in Ivory Coast",
-          "url": "https://archive.org/details/africawarondrugs0000carr/page/41",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
           "title": "Ivory Coast / Côte d'Ivoire",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Ivory Coast",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ivory_Coast",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
+          "title": "International Narcotics Control Strategy Report, 1995",
+          "url": "https://books.google.com/books?id=w0DlWjK3YCEC&pg=PA415",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "The International Drugs Trade",
+          "url": "https://books.google.com/books?id=WHH1ON4EEXsC&pg=PA191",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Africa and the War on Drugs",
+          "url": "https://archive.org/details/africawarondrugs0000carr",
+          "depth": 2,
+          "type": "reference"
+        },
+        {
+          "title": "Cannabis in Ivory Coast",
+          "url": "https://archive.org/details/africawarondrugs0000carr/page/41",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: raw_illegal | source: Cannabis in Ivory Coast | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Ivory Coast | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 472,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": null,
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -201,9 +214,9 @@
   },
   "hashes": {
     "code": "civ",
-    "content_hash": "b9de18a37f8555477c502309287bd3013cad7f50faeba3512a428ac1ea5d4f8b",
+    "content_hash": "9ba808857e6e2a574dd72715600c6b1a3a3d8b091e41b995835a9db93f24bf87",
     "notes_hash": "36955f4668114cf439ce83a064424602223938e8becab7061efb3e9afaa7d3f8",
-    "model_hash": "664bb038dd463e02b41443f10e7e1a1a83cb11ccbf1c92ac18790c0b9bf56bc0"
+    "model_hash": "8370692549f1f0a16ac27fcec9408b6f4e62f3ef866262720dc65e7e0e854bfe"
   },
   "geo_code": "CI",
   "node_type": "country",

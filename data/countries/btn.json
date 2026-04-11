@@ -58,46 +58,46 @@
       "confidence": "medium",
       "sources": [
         {
-          "title": "Cannabis in Bhutan",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bhutan",
+          "title": "Bhutan / འབྲུག་ཡུལ་",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Bhutan",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bhutan",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Bhutan",
           "url": "https://www.unodc.org/pdf/india/publications/south_Asia_Regional_Profile_Sept_2005/09_bhutan.pdf",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Fast forward into trouble",
           "url": "https://www.theguardian.com/theguardian/2003/jun/14/weekend7.weekend2",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Bhutan's growing cannabis problem",
           "url": "https://news.bbc.co.uk/2/hi/south_asia/2016895.stm",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "Report of the International Narcotics Control Board for 2002",
           "url": "https://archive.org/details/reportofinternat0000unse_d7p9",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         },
         {
           "title": "41 dead and counting: Bhutan's growing Drug problem",
           "url": "https://thebhutanese.bt/41-dead-and-counting-bhutans-growing-drug-problem/",
-          "depth": 0,
-          "type": "summary"
-        },
-        {
-          "title": "Report of the International Narcotics Control Board for 2012",
-          "url": "https://www.incb.org/incb/en/publications/annual-reports/annual-report-2012.html",
-          "depth": 0,
-          "type": "summary"
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -106,7 +106,20 @@
         "rule: raw_illegal | source: Cannabis in Bhutan | type: traversal | priority: 3 | scope: general",
         "rule: illegal | source: Cannabis in Bhutan | type: traversal | priority: 3 | scope: general",
         "rule: penalty_arrest | source: Cannabis in Bhutan | type: traversal | priority: 3 | scope: general"
-      ]
+      ],
+      "secondary_source": {
+        "has_article": true,
+        "article_len": 1089,
+        "source_confidence": "no_prison_signal",
+        "signals": {
+          "prison_notes": false,
+          "prison_article": false,
+          "enforcement_notes": null,
+          "enforcement_article": null,
+          "distribution_notes": "illegal",
+          "distribution_article": "illegal"
+        }
+      }
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -213,9 +226,9 @@
   },
   "hashes": {
     "code": "btn",
-    "content_hash": "14bf77b30241f79b970d3e21007e8ca56ea02bbbdf416e37d09283a8d500a371",
+    "content_hash": "fec32e04beaa7cc57505526c772b5806b896c47ff41f8ef84ada4f3caef50ede",
     "notes_hash": "cec92f6f8f088b0b453f72d9417c64373f3af1593e4a988201b09dec7521d332",
-    "model_hash": "7ae9d8343f67acba6618a9b71aad9c94c7fa586c872057d86710939b67e4bbbb"
+    "model_hash": "b9b789aea04b0618c2fd5aa646ca74c6da25f15c128453acfb91c92d7b239082"
   },
   "geo_code": "BT",
   "node_type": "country",
