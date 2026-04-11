@@ -5,40 +5,111 @@
   "legal_model": {
     "recreational": {
       "raw_status": "DECRIMINALIZED",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "LEGAL",
-      "status": "LIMITED",
+      "status": "LEGAL",
       "enforcement": "MODERATE",
       "scope": "MEDICAL_ONLY",
-      "override_reason": "rec_implies_med_floor"
+      "override_reason": null
     },
     "distribution": {
       "status": "tolerated",
       "scopes": {
-        "possession": "restricted",
+        "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": "tolerated",
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "may"
+      ]
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "private_cultivation_tolerated",
-      "illegal",
-      "legal",
-      "rec_implies_med_floor"
+    "signals": {
+      "status": "tolerated",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": true,
+        "severity_score": 1
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in Australia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Australia",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Single Convention on Narcotic Drugs, 1961",
+          "url": "https://treaties.un.org/pages/ViewDetails.aspx?src=TREATY&mtdsg_no=VI-15&chapter=6",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Narcotic Drugs Act 1967",
+          "url": "https://www.legislation.gov.au/Details/C2016C01132",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Australia",
+          "url": "https://www.legislation.gov.au/Details/C2004C05442",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Medicinal cannabis)",
+          "url": "https://www.tga.gov.au/medicinal-cannabis",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Over-the-counter access to low dose cannabidiol",
+          "url": "https://www.tga.gov.au/media-release/over-counter-access-low-dose-cannabidiol",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "ParlInfo - Legalising Cannabis Bill 2023",
+          "url": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;page=0;query=BillId:s1353%20Recstruct:billhome",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: private_cultivation | source: Australia | type: summary | priority: 1 | scope: cultivation",
+        "rule: illegal | source: Australia | type: summary | priority: 1 | scope: cultivation",
+        "rule: legal | source: Australia | type: summary | priority: 1 | scope: cultivation",
+        "rule: medical_legal | source: Medicinal Marijuana has been Legalised in Australia | type: reference | priority: 2 | scope: general",
+        "rule: penalty_fine | source: Economic benefit of recreational cannabis now placed at $700m annually, as Greens renew pledge to push legal weed | type: reference | priority: 2 | scope: general",
+        "rule: legal | source: Economic benefit of recreational cannabis now placed at $700m annually, as Greens renew pledge to push legal weed | type: reference | priority: 2 | scope: general",
+        "rule: medical_legal | source: Medical marijuana legalized in Australia | type: reference | priority: 2 | scope: general",
+        "rule: medical_legal | source: Medicinal cannabis to be legalised in Australia from November | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
+    },
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is legal in Australia. Medical cannabis is limited. Distribution is tolerated."
+    "applied_rules": [
+      "private_cultivation",
+      "illegal",
+      "medical_legal",
+      "penalty_fine"
+    ],
+    "notes_normalized": "Cannabis is illegal in Australia. Medical cannabis is legal. Distribution is tolerated."
   },
-  "notes_normalized": "Cannabis is legal in Australia. Medical cannabis is limited. Distribution is tolerated.",
+  "notes_normalized": "Cannabis is illegal in Australia. Medical cannabis is legal. Distribution is tolerated.",
   "notes_raw": "{{main|Cannabis in Australia}} In September 2019, the [[Australian Capital Territory]] became the first state or territory of Australia to legalize recreational use of cannabis. Since 31 January 2020 residents have been allowed to grow two plants and possess {{cvt|50|g|frac=4}}, though sales or other transfer is prohibited, including cannabis seeds. Federal law also remains enforceable.<ref name=\"ACT\">{{cite news |last=Lowrey |first=Tom |title=ACT legalises personal cannabis use but warns smokers they're not safe from federal laws |url=https://www.abc.net.au/news/2019-09-25/act-first-jurisdiction-to-legalise-personal-cannabis-use/11530104 |access-date=11 December 2019 |publisher=[[Australian Broadcasting Corporation|ABC News]] |date=25 September 2019 |archive-url=https://web.archive.org/web/20191005020408/https://www.abc.net.au/news/2019-09-25/act-first-jurisdiction-to-legalise-personal-cannabis-use/11530104 |archive-date=5 October 2019 |url-status=live}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -109,16 +180,16 @@
     ],
     "legal_similarity": [
       {
-        "code": "sgp",
-        "name": "Singapore / Singapura"
+        "code": "ncl",
+        "name": "New Caledonia / Nouvelle-Calédonie"
       },
       {
-        "code": "phl",
-        "name": "Philippines / Pilipinas"
+        "code": "nfk",
+        "name": "Norfolk Island / Norf'k Ailen"
       },
       {
-        "code": "nzl",
-        "name": "New Zealand / Aotearoa"
+        "code": "vut",
+        "name": "Vanuatu"
       }
     ],
     "cluster_links": [
@@ -127,8 +198,8 @@
         "name": "Solomon Islands"
       },
       {
-        "code": "ncl",
-        "name": "New Caledonia / Nouvelle-Calédonie"
+        "code": "plw",
+        "name": "Palau / Belau"
       }
     ],
     "same_country_states": [],
@@ -136,9 +207,9 @@
   },
   "hashes": {
     "code": "aus",
-    "content_hash": "a12a4b6ca562dcd744685ddd09838e9ab47491c8204db9aa269b6acb3107c674",
-    "notes_hash": "b2f2048a03ed85631ceb4219a778614bb1bae5c4b3265821c674c72e22f9272e",
-    "model_hash": "249a578276976e8d4beda9c6768a9f2a3c41ca7500ae3dc089f9646b0b38b46e"
+    "content_hash": "8a41851dc6c03730f50321e3315196d4791c4bf97cb44e4f30052bd97eb8d5c4",
+    "notes_hash": "2030da8c3e4e7854efc3760ab67b99daaa4a6c38184454a9fba25fcfb45f336d",
+    "model_hash": "089251a5220c9b7a50b156d7955cf7ed6f618835230f523489ebf6142105b854"
   },
   "geo_code": "AU",
   "node_type": "country",

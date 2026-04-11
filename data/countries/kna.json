@@ -20,6 +20,7 @@
       "status": "restricted",
       "scopes": {
         "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -28,6 +29,40 @@
       "enforcement": "standard",
       "flags": [],
       "modifiers": []
+    },
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Saint Kitts and Nevis",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Saint_Kitts_and_Nevis",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Saint_Kitts_and_Nevis",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Saint Kitts and Nevis",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -133,9 +168,9 @@
   },
   "hashes": {
     "code": "kna",
-    "content_hash": "9415bb065277e09e9e1fb0f3c1d283a4d248c9e5b63fad7bd295670c851ce03d",
+    "content_hash": "bf02c9ede1b4959ea789c7a311bdc2ab94d175ce69c4b6fd4db9fc6e2deedd84",
     "notes_hash": "e494055801302896bd7f378fb48ea55a968825444f8f352b3b7a1e2905f0aa71",
-    "model_hash": "52a80bec73cf426992bd669b86a5ba2939f6b617d06f667d2d10571617feb117"
+    "model_hash": "38ef02d4a735fe39f2dcb2bcb360d182dc1c31c989a0b223240af0d2aea55899"
   },
   "geo_code": "KN",
   "node_type": "country",

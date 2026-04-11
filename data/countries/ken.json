@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,64 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Kenya",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kenya",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Kenya",
+          "url": "https://www.unodc.org/unodc/en/data-and-analysis/world-drug-report-2022.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "The Supply of Illicit Drugs to the United States: The Nnicc Report",
+          "url": "https://books.google.com/books?id=LvbJsQgnlXwC&pg=PA64",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Kenya",
+          "url": "https://books.google.com/books?id=99x5ea1Gq-cC&pg=PA568",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Kenya Gazette",
+          "url": "https://books.google.com/books?id=-tucX8G18BkC&pg=PA882",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Kenya Gazette",
+          "url": "https://books.google.com/books?id=MmQ16P1RMmAC&pg=PA203",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Kibra MP Ken Okoth in push for marijuana legalisation",
+          "url": "https://www.sde.co.ke/article/2001296589/kibra-mp-ken-okoth-in-push-for-marijuana-legalisation",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +194,9 @@
   },
   "hashes": {
     "code": "ken",
-    "content_hash": "74f69ad9ae66ed093f7b910efd221451d1d730aa83393d7c7b3463236d413743",
+    "content_hash": "d29f7b0ec5b93c3bf3f13ad6c308ed014ea1b7be2814bdebc92aa5dc00de5572",
     "notes_hash": "9d8e9f11e55f34e8f9f5820254d436fe6db52529393113d672cb1d20a8fd44e8",
-    "model_hash": "a4ee2cf7a01933ac45e248dd1d7e67793cb42731c3dfb754ba10d54f56be7fcd"
+    "model_hash": "f0f880fce4bb50e6391ea065c7796c4ee90a37a7a4edf2e3152ab6a03ef83828"
   },
   "geo_code": "KE",
   "node_type": "country",

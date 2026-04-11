@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,64 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Mauritius",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Mauritius",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Zamal",
+          "url": "https://en.seedfinder.eu/strain-info/Zamal/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Zamal: The Rare Sativa Landrace of Réunion",
+          "url": "https://cannabisculture.com/zamal-the-rare-sativa-landrace-of-reunion/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "A Collection of the Laws of Mauritius and Its Dependencies",
+          "url": "https://books.google.com/books?id=0ktHAQAAMAAJ&pg=PA541",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Association of Psychiatrists in Africa 1974 Workshop: Alcoholism and Drug Addiction, 18-24 September, 1974, Nairobi, Kenya",
+          "url": "https://books.google.com/books?id=TIQbAQAAMAAJ",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Ethnicity, Nationalism, and Minority Rights",
+          "url": "https://books.google.com/books?id=0ulPgoN0gBMC&pg=PA86",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Mauritius / Maurice",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +194,9 @@
   },
   "hashes": {
     "code": "mus",
-    "content_hash": "bf3da9e6de3856773fc6452590985ba69673afae92530ab886ac1909cdb56bda",
+    "content_hash": "a75f20e96d2f799fdacd9868aa595cbdd51e01e50e553645be9b45a7cc4268ec",
     "notes_hash": "740cc5fed3f375a2b5a5cdc8ab5cd50d99035127e4b6b794da63ccb238218188",
-    "model_hash": "cf028a90b425d64653ed24e33fb26b81a12148a3c28ec77d6c4fbb79a7684fe7"
+    "model_hash": "50f1057e3851526e48bd062a8810046aa1cd191424f561b9f27f72ff8aa9955e"
   },
   "geo_code": "MU",
   "node_type": "country",

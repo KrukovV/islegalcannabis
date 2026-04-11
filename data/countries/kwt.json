@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,64 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Kuwait",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kuwait",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Kuwait",
+          "url": "https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Kuwait.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Kuwait",
+          "url": "https://news.kuwaittimes.net/website/marijuana-law-kuwait/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Kuwait",
+          "url": "https://news.kuwaittimes.net/website/embassy-releases-advisory-regarding-drugs-for-indian-community-in-kuwait/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Kuwait",
+          "url": "https://web.archive.org/web/20181004224529/http://news.kuwaittimes.net/website/embassy-releases-advisory-regarding-drugs-for-indian-community-in-kuwait/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Insecure Gulf: The End of Certainty and the Transition to the Post-oil Era",
+          "url": "https://books.google.com/books?id=jpr4BQAAQBAJ&pg=PT44",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Kuwait / الكويت",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +194,9 @@
   },
   "hashes": {
     "code": "kwt",
-    "content_hash": "4cdd6b5eef9a6cb0ac266f949a4d65241247ebc413ab33bdbbbb7b1a9e8d1ac4",
+    "content_hash": "392323112c80878ee549b3d93e2f2b9a6b8e945d3f4b59d3fc9194d44ebaf9e5",
     "notes_hash": "9c9c38e3aeb0af44607cb23839ae201180eef0612c858ef0cfa734de89000028",
-    "model_hash": "fb3fb4f50b7ed5821ce099fc19eb1b1f6286b97e3e4184a9c6852fd876e13cba"
+    "model_hash": "9bc832217fd64e237f11b69819850ce25ad7cc2ad4fdb3e3ed4ec0b73eda5707"
   },
   "geo_code": "KW",
   "node_type": "country",

@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,40 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Uganda",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Uganda",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Uganda",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Uganda",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +170,9 @@
   },
   "hashes": {
     "code": "uga",
-    "content_hash": "489af6dfdd9f3b845195cbc2c18301dcb854f26b9c4f331b75cb338f06e18e49",
+    "content_hash": "ee48de77460dc8edffdbe0a07da1a63d85e0f575e1ac37053c991047dc6b9ca3",
     "notes_hash": "3cb68ba237789282660edd80366755192891f05b27e7fb5f47d01d1ad2dae77f",
-    "model_hash": "e9f66ab4577571eaf96d61ce07af4a9f95aa1cb9797822ea3f11d59be7986815"
+    "model_hash": "484003956ebb95fc542df943cf1cb9a450b31af22bd0a991d07c5158833baa27"
   },
   "geo_code": "UG",
   "node_type": "country",

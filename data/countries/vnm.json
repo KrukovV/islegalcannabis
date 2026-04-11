@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,64 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Vietnam",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Vietnam",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "The Therapeutic Potential of Marihuana",
+          "url": "https://books.google.com/books?id=89vTBwAAQBAJ&pg=PA3",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Vietnam Studies: Law at War: Vietnam 1964-1973",
+          "url": "https://books.google.com/books?id=0_GdRa3z4YcC&pg=PT120",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "The Myth of the Addicted Army: Vietnam and the Modern War on Drugs",
+          "url": "https://books.google.com/books?id=qDbtvEIxWigC&pg=PA206",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "US Army Psychiatry in the Vietnam War: New Challenges in Extended Counterinsurgency Warfare: New Challenges in Extended Counterinsurgency Warfare",
+          "url": "https://books.google.com/books?id=ty3BDgAAQBAJ&pg=PT556",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "American Psychiatry After World War II (1944-1994)",
+          "url": "https://books.google.com/books?id=Gk-XSoU3A-0C&pg=PA23",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Vietnam / Việt Nam",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +194,9 @@
   },
   "hashes": {
     "code": "vnm",
-    "content_hash": "cdd42ff21b28856a25ec42849f08fab7124a346e0a9ba22ace6a032d5fe72b44",
+    "content_hash": "38cb2425eaff56494a866786e6b7b3e807d44d70476c84a2317b1cc1b65fcc95",
     "notes_hash": "40c7359699d8ac6ce9d7141845207f1d15d8e631bb3334620376caefd5aa891e",
-    "model_hash": "2ad5416289cc6a79a3b29de5f1cf28177e69eed200980dc5f73556b2671d6d1f"
+    "model_hash": "433028865baf92b44f643268f0bb83bdd6c40d083adc2b19a57a778fc2b62e05"
   },
   "geo_code": "VN",
   "node_type": "country",

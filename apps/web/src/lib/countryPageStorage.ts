@@ -84,6 +84,22 @@ export type CountryPageData = {
       flags: string[];
       modifiers: string[];
     };
+    signals?: {
+      status: CountryDistributionStatus;
+      penalties: {
+        prison: boolean;
+        arrest: boolean;
+        fine: boolean;
+        severity_score: number;
+      };
+      confidence: "low" | "medium" | "high";
+      sources: Array<{
+        title: string;
+        url: string | null;
+        depth: number;
+      }>;
+      explain: string[];
+    };
     enforcement_flags?: string[];
     applied_rules?: string[];
   };

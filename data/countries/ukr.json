@@ -20,20 +20,80 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Ukraine",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ukraine",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Про внесення змін до Кодексу України про адміністративні правопорушення та Кримінального кодексу України щодо посилення відповідальності за незаконний посів або незаконне вирощування снотворного маку чи конопель (№ 1165-VI)",
+          "url": "https://zakon4.rada.gov.ua/laws/show/1165-17/print1462851647388498",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "МОЗ: обіг медичного канабісу в Україні буде прозорим і на 100% простежуваним",
+          "url": "https://moz.gov.ua/uk/moz-obig-medichnogo-kanabisu-v-ukrayini-bude-prozorim-i-na-100-prostezhuvanim",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Medical cannabis has been legalized in Ukraine",
+          "url": "https://babel.ua/en/news/109929-medical-cannabis-has-been-legalized-in-ukraine",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Medical cannabis legalized in Ukraine",
+          "url": "https://english.nv.ua/nation/medical-cannabis-legalized-in-ukraine-50443433.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Hemp research and growing in Ukraine",
+          "url": "https://www.internationalhempassociation.org/jiha/iha02113.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "The permissible limit of possession of marijuana is planned to be increased",
+          "url": "https://www.golosua.com/ua/main/article/podiyi/20100701_dopustimu-mezhu-zberigannya-marihuani-planuyut-zbi",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: medical_legal | source: Medical cannabis has been legalized in Ukraine | type: reference | priority: 2 | scope: general",
+        "rule: medical_legal | source: Medical cannabis legalized in Ukraine | type: reference | priority: 2 | scope: general",
+        "rule: medical_legal | source: Medical Cannabis Legalized in Ukraine: Law Now in Effect | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Ukraine / Україна. Medical cannabis is legal. Distribution is illegal."
   },
@@ -116,18 +176,18 @@
         "name": "Türkiye"
       },
       {
-        "code": "ltu",
-        "name": "Lithuania / Lietuva"
+        "code": "est",
+        "name": "Estonia / Eesti"
       }
     ],
     "cluster_links": [
       {
-        "code": "lva",
-        "name": "Latvia / Latvija"
+        "code": "ltu",
+        "name": "Lithuania / Lietuva"
       },
       {
-        "code": "est",
-        "name": "Estonia / Eesti"
+        "code": "lva",
+        "name": "Latvia / Latvija"
       }
     ],
     "same_country_states": [],
@@ -135,9 +195,9 @@
   },
   "hashes": {
     "code": "ukr",
-    "content_hash": "d2d6e0aab81c5febfa7061b9eb0d4b66e115431ca08a1e834cc9843438a970ba",
+    "content_hash": "242c4a2ab928da38730aa182cf225f9f952508dd642ce957f257a39d28276961",
     "notes_hash": "fca5e77345ddea24079c2c354076e3a93c651b4f92f42c42afcfb4a40f5bdd63",
-    "model_hash": "52b6d2205889c654adc22827f61d3e0826f409aa05c9a68dd67b883582fac24f"
+    "model_hash": "05bcf7de7f3bb7e8347f417684d9cf68cde9a7eac63c53cf64bec6464cf06fb0"
   },
   "geo_code": "UA",
   "node_type": "country",

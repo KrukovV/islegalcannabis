@@ -20,20 +20,78 @@
       "status": "restricted",
       "scopes": {
         "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_restricted"
-      ],
+      "flags": [],
       "modifiers": []
+    },
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": true,
+        "fine": false,
+        "severity_score": 2
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Saint Vincent and the Grenadines",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Saint_Vincent_and_the_Grenadines",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Archived copy",
+          "url": "https://www.gov.vc/images/PoliciesActsAndBills/DRAFT_Medicinal_Cannabis_Industry_Bill2.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Saint Vincent And The Grenadines Decriminalizes Marijuana",
+          "url": "https://www.forbes.com/sites/sarabrittanysomerset/2018/12/26/saint-vincent-and-the-grenadines-decriminalize-marijuana/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "No arrest for two ounces or less of cannabis",
+          "url": "https://searchlight.vc/searchlight/front-page/2019/08/02/no-arrest-for-two-ounces-or-less-of-cannabis/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "MP concerned about local ganja as SVG gets plant breeders' law",
+          "url": "https://www.iwnsvg.com/2019/12/20/mp-concerned-about-local-ganja-as-svg-gets-plant-breeders-law/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Caribbean and Southern: Transnational Perspectives on the U.S. South",
+          "url": "https://books.google.com/books?id=nTR0jVgkvNoC&pg=PA147",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Saint Vincent and the Grenadines",
+          "url": "https://web.archive.org/web/20191223132646/http://www.gov.vc/images/PoliciesActsAndBills/DRAFT_Medicinal_Cannabis_Industry_Bill2.pdf",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: penalty_arrest | source: No arrest for two ounces or less of cannabis | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_restricted"
+      "penalty_arrest"
     ],
     "notes_normalized": "Cannabis is decriminalized in Saint Vincent and the Grenadines. Medical cannabis is legal. Distribution is restricted."
   },
@@ -135,9 +193,9 @@
   },
   "hashes": {
     "code": "vct",
-    "content_hash": "450cdbf676779307ad7204b72f2c1a84059a82667f163dd42ebd8b251a6fe80b",
+    "content_hash": "2bf0cf9923a967829019dac847fdaff94374094f5c66a229c262518698e0e184",
     "notes_hash": "610bf93bb4eaac1a3fd4f854e5299d17c34008dbeaabd5cf1a291557938e9981",
-    "model_hash": "8da66dccaf7687aeb5e3d7324f971b04d7fce49dbda395c9bce7547d8835b356"
+    "model_hash": "3aaaa662336aa51ebd0a0cd37222d0b1869ca1b11b908b23f0f7e90b1553a762"
   },
   "geo_code": "VC",
   "node_type": "country",

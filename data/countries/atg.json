@@ -20,6 +20,7 @@
       "status": "restricted",
       "scopes": {
         "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -28,6 +29,58 @@
       "enforcement": "standard",
       "flags": [],
       "modifiers": []
+    },
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Antigua and Barbuda",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Antigua_and_Barbuda",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "After decriminalizing cannabis, Antigua preps full legalization",
+          "url": "https://mjbizdaily.com/after-decriminalizing-cannabis-antigua-preps-full-legalization/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Antigua to Legalize Marijuana – Urges other Countries to Follow Suit – HTS News 4orce",
+          "url": "https://cannabisafterdark.com/2018/10/antigua-to-legalize-marijuana-urges-other-countries-to-follow-suit-hts-news-4orce/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "International Narcotics Control Strategy Report: Volume I: Drug and Chemical Control",
+          "url": "https://books.google.com/books?id=0jnyNWFuhXYC&pg=PA248",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Antigua and Barbuda",
+          "url": "https://web.archive.org/web/20181027144555/http://cannabisafterdark.com/2018/10/antigua-to-legalize-marijuana-urges-other-countries-to-follow-suit-hts-news-4orce/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Antigua and Barbuda",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -133,9 +186,9 @@
   },
   "hashes": {
     "code": "atg",
-    "content_hash": "a0491ae5ce285e94060bfe87ca0bc7bca41154045e9aa1aa3fc868bdb6a63bf8",
+    "content_hash": "c3555832b8e0f20382c94f414a0c594fe9435462fc23ecdc1671d1eee7e7061b",
     "notes_hash": "172ac1f0db0866852b2c9f27086532cf9eb91088a96deb5d40762d0e259a4f97",
-    "model_hash": "9e30dddd91bf6740c6cc7c7b822187d61c324910685fb5bec6c0959be89e6116"
+    "model_hash": "b8a8e3c688a9d9428e8b1c1fd59904bc1f8d2bf5036b6875ac0656ab8745b0f5"
   },
   "geo_code": "AG",
   "node_type": "country",

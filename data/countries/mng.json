@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,46 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Mongolia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Mongolia",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Report of the International Narcotics Control Board for 2009",
+          "url": "https://books.google.com/books?id=BEELAflkpPEC&pg=PA87",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "The Encyclopedia of Psychoactive Plants: Ethnopharmacology and Its Applications",
+          "url": "https://books.google.com/books?id=8V0oDwAAQBAJ&pg=PT573",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Mongolia / Монгол улс",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +176,9 @@
   },
   "hashes": {
     "code": "mng",
-    "content_hash": "2c9e500e3e32715845eef94cb14c4b8f853a68263a160cf7652f0af5384b1fb8",
+    "content_hash": "1d684be7d83f3f3a8297bc2521c8b3ab7e67c5eb442aaf696a548bf4959c56be",
     "notes_hash": "e76125b3f27e8d71a4384c8eb8f743a9dd1bb7183ead44f2b355a0ca4369b085",
-    "model_hash": "2adfda60096f06c381c441b89da531a1ce270dd6477d76115964f34c28a3b2c2"
+    "model_hash": "bbdf86d310a06d6cc3a3f58f13e35c7cd1366eff904fc64d13ea2b43a01eac45"
   },
   "geo_code": "MN",
   "node_type": "country",

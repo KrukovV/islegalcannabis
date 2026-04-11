@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -29,7 +30,67 @@
       "flags": [
         "distribution_fallback_illegal"
       ],
-      "modifiers": []
+      "modifiers": [
+        "but"
+      ]
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Iran",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Iran",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "A guide to smoking weed around the world",
+          "url": "https://www.pri.org/stories/2015-03-13/guide-smoking-weed-around-world",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Iran Has a Drug Problem and It Doesn't Include Cannabis",
+          "url": "https://hightimes.com/news/iran-has-a-drug-problem-and-it-doesnt-include-cannabis/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis Use in Present-Day Iran",
+          "url": "https://sensiseeds.com/en/blog/cannabis-iran-en/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Marijuana Use Rises in Iran, With Little Interference",
+          "url": "https://www.nytimes.com/2016/06/26/world/middleeast/marijuana-use-rises-in-iran-with-little-interference.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "As Iran's Marijuana Trade Thrives, Is It Becoming a Nation of Stoners?",
+          "url": "https://www.thedailybeast.com/as-irans-marijuana-trade-thrives-is-it-becoming-a-nation-of-stoners",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Human Rights in Iran: The Abuse of Cultural Relativism",
+          "url": "https://books.google.com/books?id=3e_SBQAAQBAJ&pg=PA40",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -108,22 +169,22 @@
     ],
     "legal_similarity": [
       {
-        "code": "are",
-        "name": "United Arab Emirates / الإمارات"
-      },
-      {
         "code": "irq",
         "name": "Iraq / العراق"
       },
       {
         "code": "aze",
         "name": "Azerbaijan / Azərbaycan"
+      },
+      {
+        "code": "sau",
+        "name": "Saudi Arabia / السعودية"
       }
     ],
     "cluster_links": [
       {
-        "code": "sau",
-        "name": "Saudi Arabia / السعودية"
+        "code": "are",
+        "name": "United Arab Emirates / الإمارات"
       },
       {
         "code": "tkm",
@@ -135,9 +196,9 @@
   },
   "hashes": {
     "code": "irn",
-    "content_hash": "048da52a13f16082bf90c55c1dcd4f403d6a151cd2d5e14b2d064d9d2021fdfd",
+    "content_hash": "0ef5ac2173e2885efb92154537af77841899bffb23bf17f39b5f845a35975249",
     "notes_hash": "eaa6e507f742cdb588d9a1a9a0a181cce7652d3e2b3cfd0e0b0e2c67cb9c2653",
-    "model_hash": "fd5225e93c2cd7ed69845d0b6dafc3757ecd6bda3418be12a5b5a77ba9299ef6"
+    "model_hash": "30ed9c2571042454e84204313d03ffbdd9e74f197ed9aa9ede9f3bac2622ed13"
   },
   "geo_code": "IR",
   "node_type": "country",

@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,64 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Cameroon",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cameroon",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis",
+          "url": "https://books.google.com/books?id=SVU8BQAAQBAJ&pg=PT89",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Marijuana Medicine: A World Tour of the Healing and Visionary Powers of Cannabis",
+          "url": "https://books.google.com/books?id=o_dKbMFRSzUC&pg=PA130",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Pan-African Issues in Drugs and Drug Control: An International Perspective",
+          "url": "https://books.google.com/books?id=WhirCwAAQBAJ&pg=PT40",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis: A History",
+          "url": "https://books.google.com/books?id=ecITBwAAQBAJ&pg=PA362",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "The Supply of Illicit Drugs to the United States: The Nnicc Report",
+          "url": "https://books.google.com/books?id=LvbJsQgnlXwC&pg=PA63",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cameroon / Cameroun",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +194,9 @@
   },
   "hashes": {
     "code": "cmr",
-    "content_hash": "6aa5ad10e03fc3104bcb6d26ee5f35f42f5b74c9569ffa28848eaf90fbfe1dd3",
+    "content_hash": "b951790dec445e53f7548616f43d624cdb71bc944f80d368fa91b74b1998da22",
     "notes_hash": "5d37afb46c1850defec8df196058e5b0b134fbf6ebf98483425bc05ad933e23d",
-    "model_hash": "d52132bfdd67c757120f83525c1cf4ef13a59ac5182fabbaf224048c5bdbde8a"
+    "model_hash": "aad3c65dd23dee4e18c332a0878274424812b8658afbfac79041d9a8edd11395"
   },
   "geo_code": "CM",
   "node_type": "country",

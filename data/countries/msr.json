@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,28 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "low",
+      "sources": [
+        {
+          "title": "Montserrat",
+          "url": null,
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -128,9 +151,9 @@
   },
   "hashes": {
     "code": "msr",
-    "content_hash": "c54ad31067955affa1d14dd2cd83d813577c2f69561a77f5255b48d6aeab0773",
+    "content_hash": "be0b3e2b33ad59d43d8a513e93a09017065067893d9a22da4f9a4b157340de2e",
     "notes_hash": "206be8467a75ba0b9b1638c3f307021d63f390e187dca7b114d0981e5d883868",
-    "model_hash": "6bf03539d40023274eb047e3a4822e9157c4ea99d0a523d6e5717188deef14f9"
+    "model_hash": "ee28d025a3be5c4cb1441c6daa202ab8455618f4419ebaf3fd5492834b4f950f"
   },
   "geo_code": "MS",
   "node_type": "country",

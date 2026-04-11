@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,52 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Bahrain",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bahrain",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Bahrain",
+          "url": "https://www.cannaconnection.com/blog/14846-legal-status-bahrain",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Drug and Alcohol Consumption as Functions of Social Structures: A Cross-cultural Sociology",
+          "url": "https://books.google.com/books?id=SpMbAQAAMAAJ",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Marijuana plant grower jailed in Bahrain",
+          "url": "https://www.tradearabia.com/news/MISC_259810.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Bahrain / البحرين",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +182,9 @@
   },
   "hashes": {
     "code": "bhr",
-    "content_hash": "d6b96e7cfd24da3f5e4b61fdfdb96ebbf400215ea21191f295362891943167d6",
+    "content_hash": "3f8ab67327bb0ce091603a3364c78f30fe910dcc44cd0d407548a69457f263df",
     "notes_hash": "4099c31635fb6ea498f4d846ff752b49bc7a8bc3dc9823c8edd2cdfe3af29d21",
-    "model_hash": "2d084d9171ff7059fbc8e6592fc47b8510e717057125d4f901b88649b2c5669f"
+    "model_hash": "31e1303e7fcfd6c5cddf78e9e202584986d7d460d7ea2d5bf9e6ba96d0c96052"
   },
   "geo_code": "BH",
   "node_type": "country",

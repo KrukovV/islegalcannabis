@@ -20,6 +20,7 @@
       "status": "restricted",
       "scopes": {
         "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -27,16 +28,71 @@
       },
       "enforcement": "standard",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "may"
+      ]
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": true,
+        "prison_priority": 1,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 4
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in North Macedonia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_North_Macedonia",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Macedonia: Parliament Legalizes Medical Marijuana",
+          "url": "https://www.eurasiareview.com/10022016-macedonia-parliament-legalizes-medical-marijuana/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Macedonia Allows Medical Marijuana in Pharmacies",
+          "url": "https://www.balkaninsight.com/en/article/macedonia-allows-medical-marijuana-in-pharmacies-05-31-2016",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "North Macedonia Moves to Make Recreational Marijuana Use Legal",
+          "url": "https://balkaninsight.com/2020/11/20/north-macedonia-moves-to-make-recreational-marijuana-use-legal/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "North Macedonia / Македонија",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: penalty_prison | source: North Macedonia / Македонија | type: summary | priority: 1 | scope: general",
+        "rule: penalty_years | source: North Macedonia / Македонија | type: summary | priority: 1 | scope: general",
+        "rule: medical_legal | source: North Macedonia / Македонија | type: summary | priority: 1 | scope: general",
+        "rule: medical_legal | source: Macedonia Allows Medical Marijuana in Pharmacies | type: reference | priority: 2 | scope: general",
+        "rule: legal | source: North Macedonia Moves to Make Recreational Marijuana Use Legal | type: reference | priority: 2 | scope: use",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
+      "penalty_prison",
+      "penalty_years",
       "medical_legal",
       "legal"
     ],
-    "notes_normalized": "Cannabis is legal in North Macedonia / Македонија. Medical cannabis is legal. Distribution is restricted."
+    "notes_normalized": "Cannabis is legal in North Macedonia / Македонија. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is legal in North Macedonia / Македонија. Medical cannabis is legal. Distribution is restricted.",
+  "notes_normalized": "Cannabis is legal in North Macedonia / Македонија. Medical cannabis is legal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in North Macedonia}} If one possesses large amounts, a jail sentence of anywhere from 3 months to 5 years may be given.<ref>{{citation |url = http://www.encod.org/info/MACEDONIA.html |title = European Coalition for Just and Effective Drug Policies |publisher = Encod.org |access-date = 17 February 2011 |url-status = dead |archive-url = https://web.archive.org/web/20110518004610/http://www.encod.org/info/MACEDONIA.html |archive-date = 18 May 2011}}</ref> Medicinal cannabis legalized since 2016.<ref>{{cite web|url=http://www.balkanews.org/index.php/2016/02/10/macedonia-parliament-legalizes-medical-marijuana/|title=Macedonia: Parliament Legalizes Medical Marijuana|work=Eurasia Review|date=22 April 2015|access-date=5 June 2018|archive-date=12 March 2020|archive-url=https://web.archive.org/web/20200312221640/http://www.ezyspot.com/|url-status=dead}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -115,8 +171,8 @@
         "name": "Bosnia and Herzegovina / Bosna i Hercegovina"
       },
       {
-        "code": "rou",
-        "name": "Romania / România"
+        "code": "hrv",
+        "name": "Croatia / Hrvatska"
       }
     ],
     "cluster_links": [
@@ -125,8 +181,8 @@
         "name": "Bulgaria / България"
       },
       {
-        "code": "hun",
-        "name": "Hungary / Magyarország"
+        "code": "rou",
+        "name": "Romania / România"
       }
     ],
     "same_country_states": [],
@@ -134,9 +190,9 @@
   },
   "hashes": {
     "code": "mkd",
-    "content_hash": "6cc91550df8b3ac87d1bc138404a3c41c83354e04705d64c6c764791f11a43a7",
-    "notes_hash": "0a00fd2547e84b6ec3ed8f14cb740976baf09b70bb1dcb006949bb98d787eb72",
-    "model_hash": "7f4c16493227e44f9e2c788aac97a4d20f3e8c8339609130cd3afedb81f95dab"
+    "content_hash": "a0d515cc8b89375eb604e74edcd2d0990a01013977c7e7f7de1275cfaceebc1e",
+    "notes_hash": "696fb6a2fcf8a7c9eebd9e57a22d5833d973ca0f1fc3879f40bc5c72d862b597",
+    "model_hash": "b24d2fc43e0bfe47814f6127e2e88935c0c04536bcd6a8e2cb849325a03cdfcb"
   },
   "geo_code": "MK",
   "node_type": "country",

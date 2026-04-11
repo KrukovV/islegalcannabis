@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -29,7 +30,67 @@
       "flags": [
         "distribution_fallback_illegal"
       ],
-      "modifiers": []
+      "modifiers": [
+        "may"
+      ]
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Morocco",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Morocco",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Buying and Smoking Hashish (Kif) in Morocco",
+          "url": "https://www.tripsavvy.com/smoking-hashish-in-morocco-1454421",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Tourists roll up for Morocco's cannabis trail",
+          "url": "https://www.ctvnews.ca/lifestyle/article/tourists-roll-up-for-moroccos-cannabis-trail/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Some Arab governments are rethinking harsh cannabis laws",
+          "url": "https://www.economist.com/news/middle-east-and-africa/21720598-others-use-them-lock-up-restless-young-men-some-arab-governments-are-rethinking",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Maroc : les députés votent la légalisation thérapeutique du cannabis",
+          "url": "https://www.lefigaro.fr/flash-actu/maroc-les-deputes-votent-la-legalisation-therapeutique-du-cannabis-20210526",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Morocco",
+          "url": "https://web.archive.org/web/20210502075610/https://www.tripsavvy.com/smoking-hashish-in-morocco-1454421",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Morocco",
+          "url": "https://web.archive.org/web/20170414193126/http://www.economist.com/news/middle-east-and-africa/21720598-others-use-them-lock-up-restless-young-men-some-arab-governments-are-rethinking",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -108,22 +169,22 @@
     ],
     "legal_similarity": [
       {
-        "code": "dza",
-        "name": "Algeria / الجزائر"
-      },
-      {
         "code": "esh",
         "name": "Western Sahara / الصحراء الغربية"
       },
       {
         "code": "and",
         "name": "Andorra"
+      },
+      {
+        "code": "mrt",
+        "name": "Mauritania / موريتانيا"
       }
     ],
     "cluster_links": [
       {
-        "code": "mrt",
-        "name": "Mauritania / موريتانيا"
+        "code": "dza",
+        "name": "Algeria / الجزائر"
       },
       {
         "code": "tun",
@@ -135,9 +196,9 @@
   },
   "hashes": {
     "code": "mar",
-    "content_hash": "ccc21960080801322e3ed0e572f3862b4a056f3ae345dd2eed2706b8fa833d3f",
+    "content_hash": "46dbc2153b268feb64f3afedebca92dbd91818331fa7a80110cd717b9ad287a1",
     "notes_hash": "dba651ab562317aa41a092cda7e7ba51d7bec10d1c064b9fca070cd932647f38",
-    "model_hash": "e0b22d93570ba3be53f4b8d35eb4cdf69c8e7573680d52abfa2cd5d299e7e0d0"
+    "model_hash": "0094155783de57d45f912ed2f30830c4d2601e62afcefee428c7c58107a82e53"
   },
   "geo_code": "MA",
   "node_type": "country",

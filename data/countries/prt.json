@@ -20,18 +20,83 @@
       "status": "restricted",
       "scopes": {
         "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [],
       "modifiers": []
     },
-    "enforcement_flags": [],
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": true,
+        "severity_score": 1
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in Portugal",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Portugal",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis: A History",
+          "url": "https://books.google.com/books?id=ecITBwAAQBAJ&pg=PA74",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Las relaciones entre Portugal y Castilla en la época de los descubrimientos y la expansión colonial",
+          "url": "https://books.google.com/books?id=t2Zyi4lXfN0C&pg=PA284",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis: Evolution and Ethnobotany",
+          "url": "https://books.google.com/books?id=poenY6QMq8UC&pg=PA182",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Drugs: Breaking the Cycle, Ninth Report of Session 2012-13, Vol. 2: Oral and Written Evidence",
+          "url": "https://books.google.com/books?id=iaWK9XRfOhoC&pg=PA135",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis Policy: Moving Beyond Stalemate",
+          "url": "https://books.google.com/books?id=4vSA4F2Qb3QC&pg=PA89",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Portugal",
+          "url": "https://sensiseeds.com/en/blog/cannabis-portugal-en/",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: possession_decriminalized | source: Cannabis in Portugal | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Portugal | type: traversal | priority: 3 | scope: possession",
+        "rule: medical_legal | source: Cannabis in Portugal | type: traversal | priority: 3 | scope: use"
+      ]
+    },
+    "enforcement_flags": [
+      "fine_based"
+    ],
     "applied_rules": [
-      "decriminalized"
+      "possession_decriminalized",
+      "penalty_fine",
+      "medical_legal"
     ],
     "notes_normalized": "Cannabis is decriminalized in Portugal. Medical cannabis is legal. Distribution is restricted."
   },
@@ -133,9 +198,9 @@
   },
   "hashes": {
     "code": "prt",
-    "content_hash": "e8e98b68917677a309fe747a3fe94296d0cc9dc3cbc5faf387675a6144e1260a",
+    "content_hash": "4aef064be604025259259a92fa364187adcad8ecf8df1ef57678f58307699920",
     "notes_hash": "2b1ada1586dce27f7dae7955d70d2a02915ac0b5b5052669c3c1b1e7c90cd7fd",
-    "model_hash": "5c87004ffc18565340838ad6b5b36934c46d0080d3845e6fb0672248f7d7b46e"
+    "model_hash": "a805eb7e93c1fae264a2d6520f8e005c57d0f3dfa2d0cd2a93a5e9aa3234d11c"
   },
   "geo_code": "PT",
   "node_type": "country",

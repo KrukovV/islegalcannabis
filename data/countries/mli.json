@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,64 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Mali",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Mali",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Decriminalization of Marihuana: Hearings Before the Select Committee on Narcotics Abuse and Control, House of Representatives, Ninety-fifth Congress, First Session, March 14, 15, and 16, 1977",
+          "url": "https://books.google.com/books?id=pdDUAAAAMAAJ",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Drug use in America: problem in perspective: second report",
+          "url": "https://books.google.com/books?id=ZZ1qAAAAMAAJ",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Marijuana Medicine: A World Tour of the Healing and Visionary Powers of Cannabis",
+          "url": "https://books.google.com/books?id=o_dKbMFRSzUC&pg=PA128",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Report of the International Narcotics Control Board (2007)",
+          "url": "https://books.google.com/books?id=5zPbkldHMq4C&pg=PA53",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Perilous Desert: Insecurity in the Sahara",
+          "url": "https://books.google.com/books?id=iQuVCwAAQBAJ&pg=PA67",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Mali",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +194,9 @@
   },
   "hashes": {
     "code": "mli",
-    "content_hash": "808e8035f867098c1e8491b45ba97ef573fad1f1c7e1f3ec687d8d7bd9497ad6",
+    "content_hash": "19670e45c4487c70acd02ea7e72bc48674d2483d468c47f4dd1dbf849bbb1383",
     "notes_hash": "07c738f77574066bc00bcb0ad373fdfe5e0c1c154a5a03a4e002f3aa98e1a24d",
-    "model_hash": "5191fe7f149acfbf8eef4c83dbf71e70a6ee7b6c95341f1d88bb42f841f6f61d"
+    "model_hash": "7ab313835488f2819bdd7ff19ede777134a3b8d279bb8b431fbfd05f0337a306"
   },
   "geo_code": "ML",
   "node_type": "country",

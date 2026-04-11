@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -29,7 +30,67 @@
       "flags": [
         "distribution_fallback_illegal"
       ],
-      "modifiers": []
+      "modifiers": [
+        "but"
+      ]
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Senegal",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Senegal",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Africa",
+          "url": "https://www.unodc.org/documents/data-and-analysis/Can_Afr_EN_09_11_07.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "West Africa",
+          "url": "https://books.google.com/books?id=6DMOAQAAMAAJ",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "The International Drugs Trade",
+          "url": "https://books.google.com/books?id=WHH1ON4EEXsC&pg=PA183",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Global Organized Crime: Trends and Developments",
+          "url": "https://books.google.com/books?id=yrSLBQAAQBAJ&pg=PA28",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "International Narcotics Control Strategy Report, 1995",
+          "url": "https://books.google.com/books?id=w0DlWjK3YCEC&pg=PA439",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "International Narcotics Control Strategy Report",
+          "url": "https://books.google.com/books?id=1ilJAQAAIAAJ&pg=PA525",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +196,9 @@
   },
   "hashes": {
     "code": "sen",
-    "content_hash": "9dfb03c93d45f4b31adac5837256b75ed197629b977ccc87c61d727bd4309446",
+    "content_hash": "89ab2d359723e8d6b015be70cebeb989f58d53ef75857abe6d59d035c21abda9",
     "notes_hash": "86b7838e6020c5e1d4bee7730aeaae099c46a8d4d27367977203f546ff2f25a3",
-    "model_hash": "a280262f24bab718c1d1204adbb52ce28d4084827550165b9ef2d23f553cdc17"
+    "model_hash": "5508cacd6e4b29b72c659842c97fc7b0fdb3e5c13cc3818c3c2f274ea5324ce3"
   },
   "geo_code": "SN",
   "node_type": "country",

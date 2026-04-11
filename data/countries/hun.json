@@ -5,21 +5,22 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "UNKNOWN",
-      "status": "LIMITED",
-      "enforcement": "MODERATE",
-      "scope": "MEDICAL_ONLY",
-      "override_reason": "rec_implies_med_floor"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
+      "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
+        "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -29,14 +30,75 @@
       "flags": [],
       "modifiers": []
     },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Hungary",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Hungary",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Late Holocene hemp (Cannabis sativa) retting in NE Hungary and the Holocene spread of hemp cultivation in eastern-central Europe",
+          "url": "https://doi.org/10.1007/s00334-025-01046-7",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Magyar Gyógyszerkönyv = Pharmacopoea Hungarica",
+          "url": "https://www.digitale-sammlungen.de/en/view/bsb11043300",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Magyar Gyógyszerkönyv, Második Kiadás = Pharmacopoea Hungarica, Editio Secunda",
+          "url": "https://gyogyszeresztortenet.hu/letolt/ph_hg_2.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Magyar Gyógyszerkönyv, Harmadik Kiadás = Pharmacopoea Hungarica, Editio Tertia",
+          "url": "https://gyogyszeresztortenet.hu/letolt/ph_hg_3.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Is Marijuana Legal in Hungary?",
+          "url": "https://leafwell.com/blog/is-marijuana-legal-in-hungary",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Legális az orvosi marihuána Magyarországon, csak nagyon nehéz hozzájutni",
+          "url": "https://444.hu/2019/10/15/legalis-az-orvosi-marihuana-magyarorszagon-csak-nagyon-nehez-hozzajutni",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: legal | source: Hungary / Magyarország | type: summary | priority: 1 | scope: use",
+        "rule: legal | source: Is Marijuana Legal in Hungary? | type: reference | priority: 2 | scope: general",
+        "rule: illegal | source: A person is either male or female, drugs and Pride are banned – Hungarian Parliament adopts 15th constitutional amendment | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
+    },
     "enforcement_flags": [],
     "applied_rules": [
       "legal",
-      "rec_implies_med_floor"
+      "illegal"
     ],
-    "notes_normalized": "Cannabis is legal in Hungary / Magyarország. Medical cannabis is limited. Distribution is restricted."
+    "notes_normalized": "Cannabis is illegal in Hungary / Magyarország. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is legal in Hungary / Magyarország. Medical cannabis is limited. Distribution is restricted.",
+  "notes_normalized": "Cannabis is illegal in Hungary / Magyarország. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Hungary}} There is no distinction in Hungarian law between illicit drugs according to dangers. [[Heroin]] use has the same legal consequences as cannabis use.<ref>{{citation |author = Minstrel |url = http://www.daath.hu/showText.php?id=62#chapter3 |title = Társaság a Szabadságjogokért: Drogjog 1999 Voted Vote D2ID : 62 |publisher = Daath.hu |access-date = 17 February 2011 |archive-date = 4 June 2019 |archive-url = https://web.archive.org/web/20190604073510/http://www.daath.hu/showText.php?id=62#chapter3 |url-status = live }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -107,26 +169,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "hrv",
-        "name": "Croatia / Hrvatska"
-      },
-      {
-        "code": "svn",
-        "name": "Slovenia / Slovenija"
-      },
-      {
-        "code": "cze",
-        "name": "Czechia / Česko"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "mne",
         "name": "Montenegro / Црна Гора"
       },
       {
         "code": "pol",
         "name": "Poland / Polska"
+      },
+      {
+        "code": "rou",
+        "name": "Romania / România"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "hrv",
+        "name": "Croatia / Hrvatska"
+      },
+      {
+        "code": "svn",
+        "name": "Slovenia / Slovenija"
       }
     ],
     "same_country_states": [],
@@ -134,9 +196,9 @@
   },
   "hashes": {
     "code": "hun",
-    "content_hash": "7228680b0a18ac0ad2e9299c107677febbf8554d1ccfeb9be8cb8129f94afe19",
-    "notes_hash": "ecb887de25ebe692a6d4970f5e1088e2a2f2bdd6fb7fef8f0d029a7a702fd49b",
-    "model_hash": "f08f4dc01ed48a056fd0d4263be0e24340e37c57f826570d653eda682e55e9a8"
+    "content_hash": "500c2fcdbc669a6e0fe38a4a3a3bff9617a94e450fc32245a5f8dd4544db5fd9",
+    "notes_hash": "0a9f1189750a9a025b3827837deff28ee16373d1143162593263a9894e996dcb",
+    "model_hash": "65ffa71f6cfe142543cba7870bbbc49ba8e842e3abcadfa968ebe24b4bae78b3"
   },
   "geo_code": "HU",
   "node_type": "country",

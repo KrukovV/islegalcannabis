@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -28,6 +29,29 @@
       "enforcement": "standard",
       "flags": [],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "low",
+      "sources": [
+        {
+          "title": "Vatican City / Vaticano",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: illegal | source: Vatican City / Vaticano | type: summary | priority: 1 | scope: possession",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -106,16 +130,16 @@
     ],
     "legal_similarity": [
       {
-        "code": "mco",
-        "name": "Monaco"
-      },
-      {
         "code": "bih",
         "name": "Bosnia and Herzegovina / Bosna i Hercegovina"
       },
       {
         "code": "lie",
         "name": "Liechtenstein"
+      },
+      {
+        "code": "mne",
+        "name": "Montenegro / Црна Гора"
       }
     ],
     "cluster_links": [
@@ -124,8 +148,8 @@
         "name": "Slovenia / Slovenija"
       },
       {
-        "code": "aut",
-        "name": "Austria / Österreich"
+        "code": "mco",
+        "name": "Monaco"
       }
     ],
     "same_country_states": [],
@@ -133,9 +157,9 @@
   },
   "hashes": {
     "code": "vat",
-    "content_hash": "ef1217f3434f03cf9ded0ac156d6d4e5252d25712e5c8eaf042d00cf51c889b1",
+    "content_hash": "74937599fbd0d3cb62d512955ec38fa40fb197c5f09249b3089bb737ed68a357",
     "notes_hash": "63bd1e0bad631635f192602ae4855cea9be93ec30a87da0560cd08d5f99f3cd7",
-    "model_hash": "ec9dedcf02bc430e4d7d083049aac61423c67546ae22034da9c6ce4aab2a7550"
+    "model_hash": "5f7dce418e14b89b9d6a2b4d6e95a39ac0f3b8368af3be06928c7c59bebfdedf"
   },
   "geo_code": "VA",
   "node_type": "country",

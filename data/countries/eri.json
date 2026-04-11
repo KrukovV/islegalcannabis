@@ -5,39 +5,99 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE"
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
-      "override_reason": null
+      "status": "LIMITED",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": "rec_implies_med_floor"
     },
     "distribution": {
-      "status": "illegal",
+      "status": "restricted",
       "scopes": {
-        "possession": null,
+        "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
+    },
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Eritrea",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Eritrea",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Drug Trafficking Patterns",
+          "url": "https://www.unodc.org/easternafrica/en/illicit-drugs/drug-trafficking-patterns.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Eritrea – Laws, Use, History, and More Info",
+          "url": "https://sensiseeds.com/en/blog/countries/cannabis-in-eritrea-laws-use-history/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Is Weed Legal in Eritrea? Cannabis Laws Explored",
+          "url": "https://merrittimes.com/weed-in-eritrea/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Legal status of cannabis in Eritrea - Cannaconnection.com",
+          "url": "https://www.cannaconnection.com/blog/14821-legal-status-eritrea",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "COUNTRY OF ORIGIN INFORMATION REPORT ERITREA",
+          "url": "https://www.refworld.org/pdfid/4860d1462.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Eritrea",
+          "url": "https://web.archive.org/web/20241213092536/https://sensiseeds.com/en/blog/countries/cannabis-in-eritrea-laws-use-history/",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: legal | source: Is Weed Legal in Eritrea? Cannabis Laws Explored | type: reference | priority: 2 | scope: general",
+        "rule: legal | source: Legal status of cannabis in Eritrea - Cannaconnection.com | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "legal",
+      "rec_implies_med_floor"
     ],
-    "notes_normalized": "Cannabis is illegal in Eritrea / إريتريا. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is legal in Eritrea / إريتريا. Medical cannabis is limited. Distribution is restricted."
   },
-  "notes_normalized": "Cannabis is illegal in Eritrea / إريتريا. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is legal in Eritrea / إريتريا. Medical cannabis is limited. Distribution is restricted.",
   "notes_raw": "{{main|Cannabis in Eritrea}}",
   "facts": {
     "possession_limit": null,
@@ -108,26 +168,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "yem",
-        "name": "Yemen / اليمن"
+        "code": "isr",
+        "name": "Israel / إسرائيل"
       },
+      {
+        "code": "are",
+        "name": "United Arab Emirates / الإمارات"
+      },
+      {
+        "code": "cyp",
+        "name": "Cyprus / Κύπρος"
+      }
+    ],
+    "cluster_links": [
       {
         "code": "som",
         "name": "Somalia / الصومال"
       },
       {
-        "code": "sau",
-        "name": "Saudi Arabia / السعودية"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "ssd",
         "name": "South Sudan"
-      },
-      {
-        "code": "ken",
-        "name": "Kenya"
       }
     ],
     "same_country_states": [],
@@ -135,9 +195,9 @@
   },
   "hashes": {
     "code": "eri",
-    "content_hash": "1ffcab6eabe3decc299c997a16ad77353864ec6c659bd54330ddf292c4208a66",
-    "notes_hash": "7fd080a4bbf90ea4583d07164570bfaba8d7de7c04d3e5878a13df27c2ce05dd",
-    "model_hash": "6c0294281dcc9d1dbabdcfed3334a9f39c4a87fc7e9ce591474b54341ea3d3f8"
+    "content_hash": "f38bdc0a3099af8a2a8b7f3225889f6cf29affaf050b69467381d849e47b06ef",
+    "notes_hash": "63b652ac52be2e577da43cd78badb47412d212e3128ef8aa9a260a88dc54d1aa",
+    "model_hash": "3ec22525796064c4bf5553b03f828ad7865d1bf9830b8ea8163263726bbbdabd"
   },
   "geo_code": "ER",
   "node_type": "country",

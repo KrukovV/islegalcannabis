@@ -17,27 +17,94 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "mixed",
       "scopes": {
         "possession": "restricted",
-        "sale": null,
+        "use": "restricted",
+        "sale": "regulated",
         "cultivation": null,
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
       "enforcement": "standard",
       "flags": [
-        "distribution_fallback_restricted"
+        "trafficking_illegal",
+        "sale_regulated",
+        "distribution_mixed_strong_penalty"
       ],
       "modifiers": []
     },
+    "signals": {
+      "status": "mixed",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in Brazil",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Brazil",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Brazil",
+          "url": "https://www.planalto.gov.br/ccivil_03/_Ato2004-2006/2006/Lei/L11343.htm",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Pan-African Issues in Drugs and Drug Control: An International Perspective",
+          "url": "https://books.google.com/books?id=PlsdCgAAQBAJ&pg=PA242",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Brazil Becomes the Largest Nation to Decriminalize Marijuana",
+          "url": "https://www.nytimes.com/2024/06/26/world/americas/brazil-marijuana-decriminalize-weed.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Brazil",
+          "url": "https://web.archive.org/web/20240626201524/https://www.nytimes.com/2024/06/26/world/americas/brazil-marijuana-decriminalize-weed.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Brazil",
+          "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-a-legal-roadmap-to-cannabis/brazil",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis: Evolution and Ethnobotany",
+          "url": "https://books.google.com/books?id=poenY6QMq8UC&pg=PA182",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: trafficking_illegal | source: Brazil / Brasil | type: summary | priority: 1 | scope: trafficking",
+        "rule: sale_regulated | source: Brazil approves sale of medical cannabis in pharmacies | type: reference | priority: 2 | scope: sale",
+        "rule: medical_legal | source: Brazil approves sale of medical cannabis in pharmacies | type: reference | priority: 2 | scope: sale",
+        "no traversal evidence"
+      ]
+    },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_restricted"
+      "trafficking_illegal",
+      "sale_regulated",
+      "medical_legal",
+      "distribution_mixed_strong_penalty"
     ],
-    "notes_normalized": "Cannabis is decriminalized in Brazil / Brasil. Medical cannabis is legal. Distribution is restricted."
+    "notes_normalized": "Cannabis is decriminalized in Brazil / Brasil. Medical cannabis is legal. Distribution is mixed."
   },
-  "notes_normalized": "Cannabis is decriminalized in Brazil / Brasil. Medical cannabis is legal. Distribution is restricted.",
+  "notes_normalized": "Cannabis is decriminalized in Brazil / Brasil. Medical cannabis is legal. Distribution is mixed.",
   "notes_raw": "{{main|Cannabis in Brazil}} Legislation passed in 2006 to require treatment and community service for possessing small amounts of drugs instead of jail time.<ref>{{cite news |last1=Smith |first1=Phillip |title=Brazilian President Signs New Drug Law – No Jail for Users |url=https://stopthedrugwar.org/chronicle/2006/aug/31/feature_brazilian_president_sign |access-date=3 August 2021 |work=stopthedrugwar.org |date=31 August 2006 |archive-date=3 August 2021 |archive-url=https://web.archive.org/web/20210803165114/https://stopthedrugwar.org/chronicle/2006/aug/31/feature_brazilian_president_sign |url-status=live }}</ref> Possession of large amounts, as well as sale, transportation, and cultivation, are considered drug trafficking.<ref>{{cite web |author1=Congresso Nacional |author-link1=Congress of Brazil |title=Lei nº 11.343 |url=http://www.planalto.gov.br/ccivil_03/_Ato2004-2006/2006/Lei/L11343.htm |website=www.planalto.gov.br |publisher=Presidência da República – Casa Civil |location=Brasília |language=pt-br |date=23 August 2006 |access-date=13 October 2009 |archive-date=25 November 2018 |archive-url=https://web.archive.org/web/20181125030720/http://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/lei/l11343.htm |url-status=live }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -135,9 +202,9 @@
   },
   "hashes": {
     "code": "bra",
-    "content_hash": "61c864d4f580fead7bcea1628d47b49be109712b08f870d521b6e297bddc124d",
-    "notes_hash": "1b94cba4d5d285c9cd245808f93fbab46d1cda7d237686315c41ed5f4d7b04a6",
-    "model_hash": "e5f65e6390c087789a3b6477e399ecd128484012a6ec25003049bb733dbfc30e"
+    "content_hash": "9300f17114864965ca3e81e5714a84e176cf260489667d0fbe829fcbb53eb48c",
+    "notes_hash": "f17e8afce2ff25dc3a820c02a4ba2994b439a947e101db9870afd06913356cf6",
+    "model_hash": "a04d58895038f7b57da11ea0724c0221d5463c243854810c1f0f768d87af13ae"
   },
   "geo_code": "BR",
   "node_type": "country",

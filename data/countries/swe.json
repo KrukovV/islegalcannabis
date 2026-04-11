@@ -11,35 +11,93 @@
     },
     "medical": {
       "raw_status": "LIMITED",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
+      "status": "LIMITED",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
       "override_reason": null
     },
     "distribution": {
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": "illegal",
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_import_override"
-      ],
+      "flags": [],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Sweden",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Sweden",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Läkemedelsbehandling av nervsmärta",
+          "url": "https://www.lakemedelsverket.se/malgrupp/Allmanhet/Sjukdom-och-behandling/Behandlingsrekommendationer---listan/Nervsmarta/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "080123: Ett övergrepp",
+          "url": "https://www.expressen.se/ledare/1.1015772/080123-ett-overgrepp",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "MS patient jailed for cannabis use",
+          "url": "https://www.thelocal.se/9775/20080125/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Sativex® approved in Sweden for the treatment of spasticity due to Multiple Sclerosis (MS)",
+          "url": "https://www.gwpharm.com/Sativex%20approved%20in%20Sweden%20for%20the%20treatment%20of%20spasticity%20due%20to%20Multiple%20Sclerosis%20MS.aspx",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "THÖRN v. Sweden",
+          "url": "https://hudoc.echr.coe.int/eng?i=001-202724",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Sweden",
+          "url": "https://web.archive.org/web/20161122221206/https://lakemedelsverket.se/malgrupp/Allmanhet/Sjukdom-och-behandling/Behandlingsrekommendationer---listan/Nervsmarta/",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: illegal | source: Sweden / Sverige | type: summary | priority: 1 | scope: general",
+        "rule: zero_tolerance | source: Sweden / Sverige | type: summary | priority: 1 | scope: general",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "zero_tolerance_import",
       "illegal",
-      "distribution_import_override"
+      "zero_tolerance"
     ],
-    "notes_normalized": "Cannabis is illegal in Sweden / Sverige. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is illegal in Sweden / Sverige. Medical cannabis is limited. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in Sweden / Sverige. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Sweden / Sverige. Medical cannabis is limited. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Sweden}} All cannabis-related activity illegal. The national police runs a \"disturb and annoy\" program aimed at users supported by the national \"zero tolerance\" policy.<ref>{{citation |url = http://www.unodc.org/pdf/research/Swedish_drug_control.pdf |title = Swedish drug control FINAL_14feb_merged |access-date = 17 February 2011 |archive-date = 17 May 2020 |archive-url = https://web.archive.org/web/20200517154255/http://www.unodc.org/pdf/research/Swedish_drug_control.pdf |url-status = live }}</ref><ref>{{citation |url = http://www.aklagare.se/upload/3/R%C3%A4ttsPMnarkotikafarlig.pdf |title = RättsPM 2009:1 |publisher = Åklagarmyndighetens Utvecklngscentrum |year = 2009 |language = sv |access-date = 6 September 2009 |archive-date = 10 January 2020 |archive-url = https://web.archive.org/web/20200110020418/https://www.aklagare.se/upload/3/R%C3%A4ttsPMnarkotikafarlig.pdf |url-status = dead }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -137,9 +195,9 @@
   },
   "hashes": {
     "code": "swe",
-    "content_hash": "616bab309c517c522b622d1b11904e728033ee2f7efb61c0876e4d8a3ddba817",
-    "notes_hash": "9b9be3211630f135939615763d580273d5e716e91d29900038a50cda7e56a4d2",
-    "model_hash": "6001edf3e3869e7456751c1cd262185101118531aed4fa769b0a8378700cff0e"
+    "content_hash": "885f02b78be1c7772b856485c2fd92dba30ed8d67250cb4465963123f10fe1f9",
+    "notes_hash": "c64bb7fd28a2e2866e6e1bf28e61b7a914472bcf40f1e846be82de8be85ada93",
+    "model_hash": "a9650445b96c7762850ad33baff821db3284f516706c905881139ddcff4209b3"
   },
   "geo_code": "SE",
   "node_type": "country",

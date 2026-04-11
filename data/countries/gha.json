@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,64 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Ghana",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ghana",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "The International Drugs Trade",
+          "url": "https://books.google.com/books?id=WHH1ON4EEXsC&pg=PA183",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis and Culture",
+          "url": "https://books.google.com/books?id=gCRNRGOhNA4C&pg=PA101",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Diaspora and drug trafficking in West Africa: A case study of Ghana",
+          "url": "https://doi.org/10.1093/afraf/adi015",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Ghana",
+          "url": "https://www.ghanaweb.com/GhanaHomePage/NewsArchive/Cannabis-is-legal-in-Ghana-but-Lawyer-419205",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Food Cults: How Fads, Dogma, and Doctrine Influence Diet",
+          "url": "https://books.google.com/books?id=UIZwDQAAQBAJ&pg=PA222",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis",
+          "url": "https://books.google.com/books?id=SVU8BQAAQBAJ&pg=PT99",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +194,9 @@
   },
   "hashes": {
     "code": "gha",
-    "content_hash": "172dd323f8e595e14bf29616062b1d5aa60e2ea60abf690c7b340411f5edd148",
+    "content_hash": "3f047eabcc65d67195f8e9604ed54df8f57c4c6e49515097475f53e71ddce261",
     "notes_hash": "0b7bd0510e7312f3379173e13f9d57fbebefc6a9b82e3a7305ce48e23e2372c8",
-    "model_hash": "1e09bfeb966f7e4b275304c9236a85338d471266ff4cee35458e7f92c9fa1241"
+    "model_hash": "d7ada1520e5d467d8aa9f3931cf6d59bd852b1189cb3ddd9d5ec5a1560cb6511"
   },
   "geo_code": "GH",
   "node_type": "country",

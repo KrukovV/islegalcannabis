@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,28 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "low",
+      "sources": [
+        {
+          "title": "Åland Islands / Åland",
+          "url": null,
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -128,9 +151,9 @@
   },
   "hashes": {
     "code": "ala",
-    "content_hash": "9996086c2de22c34b4ea79804e9823f670d3efb1de4abb741c41f79009b3770f",
+    "content_hash": "d89d688aecc4d2e74d0a89525fdd9b236277290b190ef59a331e927ca4fb3950",
     "notes_hash": "ce3f0432775bf23e4c65d6be21f49c9e38339d6f94b134fdd2b5c3121392b3ae",
-    "model_hash": "0822041b4301caf817ef276d0b16b1ce4442035db068cbd5afbd7cb55d7d13c4"
+    "model_hash": "9b22817b4a1747b3410e88a3a7f865200f31dfd47a19083d8032318d591e8519"
   },
   "geo_code": "AX",
   "node_type": "country",

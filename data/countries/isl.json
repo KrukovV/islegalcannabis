@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -27,14 +28,55 @@
       },
       "enforcement": "fine-based",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "but"
+      ]
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": true,
+        "fine": true,
+        "severity_score": 2
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Iceland",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Iceland",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Iceland",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Iceland / Ísland",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: illegal | source: Iceland / Ísland | type: summary | priority: 1 | scope: general",
+        "rule: penalty_arrest | source: Iceland / Ísland | type: summary | priority: 1 | scope: possession",
+        "rule: penalty_fine | source: Iceland / Ísland | type: summary | priority: 1 | scope: possession",
+        "rule: illegal | source: Iceland / Ísland | type: summary | priority: 1 | scope: possession",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [
       "fine_based"
     ],
     "applied_rules": [
-      "fine_based",
-      "illegal"
+      "illegal",
+      "penalty_arrest",
+      "penalty_fine"
     ],
     "notes_normalized": "Cannabis is illegal in Iceland / Ísland. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -109,26 +151,26 @@
     ],
     "legal_similarity": [
       {
+        "code": "gbr",
+        "name": "United Kingdom"
+      },
+      {
         "code": "ggy",
         "name": "Guernsey / Guernesey"
       },
       {
         "code": "jey",
         "name": "Jersey / Jèrri"
-      },
-      {
-        "code": "grl",
-        "name": "Greenland / Kalaallit Nunaat"
       }
     ],
     "cluster_links": [
       {
-        "code": "gbr",
-        "name": "United Kingdom"
-      },
-      {
         "code": "bel",
         "name": "Belgium / Belgien"
+      },
+      {
+        "code": "nld",
+        "name": "Netherlands / Nederland"
       }
     ],
     "same_country_states": [],
@@ -136,9 +178,9 @@
   },
   "hashes": {
     "code": "isl",
-    "content_hash": "3ec53d5bf1210e8d13f6198ab2f5b93ac425ad2ba848e9c2c9779077a05bdd4f",
+    "content_hash": "1a69924af21ac5f5d1663038bcf705827253f44fd0e5e3a9d8bb360420b7da10",
     "notes_hash": "306ee0b6c269294b41b2cedc1264c005d24137450b017fb958ed9575b945cb35",
-    "model_hash": "1599e203b7151856bacb719b059f7fe792f324dda8f5ad0e28a0bbca86f58de6"
+    "model_hash": "e5fca04c629149488a4d85e7f85bef2b3ce7a6f5312926859a252f0b607fc73e"
   },
   "geo_code": "IS",
   "node_type": "country",

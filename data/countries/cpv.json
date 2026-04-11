@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,40 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Cape Verde",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cape_Verde",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "International Narcotics Control Strategy Report: Volume I: Drug and Chemical Control",
+          "url": "https://books.google.com/books?id=0jnyNWFuhXYC&pg=PA187",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cape Verde / Cabo Verde",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +170,9 @@
   },
   "hashes": {
     "code": "cpv",
-    "content_hash": "7f4813da4a13299c279f55b0b13bed5261dca47b96b669ce2abb36c86982618e",
+    "content_hash": "d6e9f2ba88ea435a656c51d3180a8a649a62482b20b4b0bd843a0a5089ed64c4",
     "notes_hash": "1311c9600ef0d8123d9b1c083671f81703c096b860c1688f8b7a990c81146719",
-    "model_hash": "edab48230d51383878bf5fa0cc3f43d05e2faa7b4d3fb45e6c647a677291d050"
+    "model_hash": "28ca8366894e9506417dafd874e0db8190e4137a18aa543acb9ddb80d210d0de"
   },
   "geo_code": "CV",
   "node_type": "country",

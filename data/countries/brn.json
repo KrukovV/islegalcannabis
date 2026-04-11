@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,64 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Brunei",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Brunei",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Brunei",
+          "url": "https://www.agc.gov.bn/AGC%20Images/LOB/pdf/Cap27.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Brunei",
+          "url": "https://www.narcotics.gov.bn/Shared%20Documents/Acts/Misuse%20of%20Drugs%20Act%20CAP%2027.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Brunei's Preventive Drug Education Approach",
+          "url": "https://www.cnb.gov.sg/aseanpde/who-we-are/preventive-drug-education-approaches/brunei",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "ASEAN Drug Monitoring Report 2017",
+          "url": "https://aseannarco.oncb.go.th/ebook/B0073/index.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Synthetic Drugs in East and South-East Asia",
+          "url": "https://www.unodc.org/documents/southeastasiaandpacific/Publications/2019/2019_The_Challenge_of_Synthetic_Drugs_in_East_and_SEA.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Preventive Drug Education",
+          "url": "https://www.narcotics.gov.bn/SitePages/Preventive%20Drug%20Education.aspx",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -108,22 +167,22 @@
     ],
     "legal_similarity": [
       {
+        "code": "sgp",
+        "name": "Singapore / Singapura"
+      },
+      {
         "code": "khm",
         "name": "Cambodia / Kâmpŭchéa"
       },
       {
         "code": "vnm",
         "name": "Vietnam / Việt Nam"
-      },
-      {
-        "code": "lao",
-        "name": "Laos / ສປປລາວ"
       }
     ],
     "cluster_links": [
       {
-        "code": "sgp",
-        "name": "Singapore / Singapura"
+        "code": "lao",
+        "name": "Laos / ສປປລາວ"
       },
       {
         "code": "tls",
@@ -135,9 +194,9 @@
   },
   "hashes": {
     "code": "brn",
-    "content_hash": "5e0f40da69c3214af0f1a188549786795d97072ea11baeff409b2125c81cf134",
+    "content_hash": "33c40bd384d1f13648707a8dbe4905253cbbf609fcb7eba0f25bddd1ec588dce",
     "notes_hash": "a93de3988dbab757d9c3da7fa149797e4cc97d26786f81acfab3252d753fd1f8",
-    "model_hash": "99654791a877092faa41d7f83a0bf93c80c53f2f22f2fdf72b3e85ae6ae8906c"
+    "model_hash": "b69ac5ca507cf3dcb1e484162083a601bffa11e5bd8e5f7f9f0893d8c38f9bd5"
   },
   "geo_code": "BN",
   "node_type": "country",

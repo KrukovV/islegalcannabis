@@ -20,20 +20,68 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "enforcement": "fine-based",
+      "flags": [],
       "modifiers": []
     },
-    "enforcement_flags": [],
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": true,
+        "severity_score": 1
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Myanmar",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Myanmar",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Death Penalty Possible in Myanmar Cannabis Farm Case",
+          "url": "https://www.voanews.com/a/myanmar-canabis-farm-case/4926377.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis: Evolution and Ethnobotany",
+          "url": "https://books.google.com/books?id=bs4hEAAAQBAJ",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Revolutionizing the Potential of Hemp and Its Products in Changing the Global Economy",
+          "url": "https://books.google.com/books?id=OUp3EAAAQBAJ",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Myanmar / မြန်မာ",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: penalty_fine | source: Death Penalty Possible in Myanmar Cannabis Farm Case | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
+    },
+    "enforcement_flags": [
+      "fine_based"
+    ],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "penalty_fine"
     ],
     "notes_normalized": "Cannabis is illegal in Myanmar / မြန်မာ. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -135,9 +183,9 @@
   },
   "hashes": {
     "code": "mmr",
-    "content_hash": "da1bbe38bba1e0ae48fc997bb1a5f4a92a63f17d0303568f59b434e2e5dbcedf",
+    "content_hash": "75b43c9f12694c52751a197365aa83e845346898e446c6d338c0d5f275a2087d",
     "notes_hash": "058af50d86e86ab09aed1c9cfac7c5d649e4f9f4be8ed4dfef723cce2b6a7e3a",
-    "model_hash": "d7bd8923850bc40cf7fdddf932769cae3b2a26fa0545fdbfe6225e4fc19af3c0"
+    "model_hash": "8442ffcb4369ba81f34b0458e88b49e35873ecfd4f7cd42ea495b1755a6b3508"
   },
   "geo_code": "MM",
   "node_type": "country",

@@ -20,24 +20,86 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
+      "flags": [],
+      "modifiers": [
+        "up_to"
+      ]
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": true,
+        "prison_priority": 1,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 4
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in Slovakia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Slovakia",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "High contrast",
+          "url": "https://www.economist.com/europe/2010/08/26/high-contrast",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Slovakia's Incoming Leftist Premier Wants to Relax Tough Cannabis Laws",
+          "url": "https://blogs.wsj.com/emergingeurope/2012/04/03/slovakias-incoming-leftist-premier-wants-to-relax-tough-cannabis-laws/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Slovakia",
+          "url": "https://www.parlamentnelisty.sk/politika/357722/kolikova-chce-menit-trestne-sadzby-vratane-trestov-za-marihuanu/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Slovakia",
+          "url": "https://www.parlamentnelisty.sk/arena/271232/zitnanskej-navrh-zakona-o-drogach-spustil-lavinu-tvrda-reakcia-koalicnych-aj-opozicnych-poslancov-caka-nas-nova-vladna-kriza/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Prelomové rozhodnutie: Slovensko legalizuje CBD",
+          "url": "https://konopkar.sk/2019/08/21/prelomove-rozhodnutie-slovensko-legalizuje-cbd/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Nečakaný zvrat: CBD slovenským pacientom nepomôže. Poslanec Smeru dal pozmeňujúci návrh",
+          "url": "https://konopkar.sk/2019/10/10/necakany-zvrat-cbd-slovenskym-pacientom-nepomoze-poslanec-smeru-dal-pozmenujuci-navrh/",
+          "depth": 0,
+          "type": "summary"
+        }
       ],
-      "modifiers": []
+      "explain": [
+        "rule: penalty_prison | source: Slovakia / Slovensko | type: summary | priority: 1 | scope: possession",
+        "rule: penalty_years | source: Slovakia / Slovensko | type: summary | priority: 1 | scope: possession",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "penalty_prison",
+      "penalty_years"
     ],
-    "notes_normalized": "Cannabis is illegal in Slovakia / Slovensko. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is illegal in Slovakia / Slovensko. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Slovakia / Slovensko. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Slovakia / Slovensko. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Slovakia}} Possession of small amounts punishable by up to 8 years in prison.<ref>{{cite news |title = High contrast |url = https://www.economist.com/europe/2010/08/26/high-contrast |newspaper = [[The Economist]] |location = London |issn = 0013-0613 |oclc = 60625410 |date = 26 August 2010 |access-date = 25 June 2012 |archive-url = https://archive.today/20190110221328/https://www.economist.com/europe/2010/08/26/high-contrast |archive-date = 10 January 2019 |url-status = live}}</ref><ref name=\"WSJSlovakia\">{{cite news |title = Slovakia's Incoming Leftist Premier Wants to Relax Tough Cannabis Laws |first = Leos |last = Rousek |url = https://blogs.wsj.com/emergingeurope/2012/04/03/slovakias-incoming-leftist-premier-wants-to-relax-tough-cannabis-laws/ |work = [[The Wall Street Journal]] |date = 3 April 2012 |access-date = 25 June 2012 |archive-date = 21 July 2018 |archive-url = https://web.archive.org/web/20180721073421/https://blogs.wsj.com/emergingeurope/2012/04/03/slovakias-incoming-leftist-premier-wants-to-relax-tough-cannabis-laws/ |url-status = live }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -135,9 +197,9 @@
   },
   "hashes": {
     "code": "svk",
-    "content_hash": "7f8515290e4652ce23e881f8ff2b7984b2de610466a3f6b63c766af308cbbc86",
-    "notes_hash": "28c8b3aba1e90c0c295b806d265e1b519e429d6bea381f5a74cc3bc5705f9407",
-    "model_hash": "3a8508353363017a8ba7bc89d9e06a0763663fe81ee4cc6e8be630e14c0efb2c"
+    "content_hash": "2b3e118982aead9de5ee1e7f4fc8f02a35753378658e79a6142c873d13232386",
+    "notes_hash": "c764bf96840829d2a2ce389c860668d588c9b1802cd5446b541abddb76d88cd3",
+    "model_hash": "2510a42575caf40e6be4b4d76895c9ec821575e65a422bebe53999b9f902d1b6"
   },
   "geo_code": "SK",
   "node_type": "country",

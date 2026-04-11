@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,40 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Nauru",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Nauru",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Nauru",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Nauru",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -112,18 +147,18 @@
         "name": "Micronesia"
       },
       {
-        "code": "tuv",
-        "name": "Tuvalu"
-      },
-      {
         "code": "vut",
         "name": "Vanuatu"
+      },
+      {
+        "code": "fji",
+        "name": "Fiji / Viti"
       }
     ],
     "cluster_links": [
       {
-        "code": "fji",
-        "name": "Fiji / Viti"
+        "code": "tuv",
+        "name": "Tuvalu"
       },
       {
         "code": "ncl",
@@ -135,9 +170,9 @@
   },
   "hashes": {
     "code": "nru",
-    "content_hash": "d1b0470d7466f176059afe32032627a256a4bb42ddfafa24b82de9e3000d3457",
+    "content_hash": "135fd4e6823c793a6fbc5229edbcf90b165a0993194c9fb9800507465307e07b",
     "notes_hash": "a61aec8f66571228caf8cee5fded96884f83903e4e3e6c4d5fe75a732fa0b425",
-    "model_hash": "5ebaac737e8eff8d1b1dc078c13211893c3a2d8a664113527645e709d175e856"
+    "model_hash": "1c7152d67de43d0c3028730e0c754940563c39047d5001f421b3a9d5e0d362a5"
   },
   "geo_code": "NR",
   "node_type": "country",

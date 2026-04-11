@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,40 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Tonga",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Tonga",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Report of the International Narcotics Control Board 2006",
+          "url": "https://www.incb.org/incb/en/publications/annual-reports/annual-report-2006.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Tonga",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +170,9 @@
   },
   "hashes": {
     "code": "ton",
-    "content_hash": "65826eaf1b0faa840d9d8c75bdbfb0d2f6e671914a6f73ddc19e50d9a9764c20",
+    "content_hash": "64b5be9e0f32b47902342bc5b3e6125fa799c26c098a0ae3b095bb66a6a3dfc6",
     "notes_hash": "0fbf0bd57240cbf87ad042d92e54038fc350fe36e1ba12662a5147dd64ef8962",
-    "model_hash": "0516244ead264eb7ff6259225f3f023a022e358871f8ea09060547b070c98a59"
+    "model_hash": "4d58032deb91bf0f359b8573aef3b87a77ce392b40a62c8a3eb9679f4d654356"
   },
   "geo_code": "TO",
   "node_type": "country",

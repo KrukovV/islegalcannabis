@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,28 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "low",
+      "sources": [
+        {
+          "title": "Curaçao / Pais Kòrsou",
+          "url": null,
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -128,9 +151,9 @@
   },
   "hashes": {
     "code": "cuw",
-    "content_hash": "2e25bae62fba7daabd6c780bb018634bac1d8ab69966c096aa65f062dc337206",
+    "content_hash": "5bd6e2a0cbf6bfafeab4ef47be0b08cbfd48823cc9e179ad5e7f97e21dea3010",
     "notes_hash": "dfcaed8ab4f74fd67e5131121713baa00b71f2e3fa074ad2ca2f80ceb6e90ddd",
-    "model_hash": "47f7c72456a8125c46b93ca02c6c24302edd662e2582a1f1c01f2d405ff16371"
+    "model_hash": "5517db79394874163b15fdfb721b415f48d4add724734cd73009d8521662f66a"
   },
   "geo_code": "CW",
   "node_type": "country",

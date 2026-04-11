@@ -20,24 +20,116 @@
       "status": "mixed",
       "scopes": {
         "possession": "restricted",
+        "use": "restricted",
         "sale": "tolerated",
-        "cultivation": "tolerated",
+        "cultivation": null,
         "import": "illegal",
-        "trafficking": null
+        "trafficking": "illegal"
       },
       "enforcement": "standard",
       "flags": [
-        "licensed_coffeeshop_sale"
+        "sale_tolerated",
+        "trafficking_illegal",
+        "distribution_mixed_strong_penalty"
       ],
-      "modifiers": []
+      "modifiers": [
+        "only",
+        "but",
+        "may",
+        "up_to"
+      ]
+    },
+    "signals": {
+      "status": "mixed",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in the Netherlands",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Netherlands",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Am I committing a criminal offence if I possess, produce or deal in drugs? - Drugs - Government.nl",
+          "url": "https://www.government.nl/topics/drugs/am-i-committing-a-criminal-offence-if-i-possess-produce-or-deal-in-drugs",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in the Netherlands",
+          "url": "https://eldd.emcdda.europa.eu/html.cfm/index5174EN.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Dutch Treat: Formal Control and Illicit Drug Use in the Netherlands",
+          "url": "https://books.google.com/books?id=m8fxAAAAMAAJ",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "In Place of Slavery: A Social History of British Indian and Javanese Laborers in Suriname",
+          "url": "https://books.google.com/books?id=EPzT5AYLvL0C&pg=PA160",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Prokem",
+          "url": "https://books.google.com/books?id=phbLKWrK-9MC&pg=PA26",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis: A History",
+          "url": "https://books.google.com/books?id=O7AoY6ljSygC&pg=PA338",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: sale_tolerated | source: Netherlands / Nederland | type: summary | priority: 1 | scope: sale",
+        "rule: rec_tolerated | source: Netherlands / Nederland | type: summary | priority: 1 | scope: sale",
+        "rule: possession_decriminalized | source: Netherlands / Nederland | type: summary | priority: 1 | scope: sale",
+        "rule: legal | source: Netherlands / Nederland | type: summary | priority: 1 | scope: sale",
+        "rule: rec_tolerated | source: Netherlands / Nederland | type: summary | priority: 1 | scope: cultivation",
+        "rule: zero_tolerance | source: Netherlands / Nederland | type: summary | priority: 1 | scope: general",
+        "rule: sale_regulated | source: Netherlands / Nederland | type: summary | priority: 1 | scope: sale",
+        "rule: possession_decriminalized | source: Cannabis in the Netherlands | type: traversal | priority: 3 | scope: use",
+        "rule: illegal | source: Cannabis in the Netherlands | type: traversal | priority: 3 | scope: use",
+        "rule: sale_tolerated | source: Cannabis in the Netherlands | type: traversal | priority: 3 | scope: sale",
+        "rule: rec_tolerated | source: Cannabis in the Netherlands | type: traversal | priority: 3 | scope: sale",
+        "rule: possession_decriminalized | source: Cannabis in the Netherlands | type: traversal | priority: 3 | scope: sale",
+        "rule: legal | source: Cannabis in the Netherlands | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in the Netherlands | type: traversal | priority: 3 | scope: trafficking",
+        "rule: rec_tolerated | source: Cannabis in the Netherlands | type: traversal | priority: 3 | scope: trafficking",
+        "rule: illegal | source: Cannabis in the Netherlands | type: traversal | priority: 3 | scope: trafficking",
+        "rule: medical_legal | source: Cannabis in the Netherlands | type: traversal | priority: 3 | scope: general",
+        "rule: sale_tolerated | source: Am I committing a criminal offence if I possess, produce or deal in drugs? - Drugs - Government.nl | type: reference | priority: 2 | scope: sale",
+        "rule: rec_tolerated | source: Am I committing a criminal offence if I possess, produce or deal in drugs? - Drugs - Government.nl | type: reference | priority: 2 | scope: sale",
+        "rule: sale_tolerated | source: Cannabis in the Netherlands | type: reference | priority: 2 | scope: sale",
+        "rule: rec_tolerated | source: Cannabis in the Netherlands | type: reference | priority: 2 | scope: sale",
+        "rule: sale_tolerated | source: Crime and Justice, Volume 44: A Review of Research | type: reference | priority: 2 | scope: sale",
+        "rule: rec_tolerated | source: Crime and Justice, Volume 44: A Review of Research | type: reference | priority: 2 | scope: sale",
+        "rule: sale_tolerated | source: Amsterdam Will Ban Tourists from Pot Coffee Shops | type: reference | priority: 2 | scope: sale",
+        "rule: rec_tolerated | source: Amsterdam Will Ban Tourists from Pot Coffee Shops | type: reference | priority: 2 | scope: sale"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "zero_tolerance_import",
-      "licensed_coffeeshop_sale",
+      "sale_tolerated",
       "rec_tolerated",
-      "decriminalized",
-      "private_cultivation_tolerated"
+      "possession_decriminalized",
+      "zero_tolerance",
+      "trafficking_illegal",
+      "medical_legal",
+      "distribution_mixed_strong_penalty"
     ],
     "notes_normalized": "Cannabis is tolerated in Netherlands / Nederland. Medical cannabis is legal. Distribution is mixed."
   },
@@ -139,9 +231,9 @@
   },
   "hashes": {
     "code": "nld",
-    "content_hash": "581a61f86b665e1b1759c1d74483b0d4382736cbd1da87a0078b3c9da253bc3e",
+    "content_hash": "cb7f073434960e50abab6b5016dfb017f8d38caf13db42e2c11869b0b1bf0f57",
     "notes_hash": "047e0c2c9bce78732303ef221b6ed2086c7f5b2fe8e0916a4266d4a2590dca49",
-    "model_hash": "ac347de0fdaff5112e76917f184685b143e7780ac7bc0cedd380de88c928c4fb"
+    "model_hash": "cbe2c553fecfc9f1e1f9631c8afa29baa1fb3192f17cda2000ae5bcf871fe452"
   },
   "geo_code": "NL",
   "node_type": "country",

@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,40 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Guinea",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Guinea",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Guinea",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Guinea / Guinée",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +170,9 @@
   },
   "hashes": {
     "code": "gin",
-    "content_hash": "7f8f76411cfb8b33d779f6b6bb9c1e0a6ae5a3195663af7823a0c741ec8eb2ea",
+    "content_hash": "365ac17cc5c4261ea9e0c5f6261a5ac097557b200c55f7e9e83f3c4a2d638816",
     "notes_hash": "edf905aad043bfb3bb6d2bb72d9bfc5be9afb381797cc7af901fb9d444d9899c",
-    "model_hash": "e3bc973d8f2cf0c93fbf55d3c936588bf295c94721e2841b9169c3e19eeae613"
+    "model_hash": "720c6b614ccc8ba2c271dc465cbacd1201763e73e6b0b4494f7c879b4f8610c0"
   },
   "geo_code": "GN",
   "node_type": "country",

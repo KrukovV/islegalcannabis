@@ -20,6 +20,7 @@
       "status": "restricted",
       "scopes": {
         "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -28,6 +29,40 @@
       "enforcement": "standard",
       "flags": [],
       "modifiers": []
+    },
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Saint Lucia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Saint_Lucia",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "International Narcotics Control Strategy Report: Volume I: Drug and Chemical Control",
+          "url": "https://books.google.com/books?id=0jnyNWFuhXYC&pg=PA248",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Saint Lucia",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -133,9 +168,9 @@
   },
   "hashes": {
     "code": "lca",
-    "content_hash": "00417b075cb60ba53161427613fce3132c4c6c2f2e4ea2b3eca8bafe79451608",
+    "content_hash": "92213254dc5fa03a6f9a5177ec2b02da193666ded75d271afc2ead0be67a8a11",
     "notes_hash": "83068061f3b552cf968312e6bfdd4a2e41e81d85a8d79c0c83b0f941559889cb",
-    "model_hash": "a8bcdf1c4dbd47f28ec9578536f28ed7aa554693ef1c8f4e0248f98314dcdf72"
+    "model_hash": "d97d54dfdd1a132347f0c24e081f1d790b3ad11a15d28768ea318061d3a0876a"
   },
   "geo_code": "LC",
   "node_type": "country",

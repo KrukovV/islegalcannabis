@@ -5,39 +5,98 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE"
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
-      "override_reason": null
+      "status": "LIMITED",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": "rec_implies_med_floor"
     },
     "distribution": {
-      "status": "illegal",
+      "status": "restricted",
       "scopes": {
-        "possession": null,
+        "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
+    },
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Kiribati",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kiribati",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Legal status of cannabis in Kiribati - Cannaconnection.com",
+          "url": "https://www.cannaconnection.com/blog/14799-legal-status-kiribati",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Dangerous Drugs Ordinance",
+          "url": "https://www.paclii.org/ki/legis/consol_act/ddo233/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Tourism Flaws Jewels of the Pacific",
+          "url": "https://www.austlii.edu.au/au/journals/AUFPPlatypus/1990/3.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Drug trafficking at sea is devastating island states, ministers say",
+          "url": "https://www.theguardian.com/environment/2018/oct/16/drug-trafficking-at-sea-is-devastating-island-states-ministers-say",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Kiribati police find cocaine and marijuana packages",
+          "url": "https://www.looppng.com/node/89010",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Kiribati",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: legal | source: Legal status of cannabis in Kiribati - Cannaconnection.com | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "legal",
+      "rec_implies_med_floor"
     ],
-    "notes_normalized": "Cannabis is illegal in Kiribati. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is legal in Kiribati. Medical cannabis is limited. Distribution is restricted."
   },
-  "notes_normalized": "Cannabis is illegal in Kiribati. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is legal in Kiribati. Medical cannabis is limited. Distribution is restricted.",
   "notes_raw": "{{main|Cannabis in Kiribati}}",
   "facts": {
     "possession_limit": null,
@@ -108,26 +167,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "fsm",
-        "name": "Micronesia"
-      },
-      {
         "code": "slb",
         "name": "Solomon Islands"
       },
       {
-        "code": "vut",
-        "name": "Vanuatu"
+        "code": "plw",
+        "name": "Palau / Belau"
+      },
+      {
+        "code": "tls",
+        "name": "Timor-Leste / Timór-Leste"
       }
     ],
     "cluster_links": [
       {
-        "code": "fji",
-        "name": "Fiji / Viti"
+        "code": "fsm",
+        "name": "Micronesia"
       },
       {
-        "code": "ncl",
-        "name": "New Caledonia / Nouvelle-Calédonie"
+        "code": "vut",
+        "name": "Vanuatu"
       }
     ],
     "same_country_states": [],
@@ -135,9 +194,9 @@
   },
   "hashes": {
     "code": "kir",
-    "content_hash": "cfa2991a8bbed17e01971c9b83cbf1261b5ff2c756f29307d46ccc60a2d69c40",
-    "notes_hash": "5d35511816a2641efbb5e04ecff7fa54ae2b4e62426265c13acb5feba2561a05",
-    "model_hash": "d1a5f31838424ad7cda9304cbe2376fa96164d48b155d736ae2b6d479e5aabe5"
+    "content_hash": "eaf4e584683b4d2bd812b33e7230c53513bbf21b1c57e0441c1e8f6821cbfaf1",
+    "notes_hash": "de06a274f3ae3443bbf3fe8bb21b51bc42970f2a03d64db27b2e744c7c04e668",
+    "model_hash": "826b599898d5a30721aa94f8d1bc7925717e4d3e74e37759be6a91fb696264c4"
   },
   "geo_code": "KI",
   "node_type": "country",

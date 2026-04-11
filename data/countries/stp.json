@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,40 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in São Tomé and Principe",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_S%C3%A3o_Tom%C3%A9_and_Principe",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_S%C3%A3o_Tom%C3%A9_and_Principe",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "São Tomé and Príncipe / São Tomé e Príncipe",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +170,9 @@
   },
   "hashes": {
     "code": "stp",
-    "content_hash": "6286357a0baf06055abb349067cc5270a1db1e4910bf0230e1887ea77b7319b9",
+    "content_hash": "66f3b30458f5f8ddbfd86454aaffc2f7b9673f3cc0ccd2a66704eff8f837550a",
     "notes_hash": "542cec5ccb9e02af28c6647ab82b49170839e1011d8edbf51a5e60de5e9e9637",
-    "model_hash": "a2dc712b3196c2d4737a7100d749276a57793d60d5fac338c4c4f8834a4dcef6"
+    "model_hash": "6422281f9fc12b7b733bb0833bc2d78557a63f2bda192499039661a171364e0b"
   },
   "geo_code": "ST",
   "node_type": "country",

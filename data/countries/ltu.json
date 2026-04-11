@@ -5,21 +5,22 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE"
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
-      "override_reason": null
+      "status": "LIMITED",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": "rec_implies_med_floor"
     },
     "distribution": {
-      "status": "illegal",
+      "status": "restricted",
       "scopes": {
-        "possession": null,
+        "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -27,15 +28,77 @@
       },
       "enforcement": "standard",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "but"
+      ]
+    },
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Lithuania",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Lithuania",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Timeline of Cannabis Law",
+          "url": "https://en.wikipedia.org/wiki/Timeline_of_cannabis_law",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "More hemp produce to become legal in Lithuania",
+          "url": "https://www.lrt.lt/en/news-in-english/19/1429345/more-hemp-produce-to-become-legal-in-lithuania",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Seimas leido auginti daugiau pluoštinių kanapių",
+          "url": "https://www.15min.lt/verslas/naujiena/finansai/seimas-leido-auginti-daugiau-pluostiniu-kanapiu-662-1984512",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Kas yra medicininės kanapės ir kodėl Lietuvoje jos nėra įteisintos",
+          "url": "https://kanapiukultura.org/kas-yra-medicinines-kanapes-ir-kodel-lietuvoje-jos-nera-iteisintos/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Vaistų iš kanapių kol kas nebus: ministerija kaltinama abejingumu",
+          "url": "https://www.lrt.lt/naujienos/lietuvoje/2/1051215/vaistu-is-kanapiu-kol-kas-nebus-ministerija-kaltinama-abejingumu",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Lithuania",
+          "url": "https://web.archive.org/web/20230103052755/https://kanapiukultura.org/kas-yra-medicinines-kanapes-ir-kodel-lietuvoje-jos-nera-iteisintos/",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: legal | source: More hemp produce to become legal in Lithuania | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "illegal"
+      "legal",
+      "rec_implies_med_floor"
     ],
-    "notes_normalized": "Cannabis is illegal in Lithuania / Lietuva. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is legal in Lithuania / Lietuva. Medical cannabis is limited. Distribution is restricted."
   },
-  "notes_normalized": "Cannabis is illegal in Lithuania / Lietuva. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is legal in Lithuania / Lietuva. Medical cannabis is limited. Distribution is restricted.",
   "notes_raw": "{{main|Cannabis in Lithuania}} Medical cannabis is illegal in Lithuania, but a law allowing seriously ill patients to use drugs made from synthetic cannabinoids was passed by the [[Seimas]] on 11 October 2018.",
   "facts": {
     "possession_limit": null,
@@ -106,26 +169,26 @@
     ],
     "legal_similarity": [
       {
+        "code": "rou",
+        "name": "Romania / România"
+      },
+      {
+        "code": "mda",
+        "name": "Moldova"
+      },
+      {
+        "code": "cze",
+        "name": "Czechia / Česko"
+      }
+    ],
+    "cluster_links": [
+      {
         "code": "pol",
         "name": "Poland / Polska"
       },
       {
         "code": "ala",
         "name": "Åland Islands / Åland"
-      },
-      {
-        "code": "fin",
-        "name": "Finland / Suomi"
-      }
-    ],
-    "cluster_links": [
-      {
-        "code": "svk",
-        "name": "Slovakia / Slovensko"
-      },
-      {
-        "code": "hun",
-        "name": "Hungary / Magyarország"
       }
     ],
     "same_country_states": [],
@@ -133,9 +196,9 @@
   },
   "hashes": {
     "code": "ltu",
-    "content_hash": "fd6a5653eb64c09387fe3a8bc793261cd8ba5c125c9a620b9e9e062febd93458",
-    "notes_hash": "7053b128ad50a168d33a8689be99e05331e3bd2fe1930ebe9ac4c363b5e160da",
-    "model_hash": "d807d116a8f3e6d92241002f53f7464df79dc72c7994eeb287c9877fb5c6cdab"
+    "content_hash": "609e8f9c95f5cabe7276ea45cc2296251b01f60f7dae3df0d4bbbb071ad12679",
+    "notes_hash": "825ebaa06c8b7d545d475faa19a1732e5fd940c41a9f91749136ebb510a207d8",
+    "model_hash": "15190891916123a8d53ae84286612231e51f0978deb24c1cc6244a570af7da58"
   },
   "geo_code": "LT",
   "node_type": "country",

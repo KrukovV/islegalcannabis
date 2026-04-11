@@ -20,24 +20,68 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
+      "flags": [],
+      "modifiers": [
+        "up_to"
+      ]
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": true,
+        "prison_priority": 1,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 4
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in Venezuela",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Venezuela",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Venezuela",
+          "url": "https://www.eee.com.ve/upload/LeyOrganicadeDrogas.sept10.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Venezuela",
+          "url": "https://web.archive.org/web/20120319163247/http://www.eee.com.ve/upload/LeyOrganicadeDrogas.sept10.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Venezuela",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
       ],
-      "modifiers": []
+      "explain": [
+        "rule: penalty_prison | source: Venezuela | type: summary | priority: 1 | scope: possession",
+        "rule: penalty_years | source: Venezuela | type: summary | priority: 1 | scope: possession",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "penalty_prison",
+      "penalty_years"
     ],
-    "notes_normalized": "Cannabis is illegal in Venezuela. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is illegal in Venezuela. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Venezuela. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Venezuela. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Venezuela}} Possession of up to {{cvt|20|g|frac=4}} of marijuana or {{cvt|5|g|frac=16}} of genetically modified marijuana for commercial purposes is punishable by 1–2 years in prison at judge's discretion. If deemed to be for personal consumption, the user is subject to security measures involving rehabilitation and detoxification procedures.<ref>{{citation |url = http://www.eee.com.ve/upload/LeyOrganicadeDrogas.sept10.pdf |title = Ley Orgánica de Drogas – Sept.10 |access-date = 17 February 2011 |archive-url = https://web.archive.org/web/20120319163247/http://www.eee.com.ve/upload/LeyOrganicadeDrogas.sept10.pdf |archive-date = 19 March 2012 |url-status = dead}}</ref>",
   "facts": {
     "possession_limit": "up to 20 g",
@@ -135,9 +179,9 @@
   },
   "hashes": {
     "code": "ven",
-    "content_hash": "2cfcf58f5ce6103fdfc5032ed4e4382a6004cdea50b72f1a2c276f9d8046943b",
-    "notes_hash": "d16bc089cdd5d36e827a74ac0c069ff5fdaa9675d25020b0cda01f56719e16fb",
-    "model_hash": "d78daa31ad904139e62d9b2ad91650c6d5cf6cc8a4278b0dcc3c981abdf44a60"
+    "content_hash": "2055da1f434f723735d992686420d9990b8a32bfe16f443cad1fade256140a1c",
+    "notes_hash": "621d0f30994afa165750655a71a41c87c6c10d31b65f78b307f654dfc30382c3",
+    "model_hash": "2cc05d1319eaba919ef2d7be3d6a7619a7bf273ebcb3a744d2113fad9d7d7a64"
   },
   "geo_code": "VE",
   "node_type": "country",

@@ -11,34 +11,95 @@
     },
     "medical": {
       "raw_status": "LEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
       "override_reason": null
     },
     "distribution": {
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
-        "trafficking": "illegal"
+        "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "trafficking_illegal"
+      "flags": [],
+      "modifiers": [
+        "but"
+      ]
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Albania",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Albania",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Organised Crime in Europe: Concepts, Patterns and Control Policies in the European Union and Beyond",
+          "url": "https://books.google.com/books?id=-XtKAAAAQBAJ&pg=PA553",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "2006 World Drug Report: Analysis",
+          "url": "https://books.google.com/books?id=Lk8wDdoxTZsC&pg=PA2095",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "World Drug Report 2009",
+          "url": "https://archive.org/details/worlddrugreport20000unse",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Albania",
+          "url": "https://sensiseeds.com/en/blog/cannabis-in-albania/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Albania",
+          "url": "https://archive.org/details/worlddrugreport20000unse/page/96",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Report Says Albania Cannabis Growth Mounting",
+          "url": "https://www.balkaninsight.com/en/article/report-cannabis-growth-mounts-in-albania",
+          "depth": 0,
+          "type": "summary"
+        }
       ],
-      "modifiers": []
+      "explain": [
+        "rule: illegal | source: Albania / Shqipëria | type: summary | priority: 1 | scope: cultivation",
+        "rule: medical_legal | source: Albania / Shqipëria | type: summary | priority: 1 | scope: cultivation",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "trafficking_illegal",
-      "illegal"
+      "illegal",
+      "medical_legal"
     ],
-    "notes_normalized": "Cannabis is illegal in Albania / Shqipëria. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is illegal in Albania / Shqipëria. Medical cannabis is legal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in Albania / Shqipëria. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Albania / Shqipëria. Medical cannabis is legal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Albania}} Prohibited but plants highly available throughout the country and law often unenforced.<ref name=\"setimes-albania\">{{citation |url = http://www.setimes.com/cocoon/setimes/xhtml/en_GB/features/setimes/features/2012/08/07/feature-03 |title = Growing marijuana is an increasing regional problem |publisher = SETimes.com |date = 7 August 2012 |access-date = 18 April 2013 |archive-date = 4 March 2016 |archive-url = https://web.archive.org/web/20160304045944/http://www.setimes.com/cocoon/setimes/xhtml/en_GB/features/setimes/features/2012/08/07/feature-03 |url-status = live }}</ref><ref name=\"balkaninsight-albania-1\">{{citation |url = http://www.balkaninsight.com/en/article/report-cannabis-growth-mounts-in-albania |title = Report Says Albania Cannabis Growth Mounting |date = 7 March 2013 |access-date = 18 April 2013 |publisher = balkaninsight.com |archive-date = 30 September 2018 |archive-url = https://web.archive.org/web/20180930100941/http://www.balkaninsight.com/en/article/report-cannabis-growth-mounts-in-albania |url-status = live }}</ref><ref name=\"balkaninsight-albania-2\">{{citation |url = http://www.balkaninsight.com/en/article/albania-police-bust-major-cannabis-shipments |title = Albanian Police Seize Cannabis Shipment |publisher = balkaninsight.com |date = 28 December 2011 |access-date = 5 June 2018 |archive-date = 5 September 2017 |archive-url = https://web.archive.org/web/20170905095749/http://www.balkaninsight.com/en/article/albania-police-bust-major-cannabis-shipments |url-status = live }}</ref>\nOn 21 July 2023 the [[Albanian Parliament]] voted 69–23 to legalize medical cannabis.<ref>{{cite news |title=Albanian Parliament legalizes medical cannabis despite harsh opposition |url=https://apnews.com/article/albania-legalize-medical-cannabis-trafficking-drugs-81c423f05a08537f606fb4dc535f8bfa |access-date=24 July 2023 |publisher=[[Associated Press]] |date=21 July 2023 |archive-url=https://web.archive.org/web/20230813230102/https://apnews.com/article/albania-legalize-medical-cannabis-trafficking-drugs-81c423f05a08537f606fb4dc535f8bfa |archive-date=13 August 2023 |url-status=live}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -136,9 +197,9 @@
   },
   "hashes": {
     "code": "alb",
-    "content_hash": "dead0afdc902d2ba8da37a015e8d99a017ac1f421be17bc9c1fd923b14221efa",
-    "notes_hash": "a9cf348b17e4e51738067ab789ecadf53715809c3853092746793b3efdfeabe4",
-    "model_hash": "4cc8364d9d6689112047693bad91ad3ec24467333aec3c93af92c1aea60dd7a0"
+    "content_hash": "f1a32f1ab9c06ec3f812ee378abeedc9ffa046d216c4e742765ef4e5f0b7c763",
+    "notes_hash": "99cf44570d67df6a563a57cf6f0c7095c566cca5904848c96d789753dd3a368e",
+    "model_hash": "672e1b3d139a754be04e4904a875ab7f9d8ab57dae0ecf10677950f8fe830856"
   },
   "geo_code": "AL",
   "node_type": "country",

@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,28 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "low",
+      "sources": [
+        {
+          "title": "Aruba",
+          "url": null,
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -128,9 +151,9 @@
   },
   "hashes": {
     "code": "abw",
-    "content_hash": "a58147887ec296c0f6cf459bc69c0bd2c33fe19927ca0ed6f061f50090388767",
+    "content_hash": "d8c310cb3fc8d17ec4ccba1be58152995068879073c6efc551a37bc49b670252",
     "notes_hash": "4816523bd30d7fd2f2c57436f3125e6e15aded1b3bda6d4ffc8bacd1ab98106a",
-    "model_hash": "4db1b756de5d78dc5ecfa3cdb14dc3cef6fa755546cb67016c037a926cf520e1"
+    "model_hash": "cc794b86af7cb1b048e9035db518d57674e89385fe57a7bf075ccbf9a368e379"
   },
   "geo_code": "AW",
   "node_type": "country",

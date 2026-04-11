@@ -11,15 +11,16 @@
     },
     "medical": {
       "raw_status": "LEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
       "override_reason": null
     },
     "distribution": {
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -27,15 +28,76 @@
       },
       "enforcement": "standard",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "but"
+      ]
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Malawi",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Malawi",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Malawi ready to produce cannabis for industrial and medicinal use",
+          "url": "https://www.reuters.com/article/malawi-cannabis-idUSL8N2IA4VV",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Marijuana Wikipedia : Malawi Gold",
+          "url": "https://www.marijuanatipster.com/tiki-index.php?page=Malawi%20Gold",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "BNL Times - Malawi's Premier News",
+          "url": "https://www.bnltimes.com/index.php?option=com_content&view=article&id=2877:malawis-chamba-valued-at-k1-4-billion&catid=42:national&Itemid=401",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "What Will the Cannabis Economy Mean for Africa? Small farmers are fighting for their fair share",
+          "url": "https://www.projectcbd.org/cannabis-in-africa",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Malawi legalises cannabis amid hopes of fresh economic growth - Law change hailed by supporters as chance for country to benefit from rising global demand for medicinal cannabis products",
+          "url": "https://www.theguardian.com/global-development/2020/feb/28/malawi-legalises-cannabis-amid-hopes-of-fresh-economic-growth",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Malawi",
+          "url": "https://web.archive.org/web/20110714034016/http://www.marijuanatipster.com/tiki-index.php?page=Malawi%20Gold",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: illegal | source: Malawi / Malaŵi | type: summary | priority: 1 | scope: general",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
       "illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Malawi / Malaŵi. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is illegal in Malawi / Malaŵi. Medical cannabis is legal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in Malawi / Malaŵi. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Malawi / Malaŵi. Medical cannabis is legal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Malawi}} Illegal but widely used and cultivated; Malawian cannabis is famed internationally for its quality.<ref>{{cite news|url=https://news.bbc.co.uk/2/hi/africa/920052.stm |title=Malawi Rastas' marijuana struggle |publisher=[[BBC News]] |date=11 September 2000 |access-date=20 April 2011 |archive-url=https://web.archive.org/web/20180227110028/http://news.bbc.co.uk/2/hi/africa/920052.stm |archive-date=27 February 2018 |url-status=live}}</ref> Chamba is grown mainly in central and northern regions like [[Mzuzu]].<ref>{{cite news|url=https://www.nytimes.com/1998/12/17/world/marijuana-cultivation-increases-in-malawi.html |title=Marijuana Cultivation Increases in Malawi |work=[[The New York Times]] |agency=[[Agence France-Presse]] |date=17 December 1998 |access-date=20 April 2011 |archive-url=https://web.archive.org/web/20180615010423/https://www.nytimes.com/1998/12/17/world/marijuana-cultivation-increases-in-malawi.html |archive-date=15 June 2018 |url-status=live |url-access=limited}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -133,9 +195,9 @@
   },
   "hashes": {
     "code": "mwi",
-    "content_hash": "841c9c2fd17ea5b5c25ac0736e8ae71fd47f0170459643570d5d4d77b035fe50",
-    "notes_hash": "6435e5d2043d68bf10c1618cd3c23de0f177974c1ddd5e592580b05a75dfa2ec",
-    "model_hash": "9ee9b0c8af5886c4eb7eb8dc1514d9be2c9f22bde1a994f8014ed6b87b1e2c03"
+    "content_hash": "06c25f51bee217ee2c398f8c96b01b8340e911af37f285ebb5bc14eaf008eacc",
+    "notes_hash": "a85579dd15710ecf9d1ad3f5ad832bafa952579db6764430a1244fb09aeda84a",
+    "model_hash": "77b99764c19935527df4e11ec1ceb18955ecb7b602e266b3dafff7c7e24be698"
   },
   "geo_code": "MW",
   "node_type": "country",

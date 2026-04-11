@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,28 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "low",
+      "sources": [
+        {
+          "title": "New Caledonia / Nouvelle-Calédonie",
+          "url": null,
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -101,19 +124,9 @@
     ],
     "legal_similarity": [
       {
-        "code": "slb",
-        "name": "Solomon Islands"
-      },
-      {
-        "code": "tuv",
-        "name": "Tuvalu"
-      },
-      {
         "code": "nru",
         "name": "Nauru"
-      }
-    ],
-    "cluster_links": [
+      },
       {
         "code": "nzl",
         "name": "New Zealand / Aotearoa"
@@ -123,14 +136,24 @@
         "name": "Papua New Guinea / Papua Niu Gini"
       }
     ],
+    "cluster_links": [
+      {
+        "code": "slb",
+        "name": "Solomon Islands"
+      },
+      {
+        "code": "tuv",
+        "name": "Tuvalu"
+      }
+    ],
     "same_country_states": [],
     "federal_parent": null
   },
   "hashes": {
     "code": "ncl",
-    "content_hash": "a5cdfc207963faf0d964e90a7874aed192cccefc32fbf58d013822a1cfd955b3",
+    "content_hash": "f16d93e6c4d429af841ed8c8b9452f5a4328c26d2bb8aa8cf8872e2d2fd954d2",
     "notes_hash": "2e7125426540090c29c501ceaf9e332340bb1820a5dab159179f46a9b5a98d0f",
-    "model_hash": "ec39e8f86a041d189b924e55aa759d0ac70dbfb40c18984c4a099057d461f35c"
+    "model_hash": "3cb9f8a1d3921c69cd67981270eb815da8b21b98276eace9ce65343cd44d54aa"
   },
   "geo_code": "NC",
   "node_type": "country",

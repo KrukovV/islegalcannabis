@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,64 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Guatemala",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Guatemala",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Memoria de los trabajos realizados por la Dirección General de la Policía Nacional durante el año de ...",
+          "url": "https://books.google.com/books?id=J_hWAAAAYAAJ",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Plan de legalizar droga coincidió con conexión Z",
+          "url": "https://www.prensalibre.com/guatemala/politica/plan-de-legalizar-droga-coincidio-con-conexion-z",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Comisión Rechaza Uso Medicinal De La Marihuana En Guatemala",
+          "url": "https://www.tn8.tv/cronica-tn8/373406-comision-rechaza-uso-medicinal-marihuana-guatemala/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Guatemala: Rechazan uso de marihuana medicinal - Cluster Salud, La Industria de la vida",
+          "url": "https://clustersalud.americaeconomia.com/guatemala-rechazan-uso-marihuana-medicinal/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Localizan cadáver del diputado Álvaro Velásquez en una casa, en Mixco",
+          "url": "https://www.prensalibre.com/guatemala/justicia/localizan-cadaver-del-diputado-alvaro-velasquez-en-la-casa-donde-habitaba-en-mixco",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Guatemala",
+          "url": "https://archive.today/20171106182818/http://www.prensalibre.com/guatemala/politica/plan-de-legalizar-droga-coincidio-con-conexion-z",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -116,8 +175,8 @@
         "name": "Cayman Islands"
       },
       {
-        "code": "cub",
-        "name": "Cuba"
+        "code": "pan",
+        "name": "Panama / Panamá"
       }
     ],
     "cluster_links": [
@@ -126,8 +185,8 @@
         "name": "Costa Rica"
       },
       {
-        "code": "pan",
-        "name": "Panama / Panamá"
+        "code": "cub",
+        "name": "Cuba"
       }
     ],
     "same_country_states": [],
@@ -135,9 +194,9 @@
   },
   "hashes": {
     "code": "gtm",
-    "content_hash": "89e30c0c272bfb41f1be0c73b42ede034fe7b7cd544042980ea8cd0d2581c882",
+    "content_hash": "ecc776f8664fd842bc670bc1a7dcebc8e21bd904637e87b9cbb12fd147512c21",
     "notes_hash": "0ba23dc1ade910cc81683748249081dd0354fcbb78fabad01fd8aecc0597a8bf",
-    "model_hash": "70d620e78df1ba52a000b02a9fa148b2e3d9be2575fb8dd6d2486b56363886b1"
+    "model_hash": "b2ca958ad73211fcb824cf9fe453785b8d956ba08424c34fa053d6ba3d1f713c"
   },
   "geo_code": "GT",
   "node_type": "country",

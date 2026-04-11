@@ -5,39 +5,101 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE"
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
-      "override_reason": null
+      "status": "LIMITED",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": "rec_implies_med_floor"
     },
     "distribution": {
-      "status": "illegal",
+      "status": "restricted",
       "scopes": {
-        "possession": null,
+        "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
+    },
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": true,
+        "fine": false,
+        "severity_score": 2
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in Nepal",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Nepal",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Nepal to legalise marijuana cultivation for medicinal purposes - The Economic Times",
+          "url": "https://m.economictimes.com/news/international/world-news/nepal-to-legalise-marijuana-cultivation-for-medicinal-purposes/articleshow/110503965.cms",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis: A History",
+          "url": "https://books.google.com/books?id=Mjn6sCiHoFIC&pg=PA325",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "An Account of the Kingdom of Nepal: And of the Territories Annexed to this Dominion by the House of Gorkha",
+          "url": "https://archive.org/details/bub_gb_67gWAAAAQAAJ",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Nepal",
+          "url": "https://archive.org/details/bub_gb_67gWAAAAQAAJ/page/n243",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis and Culture",
+          "url": "https://books.google.com/books?id=gCRNRGOhNA4C&pg=PA255",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "How the Drug War Destroyed a Hippie Paradise in Kathmandu",
+          "url": "https://reason.com/video/2019/09/13/how-the-drug-war-destroyed-a-hippie-paradise-in-kathmandu/",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: legal | source: Cannabis in Nepal: In between legal lacuna &#124; The Farsight Nepal | type: reference | priority: 2 | scope: general",
+        "rule: penalty_arrest | source: Police to arrest cannabis users at Pashupati this Mahashivaratri festival | type: reference | priority: 2 | scope: general",
+        "rule: legal | source: Activists seek legal marijuana in former hippie haven Nepal | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "legal",
+      "penalty_arrest",
+      "rec_implies_med_floor"
     ],
-    "notes_normalized": "Cannabis is illegal in Nepal / नेपाल. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is legal in Nepal / नेपाल. Medical cannabis is limited. Distribution is restricted."
   },
-  "notes_normalized": "Cannabis is illegal in Nepal / नेपाल. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is legal in Nepal / नेपाल. Medical cannabis is limited. Distribution is restricted.",
   "notes_raw": "{{main|Cannabis in Nepal}} All cannabis licenses canceled in 1973.<ref name=\"Booth2011\"/>",
   "facts": {
     "possession_limit": null,
@@ -112,6 +174,16 @@
         "name": "Pakistan / پاكستان"
       },
       {
+        "code": "tjk",
+        "name": "Tajikistan / Таджикистан"
+      },
+      {
+        "code": "tha",
+        "name": "Thailand / ประเทศไทย"
+      }
+    ],
+    "cluster_links": [
+      {
         "code": "mmr",
         "name": "Myanmar / မြန်မာ"
       },
@@ -120,24 +192,14 @@
         "name": "Kyrgyzstan / Кыргызстан"
       }
     ],
-    "cluster_links": [
-      {
-        "code": "tjk",
-        "name": "Tajikistan / Таджикистан"
-      },
-      {
-        "code": "afg",
-        "name": "Afghanistan / افغانستان"
-      }
-    ],
     "same_country_states": [],
     "federal_parent": null
   },
   "hashes": {
     "code": "npl",
-    "content_hash": "9eb218234ae0a8869081fb15a0ff9f11fd8e4456ddf89b2e10e4ab6ffa8f67ae",
-    "notes_hash": "7a3bb35762a3f228b51b82b9e268be1408e9adb3432d8fa1b426853dcce3f8b1",
-    "model_hash": "380b789d473f81d95029453930e8321a4c17f63f059f498a48e785a6949122c5"
+    "content_hash": "27129ebfd6c757a863414ac61ee906867b7d916574baf4a868bcea3d9a2bdd67",
+    "notes_hash": "98936dd886d64004f934351ab1f48e0a6e3b1004a67facb4fd025124cd3ae6f5",
+    "model_hash": "c49b6360a89b52c40a5328e9ef38338c055453f77628ea2909500c3394f9dcc5"
   },
   "geo_code": "NP",
   "node_type": "country",

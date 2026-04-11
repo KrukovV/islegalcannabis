@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -27,7 +28,68 @@
       },
       "enforcement": "standard",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "but"
+      ]
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Bhutan",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bhutan",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Bhutan",
+          "url": "https://www.unodc.org/pdf/india/publications/south_Asia_Regional_Profile_Sept_2005/09_bhutan.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Fast forward into trouble",
+          "url": "https://www.theguardian.com/theguardian/2003/jun/14/weekend7.weekend2",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Bhutan's growing cannabis problem",
+          "url": "https://news.bbc.co.uk/2/hi/south_asia/2016895.stm",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Report of the International Narcotics Control Board for 2002",
+          "url": "https://archive.org/details/reportofinternat0000unse_d7p9",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "41 dead and counting: Bhutan's growing Drug problem",
+          "url": "https://thebhutanese.bt/41-dead-and-counting-bhutans-growing-drug-problem/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Report of the International Narcotics Control Board for 2012",
+          "url": "https://www.incb.org/incb/en/publications/annual-reports/annual-report-2012.html",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: illegal | source: Bhutan / འབྲུག་ཡུལ་ | type: summary | priority: 1 | scope: cultivation",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -110,12 +172,12 @@
         "name": "India / भारत"
       },
       {
-        "code": "chn",
-        "name": "China / 中国"
-      },
-      {
         "code": "lao",
         "name": "Laos / ສປປລາວ"
+      },
+      {
+        "code": "khm",
+        "name": "Cambodia / Kâmpŭchéa"
       }
     ],
     "cluster_links": [
@@ -124,8 +186,8 @@
         "name": "Thailand / ประเทศไทย"
       },
       {
-        "code": "khm",
-        "name": "Cambodia / Kâmpŭchéa"
+        "code": "chn",
+        "name": "China / 中国"
       }
     ],
     "same_country_states": [],
@@ -133,9 +195,9 @@
   },
   "hashes": {
     "code": "btn",
-    "content_hash": "483fc4edac5dc3ae4d027bc50cf234b248c10569084c089fefdf742e82250734",
+    "content_hash": "bb026d8867c957a7284e40b55982abe76039c8e349a562dbdb2dc429b3a665c2",
     "notes_hash": "cec92f6f8f088b0b453f72d9417c64373f3af1593e4a988201b09dec7521d332",
-    "model_hash": "d4b3d53a6aff1a378ae441b4b2f52882601dce9cc26414f671de4a3167fad283"
+    "model_hash": "e5d13e5984c35afc6ea7ade5c53e673124135e2baaff854b43242bc8ddf0dc24"
   },
   "geo_code": "BT",
   "node_type": "country",

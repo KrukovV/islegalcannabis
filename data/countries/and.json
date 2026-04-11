@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,40 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Andorra",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Andorra",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Andorra",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Andorra",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +170,9 @@
   },
   "hashes": {
     "code": "and",
-    "content_hash": "274bf2ce11b99e6e45971f60de5eb4bab85761484f13cbbc88ee5244a03c8dce",
+    "content_hash": "b06d306799e95fbee92baea643e58f1e3b34eda7fb2755e45878dcaf8869f56f",
     "notes_hash": "0c80a8e0b72519e76aa8b9c29390115d4cc33fe27d5f9c7757daac576ad86893",
-    "model_hash": "7b6ab6858e67048bf3d50537996462b9e7406b601385e940656f0c5f20f91394"
+    "model_hash": "e8d4cea41db31d42b349250dc2716750cb4acecb3af2119f77f5b27acac67b7b"
   },
   "geo_code": "AD",
   "node_type": "country",

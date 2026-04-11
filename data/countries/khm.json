@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -27,7 +28,44 @@
       },
       "enforcement": "standard",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "but"
+      ]
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Cambodia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cambodia",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cambodia",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cambodia / Kâmpŭchéa",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: illegal | source: Cambodia / Kâmpŭchéa | type: summary | priority: 1 | scope: general",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -110,18 +148,18 @@
         "name": "Myanmar / မြန်မာ"
       },
       {
-        "code": "mac",
-        "name": "Macau / 澳门"
+        "code": "sgp",
+        "name": "Singapore / Singapura"
       },
       {
-        "code": "brn",
-        "name": "Brunei / Negara Brunei Darussalam"
+        "code": "mac",
+        "name": "Macau / 澳门"
       }
     ],
     "cluster_links": [
       {
-        "code": "sgp",
-        "name": "Singapore / Singapura"
+        "code": "brn",
+        "name": "Brunei / Negara Brunei Darussalam"
       },
       {
         "code": "mys",
@@ -133,9 +171,9 @@
   },
   "hashes": {
     "code": "khm",
-    "content_hash": "5ef5085998b1d360679492ffe50725f93cf69f9b4612a5e01616821dc33ff826",
+    "content_hash": "ce500fe7ec177d499bd260b9fea51b81a1af58fc0e9d56aab2efe3f46daed4e3",
     "notes_hash": "8521b7ed18868b41ce6acb4d6902b475e3152e693d683fce2049265aabbaa07b",
-    "model_hash": "867414a283379b019b340ef9df8b3a37d3e999ee9c2e387c9e56e04c384fd031"
+    "model_hash": "e7dc5867c6f9ab9ead61bcd175525e2b3e518b102bb8759a36d2d1e9f6b9fb30"
   },
   "geo_code": "KH",
   "node_type": "country",

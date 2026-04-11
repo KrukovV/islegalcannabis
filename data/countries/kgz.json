@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,64 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Kyrgyzstan",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kyrgyzstan",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "The Medicinal Uses of Cannabis and Cannabinoids",
+          "url": "https://books.google.com/books?id=t-JsAAAAMAAJ",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis and the Soma Solution",
+          "url": "https://books.google.com/books?id=-AMCBAAAQBAJ&pg=PT208",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Kyrgyzstan",
+          "url": "https://www.rferl.org/amp/kyrgyzstan-mariajuana-legalization/25222681.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Kyrgyzstan",
+          "url": "https://hightimes.com/news/kyrgyzstan-could-bring-legal-cannabis-to-central-asia/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Kyrgyzstan",
+          "url": "https://iwpr.net/global-voices/kyrgyz-cannabis-boom-tourist-trade-slumps",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Kyrgyzstan / Кыргызстан",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +194,9 @@
   },
   "hashes": {
     "code": "kgz",
-    "content_hash": "c69e27de5cfc7a2d43cecdfe2dab89ae3305e9b5324048089498314cd2f4790a",
+    "content_hash": "3d28482df551acb5fcac3c934ed41b10d32650edd1735a1011eb1ed6e89ae5d2",
     "notes_hash": "abb86a86c35c233100492243c838f299c58e1ad025a6ba0ed0749c268a70e033",
-    "model_hash": "0fd75c18fae5c6f42fb954cb6c11f1331caa54cd318c2f3fda38812494784c97"
+    "model_hash": "a648a0e5c8ac0821d42e638d797262da378e97a3901ab5be0ed80a9c8d36b601"
   },
   "geo_code": "KG",
   "node_type": "country",

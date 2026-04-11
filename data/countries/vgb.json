@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,28 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "low",
+      "sources": [
+        {
+          "title": "British Virgin Islands",
+          "url": null,
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -128,9 +151,9 @@
   },
   "hashes": {
     "code": "vgb",
-    "content_hash": "4ed8e5ada32997471e45c9fcc0e41b7d19d28d51b5ac67a8ee22db80f0c8dd1f",
+    "content_hash": "b02417b2ddb4e29d6f61ba4b630a11dd95f24ed0ed2c55feee47a0900238a495",
     "notes_hash": "339a3628dd3950fe5e8bdc876c172b3a9e0fb99e72b1acaefde0424f3592cd42",
-    "model_hash": "9fb964cbc5e89013080f9f660b9aedf1ecf803f4c5acf9ebe7915ae71f418161"
+    "model_hash": "4e603c2d00205d1683a165a63b534485dea15e716c9add24cc99b69986927c75"
   },
   "geo_code": "VG",
   "node_type": "country",

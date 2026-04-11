@@ -20,20 +20,82 @@
       "status": "restricted",
       "scopes": {
         "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_restricted"
+      "flags": [],
+      "modifiers": [
+        "up_to",
+        "but",
+        "only"
+      ]
+    },
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Malta",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Malta",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Malta Becomes First E.U. Country to Legalize Marijuana",
+          "url": "https://www.nytimes.com/2021/12/15/world/europe/malta-eu-marijuana-legalize.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis bill approved in parliament, in first for Europe",
+          "url": "https://timesofmalta.com/articles/view/cannabis-bill-approved-in-parliament-in-first-for-europe.921310",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Malta becomes first EU country to legalise cannabis for personal use",
+          "url": "https://www.euronews.com/2021/12/14/malta-set-to-be-first-eu-country-to-legalise-cannabis-for-personal-use",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Malta to legalise cannabis for personal use in European first",
+          "url": "https://www.theguardian.com/society/2021/dec/13/malta-to-be-first-in-europe-to-legalise-cannabis-for-personal-use",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis saplings in Zebbug roundabout removed",
+          "url": "https://www.timesofmalta.com/mobile/articles/view/20140519/local/cannabis-saplings-in-zebbug-roundabout-removed.519631",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Simple possession to remain an 'arrestable offence' - but only to fight drug trade – Bonnici",
+          "url": "https://www.independent.com.mt/articles/2015-03-17/local-news/Simple-possession-to-remain-an-arrestable-offence-but-only-to-fight-drug-trade-Bonnici-6736132323",
+          "depth": 0,
+          "type": "summary"
+        }
       ],
-      "modifiers": []
+      "explain": [
+        "rule: medical_legal | source: Malta has officially legalised medical cannabis | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_restricted"
+      "medical_legal"
     ],
     "notes_normalized": "Cannabis is legal in Malta. Medical cannabis is legal. Distribution is restricted."
   },
@@ -108,26 +170,26 @@
     ],
     "legal_similarity": [
       {
+        "code": "alb",
+        "name": "Albania / Shqipëria"
+      },
+      {
         "code": "grc",
         "name": "Greece / Ελλάδα"
       },
       {
         "code": "smr",
         "name": "San Marino"
-      },
-      {
-        "code": "bih",
-        "name": "Bosnia and Herzegovina / Bosna i Hercegovina"
       }
     ],
     "cluster_links": [
       {
-        "code": "alb",
-        "name": "Albania / Shqipëria"
-      },
-      {
         "code": "mne",
         "name": "Montenegro / Црна Гора"
+      },
+      {
+        "code": "bih",
+        "name": "Bosnia and Herzegovina / Bosna i Hercegovina"
       }
     ],
     "same_country_states": [],
@@ -135,9 +197,9 @@
   },
   "hashes": {
     "code": "mlt",
-    "content_hash": "65ea3d158764bf5d46f5da2ef5db734a393459df19a8248483c2d219ae2945b5",
+    "content_hash": "b519d62628e8b260cf1c38a1bb683a479e4f9852774d4d0f97b964a3689e51ea",
     "notes_hash": "304418aa4d9b1eb523ddb06cd754d31f28c38478e543d24b82707f32368fa328",
-    "model_hash": "67514f2b6311d85243b298563f56a7da4dd2e2d29a68b91e67c6c5f5aec8e6c9"
+    "model_hash": "4051d366a56ed100ff9c538b040d6ba5f7d07126c4a0ce412462a17daf06cf85"
   },
   "geo_code": "MT",
   "node_type": "country",

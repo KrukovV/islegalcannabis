@@ -20,6 +20,7 @@
       "status": "restricted",
       "scopes": {
         "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -27,13 +28,76 @@
       },
       "enforcement": "fine-based",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "but",
+        "up_to",
+        "may"
+      ]
+    },
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": true,
+        "severity_score": 1
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Switzerland",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Switzerland",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Switzerland",
+          "url": "https://www.swissmedic.ch/swissmedic/de/home/humanarzneimittel/authorisations/new-medicines/sativex---spray-zur-anwendung-in-der-mundhoehle--cannabis-sativa.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Switzerland",
+          "url": "https://www.swissmedic.ch/dam/swissmedic/en/dokumente/marktueberwachung/abrenzungsfragen/produkte_mit_cannabidiolcbdueberblickundvollzugshilfe.pdf.download.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Switzerland",
+          "url": "https://www.bag.admin.ch/bag/en/home/medizin-und-forschung/heilmittel/med-anwend-cannabis.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Switzerland",
+          "url": "https://www.bag.admin.ch/bag/en/home/medizin-und-forschung/heilmittel/med-anwend-cannabis/gesetzesaenderung-cannabisarzneimittel.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Switzerland",
+          "url": "https://www.swissmedic.ch/swissmedic/en/home/humanarzneimittel/betm/medicinal-cannabis.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "FF 2012 7539",
+          "url": "https://www.admin.ch/ch/f/ff/2012/7539.pdf",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: penalty_fine | source: Switzerland / Suisse | type: summary | priority: 1 | scope: possession",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [
       "fine_based"
     ],
     "applied_rules": [
-      "fine_based"
+      "penalty_fine"
     ],
     "notes_normalized": "Cannabis is decriminalized in Switzerland / Suisse. Medical cannabis is legal. Distribution is restricted."
   },
@@ -135,9 +199,9 @@
   },
   "hashes": {
     "code": "che",
-    "content_hash": "f5f1a7a6dd2ea7c19a7c9d4838919663cc43f8a639aec906ba38f04f939cbc6e",
+    "content_hash": "73aad56b7ebcc8686bca93d9d842e298492b01e5a6866775f3afa6c6684839ee",
     "notes_hash": "7976e34774029c18dc51cd9a6241918553c394c61c3d847fb6511ba380b45900",
-    "model_hash": "17803cdb285f3bfb4aef092c9a00dca2ca9d69d9dc5ce19c3cc94d6c0399b40a"
+    "model_hash": "ab97bd20575afc639094e888cad2b4ff7413cb81de6562e79c53317ee71ef0ce"
   },
   "geo_code": "CH",
   "node_type": "country",

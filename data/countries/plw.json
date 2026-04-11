@@ -5,39 +5,98 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE"
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
-      "override_reason": null
+      "status": "LIMITED",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": "rec_implies_med_floor"
     },
     "distribution": {
-      "status": "illegal",
+      "status": "restricted",
       "scopes": {
-        "possession": null,
+        "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
+    },
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Palau",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Palau",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "International Law Issues in the South Pacific",
+          "url": "https://books.google.com/books?id=In6bAAAAMAAJ",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Opponents slam UN's 'unfair' research on Palau's pot problem",
+          "url": "https://pacific.scoop.co.nz/2012/08/opponents-slam-uns-unfair-research-on-palaus-pot-problem/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Palau: Is it the world's cannabis capital? - BBC News",
+          "url": "https://www.bbc.com/news/magazine-18736585",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Implementation and amendments to the Insular Areas Drug Abuse Act: oversight hearing before the Subcommittee on Insular and International Affairs of the Committee on Interior and Insular Affairs, House of Representatives, One Hundredth Congress, second session ... hearing held in Washington, DC, June 16, 1988",
+          "url": "https://books.google.com/books?id=ZvHw5WvF-KoC",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Palau: Detailed Assessment Report on Anti-Money Laundering and Combating the Financing of Terrorism",
+          "url": "https://books.google.com/books?id=uH1BcMbPXCsC&pg=PA14",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Islands at Risk?: Environments, Economies and Contemporary Change",
+          "url": "https://books.google.com/books?id=JZ8DfSm2uXsC&pg=PA65",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: legal | source: Report of the International Narcotics Control Board for 2007 | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "legal",
+      "rec_implies_med_floor"
     ],
-    "notes_normalized": "Cannabis is illegal in Palau / Belau. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is legal in Palau / Belau. Medical cannabis is limited. Distribution is restricted."
   },
-  "notes_normalized": "Cannabis is illegal in Palau / Belau. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is legal in Palau / Belau. Medical cannabis is limited. Distribution is restricted.",
   "notes_raw": "{{main|Cannabis in Palau}}",
   "facts": {
     "possession_limit": null,
@@ -108,26 +167,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "png",
-        "name": "Papua New Guinea / Papua Niu Gini"
-      },
-      {
         "code": "tls",
         "name": "Timor-Leste / Timór-Leste"
       },
       {
-        "code": "idn",
-        "name": "Indonesia"
-      }
-    ],
-    "cluster_links": [
-      {
-        "code": "fsm",
-        "name": "Micronesia"
+        "code": "mys",
+        "name": "Malaysia / مليسيا"
       },
       {
         "code": "slb",
         "name": "Solomon Islands"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "png",
+        "name": "Papua New Guinea / Papua Niu Gini"
+      },
+      {
+        "code": "fsm",
+        "name": "Micronesia"
       }
     ],
     "same_country_states": [],
@@ -135,9 +194,9 @@
   },
   "hashes": {
     "code": "plw",
-    "content_hash": "bfe684dc818425d8e212482aeb82503303ad267d8f582b56486d4c4a3db6f7dd",
-    "notes_hash": "e0d6b9304f86fe6a05d9232050c76c308f6e30801c77acfdb1e11f0850dfdcef",
-    "model_hash": "5db4bae10893fb96d8fa5eda39f6d75285d4c2ec85740d54cfbbf2d829379f3f"
+    "content_hash": "9e3379d1a6d29b341685a509e48c6d875e7129fc68677480394689b0a00839a2",
+    "notes_hash": "ccfeae3e29a9ac4aeb165a5591fe8a3a719b92a6ca9a831b4abf776423339cda",
+    "model_hash": "b8641619fc511d51743ac1befd7d558fe55c69620c98391f1194c31066eb3df1"
   },
   "geo_code": "PW",
   "node_type": "country",

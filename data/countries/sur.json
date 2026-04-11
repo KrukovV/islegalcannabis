@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -28,6 +29,65 @@
       "enforcement": "standard",
       "flags": [],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Suriname",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Suriname",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Crime and Punishment around the World &#91;4 volumes&#93;: &#91;Four Volumes&#93;",
+          "url": "https://books.google.com/books?id=2uK6bR9byVIC&pg=RA1-PA311",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "In Place of Slavery: A Social History of British Indian and Javanese Laborers in Suriname",
+          "url": "https://books.google.com/books?id=EPzT5AYLvL0C&pg=PA160",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis Eradication in Foreign Western Hemisphere Nations, Effects in the U.S.: Environmental Impact Statement",
+          "url": "https://books.google.com/books?id=a-83AQAAMAAJ&pg=SL5-PA12",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "International Narcotics Control Strategy Report",
+          "url": "https://books.google.com/books?id=BSlJAQAAIAAJ&q=cannabis+suriname",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Suriname wants focus on food security, not marijuana – Dominica News Online",
+          "url": "https://dominicanewsonline.com/news/homepage/news/agriculture/suriname-wants-focus-food-security-marijuana/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Report of the International Narcotics Control Board (2007)",
+          "url": "https://books.google.com/books?id=5zPbkldHMq4C&pg=PA72",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: illegal | source: Suriname | type: summary | priority: 1 | scope: general",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -133,9 +193,9 @@
   },
   "hashes": {
     "code": "sur",
-    "content_hash": "39d79d80ee214979915c4b3ee9976199635f201fb5c25f070ed2d80c3608efbe",
+    "content_hash": "0b214da3854ba18f8274f63ce4bc943c73bae165e3ea381d49dccdd769e25490",
     "notes_hash": "7a9e173a147ec86f5a6d0f81cd8c937e5ad9aa7878c95275a1656a11e880d8cb",
-    "model_hash": "0db6d825c270f46f4fcd0f53ac4abfe4d683f6a30a21a1a61dcee3c1bcb4f3c1"
+    "model_hash": "7e4f4d775e586019cc502f6563bf13a0a5ea7ca36afdb966e87bb01a73f62427"
   },
   "geo_code": "SR",
   "node_type": "country",

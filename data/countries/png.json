@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,64 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Papua New Guinea",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Papua_New_Guinea",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Encyclopedia of Drug Policy",
+          "url": "https://books.google.com/books?id=dip1AwAAQBAJ&pg=PA630",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Food and Agriculture in Papua New Guinea",
+          "url": "https://books.google.com/books?id=p92MsquxOEwC&pg=PA227",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Australia and Papua New Guinea: Crime and the Bilateral Relationship",
+          "url": "https://books.google.com/books?id=4ojaAAAAMAAJ",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Report of the International Narcotics Control Board 2006",
+          "url": "https://books.google.com/books?id=qGjTNqElWJoC&pg=PA84",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Report of the International Narcotics Control Board for 2001",
+          "url": "https://books.google.com/books?id=rGxOtNMYQawC&pg=PA80",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Papua New Guinea: The Struggle for Development",
+          "url": "https://books.google.com/books?id=jMeHAgAAQBAJ&pg=PA73",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +194,9 @@
   },
   "hashes": {
     "code": "png",
-    "content_hash": "499fd1cf74452bdcce090af66f85cfd002b7c77326a01ecaa3ba472533bad03c",
+    "content_hash": "8afbc33f937a7d6525c51300212b2d63152a08569dffe8f5d402ff3bd6251d21",
     "notes_hash": "578e1752120867c3991c9c1ef5627f3de4a11c6e67498f76482519027db744eb",
-    "model_hash": "b7bcc6a618a0316ce6e9f591f7781e6bc31dfee0ded89954463ca0bbe8a945f2"
+    "model_hash": "bdbe571145abb6402711eff3c6e2ac28ef13fd83936260cc6363acedb75879f7"
   },
   "geo_code": "PG",
   "node_type": "country",

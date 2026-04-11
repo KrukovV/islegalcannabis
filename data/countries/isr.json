@@ -20,20 +20,82 @@
       "status": "restricted",
       "scopes": {
         "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_restricted"
+      "flags": [],
+      "modifiers": [
+        "however"
+      ]
+    },
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Israel",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Israel",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Ministry of Health - Medical Cannabis Unit",
+          "url": "https://www.gov.il/en/Departments/General/cannabis-export",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Israel Decriminalized Cannabis (Kind Of)",
+          "url": "https://www.xn--4dbcyzi5a.com/en/2018/07/%D7%90%D7%95%D7%A9%D7%A8-%D7%A1%D7%95%D7%A4%D7%99%D7%AA-%D7%97%D7%95%D7%A7-%D7%A7%D7%A0%D7%A1%D7%95%D7%AA-%D7%94%D7%A7%D7%A0%D7%90%D7%91%D7%99%D7%A1-%D7%90%D7%99-%D7%94%D7%A4%D7%9C%D7%9C%D7%94/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis Decriminalization Starting April 1st 2019",
+          "url": "https://www.xn--4dbcyzi5a.com/en/2018/07/%D7%A7%D7%A0%D7%A1%D7%95%D7%AA-%D7%A7%D7%A0%D7%90%D7%91%D7%99%D7%A1-%D7%94%D7%97%D7%9C-%D7%91-1-%D7%91%D7%90%D7%A4%D7%A8%D7%99%D7%9C-2019/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "i24NEWS",
+          "url": "https://www.i24news.tv/en/news/israel/1593000637-israel-ultra-orthodox-lawmakers-walk-out-as-bills-to-legalize-cannabis-clear-preliminary-reading",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Israel moves a step closer to decriminalizing cannabis",
+          "url": "https://www.jns.org/israel-moves-a-step-closer-to-decriminalizing-cannabis/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Will Marijuana Soon Be Legal In Israel?",
+          "url": "https://www.theyeshivaworld.com/news/headlines-breaking-stories/1875026/will-marijuana-soon-be-legal-in-israel.html",
+          "depth": 0,
+          "type": "summary"
+        }
       ],
-      "modifiers": []
+      "explain": [
+        "rule: possession_decriminalized | source: Israel / إسرائيل | type: summary | priority: 1 | scope: possession",
+        "rule: possession_decriminalized | source: Israel Decriminalized Cannabis (Kind Of) | type: reference | priority: 2 | scope: general",
+        "rule: legal | source: Will Marijuana Soon Be Legal In Israel? | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_restricted"
+      "possession_decriminalized"
     ],
     "notes_normalized": "Cannabis is decriminalized in Israel / إسرائيل. Medical cannabis is legal. Distribution is restricted."
   },
@@ -135,9 +197,9 @@
   },
   "hashes": {
     "code": "isr",
-    "content_hash": "04c225caccc9fbcc4ca12768bfcbd61b7f1da1ff3824527038a234914a7a3a2a",
+    "content_hash": "3984bdb4725642c6969e32cfee169ac60a9faf5853ecde361c5bf493e3a7c3a0",
     "notes_hash": "cd7228a5ffc1f69a017d80f1f95f474617d90cde56459a4d2f53a8aa46ff24ee",
-    "model_hash": "3d7b8ab974b910336f1f1280b3f4e04e399503a807f2b74428318038d9704bcd"
+    "model_hash": "6b7d0cce00bad7579bca7098314cc540071856100f3a35610ea1cd5e38521b99"
   },
   "geo_code": "IL",
   "node_type": "country",

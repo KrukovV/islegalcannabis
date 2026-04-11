@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,28 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "low",
+      "sources": [
+        {
+          "title": "Faroe Islands / Færøerne",
+          "url": null,
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -128,9 +151,9 @@
   },
   "hashes": {
     "code": "fro",
-    "content_hash": "3ddc8d921dd0624feb219e64eb69db46c62e9cefaac3e4556cb205873f463734",
+    "content_hash": "d98e270ef6b7df7000ae55715eaea6d56b0686a6e3678a5c34274f2f46c9f67b",
     "notes_hash": "259392571d1f35b9b01cd94b07bc402660754c492e256189005513f8ec27b139",
-    "model_hash": "51088f585b910b5efbd3eb35e881d62a8ebaf714150c537d291910c75369c80d"
+    "model_hash": "e704bd9a514dec1d05424d79fa7e240a92a4310be65e40aa176f7409f7bf1bb6"
   },
   "geo_code": "FO",
   "node_type": "country",

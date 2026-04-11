@@ -5,39 +5,98 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE"
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
-      "override_reason": null
+      "status": "LIMITED",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": "rec_implies_med_floor"
     },
     "distribution": {
-      "status": "illegal",
+      "status": "restricted",
       "scopes": {
-        "possession": null,
+        "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
+    },
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Monaco",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Monaco",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Monaco",
+          "url": "https://www.unodc.org/unodc/en/data-and-analysis/WDR-2011.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Monaco",
+          "url": "https://www.unodc.org/documents/data-and-analysis/WDR2011/StatAnnex-consumption.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Legal status of cannabis in Monaco - Cannaconnection.com",
+          "url": "https://www.cannaconnection.com/blog/14757-legal-status-monaco",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Monaco – We Be High",
+          "url": "https://webehigh.org/monaco/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Monaco",
+          "url": "https://web.archive.org/web/20200504120850/http://webehigh.org/monaco/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Monaco",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: legal | source: Legal status of cannabis in Monaco - Cannaconnection.com | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "legal",
+      "rec_implies_med_floor"
     ],
-    "notes_normalized": "Cannabis is illegal in Monaco. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is legal in Monaco. Medical cannabis is limited. Distribution is restricted."
   },
-  "notes_normalized": "Cannabis is illegal in Monaco. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is legal in Monaco. Medical cannabis is limited. Distribution is restricted.",
   "notes_raw": "{{main|Cannabis in Monaco}}",
   "facts": {
     "possession_limit": null,
@@ -108,26 +167,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "vat",
-        "name": "Vatican City / Vaticano"
-      },
-      {
-        "code": "and",
-        "name": "Andorra"
-      },
-      {
-        "code": "tun",
-        "name": "Tunisia / تونس"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "ita",
         "name": "Italy / Italia"
       },
       {
         "code": "lux",
         "name": "Luxembourg / Luxemburg"
+      },
+      {
+        "code": "aut",
+        "name": "Austria / Österreich"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "vat",
+        "name": "Vatican City / Vaticano"
+      },
+      {
+        "code": "and",
+        "name": "Andorra"
       }
     ],
     "same_country_states": [],
@@ -135,9 +194,9 @@
   },
   "hashes": {
     "code": "mco",
-    "content_hash": "89fe38cd43e32bad4ee9a649588461434d5631b30d47d234838d4a7012797ad7",
-    "notes_hash": "a71b3ed0582a39d0f6bafae095d12a69c7db7961219c3b211b76a522f3a8c583",
-    "model_hash": "aac59fd0238c24450bfeb461dde03bad37258c45fbd057896f5dd0c0a2e44184"
+    "content_hash": "fb848cb51b7621fb6afdd407385683cddc02100c3efe7fdbe8a300c28ed2fc0e",
+    "notes_hash": "b6d4ddf5e1d952356686b7aab9090ebe1b7b2f64c313f23da7ec7108b3968149",
+    "model_hash": "988c2e83b538bf343e785e4e7259b5082edca0d4b8062c4f5f8d83bab44c7999"
   },
   "geo_code": "MC",
   "node_type": "country",

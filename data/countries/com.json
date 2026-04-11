@@ -20,6 +20,7 @@
       "status": "restricted",
       "scopes": {
         "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -27,7 +28,44 @@
       },
       "enforcement": "standard",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "may"
+      ]
+    },
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Comoros",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Comoros",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Comoros",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Comoros / جزر القمر",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: legal | source: Comoros / جزر القمر | type: summary | priority: 1 | scope: use",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -107,16 +145,16 @@
     ],
     "legal_similarity": [
       {
+        "code": "zwe",
+        "name": "Zimbabwe"
+      },
+      {
         "code": "lso",
         "name": "Lesotho"
       },
       {
-        "code": "zaf",
-        "name": "South Africa / Sewula Afrika"
-      },
-      {
-        "code": "lka",
-        "name": "Sri Lanka / ශ්‍රී ලංකාව"
+        "code": "dji",
+        "name": "Djibouti / جيبوتي"
       }
     ],
     "cluster_links": [
@@ -134,9 +172,9 @@
   },
   "hashes": {
     "code": "com",
-    "content_hash": "929b11499867e7d58b3d1f98e6205d57e78ad2dc6e7d816c71393255289551d2",
+    "content_hash": "88293cdbca40f18917f448ff670851fa0de8116e3fac7de1f7acb8c526f7e36d",
     "notes_hash": "76ee453f406d1dcd616feb41bb6ee2b14da109a0a51b4bdad3fa2017487267ff",
-    "model_hash": "f5ddd99f91d0a5b10562829bdf18965fbf77e565b7dcf85d1d0907de3c9b52af"
+    "model_hash": "f72c3acaf0e28a31455a49670c8f2076a37fbf3b135186e2374d99772cd281ed"
   },
   "geo_code": "KM",
   "node_type": "country",

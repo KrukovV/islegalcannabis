@@ -5,21 +5,22 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE"
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
-      "override_reason": null
+      "status": "LIMITED",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": "rec_implies_med_floor"
     },
     "distribution": {
-      "status": "illegal",
+      "status": "restricted",
       "scopes": {
-        "possession": null,
+        "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -27,17 +28,93 @@
       },
       "enforcement": "fine-based",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "up_to"
+      ]
+    },
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": true,
+        "fine": true,
+        "severity_score": 2
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in Russia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Russia",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "How the Ruskey's do Cannabis - A Look at Regulation in Russia",
+          "url": "https://cbdtesters.co/2020/03/08/how-the-ruskeys-do-cannabis-a-look-at-regulation-in-russia/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Russia",
+          "url": "https://legaliz.info/21/24/84",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Russia",
+          "url": "https://web.archive.org/web/20210601183223/http://legaliz.info/21/24/84",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "In health and in sickness: pharmacy, pharmacists, and the pharmaceutical industry in late imperial, early Soviet Russia",
+          "url": "https://books.google.com/books?id=slxtAAAAMAAJ",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Social Change and Social Issues in the Former USSR",
+          "url": "https://books.google.com/books?id=zPa-DAAAQBAJ&pg=PA54",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Народное хозяйство СССР за 70 лет",
+          "url": "https://istmat.info/node/9278",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: penalty_arrest | source: Russia / Россия | type: summary | priority: 1 | scope: possession",
+        "rule: penalty_fine | source: Russia / Россия | type: summary | priority: 1 | scope: possession",
+        "rule: penalty_fine | source: Russia Seeks Balance in Drug-Use Sentencing | type: reference | priority: 2 | scope: general",
+        "rule: penalty_fine | source: Russia Enacts Sweeping Reforms in Drug Laws: No Jail for Possession | type: reference | priority: 2 | scope: general",
+        "rule: legal | source: Is weed legal in Russia? Will it legalize in 2023? | type: reference | priority: 2 | scope: general",
+        "rule: penalty_fine | source: Is weed legal in Russia? Will it legalize in 2023? | type: reference | priority: 2 | scope: general",
+        "rule: penalty_years | source: Brittney Griner Found Guilty, Sentenced To 9 Years For Drug Possession In Russia | type: reference | priority: 2 | scope: possession",
+        "rule: penalty_fine | source: Brittney Griner Found Guilty, Sentenced To 9 Years For Drug Possession In Russia | type: reference | priority: 2 | scope: general",
+        "rule: penalty_arrest | source: WNBA star Brittney Griner released from Russian detention in prisoner swap for convicted arms dealer | type: reference | priority: 2 | scope: general",
+        "rule: penalty_fine | source: WNBA star Brittney Griner released from Russian detention in prisoner swap for convicted arms dealer | type: reference | priority: 2 | scope: general",
+        "rule: penalty_fine | source: The Other American Jailed in Russia on Marijuana Charges | type: reference | priority: 2 | scope: general",
+        "rule: penalty_fine | source: Russia arrests German for carrying cannabis gummy bears | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [
       "fine_based"
     ],
     "applied_rules": [
-      "fine_based"
+      "penalty_arrest",
+      "penalty_fine",
+      "legal",
+      "penalty_years",
+      "rec_implies_med_floor"
     ],
-    "notes_normalized": "Cannabis is illegal in Russia / Россия. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is legal in Russia / Россия. Medical cannabis is limited. Distribution is restricted."
   },
-  "notes_normalized": "Cannabis is illegal in Russia / Россия. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is legal in Russia / Россия. Medical cannabis is limited. Distribution is restricted.",
   "notes_raw": "{{main|Cannabis in Russia}} Possession of up to {{cvt|6|g|frac=5}} of cannabis (or {{cvt|2|g|frac=20|disp=comma}} of hashish) is an administrative offense, punishable by a fine of [[Russian ruble|₽]]5,000 or detention of up to 15 days. Possession of larger amounts is a criminal offense. Foreign nationals and stateless individuals who violate the law are subject to deportation regardless of the amount.<ref>{{cite web | url = http://www.consultant.ru/cons/cgi/online.cgi?req=doc&ts=164469974506312461340936923&cacheid=994B2ACA3517C672CBCF7A2398087641&mode=splus&base=LAW&n=310901&dst=2083&rnd=62E8B8E346501CD4CE50DFE5E998C343#09158851242449872 | script-title = ru:КОДЕКС РОССИЙСКОЙ ФЕДЕРАЦИИ ОБ АДМИНИСТРАТИВНЫХ ПРАВОНАРУШЕНИЯХ | access-date = 5 December 2018 | language = ru | archive-date = 26 February 2021 | archive-url = https://web.archive.org/web/20210226184336/http://www.consultant.ru/cons/cgi/online.cgi?req=doc&ts=164469974506312461340936923&cacheid=994B2ACA3517C672CBCF7A2398087641&mode=splus&base=LAW&n=310901&dst=2083&rnd=62E8B8E346501CD4CE50DFE5E998C343#09158851242449872 | url-status = live }}</ref>",
   "facts": {
     "possession_limit": "up to 6 g",
@@ -108,16 +185,16 @@
     ],
     "legal_similarity": [
       {
-        "code": "btn",
-        "name": "Bhutan / འབྲུག་ཡུལ་"
-      },
-      {
-        "code": "kaz",
-        "name": "Kazakhstan / Қазақстан"
-      },
-      {
         "code": "npl",
         "name": "Nepal / नेपाल"
+      },
+      {
+        "code": "tjk",
+        "name": "Tajikistan / Таджикистан"
+      },
+      {
+        "code": "kor",
+        "name": "South Korea / 한국"
       }
     ],
     "cluster_links": [
@@ -135,9 +212,9 @@
   },
   "hashes": {
     "code": "rus",
-    "content_hash": "1c199e32c8a492f304bb3fefbed9f53acc113eae024f398e6ea2052a28eef47b",
-    "notes_hash": "e5edcf19cfc032dc0b3666970dc4786e9cd45de061aad0a213e57617bc058a1c",
-    "model_hash": "8bc37338c282e5ea9f375373d5a708b8b993ab121988f9ca66110cf62f3fc37d"
+    "content_hash": "438babc092bf6523f22fb45f0bd03dcca0df5d1b4bdbbb8c66b3bc8433929267",
+    "notes_hash": "5c8b8e747c5079a44d67075d9d95ef9f177a4500377dead285ead43006569cac",
+    "model_hash": "b788187c8892b79c26b55f100e9ea7b952c97213cfabc5400b4c42afc5b2524a"
   },
   "geo_code": "RU",
   "node_type": "country",

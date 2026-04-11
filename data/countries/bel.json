@@ -20,6 +20,7 @@
       "status": "restricted",
       "scopes": {
         "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -27,11 +28,72 @@
       },
       "enforcement": "standard",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "up_to"
+      ]
+    },
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Belgium",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Belgium",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "EMCDDA &#124; Country Profile - Belgium",
+          "url": "https://www.emcdda.europa.eu/html.cfm/index5174EN.html?pluginMethod=eldd.countryprofiles&country=BE",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Belgium",
+          "url": "https://www.emcdda.europa.eu/countries/drug-reports/2019/belgium/drug-laws-and-drug-law-offences_en",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Assessing the harms of cannabis cultivation in Belgium",
+          "url": "https://biblio.ugent.be/publication/3229068",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Brussels' weed wave hits new high",
+          "url": "https://www.politico.eu/article/the-weed-wave-hitting-brussels-streets/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Belgium",
+          "url": "https://web.archive.org/web/20180930082257/http://www.emcdda.europa.eu/html.cfm/index5174EN.html?pluginMethod=eldd.countryprofiles&country=BE",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Belgium / Belgien",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: possession_decriminalized | source: Belgium / Belgien | type: summary | priority: 1 | scope: general",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "decriminalized",
+      "possession_decriminalized",
       "rec_implies_med_floor"
     ],
     "notes_normalized": "Cannabis is decriminalized in Belgium / Belgien. Medical cannabis is limited. Distribution is restricted."
@@ -115,8 +177,8 @@
         "name": "Germany / Deutschland"
       },
       {
-        "code": "gbr",
-        "name": "United Kingdom"
+        "code": "mco",
+        "name": "Monaco"
       }
     ],
     "cluster_links": [
@@ -134,9 +196,9 @@
   },
   "hashes": {
     "code": "bel",
-    "content_hash": "8c0fe8c069ca756078238442b97f0cb66baf67cc3d19a116258b9c2a2d9fcfd5",
+    "content_hash": "75028b60c6a22ab5aae39ddac656b87e017290a959bca0feee36157b3f42e3ec",
     "notes_hash": "085254dabeb657217f18d4cebc2a8313034acae0bbbf786ab6b8931b1b3dbb19",
-    "model_hash": "67abce0773c49dd08f89828f3c415a236545e21d2d087ac87ad103d6e8a68f53"
+    "model_hash": "849a6c7961e49c6d879ef0ccb00a444459299536a3d469b277148f85ec5cd1e5"
   },
   "geo_code": "BE",
   "node_type": "country",

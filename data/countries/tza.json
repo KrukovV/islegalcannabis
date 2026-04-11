@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,58 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Tanzania",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Tanzania",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "CANNABIS IN AFRICA",
+          "url": "https://www.unodc.org/documents/data-and-analysis/Can_Afr_EN_09_11_07.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Section 3, UNITED REPUBLIC OF TANZANIA",
+          "url": "https://www.who.int/mental_health/media/en/709.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "cannabis in Tanzania",
+          "url": "https://sensiseeds.com/en/blog/cannabis-in-tanzania-en/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Tanzania",
+          "url": "https://www.herbvape.co.uk/blogs/articles/cannabis-in-tanzania-analysis-of-policy-tradition-and-enforcement",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Tanzania",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +188,9 @@
   },
   "hashes": {
     "code": "tza",
-    "content_hash": "c0c360d3f0e4893c2a9ebe825debeafcc8be64008ef93bc34f589c680837f7b2",
+    "content_hash": "436d53735b1d6aa581034be48e5932a6ec4909f1f99fbea3bf7a784746753ab0",
     "notes_hash": "3a68839b381fff1b45873cde10095732eefb36380a753a5aeb36c8e8ddc32581",
-    "model_hash": "541fc8d60db1bbeb75fdb8cbfb8349fea967b0abc82d4f699881d931ee863a4c"
+    "model_hash": "e2222d39f4e56b1e74395da3d580c0d4b1a6a17a562c54e9022c95e9792406fe"
   },
   "geo_code": "TZ",
   "node_type": "country",

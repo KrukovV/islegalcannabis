@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,28 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "low",
+      "sources": [
+        {
+          "title": "Falkland Islands",
+          "url": null,
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -128,9 +151,9 @@
   },
   "hashes": {
     "code": "flk",
-    "content_hash": "92e3bc53b0380d55945346b5c9b32fa9c10f94ff3d123e969cccea4fd1ac8ac0",
+    "content_hash": "f0d5f5f294226b504b28ea7d16b41e74cecfbb9f686552130b7ce4af5a33230d",
     "notes_hash": "e5f2ee6901fc18c267fa8ddc08ded290b48c060559ac423411e615c906de9c3a",
-    "model_hash": "9272ec80c0caa6faf48a898036c1b75cdb5e5106a83ccb1905e45c399428e19a"
+    "model_hash": "105861985818247561e27572ba6a187b70c921e778b59b9f80c83520797d81ce"
   },
   "geo_code": "FK",
   "node_type": "country",

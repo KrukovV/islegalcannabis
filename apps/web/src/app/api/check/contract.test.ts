@@ -52,6 +52,11 @@ describe("GET /api/check contract", () => {
     expect(json.rec_final).toBe("DECRIMINALIZED");
     expect(json.med_final).toBe("LIMITED");
     expect(json.distribution_status).toBeTruthy();
+    expect(json.legal_status).toBeTruthy();
+    expect(json.penalties).toBeTruthy();
+    expect(Array.isArray(json.explain)).toBe(true);
+    expect(["low", "medium", "high"]).toContain(json.confidence);
+    expect(Array.isArray(json.sources)).toBe(true);
     expect("rec_raw" in json).toBe(false);
     expect(json.profile?.legal_ssot?.medical).toBe("limited");
   });
@@ -66,6 +71,8 @@ describe("GET /api/check contract", () => {
     expect(json.med_raw).toBeTruthy();
     expect(json.distribution_scopes).toBeTruthy();
     expect(Array.isArray(json.applied_rules)).toBe(true);
+    expect(json.penalties).toBeTruthy();
+    expect(Array.isArray(json.explain)).toBe(true);
   });
 
   it("surfaces machine verified evidence when available", async () => {

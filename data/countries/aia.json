@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,28 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "low",
+      "sources": [
+        {
+          "title": "Anguilla",
+          "url": null,
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -128,9 +151,9 @@
   },
   "hashes": {
     "code": "aia",
-    "content_hash": "1297f9b047a22af56b266fbf5151d56959c25759aeab37c604bfdc6e18848ec1",
+    "content_hash": "c5859c99d2e1d1c781f84cdb752aa465e118eac5f9ad3bb42e1c65557d5f27e7",
     "notes_hash": "7a5c0ab32fee09bacae95917e63eeb446e862f0d6ad1c8d42089913522ed2bb0",
-    "model_hash": "a22d41a4a6c01f0f2c4982b078571b767e80cd5c162d3871144148e75808ef78"
+    "model_hash": "99caf0f72351eb1f1fbc524f6e7aae02d385e558bccbf206e1582745e51178d6"
   },
   "geo_code": "AI",
   "node_type": "country",

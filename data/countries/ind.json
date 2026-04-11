@@ -11,31 +11,104 @@
     },
     "medical": {
       "raw_status": "LEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
       "override_reason": null
     },
     "distribution": {
       "status": "illegal",
       "scopes": {
         "possession": null,
-        "sale": null,
+        "use": null,
+        "sale": "illegal",
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [],
+      "flags": [
+        "sale_illegal"
+      ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in India",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_India",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in India",
+          "url": "https://www.unodc.org/documents/treaties/organized_crime/Drug%20Convention/Commentary_on_the_single_convention_1961.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "A Cannabis Reader: Global Issues and Local Experiences : Perspectives on Cannabis Controversies, Treatment and Regulation in Europe",
+          "url": "https://books.google.com/books?id=d_ElAQAAMAAJ",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Drug Abuse in the Modern World: A Perspective for the Eighties",
+          "url": "https://books.google.com/books?id=Ka8gBQAAQBAJ&pg=PA262",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Recreational use of marijuana: Of highs and laws",
+          "url": "https://timesofindia.indiatimes.com/india/Recreational-use-of-marijuana-Of-highs-and-laws/articleshow/17165524.cms?referral=PM",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Marijuana Legalization: What Everyone Needs to KnowRG",
+          "url": "https://books.google.com/books?id=MRFpAgAAQBAJ&pg=PA139",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "India's cannabis economy has a new hope—Patanjali",
+          "url": "https://qz.com/1191203/patanjali-the-indian-cannabis-economys-new-hope/",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: sale_illegal | source: India / भारत | type: summary | priority: 1 | scope: sale",
+        "rule: illegal | source: India / भारत | type: summary | priority: 1 | scope: sale",
+        "rule: legal | source: Cannabis in India | type: reference | priority: 2 | scope: general",
+        "rule: legal | source: A Cannabis Reader: Global Issues and Local Experiences : Perspectives on Cannabis Controversies, Treatment and Regulation in Europe | type: reference | priority: 2 | scope: general",
+        "rule: legal | source: Drug Abuse in the Modern World: A Perspective for the Eighties | type: reference | priority: 2 | scope: general",
+        "rule: legal | source: Recreational use of marijuana: Of highs and laws | type: reference | priority: 2 | scope: general",
+        "rule: legal | source: Marijuana Legalization: What Everyone Needs to KnowRG | type: reference | priority: 2 | scope: general",
+        "rule: legal | source: India's cannabis economy has a new hope—Patanjali | type: reference | priority: 2 | scope: general",
+        "rule: legal | source: Is it Legal to Get High on Bhang in India? | type: reference | priority: 2 | scope: general",
+        "rule: illegal | source: 'Bhang'is intoxicant, its possession is prohibited: HC | type: reference | priority: 2 | scope: possession",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
+      "sale_illegal",
+      "legal",
       "illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in India / भारत. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is illegal in India / भारत. Medical cannabis is legal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in India / भारत. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in India / भारत. Medical cannabis is legal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in India}} Albeit illegal, usage is prevalent and some government-owned shops sell cannabis in the form of bhang. States have their own laws regarding cannabis, locally known as ''ganja''.",
   "facts": {
     "possession_limit": null,
@@ -106,22 +179,22 @@
     ],
     "legal_similarity": [
       {
+        "code": "lka",
+        "name": "Sri Lanka / ශ්‍රී ලංකාව"
+      },
+      {
         "code": "btn",
         "name": "Bhutan / འབྲུག་ཡུལ་"
       },
       {
         "code": "mdv",
         "name": "Maldives / ދިވެހިރާއްޖޭގެ"
-      },
-      {
-        "code": "afg",
-        "name": "Afghanistan / افغانستان"
       }
     ],
     "cluster_links": [
       {
-        "code": "lka",
-        "name": "Sri Lanka / ශ්‍රී ලංකාව"
+        "code": "afg",
+        "name": "Afghanistan / افغانستان"
       },
       {
         "code": "tjk",
@@ -133,9 +206,9 @@
   },
   "hashes": {
     "code": "ind",
-    "content_hash": "e4bf7eb99a36df97bc1b0adc460ec63b5a419d02d4acfa8e21969a81086c5cab",
-    "notes_hash": "5d6a893376f7521741c960bfd26cd1706539eb99a983445f33b0580437c82c3e",
-    "model_hash": "0f0766a4cfea85915a2dc50d0e8bc468a85190d05f22ca5ff2d97c038c79ef93"
+    "content_hash": "718dfdf208d245dec30fbe994507642723b685ec45e52f0b50e3c7cc2e008da7",
+    "notes_hash": "be0d041ed57ee2f6ea20c7e791e3a27cda8cd20243a1c116936847a51a301981",
+    "model_hash": "336dcccf490ed7bb2bba3e59acaded69cd32ee0b1dc691bd85638adb8f2dd1a0"
   },
   "geo_code": "IN",
   "node_type": "country",

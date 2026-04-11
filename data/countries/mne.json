@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,52 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Montenegro",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Montenegro",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "International Narcotics Control Strategy Report: Volume I: Drug and Chemical Control",
+          "url": "https://books.google.com/books?id=0jnyNWFuhXYC&pg=PA447",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Montenegro",
+          "url": "https://www.bbc.com/news/magazine-38111945",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Montenegro",
+          "url": "https://www.stopdrogama.org/projekti1.htm",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Montenegro / Црна Гора",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -108,8 +155,8 @@
     ],
     "legal_similarity": [
       {
-        "code": "grc",
-        "name": "Greece / Ελλάδα"
+        "code": "hun",
+        "name": "Hungary / Magyarország"
       },
       {
         "code": "bgr",
@@ -126,8 +173,8 @@
         "name": "North Macedonia / Македонија"
       },
       {
-        "code": "hun",
-        "name": "Hungary / Magyarország"
+        "code": "grc",
+        "name": "Greece / Ελλάδα"
       }
     ],
     "same_country_states": [],
@@ -135,9 +182,9 @@
   },
   "hashes": {
     "code": "mne",
-    "content_hash": "41aae7898e02d2e57c0481e7ec5c78e3b66cc78661a635d7b79f0d596ae16514",
+    "content_hash": "bd6db9f7ad0c968595ddebd9d46ff6ad5d1976e802d585edb85fe4615f1372df",
     "notes_hash": "15e77900e5e6e1c45922cc10a36b40e5f06d246fc3e75cb155882a9c76f1bfc1",
-    "model_hash": "df4a6ba8b90263ce7372960b8b7f6dfde7d9c8c27e59eb7ffa36d714ccb3f3a3"
+    "model_hash": "900c96f9be5663a35dcfe266daeb8691b48adcb86c7b55b27f285087136dda2e"
   },
   "geo_code": "ME",
   "node_type": "country",

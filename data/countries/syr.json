@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -29,11 +30,70 @@
       "flags": [],
       "modifiers": []
     },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": true,
+        "severity_score": 1
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Syria",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Syria",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Syrians Turn to Drugs to Forget the Burden of War",
+          "url": "https://raseef22.net/article/1069955-syrians-turn-drugs-forget-burden-war",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "In Idlib, a Thriving Marijuana Industry Comes Under Assault",
+          "url": "https://deeply.thenewhumanitarian.org/syria/articles/2014/07/23/in-idlib-a-thriving-marijuana-industry-comes-under-assault",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Syria's Assad grants amnesties before presidential election",
+          "url": "https://abcnews.go.com/amp/International/wireStory/syrias-assad-grants-amnesties-presidential-election-77450821",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Syria",
+          "url": "https://www.cannaconnection.com/blog/14704-legal-status-syria",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Syria",
+          "url": "https://web.archive.org/web/20210504120344/https://www.cannaconnection.com/blog/14704-legal-status-syria",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "The League of Nations' Work on Social Issues",
+          "url": "https://www.un-ilibrary.org/content/books/9789210577021c006",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: penalty_fine | source: Syria / سوريا | type: summary | priority: 1 | scope: possession",
+        "no traversal evidence"
+      ]
+    },
     "enforcement_flags": [
       "fine_based"
     ],
     "applied_rules": [
-      "fine_based"
+      "penalty_fine"
     ],
     "notes_normalized": "Cannabis is illegal in Syria / سوريا. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -108,16 +168,16 @@
     ],
     "legal_similarity": [
       {
+        "code": "tur",
+        "name": "Türkiye"
+      },
+      {
         "code": "irq",
         "name": "Iraq / العراق"
       },
       {
         "code": "arm",
         "name": "Armenia / Հայաստան"
-      },
-      {
-        "code": "kwt",
-        "name": "Kuwait / الكويت"
       }
     ],
     "cluster_links": [
@@ -135,9 +195,9 @@
   },
   "hashes": {
     "code": "syr",
-    "content_hash": "ef8819556fa51210c54b84763a1d3a230dbecb037c7f0c62f5598bbc5f079744",
+    "content_hash": "9c766505754a9bbd92ca1fac7fd14f2599154e586b900753fd0df242001252f5",
     "notes_hash": "c611c6301ce29d6da24a8c2f2c0b1d0ea26a9b9ee386a91157979b7e8a635b77",
-    "model_hash": "f05ed526f5a663f728ba3907e241ac55199f4980b32903f0829f55f69aa6ce5a"
+    "model_hash": "458fda4c2f6a836cd1621db7217333520851ae0ba1af567919a166a80231037b"
   },
   "geo_code": "SY",
   "node_type": "country",

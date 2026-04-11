@@ -5,39 +5,102 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE"
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
-      "override_reason": null
+      "status": "LIMITED",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": "rec_implies_med_floor"
     },
     "distribution": {
-      "status": "illegal",
+      "status": "restricted",
       "scopes": {
-        "possession": null,
+        "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "enforcement": "fine-based",
+      "flags": [],
       "modifiers": []
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "distribution_fallback_illegal"
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": true,
+        "severity_score": 1
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in Cuba",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cuba",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Will Cuba Update its Drug Policy for the Twenty First Century?",
+          "url": "https://igarape.org.br/wp-content/uploads/2017/12/08-11-2017-NE-29-Cuba-Drog-Policy.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Marihuana: The First Twelve Thousand Years",
+          "url": "https://books.google.com/books?id=pGgzBgAAQBAJ&pg=PA102",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Marihuana in Latin America: the threat it constitutes",
+          "url": "https://books.google.com/books?id=WSJXAAAAMAAJ",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Is weed legal in Cuba? or to be legal in 2023?",
+          "url": "https://420expertadviser.com/legal/is-weed-legal-in-cuba/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cuba - Universal Periodic Review - Death Penalty - the Advocates for Human Rights",
+          "url": "https://www.theadvocatesforhumanrights.org/Publications/A/Index?id=656",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cuba",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: legal | source: Is weed legal in Cuba? or to be legal in 2023? | type: reference | priority: 2 | scope: general",
+        "rule: penalty_fine | source: Cuba - Universal Periodic Review - Death Penalty - the Advocates for Human Rights | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
+    },
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is illegal in Cuba. Medical cannabis is illegal. Distribution is illegal."
+    "applied_rules": [
+      "legal",
+      "penalty_fine",
+      "rec_implies_med_floor"
+    ],
+    "notes_normalized": "Cannabis is legal in Cuba. Medical cannabis is limited. Distribution is restricted."
   },
-  "notes_normalized": "Cannabis is illegal in Cuba. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is legal in Cuba. Medical cannabis is limited. Distribution is restricted.",
   "notes_raw": "{{main|Cannabis in Cuba}}",
   "facts": {
     "possession_limit": null,
@@ -108,26 +171,26 @@
     ],
     "legal_similarity": [
       {
+        "code": "blz",
+        "name": "Belize / Belice"
+      },
+      {
+        "code": "cri",
+        "name": "Costa Rica"
+      },
+      {
+        "code": "kna",
+        "name": "Saint Kitts and Nevis"
+      }
+    ],
+    "cluster_links": [
+      {
         "code": "hti",
         "name": "Haiti / Haïti"
       },
       {
         "code": "tca",
         "name": "Turks and Caicos Islands"
-      },
-      {
-        "code": "hnd",
-        "name": "Honduras"
-      }
-    ],
-    "cluster_links": [
-      {
-        "code": "dom",
-        "name": "Dominican Republic / República Dominicana"
-      },
-      {
-        "code": "blz",
-        "name": "Belize / Belice"
       }
     ],
     "same_country_states": [],
@@ -135,9 +198,9 @@
   },
   "hashes": {
     "code": "cub",
-    "content_hash": "763ad74f4823a3e675bfa17771dd780298abbd9296de33fe8c686ab7a6119d45",
-    "notes_hash": "42fc664049cf6148809a5d58546f6236db581a2a36b5a2efb926d567ac54b397",
-    "model_hash": "4048cf087cd789acef3192c13a4a88e80d8ced3ca66a9e347d6a75cec6057b76"
+    "content_hash": "fd986e1f00f2b18ad74c8354ba230f8528aaf6fb05eca429408ba89bdf3b3e11",
+    "notes_hash": "9b638fd3c8f3b9e7ec793b28b91f6c68c3a55e11acdabf703169e61fc50674d9",
+    "model_hash": "f4b59af30b599a1bfab808c05ca63e965d49cce4035277113883b8e3f0d0a979"
   },
   "geo_code": "CU",
   "node_type": "country",

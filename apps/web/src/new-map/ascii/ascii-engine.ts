@@ -1,7 +1,8 @@
+import { ASCII_BODY_SSOT, ASCII_JOINT_SSOT, type AsciiFacing, framesForFacing } from "./ascii-ssot";
 import { type AsciiTrigger, type GeoContext } from "./geo-store";
 
 export const SYMBOL_420 = "4:20" as const;
-export const PROPS = { joint: "=", smoke: "~", leaf: "*", fire: "+", spark: "." } as const;
+export const PROPS = { joint: "_", smoke: "~", leaf: "*", fire: "+", spark: ".", ember: "." } as const;
 
 const SAFE_ZONE = { top: 140, left: 20, right: 20, bottom: 128 } as const;
 const FONT_SIZE = 21;
@@ -16,31 +17,23 @@ const FALLBACK_RENDER_Y_FACTOR = 0.85;
 const ANTARCTICA_CENTER = { lng: 0, lat: -77 } as const;
 const FALLBACK_ACTOR_TTL = 9999;
 
-export const IDLE_FRAMES = ["  o  \n /|   \n / \\", "  o  \n /|   \n / \\\n  ~"] as const;
-export const WALK_FRAMES = [
-  "  o  \n /|--=\n / \\",
-  "  o  \n /|--=\n /| ",
-  "  o  \n /|--=\n  |\\",
-  "  o  \n /|--=\n / \\"
-] as const;
-export const EXIT_FRAMES = ["  o  \n /|--=\n  |\\", "  o  \n /|--=\n /| "] as const;
-export const DANCE_FRAMES = [
-  "  o  \n \\|/  \n / \\",
-  "  o  \n /|\\  \n  | ",
-  "  o  \n \\|/  \n / \\"
-] as const;
+export const IDLE_FRAMES = ASCII_BODY_SSOT.idle.right;
+export const WALK_FRAMES = ASCII_BODY_SSOT.walk.right;
+export const EXIT_FRAMES = ASCII_BODY_SSOT.exit.right;
+export const DANCE_FRAMES = ASCII_BODY_SSOT.dance.right;
 export const SMOKE_FRAMES = [
-  "  o  \n /|--=\n / \\",
-  "  o  \n /|--=\n / \\\n  ~",
-  "  o  \n /|--=\n / \\\n ~~~"
+  ...ASCII_JOINT_SSOT.carry.right,
+  ...ASCII_JOINT_SSOT.lift.right,
+  ...ASCII_JOINT_SSOT.near.right,
+  ...ASCII_JOINT_SSOT.exhale.right,
+  ...ASCII_JOINT_SSOT.drop.right
 ] as const;
-export const EXHALE_FRAMES = [
-  "  o  \n /|--=\n / \\\n ~~~",
-  "  o  \n /|--=\n / \\\n  ~~",
-  "  o  \n /|--=\n / \\\n   ~"
-] as const;
-export const HOLD_FRAMES = ["  o   \n /|   \n / \\"] as const;
-export const PASS_RIGHT_FRAMES = ["  o   \n /|--=\n / \\"] as const;
+export const EXHALE_FRAMES = ASCII_JOINT_SSOT.exhale.right;
+export const HOLD_FRAMES = ASCII_JOINT_SSOT.carry.right;
+export const PASS_RIGHT_FRAMES = ASCII_JOINT_SSOT.lift.right;
+export const PASS_LEFT_FRAMES = ASCII_JOINT_SSOT.lift.left;
+
+export type SmokeState = "idle" | "lift" | "near" | "inhale" | "exhale" | "drop";
 
 export type ActorState = "enter" | "walk" | "idle" | "smoke" | "interact" | "build" | "dance" | "finale" | "exit";
 export type ActorRole = "walker" | "smoker" | "token";
@@ -58,9 +51,12 @@ export type Actor = {
   ttl: number;
   t: number;
   role: ActorRole;
+  smokeState?: SmokeState;
+  smokeTick?: number;
   targetOffsetX?: number;
   targetOffsetY?: number;
   isFallback?: boolean;
+  facing?: AsciiFacing;
 };
 
 export type ScenarioDef = {
@@ -122,30 +118,86 @@ function clampOffset(actor: Actor) {
 }
 
 function assignFrames(actor: Actor, state: ActorState) {
+  const facing = actor.facing || "right";
   actor.state = state;
   actor.frameTick = 0;
   actor.frameIndex = 0;
   if (state === "smoke") {
-    actor.frames = [...SMOKE_FRAMES];
+    actor.smokeState = "idle";
+    actor.smokeTick = 0;
+    actor.frames = [framesForFacing(ASCII_JOINT_SSOT.carry, facing)[0]];
     return;
   }
+  actor.smokeState = undefined;
+  actor.smokeTick = 0;
   if (state === "dance" || state === "finale") {
-    actor.frames = [...DANCE_FRAMES];
+    actor.frames = framesForFacing(ASCII_BODY_SSOT.dance, facing);
     return;
   }
   if (state === "enter" || state === "walk") {
-    actor.frames = [...WALK_FRAMES];
+    actor.frames = framesForFacing(ASCII_BODY_SSOT.walk, facing);
     return;
   }
   if (state === "exit") {
-    actor.frames = [...EXIT_FRAMES];
+    actor.frames = framesForFacing(ASCII_BODY_SSOT.exit, facing);
     return;
   }
   if (state === "build") {
     actor.frames = actor.frames.length ? actor.frames : [PROPS.spark];
     return;
   }
-  actor.frames = actor.role === "smoker" ? [...SMOKE_FRAMES] : [...IDLE_FRAMES];
+  actor.frames =
+    actor.role === "smoker"
+      ? framesForFacing(ASCII_JOINT_SSOT.carry, facing)
+      : framesForFacing(ASCII_BODY_SSOT.idle, facing);
+}
+
+function setSmokingFrame(actor: Actor, nextState: SmokeState, frame: string) {
+  if (actor.smokeState !== nextState || actor.frames[0] !== frame || actor.frames.length !== 1) {
+    actor.smokeState = nextState;
+    actor.frames = [frame];
+    actor.frameIndex = 0;
+    actor.frameTick = 0;
+  }
+}
+
+function updateSmoking(actor: Actor) {
+  const facing = actor.facing || "right";
+  const carryFrames = framesForFacing(ASCII_JOINT_SSOT.carry, facing);
+  const liftFrames = framesForFacing(ASCII_JOINT_SSOT.lift, facing);
+  const nearFrames = framesForFacing(ASCII_JOINT_SSOT.near, facing);
+  const exhaleFrames = framesForFacing(ASCII_JOINT_SSOT.exhale, facing);
+  const dropFrames = framesForFacing(ASCII_JOINT_SSOT.drop, facing);
+  const nextTick = (actor.smokeTick ?? 0) + 1;
+  actor.smokeTick = nextTick;
+
+  if (nextTick <= 60) {
+    setSmokingFrame(actor, "idle", carryFrames[0]);
+    return;
+  }
+  if (nextTick <= 100) {
+    setSmokingFrame(actor, "lift", liftFrames[0]);
+    return;
+  }
+  if (nextTick <= 140) {
+    setSmokingFrame(actor, "near", liftFrames[Math.min(2, liftFrames.length - 1)]);
+    return;
+  }
+  if (nextTick <= 200) {
+    setSmokingFrame(actor, "inhale", nearFrames[0]);
+    return;
+  }
+  if (nextTick <= 260) {
+    setSmokingFrame(actor, "exhale", exhaleFrames[0]);
+    return;
+  }
+  if (nextTick <= 320) {
+    setSmokingFrame(actor, "drop", dropFrames[0]);
+    return;
+  }
+
+  actor.smokeTick = 0;
+  setSmokingFrame(actor, "idle", carryFrames[0]);
 }
 
 function syncFrame(actor: Actor) {
@@ -190,6 +242,7 @@ function updateActor(actor: Actor, t: number, engine: AsciiEngine) {
       actor.offsetY += Math.sin((t + actor.t) * 0.05) * 0.18;
       break;
     case "smoke":
+      updateSmoking(actor);
       actor.offsetY += Math.cos((t + actor.t) * 0.03) * 0.12;
       break;
     case "dance":
@@ -341,7 +394,11 @@ export class AsciiEngine {
       const targetOffsetX = -60 + column * 48 + (index % 2 === 0 ? -10 : 10);
       const targetOffsetY = -20 + row * spacing + yOffset + (index % 2 === 0 ? -6 : 6);
       const role: ActorRole = index % 3 === 1 ? "smoker" : "walker";
-      const frames = role === "smoker" ? [...SMOKE_FRAMES] : [...WALK_FRAMES];
+      const facing: AsciiFacing = index % 2 === 0 ? "right" : "left";
+      const frames =
+        role === "smoker"
+          ? framesForFacing(ASCII_JOINT_SSOT.carry, facing)
+          : framesForFacing(ASCII_BODY_SSOT.walk, facing);
       this.spawnActor({
         anchorLng: ANTARCTICA_CENTER.lng,
         anchorLat: ANTARCTICA_CENTER.lat,
@@ -353,6 +410,7 @@ export class AsciiEngine {
         state: "enter",
         ttl: 840,
         role,
+        facing,
         targetOffsetX,
         targetOffsetY
       });
@@ -406,6 +464,7 @@ export class AsciiEngine {
       state: "idle",
       ttl: FALLBACK_ACTOR_TTL,
       role: "walker",
+      facing: "right",
       isFallback: true
     });
   }
@@ -473,8 +532,18 @@ export class AsciiEngine {
       ctx.globalAlpha = actor.state === "build" ? 0.94 : 0.98;
       lines.forEach((line, lineIndex) => {
         const drawY = projected.y + lineIndex * LINE_HEIGHT - LINE_HEIGHT;
-        ctx.strokeText(line, projected.x, drawY);
-        ctx.fillText(line, projected.x, drawY);
+        [...line].forEach((char, charIndex) => {
+          const drawX = projected.x + charIndex * CHAR_WIDTH;
+          const prev = charIndex > 0 ? line[charIndex - 1] : "";
+          const next = charIndex < line.length - 1 ? line[charIndex + 1] : "";
+          const isSmoke = char === "~";
+          const isEmber = char === "." && (prev === "_" || prev === "-" || next === "~" || prev === "~");
+          const isJoint = char === "_" || char === "-" || char === "`";
+          ctx.strokeStyle = isEmber ? "rgba(255, 236, 220, 0.94)" : "rgba(238, 245, 248, 0.82)";
+          ctx.fillStyle = isEmber ? "#df3b31" : isSmoke ? "#728497" : isJoint ? "#243847" : "#1e3141";
+          ctx.strokeText(char, drawX, drawY);
+          ctx.fillText(char, drawX, drawY);
+        });
       });
     }
     ctx.globalAlpha = 1;

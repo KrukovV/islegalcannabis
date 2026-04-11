@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,40 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Yemen",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Yemen",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Yemen",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Yemen / اليمن",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -112,18 +147,18 @@
         "name": "Saudi Arabia / السعودية"
       },
       {
-        "code": "are",
-        "name": "United Arab Emirates / الإمارات"
-      },
-      {
         "code": "omn",
         "name": "Oman / عمان"
+      },
+      {
+        "code": "qat",
+        "name": "Qatar / قطر"
       }
     ],
     "cluster_links": [
       {
-        "code": "qat",
-        "name": "Qatar / قطر"
+        "code": "are",
+        "name": "United Arab Emirates / الإمارات"
       },
       {
         "code": "bhr",
@@ -135,9 +170,9 @@
   },
   "hashes": {
     "code": "yem",
-    "content_hash": "a06707bcde94e1a0acb88a140d2660280ff8396f9676437f8f9014bd33148600",
+    "content_hash": "27a9233e06fd954d016003d583ff4641d96abad0ec5f6d8dff9b9f9a50cd465b",
     "notes_hash": "6c90f9be1701205c93f3521301b40501435791124b2765a5666926d99177ce63",
-    "model_hash": "6c54db2357a1d2773eb365ea5af1c8994ccec73230379f5697bc9395fbd28333"
+    "model_hash": "b31fba0db059d27bee6fe79ff73071d9a7d32ae9778ced506d3be2d29e67a8f6"
   },
   "geo_code": "YE",
   "node_type": "country",

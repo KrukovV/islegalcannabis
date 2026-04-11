@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -29,7 +30,67 @@
       "flags": [
         "distribution_fallback_illegal"
       ],
-      "modifiers": []
+      "modifiers": [
+        "may"
+      ]
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Seychelles",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Seychelles",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Board holds first meeting",
+          "url": "https://www.nation.sc/archive/256946/agency-for-the-prevention-of-drug-abuse-and-rehabilitation-",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "2015 Seychelles Global School-based Student Health Survey",
+          "url": "https://core.ac.uk/download/pdf/77145877.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Misuse of Drugs Act, 2016",
+          "url": "https://seylii.org/sc/sc/legislation/Act%205%20of%202016%20Misuse%20of%20Drugs%20Act%2C%202016.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Seychelles",
+          "url": "https://web.archive.org/web/20210620152758/https://seylii.org/sc/sc/legislation/Act%205%20of%202016%20Misuse%20of%20Drugs%20Act%2C%202016.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "The Laws of Seychelles Revised",
+          "url": "https://books.google.com/books?id=LIdDAQAAMAAJ&pg=PA579",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "New law to boost fight against drugs",
+          "url": "https://www.nation.sc/archive/248994/new-law-to-boost-fight-against-drugs",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -112,22 +173,22 @@
         "name": "Somalia / الصومال"
       },
       {
-        "code": "mdg",
-        "name": "Madagascar / Madagasikara"
-      },
-      {
         "code": "ken",
         "name": "Kenya"
+      },
+      {
+        "code": "mdv",
+        "name": "Maldives / ދިވެހިރާއްޖޭގެ"
       }
     ],
     "cluster_links": [
       {
-        "code": "mdv",
-        "name": "Maldives / ދިވެހިރާއްޖޭގެ"
-      },
-      {
         "code": "atf",
         "name": "French Southern and Antarctic Lands / Terres australes et antarctiques françaises"
+      },
+      {
+        "code": "hmd",
+        "name": "Heard Island and McDonald Islands"
       }
     ],
     "same_country_states": [],
@@ -135,9 +196,9 @@
   },
   "hashes": {
     "code": "syc",
-    "content_hash": "d5047a06655aa6cc2d40d74ad3e34f33ef7b8f991fd4dc570a74a269941487c2",
+    "content_hash": "b5c34b5d9738fd013017faa242333dacf9f6e3b78bf6be3f6d3c2862e08e5f96",
     "notes_hash": "a3c5e93e6ec723a5dc7ca92f3c0aa29c22cac3735b7af4940928a19c2118e769",
-    "model_hash": "1bdee80c87739eb2a861fd2327598bb28e1a80c404810f22f4d9360aaeb1c8a8"
+    "model_hash": "6c1161c97e9979fb83741f3a2f3599587abc35db361239cb49989b5ec8f57412"
   },
   "geo_code": "SC",
   "node_type": "country",

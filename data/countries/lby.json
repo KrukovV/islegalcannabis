@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,40 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Libya",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Libya",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Libya",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Libya / ليبيا",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -116,18 +151,18 @@
         "name": "Egypt / مصر"
       },
       {
-        "code": "dza",
-        "name": "Algeria / الجزائر"
+        "code": "alb",
+        "name": "Albania / Shqipëria"
       }
     ],
     "cluster_links": [
       {
-        "code": "sdn",
-        "name": "Sudan / السودان"
+        "code": "dza",
+        "name": "Algeria / الجزائر"
       },
       {
-        "code": "nga",
-        "name": "Nigeria"
+        "code": "sdn",
+        "name": "Sudan / السودان"
       }
     ],
     "same_country_states": [],
@@ -135,9 +170,9 @@
   },
   "hashes": {
     "code": "lby",
-    "content_hash": "c6a1bebaabc30de2291133f01fbfa9c103162691d3f682d53cb1354cdad92a56",
+    "content_hash": "0e0446a194fa22af860e0ed2bb841e304ad93901796ce6c2a109046131b9fc09",
     "notes_hash": "884d7ec03000a891f87a3cc96275c0d8419b41030d4bef5c47c3d28c653cdce9",
-    "model_hash": "f84ec628b0da05a032e6143811d0261e37efbe675ccb7d3250231db930390c41"
+    "model_hash": "27840f1e06603db142da66cb16d3e77162de3cf86f7419a29dbe4dc99dff0467"
   },
   "geo_code": "LY",
   "node_type": "country",

@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,28 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "low",
+      "sources": [
+        {
+          "title": "Saint Martin",
+          "url": null,
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -128,9 +151,9 @@
   },
   "hashes": {
     "code": "maf",
-    "content_hash": "7f0699d8815a16a6b37ee03c67403d4727103a96dfd9a2230a6374fb6dec9057",
+    "content_hash": "70d2fa5a9e0524a206e8b1e783241a5880f4a597bf90880c4d2afc5c5c462a90",
     "notes_hash": "9df3110902ee72967249241c35ad3a5985573bcac274eac285032e13369b9bad",
-    "model_hash": "8eefe26ad90539bc7d01fbb1f32a2eba6e2bd45b8e8dc199452be1d1c9d47ac6"
+    "model_hash": "fcf3163e179925fdeca92d82f3d0a752ae01dab49e1d7eb3d09e52021fd7b3e6"
   },
   "geo_code": "MF",
   "node_type": "country",

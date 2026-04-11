@@ -20,24 +20,87 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
-        "import": null,
-        "trafficking": null
+        "import": "illegal",
+        "trafficking": "illegal"
       },
       "enforcement": "standard",
       "flags": [
-        "distribution_fallback_illegal"
+        "import_illegal",
+        "trafficking_illegal"
       ],
-      "modifiers": []
+      "modifiers": [
+        "usually"
+      ]
+    },
+    "signals": {
+      "status": "mixed",
+      "penalties": {
+        "prison": true,
+        "prison_priority": 1,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 4
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in Saudi Arabia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Saudi_Arabia",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Saudi Arabia",
+          "url": "https://travel.state.gov/travel/cis_pa_tw/cis/cis_1012.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Saudi Arabia and the Gulf Arab States Today: An Encyclopedia of Life in the Arab States",
+          "url": "https://books.google.com/books?id=uhJu2_8vMkMC&pg=PA124",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Narcotics and Human Trafficking to the GCC States",
+          "url": "https://books.google.com/books?id=i_NWAAAAYAAJ",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Saudi Arabia",
+          "url": "https://web.archive.org/web/20131211183846/http://travel.state.gov/travel/cis_pa_tw/cis/cis_1012.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Saudi Arabia / السعودية",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: penalty_prison | source: Saudi Arabia / السعودية | type: summary | priority: 1 | scope: possession",
+        "rule: penalty_prison | source: Saudi Arabia / السعودية | type: summary | priority: 1 | scope: use",
+        "rule: penalty_prison | source: Saudi Arabia / السعودية | type: summary | priority: 1 | scope: trafficking",
+        "rule: import_illegal | source: Saudi Arabia / السعودية | type: summary | priority: 1 | scope: trafficking",
+        "rule: trafficking_illegal | source: Saudi Arabia / السعودية | type: summary | priority: 1 | scope: trafficking",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "penalty_prison",
+      "import_illegal",
+      "trafficking_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Saudi Arabia / السعودية. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is illegal in Saudi Arabia / السعودية. Medical cannabis is illegal. Distribution is mixed. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Saudi Arabia / السعودية. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Saudi Arabia / السعودية. Medical cannabis is illegal. Distribution is mixed. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Saudi Arabia}} Use and possession for personal use of any kind of recreational drugs is punishable by imprisonment if caught. Imprisonment for personal use can entail jail time of six months or more. Dealing and smuggling high amounts of drugs usually result in harsher prison time or even execution, although recently executions have been rare. Foreigners who use drugs might be deported.<ref>{{citation|url=https://travel.state.gov/travel/cis_pa_tw/cis/cis_1012.html |title=International Travel – Saudi Arabia |publisher=[[Bureau of Consular Affairs]] |access-date=17 February 2011 |url-status=dead |archive-url=https://web.archive.org/web/20131211183846/http://travel.state.gov/travel/cis_pa_tw/cis/cis_1012.html |archive-date=11 December 2013 }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -112,18 +175,18 @@
         "name": "Iraq / العراق"
       },
       {
-        "code": "are",
-        "name": "United Arab Emirates / الإمارات"
-      },
-      {
         "code": "yem",
         "name": "Yemen / اليمن"
+      },
+      {
+        "code": "irn",
+        "name": "Iran / ایران"
       }
     ],
     "cluster_links": [
       {
-        "code": "irn",
-        "name": "Iran / ایران"
+        "code": "are",
+        "name": "United Arab Emirates / الإمارات"
       },
       {
         "code": "jor",
@@ -135,9 +198,9 @@
   },
   "hashes": {
     "code": "sau",
-    "content_hash": "d60d53b5f89eb7e44a30eaea1f7749ed45811b457ba229563790f16b22d174a7",
-    "notes_hash": "2ba0534cf16c8504ab79f6326a4d91f976b987b8c705736a22f492a783b999db",
-    "model_hash": "67b561e46939d5003df54de27a1c3e002ddedb1cd7d7206368ee8cb26ce78d46"
+    "content_hash": "f37eab8eac3ad8e981a2eaac48fd816a95d24064f6ded15d0e7a484b40090012",
+    "notes_hash": "f263b88f740b725eb9a3c1e3b69d2a5ed4f3784b69b1dbc677f0b7b8414af3c6",
+    "model_hash": "9ab73bd70065bcb77d89791cd1e8f67a13c1e3b7485a48e6e8241615b3b9c01c"
   },
   "geo_code": "SA",
   "node_type": "country",

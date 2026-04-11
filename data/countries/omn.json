@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,40 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Oman",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Oman",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Oman",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Oman / عمان",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +170,9 @@
   },
   "hashes": {
     "code": "omn",
-    "content_hash": "c52089ceaeddb7b2441cbd8ccfdd685fa511ceba7e2e8c0bd428f8d9487de7e1",
+    "content_hash": "3e41d989aa276c4925127bc10ec5a515ef14631229cc8c7024ab6d10d7736529",
     "notes_hash": "047949de036e190683a1e006b6bcf6ae1c3aea07cd6c72fbd10441b725344130",
-    "model_hash": "f4544221aaee7053511aafac1c6c9ac8b2e5249516bf1618007cb77ce975cf5a"
+    "model_hash": "119f182bbfcc69ec9719051df27cd43561d6d9094a708924d4aa7539e4aba215"
   },
   "geo_code": "OM",
   "node_type": "country",

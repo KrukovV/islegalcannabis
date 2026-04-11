@@ -20,20 +20,80 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
-        "import": null,
+        "import": "illegal",
         "trafficking": null
       },
       "enforcement": "standard",
       "flags": [
-        "distribution_fallback_illegal"
+        "import_illegal"
       ],
       "modifiers": []
     },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Bosnia and Herzegovina",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bosnia_and_Herzegovina",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "92 percent of students support marijuana legalization in Bosnia and Herzegovina - Bosnia Today",
+          "url": "https://www.bosniatoday.ba/92-percent-of-students-support-marijuana-legalization-in-bosnia-and-herzegovina/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Bosnia and Herzegovina",
+          "url": "https://web.archive.org/web/20161201083715/http://www.bosniatoday.ba/92-percent-of-students-support-marijuana-legalization-in-bosnia-and-herzegovina/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Bosnia to legalize medical marijuana this year - Bosnia Today",
+          "url": "https://www.bosniatoday.ba/bosnia-to-legalize-medical-marijuana-this-year/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Bosnia and Herzegovina",
+          "url": "https://web.archive.org/web/20160924221422/http://www.bosniatoday.ba/bosnia-to-legalize-medical-marijuana-this-year/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Smuggling in Southeast Europe: The Yugoslav Wars and the Development of Regional Criminal Networks in the Balkans",
+          "url": "https://books.google.com/books?id=srjE2eFi_nsC&pg=PA43",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Bosnia and Herzegovina / Bosna i Hercegovina",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: import_illegal | source: Smuggling in Southeast Europe: The Yugoslav Wars and the Development of Regional Criminal Networks in the Balkans | type: reference | priority: 2 | scope: import",
+        "no traversal evidence"
+      ]
+    },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "import_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Bosnia and Herzegovina / Bosna i Hercegovina. Medical cannabis is legal. Distribution is illegal."
   },
@@ -112,18 +172,18 @@
         "name": "Albania / Shqipëria"
       },
       {
-        "code": "svn",
-        "name": "Slovenia / Slovenija"
+        "code": "hun",
+        "name": "Hungary / Magyarország"
       },
       {
-        "code": "mkd",
-        "name": "North Macedonia / Македонија"
+        "code": "svn",
+        "name": "Slovenia / Slovenija"
       }
     ],
     "cluster_links": [
       {
-        "code": "hun",
-        "name": "Hungary / Magyarország"
+        "code": "mkd",
+        "name": "North Macedonia / Македонија"
       },
       {
         "code": "svk",
@@ -135,9 +195,9 @@
   },
   "hashes": {
     "code": "bih",
-    "content_hash": "01531cf140d928dccec87a3f9336b2d7cd7efeeb4c82cd7ab0e5aa4da97181ce",
+    "content_hash": "8481963c8741149cdd952ae59f1eaeb9997266d4f7db839ba76a87ae3da063d0",
     "notes_hash": "d321b095b67c333e2269e008fd48c59ce91aa4357c4ce0d40d9bddf76177ae42",
-    "model_hash": "cacc299770169721ae05ee9e181bc6a1c8bf4378050ed79b6b0f01cf785f4b52"
+    "model_hash": "3bf7f3cf3e3ef54b6f8727c112ffc97cc5d9c0ab5b4df3fd246d5077a847e32a"
   },
   "geo_code": "BA",
   "node_type": "country",

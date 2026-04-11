@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,28 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "low",
+      "sources": [
+        {
+          "title": "French Polynesia / Polynésie française",
+          "url": null,
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -128,9 +151,9 @@
   },
   "hashes": {
     "code": "pyf",
-    "content_hash": "7ed7f36b23a0c47a52b88b20a0d637f1839c95f821b3ab74b780b58d46af675e",
+    "content_hash": "d044b812a58686d90784dc361f7475d3fcdd991430c1fdee8447db519306a066",
     "notes_hash": "3a897e71eef6f82348f8e69e74830e7ad41355b0bb404458e2517010e0711475",
-    "model_hash": "020bb1ed5d3fd73c1fff0b45032153204fbfcc878bdb921a164a37e09413697b"
+    "model_hash": "df4e105991a5356f6a49955df6470eb71fb117dcc3f50a66caff24e67d874ac5"
   },
   "geo_code": "PF",
   "node_type": "country",

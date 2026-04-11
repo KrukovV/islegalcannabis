@@ -20,20 +20,78 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": true,
+        "fine": false,
+        "severity_score": 2
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Guyana",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Guyana",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Rastafarian community protests against 'unjust' marijuana laws",
+          "url": "https://www.stabroeknews.com/2015/news/stories/12/04/rastafarian-community-protests-unjust-marijuana-laws/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "The Ganja Complex: Rastafari and Marijuana",
+          "url": "https://books.google.com/books?id=lyoqwS_89ckC&pg=PR41",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "The Laws of British Guiana",
+          "url": "https://books.google.com/books?id=6jJFAAAAYAAJ&pg=PA88",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis Britannica: Empire, Trade, and Prohibition 1800-1928",
+          "url": "https://books.google.com/books?id=gMhaD7iuF8gC&pg=PA139",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Musical Life in Guyana: History and Politics of Controlling Creativity",
+          "url": "https://books.google.com/books?id=gRARCgAAQBAJ&pg=PT273",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Crime and Punishment around the World: &#91;Four Volumes&#93;",
+          "url": "https://books.google.com/books?id=2uK6bR9byVIC&pg=RA1-PA190",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: penalty_arrest | source: Guyana Politician Arrested On Drug Charges | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "penalty_arrest"
     ],
     "notes_normalized": "Cannabis is illegal in Guyana. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -135,9 +193,9 @@
   },
   "hashes": {
     "code": "guy",
-    "content_hash": "f9b288a2f0e0a277c8656413919d7e8e20a4915b7f30dad4b04beeb9eaaa2caa",
+    "content_hash": "057d168f8a0f8f3951749cd1383e76800d4ac8ef53efcebc83a4ab609819ba6b",
     "notes_hash": "9ff08b98b61555d3aacb8ae86bbb64b6dd9499f8bb49bb37a538982b3bf01527",
-    "model_hash": "2b7332ce4b39783137182e844c3809a0ba53c097577ce3471b9be6a32425c20e"
+    "model_hash": "9b6f3d450f482b958db0a7f121399ced0982d6a882497fbc739a2e42c11bfbe2"
   },
   "geo_code": "GY",
   "node_type": "country",

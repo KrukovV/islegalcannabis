@@ -5,9 +5,9 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE"
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
     },
     "medical": {
       "raw_status": "LEGAL",
@@ -17,27 +17,85 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "illegal",
+      "status": "restricted",
       "scopes": {
-        "possession": null,
+        "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
+    },
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Zimbabwe",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Zimbabwe",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Zimbabwe",
+          "url": "https://www.sundaynews.co.zw/zim-to-legalise-mbanje-govt-considers-drug-use-for-medical-purposes/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis policy reform in Zimbabwe should prioritise small-scale producers PolicyBristol – influencing policy through world-class research",
+          "url": "https://cannabisembassy.org/wp-content/uploads/2024/07/cannabisembassy-cannabisafricana2024-Briefing-154_Zimbabwe.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Zimbabwe legalises marijuana for medical and scientific use",
+          "url": "https://www.telegraph.co.uk/news/2018/04/28/zimbabwe-legalises-marijuana-medical-scientific-use/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "It is now legal to grow cannabis in Zimbabwe {{!",
+          "url": "https://www.iol.co.za/business-report/economy/it-is-now-legal-to-grow-cannabis-in-zimbabwe-14711506",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "MPs want cannabis fees reduced",
+          "url": "https://www.thezimbabwemail.com/parliament-parliament/mps-want-cannabis-fees-reduced/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Zimbabwe: Govt Offers Mbanje Growers 100 Percent Farm Ownership",
+          "url": "https://allafrica.com/stories/202005260497.html",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: legal | source: It is now legal to grow cannabis in Zimbabwe {{! | type: reference | priority: 2 | scope: cultivation",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "legal"
     ],
-    "notes_normalized": "Cannabis is illegal in Zimbabwe. Medical cannabis is legal. Distribution is illegal."
+    "notes_normalized": "Cannabis is legal in Zimbabwe. Medical cannabis is legal. Distribution is restricted."
   },
-  "notes_normalized": "Cannabis is illegal in Zimbabwe. Medical cannabis is legal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is legal in Zimbabwe. Medical cannabis is legal. Distribution is restricted.",
   "notes_raw": "{{main|Cannabis in Zimbabwe}}",
   "facts": {
     "possession_limit": null,
@@ -108,12 +166,12 @@
     ],
     "legal_similarity": [
       {
-        "code": "swz",
-        "name": "Eswatini"
-      },
-      {
         "code": "mwi",
         "name": "Malawi / Malaŵi"
+      },
+      {
+        "code": "lso",
+        "name": "Lesotho"
       },
       {
         "code": "zaf",
@@ -122,8 +180,8 @@
     ],
     "cluster_links": [
       {
-        "code": "lso",
-        "name": "Lesotho"
+        "code": "swz",
+        "name": "Eswatini"
       },
       {
         "code": "nam",
@@ -135,9 +193,9 @@
   },
   "hashes": {
     "code": "zwe",
-    "content_hash": "2127f895c1b0724cb71db0f9e0d137d89d2ccfb73bcf3a4278d93da4f43e7f50",
-    "notes_hash": "8f787912a611106f50e3ecac698ce9d4ab3a15f5ec8859b5dc638d0e6a11ff5a",
-    "model_hash": "a7a83f39ab4feddfd0b92ba0a23c38b6aa9239230d83a63477a2a839cbe46dcb"
+    "content_hash": "430a50030b792084eeacff78f84c429402f5c9eddfe1f14c02070c9770c4d5a6",
+    "notes_hash": "69c3696e48967805b630414a8e57b319a71648c24674033006d752cbd587154c",
+    "model_hash": "ae171292fbd6e6fafc49c9303143fa8fe562986ef07c61b2c12debbe3bc9eb97"
   },
   "geo_code": "ZW",
   "node_type": "country",

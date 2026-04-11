@@ -5,7 +5,7 @@
   "legal_model": {
     "recreational": {
       "raw_status": "DECRIMINALIZED",
-      "status": "LEGAL",
+      "status": "DECRIMINALIZED",
       "enforcement": "MODERATE",
       "scope": "PERSONAL_USE"
     },
@@ -20,6 +20,7 @@
       "status": "restricted",
       "scopes": {
         "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -29,14 +30,72 @@
       "flags": [],
       "modifiers": []
     },
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Croatia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Croatia",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Croatia",
+          "url": "https://www.emcdda.europa.eu/system/files/publications/4135/TD0217210ENN.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Croatia Decriminalizes Drug Use",
+          "url": "https://idpc.net/alerts/2012/12/croatia-decriminalizes-drug-use",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Croatia To Decriminalize Drug Possession",
+          "url": "https://www.encod.org/info/CROATIA-TO-DECRIMINALIZE-DRUG.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Croatia",
+          "url": "https://web.archive.org/web/20120817091744/http://www.encod.org/info/CROATIA-TO-DECRIMINALIZE-DRUG.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Živi zid",
+          "url": "https://www.zivizid.hr/wp-content/uploads/2016/07/Program-Zivi-zid.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Croatia",
+          "url": "https://web.archive.org/web/20161213055207/http://www.zivizid.hr/wp-content/uploads/2016/07/Program-Zivi-zid.pdf",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: medical_legal | source: Croatia / Hrvatska | type: summary | priority: 1 | scope: general",
+        "no traversal evidence"
+      ]
+    },
     "enforcement_flags": [],
     "applied_rules": [
-      "medical_legal",
-      "legal"
+      "medical_legal"
     ],
-    "notes_normalized": "Cannabis is legal in Croatia / Hrvatska. Medical cannabis is legal. Distribution is restricted."
+    "notes_normalized": "Cannabis is decriminalized in Croatia / Hrvatska. Medical cannabis is legal. Distribution is restricted."
   },
-  "notes_normalized": "Cannabis is legal in Croatia / Hrvatska. Medical cannabis is legal. Distribution is restricted.",
+  "notes_normalized": "Cannabis is decriminalized in Croatia / Hrvatska. Medical cannabis is legal. Distribution is restricted.",
   "notes_raw": "{{main|Cannabis in Croatia}} Possession of small amounts is considered a misdemeanor subject to fixed fines. Medicinal cannabis legal for patients with illnesses such as [[cancer]], [[multiple sclerosis]], or [[HIV/AIDS]].<ref name=\"Balkan Insight\"/>",
   "facts": {
     "possession_limit": null,
@@ -134,9 +193,9 @@
   },
   "hashes": {
     "code": "hrv",
-    "content_hash": "bcc8972c1e11ee39c870db1244eeaf74d9e7e7d769658165573ef8ba6f7a865f",
-    "notes_hash": "f9a962598e6eaa90c559a00e99c0cc8553c38a93587b6fdb8f5727586a741a0c",
-    "model_hash": "ba0794a2671482bbbebefb8e6ef16abed7ad44e5d5dc4700cb1e374a775450d7"
+    "content_hash": "890299bb268660fdd88fe62c3418051c3f2011259a0ce3bfdb04871b9a70d54d",
+    "notes_hash": "6dd554d1ca066069f94bcf5ed4addac123c70c56a64312b507a98d0d02bebdb4",
+    "model_hash": "6c6c00c95706d378584a2f6dda20a6f00ebccc93d594e15b288f65304551ab1c"
   },
   "geo_code": "HR",
   "node_type": "country",

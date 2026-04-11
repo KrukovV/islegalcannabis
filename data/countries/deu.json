@@ -17,25 +17,98 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "regulated",
       "scopes": {
         "possession": "restricted",
-        "sale": null,
-        "cultivation": null,
+        "use": "restricted",
+        "sale": "regulated",
+        "cultivation": "tolerated",
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [],
-      "modifiers": []
+      "flags": [
+        "social_club_distribution"
+      ],
+      "modifiers": [
+        "may"
+      ]
+    },
+    "signals": {
+      "status": "regulated",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in Germany",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Germany",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis als Medizin",
+          "url": "https://www.bundesgesundheitsministerium.de/ministerium/meldungen/2016/cannabisarzneimittel-kabinett.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Germany",
+          "url": "https://web.archive.org/web/20161012044035/https://www.bundesgesundheitsministerium.de/ministerium/meldungen/2016/cannabisarzneimittel-kabinett.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Gesetz über den Verkehr mit Betäubungsmitteln (Betäubungsmittelgesetz – BtMG)",
+          "url": "https://www.gesetze-im-internet.de/btmg_1981/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Rezepturhinweise: Dronabinol- und Cannabis-Zubereitungen",
+          "url": "https://www.pharmazeutische-zeitung.de/fileadmin/nrf/PDF/1-Dronabinol.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Germany: First Patients to Receive Cannabis from the Pharmacy",
+          "url": "https://cannabis-med.org/bulletin/iacm-bulletin-of-february-15-2009",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Germany to legalize medicinal marijuana by 2017",
+          "url": "https://edition.cnn.com/2016/05/04/europe/germany-medicinal-marijuana/",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: private_cultivation | source: Germany / Deutschland | type: summary | priority: 1 | scope: cultivation",
+        "rule: social_club_distribution | source: Germany / Deutschland | type: summary | priority: 1 | scope: cultivation",
+        "rule: legal | source: Germany / Deutschland | type: summary | priority: 1 | scope: cultivation",
+        "rule: legal | source: Cannabis in Germany | type: traversal | priority: 3 | scope: use",
+        "rule: private_cultivation | source: Cannabis in Germany | type: traversal | priority: 3 | scope: cultivation",
+        "rule: social_club_distribution | source: Cannabis in Germany | type: traversal | priority: 3 | scope: sale",
+        "rule: legal | source: Cannabis in Germany | type: traversal | priority: 3 | scope: sale",
+        "rule: medical_legal | source: Cannabis in Germany | type: traversal | priority: 3 | scope: general"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "legal"
+      "private_cultivation",
+      "social_club_distribution",
+      "legal",
+      "medical_legal"
     ],
-    "notes_normalized": "Cannabis is legal in Germany / Deutschland. Medical cannabis is legal. Distribution is restricted."
+    "notes_normalized": "Cannabis is legal in Germany / Deutschland. Medical cannabis is legal. Distribution is regulated."
   },
-  "notes_normalized": "Cannabis is legal in Germany / Deutschland. Medical cannabis is legal. Distribution is restricted.",
+  "notes_normalized": "Cannabis is legal in Germany / Deutschland. Medical cannabis is legal. Distribution is regulated.",
   "notes_raw": "{{main|Cannabis in Germany}} On 23 February 2024, the German Bundestag passed the Act on the Controlled Use of Cannabis, legalizing possession of {{cvt|25|g|frac=8}} outside the home, {{cvt|50|g|frac=8}} at home, and private cultivation of three plants, for adults 18 and over, since 1 April 2024. Collective, noncommercial cultivation is legal in cultivation associations (i.e. [[cannabis social club]]s) since 1 July 2024.<ref>{{cite news |last1=McGuinness|first1=Damien |title=Germany legalises cannabis, but makes it hard to buy|url=https://www.bbc.com/news/world-europe-68378807 |access-date=23 February 2024 |publisher=[[BBC]] |date=23 February 2024 |archive-date=23 February 2024 |archive-url=https://web.archive.org/web/20240223120314/https://www.bbc.com/news/world-europe-68378807|url-status=live }}</ref><ref>{{cite news |last1=Moulson |first1=Geir |title=Germany's parliament votes to legalize limited marijuana possession and allow 'cannabis clubs' |url=https://apnews.com/article/germany-cannabis-parliament-liberalization-possession-sale-e185bbdb2df1dd43e33e829f7a23051a |access-date=23 February 2024 |work=Associated Press |date=23 February 2024}}</ref><ref>{{cite news |last1=Schmidt |first1=Nadine |title=Germany legalizes recreational cannabis use |url=https://www.cnn.com/2024/02/23/europe/germany-cannabis-legal-parliament-intl/index.html |access-date=23 February 2024 |work=CNN |date=23 February 2024}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -133,9 +206,9 @@
   },
   "hashes": {
     "code": "deu",
-    "content_hash": "58721cdcf5f16b0360902ce59e314b5559aa7a0cd569c9cab95e075a4a5f7e88",
-    "notes_hash": "0b023165ac48219c080c29de3fef84f71b5e70e0010e065e2ec798442f32394f",
-    "model_hash": "899f1a1509f083a5fbcebefee3369131e941925767e79db8ccfe13f167fe50da"
+    "content_hash": "bd8db530a6d97d03cb593786b7ded57a331206f0bbbb5d837734ce997a52ef91",
+    "notes_hash": "77add1383c8aede8d19218efe5388b8628f0e1a8d48fc534e9e576dec89d7004",
+    "model_hash": "8bc8e309acb5ee39fde60e3ec91a1cc04055a63dccc13d0534213a2313214f66"
   },
   "geo_code": "DE",
   "node_type": "country",

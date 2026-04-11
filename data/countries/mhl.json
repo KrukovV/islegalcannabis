@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,40 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in the Marshall Islands",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Marshall_Islands",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Narcotic Drugs (Prohibition and Control) Act 1987 - 7 MIRC Ch.9",
+          "url": "https://rmiparliament.org/cms/images/LEGISLATION/PRINCIPAL/1987/1987-0011/NarcoticDrugsProhibitionandControlAct1987_1.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Marshall Islands / M̧ajeļ",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -112,16 +147,6 @@
         "name": "United States Minor Outlying Islands"
       },
       {
-        "code": "slb",
-        "name": "Solomon Islands"
-      },
-      {
-        "code": "tuv",
-        "name": "Tuvalu"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "mnp",
         "name": "Northern Mariana Islands / Na Islas Mariånas"
       },
@@ -130,14 +155,24 @@
         "name": "Guam / Guåhån"
       }
     ],
+    "cluster_links": [
+      {
+        "code": "slb",
+        "name": "Solomon Islands"
+      },
+      {
+        "code": "tuv",
+        "name": "Tuvalu"
+      }
+    ],
     "same_country_states": [],
     "federal_parent": null
   },
   "hashes": {
     "code": "mhl",
-    "content_hash": "994436a6a316002ec65582aa99e5de782f035c39f1422b07b9aba5b7a9057cdb",
+    "content_hash": "d22a384514d0c7ba7a2c838e45d9a3f83edf2f870ab1d50e2f03033eeb22dc10",
     "notes_hash": "c812d6590cbc324d64eac48c79021b83aa357c7e4cf50567439620298aa02a34",
-    "model_hash": "e09be391834483b915d83bd12ace252f9c9754ae15fb9732bb3273e71117b30d"
+    "model_hash": "ad50d67e0d227c41a38da1a01dbe95b8bd06fa942a43cd52c325c02381b15e3b"
   },
   "geo_code": "MH",
   "node_type": "country",

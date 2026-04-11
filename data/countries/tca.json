@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,28 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "low",
+      "sources": [
+        {
+          "title": "Turks and Caicos Islands",
+          "url": null,
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -128,9 +151,9 @@
   },
   "hashes": {
     "code": "tca",
-    "content_hash": "3bff0d0435123f21afd4a5529b4ce2e100c72475faeb93a4fbbdbd96272b8ede",
+    "content_hash": "c9b1af89e0402ccbe06a4aac795b9caa8e427a614f18cf5a2c789a933bc6dd38",
     "notes_hash": "21d30bf9bbfbf8ee38a4b643af11e60ced67b55d63d82ebea5729aa81f5ba673",
-    "model_hash": "5456d495b408f407b7f47085e5912ecb6995f562d31e3cd3a0a35ef5e617607d"
+    "model_hash": "cdbdf36ce7db2a64a3d3278f935d253d0369c146cd64e16f43b3592f183667eb"
   },
   "geo_code": "TC",
   "node_type": "country",

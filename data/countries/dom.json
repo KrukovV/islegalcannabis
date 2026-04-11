@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,40 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in the Dominican Republic",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Dominican_Republic",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Decree No. 288-96, establishing the Regulation of Law 50-88 on Drugs and Controlled Substances of the Dominican Republic",
+          "url": "https://www.oas.org/juridico/mla/en/dom/en_dom_50_88.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Dominican Republic / República Dominicana",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +170,9 @@
   },
   "hashes": {
     "code": "dom",
-    "content_hash": "08d7971093de958d25250917ecd1ef1b7bc181a24153d268634105e8e43fe050",
+    "content_hash": "21be2d8f50f2aebf2585250d4a5c53d5031db6d92dc31840e30dbadf3e849275",
     "notes_hash": "74c7175f14542926666e9137f4c36f6ab2aafe7cb9020aee87a854726bf0ac6e",
-    "model_hash": "4d5b2d466656b8b66af1e382f155d1b3f2ad809bd07e51b002b1403df1eecfac"
+    "model_hash": "b7807babd03ab5b6485bb6364c37dafcaa0b10d2bafa0967c7cf255e9c4ede2c"
   },
   "geo_code": "DO",
   "node_type": "country",

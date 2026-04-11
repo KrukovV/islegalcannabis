@@ -20,24 +20,78 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
+      "flags": [],
+      "modifiers": [
+        "up_to"
+      ]
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": true,
+        "prison_priority": 1,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 4
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in Ethiopia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ethiopia",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Ethiopia",
+          "url": "https://www.iol.co.za/news/world/us-warns-american-rastas-about-ethiopian-laws-1.232633",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis and Culture",
+          "url": "https://books.google.com/books?id=gCRNRGOhNA4C&pg=PA77",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Visions of Zion: Ethiopians and Rastafari in the Search for the Promised Land",
+          "url": "https://books.google.com/books?id=_YMVCgAAQBAJ&pg=PA90",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "International Narcotics Control Strategy Report",
+          "url": "https://books.google.com/books?id=bNIWAAAAYAAJ",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Ethiopia / ኢትዮጵያ",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
       ],
-      "modifiers": []
+      "explain": [
+        "rule: penalty_prison | source: Ethiopia / ኢትዮጵያ | type: summary | priority: 1 | scope: possession",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "penalty_prison"
     ],
-    "notes_normalized": "Cannabis is illegal in Ethiopia / ኢትዮጵያ. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is illegal in Ethiopia / ኢትዮጵያ. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Ethiopia / ኢትዮጵያ. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Ethiopia / ኢትዮጵያ. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Ethiopia}} Despite being the spiritual homeland of the [[Rastafari movement]], possession of cannabis can result in up to six months imprisonment.<ref>{{citation |url = http://www.iol.co.za/news/world/us-warns-american-rastas-about-ethiopian-laws-1.232633 |title = US warns American Rastas about Ethiopian laws |publisher = iol.co.za |date = 29 January 2005 |access-date = 8 October 2011 |archive-date = 20 January 2016 |archive-url = https://web.archive.org/web/20160120125239/http://www.iol.co.za/news/world/us-warns-american-rastas-about-ethiopian-laws-1.232633 |url-status = live }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -135,9 +189,9 @@
   },
   "hashes": {
     "code": "eth",
-    "content_hash": "a3c3519fb3e8db79e4087e791719a6ea6620669fa31da93964589466be059a42",
-    "notes_hash": "92ce0406ace804eb812270ca10eeb31954be5d1b411609010b7d943a0e48379f",
-    "model_hash": "546c05875c604d7b30088ca736fd3f90f39f53708fef5708d6bece9d95389314"
+    "content_hash": "157dd42c7c2f2831546151241c877c2c162b17cd48db0ac7e71a70a968b377f2",
+    "notes_hash": "7b7cbc1fa2c94de75c60a79ade3af8b0e09942faac2cbb23be66c01e5dfc9157",
+    "model_hash": "69832a54066ab9962943c7ffdff5ef61ef58d205dd6332ff53d42364182ca85d"
   },
   "geo_code": "ET",
   "node_type": "country",

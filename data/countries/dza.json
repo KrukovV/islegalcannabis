@@ -5,39 +5,98 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE"
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
-      "override_reason": null
+      "status": "LIMITED",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": "rec_implies_med_floor"
     },
     "distribution": {
-      "status": "illegal",
+      "status": "restricted",
       "scopes": {
-        "possession": null,
+        "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
+    },
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Algeria",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Algeria",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Loi No. 04-18 du 13 Dhou El Kaada 1425, Correspondant au 25 Décembre 2004, Relative à la Prévention et à la Répression de l'Usage et du Trafic Illicites de Stupéfiants et de Substances Psychotropes",
+          "url": "https://www.unodc.org/res/cld/document/dza/loi-04-18_html/algeria-loi04-18.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Amnésique, la presse algérienne s'attaque au Maroc au sujet du cannabis",
+          "url": "https://fr.hespress.com/192136-amnesique-la-presse-algerienne-sattaque-au-maroc-au-sujet-du-cannabis.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Algeria",
+          "url": "https://web.archive.org/web/20200205160500/https://www.unodc.org/res/cld/document/dza/loi-04-18_html/algeria-loi04-18.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis Physiopathology Epidemiology Detection",
+          "url": "https://books.google.com/books?id=6doGy7klT88C&pg=PA208",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Consuming Pleasures: Australia and the International Drug Business",
+          "url": "https://books.google.com/books?id=S3FQCgAAQBAJ&pg=PT134",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Intoxicating Minds: How Drugs Work",
+          "url": "https://books.google.com/books?id=Wz9bGD0GToUC&pg=PT134",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: legal | source: Is cannabis legal in Algeria? | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "legal",
+      "rec_implies_med_floor"
     ],
-    "notes_normalized": "Cannabis is illegal in Algeria / الجزائر. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is legal in Algeria / الجزائر. Medical cannabis is limited. Distribution is restricted."
   },
-  "notes_normalized": "Cannabis is illegal in Algeria / الجزائر. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is legal in Algeria / الجزائر. Medical cannabis is limited. Distribution is restricted.",
   "notes_raw": "{{main|Cannabis in Algeria}}",
   "facts": {
     "possession_limit": null,
@@ -108,26 +167,26 @@
     ],
     "legal_similarity": [
       {
+        "code": "mlt",
+        "name": "Malta"
+      },
+      {
+        "code": "esp",
+        "name": "Spain / España"
+      },
+      {
+        "code": "prt",
+        "name": "Portugal"
+      }
+    ],
+    "cluster_links": [
+      {
         "code": "ner",
         "name": "Niger"
       },
       {
         "code": "mli",
         "name": "Mali"
-      },
-      {
-        "code": "lby",
-        "name": "Libya / ليبيا"
-      }
-    ],
-    "cluster_links": [
-      {
-        "code": "bfa",
-        "name": "Burkina Faso"
-      },
-      {
-        "code": "esh",
-        "name": "Western Sahara / الصحراء الغربية"
       }
     ],
     "same_country_states": [],
@@ -135,9 +194,9 @@
   },
   "hashes": {
     "code": "dza",
-    "content_hash": "b648f1aec0ff562c55db6e25ee87a022c9f72a665afb18b01a70485973e6b522",
-    "notes_hash": "5ffcddfa424b8f9da42f8d40f65562db962357906b5da65c49024a22d4b8edc2",
-    "model_hash": "4f88f36e671e8ef66ac37be8119a689d70c926cd97833bcc31f062bec7b7e67f"
+    "content_hash": "dc86847abed645d38212fae2a75e0cd9e71a2ab0ca0fd6ca7df61b6e506b2015",
+    "notes_hash": "c848513ad7123ac3d26ca2ca0e10416e5b51cf543c8793862466a695007cb3b3",
+    "model_hash": "5fc9046ae7d47fb28db5673befa8020e8f9ffcb88b7cf203dc35046b28ac8258"
   },
   "geo_code": "DZ",
   "node_type": "country",

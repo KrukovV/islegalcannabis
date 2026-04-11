@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -27,15 +28,54 @@
       },
       "enforcement": "standard",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "but"
+      ]
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": true,
+        "prison_priority": 1,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 4
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Namibia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Namibia",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Namibia",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Namibia / Namibië",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: illegal | source: Namibia / Namibië | type: summary | priority: 1 | scope: general",
+        "rule: penalty_prison | source: Namibia / Namibië | type: summary | priority: 1 | scope: possession",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "illegal"
+      "illegal",
+      "penalty_prison"
     ],
-    "notes_normalized": "Cannabis is illegal in Namibia / Namibië. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is illegal in Namibia / Namibië. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Namibia / Namibië. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Namibia / Namibië. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Namibia}} Cannabis is illegal; in 2007 the government proposed but declined a 20-year jail sentence for any drug possession.",
   "facts": {
     "possession_limit": null,
@@ -106,26 +146,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "zwe",
-        "name": "Zimbabwe"
-      },
-      {
         "code": "zmb",
         "name": "Zambia"
       },
       {
         "code": "swz",
         "name": "Eswatini"
-      }
-    ],
-    "cluster_links": [
-      {
-        "code": "lso",
-        "name": "Lesotho"
       },
       {
         "code": "moz",
         "name": "Mozambique / Moçambique"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "zwe",
+        "name": "Zimbabwe"
+      },
+      {
+        "code": "lso",
+        "name": "Lesotho"
       }
     ],
     "same_country_states": [],
@@ -133,9 +173,9 @@
   },
   "hashes": {
     "code": "nam",
-    "content_hash": "b2794f71352a5d1fee4b9d06fdd6cb90152e43c8acd0c0d950ab15f663e8f1c2",
-    "notes_hash": "8b308a9d3bd802e1d86d26820ca5a96c4d5c424fb469d60ebd0ac7be6760ac62",
-    "model_hash": "e72e46c332b026ed4e18331954920161315116b18dc17785dcee075064706e44"
+    "content_hash": "fd8d7ccb4c76379ca0e6e33666fdbba49a674a2c83ea29cc57be5a85514e9dfd",
+    "notes_hash": "886ed2402139ba1efab77f0abb0160306b3b26f7e23850615df0160d927b8717",
+    "model_hash": "9bb32ae0ebf74ee81aa1285dd88314632e551b48cc4b4d45d3d7e7c255e02cc5"
   },
   "geo_code": "NA",
   "node_type": "country",

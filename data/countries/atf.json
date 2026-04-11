@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,28 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "low",
+      "sources": [
+        {
+          "title": "French Southern and Antarctic Lands / Terres australes et antarctiques françaises",
+          "url": null,
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -128,9 +151,9 @@
   },
   "hashes": {
     "code": "atf",
-    "content_hash": "0e6aa87a330221e77218b1a25739897720ef48213a41b880223a0029db346f32",
+    "content_hash": "e7a6519964b53e33aada006f66afb1f0365350b226e7cd99ac0900c7cae9f292",
     "notes_hash": "e6f7d5cb539abecac8bdf037b08b109cc9f58276d073765090bb1c984b641cdf",
-    "model_hash": "c0074cbfba4479a9aabde6d36fc940f7dfa2417ad6b2cd2dbd5646014484ff3f"
+    "model_hash": "09b620a0560b1ec69490bd83fa3bad8828ad3d7be6b3ae24b48d6b77058d79e2"
   },
   "geo_code": "TF",
   "node_type": "country",

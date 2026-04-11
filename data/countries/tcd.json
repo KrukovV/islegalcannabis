@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,46 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Chad",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Chad",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "5000 Francs CFA, Chad",
+          "url": "https://en.numista.com/catalogue/pieces391028.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Tchad et culture",
+          "url": "https://books.google.com/books?id=1XAwAQAAIAAJ",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Chad / تشاد",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +176,9 @@
   },
   "hashes": {
     "code": "tcd",
-    "content_hash": "14e8df5052af7f4802132d1f6a8fe97e2ac111aa42c1b36d828ecb55e5056bb2",
+    "content_hash": "29763a69faaa3f0a13f313b634a0f2293360854c702e1214d26ff2c7366a9456",
     "notes_hash": "79f0a3f0a60abb4624e47ded14c38c5c58bacb00b8d87dead3fd2de56d97f2c3",
-    "model_hash": "cc8d762d4249ea72788da06fcf8375f68e85da7880715462d9903dd5723077ff"
+    "model_hash": "6865258bc4aa05806ac9c6d23d4d7985c914cbed0133c979c3aa67220d4c138a"
   },
   "geo_code": "TD",
   "node_type": "country",

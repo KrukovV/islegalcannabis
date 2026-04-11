@@ -5,39 +5,98 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE"
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
-      "override_reason": null
+      "status": "LIMITED",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": "rec_implies_med_floor"
     },
     "distribution": {
-      "status": "illegal",
+      "status": "restricted",
       "scopes": {
-        "possession": null,
+        "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
+    },
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Tajikistan",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Tajikistan",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "EMCDDA {{!",
+          "url": "https://www.emcdda.europa.eu/publications/country-overviews/tj",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Illicit Drug Trends in Central Asia",
+          "url": "https://www.unodc.org/documents/regional/central-asia/Illicit%20Drug%20Trends_Central%20Asia-final.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Tajikistan",
+          "url": "https://www.unodc.org/unodc/en/data-and-analysis/WDR-2006.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Tajikistan",
+          "url": "https://www.unodc.org/pdf/WDR_2006/wdr2006_chap6_consumption.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Legal status of cannabis in Tajikistan - Cannaconnection.com",
+          "url": "https://www.cannaconnection.com/blog/14702-legal-status-tajikistan",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Tajikistan – Laws, Drug Trade and More Info - Sensi Seeds",
+          "url": "https://sensiseeds.com/en/blog/countries/cannabis-in-tajikistan-laws-use-history/",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: legal | source: Legal status of cannabis in Tajikistan - Cannaconnection.com | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "legal",
+      "rec_implies_med_floor"
     ],
-    "notes_normalized": "Cannabis is illegal in Tajikistan / Таджикистан. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is legal in Tajikistan / Таджикистан. Medical cannabis is limited. Distribution is restricted."
   },
-  "notes_normalized": "Cannabis is illegal in Tajikistan / Таджикистан. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is legal in Tajikistan / Таджикистан. Medical cannabis is limited. Distribution is restricted.",
   "notes_raw": "{{main|Cannabis in Tajikistan}}",
   "facts": {
     "possession_limit": null,
@@ -112,6 +171,16 @@
         "name": "Pakistan / پاكستان"
       },
       {
+        "code": "npl",
+        "name": "Nepal / नेपाल"
+      },
+      {
+        "code": "are",
+        "name": "United Arab Emirates / الإمارات"
+      }
+    ],
+    "cluster_links": [
+      {
         "code": "kaz",
         "name": "Kazakhstan / Қазақстан"
       },
@@ -120,24 +189,14 @@
         "name": "Turkmenistan / Туркмения"
       }
     ],
-    "cluster_links": [
-      {
-        "code": "npl",
-        "name": "Nepal / नेपाल"
-      },
-      {
-        "code": "irn",
-        "name": "Iran / ایران"
-      }
-    ],
     "same_country_states": [],
     "federal_parent": null
   },
   "hashes": {
     "code": "tjk",
-    "content_hash": "8ecdf30f768441299bbdaa45a7e94b63b9a8d2c8970d4115026ac4bf82333279",
-    "notes_hash": "7a941df10c1dcfe52481b3d721eff0837547ad8bb24dda1bc87fdeb6539d40be",
-    "model_hash": "885faeca1175ae3a9ef494164895027b85afc8bcbf683bcbe1c9386bd8c289c9"
+    "content_hash": "e109ad35716891b4da2c9c374e1ad42dbebda4fba351d197f9c3d1fc0a5d3d9b",
+    "notes_hash": "467747ea5a24e6859a4f61476dd0f960343161597b028c377f37936a9796ca19",
+    "model_hash": "1b615ede3de976e40ef668b13f62e76b79e36dad9a1f73343b1ff14f1dea3bfa"
   },
   "geo_code": "TJ",
   "node_type": "country",

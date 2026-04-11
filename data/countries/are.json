@@ -5,39 +5,101 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE"
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
-      "override_reason": null
+      "status": "LIMITED",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": "rec_implies_med_floor"
     },
     "distribution": {
-      "status": "illegal",
+      "status": "restricted",
       "scopes": {
-        "possession": null,
+        "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": true,
+        "prison_priority": 2,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 4
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in the United Arab Emirates",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_United_Arab_Emirates",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "UAE's new drug laws cut sentences and end mandatory deportation for expats",
+          "url": "https://www.thenationalnews.com/uae/courts/2021/11/28/uaes-new-drug-laws-cut-sentences-and-end-mandatory-deportation-for-expats/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "UAE eases drug laws: No more jail for those bringing in THC",
+          "url": "https://apnews.com/article/health-middle-east-dubai-united-arab-emirates-medication-080fb48e5b6b97ac364e720b1459710d",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "UAE legal reforms: what the new law says about products containing cannabis extracts",
+          "url": "https://www.thenationalnews.com/uae/2021/12/29/uae-legal-reforms-what-the-new-law-says-about-products-containing-cannabis-extracts/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "New UAE law cracks down on those promoting images of drugs on clothes, cars",
+          "url": "https://gulfnews.com/uae/new-uae-law-cracks-down-on-those-promoting-images-of-drugs-on-clothes-cars-1.88282636",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in the United Arab Emirates",
+          "url": "https://web.archive.org/web/20250106142729/https://apnews.com/article/health-middle-east-dubai-united-arab-emirates-medication-080fb48e5b6b97ac364e720b1459710d",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in the United Arab Emirates",
+          "url": "https://web.archive.org/web/20240908110722/https://www.thenationalnews.com/uae/2021/12/29/uae-legal-reforms-what-the-new-law-says-about-products-containing-cannabis-extracts/",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: penalty_prison | source: United Arab Emirates / الإمارات | type: summary | priority: 1 | scope: general",
+        "rule: penalty_prison | source: UAE eases drug laws: No more jail for those bringing in THC | type: reference | priority: 2 | scope: general",
+        "rule: legal | source: UAE legal reforms: what the new law says about products containing cannabis extracts | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "penalty_prison",
+      "legal",
+      "rec_implies_med_floor"
     ],
-    "notes_normalized": "Cannabis is illegal in United Arab Emirates / الإمارات. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is legal in United Arab Emirates / الإمارات. Medical cannabis is limited. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in United Arab Emirates / الإمارات. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is legal in United Arab Emirates / الإمارات. Medical cannabis is limited. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in the United Arab Emirates}} In 2008, even the smallest amounts of the drug could lead to a mandatory 4-year prison sentence.<ref>{{cite news |url = https://news.bbc.co.uk/1/hi/uk/7234786.stm |title = Tourists warned of UAE drug laws |publisher = [[BBC News]] |date = 8 February 2008 |access-date = 17 February 2011 |archive-url=https://web.archive.org/web/20170420193949/http://news.bbc.co.uk/2/hi/uk_news/7234786.stm |archive-date=20 April 2017 |url-status=live}}</ref>{{Update inline|date=October 2023|reason=Laws changed in 2016 and again in 2022.}}",
   "facts": {
     "possession_limit": null,
@@ -108,26 +170,26 @@
     ],
     "legal_similarity": [
       {
+        "code": "dji",
+        "name": "Djibouti / جيبوتي"
+      },
+      {
+        "code": "pak",
+        "name": "Pakistan / پاكستان"
+      },
+      {
+        "code": "eri",
+        "name": "Eritrea / إريتريا"
+      }
+    ],
+    "cluster_links": [
+      {
         "code": "irn",
         "name": "Iran / ایران"
       },
       {
         "code": "sau",
         "name": "Saudi Arabia / السعودية"
-      },
-      {
-        "code": "kwt",
-        "name": "Kuwait / الكويت"
-      }
-    ],
-    "cluster_links": [
-      {
-        "code": "yem",
-        "name": "Yemen / اليمن"
-      },
-      {
-        "code": "irq",
-        "name": "Iraq / العراق"
       }
     ],
     "same_country_states": [],
@@ -135,9 +197,9 @@
   },
   "hashes": {
     "code": "are",
-    "content_hash": "eb0d0ec051f410582df654aed2b10174df549d1d51a8c401129e07062b5ca6d8",
-    "notes_hash": "1afffc95860c2b08e1905f3d2a153a9d5ab7d73c21d302cec083e641dc53fc73",
-    "model_hash": "0368b4b9ad3bee907fb04b8e480dbf25ed88a5ff71b08d2419eff9e3acee8a83"
+    "content_hash": "299158ffdcb3749ee885a51bbeef50fc97a2e874f2d5687b3484cdd584aec74b",
+    "notes_hash": "1a290397cdb2db52e6f1e7bdef823992015bfa0c9e152a7a42412e784a2f4306",
+    "model_hash": "ddec9ca7bf42fc8764d5c99b13960d927f6e14179bbf82895115d0b2708fcd74"
   },
   "geo_code": "AE",
   "node_type": "country",

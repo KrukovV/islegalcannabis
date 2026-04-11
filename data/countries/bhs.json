@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,40 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in the Bahamas",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Bahamas",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Bahamas",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Bahamas",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +170,9 @@
   },
   "hashes": {
     "code": "bhs",
-    "content_hash": "3c3ef21ae5932ea6ca5b7502fb35593b6567562f27bcdf36320009a4bd3c4c8f",
+    "content_hash": "9b6eb17133a1da5e45e86eca43a18de27a310597a1de1cc532e9c6e37c784af1",
     "notes_hash": "49eee72ab4c5bb6b4c037790c6b1b4dbf20a0f225b50a6172fa92807fa36571a",
-    "model_hash": "2f2f03bc509a5f58c1e01db0e672241966cee2403cd246019a924bee984b7c59"
+    "model_hash": "698ca65a2201ab593e4349b238e6b5520086fa4ee5d3f4b0126c0118c7e5486a"
   },
   "geo_code": "BS",
   "node_type": "country",

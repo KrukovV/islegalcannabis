@@ -5,9 +5,9 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "LEGAL",
@@ -17,9 +17,10 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
+        "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -27,17 +28,82 @@
       },
       "enforcement": "standard",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "however"
+      ]
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Lebanon",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Lebanon",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Hashish!",
+          "url": "https://books.google.com/books?id=hblBKeAE9rgC",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Lebanon becomes first Arab country to legalise cannabis for medical use",
+          "url": "https://www.thenationalnews.com/world/mena/lebanon-becomes-first-arab-country-to-legalise-cannabis-for-medical-use-1.1009334",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Lebanon passes legislation legalizing medical marijuana cultivation",
+          "url": "https://www.newsweek.com/lebanon-passes-legislation-legalizing-medical-marijuana-cultivation-economy-struggles-amid-1499319",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Lebanon preparing to legalize growing cannabis, says House speaker",
+          "url": "https://www.cnn.com/2018/07/18/health/lebanon-medicinal-cannabis-intl/index.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Lebanon",
+          "url": "https://www.lbcgroup.tv/news/lebanon-news/867538/lebanon-sees-high-economic-hopes-in-regulated-cannabis-sector/en",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Rapport sur la situation de la Syrie et du Liban",
+          "url": "https://books.google.com/books?id=ks_mAAAAMAAJ",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: illegal | source: Lebanon / لبنان | type: summary | priority: 1 | scope: general",
+        "rule: illegal | source: Lebanon / لبنان | type: summary | priority: 1 | scope: cultivation",
+        "rule: medical_legal | source: Lebanon / لبنان | type: summary | priority: 1 | scope: cultivation",
+        "rule: legal | source: Lebanon to consider legalising medicinal cannabis | type: reference | priority: 2 | scope: general",
+        "rule: legal | source: Lebanese cannabis farmers fight against legalisation of the drug | type: reference | priority: 2 | scope: general",
+        "rule: legal | source: Lebanon legalizes cannabis farming for medicinal use | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "medical_legal",
       "illegal",
-      "legal"
+      "medical_legal"
     ],
-    "notes_normalized": "Cannabis is legal in Lebanon / لبنان. Medical cannabis is legal. Distribution is restricted."
+    "notes_normalized": "Cannabis is illegal in Lebanon / لبنان. Medical cannabis is legal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is legal in Lebanon / لبنان. Medical cannabis is legal. Distribution is restricted.",
+  "notes_normalized": "Cannabis is illegal in Lebanon / لبنان. Medical cannabis is legal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Lebanon}} Hashish banned in 1926;<ref name=\"Clarke1998\">{{cite book|author=Robert Connell Clarke|title=Hashish!|url=https://books.google.com/books?id=hblBKeAE9rgC|year=1998|publisher=Red Eye Press|isbn=978-0-929349-05-3}}</ref> cultivation banned in 1992.<ref>{{cite book|title=Réalités|url=https://books.google.com/books?id=yPU7AQAAIAAJ|date=May 1996|publisher=Spectacle du monde|page=354|quote=Les Américains ne lâchant pas prise, le gouvernement libanais interdisait officiellement la culture du pavot et du cannabis en 1992.}}</ref> Large amounts of cannabis are still grown within the country illicitly, however.<ref>{{citation |url = https://www.csmonitor.com/2007/1016/p06s02-wome.html |title = In Lebanon, a comeback for cannabis |work = [[The Christian Science Monitor]] |date = 16 October 2007 |access-date = 17 February 2011 |archive-date = 20 April 2019 |archive-url = https://web.archive.org/web/20190420011630/https://www.csmonitor.com/2007/1016/p06s02-wome.html |url-status = live }}</ref> Cultivation of cannabis for medical use was legalized in April 2020.<ref>{{cite news |url = https://www.nytimes.com/reuters/2020/04/21/world/middleeast/21reuters-lebanon-crisis-cannabis.html | title = Lebanon Legalizes Cannabis Farming for Medicinal Use | work = [[The New York Times]] | agency = [[Reuters]] | date = 21 April 2020 | archive-url = https://web.archive.org/web/20200423112646/https://www.nytimes.com/reuters/2020/04/21/world/middleeast/21reuters-lebanon-crisis-cannabis.html | archive-date = 23 April 2020 | url-status=dead }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -108,26 +174,26 @@
     ],
     "legal_similarity": [
       {
+        "code": "jor",
+        "name": "Jordan / الأردن"
+      },
+      {
         "code": "cyp",
         "name": "Cyprus / Κύπρος"
       },
       {
         "code": "tur",
         "name": "Türkiye"
-      },
-      {
-        "code": "geo",
-        "name": "Georgia / საქართველო"
       }
     ],
     "cluster_links": [
       {
-        "code": "jor",
-        "name": "Jordan / الأردن"
-      },
-      {
         "code": "irq",
         "name": "Iraq / العراق"
+      },
+      {
+        "code": "kwt",
+        "name": "Kuwait / الكويت"
       }
     ],
     "same_country_states": [],
@@ -135,9 +201,9 @@
   },
   "hashes": {
     "code": "lbn",
-    "content_hash": "d37d19e11567fe6bfc21663b9a45f701015ea8b4b176a3980ae06ffb142d55b2",
-    "notes_hash": "427f98a59ec1a3e5e2fc74f9cab8dbac77e7ef34700d294bfc940ef62ea6e91a",
-    "model_hash": "cdd348497e55897de68ac60c9983637d9b94e5af5ceafe79bc0f779f2f6da518"
+    "content_hash": "23115b54906e0e61a3ee2e1edd61de80b42e191d1e4b07dc33c0e1b87d6898dd",
+    "notes_hash": "465283faecce66a0a50a02b7ca506300b1a7f1b72e6583fac58a67a1d684327a",
+    "model_hash": "3fe267a02a5e6d328306c56792cd7328826c2490ce9f14c37ef634ad58d75a46"
   },
   "geo_code": "LB",
   "node_type": "country",

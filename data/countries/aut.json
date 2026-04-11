@@ -20,6 +20,7 @@
       "status": "restricted",
       "scopes": {
         "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -28,6 +29,52 @@
       "enforcement": "standard",
       "flags": [],
       "modifiers": []
+    },
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Austria",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Austria",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Änderung des Suchtmittelgesetzes – SMG",
+          "url": "https://www.ris.bka.gv.at/Dokumente/BgblAuth/BGBLA_2008_I_143/BGBLA_2008_I_143.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "AFP: Austria allows cannabis for medical purposes",
+          "url": "https://afp.google.com/article/ALeqM5gMXaMnzKEu6FxfDVlCHd4xMcmEbg",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Austria",
+          "url": "https://web.archive.org/web/20080905104155/http://afp.google.com/article/ALeqM5gMXaMnzKEu6FxfDVlCHd4xMcmEbg",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Austria / Österreich",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -133,9 +180,9 @@
   },
   "hashes": {
     "code": "aut",
-    "content_hash": "9f421c4bd59cdd3f00cde91a5bb4da96c0063d62f212b30037e12241230b5bbd",
+    "content_hash": "6c5ba5c2265550b67318ffd84c9db7494266adceb33448d4f358c0a1fcac8c6a",
     "notes_hash": "fd36e64dc2e330f1c986416fc0a5c5e9efeaac1c1cc25aa486628f1fb561f909",
-    "model_hash": "deea02c03c80968277ebea1a13aabf5ee1bd2615fa37f185f34dfca69ca84ee5"
+    "model_hash": "f692ad053310b5f7acf85fa2fc8e9d2e00fc5f886aa2c3dff9fdd873c539b1b2"
   },
   "geo_code": "AT",
   "node_type": "country",

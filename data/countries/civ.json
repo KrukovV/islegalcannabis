@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,58 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Ivory Coast",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ivory_Coast",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "International Narcotics Control Strategy Report, 1995",
+          "url": "https://books.google.com/books?id=w0DlWjK3YCEC&pg=PA415",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "The International Drugs Trade",
+          "url": "https://books.google.com/books?id=WHH1ON4EEXsC&pg=PA191",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Africa and the War on Drugs",
+          "url": "https://archive.org/details/africawarondrugs0000carr",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Ivory Coast",
+          "url": "https://archive.org/details/africawarondrugs0000carr/page/41",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Ivory Coast / Côte d'Ivoire",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +188,9 @@
   },
   "hashes": {
     "code": "civ",
-    "content_hash": "0fcf717ea16cffe02c163a49801eab91e852f61af4a8993486bbf6d96c978a83",
+    "content_hash": "2827e6098b8a9921fa77e08942683112570f74e881760de303abbd058e2d69cd",
     "notes_hash": "36955f4668114cf439ce83a064424602223938e8becab7061efb3e9afaa7d3f8",
-    "model_hash": "04c86bc72fdaab11092a8a1df853204ef033f4f4bfdcf059b8504ed6029ec6cf"
+    "model_hash": "273bc60bf3c36378e36fef4881091d6da17bc56b148a2cb28d30bba8b80d3edb"
   },
   "geo_code": "CI",
   "node_type": "country",

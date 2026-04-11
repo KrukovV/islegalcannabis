@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,28 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "low",
+      "sources": [
+        {
+          "title": "Heard Island and McDonald Islands",
+          "url": null,
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -128,9 +151,9 @@
   },
   "hashes": {
     "code": "hmd",
-    "content_hash": "b88065a2c687082eebabe2f5be82e2efa24bde1c6057b417446cc74c466a472f",
+    "content_hash": "d05884d31eca3678820f014f7ac96c8e072e449efebf8dbea66f7d77ab8119a0",
     "notes_hash": "9f69830c05e0c67933239bda863a215079e94c6f4a807d1944b61d003493e7cf",
-    "model_hash": "e919cc203be1865f725325bfa4a1fcedb99998dd0a6eb3880876328fe0ebaa45"
+    "model_hash": "97682ae65dc57c34d1da1ffed0ec3efa085bb81723514b1cfbb5cf06642de240"
   },
   "geo_code": "HM",
   "node_type": "country",

@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,28 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "low",
+      "sources": [
+        {
+          "title": "Saint Barthélemy",
+          "url": null,
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -128,9 +151,9 @@
   },
   "hashes": {
     "code": "blm",
-    "content_hash": "aa50a3644980f1ee7899dcf6caee6a2220ee8ba302c784181da20a0725f105f4",
+    "content_hash": "7524939f39afa53843854bbcdad94834faf13beaaa9f40c98177bae0007a973b",
     "notes_hash": "8f322ee93c34cb8f223c787b4e69327321be077aada6ebf047980ecfe5dc0625",
-    "model_hash": "658c5bc3ecebbea2416a1f25168cec176101fa6a4ac9570ac2fb1d6b02d1af2e"
+    "model_hash": "070cd4f57cb5a1cf1c3a5ef98fe0d5ae33a2fe7f03a2cf7106fc2f648c39755a"
   },
   "geo_code": "BL",
   "node_type": "country",

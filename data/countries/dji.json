@@ -5,39 +5,98 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE"
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
-      "override_reason": null
+      "status": "LIMITED",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": "rec_implies_med_floor"
     },
     "distribution": {
-      "status": "illegal",
+      "status": "restricted",
       "scopes": {
-        "possession": null,
+        "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
+    },
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Djibouti",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Djibouti",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Drug Trafficking Patterns",
+          "url": "https://www.unodc.org/easternafrica/en/illicit-drugs/drug-trafficking-patterns.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Legal status of cannabis in Djibouti - Cannaconnection.com",
+          "url": "https://www.cannaconnection.com/blog/14826-legal-status-djibouti",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Djibouti – Laws, Use, and History – The Peace Dealings",
+          "url": "https://thepeacedealings.com/2020/03/13/cannabis-in-djibouti-laws-use-and-history/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Djibouti – Laws, Use, and More Info - Sensi Seeds",
+          "url": "https://sensiseeds.com/en/blog/countries/cannabis-in-djibouti-laws-use-history/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Djibouti",
+          "url": "https://web.archive.org/web/20210303075335/https://thepeacedealings.com/2020/03/13/cannabis-in-djibouti-laws-use-and-history/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Djibouti / جيبوتي",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: legal | source: Legal status of cannabis in Djibouti - Cannaconnection.com | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "legal",
+      "rec_implies_med_floor"
     ],
-    "notes_normalized": "Cannabis is illegal in Djibouti / جيبوتي. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is legal in Djibouti / جيبوتي. Medical cannabis is limited. Distribution is restricted."
   },
-  "notes_normalized": "Cannabis is illegal in Djibouti / جيبوتي. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is legal in Djibouti / جيبوتي. Medical cannabis is limited. Distribution is restricted.",
   "notes_raw": "{{main|Cannabis in Djibouti}}",
   "facts": {
     "possession_limit": null,
@@ -108,26 +167,26 @@
     ],
     "legal_similarity": [
       {
+        "code": "are",
+        "name": "United Arab Emirates / الإمارات"
+      },
+      {
+        "code": "isr",
+        "name": "Israel / إسرائيل"
+      },
+      {
+        "code": "com",
+        "name": "Comoros / جزر القمر"
+      }
+    ],
+    "cluster_links": [
+      {
         "code": "som",
         "name": "Somalia / الصومال"
       },
       {
         "code": "ken",
         "name": "Kenya"
-      },
-      {
-        "code": "sdn",
-        "name": "Sudan / السودان"
-      }
-    ],
-    "cluster_links": [
-      {
-        "code": "ssd",
-        "name": "South Sudan"
-      },
-      {
-        "code": "uga",
-        "name": "Uganda"
       }
     ],
     "same_country_states": [],
@@ -135,9 +194,9 @@
   },
   "hashes": {
     "code": "dji",
-    "content_hash": "a055319942c0050ef07ad5397c2f967c1165b7db761c8ed6eb5c06e20327768a",
-    "notes_hash": "109cdb94ce5821fee29c30ffb909ea6f24110204a760ca3ffb9176b58216a3e5",
-    "model_hash": "603da0fda1424c6ffee1dd186685a791381d9be4ed04cb302dca20a3ccdee615"
+    "content_hash": "3d2026c222a57b84abece7201b0257d0df5fa3bee9e8e0f4f3d3f8e7b4648fad",
+    "notes_hash": "c94baa6f2af021605e95a6487d7b4d667ce60cc7e123db25c2e56cefbe14d973",
+    "model_hash": "a43f4f948dac641a52d8b6e8a726bd0f372168fdbe671ef892c397c3cfd25d9a"
   },
   "geo_code": "DJ",
   "node_type": "country",

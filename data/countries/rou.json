@@ -11,7 +11,7 @@
     },
     "medical": {
       "raw_status": "UNKNOWN",
-      "status": "LEGAL",
+      "status": "LIMITED",
       "enforcement": "MODERATE",
       "scope": "MEDICAL_ONLY",
       "override_reason": null
@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -31,17 +32,60 @@
       ],
       "modifiers": []
     },
+    "signals": {
+      "status": "mixed",
+      "penalties": {
+        "prison": true,
+        "prison_priority": 1,
+        "arrest": false,
+        "fine": true,
+        "severity_score": 4
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Romania",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Romania",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Romania",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Romania / România",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: penalty_prison | source: Romania / România | type: summary | priority: 1 | scope: general",
+        "rule: penalty_fine | source: Romania / România | type: summary | priority: 1 | scope: general",
+        "rule: penalty_years | source: Romania / România | type: summary | priority: 1 | scope: general",
+        "rule: penalty_prison | source: Romania / România | type: summary | priority: 1 | scope: trafficking",
+        "rule: penalty_years | source: Romania / România | type: summary | priority: 1 | scope: trafficking",
+        "rule: trafficking_illegal | source: Romania / România | type: summary | priority: 1 | scope: trafficking",
+        "rule: medical_limited | source: Romania / România | type: summary | priority: 1 | scope: use",
+        "no traversal evidence"
+      ]
+    },
     "enforcement_flags": [
       "fine_based"
     ],
     "applied_rules": [
+      "penalty_prison",
+      "penalty_fine",
+      "penalty_years",
       "trafficking_illegal",
-      "fine_based",
-      "medical_legal"
+      "medical_limited"
     ],
-    "notes_normalized": "Cannabis is illegal in Romania / România. Medical cannabis is legal. Distribution is illegal."
+    "notes_normalized": "Cannabis is illegal in Romania / România. Medical cannabis is limited. Distribution is mixed. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Romania / România. Medical cannabis is legal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Romania / România. Medical cannabis is limited. Distribution is mixed. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Romania}} Small quantities punishable by a large fine for first offenders or 6 months to 2 years in prison if the person has been convicted before. Possession of large amounts or trafficking is punishable by 2–7 years of jail time.<ref>{{citation | url=http://www.reporterntv.ro/stire/pedepsele-pentru-traficul-si-consumul-de-droguri-s-au-redus-totusi | title=Pedepsele pentru traficul și consumul de droguri s-au redus. Totuși... | publisher=Reporter NTV | date=10 February 2015 | access-date=4 September 2017 | archive-url=https://web.archive.org/web/20170904213425/http://www.reporterntv.ro/stire/pedepsele-pentru-traficul-si-consumul-de-droguri-s-au-redus-totusi | archive-date=4 September 2017 | url-status=dead }}</ref> Decriminalization proposed.<ref>{{citation |url = http://www.antena3.ro/stiri/politica/raport-prezidential-pentru-eba-comisia-lui-basescu-propune-dezincriminarea-consumului-de-droguri_80829.html |title = Raport pentru EBA: Comisia prezidenţială susţine dezincriminarea consumului de droguri şi sexul comercial |publisher = Antena3.ro |date = 22 September 2009 |access-date = 17 February 2011 |archive-date = 18 March 2016 |archive-url = https://web.archive.org/web/20160318161358/http://www.antena3.ro/stiri/politica/raport-prezidential-pentru-eba-comisia-lui-basescu-propune-dezincriminarea-consumului-de-droguri_80829.html |url-status = live }}</ref> Limited medical use approved in 2013.<ref>{{cite news|title=Romania Legalizes Medical Marijuana, Becomes 10th EU Country To Permit Therapeutic Use|url=http://www.novinite.com/view_news.php?id=154315|access-date=14 October 2013|work=[[Novinite]]|date=6 October 2013|archive-date=21 June 2018|archive-url=https://web.archive.org/web/20180621015758/https://www.novinite.com/view_news.php?id=154315|url-status=live}}</ref><ref>{{cite web |url = http://www.gandul.info/stiri/anm-nu-avem-nicio-cerere-de-punere-pe-piata-a-canabisului-medicinal-daca-ar-fi-am-aproba-o-11448832 |title = ANM: Nu avem nicio cerere de punere pe piaţă a canabisului medicinal; dacă ar fi, am aproba-o |date = 3 October 2013 |access-date = 3 October 2013 |archive-date = 26 December 2018 |archive-url = https://web.archive.org/web/20181226021504/https://www.gandul.info/stiri/anm-nu-avem-nicio-cerere-de-punere-pe-piata-a-canabisului-medicinal-daca-ar-fi-am-aproba-o-11448832%20 |url-status = live }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -112,8 +156,8 @@
     ],
     "legal_similarity": [
       {
-        "code": "mkd",
-        "name": "North Macedonia / Македонија"
+        "code": "hun",
+        "name": "Hungary / Magyarország"
       },
       {
         "code": "svk",
@@ -126,8 +170,8 @@
     ],
     "cluster_links": [
       {
-        "code": "hun",
-        "name": "Hungary / Magyarország"
+        "code": "mkd",
+        "name": "North Macedonia / Македонија"
       },
       {
         "code": "alb",
@@ -139,9 +183,9 @@
   },
   "hashes": {
     "code": "rou",
-    "content_hash": "f2f0a1e48e36f1f5bf15dddfd2c58e65a1104b78db8535ce6db0509d5226913e",
-    "notes_hash": "d52040ce4f2cbc4e03c9ea423c090ddf6b6028bd45e7cda4e7070cccc5bd1b29",
-    "model_hash": "1913919cad2a94c35e25833740ae57629d5fefb0f4bd17056dec29b1afc28400"
+    "content_hash": "d6e91f4ea95cf0b3bd7c3b4b2ee7cb396af4856341a747307e685d63e3d94158",
+    "notes_hash": "805b6843adaeb4657eca9ed06302a40e72c55801f4c211e35668e31f0651d0ab",
+    "model_hash": "98bae9f63b99d02667ad9494e25731939380020d38de185b9fce6a1f503926e3"
   },
   "geo_code": "RO",
   "node_type": "country",

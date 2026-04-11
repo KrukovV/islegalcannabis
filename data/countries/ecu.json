@@ -20,6 +20,7 @@
       "status": "restricted",
       "scopes": {
         "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -27,11 +28,49 @@
       },
       "enforcement": "standard",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "but",
+        "up_to"
+      ]
+    },
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Ecuador",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ecuador",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ecuador",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Ecuador",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: possession_decriminalized | source: Ecuador | type: summary | priority: 1 | scope: possession",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "decriminalized"
+      "possession_decriminalized"
     ],
     "notes_normalized": "Cannabis is decriminalized in Ecuador. Medical cannabis is legal. Distribution is restricted."
   },
@@ -133,9 +172,9 @@
   },
   "hashes": {
     "code": "ecu",
-    "content_hash": "0998c97cf2a25c7b8e7a3160f5601260e08fc54422ce90e6acc19ce537a07d99",
+    "content_hash": "53e2e74639b0031dae9f5e0e97163b26d52e3dc412f8f239e8f6491f15cd4ac1",
     "notes_hash": "dff02ccae29e6caa00ddda8861b8e4542abec8231c3a7eef3b2ecb2c216055b7",
-    "model_hash": "f858fa6e9511081cf805ff9fb1f0a11d099434e85944e76137b3967952be3c72"
+    "model_hash": "91d65f86539520bd9eaf97b07cf31342dd850f215d29640e1e84f9a56da50113"
   },
   "geo_code": "EC",
   "node_type": "country",

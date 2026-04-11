@@ -20,6 +20,7 @@
       "status": "restricted",
       "scopes": {
         "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -28,6 +29,64 @@
       "enforcement": "standard",
       "flags": [],
       "modifiers": []
+    },
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Dominica",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Dominica",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Drugs (Prevention of Misuse) Act, Chapter 40:07",
+          "url": "https://www.dominica.gov.dm/laws/chapters/chap40-07.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "2020 DRUGS (PREVENTION OF MISUSE) ACT (AMENDMENT)",
+          "url": "https://dominica.gov.dm/images/documents/bills_for_review/Bill_-_Drugs_Prevention_of_Misuse_Amd_Act_2020.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "International Narcotics Control Strategy Report, 1995",
+          "url": "https://en.wikipedia.org/wiki/%7B%7BGBurl",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Dominica parliament passes legislation to decriminalize small amounts of marijuana",
+          "url": "https://dominicanewsonline.com/news/homepage/news/general/dominica-parliament-passes-legislation-to-decriminalize-small-amounts-of-marijuana/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Dominica",
+          "url": "https://web.archive.org/web/20201031063501/https://dominica.gov.dm/images/documents/bills_for_review/Bill_-_Drugs_Prevention_of_Misuse_Amd_Act_2020.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Dominica",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -133,9 +192,9 @@
   },
   "hashes": {
     "code": "dma",
-    "content_hash": "32b049f6c965580e19586f66aa8d2ed02781bb7c0e370265c30afb77d68b4b9d",
+    "content_hash": "9f6a056b26b109ca55dc7ef8902bccb34af902a0308b44ae28ff8b158313d040",
     "notes_hash": "d3649a604bb24f62eeb8f6acd7bdc6dbaafb60dd9008d20e0bcbab7fadc3235e",
-    "model_hash": "2003d6980918a8810d22f0c54175c132c7a984aefe20ffaa951d2237155db4a6"
+    "model_hash": "c417816e72c1100d13394c16fb39ea6e80b6e38291da8aff62207c134106d8bf"
   },
   "geo_code": "DM",
   "node_type": "country",

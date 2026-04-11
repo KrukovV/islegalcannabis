@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,28 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "low",
+      "sources": [
+        {
+          "title": "Antarctica",
+          "url": null,
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -109,8 +132,8 @@
         "name": "Botswana"
       },
       {
-        "code": "zwe",
-        "name": "Zimbabwe"
+        "code": "nam",
+        "name": "Namibia / Namibië"
       }
     ],
     "cluster_links": [
@@ -128,9 +151,9 @@
   },
   "hashes": {
     "code": "ata",
-    "content_hash": "9ae0acc15662972e270a0fd3fc882c754b844d5ea449952e55735401e7fcb942",
+    "content_hash": "a6ea79da06537dd45001b5f1d49ef63ef223f38ad52f1ada9fcb7e263a77002e",
     "notes_hash": "5802a8bd5fd25a6ad5431a89e9ca3ce2685c192d6ee59b8375e3bc2f7782b928",
-    "model_hash": "588321cc3fd22a9ac2a5ee05d27a16abc0bf055ab0d62002921c97fce3d93fc3"
+    "model_hash": "d9e726be82fa57feca5afc65f5cba717c58ab9e5040cb1668cb5605d3e1d0873"
   },
   "geo_code": "AQ",
   "node_type": "country",

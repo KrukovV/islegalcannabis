@@ -11,7 +11,7 @@
     },
     "medical": {
       "raw_status": "LEGAL",
-      "status": "LIMITED",
+      "status": "LEGAL",
       "enforcement": "MODERATE",
       "scope": "MEDICAL_ONLY",
       "override_reason": null
@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -27,18 +28,87 @@
       },
       "enforcement": "fine-based",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "but",
+        "only",
+        "up_to"
+      ]
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": true,
+        "severity_score": 1
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in Finland",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Finland",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "National Report on the Drugs Situation in Finland",
+          "url": "https://www.emcdda.europa.eu/attachements.cfm/att_34736_EN_NR2001Finland.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "39/1889: The Criminal Code of Finland",
+          "url": "https://www.finlex.fi/en/laki/kaannokset/1889/en18890039",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Huumeiden käyttäjien rikosoikeudellinen kontroll",
+          "url": "https://www.haaste.om.fi/fi/index/lehtiarkisto/haaste32009/huumeidenkayttajienrikosoikeudellinenkontrolli.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Finland",
+          "url": "https://web.archive.org/web/20050225222432/http://www.finlex.fi/en/laki/kaannokset/1889/en18890039",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Finland",
+          "url": "https://web.archive.org/web/20161221003116/http://www.haaste.om.fi/fi/index/lehtiarkisto/haaste32009/huumeidenkayttajienrikosoikeudellinenkontrolli.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "VKS:2006:1 Seuraamuksen määrääminen huumausaineen käyttörikoksesta",
+          "url": "https://www.vksv.fi/fi/index/julkaisutjaohjeet/valtakunnansyyttajanyleisetohjeet/syyteharkinta/vks20061seuraamuksenmaaraaminenhuumausaineenkayttorikoksesta.html",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: penalty_fine | source: Finland / Suomi | type: summary | priority: 1 | scope: use",
+        "rule: medical_limited | source: Finland / Suomi | type: summary | priority: 1 | scope: general",
+        "rule: illegal | source: Cannabis in Finland | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Finland | type: traversal | priority: 3 | scope: possession",
+        "rule: medical_legal | source: Cannabis in Finland | type: traversal | priority: 3 | scope: general",
+        "rule: medical_limited | source: Cannabis in Finland | type: traversal | priority: 3 | scope: general"
+      ]
     },
     "enforcement_flags": [
       "fine_based"
     ],
     "applied_rules": [
-      "fine_based",
-      "medical_limited"
+      "penalty_fine",
+      "medical_limited",
+      "illegal",
+      "medical_legal"
     ],
-    "notes_normalized": "Cannabis is illegal in Finland / Suomi. Medical cannabis is limited. Distribution is illegal."
+    "notes_normalized": "Cannabis is illegal in Finland / Suomi. Medical cannabis is legal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in Finland / Suomi. Medical cannabis is limited. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Finland / Suomi. Medical cannabis is legal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Finland}} Personal use is generally not prosecuted in court but subject to summary fine. Medicinal cannabis possible under a special license since 2006; in 2014, 223 licenses were issued.<ref>{{cite web|last1=Silvàn|first1=Sini|title=Lääkekannabis edelleen marginaalinen lääke|date=20 April 2015 |url=http://yle.fi/aihe/artikkeli/2015/04/20/laakekannabis-edelleen-marginaalinen-laake|publisher=YLE|access-date=6 December 2016|language=fi|archive-date=21 July 2018|archive-url=https://web.archive.org/web/20180721162214/https://yle.fi/aihe/artikkeli/2015/04/20/laakekannabis-edelleen-marginaalinen-laake|url-status=live}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -109,22 +179,22 @@
     ],
     "legal_similarity": [
       {
-        "code": "ltu",
-        "name": "Lithuania / Lietuva"
-      },
-      {
         "code": "blr",
         "name": "Belarus / Белару́сь"
       },
       {
         "code": "swe",
         "name": "Sweden / Sverige"
+      },
+      {
+        "code": "pol",
+        "name": "Poland / Polska"
       }
     ],
     "cluster_links": [
       {
-        "code": "pol",
-        "name": "Poland / Polska"
+        "code": "ltu",
+        "name": "Lithuania / Lietuva"
       },
       {
         "code": "nor",
@@ -136,9 +206,9 @@
   },
   "hashes": {
     "code": "fin",
-    "content_hash": "950919f557ef8a3f53fba413d8ccf467bb10b27e8c44654d076b8bc90ec17f68",
-    "notes_hash": "a76863c8ba05a1b67e0c81877dc1fc953953583f98a4a23e296646059abab040",
-    "model_hash": "e144ce16954a17f48bda2b5f309ecdbdd29e99ff35587dbd1c1f4ef3955f7ed2"
+    "content_hash": "a500c27f04af2938f740a68df5de20f67a508b329fd6d5afd19fdc6bd661008d",
+    "notes_hash": "d46bfc2ea8581a8bd75af205588e75962a84c89595ec44950f37c75f640db0b2",
+    "model_hash": "3b53a9019080eecc60dc25fc4fc8930a489f531d38784bd6f65df9d73ef1c39b"
   },
   "geo_code": "FI",
   "node_type": "country",

@@ -5,21 +5,22 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE"
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
-      "override_reason": null
+      "status": "LIMITED",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
+      "override_reason": "rec_implies_med_floor"
     },
     "distribution": {
-      "status": "illegal",
+      "status": "restricted",
       "scopes": {
-        "possession": null,
+        "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -27,17 +28,86 @@
       },
       "enforcement": "fine-based",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "up_to"
+      ]
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": true,
+        "prison_priority": 1,
+        "arrest": false,
+        "fine": true,
+        "severity_score": 4
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in Latvia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Latvia",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "UNTC",
+          "url": "https://treaties.un.org/pages/ViewDetailsIV.aspx?&src=TREATY&mtdsg_no=VI~2&chapter=6&Temp=mtdsg4&lang=en",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Latvia",
+          "url": "https://treaties.un.org/pages/ViewDetails.aspx?src=TREATY&mtdsg_no=VI-12-b&chapter=6&lang=",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Archived copy",
+          "url": "https://www.vec.gov.lv/uploads/files/4e0f42efb2f56.doc",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Latvia",
+          "url": "https://www.emcdda.europa.eu/publications/country-overviews/lv",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Par Krimināllikuma spēkā stāšanās un piemērošanas kārtību",
+          "url": "https://www.likumi.lv/doc.php?mode=DOC&id=50539",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Frut - Ziņas > Veselība - Kokaīnisms — modernā sērga starpkaru Latvijā",
+          "url": "https://news.frut.lv/lv/health/45321",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: penalty_fine | source: Latvia / Latvija | type: summary | priority: 1 | scope: possession",
+        "rule: penalty_prison | source: Latvia / Latvija | type: summary | priority: 1 | scope: general",
+        "rule: penalty_years | source: Latvia / Latvija | type: summary | priority: 1 | scope: general",
+        "rule: legal | source: The Criminal Code entered into force and application of | type: reference | priority: 2 | scope: general",
+        "rule: legal | source: Krimināllikums | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [
       "fine_based"
     ],
     "applied_rules": [
-      "fine_based"
+      "penalty_fine",
+      "penalty_prison",
+      "penalty_years",
+      "legal",
+      "rec_implies_med_floor"
     ],
-    "notes_normalized": "Cannabis is illegal in Latvia / Latvija. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is legal in Latvia / Latvija. Medical cannabis is limited. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Latvia / Latvija. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is legal in Latvia / Latvija. Medical cannabis is limited. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Latvia}} Possession of up to {{cvt|1|g|frac=28}} can result in a €280 fine; for second offenses within a year period, criminal charges are applied. Larger quantities can be punished with up to 15 years in prison.",
   "facts": {
     "possession_limit": "up to 1 g",
@@ -108,26 +178,26 @@
     ],
     "legal_similarity": [
       {
+        "code": "mda",
+        "name": "Moldova"
+      },
+      {
+        "code": "rou",
+        "name": "Romania / România"
+      },
+      {
+        "code": "swe",
+        "name": "Sweden / Sverige"
+      }
+    ],
+    "cluster_links": [
+      {
         "code": "ala",
         "name": "Åland Islands / Åland"
       },
       {
         "code": "fin",
         "name": "Finland / Suomi"
-      },
-      {
-        "code": "pol",
-        "name": "Poland / Polska"
-      }
-    ],
-    "cluster_links": [
-      {
-        "code": "svk",
-        "name": "Slovakia / Slovensko"
-      },
-      {
-        "code": "ukr",
-        "name": "Ukraine / Україна"
       }
     ],
     "same_country_states": [],
@@ -135,9 +205,9 @@
   },
   "hashes": {
     "code": "lva",
-    "content_hash": "20662d2fd461f238655c0becc2f25fefcac528ce83813c198f2ac5531dc79a0a",
-    "notes_hash": "9ee0c66221be15044ff44687e479635e8f726c20bc182452c845ee083af10e19",
-    "model_hash": "cd8c357382e88421bc88fdf99405cec461f7bacc16795c5cc7f9508424023a6f"
+    "content_hash": "578974f3582959bac130c2756c8dc5ccdf607c243496587f2a777641fd29de45",
+    "notes_hash": "1bb192955c7a715d8b5f65a4487b12cbcb864fc3ce8eb8f0198ba6fc511e9f94",
+    "model_hash": "c8892ea71ceaf5ecfccb4854ae9fc527c561f57a2f3ada67de506a80942d4ae8"
   },
   "geo_code": "LV",
   "node_type": "country",

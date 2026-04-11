@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,64 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in the Republic of the Congo",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Republic_of_the_Congo",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Le français en République du Congo: sous l'ère pluripartiste (1991-2006)",
+          "url": "https://books.google.com/books?id=VvzqymX6EQIC&pg=PA289",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Summary of Annual Reports of Governments Relating to Opium and Other Narcotic Drugs",
+          "url": "https://books.google.com/books?id=Q3MqAQAAMAAJ",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Tropical Cowboys: Westerns, Violence, and Masculinity in Kinshasa",
+          "url": "https://books.google.com/books?id=o4D_CwAAQBAJ&pg=PA223",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "The International Drugs Trade",
+          "url": "https://books.google.com/books?id=WHH1ON4EEXsC&pg=PA183",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Drogue: les fruits amers de la mondialisation",
+          "url": "https://books.google.com/books?id=2yCPNL3AdzsC&pg=PA60",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Brazzaville, une ville à reconstruire: recompositions citadines",
+          "url": "https://books.google.com/books?id=g_L_rcKbAWIC&pg=PA323",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +194,9 @@
   },
   "hashes": {
     "code": "cog",
-    "content_hash": "7bbbddbb89bc59b8384f65adbe42249340ed55f382222e38ece97d3283bb9c7b",
+    "content_hash": "50a81219d77cbf6794fd476d89bdaa99922e314d8396ec2bb9850ed0c101464e",
     "notes_hash": "82d821d7f540f03426e93ac1ef7e74cb3407e03046ad7690f8bf98240dbb6c78",
-    "model_hash": "e6e867cbe73b6cfb3230054f8ac2eec66dbf1cf874430cfe7b2a1ad282486668"
+    "model_hash": "995fc381c96928868854b70edfd6272747e3fc7b3ea63247d81cf3d677fda37f"
   },
   "geo_code": "CG",
   "node_type": "country",

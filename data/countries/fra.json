@@ -5,9 +5,9 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "UNKNOWN",
@@ -17,9 +17,10 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
+        "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -27,19 +28,84 @@
       },
       "enforcement": "fine-based",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "up_to"
+      ]
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": true,
+        "severity_score": 1
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in France",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_France",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis à visée thérapeutique en France : L'ANSM publie la proposition du Comité d'experts sur le cadre de la phase expérimentale de mise à disposition",
+          "url": "https://ansm.sante.fr/actualites/cannabis-a-visee-therapeutique-en-france-lansm-publie-la-proposition-du-comite-dexperts-sur-le-cadre-de-la-phase-experimentale-de-mise-a-disposition",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "French law on pot-based medicine takes effect",
+          "url": "https://www.thelocal.fr/20130610/legalized-cannabis-tea-could-be-on-drug-menu-for-french-patients-in-pharmacies",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "L'expérimentation thérapeutique du cannabis finalement prévue pour «septembre»",
+          "url": "https://www.leparisien.fr/societe/l-experimentation-therapeutique-du-cannabis-finalement-prevue-pour-septembre-23-01-2020-8242296.php",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis Thérapeutique : il arrive en France dès cette année !",
+          "url": "https://www.lelynx.fr/mutuelle-sante/medecine/drogue-psychotropes/cannabis-therapeutique-2/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis thérapeutique : où en est la France ?",
+          "url": "https://www.futura-sciences.com/sante/breves/cannabis-cannabis-therapeutique-france-2656/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "France extends medical cannabis trial to help patients find alternatives",
+          "url": "https://www.rfi.fr/en/france/20241222-france-extends-medical-cannabis-trial-to-help-patients-find-alternatives",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: penalty_fine | source: France | type: summary | priority: 1 | scope: possession",
+        "rule: medical_legal | source: France | type: summary | priority: 1 | scope: use",
+        "rule: medical_legal | source: France | type: summary | priority: 1 | scope: possession",
+        "rule: illegal | source: Cannabis in France | type: traversal | priority: 3 | scope: use",
+        "rule: medical_legal | source: Cannabis in France | type: traversal | priority: 3 | scope: general",
+        "rule: medical_limited | source: Cannabis in France | type: traversal | priority: 3 | scope: general"
+      ]
     },
     "enforcement_flags": [
       "fine_based"
     ],
     "applied_rules": [
-      "fine_based",
+      "penalty_fine",
       "medical_legal",
-      "legal"
+      "illegal"
     ],
-    "notes_normalized": "Cannabis is legal in France. Medical cannabis is legal. Distribution is restricted."
+    "notes_normalized": "Cannabis is illegal in France. Medical cannabis is legal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is legal in France. Medical cannabis is legal. Distribution is restricted.",
+  "notes_normalized": "Cannabis is illegal in France. Medical cannabis is legal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in France}} Possession up to {{cvt|100|g|frac=2}} entails a €200 fine since November 2018,<ref>{{Cite news|date=31 August 2020|title=L'amende forfaitaire pour les fumeurs de cannabis généralisée mardi|url=https://www.leparisien.fr/faits-divers/l-amende-forfaitaire-pour-les-fumeurs-de-cannabis-generalisee-mardi-31-08-2020-8376006.php|work=[[Le Parisien]]|language=fr-FR|access-date=31 March 2021|archive-date=5 March 2021|archive-url=https://web.archive.org/web/20210305204027/https://www.leparisien.fr/faits-divers/l-amende-forfaitaire-pour-les-fumeurs-de-cannabis-generalisee-mardi-31-08-2020-8376006.php|url-status=live}}</ref> although a judge is still legally able to pronounce a stricter sentence.<ref>{{Cite web|last=Forbes|date=9 February 2021|title=Cannabis : vers une dépénalisation en France ?|url=https://www.forbes.fr/business/cannabis-vers-une-depenalisation-en-france/|access-date=1 April 2021|website=Forbes France|language=fr-FR|archive-date=20 April 2021|archive-url=https://web.archive.org/web/20210420204537/https://www.forbes.fr/business/cannabis-vers-une-depenalisation-en-france/|url-status=live}}</ref> Medical use of some cannabinoid drugs legalized in 2013.<ref>{{cite news|title=Legalising or decriminalizing cannabis in France: not that easy|url=http://www.euronews.com/2013/11/06/france-legalising-or-decriminalizing-cannabis-not-that-easy|access-date=15 December 2013|publisher=[[Euronews]]|date=6 November 2013|author=Marie Jamet|archive-date=26 December 2018|archive-url=https://web.archive.org/web/20181226021356/https://www.euronews.com/2013/11/06/france-legalising-or-decriminalizing-cannabis-not-that-easy|url-status=live}}</ref><ref>{{cite news|title=French law on pot-based medicine takes effect|url=http://www.thelocal.fr/20130610/legalized-cannabis-tea-could-be-on-drug-menu-for-french-patients-in-pharmacies|access-date=15 December 2013|work=[[The Local]]|date=10 June 2013|author=Ann Törnkvist|archive-date=26 December 2018|archive-url=https://web.archive.org/web/20181226021452/https://www.thelocal.fr/20130610/legalized-cannabis-tea-could-be-on-drug-menu-for-french-patients-in-pharmacies|url-status=live}}</ref>",
   "facts": {
     "possession_limit": "up to 100 g",
@@ -114,22 +180,22 @@
         "name": "Luxembourg / Luxemburg"
       },
       {
-        "code": "che",
-        "name": "Switzerland / Suisse"
+        "code": "ggy",
+        "name": "Guernsey / Guernesey"
       },
       {
-        "code": "nld",
-        "name": "Netherlands / Nederland"
+        "code": "che",
+        "name": "Switzerland / Suisse"
       }
     ],
     "cluster_links": [
       {
-        "code": "esp",
-        "name": "Spain / España"
+        "code": "nld",
+        "name": "Netherlands / Nederland"
       },
       {
-        "code": "deu",
-        "name": "Germany / Deutschland"
+        "code": "esp",
+        "name": "Spain / España"
       }
     ],
     "same_country_states": [],
@@ -137,9 +203,9 @@
   },
   "hashes": {
     "code": "fra",
-    "content_hash": "cdf2050b32a8bd4aa16056fddcb6f49192f74136aa53fe776e84267c80a896aa",
-    "notes_hash": "fe419cc6bc181b7b93bfef40f05171b8b133305e6eee3c9969487d697dd3f522",
-    "model_hash": "9de19f666b02443bd28670115c3a09b72399316c89ecc9b8c8ab0752946a9b41"
+    "content_hash": "b2b5d4eab19defb12426f3871d99ef77a014dfd6f94a36530943e4d36c7f67cd",
+    "notes_hash": "044102c6d9191fced3de54f41748adc004463a07ea3e239cc5ad48b88ccb0a37",
+    "model_hash": "e14fd169950a8b748442ed412ef0c7f2d63ffea5b6a017f9b74e6d5e30e47327"
   },
   "geo_code": "FR",
   "node_type": "country",

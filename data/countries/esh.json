@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,28 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "low",
+      "sources": [
+        {
+          "title": "Western Sahara / الصحراء الغربية",
+          "url": null,
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -128,9 +151,9 @@
   },
   "hashes": {
     "code": "esh",
-    "content_hash": "caa6219cb75448d9618301d104af9fd9bba619503686bee35b944c57f0ebca52",
+    "content_hash": "f2a006aa9dd6e36873b0940dce5b9746cb83efd64be7a0cf25bf6525948be16b",
     "notes_hash": "cfac79f8a2ce861e52f5f9256e3ff237f79d6be199537e7c6483d9f82d5c6ca2",
-    "model_hash": "3f3e8f24de83e2be9ab0fe4fe085f9297bb87b7d5a212d9242895fff31fe41c5"
+    "model_hash": "af77b44d1a867a5d14c8beecf4f21012dd6b5fe5624e9566d4f5a5981cad3b15"
   },
   "geo_code": "EH",
   "node_type": "country",

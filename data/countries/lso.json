@@ -20,6 +20,7 @@
       "status": "tolerated",
       "scopes": {
         "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": "tolerated",
         "import": null,
@@ -29,9 +30,69 @@
       "flags": [],
       "modifiers": []
     },
+    "signals": {
+      "status": "tolerated",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in Lesotho",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Lesotho",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Lesotho",
+          "url": "https://sensiseeds.com/en/blog/cannabis-lesotho-en/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "The Palgrave Handbook of International Development",
+          "url": "https://books.google.com/books?id=tfljDAAAQBAJ&pg=PA408",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis: el movimiento cannábico en España",
+          "url": "https://books.google.com/books?id=dOVBAQAAIAAJ",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "The World Geopolitics of Drugs, 1998/1999",
+          "url": "https://books.google.com/books?id=x2kcBQAAQBAJ&pg=PA246",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Turning Cannabis Into Cash: Agrarian Change and Lesotho's Evolving Experience",
+          "url": "https://journals.openedition.org/echogeo/17612",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Crime and Punishment around the World &#91;4 volumes&#93;: &#91;Four Volumes&#93;",
+          "url": "https://books.google.com/books?id=2uK6bR9byVIC&pg=PA113",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: private_cultivation | source: Lesotho | type: summary | priority: 1 | scope: cultivation",
+        "rule: legal | source: Lesotho | type: summary | priority: 1 | scope: cultivation",
+        "no traversal evidence"
+      ]
+    },
     "enforcement_flags": [],
     "applied_rules": [
-      "private_cultivation_tolerated",
+      "private_cultivation",
       "legal",
       "rec_implies_med_floor"
     ],
@@ -108,26 +169,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "com",
-        "name": "Comoros / جزر القمر"
-      },
-      {
-        "code": "isr",
-        "name": "Israel / إسرائيل"
-      },
-      {
-        "code": "lbn",
-        "name": "Lebanon / لبنان"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "zwe",
         "name": "Zimbabwe"
       },
       {
+        "code": "mdg",
+        "name": "Madagascar / Madagasikara"
+      },
+      {
+        "code": "com",
+        "name": "Comoros / جزر القمر"
+      }
+    ],
+    "cluster_links": [
+      {
         "code": "moz",
         "name": "Mozambique / Moçambique"
+      },
+      {
+        "code": "nam",
+        "name": "Namibia / Namibië"
       }
     ],
     "same_country_states": [],
@@ -135,9 +196,9 @@
   },
   "hashes": {
     "code": "lso",
-    "content_hash": "533445d966e648331ec50ff40b89946e53fd6c7403e539c098a09c2a6c4bd169",
+    "content_hash": "741d0167ef5a715aa3ba56e4f1e18451aa1649fb115e3bca4484b979a1894653",
     "notes_hash": "f8706a8225c40256dc44cab178e4d35212c5b31ba095df587fd834a9f1f6d0f5",
-    "model_hash": "288bea35435d3153873f911e9ac1db5848ce592b2119650cf8b971aa18fd0dba"
+    "model_hash": "47326ffdc7745f29f7316ceba54514ad516ef64bbb99dce5f4b2fea80bbad3a0"
   },
   "geo_code": "LS",
   "node_type": "country",

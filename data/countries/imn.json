@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,28 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "low",
+      "sources": [
+        {
+          "title": "Isle of Man / Mannin",
+          "url": null,
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -109,8 +132,8 @@
         "name": "Faroe Islands / Færøerne"
       },
       {
-        "code": "and",
-        "name": "Andorra"
+        "code": "fra",
+        "name": "France"
       }
     ],
     "cluster_links": [
@@ -128,9 +151,9 @@
   },
   "hashes": {
     "code": "imn",
-    "content_hash": "a8ebe55b5bf3548eceb9fe7b0fcbebae41dacf9efd20a714cd3e5f815cb4a56d",
+    "content_hash": "8c9020c051598967260b91dcd7d682c58462cf1c34da11e91050007f74190f03",
     "notes_hash": "b8c881f6f4dfed1356d3052f02b0757a0235565a312954df8c054faf39f3a120",
-    "model_hash": "c16590ae4c1cf0f964b2c0e3c23486448e1ab73bbe90acd82a5cce7c77332823"
+    "model_hash": "c8630cae42a12f5f1f4190171e1c65bcbea82f07137e8918482ff9b209aedd12"
   },
   "geo_code": "IM",
   "node_type": "country",

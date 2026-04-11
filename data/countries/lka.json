@@ -20,6 +20,7 @@
       "status": "restricted",
       "scopes": {
         "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -27,11 +28,67 @@
       },
       "enforcement": "standard",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "only"
+      ]
+    },
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Sri Lanka",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Sri_Lanka",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "AN ORDINANCE TO AMEND AND CONSOLIDATE THE LAW RELATING TO POISONS,OPIUM, AND DANGEROUS DRUGS.",
+          "url": "https://www.nddcb.gov.lk/Docs/acts/25345.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Getting High And Low In The 'Mal' Capital",
+          "url": "https://www.colombotelegraph.com/index.php/getting-high-and-low-in-the-mal-capital/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Sri Lanka",
+          "url": "https://sensiseeds.com/en/blog/cannabis-sri-lanka-en/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "A history of medicine in Sri Lanka from the earliest times to 1948",
+          "url": "https://books.google.com/books?id=Gj9rAAAAMAAJ",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Sri Lanka / ශ්‍රී ලංකාව",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: possession_decriminalized | source: Sri Lanka / ශ්‍රී ලංකාව | type: summary | priority: 1 | scope: sale",
+        "rule: legal | source: Sri Lanka / ශ්‍රී ලංකාව | type: summary | priority: 1 | scope: sale",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "decriminalized"
+      "possession_decriminalized"
     ],
     "notes_normalized": "Cannabis is decriminalized in Sri Lanka / ශ්‍රී ලංකාව. Medical cannabis is legal. Distribution is restricted."
   },
@@ -110,8 +167,8 @@
         "name": "Thailand / ประเทศไทย"
       },
       {
-        "code": "sgp",
-        "name": "Singapore / Singapura"
+        "code": "npl",
+        "name": "Nepal / नेपाल"
       },
       {
         "code": "pak",
@@ -124,8 +181,8 @@
         "name": "Bangladesh / বাংলাদেশ"
       },
       {
-        "code": "npl",
-        "name": "Nepal / नेपाल"
+        "code": "btn",
+        "name": "Bhutan / འབྲུག་ཡུལ་"
       }
     ],
     "same_country_states": [],
@@ -133,9 +190,9 @@
   },
   "hashes": {
     "code": "lka",
-    "content_hash": "16931d6436cb767024a84befd8b50ce1edae070b4c23164e4caeb7dc586cf7c5",
+    "content_hash": "c8ea4a3066447bf9bfcc0a86cc2a19a3ab3a487ee75d24c860de244df01430d5",
     "notes_hash": "53b6fd02e90e7649e4757896e3d482811c52f43d2b0af2c42a2ff287324c9889",
-    "model_hash": "0df9b4da5d79e063c2ade832cca727b7907d2fb3b86e4f344bfe09dd6ade3222"
+    "model_hash": "0f2f5d057ae22083361e90ac1273421acec5e3713101166150bc8e8c5b84ca77"
   },
   "geo_code": "LK",
   "node_type": "country",

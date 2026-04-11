@@ -20,6 +20,7 @@
       "status": "restricted",
       "scopes": {
         "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -27,12 +28,57 @@
       },
       "enforcement": "standard",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "but"
+      ]
+    },
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Thailand",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Thailand",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Medical Cannabis Act",
+          "url": "https://www.moph.go.th/cannabis-law",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Thailand",
+          "url": "https://news.example.com/article",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Thailand / ประเทศไทย",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: medical_legal | source: Thailand / ประเทศไทย | type: summary | priority: 1 | scope: use",
+        "rule: legal | source: Thailand / ประเทศไทย | type: summary | priority: 1 | scope: use",
+        "rule: legal | source: Medical Cannabis Act | type: reference | priority: 2 | scope: general",
+        "rule: legal | source: Cannabis in Thailand | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
       "medical_legal",
-      "illegal",
       "legal"
     ],
     "notes_normalized": "Cannabis is legal in Thailand / ประเทศไทย. Medical cannabis is legal. Distribution is restricted."
@@ -108,16 +154,16 @@
     ],
     "legal_similarity": [
       {
-        "code": "sgp",
-        "name": "Singapore / Singapura"
+        "code": "mys",
+        "name": "Malaysia / مليسيا"
+      },
+      {
+        "code": "chn",
+        "name": "China / 中国"
       },
       {
         "code": "lka",
         "name": "Sri Lanka / ශ්‍රී ලංකාව"
-      },
-      {
-        "code": "phl",
-        "name": "Philippines / Pilipinas"
       }
     ],
     "cluster_links": [
@@ -135,9 +181,9 @@
   },
   "hashes": {
     "code": "tha",
-    "content_hash": "68c2e18b0ec38e29e5001b98b7f7238124ffd74f52e377f39ccbd3edd978404c",
+    "content_hash": "e50cc89c3580d55b1f1d18ddd7e82aa9cfaa9b351a96c46dd1565c0a599e7359",
     "notes_hash": "8335a84932b101aab22bafb82814fe098029353f2a3be503df92eea5a41d9eaa",
-    "model_hash": "f4cb3d17efc6052ea01aa772b03831f9ffabfdba35d883e17a04828739cb4172"
+    "model_hash": "0d52681860cec6a72a19e76da2f23519b5901acb745d8a0116d39928f597f781"
   },
   "geo_code": "TH",
   "node_type": "country",

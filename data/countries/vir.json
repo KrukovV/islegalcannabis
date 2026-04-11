@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,28 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "low",
+      "sources": [
+        {
+          "title": "United States Virgin Islands",
+          "url": null,
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -128,9 +151,9 @@
   },
   "hashes": {
     "code": "vir",
-    "content_hash": "4e516021f0951653a7e5907e121350932d1fda711e27b9124c84a8d9cb3cd794",
+    "content_hash": "f569360f5e24fdfe6fab2c07f317899fd44696abc63e72a0886d5f0de6de52c6",
     "notes_hash": "64866710ca3ec9bf13c451d826e4df5939a0ee29d3d5ff7c29801d6e562794ad",
-    "model_hash": "c33fd0697657f6beaf2133ae041fcd9263f25c8072558c8f49cf147870d95c8c"
+    "model_hash": "d92cb5f04b3dcdbf81946c3fcf8399fd582fcb051c7898910a714acdf3755d3d"
   },
   "geo_code": "VI",
   "node_type": "country",

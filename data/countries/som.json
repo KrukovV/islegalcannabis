@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,64 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Somalia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Somalia",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "The Penal code of the Somali Democratic Republic: with cases, commentary, and examples",
+          "url": "https://books.google.com/books?id=MOs-AQAAIAAJ",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "New Era",
+          "url": "https://books.google.com/books?id=djMOAQAAMAAJ",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Historical Dictionary of Somalia",
+          "url": "https://books.google.com/books?id=DPwOsOcNy5YC&pg=PR43",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Somali fighters destroying shrines",
+          "url": "https://www.aljazeera.com/news/africa/2008/12/2008122055527212230.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Somalia: State Collapse and the Threat of Terrorism",
+          "url": "https://books.google.com/books?id=_qb7AQAAQBAJ&pg=PA53",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Somalia / الصومال",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +194,9 @@
   },
   "hashes": {
     "code": "som",
-    "content_hash": "08faa896a82fa158056d821e7aaa7647c2af1533e03df124716fa23bb9067adf",
+    "content_hash": "5c347c6461c2662c90fe227d83fe723b2778e764a556b1a3bc51ab42010edd6a",
     "notes_hash": "da040a0a86b6063ebde8e340aaf1db88cb2dc25a649acfe0dae986dded3365b0",
-    "model_hash": "20dacf18055c943786df3619003045e13089cd77ea50a2c21f574863be532f75"
+    "model_hash": "1b47c643e61520c16068885faceada58e969bf3ac82e0947429edd9b5cf0001c"
   },
   "geo_code": "SO",
   "node_type": "country",

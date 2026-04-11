@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,52 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Angola",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Angola",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Man and Cannabis in Africa: A Study of Diffusion",
+          "url": "https://www.jstor.org/stable/4617576",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis: A History",
+          "url": "https://books.google.com/books?id=Mjn6sCiHoFIC&pg=PA84",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Report of the International Narcotics Control Board for 2009",
+          "url": "https://www.incb.org/documents/Publications/AnnualReports/AR2009/AR_09_English.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Angola",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -116,14 +163,14 @@
         "name": "Gabon"
       },
       {
-        "code": "zwe",
-        "name": "Zimbabwe"
+        "code": "cod",
+        "name": "DR Congo / RD Congo"
       }
     ],
     "cluster_links": [
       {
-        "code": "cod",
-        "name": "DR Congo / RD Congo"
+        "code": "zwe",
+        "name": "Zimbabwe"
       },
       {
         "code": "bdi",
@@ -135,9 +182,9 @@
   },
   "hashes": {
     "code": "ago",
-    "content_hash": "92f0bd5efa96d88dfa3b1ca961a6d3c2cf04ae6002ca1116c67c68f6abf1c9ea",
+    "content_hash": "3870719cc44ad401f6246ffd3f352fe9d39d176e4ac793d96e3259cb8a4b246c",
     "notes_hash": "94362257aa43ea74bd3395187ca76d6cff00a2a6389b2473aeab4739b8dc35f9",
-    "model_hash": "4e482519c87511b20b76b649445e35e09db8d85b580a0147023ccca8a94fa284"
+    "model_hash": "a448510191e8aac4a800f588e7884068a4acb3e02d55aadeeecda53c36a06e8b"
   },
   "geo_code": "AO",
   "node_type": "country",

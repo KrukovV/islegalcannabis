@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,40 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Micronesia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Micronesia",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Micronesia",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Micronesia",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +170,9 @@
   },
   "hashes": {
     "code": "fsm",
-    "content_hash": "70851d805334379a11503629906a0f4221f354864e2289261f5e2577cef7d482",
+    "content_hash": "b17af5b22592ac1e95eb994c3750d1d6908c0309e4f8d6c903373c23650f5fa0",
     "notes_hash": "02e363420e4dd4abcdc053ee3c2d6ede3a1c921f0ee86cc7df8a6dc9b75e0639",
-    "model_hash": "f03c13711ba84cd0d9bb66b7098ec4c505bc69482ab233954cd6afee7a844d7e"
+    "model_hash": "22755a9c3f4f38a5bdcd225154e18a1112fb7e835502ac5e047c32cba73ffe01"
   },
   "geo_code": "FM",
   "node_type": "country",

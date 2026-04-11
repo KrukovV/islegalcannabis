@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -28,6 +29,41 @@
       "enforcement": "standard",
       "flags": [],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Uzbekistan",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Uzbekistan",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Criminal Code of the Republic of Uzbekistan",
+          "url": "https://www.lex.uz/Pages/GetAct.aspx?lact_id=111453",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Uzbekistan / Узбекистан",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: illegal | source: Uzbekistan / Узбекистан | type: summary | priority: 1 | scope: cultivation",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -133,9 +169,9 @@
   },
   "hashes": {
     "code": "uzb",
-    "content_hash": "e4db47803d6b0730aad09cdb43c8364e8231acba01e9da967cde6fd149db3806",
+    "content_hash": "45ad9829c7a4a8f63e07940a9bc69267c9ff9ff6db75b2d944a6c1a706c8500a",
     "notes_hash": "4c9c6090e178fce62dfdeef82c0c7156118cf234bfb4a049a970371598a691f8",
-    "model_hash": "14deadcb759db48d3c7815741104933cea8a15908a7a10e47c4653712f2211f3"
+    "model_hash": "cdbc9a5e03e5d45ac68b9b866de75693b93b1f0f94baa6f41136e21cd509a53c"
   },
   "geo_code": "UZ",
   "node_type": "country",

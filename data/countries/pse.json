@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,28 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "low",
+      "sources": [
+        {
+          "title": "Palestine / فلسطين",
+          "url": null,
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -105,12 +128,12 @@
         "name": "Syria / سوريا"
       },
       {
-        "code": "egy",
-        "name": "Egypt / مصر"
+        "code": "tur",
+        "name": "Türkiye"
       },
       {
-        "code": "irq",
-        "name": "Iraq / العراق"
+        "code": "egy",
+        "name": "Egypt / مصر"
       }
     ],
     "cluster_links": [
@@ -119,8 +142,8 @@
         "name": "Cyprus / Κύπρος"
       },
       {
-        "code": "tur",
-        "name": "Türkiye"
+        "code": "irq",
+        "name": "Iraq / العراق"
       }
     ],
     "same_country_states": [],
@@ -128,9 +151,9 @@
   },
   "hashes": {
     "code": "pse",
-    "content_hash": "cf71506e2b7e25bb1f54abe176962455772e70d8be00a9420e591ee4250a8421",
+    "content_hash": "5e0e2bb2b2a04922245f40b4f06359efa7d4345ee2cb0b2bb04ea5949eaf1918",
     "notes_hash": "bff540f93b923d60183dc231bbc4c3b3ac0f9baf70c18dbbafcf2cc560f0c04f",
-    "model_hash": "18eff6781e7b3f0a9e45a284166eac54810e801533d057ece26a28cece6615bc"
+    "model_hash": "cd01b026fc7f3de26cda43540cb1d7aac32fe054aa07acd105360de9d7a119d4"
   },
   "geo_code": "PS",
   "node_type": "country",

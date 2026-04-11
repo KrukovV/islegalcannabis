@@ -5,7 +5,7 @@
   "legal_model": {
     "recreational": {
       "raw_status": "DECRIMINALIZED",
-      "status": "LEGAL",
+      "status": "DECRIMINALIZED",
       "enforcement": "MODERATE",
       "scope": "PERSONAL_USE"
     },
@@ -17,32 +17,119 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "tolerated",
+      "status": "illegal",
       "scopes": {
         "possession": "restricted",
-        "sale": null,
+        "use": "restricted",
+        "sale": "illegal",
         "cultivation": "tolerated",
-        "import": null,
+        "import": "illegal",
         "trafficking": "illegal"
       },
       "enforcement": "fine-based",
       "flags": [
-        "trafficking_illegal"
+        "import_illegal",
+        "trafficking_illegal",
+        "sale_illegal"
       ],
-      "modifiers": []
+      "modifiers": [
+        "but"
+      ]
+    },
+    "signals": {
+      "status": "mixed",
+      "penalties": {
+        "prison": true,
+        "prison_priority": 3,
+        "arrest": false,
+        "fine": true,
+        "severity_score": 4
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in Spain",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Spain",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis is indigenous to Europe and cultivation began during the Copper or Bronze age: a probabilistic synthesis of fossil pollen studies",
+          "url": "https://link.springer.com/10.1007/s00334-018-0678-7",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Historical biogeography of Cannabis in the Iberian Peninsula: A probabilistic approach using palynological evidence",
+          "url": "https://linkinghub.elsevier.com/retrieve/pii/S1433831922000464",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis is indigenous to Europe and cultivation began during the Copper or Bronze age: a probabilistic synthesis of fossil pollen studies",
+          "url": "https://link.springer.com/article/10.1007/s00334-018-0678-7",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "The therapeutic use of Cannabis sativa (L.) in Arabic medicine",
+          "url": "https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=c7f06d864b02716130e2494108e693bffc292a42",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "La arqueología de las drogas en la Península Ibérica: una síntesis de las recientes investigaciones arqueobotánicas",
+          "url": "https://archive.org/details/jordi-juan-tresserras-arqueologia-drogas-peninsula-iberica-espana-portugal",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Disputatio medica, an cannabis & aqua, in qua mollitur possint aërem inficere: opus recens recognitum & indicibus suis insignitum (In Michaelis Ioannis Paschalis, methodum curandi scholia)",
+          "url": "https://www.europeana.eu/es/item/9200110/BibliographicResource_1000126618708",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: penalty_fine | source: Spain / España | type: summary | priority: 1 | scope: use",
+        "rule: penalty_prison | source: Spain / España | type: summary | priority: 1 | scope: trafficking",
+        "rule: import_illegal | source: Spain / España | type: summary | priority: 1 | scope: trafficking",
+        "rule: trafficking_illegal | source: Spain / España | type: summary | priority: 1 | scope: trafficking",
+        "rule: sale_illegal | source: Spain / España | type: summary | priority: 1 | scope: trafficking",
+        "rule: legal | source: Spain / España | type: summary | priority: 1 | scope: general",
+        "rule: private_cultivation | source: Spain / España | type: summary | priority: 1 | scope: cultivation",
+        "rule: legal | source: Spain / España | type: summary | priority: 1 | scope: cultivation",
+        "rule: penalty_fine | source: Spain / España | type: summary | priority: 1 | scope: trafficking",
+        "rule: private_cultivation | source: Spain / España | type: summary | priority: 1 | scope: trafficking",
+        "rule: possession_decriminalized | source: Cannabis in Spain | type: traversal | priority: 3 | scope: cultivation",
+        "rule: penalty_prison | source: Cannabis in Spain | type: traversal | priority: 3 | scope: sale",
+        "rule: sale_illegal | source: Cannabis in Spain | type: traversal | priority: 3 | scope: sale",
+        "rule: penalty_fine | source: Cannabis in Spain | type: traversal | priority: 3 | scope: possession",
+        "rule: private_cultivation | source: Cannabis in Spain | type: traversal | priority: 3 | scope: cultivation",
+        "rule: legal | source: Cannabis in Spain | type: traversal | priority: 3 | scope: cultivation",
+        "rule: social_club_distribution | source: Cannabis in Spain | type: traversal | priority: 3 | scope: sale",
+        "rule: legal | source: Cannabis in Spain | type: traversal | priority: 3 | scope: sale",
+        "rule: social_club_distribution | source: Barcelona cannabis clubs face closure in new legal setback | type: reference | priority: 2 | scope: general",
+        "rule: legal | source: Barcelona cannabis clubs face closure in new legal setback | type: reference | priority: 2 | scope: general",
+        "rule: penalty_fine | source: Political parties in Spain call for legalisation of weed which 'will bring €1.2 billion' to the economy | type: reference | priority: 2 | scope: general"
+      ]
     },
     "enforcement_flags": [
       "fine_based"
     ],
     "applied_rules": [
+      "penalty_fine",
+      "penalty_prison",
+      "import_illegal",
       "trafficking_illegal",
-      "fine_based",
-      "private_cultivation_tolerated",
-      "legal"
+      "sale_illegal",
+      "legal",
+      "private_cultivation",
+      "possession_decriminalized"
     ],
-    "notes_normalized": "Cannabis is legal in Spain / España. Medical cannabis is legal. Distribution is tolerated."
+    "notes_normalized": "Cannabis is decriminalized in Spain / España. Medical cannabis is legal. Distribution is mixed. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is legal in Spain / España. Medical cannabis is legal. Distribution is tolerated.",
+  "notes_normalized": "Cannabis is decriminalized in Spain / España. Medical cannabis is legal. Distribution is mixed. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Spain}} All actions related to cannabis for own consumption aren't considered criminal offenses,<ref>{{cite web|url=http://www.lamarihuana.com/marihuana-y-su-legalidad-en-espana/|title=Marihuana y su legalidad en España|author=Mac|work=La Marihuana|date=23 July 2011|access-date=28 July 2015|archive-date=1 October 2018|archive-url=https://web.archive.org/web/20181001184304/https://www.lamarihuana.com/marihuana-y-su-legalidad-en-espana/|url-status=live}}</ref> but misdemeanors punishable by a fine.<ref>{{cite news|url=http://www.huffingtonpost.es/2014/08/17/espana-endurece-cannabis_n_5651450.html|title=España endurece las leyes sobre el cannabis en plena corriente mundial por la despenalización|work=El Huffington Post|date=17 August 2014|access-date=28 July 2015|archive-date=12 December 2018|archive-url=https://web.archive.org/web/20181212135215/https://www.huffingtonpost.es/2014/08/17/espana-endurece-cannabis_n_5651450.html|url-status=live}}</ref> Cannabis trafficking, including sale, import, or cultivation for sale, is punishable by jail time. Legalized in [[Catalonia]] in 2017,<ref>{{cite news|url=https://www.independent.co.uk/news/world/europe/catalonia-marijuana-legalise-cannabis-consumption-distribution-spain-region-petition-a7816981.html|title=Catalonia legalises marijuana consumption, cultivation and distribution|work=[[The Independent]]|access-date=1 July 2017|archive-date=29 June 2018|archive-url=https://web.archive.org/web/20180629163654/https://www.independent.co.uk/news/world/europe/catalonia-marijuana-legalise-cannabis-consumption-distribution-spain-region-petition-a7816981.html|url-status=live}}</ref> but that law was challenged by the state and declared unconstitutional.<ref>{{cite web|url=https://sensiseeds.com/en/blog/new-decisions-constitutional-court-end-cannabis-tolerance-spain/|title=of the Constitutional Court: The End of Cannabis Tolerance in Spain|date=15 January 2018|access-date=30 August 2018|archive-date=6 April 2018|archive-url=https://web.archive.org/web/20180406020517/https://sensiseeds.com/en/blog/new-decisions-constitutional-court-end-cannabis-tolerance-spain/|url-status=live}}</ref> Cultivation in private areas for own consumption is allowed if the plants cannot be seen from the street or other public spaces.<ref>{{cite web|url=http://www.lamarihuana.com/el-auto-cultivo-de-marihuana-se-despenaliza-en-espana/|title=¿El auto cultivo de marihuana se despenaliza en España?|author=Mac|work=La Marihuana|date=8 June 2015|access-date=25 February 2016|archive-date=31 July 2018|archive-url=https://web.archive.org/web/20180731123414/https://www.lamarihuana.com/el-auto-cultivo-de-marihuana-se-despenaliza-en-espana/|url-status=live}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -121,8 +208,8 @@
         "name": "Morocco / المغرب"
       },
       {
-        "code": "bel",
-        "name": "Belgium / Belgien"
+        "code": "mco",
+        "name": "Monaco"
       }
     ],
     "cluster_links": [
@@ -140,9 +227,9 @@
   },
   "hashes": {
     "code": "esp",
-    "content_hash": "ea319859be824356f07c00b819f04539ab5b7d67dd1e9b2085e1257a283ece57",
-    "notes_hash": "61a7e240e62afa872d67ea0769b9a49c675f3c3605f9d0a4628481c857403037",
-    "model_hash": "f7739e27a6a032b33add878ef8d1469e7cfa1415c43fbba5ea84733af27388f1"
+    "content_hash": "b075f645241433684f7b31b5234e7a5c80a9dc38706d5dbad851aa81a7839de9",
+    "notes_hash": "b7b4f3038a6d7c2ba98777d5842650e107a8ecccbc1b633215b141ae2d98e4e4",
+    "model_hash": "6e524977d93bf13639de63ec9d34239bf6e63824e0d63a87400150b72bc964c0"
   },
   "geo_code": "ES",
   "node_type": "country",

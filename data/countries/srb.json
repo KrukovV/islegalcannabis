@@ -20,24 +20,102 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
-        "sale": null,
+        "use": null,
+        "sale": "illegal",
         "cultivation": null,
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
       "enforcement": "fine-based",
-      "flags": [],
-      "modifiers": []
+      "flags": [
+        "trafficking_illegal",
+        "sale_illegal"
+      ],
+      "modifiers": [
+        "up_to"
+      ]
+    },
+    "signals": {
+      "status": "mixed",
+      "penalties": {
+        "prison": true,
+        "prison_priority": 1,
+        "arrest": false,
+        "fine": true,
+        "severity_score": 4
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in Serbia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Serbia",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "United Nations Treaty Collection",
+          "url": "https://treaties.un.org/pages/ViewDetails.aspx?src=TREATY&mtdsg_no=VI-6-a&chapter=6&clang=_en",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Serbia",
+          "url": "https://www.paragraf.rs/propisi/krivicni_zakonik.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis",
+          "url": "https://books.google.com/books?id=SVU8BQAAQBAJ&pg=PT57",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis: Evolution and Ethnobotany",
+          "url": "https://books.google.com/books?id=poenY6QMq8UC&pg=PA287",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Serbia",
+          "url": "https://arhiva.glas-javnosti.rs/arhiva/2005/05/07/srpski/D05050602.shtml",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Serbia",
+          "url": "https://www.b92.net/info/vesti/index.php?yyyy=2007&mm=05&dd=03&nav_id=244865",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: penalty_prison | source: Serbia / Србија | type: summary | priority: 1 | scope: possession",
+        "rule: penalty_fine | source: Serbia / Србија | type: summary | priority: 1 | scope: possession",
+        "rule: penalty_years | source: Serbia / Србија | type: summary | priority: 1 | scope: possession",
+        "rule: penalty_prison | source: Serbia / Србија | type: summary | priority: 1 | scope: trafficking",
+        "rule: penalty_years | source: Serbia / Србија | type: summary | priority: 1 | scope: trafficking",
+        "rule: trafficking_illegal | source: Serbia / Србија | type: summary | priority: 1 | scope: trafficking",
+        "rule: sale_illegal | source: Serbia / Србија | type: summary | priority: 1 | scope: trafficking",
+        "rule: penalty_prison | source: Serbia / Србија | type: summary | priority: 1 | scope: cultivation",
+        "rule: penalty_years | source: Serbia / Србија | type: summary | priority: 1 | scope: cultivation",
+        "rule: penalty_fine | source: Serbia / Србија | type: summary | priority: 1 | scope: general",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [
       "fine_based"
     ],
     "applied_rules": [
-      "fine_based"
+      "penalty_prison",
+      "penalty_fine",
+      "penalty_years",
+      "trafficking_illegal",
+      "sale_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Serbia / Србија. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is illegal in Serbia / Србија. Medical cannabis is illegal. Distribution is mixed. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Serbia / Србија. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Serbia / Србија. Medical cannabis is illegal. Distribution is mixed. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Serbia}} Possession of small amounts is punishable by fine or imprisonment of up to 3 years. Sale and transportation punishable by imprisonment of 3–12 years. Cultivation punishable by imprisonment from 6 months to 5 years. Higher penalties for [[organized crime]].<ref>{{citation |url = http://www.paragraf.rs/propisi/krivicni_zakonik.html |title = Krivični zakonik (''The Criminal Code'') |via = [[Paragraf Lex]] |date = 2013 |access-date = 17 February 2011 |archive-date = 5 September 2019 |archive-url = https://web.archive.org/web/20190905020735/https://www.paragraf.rs/propisi/krivicni_zakonik.html |url-status = live }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -112,18 +190,18 @@
         "name": "Albania / Shqipëria"
       },
       {
-        "code": "bgr",
-        "name": "Bulgaria / България"
+        "code": "hun",
+        "name": "Hungary / Magyarország"
       },
       {
-        "code": "rou",
-        "name": "Romania / România"
+        "code": "bgr",
+        "name": "Bulgaria / България"
       }
     ],
     "cluster_links": [
       {
-        "code": "hun",
-        "name": "Hungary / Magyarország"
+        "code": "rou",
+        "name": "Romania / România"
       },
       {
         "code": "svk",
@@ -135,9 +213,9 @@
   },
   "hashes": {
     "code": "srb",
-    "content_hash": "a4a1011275b4f0024f7de563e973e97375dd50d4bf66a4dacaf418e0cdc1486c",
-    "notes_hash": "b4eb86397fb6690e6a950e8bbec2174725dddae79459ce449fed54ceeed25b94",
-    "model_hash": "b7b7240e263ff89a92f94efd6b11367bf701759ba39fb266bd0a7340b69d0e9a"
+    "content_hash": "bc10d6de7362a831c9ea1e4d1a4c6db8a2d8b3a8be4e7d572bc297539dea4913",
+    "notes_hash": "330a80f29392d9b3cb854c1d8d5e2d5579af8f7a38c95ad3d771511313296819",
+    "model_hash": "fbbcc00e3654a295d7d9e9597f44892fdac0d05f29f3c0876b4f5be611c30b54"
   },
   "geo_code": "RS",
   "node_type": "country",

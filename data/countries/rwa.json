@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,64 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Rwanda",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Rwanda",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Rwanda legalises medical use of Cannabis",
+          "url": "https://www.theeastafrican.co.ke/tea/news/east-africa/rwanda-legalises-medical-use-of-cannabis--3456728",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis and Culture",
+          "url": "https://books.google.com/books?id=gCRNRGOhNA4C&pg=PA217",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Africa and the War on Drugs",
+          "url": "https://archive.org/details/africawarondrugs0000carr",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Rwanda",
+          "url": "https://archive.org/details/africawarondrugs0000carr/page/85",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Rwanda",
+          "url": "https://www.theeastafrican.co.ke/news/Ill-and-need-marijuana-Head-south-to-Rwanda/2558-1145978-jsjiv1z/index.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Rwanda",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +194,9 @@
   },
   "hashes": {
     "code": "rwa",
-    "content_hash": "272f31efd7ff2bc94014b7e833f4fc2a7cc1e5a5654c0fb46618c0843dc2f4af",
+    "content_hash": "38e7593b921ab22863fa68493dc79905116ae28950082c52de2d56c34a730ab7",
     "notes_hash": "2a55eb50ad23fe03a02373e7fd695deac3542ff9715a1bad0d3977ca0dc24d18",
-    "model_hash": "999be253bdaf7a78e208aa174b81e1ce8e6c01b3a5ee86c4fbbf8a1e62e0db31"
+    "model_hash": "e2a8860bf71d1b2a223d6a461046edde58c2a3725ee1023e478d38503846bef0"
   },
   "geo_code": "RW",
   "node_type": "country",

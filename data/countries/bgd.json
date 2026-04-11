@@ -20,18 +20,87 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
-        "sale": null,
+        "use": null,
+        "sale": "illegal",
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
-      "flags": [],
-      "modifiers": []
+      "enforcement": "fine-based",
+      "flags": [
+        "sale_illegal"
+      ],
+      "modifiers": [
+        "but"
+      ]
     },
-    "enforcement_flags": [],
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": true,
+        "severity_score": 1
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Bangladesh",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bangladesh",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Narcotics Control Act, 1990 (Bangladesh)",
+          "url": "https://www.unodc.org/res/cld/document/the-narcotic-control-act-1990_html/The_Narcotic_Drugs_and_Psychotropic_Substances_Control_Act_1990.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Asia Regional Profile: Bangladesh",
+          "url": "https://www.unodc.org/pdf/india/publications/south_Asia_Regional_Profile_Sept_2005/08_bangladesh.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Drug Abuse: Where is The Way of Remedy? (Part II- Some Dangerous Silent Killers)",
+          "url": "https://dhakainsider.com/bangladesh-news/drug-abuse-where-is-the-way-of-remedy-part-ii-some-dangerous-silent-killers/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "From the archive, 25 March 1982: Martial law after coup in Bangladesh",
+          "url": "https://www.theguardian.com/theguardian/2010/jun/23/archive-martial-law-coup-bangladesh",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Your Advocate",
+          "url": "https://archive.thedailystar.net/law/2010/03/04/advocate.htm",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "The Death Penalty: A Worldwide Perspective",
+          "url": "https://books.google.com/books?id=fSZwglgRnHsC&pg=PA138",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: sale_illegal | source: Bangladesh / বাংলাদেশ | type: summary | priority: 1 | scope: sale",
+        "rule: illegal | source: Bangladesh / বাংলাদেশ | type: summary | priority: 1 | scope: sale",
+        "rule: penalty_fine | source: The Death Penalty: A Worldwide Perspective | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
+    },
+    "enforcement_flags": [
+      "fine_based"
+    ],
     "applied_rules": [
-      "illegal"
+      "sale_illegal",
+      "penalty_fine"
     ],
     "notes_normalized": "Cannabis is illegal in Bangladesh / বাংলাদেশ. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -114,8 +183,8 @@
         "name": "Laos / ສປປລາວ"
       },
       {
-        "code": "chn",
-        "name": "China / 中国"
+        "code": "khm",
+        "name": "Cambodia / Kâmpŭchéa"
       }
     ],
     "cluster_links": [
@@ -124,8 +193,8 @@
         "name": "Thailand / ประเทศไทย"
       },
       {
-        "code": "khm",
-        "name": "Cambodia / Kâmpŭchéa"
+        "code": "chn",
+        "name": "China / 中国"
       }
     ],
     "same_country_states": [],
@@ -133,9 +202,9 @@
   },
   "hashes": {
     "code": "bgd",
-    "content_hash": "dac7c5a6dd58bd896bbd6097a733f62634d38fac456e619edd8b5b744aee6ac4",
+    "content_hash": "540f1bb5e91a5c7f7122fb6169bb4e698906eda38949cad4c6e80b53491f01b9",
     "notes_hash": "11357b36c53661bc63ebbe5fb700881afced94cfa7433c329fff23564fa629ad",
-    "model_hash": "52168f766b40f7c348853d73aa36e263d01934002b8b70746417f2a678d06e32"
+    "model_hash": "03dc57ae683d51556a70e0ecc1c279bb1f591c7a3a7602c9b1af8101719e0f64"
   },
   "geo_code": "BD",
   "node_type": "country",

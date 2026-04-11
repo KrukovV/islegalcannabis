@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,58 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Nigeria",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Nigeria",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "World Drug Report 2014: Nigeria records highest cannabis seizure in Africa",
+          "url": "https://www.ndlea.gov.ng/v1/?q=content/world-drug-report-2014-nigeria-records-highest-cannabis-seizure-africa-1",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "22 PERCENT OF NIGERIANS SMOKE MARIJUANA",
+          "url": "https://www.m.thenigerianvoice.com/news/38937/1/22-percent-of-nigerians-smoke-marijuana.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Nigeria's romance with MARIJUANA",
+          "url": "https://www.thenationonlineng.net/nigerias-romance-marijuana/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Nigeria",
+          "url": "https://web.archive.org/web/20140927164140/http://www.ndlea.gov.ng/v1/?q=content%2Fworld-drug-report-2014-nigeria-records-highest-cannabis-seizure-africa-1",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Nigeria",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -112,18 +165,18 @@
         "name": "Togo"
       },
       {
-        "code": "gnq",
-        "name": "Equatorial Guinea / Guinée équatoriale"
-      },
-      {
         "code": "stp",
         "name": "São Tomé and Príncipe / São Tomé e Príncipe"
+      },
+      {
+        "code": "gha",
+        "name": "Ghana"
       }
     ],
     "cluster_links": [
       {
-        "code": "gha",
-        "name": "Ghana"
+        "code": "gnq",
+        "name": "Equatorial Guinea / Guinée équatoriale"
       },
       {
         "code": "bfa",
@@ -135,9 +188,9 @@
   },
   "hashes": {
     "code": "nga",
-    "content_hash": "186c35a0cc9785dbfea865c6765dcacb1ffcab4a40cc278ec908a39e247a21b7",
+    "content_hash": "3481de61b5bcd1716e9aa53da5eb4fd875e07990c9f1270cd74a15303f5805b4",
     "notes_hash": "08e3614e5c9ae4e796c3659e40443fcce645d69b1f023d453d2f4a3cc880b0f9",
-    "model_hash": "803064c3804b354c9f8f5bc26d8293773c83fbbeaba9b7c586149feaf50cb71d"
+    "model_hash": "c0edc18b15a1fc61de6b30f9119d906229ec512df89139c095a31b55d052260e"
   },
   "geo_code": "NG",
   "node_type": "country",

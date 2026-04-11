@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,40 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Fiji",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Fiji",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Fiji",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Fiji / Viti",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -112,22 +147,22 @@
         "name": "Norfolk Island / Norf'k Ailen"
       },
       {
-        "code": "slb",
-        "name": "Solomon Islands"
-      },
-      {
         "code": "nru",
         "name": "Nauru"
-      }
-    ],
-    "cluster_links": [
-      {
-        "code": "kir",
-        "name": "Kiribati"
       },
       {
         "code": "nzl",
         "name": "New Zealand / Aotearoa"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "slb",
+        "name": "Solomon Islands"
+      },
+      {
+        "code": "kir",
+        "name": "Kiribati"
       }
     ],
     "same_country_states": [],
@@ -135,9 +170,9 @@
   },
   "hashes": {
     "code": "fji",
-    "content_hash": "f7e95caee0ac0ca78d149c711ed993acd7fbcc715e3e16b4474f767f0ec4d193",
+    "content_hash": "9852842c411c9bb4eee7616c6e224dc3d03786d30af56c478e4960a9bcee41e8",
     "notes_hash": "6438cb400f9b44b053194897de6e8fefbedbffc30ba0d5977420695596753789",
-    "model_hash": "92e7417e8063c238565e5ff3865e17e37e6366a1c7a97edc59c9a38b81648b6c"
+    "model_hash": "1e895fb06c5fed29e5784cd74349e41395b2f3e585da0c5c013d115f07620791"
   },
   "geo_code": "FJ",
   "node_type": "country",

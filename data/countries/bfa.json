@@ -20,20 +20,80 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": true,
+        "fine": false,
+        "severity_score": 2
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Burkina Faso",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Burkina_Faso",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Africa",
+          "url": "https://www.unodc.org/documents/data-and-analysis/Can_Afr_EN_09_11_07.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "2003 International Narcotics Control Strategy Report",
+          "url": "https://2009-2017.state.gov/j/inl/rls/nrcrpt/2003/index.htm",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Burkina Faso",
+          "url": "https://2009-2017.state.gov/documents/organization/29963.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Substance Use and Abuse: Everything Matters",
+          "url": "https://books.google.com/books?id=ncj_CwAAQBAJ&pg=PA36",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Clandestine cannabis farmers feed growing drug abuse",
+          "url": "https://www.thenewhumanitarian.org/report/81212/west-africa-clandestine-cannabis-farmers-feed-growing-drug-abuse",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Mother, son arrested with 105kgs of cannabis",
+          "url": "https://police.gov.rw/media/news-detail/news/mother-son-arrested-with-105kgs-of-cannabis/",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: penalty_arrest | source: Mother, son arrested with 105kgs of cannabis | type: reference | priority: 2 | scope: general",
+        "rule: illegal | source: Special Senate Committee on Illegal Drugs (37th Parliament, 1st Session) | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "penalty_arrest",
+      "illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Burkina Faso. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -135,9 +195,9 @@
   },
   "hashes": {
     "code": "bfa",
-    "content_hash": "0e6e566c165a07e83d3242a77f2bdc2cfd8db1482d9395a1b806e679cc4aa663",
+    "content_hash": "3c79afd8d025ad526e4389d3a11e3115e1133865d002654eba646fbb1404083c",
     "notes_hash": "5069fd94c40ccac279a145e698a95917bbcf152f4d32aae4ef9581dca3a847ec",
-    "model_hash": "944c15decd49e655a4734c183353a3feeb5d00abc04980ecdc7ea4c2845a5e9a"
+    "model_hash": "e76a1d3eaeed2a10cf09250830da32dea573d8e10884817f408f537346f69afa"
   },
   "geo_code": "BF",
   "node_type": "country",

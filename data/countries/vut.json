@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,40 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Vanuatu",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Vanuatu",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Vanuatu",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Vanuatu",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -112,22 +147,22 @@
         "name": "Norfolk Island / Norf'k Ailen"
       },
       {
-        "code": "tuv",
-        "name": "Tuvalu"
-      },
-      {
         "code": "nru",
         "name": "Nauru"
-      }
-    ],
-    "cluster_links": [
-      {
-        "code": "kir",
-        "name": "Kiribati"
       },
       {
         "code": "png",
         "name": "Papua New Guinea / Papua Niu Gini"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "tuv",
+        "name": "Tuvalu"
+      },
+      {
+        "code": "kir",
+        "name": "Kiribati"
       }
     ],
     "same_country_states": [],
@@ -135,9 +170,9 @@
   },
   "hashes": {
     "code": "vut",
-    "content_hash": "ef7fa12167e305d416aa322ccd178bce05817f5fdae81bee2f53a80e30c1e894",
+    "content_hash": "edb84f9f37640f3bc4721c38dd855ab3004bfda05b2d427df06adeb6ca20b73c",
     "notes_hash": "e90d4ce0250c56fd6ddd61e207f340caf58ca820f9b3642c85305c0af85c625f",
-    "model_hash": "b5477bff7c911aa71ba3b69dfe546b66cee8589db686f4f2a034eb998e06e1d8"
+    "model_hash": "66244a3173b8b61acba88b3f18b50ba412fae0038ccd58f61255f11a2a5d7624"
   },
   "geo_code": "VU",
   "node_type": "country",

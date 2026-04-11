@@ -5,7 +5,7 @@
   "legal_model": {
     "recreational": {
       "raw_status": "DECRIMINALIZED",
-      "status": "DECRIMINALIZED",
+      "status": "LEGAL",
       "enforcement": "MODERATE",
       "scope": "PERSONAL_USE"
     },
@@ -20,24 +20,90 @@
       "status": "restricted",
       "scopes": {
         "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_restricted"
-      ],
-      "modifiers": []
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": [
+        "up_to"
+      ]
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "distribution_fallback_restricted"
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": true,
+        "prison_priority": 2,
+        "arrest": false,
+        "fine": true,
+        "severity_score": 4
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in Georgia (country)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Georgia_(country)",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Georgia's High Court Removes Marijuana Possession Penalties",
+          "url": "https://www.marijuanamoment.net/georgias-high-court-removes-marijuana-possession-penalties/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Georgian Court Abolishes Fines For Marijuana Consumption",
+          "url": "https://www.rferl.org/a/georgian-constitutional-court-abolishes-fines-for-marijuana-consumption/29399496.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Criminal Justice Reform",
+          "url": "https://studentsforliberty.org/criminal-justice-reform/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Georgia (country)",
+          "url": "https://oc-media.org/explainer-the-16-legislative-changes-that-have-shaped-georgias-authoritarian-slide/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Georgia (country)",
+          "url": "https://www.entrepreneur.com/article/321898",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Georgia (country)",
+          "url": "https://web.archive.org/web/20220209113700/https://www.entrepreneur.com/article/321898",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: penalty_fine | source: Georgia's High Court Removes Marijuana Possession Penalties | type: reference | priority: 2 | scope: possession",
+        "rule: penalty_prison | source: Norms envisaging imprisonment for marijuana use now null and void in Georgia | type: reference | priority: 2 | scope: use",
+        "rule: legal | source: Smoking Marijuana Legalized in Georgia | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
+    },
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is decriminalized in Georgia / საქართველო. Medical cannabis is limited. Distribution is restricted."
+    "applied_rules": [
+      "penalty_fine",
+      "penalty_prison",
+      "legal"
+    ],
+    "notes_normalized": "Cannabis is legal in Georgia / საქართველო. Medical cannabis is limited. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is decriminalized in Georgia / საქართველო. Medical cannabis is limited. Distribution is restricted.",
+  "notes_normalized": "Cannabis is legal in Georgia / საქართველო. Medical cannabis is limited. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Georgia (country)}}",
   "facts": {
     "possession_limit": null,
@@ -108,16 +174,16 @@
     ],
     "legal_similarity": [
       {
-        "code": "tur",
-        "name": "Türkiye"
-      },
-      {
-        "code": "lbn",
-        "name": "Lebanon / لبنان"
-      },
-      {
         "code": "cyp",
         "name": "Cyprus / Κύπρος"
+      },
+      {
+        "code": "isr",
+        "name": "Israel / إسرائيل"
+      },
+      {
+        "code": "mda",
+        "name": "Moldova"
       }
     ],
     "cluster_links": [
@@ -126,8 +192,8 @@
         "name": "Iraq / العراق"
       },
       {
-        "code": "kwt",
-        "name": "Kuwait / الكويت"
+        "code": "tur",
+        "name": "Türkiye"
       }
     ],
     "same_country_states": [],
@@ -135,9 +201,9 @@
   },
   "hashes": {
     "code": "geo",
-    "content_hash": "2fea24ffa53e697b5253fa0f072ef3fc0e88fa963212e66d0a7331472e718dc2",
-    "notes_hash": "9a6ba161e964c4356c432190a839350975705e613681ff4ebca32b193426eadf",
-    "model_hash": "5adfa553c5bde8607a9206515f378463c86015111e4e025aaed07bc77d5bc23d"
+    "content_hash": "79baed83f3a706d99f400bf059cb097d0b96127f90af033a398dd6a574f73a29",
+    "notes_hash": "67f836d3154f61798f77748d5a62528503ac5d244ed618a052779d2e79ddf34e",
+    "model_hash": "023012bdc90ba49f0dafe77567e43ca89c7a1b6cb0fc326b433edc160422b034"
   },
   "geo_code": "GE",
   "node_type": "country",

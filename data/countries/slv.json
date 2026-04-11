@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,58 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in El Salvador",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_El_Salvador",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Piden que se permita plantar y consumir marihuana en El Salvador",
+          "url": "https://www.laprensagrafica.com/elsalvador/Piden-que-se-permita-plantar-y-consumir-marihuana-en-El-Salvador-20170520-0002.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Promueven despenalizar la marihuana en El Salvador",
+          "url": "https://www.elnuevodiario.com.ni/internacionales/318677-promueven-despenalizar-marihuana-salvador/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in El Salvador",
+          "url": "https://web.archive.org/web/20171225092019/https://www.elnuevodiario.com.ni/internacionales/318677-promueven-despenalizar-marihuana-salvador/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Attitudes towards drug policies in Latin America: Results from a Latin-American Survey",
+          "url": "https://eprints.bbk.ac.uk/17688/3/17688.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "El Salvador",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +188,9 @@
   },
   "hashes": {
     "code": "slv",
-    "content_hash": "ac6d2b2aa6028d4344914f85d0eb7f3fbb430d20b5e59230aa0a4d4262eb2311",
+    "content_hash": "3d45cf967695fc1527c409fec342cff78fc3b24dff285beb2b56eb5971c29d18",
     "notes_hash": "43e605994bcda80e31f7bd31e1dde83b035b05bb2226bfcc231e3f113fdbbd0a",
-    "model_hash": "f8b0e4af7a8653cd0a461817d666f2428df182bf6889aa818f5e4ceba0fbdb78"
+    "model_hash": "69e405c2c30adfbf1b0ddad825f6f76a63ba69493beb8a569c2297f18594daaf"
   },
   "geo_code": "SV",
   "node_type": "country",

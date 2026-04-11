@@ -20,6 +20,7 @@
       "status": "restricted",
       "scopes": {
         "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -28,6 +29,46 @@
       "enforcement": "standard",
       "flags": [],
       "modifiers": []
+    },
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Moldova",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Moldova",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Biden pardons weed convicts: how does legality in Europe compare?",
+          "url": "https://www.euronews.com/culture/2022/10/07/biden-pardons-weed-convicts-how-does-legality-in-europe-compare",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Criminal Code of Moldova",
+          "url": "https://sherloc.unodc.org/cld/uploads/res/document/criminal-code-of-the-republic-of-moldova_html/Republic_of_Moldova_Criminal_Code.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Moldova",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -110,12 +151,12 @@
         "name": "North Macedonia / Македонија"
       },
       {
-        "code": "hun",
-        "name": "Hungary / Magyarország"
+        "code": "ltu",
+        "name": "Lithuania / Lietuva"
       },
       {
-        "code": "tur",
-        "name": "Türkiye"
+        "code": "grc",
+        "name": "Greece / Ελλάδα"
       }
     ],
     "cluster_links": [
@@ -133,9 +174,9 @@
   },
   "hashes": {
     "code": "mda",
-    "content_hash": "60ac8b98b0502546dacc624bb2c79b2e73c1d7d08222a7c5e915a45179743334",
+    "content_hash": "39c5dd96c2f3b5a7c1f4446e31ce356ef43df9420fbd4cac67b9603d7da7a572",
     "notes_hash": "0ca1fd530c6565e4057fe9230b2d3229b0fee0af962a48369d9904608ff3ed54",
-    "model_hash": "9beb7cdcdee28ee4384a410adacac77b58e90e176f3aa7c261bb3e1878ebc993"
+    "model_hash": "c88b0e036c1933fd8b0c0478623b0e395494314748ee4ab2c50007f0d9b04895"
   },
   "geo_code": "MD",
   "node_type": "country",

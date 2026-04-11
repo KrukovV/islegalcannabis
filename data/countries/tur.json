@@ -5,9 +5,9 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "UNKNOWN",
@@ -17,30 +17,101 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
-        "sale": null,
+        "possession": null,
+        "use": null,
+        "sale": "illegal",
         "cultivation": null,
         "import": null,
         "trafficking": "illegal"
       },
       "enforcement": "standard",
       "flags": [
-        "trafficking_illegal"
+        "trafficking_illegal",
+        "sale_illegal"
       ],
       "modifiers": []
     },
+    "signals": {
+      "status": "mixed",
+      "penalties": {
+        "prison": true,
+        "prison_priority": 1,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 4
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in Turkey",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Turkey",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Turkey",
+          "url": "https://www.emcdda.europa.eu/publications/country-overviews/tr",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "زهر العريش في احكام الحشيش: Haschish Versus Medieval Muslim Society",
+          "url": "https://books.google.com/books?id=scgUAAAAIAAJ&pg=PA68",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Medical Marijuana in Turkey",
+          "url": "https://www.marijuanadoctors.com/international-patients/turkey/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Turkish MPs pass bill to legalize pharmacy sale of medicinal cannabis",
+          "url": "https://www.hurriyetdailynews.com/turkish-mps-pass-bill-to-legalize-pharmacy-sale-of-medicinal-cannabis-211713?utm_source=chatgpt.com",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Turkey",
+          "url": "https://www.haberler.com/politika/saglikla-ilgili-kanun-teklifi-tbmm-komisyonunda-kabul-edildi-18815091-haberi/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Turkey",
+          "url": "https://halktv.com.tr/ekonomi/izin-verildi-ama-sadece-eczanelerde-satilacak-953269h",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: medical_legal | source: Türkiye | type: summary | priority: 1 | scope: general",
+        "rule: penalty_years | source: Türkiye | type: summary | priority: 1 | scope: use",
+        "rule: illegal | source: Türkiye | type: summary | priority: 1 | scope: use",
+        "rule: penalty_prison | source: Türkiye | type: summary | priority: 1 | scope: trafficking",
+        "rule: penalty_years | source: Türkiye | type: summary | priority: 1 | scope: trafficking",
+        "rule: trafficking_illegal | source: Türkiye | type: summary | priority: 1 | scope: trafficking",
+        "rule: sale_illegal | source: Türkiye | type: summary | priority: 1 | scope: trafficking",
+        "rule: medical_legal | source: Türkiye | type: summary | priority: 1 | scope: trafficking",
+        "rule: sale_regulated | source: Turkish MPs pass bill to legalize pharmacy sale of medicinal cannabis | type: reference | priority: 2 | scope: sale",
+        "no traversal evidence"
+      ]
+    },
     "enforcement_flags": [],
     "applied_rules": [
-      "trafficking_illegal",
       "medical_legal",
+      "penalty_years",
       "illegal",
-      "legal"
+      "penalty_prison",
+      "trafficking_illegal",
+      "sale_illegal"
     ],
-    "notes_normalized": "Cannabis is legal in Türkiye. Medical cannabis is legal. Distribution is restricted."
+    "notes_normalized": "Cannabis is illegal in Türkiye. Medical cannabis is legal. Distribution is mixed. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is legal in Türkiye. Medical cannabis is legal. Distribution is restricted.",
+  "notes_normalized": "Cannabis is illegal in Türkiye. Medical cannabis is legal. Distribution is mixed. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Turkey}} Medical grade cannabis containing less than 0.3% THC legalized in 2025.<ref>https://www.haberler.com/politika/saglikla-ilgili-kanun-teklifi-tbmm-komisyonunda-kabul-edildi-18815091-haberi/ Sağlıkla İlgili Kanun Teklifi TBMM Komisyonunda Kabul Edildi - Haberler</ref><ref>https://halktv.com.tr/ekonomi/izin-verildi-ama-sadece-eczanelerde-satilacak-953269h İzin verildi ama sadece eczanelerde satılacak</ref> Recreational use is illegal and is punishable by 1 year of probation while repetition is punishable by 2 years of probation and enforced treatment.<ref name=\"EMCDDATurkey\">{{citation |url = http://www.emcdda.europa.eu/publications/country-overviews/tr |title = Country overview: Turkey |author = European Monitoring Centre for Drugs and Drug Addiction |author-link = European Monitoring Centre for Drugs and Drug Addiction |date = 31 January 2012 |publisher = European Monitoring Centre for Drugs and Drug Addiction |location = [[Lisbon]] |oclc = 527925326 |access-date = 5 June 2018 |archive-date = 4 February 2015 |archive-url = https://web.archive.org/web/20150204001431/http://www.emcdda.europa.eu/publications/country-overviews/tr |url-status = live }}</ref> Sale and supply is punishable by a prison term of 5–10 years, and production or trafficking by a minimum term of 10 years.<ref name=\"EMCDDATurkey\" /><ref>{{cite web |title=Turkish MPs pass bill to legalize pharmacy sale of medicinal cannabis | date=21 July 2025 |url=https://www.hurriyetdailynews.com/turkish-mps-pass-bill-to-legalize-pharmacy-sale-of-medicinal-cannabis-211713 |publisher=Hurriyet Daily News |access-date=21 Jul 2025}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -111,26 +182,26 @@
     ],
     "legal_similarity": [
       {
+        "code": "pse",
+        "name": "Palestine / فلسطين"
+      },
+      {
         "code": "isr",
         "name": "Israel / إسرائيل"
       },
+      {
+        "code": "jor",
+        "name": "Jordan / الأردن"
+      }
+    ],
+    "cluster_links": [
       {
         "code": "geo",
         "name": "Georgia / საქართველო"
       },
       {
-        "code": "mda",
-        "name": "Moldova"
-      }
-    ],
-    "cluster_links": [
-      {
-        "code": "pse",
-        "name": "Palestine / فلسطين"
-      },
-      {
-        "code": "jor",
-        "name": "Jordan / الأردن"
+        "code": "arm",
+        "name": "Armenia / Հայաստան"
       }
     ],
     "same_country_states": [],
@@ -138,9 +209,9 @@
   },
   "hashes": {
     "code": "tur",
-    "content_hash": "31e9eeda2919074e28acef049445d5edfa4fb19dd5105985faf7421cd9373330",
-    "notes_hash": "0ebba019bac10d5250ad27c66ac9bc2bc5aa4e5c58174ba578eefab5fe5cd1c5",
-    "model_hash": "5938f5295b2696c12c534f99f229c570e33a7db7f633bab979a670dceba9110b"
+    "content_hash": "8f224e6dfb17d11326b59f8ccf7da5fef0041debe0703847f8fcb4ab23cb98f8",
+    "notes_hash": "1e915da857b4825d829527e893d7d626b9eb47356c22ce44879923384d367952",
+    "model_hash": "3734cf3d386f4243381fd5f3950108ceec13f1c424576ac84a8365e6a9b674ad"
   },
   "geo_code": "TR",
   "node_type": "country",

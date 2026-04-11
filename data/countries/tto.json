@@ -17,27 +17,99 @@
       "override_reason": "rec_implies_med_floor"
     },
     "distribution": {
-      "status": "restricted",
+      "status": "tolerated",
       "scopes": {
         "possession": "restricted",
+        "use": "restricted",
         "sale": null,
-        "cultivation": null,
+        "cultivation": "tolerated",
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "up_to"
+      ]
     },
-    "enforcement_flags": [],
+    "signals": {
+      "status": "tolerated",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": true,
+        "severity_score": 1
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in Trinidad and Tobago",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Trinidad_and_Tobago",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Decriminalisation of marijuana in T&T by June 2019 says Rowley",
+          "url": "https://www.looptt.com/content/decriminalisation-marijuana-tt-june-2019-says-rowley",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Trinidad and Tobago to examine marijuana use legislation – Prime Minister Rowley",
+          "url": "https://today.caricom.org/2018/09/10/trinidad-and-tobago-to-examine-marijuana-use-legislation-prime-minister-rowley/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "PM: Government to review marijuana legislation in 2019",
+          "url": "https://www.looptt.com/content/pm-government-review-marijuana-legislation-2019",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Trinidad and Tobago",
+          "url": "https://web.archive.org/web/20201101015909/http://www.looptt.com/content/decriminalisation-marijuana-tt-june-2019-says-rowley",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Trinidad and Tobago",
+          "url": "https://web.archive.org/web/20210503081423/https://today.caricom.org/2018/09/10/trinidad-and-tobago-to-examine-marijuana-use-legislation-prime-minister-rowley/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Trinidad and Tobago",
+          "url": "https://web.archive.org/web/20201204170445/http://www.looptt.com/content/pm-government-review-marijuana-legislation-2019",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: illegal | source: Trinidad and Tobago | type: summary | priority: 1 | scope: general",
+        "rule: possession_decriminalized | source: Trinidad and Tobago | type: summary | priority: 1 | scope: general",
+        "rule: possession_decriminalized | source: Cannabis in Trinidad and Tobago | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_fine | source: Cannabis in Trinidad and Tobago | type: traversal | priority: 3 | scope: cultivation",
+        "rule: private_cultivation | source: Cannabis in Trinidad and Tobago | type: traversal | priority: 3 | scope: cultivation",
+        "rule: legal | source: Cannabis in Trinidad and Tobago | type: traversal | priority: 3 | scope: cultivation",
+        "rule: private_cultivation | source: Four female plants to be allowed under Cannabis Control Bill | type: reference | priority: 2 | scope: cultivation",
+        "rule: legal | source: Four female plants to be allowed under Cannabis Control Bill | type: reference | priority: 2 | scope: cultivation"
+      ]
+    },
+    "enforcement_flags": [
+      "fine_based"
+    ],
     "applied_rules": [
-      "decriminalized",
       "illegal",
+      "possession_decriminalized",
+      "penalty_fine",
+      "private_cultivation",
       "rec_implies_med_floor"
     ],
-    "notes_normalized": "Cannabis is decriminalized in Trinidad and Tobago. Medical cannabis is limited. Distribution is restricted."
+    "notes_normalized": "Cannabis is decriminalized in Trinidad and Tobago. Medical cannabis is limited. Distribution is tolerated."
   },
-  "notes_normalized": "Cannabis is decriminalized in Trinidad and Tobago. Medical cannabis is limited. Distribution is restricted.",
+  "notes_normalized": "Cannabis is decriminalized in Trinidad and Tobago. Medical cannabis is limited. Distribution is tolerated.",
   "notes_raw": "{{main|Cannabis in Trinidad and Tobago}} Banned in 1925.<ref name=\"KleinDay2004\">{{cite book|author1=Axel Klein|author2=Marcus Day|author3=Anthony Harriott|title=Caribbean Drugs: From Criminalization to Harm Reduction|url=https://books.google.com/books?id=KlJyez-Nr70C&pg=PA58|date=13 November 2004|publisher=Zed Books|isbn=978-1-84277-499-1|pages=58–}}</ref> Decriminalized in 2019.<ref>{{cite news |last1=Ramdass |first1=Anna |title=Merry Christmas: Weed decriminalisation law to be proclaimed December 23 |url=https://trinidadexpress.com/newsextra/merry-christmas-weed-decriminalisation-law-to-be-proclaimed-december/article_3188b0a6-22a9-11ea-85e9-f71de3bf932a.html |access-date=20 December 2019 |work=[[Trinidad Express]] |date=19 December 2019 |archive-date=20 December 2019 |archive-url=https://web.archive.org/web/20191220030055/https://trinidadexpress.com/newsextra/merry-christmas-weed-decriminalisation-law-to-be-proclaimed-december/article_3188b0a6-22a9-11ea-85e9-f71de3bf932a.html |url-status=live }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -135,9 +207,9 @@
   },
   "hashes": {
     "code": "tto",
-    "content_hash": "bf10d56e575a9784c7b885a77df06608da7095ab7c126e7bcddb944bcb9bb08d",
-    "notes_hash": "3fff4fcdce03c79eee5df513190f63ee0399b3f1f68ec848e77a45bf880ffa84",
-    "model_hash": "497783d5db141f7c52eb7a220817940f1af7c34468d3aba27d1f925c22abdefd"
+    "content_hash": "bd1e0ea4e32297d4782fa5563f03150d77319a94eb2a58c8d80700ff67683cce",
+    "notes_hash": "8c430bc1924ce58217ef8e69637bcf785f8666bd066f75af2af6414229bcc585",
+    "model_hash": "6460e283e1468818f8e3a5629adaa327fab8bc7eae3dded7211cd290c8391d95"
   },
   "geo_code": "TT",
   "node_type": "country",

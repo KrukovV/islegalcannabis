@@ -20,22 +20,95 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "may"
+      ]
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "illegal"
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": true,
+        "prison_priority": 1,
+        "arrest": false,
+        "fine": true,
+        "severity_score": 4
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in Tunisia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Tunisia",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Summary of Annual Reports of Governments Relating to Opium and Other Narcotic Drugs",
+          "url": "https://books.google.com/books?id=GXMqAQAAMAAJ",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Summary of Annual Reports of Governments Relating to Opium and Other Narcotic Drugs",
+          "url": "https://books.google.com/books?id=pXA_AAAAMAAJ",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Marihuana and Medicine",
+          "url": "https://books.google.com/books?id=AYH5BwAAQBAJ&pg=PA4",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "The History and Description of Africa: And of the Notable Things Therein Contained",
+          "url": "https://archive.org/details/historyanddescr00leogoog",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Some Arab governments are rethinking harsh cannabis laws",
+          "url": "https://www.economist.com/middle-east-and-africa/2017/04/12/some-arab-governments-are-rethinking-harsh-cannabis-laws",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Tunisia",
+          "url": "https://archive.org/details/historyanddescr00leogoog/page/n36",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: illegal | source: Tunisia / تونس | type: summary | priority: 1 | scope: general",
+        "rule: penalty_prison | source: Tunisia / تونس | type: summary | priority: 1 | scope: general",
+        "rule: penalty_fine | source: Tunisia / تونس | type: summary | priority: 1 | scope: general",
+        "rule: penalty_years | source: Tunisia / تونس | type: summary | priority: 1 | scope: general",
+        "rule: penalty_prison | source: Tunisia / تونس | type: summary | priority: 1 | scope: cultivation",
+        "rule: penalty_fine | source: Tunisia / تونس | type: summary | priority: 1 | scope: cultivation",
+        "rule: penalty_years | source: Tunisia / تونس | type: summary | priority: 1 | scope: cultivation",
+        "no traversal evidence"
+      ]
+    },
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is illegal in Tunisia / تونس. Medical cannabis is illegal. Distribution is illegal."
+    "applied_rules": [
+      "illegal",
+      "penalty_prison",
+      "penalty_fine",
+      "penalty_years"
+    ],
+    "notes_normalized": "Cannabis is illegal in Tunisia / تونس. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Tunisia / تونس. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Tunisia / تونس. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Tunisia}} Banned in 1953.<ref name=\"Drugs1949\">{{cite book|author=United Nations. Commission on Narcotic Drugs|title=Summary of Annual Reports of Governments Relating to Opium and Other Narcotic Drugs|url=https://books.google.com/books?id=GXMqAQAAMAAJ|year=1949|quote=''TUNISIA 18. A Decree of 23 April 1953\" (published in the Journal Officiel Tunisien of 28 April 1953) prohibits the cultivation of cannabis and the use of takrouri (cannabis) and specifies the conditions under which ...''|access-date=5 June 2018|archive-date=20 April 2023|archive-url=https://web.archive.org/web/20230420090936/https://books.google.com/books?id=GXMqAQAAMAAJ|url-status=live}}</ref> Using or possessing entails 1–5 years of imprisonment and 1000–3000 [[Tunisian dinar|dinars]] (around $500–1500).<ref>{{cite book |url = https://books.google.com/books?id=k2By-NdV93AC&q=tunisia+cannabis&pg=PP60 |title = The Rough Guide to Tunisia – Daniel Jacobs, Peter Morris – Google grâmatas |access-date = 23 June 2013 |isbn = 9781858287485 |year = 2001 |last1 = Jacobs |first1 = Daniel |last2 = Morris |first2 = Peter |publisher = Rough Guides |archive-date = 20 April 2023 |archive-url = https://web.archive.org/web/20230420090917/https://books.google.com/books?id=k2By-NdV93AC&q=tunisia+cannabis&pg=PP60 |url-status = live }}</ref><ref>{{cite news |url = https://timesofmalta.com/articles/view/tunisia-accuses-missing-maltese-of-smuggling-cannabis.319346 |last = Massa |first = Ariadne |title = Tunisia accuses 'missing' Maltese of smuggling cannabis |work = [[Times of Malta]] |access-date = 23 June 2013 |archive-url = https://web.archive.org/web/20200517154342/https://timesofmalta.com/articles/view/tunisia-accuses-missing-maltese-of-smuggling-cannabis.319346 |archive-date = 17 May 2020 |url-status = live}}</ref><ref>{{cite web|url =http://www.legislation-securite.tn/ar/node/34556|url-status =dead|archive-url =https://web.archive.org/web/20151219114432/http://www.legislation-securite.tn/ar/node/34556| script-title=ar:قانون عدد 52 لسنة 1992 مؤرخ في 18 ماي 1992 يتعلق بالمخدرات | trans-title=Law No. 52 of 1992, dated 18 May 1992 concerning drugs | language=ar | publisher=DCAF / legislation-securite.tn | location=Tunisia | archive-date =19 December 2015}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -106,26 +179,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "mco",
-        "name": "Monaco"
-      },
-      {
         "code": "smr",
         "name": "San Marino"
       },
       {
         "code": "and",
         "name": "Andorra"
+      },
+      {
+        "code": "lby",
+        "name": "Libya / ليبيا"
       }
     ],
     "cluster_links": [
       {
-        "code": "lby",
-        "name": "Libya / ليبيا"
-      },
-      {
         "code": "mar",
         "name": "Morocco / المغرب"
+      },
+      {
+        "code": "ner",
+        "name": "Niger"
       }
     ],
     "same_country_states": [],
@@ -133,9 +206,9 @@
   },
   "hashes": {
     "code": "tun",
-    "content_hash": "3126808b0e1c8af0581297a17855aaf7ae4eb4daa2acd43797c56cb464ab97ac",
-    "notes_hash": "51b13fdc4ca62ddf12d562cb44db2f6e3fc19835d2455a3eab26fdfc825e0a05",
-    "model_hash": "c79fcc500aa4a295069d39ef66d3e8563da55d56d5d8e7d80d120f3241931a4f"
+    "content_hash": "e83977082dafd028dae988a53c50c883c00dccdd18a65527da395d10035ad16e",
+    "notes_hash": "cb060f565d93c84c53b5fa2714660d89a8342e7fe4b5ce9801faf4b2006dd22d",
+    "model_hash": "d6b8d7da212f68539186e024a6022edac272273feabffb4495a1b7a57aa41031"
   },
   "geo_code": "TN",
   "node_type": "country",

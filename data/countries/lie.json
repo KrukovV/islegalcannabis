@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,64 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Liechtenstein",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Liechtenstein",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Liechtenstein",
+          "url": "https://www.unodc.org/unodc/en/data-and-analysis/WDR-2011.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Liechtenstein",
+          "url": "https://www.unodc.org/documents/data-and-analysis/WDR2011/StatAnnex-consumption.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Epidyolex",
+          "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/epidyolex",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Medicinal cannabis policies and practices around the world",
+          "url": "https://www.unodc.org/documents/commissions/CND/2019/Contributions/October/Thematic_Debate/23_October/Tania_Ramirez.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Bulgarian school teenagers above European average for smoking, drinking and marijuana use",
+          "url": "https://sofiaglobe.com/2016/09/20/bulgarian-school-teenagers-above-european-average-for-smoking-drinking-and-marijuana-use/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Liechtenstein",
+          "url": "https://web.archive.org/web/20210427112723/http://www.unodc.org/unodc/en/data-and-analysis/WDR-2011.html",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -108,26 +167,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "mco",
-        "name": "Monaco"
-      },
-      {
         "code": "smr",
         "name": "San Marino"
       },
       {
         "code": "vat",
         "name": "Vatican City / Vaticano"
+      },
+      {
+        "code": "fra",
+        "name": "France"
       }
     ],
     "cluster_links": [
       {
-        "code": "lux",
-        "name": "Luxembourg / Luxemburg"
+        "code": "mco",
+        "name": "Monaco"
       },
       {
-        "code": "svn",
-        "name": "Slovenia / Slovenija"
+        "code": "lux",
+        "name": "Luxembourg / Luxemburg"
       }
     ],
     "same_country_states": [],
@@ -135,9 +194,9 @@
   },
   "hashes": {
     "code": "lie",
-    "content_hash": "095e95a424b58beb73cece100c7bdb383f90e7c9f40d50510dd3b6883e5b1642",
+    "content_hash": "8026ff5fea5dd2c690a5bc90bdc5f73afad25249484e69401795fc12965ac084",
     "notes_hash": "4d51e4a1fa6b084cd9db05bd3c9e11f5c78fd8714e81f102cfec3edca7bf2710",
-    "model_hash": "989ade6e1c4ea3feef4cba0e864814d908fcca0821e3581a38451c6e2e9be023"
+    "model_hash": "5afc6f4009b5866da539218387ffd05f0cb3e8394f36d66ca5968f348d746492"
   },
   "geo_code": "LI",
   "node_type": "country",

@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,64 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Jordan",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Jordan",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "1961 UN Single Convention on Narcotic Drugs",
+          "url": "https://www.unodc.org/pdf/convention_1961_en.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis: the most consumed drug in Jordan",
+          "url": "https://en.royanews.tv/news/15606/Cannabis--the-most-consumed-drug-in-Jordan",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Jordan",
+          "url": "https://web.archive.org/web/20210502125925/https://en.royanews.tv/news/15606/Cannabis--the-most-consumed-drug-in-Jordan",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Jordan",
+          "url": "https://web.archive.org/web/20170517081940/http://www.unodc.org/pdf/convention_1961_en.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Jordan",
+          "url": "https://doi.org/10.18356/5f5bd72f-en.%3C/ref%3E",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Jordan",
+          "url": "https://sensiseeds.com/en/blog/countries/cannabis-in-jordan-laws-use-history/",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -116,8 +175,8 @@
         "name": "Egypt / مصر"
       },
       {
-        "code": "irq",
-        "name": "Iraq / العراق"
+        "code": "tur",
+        "name": "Türkiye"
       }
     ],
     "cluster_links": [
@@ -126,8 +185,8 @@
         "name": "Cyprus / Κύπρος"
       },
       {
-        "code": "tur",
-        "name": "Türkiye"
+        "code": "irq",
+        "name": "Iraq / العراق"
       }
     ],
     "same_country_states": [],
@@ -135,9 +194,9 @@
   },
   "hashes": {
     "code": "jor",
-    "content_hash": "12d449abac392c63ad704554b3e1a0aceaa29ff31a7bdc08d98217f152373636",
+    "content_hash": "d8b22e4829a0e4c5fb9a61b152d1132bdf00af2c035ec07fa3f8578a78d29ee2",
     "notes_hash": "72df9d34e587d6ca39332824174b5e604c49dcf69f73be8fe6ef86d7a1bf0429",
-    "model_hash": "d5acf66caedfbce8e71e53c9a1e3ae826deaa0b5f87761e2da696fbc02946421"
+    "model_hash": "d1e174f1ff0c42afac1f2f0c09c7f0c8913268a2ac5d4cfd3f7d02234fd7a5cb"
   },
   "geo_code": "JO",
   "node_type": "country",

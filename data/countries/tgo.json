@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,40 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Togo",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Togo",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "International Narcotics Control Strategy Report, 1995",
+          "url": "https://books.google.com/books?id=w0DlWjK3YCEC&pg=PA452",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Togo",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +170,9 @@
   },
   "hashes": {
     "code": "tgo",
-    "content_hash": "84ccb624f1d6ad1321b90e58f552c918105c127513fb8b75a326733f20b8f994",
+    "content_hash": "e548b65a16d3364d1db77e433b093faf90a1b15b3c7779a31437ece8d144bb21",
     "notes_hash": "729a48e64e7c320790012e02ae0f749bbb6907a70bb8501ddab605f7c16a5484",
-    "model_hash": "d212108d29ffef70dfd5b6cb4a782d7c9bddbd255af221ae123e24d6fc26fc82"
+    "model_hash": "1dd202c0e14ddddb83be2d72d7dd0a88aa43544e2242fdff9d270119232a71a3"
   },
   "geo_code": "TG",
   "node_type": "country",

@@ -20,20 +20,78 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": true,
+        "fine": false,
+        "severity_score": 2
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Panama",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Panama",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Registro judicial: Organo del poder judicial de la República de Panamá",
+          "url": "https://books.google.com/books?id=VR0rAQAAMAAJ",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "The Great Book of Hemp: The Complete Guide to the Environmental, Commercial, and Medicinal Uses of the World's Most Extraordinary Plant",
+          "url": "https://books.google.com/books?id=w0qvkVGO0sgC&pg=PA58",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "MARIJUANA SMOKING IS REPORTED SAFE; Hemp Leaves, Classed in Some States With Drugs, Tested by Canal Zone Committee. EXPERIMENT MADE ON 17 Panaman Judge Recently Gave Sailor a Year's Sentence for Possessing the Weed.",
+          "url": "https://www.nytimes.com/1926/11/21/archives/marijuana-smoking-is-reported-safe-hemp-leaves-classed-in-some.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Panama Noriega’s Money Machine",
+          "url": "https://time.com/archive/6711596/panama-noriegas-money-machine/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "PANAMA PRAISED FOR DRUG CURBS",
+          "url": "https://www.nytimes.com/1973/09/23/archives/panama-praised-for-drug-curbs-training-course-for-agents.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "A Panamanian Freighter, Loaded With Marijuana, Is Towed to Miami Base",
+          "url": "https://www.nytimes.com/1976/10/20/archives/a-panamanian-freighter-loaded-with-marijuana-is-towed-to-miami-base.html",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: penalty_arrest | source: Four Tons of Cocaine Seized and 64 Arrested in Massive Panama Drug Bust | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "penalty_arrest"
     ],
     "notes_normalized": "Cannabis is illegal in Panama / Panamá. Medical cannabis is legal. Distribution is illegal."
   },
@@ -135,9 +193,9 @@
   },
   "hashes": {
     "code": "pan",
-    "content_hash": "505c24fb3e93a733ba0c8d45f4301b60fde9e4644fe053e1b174850f2200f2fb",
+    "content_hash": "82fe6e19d2d2c43ffe28bb9f38c40255091d531a40c1ab415162ad5983c7612a",
     "notes_hash": "551daba50145ebc3abcc742d33ea7d8532fbfc46fd74630f08b7c35d0c1a36cc",
-    "model_hash": "51f30cb5386229343192a8cc8158e74f6800bafb2b767cdc44958c08bd062b0a"
+    "model_hash": "cc22b244c0e9ebfef04d1c8c69996e10c393ec96ea5294bfeefc28f1ef940861"
   },
   "geo_code": "PA",
   "node_type": "country",

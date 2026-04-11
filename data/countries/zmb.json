@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,40 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Zambia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Zambia",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Zambia",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Zambia",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +170,9 @@
   },
   "hashes": {
     "code": "zmb",
-    "content_hash": "020badbbe8319318aba8807992a88ce5eae4cc6d89ea8143626111fdddbae03e",
+    "content_hash": "a4f1c8f7aaff5517c793dc13763cf2c69b69aea299c39a51a2e85d84c324e23c",
     "notes_hash": "078f30f0525830864bd32a29ed2c2272794a7f127f50dfedd6bd6745e9ba2d3e",
-    "model_hash": "cebdea427ec6bfc6f957caeba14fe083e3cf722a2c68b80794ec7c71ce2bbc93"
+    "model_hash": "9a5cb413e6abe54d45c50e3725ff06e53c7ecef09c96317e6d61c6856a2fbe55"
   },
   "geo_code": "ZM",
   "node_type": "country",

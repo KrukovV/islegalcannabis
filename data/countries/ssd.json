@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,40 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in South Sudan",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_South_Sudan",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_South_Sudan",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "South Sudan",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +170,9 @@
   },
   "hashes": {
     "code": "ssd",
-    "content_hash": "f8c6664d89efe1f91d88c8fa820903aa98a31f1926b54af6095e480cc240bff0",
+    "content_hash": "cd201e29da81ae8c513dc2f86735b117f9d87e779b1988627b83161965e213ec",
     "notes_hash": "99cebe598f23f2d95f3f865ee4621a2c139b56aa07ae49b39f9bd441366c919b",
-    "model_hash": "715d8ee836c73c82730cfe99c3ff69b41d1270b9749076e53d3784f7a73384ed"
+    "model_hash": "eba51ef1f44e339013f75674ec829756a2556fc6246ccac3073c89d13c466d30"
   },
   "geo_code": "SS",
   "node_type": "country",

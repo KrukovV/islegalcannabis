@@ -20,6 +20,7 @@
       "status": "restricted",
       "scopes": {
         "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -29,13 +30,79 @@
       "flags": [],
       "modifiers": []
     },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": true,
+        "prison_priority": 1,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 4
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in Cyprus",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cyprus",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Overviews of legal topics: possession of cannabis for personal use",
+          "url": "https://www.emcdda.europa.eu/legal-topic-overviews/cannabis-possession-for-personal-use",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cyprus Set to Provide Cannabis Oil to Cancer Patients",
+          "url": "https://www.talkingdrugs.org/cyprus-set-to-provide-cannabis-oil-to-cancer-patients",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cyprus legalises medicinal cannabis cultivation and use",
+          "url": "https://www.financialmirror.com/news-details.php?nid=36540",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Cyprus",
+          "url": "https://web.archive.org/web/20190215181154/http://www.financialmirror.com/news-details.php?nid=36540",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Medical cannabis law approved in Cyprus",
+          "url": "https://www.healtheuropa.eu/medical-cannabis-law-cyprus/90507/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Cyprus",
+          "url": "https://web.archive.org/web/20190227011611/https://www.healtheuropa.eu/medical-cannabis-law-cyprus/90507/",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: penalty_prison | source: Cyprus / Κύπρος | type: summary | priority: 1 | scope: possession",
+        "rule: penalty_years | source: Cyprus / Κύπρος | type: summary | priority: 1 | scope: possession",
+        "rule: legal | source: Overviews of legal topics: possession of cannabis for personal use | type: reference | priority: 2 | scope: possession",
+        "rule: legal | source: Cannabis in Cyprus | type: reference | priority: 2 | scope: general",
+        "rule: legal | source: Medical cannabis law approved in Cyprus | type: reference | priority: 2 | scope: general",
+        "rule: legal | source: Can cannabis be legalised in Cyprus: Pros and cons | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
+    },
     "enforcement_flags": [],
     "applied_rules": [
+      "penalty_prison",
+      "penalty_years",
       "legal"
     ],
-    "notes_normalized": "Cannabis is legal in Cyprus / Κύπρος. Medical cannabis is legal. Distribution is restricted."
+    "notes_normalized": "Cannabis is legal in Cyprus / Κύπρος. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is legal in Cyprus / Κύπρος. Medical cannabis is legal. Distribution is restricted.",
+  "notes_normalized": "Cannabis is legal in Cyprus / Κύπρος. Medical cannabis is legal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Cyprus}} Class B substance – life imprisonment is possible for use and maximum 8 years for possession (at the maximum 2 years for the first offense for people under 25).<ref>{{cite web|title=Overviews of legal topics: possession of cannabis for personal use|url=http://www.emcdda.europa.eu/legal-topic-overviews/cannabis-possession-for-personal-use|publisher=[[European Monitoring Centre for Drugs and Drug Addiction]]|access-date=26 July 2015|archive-date=30 September 2018|archive-url=https://web.archive.org/web/20180930083140/http://www.emcdda.europa.eu/legal-topic-overviews/cannabis-possession-for-personal-use|url-status=live}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -133,9 +200,9 @@
   },
   "hashes": {
     "code": "cyp",
-    "content_hash": "f3bd17366e832d0ee8a9422129b81535125d1a23d00df1685ee91e3e893fd9cc",
-    "notes_hash": "549e846a5cb842a65eaa1031d4a2f0e7bb9cf6e5494c02e4001867051b30c373",
-    "model_hash": "7150c0455de0710d9b31bf91477ccc9d72afbfe0034a753ca02e3095796f1707"
+    "content_hash": "971f66afeca8a73d818f2a7da6196f8dd37f253dbfd7b4abc5696131f6e00c2a",
+    "notes_hash": "b8f4ad88ab90d6f2396471bd51fa40aae4d77cd058537596414cdabb76854375",
+    "model_hash": "1c27a857e5a4434012433a9a50a3d36963b2a0bf909763872ec270cacb524540"
   },
   "geo_code": "CY",
   "node_type": "country",

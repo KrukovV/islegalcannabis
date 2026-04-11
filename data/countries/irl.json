@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -29,7 +30,67 @@
       "flags": [
         "distribution_fallback_illegal"
       ],
-      "modifiers": []
+      "modifiers": [
+        "may"
+      ]
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Ireland",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ireland",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Ireland",
+          "url": "https://www.emcdda.europa.eu/system/files/publications/737/TDAP12001ENC_408266.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Drug offences",
+          "url": "https://www.citizensinformation.ie/en/justice/criminal_law/criminal_offences/drug_offences.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Report on an Examination of the Present Approach to Sanctions for Possession of Certain Amounts of Drugs for Personal Use",
+          "url": "https://data.oireachtas.ie/ie/oireachtas/committee/dail/33/joint_committee_on_justice/reports/2022/2022-12-14_report-on-an-examination-of-the-present-approach-to-sanctions-for-possession-of-certain-amounts-of-drugs-for-personal-use_en.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cork toddler gets cannabis oil permit for epilepsy",
+          "url": "https://www.rte.ie/news/2016/1223/841009-tristan-forde-cannabis/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis for Medicinal Use (Regulations) Bill 2016: Second Stage [Private Members]",
+          "url": "https://www.kildarestreet.com/debates/?id=2016-12-01a.404",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "TD faces sanction after describing Dáil as 'a kip'",
+          "url": "https://www.independent.ie/irish-news/politics/td-faces-sanction-after-describing-dail-as-a-kip/35928439.html",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +196,9 @@
   },
   "hashes": {
     "code": "irl",
-    "content_hash": "38c167a0e6050a197d35b19b0d2238e6ebe3e2f3bdf14a878f206f83ac080113",
+    "content_hash": "029de0467416a279f63f2588801db99becd1a8c442ae43efaee62a89f9678361",
     "notes_hash": "0b1b527617969118eac4aee5591ec4e8edef12b5fe6474df4d7d2a0908e0e94f",
-    "model_hash": "7c901ccbedb7c71ef56854d3ca616b15a5eca643a2f4035c9905fd741bcc393d"
+    "model_hash": "4363503875c2758bbe9f3b030042bca189c1c7830a95dbe7e9c97a01cd3bf37e"
   },
   "geo_code": "IE",
   "node_type": "country",

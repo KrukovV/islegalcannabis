@@ -2,8 +2,8 @@ import {
   type Actor,
   DANCE_FRAMES,
   EXHALE_FRAMES,
-  HOLD_FRAMES,
   IDLE_FRAMES,
+  PASS_LEFT_FRAMES,
   PASS_RIGHT_FRAMES,
   PROPS,
   SMOKE_FRAMES,
@@ -11,6 +11,7 @@ import {
   type ScenarioDef,
   WALK_FRAMES
 } from "../ascii-engine";
+import { ASCII_BODY_SSOT, ASCII_JOINT_SSOT, type AsciiFacing, framesForFacing } from "../ascii-ssot";
 
 const AUTO = ["auto"] as const;
 const CENTER = { lng: 0, lat: -77 } as const;
@@ -29,7 +30,8 @@ function addActor(
     vy = 0,
     frames,
     tx,
-    ty
+    ty,
+    facing = x >= 0 ? "left" : "right"
   }: {
     x: number;
     y: number;
@@ -41,6 +43,7 @@ function addActor(
     frames?: string[];
     tx?: number;
     ty?: number;
+    facing?: AsciiFacing;
   }
 ) {
   engine.spawnActor({
@@ -54,6 +57,7 @@ function addActor(
     state,
     ttl,
     role,
+    facing,
     targetOffsetX: tx,
     targetOffsetY: ty
   });
@@ -75,7 +79,11 @@ function spawnLine(
       ty: y,
       role,
       state: "enter",
-      frames: role === "smoker" ? [...SMOKE_FRAMES] : [...WALK_FRAMES]
+      facing: startX + index * gap >= 0 ? "left" : "right",
+      frames:
+        role === "smoker"
+          ? framesForFacing(ASCII_JOINT_SSOT.carry, startX + index * gap >= 0 ? "left" : "right")
+          : framesForFacing(ASCII_BODY_SSOT.walk, startX + index * gap >= 0 ? "left" : "right")
     });
   }
 }
@@ -92,7 +100,11 @@ function spawnCircle(engine: Parameters<ScenarioDef["start"]>[0], count: number,
       ty,
       role: index % 2 === 0 ? "smoker" : "walker",
       state: "enter",
-      frames: index % 2 === 0 ? [...SMOKE_FRAMES] : [...WALK_FRAMES]
+      facing: tx >= 0 ? "left" : "right",
+      frames:
+        index % 2 === 0
+          ? framesForFacing(ASCII_JOINT_SSOT.carry, tx >= 0 ? "left" : "right")
+          : framesForFacing(ASCII_BODY_SSOT.walk, tx >= 0 ? "left" : "right")
     });
   }
 }
@@ -108,7 +120,11 @@ function scatterActors(engine: Parameters<ScenarioDef["start"]>[0], count: numbe
       ty,
       role: index % 3 === 0 ? "smoker" : "walker",
       state: "enter",
-      frames: index % 3 === 0 ? [...SMOKE_FRAMES] : [...WALK_FRAMES]
+      facing: tx >= 0 ? "left" : "right",
+      frames:
+        index % 3 === 0
+          ? framesForFacing(ASCII_JOINT_SSOT.carry, tx >= 0 ? "left" : "right")
+          : framesForFacing(ASCII_BODY_SSOT.walk, tx >= 0 ? "left" : "right")
     });
   }
 }
@@ -235,7 +251,8 @@ const scenarioWalkingSmoker: ScenarioDef = {
       role: "smoker",
       state: "walk",
       vx: 0.8,
-      frames: [...WALK_FRAMES]
+      facing: "right",
+      frames: framesForFacing(ASCII_BODY_SSOT.walk, "right")
     });
     const actor = engine.actors[0];
     if (actor) {
@@ -247,24 +264,26 @@ const scenarioWalkingSmoker: ScenarioDef = {
     const actor = engine.actors[0];
     if (!actor) return;
     if (t < 120) {
-      setFrames(actor, WALK_FRAMES);
+      actor.facing = "right";
+      setFrames(actor, framesForFacing(ASCII_BODY_SSOT.walk, "right"));
       actor.state = "walk";
       actor.offsetX += 0.45;
       return;
     }
-    if (t < 320) {
-      actor.state = "walk";
-      actor.offsetX += 0.3;
-      if (t % 80 < 48) setFrames(actor, SMOKE_FRAMES);
-      else setFrames(actor, WALK_FRAMES);
+    if (t < 180) {
+      actor.facing = "right";
+      actor.state = "idle";
+      setFrames(actor, framesForFacing(ASCII_JOINT_SSOT.carry, "right"));
       return;
     }
-    if (t < 430) {
-      actor.state = "smoke";
-      setFrames(actor, EXHALE_FRAMES);
+    if (t < 500) {
+      if (actor.state !== "smoke") {
+        engine.setActorState(0, "smoke");
+      }
       return;
     }
-    setFrames(actor, WALK_FRAMES);
+    actor.facing = "right";
+    setFrames(actor, framesForFacing(ASCII_BODY_SSOT.walk, "right"));
     actor.state = "exit";
     actor.offsetX += 0.65;
     if (actor.offsetX > 150) engine.actors = [];
@@ -278,6 +297,7 @@ const scenarioPassJoint: ScenarioDef = {
   allowedTriggers: [...AUTO],
   start(engine) {
     for (let index = 0; index < 3; index += 1) {
+      const facing: AsciiFacing = index === 2 ? "left" : "right";
       addActor(engine, {
         x: -44 + index * 44,
         y: -8,
@@ -285,7 +305,8 @@ const scenarioPassJoint: ScenarioDef = {
         ty: -8,
         role: "smoker",
         state: "idle",
-        frames: [...HOLD_FRAMES]
+        facing,
+        frames: framesForFacing(ASCII_JOINT_SSOT.carry, facing)
       });
     }
   },
@@ -293,41 +314,52 @@ const scenarioPassJoint: ScenarioDef = {
     const [actorA, actorB, actorC] = engine.actors;
     if (!actorA || !actorB || !actorC) return;
     if (t < 90) {
-      setFrames(actorA, HOLD_FRAMES);
-      setFrames(actorB, HOLD_FRAMES);
-      setFrames(actorC, HOLD_FRAMES);
+      actorA.facing = "right";
+      actorB.facing = "right";
+      actorC.facing = "left";
+      setFrames(actorA, framesForFacing(ASCII_JOINT_SSOT.carry, "right"));
+      setFrames(actorB, framesForFacing(ASCII_JOINT_SSOT.carry, "right"));
+      setFrames(actorC, framesForFacing(ASCII_JOINT_SSOT.carry, "left"));
       return;
     }
     if (t < 220) {
-      setFrames(actorA, SMOKE_FRAMES);
-      setFrames(actorB, HOLD_FRAMES);
-      setFrames(actorC, HOLD_FRAMES);
+      actorA.facing = "right";
+      setFrames(actorA, framesForFacing(ASCII_JOINT_SSOT.near, "right"));
+      setFrames(actorB, framesForFacing(ASCII_JOINT_SSOT.carry, "right"));
+      setFrames(actorC, framesForFacing(ASCII_JOINT_SSOT.carry, "left"));
       return;
     }
     if (t < 320) {
+      actorA.facing = "right";
+      actorB.facing = "left";
       setFrames(actorA, PASS_RIGHT_FRAMES);
-      setFrames(actorB, PASS_RIGHT_FRAMES);
-      setFrames(actorC, HOLD_FRAMES);
+      setFrames(actorB, PASS_LEFT_FRAMES);
+      setFrames(actorC, framesForFacing(ASCII_JOINT_SSOT.carry, "left"));
       actorA.offsetX += 0.1;
       actorB.offsetX -= 0.05;
       return;
     }
     if (t < 470) {
-      setFrames(actorA, HOLD_FRAMES);
-      setFrames(actorB, SMOKE_FRAMES);
-      setFrames(actorC, HOLD_FRAMES);
+      actorA.facing = "right";
+      actorB.facing = "right";
+      setFrames(actorA, framesForFacing(ASCII_JOINT_SSOT.carry, "right"));
+      setFrames(actorB, framesForFacing(ASCII_JOINT_SSOT.near, "right"));
+      setFrames(actorC, framesForFacing(ASCII_JOINT_SSOT.carry, "left"));
       return;
     }
     if (t < 610) {
-      setFrames(actorA, HOLD_FRAMES);
+      actorA.facing = "right";
+      actorB.facing = "right";
+      actorC.facing = "left";
+      setFrames(actorA, framesForFacing(ASCII_JOINT_SSOT.carry, "right"));
       setFrames(actorB, PASS_RIGHT_FRAMES);
-      setFrames(actorC, SMOKE_FRAMES);
+      setFrames(actorC, framesForFacing(ASCII_JOINT_SSOT.near, "left"));
       actorC.offsetX -= 0.03;
       return;
     }
-    setFrames(actorA, HOLD_FRAMES);
-    setFrames(actorB, HOLD_FRAMES);
-    setFrames(actorC, EXHALE_FRAMES);
+    setFrames(actorA, framesForFacing(ASCII_JOINT_SSOT.carry, "right"));
+    setFrames(actorB, framesForFacing(ASCII_JOINT_SSOT.carry, "right"));
+    setFrames(actorC, framesForFacing(ASCII_JOINT_SSOT.exhale, "left"));
     if (t > 700) engine.actors = [];
   }
 };

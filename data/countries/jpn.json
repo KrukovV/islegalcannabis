@@ -20,24 +20,101 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
-        "sale": null,
+        "use": null,
+        "sale": "illegal",
         "cultivation": null,
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
       "enforcement": "fine-based",
-      "flags": [],
-      "modifiers": []
+      "flags": [
+        "trafficking_illegal",
+        "sale_illegal"
+      ],
+      "modifiers": [
+        "up_to",
+        "but"
+      ]
+    },
+    "signals": {
+      "status": "mixed",
+      "penalties": {
+        "prison": true,
+        "prison_priority": 1,
+        "arrest": false,
+        "fine": true,
+        "severity_score": 4
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in Japan",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Japan",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "A review of drug abuse and countermeasures in Japan since World War II",
+          "url": "https://www.unodc.org/unodc/en/data-and-analysis/bulletin/bulletin_1968-01-01_3_page004.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "大麻取締法",
+          "url": "https://elaws.e-gov.go.jp/document?lawid=323AC0000000124",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Japan: The Japanese Market for CBD and Hemp Extracts",
+          "url": "https://www.fas.usda.gov/data/japan-japanese-market-cbd-and-hemp-extracts",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "International Narcotics Control Strategy Report: Volume I: Drug and Chemical Control",
+          "url": "https://2009-2017.state.gov/j/inl/rls/nrcrpt/2010/index.htm",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Japan's war against medical marijuana",
+          "url": "https://www.japantimes.co.jp/news/2016/11/05/national/media-national/japans-war-medical-marijuana/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "A Loophole in Japan's Weed Laws Is Getting Tens of Thousands High",
+          "url": "https://www.vice.com/en/article/japan-weed-law-thc-thco-cannabis-ban/",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: penalty_prison | source: Japan / 日本 | type: summary | priority: 1 | scope: possession",
+        "rule: penalty_fine | source: Japan / 日本 | type: summary | priority: 1 | scope: possession",
+        "rule: penalty_years | source: Japan / 日本 | type: summary | priority: 1 | scope: possession",
+        "rule: penalty_prison | source: Japan / 日本 | type: summary | priority: 1 | scope: trafficking",
+        "rule: penalty_fine | source: Japan / 日本 | type: summary | priority: 1 | scope: trafficking",
+        "rule: penalty_years | source: Japan / 日本 | type: summary | priority: 1 | scope: trafficking",
+        "rule: trafficking_illegal | source: Japan / 日本 | type: summary | priority: 1 | scope: trafficking",
+        "rule: sale_illegal | source: Japan / 日本 | type: summary | priority: 1 | scope: trafficking",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [
       "fine_based"
     ],
     "applied_rules": [
-      "fine_based"
+      "penalty_prison",
+      "penalty_fine",
+      "penalty_years",
+      "trafficking_illegal",
+      "sale_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Japan / 日本. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is illegal in Japan / 日本. Medical cannabis is illegal. Distribution is mixed. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Japan / 日本. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Japan / 日本. Medical cannabis is illegal. Distribution is mixed. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Japan}} Restricted in 1948.<ref name=\"ShikitaTsuchiya2012\">{{cite book|author1=Minoru Shikita|author2=Shinichi Tsuchiya|title=Crime and Criminal Policy in Japan: Analysis and Evaluation of the Showa Era, 1926–1988|url=https://books.google.com/books?id=9pHfBwAAQBAJ&pg=PA13|date=6 December 2012|publisher=Springer Science & Business Media|isbn=978-1-4612-2816-5|pages=13–}}</ref> Use and possession are punishable by up to 5 years imprisonment and a fine. Cultivation, sale, and transport are punishable by 7–10 years imprisonment and a fine.<ref>{{citation |url = http://www.japanhemp.org/en/taimalaw.htm |title = Cannabis Control Law |publisher = japanhemp.org |access-date = 4 August 2015 |archive-date = 17 May 2020 |archive-url = https://web.archive.org/web/20200517153638/http://www.japanhemp.org/en/taimalaw.htm |url-status = live }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -135,9 +212,9 @@
   },
   "hashes": {
     "code": "jpn",
-    "content_hash": "ca6ca77f30bf259b029d3a92a23e8bfd251ae174f8a16df3d60557b2bd507cc5",
-    "notes_hash": "3bd7f765ff3c3551da85709c0c219efc96663801df7d3ebbf7f802ba39537a8f",
-    "model_hash": "16a2365e009f017dd0a4ec444bd1cc24624b0d514abfa98b55e1ba94f0feb161"
+    "content_hash": "abf10be4898af02b10367cb9097beb86a38b5192dbf701873f5d1bd2491bfb98",
+    "notes_hash": "17729f0982fe318bd9f705eaa23d521b5a5ef6bdd8db1aba4e239852199ac37d",
+    "model_hash": "6aa26310cb79ae1d536be1185c77b9b04f4d84e99c92dd233de87826b9fa297d"
   },
   "geo_code": "JP",
   "node_type": "country",

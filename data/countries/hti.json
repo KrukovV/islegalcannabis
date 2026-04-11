@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,40 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Haiti",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Haiti",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Haiti",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Haiti / Haïti",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +170,9 @@
   },
   "hashes": {
     "code": "hti",
-    "content_hash": "3b45c2747f3d5c84fc721f813fe7a33feadc266c92a1d63a695d1d9ece908b30",
+    "content_hash": "2f70cb4798934ca4eb6bf8a9783ce5d0e359321731f88d82742f83cb1b2db428",
     "notes_hash": "ad03a2e6242039f04104bb3f817b79b7ce7e7e5bad5b21ce7d59045f6b0e926a",
-    "model_hash": "6b863e6cc374b933970efa1f722c9198b911cfda1096e09cff47ced51c07228b"
+    "model_hash": "1b7c81484f56670122f0c35299725e5ae4bba38b41a84d47b802a96fe8059c37"
   },
   "geo_code": "HT",
   "node_type": "country",

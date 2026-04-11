@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,28 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "low",
+      "sources": [
+        {
+          "title": "Guernsey / Guernesey",
+          "url": null,
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -101,16 +124,16 @@
     ],
     "legal_similarity": [
       {
+        "code": "fra",
+        "name": "France"
+      },
+      {
         "code": "irl",
         "name": "Ireland / Éire"
       },
       {
         "code": "and",
         "name": "Andorra"
-      },
-      {
-        "code": "mco",
-        "name": "Monaco"
       }
     ],
     "cluster_links": [
@@ -128,9 +151,9 @@
   },
   "hashes": {
     "code": "ggy",
-    "content_hash": "dd91b9c7906de2da8205aa6882b17c855f626704f76c9f5700447c5f2ea48662",
+    "content_hash": "6faea303cbe818ac761e58e1d51fc84717963552ce2172f0c752d55e9dfce635",
     "notes_hash": "45a02024d06c4fa1c349a611f697060356b676a95a08ddc6ae3396828715a183",
-    "model_hash": "af1accb5caf998cc222d4fa75ba6566e1b37b3c64f776042e5660ef2686c99df"
+    "model_hash": "0b6cd20f4c84c716ca8b077c15f22f081e77da58bd6ee4bf59193433d59d7ada"
   },
   "geo_code": "GG",
   "node_type": "country",

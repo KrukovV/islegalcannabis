@@ -20,6 +20,7 @@
       "status": "restricted",
       "scopes": {
         "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -27,7 +28,69 @@
       },
       "enforcement": "standard",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "but"
+      ]
+    },
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Canada",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Canada",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis laws of Canada by province or territory",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_laws_of_Canada_by_province_or_territory",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Canada",
+          "url": "https://www.parl.gc.ca/common/Committee_SenHome.asp?Language=E&Parl=37&Ses=1&comm_id=85",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Canada",
+          "url": "https://www2.parl.gc.ca/HousePublications/Publication.aspx?pub=bill&doc=C-38&parl=37&ses=2&language=E",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Canada",
+          "url": "https://www.statcan.gc.ca/pub/13-610-x/13-610-x2018001-eng.htm",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Canada Begins to Move on Legalizing Marijuana",
+          "url": "https://time.com/4115711/marijuana-legalization-justin-trudeau/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Task force recommends setting 18 as minimum age for pot purchases",
+          "url": "https://www.bnnbloomberg.ca/ottawa-to-release-task-force-report-on-marijuana-legalization-1.630354",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: medical_legal | source: Canada | type: summary | priority: 1 | scope: general",
+        "rule: legal | source: How will legal pot be sold? Three things that might happen, and one that won't | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -111,12 +174,12 @@
         "name": "Bermuda"
       },
       {
-        "code": "blz",
-        "name": "Belize / Belice"
+        "code": "cub",
+        "name": "Cuba"
       },
       {
-        "code": "jam",
-        "name": "Jamaica"
+        "code": "blz",
+        "name": "Belize / Belice"
       }
     ],
     "cluster_links": [
@@ -125,8 +188,8 @@
         "name": "Saint Pierre and Miquelon / Saint-Pierre-et-Miquelon"
       },
       {
-        "code": "cub",
-        "name": "Cuba"
+        "code": "cym",
+        "name": "Cayman Islands"
       }
     ],
     "same_country_states": [],
@@ -134,9 +197,9 @@
   },
   "hashes": {
     "code": "can",
-    "content_hash": "b93540e1746363fff1e8f2cbc3a48ee3079d5a342247259206c4bfddf56312da",
+    "content_hash": "6de0042ad215ae303439c5a509e14b18527687d070dd806bb810a4a843ded65b",
     "notes_hash": "44f241c555dbc4ea0434dc127278d50425d33f99737756d596449867ddc77905",
-    "model_hash": "878ceab1fce148c13c742964d8f30bfd97d373a29f2655feba0dc16639d69f88"
+    "model_hash": "f791366d6bcfd83349936f88d450a71c555062ddaa6f965c057b2431d7ea04c4"
   },
   "geo_code": "CA",
   "node_type": "country",

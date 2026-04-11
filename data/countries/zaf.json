@@ -20,6 +20,7 @@
       "status": "tolerated",
       "scopes": {
         "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": "tolerated",
         "import": null,
@@ -29,10 +30,74 @@
       "flags": [],
       "modifiers": []
     },
+    "signals": {
+      "status": "tolerated",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in South Africa",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_South_Africa",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in South Africa",
+          "url": "https://digitallibrary.un.org/record/1297475/files/unodc0110e.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in South Africa",
+          "url": "https://collections.concourt.org.za/handle/20.500.12144/34547",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis, alcohol, and the South African student: adolescent drug use, 1974-1985",
+          "url": "https://books.google.com/books?id=ZkdxAAAAMAAJ",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "The Making of South African Legal Culture 1902-1936: Fear, Favour and Prejudice",
+          "url": "https://books.google.com/books?id=sw0w04BlxVYC",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Principles of Criminal Law",
+          "url": "https://books.google.com/books?id=0PoY5d5wIbsC",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Prohibition & Resistance: A Socio-Political Exploration of the Changing Dynamics of the Southern African Cannabis Trade, c. 1850 – the present",
+          "url": "https://daggacouple.co.za/wp-content/uploads/2009/02/Prohibition-ResistanceA-Socio-Political-Exploration-of-the-Changing-Dynamics-of-the-Southern-African-Cannabis-Trade.pdf",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: private_cultivation | source: South Africa / Sewula Afrika | type: summary | priority: 1 | scope: cultivation",
+        "rule: legal | source: South Africa / Sewula Afrika | type: summary | priority: 1 | scope: cultivation",
+        "rule: legal | source: South Africa / Sewula Afrika | type: summary | priority: 1 | scope: general",
+        "rule: legal | source: The Making of South African Legal Culture 1902-1936: Fear, Favour and Prejudice | type: reference | priority: 2 | scope: general",
+        "rule: medical_legal | source: South Africa: How To Get A Medical Cannabis Prescription | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
+    },
     "enforcement_flags": [],
     "applied_rules": [
-      "private_cultivation_tolerated",
-      "legal"
+      "private_cultivation",
+      "legal",
+      "medical_legal"
     ],
     "notes_normalized": "Cannabis is legal in South Africa / Sewula Afrika. Medical cannabis is legal. Distribution is tolerated."
   },
@@ -115,8 +180,8 @@
         "name": "Zambia"
       },
       {
-        "code": "com",
-        "name": "Comoros / جزر القمر"
+        "code": "mwi",
+        "name": "Malawi / Malaŵi"
       }
     ],
     "cluster_links": [
@@ -134,9 +199,9 @@
   },
   "hashes": {
     "code": "zaf",
-    "content_hash": "cf3c6b33b114d5c73145b22f4db89c57490fbbc421419949e4ded43531dc3da5",
+    "content_hash": "19e986816b7eac01522cbb49e149d31eef396c82b2e177547fa4568a8dd39c53",
     "notes_hash": "2097314e10f45172483c56002e925365d9082d1fa0666d7669703e994261d60c",
-    "model_hash": "ad1bbe22b007af6949f7bd3d28f5a8f9dd5e6532e1a3e8cc301154a049d7e295"
+    "model_hash": "a352ba19be8ca7731a7dd790ce39b1026ab86d169163692de6f613a65a5a8792"
   },
   "geo_code": "ZA",
   "node_type": "country",

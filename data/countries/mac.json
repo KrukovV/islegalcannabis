@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,40 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Macau",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Macau",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Macau",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Macau / 澳门",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -112,22 +147,22 @@
         "name": "Laos / ສປປລາວ"
       },
       {
-        "code": "khm",
-        "name": "Cambodia / Kâmpŭchéa"
-      },
-      {
-        "code": "chn",
-        "name": "China / 中国"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "phl",
         "name": "Philippines / Pilipinas"
       },
       {
+        "code": "khm",
+        "name": "Cambodia / Kâmpŭchéa"
+      }
+    ],
+    "cluster_links": [
+      {
         "code": "tha",
         "name": "Thailand / ประเทศไทย"
+      },
+      {
+        "code": "chn",
+        "name": "China / 中国"
       }
     ],
     "same_country_states": [],
@@ -135,9 +170,9 @@
   },
   "hashes": {
     "code": "mac",
-    "content_hash": "d4a9bcdc4f9efa860772bb01460160eb2949fbaa7f86295ed23c2fa5e48801a3",
+    "content_hash": "f19853a1b075a9077c0747806bcc66aa3dad16d40d128ad1c1fe30d00fd99c24",
     "notes_hash": "c6e0fe455944aef1a97fe51c11e1cfd42fac0c7b5f0e72e79b7fb8e43c9fa536",
-    "model_hash": "567cf3bef6460b63dd427d855c990244c629b3f68a76d06e8f611ad57cd5fe8f"
+    "model_hash": "ddf036d8baef6348acf44b485a997f89e78063dc76f714b2fd8b4d8ce5db8c74"
   },
   "geo_code": "MO",
   "node_type": "country",

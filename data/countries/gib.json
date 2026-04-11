@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,28 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "low",
+      "sources": [
+        {
+          "title": "Gibraltar",
+          "url": null,
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -105,8 +128,8 @@
         "name": "Andorra"
       },
       {
-        "code": "dza",
-        "name": "Algeria / الجزائر"
+        "code": "fra",
+        "name": "France"
       },
       {
         "code": "jey",
@@ -128,9 +151,9 @@
   },
   "hashes": {
     "code": "gib",
-    "content_hash": "3950c8b48347e4742fd27377a4d80a82a6814e63e3c3d5df99c792b8bb7df43f",
+    "content_hash": "6e8a1b67321766cd4728db876da3ae24e3d06f8810724ebf041e720fac6a0fd2",
     "notes_hash": "4240bcbe55beb93fac6bb803d5fb46bee93d1d3e28923e10cf55a5c5b40d7b44",
-    "model_hash": "b18d6a727356c35594395f493edfdd14dee7b5c8f026667ba5971afff21cdbd0"
+    "model_hash": "e8567576dcaae04e0e3d43070e18c0b0531ef47cae2eadc9f910afc3152c6505"
   },
   "geo_code": "GI",
   "node_type": "country",

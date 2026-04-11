@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,40 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Qatar",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Qatar",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Qatar",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Qatar / قطر",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +170,9 @@
   },
   "hashes": {
     "code": "qat",
-    "content_hash": "eb30ef08380f6bfc54d9e3ac6a6d4dff3347549ea1988fba1420ed841f85e0ba",
+    "content_hash": "130f626cdd0f7ddd8e812001b870703ef39bc1ccb80911cebb1f0207c8492b68",
     "notes_hash": "2f891609507d5143fd3fc6b765cd68d07c7499f8091651fe3563d8ee9f2e4afc",
-    "model_hash": "f136c5bf933bd4c82f07c864d9c62f85cd74a068540d0909ff1bbbb0da209f05"
+    "model_hash": "918c24a744880d1c209df351af0f2526e993dd2489508cd27b34bcd2dd1c0bbf"
   },
   "geo_code": "QA",
   "node_type": "country",

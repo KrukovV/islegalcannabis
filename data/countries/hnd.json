@@ -20,19 +20,65 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": "illegal",
         "cultivation": null,
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
       "enforcement": "standard",
       "flags": [
+        "trafficking_illegal",
         "sale_illegal"
       ],
       "modifiers": []
     },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in Honduras",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Honduras",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Honduras",
+          "url": "https://www.poderjudicial.gob.hn/juris/Leyes/Ley%20sobre%20uso%20Indebido%20y%20Trafico%20Ilicito%20de%20Drogas%20y%20Sustancias%20Psicotropicas.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Honduras",
+          "url": "https://web.archive.org/web/20131006222109/http://www.poderjudicial.gob.hn/juris/Leyes/Ley%20sobre%20uso%20Indebido%20y%20Trafico%20Ilicito%20de%20Drogas%20y%20Sustancias%20Psicotropicas.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Honduras",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: trafficking_illegal | source: Honduras | type: summary | priority: 1 | scope: trafficking",
+        "rule: sale_illegal | source: Honduras | type: summary | priority: 1 | scope: trafficking",
+        "rule: illegal | source: Honduras | type: summary | priority: 1 | scope: trafficking",
+        "no traversal evidence"
+      ]
+    },
     "enforcement_flags": [],
     "applied_rules": [
+      "trafficking_illegal",
       "sale_illegal",
       "illegal"
     ],
@@ -136,9 +182,9 @@
   },
   "hashes": {
     "code": "hnd",
-    "content_hash": "6aa271268ebad50a7dad21d3f62f96414adffd5b1d4f4854b83569d2fc42b2e2",
+    "content_hash": "f2fa51ddfde0c885e95ab419c782395c051ffb7785ab268981c2b555bc93fc75",
     "notes_hash": "4fc807051916b0fab6b2053b42f5e74d3f606d41583dec2c09c936d803d8149d",
-    "model_hash": "6680f3f96ab2842541e6bfa944d7549f2be6d2ccc0378fca598bd2c8901d37b8"
+    "model_hash": "4ca7d9e511fcf57fd140b2740be8abe8c5602b07bb5f544171f69ab8a0deb107"
   },
   "geo_code": "HN",
   "node_type": "country",

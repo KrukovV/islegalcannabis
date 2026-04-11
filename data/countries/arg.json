@@ -5,9 +5,9 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "LEGAL",
@@ -17,9 +17,10 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
+        "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -29,14 +30,72 @@
       "flags": [],
       "modifiers": []
     },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Argentina",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Argentina",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Codigo Penal",
+          "url": "https://www.argentina.gob.ar/normativa/nacional/ley-23737-138/actualizacion",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis medicinal",
+          "url": "https://www.argentina.gob.ar/justicia/derechofacil/leysimple/cannabis-medicinal",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Por qué se celebra hoy el Día Mundial de la Marihuana y qué significa el término 420 para la cultura cannábica",
+          "url": "https://www.pagina12.com.ar/542138-por-que-se-celebra-hoy-el-dia-mundial-de-la-marihuana-y-que-",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "En el país hay más de un millón y medio de usuarios de cannabis",
+          "url": "https://www.pagina12.com.ar/364312-en-el-pais-hay-mas-de-un-millon-y-medio-de-usuarios-de-canna",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "El Gobierno reglamentó la ley de cannabis medicinal",
+          "url": "https://www.infobae.com/politica/2017/09/22/el-gobierno-reglamento-la-ley-de-cannabis-medicinal/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "El Gobierno reglamentó la Ley de Cannabis: \"es de vanguardia en el mundo\"",
+          "url": "https://www.pagina12.com.ar/575095-el-gobierno-reglamento-la-ley-de-cannabis-es-de-vanguardia-e",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: medical_legal | source: Argentina | type: summary | priority: 1 | scope: general",
+        "no traversal evidence"
+      ]
+    },
     "enforcement_flags": [],
     "applied_rules": [
-      "medical_legal",
-      "legal"
+      "medical_legal"
     ],
-    "notes_normalized": "Cannabis is legal in Argentina. Medical cannabis is legal. Distribution is restricted."
+    "notes_normalized": "Cannabis is illegal in Argentina. Medical cannabis is legal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is legal in Argentina. Medical cannabis is legal. Distribution is restricted.",
+  "notes_normalized": "Cannabis is illegal in Argentina. Medical cannabis is legal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Argentina}} Medicinal cannabis was legalized on 22 September 2017.<ref>{{Cite news |url=https://www.infobae.com/politica/2017/09/22/el-gobierno-reglamento-la-ley-de-cannabis-medicinal/ |title=El Gobierno reglamentó la ley de cannabis medicinal |date=22 September 2017 |publisher=[[Infobae]] |access-date=4 January 2023 |archive-date=8 June 2021 |archive-url=https://web.archive.org/web/20210608073626/https://www.infobae.com/politica/2017/09/22/el-gobierno-reglamento-la-ley-de-cannabis-medicinal/ |url-status=live |language=es}}</ref><ref>{{cite web |url=https://www.argentina.gob.ar/justicia/derechofacil/leysimple/cannabis-medicinal |title=Cannabis medicinal |author=<!--not stated--> |website=Argentina.gob.ar |date=12 July 2019 |publisher=[[Government of Argentina]] |trans-title=Medicinal cannabis |language=es |access-date=2024-01-04 |url-status=live |archive-url=https://web.archive.org/web/20231206063257/https://www.argentina.gob.ar/justicia/derechofacil/leysimple/cannabis-medicinal |archive-date=2023-12-06}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -107,9 +166,19 @@
     ],
     "legal_similarity": [
       {
+        "code": "bol",
+        "name": "Bolivia / Wuliwya"
+      },
+      {
+        "code": "flk",
+        "name": "Falkland Islands"
+      },
+      {
         "code": "bra",
         "name": "Brazil / Brasil"
-      },
+      }
+    ],
+    "cluster_links": [
       {
         "code": "per",
         "name": "Peru / Piruw"
@@ -119,24 +188,14 @@
         "name": "Ecuador"
       }
     ],
-    "cluster_links": [
-      {
-        "code": "bol",
-        "name": "Bolivia / Wuliwya"
-      },
-      {
-        "code": "flk",
-        "name": "Falkland Islands"
-      }
-    ],
     "same_country_states": [],
     "federal_parent": null
   },
   "hashes": {
     "code": "arg",
-    "content_hash": "9abe18c6c961613ac515c0525e3dd6a96aa436862df2c1ebf1b8585f9ef559fe",
-    "notes_hash": "aa5de6e8435ff0c05e9568d2c973198235926871b6396d0f37db5286e2282ed3",
-    "model_hash": "963424a28f69e99fdb5515a742746a4ea3feb9fe67b31233c8f4234f7606c6c7"
+    "content_hash": "d217a8d944c20bb41b8aae53a51028dcfd658136a067d09dec195e343ddad931",
+    "notes_hash": "aade7e9c80a98bfab82a33a8709add1960b9f7fb97964337882f18fc053df378",
+    "model_hash": "b25bb9cbf1b9513f0ba34859502de031671d96a4eea3623eb9bede51d3a0aa89"
   },
   "geo_code": "AR",
   "node_type": "country",

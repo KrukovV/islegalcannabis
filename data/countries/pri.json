@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,28 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "low",
+      "sources": [
+        {
+          "title": "Puerto Rico",
+          "url": null,
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -128,9 +151,9 @@
   },
   "hashes": {
     "code": "pri",
-    "content_hash": "5f52d0278f7b67500b71dd8612cf338a34dbca2f3f47bdb5e2da9bee3afd8c56",
+    "content_hash": "30239b0a77d30a9b6e5f4720534443c7162603e7ead26f21fdd4b8cb85e462ce",
     "notes_hash": "0f575ae29f154d2b783ef9e92c4fedfcee674bd12eddfebaac22cb530c52605d",
-    "model_hash": "97708038a731fbc002ee36c0dc69c3e8f2b5b80719d2033e04ecb48049ca5236"
+    "model_hash": "144cb7a38c3578ca7cbbbfdabf40b0e0cf3c28f3920c856fa3d331d20aa76510"
   },
   "geo_code": "PR",
   "node_type": "country",

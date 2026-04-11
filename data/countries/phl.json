@@ -5,9 +5,9 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
@@ -17,9 +17,10 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
+        "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -29,14 +30,74 @@
       "flags": [],
       "modifiers": []
     },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in the Philippines",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Philippines",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "An Act Instituting the Comprehensive Dangerous Drugs Act of 2002, Repealing Republic Act No. 6425, Otherwise Known as the Dangerous Drugs Act of 1972, as Amended, Providing its Funds Therefor, and for Other Purposes",
+          "url": "https://pdea.gov.ph/images/Laws/RA9165.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Solon re-files \"Philippine Compassionate Medical Cannabis Bill\"",
+          "url": "https://www.congress.gov.ph/press/details.php?pressid=9655",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Senators not keen yet on medical marijuana bill",
+          "url": "https://www.pna.gov.ph/articles/1190702",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "The Dangerous Drugs Act of 1972",
+          "url": "https://www.lawphil.net/statutes/repacts/ra1972/ra_6425_1972.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Fact check: Is medical marijuana already allowed in the Philippines?",
+          "url": "https://www.philstar.com/headlines/2018/12/18/1878036/fact-check-medical-marijuana-already-allowed-philippines",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Bill on medical use of marijuana filed in Congress",
+          "url": "https://www.rappler.com/nation/59118-compassionate-use-medical-cannabis-bill",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: medical_legal | source: Philippines / Pilipinas | type: summary | priority: 1 | scope: use",
+        "rule: medical_legal | source: Philippines / Pilipinas | type: summary | priority: 1 | scope: general",
+        "rule: medical_legal | source: Fact check: Is medical marijuana already allowed in the Philippines? | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
+    },
     "enforcement_flags": [],
     "applied_rules": [
-      "medical_legal",
-      "legal"
+      "medical_legal"
     ],
-    "notes_normalized": "Cannabis is legal in Philippines / Pilipinas. Medical cannabis is legal. Distribution is restricted."
+    "notes_normalized": "Cannabis is illegal in Philippines / Pilipinas. Medical cannabis is legal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is legal in Philippines / Pilipinas. Medical cannabis is legal. Distribution is restricted.",
+  "notes_normalized": "Cannabis is illegal in Philippines / Pilipinas. Medical cannabis is legal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in the Philippines}} Medical use of cannabis is possible with a special permit from the Food and Drugs Authority for use by individuals with serious or terminal illness.<ref>{{cite news |last1=Viray |first1=Patricia Lourdes |title=Fact check: Is medical marijuana already allowed in the Philippines? |url=https://www.philstar.com/headlines/2018/12/18/1878036/fact-check-medical-marijuana-already-allowed-philippines |access-date=28 December 2018 |work=[[The Philippine Star]] |date=18 December 2018 |archive-date=20 December 2018 |archive-url=https://web.archive.org/web/20181220091203/https://www.philstar.com/headlines/2018/12/18/1878036/fact-check-medical-marijuana-already-allowed-philippines |url-status=live }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -107,26 +168,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "sgp",
-        "name": "Singapore / Singapura"
-      },
-      {
-        "code": "tha",
-        "name": "Thailand / ประเทศไทย"
-      },
-      {
-        "code": "kor",
-        "name": "South Korea / 한국"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "mac",
         "name": "Macau / 澳门"
       },
       {
         "code": "mys",
         "name": "Malaysia / مليسيا"
+      },
+      {
+        "code": "vnm",
+        "name": "Vietnam / Việt Nam"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "khm",
+        "name": "Cambodia / Kâmpŭchéa"
+      },
+      {
+        "code": "lao",
+        "name": "Laos / ສປປລາວ"
       }
     ],
     "same_country_states": [],
@@ -134,9 +195,9 @@
   },
   "hashes": {
     "code": "phl",
-    "content_hash": "1a18480c8826b062c32c1b1176d10e55622d94d6bc5b116f72403a1fe2dc446e",
-    "notes_hash": "a72e09971e1831924bf9c0c42f7646755e41a2c865b3e5fb6f9c9ecc2945f3a0",
-    "model_hash": "e1d19443c4fab6123ee6b4be4eefe094686bb15f91954acd7a3c5411ce215178"
+    "content_hash": "c21461f72c641e5bfad167a55934be9cceeb645529bb46b865f90bce33688109",
+    "notes_hash": "f113b92bfdd8d345b01ed34f6d0c2b4dd571304e309cc4a6da7fcac38a3edcb4",
+    "model_hash": "c774d75786c14e7f0710b187451c3708551df8ae52ba0de3f34e29779347337a"
   },
   "geo_code": "PH",
   "node_type": "country",

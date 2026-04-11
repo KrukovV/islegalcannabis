@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,40 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Turkmenistan",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Turkmenistan",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis",
+          "url": "https://books.google.com/books?id=SVU8BQAAQBAJ&q=cannabis+turkmenistan&pg=PT116",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Turkmenistan / Туркмения",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -108,22 +143,22 @@
     ],
     "legal_similarity": [
       {
-        "code": "tjk",
-        "name": "Tajikistan / Таджикистан"
-      },
-      {
         "code": "kaz",
         "name": "Kazakhstan / Қазақстан"
       },
       {
         "code": "aze",
         "name": "Azerbaijan / Azərbaycan"
+      },
+      {
+        "code": "pak",
+        "name": "Pakistan / پاكستان"
       }
     ],
     "cluster_links": [
       {
-        "code": "pak",
-        "name": "Pakistan / پاكستان"
+        "code": "tjk",
+        "name": "Tajikistan / Таджикистан"
       },
       {
         "code": "arm",
@@ -135,9 +170,9 @@
   },
   "hashes": {
     "code": "tkm",
-    "content_hash": "ef297922cbec44e7432bde21ec33740852c62e067c70163c58972026eb05db52",
+    "content_hash": "4e7c11bd75c0ae17da5e9a3edce5e9c3114184ecfb39c4b207c7e4af36a1cc4b",
     "notes_hash": "dd2d93eecc2817b7f2afddcf828a5cba359f288a4cbefd95bb7b6f2af6a89e77",
-    "model_hash": "7afaf0601f81a5b54c4c3504619c318df8cfcb9decdc14ecd437a49fed8654ee"
+    "model_hash": "45e106e25f66571720ec87d08542bd89c4ca29d1fd8fe63c2c1cea67bf038ab3"
   },
   "geo_code": "TM",
   "node_type": "country",

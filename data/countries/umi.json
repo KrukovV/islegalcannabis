@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,28 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "low",
+      "sources": [
+        {
+          "title": "United States Minor Outlying Islands",
+          "url": null,
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -128,9 +151,9 @@
   },
   "hashes": {
     "code": "umi",
-    "content_hash": "dc6ccdb33daa5b6cdc333d07a86caf3df0389cf450fb1594a704161de18d984b",
+    "content_hash": "d995422a22cc6930d17353e872041f8c8eb349a3a407e6864c56cd5cf17ab433",
     "notes_hash": "76e8c027f7a633e8c22d02e9ecc9ec08c05e0a144c861308238565baca8f869b",
-    "model_hash": "609e7d6948f4765113823f023b6d60d4ba806a7820182a857301edbacd17af24"
+    "model_hash": "1d05bcce2cdf87960f178968328410712c022e84f14b9bff5fe780eb58906524"
   },
   "geo_code": "UM",
   "node_type": "country",

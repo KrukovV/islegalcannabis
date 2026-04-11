@@ -20,24 +20,86 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
+      "flags": [],
+      "modifiers": [
+        "up_to"
+      ]
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": true,
+        "prison_priority": 1,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 4
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in Poland",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Poland",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Internetowy System Aktów Prawnych",
+          "url": "https://isap.sejm.gov.pl/isap.nsf/download.xsp/WDU20051791485/U/D20051485Lj.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Poland Approves Drug Decriminalization -- Sort Of",
+          "url": "https://stopthedrugwar.org/chronicle/2011/jun/08/poland_approves_drug_decriminali",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "KRYMINOLOGICZNE I PRAWNE ASPEKTY POSIADANIA NARKOTYKÓW W POLSCE (NA PRZYKŁADZIE POCHODNYCH KONOPI INNYCH NIŻ WŁÓKNISTE)",
+          "url": "https://repozytorium.uwb.edu.pl/jspui/bitstream/11320/2597/1/P.Bo%C5%82tryk%20-%20rozprawa%20doktorska.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Dorocie kazano pogodzić się ze śmiercią dziecka, Mateusz przez dwa lata nie wychodził z domu. Pomogła marihuana",
+          "url": "https://wyborcza.pl/1,75398,18183668,Dorocie_kazano_pogodzic_sie_ze_smiercia_dziecka__Mateusz.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Szef Wolnych Konopi: PiS rozmawia z nami o legalizacji marihuany medycznej",
+          "url": "https://wiadomosci.onet.pl/kraj/szef-wolnych-konopi-pis-rozmawia-z-nami-o-legalizacji-marihuany-medycznej/fhz1v8",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Medyczna marihuana coraz bliżej",
+          "url": "https://wiadomosci.wp.pl/kat,1339,title,Medyczna-marihuana-coraz-blizej,wid,18553232,wiadomosc.html",
+          "depth": 0,
+          "type": "summary"
+        }
       ],
-      "modifiers": []
+      "explain": [
+        "rule: penalty_prison | source: Poland / Polska | type: summary | priority: 1 | scope: possession",
+        "rule: penalty_years | source: Poland / Polska | type: summary | priority: 1 | scope: possession",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "penalty_prison",
+      "penalty_years"
     ],
-    "notes_normalized": "Cannabis is illegal in Poland / Polska. Medical cannabis is legal. Distribution is illegal."
+    "notes_normalized": "Cannabis is illegal in Poland / Polska. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Poland / Polska. Medical cannabis is legal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Poland / Polska. Medical cannabis is legal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Poland}} Since 2011, prosecutors can choose not to prosecute possession of small quantities of cannabis for personal use if it is a first offense or if the person is drug dependent.<ref>{{cite web|title=Poland Approves Drug Decriminalization – Sort Of|url=http://stopthedrugwar.org/chronicle/2011/jun/08/poland_approves_drug_decriminali|website=stopthedrugwar.org|access-date=26 April 2016|archive-date=18 August 2018|archive-url=https://web.archive.org/web/20180818111434/https://stopthedrugwar.org/chronicle/2011/jun/08/poland_approves_drug_decriminali|url-status=live}}</ref> Possession of large quantities of drugs can result in up to 10 years in prison.<ref>{{citation |url = http://fakty.interia.pl/fakty_dnia/news/narkotyki-w-malych-ilosciach-i-na-wlasny-uzytek-odstapienie,1644751 |title = Drugs in small quantity and for personal use with no punishment – Poland |publisher = Interia.pl |date = 26 May 2011 |access-date = 29 May 2011 |url-status = dead |archive-url = https://web.archive.org/web/20110529134753/http://fakty.interia.pl/fakty_dnia/news/narkotyki-w-malych-ilosciach-i-na-wlasny-uzytek-odstapienie,1644751 |archive-date = 29 May 2011}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -108,19 +170,9 @@
     ],
     "legal_similarity": [
       {
-        "code": "ltu",
-        "name": "Lithuania / Lietuva"
-      },
-      {
-        "code": "lva",
-        "name": "Latvia / Latvija"
-      },
-      {
         "code": "rou",
         "name": "Romania / România"
-      }
-    ],
-    "cluster_links": [
+      },
       {
         "code": "svn",
         "name": "Slovenia / Slovenija"
@@ -130,14 +182,24 @@
         "name": "Belarus / Белару́сь"
       }
     ],
+    "cluster_links": [
+      {
+        "code": "ltu",
+        "name": "Lithuania / Lietuva"
+      },
+      {
+        "code": "lva",
+        "name": "Latvia / Latvija"
+      }
+    ],
     "same_country_states": [],
     "federal_parent": null
   },
   "hashes": {
     "code": "pol",
-    "content_hash": "16033ddb36ff49d27ec894a75f0e4e992968fb23aca0a6462119479c1937b7b7",
-    "notes_hash": "45d69b1445c8c7538da16f13d847c14b52aaaa1872ae60c39b429910a60c84fd",
-    "model_hash": "8768f68b6a22fbd5de24d8d2dd2e007c3363bfa0ae42bc166c8a7d689288ee39"
+    "content_hash": "f4a8bfb6253d21ca8883139b8cf54d10d81ad0e59011859e5d507b77ddb47a53",
+    "notes_hash": "5609cffce428e3e9ce7e12362e2510e8052d2b94dc40d199471fd4dd6b100151",
+    "model_hash": "760cb41e74b2d537b9045c291d5849d92b4a2a25a022de37ab620b0b0a69cfb3"
   },
   "geo_code": "PL",
   "node_type": "country",

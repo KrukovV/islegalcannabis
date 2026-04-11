@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,64 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Benin",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Benin",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "The International Drugs Trade",
+          "url": "https://books.google.com/books?id=WHH1ON4EEXsC&pg=PA191",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "International Narcotics Control Strategy Report",
+          "url": "https://books.google.com/books?id=w0DlWjK3YCEC&pg=PA446",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Encyclopedia of Drug Policy",
+          "url": "https://books.google.com/books?id=OePnCgAAQBAJ&pg=PT117",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Narcotic Drugs: Estimated World Requirements for 2008, Statistics for 2006",
+          "url": "https://www.incb.org/documents/Narcotic-Drugs/Technical-Publications/2007/narcotic_drugs_2007_final.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Narcotic Drugs: Estimated World Requirements for 2023, Statistics for 2021",
+          "url": "https://www.incb.org/documents/Narcotic-Drugs/Technical-Publications/2022/Narcotic_Drugs_Technical_Publication_2022.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Benin / Bénin",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +194,9 @@
   },
   "hashes": {
     "code": "ben",
-    "content_hash": "6d7d2ca63e94f5a89aad2ddbb4c2d6bd34afd42ea2253e435ac67744845ff519",
+    "content_hash": "a73a5f7c7b83249568dec1837a8b8aef3fd6e8a6acad2f19de22146f73e453ba",
     "notes_hash": "99505672eae0ace6d34cc373537899c04d90505405bf25d85dc98f56ceca1320",
-    "model_hash": "3e9246f54aeb1418b6d1d6804d2615138c3b9d4bd8205f4bc9d2926df1a735ea"
+    "model_hash": "46578ddafb0217991a18134dd524f5b8d499d985bd2ca57260fd06a211f45d42"
   },
   "geo_code": "BJ",
   "node_type": "country",

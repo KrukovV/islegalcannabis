@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,28 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "low",
+      "sources": [
+        {
+          "title": "Jersey / Jèrri",
+          "url": null,
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -128,9 +151,9 @@
   },
   "hashes": {
     "code": "jey",
-    "content_hash": "730813ee204d29e8c72c8a15c254003ceaba97135ecce5f24b747594057f0047",
+    "content_hash": "77c08e27c4895ac356feba702aff27411c54ee9e5ffe8ba45178728e261fd76a",
     "notes_hash": "01d37cb218a1274db3789a29e9b94a824878f530f53e66a683e58228bdd8997d",
-    "model_hash": "b22bafda7ab2d12369a487ef17047bd98742117f2295a209f1b7735e9da3511b"
+    "model_hash": "3f5832937d0a3650e3c0e0590189381c97ca8d6d093d965b36120f47dd4b7306"
   },
   "geo_code": "JE",
   "node_type": "country",

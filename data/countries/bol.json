@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,64 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Bolivia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bolivia",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "International Narcotics Control Strategy Report: Volume I: Drug and Chemical Control",
+          "url": "https://books.google.com/books?id=0jnyNWFuhXYC&pg=PA152",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Se abre el debate en Bolivia sobre el uso medicinal del cannabis",
+          "url": "https://apnews.com/world-news/general-news-24eab0f193355f02d04fd680b036299f",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Bolivia",
+          "url": "https://web.archive.org/web/20230627182258/https://apnews.com/world-news/general-news-24eab0f193355f02d04fd680b036299f",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Bolivia",
+          "url": "https://ain-bolivia.org/2012/04/where-does-bolivia-stand-on-drug-decriminalization-and-legalization/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Bolivia",
+          "url": "https://www.druglawreform.info/en/country-information/latin-america/bolivia",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Bolivia / Wuliwya",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -108,16 +167,16 @@
     ],
     "legal_similarity": [
       {
+        "code": "arg",
+        "name": "Argentina"
+      },
+      {
         "code": "guy",
         "name": "Guyana"
       },
       {
         "code": "sur",
         "name": "Suriname"
-      },
-      {
-        "code": "ven",
-        "name": "Venezuela"
       }
     ],
     "cluster_links": [
@@ -126,8 +185,8 @@
         "name": "Chile"
       },
       {
-        "code": "arg",
-        "name": "Argentina"
+        "code": "ury",
+        "name": "Uruguay"
       }
     ],
     "same_country_states": [],
@@ -135,9 +194,9 @@
   },
   "hashes": {
     "code": "bol",
-    "content_hash": "28320f73f96506116b901321b8efb20c3af9e50bd24470cf078190f3cb46dc32",
+    "content_hash": "8f006caf4c32f941e47210c89b0e1ce89a8cfbc40a2324f32808ea8cf28ce159",
     "notes_hash": "cf4edcecc00a3e0ad04dc7563f28951202539d32928173f26c873ac3e7a391ae",
-    "model_hash": "2942c7f45905ee28301e14179cefbcc51adffe9de3936441dc73f89abd59638e"
+    "model_hash": "fd889e37c3389e05a520bac0b1c36d334fc52f01713a48e82eece925bb1489c3"
   },
   "geo_code": "BO",
   "node_type": "country",

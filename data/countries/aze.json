@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,46 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Azerbaijan",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Azerbaijan",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Women and Cannabis: Medicine, Science, and Sociology",
+          "url": "https://books.google.com/books?id=gZJ7m3Uf6FQC&pg=PA8",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "International Narcotics Control Strategy Report: Volume I: Drug and Chemical Control",
+          "url": "https://books.google.com/books?id=0jnyNWFuhXYC&pg=PA129",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Azerbaijan / Azərbaycan",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +176,9 @@
   },
   "hashes": {
     "code": "aze",
-    "content_hash": "2e7f4b1dcd288470846b716a3233a85159503f856a93bd0f378ea1a8145f1d63",
+    "content_hash": "3d89cfd29b0b190f4906881f5daa105b95f8a7798c0101ef410999616b6ffd40",
     "notes_hash": "3ea8f35858b441dd90f482b38c3b354ee5c773e65433d5e2313da8dbfc144c61",
-    "model_hash": "88ccd18fe77761d95af865d08c77970b620fe47b25e8c0bdbf88802ef5825816"
+    "model_hash": "2d253a4ff9b09e782f5ca3ce9e50145d77f1c8cb1db33f01b9560705c411a392"
   },
   "geo_code": "AZ",
   "node_type": "country",

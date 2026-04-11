@@ -20,6 +20,7 @@
       "status": "restricted",
       "scopes": {
         "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -28,6 +29,65 @@
       "enforcement": "standard",
       "flags": [],
       "modifiers": []
+    },
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Uruguay",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Uruguay",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Vargas Llosa praises Uruguayan decision to legalize marihuana",
+          "url": "https://www.lr21.com.uy/politica/1046408-vargas-llosa-elogio-%e2%80%9cvalerosa-decision%e2%80%9d-uruguaya-de-legalizar-la-venta-de-marihuana",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Uruguay raises its hands to vote",
+          "url": "https://brecha.com.uy/index.php/sociedad/2240-uruguay-levanto-la-mano-para-regular",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Marihuana: Frente Amplio insiste en votar la ley antes de fin de año",
+          "url": "https://www.elpais.com.uy/informacion/marihuana-frente-amplio-insiste-votar.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Uruguay",
+          "url": "https://www.elpais.com.uy/informacion/comision-senado-aprobo-proyecto-marihuana.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Ley 19.172",
+          "url": "https://archivo.presidencia.gub.uy/sci/leyes/2013/12/cons_min_803.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Therapeutic cannabis",
+          "url": "https://www.paula.com.uy/nota_detalle.php?plink=marihuana-terap_utica",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: legal | source: Uruguay | type: summary | priority: 1 | scope: general",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -133,9 +193,9 @@
   },
   "hashes": {
     "code": "ury",
-    "content_hash": "6dc840e9a6d66082c30e23af5c7639032cf0af653802eb60b3be558bb98d9ad5",
+    "content_hash": "15404445963ae3eb877c11fd9d85e83445084f9dd0bd464a64bd252fe248ced3",
     "notes_hash": "caa89bc7fce6380b5ec3f10299147ebc9f078ab78928ae6e1b98b23fe499bb55",
-    "model_hash": "e207822c2554861630a99728fcf0f21292f7a2cb9ec3506f83ead560a07ba4b9"
+    "model_hash": "e84d6b7ea018d6fd8f4c48b7de4f07fab28d48521bbda4808256bc39a9dc776c"
   },
   "geo_code": "UY",
   "node_type": "country",

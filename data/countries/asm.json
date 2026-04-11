@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,28 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "low",
+      "sources": [
+        {
+          "title": "American Samoa / Sāmoa Amelika",
+          "url": null,
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -128,9 +151,9 @@
   },
   "hashes": {
     "code": "asm",
-    "content_hash": "1ffd6cc63b80b67088b0b158d9da8a527656395f32cedfb839cb2cbc828193a5",
+    "content_hash": "6ce1b25a905d52b307985222be606f10d295ec5fe4c850f6af1a44edfc2be82f",
     "notes_hash": "85f87348a7ef5cbdd8953a71785ace5d6b98dc07b92d35a6ab420092516d1ca4",
-    "model_hash": "f4e4b3908e53e589d5355b857410ce9bfc3aef1407d351e0f826f732cd5e102e"
+    "model_hash": "3f0fbcf9b2e0d774f6dc75f9763d6096f7cde8179bd88e99d4e23014fd0003ab"
   },
   "geo_code": "AS",
   "node_type": "country",

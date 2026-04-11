@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,64 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Samoa",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Samoa",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Review of the Narcotics Act 1967 (Drugs Reform)",
+          "url": "https://www.samoalawreform.gov.ws/wp-content/uploads/2018/12/Drugs-Final-Report-English.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Narcotics Act 1967",
+          "url": "https://www.paclii.org/ws/legis/consol_act/na1967114/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Narcotics Act outdated, Law Commission says",
+          "url": "https://www.samoaobserver.ws/category/samoa/9001",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Commission completes review of Narcotics Act",
+          "url": "https://www.samoaobserver.ws/category/samoa/26454",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Lawyer calls on Govt. to legalise marijuana",
+          "url": "https://www.samoaobserver.ws/category/samoa/15561",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "P.M. rejects call to legalise marijuana",
+          "url": "https://www.samoaobserver.ws/category/samoa/16795",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +194,9 @@
   },
   "hashes": {
     "code": "wsm",
-    "content_hash": "ce561635844bbf2de0a94c17a9c7836342d8c846c9a6740ccea0018d04c4cec6",
+    "content_hash": "b3cd633a963f3369250779819ddb0a1f58162ac53aba1e6d853d96990c487642",
     "notes_hash": "2a5c33004827602668daa588bec75de9334199aee79141ef97ea8e211bf31e30",
-    "model_hash": "f9517cd3f962a9b0b09c6ecf9a705c56be333b1c8ed187fb244892d1afc7591b"
+    "model_hash": "7ce04214cfd37c683c127135211f49c78cbdfb8351f3f02d7e0f9805617b8077"
   },
   "geo_code": "WS",
   "node_type": "country",

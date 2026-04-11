@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,28 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "low",
+      "sources": [
+        {
+          "title": "Saint Helena, Ascension and Tristan da Cunha",
+          "url": null,
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -105,12 +128,12 @@
         "name": "Namibia / Namibië"
       },
       {
-        "code": "gnq",
-        "name": "Equatorial Guinea / Guinée équatoriale"
-      },
-      {
         "code": "civ",
         "name": "Ivory Coast / Côte d'Ivoire"
+      },
+      {
+        "code": "gha",
+        "name": "Ghana"
       }
     ],
     "cluster_links": [
@@ -128,9 +151,9 @@
   },
   "hashes": {
     "code": "shn",
-    "content_hash": "11ddda2e621046f5b0ab82279584b2421542d810762f2a480733a432a7d964ed",
+    "content_hash": "3a4ed182343cbcb0de2134bed96b4b8a226f9bdbe447d35aee0e467625db1e60",
     "notes_hash": "74cba1386a029a76f55c423fed55828f72052aa661d0171a487cc681f03ebfba",
-    "model_hash": "49e2362878b83657663afdeff9f03b1bb9b60551f5cd32bd69d296adb64187f7"
+    "model_hash": "31adee46c414b838c1d86c63f70d4c0b5857620afa5524c650a7e9063f53f9ea"
   },
   "geo_code": "SH",
   "node_type": "country",

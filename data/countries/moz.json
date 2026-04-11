@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,64 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Mozambique",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Mozambique",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Carlos Cardoso: Telling the Truth in Mozambique",
+          "url": "https://books.google.com/books?id=dnOIJThvRssC&pg=PA269",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis and Culture",
+          "url": "https://books.google.com/books?id=gCRNRGOhNA4C&pg=PA83",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Drugs, Law, People, Place and the State: Ongoing regulation, resistance and change",
+          "url": "https://books.google.com/books?id=yRE4DwAAQBAJ&pg=PT33",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "International Narcotics Control Strategy Report: Volume I: Drug and Chemical Control",
+          "url": "https://books.google.com/books?id=0jnyNWFuhXYC&pg=PA455",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "The Supply of Illicit Drugs to the United States: The Nnicc Report",
+          "url": "https://books.google.com/books?id=LvbJsQgnlXwC&pg=PA65",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Non-Timber Forest Products in the Global Context",
+          "url": "https://books.google.com/books?id=eQiSxsvuZ9kC&pg=PA93",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -116,8 +175,8 @@
         "name": "Botswana"
       },
       {
-        "code": "mdg",
-        "name": "Madagascar / Madagasikara"
+        "code": "tza",
+        "name": "Tanzania"
       }
     ],
     "cluster_links": [
@@ -126,8 +185,8 @@
         "name": "Comoros / جزر القمر"
       },
       {
-        "code": "tza",
-        "name": "Tanzania"
+        "code": "mdg",
+        "name": "Madagascar / Madagasikara"
       }
     ],
     "same_country_states": [],
@@ -135,9 +194,9 @@
   },
   "hashes": {
     "code": "moz",
-    "content_hash": "196761d12c45ffa7af6c74ed07234af82a96eba7c593ea7ed123cee6b65ae415",
+    "content_hash": "12f7c4714b32de5fc3f49834a82dbed4de183208d07b520cfc13d184bc6f99bf",
     "notes_hash": "ebc793619c31796b8002bb3ef3a2549263bac9c6ff79979dbaffed9a6f71cc99",
-    "model_hash": "2dc0ca0cd4864e6d578de124d9217d9813403212008d71f2a7c03d2f28d50213"
+    "model_hash": "03ec305bfb27da021aed6cbc331cf2a56e7a6cd1739a4c645e61031a77de4c55"
   },
   "geo_code": "MZ",
   "node_type": "country",

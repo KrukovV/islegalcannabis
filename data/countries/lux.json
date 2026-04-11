@@ -20,6 +20,7 @@
       "status": "restricted",
       "scopes": {
         "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -29,9 +30,70 @@
       "flags": [],
       "modifiers": []
     },
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Luxembourg",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Luxembourg",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Annual Report on the State of the Drugs Problem in the European Union",
+          "url": "https://www.emcdda.europa.eu/system/files/publications/969/EMCDDA_AR2011_EN.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "International Drug Control: Consensus Fractured",
+          "url": "https://books.google.com/books?id=1Oxm66EtvLcC&pg=PA175",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Luxembourg",
+          "url": "https://web.archive.org/web/20190512085649/http://www.emcdda.europa.eu/system/files/publications/969/EMCDDA_AR2011_EN.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis médical : l'exemple de l'Allemagne",
+          "url": "https://www.lequotidien.lu/a-la-une/cannabis-medical-lexemple-de-lallemagne/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis for Medicinal Purposes Pilot Project",
+          "url": "https://delano.lu/d/detail/news/cannabis-medicinal-purposes-pilot-project/160906",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis for medical use legalised in Luxembourg",
+          "url": "https://luxtimes.lu/luxembourg/34274-cannabis-for-medical-use-legalised-in-luxembourg",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: possession_decriminalized | source: Luxembourg / Luxemburg | type: summary | priority: 1 | scope: general",
+        "rule: legal | source: Luxembourg / Luxemburg | type: summary | priority: 1 | scope: cultivation",
+        "rule: medical_legal | source: Cannabis for medical use legalised in Luxembourg | type: reference | priority: 2 | scope: use",
+        "no traversal evidence"
+      ]
+    },
     "enforcement_flags": [],
     "applied_rules": [
-      "decriminalized",
+      "possession_decriminalized",
       "medical_legal"
     ],
     "notes_normalized": "Cannabis is decriminalized in Luxembourg / Luxemburg. Medical cannabis is legal. Distribution is restricted."
@@ -115,8 +177,8 @@
         "name": "France"
       },
       {
-        "code": "dnk",
-        "name": "Denmark / Danmark"
+        "code": "mco",
+        "name": "Monaco"
       }
     ],
     "cluster_links": [
@@ -125,8 +187,8 @@
         "name": "Liechtenstein"
       },
       {
-        "code": "mco",
-        "name": "Monaco"
+        "code": "dnk",
+        "name": "Denmark / Danmark"
       }
     ],
     "same_country_states": [],
@@ -134,9 +196,9 @@
   },
   "hashes": {
     "code": "lux",
-    "content_hash": "d9fde1822025b3504b207639750c1f31b1f5b59b414f10a0aba7db06f1f070b3",
+    "content_hash": "977473d9a5f4f3c9a867cd4bc2a954f710d05475a521d0d7eb7a59be5325b642",
     "notes_hash": "bad819dc486e0c832a2cb0bb914f72aff7938492bc62358b4b16cfb2bdcac872",
-    "model_hash": "bda78671278f0aa8e1b96daad5c34f838eaaaaf78759ecd082576c93c58e8575"
+    "model_hash": "2786725b0c6df7a9946997b0126038c0282d5891af532130f5aaf94e43b842bd"
   },
   "geo_code": "LU",
   "node_type": "country",

@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,40 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Gabon",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Gabon",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Gabon",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Gabon",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +170,9 @@
   },
   "hashes": {
     "code": "gab",
-    "content_hash": "fbd7708928a16c543a4ae9f7e0d78098136ef497710dd507508b308c5a7d430e",
+    "content_hash": "db97373f814d72ee6b40222539011c4b043eddb8c1d071543174854cd76cf070",
     "notes_hash": "3f17c313c20d5b14d67a004792d981b3466f3e328c7c3dd92b1c60478294cea3",
-    "model_hash": "8e06235c891aa15c947dcfab64c1c664e6472024b7caae3c423b8c8217cedb44"
+    "model_hash": "eca94cdcc32b7fc66dda41967f4d233965688420a39724b11b7c285fa806a543"
   },
   "geo_code": "GA",
   "node_type": "country",

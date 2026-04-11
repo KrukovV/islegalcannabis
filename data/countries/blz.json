@@ -20,23 +20,85 @@
       "status": "restricted",
       "scopes": {
         "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
-      "enforcement": "fine-based",
+      "enforcement": "standard",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "but",
+        "up_to"
+      ]
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in Belize",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Belize",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Decriminalization of Marijuana",
+          "url": "https://www.belize.gov.bz/public/Data/271616513971.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Belize Decriminalization",
+          "url": "https://www.everydayoptimalcbd.com/belize-decriminalization",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Marijuana Decriminalization Legislation Passed By House",
+          "url": "https://7newsbelize.com/sstory.php?nid=42333",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Weedmaps News - the Latest Marijuana & Cannabis News Today",
+          "url": "https://www.marijuana.com/news/2017/11/belize-decriminalizes-marijuana-possession/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "The Guardian Newspaper &#124; News",
+          "url": "https://www.guardian.bz/index.php?option=com_content&view=article&id=14372:churches-complain-about-marijuana-law&catid=40:politics&Itemid=90",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Belize",
+          "url": "https://web.archive.org/web/20130505234807/http://www.belize.gov.bz/public/Data/271616513971.pdf",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: rec_tolerated | source: Belize / Belice | type: summary | priority: 1 | scope: possession",
+        "rule: illegal | source: Belize / Belice | type: summary | priority: 1 | scope: possession",
+        "rule: possession_decriminalized | source: Belize / Belice | type: summary | priority: 1 | scope: possession",
+        "no traversal evidence"
+      ]
+    },
+    "enforcement_flags": [],
     "applied_rules": [
       "rec_tolerated",
-      "decriminalized",
-      "fine_based",
-      "illegal"
+      "illegal",
+      "possession_decriminalized"
     ],
     "notes_normalized": "Cannabis is tolerated in Belize / Belice. Medical cannabis is illegal. Distribution is restricted."
   },
@@ -138,9 +200,9 @@
   },
   "hashes": {
     "code": "blz",
-    "content_hash": "f73ae6501b29f68614520bba338cbfb159dfba30ecd3dee3eaae15e118410b11",
+    "content_hash": "e8a8ac5782b4a7e23ce8e4a409eb50f5df5701c0c43b161a8f9741247285592a",
     "notes_hash": "a77f3d57e11b63d63ee6d9a2721545811a0d54f70c6c619e7750aec2fe80ddcc",
-    "model_hash": "656f08dc8be7d3c088cd296d9ef5984d492f0ac5a60f5e164547ec62a13bc361"
+    "model_hash": "36cfbbfa713dbbb709840d3b45ee76c71f69715bfb295bd97875200bb53b8ae2"
   },
   "geo_code": "BZ",
   "node_type": "country",

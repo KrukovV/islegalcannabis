@@ -20,20 +20,66 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in the Cook Islands",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Cook_Islands",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cook Islands looks into producing medicinal cannabis itself",
+          "url": "https://www.rnz.co.nz/international/pacific-news/483490/cook-islands-looks-into-producing-medicinal-cannabis-itself",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Medicinal cannabis now permitted in Cook Islands with prescription",
+          "url": "https://islandsbusiness.com/news-break/medicinal-cannabis-now-permitted-in-cook-islands-with-prescription/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cop used dope for stress",
+          "url": "https://www.stuff.co.nz/national/crime/9195133/Cop-used-dope-for-stress",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cook Islands / Kūki 'Āirani",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: medical_legal | source: Medicinal cannabis now permitted in Cook Islands with prescription | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "medical_legal"
     ],
     "notes_normalized": "Cannabis is illegal in Cook Islands / Kūki 'Āirani. Medical cannabis is legal. Distribution is illegal."
   },
@@ -135,9 +181,9 @@
   },
   "hashes": {
     "code": "cok",
-    "content_hash": "b7e98adef940cfd2688e378e737204fc36c61d181594d9a3e26c0d6aa4a04bcb",
+    "content_hash": "f87c23e3ae8e33f03ebecf9cd90f9148ec565a11bd6b1bf96f6498f0687b8b16",
     "notes_hash": "f206341d13f35269325f7829ba7f557fc6725fdd14b5d7abc6ef2a98432ebabf",
-    "model_hash": "4eaed87360ced1f06b53cb2cd4e80c8bed0a9c65ce4cb52af71a089487c1b625"
+    "model_hash": "1f09a72a251fa38d2b064b512de65ee8307b28f28d1694c9e074628e49343866"
   },
   "geo_code": "CK",
   "node_type": "country",

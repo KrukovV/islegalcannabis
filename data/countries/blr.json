@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,40 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Belarus",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Belarus",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "International narcotics control strategy report",
+          "url": "https://books.google.com/books?id=nNEWAAAAYAAJ",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Belarus / Белару́сь",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +170,9 @@
   },
   "hashes": {
     "code": "blr",
-    "content_hash": "b3c9e7dfec52289c790b5c3bc18be4dfe99230eefce532670f795879e1391c56",
+    "content_hash": "c0805350ee23a8139a0c80da347ec5b94626bdbd853ea2163f4f3d960e35cceb",
     "notes_hash": "e4fe433bc1896102206fc1ab00f52d81d3026056bd5307861e55d4592b30d5db",
-    "model_hash": "0c0794241e570c8e37406c692e2a487724ddf648469238cbd32dd4439f4ebf2d"
+    "model_hash": "7433efa5e9a6195ece8ddc1946cc113458df376c2c11649807660a7af4971720"
   },
   "geo_code": "BY",
   "node_type": "country",

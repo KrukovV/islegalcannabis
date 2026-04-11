@@ -5,21 +5,22 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE"
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "PERSONAL_USE"
     },
     "medical": {
       "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
-      "enforcement": "STRICT",
-      "scope": "NONE",
+      "status": "LEGAL",
+      "enforcement": "MODERATE",
+      "scope": "MEDICAL_ONLY",
       "override_reason": null
     },
     "distribution": {
-      "status": "illegal",
+      "status": "restricted",
       "scopes": {
-        "possession": null,
+        "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -29,15 +30,78 @@
       "flags": [],
       "modifiers": []
     },
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": true,
+        "severity_score": 1
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in Malaysia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Malaysia",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Dangerous Drugs Act 1952 (Act 234)",
+          "url": "https://lom.agc.gov.my/act-detail.php?act=234&lang=BI&date=04-07-2023",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Soalan Lazim : Kanabis (Cannabis)",
+          "url": "https://pharmacy.moh.gov.my/ms/entri/soalan-lazim-kanabis-cannabis.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Focus on Medicinal Cannabis – Malaysia to allow the import and use of medicinal cannabis",
+          "url": "https://dcc.com/news-and-insights/focus-on-medicinal-cannabis-malaysia-to-allow-the-import-and-use-of-medicinal-cannabis/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Khairy: Medical marijuana can be used in Malaysia if it passes national regulations",
+          "url": "https://www.malaymail.com/news/malaysia/2021/11/09/khairy-medical-marijuana-can-be-used-in-malaysia-if-it-passes-national-regu/2019592",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "USM Researcher Highlights Legal Hurdle To Cannabis Research",
+          "url": "https://codeblue.galencentre.org/2022/08/usm-researcher-highlights-legal-hurdle-to-cannabis-research/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Use of hemp, cannabis or ketum for medical purposes punishable in Malaysia until legalised, says deputy minister",
+          "url": "https://www.malaymail.com/news/malaysia/2022/07/28/use-of-hemp-cannabis-or-ketum-for-medical-purposes-punishable-in-malaysia-until-legalisedsays-deputy-minister/19774",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: penalty_fine | source: Malaysia / مليسيا | type: summary | priority: 1 | scope: general",
+        "rule: legal | source: USM Researcher Highlights Legal Hurdle To Cannabis Research | type: reference | priority: 2 | scope: general",
+        "rule: medical_legal | source: Use of hemp, cannabis or ketum for medical purposes punishable in Malaysia until legalised, says deputy minister | type: reference | priority: 2 | scope: use",
+        "no traversal evidence"
+      ]
+    },
     "enforcement_flags": [
       "fine_based"
     ],
     "applied_rules": [
-      "fine_based"
+      "penalty_fine",
+      "legal",
+      "medical_legal"
     ],
-    "notes_normalized": "Cannabis is illegal in Malaysia / مليسيا. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is legal in Malaysia / مليسيا. Medical cannabis is legal. Distribution is restricted."
   },
-  "notes_normalized": "Cannabis is illegal in Malaysia / مليسيا. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is legal in Malaysia / مليسيا. Medical cannabis is legal. Distribution is restricted.",
   "notes_raw": "{{main|Cannabis in Malaysia}} Mandatory death penalty for convicted drug traffickers, legally defined as individuals possessing more than {{cvt|200|g|0}} of cannabis.<ref>{{citation|url=https://travel.state.gov/travel/cis_pa_tw/cis/cis_960.html |title=Malaysia |publisher=[[Bureau of Consular Affairs]] |access-date=17 February 2011 |url-status=dead |archive-url=https://web.archive.org/web/20110217140806/http://travel.state.gov/travel/cis_pa_tw/cis/cis_960.html |archive-date=17 February 2011 }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -108,26 +172,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "khm",
-        "name": "Cambodia / Kâmpŭchéa"
-      },
-      {
-        "code": "vnm",
-        "name": "Vietnam / Việt Nam"
-      },
-      {
-        "code": "lao",
-        "name": "Laos / ສປປລາວ"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "phl",
         "name": "Philippines / Pilipinas"
       },
       {
         "code": "tls",
         "name": "Timor-Leste / Timór-Leste"
+      },
+      {
+        "code": "tha",
+        "name": "Thailand / ประเทศไทย"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "khm",
+        "name": "Cambodia / Kâmpŭchéa"
+      },
+      {
+        "code": "vnm",
+        "name": "Vietnam / Việt Nam"
       }
     ],
     "same_country_states": [],
@@ -135,9 +199,9 @@
   },
   "hashes": {
     "code": "mys",
-    "content_hash": "e82fac1450ad0651a773806004e7f71d05bec35e3d2990aa2978c7976bd60e30",
-    "notes_hash": "745d4eeec31b52a08dd299e1f84252379e5e19904bebe1a3284678cb7f9d35a4",
-    "model_hash": "a836fda28b19b372e952edd92eebeccafea9eabb5abcb7b0c37e39337b5371e8"
+    "content_hash": "9dcb4e342b46ad9b508cd2060a08e0ee97ec7e1db8df0e5cb2a40ec5c48cd342",
+    "notes_hash": "6a1ce450df7adca5a0e77465f4b112b81d01e4b115cfb0d495fd1a5fbba5a6cc",
+    "model_hash": "59a9fbafa820930fd2e21d7e20f551bbd26cac38bc759f9d40c5b4a5c07e72a9"
   },
   "geo_code": "MY",
   "node_type": "country",

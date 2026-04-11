@@ -5,42 +5,107 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "UNKNOWN",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "MEDICAL_ONLY",
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE",
       "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
-        "sale": null,
+        "possession": null,
+        "use": null,
+        "sale": "illegal",
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "fine-based",
-      "flags": [],
+      "flags": [
+        "sale_illegal"
+      ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": true,
+        "severity_score": 1
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in Singapore",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Singapore",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Drugs and Inhalants",
+          "url": "https://www.cnb.gov.sg/drugs/bannedsubstance/cannabis.aspx",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "MISUSE OF DRUGS ACT",
+          "url": "https://statutes.agc.gov.sg/aol/search/display/view.w3p;page=0;query=DocId%3Ac13adadb-7d1b-45f8-a3bb-92175f83f4f5%20Depth%3A0%20ValidTime%3A02%2F10%2F2013%20TransactionTime%3A02%2F10%2F2013%20Status%3Ainforce;rec=0;whole=yes",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Central Narcotics Bureau Singapore",
+          "url": "https://www.cnb.gov.sg/drugs/bannedsubstance/cannabis.aspx;rec=0;whole=yes",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Singapore",
+          "url": "https://web.archive.org/web/20150907172739/http://www.cnb.gov.sg/drugs/bannedsubstance/cannabis.aspx",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Singapore",
+          "url": "https://web.archive.org/web/20170807235438/http://statutes.agc.gov.sg/aol/search/display/view.w3p;page=0;query=DocId%3Ac13adadb-7d1b-45f8-a3bb-92175f83f4f5%20Depth%3A0%20ValidTime%3A02%2F10%2F2013%20TransactionTime%3A02%2F10%2F2013%20Status%3Ainforce;rec=0;whole=yes",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Singapore",
+          "url": "https://web.archive.org/web/20170808000038/https://www.cnb.gov.sg/drugs/bannedsubstance/cannabis.aspx;rec=0;whole=yes",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: illegal | source: Singapore / Singapura | type: summary | priority: 1 | scope: general",
+        "rule: sale_illegal | source: Singapore / Singapura | type: summary | priority: 1 | scope: sale",
+        "rule: illegal | source: Singapore / Singapura | type: summary | priority: 1 | scope: sale",
+        "rule: penalty_fine | source: Singapore / Singapura | type: summary | priority: 1 | scope: general",
+        "rule: penalty_fine | source: Singapore / Singapura | type: summary | priority: 1 | scope: use",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [
       "fine_based"
     ],
     "applied_rules": [
-      "fine_based",
-      "medical_legal",
       "illegal",
-      "legal"
+      "sale_illegal",
+      "penalty_fine"
     ],
-    "notes_normalized": "Cannabis is legal in Singapore / Singapura. Medical cannabis is legal. Distribution is restricted."
+    "notes_normalized": "Cannabis is illegal in Singapore / Singapura. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is legal in Singapore / Singapura. Medical cannabis is legal. Distribution is restricted.",
+  "notes_normalized": "Cannabis is illegal in Singapore / Singapura. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Singapore}} Banned in 1870.<ref name=\"Bunyapraphatsō̜n1999\">{{cite book|last=Bunyapraphatsō̜n |first=Nanthawan |title=Medicinal and poisonous plants|url=https://books.google.com/books?id=ifDwAAAAMAAJ|year=1999|publisher=Backhuys Publishers|isbn=978-90-5782-042-7|page=169}}</ref> Cannabis is a Class A drug under the Misuse of Drugs Act, making it illegal to cultivate, sell, or possess. Those who are caught with {{cvt|500|g|lboz}} of cannabis or more are considered drug traffickers and are liable to be punished with an automatic death penalty.<ref>{{citation |url = http://www.erowid.org/plants/cannabis/cannabis_law.shtml#singapore |title = Cannabis legal status vault – Singapore |publisher = Erowid.org |access-date = 17 February 2011 |archive-date = 15 December 2019 |archive-url = https://web.archive.org/web/20191215152836/https://www.erowid.org/plants/cannabis/cannabis_law.shtml#singapore |url-status = live }}</ref><ref>{{cite web|title=MISUSE OF DRUGS ACT|url=http://statutes.agc.gov.sg/aol/search/display/view.w3p;page=0;query=DocId%3Ac13adadb-7d1b-45f8-a3bb-92175f83f4f5%20Depth%3A0%20ValidTime%3A02%2F10%2F2013%20TransactionTime%3A02%2F10%2F2013%20Status%3Ainforce;rec=0;whole=yes|work=Attorney-General's Chamber|publisher=Singapore Government|access-date=3 October 2013|date=31 March 2008|archive-date=7 August 2017|archive-url=https://web.archive.org/web/20170807235438/http://statutes.agc.gov.sg/aol/search/display/view.w3p;page=0;query=DocId%3Ac13adadb-7d1b-45f8-a3bb-92175f83f4f5%20Depth%3A0%20ValidTime%3A02%2F10%2F2013%20TransactionTime%3A02%2F10%2F2013%20Status%3Ainforce;rec=0;whole=yes|url-status=dead}}</ref>  In rare cases, permission has been granted to use cannabis-derived pharmaceuticals for treatment of epilepsy.<ref>{{Cite web|url=https://www.straitstimes.com/singapore/cannabis-derived-drug-approved-for-second-patient|title=Cannabis-derived drug approved for second patient|date=17 June 2021|website=The Straits Times|access-date=19 June 2021|archive-date=19 June 2021|archive-url=https://web.archive.org/web/20210619172901/https://www.straitstimes.com/singapore/cannabis-derived-drug-approved-for-second-patient|url-status=live}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -111,26 +176,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "tha",
-        "name": "Thailand / ประเทศไทย"
-      },
-      {
-        "code": "phl",
-        "name": "Philippines / Pilipinas"
-      },
-      {
-        "code": "lka",
-        "name": "Sri Lanka / ශ්‍රී ලංකාව"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "vnm",
         "name": "Vietnam / Việt Nam"
       },
       {
         "code": "lao",
         "name": "Laos / ສປປລາວ"
+      },
+      {
+        "code": "idn",
+        "name": "Indonesia"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "tha",
+        "name": "Thailand / ประเทศไทย"
+      },
+      {
+        "code": "mmr",
+        "name": "Myanmar / မြန်မာ"
       }
     ],
     "same_country_states": [],
@@ -138,9 +203,9 @@
   },
   "hashes": {
     "code": "sgp",
-    "content_hash": "15a0ea00d6ffa4a7223ee9ba255d9662e1f5a8bfe88b5b1408f89f7fb9712815",
-    "notes_hash": "da037e0231c57355908f3e47e0c7ea5955b9ba2af88d184bedc89d2597822c17",
-    "model_hash": "229786e3ee872295534ff509a318fc6376c068ab5593de4cf9e6df50bd6bdfd6"
+    "content_hash": "f1ba96709f59b21fb8c9a085437060afad27d48ef6505ce2af80094554749d77",
+    "notes_hash": "b63e778bae3602e4c49e8709009289872b0dcb7cb0d85dc1a53f6251033b0797",
+    "model_hash": "557d0339402d4a407609c82e316d76d6f5150a4a37e309134a02a7bb70be50e2"
   },
   "geo_code": "SG",
   "node_type": "country",

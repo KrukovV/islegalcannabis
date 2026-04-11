@@ -20,6 +20,7 @@
       "status": "restricted",
       "scopes": {
         "possession": "restricted",
+        "use": "restricted",
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -27,7 +28,72 @@
       },
       "enforcement": "standard",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "however",
+        "unless",
+        "but"
+      ]
+    },
+    "signals": {
+      "status": "restricted",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in South Korea",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_South_Korea",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis-based medicines for personal use available starting next year",
+          "url": "https://www.mfds.go.kr/brd/m_99/view.do?seq=43140&srchFr=&srchTo=&srchWord=&srchTp=&itm_seq_1=0&itm_seq_2=0&multi_itm_seq=0&company_cd=&company_nm=&page=1",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "South Korea Legalises Medical Marijuana",
+          "url": "https://www.ft.com/content/ff715088-f2ba-11e8-ae55-df4bf40f9d0d",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Korea to import medical marijuana starting early next year",
+          "url": "https://www.koreaherald.com/view.php?ud=20181129000668",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Smoking Marijuana Is Legal in Canada, Unless You're South Korean",
+          "url": "https://www.nytimes.com/2018/10/23/world/asia/cannabis-canada-south-korea.html",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Smoking Marijuana in Canada Is Now Legal—But Not for South Koreans",
+          "url": "https://fortune.com/2018/10/23/canada-marijuana-south-korea/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in South Korea",
+          "url": "https://web.archive.org/web/20221118062201/https://twitter.com/koremb_canada/status/1052316916008738816",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: medical_legal | source: South Korea / 한국 | type: summary | priority: 1 | scope: use",
+        "rule: legal | source: Smoking Marijuana Is Legal in Canada, Unless You're South Korean | type: reference | priority: 2 | scope: general",
+        "rule: legal | source: Smoking Marijuana in Canada Is Now Legal—But Not for South Koreans | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -107,16 +173,16 @@
     ],
     "legal_similarity": [
       {
+        "code": "chn",
+        "name": "China / 中国"
+      },
+      {
         "code": "phl",
         "name": "Philippines / Pilipinas"
       },
       {
-        "code": "tha",
-        "name": "Thailand / ประเทศไทย"
-      },
-      {
-        "code": "sgp",
-        "name": "Singapore / Singapura"
+        "code": "plw",
+        "name": "Palau / Belau"
       }
     ],
     "cluster_links": [
@@ -134,9 +200,9 @@
   },
   "hashes": {
     "code": "kor",
-    "content_hash": "8921e86b2d4f66764a93afbbb059d569964e6899df085ee7bd1be6c269e888b7",
+    "content_hash": "a2b7a5406a0420e8924a4d9a0113338a9b9cb38c6f5410ba7f9da92f1f3a8a75",
     "notes_hash": "5113705aa0059e80fe322a3f20275f96fd7c59df27c04ba577ebdf6cb27fa8f3",
-    "model_hash": "277256191dc4bafdfbad50a0d1e8277b0b98bf7cbb5b260949820abd295f3879"
+    "model_hash": "ea21b4c62a63a6b68461702fdd968f0950fe0aed3c012ba4e9ee2ee13a5167f9"
   },
   "geo_code": "KR",
   "node_type": "country",

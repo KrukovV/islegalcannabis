@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,46 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Iraq",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Iraq",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Iraq – Laws, Use, Attitudes, and Other Info",
+          "url": "https://sensiseeds.com/en/blog/countries/cannabis-in-iraq-laws-use-history/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "زهر العريش في احكام الحشيش: Haschish Versus Medieval Muslim Society",
+          "url": "https://books.google.com/books?id=scgUAAAAIAAJ&pg=PA53",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Iraq / العراق",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -112,18 +153,18 @@
         "name": "Saudi Arabia / السعودية"
       },
       {
-        "code": "jor",
-        "name": "Jordan / الأردن"
+        "code": "lbn",
+        "name": "Lebanon / لبنان"
       },
       {
-        "code": "aze",
-        "name": "Azerbaijan / Azərbaycan"
+        "code": "jor",
+        "name": "Jordan / الأردن"
       }
     ],
     "cluster_links": [
       {
-        "code": "lbn",
-        "name": "Lebanon / لبنان"
+        "code": "aze",
+        "name": "Azerbaijan / Azərbaycan"
       },
       {
         "code": "pse",
@@ -135,9 +176,9 @@
   },
   "hashes": {
     "code": "irq",
-    "content_hash": "9c90268955ddf8c722f7186517f2d7c92bfa81e7f1c4169a68014a08675fd732",
+    "content_hash": "9d804c8715cd3f5cd62226b87d2eec6f7c110abe8d4313b884ae728b7c867913",
     "notes_hash": "8892a54e2633e702841f328270f24943c6d846212ca146aecaaa479d33bee001",
-    "model_hash": "66e72894d17698274c3b8eb0f0f4d2e710848c237486425e40e359d97958a472"
+    "model_hash": "91d7f82e466bccb9d3c8cdccff6cf22161ed363e81dfa306d1db64d5f2ecaa71"
   },
   "geo_code": "IQ",
   "node_type": "country",

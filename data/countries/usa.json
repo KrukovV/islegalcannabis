@@ -17,26 +17,98 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "tolerated",
       "scopes": {
         "possession": "restricted",
+        "use": "restricted",
         "sale": null,
-        "cultivation": null,
+        "cultivation": "tolerated",
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "however",
+        "but",
+        "may"
+      ]
+    },
+    "signals": {
+      "status": "tolerated",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 10
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in the United States",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_United_States",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Legality of cannabis by U.S. jurisdiction",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "The DEA Position on Marijuana",
+          "url": "https://www.dea.gov/docs/marijuana_position_2011.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Increasing Medical Marijuana and Cannabidiol Research",
+          "url": "https://www.whitehouse.gov/presidential-actions/2025/12/increasing-medical-marijuana-and-cannabidiol-research/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in the United States",
+          "url": "https://www.bjs.gov/content/dcf/enforce.cfm",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "50 Years After Nixon's Commission Said Cops Should Stop Busting Pot Users, the Federal Ban Remains Unchanged",
+          "url": "https://reason.com/2022/03/22/50-years-after-nixons-commission-said-cops-should-stop-busting-pot-users-the-federal-ban-remains-unchanged/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Results from the 2007 National Survey on Drug Use and Health: National Findings",
+          "url": "https://www.samhsa.gov/data/nsduh/2k7nsduh/2k7Results.htm",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: medical_legal | source: United States | type: summary | priority: 1 | scope: general",
+        "rule: legal | source: United States | type: summary | priority: 1 | scope: use",
+        "rule: legal | source: United States | type: summary | priority: 1 | scope: possession",
+        "rule: private_cultivation | source: United States | type: summary | priority: 1 | scope: sale",
+        "rule: legal | source: United States | type: summary | priority: 1 | scope: sale",
+        "rule: penalty_years | source: United States | type: summary | priority: 1 | scope: possession",
+        "rule: penalty_years | source: 50 Years After Nixon's Commission Said Cops Should Stop Busting Pot Users, the Federal Ban Remains Unchanged | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
       "medical_legal",
-      "legal"
+      "legal",
+      "private_cultivation",
+      "penalty_years"
     ],
-    "notes_normalized": "Cannabis is legal in United States. Medical cannabis is legal. Distribution is restricted."
+    "notes_normalized": "Cannabis is legal in United States. Medical cannabis is legal. Distribution is tolerated."
   },
-  "notes_normalized": "Cannabis is legal in United States. Medical cannabis is legal. Distribution is restricted.",
+  "notes_normalized": "Cannabis is legal in United States. Medical cannabis is legal. Distribution is tolerated.",
   "notes_raw": "{{Main|Cannabis in the United States|Legality of cannabis by U.S. jurisdiction}} {{See also|Cannabis on American Indian reservations}} Cannabis remains a [[Controlled Substances Act#Schedule I controlled substances|Schedule I drug]] at federal level, prohibiting even its medical use with [[Medical cannabis in the United States#Compassionate IND program|narrow exceptions]]. The [[Rohrabacher–Farr amendment]] prevents federal enforcement in states that have legalized medical, however. No such protections exist regarding recreational, but the federal government has so far generally not intervened. Recognized [[Indian reservation]]s are allowed to legalize for either use under a policy announced in 2014.<ref>{{cite news |url = https://www.nwherald.com/2014/12/12/doj-says-indian-tribes-can-grow-and-sell-marijuana/aee5o5i/ |last1 = Barnard |first1 = Jeff |last2 = Wozniacka |first2 = Gosia |title = the D.O.J. allows indian reservations to grow and sell marijuana |work = [[Northwest Herald]] |agency = [[Associated Press]] |date = 12 December 2014 |access-date = 24 December 2014 |archive-url = https://web.archive.org/web/20160120131029/https://www.nwherald.com/2014/12/12/doj-says-indian-tribes-can-grow-and-sell-marijuana/aee5o5i/ |archive-date = 20 January 2016 |url-status = live}}</ref> Every U.S. state that has legalized recreational use has set a mandatory legal minimum age of 21 for purchase, possession, and use.<ref>{{cite web |url= https://cannabis.net/blog/news/can-you-buy-weed-if-you-under-21-yearsold-the-statebystate-guide-to-cannabis-age-requirements |title= Can You Buy Weed If You Under 21 Years-Old? – The State-By-State Guide to Cannabis Age Requirements |date= 6 May 2022 |website= Cannabis.net |access-date= 23 June 2023}}</ref> In 2024, the [[Drug Enforcement Administration]] and the [[United States Department of Justice|Department of Justice]] indicated they were planning to [[Removal of cannabis from Schedule I of the Controlled Substances Act|reschedule]] cannabis to [[List of Schedule III controlled substances (U.S.)|Schedule III.]]<ref>{{Cite web |date=2024-04-30 |title=US poised to ease restrictions on marijuana in historic shift, but it'll remain controlled substance |url=https://apnews.com/article/marijuana-biden-dea-criminal-justice-pot-f833a8dae6ceb31a8658a5d65832a3b8 |access-date=2024-05-01 |website=AP News |language=en}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -107,16 +179,16 @@
     ],
     "legal_similarity": [
       {
+        "code": "cub",
+        "name": "Cuba"
+      },
+      {
         "code": "jam",
         "name": "Jamaica"
       },
       {
         "code": "cri",
         "name": "Costa Rica"
-      },
-      {
-        "code": "bmu",
-        "name": "Bermuda"
       }
     ],
     "cluster_links": [
@@ -125,8 +197,8 @@
         "name": "Guatemala"
       },
       {
-        "code": "cub",
-        "name": "Cuba"
+        "code": "cym",
+        "name": "Cayman Islands"
       }
     ],
     "same_country_states": [],
@@ -134,9 +206,9 @@
   },
   "hashes": {
     "code": "usa",
-    "content_hash": "b3ba69b3a584b7c4cac30aec467f283862f06ef932375e20bf4ea93657cb3e46",
-    "notes_hash": "b5c7c35ba2a0be810ac03a9292653b5e240bec144a3a8b7e9141329c55236fc9",
-    "model_hash": "1d3838cdd920fe19f7953b70a3a7fca09182ca2c9d745c1c5d87a79feb863cc9"
+    "content_hash": "371d5d20aa2b471712f3e56f27a1404547da699511e0ecc31bcafdbb82aa16ac",
+    "notes_hash": "5f3614659be716682384a501ea9cc88d38aa0070f4ac426e88da154c4400ecb8",
+    "model_hash": "1bd37787d87d5a9179b689de9718435b49b8d09ae9b77bc9bc239cd0df270ed1"
   },
   "geo_code": "US",
   "node_type": "country",

@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,46 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Bulgaria",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bulgaria",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Bulgaria",
+          "url": "https://www.segabg.com/online/article.asp?issueid=2403&sectionid=5&id=0002301",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Bulgaria",
+          "url": "https://archive.today/20120919053312/http://www.segabg.com/online/article.asp?issueid=2403&sectionid=5&id=0002301",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Bulgaria / България",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -108,26 +149,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "grc",
-        "name": "Greece / Ελλάδα"
-      },
-      {
         "code": "alb",
         "name": "Albania / Shqipëria"
       },
       {
         "code": "mne",
         "name": "Montenegro / Црна Гора"
-      }
-    ],
-    "cluster_links": [
-      {
-        "code": "mda",
-        "name": "Moldova"
       },
       {
         "code": "hun",
         "name": "Hungary / Magyarország"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "grc",
+        "name": "Greece / Ελλάδα"
+      },
+      {
+        "code": "mda",
+        "name": "Moldova"
       }
     ],
     "same_country_states": [],
@@ -135,9 +176,9 @@
   },
   "hashes": {
     "code": "bgr",
-    "content_hash": "2c52fe256deeae066d20823fa649dc27f3d05b4eafaba6e00b5f5453093fae6d",
+    "content_hash": "59004f14afa0fce2847d34e96e078ec7d8b16e63c2aa8894f6aaccb18c5a4aa1",
     "notes_hash": "9cdf972c0cf45d5efbf5a7c0ef96193c68ab76295865d50f0acf81ab559e620a",
-    "model_hash": "88d433ce2d17e70fb581e30601b664b7e9b528a9ee70c583d19f458423e6501c"
+    "model_hash": "638fd38a1cfdc2ce4455433870586d2500662b56428e500d3ac6762ac557849b"
   },
   "geo_code": "BG",
   "node_type": "country",

@@ -153,15 +153,26 @@ function withDerivedSsotProfile<T extends JurisdictionLawProfile>(profile: T, co
     recreational: toSsotStatusValue(countryPage.legal_model.recreational.status),
     medical: toSsotStatusValue(countryPage.legal_model.medical.status),
     distribution: countryPage.legal_model.distribution.status,
+    legal_status: countryPage.legal_model.signals?.status || countryPage.legal_model.distribution.status,
     rec_raw: countryPage.legal_model.recreational.raw_status || null,
     med_raw: countryPage.legal_model.medical.raw_status || null,
     distribution_scopes: countryPage.legal_model.distribution.scopes,
     distribution_flags: countryPage.legal_model.distribution.flags,
+    penalties: countryPage.legal_model.signals?.penalties || {
+      prison: false,
+      arrest: false,
+      fine: false,
+      severity_score: 0
+    },
+    explain: countryPage.legal_model.signals?.explain || [],
     enforcement_flags: countryPage.legal_model.enforcement_flags || [],
     applied_rules: countryPage.legal_model.applied_rules || [],
     notes: countryPage.notes_normalized || countryPage.notes_raw || null,
-    confidence: "high" as const,
-    sources: profile.legal_ssot?.sources || [],
+    confidence: countryPage.legal_model.signals?.confidence || ("medium" as const),
+    sources:
+      (Array.isArray(countryPage.legal_model.signals?.sources) && countryPage.legal_model.signals?.sources.length
+        ? countryPage.legal_model.signals.sources
+        : profile.legal_ssot?.sources || []),
     generated_at: countryPage.updated_at || null
   };
   return {
@@ -175,6 +186,16 @@ function withDerivedSsotProfile<T extends JurisdictionLawProfile>(profile: T, co
       rec_final: countryPage.legal_model.recreational.status,
       med_final: countryPage.legal_model.medical.status,
       distribution_status: countryPage.legal_model.distribution.status,
+      legal_status: countryPage.legal_model.signals?.status || countryPage.legal_model.distribution.status,
+      penalties: countryPage.legal_model.signals?.penalties || {
+        prison: false,
+        arrest: false,
+        fine: false,
+        severity_score: 0
+      },
+      explain: countryPage.legal_model.signals?.explain || [],
+      confidence: countryPage.legal_model.signals?.confidence || "medium",
+      sources: countryPage.legal_model.signals?.sources || [],
       rec_raw: countryPage.legal_model.recreational.raw_status || null,
       med_raw: countryPage.legal_model.medical.raw_status || null,
       distribution_scopes: countryPage.legal_model.distribution.scopes,
@@ -409,6 +430,11 @@ export async function GET(req: Request) {
           rec_final: derived.rec_final,
           med_final: derived.med_final,
           distribution_status: derived.distribution_status,
+          legal_status: derived.legal_status,
+          penalties: derived.penalties,
+          explain: derived.explain,
+          confidence: derived.confidence,
+          sources: derived.sources,
           ...(debug
             ? {
                 rec_raw: derived.rec_raw,

@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,28 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "low",
+      "sources": [
+        {
+          "title": "Niue / Niuē",
+          "url": null,
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -128,9 +151,9 @@
   },
   "hashes": {
     "code": "niu",
-    "content_hash": "fa06191bdab0fc71883e96b843475740260392e639e0ab5d3b0ce5fe591794e4",
+    "content_hash": "032f5889598e1f58b66c52ea3d2aac32429edd210cbf66d193085baf8a241376",
     "notes_hash": "97f76473ccff85df1c0d1b7b75dd2e5c0efbac622838350dfda8e2c298892e73",
-    "model_hash": "4cd366b98bbdf74d04026867264a1073586d55db98ab517f144b34107c37e932"
+    "model_hash": "4515b1b286700cea966b59574108a98b9ed34297b3f55dc1d4ef465c57766016"
   },
   "geo_code": "NU",
   "node_type": "country",

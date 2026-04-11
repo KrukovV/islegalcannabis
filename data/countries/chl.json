@@ -17,27 +17,94 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "tolerated",
+      "status": "regulated",
       "scopes": {
         "possession": "restricted",
-        "sale": null,
+        "use": "restricted",
+        "sale": "regulated",
         "cultivation": "tolerated",
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [],
+      "flags": [
+        "sale_regulated"
+      ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "regulated",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in Chile",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Chile",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Marijuana Debate Rages in Chile",
+          "url": "https://www.americasquarterly.org/marijuana-debate-rages-in-chile",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Chile",
+          "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-a-legal-roadmap-to-cannabis/chile",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Yearbook of the United States Department of Agriculture",
+          "url": "https://archive.org/details/yearbookuniteds03agrigoog",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Marihuana: The First Twelve Thousand Years",
+          "url": "https://books.google.com/books?id=pGgzBgAAQBAJ&pg=PA100",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis Physiopathology Epidemiology Detection",
+          "url": "https://books.google.com/books?id=6doGy7klT88C&pg=PA210",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "The Cuban Connection: Drug Trafficking, Smuggling, and Gambling in Cuba from the 1920s to the Revolution",
+          "url": "https://books.google.com/books?id=1pIJOeNx-e4C&pg=PA99",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: private_cultivation | source: Chile | type: summary | priority: 1 | scope: cultivation",
+        "rule: possession_decriminalized | source: Chile | type: summary | priority: 1 | scope: cultivation",
+        "rule: sale_regulated | source: Chile | type: summary | priority: 1 | scope: sale",
+        "rule: private_cultivation | source: Chile | type: summary | priority: 1 | scope: sale",
+        "rule: medical_legal | source: Chile | type: summary | priority: 1 | scope: sale",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "decriminalized",
-      "medical_legal",
-      "private_cultivation_tolerated"
+      "private_cultivation",
+      "possession_decriminalized",
+      "sale_regulated",
+      "medical_legal"
     ],
-    "notes_normalized": "Cannabis is decriminalized in Chile. Medical cannabis is legal. Distribution is tolerated."
+    "notes_normalized": "Cannabis is decriminalized in Chile. Medical cannabis is legal. Distribution is regulated."
   },
-  "notes_normalized": "Cannabis is decriminalized in Chile. Medical cannabis is legal. Distribution is tolerated.",
+  "notes_normalized": "Cannabis is decriminalized in Chile. Medical cannabis is legal. Distribution is regulated.",
   "notes_raw": "{{main|Cannabis in Chile}} Private personal use<ref>{{cite web|url=http://druglawreform.info/en/country-information/latin-america/chile/item/202-chile|title=Chile – Drug Law Reform in Latin America|author=TNI|access-date=25 February 2016|archive-date=6 October 2018|archive-url=https://web.archive.org/web/20181006123221/http://druglawreform.info/en/country-information/latin-america/chile/item/202-chile|url-status=live}}</ref> and recreational cultivation<ref>{{cite web|url=http://www.elquintopoder.cl/ciudadania/el-autocultivo-de-cannabis-es-legal-en-chile-tambien-el-colectivo/|title=El cultivo colectivo de Cannabis, legal en Chile|access-date=25 February 2016|date=24 August 2015|archive-date=21 July 2018|archive-url=https://web.archive.org/web/20180721073404/https://www.elquintopoder.cl/ciudadania/el-autocultivo-de-cannabis-es-legal-en-chile-tambien-el-colectivo/|url-status=live}}</ref><ref>{{cite web|url=http://www.delaferia.cl/noticia/corte-suprema-autocultivo-de-marihuana-es-legal-en-chile/|title=Autocultivo de marihuana es legal en Chile – Delaferia|work=Delaferia|access-date=25 February 2016|archive-url=https://web.archive.org/web/20160225091153/http://www.delaferia.cl/noticia/corte-suprema-autocultivo-de-marihuana-es-legal-en-chile/|archive-date=25 February 2016|url-status=dead|language=es}}</ref><ref>{{cite web|title=Ana María Gazmuri: \"En Chile hoy en día el autocultivo es legal\"|work=Fundación Daya |url=http://www.fundaciondaya.org/en-chile-hoy-en-dia-el-autocultivo-es-legal/|access-date=11 July 2016|language=es-ES|date=24 August 2015|archive-date=12 October 2018|archive-url=https://web.archive.org/web/20181012130524/http://www.fundaciondaya.org/en-chile-hoy-en-dia-el-autocultivo-es-legal/|url-status=live}}</ref> decriminalized. Medicinal cultivation legal with the authorization of The Chilean Agriculture Service (SAG)<ref>{{cite news|url=https://www.bbc.com/news/world-latin-america-29693386|title=Chile plants cannabis for medicinal use|publisher=[[BBC News]]|access-date=25 February 2016|date=29 October 2014|last=Long|first=Gideon|archive-url=https://web.archive.org/web/20170814005239/https://www.bbc.com/news/world-latin-america-29693386|archive-date=14 August 2017|url-status=live}}</ref> and sale of medication allowed on prescription in pharmacies.<ref>{{cite web|url=http://www.latercera.com/noticia/nacional/2015/10/680-652201-9-en-diciembre-estaria-autorizada-la-venta-de-medicamentos-con-cannabis-en.shtml|title=En diciembre estaría autorizada la venta de medicamentos con cannabis en farmacias|author=Grupo Copesa|date=20 October 2015|access-date=25 February 2016|archive-date=4 March 2016|archive-url=https://web.archive.org/web/20160304205156/http://www.latercera.com/noticia/nacional/2015/10/680-652201-9-en-diciembre-estaria-autorizada-la-venta-de-medicamentos-con-cannabis-en.shtml|url-status=dead}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -135,9 +202,9 @@
   },
   "hashes": {
     "code": "chl",
-    "content_hash": "e23f70de6b2134efc6e2e45f29718fbae4f46d69f41b2fb55c9f08d4d9578ea7",
-    "notes_hash": "3d052e861eeb8860fe02447a5ad0393cb64fc585a7458cbd3333a077b134297f",
-    "model_hash": "52a44c86c6b3b46970e885672fe4c10cb2e460c8dbae7137066b9d6d715258f7"
+    "content_hash": "6a12d510ecfcc20dbe23414b9534413d9f39d6181e34141409c2bba851183922",
+    "notes_hash": "0fb9e2027a8491a8c8a8745e797bc8f538d92c04ff5146e721aacc324183dcdf",
+    "model_hash": "55ea75c1fe6c96f37ccc64f1726aee478558a5e27854056c22ac404c6f1167d8"
   },
   "geo_code": "CL",
   "node_type": "country",

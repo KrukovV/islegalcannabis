@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,28 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "low",
+      "sources": [
+        {
+          "title": "Guam / Guåhån",
+          "url": null,
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -105,12 +128,12 @@
         "name": "Papua New Guinea / Papua Niu Gini"
       },
       {
-        "code": "umi",
-        "name": "United States Minor Outlying Islands"
+        "code": "phl",
+        "name": "Philippines / Pilipinas"
       },
       {
-        "code": "jpn",
-        "name": "Japan / 日本"
+        "code": "umi",
+        "name": "United States Minor Outlying Islands"
       }
     ],
     "cluster_links": [
@@ -128,9 +151,9 @@
   },
   "hashes": {
     "code": "gum",
-    "content_hash": "dfe3a16eb94b9cc34a554883334affdc3ced874d45a98116342254d07da93e4e",
+    "content_hash": "166a693dced16678daae2eba85db8c99ee538d1aee2fb70bf4cf5b00b504bfce",
     "notes_hash": "99f3ab179b85fe6020607577b709a35c98b7b2cce4f00a05b7832308c9abd445",
-    "model_hash": "fbc96d6ebeaf36bf2f2f1b062867e27c6c24907edce63eb062615100ccdd0235"
+    "model_hash": "4f8fe0bdfeab88e1404b606cfd6006c66b1c98c446d390426b9c35f3b8e65500"
   },
   "geo_code": "GU",
   "node_type": "country",

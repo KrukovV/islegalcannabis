@@ -20,22 +20,99 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
       "enforcement": "standard",
-      "flags": [],
-      "modifiers": []
+      "flags": [
+        "trafficking_illegal"
+      ],
+      "modifiers": [
+        "but",
+        "may"
+      ]
+    },
+    "signals": {
+      "status": "mixed",
+      "penalties": {
+        "prison": true,
+        "prison_priority": 1,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 4
+      },
+      "confidence": "high",
+      "sources": [
+        {
+          "title": "Cannabis in Indonesia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Indonesia",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Undang-Undang Republik Indonesia No. 35 Tahun 2009 tentang Narkotika",
+          "url": "https://www.bnn.go.id/portal/_uploads/perundangan/2009/10/27/uu-nomor-35-tahun-2009-tentang-narkotika-ok.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Historical Dictionary of Indonesia",
+          "url": "https://books.google.com/books?id=SawyrExg75cC",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Indonesia",
+          "url": "https://www.tni.org/en/publication/cannabis-in-indonesia",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Indonesia",
+          "url": "https://web.archive.org/web/20180721073120/http://www.bnn.go.id/portal/_uploads/perundangan/2009/10/27/uu-nomor-35-tahun-2009-tentang-narkotika-ok.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Gevonden in Delpher - Bataviaasch handelsblad",
+          "url": "https://www.delpher.nl/nl/kranten/view?coll=ddd&identifier=ddd:110534929:mpeg21:a0009",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Indonesia",
+          "url": "https://www.botanicus.org/%20item/31753000819455%3C/ref%3E",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: illegal | source: Indonesia | type: summary | priority: 1 | scope: general",
+        "rule: penalty_prison | source: Indonesia | type: summary | priority: 1 | scope: trafficking",
+        "rule: penalty_years | source: Indonesia | type: summary | priority: 1 | scope: trafficking",
+        "rule: trafficking_illegal | source: Indonesia | type: summary | priority: 1 | scope: trafficking",
+        "rule: penalty_years | source: Indonesia | type: summary | priority: 1 | scope: possession",
+        "rule: legal | source: MK Tolak Legalisasi Ganja Medis Untuk Kesehatan, Berikut Alasanya - Kilas Klaten | type: reference | priority: 2 | scope: general",
+        "rule: legal | source: MK Tolak Legalisasi Ganja Medis untuk Kesehatan! | type: reference | priority: 2 | scope: general",
+        "rule: legal | source: Legislator Dorong Pemerintah Segera Kaji Ganja Medis Usai Ada Putusan MK | type: reference | priority: 2 | scope: general",
+        "rule: legal | source: Kepala BNN sepakat putusan MK tolak legalisasi ganja medis | type: reference | priority: 2 | scope: general",
+        "rule: legal | source: Respons Penggugat Usai Gugatan Soal Legalisasi Ganja Medis Ditolak MK, Minta Pemerintah Kaji Ulang | type: reference | priority: 2 | scope: general",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "illegal"
+      "illegal",
+      "penalty_prison",
+      "penalty_years",
+      "trafficking_illegal"
     ],
-    "notes_normalized": "Cannabis is illegal in Indonesia. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is illegal in Indonesia. Medical cannabis is illegal. Distribution is mixed. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Indonesia. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Indonesia. Medical cannabis is illegal. Distribution is mixed. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Indonesia}} Banned in 1927.<ref name=\"Slone2003\">{{cite book|author=Thomas H. Slone|title=Prokem|url=https://books.google.com/books?id=phbLKWrK-9MC&pg=PA26|year=2003|publisher=Masalai Press|isbn=978-0-9714127-5-0|pages=26–}}</ref> Minimum sentence of 4 years in prison (additional fines may apply) if caught dealing / distributing. Rehabilitation or maximum sentence of 4 years if caught in possession alone.<ref>{{cite web |url = http://www.bnn.go.id/portal/_uploads/perundangan/2009/10/27/uu-nomor-35-tahun-2009-tentang-narkotika-ok.pdf |title = Undang-Undang Republik Indonesia No. 35 Tahun 2009 tentang Narkotika |work = BNN RI |access-date = 3 May 2013 |archive-url = https://web.archive.org/web/20180721073120/http://www.bnn.go.id/portal/_uploads/perundangan/2009/10/27/uu-nomor-35-tahun-2009-tentang-narkotika-ok.pdf |archive-date = 21 July 2018 |url-status = dead }}</ref><ref>{{cite web |last1=Aquino |first1=Michael |title=Drug Laws in Bali and the Rest of Indonesia |url=https://www.tripsavvy.com/drug-laws-in-indonesia-1629332 |website=TripSavvy |access-date=17 October 2018 |archive-date=17 October 2018 |archive-url=https://web.archive.org/web/20181017123648/https://www.tripsavvy.com/drug-laws-in-indonesia-1629332 |url-status=dead }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -106,26 +183,26 @@
     ],
     "legal_similarity": [
       {
-        "code": "plw",
-        "name": "Palau / Belau"
-      },
-      {
-        "code": "khm",
-        "name": "Cambodia / Kâmpŭchéa"
-      },
-      {
-        "code": "vnm",
-        "name": "Vietnam / Việt Nam"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "sgp",
         "name": "Singapore / Singapura"
       },
       {
         "code": "phl",
         "name": "Philippines / Pilipinas"
+      },
+      {
+        "code": "khm",
+        "name": "Cambodia / Kâmpŭchéa"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "vnm",
+        "name": "Vietnam / Việt Nam"
+      },
+      {
+        "code": "lao",
+        "name": "Laos / ສປປລາວ"
       }
     ],
     "same_country_states": [],
@@ -133,9 +210,9 @@
   },
   "hashes": {
     "code": "idn",
-    "content_hash": "7cb941af6bcfcefb1b2c0409fba3bc6f35e870d93cfc4d3f006b0f202af91640",
-    "notes_hash": "5c020ae177b8f69174b6fff49b3f5028b3d1ee02c31462eefb8f610a150a172d",
-    "model_hash": "567561fd741301d17432235f3b773e1e5aa2b19a147a8ea52ad82efc73a89dc1"
+    "content_hash": "4f68431f46bd33d24f01c25ad76f5817678e68fba7786974fcd5ce0fb7492e82",
+    "notes_hash": "0977e53f02388cfbbb6db40fa32d571b2a8ad844ad9bd57f0599e14479217d7b",
+    "model_hash": "d488732bf1858ad21423273c99ec90eaa336775fcade4a0f12641f26e230c105"
   },
   "geo_code": "ID",
   "node_type": "country",

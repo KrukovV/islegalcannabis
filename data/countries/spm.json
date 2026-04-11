@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,28 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "low",
+      "sources": [
+        {
+          "title": "Saint Pierre and Miquelon / Saint-Pierre-et-Miquelon",
+          "url": null,
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -128,9 +151,9 @@
   },
   "hashes": {
     "code": "spm",
-    "content_hash": "a3b256fcbf046f7ce2e3f13f3f0993ffe427ee00d356120ca9aeecc5eaa79346",
+    "content_hash": "a0939ca560d8b7d5449d812f6de700d33cfb183f864f3dcbec398329c308faa0",
     "notes_hash": "0c9bf3682ccf803094092e16431a334085a9643ff0eb4142d3f7abb30737fda6",
-    "model_hash": "f6e5426ab895260e898f6fd83decc5340841dc8b0040b671ca37180bfef5ebd3"
+    "model_hash": "0522ddb2c6a03de2031228125445aa9120b591ca15558d8f1a90435c9351af35"
   },
   "geo_code": "PM",
   "node_type": "country",

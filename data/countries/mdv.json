@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,46 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in the Maldives",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Maldives",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Rapid Situation Assessment of Drug Abuse in Maldives",
+          "url": "https://books.google.com/books?id=nuNLn3avt54C&pg=PA38",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Yearbook of the United Nations 2003",
+          "url": "https://books.google.com/books?id=T9w-zXQ7eeEC&pg=PA1276",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Maldives / ދިވެހިރާއްޖޭގެ",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +176,9 @@
   },
   "hashes": {
     "code": "mdv",
-    "content_hash": "18c65ed95c6962372a09b17834b323551a8538d4142c05e00f6955d21e8f84e0",
+    "content_hash": "323cf250ac4f96319a9ac3ad3b954388e78651c94b584dcc379be7a71a5f6165",
     "notes_hash": "c006687d7b36aa45333a4599a5d5a5934496fc3730c2f167da7de289dae1e831",
-    "model_hash": "798c79e8e9c7813a33c7add982f15e2a165d1f8fcd83f8a3dfeac3ea20685f9d"
+    "model_hash": "09db74b92640f4a8801c985d180fbb85a1acd7583277eda99e6838311c75cfc0"
   },
   "geo_code": "MV",
   "node_type": "country",

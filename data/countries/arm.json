@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,64 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Armenia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Armenia",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Armenia",
+          "url": "https://2009-2017.state.gov/j/inl/rls/nrcrpt/2014/vol1/222844.htm",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "International Drugs Trade",
+          "url": "https://books.google.com/books?id=aiaGBqo-kZkC&pg=PA174",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Armenia reports an increase in officially registered drug user rates – JAMnews",
+          "url": "https://jam-news.net/?p=90340",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Armenia Goes Soft on Drugs",
+          "url": "https://iwpr.net/global-voices/armenia-goes-soft-drugs",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Armenia",
+          "url": "https://web.archive.org/web/20180309235237/https://jam-news.net/?p=90340",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "No plans to legalize weed in Armenia",
+          "url": "https://armenpress.am/eng/news/965400.html",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -112,22 +171,22 @@
         "name": "Syria / سوريا"
       },
       {
-        "code": "kwt",
-        "name": "Kuwait / الكويت"
-      },
-      {
-        "code": "irn",
-        "name": "Iran / ایران"
-      }
-    ],
-    "cluster_links": [
-      {
         "code": "tur",
         "name": "Türkiye"
       },
       {
+        "code": "kwt",
+        "name": "Kuwait / الكويت"
+      }
+    ],
+    "cluster_links": [
+      {
         "code": "lbn",
         "name": "Lebanon / لبنان"
+      },
+      {
+        "code": "irn",
+        "name": "Iran / ایران"
       }
     ],
     "same_country_states": [],
@@ -135,9 +194,9 @@
   },
   "hashes": {
     "code": "arm",
-    "content_hash": "98d5cdc0f8961e1ffc0e0bca9c80f54ffdf3545eceec7b629651c411e2d1024c",
+    "content_hash": "3ba767f35252d64ae4b070448325a8415afd4c7b1f9c4fdb80c3b0d53249deef",
     "notes_hash": "166f18daeaf8c166065065e15b871550a530bbcfb9b2dc90ff4ce7a20506e8ac",
-    "model_hash": "54f80d2672f72509ea68773a2ab2b6a7a69494851e05d1c133dcc78f556606bd"
+    "model_hash": "1345f0856c880bf17b70d716708ef54dc37d834761203fe7e5ebf2b0103387ea"
   },
   "geo_code": "AM",
   "node_type": "country",

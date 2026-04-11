@@ -15,6 +15,8 @@ const US_STATE_WIKI_PATH = path.join(ROOT, "data", "ssot", "us_states_wiki.json"
 const US_LAWS_DIR = path.join(ROOT, "data", "laws", "us");
 const WIKI_LEGALITY_TABLE_PATH = path.join(ROOT, "data", "wiki", "ssot_legality_table.json");
 const WIKI_CLAIMS_MAP_PATH = path.join(ROOT, "data", "wiki", "wiki_claims_map.json");
+const WIKI_CLAIMS_ENRICHED_PATH = path.join(ROOT, "data", "wiki", "wiki_claims_enriched.json");
+const WIKI_TRAVERSAL_CACHE_PATH = path.join(ROOT, "data", "wiki", "wiki_traversal_cache.json");
 
 const CLUSTER_MAP = {
   LATAM: new Set(["arg", "bra", "chl", "col", "per", "pry", "ury"]),
@@ -277,10 +279,32 @@ function loadWikiClaimsByIso() {
   );
 }
 
+function loadWikiClaimRefsByIso() {
+  const payload = readJson(WIKI_CLAIMS_ENRICHED_PATH);
+  const items = payload?.items && typeof payload.items === "object" ? payload.items : payload;
+  return new Map(
+    Object.entries(items || {})
+      .map(([geo, row]) => [String(geo || "").toUpperCase(), Array.isArray(row) ? row : []])
+      .filter(([geo]) => /^[A-Z]{2}$/.test(geo))
+  );
+}
+
+function loadWikiTraversalCache() {
+  const payload = readJson(WIKI_TRAVERSAL_CACHE_PATH);
+  const items = payload?.items && typeof payload.items === "object" ? payload.items : payload;
+  return new Map(
+    Object.entries(items || {})
+      .map(([title, row]) => [String(title || ""), row])
+      .filter(([title, row]) => title && row && typeof row === "object")
+  );
+}
+
 function buildCountryEntries() {
   const geojson = readJson(GEOJSON_PATH);
   const wikiLegalityByIso = loadWikiLegalityTableByIso();
   const wikiClaimsByIso = loadWikiClaimsByIso();
+  const wikiClaimRefsByIso = loadWikiClaimRefsByIso();
+  const wikiTraversalCache = loadWikiTraversalCache();
   const geoMetaByIso3 = new Map(
     geojson.features
       .map((feature) => feature?.properties || {})
@@ -341,13 +365,22 @@ function buildCountryEntries() {
   for (const entry of entries) {
     const wikiRow = wikiLegalityByIso.get(entry.iso2) || null;
     const wikiClaim = wikiClaimsByIso.get(entry.iso2) || null;
+    const wikiRefs = wikiClaimRefsByIso.get(entry.iso2) || [];
+    const notesMainArticles = Array.isArray(wikiClaim?.notes_main_articles) ? wikiClaim.notes_main_articles : [];
+    const traversalPages = notesMainArticles
+      .map((item) => wikiTraversalCache.get(String(item?.title || "").trim()))
+      .filter(Boolean);
     const statusModel = deriveCountryStatusModel({
       geo: entry.iso2,
       countryName: entry.name,
       wikiRecStatus: wikiRow?.rec_status || wikiClaim?.wiki_rec || wikiClaim?.recreational_status || entry.legal_model?.recreational?.status,
       wikiMedStatus: wikiRow?.med_status || wikiClaim?.wiki_med || wikiClaim?.medical_status || entry.legal_model?.medical?.status,
       notes: wikiClaim?.notes_text || wikiClaim?.notes || wikiRow?.wiki_notes_hint || entry.notes_raw || "",
-      rawNotes: wikiClaim?.notes_raw || wikiClaim?.notes_text || wikiRow?.wiki_notes_hint || entry.notes_raw || ""
+      rawNotes: wikiClaim?.notes_raw || wikiClaim?.notes_text || wikiRow?.wiki_notes_hint || entry.notes_raw || "",
+      notesMainArticles,
+      traversalPages,
+      referenceSources: wikiRefs,
+      sourceUrl: wikiClaim?.source_url || wikiRow?.source_url || null
     });
     entry.legal_model = statusModel;
     entry.notes_raw = String(

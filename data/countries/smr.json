@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,52 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in San Marino",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_San_Marino",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Drug Use in America: Problem in Perspective: Second Report",
+          "url": "https://books.google.com/books?id=qn3aAAAAMAAJ",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in San Marino",
+          "url": "https://www.ilrestodelcarlino.it/rimini/cronaca/cannabis-marijuana-san-marino-1.2357222",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in San Marino",
+          "url": "https://giornalesm.com/san-marino-istanza-darengo-inutile-cannabis-gia-dispensata-gratuitamente-ai-malati-dott-nicolino-monachese-il-sativex-viene-gia-dato-ai-malati-di-slerosi-multipla/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "San Marino",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -116,8 +163,8 @@
         "name": "Liechtenstein"
       },
       {
-        "code": "mco",
-        "name": "Monaco"
+        "code": "che",
+        "name": "Switzerland / Suisse"
       }
     ],
     "cluster_links": [
@@ -126,8 +173,8 @@
         "name": "Austria / Österreich"
       },
       {
-        "code": "che",
-        "name": "Switzerland / Suisse"
+        "code": "mco",
+        "name": "Monaco"
       }
     ],
     "same_country_states": [],
@@ -135,9 +182,9 @@
   },
   "hashes": {
     "code": "smr",
-    "content_hash": "78ca93dea0f785ef3e26a0a4e30c264fdf36b30c2e2f8ea743096dfe6ad5ddc2",
+    "content_hash": "5eaf88976cd0b1ef0ae2c014977110dfc706e4b43e3a9145742a7029e092078d",
     "notes_hash": "707ab0276636aa01f486cba68c53ef2207a7326fbc5b7c5d7d4944f2847485a6",
-    "model_hash": "065da7104e903aae0f0b2326e258b67b3574fdbbcf4c947c1cab3efb6d44d6d6"
+    "model_hash": "a965c690047ed98b673258dfba01d680d116a56047782c9a95d6032be83937b6"
   },
   "geo_code": "SM",
   "node_type": "country",

@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,28 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "low",
+      "sources": [
+        {
+          "title": "Wallis and Futuna / Wallis et Futuna",
+          "url": null,
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -128,9 +151,9 @@
   },
   "hashes": {
     "code": "wlf",
-    "content_hash": "71007d3a58f072a2a69dbabab6be8190ceeaf44afce81410db09b5752eb02ff2",
+    "content_hash": "248720c751108a55ecc96d5f7ecd5e4912c9b14bb90869a35250c4c10d5f2e3b",
     "notes_hash": "4580151da812b8eac19f531183a20e46a1a1230b164c2b50f14d14209c1261ae",
-    "model_hash": "8d633fa3256abd2c0946037c13af38ae1c4ac7dca440f46b824d0fe8329927e2"
+    "model_hash": "c5a1e71ae327e0489d9cb224f0a79cdb504b8c4735b9116443815579ea64cab2"
   },
   "geo_code": "WF",
   "node_type": "country",

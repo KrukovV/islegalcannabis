@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,40 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Burundi",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Burundi",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Decriminalization of Marihuana: Hearings Before the Select Committee on Narcotics Abuse and Control, House of Representatives, Ninety-fifth Congress, First Session, March 14, 15, and 16, 1977",
+          "url": "https://books.google.com/books?id=MFMtAAAAMAAJ&pg=PA22",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Burundi / Uburundi",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +170,9 @@
   },
   "hashes": {
     "code": "bdi",
-    "content_hash": "b01bd8a1888410381898468dd5809e080c2de24ccd16433c9236624ece8b5535",
+    "content_hash": "50772a2b085b4b5775051fbc3dde05332d58133f039c6af99de3a85206826857",
     "notes_hash": "3334d6e743544361f423c2bb09ab6508499e48a16c6b9da543f8114f22f07333",
-    "model_hash": "5451abe328c4b5054f201e6d792964ad613c29f523fe64bfb994d7ec713e8877"
+    "model_hash": "c3d796a04be46ac763e31571db239466046b5ba49191548494946cffa52de7ce"
   },
   "geo_code": "BI",
   "node_type": "country",

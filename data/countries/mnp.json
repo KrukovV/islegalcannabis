@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,28 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "low",
+      "sources": [
+        {
+          "title": "Northern Mariana Islands / Na Islas Mariånas",
+          "url": null,
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -128,9 +151,9 @@
   },
   "hashes": {
     "code": "mnp",
-    "content_hash": "da49c4819f449dd8ce5b77966430f6a78a466ab75460337b47f20c8a533146e9",
+    "content_hash": "5939483870edac227c83cdf834bf55ec16bbd338346542ef842a87c3e6d15cf5",
     "notes_hash": "e3733c2e764d3aabb2cbb3cca058bd47216941d2bac2c1cbc5c57e26a8b8e5c7",
-    "model_hash": "73db17abc5dd49dac069bc08056692e9ff7fde45c0c361d93216e35647d68f27"
+    "model_hash": "2f1a7b01c36be56a6491fa1c7406263223bd280e6890245321dbbbbd9fa582ce"
   },
   "geo_code": "MP",
   "node_type": "country",

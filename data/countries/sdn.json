@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,58 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Sudan",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Sudan",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Sudan worried over \"insane\" hikes in use of illicit drugs - Sudan Tribune: Plural news and views on Sudan",
+          "url": "https://www.sudantribune.com/spip.php?article43880",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Laws of the Sudan",
+          "url": "https://books.google.com/books?id=mnY_AQAAIAAJ",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Traditional Sudanese medicine: a primer for health care providers, researchers, and students",
+          "url": "https://books.google.com/books?id=YkcSAQAAIAAJ",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Sudan{{!",
+          "url": "https://safercbd.com/sudan-cannabis-use/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Sudan / السودان",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +188,9 @@
   },
   "hashes": {
     "code": "sdn",
-    "content_hash": "4aa3b8bbc20a60b7b9c5fec7a7fb7c2c1bf06000441ba661006b303f9b899895",
+    "content_hash": "8794316880b988b4099a69d745bc8923b912048a446f8a6d85f16124bac75da3",
     "notes_hash": "71248747a296c612aed673e638f3f2c1a1d1c1e1843178e712c727dd03682d65",
-    "model_hash": "d35b55d4f481f78ab53ea5a8af3c8bd7b0d9cf40bf46be8bde27e755285a69df"
+    "model_hash": "7a0a8a99d239a3b7528913a18364c0f912c9e22a9a5538fcb5c789a1c2becb7d"
   },
   "geo_code": "SD",
   "node_type": "country",

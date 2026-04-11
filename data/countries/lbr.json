@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,40 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Liberia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Liberia",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "The International Drugs Trade",
+          "url": "https://books.google.com/books?id=WHH1ON4EEXsC&pg=PA183",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Liberia",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +170,9 @@
   },
   "hashes": {
     "code": "lbr",
-    "content_hash": "3dbfaaac4e711fcb64b94ba205698f5053bf3bbb6e051013d626c7458140c6f4",
+    "content_hash": "da072b89bd7851e7023c34d45e0e2c654fbb6a44c5d4c0089be33e646cbdfa8b",
     "notes_hash": "d07befd6ce51bc804c545d8a6ca482436c34abc5403a7a6e9bccc8a2cf656913",
-    "model_hash": "b916007929fd24b63acc10a9c54cffab6d556e6d0e7941129507c63431c7a92d"
+    "model_hash": "73a8d6eaf4630f8cca7aa312fa311c3220f86afbfc45b7e3b874d820afe811b2"
   },
   "geo_code": "LR",
   "node_type": "country",

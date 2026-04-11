@@ -20,6 +20,7 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -30,6 +31,64 @@
         "distribution_fallback_illegal"
       ],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Eswatini",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Eswatini",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Drug laws, bioprospecting and the agricultural heritage of Cannabis in Africa",
+          "url": "https://www.tandfonline.com/doi/full/10.1080/13562576.2016.1138674",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Eswatini",
+          "url": "https://www.irinnews.org/news/2013/09/06",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Eswatini",
+          "url": "https://stopthedrugwar.org/chronicle/2006/nov/01/africa_marijuana_growing_expands",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Eswatini",
+          "url": "https://www.iol.co.za/news/africa/a-potential-high-for-swaziland-economy-1567747",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Cannabis in Eswatini",
+          "url": "https://new.observer.org.sz/details.php?id=1525",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Eswatini",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -135,9 +194,9 @@
   },
   "hashes": {
     "code": "swz",
-    "content_hash": "2562c49dc83e9e04c00bb8a9d8cc673d12bda03406080cb92b66dac1b8dcadcd",
+    "content_hash": "8b37f60adf1220fe3ff3c04d9936ab2eb1b5f78ffd58b7acee52296ded845e98",
     "notes_hash": "a0181ccdfdf53d6a5202a931fca56934d9cf110763c086a10ce26620205e800f",
-    "model_hash": "c61e11724e68f45cd20de904cf76c68b2e5d1ed58dab7e640a73c43d1a761bd1"
+    "model_hash": "e34854935fc83875cdecff8f070de83d3a904710d715214dd127ab61ed7fc607"
   },
   "geo_code": "SZ",
   "node_type": "country",

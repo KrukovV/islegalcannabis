@@ -20,14 +20,50 @@
       "status": "illegal",
       "scopes": {
         "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
       "enforcement": "standard",
       "flags": [],
       "modifiers": []
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in Afghanistan",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Afghanistan",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Legality of cannabis (notes)",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Afghanistan",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Afghanistan / افغانستان",
+          "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: illegal | source: Afghanistan / افغانستان | type: summary | priority: 1 | scope: trafficking",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
@@ -133,9 +169,9 @@
   },
   "hashes": {
     "code": "afg",
-    "content_hash": "771e24111eb40d535019eb3ea0fe9acc5430ce5e0a64d016ec95bda539da93b3",
+    "content_hash": "6fac7713e3ee800da90abe6f889a7219406d1cb7837d3b2d60fe1903c1456ebe",
     "notes_hash": "0ff300485bc16950b5ad7bbd3f9b0ab172e01242042baa61c3611c46d46c2a14",
-    "model_hash": "8b45938d2523759cd5a5f0a5e117d79608d641f4b58c464bd8e555765df85be3"
+    "model_hash": "e728030e481f573a93f60f546bd2d429a44dbb1fe9c2aeaa323432995d88941a"
   },
   "geo_code": "AF",
   "node_type": "country",

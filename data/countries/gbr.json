@@ -5,9 +5,9 @@
   "legal_model": {
     "recreational": {
       "raw_status": "ILLEGAL",
-      "status": "LEGAL",
-      "enforcement": "MODERATE",
-      "scope": "PERSONAL_USE"
+      "status": "ILLEGAL",
+      "enforcement": "STRICT",
+      "scope": "NONE"
     },
     "medical": {
       "raw_status": "UNKNOWN",
@@ -17,9 +17,10 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "illegal",
       "scopes": {
-        "possession": "restricted",
+        "possession": null,
+        "use": null,
         "sale": null,
         "cultivation": null,
         "import": null,
@@ -27,17 +28,79 @@
       },
       "enforcement": "standard",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "only"
+      ]
+    },
+    "signals": {
+      "status": "illegal",
+      "penalties": {
+        "prison": false,
+        "prison_priority": 0,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0
+      },
+      "confidence": "medium",
+      "sources": [
+        {
+          "title": "Cannabis in the United Kingdom",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_United_Kingdom",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Drug misuse: findings from the 2017 to 2018 CSEW",
+          "url": "https://www.gov.uk/government/statistics/drug-misuse-findings-from-the-2017-to-2018-csew",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "System Files",
+          "url": "https://www.emcdda.europa.eu/system/files/publications/4541/TDAT17001ENN.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Drug Laws",
+          "url": "https://www.homeoffice.gov.uk/drugs/drug-law/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Home Office Circular 2018: Rescheduling of cannabis-based products for medicinal use in humans",
+          "url": "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/753366/Medicinal_Cannabis_-_Home_Office_Circular_2018_FINAL.pdf",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "Guidance Controlled drugs: licences, fees and returns",
+          "url": "https://www.gov.uk/guidance/controlled-drugs-licences-fees-and-returns/",
+          "depth": 0,
+          "type": "summary"
+        },
+        {
+          "title": "CANPAIN Feasibility Study: Evaluating the Feasibility of Subsequently Undertaking a Pragmatic Real World Trial Investigating CBMP in Chronic Pain Patients",
+          "url": "https://clinicaltrials.gov/ct2/show/NCT05288010",
+          "depth": 0,
+          "type": "summary"
+        }
+      ],
+      "explain": [
+        "rule: illegal | source: United Kingdom | type: summary | priority: 1 | scope: general",
+        "rule: medical_legal | source: United Kingdom | type: summary | priority: 1 | scope: use",
+        "rule: medical_limited | source: United Kingdom | type: summary | priority: 1 | scope: use",
+        "no traversal evidence"
+      ]
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "medical_legal",
       "illegal",
-      "legal"
+      "medical_legal"
     ],
-    "notes_normalized": "Cannabis is legal in United Kingdom. Medical cannabis is legal. Distribution is restricted."
+    "notes_normalized": "Cannabis is illegal in United Kingdom. Medical cannabis is legal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is legal in United Kingdom. Medical cannabis is legal. Distribution is restricted.",
+  "notes_normalized": "Cannabis is illegal in United Kingdom. Medical cannabis is legal. Distribution is illegal.",
   "notes_raw": "{{Main|Cannabis in the United Kingdom}} Banned in 1928.<ref name=\"Manning2013\">{{cite book|author=Paul Manning|title=Drugs and Popular Culture|url=https://books.google.com/books?id=K2QQBAAAQBAJ&pg=PA136|date=11 January 2013|publisher=Routledge|isbn=978-1-134-01211-4|pages=136–}}</ref> A [[Cannabis classification in the United Kingdom|class B drug]] under the [[Misuse of Drugs Act 1971]].<ref>{{cite web |publisher=United Kingdom Home Office |url=http://www.homeoffice.gov.uk/drugs/drug-law/ |title=Drug Laws |access-date=9 March 2016 |archive-date=15 March 2013 |archive-url=https://web.archive.org/web/20130315190739/http://www.homeoffice.gov.uk/drugs/drug-law/ |url-status=live }}</ref> Limited medical use legal since 1 November 2018<ref name=\"BBC News2\">{{cite news |url= https://www.bbc.co.uk/news/health-46045487 |title= Medical cannabis products available on prescription |publisher= [[BBC News]] |date= 1 November 2018 |access-date= 6 March 2019 |archive-date= 2 March 2019 |archive-url= https://web.archive.org/web/20190302122340/https://www.bbc.co.uk/news/health-46045487 |url-status= live }}</ref> when prescribed by a specialist consultant, not a [[General practitioner|GP]]. Guidance: only prescribe when clearly beneficial and no other option available.<ref name=\"BBC News1\" />",
   "facts": {
     "possession_limit": null,
@@ -112,22 +175,22 @@
         "name": "Ireland / Éire"
       },
       {
-        "code": "bel",
-        "name": "Belgium / Belgien"
-      },
-      {
         "code": "nld",
         "name": "Netherlands / Nederland"
+      },
+      {
+        "code": "fra",
+        "name": "France"
       }
     ],
     "cluster_links": [
       {
-        "code": "lux",
-        "name": "Luxembourg / Luxemburg"
+        "code": "bel",
+        "name": "Belgium / Belgien"
       },
       {
-        "code": "fro",
-        "name": "Faroe Islands / Færøerne"
+        "code": "lux",
+        "name": "Luxembourg / Luxemburg"
       }
     ],
     "same_country_states": [],
@@ -135,9 +198,9 @@
   },
   "hashes": {
     "code": "gbr",
-    "content_hash": "60e82bcb6ab801aacd962bbc64e8b0e27815980bb033f256af7829e7a7a66156",
-    "notes_hash": "f891e9e7fe4b7169b77049044a402fdab0d7b4e629c5c6bb4ad7ff13daf35406",
-    "model_hash": "068d219f96ba580256896c0a030e7faeeaef18a45f2af33ee3d21525c7dd6993"
+    "content_hash": "10be7ea806ea4b85ed36452f2700e3600ab61d9940db1078cb9a46727f609844",
+    "notes_hash": "4ef6b3f53751492fc86513dc5558c489df523c7593b3d9a3cf0a48b4ba59f66d",
+    "model_hash": "2199aaa7bba5b04201fa1b9b8f6cccf0dc99e32f95ea180746ad6fc308bedb95"
   },
   "geo_code": "GB",
   "node_type": "country",
