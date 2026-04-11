@@ -14,6 +14,8 @@ test("/c/us-ca starts as a state node with state marker and open panel", async (
   await expect(page.getByTestId("new-map-seo-overlay").getByRole("heading", { level: 1 })).toHaveText(
     "Is cannabis legal in California?"
   );
+  await expect(page.locator('button[aria-label^="Open info for "]')).toHaveCount(1);
+  await expect(page.locator('button[aria-label="Open info for California"]')).toHaveCount(1);
 
   const markerLabel = await page.locator('button[aria-label="Open info for California"]').first().getAttribute("aria-label");
   expect(markerLabel).toBe("Open info for California");
@@ -29,14 +31,13 @@ test("/c/us-ca starts as a state node with state marker and open panel", async (
   expect(Math.abs(center!.lng - -119.4)).toBeLessThan(6);
 });
 
-test("/c/usa click on California switches marker and panel to US-CA", async ({ page }) => {
+test("/c/usa keeps exactly one country marker for the route geo", async ({ page }) => {
   await waitForMap(page, "/c/usa");
 
-  await page.locator('button[aria-label="Open info for California"]').click();
-  await page.waitForTimeout(1000);
-
   await expect(page.getByTestId("new-map-seo-overlay").getByRole("heading", { level: 1 })).toHaveText(
-    "Is cannabis legal in California?"
+    "Is cannabis legal in United States?"
   );
-  await expect(page.locator('button[aria-label="Open info for California"]').first()).toBeVisible();
+  await expect(page.locator('button[aria-label^="Open info for "]')).toHaveCount(1);
+  await expect(page.locator('button[aria-label="Open info for United States"]')).toHaveCount(1);
+  await expect(page.locator('button[aria-label="Open info for California"]')).toHaveCount(0);
 });

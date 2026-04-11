@@ -138,7 +138,6 @@ export default function MapRoot({
   const mapRef = useRef<maplibregl.Map | null>(null);
   const locationMarkerRef = useRef<maplibregl.Marker | null>(null);
   const infoMarkerRef = useRef<maplibregl.Marker | null>(null);
-  const stateMarkerRefs = useRef(new Map<string, maplibregl.Marker>());
   const cardIndexRef = useRef<Record<string, CountryCardEntry>>({});
   const [error, setError] = useState<string | null>(null);
   const [mapReady, setMapReady] = useState(false);
@@ -154,21 +153,14 @@ export default function MapRoot({
   const showDebugOverlay = runtimeIdentity.runtimeMode !== "production";
   const initialGeoAppliedRef = useRef(false);
   const seoCountryCode = seoCountryData?.code || null;
-  const seoRouteGeoCode = seoCountryData?.geo_code || null;
-  const activeSeoGeoCode = useMemo(() => {
-    const selectedCode = String(selectedGeo || "").trim().toUpperCase();
-    if (selectedCode && seoCountryIndex[selectedCode]) return selectedCode;
-    const hoveredCode = String(hoveredGeo || "").trim().toUpperCase();
-    if (hoveredCode && seoCountryIndex[hoveredCode]) return hoveredCode;
-    return seoRouteGeoCode;
-  }, [hoveredGeo, selectedGeo, seoCountryIndex, seoRouteGeoCode]);
+  const seoRouteGeoCode = String(seoCountryData?.geo_code || "").trim().toUpperCase() || null;
   const activeSeoData = useMemo(() => {
     if (!seoCountryData) return null;
-    if (activeSeoGeoCode && seoCountryIndex[activeSeoGeoCode]) {
-      return seoCountryIndex[activeSeoGeoCode];
+    if (seoRouteGeoCode && seoCountryIndex[seoRouteGeoCode]) {
+      return seoCountryIndex[seoRouteGeoCode];
     }
     return seoCountryData;
-  }, [activeSeoGeoCode, seoCountryData, seoCountryIndex]);
+  }, [seoCountryData, seoCountryIndex, seoRouteGeoCode]);
   const seoMarkerEntry = useMemo(() => {
     if (!activeSeoData) return null;
     const cardEntry = cardIndex[activeSeoData.geo_code];
@@ -294,69 +286,6 @@ export default function MapRoot({
       button.onclick = null;
     };
   }, [handleSeoMarkerToggle, hoveredGeo, selectedGeo, seoMarkerEntry, seoPanelOpen]);
-
-  useEffect(() => {
-    const map = mapRef.current;
-    const allMarkers = stateMarkerRefs.current;
-    if (!map) {
-      for (const marker of allMarkers.values()) marker.remove();
-      allMarkers.clear();
-      return;
-    }
-
-    const stateEntries = Object.values(seoCountryIndex).filter(
-      (entry) =>
-        entry.node_type === "state" &&
-        entry.coordinates &&
-        entry.geo_code.toUpperCase() !== seoMarkerEntry?.code
-    );
-    const staleCodes = new Set(allMarkers.keys());
-
-    for (const entry of stateEntries) {
-      const geoCode = entry.geo_code.toUpperCase();
-      staleCodes.delete(geoCode);
-      const button = (allMarkers.get(geoCode)?.getElement() as HTMLButtonElement | undefined) || document.createElement("button");
-      button.type = "button";
-      button.className = `${styles.infoMarker} ${styles.stateMarker}`.trim();
-      button.textContent = "i";
-      button.setAttribute("aria-label", `Open info for ${entry.name}`);
-      button.dataset.active = String(selectedGeo === geoCode || hoveredGeo === geoCode);
-      button.onclick = (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        setSelectedGeo(geoCode);
-        setSeoPanelOpen(true);
-        centerMapToGeo({
-          country: entry.name,
-          iso2: geoCode,
-          lat: entry.coordinates?.lat,
-          lng: entry.coordinates?.lng
-        });
-      };
-
-      const marker = allMarkers.get(geoCode);
-      if (!marker) {
-        allMarkers.set(
-          geoCode,
-          new maplibregl.Marker({ element: button, anchor: "bottom" })
-            .setLngLat([entry.coordinates!.lng, entry.coordinates!.lat])
-            .addTo(map)
-        );
-      } else {
-        marker.setLngLat([entry.coordinates!.lng, entry.coordinates!.lat]);
-      }
-    }
-
-    for (const geoCode of staleCodes) {
-      allMarkers.get(geoCode)?.remove();
-      allMarkers.delete(geoCode);
-    }
-
-    return () => {
-      for (const marker of allMarkers.values()) marker.remove();
-      allMarkers.clear();
-    };
-  }, [centerMapToGeo, hoveredGeo, selectedGeo, seoCountryIndex, seoMarkerEntry]);
 
   useEffect(() => {
     const map = mapRef.current;
@@ -510,7 +439,7 @@ export default function MapRoot({
           },
           onSelectGeo: (geo) => {
             setSelectedGeo(geo);
-            if (geo && seoCountryIndex[String(geo).toUpperCase()]) {
+            if (geo && String(geo).trim().toUpperCase() === seoRouteGeoCode) {
               setSeoPanelOpen(true);
             }
             setDebugState({ selectedId: geo });
@@ -553,8 +482,6 @@ export default function MapRoot({
           setMapReady(false);
           setVisualReady(false);
           runtime.destroy();
-          for (const marker of stateMarkerRefs.current.values()) marker.remove();
-          stateMarkerRefs.current.clear();
           setSelectedGeo(null);
           setHoveredGeo(null);
           setDebugState({ mounted: false, selectedId: null, map: null });
@@ -569,7 +496,7 @@ export default function MapRoot({
       cancelled = true;
       cleanup();
     };
-  }, [countriesUrl, seoCountryIndex]);
+  }, [countriesUrl, seoCountryIndex, seoRouteGeoCode]);
 
   return (
     <section
