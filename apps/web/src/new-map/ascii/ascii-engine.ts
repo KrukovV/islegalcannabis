@@ -170,8 +170,8 @@ export function getJointAnchor(frame: string, facing: AsciiFacing, originX = 0, 
   return findJointAnchor(frame, facing, originX, originY);
 }
 
-function createParticlePool() {
-  return Array.from({ length: PARTICLE_LIMIT }, () => ({
+function createParticlePool(): Particle[] {
+  return Array.from({ length: PARTICLE_LIMIT }, (): Particle => ({
     active: false,
     x: 0,
     y: 0,
@@ -179,7 +179,7 @@ function createParticlePool() {
     vy: 0,
     life: 0,
     alpha: 0
-  })) satisfies Particle[];
+  }));
 }
 
 function updateParticles(particles: Particle[]) {

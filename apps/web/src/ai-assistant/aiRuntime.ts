@@ -129,7 +129,36 @@ export function buildContext(
       : null,
     social,
     airports: {
-      summary: null
+      summary: getAirportSummary(query, {
+        query,
+        language: resolvedLanguage,
+        location: {
+          geoHint: geoHint || null,
+          name: countryPage?.name || null
+        },
+        intent,
+        legal,
+        notes: countryPage?.notes_normalized || null,
+        enforcement: countryPage
+          ? {
+              level: countryPage.legal_model.signals?.enforcement_level || null,
+              recreational: countryPage.legal_model.recreational.enforcement
+            }
+          : null,
+        medical: countryPage
+          ? {
+              status: countryPage.legal_model.medical.status,
+              scope: countryPage.legal_model.medical.scope
+            }
+          : null,
+        social,
+        airports: {
+          summary: null
+        },
+        culture,
+        history: getDialogState(),
+        sources: []
+      })
     },
     culture,
     history: getDialogState(),
@@ -143,7 +172,6 @@ export function buildContext(
     )
   };
 
-  assistantContext.airports.summary = getAirportSummary(query, assistantContext);
   return assistantContext;
 }
 
@@ -202,11 +230,12 @@ function composeLegalDetail(context: AIContext) {
 }
 
 function composeTravelDetail(context: AIContext) {
-  if (!context.airports.summary) return null;
+  const airportSummary = context.airports?.summary;
+  if (!airportSummary) return null;
   if (context.language === "ru") {
-    return `Особенно аккуратно с перелётами и границей: ${context.airports.summary}`;
+    return `Особенно аккуратно с перелётами и границей: ${airportSummary}`;
   }
-  return `Be especially careful with flights and borders: ${context.airports.summary}`;
+  return `Be especially careful with flights and borders: ${airportSummary}`;
 }
 
 function composeSocialDetail(context: AIContext) {
