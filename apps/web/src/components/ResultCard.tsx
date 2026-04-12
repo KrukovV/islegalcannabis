@@ -4,16 +4,12 @@ import type {
   ResultViewModel
 } from "@islegal/shared";
 import {
-  buildWhyBullets,
   extrasFromProfile,
-  levelFromStatus,
   normalizeSourceList,
-  STATUS_BANNERS,
-  titleFromLevel
+  STATUS_BANNERS
 } from "@islegal/shared";
 import type { LocationContext } from "@/lib/location/locationContext";
 import type { ReactNode } from "react";
-import StatusBadge from "./StatusBadge";
 import Disclaimer from "./Disclaimer";
 import styles from "./ResultCard.module.css";
 import UpgradePrompt from "./UpgradePrompt";
@@ -29,6 +25,7 @@ import Link from "next/link";
 import { shouldHighlightManualAction } from "@/lib/geo/locationResolution";
 import { toLocationResolution } from "@/lib/location/locationContext";
 import { FEATURES } from "@/lib/features";
+import StatusPanel from "./StatusPanel";
 
 type ResultCardProps = {
   profile: JurisdictionLawProfile;
@@ -115,7 +112,7 @@ export default function ResultCard({
   isPaidUser = true,
   maxBullets,
   showRisks,
-  showSources,
+  showSources: _showSources,
   showPdf,
   showUpgradePrompt,
   locationContext,
@@ -139,8 +136,6 @@ export default function ResultCard({
       locationContext
     });
   const statusCode = buildTripStatusCode(profile);
-  const resultLevel = levelFromStatus(statusCode);
-  const resultTitle = titleFromLevel(resultLevel, statusCode);
   const officialSources = normalizeSourceList(
     Array.isArray(profile.official_sources)
       ? profile.official_sources.map((url) => ({
@@ -152,15 +147,6 @@ export default function ResultCard({
   const neutralSources = normalizeSourceList(profile.sources);
   const linksTrustSafe = linksTrust ?? null;
   const wikiTrustOfficial = Number(linksTrustSafe?.official_count || 0) || 0;
-  const hasVerifiedSources = wikiTrustOfficial > 0;
-  const displayLevel =
-    hasVerifiedSources || resultLevel !== "green" ? resultLevel : "yellow";
-  const displayTitle =
-    hasVerifiedSources || resultLevel !== "green"
-      ? resultTitle
-      : "Needs verification";
-  const resultIcon =
-    displayLevel === "green" ? "✅" : displayLevel === "yellow" ? "⚠️" : "❌";
   const profileHash = hashLawProfile(profile);
   const flag = countryFlag[profile.country] ?? "🏳️";
 
@@ -168,13 +154,10 @@ export default function ResultCard({
   const bulletLimit = maxBullets ?? (isPaidUser ? bullets.length : 3);
   const visibleBullets = bullets.slice(0, bulletLimit);
   const risks = resolvedViewModel.keyRisks;
-  const needsVerification = profile.status !== "known";
   const renderRisks = showRisks ?? isPaidUser;
-  const renderSources = showSources ?? (isPaidUser || needsVerification);
   const renderPdf = showPdf ?? isPaidUser;
   const renderUpgrade = showUpgradePrompt ?? !isPaidUser;
   const verifiedLabel = resolvedViewModel.verifiedAt ?? "Not verified";
-  const primarySource = resolvedViewModel.sources[0]?.url;
   const paidExtras = resolvedViewModel.extrasFull ?? resolvedViewModel.extrasPreview ?? [];
   const previewExtras =
     resolvedViewModel.extrasPreview ?? resolvedViewModel.extrasFull ?? [];
@@ -204,10 +187,6 @@ export default function ResultCard({
       Boolean(nearestLegal) ||
       (Array.isArray(nearby) && nearby.length > 0));
   const paidExtrasEnabled = FEATURES.paidExtras;
-  const whyBullets = buildWhyBullets(profile);
-  const visibleWhyBullets = whyBullets
-    .filter((bullet) => !bullet.toLowerCase().startsWith("medical use:"))
-    .slice(0, 3);
   const locationMethod = resolvedViewModel.location.method;
   const locationConfidence = resolvedViewModel.location.confidence;
   const limitedOfficialSources = officialSources.slice(0, 1);
@@ -478,77 +457,54 @@ export default function ResultCard({
         </div>
       </header>
 
-      <section className={styles.section}>
-        <h2>Status</h2>
-        <div
-          className={styles.metaLabel}
-          data-testid="result-level"
-          data-level={displayLevel}
-        >
-          {resultIcon} {displayTitle}
-        </div>
-        <div className={styles.metaLabel} data-testid="medical-breakdown">
-          Medical: {displayMedicalStatus}
-        </div>
-        <div className={styles.metaLabel} data-testid="recreational-breakdown">
-          Recreational: {displayRecreationalStatus}
-        </div>
-        {legalSsot || profile.status_recreational || profile.status_medical ? (
-          <div className={styles.metaLabel} data-testid="legal-status">
-            <div>
-              Recreational:{" "}
-              {legalSsot?.recreational ?? profile.status_recreational}
-            </div>
-            <div>Medical: {legalSsot?.medical ?? profile.status_medical}</div>
-            {displayDistributionStatus ? <div>Distribution: {displayDistributionStatus}</div> : null}
-            {legalVerifyLinks.length > 0 ? (
+      <StatusPanel
+        statusLevel={resolvedViewModel.statusLevel}
+        statusTitle={resolvedViewModel.statusTitle}
+        panel={resolvedViewModel.statusPanel}
+      />
+
+      {(locationMethod || legalSsot || profile.status_recreational || profile.status_medical) ? (
+        <section className={styles.section}>
+          <h2>Legal breakdown</h2>
+          <div className={styles.metaLabel} data-testid="medical-breakdown">
+            Medical: {displayMedicalStatus}
+          </div>
+          <div className={styles.metaLabel} data-testid="recreational-breakdown">
+            Recreational: {displayRecreationalStatus}
+          </div>
+          {legalSsot || profile.status_recreational || profile.status_medical ? (
+            <div className={styles.metaLabel} data-testid="legal-status">
               <div>
-                Sources:{" "}
-                {legalVerifyLinks.slice(0, 2).map((source, index) => (
-                  <span key={source.url}>
-                    <a href={source.url} target="_blank" rel="noreferrer">
-                      {source.title}
-                    </a>
-                    {index === 0 && legalVerifyLinks.length > 1 ? ", " : ""}
-                  </span>
-                ))}
+                Recreational:{" "}
+                {legalSsot?.recreational ?? profile.status_recreational}
               </div>
-            ) : null}
-          </div>
-        ) : null}
-        {locationMethod ? (
-          <div className={styles.metaLabel} data-testid="location-method">
-            Location: {locationMethod}
-            {locationConfidence ? (
-              <>
-                {" "}
-                · Confidence: {confidenceLabel(locationConfidence)}
-              </>
-            ) : null}
-          </div>
-        ) : null}
-        <StatusBadge
-          level={resolvedViewModel.statusLevel}
-          label={resolvedViewModel.statusTitle}
-        />
-        {visibleWhyBullets.length > 0 ? (
-          <ul className={styles.bullets} data-testid="why-bullets">
-            {visibleWhyBullets.map((bullet, index) => (
-              <li key={`${bullet}-${index}`}>{bullet}</li>
-            ))}
-          </ul>
-        ) : null}
-        {profile.status === "provisional" ? (
-          <p className={styles.provisionalBanner}>
-            {STATUS_BANNERS.provisional.body}
-          </p>
-        ) : null}
-        {profile.status === "needs_review" ? (
-          <p className={styles.provisionalBanner}>
-            {STATUS_BANNERS.needs_review.body}
-          </p>
-        ) : null}
-      </section>
+              <div>Medical: {legalSsot?.medical ?? profile.status_medical}</div>
+              {displayDistributionStatus ? <div>Distribution: {displayDistributionStatus}</div> : null}
+            </div>
+          ) : null}
+          {locationMethod ? (
+            <div className={styles.metaLabel} data-testid="location-method">
+              Location: {locationMethod}
+              {locationConfidence ? (
+                <>
+                  {" "}
+                  · Confidence: {confidenceLabel(locationConfidence)}
+                </>
+              ) : null}
+            </div>
+          ) : null}
+          {profile.status === "provisional" ? (
+            <p className={styles.provisionalBanner}>
+              {STATUS_BANNERS.provisional.body}
+            </p>
+          ) : null}
+          {profile.status === "needs_review" ? (
+            <p className={styles.provisionalBanner}>
+              {STATUS_BANNERS.needs_review.body}
+            </p>
+          ) : null}
+        </section>
+      ) : null}
 
       {showWarning ? (
         <section className={styles.warning} data-testid="warning">
@@ -647,7 +603,7 @@ export default function ResultCard({
         </ul>
       </section>
 
-      {renderRisks || renderSources || renderPdf || showExtrasCards ? (
+      {renderRisks || renderPdf || showExtrasCards ? (
         <>
           {renderRisks ? (
             <section className={styles.section}>
@@ -657,52 +613,6 @@ export default function ResultCard({
                   <li key={risk}>{risk}</li>
                 ))}
               </ul>
-            </section>
-          ) : null}
-
-          {renderSources ? (
-            <section className={styles.section} data-testid="sources">
-              <h2>Sources</h2>
-              <p className={styles.updated}>Verified: {verifiedLabel}</p>
-              <p className={styles.updated}>
-                Last updated: {resolvedViewModel.updatedAt}
-              </p>
-              <ul className={styles.sources}>
-                {resolvedViewModel.sources.map((source) => {
-                  let host = "";
-                  try {
-                    host = new URL(source.url).hostname;
-                  } catch {
-                    host = "";
-                  }
-                  return (
-                    <li key={source.url} className={styles.sourceItem}>
-                      <a
-                        className={styles.sourceLink}
-                        data-testid="source-link"
-                        href={source.url}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        <span className={styles.sourceTitle}>{source.title}</span>
-                        {host ? (
-                          <span className={styles.sourceHost}>{host}</span>
-                        ) : null}
-                      </a>
-                    </li>
-                  );
-                })}
-              </ul>
-              {needsVerification && primarySource ? (
-                <a
-                  className={styles.sourceButton}
-                  href={primarySource}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Open official sources
-                </a>
-              ) : null}
             </section>
           ) : null}
 

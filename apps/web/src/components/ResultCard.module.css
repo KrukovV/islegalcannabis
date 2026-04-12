@@ -118,6 +118,133 @@
   color: #2c3b33;
 }
 
+.statusHero {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.statusHeroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  min-height: 42px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: #f7f9f5;
+  border: 1px solid #e1e6dc;
+}
+
+.statusHeroBadge[data-level="green"] {
+  color: #24503a;
+}
+
+.statusHeroBadge[data-level="yellow"] {
+  color: #725718;
+}
+
+.statusHeroBadge[data-level="red"] {
+  color: #7a3534;
+}
+
+.statusHeroBadge[data-level="gray"] {
+  color: #58635d;
+}
+
+.statusHeroDot {
+  width: 11px;
+  height: 11px;
+  border-radius: 999px;
+  background: currentColor;
+  flex: 0 0 auto;
+}
+
+.statusHeroLabel {
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.statusSummaryBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.statusSummary {
+  margin: 0;
+  color: #2c3b33;
+  font-size: 0.98rem;
+  line-height: 1.45;
+}
+
+.statusTimestamp {
+  margin: 0;
+  color: #5a645d;
+  font-size: 0.8rem;
+}
+
+.statusJumpLink {
+  width: fit-content;
+  color: #2f5f45;
+  font-size: 0.86rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.statusReasonsBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.statusSubheading {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #2c3b33;
+}
+
+.statusReasonList {
+  display: grid;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.statusReasonItem {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  align-items: baseline;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #f7f9f5;
+  border: 1px solid #e1e6dc;
+}
+
+.statusReasonMainLink {
+  color: #27362e;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.statusReasonMainLink:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.statusSourceLink {
+  color: #2f5f45;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .provisionalBanner {
   margin-top: 8px;
   padding: 8px 12px;

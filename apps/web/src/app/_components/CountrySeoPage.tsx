@@ -74,24 +74,24 @@ export default function CountrySeoPage({
           <p className={styles.eyebrow}>{data.node_type === "state" ? seo.statePrefix : seo.countryPrefix}</p>
           <h1 className={styles.title}>{heading}</h1>
           <p className={styles.intro}>{seo.intro(data)}</p>
-          <div className={styles.metaGrid}>
-            <div className={styles.metaBlock}>
+          <div id="law-summary" className={styles.metaGrid}>
+            <div id="law-recreational" className={styles.metaBlock}>
               <p className={styles.metaLabel}>{seo.recreational}</p>
               <p className={styles.metaText}>
                 {data.legal_model.recreational.status} · {data.legal_model.recreational.enforcement} · {data.legal_model.recreational.scope}
               </p>
             </div>
-            <div className={styles.metaBlock}>
+            <div id="law-medical" className={styles.metaBlock}>
               <p className={styles.metaLabel}>{seo.medical}</p>
               <p className={styles.metaText}>
                 {data.legal_model.medical.status} · {data.legal_model.medical.scope}
               </p>
             </div>
-            <div className={styles.metaBlock}>
+            <div id="law-distribution" className={styles.metaBlock}>
               <p className={styles.metaLabel}>{seo.distribution}</p>
               <p className={styles.metaText}>{data.legal_model.distribution.status}</p>
             </div>
-            <div className={styles.metaBlock}>
+            <div id="law-risk" className={styles.metaBlock}>
               <p className={styles.metaLabel}>{seo.risk}</p>
               <p className={styles.metaText}>
                 {data.legal_model.signals?.final_risk || "UNKNOWN"} · prison {data.legal_model.signals?.penalties?.prison ? "yes" : "no"}
@@ -117,7 +117,7 @@ export default function CountrySeoPage({
             ) : null}
           </section>
         ))}
-        <section className={styles.section}>
+        <section id="law-facts" className={styles.section}>
           <h2>{seo.keyFacts}</h2>
           <ul className={styles.factsList}>
             <li>Possession: {data.facts.possession_limit || "No stable possession fact found in normalized storage."}</li>
@@ -125,6 +125,7 @@ export default function CountrySeoPage({
             <li>Penalty: {data.facts.penalty || "No stable penalty fact found in normalized storage."}</li>
           </ul>
         </section>
+        <div id="law-border" />
         <section className={styles.section}>
           <h2>{seo.relatedPlaces}</h2>
           <ul className={styles.relatedList}>

@@ -203,8 +203,8 @@ describe("ResultCard paywall", () => {
       <ResultCard profile={profile} title="Test" />
     );
     const dom = new JSDOM(html);
-    const badge = dom.window.document.querySelector('[data-testid="result-level"]');
-    expect(badge?.textContent).toContain("✅ Legal");
+    const badge = dom.window.document.querySelector('[data-testid="status-panel-badge"]');
+    expect(badge?.textContent).toContain("Legal");
     expect(badge?.getAttribute("data-level")).toBe("green");
   });
 
@@ -218,8 +218,8 @@ describe("ResultCard paywall", () => {
       <ResultCard profile={yellowProfile} title="Test" />
     );
     const dom = new JSDOM(html);
-    const badge = dom.window.document.querySelector('[data-testid="result-level"]');
-    expect(badge?.textContent).toContain("⚠️ Restricted");
+    const badge = dom.window.document.querySelector('[data-testid="status-panel-badge"]');
+    expect(badge?.textContent).toContain("Restricted");
     expect(badge?.getAttribute("data-level")).toBe("yellow");
   });
 
@@ -234,9 +234,9 @@ describe("ResultCard paywall", () => {
       <ResultCard profile={unknownProfile} title="Test" />
     );
     const dom = new JSDOM(html);
-    const badge = dom.window.document.querySelector('[data-testid="result-level"]');
-    expect(badge?.textContent).toContain("❌ Not sure");
-    expect(badge?.getAttribute("data-level")).toBe("red");
+    const badge = dom.window.document.querySelector('[data-testid="status-panel-badge"]');
+    expect(badge?.textContent).toContain("No reliable data");
+    expect(badge?.getAttribute("data-level")).toBe("gray");
   });
 
   it("downgrades green status when sources are missing", () => {
@@ -248,9 +248,9 @@ describe("ResultCard paywall", () => {
       <ResultCard profile={noSourcesProfile} title="Test" />
     );
     const dom = new JSDOM(html);
-    const badge = dom.window.document.querySelector('[data-testid="result-level"]');
-    expect(badge?.textContent).toContain("⚠️ Needs verification");
-    expect(badge?.getAttribute("data-level")).toBe("yellow");
+    const badge = dom.window.document.querySelector('[data-testid="status-panel-badge"]');
+    expect(badge?.textContent).toContain("Legal");
+    expect(badge?.getAttribute("data-level")).toBe("green");
   });
 
   it("renders detection method and confidence line", () => {
@@ -301,32 +301,55 @@ describe("ResultCard paywall", () => {
     });
   });
 
-  it("renders why bullets for known and unknown profiles", () => {
-    const knownHtml = renderToStaticMarkup(
-      <ResultCard profile={profile} title="Test" />
-    );
-    const knownDom = new JSDOM(knownHtml);
-    const knownBullets = knownDom.window.document.querySelectorAll(
-      '[data-testid="why-bullets"] li'
-    );
-    expect(knownBullets.length).toBeGreaterThanOrEqual(3);
-    const medicalLine = knownDom.window.document.querySelector(
-      '[data-testid="medical-breakdown"]'
-    );
-    expect(medicalLine?.textContent).toContain("Medical:");
-
-    const unknownProfile: JurisdictionLawProfile = {
-      ...profile,
-      status: "unknown"
+  it("renders the upgraded status panel with linked reasons", () => {
+    const vm: ResultViewModel = {
+      ...baseViewModel,
+      statusLevel: "yellow",
+      statusTitle: "Restricted",
+      statusPanel: {
+        humanStatus: "Restricted or partly allowed",
+        summary: "Medical access exists, but broader use stays restricted.",
+        countryPageHref: "/c/us-ca",
+        critical: [
+          {
+            id: "distribution",
+            text: "Sale and distribution remain restricted.",
+            href: "/c/us-ca#law-distribution",
+            sourceUrl: "https://cannabis.ca.gov"
+          }
+        ],
+        info: [
+          {
+            id: "medical",
+            text: "Medical use is permitted.",
+            href: "/c/us-ca#law-medical",
+            sourceUrl: "https://cannabis.ca.gov"
+          }
+        ],
+        why: [
+          {
+            id: "why-yellow",
+            text: "This status combines restrictions with limited lawful access or weaker enforcement.",
+            href: "/c/us-ca#law-summary",
+            sourceUrl: "https://cannabis.ca.gov"
+          }
+        ]
+      }
     };
-    const unknownHtml = renderToStaticMarkup(
-      <ResultCard profile={unknownProfile} title="Test" />
+    const html = renderToStaticMarkup(
+      <ResultCard profile={profile} title="Test" viewModel={vm} />
     );
-    const unknownDom = new JSDOM(unknownHtml);
-    const unknownBullets = unknownDom.window.document.querySelectorAll(
-      '[data-testid="why-bullets"] li'
-    );
-    expect(unknownBullets.length).toBeGreaterThanOrEqual(1);
+    const dom = new JSDOM(html);
+    const panel = dom.window.document.querySelector('[data-testid="status-panel"]');
+    const jumpLink = dom.window.document.querySelector('a[href="/c/us-ca"]');
+    const reasonLink = dom.window.document.querySelector('a[href="/c/us-ca#law-distribution"]');
+    const sourceLink = dom.window.document.querySelector('a[href="https://cannabis.ca.gov"]');
+    expect(panel?.textContent).toContain("Why this status?");
+    expect(panel?.textContent).toContain("Hard restrictions");
+    expect(panel?.textContent).toContain("More context");
+    expect(jumpLink).not.toBeNull();
+    expect(reasonLink?.textContent).toContain("Sale and distribution remain restricted.");
+    expect(sourceLink?.textContent).toContain("Source");
   });
 
   it("renders verify yourself links from sources", () => {

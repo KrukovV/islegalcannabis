@@ -72,15 +72,15 @@ const illegalViewModel: ResultViewModel = {
 };
 
 describe("ResultCard mobile rendering", () => {
-  it("renders legal (green/amber) card with sources and hit-area styles", () => {
+  it("renders legal card with verify/source-of-truth links and hit-area styles", () => {
     const html = renderToStaticMarkup(
       <ResultCard profile={legalProfile} title="Test" viewModel={legalViewModel} isPaidUser />
     );
     const dom = new JSDOM(html, { pretendToBeVisual: true });
     const { document } = dom.window;
-    const sources = document.querySelector('[data-testid="sources"]');
+    const sources = document.querySelector('[data-testid="verify-yourself"]');
     const sourceLinks = Array.from(
-      document.querySelectorAll<HTMLAnchorElement>('[data-testid="source-link"]')
+      document.querySelectorAll<HTMLAnchorElement>('[data-testid="verify-links"] a, [data-testid="verify-sources"] a')
     );
 
     expect(sources).not.toBeNull();

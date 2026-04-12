@@ -128,6 +128,50 @@
   line-height: 1.18;
 }
 
+.unifiedPanelStatusRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.unifiedPanelStatusDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  flex: 0 0 auto;
+}
+
+.unifiedPanelStatusDot[data-level="LEGAL"],
+.unifiedPanelStatusDot[data-level="MIXED"],
+.unifiedPanelStatusDot[data-level="DECRIM"] {
+  background: #cde7cf;
+}
+
+.unifiedPanelStatusDot[data-level="ILLEGAL"] {
+  background: #ead0d1;
+}
+
+.unifiedPanelStatusDot[data-level="UNKNOWN"] {
+  background: #d7dcdc;
+}
+
+.unifiedPanelStatusTitle {
+  margin: 0;
+  font-size: 1.18rem;
+  line-height: 1.2;
+}
+
+.unifiedPanelIntentBlock {
+  display: grid;
+  gap: 4px;
+}
+
+.unifiedPanelIntentTitle {
+  margin: 0;
+  font-weight: 700;
+  color: #2f4354;
+}
+
 .seoPanelClose {
   width: 34px;
   height: 34px;
@@ -365,12 +409,49 @@
 .countryPopup {
   font-size: 12px;
   line-height: 1.4;
+  display: grid;
+  gap: 10px;
+}
+
+.countryPopupHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
 }
 
 .countryPopupTitle {
   font-size: 1rem;
   font-weight: 700;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
+}
+
+.countryPopupBadge {
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.countryPopupBadge[data-category="LEGAL_OR_DECRIM"] {
+  background: #daf0dc;
+  color: #35583d;
+}
+
+.countryPopupBadge[data-category="LIMITED_OR_MEDICAL"] {
+  background: #f7edd0;
+  color: #765f14;
+}
+
+.countryPopupBadge[data-category="ILLEGAL"] {
+  background: #efdadb;
+  color: #7b4345;
+}
+
+.countryPopupBadge[data-category="UNKNOWN"] {
+  background: #e0e3e3;
+  color: #465761;
 }
 
 .countryPopupMeta {
@@ -379,11 +460,80 @@
   color: #4f6476;
 }
 
-.countryPopupNotes {
-  margin-top: 10px;
+.countryPopupSummary {
+  margin: 0;
   font-size: 0.86rem;
   line-height: 1.45;
   color: #33485b;
+}
+
+.countryPopupSection {
+  display: grid;
+  gap: 6px;
+}
+
+.countryPopupSectionTitle {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #607382;
+}
+
+.countryPopupList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 6px;
+}
+
+.countryPopupListItem,
+.countryPopupPlainItem {
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: #33485b;
+}
+
+.countryPopupReasonLink {
+  color: #1f4761;
+  text-decoration: none;
+}
+
+.countryPopupReasonLink:hover {
+  text-decoration: underline;
+}
+
+.countryPopupSourceLink {
+  margin-left: 8px;
+  color: #607382;
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+.countryPopupSourceLink:hover {
+  text-decoration: underline;
+}
+
+.countryPopupFooter {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.countryPopupCta {
+  color: #1f4761;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.countryPopupCta:hover {
+  text-decoration: underline;
+}
+
+.countryPopupFootnote {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: #607382;
 }
 
 .locationMarker {

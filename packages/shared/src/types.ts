@@ -7,6 +7,12 @@ export type RiskFlag =
   | "federal_property_us";
 
 export type Source = { title: string; url: string };
+export type StatusPanelReason = {
+  id: string;
+  text: string;
+  href: string;
+  sourceUrl?: string;
+};
 
 export type VerificationStatus =
   | "known"
@@ -40,6 +46,15 @@ export type ResultViewModel = {
   title: string;
   statusLevel: ResultStatusLevel;
   statusTitle: string;
+  statusPanel?: {
+    humanStatus: string;
+    summary: string;
+    countryPageHref: string | null;
+    critical: StatusPanelReason[];
+    info: StatusPanelReason[];
+    why: StatusPanelReason[];
+    lastUpdateLabel?: string;
+  };
   bullets: string[];
   keyRisks: string[];
   sources: Source[];
@@ -140,15 +155,26 @@ export type JurisdictionLawProfile = {
     fetched_at?: string;
   } | null;
   legal_ssot?: {
+    result_status?: "LEGAL" | "MIXED" | "DECRIM" | "ILLEGAL" | "UNKNOWN";
     recreational: "legal" | "decriminalized" | "tolerated" | "illegal" | "unknown";
     medical: "legal" | "limited" | "illegal" | "unknown";
     distribution?: "legal" | "regulated" | "tolerated" | "restricted" | "illegal" | "mixed";
+    legal_status?: "legal" | "regulated" | "tolerated" | "restricted" | "illegal" | "mixed";
+    final_risk?: "HIGH_RISK" | "RESTRICTED" | "LIMITED" | "UNKNOWN";
     rec_raw?: string | null;
     med_raw?: string | null;
     distribution_scopes?: Record<string, string | null>;
     distribution_flags?: string[];
     enforcement_flags?: string[];
     applied_rules?: string[];
+    penalties?: {
+      prison: boolean;
+      arrest: boolean;
+      fine: boolean;
+      severity_score: number;
+    };
+    enforcement_level?: "active" | "rare" | "unenforced";
+    explain?: string[];
     notes?: string | null;
     confidence?: ConfidenceLevel;
     sources?: Source[];

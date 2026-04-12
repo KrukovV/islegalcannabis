@@ -6,6 +6,7 @@ export type {
   LocationMethod,
   LocationResolution,
   Product,
+  StatusPanelReason,
   ResultViewModel,
   ResultStatusLevel,
   RiskFlag,

@@ -28,6 +28,8 @@ export type LabelPointCollection = FeatureCollection<Point, { geo: string; label
 
 export type CountryCardEntry = {
   geo: string;
+  code: string;
+  pageHref: string;
   displayName: string;
   iso2: string | null;
   type: "country" | "state";
@@ -50,6 +52,14 @@ export type CountryCardEntry = {
   distributionFlags: string[];
   statusFlags: string[];
   notes: string;
+  panel: {
+    levelTitle: string;
+    summary: string;
+    critical: Array<{ id: string; text: string; href: string; sourceUrl?: string }>;
+    info: Array<{ id: string; text: string; href: string; sourceUrl?: string }>;
+    why: Array<{ id: string; text: string; href: string; sourceUrl?: string }>;
+  };
+  sources: Array<{ id: string; title: string; url: string }>;
   coordinates?: { lat: number; lng: number };
 };
 

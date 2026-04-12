@@ -56,8 +56,20 @@ describe("countryPageStorage", () => {
     const graph = getCountryGraph();
     expect(cardIndex.NL?.normalizedStatusSummary).toContain("Netherlands");
     expect(cardIndex["US-CA"]?.displayName).toBe("California");
+    expect(cardIndex.NL?.panel.summary).toBeTruthy();
+    expect(cardIndex.NL?.pageHref).toBe("/c/nld");
+    expect(cardIndex.NL?.panel.why.length).toBeGreaterThan(0);
     expect(graph.nodes.find((node) => node.code === "nld")?.seo_cluster).toBe("EU");
     expect(graph.edges.some((edge) => edge.from === "nld" && edge.type === "LEGAL_SIMILARITY")).toBe(true);
+  });
+
+  it("builds human-readable popup panel data for disputed map colors", () => {
+    const cambodia = deriveCountryCardEntryFromCountryPageData(getCountryPageData("khm")!);
+    const india = deriveCountryCardEntryFromCountryPageData(getCountryPageData("ind")!);
+    expect(cambodia.panel.why[0]?.text).toContain("Yellow");
+    expect(cambodia.panel.critical.length).toBeGreaterThan(0);
+    expect(india.panel.why[0]?.text).toContain("Green");
+    expect(india.panel.info.length).toBeGreaterThan(0);
   });
 
   it("builds state-level SEO nodes derived from USA", () => {

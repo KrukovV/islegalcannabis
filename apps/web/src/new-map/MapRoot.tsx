@@ -1,7 +1,6 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import maplibregl, { type StyleSpecification } from "maplibre-gl";
 import type { RuntimeIdentity } from "@/lib/runtimeIdentity";
@@ -12,7 +11,8 @@ import styles from "./MapRoot.module.css";
 import { NEW_MAP_WATER_COLOR } from "./mapPalette";
 import { hasFirstVisualReady, onFirstVisualReady, resetFirstVisualReady } from "./startupTrace";
 import AsciiOverlay from "./ascii/AsciiOverlay";
-import { formatDistributionDetail, formatFlags, formatMedicalDetail, formatRecreationalDetail } from "./statusPresentation";
+import { formatDistributionDetail, formatMedicalDetail, formatRecreationalDetail } from "./statusPresentation";
+import UnifiedSeoStatusPanel from "./components/UnifiedSeoStatusPanel";
 
 type Props = {
   countriesUrl: string;
@@ -82,49 +82,70 @@ function escapeHtml(value: string) {
 }
 
 function renderCountryPopup(entry: CountryCardEntry) {
-  const flags = formatFlags(entry.statusFlags);
+  const escapeHref = (value: string) => escapeHtml(value);
+  const renderReasonList = (
+    title: string,
+    icon: string,
+    items: Array<{ id: string; text: string; href: string; sourceUrl?: string }>
+  ) => {
+    if (!items.length) return "";
+    return [
+      `<section class="${styles.countryPopupSection}">`,
+      `<div class="${styles.countryPopupSectionTitle}">${icon} ${escapeHtml(title)}</div>`,
+      `<ul class="${styles.countryPopupList}">`,
+      ...items.map((item) =>
+        [
+          `<li class="${styles.countryPopupListItem}" data-reason-id="${escapeHtml(item.id)}">`,
+          `<a class="${styles.countryPopupReasonLink}" href="${escapeHref(item.href)}"><strong>${escapeHtml(item.text)}</strong></a>`,
+          item.sourceUrl
+            ? `<a class="${styles.countryPopupSourceLink}" href="${escapeHref(item.sourceUrl)}" target="_blank" rel="noreferrer">Source</a>`
+            : "",
+          `</li>`
+        ].join("")
+      ),
+      `</ul>`,
+      `</section>`
+    ].join("");
+  };
+
   return [
     `<div class="${styles.countryPopup}" data-testid="new-map-country-popup">`,
+    `<div class="${styles.countryPopupHeader}">`,
+    `<div>`,
     `<div class="${styles.countryPopupTitle}">${escapeHtml(entry.displayName)}</div>`,
     `<div class="${styles.countryPopupMeta}">ISO2: ${escapeHtml(entry.iso2 || "Unknown")}</div>`,
-    `<div class="${styles.countryPopupMeta}">${escapeHtml(entry.normalizedStatusSummary)}</div>`,
-    `<div class="${styles.countryPopupMeta}">Recreational: ${escapeHtml(formatRecreationalDetail(entry))}</div>`,
-    `<div class="${styles.countryPopupMeta}">Medical: ${escapeHtml(formatMedicalDetail(entry))}</div>`,
-    `<div class="${styles.countryPopupMeta}">Distribution: ${escapeHtml(formatDistributionDetail(entry))}</div>`,
-    (entry.mapReason ? `<div class="${styles.countryPopupMeta}">${escapeHtml(entry.mapReason)}</div>` : ""),
-    (entry.distributionFlags.length
-      ? `<div class="${styles.countryPopupMeta}">Distribution flags: ${escapeHtml(formatFlags(entry.distributionFlags))}</div>`
-      : ""),
-    (flags ? `<div class="${styles.countryPopupMeta}">Flags: ${escapeHtml(flags)}</div>` : ""),
-    `<div class="${styles.countryPopupNotes}">${escapeHtml(entry.notes || "No notes available.")}</div>`,
+    `</div>`,
+    `<div class="${styles.countryPopupBadge}" data-category="${escapeHtml(entry.mapCategory)}">${escapeHtml(entry.panel.levelTitle)}</div>`,
+    `</div>`,
+    `<p class="${styles.countryPopupSummary}">${escapeHtml(entry.panel.summary)}</p>`,
+    renderReasonList("Hard restrictions", "❗", entry.panel.critical),
+    renderReasonList("More context", "ℹ️", entry.panel.info),
+    renderReasonList("Why this color", "→", entry.panel.why),
+    `<section class="${styles.countryPopupSection}">`,
+    `<div class="${styles.countryPopupSectionTitle}">Law snapshot</div>`,
+    `<ul class="${styles.countryPopupList}">`,
+    `<li class="${styles.countryPopupPlainItem}">Recreational: ${escapeHtml(formatRecreationalDetail(entry))}</li>`,
+    `<li class="${styles.countryPopupPlainItem}">Medical: ${escapeHtml(formatMedicalDetail(entry))}</li>`,
+    `<li class="${styles.countryPopupPlainItem}">Distribution: ${escapeHtml(formatDistributionDetail(entry))}</li>`,
+    `</ul>`,
+    `</section>`,
+    entry.sources.length
+      ? [
+          `<section class="${styles.countryPopupSection}">`,
+          `<div class="${styles.countryPopupSectionTitle}">Sources</div>`,
+          `<ul class="${styles.countryPopupList}">`,
+          ...entry.sources.map((source) =>
+            `<li class="${styles.countryPopupPlainItem}"><a class="${styles.countryPopupSourceLink}" href="${escapeHref(source.url)}" target="_blank" rel="noreferrer">${escapeHtml(source.title)}</a></li>`
+          ),
+          `</ul>`,
+          `</section>`
+        ].join("")
+      : "",
+    `<div class="${styles.countryPopupFooter}">`,
+    `<a class="${styles.countryPopupCta}" href="${escapeHref(entry.pageHref)}">Details →</a>`,
+    `</div>`,
     "</div>"
   ].join("");
-}
-
-function formatCountryPageLegalModel(data: CountryPageData) {
-  return [
-    `Recreational: ${data.legal_model.recreational.status.toLowerCase().replaceAll("_", " ")}`,
-    `enforcement ${data.legal_model.recreational.enforcement.toLowerCase()}`,
-    `scope ${data.legal_model.recreational.scope.toLowerCase().replaceAll("_", " ")}.`
-  ].join(", ");
-}
-
-function formatCountryPageMedicalModel(data: CountryPageData) {
-  return [
-    `Medical: ${data.legal_model.medical.status.toLowerCase().replaceAll("_", " ")}`,
-    `enforcement ${data.legal_model.medical.enforcement.toLowerCase()}`,
-    `scope ${data.legal_model.medical.scope.toLowerCase().replaceAll("_", " ")}.`
-  ].join(", ");
-}
-
-function formatSeoPanelEyebrow(data: CountryPageData) {
-  return data.node_type === "state" ? "State View" : "Country View";
-}
-
-function formatSeoPanelTitle(data: CountryPageData) {
-  return data.node_type === "state"
-    ? `Is cannabis legal in ${data.name}?`
-    : `Is cannabis legal in ${data.name}?`;
 }
 
 export default function MapRoot({
@@ -551,123 +572,7 @@ export default function MapRoot({
         </div>
       ) : null}
       {activeSeoData && seoPanelOpen ? (
-        <aside className={styles.seoOverlayPanel} data-testid="new-map-seo-overlay">
-          <div className={styles.seoPanelHeader}>
-            <div>
-              <div className={styles.eyebrow}>{formatSeoPanelEyebrow(activeSeoData)}</div>
-              <h1 className={styles.seoPanelTitle}>{formatSeoPanelTitle(activeSeoData)}</h1>
-            </div>
-            <button type="button" className={styles.seoPanelClose} onClick={handleSeoPanelClose} aria-label="Close country info">
-              ×
-            </button>
-          </div>
-          <p className={styles.seoPanelIntro}>{activeSeoData.notes_normalized}</p>
-
-          <section className={styles.seoPanelSection}>
-            <h2>{activeSeoData.node_type === "state" ? "Legal status in state" : "Legal status"}</h2>
-            <p>{formatCountryPageLegalModel(activeSeoData)}</p>
-          </section>
-
-          {activeSeoData.node_type === "state" && activeSeoData.state_modifiers?.federal_conflict ? (
-            <section className={styles.seoPanelSection}>
-              <h2>Federal vs state conflict</h2>
-              <p>{activeSeoData.state_modifiers.federal_conflict}</p>
-            </section>
-          ) : null}
-
-          <section className={styles.seoPanelSection}>
-            <h2>Medical cannabis</h2>
-            <p>{formatCountryPageMedicalModel(activeSeoData)}</p>
-          </section>
-
-          <section className={styles.seoPanelSection}>
-            <h2>Personal use</h2>
-            <ul className={styles.seoPanelList}>
-              <li>Possession: {activeSeoData.facts.possession_limit || "No stable possession limit found in normalized notes."}</li>
-              <li>Cultivation: {activeSeoData.facts.cultivation || "No stable cultivation rule found in normalized notes."}</li>
-              <li>Penalty: {activeSeoData.facts.penalty || "No stable penalty rule found in normalized notes."}</li>
-            </ul>
-          </section>
-
-          <section className={styles.seoPanelSection}>
-            <h2>{activeSeoData.node_type === "state" ? "Related places" : "Related countries"}</h2>
-            {activeSeoData.graph.federal_parent ? (
-              <>
-                <h3 className={styles.seoPanelSubheading}>Federal parent</h3>
-                <ul className={styles.seoPanelList}>
-                  <li>
-                    <Link href={`/c/${activeSeoData.graph.federal_parent.code}`}>
-                      Cannabis laws in {activeSeoData.graph.federal_parent.name}
-                    </Link>
-                  </li>
-                </ul>
-              </>
-            ) : null}
-            {activeSeoData.graph.same_country_states.length > 0 ? (
-              <>
-                <h3 className={styles.seoPanelSubheading}>Other U.S. states</h3>
-                <ul className={styles.seoPanelList}>
-                  {activeSeoData.graph.same_country_states.map((item) => (
-                    <li key={`state-${item.code}`}>
-                      <Link href={`/c/${item.code}`}>Cannabis laws in {item.name}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </>
-            ) : null}
-            {activeSeoData.graph.geo_neighbors.length > 0 ? (
-              <>
-                <h3 className={styles.seoPanelSubheading}>Geo neighbors</h3>
-                <ul className={styles.seoPanelList}>
-                  {activeSeoData.graph.geo_neighbors.map((item) => (
-                    <li key={`geo-${item.code}`}>
-                      <Link href={`/c/${item.code}`}>Cannabis laws in {item.name}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </>
-            ) : null}
-            {activeSeoData.graph.legal_similarity.length > 0 ? (
-              <>
-                <h3 className={styles.seoPanelSubheading}>Similar laws</h3>
-                <ul className={styles.seoPanelList}>
-                  {activeSeoData.graph.legal_similarity.map((item) => (
-                    <li key={`legal-${item.code}`}>
-                      <Link href={`/c/${item.code}`}>Cannabis laws in {item.name}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </>
-            ) : null}
-            {activeSeoData.graph.cluster_links.length > 0 ? (
-              <>
-                <h3 className={styles.seoPanelSubheading}>Same region cluster</h3>
-                <ul className={styles.seoPanelList}>
-                  {activeSeoData.graph.cluster_links.map((item) => (
-                    <li key={`cluster-${item.code}`}>
-                      <Link href={`/c/${item.code}`}>Cannabis laws in {item.name}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </>
-            ) : null}
-          </section>
-
-          {activeSeoData.sources.citations.length > 0 ? (
-            <section className={styles.seoPanelSection}>
-              <h2>Sources of truth</h2>
-              <ul className={styles.seoPanelList}>
-                {activeSeoData.sources.citations.map((source) => (
-                  <li key={source.id}>
-                    <a href={source.url} rel="nofollow noopener noreferrer" target="_blank">
-                      {source.title}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          ) : null}
-        </aside>
+        <UnifiedSeoStatusPanel data={activeSeoData} onClose={handleSeoPanelClose} />
       ) : null}
       <div
         ref={containerRef}
