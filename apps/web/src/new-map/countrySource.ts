@@ -2,13 +2,11 @@ import type { Feature, FeatureCollection, Geometry, MultiPolygon, Polygon } from
 import { buildGeoJson } from "@/lib/mapData";
 import {
   buildCountryCardIndexFromStorage,
+  deriveMapCategoryFromCountryPageData,
   getCountryPageIndexByGeoCode,
   getCountryPageIndexByIso2
 } from "@/lib/countryPageStorage";
-import {
-  deriveMapCategoryFromResultStatus,
-  deriveResultStatusFromCountryPageData
-} from "@/lib/resultStatus";
+import { deriveResultStatusFromCountryPageData } from "@/lib/resultStatus";
 import type { AdminBoundaryCollection, LegalCountryCollection, LegalCountryFeatureProperties } from "./map.types";
 import {
   resolveLegalFillColor,
@@ -38,7 +36,7 @@ export function buildCountrySourceSnapshot(): LegalCountryCollection {
         return [];
       }
       const resultStatus = deriveResultStatusFromCountryPageData(countryPageData);
-      const mapCategory = deriveMapCategoryFromResultStatus(resultStatus);
+      const mapCategory = deriveMapCategoryFromCountryPageData(countryPageData);
       const baseColor = geo === "AQ" ? ANTARCTICA_FILL_COLOR : resolveLegalFillColor(mapCategory);
       const hoverColor = geo === "AQ" ? ANTARCTICA_HOVER_COLOR : resolveLegalHoverColor(mapCategory);
       const nextProperties: LegalCountryFeatureProperties = {
@@ -111,7 +109,7 @@ export function buildUsStateSourceSnapshot(): LegalCountryCollection {
         throw new Error(`MAP_WITHOUT_STATUS: ${geo}`);
       }
       const resultStatus = deriveResultStatusFromCountryPageData(statePageData);
-      const stateCategory = deriveMapCategoryFromResultStatus(resultStatus);
+      const stateCategory = deriveMapCategoryFromCountryPageData(statePageData);
       const baseColor = resolveLegalFillColor(stateCategory);
       const displayName = statePageData?.name || String(feature.properties?.displayName || feature.properties?.name || geo);
       const labelAnchorLng = Number(feature.properties?.labelAnchorLng);

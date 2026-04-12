@@ -55,8 +55,8 @@ describe("GET /api/check contract", () => {
     expect(json.distribution_status).toBeTruthy();
     expect(json.legal_status).toBeTruthy();
     expect(json.final_risk).toBeTruthy();
-    expect(json.result_status).toBe("DECRIM");
-    expect(json.result_color).toBe(statusToColor("DECRIM"));
+    expect(json.result_status).toBe("MIXED");
+    expect(json.result_color).toBe(statusToColor("MIXED"));
     expect(json.penalties).toBeTruthy();
     expect(json.enforcement_level).toBeTruthy();
     expect(Array.isArray(json.explain)).toBe(true);
@@ -96,7 +96,7 @@ describe("GET /api/check contract", () => {
     expect(json.result_color).toBe(statusToColor("ILLEGAL"));
   });
 
-  it("softens France and Norway to decrim for personal-use fine regimes", async () => {
+  it("keeps France illegal in truth while Norway softens to decrim for personal-use fine regimes", async () => {
     const franceReq = new Request("http://localhost/api/check?country=FR");
     const franceRes = await GET(franceReq);
     const france = await franceRes.json();
@@ -105,8 +105,8 @@ describe("GET /api/check contract", () => {
     const norway = await norwayRes.json();
 
     expect(france.ok).toBe(true);
-    expect(france.result_status).toBe("DECRIM");
-    expect(france.result_color).toBe(statusToColor("DECRIM"));
+    expect(france.result_status).toBe("ILLEGAL");
+    expect(france.result_color).toBe(statusToColor("ILLEGAL"));
     expect(norway.ok).toBe(true);
     expect(norway.result_status).toBe("DECRIM");
     expect(norway.result_color).toBe(statusToColor("DECRIM"));

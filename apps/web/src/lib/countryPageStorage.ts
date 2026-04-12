@@ -3,7 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import type { CountryCardEntry } from "@/new-map/map.types";
 import {
-  deriveMapCategoryFromResultStatus,
+  deriveMapCategoryFromCountryPageDataSignals,
   deriveResultStatusFromCountryPageData,
   statusToColor
 } from "@/lib/resultStatus";
@@ -390,11 +390,78 @@ function summarizeDistributionModel(data: CountryPageData) {
 }
 
 export function deriveMapCategoryFromCountryPageData(data: CountryPageData) {
-  return deriveMapCategoryFromResultStatus(deriveResultStatusFromCountryPageData(data));
+  return deriveMapCategoryFromCountryPageDataSignals(data, deriveResultStatusFromCountryPageData(data));
+}
+
+function buildMapColorReason(data: CountryPageData) {
+  const resultStatus = deriveResultStatusFromCountryPageData(data);
+  const mapCategory = deriveMapCategoryFromCountryPageDataSignals(data, resultStatus);
+  const reasonText = [data.notes_raw, data.notes_normalized, data.facts.penalty]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+  if (mapCategory === "LIMITED_OR_MEDICAL" && resultStatus === "ILLEGAL") {
+    if (data.legal_model.medical.status === "LEGAL" || data.legal_model.medical.status === "LIMITED") {
+      return "Yellow because recreational law remains illegal, but medical access exists.";
+    }
+    if (
+      data.legal_model.signals?.enforcement_level === "rare" ||
+      data.legal_model.signals?.enforcement_level === "unenforced" ||
+      includesFold(reasonText, "rarely prosecuted") ||
+      includesFold(reasonText, "rarely enforced") ||
+      includesFold(reasonText, "not enforced") ||
+      includesFold(reasonText, "lax") ||
+      includesFold(reasonText, "enforced opportunistically") ||
+      includesFold(reasonText, "small amounts")
+    ) {
+      return "Yellow because formal illegality is softened by weak or uneven enforcement.";
+    }
+    if (
+      includesFold(reasonText, "tolerated") ||
+      includesFold(reasonText, "coffee shop") ||
+      includesFold(reasonText, "publicly offer") ||
+      includesFold(reasonText, "happy restaurants") ||
+      includesFold(reasonText, "government-owned shops sell cannabis")
+    ) {
+      return "Yellow because formal illegality is softened by tolerated or semi-open local practice.";
+    }
+    return "Yellow because recreational law remains illegal, but source notes show softer real-world conditions than a full red classification.";
+  }
+  if (mapCategory === "LEGAL_OR_DECRIM" && resultStatus === "DECRIM") {
+    return "Green because personal-use law is decriminalized and current access is partially allowed in practice.";
+  }
+  if (mapCategory === "LEGAL_OR_DECRIM" && resultStatus === "MIXED") {
+    if (
+      data.legal_model.recreational.status === "DECRIMINALIZED" ||
+      includesFold(reasonText, "decriminalized")
+    ) {
+      return "Green because personal use is decriminalized and current access is partially allowed in practice.";
+    }
+    if (
+      includesFold(reasonText, "tolerated") ||
+      includesFold(reasonText, "coffee shop") ||
+      includesFold(reasonText, "coffeeshop")
+    ) {
+      return "Green because formal illegality is softened by tolerated local practice.";
+    }
+    if (
+      includesFold(reasonText, "licensed") ||
+      includesFold(reasonText, "dispensary") ||
+      includesFold(reasonText, "government-owned shops sell cannabis") ||
+      includesFold(reasonText, "bhang") ||
+      includesFold(reasonText, "social club") ||
+      includesFold(reasonText, "allowed to grow")
+    ) {
+      return "Green because formal illegality is offset by limited legal or semi-open access in practice.";
+    }
+    return "Green because the final status is mixed: formal illegality is offset by decriminalized, tolerated, or limited-access practice.";
+  }
+  return null;
 }
 
 export function deriveCountryCardEntryFromCountryPageData(data: CountryPageData): CountryCardEntry {
   const resultStatus = deriveResultStatusFromCountryPageData(data);
+  const mapCategory = deriveMapCategoryFromCountryPageDataSignals(data, resultStatus);
   return {
     geo: data.geo_code,
     displayName: data.name,
@@ -404,6 +471,8 @@ export function deriveCountryCardEntryFromCountryPageData(data: CountryPageData)
       status: resultStatus,
       color: statusToColor(resultStatus)
     },
+    mapCategory,
+    mapReason: buildMapColorReason(data),
     normalizedStatusSummary: data.notes_normalized,
     recreationalSummary: summarizeLegalModel(data),
     medicalSummary: summarizeMedicalModel(data),

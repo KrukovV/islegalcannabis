@@ -22,6 +22,7 @@ export default function CountryCard({ geo, cardIndex }: Props) {
       <div className={styles.countryCardMeta}>Recreational: {formatRecreationalDetail(entry)}</div>
       <div className={styles.countryCardMeta}>Medical: {formatMedicalDetail(entry)}</div>
       <div className={styles.countryCardMeta}>Distribution: {formatDistributionDetail(entry)}</div>
+      {entry.mapReason ? <div className={styles.countryCardMeta}>{entry.mapReason}</div> : null}
       {entry.distributionFlags.length > 0 ? (
         <div className={styles.countryCardMeta}>Distribution flags: {formatFlags(entry.distributionFlags)}</div>
       ) : null}

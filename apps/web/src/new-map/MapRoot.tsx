@@ -91,6 +91,7 @@ function renderCountryPopup(entry: CountryCardEntry) {
     `<div class="${styles.countryPopupMeta}">Recreational: ${escapeHtml(formatRecreationalDetail(entry))}</div>`,
     `<div class="${styles.countryPopupMeta}">Medical: ${escapeHtml(formatMedicalDetail(entry))}</div>`,
     `<div class="${styles.countryPopupMeta}">Distribution: ${escapeHtml(formatDistributionDetail(entry))}</div>`,
+    (entry.mapReason ? `<div class="${styles.countryPopupMeta}">${escapeHtml(entry.mapReason)}</div>` : ""),
     (entry.distributionFlags.length
       ? `<div class="${styles.countryPopupMeta}">Distribution flags: ${escapeHtml(formatFlags(entry.distributionFlags))}</div>`
       : ""),

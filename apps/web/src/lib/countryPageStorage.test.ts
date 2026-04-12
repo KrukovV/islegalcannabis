@@ -3,13 +3,13 @@ import {
   buildSeoCountryIndex,
   buildCountryCardIndexFromStorage,
   deriveMapCategoryFromCountryPageData,
+  deriveCountryCardEntryFromCountryPageData,
   getCountryGraph,
   getCountryPageData,
   listCountryPageCodes
 } from "@/lib/countryPageStorage";
 import { buildCountrySourceSnapshot, buildUsStateSourceSnapshot } from "@/new-map/countrySource";
 import {
-  deriveMapCategoryFromResultStatus,
   deriveResultStatusFromCountryPageData,
   REFERENCE_MAP_CATEGORY_COLORS,
   REFERENCE_MAP_CATEGORY_HOVER_COLORS,
@@ -118,16 +118,16 @@ describe("countryPageStorage", () => {
       { code: "jpn", expectedCategory: "ILLEGAL" },
       { code: "sgp", expectedCategory: "ILLEGAL" },
       { code: "fra", expectedCategory: "LIMITED_OR_MEDICAL" },
-      { code: "nor", expectedCategory: "LIMITED_OR_MEDICAL" },
-      { code: "est", expectedCategory: "LIMITED_OR_MEDICAL" },
+      { code: "nor", expectedCategory: "LEGAL_OR_DECRIM" },
+      { code: "est", expectedCategory: "LEGAL_OR_DECRIM" },
       { code: "nld", expectedCategory: "LEGAL_OR_DECRIM" },
-      { code: "fin", expectedCategory: "LIMITED_OR_MEDICAL" },
+      { code: "fin", expectedCategory: "LEGAL_OR_DECRIM" },
       { code: "ind", expectedCategory: "LEGAL_OR_DECRIM" },
-      { code: "lux", expectedCategory: "LIMITED_OR_MEDICAL" },
-      { code: "aus", expectedCategory: "ILLEGAL" },
+      { code: "lux", expectedCategory: "LEGAL_OR_DECRIM" },
+      { code: "aus", expectedCategory: "LIMITED_OR_MEDICAL" },
       { code: "can", expectedCategory: "LEGAL_OR_DECRIM" },
       { code: "us-ca", expectedCategory: "LEGAL_OR_DECRIM" },
-      { code: "us-tx", expectedCategory: "ILLEGAL" }
+      { code: "us-tx", expectedCategory: "LIMITED_OR_MEDICAL" }
     ] as const;
     const snapshot = buildCountrySourceSnapshot();
     const usStateSnapshot = buildUsStateSourceSnapshot();
@@ -141,7 +141,6 @@ describe("countryPageStorage", () => {
       const source = page!.node_type === "state" ? usStateSnapshot : snapshot;
       const feature = source.features.find((item) => item.properties.geo === featureGeo);
       expect(mapCategory).toBe(fixture.expectedCategory);
-      expect(deriveMapCategoryFromResultStatus(status)).toBe(mapCategory);
       expect(feature?.properties.result.status).toBe(status);
       expect(feature?.properties.status).toBe(status);
       expect(feature?.properties.mapCategory).toBe(mapCategory);
@@ -151,7 +150,7 @@ describe("countryPageStorage", () => {
     }
   });
 
-  it("derives map snapshot categories strictly from final result status", () => {
+  it("derives map snapshot categories from the explicit truth/view layer", () => {
     const snapshot = buildCountrySourceSnapshot();
     const countries = ["nld", "lux", "fra", "fin", "aus", "can", "sgp"] as const;
 
@@ -159,20 +158,21 @@ describe("countryPageStorage", () => {
       const page = getCountryPageData(code);
       expect(page).toBeTruthy();
       const status = deriveResultStatusFromCountryPageData(page!);
+      const mapCategory = deriveMapCategoryFromCountryPageData(page!);
       const feature = snapshot.features.find((item) => item.properties.geo === page!.iso2);
       expect(feature).toBeTruthy();
       expect(feature?.properties.result.status).toBe(status);
-      expect(feature?.properties.mapCategory).toBe(deriveMapCategoryFromResultStatus(status));
+      expect(feature?.properties.mapCategory).toBe(mapCategory);
     }
   });
 
   it("derives hover colors from the same canonical status bucket", () => {
     expect(statusToColor("LEGAL")).toBe("#cde7cf");
     expect(statusToColor("MIXED")).toBe("#cde7cf");
-    expect(statusToColor("DECRIM")).toBe("#f4e9c2");
+    expect(statusToColor("DECRIM")).toBe("#cde7cf");
     expect(statusToColor("ILLEGAL")).toBe("#ead0d1");
     expect(statusToHoverColor("LEGAL")).toBe(statusToHoverColor("MIXED"));
-    expect(statusToHoverColor("DECRIM")).toBe("#f7edd0");
+    expect(statusToHoverColor("DECRIM")).toBe("#daf0dc");
     expect(statusToHoverColor("ILLEGAL")).not.toBe(statusToHoverColor("LEGAL"));
   });
 
@@ -192,11 +192,12 @@ describe("countryPageStorage", () => {
     expect(NEW_MAP_WATER_COLOR).toBe("#d7dcdc");
   });
 
-  it("keeps strong prison-year countries like Australia in illegal", () => {
+  it("keeps strong prison-year countries like Australia illegal in truth but yellow in the view layer", () => {
     const australia = getCountryPageData("aus");
     expect(australia?.legal_model.recreational.status).toBe("ILLEGAL");
     expect(australia?.legal_model.medical.status).toBe("LEGAL");
     expect(deriveResultStatusFromCountryPageData(australia!)).toBe("ILLEGAL");
+    expect(deriveMapCategoryFromCountryPageData(australia!)).toBe("LIMITED_OR_MEDICAL");
     expect(statusToColor("ILLEGAL")).toBe("#ead0d1");
   });
 
@@ -231,24 +232,54 @@ describe("countryPageStorage", () => {
     expect(deriveResultStatusFromCountryPageData(china!)).toBe("ILLEGAL");
     expect(deriveMapCategoryFromCountryPageData(china!)).toBe("ILLEGAL");
     expect(deriveResultStatusFromCountryPageData(estonia!)).toBe("DECRIM");
-    expect(deriveMapCategoryFromCountryPageData(estonia!)).toBe("LIMITED_OR_MEDICAL");
+    expect(deriveMapCategoryFromCountryPageData(estonia!)).toBe("LEGAL_OR_DECRIM");
     expect(deriveResultStatusFromCountryPageData(luxembourg!)).toBe("DECRIM");
-    expect(deriveMapCategoryFromCountryPageData(luxembourg!)).toBe("LIMITED_OR_MEDICAL");
+    expect(deriveMapCategoryFromCountryPageData(luxembourg!)).toBe("LEGAL_OR_DECRIM");
     expect(deriveResultStatusFromCountryPageData(netherlands!)).toBe("MIXED");
     expect(deriveMapCategoryFromCountryPageData(netherlands!)).toBe("LEGAL_OR_DECRIM");
-    expect(deriveResultStatusFromCountryPageData(france!)).toBe("DECRIM");
+    expect(deriveResultStatusFromCountryPageData(france!)).toBe("ILLEGAL");
     expect(deriveMapCategoryFromCountryPageData(france!)).toBe("LIMITED_OR_MEDICAL");
     expect(deriveResultStatusFromCountryPageData(norway!)).toBe("DECRIM");
-    expect(deriveMapCategoryFromCountryPageData(norway!)).toBe("LIMITED_OR_MEDICAL");
+    expect(deriveMapCategoryFromCountryPageData(norway!)).toBe("LEGAL_OR_DECRIM");
     expect(deriveResultStatusFromCountryPageData(finland!)).toBe("DECRIM");
-    expect(deriveMapCategoryFromCountryPageData(finland!)).toBe("LIMITED_OR_MEDICAL");
+    expect(deriveMapCategoryFromCountryPageData(finland!)).toBe("LEGAL_OR_DECRIM");
     expect(deriveResultStatusFromCountryPageData(india!)).toBe("MIXED");
     expect(deriveMapCategoryFromCountryPageData(india!)).toBe("LEGAL_OR_DECRIM");
     expect(deriveResultStatusFromCountryPageData(australia!)).toBe("ILLEGAL");
-    expect(deriveMapCategoryFromCountryPageData(australia!)).toBe("ILLEGAL");
+    expect(deriveMapCategoryFromCountryPageData(australia!)).toBe("LIMITED_OR_MEDICAL");
     expect(deriveResultStatusFromCountryPageData(usa!)).toBe("MIXED");
     expect(deriveMapCategoryFromCountryPageData(usa!)).toBe("LEGAL_OR_DECRIM");
     expect(deriveResultStatusFromCountryPageData(japan!)).toBe("ILLEGAL");
     expect(deriveResultStatusFromCountryPageData(singapore!)).toBe("ILLEGAL");
+  });
+
+  it("explains every yellow bucket that still has illegal truth", () => {
+    const entries = listCountryPageCodes()
+      .map((code) => getCountryPageData(code))
+      .filter(Boolean);
+
+    for (const page of entries) {
+      const status = deriveResultStatusFromCountryPageData(page!);
+      const category = deriveMapCategoryFromCountryPageData(page!);
+      const card = deriveCountryCardEntryFromCountryPageData(page!);
+      if (status === "ILLEGAL" && category === "LIMITED_OR_MEDICAL") {
+        expect(card.mapReason).toBeTruthy();
+      }
+    }
+  });
+
+  it("explains every green bucket that still has non-legal truth", () => {
+    const entries = listCountryPageCodes()
+      .map((code) => getCountryPageData(code))
+      .filter(Boolean);
+
+    for (const page of entries) {
+      const status = deriveResultStatusFromCountryPageData(page!);
+      const category = deriveMapCategoryFromCountryPageData(page!);
+      const card = deriveCountryCardEntryFromCountryPageData(page!);
+      if (category === "LEGAL_OR_DECRIM" && status !== "LEGAL") {
+        expect(card.mapReason).toBeTruthy();
+      }
+    }
   });
 });

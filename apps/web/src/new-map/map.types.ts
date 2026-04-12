@@ -35,6 +35,8 @@ export type CountryCardEntry = {
     status: ResultStatus;
     color: string;
   };
+  mapCategory: "LEGAL_OR_DECRIM" | "LIMITED_OR_MEDICAL" | "ILLEGAL" | "UNKNOWN";
+  mapReason: string | null;
   normalizedStatusSummary: string;
   recreationalSummary: string;
   medicalSummary: string;
