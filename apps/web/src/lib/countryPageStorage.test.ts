@@ -9,6 +9,7 @@ import {
 } from "@/lib/countryPageStorage";
 import { buildCountrySourceSnapshot, buildUsStateSourceSnapshot } from "@/new-map/countrySource";
 import { deriveResultStatusFromCountryPageData, statusToColor, statusToHoverColor } from "@/lib/resultStatus";
+import { resolveLegalFillColor, resolveLegalHoverColor } from "@/new-map/legalStyle";
 
 describe("countryPageStorage", () => {
   it("loads generated ISO3 country pages", () => {
@@ -102,14 +103,15 @@ describe("countryPageStorage", () => {
     expect(antigua?.legal_model.medical.status).toBe("LIMITED");
   });
 
-  it("keeps map status and color in sync with the single result status", () => {
+  it("keeps map categories aligned with the legacy pastel contract", () => {
     const fixtures = [
-      { code: "nld", expected: "MIXED" },
-      { code: "lux", expected: "DECRIMINALIZED" },
-      { code: "fra", expected: "ILLEGAL" },
-      { code: "swe", expected: "ILLEGAL" },
-      { code: "us-ca", expected: "LEGAL" },
-      { code: "us-tx", expected: "ILLEGAL" }
+      { code: "est", expectedCategory: "LEGAL_OR_DECRIM" },
+      { code: "nld", expectedCategory: "LEGAL_OR_DECRIM" },
+      { code: "fra", expectedCategory: "LIMITED_OR_MEDICAL" },
+      { code: "fin", expectedCategory: "LIMITED_OR_MEDICAL" },
+      { code: "aus", expectedCategory: "LIMITED_OR_MEDICAL" },
+      { code: "us-ca", expectedCategory: "LEGAL_OR_DECRIM" },
+      { code: "us-tx", expectedCategory: "LIMITED_OR_MEDICAL" }
     ] as const;
     const snapshot = buildCountrySourceSnapshot();
     const usStateSnapshot = buildUsStateSourceSnapshot();
@@ -118,15 +120,17 @@ describe("countryPageStorage", () => {
       const page = getCountryPageData(fixture.code);
       expect(page).toBeTruthy();
       const status = deriveResultStatusFromCountryPageData(page!);
+      const mapCategory = deriveMapCategoryFromCountryPageData(page!);
       const featureGeo = page!.node_type === "state" ? page!.geo_code : page!.iso2;
       const source = page!.node_type === "state" ? usStateSnapshot : snapshot;
       const feature = source.features.find((item) => item.properties.geo === featureGeo);
-      expect(status).toBe(fixture.expected);
+      expect(mapCategory).toBe(fixture.expectedCategory);
       expect(feature?.properties.result.status).toBe(status);
       expect(feature?.properties.status).toBe(status);
-      expect(feature?.properties.baseColor).toBe(statusToColor(status));
-      expect(feature?.properties.hoverColor).toBe(statusToHoverColor(status));
-      expect(feature?.properties.result.color).toBe(statusToColor(status));
+      expect(feature?.properties.mapCategory).toBe(mapCategory);
+      expect(feature?.properties.baseColor).toBe(resolveLegalFillColor(mapCategory));
+      expect(feature?.properties.hoverColor).toBe(resolveLegalHoverColor(mapCategory));
+      expect(feature?.properties.result.color).toBe(resolveLegalFillColor(mapCategory));
     }
   });
 
@@ -136,6 +140,15 @@ describe("countryPageStorage", () => {
     expect(statusToHoverColor("LEGAL")).not.toBe(statusToHoverColor("MIXED"));
   });
 
+  it("treats medical-only countries like Australia as mixed instead of illegal", () => {
+    const australia = getCountryPageData("aus");
+    expect(australia?.legal_model.recreational.status).toBe("ILLEGAL");
+    expect(australia?.legal_model.medical.status).toBe("LEGAL");
+    expect(deriveResultStatusFromCountryPageData(australia!)).toBe("MIXED");
+    expect(statusToColor("MIXED")).toBe("#D7BDE2");
+    expect(statusToHoverColor("MIXED")).toBe("#C39BD3");
+  });
+
   it("does not downgrade illegal countries to yellow map categories", () => {
     const iran = getCountryPageData("irn");
     const saudiArabia = getCountryPageData("sau");
@@ -143,5 +156,20 @@ describe("countryPageStorage", () => {
     expect(deriveMapCategoryFromCountryPageData(iran!)).toBe("ILLEGAL");
     expect(deriveResultStatusFromCountryPageData(saudiArabia!)).toBe("ILLEGAL");
     expect(deriveMapCategoryFromCountryPageData(saudiArabia!)).toBe("ILLEGAL");
+  });
+
+  it("keeps result status strict while map visuals stay on the old category palette", () => {
+    const estonia = getCountryPageData("est");
+    const netherlands = getCountryPageData("nld");
+    const france = getCountryPageData("fra");
+    const finland = getCountryPageData("fin");
+    expect(deriveResultStatusFromCountryPageData(estonia!)).toBe("DECRIMINALIZED");
+    expect(deriveMapCategoryFromCountryPageData(estonia!)).toBe("LEGAL_OR_DECRIM");
+    expect(deriveResultStatusFromCountryPageData(netherlands!)).toBe("MIXED");
+    expect(deriveMapCategoryFromCountryPageData(netherlands!)).toBe("LEGAL_OR_DECRIM");
+    expect(deriveResultStatusFromCountryPageData(france!)).toBe("ILLEGAL");
+    expect(deriveMapCategoryFromCountryPageData(france!)).toBe("LIMITED_OR_MEDICAL");
+    expect(deriveResultStatusFromCountryPageData(finland!)).toBe("ILLEGAL");
+    expect(deriveMapCategoryFromCountryPageData(finland!)).toBe("LIMITED_OR_MEDICAL");
   });
 });

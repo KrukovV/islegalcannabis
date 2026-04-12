@@ -76,6 +76,18 @@ describe("GET /api/check contract", () => {
     expect(json.result_color).toBe(statusToColor("MIXED"));
   });
 
+  it("keeps Australia in mixed status when medical is legal", async () => {
+    const req = new Request("http://localhost/api/check?country=AU");
+    const res = await GET(req);
+    const json = await res.json();
+
+    expect(json.ok).toBe(true);
+    expect(json.result_status).toBe("MIXED");
+    expect(json.result_color).toBe(statusToColor("MIXED"));
+    expect(json.rec_final).toBe("ILLEGAL");
+    expect(json.med_final).toBe("LEGAL");
+  });
+
   it("returns raw statuses only in debug mode", async () => {
     const req = new Request("http://localhost/api/check?country=BE&debug=1");
     const res = await GET(req);

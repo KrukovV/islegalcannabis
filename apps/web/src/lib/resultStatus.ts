@@ -14,25 +14,25 @@ export const RESULT_STATUS_VALUES = [
 export type ResultStatus = (typeof RESULT_STATUS_VALUES)[number];
 
 export const RESULT_STATUS_COLORS: Record<ResultStatus, string> = {
-  LEGAL: "#2ECC71",
-  MIXED: "#9B59B6",
-  DECRIMINALIZED: "#F1C40F",
-  MEDICAL: "#3498DB",
-  ILLEGAL: "#E74C3C",
-  LIMITED: "#3498DB",
-  UNENFORCED: "#F39C12",
-  UNKNOWN: "#BDC3C7"
+  LEGAL: "#A8E6CF",
+  MIXED: "#D7BDE2",
+  DECRIMINALIZED: "#FFF3B0",
+  MEDICAL: "#D7BDE2",
+  ILLEGAL: "#F5B7B1",
+  LIMITED: "#D7BDE2",
+  UNENFORCED: "#FFF3B0",
+  UNKNOWN: "#D5DCE3"
 };
 
 export const RESULT_STATUS_HOVER_COLORS: Record<ResultStatus, string> = {
-  LEGAL: "#27AE60",
-  MIXED: "#8E44AD",
-  DECRIMINALIZED: "#D4AC0D",
-  MEDICAL: "#2E86C1",
-  ILLEGAL: "#C0392B",
-  LIMITED: "#2E86C1",
-  UNENFORCED: "#CA6F1E",
-  UNKNOWN: "#95A5A6"
+  LEGAL: "#82E0AA",
+  MIXED: "#C39BD3",
+  DECRIMINALIZED: "#F9E79F",
+  MEDICAL: "#C39BD3",
+  ILLEGAL: "#EC7063",
+  LIMITED: "#C39BD3",
+  UNENFORCED: "#F5E4AA",
+  UNKNOWN: "#BCC8D3"
 };
 
 export function normalizeStatus(value: string): ResultStatus {
@@ -65,15 +65,24 @@ export function deriveResultStatusFromCountryPageData(data: CountryPageData): Re
   const medicalRaw = String(data.legal_model.medical.status || "").trim().toUpperCase();
   const distributionRaw = String(data.legal_model.distribution.status || "").trim().toUpperCase();
   const signalRaw = String(data.legal_model.signals?.status || "").trim().toUpperCase();
+  const cultivationFact = String(data.facts?.cultivation || "").trim().toLowerCase();
+  const explainLines = Array.isArray(data.legal_model.signals?.explain) ? data.legal_model.signals.explain.join("\n") : "";
   const recreational = normalizeStatus(recreationalRaw || "UNKNOWN");
   const medical = normalizeStatus(medicalRaw || "UNKNOWN");
+  const hasPermissiveCultivationFact =
+    /(?:grow|plant|possess)/.test(cultivationFact) && !/(?:illegal|prohibit|forbid|ban)/.test(cultivationFact);
+  const hasRegulatedMedicalSignal =
+    explainLines.includes("rule: sale_regulated") || explainLines.includes("rule: medical_legal |") && explainLines.includes("scope: sale");
 
   if (recreationalRaw === "LEGAL") return "LEGAL";
   if (signalRaw === "MIXED" || distributionRaw === "MIXED" || recreationalRaw === "TOLERATED") return "MIXED";
   if (recreational === "DECRIMINALIZED") return "DECRIMINALIZED";
+  if (recreational === "ILLEGAL" && medical === "LEGAL" && (hasPermissiveCultivationFact || hasRegulatedMedicalSignal)) {
+    return "MIXED";
+  }
   if (recreational === "UNENFORCED") return "UNENFORCED";
   if (recreational === "ILLEGAL") return "ILLEGAL";
-  if (recreational === "LIMITED") return "MEDICAL";
+  if (recreational === "LIMITED") return "MIXED";
   if (medical === "LEGAL" || medical === "LIMITED" || medical === "MEDICAL") return "MEDICAL";
   if (medical === "UNENFORCED") return "UNENFORCED";
   return "UNKNOWN";

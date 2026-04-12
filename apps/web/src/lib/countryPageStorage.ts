@@ -386,14 +386,21 @@ function summarizeDistributionModel(data: CountryPageData) {
 }
 
 export function deriveMapCategoryFromCountryPageData(data: CountryPageData) {
-  const resultStatus = deriveResultStatusFromCountryPageData(data);
-  if (resultStatus === "LEGAL" || resultStatus === "DECRIMINALIZED" || resultStatus === "MIXED") {
+  const recreational = String(data.legal_model.recreational.status || "").trim().toUpperCase();
+  const medical = String(data.legal_model.medical.status || "").trim().toUpperCase();
+  if (recreational === "LEGAL" || recreational === "DECRIMINALIZED" || recreational === "TOLERATED") {
     return "LEGAL_OR_DECRIM" as const;
   }
-  if (resultStatus === "MEDICAL" || resultStatus === "LIMITED" || resultStatus === "UNENFORCED") {
+  if (
+    recreational === "LIMITED" ||
+    recreational === "UNENFORCED" ||
+    medical === "LEGAL" ||
+    medical === "LIMITED" ||
+    medical === "UNENFORCED"
+  ) {
     return "LIMITED_OR_MEDICAL" as const;
   }
-  if (resultStatus === "UNKNOWN") return "UNKNOWN" as const;
+  if (!recreational && !medical) return "UNKNOWN" as const;
   return "ILLEGAL" as const;
 }
 
