@@ -55,8 +55,8 @@ describe("GET /api/check contract", () => {
     expect(json.distribution_status).toBeTruthy();
     expect(json.legal_status).toBeTruthy();
     expect(json.final_risk).toBeTruthy();
-    expect(json.result_status).toBe("DECRIMINALIZED");
-    expect(json.result_color).toBe(statusToColor("DECRIMINALIZED"));
+    expect(json.result_status).toBe("MIXED");
+    expect(json.result_color).toBe(statusToColor("MIXED"));
     expect(json.penalties).toBeTruthy();
     expect(json.enforcement_level).toBeTruthy();
     expect(Array.isArray(json.explain)).toBe(true);
@@ -82,8 +82,8 @@ describe("GET /api/check contract", () => {
     const json = await res.json();
 
     expect(json.ok).toBe(true);
-    expect(json.result_status).toBe("MEDICAL");
-    expect(json.result_color).toBe(statusToColor("MEDICAL"));
+    expect(json.result_status).toBe("ILLEGAL");
+    expect(json.result_color).toBe(statusToColor("ILLEGAL"));
     expect(json.rec_final).toBe("ILLEGAL");
     expect(json.med_final).toBe("LEGAL");
   });

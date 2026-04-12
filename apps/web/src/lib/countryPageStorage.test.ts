@@ -113,16 +113,16 @@ describe("countryPageStorage", () => {
 
   it("keeps map categories aligned with the canonical SSOT -> MAP contract", () => {
     const fixtures = [
-      { code: "est", expectedCategory: "LEGAL_OR_DECRIM" },
+      { code: "est", expectedCategory: "LIMITED_OR_MEDICAL" },
       { code: "nld", expectedCategory: "LEGAL_OR_DECRIM" },
-      { code: "lux", expectedCategory: "LEGAL_OR_DECRIM" },
+      { code: "lux", expectedCategory: "LIMITED_OR_MEDICAL" },
       { code: "fra", expectedCategory: "LIMITED_OR_MEDICAL" },
-      { code: "fin", expectedCategory: "ILLEGAL" },
-      { code: "aus", expectedCategory: "LIMITED_OR_MEDICAL" },
+      { code: "fin", expectedCategory: "LIMITED_OR_MEDICAL" },
+      { code: "aus", expectedCategory: "ILLEGAL" },
       { code: "can", expectedCategory: "LEGAL_OR_DECRIM" },
       { code: "sgp", expectedCategory: "ILLEGAL" },
       { code: "us-ca", expectedCategory: "LEGAL_OR_DECRIM" },
-      { code: "us-tx", expectedCategory: "LIMITED_OR_MEDICAL" }
+      { code: "us-tx", expectedCategory: "ILLEGAL" }
     ] as const;
     const snapshot = buildCountrySourceSnapshot();
     const usStateSnapshot = buildUsStateSourceSnapshot();
@@ -164,11 +164,10 @@ describe("countryPageStorage", () => {
   it("derives hover colors from the same canonical status bucket", () => {
     expect(statusToColor("LEGAL")).toBe("#cde7cf");
     expect(statusToColor("MIXED")).toBe("#cde7cf");
-    expect(statusToColor("DECRIMINALIZED")).toBe("#cde7cf");
-    expect(statusToColor("MEDICAL")).toBe("#f4e9c2");
+    expect(statusToColor("DECRIM")).toBe("#f4e9c2");
     expect(statusToColor("ILLEGAL")).toBe("#ead0d1");
     expect(statusToHoverColor("LEGAL")).toBe(statusToHoverColor("MIXED"));
-    expect(statusToHoverColor("LEGAL")).toBe(statusToHoverColor("DECRIMINALIZED"));
+    expect(statusToHoverColor("DECRIM")).toBe("#f7edd0");
     expect(statusToHoverColor("ILLEGAL")).not.toBe(statusToHoverColor("LEGAL"));
   });
 
@@ -188,12 +187,12 @@ describe("countryPageStorage", () => {
     expect(NEW_MAP_WATER_COLOR).toBe("#d7dcdc");
   });
 
-  it("treats medical-only countries like Australia as medical instead of illegal", () => {
+  it("keeps strong prison-year countries like Australia in illegal", () => {
     const australia = getCountryPageData("aus");
     expect(australia?.legal_model.recreational.status).toBe("ILLEGAL");
     expect(australia?.legal_model.medical.status).toBe("LEGAL");
-    expect(deriveResultStatusFromCountryPageData(australia!)).toBe("MEDICAL");
-    expect(statusToColor("MEDICAL")).toBe("#f4e9c2");
+    expect(deriveResultStatusFromCountryPageData(australia!)).toBe("ILLEGAL");
+    expect(statusToColor("ILLEGAL")).toBe("#ead0d1");
   });
 
   it("does not downgrade fully illegal countries to non-red map categories", () => {
@@ -215,17 +214,24 @@ describe("countryPageStorage", () => {
     const france = getCountryPageData("fra");
     const finland = getCountryPageData("fin");
     const australia = getCountryPageData("aus");
-    expect(deriveResultStatusFromCountryPageData(estonia!)).toBe("DECRIMINALIZED");
-    expect(deriveMapCategoryFromCountryPageData(estonia!)).toBe("LEGAL_OR_DECRIM");
-    expect(deriveResultStatusFromCountryPageData(luxembourg!)).toBe("DECRIMINALIZED");
-    expect(deriveMapCategoryFromCountryPageData(luxembourg!)).toBe("LEGAL_OR_DECRIM");
+    const usa = getCountryPageData("usa");
+    const japan = getCountryPageData("jpn");
+    const singapore = getCountryPageData("sgp");
+    expect(deriveResultStatusFromCountryPageData(estonia!)).toBe("DECRIM");
+    expect(deriveMapCategoryFromCountryPageData(estonia!)).toBe("LIMITED_OR_MEDICAL");
+    expect(deriveResultStatusFromCountryPageData(luxembourg!)).toBe("DECRIM");
+    expect(deriveMapCategoryFromCountryPageData(luxembourg!)).toBe("LIMITED_OR_MEDICAL");
     expect(deriveResultStatusFromCountryPageData(netherlands!)).toBe("MIXED");
     expect(deriveMapCategoryFromCountryPageData(netherlands!)).toBe("LEGAL_OR_DECRIM");
-    expect(deriveResultStatusFromCountryPageData(france!)).toBe("MEDICAL");
+    expect(deriveResultStatusFromCountryPageData(france!)).toBe("DECRIM");
     expect(deriveMapCategoryFromCountryPageData(france!)).toBe("LIMITED_OR_MEDICAL");
-    expect(deriveResultStatusFromCountryPageData(finland!)).toBe("ILLEGAL");
-    expect(deriveMapCategoryFromCountryPageData(finland!)).toBe("ILLEGAL");
-    expect(deriveResultStatusFromCountryPageData(australia!)).toBe("MEDICAL");
-    expect(deriveMapCategoryFromCountryPageData(australia!)).toBe("LIMITED_OR_MEDICAL");
+    expect(deriveResultStatusFromCountryPageData(finland!)).toBe("DECRIM");
+    expect(deriveMapCategoryFromCountryPageData(finland!)).toBe("LIMITED_OR_MEDICAL");
+    expect(deriveResultStatusFromCountryPageData(australia!)).toBe("ILLEGAL");
+    expect(deriveMapCategoryFromCountryPageData(australia!)).toBe("ILLEGAL");
+    expect(deriveResultStatusFromCountryPageData(usa!)).toBe("MIXED");
+    expect(deriveMapCategoryFromCountryPageData(usa!)).toBe("LEGAL_OR_DECRIM");
+    expect(deriveResultStatusFromCountryPageData(japan!)).toBe("ILLEGAL");
+    expect(deriveResultStatusFromCountryPageData(singapore!)).toBe("ILLEGAL");
   });
 });

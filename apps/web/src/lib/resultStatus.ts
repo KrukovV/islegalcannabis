@@ -3,8 +3,7 @@ import type { CountryPageData } from "@/lib/countryPageStorage";
 export const RESULT_STATUS_VALUES = [
   "LEGAL",
   "MIXED",
-  "DECRIMINALIZED",
-  "MEDICAL",
+  "DECRIM",
   "ILLEGAL",
   "UNKNOWN"
 ] as const;
@@ -69,6 +68,7 @@ function normalizeInputStatus(value: string): InputStatus {
 
 export function normalizeStatus(value: string): ResultStatus {
   const normalized = String(value || "").trim().toUpperCase();
+  if (normalized === "DECRIMINALIZED") return "DECRIM";
   if (RESULT_STATUS_VALUES.includes(normalized as ResultStatus)) {
     return normalized as ResultStatus;
   }
@@ -79,9 +79,8 @@ export function deriveMapCategoryFromResultStatus(status: ResultStatus): MapCate
   switch (status) {
     case "LEGAL":
     case "MIXED":
-    case "DECRIMINALIZED":
       return "LEGAL_OR_DECRIM";
-    case "MEDICAL":
+    case "DECRIM":
       return "LIMITED_OR_MEDICAL";
     case "ILLEGAL":
       return "ILLEGAL";
@@ -116,18 +115,101 @@ export function mapCategoryToHoverColor(category: MapCategory): string {
   return color;
 }
 
-export function deriveResultStatusFromCountryPageData(data: CountryPageData): ResultStatus {
-  const recreational = normalizeInputStatus(data.legal_model.recreational.status || "");
-  const medical = normalizeInputStatus(data.legal_model.medical.status || "");
-  const distribution = String(data.legal_model.distribution.status || "").trim().toUpperCase();
-  const signalStatus = String(data.legal_model.signals?.status || "").trim().toUpperCase();
+type StatusFlags = {
+  hasFine: boolean;
+  isRarelyProsecuted: boolean;
+  isTolerated: boolean;
+  hasLicensedSale: boolean;
+  hasPrison: boolean;
+  hasLongPrison: boolean;
+  hasDeathPenalty: boolean;
+  isStrictlyEnforced: boolean;
+};
 
+function buildSearchText(data: CountryPageData) {
+  return [
+    data.notes_normalized,
+    data.notes_raw,
+    ...(data.legal_model.signals?.explain || []),
+    ...(data.legal_model.applied_rules || []),
+    ...(data.legal_model.distribution.flags || [])
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+}
+
+function hasAny(text: string, probes: string[]) {
+  return probes.some((probe) => text.includes(probe));
+}
+
+function getBaseStatus(recreational: InputStatus): ResultStatus {
   if (recreational === "LEGAL") return "LEGAL";
-  if (recreational === "TOLERATED" || distribution === "MIXED" || signalStatus === "MIXED") {
-    return "MIXED";
-  }
-  if (recreational === "DECRIMINALIZED") return "DECRIMINALIZED";
-  if (medical === "LEGAL") return "MEDICAL";
+  if (recreational === "DECRIMINALIZED") return "DECRIM";
+  if (recreational === "TOLERATED") return "MIXED";
   if (recreational === "ILLEGAL") return "ILLEGAL";
   return "UNKNOWN";
+}
+
+function extractStatusFlags(data: CountryPageData): StatusFlags {
+  const text = buildSearchText(data);
+  const penalties = data.legal_model.signals?.penalties;
+  const distribution = String(data.legal_model.distribution.status || "").trim().toLowerCase();
+  const enforcement = String(data.legal_model.signals?.enforcement_level || "").trim().toLowerCase();
+  return {
+    hasFine: Boolean(penalties?.fine) || hasAny(text, ["penalty_fine", " fine ", " fine-based", "fines"]),
+    isRarelyProsecuted:
+      enforcement === "rare" ||
+      enforcement === "unenforced" ||
+      hasAny(text, ["rarely enforced", "rarely prosecuted", "convictions are rare", "often unenforced", "not enforced"]),
+    isTolerated:
+      normalizeInputStatus(data.legal_model.recreational.status || "") === "TOLERATED" ||
+      distribution === "mixed" ||
+      distribution === "tolerated" ||
+      hasAny(text, ["sale_tolerated", "rec_tolerated", " tolerated", "coffeeshop"]),
+    hasLicensedSale:
+      distribution === "legal" ||
+      distribution === "regulated" ||
+      hasAny(text, ["sale_regulated", "licensed", "dispensary", "regulated market"]),
+    hasPrison: Boolean(penalties?.prison) || hasAny(text, ["penalty_prison", " prison", " imprisonment", " jail"]),
+    hasLongPrison:
+      hasAny(text, ["penalty_years", "years in prison", "long prison", "life sentence"]),
+    hasDeathPenalty: hasAny(text, ["death penalty", "capital punishment"]),
+    isStrictlyEnforced: hasAny(text, ["zero_tolerance", "zero tolerance", "strictly enforced", "strict enforcement"])
+  };
+}
+
+function applyStatusModifiers(base: ResultStatus, flags: StatusFlags): ResultStatus {
+  if (base === "LEGAL") return "LEGAL";
+  if (base === "MIXED") return "MIXED";
+  if (base === "DECRIM") {
+    if (flags.isTolerated) return "MIXED";
+    return "DECRIM";
+  }
+  if (base === "ILLEGAL") {
+    if (flags.hasDeathPenalty) return "ILLEGAL";
+    if (flags.hasLongPrison || flags.isStrictlyEnforced) return "ILLEGAL";
+    if (flags.hasFine || flags.isRarelyProsecuted) return "DECRIM";
+    if (flags.isTolerated || flags.hasLicensedSale) return "MIXED";
+    return "ILLEGAL";
+  }
+  return "UNKNOWN";
+}
+
+function deriveUsaStatus(data: CountryPageData): ResultStatus {
+  if (data.node_type === "country" && data.iso2 === "US") {
+    return "MIXED";
+  }
+  return "UNKNOWN";
+}
+
+export function deriveResultStatusFromCountryPageData(data: CountryPageData): ResultStatus {
+  const usaStatus = deriveUsaStatus(data);
+  if (usaStatus !== "UNKNOWN") {
+    return usaStatus;
+  }
+  const recreational = normalizeInputStatus(data.legal_model.recreational.status || "");
+  const base = getBaseStatus(recreational);
+  const flags = extractStatusFlags(data);
+  return applyStatusModifiers(base, flags);
 }
