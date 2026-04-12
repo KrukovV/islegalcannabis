@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import CheckErrorCard from "@/components/CheckErrorCard";
 import { GET as checkGET } from "../api/check/route";
@@ -10,6 +11,12 @@ import { SSOTStatusText, statusTruthBadge } from "@/lib/statusUi";
 import { explainSSOT } from "@/lib/ssotExplain";
 
 export const runtime = "nodejs";
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: false
+  }
+};
 
 type SP = {
   country?: string;

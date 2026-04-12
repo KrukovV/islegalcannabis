@@ -1,4 +1,5 @@
 import Script from "next/script";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import NewMapClientEntry from "@/app/new-map/NewMapClientEntry";
 import { NEW_MAP_RUNTIME_IDENTITY, NEW_MAP_VISIBLE_STAMP } from "@/app/new-map/runtimeConfig";
@@ -21,22 +22,39 @@ function getSeoTitle(data: NonNullable<ReturnType<typeof getCountryPageData>>) {
   return `Is cannabis legal in ${data.name}? (2026)`;
 }
 
+function getSeoHeading(data: NonNullable<ReturnType<typeof getCountryPageData>>) {
+  return getSeoTitle(data).replace(/\s*\(.*\)$/, "");
+}
+
 export async function generateStaticParams() {
   return listCountryPageCodes().map((code) => ({ code }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ code: string }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ code: string }> }): Promise<Metadata> {
   const { code } = await params;
   const data = getCountryPageData(code);
   if (!data) {
     return {
-      title: "Country not found"
+      title: "Country not found",
+      robots: {
+        index: false,
+        follow: false
+      }
     };
   }
-  const title = getSeoTitle(data);
+  const heading = getSeoHeading(data);
   return {
-    title,
-    description: data.notes_normalized
+    title: heading,
+    description: data.notes_normalized,
+    alternates: {
+      canonical: `/c/${data.code}`
+    },
+    openGraph: {
+      title: heading,
+      description: data.notes_normalized,
+      url: `https://islegal.info/c/${data.code}`,
+      type: "article"
+    }
   };
 }
 
@@ -99,7 +117,7 @@ export default async function CountryCodePage({
       <article className={styles.article}>
         <section id="seo-content" className={styles.section}>
           <p className={styles.eyebrow}>{data.node_type === "state" ? "State View" : "Country View"}</p>
-          <h1 className={styles.title}>{getSeoTitle(data).replace(/\s*\(.*\)$/, "")}</h1>
+          <h1 className={styles.title}>{getSeoHeading(data)}</h1>
           <p className={styles.intro}>{data.notes_normalized}</p>
           <div className={styles.metaGrid}>
             <div className={styles.metaBlock}>

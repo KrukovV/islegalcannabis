@@ -465,7 +465,7 @@ export function createMap(
           ["to-color", ["get", "hoverColor"]],
           ["boolean", ["feature-state", "hover"], false],
           ["to-color", ["get", "hoverColor"]],
-          ["to-color", ["get", "legalColor"]]
+          ["to-color", ["get", "baseColor"]]
         ],
         "fill-antialias": false,
         "fill-outline-color": [
@@ -474,7 +474,7 @@ export function createMap(
           ["to-color", ["get", "hoverColor"]],
           ["boolean", ["feature-state", "hover"], false],
           ["to-color", ["get", "hoverColor"]],
-          ["to-color", ["get", "legalColor"]]
+          ["to-color", ["get", "baseColor"]]
         ],
         "fill-opacity": [
           "step",
@@ -543,7 +543,7 @@ export function createMap(
           ["to-color", ["get", "hoverColor"]],
           ["boolean", ["feature-state", "hover"], false],
           ["to-color", ["get", "hoverColor"]],
-          ["to-color", ["get", "legalColor"]]
+          ["to-color", ["get", "baseColor"]]
         ],
         "fill-antialias": false,
         "fill-outline-color": [
@@ -552,7 +552,7 @@ export function createMap(
           ["to-color", ["get", "hoverColor"]],
           ["boolean", ["feature-state", "hover"], false],
           ["to-color", ["get", "hoverColor"]],
-          ["to-color", ["get", "legalColor"]]
+          ["to-color", ["get", "baseColor"]]
         ],
         "fill-opacity": 1
       }

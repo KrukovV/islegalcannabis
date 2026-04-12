@@ -4,12 +4,13 @@ import type { ResultStatus } from "@/lib/resultStatus";
 export type LegalCountryFeatureProperties = {
   geo: string;
   displayName: string;
+  status: ResultStatus;
   result: {
     status: ResultStatus;
     color: string;
   };
   mapCategory: "LEGAL_OR_DECRIM" | "LIMITED_OR_MEDICAL" | "ILLEGAL" | "UNKNOWN";
-  legalColor: string;
+  baseColor: string;
   hoverColor: string;
   fillOpacity: number;
   hoverOpacity: number;

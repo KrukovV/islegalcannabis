@@ -387,10 +387,10 @@ function summarizeDistributionModel(data: CountryPageData) {
 
 export function deriveMapCategoryFromCountryPageData(data: CountryPageData) {
   const resultStatus = deriveResultStatusFromCountryPageData(data);
-  if (resultStatus === "LEGAL" || resultStatus === "DECRIMINALIZED") {
+  if (resultStatus === "LEGAL" || resultStatus === "DECRIMINALIZED" || resultStatus === "MIXED") {
     return "LEGAL_OR_DECRIM" as const;
   }
-  if (resultStatus === "LIMITED" || resultStatus === "UNENFORCED") {
+  if (resultStatus === "MEDICAL" || resultStatus === "LIMITED" || resultStatus === "UNENFORCED") {
     return "LIMITED_OR_MEDICAL" as const;
   }
   if (resultStatus === "UNKNOWN") return "UNKNOWN" as const;

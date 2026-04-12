@@ -1,7 +1,15 @@
+import type { Metadata } from "next";
 import WikiTruthTable from "./WikiTruthTable";
 import { getDisplayName } from "@/lib/countryNames";
 import type { SsotDiffEntry } from "@/lib/ssotDiff/ssotDiffTypes";
 import { buildWikiTruthPageModel } from "@/lib/wikiTruthPageModel";
+
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: false
+  }
+};
 
 function formatRecentChange(entry: SsotDiffEntry) {
   switch (entry.type) {

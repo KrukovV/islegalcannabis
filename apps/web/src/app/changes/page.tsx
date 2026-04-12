@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import fs from "node:fs";
 import path from "node:path";
 import { getDisplayName } from "@/lib/countryNames";
@@ -6,6 +7,12 @@ import { findRepoRoot } from "@/lib/ssotDiff/ssotSnapshotStore";
 import type { SsotDiffEntry } from "@/lib/ssotDiff/ssotDiffTypes";
 
 const ROOT = findRepoRoot(process.cwd());
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: false
+  }
+};
 
 function formatDiffType(entry: SsotDiffEntry) {
   switch (entry.type) {

@@ -457,7 +457,7 @@ export default function MapRoot({
           console.warn(
             `MAP_RENDER_STATUS sample=${countries.features
               .slice(0, 5)
-              .map((feature) => `${feature.properties.geo}:${feature.properties.result.status}:${feature.properties.legalColor}`)
+              .map((feature) => `${feature.properties.geo}:${feature.properties.result.status}:${feature.properties.baseColor}:${feature.properties.hoverColor}`)
               .join(",")}`
           );
           runtime.setData(countries);

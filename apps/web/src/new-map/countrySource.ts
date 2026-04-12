@@ -6,11 +6,8 @@ import {
   getCountryPageIndexByGeoCode,
   getCountryPageIndexByIso2
 } from "@/lib/countryPageStorage";
-import { deriveResultStatusFromCountryPageData, statusToColor } from "@/lib/resultStatus";
+import { deriveResultStatusFromCountryPageData, statusToColor, statusToHoverColor } from "@/lib/resultStatus";
 import type { AdminBoundaryCollection, LegalCountryCollection, LegalCountryFeatureProperties } from "./map.types";
-import {
-  resolveLegalHoverColor,
-} from "./legalStyle";
 
 const ANTARCTICA_FILL_COLOR = "#c5ccd3";
 const ANTARCTICA_HOVER_COLOR = "#d4dae0";
@@ -34,18 +31,19 @@ export function buildCountrySourceSnapshot(): LegalCountryCollection {
       }
       const resultStatus = deriveResultStatusFromCountryPageData(countryPageData);
       const mapCategory = deriveMapCategoryFromCountryPageData(countryPageData);
-      const legalColor = geo === "AQ" ? ANTARCTICA_FILL_COLOR : statusToColor(resultStatus);
-      const hoverColor = geo === "AQ" ? ANTARCTICA_HOVER_COLOR : resolveLegalHoverColor(mapCategory);
+      const baseColor = geo === "AQ" ? ANTARCTICA_FILL_COLOR : statusToColor(resultStatus);
+      const hoverColor = geo === "AQ" ? ANTARCTICA_HOVER_COLOR : statusToHoverColor(resultStatus);
       const nextProperties: LegalCountryFeatureProperties = {
         geo,
         displayName: String(feature.properties?.displayName || feature.properties?.name || geo),
+        status: resultStatus,
         result: {
           status: resultStatus,
-          color: legalColor
+          color: baseColor
         },
         mapCategory: (geo === "AQ" && !feature.properties?.mapCategory ? "UNKNOWN" : mapCategory) as
           "LEGAL_OR_DECRIM" | "LIMITED_OR_MEDICAL" | "ILLEGAL" | "UNKNOWN",
-        legalColor,
+        baseColor,
         hoverColor,
         fillOpacity: 1,
         hoverOpacity: 1,
@@ -106,7 +104,7 @@ export function buildUsStateSourceSnapshot(): LegalCountryCollection {
       }
       const resultStatus = deriveResultStatusFromCountryPageData(statePageData);
       const stateCategory = deriveMapCategoryFromCountryPageData(statePageData);
-      const legalColor = statusToColor(resultStatus);
+      const baseColor = statusToColor(resultStatus);
       const displayName = statePageData?.name || String(feature.properties?.displayName || feature.properties?.name || geo);
       const labelAnchorLng = Number(feature.properties?.labelAnchorLng);
       const labelAnchorLat = Number(feature.properties?.labelAnchorLat);
@@ -117,13 +115,14 @@ export function buildUsStateSourceSnapshot(): LegalCountryCollection {
         properties: {
           geo,
           displayName,
+          status: resultStatus,
           result: {
             status: resultStatus,
-            color: legalColor
+            color: baseColor
           },
           mapCategory: stateCategory as "LEGAL_OR_DECRIM" | "LIMITED_OR_MEDICAL" | "ILLEGAL" | "UNKNOWN",
-          legalColor,
-          hoverColor: resolveLegalHoverColor(stateCategory),
+          baseColor,
+          hoverColor: statusToHoverColor(resultStatus),
           fillOpacity: 1,
           hoverOpacity: 1,
           labelAnchorLng: Number.isFinite(labelAnchorLng) ? labelAnchorLng : null,

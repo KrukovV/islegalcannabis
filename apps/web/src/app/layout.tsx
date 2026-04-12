@@ -14,8 +14,27 @@ const NEW_MAP_CARD_INDEX_URL = `/api/new-map/card-index?v=${NEW_MAP_BUILD_VERSIO
 const YANDEX_METRIKA_ID = 108419114;
 
 export const metadata: Metadata = {
-  title: "isLegalCannabis",
-  description: "Educational cannabis law summary by location.",
+  metadataBase: new URL("https://islegal.info"),
+  title: {
+    default: "Is cannabis legal?",
+    template: "%s | islegal.info"
+  },
+  description:
+    "Cannabis legality by country and US states. Laws, enforcement, possession limits, and travel risks.",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1
+    }
+  },
+  alternates: {
+    canonical: "/"
+  },
   icons: {
     icon: [
       { url: "/favicon.ico" },

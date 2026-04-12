@@ -185,7 +185,9 @@ function composeLead(context: AIContext) {
 
   if (context.language === "ru") {
     if (context.legal.resultStatus === "LEGAL") return `Смотри спокойно: в ${place} каннабис легален по текущим данным.`;
+    if (context.legal.resultStatus === "MIXED") return `Смотри спокойно: в ${place} картина смешанная — это не полный ban, но и не чистый legal market.`;
     if (context.legal.resultStatus === "DECRIMINALIZED") return `Смотри спокойно: в ${place} рекреационный статус мягче полного запрета, но это не то же самое, что полный legal market.`;
+    if (context.legal.resultStatus === "MEDICAL") return `Смотри спокойно: в ${place} доступ легален в основном по medical rules, а не как свободный recreational market.`;
     if (context.legal.resultStatus === "LIMITED") return `Смотри спокойно: в ${place} доступ ограничен, а не свободно легален.`;
     if (context.legal.resultStatus === "UNENFORCED") return `Смотри спокойно: в ${place} закон формально жёсткий, но enforcement по текущим данным выглядит слабее.`;
     if (context.legal.resultStatus === "ILLEGAL") return `Смотри спокойно: в ${place} каннабис запрещён по текущему SSOT.`;
@@ -193,7 +195,9 @@ function composeLead(context: AIContext) {
   }
 
   if (context.legal.resultStatus === "LEGAL") return `Calm version: cannabis is legal in ${place} in the current SSOT.`;
+  if (context.legal.resultStatus === "MIXED") return `Calm version: ${place} is mixed in the current SSOT, so parts of the picture are softer while other parts stay restricted.`;
   if (context.legal.resultStatus === "DECRIMINALIZED") return `Calm version: ${place} is softer than a full ban, but that is not the same as a fully legal market.`;
+  if (context.legal.resultStatus === "MEDICAL") return `Calm version: access in ${place} is mainly medical rather than a broad recreational market.`;
   if (context.legal.resultStatus === "LIMITED") return `Calm version: access in ${place} is limited rather than broadly legal.`;
   if (context.legal.resultStatus === "UNENFORCED") return `Calm version: the law in ${place} is still strict on paper, but enforcement looks weaker in the current data.`;
   if (context.legal.resultStatus === "ILLEGAL") return `Calm version: cannabis is illegal in ${place} in the current SSOT.`;

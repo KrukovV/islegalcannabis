@@ -7,8 +7,8 @@ import {
   getCountryPageData,
   listCountryPageCodes
 } from "@/lib/countryPageStorage";
-import { buildCountrySourceSnapshot } from "@/new-map/countrySource";
-import { deriveResultStatusFromCountryPageData, statusToColor } from "@/lib/resultStatus";
+import { buildCountrySourceSnapshot, buildUsStateSourceSnapshot } from "@/new-map/countrySource";
+import { deriveResultStatusFromCountryPageData, statusToColor, statusToHoverColor } from "@/lib/resultStatus";
 
 describe("countryPageStorage", () => {
   it("loads generated ISO3 country pages", () => {
@@ -104,24 +104,36 @@ describe("countryPageStorage", () => {
 
   it("keeps map status and color in sync with the single result status", () => {
     const fixtures = [
-      { code: "irn", expected: "ILLEGAL" },
-      { code: "sau", expected: "ILLEGAL" },
-      { code: "sgp", expected: "ILLEGAL" },
-      { code: "nld", expected: "DECRIMINALIZED" },
-      { code: "can", expected: "LEGAL" }
+      { code: "nld", expected: "MIXED" },
+      { code: "lux", expected: "DECRIMINALIZED" },
+      { code: "fra", expected: "ILLEGAL" },
+      { code: "swe", expected: "ILLEGAL" },
+      { code: "us-ca", expected: "LEGAL" },
+      { code: "us-tx", expected: "ILLEGAL" }
     ] as const;
     const snapshot = buildCountrySourceSnapshot();
+    const usStateSnapshot = buildUsStateSourceSnapshot();
 
     for (const fixture of fixtures) {
       const page = getCountryPageData(fixture.code);
       expect(page).toBeTruthy();
       const status = deriveResultStatusFromCountryPageData(page!);
-      const feature = snapshot.features.find((item) => item.properties.geo === page!.iso2);
+      const featureGeo = page!.node_type === "state" ? page!.geo_code : page!.iso2;
+      const source = page!.node_type === "state" ? usStateSnapshot : snapshot;
+      const feature = source.features.find((item) => item.properties.geo === featureGeo);
       expect(status).toBe(fixture.expected);
       expect(feature?.properties.result.status).toBe(status);
-      expect(feature?.properties.legalColor).toBe(statusToColor(status));
+      expect(feature?.properties.status).toBe(status);
+      expect(feature?.properties.baseColor).toBe(statusToColor(status));
+      expect(feature?.properties.hoverColor).toBe(statusToHoverColor(status));
       expect(feature?.properties.result.color).toBe(statusToColor(status));
     }
+  });
+
+  it("never reuses a legal hover color for non-legal statuses", () => {
+    expect(statusToHoverColor("LEGAL")).not.toBe(statusToHoverColor("DECRIMINALIZED"));
+    expect(statusToHoverColor("LEGAL")).not.toBe(statusToHoverColor("ILLEGAL"));
+    expect(statusToHoverColor("LEGAL")).not.toBe(statusToHoverColor("MIXED"));
   });
 
   it("does not downgrade illegal countries to yellow map categories", () => {
