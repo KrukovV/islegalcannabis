@@ -388,7 +388,7 @@ export function listCountryPageData() {
     .filter((entry): entry is CountryPageData => Boolean(entry));
 }
 
-export function getCountryPageData(code: string) {
+export function getCountryPageData(code: string): CountryPageData | null {
   const normalized = String(code || "").trim().toLowerCase();
   if (!/^(?:[a-z]{3}|us-[a-z]{2})$/.test(normalized)) return null;
   const filePath = path.join(COUNTRY_DIR, `${normalized}.json`);
