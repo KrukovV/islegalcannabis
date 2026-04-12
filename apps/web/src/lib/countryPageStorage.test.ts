@@ -8,7 +8,14 @@ import {
   listCountryPageCodes
 } from "@/lib/countryPageStorage";
 import { buildCountrySourceSnapshot, buildUsStateSourceSnapshot } from "@/new-map/countrySource";
-import { deriveResultStatusFromCountryPageData, statusToColor, statusToHoverColor } from "@/lib/resultStatus";
+import {
+  deriveResultStatusFromCountryPageData,
+  REFERENCE_MAP_CATEGORY_COLORS,
+  REFERENCE_MAP_CATEGORY_HOVER_COLORS,
+  statusToColor,
+  statusToHoverColor
+} from "@/lib/resultStatus";
+import { NEW_MAP_WATER_COLOR } from "@/new-map/mapPalette";
 import { resolveLegalFillColor, resolveLegalHoverColor } from "@/new-map/legalStyle";
 
 describe("countryPageStorage", () => {
@@ -103,13 +110,16 @@ describe("countryPageStorage", () => {
     expect(antigua?.legal_model.medical.status).toBe("LIMITED");
   });
 
-  it("keeps map categories aligned with the legacy pastel contract", () => {
+  it("keeps map categories aligned with the canonical SSOT -> MAP contract", () => {
     const fixtures = [
       { code: "est", expectedCategory: "LEGAL_OR_DECRIM" },
       { code: "nld", expectedCategory: "LEGAL_OR_DECRIM" },
+      { code: "lux", expectedCategory: "LEGAL_OR_DECRIM" },
       { code: "fra", expectedCategory: "LIMITED_OR_MEDICAL" },
-      { code: "fin", expectedCategory: "LIMITED_OR_MEDICAL" },
+      { code: "fin", expectedCategory: "ILLEGAL" },
       { code: "aus", expectedCategory: "LIMITED_OR_MEDICAL" },
+      { code: "can", expectedCategory: "LEGAL_OR_DECRIM" },
+      { code: "sgp", expectedCategory: "ILLEGAL" },
       { code: "us-ca", expectedCategory: "LEGAL_OR_DECRIM" },
       { code: "us-tx", expectedCategory: "LIMITED_OR_MEDICAL" }
     ] as const;
@@ -134,42 +144,71 @@ describe("countryPageStorage", () => {
     }
   });
 
-  it("never reuses a legal hover color for non-legal statuses", () => {
-    expect(statusToHoverColor("LEGAL")).not.toBe(statusToHoverColor("DECRIMINALIZED"));
-    expect(statusToHoverColor("LEGAL")).not.toBe(statusToHoverColor("ILLEGAL"));
-    expect(statusToHoverColor("LEGAL")).not.toBe(statusToHoverColor("MIXED"));
+  it("derives hover colors from the same canonical status bucket", () => {
+    expect(statusToColor("LEGAL")).toBe("#cde7cf");
+    expect(statusToColor("MIXED")).toBe("#cde7cf");
+    expect(statusToColor("DECRIMINALIZED")).toBe("#cde7cf");
+    expect(statusToColor("MEDICAL")).toBe("#f4e9c2");
+    expect(statusToColor("ILLEGAL")).toBe("#ead0d1");
+    expect(statusToHoverColor("LEGAL")).toBe(statusToHoverColor("MIXED"));
+    expect(statusToHoverColor("LEGAL")).toBe(statusToHoverColor("DECRIMINALIZED"));
+    expect(statusToHoverColor("ILLEGAL")).not.toBe(statusToHoverColor("LEGAL"));
   });
 
-  it("treats medical-only countries like Australia as mixed instead of illegal", () => {
+  it("keeps the reference map palette frozen", () => {
+    expect(REFERENCE_MAP_CATEGORY_COLORS).toEqual({
+      LEGAL_OR_DECRIM: "#cde7cf",
+      LIMITED_OR_MEDICAL: "#f4e9c2",
+      ILLEGAL: "#ead0d1",
+      UNKNOWN: "#d7dcdc"
+    });
+    expect(REFERENCE_MAP_CATEGORY_HOVER_COLORS).toEqual({
+      LEGAL_OR_DECRIM: "#daf0dc",
+      LIMITED_OR_MEDICAL: "#f7edd0",
+      ILLEGAL: "#efdadb",
+      UNKNOWN: "#e0e3e3"
+    });
+    expect(NEW_MAP_WATER_COLOR).toBe("#d7dcdc");
+  });
+
+  it("treats medical-only countries like Australia as medical instead of illegal", () => {
     const australia = getCountryPageData("aus");
     expect(australia?.legal_model.recreational.status).toBe("ILLEGAL");
     expect(australia?.legal_model.medical.status).toBe("LEGAL");
-    expect(deriveResultStatusFromCountryPageData(australia!)).toBe("MIXED");
-    expect(statusToColor("MIXED")).toBe("#D7BDE2");
-    expect(statusToHoverColor("MIXED")).toBe("#C39BD3");
+    expect(deriveResultStatusFromCountryPageData(australia!)).toBe("MEDICAL");
+    expect(statusToColor("MEDICAL")).toBe("#f4e9c2");
   });
 
-  it("does not downgrade illegal countries to yellow map categories", () => {
+  it("does not downgrade fully illegal countries to non-red map categories", () => {
     const iran = getCountryPageData("irn");
     const saudiArabia = getCountryPageData("sau");
+    const singapore = getCountryPageData("sgp");
     expect(deriveResultStatusFromCountryPageData(iran!)).toBe("ILLEGAL");
     expect(deriveMapCategoryFromCountryPageData(iran!)).toBe("ILLEGAL");
     expect(deriveResultStatusFromCountryPageData(saudiArabia!)).toBe("ILLEGAL");
     expect(deriveMapCategoryFromCountryPageData(saudiArabia!)).toBe("ILLEGAL");
+    expect(deriveResultStatusFromCountryPageData(singapore!)).toBe("ILLEGAL");
+    expect(deriveMapCategoryFromCountryPageData(singapore!)).toBe("ILLEGAL");
   });
 
-  it("keeps result status strict while map visuals stay on the old category palette", () => {
+  it("keeps result status and map categories aligned through the explicit view layer", () => {
     const estonia = getCountryPageData("est");
+    const luxembourg = getCountryPageData("lux");
     const netherlands = getCountryPageData("nld");
     const france = getCountryPageData("fra");
     const finland = getCountryPageData("fin");
+    const australia = getCountryPageData("aus");
     expect(deriveResultStatusFromCountryPageData(estonia!)).toBe("DECRIMINALIZED");
     expect(deriveMapCategoryFromCountryPageData(estonia!)).toBe("LEGAL_OR_DECRIM");
+    expect(deriveResultStatusFromCountryPageData(luxembourg!)).toBe("DECRIMINALIZED");
+    expect(deriveMapCategoryFromCountryPageData(luxembourg!)).toBe("LEGAL_OR_DECRIM");
     expect(deriveResultStatusFromCountryPageData(netherlands!)).toBe("MIXED");
     expect(deriveMapCategoryFromCountryPageData(netherlands!)).toBe("LEGAL_OR_DECRIM");
-    expect(deriveResultStatusFromCountryPageData(france!)).toBe("ILLEGAL");
+    expect(deriveResultStatusFromCountryPageData(france!)).toBe("MEDICAL");
     expect(deriveMapCategoryFromCountryPageData(france!)).toBe("LIMITED_OR_MEDICAL");
     expect(deriveResultStatusFromCountryPageData(finland!)).toBe("ILLEGAL");
-    expect(deriveMapCategoryFromCountryPageData(finland!)).toBe("LIMITED_OR_MEDICAL");
+    expect(deriveMapCategoryFromCountryPageData(finland!)).toBe("ILLEGAL");
+    expect(deriveResultStatusFromCountryPageData(australia!)).toBe("MEDICAL");
+    expect(deriveMapCategoryFromCountryPageData(australia!)).toBe("LIMITED_OR_MEDICAL");
   });
 });

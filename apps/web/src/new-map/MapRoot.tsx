@@ -524,6 +524,12 @@ export default function MapRoot({
         data-dataset-hash={runtimeIdentity.datasetHash}
         data-final-snapshot-id={runtimeIdentity.finalSnapshotId}
         data-snapshot-built-at={runtimeIdentity.snapshotBuiltAt}
+        data-runtime-mode={runtimeIdentity.runtimeMode}
+        data-map-renderer={runtimeIdentity.mapRenderer}
+        data-map-runtime={runtimeIdentity.mapRuntime}
+        data-expected-origin={runtimeIdentity.expectedOrigin}
+        data-dev-server-pid={runtimeIdentity.devServerPid}
+        data-session-marker={runtimeIdentity.sessionMarker}
         hidden
       />
       {showDebugOverlay ? (
@@ -538,7 +544,7 @@ export default function MapRoot({
               <strong>Runtime</strong>
               <RuntimeParityBadge runtimeIdentity={runtimeIdentity} />
             </div>
-            <div className={styles.runtime}>{visibleStamp}</div>
+            <div className={styles.runtime} data-testid="visible-runtime-stamp">{visibleStamp}</div>
             <div className={styles.meta}>ROUTE=/new-map · OWNER=feature-state · WORLDCOPIES=ON</div>
           </div>
         </div>

@@ -1,50 +1,32 @@
-const BASE_LEGAL_COLORS = {
-  LEGAL_OR_DECRIM: "#cde7cf",
-  LIMITED_OR_MEDICAL: "#f4e9c2",
-  ILLEGAL: "#ead0d1",
-  UNKNOWN: "#d7dcdc"
-} as const;
+import {
+  mapCategoryToColor,
+  mapCategoryToHoverColor,
+  type MapCategory
+} from "@/lib/resultStatus";
 
-function clampChannel(value: number) {
-  return Math.max(0, Math.min(255, Math.round(value)));
+export function resolveLegalFillColor(mapCategory: MapCategory) {
+  return mapCategoryToColor(mapCategory);
 }
 
-function brighten(hex: string, factor: number) {
-  const normalized = hex.replace("#", "");
-  const red = Number.parseInt(normalized.slice(0, 2), 16);
-  const green = Number.parseInt(normalized.slice(2, 4), 16);
-  const blue = Number.parseInt(normalized.slice(4, 6), 16);
-  const mix = (channel: number) => clampChannel(channel + (255 - channel) * factor);
-  return `#${mix(red).toString(16).padStart(2, "0")}${mix(green).toString(16).padStart(2, "0")}${mix(blue)
-    .toString(16)
-    .padStart(2, "0")}`;
+export function resolveLegalHoverColor(mapCategory: MapCategory) {
+  return mapCategoryToHoverColor(mapCategory);
 }
 
-export function resolveLegalFillColor(mapCategory: string) {
-  const color = BASE_LEGAL_COLORS[mapCategory as keyof typeof BASE_LEGAL_COLORS];
-  if (!color) {
-    throw new Error(`UNKNOWN_MAP_CATEGORY: ${mapCategory}`);
-  }
-  return color;
-}
-
-export function resolveLegalHoverColor(mapCategory: string) {
-  return brighten(resolveLegalFillColor(mapCategory), 0.24);
-}
-
-export function resolveLegalFillOpacity(mapCategory: string) {
+export function resolveLegalFillOpacity(mapCategory: MapCategory) {
   switch (mapCategory) {
-    case "LIMITED_OR_MEDICAL":
-      return 0.56;
     case "LEGAL_OR_DECRIM":
       return 0.54;
+    case "LIMITED_OR_MEDICAL":
+      return 0.56;
     case "ILLEGAL":
       return 0.56;
-    default:
+    case "UNKNOWN":
       return 0.5;
+    default:
+      throw new Error(`UNKNOWN_MAP_CATEGORY_OPACITY: ${mapCategory}`);
   }
 }
 
-export function resolveLegalHoverOpacity(mapCategory: string) {
+export function resolveLegalHoverOpacity(mapCategory: MapCategory) {
   return Math.max(0.34, resolveLegalFillOpacity(mapCategory) - 0.12);
 }

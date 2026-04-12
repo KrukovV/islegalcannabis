@@ -82,8 +82,8 @@ describe("GET /api/check contract", () => {
     const json = await res.json();
 
     expect(json.ok).toBe(true);
-    expect(json.result_status).toBe("MIXED");
-    expect(json.result_color).toBe(statusToColor("MIXED"));
+    expect(json.result_status).toBe("MEDICAL");
+    expect(json.result_color).toBe(statusToColor("MEDICAL"));
     expect(json.rec_final).toBe("ILLEGAL");
     expect(json.med_final).toBe("LEGAL");
   });

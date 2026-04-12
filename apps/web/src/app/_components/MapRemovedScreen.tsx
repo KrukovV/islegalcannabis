@@ -44,7 +44,7 @@ export default function MapRemovedScreen({ runtimeIdentity, visibleStamp }: Prop
           data-session-marker={runtimeIdentity.sessionMarker}
         >
           <RuntimeParityBadge runtimeIdentity={runtimeIdentity} />
-          <div data-testid="build-stamp">{visibleStamp}</div>
+          <div data-testid="visible-runtime-stamp">{visibleStamp}</div>
           <div data-testid="snapshot-stamp">
             SNAPSHOT_BUILT={runtimeIdentity.snapshotBuiltAt} · MAP_ENABLED=0 · PREMIUM={runtimeIdentity.premiumMode} · NEARBY={runtimeIdentity.nearbyMode}
           </div>

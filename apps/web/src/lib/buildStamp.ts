@@ -23,6 +23,7 @@ if (!processGlobals[BUILD_TIME_GLOBAL_KEY]) {
 }
 
 const PROCESS_BUILD_TIME = String(processGlobals[BUILD_TIME_GLOBAL_KEY] || "UNCONFIRMED");
+const BUILD_ID_CANDIDATES = [".next/BUILD_ID", path.join("apps", "web", ".next", "BUILD_ID")] as const;
 
 function readFirstNonEmpty(candidates: string[]) {
   for (const file of candidates) {
@@ -77,7 +78,7 @@ function findGitRoot(start: string) {
 
 function resolveBuildId(root: string) {
   return (
-    readFirstNonEmpty([path.join(root, ".next", "BUILD_ID"), path.join(root, "apps", "web", ".next", "BUILD_ID")]) ||
+    readFirstNonEmpty(BUILD_ID_CANDIDATES.map((file) => path.join(root, file))) ||
     process.env.NEXT_BUILD_ID ||
     process.env.VERCEL_GIT_COMMIT_SHA ||
     "dev"
@@ -100,7 +101,27 @@ function readGitHeadShaWithDirty(root: string) {
   }
 }
 
-export const getBuildStamp = cache((): BuildStamp => {
+function resolveDynamicBuildTime(root: string) {
+  const candidates = [
+    ...BUILD_ID_CANDIDATES.map((file) => path.join(root, file)),
+    path.join(root, ".git", "HEAD"),
+    path.join(root, ".git", "index")
+  ];
+  let latest = 0;
+  for (const candidate of candidates) {
+    try {
+      const mtime = fs.statSync(candidate).mtimeMs;
+      if (Number.isFinite(mtime) && mtime > latest) {
+        latest = mtime;
+      }
+    } catch {
+      // best effort only
+    }
+  }
+  return latest > 0 ? new Date(latest).toISOString() : PROCESS_BUILD_TIME;
+}
+
+function computeBuildStamp(): BuildStamp {
   const root = findGitRoot(process.cwd());
   return {
     buildId: String(resolveBuildId(root)),
@@ -110,6 +131,15 @@ export const getBuildStamp = cache((): BuildStamp => {
         readGitHeadShaWithDirty(root) ||
         "unknown"
     ),
-    buildTime: PROCESS_BUILD_TIME
+    buildTime: process.env.NODE_ENV === "production" ? PROCESS_BUILD_TIME : resolveDynamicBuildTime(root)
   };
-});
+}
+
+const getCachedBuildStamp = cache(computeBuildStamp);
+
+export function getBuildStamp(): BuildStamp {
+  if (process.env.NODE_ENV === "production") {
+    return getCachedBuildStamp();
+  }
+  return computeBuildStamp();
+}

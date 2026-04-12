@@ -16,23 +16,76 @@ type BuildMeta = {
   datasetHash?: string;
   finalSnapshotId?: string;
   snapshotBuiltAt?: string;
+  runtimeMode?: string;
+  mapRuntime?: string;
+  expectedOrigin?: string;
 };
 
-function getClientRuntimeStamp(): string {
+type RuntimeStamp = {
+  buildId: string;
+  commit: string;
+  builtAt: string;
+  datasetHash: string;
+  finalSnapshotId: string;
+  snapshotBuiltAt: string;
+  runtimeMode: string;
+  mapRuntime: string;
+  origin: string;
+  expectedOrigin: string;
+};
+
+function normalizePayload(payload: BuildMeta): RuntimeStamp {
+  const origin =
+    typeof window !== "undefined" && window.location?.origin
+      ? String(window.location.origin)
+      : String(payload.expectedOrigin || "UNCONFIRMED");
+  return {
+    buildId: String(payload.buildId || "dev"),
+    commit: String(payload.commit || "unknown"),
+    builtAt: String(payload.builtAt || "UNCONFIRMED"),
+    datasetHash: String(payload.datasetHash || "UNCONFIRMED"),
+    finalSnapshotId: String(payload.finalSnapshotId || "UNCONFIRMED"),
+    snapshotBuiltAt: String(payload.snapshotBuiltAt || "UNCONFIRMED"),
+    runtimeMode: String(payload.runtimeMode || "UNCONFIRMED"),
+    mapRuntime: String(payload.mapRuntime || "UNCONFIRMED"),
+    origin,
+    expectedOrigin: String(payload.expectedOrigin || origin)
+  };
+}
+
+function stampToKey(stamp: RuntimeStamp): string {
+  return [
+    stamp.buildId,
+    stamp.commit,
+    stamp.builtAt,
+    stamp.datasetHash,
+    stamp.finalSnapshotId,
+    stamp.snapshotBuiltAt,
+    stamp.runtimeMode,
+    stamp.mapRuntime,
+    stamp.origin,
+    stamp.expectedOrigin
+  ].join("|");
+}
+
+function getClientRuntimeStamp(): RuntimeStamp {
   if (typeof window === "undefined") {
-    return "unknown";
+    return normalizePayload({});
   }
   const nextData = (window as unknown as { __NEXT_DATA__?: { buildId?: string } }).__NEXT_DATA__;
   const node = document.querySelector("[data-testid='runtime-stamp']");
-  const parts = [
-    String(node?.getAttribute("data-build-id") || nextData?.buildId || "dev"),
-    String(node?.getAttribute("data-commit") || "unknown"),
-    String(node?.getAttribute("data-built-at") || "UNCONFIRMED"),
-    String(node?.getAttribute("data-dataset-hash") || "UNCONFIRMED"),
-    String(node?.getAttribute("data-final-snapshot-id") || "UNCONFIRMED"),
-    String(node?.getAttribute("data-snapshot-built-at") || "UNCONFIRMED")
-  ];
-  return parts.join("|");
+  return {
+    buildId: String(node?.getAttribute("data-build-id") || nextData?.buildId || "dev"),
+    commit: String(node?.getAttribute("data-commit") || "unknown"),
+    builtAt: String(node?.getAttribute("data-built-at") || "UNCONFIRMED"),
+    datasetHash: String(node?.getAttribute("data-dataset-hash") || "UNCONFIRMED"),
+    finalSnapshotId: String(node?.getAttribute("data-final-snapshot-id") || "UNCONFIRMED"),
+    snapshotBuiltAt: String(node?.getAttribute("data-snapshot-built-at") || "UNCONFIRMED"),
+    runtimeMode: String(node?.getAttribute("data-runtime-mode") || "UNCONFIRMED"),
+    mapRuntime: String(node?.getAttribute("data-map-runtime") || "UNCONFIRMED"),
+    origin: String(window.location.origin || "UNCONFIRMED"),
+    expectedOrigin: String(node?.getAttribute("data-expected-origin") || window.location.origin || "UNCONFIRMED")
+  };
 }
 
 function resetClientRuntimePrefetch() {
@@ -54,6 +107,44 @@ function buildRefreshUrl(expectedStamp: string) {
   return url.toString();
 }
 
+function formatVisibleRuntimeStamp(payload: BuildMeta) {
+  return [
+    `BUILD_ID=${String(payload.buildId || "UNCONFIRMED")}`,
+    `COMMIT=${String(payload.commit || "UNCONFIRMED")}`,
+    `BUILT=${String(payload.builtAt || "UNCONFIRMED")}`,
+    `SNAPSHOT=${String(payload.finalSnapshotId || "UNCONFIRMED")}`,
+    `DATASET=${String(payload.datasetHash || "UNCONFIRMED")}`,
+    `MODE=${String(payload.runtimeMode || "UNCONFIRMED").toUpperCase()}`,
+    "MAP=NONE",
+    `RUNTIME=${String(payload.mapRuntime || "UNCONFIRMED").toUpperCase()}`
+  ].join(" · ");
+}
+
+function syncRuntimeDom(payload: BuildMeta) {
+  if (typeof window === "undefined") {
+    return;
+  }
+  const runtimeNode = document.querySelector("[data-testid='runtime-stamp']");
+  runtimeNode?.setAttribute("data-build-id", String(payload.buildId || "UNCONFIRMED"));
+  runtimeNode?.setAttribute("data-commit", String(payload.commit || "UNCONFIRMED"));
+  runtimeNode?.setAttribute("data-built-at", String(payload.builtAt || "UNCONFIRMED"));
+  runtimeNode?.setAttribute("data-dataset-hash", String(payload.datasetHash || "UNCONFIRMED"));
+  runtimeNode?.setAttribute("data-final-snapshot-id", String(payload.finalSnapshotId || "UNCONFIRMED"));
+  runtimeNode?.setAttribute("data-snapshot-built-at", String(payload.snapshotBuiltAt || "UNCONFIRMED"));
+  runtimeNode?.setAttribute("data-runtime-mode", String(payload.runtimeMode || "UNCONFIRMED"));
+  runtimeNode?.setAttribute("data-map-runtime", String(payload.mapRuntime || "UNCONFIRMED"));
+  runtimeNode?.setAttribute("data-expected-origin", String(payload.expectedOrigin || window.location.origin));
+
+  const visibleNode = document.querySelector("[data-testid='visible-runtime-stamp']");
+  if (visibleNode) {
+    visibleNode.textContent = formatVisibleRuntimeStamp(payload);
+  }
+}
+
+function runtimeMatches(left: RuntimeStamp, right: RuntimeStamp) {
+  return stampToKey(left) === stampToKey(right);
+}
+
 export default function BuildWatcher() {
   const isProduction = process.env.NODE_ENV === "production";
   const [nextRuntimeStamp, setNextRuntimeStamp] = useState<string | null>(null);
@@ -65,7 +156,7 @@ export default function BuildWatcher() {
       return;
     }
     const pendingStamp = window.sessionStorage.getItem(PENDING_BUILD_KEY);
-    const currentStamp = getClientRuntimeStamp();
+    const currentStamp = stampToKey(getClientRuntimeStamp());
     if (pendingStamp && pendingStamp === currentStamp) {
       window.sessionStorage.removeItem(PENDING_BUILD_KEY);
       window.sessionStorage.removeItem(PENDING_RELOAD_COUNT_KEY);
@@ -87,7 +178,16 @@ export default function BuildWatcher() {
         window.location.replace(buildRefreshUrl(pendingStamp));
         return;
       }
-      window.sessionStorage.removeItem(PENDING_RELOAD_COUNT_KEY);
+      void fetch("/api/build-meta", { cache: "no-store" })
+        .then((response) => (response.ok ? response.json() : null))
+        .then((payload: BuildMeta | null) => {
+          if (!payload) return;
+          syncRuntimeDom(payload);
+        })
+        .finally(() => {
+          window.sessionStorage.removeItem(PENDING_BUILD_KEY);
+          window.sessionStorage.removeItem(PENDING_RELOAD_COUNT_KEY);
+        });
       setRefreshing(false);
     }
   }, []);
@@ -123,18 +223,23 @@ export default function BuildWatcher() {
           return;
         }
         const payload = (await res.json()) as BuildMeta;
-        const observed = [
-          String(payload.buildId || "dev"),
-          String(payload.commit || "unknown"),
-          String(payload.builtAt || "UNCONFIRMED"),
-          String(payload.datasetHash || "UNCONFIRMED"),
-          String(payload.finalSnapshotId || "UNCONFIRMED"),
-          String(payload.snapshotBuiltAt || "UNCONFIRMED")
-        ].join("|");
+        const observedStamp = normalizePayload(payload);
+        const observed = stampToKey(observedStamp);
         const currentRuntimeStamp = getClientRuntimeStamp();
-        if (!observed || observed === currentRuntimeStamp) {
+        if (!observed || runtimeMatches(observedStamp, currentRuntimeStamp)) {
           setNextRuntimeStamp(null);
           setDismissed(false);
+          return;
+        }
+        const pendingStamp =
+          typeof window !== "undefined" ? window.sessionStorage.getItem(PENDING_BUILD_KEY) : null;
+        if (pendingStamp && pendingStamp === observed) {
+          syncRuntimeDom(payload);
+          window.sessionStorage.removeItem(PENDING_BUILD_KEY);
+          window.sessionStorage.removeItem(PENDING_RELOAD_COUNT_KEY);
+          setNextRuntimeStamp(null);
+          setDismissed(false);
+          setRefreshing(false);
           return;
         }
         const dismissedStamp =

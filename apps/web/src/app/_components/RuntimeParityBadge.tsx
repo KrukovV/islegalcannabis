@@ -23,6 +23,25 @@ type Props = {
   runtimeIdentity: RuntimeIdentity;
 };
 
+function getCurrentRuntimeStamp() {
+  if (typeof window === "undefined") {
+    return null;
+  }
+  const node = document.querySelector("[data-testid='runtime-stamp']");
+  return {
+    buildId: String(node?.getAttribute("data-build-id") || "UNCONFIRMED"),
+    commit: String(node?.getAttribute("data-commit") || "UNCONFIRMED"),
+    builtAt: String(node?.getAttribute("data-built-at") || "UNCONFIRMED"),
+    datasetHash: String(node?.getAttribute("data-dataset-hash") || "UNCONFIRMED"),
+    finalSnapshotId: String(node?.getAttribute("data-final-snapshot-id") || "UNCONFIRMED"),
+    snapshotBuiltAt: String(node?.getAttribute("data-snapshot-built-at") || "UNCONFIRMED"),
+    runtimeMode: String(node?.getAttribute("data-runtime-mode") || "UNCONFIRMED"),
+    mapRuntime: String(node?.getAttribute("data-map-runtime") || "UNCONFIRMED"),
+    origin: window.location?.origin ? String(window.location.origin) : "UNCONFIRMED",
+    expectedOrigin: String(node?.getAttribute("data-expected-origin") || "UNCONFIRMED")
+  };
+}
+
 function normalizeRuntimeStamp(runtimeIdentity: RuntimeIdentity) {
   return {
     buildId: String(runtimeIdentity.buildId || "UNCONFIRMED"),
@@ -80,7 +99,8 @@ export default function RuntimeParityBadge({ runtimeIdentity }: Props) {
         const response = await fetch("/api/build-meta", { cache: "no-store" });
         if (!response.ok || !alive) return;
         const payload = (await response.json()) as BuildMeta;
-        const matches = runtimeMatches(runtimeStamp, payload);
+        const currentRuntimeStamp = getCurrentRuntimeStamp() || runtimeStamp;
+        const matches = runtimeMatches(currentRuntimeStamp, payload);
         if (!alive) return;
         setIsActual(matches);
         setMismatchCount(matches ? 0 : 1);
