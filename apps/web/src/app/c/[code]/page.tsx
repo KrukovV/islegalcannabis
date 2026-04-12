@@ -2,7 +2,7 @@ import Script from "next/script";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import NewMapClientEntry from "@/app/new-map/NewMapClientEntry";
-import { NEW_MAP_RUNTIME_IDENTITY, NEW_MAP_VISIBLE_STAMP } from "@/app/new-map/runtimeConfig";
+import { getNewMapRuntimeIdentity } from "@/app/new-map/runtimeConfig";
 import {
   buildSeoCountryIndex,
   computeCountryHashes,
@@ -10,6 +10,7 @@ import {
   listCountryPageCodes,
   stripCountryPageHashes
 } from "@/lib/countryPageStorage";
+import { formatVisibleRuntimeStamp } from "@/lib/runtimeIdentity";
 import { buildCountryIntentSections } from "@/lib/seo/countryIntentContent";
 import styles from "./page.module.css";
 
@@ -81,6 +82,8 @@ export default async function CountryCodePage({
   const data = getCountryPageData(code);
   if (!data) notFound();
   ensurePageHash(data);
+  const runtimeIdentity = getNewMapRuntimeIdentity();
+  const visibleStamp = formatVisibleRuntimeStamp(runtimeIdentity);
   const seoCountryIndex = buildSeoCountryIndex(code);
   const intentSections = buildCountryIntentSections(data, { query });
 
@@ -108,8 +111,8 @@ export default async function CountryCodePage({
       />
       <NewMapClientEntry
         countriesUrl="/api/new-map/countries"
-        visibleStamp={NEW_MAP_VISIBLE_STAMP}
-        runtimeIdentity={NEW_MAP_RUNTIME_IDENTITY}
+        visibleStamp={visibleStamp}
+        runtimeIdentity={runtimeIdentity}
         initialGeoCode={data.geo_code}
         seoCountryData={data}
         seoCountryIndex={seoCountryIndex}

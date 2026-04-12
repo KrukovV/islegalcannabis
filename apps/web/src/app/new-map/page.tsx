@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import NewMapClientEntry from "./NewMapClientEntry";
-import { NEW_MAP_RUNTIME_IDENTITY, NEW_MAP_VISIBLE_STAMP } from "./runtimeConfig";
+import { formatVisibleRuntimeStamp } from "@/lib/runtimeIdentity";
+import { getNewMapRuntimeIdentity } from "./runtimeConfig";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
@@ -11,11 +12,13 @@ export const metadata: Metadata = {
 };
 
 export default function NewMapPage() {
+  const runtimeIdentity = getNewMapRuntimeIdentity();
+  const visibleStamp = formatVisibleRuntimeStamp(runtimeIdentity);
   return (
     <NewMapClientEntry
       countriesUrl="/api/new-map/countries"
-      visibleStamp={NEW_MAP_VISIBLE_STAMP}
-      runtimeIdentity={NEW_MAP_RUNTIME_IDENTITY}
+      visibleStamp={visibleStamp}
+      runtimeIdentity={runtimeIdentity}
     />
   );
 }

@@ -9,6 +9,7 @@ import {
 } from "@/lib/countryPageStorage";
 import { buildCountrySourceSnapshot, buildUsStateSourceSnapshot } from "@/new-map/countrySource";
 import {
+  deriveMapCategoryFromResultStatus,
   deriveResultStatusFromCountryPageData,
   REFERENCE_MAP_CATEGORY_COLORS,
   REFERENCE_MAP_CATEGORY_HOVER_COLORS,
@@ -135,12 +136,28 @@ describe("countryPageStorage", () => {
       const source = page!.node_type === "state" ? usStateSnapshot : snapshot;
       const feature = source.features.find((item) => item.properties.geo === featureGeo);
       expect(mapCategory).toBe(fixture.expectedCategory);
+      expect(deriveMapCategoryFromResultStatus(status)).toBe(mapCategory);
       expect(feature?.properties.result.status).toBe(status);
       expect(feature?.properties.status).toBe(status);
       expect(feature?.properties.mapCategory).toBe(mapCategory);
       expect(feature?.properties.baseColor).toBe(resolveLegalFillColor(mapCategory));
       expect(feature?.properties.hoverColor).toBe(resolveLegalHoverColor(mapCategory));
       expect(feature?.properties.result.color).toBe(resolveLegalFillColor(mapCategory));
+    }
+  });
+
+  it("derives map snapshot categories strictly from final result status", () => {
+    const snapshot = buildCountrySourceSnapshot();
+    const countries = ["nld", "lux", "fra", "fin", "aus", "can", "sgp"] as const;
+
+    for (const code of countries) {
+      const page = getCountryPageData(code);
+      expect(page).toBeTruthy();
+      const status = deriveResultStatusFromCountryPageData(page!);
+      const feature = snapshot.features.find((item) => item.properties.geo === page!.iso2);
+      expect(feature).toBeTruthy();
+      expect(feature?.properties.result.status).toBe(status);
+      expect(feature?.properties.mapCategory).toBe(deriveMapCategoryFromResultStatus(status));
     }
   });
 
