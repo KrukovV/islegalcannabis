@@ -129,7 +129,7 @@ type StatusFlags = {
   personalUseOnly: boolean;
 };
 
-function buildPrimaryText(data: CountryPageData) {
+function buildFallbackPrimaryText(data: CountryPageData) {
   return [
     data.notes_raw,
     data.facts.possession_limit,
@@ -139,6 +139,13 @@ function buildPrimaryText(data: CountryPageData) {
     .filter(Boolean)
     .join(" ")
     .toLowerCase();
+}
+
+function getCurrentLawText(data: CountryPageData) {
+  const timeline = data.legal_timeline || [];
+  const currentEntry = timeline.find((entry) => entry.isCurrent) || null;
+  if (currentEntry) return currentEntry.text.toLowerCase();
+  return "";
 }
 
 function buildSecondaryText(data: CountryPageData) {
@@ -178,7 +185,9 @@ function getBaseStatus(recreational: InputStatus): ResultStatus {
 }
 
 function extractStatusFlags(data: CountryPageData): StatusFlags {
-  const primaryText = buildPrimaryText(data);
+  const currentLawText = getCurrentLawText(data);
+  const fallbackPrimaryText = buildFallbackPrimaryText(data);
+  const primaryText = currentLawText || fallbackPrimaryText;
   const secondaryText = buildSecondaryText(data);
   const penalties = data.legal_model.signals?.penalties;
   const distribution = String(data.legal_model.distribution.status || "").trim().toLowerCase();
@@ -250,7 +259,7 @@ function applyStatusModifiers(base: ResultStatus, flags: StatusFlags): ResultSta
   if (base === "LEGAL") return "LEGAL";
   if (base === "MIXED") return "MIXED";
   if (base === "DECRIM") {
-    if (flags.isTolerated || flags.hasLicensedSale || flags.hasCurrentLiberalization) return "MIXED";
+    if (flags.isTolerated || flags.hasLicensedSale) return "MIXED";
     return "DECRIM";
   }
   if (base === "ILLEGAL") {

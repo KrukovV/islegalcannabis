@@ -23,6 +23,12 @@ type GraphEdgeType =
   | "FEDERAL_PARENT_LINK";
 type CountryNodeType = "country" | "state";
 type StateEnforcementStrength = "LOW" | "MEDIUM" | "HIGH";
+export type LegalTimelineEntry = {
+  year: number;
+  type: "law" | "policy" | "enforcement";
+  text: string;
+  isCurrent: boolean;
+};
 
 export type CountryHash = {
   code: string;
@@ -144,6 +150,7 @@ export type CountryPageData = {
     cultivation: string | null;
     penalty: string | null;
   };
+  legal_timeline?: LegalTimelineEntry[];
   parent_country: CountryLinkRef | null;
   state_modifiers: {
     recreational: "override" | "inherited";
@@ -295,6 +302,80 @@ function ensureValidCountryPageData(data: CountryPageData) {
   return data;
 }
 
+function classifyTimelineEntryType(text: string): LegalTimelineEntry["type"] {
+  const normalized = text.toLowerCase();
+  if (
+    normalized.includes("enforc") ||
+    normalized.includes("prosecut") ||
+    normalized.includes("fine") ||
+    normalized.includes("prison") ||
+    normalized.includes("penalt")
+  ) {
+    return "enforcement";
+  }
+  if (
+    normalized.includes("decriminal") ||
+    normalized.includes("legaliz") ||
+    normalized.includes("amend") ||
+    normalized.includes("act") ||
+    normalized.includes("law") ||
+    normalized.includes("allowed") ||
+    normalized.includes("permit")
+  ) {
+    return "law";
+  }
+  return "policy";
+}
+
+function extractLegalTimeline(data: CountryPageData): LegalTimelineEntry[] {
+  const fragments = [
+    data.notes_raw,
+    data.facts.possession_limit,
+    data.facts.cultivation,
+    data.facts.penalty,
+    ...(data.legal_model.signals?.sources || []).map((item) => item.title),
+    ...(data.sources.citations || []).map((item) => item.title)
+  ].filter((value): value is string => Boolean(value && String(value).trim()));
+
+  const entries: LegalTimelineEntry[] = [];
+  const seen = new Set<string>();
+  const yearPattern = /\b(19|20)\d{2}\b/g;
+
+  for (const fragment of fragments) {
+    const years = Array.from(String(fragment).matchAll(yearPattern), (match) => Number(match[0]));
+    for (const year of years) {
+      const text = String(fragment).trim();
+      const key = `${year}:${text}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      entries.push({
+        year,
+        type: classifyTimelineEntryType(text),
+        text,
+        isCurrent: false
+      });
+    }
+  }
+
+  if (entries.length === 0) return [];
+
+  const latestYear = Math.max(...entries.map((entry) => entry.year));
+  const positiveCurrent = /(decriminal|legaliz|allow|permit|remove.*penalt|abolish.*fine|grow|dispensary|licensed|tolerated)/i;
+  const negativeCurrent = /(remains illegal|still illegal|strict enforcement|zero tolerance|death penalty)/i;
+  const latestEntries = entries.filter((entry) => entry.year === latestYear);
+  const preferredCurrent =
+    latestEntries.find((entry) => positiveCurrent.test(entry.text)) ||
+    latestEntries.find((entry) => !negativeCurrent.test(entry.text)) ||
+    latestEntries[0];
+
+  return entries
+    .sort((left, right) => left.year - right.year || left.text.localeCompare(right.text))
+    .map((entry) => ({
+      ...entry,
+      isCurrent: entry.year === preferredCurrent.year && entry.text === preferredCurrent.text
+    }));
+}
+
 export function listCountryPageCodes() {
   if (!fs.existsSync(INDEX_PATH)) return [];
   const data = readJson<string[]>(INDEX_PATH);
@@ -312,7 +393,11 @@ export function getCountryPageData(code: string) {
   if (!/^(?:[a-z]{3}|us-[a-z]{2})$/.test(normalized)) return null;
   const filePath = path.join(COUNTRY_DIR, `${normalized}.json`);
   if (!fs.existsSync(filePath)) return null;
-  return ensureValidCountryPageData(readJson<CountryPageData>(filePath));
+  const data = ensureValidCountryPageData(readJson<CountryPageData>(filePath));
+  return {
+    ...data,
+    legal_timeline: extractLegalTimeline(data)
+  };
 }
 
 export function getCountryPageIndexByIso2() {

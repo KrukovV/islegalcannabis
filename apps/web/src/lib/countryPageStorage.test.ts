@@ -44,6 +44,13 @@ describe("countryPageStorage", () => {
     expect(netherlands?.hashes.model_hash).toMatch(/^[a-f0-9]{64}$/);
   });
 
+  it("derives a current-law timeline for Dominica and keeps the latest law current", () => {
+    const dominica = getCountryPageData("dma");
+    expect(dominica?.legal_timeline?.length).toBeGreaterThan(0);
+    expect(dominica?.legal_timeline?.some((entry) => entry.year === 2020)).toBe(true);
+    expect(dominica?.legal_timeline?.find((entry) => entry.isCurrent)?.year).toBe(2020);
+  });
+
   it("derives card index and graph from country page storage", () => {
     const cardIndex = buildCountryCardIndexFromStorage();
     const graph = getCountryGraph();
@@ -227,6 +234,9 @@ describe("countryPageStorage", () => {
     const usa = getCountryPageData("usa");
     const japan = getCountryPageData("jpn");
     const singapore = getCountryPageData("sgp");
+    const dominica = getCountryPageData("dma");
+    const georgia = getCountryPageData("geo");
+    const iran = getCountryPageData("irn");
     expect(deriveResultStatusFromCountryPageData(algeria!)).toBe("ILLEGAL");
     expect(deriveMapCategoryFromCountryPageData(algeria!)).toBe("ILLEGAL");
     expect(deriveResultStatusFromCountryPageData(china!)).toBe("ILLEGAL");
@@ -247,6 +257,12 @@ describe("countryPageStorage", () => {
     expect(deriveMapCategoryFromCountryPageData(india!)).toBe("LEGAL_OR_DECRIM");
     expect(deriveResultStatusFromCountryPageData(australia!)).toBe("ILLEGAL");
     expect(deriveMapCategoryFromCountryPageData(australia!)).toBe("LIMITED_OR_MEDICAL");
+    expect(deriveResultStatusFromCountryPageData(dominica!)).toBe("DECRIM");
+    expect(deriveMapCategoryFromCountryPageData(dominica!)).toBe("LEGAL_OR_DECRIM");
+    expect(deriveResultStatusFromCountryPageData(georgia!)).toBe("DECRIM");
+    expect(deriveMapCategoryFromCountryPageData(georgia!)).toBe("LEGAL_OR_DECRIM");
+    expect(deriveResultStatusFromCountryPageData(iran!)).toBe("ILLEGAL");
+    expect(deriveMapCategoryFromCountryPageData(iran!)).toBe("ILLEGAL");
     expect(deriveResultStatusFromCountryPageData(usa!)).toBe("MIXED");
     expect(deriveMapCategoryFromCountryPageData(usa!)).toBe("LEGAL_OR_DECRIM");
     expect(deriveResultStatusFromCountryPageData(japan!)).toBe("ILLEGAL");
