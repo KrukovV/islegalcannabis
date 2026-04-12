@@ -55,8 +55,8 @@ describe("GET /api/check contract", () => {
     expect(json.distribution_status).toBeTruthy();
     expect(json.legal_status).toBeTruthy();
     expect(json.final_risk).toBeTruthy();
-    expect(json.result_status).toBe("MIXED");
-    expect(json.result_color).toBe(statusToColor("MIXED"));
+    expect(json.result_status).toBe("DECRIM");
+    expect(json.result_color).toBe(statusToColor("DECRIM"));
     expect(json.penalties).toBeTruthy();
     expect(json.enforcement_level).toBeTruthy();
     expect(Array.isArray(json.explain)).toBe(true);
@@ -68,6 +68,52 @@ describe("GET /api/check contract", () => {
 
   it("keeps API result status aligned with mixed-map countries", async () => {
     const req = new Request("http://localhost/api/check?country=NL");
+    const res = await GET(req);
+    const json = await res.json();
+
+    expect(json.ok).toBe(true);
+    expect(json.result_status).toBe("MIXED");
+    expect(json.result_color).toBe(statusToColor("MIXED"));
+  });
+
+  it("keeps Algeria in illegal status", async () => {
+    const req = new Request("http://localhost/api/check?country=DZ");
+    const res = await GET(req);
+    const json = await res.json();
+
+    expect(json.ok).toBe(true);
+    expect(json.result_status).toBe("ILLEGAL");
+    expect(json.result_color).toBe(statusToColor("ILLEGAL"));
+  });
+
+  it("keeps China in illegal status despite fines", async () => {
+    const req = new Request("http://localhost/api/check?country=CN");
+    const res = await GET(req);
+    const json = await res.json();
+
+    expect(json.ok).toBe(true);
+    expect(json.result_status).toBe("ILLEGAL");
+    expect(json.result_color).toBe(statusToColor("ILLEGAL"));
+  });
+
+  it("softens France and Norway to decrim for personal-use fine regimes", async () => {
+    const franceReq = new Request("http://localhost/api/check?country=FR");
+    const franceRes = await GET(franceReq);
+    const france = await franceRes.json();
+    const norwayReq = new Request("http://localhost/api/check?country=NO");
+    const norwayRes = await GET(norwayReq);
+    const norway = await norwayRes.json();
+
+    expect(france.ok).toBe(true);
+    expect(france.result_status).toBe("DECRIM");
+    expect(france.result_color).toBe(statusToColor("DECRIM"));
+    expect(norway.ok).toBe(true);
+    expect(norway.result_status).toBe("DECRIM");
+    expect(norway.result_color).toBe(statusToColor("DECRIM"));
+  });
+
+  it("keeps India mixed when cultural/legal exceptions are detected", async () => {
+    const req = new Request("http://localhost/api/check?country=IN");
     const res = await GET(req);
     const json = await res.json();
 

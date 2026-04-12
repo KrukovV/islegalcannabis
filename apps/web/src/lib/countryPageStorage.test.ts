@@ -113,14 +113,19 @@ describe("countryPageStorage", () => {
 
   it("keeps map categories aligned with the canonical SSOT -> MAP contract", () => {
     const fixtures = [
+      { code: "dza", expectedCategory: "ILLEGAL" },
+      { code: "chn", expectedCategory: "ILLEGAL" },
+      { code: "jpn", expectedCategory: "ILLEGAL" },
+      { code: "sgp", expectedCategory: "ILLEGAL" },
+      { code: "fra", expectedCategory: "LIMITED_OR_MEDICAL" },
+      { code: "nor", expectedCategory: "LIMITED_OR_MEDICAL" },
       { code: "est", expectedCategory: "LIMITED_OR_MEDICAL" },
       { code: "nld", expectedCategory: "LEGAL_OR_DECRIM" },
-      { code: "lux", expectedCategory: "LIMITED_OR_MEDICAL" },
-      { code: "fra", expectedCategory: "LIMITED_OR_MEDICAL" },
       { code: "fin", expectedCategory: "LIMITED_OR_MEDICAL" },
+      { code: "ind", expectedCategory: "LEGAL_OR_DECRIM" },
+      { code: "lux", expectedCategory: "LIMITED_OR_MEDICAL" },
       { code: "aus", expectedCategory: "ILLEGAL" },
       { code: "can", expectedCategory: "LEGAL_OR_DECRIM" },
-      { code: "sgp", expectedCategory: "ILLEGAL" },
       { code: "us-ca", expectedCategory: "LEGAL_OR_DECRIM" },
       { code: "us-tx", expectedCategory: "ILLEGAL" }
     ] as const;
@@ -208,15 +213,23 @@ describe("countryPageStorage", () => {
   });
 
   it("keeps result status and map categories aligned through the explicit view layer", () => {
+    const algeria = getCountryPageData("dza");
+    const china = getCountryPageData("chn");
     const estonia = getCountryPageData("est");
     const luxembourg = getCountryPageData("lux");
     const netherlands = getCountryPageData("nld");
     const france = getCountryPageData("fra");
+    const norway = getCountryPageData("nor");
     const finland = getCountryPageData("fin");
+    const india = getCountryPageData("ind");
     const australia = getCountryPageData("aus");
     const usa = getCountryPageData("usa");
     const japan = getCountryPageData("jpn");
     const singapore = getCountryPageData("sgp");
+    expect(deriveResultStatusFromCountryPageData(algeria!)).toBe("ILLEGAL");
+    expect(deriveMapCategoryFromCountryPageData(algeria!)).toBe("ILLEGAL");
+    expect(deriveResultStatusFromCountryPageData(china!)).toBe("ILLEGAL");
+    expect(deriveMapCategoryFromCountryPageData(china!)).toBe("ILLEGAL");
     expect(deriveResultStatusFromCountryPageData(estonia!)).toBe("DECRIM");
     expect(deriveMapCategoryFromCountryPageData(estonia!)).toBe("LIMITED_OR_MEDICAL");
     expect(deriveResultStatusFromCountryPageData(luxembourg!)).toBe("DECRIM");
@@ -225,8 +238,12 @@ describe("countryPageStorage", () => {
     expect(deriveMapCategoryFromCountryPageData(netherlands!)).toBe("LEGAL_OR_DECRIM");
     expect(deriveResultStatusFromCountryPageData(france!)).toBe("DECRIM");
     expect(deriveMapCategoryFromCountryPageData(france!)).toBe("LIMITED_OR_MEDICAL");
+    expect(deriveResultStatusFromCountryPageData(norway!)).toBe("DECRIM");
+    expect(deriveMapCategoryFromCountryPageData(norway!)).toBe("LIMITED_OR_MEDICAL");
     expect(deriveResultStatusFromCountryPageData(finland!)).toBe("DECRIM");
     expect(deriveMapCategoryFromCountryPageData(finland!)).toBe("LIMITED_OR_MEDICAL");
+    expect(deriveResultStatusFromCountryPageData(india!)).toBe("MIXED");
+    expect(deriveMapCategoryFromCountryPageData(india!)).toBe("LEGAL_OR_DECRIM");
     expect(deriveResultStatusFromCountryPageData(australia!)).toBe("ILLEGAL");
     expect(deriveMapCategoryFromCountryPageData(australia!)).toBe("ILLEGAL");
     expect(deriveResultStatusFromCountryPageData(usa!)).toBe("MIXED");

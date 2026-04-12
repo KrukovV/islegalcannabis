@@ -124,15 +124,16 @@ type StatusFlags = {
   hasLongPrison: boolean;
   hasDeathPenalty: boolean;
   isStrictlyEnforced: boolean;
+  personalUseOnly: boolean;
 };
 
-function buildSearchText(data: CountryPageData) {
+function buildPrimaryText(data: CountryPageData) {
   return [
     data.notes_normalized,
     data.notes_raw,
-    ...(data.legal_model.signals?.explain || []),
-    ...(data.legal_model.applied_rules || []),
-    ...(data.legal_model.distribution.flags || [])
+    data.facts.possession_limit,
+    data.facts.penalty,
+    data.facts.cultivation
   ]
     .filter(Boolean)
     .join(" ")
@@ -141,6 +142,18 @@ function buildSearchText(data: CountryPageData) {
 
 function hasAny(text: string, probes: string[]) {
   return probes.some((probe) => text.includes(probe));
+}
+
+function isPersonalUseContext(text: string): boolean {
+  return hasAny(text, [
+    "personal use",
+    "small amount",
+    "possession up to",
+    "possession of up to",
+    "use and possession of up to",
+    "for own use",
+    "not prosecuted in court"
+  ]);
 }
 
 function getBaseStatus(recreational: InputStatus): ResultStatus {
@@ -152,34 +165,48 @@ function getBaseStatus(recreational: InputStatus): ResultStatus {
 }
 
 function extractStatusFlags(data: CountryPageData): StatusFlags {
-  const text = buildSearchText(data);
+  const primaryText = buildPrimaryText(data);
   const penalties = data.legal_model.signals?.penalties;
   const distribution = String(data.legal_model.distribution.status || "").trim().toLowerCase();
-  const enforcement = String(data.legal_model.signals?.enforcement_level || "").trim().toLowerCase();
+  const personalUseOnly = isPersonalUseContext(primaryText);
   return {
-    hasFine: Boolean(penalties?.fine) || hasAny(text, ["penalty_fine", " fine ", " fine-based", "fines"]),
+    hasFine:
+      Boolean(penalties?.possession?.fine) ||
+      hasAny(primaryText, ["penalty_fine", " fine ", "fixed fine", "penalty fee", "€200 fine", "summary fine", "heavy fines", "fines"]),
     isRarelyProsecuted:
-      enforcement === "rare" ||
-      enforcement === "unenforced" ||
-      hasAny(text, ["rarely enforced", "rarely prosecuted", "convictions are rare", "often unenforced", "not enforced"]),
+      hasAny(primaryText, [
+        "rarely prosecuted",
+        "rarely enforced",
+        "convictions are rare",
+        "often unenforced",
+        "not enforced",
+        "generally not prosecuted",
+        "not prosecuted in court"
+      ]),
     isTolerated:
       normalizeInputStatus(data.legal_model.recreational.status || "") === "TOLERATED" ||
       distribution === "mixed" ||
       distribution === "tolerated" ||
-      hasAny(text, ["sale_tolerated", "rec_tolerated", " tolerated", "coffeeshop"]),
+      hasAny(primaryText, [" tolerated", "coffee shop", "coffeeshop"]),
     hasLicensedSale:
       distribution === "legal" ||
       distribution === "regulated" ||
-      hasAny(text, ["sale_regulated", "licensed", "dispensary", "regulated market"]),
-    hasPrison: Boolean(penalties?.prison) || hasAny(text, ["penalty_prison", " prison", " imprisonment", " jail"]),
+      hasAny(primaryText, ["licensed", "dispensary", "regulated market", "government-owned shops sell cannabis", "shops sell cannabis"]),
+    hasPrison:
+      Boolean(penalties?.possession?.prison) ||
+      hasAny(primaryText, ["penalty_prison", " imprisonment", " jail", "detention"]),
     hasLongPrison:
-      hasAny(text, ["penalty_years", "years in prison", "long prison", "life sentence"]),
-    hasDeathPenalty: hasAny(text, ["death penalty", "capital punishment"]),
-    isStrictlyEnforced: hasAny(text, ["zero_tolerance", "zero tolerance", "strictly enforced", "strict enforcement"])
+      hasAny(primaryText, ["penalty_years", "years imprisonment", "years in prison", "life sentence", "up to 5 years", "up to 10 years"]),
+    hasDeathPenalty: hasAny(primaryText, ["death penalty", "capital punishment", "automatic death penalty"]),
+    isStrictlyEnforced: hasAny(primaryText, ["zero tolerance", "strictly enforced", "strict enforcement"]),
+    personalUseOnly
   };
 }
 
 function applyStatusModifiers(base: ResultStatus, flags: StatusFlags): ResultStatus {
+  if (flags.hasDeathPenalty) return "ILLEGAL";
+  if ((base === "ILLEGAL" || base === "UNKNOWN") && flags.hasLongPrison && !flags.personalUseOnly) return "ILLEGAL";
+  if ((base === "ILLEGAL" || base === "UNKNOWN") && flags.isStrictlyEnforced) return "ILLEGAL";
   if (base === "LEGAL") return "LEGAL";
   if (base === "MIXED") return "MIXED";
   if (base === "DECRIM") {
@@ -187,9 +214,8 @@ function applyStatusModifiers(base: ResultStatus, flags: StatusFlags): ResultSta
     return "DECRIM";
   }
   if (base === "ILLEGAL") {
-    if (flags.hasDeathPenalty) return "ILLEGAL";
-    if (flags.hasLongPrison || flags.isStrictlyEnforced) return "ILLEGAL";
-    if (flags.hasFine || flags.isRarelyProsecuted) return "DECRIM";
+    if (flags.hasFine && flags.personalUseOnly) return "DECRIM";
+    if (flags.isRarelyProsecuted) return "DECRIM";
     if (flags.isTolerated || flags.hasLicensedSale) return "MIXED";
     return "ILLEGAL";
   }
