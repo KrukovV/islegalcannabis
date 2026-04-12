@@ -196,12 +196,15 @@ export default function ResultCard({
   const facts = Array.isArray(profile.facts) ? profile.facts : [];
   const limitedFacts = facts.slice(0, 2);
   const advancedExtras = extrasFromProfile(profile);
-  const medicalLevel = levelFromLawStatus(profile.medical ?? "illegal");
-  const recreationalLevel = levelFromLawStatus(profile.recreational ?? "illegal");
   const legalSsot = profile.legal_ssot;
-  const displayMedicalStatus = legalSsot?.medical ?? profile.medical ?? "unknown";
-  const displayRecreationalStatus = legalSsot?.recreational ?? profile.recreational ?? "unknown";
-  const displayDistributionStatus = legalSsot?.distribution ?? null;
+  if (!legalSsot) {
+    throw new Error("SSOT_MISSING_IN_UI");
+  }
+  const displayMedicalStatus = legalSsot.medical;
+  const displayRecreationalStatus = legalSsot.recreational;
+  const displayDistributionStatus = legalSsot.distribution ?? null;
+  const medicalLevel = levelFromLawStatus(legalSsot.medical === "legal" ? "allowed" : legalSsot.medical === "limited" ? "restricted" : "illegal");
+  const recreationalLevel = levelFromLawStatus(legalSsot.recreational === "legal" ? "allowed" : legalSsot.recreational === "tolerated" || legalSsot.recreational === "decriminalized" ? "restricted" : "illegal");
   const machineVerifiedEntry = profile.machine_verified ?? profile.auto_verified;
   const legalSources = Array.isArray(legalSsot?.sources) ? legalSsot?.sources : [];
   const legalOfficialSources = Array.isArray(profile.official_sources)
@@ -463,7 +466,7 @@ export default function ResultCard({
         panel={resolvedViewModel.statusPanel}
       />
 
-      {(locationMethod || legalSsot || profile.status_recreational || profile.status_medical) ? (
+      {(locationMethod || legalSsot) ? (
         <section className={styles.section}>
           <h2>Legal breakdown</h2>
           <div className={styles.metaLabel} data-testid="medical-breakdown">
@@ -472,13 +475,10 @@ export default function ResultCard({
           <div className={styles.metaLabel} data-testid="recreational-breakdown">
             Recreational: {displayRecreationalStatus}
           </div>
-          {legalSsot || profile.status_recreational || profile.status_medical ? (
+          {legalSsot ? (
             <div className={styles.metaLabel} data-testid="legal-status">
-              <div>
-                Recreational:{" "}
-                {legalSsot?.recreational ?? profile.status_recreational}
-              </div>
-              <div>Medical: {legalSsot?.medical ?? profile.status_medical}</div>
+              <div>Recreational: {legalSsot.recreational}</div>
+              <div>Medical: {legalSsot.medical}</div>
               {displayDistributionStatus ? <div>Distribution: {displayDistributionStatus}</div> : null}
             </div>
           ) : null}

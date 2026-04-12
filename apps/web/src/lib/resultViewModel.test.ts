@@ -17,6 +17,7 @@ const profile: JurisdictionLawProfile = {
   confidence: "high",
   status: "known",
   legal_ssot: {
+    result_status: "ILLEGAL",
     recreational: "illegal",
     medical: "legal",
     distribution: "illegal",
@@ -37,11 +38,25 @@ describe("buildResultViewModel", () => {
       profile,
       title: "Is cannabis legal in France?"
     });
-    expect(vm.statusPanel?.summary).toContain("Medical access exists");
+    expect(vm.statusPanel?.summary).toContain("Core use and distribution remain prohibited");
     expect(vm.statusPanel?.critical.some((item) => item.text.includes("Recreational use remains illegal"))).toBe(true);
     expect(vm.statusPanel?.critical.some((item) => item.text.includes("Criminal penalties"))).toBe(true);
     expect(vm.statusPanel?.info.some((item) => item.text.includes("Medical use is permitted"))).toBe(true);
     expect(vm.statusPanel?.why.length).toBeGreaterThan(0);
     expect(vm.statusPanel?.critical.every((item) => item.href.startsWith("/c/"))).toBe(true);
+    expect(vm.statusLevel).toBe("red");
+  });
+
+  it("throws if UI tries to render without legal_ssot result status", () => {
+    const invalidProfile = {
+      ...profile,
+      legal_ssot: undefined
+    };
+    expect(() =>
+      buildResultViewModel({
+        profile: invalidProfile,
+        title: "Broken"
+      })
+    ).toThrow("SSOT_MISSING_IN_UI");
   });
 });

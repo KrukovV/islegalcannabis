@@ -1,4 +1,4 @@
-import { computeStatus, STATUS_BANNERS } from "@islegal/shared";
+import { STATUS_BANNERS } from "@islegal/shared";
 import type {
   JurisdictionLawProfile,
   ResultViewModel,
@@ -10,6 +10,7 @@ import {
   getCountryPageIndexByGeoCode,
   getCountryPageIndexByIso2
 } from "@/lib/countryPageStorage";
+import { normalizeStatus, type ResultStatus } from "@/lib/resultStatus";
 
 function bulletsToText(profile: JurisdictionLawProfile) {
   return buildBullets(profile).map((item) => `${item.label}: ${item.value}`);
@@ -69,15 +70,18 @@ function buildReason(
 function buildStatusPanel(profile: JurisdictionLawProfile, statusLevel: ResultViewModel["statusLevel"]) {
   const countryPageHref = getCountryPageHref(profile);
   const legalSsot = profile.legal_ssot;
+  if (!legalSsot) {
+    throw new Error("SSOT_MISSING_IN_UI");
+  }
   const critical: StatusPanelReason[] = [];
   const info: StatusPanelReason[] = [];
   const why: StatusPanelReason[] = [];
 
-  const recreational = legalSsot?.recreational ?? profile.status_recreational ?? "unknown";
-  const medical = legalSsot?.medical ?? profile.status_medical ?? "unknown";
-  const distribution = legalSsot?.distribution ?? null;
-  const penalties = legalSsot?.penalties;
-  const enforcementLevel = legalSsot?.enforcement_level ?? null;
+  const recreational = legalSsot.recreational;
+  const medical = legalSsot.medical;
+  const distribution = legalSsot.distribution ?? null;
+  const penalties = legalSsot.penalties;
+  const enforcementLevel = legalSsot.enforcement_level ?? null;
 
   if (recreational === "illegal") {
     const sourceUrl = findSourceUrl(profile, "recreational");
@@ -288,6 +292,20 @@ function buildStatusPanel(profile: JurisdictionLawProfile, statusLevel: ResultVi
   };
 }
 
+function statusLevelFromSsot(resultStatus: ResultStatus): ResultViewModel["statusLevel"] {
+  if (resultStatus === "LEGAL" || resultStatus === "MIXED" || resultStatus === "DECRIM") return "green";
+  if (resultStatus === "ILLEGAL") return "red";
+  return "gray";
+}
+
+function statusTitleFromSsot(resultStatus: ResultStatus): string {
+  if (resultStatus === "LEGAL") return "Recreational cannabis is legal";
+  if (resultStatus === "MIXED") return "Partly allowed or mixed";
+  if (resultStatus === "DECRIM") return "Decriminalized";
+  if (resultStatus === "ILLEGAL") return "Illegal or highly restricted";
+  return "Data not available";
+}
+
 export function buildResultViewModel(input: {
   profile: JurisdictionLawProfile;
   title: string;
@@ -298,9 +316,13 @@ export function buildResultViewModel(input: {
   extrasFull?: ResultViewModel["extrasFull"];
   nearestLegal?: ResultViewModel["nearestLegal"];
 }): ResultViewModel {
-  const computed = computeStatus(input.profile);
-  let statusLevel = input.statusOverride?.level ?? computed.level;
-  let statusTitle = input.statusOverride?.title ?? computed.label;
+  const legalSsot = input.profile.legal_ssot;
+  if (!legalSsot?.result_status) {
+    throw new Error("SSOT_MISSING_IN_UI");
+  }
+  const resultStatus = normalizeStatus(legalSsot.result_status);
+  let statusLevel = input.statusOverride?.level ?? statusLevelFromSsot(resultStatus);
+  let statusTitle = input.statusOverride?.title ?? statusTitleFromSsot(resultStatus);
 
   if (input.profile.status === "provisional") {
     statusLevel = "yellow";
