@@ -166,13 +166,14 @@
     "lng": 28.5
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Lesotho",
     "wiki": "https://en.wikipedia.org/wiki/Lesotho",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Lesotho",
-        "title": "Wikipedia: Lesotho",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Lesotho",
+        "title": "Wikipedia: Cannabis in Lesotho",
         "type": "external",
         "weight": "low"
       },
@@ -235,7 +236,7 @@
     "code": "lso",
     "content_hash": "c7da40e697b99dad14eee2f65297b378abe8077bb99f59554c0cfc5d5cddd59f",
     "notes_hash": "c9fb117416651d2e93de5c79ca5302eddf1903c6d5117ec1d51aff9a1a5d4656",
-    "model_hash": "d01f55269e71b372f4bb09c1a6336933711f0f9e1d2223f5196a7cda74e901b4"
+    "model_hash": "6eae0f3e43e99b72c77b5a83638c9691b5bdb23cd116ab8a49a93704e4cbcfbe"
   },
   "geo_code": "LS",
   "node_type": "country",

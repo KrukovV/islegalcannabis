@@ -129,13 +129,14 @@
     "lng": 68
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Kazakhstan",
     "wiki": "https://en.wikipedia.org/wiki/Kazakhstan",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Kazakhstan",
-        "title": "Wikipedia: Kazakhstan / Қазақстан",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kazakhstan",
+        "title": "Wikipedia: Cannabis in Kazakhstan",
         "type": "external",
         "weight": "low"
       },
@@ -198,7 +199,7 @@
     "code": "kaz",
     "content_hash": "0df1cec349f320332fcde4129656b4a8830bb912b59d1a4c675a3b1bb897f2bf",
     "notes_hash": "6439b39b510de3837a1466a290e299282a862310a7f2fa0abad9a6cc2d8b6156",
-    "model_hash": "19501cd0760740446d41e122a64bae60b17b9417429ccb0c8642a8b027c15a23"
+    "model_hash": "1af98809d4dd446bacb65a7b811c4e98b3e2596aef87d9d552e43b186ae5ff6c"
   },
   "geo_code": "KZ",
   "node_type": "country",

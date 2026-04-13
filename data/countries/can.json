@@ -214,13 +214,14 @@
     "lng": -95
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Canada",
     "wiki": "https://en.wikipedia.org/wiki/Canada",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Canada",
-        "title": "Wikipedia: Canada",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Canada",
+        "title": "Wikipedia: Cannabis in Canada",
         "type": "external",
         "weight": "low"
       },
@@ -283,7 +284,7 @@
     "code": "can",
     "content_hash": "e6bb9d51633bf9302844607c8e6bb1b709ef030cdc6ec61290ea2db37bc4e0e1",
     "notes_hash": "537f720e1cb23a0c3dd9b4395af7da0df5b3f8571c1550cc47a97ecc4f08f187",
-    "model_hash": "ef08d0436ef6873703f65ff843483840a128eff00c2e4583553c7b39c7516daa"
+    "model_hash": "b57f3edec7237b65e4920c68e0c444b8c8d8dd68d0c35373e249b2cafc1b7f71"
   },
   "geo_code": "CA",
   "node_type": "country",

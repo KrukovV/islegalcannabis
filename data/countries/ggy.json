@@ -118,17 +118,10 @@
     "lng": -2.561736
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Guernsey",
     "wiki_truth": null,
-    "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Guernsey",
-        "title": "Wikipedia: Guernsey / Guernesey",
-        "type": "external",
-        "weight": "low"
-      }
-    ]
+    "citations": []
   },
   "updated_at": "2026-04-10",
   "normalized_version": "v1",
@@ -180,7 +173,7 @@
     "code": "ggy",
     "content_hash": "7bd980b75e77b19d64b180e2e7b90e858f82fb19cdc3af1120252fdf9850f908",
     "notes_hash": "45a02024d06c4fa1c349a611f697060356b676a95a08ddc6ae3396828715a183",
-    "model_hash": "95f40bdd2262f951aa4a705e23dc1ad68a93bec7d07882fff488bc850e26d270"
+    "model_hash": "c62f8e8c1e7ee9e1330d46f9ad6fc465882093abb001c85babac57381063a359"
   },
   "geo_code": "GG",
   "node_type": "country",

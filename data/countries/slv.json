@@ -150,13 +150,14 @@
     "lng": -88.91666666
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_El_Salvador",
     "wiki": "https://en.wikipedia.org/wiki/El_Salvador",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/El_Salvador",
-        "title": "Wikipedia: El Salvador",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_El_Salvador",
+        "title": "Wikipedia: Cannabis in El Salvador",
         "type": "external",
         "weight": "low"
       },
@@ -219,7 +220,7 @@
     "code": "slv",
     "content_hash": "81d432e5c59886373ebb311249224eadd2b287d2c21e2ecd453a8dec15ea5f75",
     "notes_hash": "43e605994bcda80e31f7bd31e1dde83b035b05bb2226bfcc231e3f113fdbbd0a",
-    "model_hash": "c67ee7a0d34a2d96bec31cdaa5fc5dca97540f9fedb585347d7c149f4b93e122"
+    "model_hash": "fa37a113d2d2b254ce72986b540804e8bf2766db839ab41aa82b2666ee1252f4"
   },
   "geo_code": "SV",
   "node_type": "country",

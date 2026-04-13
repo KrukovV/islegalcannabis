@@ -118,17 +118,10 @@
     "lng": -64.63661
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/British_Virgin_Islands",
     "wiki_truth": null,
-    "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/British_Virgin_Islands",
-        "title": "Wikipedia: British Virgin Islands",
-        "type": "external",
-        "weight": "low"
-      }
-    ]
+    "citations": []
   },
   "updated_at": "2026-04-10",
   "normalized_version": "v1",
@@ -180,7 +173,7 @@
     "code": "vgb",
     "content_hash": "637a35444094c080072479945e87f5c794a75a9f29ff179267f53cbbcc058082",
     "notes_hash": "339a3628dd3950fe5e8bdc876c172b3a9e0fb99e72b1acaefde0424f3592cd42",
-    "model_hash": "7f499e9845dcb8063847ea913188b41958e785e2b72dfc19e316aa4b1e14df70"
+    "model_hash": "d8578c8cedf483981144e9415f941121fb252140295439974c586d05dd0645a9"
   },
   "geo_code": "VG",
   "node_type": "country",

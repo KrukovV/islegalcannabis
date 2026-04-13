@@ -103,7 +103,7 @@
       "secondary_source": {
         "has_article": true,
         "article_len": 190,
-        "source_confidence": "weak_article",
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
@@ -151,13 +151,14 @@
     "lng": 24
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Botswana",
     "wiki": "https://en.wikipedia.org/wiki/Botswana",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Botswana",
-        "title": "Wikipedia: Botswana",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Botswana",
+        "title": "Wikipedia: Cannabis in Botswana",
         "type": "external",
         "weight": "low"
       },
@@ -218,9 +219,9 @@
   },
   "hashes": {
     "code": "bwa",
-    "content_hash": "c8774b0876236e278bde7fb387f6e17ea6203aede9ae5badcee975844a21ac44",
+    "content_hash": "8f10fd1242fa24f5ad28020616701c09be19f5e9e3765e45e67788fc49d177b7",
     "notes_hash": "9feffd55e2541d0b4d6749635736d5260bf8e60010d039dcd76d51d8320a8a06",
-    "model_hash": "f9c85e519b754d3d28c50551dbe14da1275f1198340ccb62b661768aa5fc82de"
+    "model_hash": "11012d4add457f5d1dbfe193e2faafc7a17f2f1d64471837c6575486cc4ecbb2"
   },
   "geo_code": "BW",
   "node_type": "country",

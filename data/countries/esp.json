@@ -209,13 +209,14 @@
     "lng": -3.7492
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Spain",
     "wiki": "https://en.wikipedia.org/wiki/Spain",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Spain",
-        "title": "Wikipedia: Spain / España",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Spain",
+        "title": "Wikipedia: Cannabis in Spain",
         "type": "external",
         "weight": "low"
       },
@@ -278,7 +279,7 @@
     "code": "esp",
     "content_hash": "2ba6c589d90923bd491156021b88724847f3711b00c91c86d953a42109a7efd8",
     "notes_hash": "c02fbd34c1de93bcf3748ab3feed099553f63ed034262dee7259bdd3e0104c7a",
-    "model_hash": "e6609274114b7a087767b5647d217e60039ff00d46a92b9d436a72bb6bb41b98"
+    "model_hash": "a0f1df309358bd6b81493f264cf87d4244a5c22d3539af7f7fd6d026ec1d3c1b"
   },
   "geo_code": "ES",
   "node_type": "country",

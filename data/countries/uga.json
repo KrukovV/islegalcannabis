@@ -146,13 +146,14 @@
     "lng": 32
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Uganda",
     "wiki": "https://en.wikipedia.org/wiki/Uganda",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Uganda",
-        "title": "Wikipedia: Uganda",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Uganda",
+        "title": "Wikipedia: Cannabis in Uganda",
         "type": "external",
         "weight": "low"
       },
@@ -215,7 +216,7 @@
     "code": "uga",
     "content_hash": "07c1880ced13479f16f9a506c39fee3118b08492b3cc30972ddb5a57b36bf948",
     "notes_hash": "3cb68ba237789282660edd80366755192891f05b27e7fb5f47d01d1ad2dae77f",
-    "model_hash": "47ffcf5dc28dda91228db842c7a48e8356a7ca310b29be7f8169fde22ad274a6"
+    "model_hash": "6130bffd685e0d3d1796343bdc22ed3b430d7d2cf9b7dde44a9e8d6252e5a007"
   },
   "geo_code": "UG",
   "node_type": "country",

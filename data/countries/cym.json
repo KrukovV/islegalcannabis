@@ -118,17 +118,10 @@
     "lng": -81.24055
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Cayman_Islands",
     "wiki_truth": null,
-    "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Cayman_Islands",
-        "title": "Wikipedia: Cayman Islands",
-        "type": "external",
-        "weight": "low"
-      }
-    ]
+    "citations": []
   },
   "updated_at": "2026-04-10",
   "normalized_version": "v1",
@@ -180,7 +173,7 @@
     "code": "cym",
     "content_hash": "62f58b4e43abeb100fd4bd2f5afa7c2e5967f9301ae0bf9e045969d37676c827",
     "notes_hash": "4dd9d35fd91a15bb7b46d6ec1d1d1690b80f45d4c41de6a016d547b06227dee3",
-    "model_hash": "187f519249c27bf01b2e8f235a3df4f1beabd3476697ff61efdd8a03cd2fc2ca"
+    "model_hash": "9d0857860e337b2171125c4ae261562702997234f18570cc1e6b8e1092505f8b"
   },
   "geo_code": "KY",
   "node_type": "country",

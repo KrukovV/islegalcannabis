@@ -170,13 +170,14 @@
     "lng": -61
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Trinidad_and_Tobago",
     "wiki": "https://en.wikipedia.org/wiki/Trinidad_and_Tobago",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Trinidad_and_Tobago",
-        "title": "Wikipedia: Trinidad and Tobago",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Trinidad_and_Tobago",
+        "title": "Wikipedia: Cannabis in Trinidad and Tobago",
         "type": "external",
         "weight": "low"
       },
@@ -239,7 +240,7 @@
     "code": "tto",
     "content_hash": "f3583294b6bfc192c16221e1d4ecc3cde015e459b837f52f920ffca827e4dce6",
     "notes_hash": "8c430bc1924ce58217ef8e69637bcf785f8666bd066f75af2af6414229bcc585",
-    "model_hash": "f126d7ffc556c238d13ae648f408f3d0cd3bb64e35026cd3e041b0cc6afc8ebc"
+    "model_hash": "5256165106de832ca9bedbf68b2276987e2b86094eed15e279bf3ea9ed5fe30d"
   },
   "geo_code": "TT",
   "node_type": "country",

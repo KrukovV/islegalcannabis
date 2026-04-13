@@ -181,13 +181,14 @@
     "lng": -80
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Panama",
     "wiki": "https://en.wikipedia.org/wiki/Panama",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Panama",
-        "title": "Wikipedia: Panama / Panamá",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Panama",
+        "title": "Wikipedia: Cannabis in Panama",
         "type": "external",
         "weight": "low"
       },
@@ -250,7 +251,7 @@
     "code": "pan",
     "content_hash": "b2d6fb04314155fd39c459467be3a6f1ef2d9a1608ef0849da32978080a09b20",
     "notes_hash": "16b5e51439301047d57486b9e3de3368ad6570095592179f7d4163576b14264c",
-    "model_hash": "7ae51499432db636626d25ef891bfcb9955f74842e14b8d8845402e4f6b8354f"
+    "model_hash": "0775df76039e38944f2a3506e5f059b3e1d527d700b438ac577c6f08d25f08f1"
   },
   "geo_code": "PA",
   "node_type": "country",

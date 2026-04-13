@@ -145,6 +145,7 @@
     "lng": -74.4057
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/New_Jersey",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -175,7 +176,7 @@
     "code": "us-nj",
     "content_hash": "c0323a016b23c774ce45c5c7adafc20ac6d96324173e33071f486a5be6e3925f",
     "notes_hash": "c6ba61ddad11a21ce32a01cb99b43dd442d5649506e0ed47b31ec05ed73de3dc",
-    "model_hash": "2d1ec250e66712379cc27690cd4cab1398bb404778ee634a70908b014ead4e40"
+    "model_hash": "a446069d400c5c4d4e2f288a6ae34da162f4369ea653f63d3d36c6f55d263c79"
   },
   "updated_at": "2024-01-01"
 }

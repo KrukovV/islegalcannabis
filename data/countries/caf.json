@@ -85,7 +85,7 @@
       "secondary_source": {
         "has_article": true,
         "article_len": 206,
-        "source_confidence": "weak_article",
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
@@ -133,13 +133,14 @@
     "lng": 21
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_the_Central_African_Republic",
     "wiki": "https://en.wikipedia.org/wiki/Central_African_Republic",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Central_African_Republic",
-        "title": "Wikipedia: Central African Republic / République centrafricaine",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Central_African_Republic",
+        "title": "Wikipedia: Cannabis in Central African Republic",
         "type": "external",
         "weight": "low"
       },
@@ -200,9 +201,9 @@
   },
   "hashes": {
     "code": "caf",
-    "content_hash": "90e33c1335136287ce93a9887ac72dd13736966a5a0c84c0f86bd4b2a712a366",
+    "content_hash": "87726e78e38a9d694b5fa41c6f3787551eecd7a5d6217ca922eb568c58dd32ef",
     "notes_hash": "2717d7cdddfad0902b1fce5f3ef074ba9a2bb1fa6cd38d832488860fc869849a",
-    "model_hash": "e8a26a4a4a92c5f76a025816a51d3f44a7cacae6010c01a664c532b0fce05dca"
+    "model_hash": "275e644a036b0fcbb39dd78a444e68e30f7196d990645dc8177e3691cf049b62"
   },
   "geo_code": "CF",
   "node_type": "country",

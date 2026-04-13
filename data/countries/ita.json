@@ -226,13 +226,14 @@
     "lng": 12.5674
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Italy",
     "wiki": "https://en.wikipedia.org/wiki/Italy",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Italy",
-        "title": "Wikipedia: Italy / Italia",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Italy",
+        "title": "Wikipedia: Cannabis in Italy",
         "type": "external",
         "weight": "low"
       },
@@ -295,7 +296,7 @@
     "code": "ita",
     "content_hash": "deb92d25b9fa5a26d2a7e39cb08d9c4e0c84123ba999b4d3de47fbac53b56ee9",
     "notes_hash": "abb0f40ad9904212e99c0a6bcb5f520b3d7b1fb6e0762dfc45af379f5daad99e",
-    "model_hash": "6e9f218eeb02ad229e07e576fce1242e2e1989d3b535d10345b127e8c371e381"
+    "model_hash": "36e6dba91f0e8356bf21372c2d041ece46b6496f091fe2980a3540fb0cfb53e0"
   },
   "geo_code": "IT",
   "node_type": "country",

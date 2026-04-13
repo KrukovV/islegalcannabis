@@ -118,17 +118,10 @@
     "lng": 69.122136
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/French_Southern_Territories",
     "wiki_truth": null,
-    "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/French_Southern_Territories",
-        "title": "Wikipedia: French Southern and Antarctic Lands / Terres australes et antarctiques françaises",
-        "type": "external",
-        "weight": "low"
-      }
-    ]
+    "citations": []
   },
   "updated_at": "2026-04-10",
   "normalized_version": "v1",
@@ -180,7 +173,7 @@
     "code": "atf",
     "content_hash": "aed9e4fde9bce8a77c96bba52727496cbf2975d97671343a26190585cb94a5cf",
     "notes_hash": "e6f7d5cb539abecac8bdf037b08b109cc9f58276d073765090bb1c984b641cdf",
-    "model_hash": "9c1a521be98e2068eafaeb18f7da50420458fab04bd7311126e37fbe7aa1667f"
+    "model_hash": "f640abdcc9a8f9d80f3c0cef39b2a020ceecf08c198ce1c87fba85aa65b468c6"
   },
   "geo_code": "TF",
   "node_type": "country",

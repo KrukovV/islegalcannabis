@@ -127,13 +127,14 @@
     "lng": 44.25
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Comoros",
     "wiki": "https://en.wikipedia.org/wiki/Comoros",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Comoros",
-        "title": "Wikipedia: Comoros / جزر القمر",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Comoros",
+        "title": "Wikipedia: Cannabis in Comoros",
         "type": "external",
         "weight": "low"
       },
@@ -196,7 +197,7 @@
     "code": "com",
     "content_hash": "099e8ab06b0adac61299b7ab12b78734c35de736062f67c16816390653b564bd",
     "notes_hash": "3d6174dfd855f0ebcf4c61cddf4bc3537322b773f1296a066f70b552cb6c36ba",
-    "model_hash": "ebb9d43a3949af92d543f8769d192640229ded6663a20ea5a4b34df428e553c0"
+    "model_hash": "b7bff202c3874dc6763ba1aa58515fb21a3869fa4397439ca3576dd55ebd39a9"
   },
   "geo_code": "KM",
   "node_type": "country",

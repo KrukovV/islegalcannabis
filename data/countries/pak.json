@@ -152,13 +152,14 @@
     "lng": 70
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Pakistan",
     "wiki": "https://en.wikipedia.org/wiki/Pakistan",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Pakistan",
-        "title": "Wikipedia: Pakistan / پاكستان",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Pakistan",
+        "title": "Wikipedia: Cannabis in Pakistan",
         "type": "external",
         "weight": "low"
       },
@@ -221,7 +222,7 @@
     "code": "pak",
     "content_hash": "6c63f114ace59d3b05edb9bdbcf2c71a9ba78dc68c631fc16ff2147f1b991aed",
     "notes_hash": "8377a9d8390eceebba18bebadccc22aa13956888aaa56c1b22749cd5d4527793",
-    "model_hash": "6112c0c80b6088bc806ac54cb96b2b427a0ae7326c914219e8cb3e449f49c863"
+    "model_hash": "4b4693cdda64d9d3fbf22014b1555e48f5b94e0890c2b01eb8265161c69b606c"
   },
   "geo_code": "PK",
   "node_type": "country",

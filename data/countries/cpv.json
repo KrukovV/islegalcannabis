@@ -83,7 +83,7 @@
       "secondary_source": {
         "has_article": true,
         "article_len": 236,
-        "source_confidence": "weak_article",
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
@@ -131,13 +131,14 @@
     "lng": -24
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Cape_Verde",
     "wiki": "https://en.wikipedia.org/wiki/Cape_Verde",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Cape_Verde",
-        "title": "Wikipedia: Cape Verde / Cabo Verde",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cape_Verde",
+        "title": "Wikipedia: Cannabis in Cape Verde",
         "type": "external",
         "weight": "low"
       },
@@ -198,9 +199,9 @@
   },
   "hashes": {
     "code": "cpv",
-    "content_hash": "bfbd66d0030a306a3f5c50ccce1e3012f7dd5235e9978f85bbfb5cae797d0bba",
+    "content_hash": "dc8461f776720e239017c70548260ed597488936e1f9109ae27c9cbdc124a424",
     "notes_hash": "1311c9600ef0d8123d9b1c083671f81703c096b860c1688f8b7a990c81146719",
-    "model_hash": "cd97a13782a86f1e8c3a724661147a3df05bd67b4e673b1c21045bbccf0e4f79"
+    "model_hash": "123ce20cd4d90906ed6340759077b0cfb2547d61daffa95e31ab5e7f45cf8b8c"
   },
   "geo_code": "CV",
   "node_type": "country",

@@ -124,13 +124,14 @@
     "lng": 8
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Niger",
     "wiki": "https://en.wikipedia.org/wiki/Niger",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Niger",
-        "title": "Wikipedia: Niger",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Niger",
+        "title": "Wikipedia: Cannabis in Niger",
         "type": "external",
         "weight": "low"
       },
@@ -193,7 +194,7 @@
     "code": "ner",
     "content_hash": "c6e12cb216c765a724b0b76b1f36ee6ec7b0696bd127bb285e7b8a9d2028e446",
     "notes_hash": "a03af92c170a3ec625bcc6983ddf287e660de6b5282807b6591f1cf69465b866",
-    "model_hash": "ea505ec530bfd37b0f422e343f12887c9ce8412c53cab4b38bb4838876430f17"
+    "model_hash": "b8f946d2dc696222f4a5da3017f89dcb9f8d01843b994757b635753b7af83945"
   },
   "geo_code": "NE",
   "node_type": "country",

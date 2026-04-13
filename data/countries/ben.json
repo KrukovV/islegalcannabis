@@ -157,13 +157,14 @@
     "lng": 2.25
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Benin",
     "wiki": "https://en.wikipedia.org/wiki/Benin",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Benin",
-        "title": "Wikipedia: Benin / Bénin",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Benin",
+        "title": "Wikipedia: Cannabis in Benin",
         "type": "external",
         "weight": "low"
       },
@@ -226,7 +227,7 @@
     "code": "ben",
     "content_hash": "2854345fc6c6f4c5be6ff3c19152ef36fb808b891f75518489847784e9cd36d6",
     "notes_hash": "99505672eae0ace6d34cc373537899c04d90505405bf25d85dc98f56ceca1320",
-    "model_hash": "d8029559a46d21e78ecad6f90554f373f5663931d381088c4bed1a6a259c29aa"
+    "model_hash": "57881c2ca17b7771e1c54167b28638da579ec87c900126fade88c392f9374d6b"
   },
   "geo_code": "BJ",
   "node_type": "country",

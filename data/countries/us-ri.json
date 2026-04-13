@@ -145,6 +145,7 @@
     "lng": -97
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Rhode_Island",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -168,7 +169,7 @@
     "code": "us-ri",
     "content_hash": "39b187c2909da8e5b9a2a8e0190d3453958c2099c324dc41b31a307a144ca1a2",
     "notes_hash": "0540a4a6c5c72c6e1d7d2384f440f52c1b5e0445ea7ec95ad862e1f6ddbfda0c",
-    "model_hash": "1e03f38e3ad45994312b1db1d84ddb8c423974ccf52c3c673ef1b9fb1d79f2d6"
+    "model_hash": "aa4427f1f8c52a29c63e98ba92737d50b19a49365a0b23f9c4686379a229a320"
   },
   "updated_at": "2026-04-10"
 }

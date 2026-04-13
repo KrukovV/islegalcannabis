@@ -139,13 +139,14 @@
     "lng": 105
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Laos",
     "wiki": "https://en.wikipedia.org/wiki/Laos",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Laos",
-        "title": "Wikipedia: Laos / ສປປລາວ",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Laos",
+        "title": "Wikipedia: Cannabis in Laos",
         "type": "external",
         "weight": "low"
       },
@@ -208,7 +209,7 @@
     "code": "lao",
     "content_hash": "1d17f72eaafbe04634c80f53b813097a3f83a6f1ee1c0f88a031ca32f3a22d88",
     "notes_hash": "62ef9b91e37bef15cbaa375ac8ce1abecfde9985591654dd207dfd7e7da8062d",
-    "model_hash": "e0bd06715a19113f36fd095ef066616c7a4bd5022975a525bba4c41e0039ff0e"
+    "model_hash": "7cb0ff743a32636f30b7e3aa067dda0e71e7f676fdaa50e4de5e3fedbd6c6fe5"
   },
   "geo_code": "LA",
   "node_type": "country",

@@ -143,6 +143,7 @@
     "lng": -97
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Tennessee",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -166,7 +167,7 @@
     "code": "us-tn",
     "content_hash": "dc2bfe205303ad125c7ed5843c079c206ddc2b5df9a786e5585a6cd8cd77c59a",
     "notes_hash": "b8c7fff480177229a23e5406e58eac8728d92e171858e878a9ecf183002494d1",
-    "model_hash": "b03b2186f28bbb43c653c7d06f470bcdc575ec665aaeece13db7a2a6c7a9aa8f"
+    "model_hash": "0794b997c1d91fadd54e667cf5d35bc5927bedf0d6c5884cdcdfe8a4c319f697"
   },
   "updated_at": "2026-04-10"
 }

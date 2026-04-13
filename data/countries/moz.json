@@ -153,13 +153,14 @@
     "lng": 35
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Mozambique",
     "wiki": "https://en.wikipedia.org/wiki/Mozambique",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Mozambique",
-        "title": "Wikipedia: Mozambique / Moçambique",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Mozambique",
+        "title": "Wikipedia: Cannabis in Mozambique",
         "type": "external",
         "weight": "low"
       },
@@ -222,7 +223,7 @@
     "code": "moz",
     "content_hash": "a0ddeb659b3e7bbc4be4c6975abdc0a3652d52a39a3216ca7c294fe1bf324f9c",
     "notes_hash": "ebc793619c31796b8002bb3ef3a2549263bac9c6ff79979dbaffed9a6f71cc99",
-    "model_hash": "22b025f661fc3cfd433e51a8d36f97cd1f4c53d4fb216b2fcbbf52b95d556c10"
+    "model_hash": "4d7d9eb7a638ee78211999bc0ee9ee158fa631bb5bc9d42f5b1140b55b00f80e"
   },
   "geo_code": "MZ",
   "node_type": "country",

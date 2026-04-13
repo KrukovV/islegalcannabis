@@ -143,13 +143,14 @@
     "lng": -159.76666666
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_the_Cook_Islands",
     "wiki": "https://en.wikipedia.org/wiki/Cook_Islands",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Cook_Islands",
-        "title": "Wikipedia: Cook Islands / Kūki 'Āirani",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Cook_Islands",
+        "title": "Wikipedia: Cannabis in Cook Islands",
         "type": "external",
         "weight": "low"
       },
@@ -212,7 +213,7 @@
     "code": "cok",
     "content_hash": "b6193d1164f5040e134a6d536fcac08b7929f2070da8ee4325dbf86b1b827a98",
     "notes_hash": "f206341d13f35269325f7829ba7f557fc6725fdd14b5d7abc6ef2a98432ebabf",
-    "model_hash": "b6a082d4079ddde7865fe849227ff08b7ebdda755d690979943c6ba6795059e7"
+    "model_hash": "9e95bfa27b03ac59ef5f86607509505662742104ee595ee8cc8739726d1545a7"
   },
   "geo_code": "CK",
   "node_type": "country",

@@ -145,13 +145,14 @@
     "lng": -18
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Iceland",
     "wiki": "https://en.wikipedia.org/wiki/Iceland",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Iceland",
-        "title": "Wikipedia: Iceland / Ísland",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Iceland",
+        "title": "Wikipedia: Cannabis in Iceland",
         "type": "external",
         "weight": "low"
       },
@@ -214,7 +215,7 @@
     "code": "isl",
     "content_hash": "78b61e8510e0a5b38fcbec125e1256183a26204abf3e7c09e8c6d7695b4deb9b",
     "notes_hash": "871ac4fe0e025c62f8394663a84403d12a981aaca255fcb3eaedc6d523e2e073",
-    "model_hash": "8999d790191c81a159490d1878722309d6e043710224bf573f0787fc7bcca6b2"
+    "model_hash": "7367dc894457d0578988da23218f2a6860d3136c3c8fc7995fca93b845431e70"
   },
   "geo_code": "IS",
   "node_type": "country",

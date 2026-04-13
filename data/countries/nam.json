@@ -128,13 +128,14 @@
     "lng": 17
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Namibia",
     "wiki": "https://en.wikipedia.org/wiki/Namibia",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Namibia",
-        "title": "Wikipedia: Namibia / Namibië",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Namibia",
+        "title": "Wikipedia: Cannabis in Namibia",
         "type": "external",
         "weight": "low"
       },
@@ -197,7 +198,7 @@
     "code": "nam",
     "content_hash": "931d9ca4cef553891621f43680c200d4f079f23547375648073438417aae530b",
     "notes_hash": "886ed2402139ba1efab77f0abb0160306b3b26f7e23850615df0160d927b8717",
-    "model_hash": "303e044a110c08167f9cee9adb3164e7da4f3f9c41324059dd2baf208344f9aa"
+    "model_hash": "ede92dc9940639f377f6cc3287576a08b2ea3174649a440c9a7499fd666599e0"
   },
   "geo_code": "NA",
   "node_type": "country",

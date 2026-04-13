@@ -145,6 +145,7 @@
     "lng": -97
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Minnesota",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -168,7 +169,7 @@
     "code": "us-mn",
     "content_hash": "e50b0185537ec50681e33990fcf53f0f4ca89c7e7e2171d477fb53f765f5c56c",
     "notes_hash": "294cc1ed52b1360ea53dd7e60eaeb1d7caca8c1dc11a8e3c7c53c216ad457f11",
-    "model_hash": "5adadb38f36a8fe27a3c139fd240c6142804edf1b22c05e1f0db31f0a6d0d376"
+    "model_hash": "8b6d3c8f7831f67436099c6eb32b87965647b3cbe71afbc425fd0087438d9742"
   },
   "updated_at": "2026-04-10"
 }

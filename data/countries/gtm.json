@@ -167,13 +167,14 @@
     "lng": -90.25
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Guatemala",
     "wiki": "https://en.wikipedia.org/wiki/Guatemala",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Guatemala",
-        "title": "Wikipedia: Guatemala",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Guatemala",
+        "title": "Wikipedia: Cannabis in Guatemala",
         "type": "external",
         "weight": "low"
       },
@@ -236,7 +237,7 @@
     "code": "gtm",
     "content_hash": "a214bb22cbfece9471b4016c080b9a99b19668a41683d488fca75847a3caabd6",
     "notes_hash": "840eaeb34dfa7caa61de680dc281c831b015a2eef9de1fca0f4a711b45192dd8",
-    "model_hash": "aa0bea5e5608ba6ad061d724239d7ae5dab79005317d7f2c4ec015233b23f428"
+    "model_hash": "705f7540ade13f643620b5d46eecbd4080cfcdd148fe72f68f9ce4370b418453"
   },
   "geo_code": "GT",
   "node_type": "country",

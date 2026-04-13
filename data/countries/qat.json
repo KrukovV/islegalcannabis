@@ -83,7 +83,7 @@
       "secondary_source": {
         "has_article": true,
         "article_len": 167,
-        "source_confidence": "weak_article",
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
@@ -131,13 +131,14 @@
     "lng": 51.25
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Qatar",
     "wiki": "https://en.wikipedia.org/wiki/Qatar",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Qatar",
-        "title": "Wikipedia: Qatar / قطر",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Qatar",
+        "title": "Wikipedia: Cannabis in Qatar",
         "type": "external",
         "weight": "low"
       },
@@ -198,9 +199,9 @@
   },
   "hashes": {
     "code": "qat",
-    "content_hash": "a3bfc9a2e6816d4db8276a2b1257d9006db103b1f4f44993c0a02090f2e55275",
+    "content_hash": "a9a673e7caa7ad777f636a859371caf46ab7fe300eae0a54bc2a0b9b6a15f0b5",
     "notes_hash": "2f891609507d5143fd3fc6b765cd68d07c7499f8091651fe3563d8ee9f2e4afc",
-    "model_hash": "3543365de4e08ad8dadecea34922748ca8569aaf7ab445a66efba156492abf7f"
+    "model_hash": "1a4e9d586c847b62c924874a3545e86fefec214d0fb0e9f9b1f762020e1ce974"
   },
   "geo_code": "QA",
   "node_type": "country",

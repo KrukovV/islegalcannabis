@@ -154,13 +154,14 @@
     "lng": 173
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Kiribati",
     "wiki": "https://en.wikipedia.org/wiki/Kiribati",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Kiribati",
-        "title": "Wikipedia: Kiribati",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kiribati",
+        "title": "Wikipedia: Cannabis in Kiribati",
         "type": "external",
         "weight": "low"
       },
@@ -223,7 +224,7 @@
     "code": "kir",
     "content_hash": "d5a983d7059c7c7bfd1b6539fe524bc4ebe93dfe2a8c9ed9155e4747802acb62",
     "notes_hash": "5d35511816a2641efbb5e04ecff7fa54ae2b4e62426265c13acb5feba2561a05",
-    "model_hash": "de34a0b1f7c343b12c682bd59b3f03fde4ed96b3d7e85c210d1ab11a6d0d72fe"
+    "model_hash": "744e69f16709fa2a6ad243bbacf07fa9e79e3a576a5d8d920eb9f82ef72d8424"
   },
   "geo_code": "KI",
   "node_type": "country",

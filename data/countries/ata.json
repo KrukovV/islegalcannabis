@@ -118,17 +118,10 @@
     "lng": 35.885455
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Antarctica",
     "wiki_truth": null,
-    "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Antarctica",
-        "title": "Wikipedia: Antarctica",
-        "type": "external",
-        "weight": "low"
-      }
-    ]
+    "citations": []
   },
   "updated_at": "2026-04-10",
   "normalized_version": "v1",
@@ -180,7 +173,7 @@
     "code": "ata",
     "content_hash": "b343673e79270e4a4cb7281ffaa695e06b9043267ef8a77e8f08d563bc43da97",
     "notes_hash": "5802a8bd5fd25a6ad5431a89e9ca3ce2685c192d6ee59b8375e3bc2f7782b928",
-    "model_hash": "1440ab8e6b6933ea5ff0e2c1a226d7d8afa511eed9febde0978c36a9631af76e"
+    "model_hash": "220b5da24cbd099b47176c9e39e1ddbc55dc50fc0ad9ed1404adc092da613832"
   },
   "geo_code": "AQ",
   "node_type": "country",

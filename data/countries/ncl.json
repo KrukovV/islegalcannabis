@@ -118,17 +118,10 @@
     "lng": 165.084004
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/New_Caledonia",
     "wiki_truth": null,
-    "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/New_Caledonia",
-        "title": "Wikipedia: New Caledonia / Nouvelle-Calédonie",
-        "type": "external",
-        "weight": "low"
-      }
-    ]
+    "citations": []
   },
   "updated_at": "2026-04-10",
   "normalized_version": "v1",
@@ -180,7 +173,7 @@
     "code": "ncl",
     "content_hash": "24270a948bf291775f1b58932fd93bfd2abf359f63b2d01847f70072c2dcc442",
     "notes_hash": "2e7125426540090c29c501ceaf9e332340bb1820a5dab159179f46a9b5a98d0f",
-    "model_hash": "3a8c6272f962a66a48c08b1650280a9b04005b73b2fd5365e6a0794afc82a8e1"
+    "model_hash": "dc815516076dcc4a828a5a331899a95fc4f83859cdf3fae680bebfdd3db426da"
   },
   "geo_code": "NC",
   "node_type": "country",

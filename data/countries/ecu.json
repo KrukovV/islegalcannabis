@@ -151,13 +151,14 @@
     "lng": -77.5
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Ecuador",
     "wiki": "https://en.wikipedia.org/wiki/Ecuador",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Ecuador",
-        "title": "Wikipedia: Ecuador",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ecuador",
+        "title": "Wikipedia: Cannabis in Ecuador",
         "type": "external",
         "weight": "low"
       },
@@ -220,7 +221,7 @@
     "code": "ecu",
     "content_hash": "2a8ccff367c3e3394d1d810b8d2a0feb7fd2c10ecb7f2fc3d5de720c18f77f81",
     "notes_hash": "4bee2c8ab6f1ade0a0d8fbcec3dcb960bbcf898e15db2359a8de19da050c63f8",
-    "model_hash": "7dd5cd3bfc4928703fa662b2750f39e1ba1d2c16e206fd45c658b0b8cce6ce1c"
+    "model_hash": "332a8b8b73a0a850124518c597229b91a7724304a29b8f8f568f8372e20217b2"
   },
   "geo_code": "EC",
   "node_type": "country",

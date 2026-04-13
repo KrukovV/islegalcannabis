@@ -158,13 +158,14 @@
     "lng": -61.66666666
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Grenada",
     "wiki": "https://en.wikipedia.org/wiki/Grenada",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Grenada",
-        "title": "Wikipedia: Grenada",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Grenada",
+        "title": "Wikipedia: Cannabis in Grenada",
         "type": "external",
         "weight": "low"
       },
@@ -227,7 +228,7 @@
     "code": "grd",
     "content_hash": "a337e1e0a0134244ae5d1233bf400aaf50363eaa6823a8d5b8fa51f8fbda66e6",
     "notes_hash": "a70335c7ae621bd114c280a78215927ee733f9eebde29a2c7fc5480aaefd5c8c",
-    "model_hash": "830eefb3b17f52c4c5ffed2000047af0895752eb6406d1051c1c7d2785bd8994"
+    "model_hash": "7a08755f8a42df65a2bb875205c90c31a6e87da8b216cfe5d65e64e324cbd60d"
   },
   "geo_code": "GD",
   "node_type": "country",

@@ -118,17 +118,10 @@
     "lng": -170
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/American_Samoa",
     "wiki_truth": null,
-    "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/American_Samoa",
-        "title": "Wikipedia: American Samoa / Sāmoa Amelika",
-        "type": "external",
-        "weight": "low"
-      }
-    ]
+    "citations": []
   },
   "updated_at": "2026-04-10",
   "normalized_version": "v1",
@@ -180,7 +173,7 @@
     "code": "asm",
     "content_hash": "4626bcc853c12feee245df85c1864f9a291cbf7002fddf547cf1917a82c5a863",
     "notes_hash": "85f87348a7ef5cbdd8953a71785ace5d6b98dc07b92d35a6ab420092516d1ca4",
-    "model_hash": "ec88db51a40be56879d3abb12dbcb3a8a594cefbaa1f178e8d4835c339a436bc"
+    "model_hash": "c1c5f56d19ac6059a65e63afc47789c0776ec7aca7fc9997f25e104855f86d93"
   },
   "geo_code": "AS",
   "node_type": "country",

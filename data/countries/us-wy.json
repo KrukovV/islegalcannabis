@@ -143,6 +143,7 @@
     "lng": -97
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Wyoming",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -166,7 +167,7 @@
     "code": "us-wy",
     "content_hash": "ee2f7da1606815d7990fe7b7dfbd53d5de6e1a9218419ed24927d9257f27126a",
     "notes_hash": "c4bbe39ea0803702e306f6052ac0c57c34b215d07c161c14efc23d95388efa9f",
-    "model_hash": "b6aa715414ebdba4360b9392f00b1e3d0ace09c743f2722c2cf230aa061546c2"
+    "model_hash": "623055576e9dfa69de870626eb358d85b224a113bcfd0f3db7c329993641de4b"
   },
   "updated_at": "2026-04-10"
 }

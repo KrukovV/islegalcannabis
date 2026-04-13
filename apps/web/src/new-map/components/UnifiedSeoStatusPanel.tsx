@@ -41,6 +41,14 @@ export default function UnifiedSeoStatusPanel({
               {card.panel.critical.map((reason) => (
                 <li key={reason.id}>
                   <Link href={reason.href}>{reason.text}</Link>
+                  {reason.sourceUrl && reason.sourceUrl !== reason.href ? (
+                    <>
+                      {" "}
+                      <a href={reason.sourceUrl} rel="nofollow noopener noreferrer" target="_blank">
+                        Source
+                      </a>
+                    </>
+                  ) : null}
                 </li>
               ))}
             </ul>
@@ -53,6 +61,14 @@ export default function UnifiedSeoStatusPanel({
               {card.panel.info.map((reason) => (
                 <li key={reason.id}>
                   <Link href={reason.href}>{reason.text}</Link>
+                  {reason.sourceUrl && reason.sourceUrl !== reason.href ? (
+                    <>
+                      {" "}
+                      <a href={reason.sourceUrl} rel="nofollow noopener noreferrer" target="_blank">
+                        Source
+                      </a>
+                    </>
+                  ) : null}
                 </li>
               ))}
             </ul>
@@ -65,6 +81,14 @@ export default function UnifiedSeoStatusPanel({
               {card.panel.why.map((reason) => (
                 <li key={reason.id}>
                   <Link href={reason.href}>{reason.text}</Link>
+                  {reason.sourceUrl && reason.sourceUrl !== reason.href ? (
+                    <>
+                      {" "}
+                      <a href={reason.sourceUrl} rel="nofollow noopener noreferrer" target="_blank">
+                        Source
+                      </a>
+                    </>
+                  ) : null}
                 </li>
               ))}
             </ul>
@@ -135,7 +159,13 @@ export default function UnifiedSeoStatusPanel({
       ) : null}
 
       <section className={styles.seoPanelSection}>
-        <Link href={card.pageHref}>Details →</Link>
+        {card.detailsHref ? (
+          <a href={card.detailsHref} rel="nofollow noopener noreferrer" target="_blank">
+            Legal source →
+          </a>
+        ) : (
+          <Link href={card.pageHref}>Country page →</Link>
+        )}
       </section>
     </aside>
   );

@@ -168,13 +168,14 @@
     "lng": 22
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Greece",
     "wiki": "https://en.wikipedia.org/wiki/Greece",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Greece",
-        "title": "Wikipedia: Greece / Ελλάδα",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Greece",
+        "title": "Wikipedia: Cannabis in Greece",
         "type": "external",
         "weight": "low"
       },
@@ -237,7 +238,7 @@
     "code": "grc",
     "content_hash": "3b38fe4e68f7e6c054385066ffd0a24a96aeec82b9d66b93549f624cbebe26a8",
     "notes_hash": "4ff79f8ee3439772aada89ac53eb96d4bb2be215d96a410e1e38bbd5b666cabc",
-    "model_hash": "421fc086b2ea8ce1fb285efc7f5b8cf45c37f1715fbe49e7541eda13baa90bfd"
+    "model_hash": "b5867ad3eba09b805bba0a1a2037e12682329e28fb414669bfccd8f1992b13b7"
   },
   "geo_code": "GR",
   "node_type": "country",

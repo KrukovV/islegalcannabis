@@ -145,6 +145,7 @@
     "lng": -75
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/New_York",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -175,7 +176,7 @@
     "code": "us-ny",
     "content_hash": "eb78e46c2fdfe593a1f9de1be0213b6724c497f19fd8235f770ddaab096a1417",
     "notes_hash": "04302b3e2cb65e7648f243f3eb07a7996f6411267d36a598f89db7884171af2b",
-    "model_hash": "f8f12fbec2a963d993a3565bee8b965048aafcb5c4c5a2b797ddbdefa0223a36"
+    "model_hash": "d887a9eae344ca384a673733a18d53cb502dad479650c1d5014d1dbf02c60747"
   },
   "updated_at": "2024-01-01"
 }

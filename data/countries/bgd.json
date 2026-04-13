@@ -178,13 +178,14 @@
     "lng": 90
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Bangladesh",
     "wiki": "https://en.wikipedia.org/wiki/Bangladesh",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Bangladesh",
-        "title": "Wikipedia: Bangladesh / বাংলাদেশ",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bangladesh",
+        "title": "Wikipedia: Cannabis in Bangladesh",
         "type": "external",
         "weight": "low"
       },
@@ -247,7 +248,7 @@
     "code": "bgd",
     "content_hash": "4ae56ce36933dba546d613b9042c666cf8416b3e9a27b66911671bc18a430479",
     "notes_hash": "e337b70b4e23270206c51809ddbffc29e714032e33444c918019e75ea1eb6501",
-    "model_hash": "e6658f3c4fd35be649cb86d229d6d253da0c3718cc45da05d69bf94d186076ba"
+    "model_hash": "0312c8d4c5e4bd89809b234b7d28ee4f2d6b80b2f754aa6dcff8612bb3cf051b"
   },
   "geo_code": "BD",
   "node_type": "country",

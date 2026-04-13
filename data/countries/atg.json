@@ -157,13 +157,14 @@
     "lng": -61.8
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Antigua_and_Barbuda",
     "wiki": "https://en.wikipedia.org/wiki/Antigua_and_Barbuda",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Antigua_and_Barbuda",
-        "title": "Wikipedia: Antigua and Barbuda",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Antigua_and_Barbuda",
+        "title": "Wikipedia: Cannabis in Antigua and Barbuda",
         "type": "external",
         "weight": "low"
       },
@@ -226,7 +227,7 @@
     "code": "atg",
     "content_hash": "fb80bd07a52492888697e5c527e640d2954dd5f2ffbc56f8b590215c9cd7234d",
     "notes_hash": "172ac1f0db0866852b2c9f27086532cf9eb91088a96deb5d40762d0e259a4f97",
-    "model_hash": "67f35297a0917a17d6cb0137b8cf70d1627f41819a8253e43c362e572836dfaf"
+    "model_hash": "9203ea83cd12edba0264b7271202b3ff07e7297711d6521dab8f4ceb93844559"
   },
   "geo_code": "AG",
   "node_type": "country",

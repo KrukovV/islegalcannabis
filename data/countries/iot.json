@@ -118,17 +118,10 @@
     "lng": 71.348349
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/British_Indian_Ocean_Territory",
     "wiki_truth": null,
-    "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/British_Indian_Ocean_Territory",
-        "title": "Wikipedia: British Indian Ocean Territory",
-        "type": "external",
-        "weight": "low"
-      }
-    ]
+    "citations": []
   },
   "updated_at": "2026-04-10",
   "normalized_version": "v1",
@@ -180,7 +173,7 @@
     "code": "iot",
     "content_hash": "fc589442924e385ba74e79f027cee1922e0f2c46f282d9e3b082a8c4f7c345e0",
     "notes_hash": "ef70bf9a362ddddd16b8a063c4cffbc737c6702450306b6e5c9390ef4404a1c5",
-    "model_hash": "5f6b383d25cdd2300af3deeb302912fc04b67832ef9202de29eb8b753aeeca2d"
+    "model_hash": "295e1d99b6d018bdb9608e154936ae6e925fde0eb8e7abd2daa8a57cba7ee997"
   },
   "geo_code": "IO",
   "node_type": "country",

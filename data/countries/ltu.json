@@ -166,13 +166,14 @@
     "lng": 24
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Lithuania",
     "wiki": "https://en.wikipedia.org/wiki/Lithuania",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Lithuania",
-        "title": "Wikipedia: Lithuania / Lietuva",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Lithuania",
+        "title": "Wikipedia: Cannabis in Lithuania",
         "type": "external",
         "weight": "low"
       },
@@ -235,7 +236,7 @@
     "code": "ltu",
     "content_hash": "b17f91e1428273f33b4b7f1865166875f1a4e2331f164f773fecf8664a8e741a",
     "notes_hash": "7053b128ad50a168d33a8689be99e05331e3bd2fe1930ebe9ac4c363b5e160da",
-    "model_hash": "5fda508387d88beafb652f3037a7c7f29eb6ed8b40e064dab74772f7fd05fc55"
+    "model_hash": "d42de9ca3b08fb4dc79900183c77605b42c1d6a39c8f4405290391c333a85d43"
   },
   "geo_code": "LT",
   "node_type": "country",

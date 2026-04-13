@@ -195,13 +195,14 @@
     "lng": 25
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Latvia",
     "wiki": "https://en.wikipedia.org/wiki/Latvia",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Latvia",
-        "title": "Wikipedia: Latvia / Latvija",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Latvia",
+        "title": "Wikipedia: Cannabis in Latvia",
         "type": "external",
         "weight": "low"
       },
@@ -264,7 +265,7 @@
     "code": "lva",
     "content_hash": "9aa21b6c05aca50047a69f9c539a66b60611715a687cf8d7c6de85e3fa80a341",
     "notes_hash": "ed2488cb9a4bace3eea1d58033567ffad9e5b7be9ae0e06a25f28c468b5c37a8",
-    "model_hash": "d3f529655d5f7bffc9a237bfb1ed8ce575294363e09e8b24bf744bed18282b1c"
+    "model_hash": "42e6fe1f950720204312ee00180f38ff1dd657b4310c54c58577478877905874"
   },
   "geo_code": "LV",
   "node_type": "country",

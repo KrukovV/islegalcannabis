@@ -190,13 +190,14 @@
     "lng": -8
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Ireland",
     "wiki": "https://en.wikipedia.org/wiki/Ireland",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Ireland",
-        "title": "Wikipedia: Ireland / Éire",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ireland",
+        "title": "Wikipedia: Cannabis in Ireland",
         "type": "external",
         "weight": "low"
       },
@@ -259,7 +260,7 @@
     "code": "irl",
     "content_hash": "ad0bceff2d3a9a216ba40333edc1a05b9e0af26ff05733df52b836fc1888b910",
     "notes_hash": "893e328bb415d11275fecac078fbf648df285e076d74a057d16ecfe7455a4de9",
-    "model_hash": "38815d0e80cc8c4db4d6bdafd0b11bde6409dc262510094e278d03ff37c0c5c5"
+    "model_hash": "db56a29ef454f3b3f6aad9b807837b859bba76aa322f2a8b2e82f1420bef0b7d"
   },
   "geo_code": "IE",
   "node_type": "country",

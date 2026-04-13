@@ -118,17 +118,10 @@
     "lng": -149.46157
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/French_Polynesia",
     "wiki_truth": null,
-    "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/French_Polynesia",
-        "title": "Wikipedia: French Polynesia / Polynésie française",
-        "type": "external",
-        "weight": "low"
-      }
-    ]
+    "citations": []
   },
   "updated_at": "2026-04-10",
   "normalized_version": "v1",
@@ -180,7 +173,7 @@
     "code": "pyf",
     "content_hash": "12e89d7ffaf881084bf334160dd629689ee130bd5941bf0d358063174e7608f0",
     "notes_hash": "3a897e71eef6f82348f8e69e74830e7ad41355b0bb404458e2517010e0711475",
-    "model_hash": "ffacb0cce820b4f1163882b013f4e1a5a9a9165a509f08a3495da60df19f4076"
+    "model_hash": "ce151b2192b66e98ea225f3da9ea2441c6d61c21a4e357bf716e3004356e3b89"
   },
   "geo_code": "PF",
   "node_type": "country",

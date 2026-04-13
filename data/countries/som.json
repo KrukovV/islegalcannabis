@@ -26,11 +26,12 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "enforcement": "fine-based",
+      "flags": [],
+      "modifiers": [
+        "only",
+        "may"
+      ]
     },
     "signals": {
       "status": "illegal",
@@ -39,9 +40,9 @@
       "penalties": {
         "prison": false,
         "prison_priority": 0,
-        "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "arrest": true,
+        "fine": true,
+        "severity_score": 2,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -50,7 +51,7 @@
         },
         "trafficking": {
           "prison": false,
-          "arrest": false,
+          "arrest": true,
           "fine": false,
           "severe": false
         }
@@ -62,6 +63,12 @@
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Somalia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Somalia",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "The Penal code of the Somali Democratic Republic: with cases, commentary, and examples",
@@ -95,12 +102,13 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: penalty_fine | source: Cannabis in Somalia | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_arrest | source: Cannabis in Somalia | type: traversal | priority: 3 | scope: sale"
       ],
       "secondary_source": {
-        "has_article": false,
-        "article_len": 0,
-        "source_confidence": "no_secondary_source",
+        "has_article": true,
+        "article_len": 1021,
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
@@ -111,9 +119,12 @@
         }
       }
     },
-    "enforcement_flags": [],
+    "enforcement_flags": [
+      "fine_based"
+    ],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "penalty_fine",
+      "penalty_arrest"
     ],
     "notes_normalized": "Cannabis is illegal in Somalia / الصومال. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -148,13 +159,14 @@
     "lng": 49
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Somalia",
     "wiki": "https://en.wikipedia.org/wiki/Somalia",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Somalia",
-        "title": "Wikipedia: Somalia / الصومال",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Somalia",
+        "title": "Wikipedia: Cannabis in Somalia",
         "type": "external",
         "weight": "low"
       },
@@ -215,9 +227,9 @@
   },
   "hashes": {
     "code": "som",
-    "content_hash": "712dbc50e35112d046bb322cab17e197fbc44e0308b7b5df07fdf29e18041eda",
+    "content_hash": "da37c70e563e7e212b61a06bae938f2102853f3cad10017dfa9227e92cbeb398",
     "notes_hash": "da040a0a86b6063ebde8e340aaf1db88cb2dc25a649acfe0dae986dded3365b0",
-    "model_hash": "1f38d0581f7afbcf61b2880c02f3f41d7f033ea1e37cd06aada75c6d2073b15c"
+    "model_hash": "1429bb59266d7fa38382e7917c73240f514f51b0cc4300782146013a970e6613"
   },
   "geo_code": "SO",
   "node_type": "country",

@@ -169,13 +169,14 @@
     "lng": 8
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Nigeria",
     "wiki": "https://en.wikipedia.org/wiki/Nigeria",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Nigeria",
-        "title": "Wikipedia: Nigeria",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Nigeria",
+        "title": "Wikipedia: Cannabis in Nigeria",
         "type": "external",
         "weight": "low"
       },
@@ -238,7 +239,7 @@
     "code": "nga",
     "content_hash": "99a888ef9a913df26bce346cc32a85b71385b2a00b8aaad04f591992cfe231e2",
     "notes_hash": "09061725848ece4bee696d2e52e52ad684777a60a1abcf53b29f7cd49369d4fe",
-    "model_hash": "0e8c3c8b926e8d47bf915dcffb69ab3e29f2365ba1a5282c738547a9d71196cc"
+    "model_hash": "3729eb155946d81e6c22adde983d325ccadf9290dd61357d04996ddda1ccf482"
   },
   "geo_code": "NG",
   "node_type": "country",

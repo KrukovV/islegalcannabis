@@ -166,13 +166,14 @@
     "lng": 71
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Tajikistan",
     "wiki": "https://en.wikipedia.org/wiki/Tajikistan",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Tajikistan",
-        "title": "Wikipedia: Tajikistan / Таджикистан",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Tajikistan",
+        "title": "Wikipedia: Cannabis in Tajikistan",
         "type": "external",
         "weight": "low"
       },
@@ -235,7 +236,7 @@
     "code": "tjk",
     "content_hash": "2a5d6fd2184c443753e743454a8ba9e97341514acd6cecc3cf8db4a08598e1d2",
     "notes_hash": "eb6cdbfcf608c11f07cab94846db9716fe7894e4d9c93f35a087aa44d1a87a67",
-    "model_hash": "dd32b6528c7ff44a50fc7f4d8fc95776a12f5618c61760522bfd96b06c274f19"
+    "model_hash": "ae67fdef9f8e44ed390d846efb0301a6c5d7eac197babc35a7963583016de56a"
   },
   "geo_code": "TJ",
   "node_type": "country",

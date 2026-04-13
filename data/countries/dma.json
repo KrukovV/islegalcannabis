@@ -168,13 +168,14 @@
     "lng": -61.33333333
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Dominica",
     "wiki": "https://en.wikipedia.org/wiki/Dominica",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Dominica",
-        "title": "Wikipedia: Dominica",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Dominica",
+        "title": "Wikipedia: Cannabis in Dominica",
         "type": "external",
         "weight": "low"
       },
@@ -237,7 +238,7 @@
     "code": "dma",
     "content_hash": "03ab73ddb92f4fe761bd38f09dfe5f792b21cd99f0db5e7a01a8995128ed0906",
     "notes_hash": "7fb616b66794f0407fb2bf81b51a9854ec2bcda06bb8ce2fc449713b65b0d981",
-    "model_hash": "6af154efb6bb70a8ee714631e30229d464d329eed5dc3b7e0f141078f619bf87"
+    "model_hash": "e62983c49ceda043e6a21d8f25750cf8018c4c6e55019303c1642da99548186c"
   },
   "geo_code": "DM",
   "node_type": "country",

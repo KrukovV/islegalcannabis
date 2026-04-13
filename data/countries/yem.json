@@ -27,7 +27,9 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [],
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
       "modifiers": []
     },
     "signals": {
@@ -62,12 +64,6 @@
           "type": "summary"
         },
         {
-          "title": "Cannabis in Yemen",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Yemen",
-          "depth": 1,
-          "type": "traversal"
-        },
-        {
           "title": "Legality of cannabis (notes)",
           "url": "https://en.wikipedia.org/wiki/Cannabis_in_Yemen",
           "depth": 2,
@@ -75,26 +71,25 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Yemen | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Yemen | type: traversal | priority: 3 | scope: general"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 399,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal"
+      "distribution_fallback_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Yemen / اليمن. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -129,13 +124,14 @@
     "lng": 48
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Yemen",
     "wiki": "https://en.wikipedia.org/wiki/Yemen",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Yemen",
-        "title": "Wikipedia: Yemen / اليمن",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Yemen",
+        "title": "Wikipedia: Cannabis in Yemen",
         "type": "external",
         "weight": "low"
       },
@@ -196,9 +192,9 @@
   },
   "hashes": {
     "code": "yem",
-    "content_hash": "6bd553afc0714692e381101be457186d819c73ad196e8340ca3dd124eca066de",
+    "content_hash": "bd7aefb3a7a1d8ed67a824fb5ba97d14094c500bc0189db13d5d5c6259fde6ed",
     "notes_hash": "6c90f9be1701205c93f3521301b40501435791124b2765a5666926d99177ce63",
-    "model_hash": "56cda2f38a8bfb94af3ea09b07655760679188c266664fc0b86af1fc5812ae67"
+    "model_hash": "0666d6ec0804de89dbbfcedb35c69cb2fcd6c7d41d13962e8d941d25feea8990"
   },
   "geo_code": "YE",
   "node_type": "country",

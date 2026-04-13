@@ -185,13 +185,14 @@
     "lng": 10.4515
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Germany",
     "wiki": "https://en.wikipedia.org/wiki/Germany",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Germany",
-        "title": "Wikipedia: Germany / Deutschland",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Germany",
+        "title": "Wikipedia: Cannabis in Germany",
         "type": "external",
         "weight": "low"
       },
@@ -254,7 +255,7 @@
     "code": "deu",
     "content_hash": "bd4581d48d1bd04f95fc0d0e967eb770a2a634e49d74149daea090896d75ebaa",
     "notes_hash": "00bbc5f1e0edba2aa17b1c0116cadbe22deb36b7c2d96d266797076080086b0c",
-    "model_hash": "d396ef38edcbb9d66e8ae543a41a5f6eb0c289874cf9346d1d17cb9351ae99ca"
+    "model_hash": "624e6f33161c50b1f3421420305220b116fd58721a8e983c58717000ff673b5f"
   },
   "geo_code": "DE",
   "node_type": "country",

@@ -161,13 +161,14 @@
     "lng": 45.75
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Kuwait",
     "wiki": "https://en.wikipedia.org/wiki/Kuwait",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Kuwait",
-        "title": "Wikipedia: Kuwait / الكويت",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kuwait",
+        "title": "Wikipedia: Cannabis in Kuwait",
         "type": "external",
         "weight": "low"
       },
@@ -230,7 +231,7 @@
     "code": "kwt",
     "content_hash": "0784815a3e82ff8c186ea57ec167056ed412919ccb49fa2ee2c7a4ccb8fcf065",
     "notes_hash": "dfa93b771ce3e7d71a15309d0f95d6c313d9c828070bf25977aa6666e7df268b",
-    "model_hash": "3e210962438366ab3c38e39d59480b4f06e1ec55f31c6164fc32e42c75971bbe"
+    "model_hash": "28d3151e9923580841ffc36170dac56563aee48fec91e75eadacce5f95b05725"
   },
   "geo_code": "KW",
   "node_type": "country",

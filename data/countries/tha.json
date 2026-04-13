@@ -168,13 +168,14 @@
     "lng": 100
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Thailand",
     "wiki": "https://en.wikipedia.org/wiki/Thailand",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Thailand",
-        "title": "Wikipedia: Thailand / ประเทศไทย",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Thailand",
+        "title": "Wikipedia: Cannabis in Thailand",
         "type": "external",
         "weight": "low"
       },
@@ -237,7 +238,7 @@
     "code": "tha",
     "content_hash": "257760f618464c2d1c8e3dc48d10ecd6cc8b2cc252ece040c788537f6403a4c6",
     "notes_hash": "f196a03c1db162dc5d6ea1ac0e7ab56f495eae1ff9bdb42cf6f2974b8c763078",
-    "model_hash": "267f7935d3527d429fc51dd112e0911e105f6916564f4338f8c2adfebc6d85e9"
+    "model_hash": "22b4517ccd04f1a6136fde8ab08a859dfcaa5ebf15867e943b871a0d4d75024c"
   },
   "geo_code": "TH",
   "node_type": "country",

@@ -141,13 +141,14 @@
     "lng": 65
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Afghanistan",
     "wiki": "https://en.wikipedia.org/wiki/Afghanistan",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Afghanistan",
-        "title": "Wikipedia: Afghanistan / افغانستان",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Afghanistan",
+        "title": "Wikipedia: Cannabis in Afghanistan",
         "type": "external",
         "weight": "low"
       },
@@ -210,7 +211,7 @@
     "code": "afg",
     "content_hash": "63009d7ddafc769c264955ad105e82fe2d459262e280ce25b196ea2aeb733eb3",
     "notes_hash": "0ff300485bc16950b5ad7bbd3f9b0ab172e01242042baa61c3611c46d46c2a14",
-    "model_hash": "70f10548d1fbadd053bb57f743f1c0aab976291ea8accf1514081cb29e1cc2c4"
+    "model_hash": "a598f9fc03300910294026dabf187e5fa7c8e88632980f6b43000827ecb761e7"
   },
   "geo_code": "AF",
   "node_type": "country",

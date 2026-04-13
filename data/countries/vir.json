@@ -118,17 +118,10 @@
     "lng": -64.779172
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/U.S._Virgin_Islands",
     "wiki_truth": null,
-    "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/U.S._Virgin_Islands",
-        "title": "Wikipedia: United States Virgin Islands",
-        "type": "external",
-        "weight": "low"
-      }
-    ]
+    "citations": []
   },
   "updated_at": "2026-04-10",
   "normalized_version": "v1",
@@ -180,7 +173,7 @@
     "code": "vir",
     "content_hash": "0897ba8fcf0d28e60da4f5e157472702d66fade9205f86b1d0437efe3d90812c",
     "notes_hash": "64866710ca3ec9bf13c451d826e4df5939a0ee29d3d5ff7c29801d6e562794ad",
-    "model_hash": "b1fe07dcb032512edaa790b1db5f287040376a42345c0c80e2341f8a77fde6d1"
+    "model_hash": "72be66f594d621b61baea77dc3711181d57ec13ffc1dfe44f2ab07871a81b3fe"
   },
   "geo_code": "VI",
   "node_type": "country",

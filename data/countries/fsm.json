@@ -124,13 +124,14 @@
     "lng": 158.25
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Micronesia",
     "wiki": "https://en.wikipedia.org/wiki/Micronesia",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Micronesia",
-        "title": "Wikipedia: Micronesia",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Micronesia",
+        "title": "Wikipedia: Cannabis in Micronesia",
         "type": "external",
         "weight": "low"
       },
@@ -193,7 +194,7 @@
     "code": "fsm",
     "content_hash": "8043a93fe33e88809fc4b3d0b9f7b40c668fd82aa21f78f8d4398911a3d228d7",
     "notes_hash": "02e363420e4dd4abcdc053ee3c2d6ede3a1c921f0ee86cc7df8a6dc9b75e0639",
-    "model_hash": "f1ddfacbabb8254f3ef726370e3b35fc781e07742082a5557be10765ec660824"
+    "model_hash": "54b3d5d601c4088cd52031e81131bec8f702d4a594cc5b588db1902e62b1242a"
   },
   "geo_code": "FM",
   "node_type": "country",

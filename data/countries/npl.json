@@ -169,13 +169,14 @@
     "lng": 84
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Nepal",
     "wiki": "https://en.wikipedia.org/wiki/Nepal",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Nepal",
-        "title": "Wikipedia: Nepal / नेपाल",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Nepal",
+        "title": "Wikipedia: Cannabis in Nepal",
         "type": "external",
         "weight": "low"
       },
@@ -238,7 +239,7 @@
     "code": "npl",
     "content_hash": "75dda6472d146b754e4297a532d7c2160ae711b2965b1f1c6ef644f72dde83b7",
     "notes_hash": "7a3bb35762a3f228b51b82b9e268be1408e9adb3432d8fa1b426853dcce3f8b1",
-    "model_hash": "a444f588f00e08e67657ecb9c9c74720090b024924c74c34e165102bc8a7f480"
+    "model_hash": "0a51e10dcfa58a92caedddd3b85e9d24aa090f5cc1ed348264ad56b4306e25c0"
   },
   "geo_code": "NP",
   "node_type": "country",

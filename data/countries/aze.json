@@ -136,13 +136,14 @@
     "lng": 47.5
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Azerbaijan",
     "wiki": "https://en.wikipedia.org/wiki/Azerbaijan",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Azerbaijan",
-        "title": "Wikipedia: Azerbaijan / Azərbaycan",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Azerbaijan",
+        "title": "Wikipedia: Cannabis in Azerbaijan",
         "type": "external",
         "weight": "low"
       },
@@ -205,7 +206,7 @@
     "code": "aze",
     "content_hash": "d70d7056e7f2d82d2e443773df62228cf1febcaa42223e69fb67015eb69c63d3",
     "notes_hash": "3ea8f35858b441dd90f482b38c3b354ee5c773e65433d5e2313da8dbfc144c61",
-    "model_hash": "d02f19f6a8e520f027d818c1ba2187460bf356037fd24a8758e2a54d91ade7d5"
+    "model_hash": "36fd3142b2e4327442f0c9c9705ffe105fa4da01f3b9f18e529967cf97f594be"
   },
   "geo_code": "AZ",
   "node_type": "country",

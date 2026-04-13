@@ -161,13 +161,14 @@
     "lng": -65
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Bolivia",
     "wiki": "https://en.wikipedia.org/wiki/Bolivia",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Bolivia",
-        "title": "Wikipedia: Bolivia / Wuliwya",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bolivia",
+        "title": "Wikipedia: Cannabis in Bolivia",
         "type": "external",
         "weight": "low"
       },
@@ -230,7 +231,7 @@
     "code": "bol",
     "content_hash": "fda762a6ba78bed1ea688817519cc12e19db980ab2a633690895c39dea628ba8",
     "notes_hash": "c03fe5116ecc028b6cf99c65b9b0330c2f452b2ffbdb929ed47d9642dfde40f1",
-    "model_hash": "085f1baa05260f3f7b7ac237d1e463937f71954644f07f7fdad7a8dd33e59a62"
+    "model_hash": "98dd95ac72778f4f773b9bb436b09428631b99ad288be5fa61b38ba47cddb9a1"
   },
   "geo_code": "BO",
   "node_type": "country",

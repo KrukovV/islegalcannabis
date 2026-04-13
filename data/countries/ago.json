@@ -141,13 +141,14 @@
     "lng": 18.5
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Angola",
     "wiki": "https://en.wikipedia.org/wiki/Angola",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Angola",
-        "title": "Wikipedia: Angola",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Angola",
+        "title": "Wikipedia: Cannabis in Angola",
         "type": "external",
         "weight": "low"
       },
@@ -210,7 +211,7 @@
     "code": "ago",
     "content_hash": "8edd462cbc64eefdde3ceee4d758aa59ff2d2a8e5120cff584469a59b97541ff",
     "notes_hash": "94362257aa43ea74bd3395187ca76d6cff00a2a6389b2473aeab4739b8dc35f9",
-    "model_hash": "0c42d9a1a52939c1f56a1f60aca28cf5946e35298bcc3c2cb235b9618af32842"
+    "model_hash": "b247013387b32f2cd695d38671c7b765806a72dc209e0c21fd4c0369bd656123"
   },
   "geo_code": "AO",
   "node_type": "country",

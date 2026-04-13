@@ -179,13 +179,14 @@
     "lng": 20
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Hungary",
     "wiki": "https://en.wikipedia.org/wiki/Hungary",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Hungary",
-        "title": "Wikipedia: Hungary / Magyarország",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Hungary",
+        "title": "Wikipedia: Cannabis in Hungary",
         "type": "external",
         "weight": "low"
       },
@@ -248,7 +249,7 @@
     "code": "hun",
     "content_hash": "dc1752a1079beedf89afe3f7d658c9e32910bf8b14f35c534f1d0cc2b8356bd3",
     "notes_hash": "2103af8c8fc92a89a8e60f18f043cf029288c8aa9a866c01d234ef7d3a9bbca7",
-    "model_hash": "8b44ca854c30280e5d76de84e289b4b237ae734d5c26c04d8605ca21b79c1530"
+    "model_hash": "c8e525f5c80b1b557c86af7b77bae6c55ac09267f7a59679df88ae594b7454a1"
   },
   "geo_code": "HU",
   "node_type": "country",

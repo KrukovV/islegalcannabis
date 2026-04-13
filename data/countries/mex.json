@@ -187,13 +187,14 @@
     "lng": -102
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Mexico",
     "wiki": "https://en.wikipedia.org/wiki/Mexico",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Mexico",
-        "title": "Wikipedia: Mexico / México",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Mexico",
+        "title": "Wikipedia: Cannabis in Mexico",
         "type": "external",
         "weight": "low"
       },
@@ -256,7 +257,7 @@
     "code": "mex",
     "content_hash": "bc1debf95b470871b24ac9bc4eb05f0eb21b2daf055cd4f6fd2e0690bb292818",
     "notes_hash": "c05b60f3193af55438d2237a48dfc88640378532135d8e91c525ad47bd35f96c",
-    "model_hash": "d4400ce74eb3bb5fba62969006d4bf26ba54d9815ef2b07710372205074065d7"
+    "model_hash": "b7270c1fb00791d9bc099ce4ece72cad8a5416b91b7e51ba250c4c5c7a0bf243"
   },
   "geo_code": "MX",
   "node_type": "country",

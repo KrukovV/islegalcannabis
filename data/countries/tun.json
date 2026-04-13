@@ -29,8 +29,7 @@
       "enforcement": "fine-based",
       "flags": [],
       "modifiers": [
-        "may",
-        "but"
+        "may"
       ]
     },
     "signals": {
@@ -39,7 +38,7 @@
       "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 3,
+        "prison_priority": 1,
         "arrest": false,
         "fine": true,
         "severity_score": 4,
@@ -63,12 +62,6 @@
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Tunisia",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Tunisia",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Summary of Annual Reports of Governments Relating to Opium and Other Narcotic Drugs",
@@ -99,6 +92,12 @@
           "url": "https://www.economist.com/middle-east-and-africa/2017/04/12/some-arab-governments-are-rethinking-harsh-cannabis-laws",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "Cannabis in Tunisia",
+          "url": "https://archive.org/details/historyanddescr00leogoog/page/n36",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -109,21 +108,19 @@
         "rule: penalty_prison | source: Tunisia / تونس | type: summary | priority: 1 | scope: cultivation",
         "rule: penalty_fine | source: Tunisia / تونس | type: summary | priority: 1 | scope: cultivation",
         "rule: penalty_years | source: Tunisia / تونس | type: summary | priority: 1 | scope: cultivation",
-        "rule: raw_illegal | source: Cannabis in Tunisia | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Tunisia | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_prison | source: Cannabis in Tunisia | type: traversal | priority: 3 | scope: general"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 916,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": true,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": "illegal",
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
@@ -134,8 +131,7 @@
       "illegal",
       "penalty_prison",
       "penalty_fine",
-      "penalty_years",
-      "raw_illegal"
+      "penalty_years"
     ],
     "notes_normalized": "Cannabis is illegal in Tunisia / تونس. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
@@ -170,13 +166,14 @@
     "lng": 9
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Tunisia",
     "wiki": "https://en.wikipedia.org/wiki/Tunisia",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Tunisia",
-        "title": "Wikipedia: Tunisia / تونس",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Tunisia",
+        "title": "Wikipedia: Cannabis in Tunisia",
         "type": "external",
         "weight": "low"
       },
@@ -237,9 +234,9 @@
   },
   "hashes": {
     "code": "tun",
-    "content_hash": "390030871fea036e2c262df94f6431aef4b094979e6942439cd2403bcd7d27cd",
+    "content_hash": "5c28d65aad8abb563a601a98b26e21e3b470a061a0bacfcd1f4bf4306207279d",
     "notes_hash": "cb060f565d93c84c53b5fa2714660d89a8342e7fe4b5ce9801faf4b2006dd22d",
-    "model_hash": "9ec5b6bbadada4a6ad16bb773a272d1391afca8897353718feb457c9170ae3a8"
+    "model_hash": "701b28ed5b5c30efb86ab2cf9ea8b1c8b25850b1faffa0a7e5239852c2b41698"
   },
   "geo_code": "TN",
   "node_type": "country",

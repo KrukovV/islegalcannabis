@@ -143,6 +143,7 @@
     "lng": -97
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Wisconsin",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -166,7 +167,7 @@
     "code": "us-wi",
     "content_hash": "e1217320a895b610340c78e7c6edf368c38cfb935250b03e7e86cc2f1936b9db",
     "notes_hash": "e8df7447c5087fb5901351a4f10c30010f23f6e48705fa04526bfd35f67c6e5c",
-    "model_hash": "e25c2563612ce83a29b64dd60ed1e0189a06cd42c96b41bed00bdc6ea57bfc9f"
+    "model_hash": "dc6c375d03edc2a7630ae8b2631dff42d97f38b53dcf2e503508caa9655a33e5"
   },
   "updated_at": "2026-04-10"
 }

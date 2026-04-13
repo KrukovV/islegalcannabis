@@ -192,13 +192,14 @@
     "lng": -55
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Brazil",
     "wiki": "https://en.wikipedia.org/wiki/Brazil",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Brazil",
-        "title": "Wikipedia: Brazil / Brasil",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Brazil",
+        "title": "Wikipedia: Cannabis in Brazil",
         "type": "external",
         "weight": "low"
       },
@@ -261,7 +262,7 @@
     "code": "bra",
     "content_hash": "0264c2063dc878cb0ecc0a5ceda26529f604fb53e426a154ac58dbd39806675a",
     "notes_hash": "b9b79ffed742fb2d97a769a6c2e7e086e9865d39e8236f631a3fac448d413e86",
-    "model_hash": "4741fbecbe95668d8206199e318c464d7314041ad7f9423bccdca890c0542a19"
+    "model_hash": "bc4dd1a494ee08088e4175a625d7fbfebca7dbabea41392cfca6f6cde5fc263c"
   },
   "geo_code": "BR",
   "node_type": "country",

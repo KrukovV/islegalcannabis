@@ -204,13 +204,14 @@
     "lng": 138
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Japan",
     "wiki": "https://en.wikipedia.org/wiki/Japan",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Japan",
-        "title": "Wikipedia: Japan / 日本",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Japan",
+        "title": "Wikipedia: Cannabis in Japan",
         "type": "external",
         "weight": "low"
       },
@@ -273,7 +274,7 @@
     "code": "jpn",
     "content_hash": "f61ed5cc352ef96a2098d0778e2a4253627f808162c8657c052a975447812652",
     "notes_hash": "51d2bf04605ee687ed3abbc6ce70456da90381bab5f16488933d86c7aadfdf38",
-    "model_hash": "efe83644b9e0d142c71b26ccfabcd448e330eaedcaf1e3635d772576995fc600"
+    "model_hash": "b028a0444e0d3fe28c8596919af856331beb57bf35f38ae9f06183d279e0148c"
   },
   "geo_code": "JP",
   "node_type": "country",

@@ -168,13 +168,14 @@
     "lng": 34
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Malawi",
     "wiki": "https://en.wikipedia.org/wiki/Malawi",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Malawi",
-        "title": "Wikipedia: Malawi / Malaŵi",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Malawi",
+        "title": "Wikipedia: Cannabis in Malawi",
         "type": "external",
         "weight": "low"
       },
@@ -237,7 +238,7 @@
     "code": "mwi",
     "content_hash": "89014105df22cd94b41b658ee23bd6c5fe96b73d25b00a21ec4ad164bb58cc3b",
     "notes_hash": "a85579dd15710ecf9d1ad3f5ad832bafa952579db6764430a1244fb09aeda84a",
-    "model_hash": "49f59fd17c8941e385ac63f3bd75ffcb3098b34d6f61a922b29abbd92415ee89"
+    "model_hash": "aaf2c9fb370908d87ed241136ecdd744eeb30091c099eac41c214bb0a38fe230"
   },
   "geo_code": "MW",
   "node_type": "country",

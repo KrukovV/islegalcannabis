@@ -145,6 +145,7 @@
     "lng": -116.4194
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Nevada",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -175,7 +176,7 @@
     "code": "us-nv",
     "content_hash": "50a8ae95bf57eb8a3cf54481d623d4aab81ce535be54a5399548efd9d5ffbae9",
     "notes_hash": "d869da2b8cd4fb1d720376f09b9d9ea17bf6deeb4ae44e7db1ac078900721f31",
-    "model_hash": "52a69782e187593e0e30912ab26605243ccf8c2fdfe12747e8cb351f851a6203"
+    "model_hash": "ed6d4082a6b12f28a30a8e0852c981c65e1b25c189fbaa5556555ef8e0a08b29"
   },
   "updated_at": "2024-01-01"
 }

@@ -169,13 +169,14 @@
     "lng": 35.83333333
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Lebanon",
     "wiki": "https://en.wikipedia.org/wiki/Lebanon",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Lebanon",
-        "title": "Wikipedia: Lebanon / لبنان",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Lebanon",
+        "title": "Wikipedia: Cannabis in Lebanon",
         "type": "external",
         "weight": "low"
       },
@@ -238,7 +239,7 @@
     "code": "lbn",
     "content_hash": "aa060a3e5b20243fa87e156307d7ef90acb32e2b1fe1b929532767700fe4146c",
     "notes_hash": "465283faecce66a0a50a02b7ca506300b1a7f1b72e6583fac58a67a1d684327a",
-    "model_hash": "787652e0e87ef72a22490334d3d6630c23d18be5aa6913c102244e772f66ac17"
+    "model_hash": "4ed0ec65e4a913fd39c482909123d877acbb301a5f0f4795b251fb43058eaece"
   },
   "geo_code": "LB",
   "node_type": "country",

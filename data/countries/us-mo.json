@@ -145,6 +145,7 @@
     "lng": -97
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Missouri",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -168,7 +169,7 @@
     "code": "us-mo",
     "content_hash": "6ca99b17eb94948148de34f70a51ae9e62b531faae8b62f34d98ed596628706e",
     "notes_hash": "069f4336518bc62d4720e75627a2f45d60791a6d4be2d90512429d8fdabc2601",
-    "model_hash": "cf5a753a20a2e0e2aa4613941ddfddb32785fb9ac983cbb56bbdb7b6f25aeb6b"
+    "model_hash": "2ac68b4abb1458663ca4f007f3dbc263e6cca2cebff669c030df9eca7cffd423"
   },
   "updated_at": "2026-04-10"
 }

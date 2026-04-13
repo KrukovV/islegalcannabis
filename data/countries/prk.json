@@ -167,13 +167,14 @@
     "lng": 127
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_North_Korea",
     "wiki": "https://en.wikipedia.org/wiki/Korea%2C_North",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Korea%2C_North",
-        "title": "Wikipedia: North Korea / 조선",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_North_Korea",
+        "title": "Wikipedia: Cannabis in North Korea",
         "type": "external",
         "weight": "low"
       },
@@ -236,7 +237,7 @@
     "code": "prk",
     "content_hash": "4a60b16f8b43bd219ab1e07af0b703efd82ee760bd689af752b3fc9a3953166b",
     "notes_hash": "43c8a4031ab4bd1377a76657eaacd2b9e8f3102ea9cc666038eb47b2eee09c0a",
-    "model_hash": "fcdf6ddd4fb6f7a5a4b80d53d5a6dbbf8417564fac1acede71e814a085dcfbc3"
+    "model_hash": "4d4f33d1e621a01ea664aa7e755cd4e762fb73da98effe4f5e3635d4da9d6393"
   },
   "geo_code": "KP",
   "node_type": "country",

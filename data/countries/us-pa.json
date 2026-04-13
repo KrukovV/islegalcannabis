@@ -143,6 +143,7 @@
     "lng": -97
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Pennsylvania",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -173,7 +174,7 @@
     "code": "us-pa",
     "content_hash": "ae2496db623adae46182fd6c53c172e1b339a9c6d43faaf0514cdde4497cbe0f",
     "notes_hash": "6961473301d1cc63225a242a73394e63315285c75a6567bdfcdf4c0c7c99d17a",
-    "model_hash": "cd5e138d6fe0178f438bfa65623989f37a98e126c45453f077fdf5bb2c6e024a"
+    "model_hash": "031714b76cb091c3b1c0f9f2a042f95629d73ff4c7b7b36ab0a9e89385dc9750"
   },
   "updated_at": "2024-01-01"
 }

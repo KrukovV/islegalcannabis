@@ -199,13 +199,14 @@
     "lng": 8
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Switzerland",
     "wiki": "https://en.wikipedia.org/wiki/Switzerland",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Switzerland",
-        "title": "Wikipedia: Switzerland / Suisse",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Switzerland",
+        "title": "Wikipedia: Cannabis in Switzerland",
         "type": "external",
         "weight": "low"
       },
@@ -268,7 +269,7 @@
     "code": "che",
     "content_hash": "bf0e4bee4000150631659f9f0e875fd2f031fd58e67a3c11cd798fb7f8d49217",
     "notes_hash": "3183823cbc096749e26bee92b279ae98f7931d48577b6ca1de8486cf0b05004c",
-    "model_hash": "7dc0169b03ea2c0c2a3badef4dcc97d1f92124a45d42f2308c4fe1087a4c7470"
+    "model_hash": "11c37f84aea58bd2499f9b9846e0828ed7f4e0f6be1751355196052c7e98e13e"
   },
   "geo_code": "CH",
   "node_type": "country",

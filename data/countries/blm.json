@@ -118,17 +118,10 @@
     "lng": -62.833193
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/St._Barth%C3%A9lemy",
     "wiki_truth": null,
-    "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/St._Barth%C3%A9lemy",
-        "title": "Wikipedia: Saint Barthélemy",
-        "type": "external",
-        "weight": "low"
-      }
-    ]
+    "citations": []
   },
   "updated_at": "2026-04-10",
   "normalized_version": "v1",
@@ -180,7 +173,7 @@
     "code": "blm",
     "content_hash": "48304a960709d990790069212cc6dce85e0412444d35a3d65235d6d286b7f970",
     "notes_hash": "8f322ee93c34cb8f223c787b4e69327321be077aada6ebf047980ecfe5dc0625",
-    "model_hash": "b8d2803ae08c11a4cc0510dccabbbb36942180c36d1dd5e472992a89ba95315f"
+    "model_hash": "17cacd49cc06af59d2ccc5925bf1f75b60126b3af627318f93c51d43ee21f4cc"
   },
   "geo_code": "BL",
   "node_type": "country",

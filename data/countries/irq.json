@@ -137,13 +137,14 @@
     "lng": 44
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Iraq",
     "wiki": "https://en.wikipedia.org/wiki/Iraq",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Iraq",
-        "title": "Wikipedia: Iraq / العراق",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Iraq",
+        "title": "Wikipedia: Cannabis in Iraq",
         "type": "external",
         "weight": "low"
       },
@@ -206,7 +207,7 @@
     "code": "irq",
     "content_hash": "7afc637d8688a787500f51405f13b0ed1ca98bde1c1ff551d70bdcb06ac75e29",
     "notes_hash": "8892a54e2633e702841f328270f24943c6d846212ca146aecaaa479d33bee001",
-    "model_hash": "eb763c5a8f939eebbcbc9e048d35b763c1560ab8c64d38da44ff99042c56cec3"
+    "model_hash": "4b1b843be5f20389b87d8b64fca7970f7ec97e4a200521912aa63b5e4abb6d05"
   },
   "geo_code": "IQ",
   "node_type": "country",

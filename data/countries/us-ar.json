@@ -143,6 +143,7 @@
     "lng": -97
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Arkansas",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -166,7 +167,7 @@
     "code": "us-ar",
     "content_hash": "45e0d19b99dba2baf0ff0b2e9772224f796226dbac5f8d55fda7dc86758f6563",
     "notes_hash": "72de72aa79191ed378371f90b8637b4c991c09131161598d9452a3c8d1323f4e",
-    "model_hash": "0e268010966c7c972d995bf40cf82b0302790ecd2ea28df675e0a360252bcd33"
+    "model_hash": "476894fa8a647b9f96b5d96cce345ada25b52e59ab90cef801fde036cfdb04da"
   },
   "updated_at": "2026-04-10"
 }

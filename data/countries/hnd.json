@@ -93,7 +93,7 @@
       "secondary_source": {
         "has_article": true,
         "article_len": 104,
-        "source_confidence": "weak_article",
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
@@ -141,13 +141,14 @@
     "lng": -86.5
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Honduras",
     "wiki": "https://en.wikipedia.org/wiki/Honduras",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Honduras",
-        "title": "Wikipedia: Honduras",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Honduras",
+        "title": "Wikipedia: Cannabis in Honduras",
         "type": "external",
         "weight": "low"
       },
@@ -208,9 +209,9 @@
   },
   "hashes": {
     "code": "hnd",
-    "content_hash": "43ab23c912df66e7705d120fd47b2bd9f7d03e6b36cdab579d16b07d201347c9",
+    "content_hash": "21201ddf9ff81f244528d9985986821d4b64b9629fac127269d49599ba96f4fc",
     "notes_hash": "4fc807051916b0fab6b2053b42f5e74d3f606d41583dec2c09c936d803d8149d",
-    "model_hash": "b4a6cdf0515883cf27d4cc029658b1a93bed1a1f7e93b8493e68b18db285cddb"
+    "model_hash": "d6917e9976a8df44ae8a32bb94c2ff3077e3260b7e6be0616c42517f715ddb73"
   },
   "geo_code": "HN",
   "node_type": "country",

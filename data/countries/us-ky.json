@@ -143,6 +143,7 @@
     "lng": -97
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Kentucky",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -166,7 +167,7 @@
     "code": "us-ky",
     "content_hash": "1a1fce5ab0454f1e29197d108871d2449b9d60e8cec73f628d11153b78dcfce6",
     "notes_hash": "f5a90c87c8c5fd5160a82764b0a2d668b4acb07c2880e62a7c540cbb0a6d10dd",
-    "model_hash": "b0ed8cd48c6ad816fc19023617773fe1b171c53ac5ef394f2bd8e29fd6d6d7d5"
+    "model_hash": "f3d57b715d687bc2dfd8ed048c3b1f7a39841d31fbeeca181ec7b814433c3e7e"
   },
   "updated_at": "2026-04-10"
 }

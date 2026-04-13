@@ -81,7 +81,7 @@
       "secondary_source": {
         "has_article": true,
         "article_len": 281,
-        "source_confidence": "weak_article",
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
@@ -129,13 +129,14 @@
     "lng": -9.5
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Liberia",
     "wiki": "https://en.wikipedia.org/wiki/Liberia",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Liberia",
-        "title": "Wikipedia: Liberia",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Liberia",
+        "title": "Wikipedia: Cannabis in Liberia",
         "type": "external",
         "weight": "low"
       },
@@ -196,9 +197,9 @@
   },
   "hashes": {
     "code": "lbr",
-    "content_hash": "d66a84bb60f05cea4392382c3ecf9de90a009bdea3a9969e68244854e0178788",
+    "content_hash": "113b42a16346945565ea02a7c00f3b00f539a8a7689fc4e01c669339305b0594",
     "notes_hash": "d07befd6ce51bc804c545d8a6ca482436c34abc5403a7a6e9bccc8a2cf656913",
-    "model_hash": "4deb8eb22b172e4efca0582e3d9f63c07a4b7d6a26a60f3e86bf8da0de5f0417"
+    "model_hash": "b4ae41bcc39d3dfbf521178a9c44265ecfd1ec679345740c4f30486173acb49e"
   },
   "geo_code": "LR",
   "node_type": "country",

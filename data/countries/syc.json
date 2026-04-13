@@ -168,13 +168,14 @@
     "lng": 55.66666666
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Seychelles",
     "wiki": "https://en.wikipedia.org/wiki/Seychelles",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Seychelles",
-        "title": "Wikipedia: Seychelles / Sesel",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Seychelles",
+        "title": "Wikipedia: Cannabis in Seychelles",
         "type": "external",
         "weight": "low"
       },
@@ -237,7 +238,7 @@
     "code": "syc",
     "content_hash": "b018e30f0b36b6899457946320823de5ee987c883f2fbd6c88a79b52f27858e8",
     "notes_hash": "13c12674406ed29e8d223f24d8b9dea0adf0822fd67f331eaec21c3a09f2fd05",
-    "model_hash": "cd4948a0556c5d0b59fbacd8dcbe73d74ab3294ef19845845026db2c70ea4b1d"
+    "model_hash": "66e7775ea6cba13e2354caa1fad8a3e5c466780cb3a05c22268f5a873ac1bc5b"
   },
   "geo_code": "SC",
   "node_type": "country",

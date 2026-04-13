@@ -157,13 +157,14 @@
     "lng": 107.83333333
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Vietnam",
     "wiki": "https://en.wikipedia.org/wiki/Vietnam",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Vietnam",
-        "title": "Wikipedia: Vietnam / Việt Nam",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Vietnam",
+        "title": "Wikipedia: Cannabis in Vietnam",
         "type": "external",
         "weight": "low"
       },
@@ -226,7 +227,7 @@
     "code": "vnm",
     "content_hash": "4f3bc55663a63f4e1cb91574f0eae34725e18555e7ffc7df6d00e9cda379d11f",
     "notes_hash": "40c7359699d8ac6ce9d7141845207f1d15d8e631bb3334620376caefd5aa891e",
-    "model_hash": "613b96a3a30fe8a77dc74f2d533631ca74be53fc0d41edada8500c9758fd133e"
+    "model_hash": "3aa8c0d62e985ac639359105b07c84ebb8c1bfccd2a740c0ceef17a411f42265"
   },
   "geo_code": "VN",
   "node_type": "country",

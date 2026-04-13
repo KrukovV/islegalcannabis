@@ -172,13 +172,14 @@
     "lng": -71
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Chile",
     "wiki": "https://en.wikipedia.org/wiki/Chile",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Chile",
-        "title": "Wikipedia: Chile",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Chile",
+        "title": "Wikipedia: Cannabis in Chile",
         "type": "external",
         "weight": "low"
       },
@@ -241,7 +242,7 @@
     "code": "chl",
     "content_hash": "fba8ab3ec611c27037bcb6f71dd19f7fd0989ddc67ea95b72fa38aab0db05c95",
     "notes_hash": "8dffe4396b8d29c1a08104fc93106c4e005f1cc374e60c2bc1257a810b7e71f9",
-    "model_hash": "0aba2f82d879e5cca0855dd3967ec1ec8206fa51ab886b815feb6e2bfe2063f6"
+    "model_hash": "dd08a3e972322e0ed6bd9897f424adeacfbd87dd049b9029a76660c18a161618"
   },
   "geo_code": "CL",
   "node_type": "country",

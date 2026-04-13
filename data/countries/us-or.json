@@ -145,6 +145,7 @@
     "lng": -97
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Oregon",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -175,7 +176,7 @@
     "code": "us-or",
     "content_hash": "5fbc478a8e8e8073dd782c69cae82dc9a55858ba7fbd22e699a16c020929ce11",
     "notes_hash": "a2be9738d4c8373c1aa6c54037fd80c0e417e94859a0a877985e29bd5e5d863d",
-    "model_hash": "15cc5d19d325c00525cf6a2b1f30fa56dc5d1fc64c72f3c7d35730ef7b37c2fe"
+    "model_hash": "cbfc06270ceb5576ed65ad0f34b10ca7ff0a5e65d7b963865d2a722b124fb6bb"
   },
   "updated_at": "2024-01-01"
 }

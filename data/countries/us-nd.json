@@ -145,6 +145,7 @@
     "lng": -97
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/North_Dakota",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -168,7 +169,7 @@
     "code": "us-nd",
     "content_hash": "6c7195124f035b364909110609b46b76f6313a1a981bdde441a9fc604aea9d7f",
     "notes_hash": "8cb630cebac1a92aafe03b7e39e01e43128c3b37475bac6243172b5a8c64ae51",
-    "model_hash": "a008e8fb7c045db28946f64483bca02487e4a45a8881103f1835cc089bed5325"
+    "model_hash": "bbf5c3079c765809f521c6448095c7bbfbdb7d45ac2acb16018e2d4ca6be1a73"
   },
   "updated_at": "2026-04-10"
 }

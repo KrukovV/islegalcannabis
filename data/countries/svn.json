@@ -170,13 +170,14 @@
     "lng": 14.81666666
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Slovenia",
     "wiki": "https://en.wikipedia.org/wiki/Slovenia",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Slovenia",
-        "title": "Wikipedia: Slovenia / Slovenija",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Slovenia",
+        "title": "Wikipedia: Cannabis in Slovenia",
         "type": "external",
         "weight": "low"
       },
@@ -239,7 +240,7 @@
     "code": "svn",
     "content_hash": "38c5816f0fe6305d087a73f66261939a32cb6912b626bb9f34f2961430d67d90",
     "notes_hash": "8304d9c9e265b3e796cfe277af859b3898cf087d94398aa9f1c942f1dbf60d18",
-    "model_hash": "6905957d1c9237581558f8b59a76768f43a4aae918bfc9f336d37e59e851a12d"
+    "model_hash": "08f83eed3befa7bcd49c60f2c29eef51e8fd8a787fd20026bb8bcf1bcd96a4c7"
   },
   "geo_code": "SI",
   "node_type": "country",

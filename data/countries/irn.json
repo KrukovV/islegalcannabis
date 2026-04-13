@@ -159,13 +159,14 @@
     "lng": 53
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Iran",
     "wiki": "https://en.wikipedia.org/wiki/Iran",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Iran",
-        "title": "Wikipedia: Iran / ایران",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Iran",
+        "title": "Wikipedia: Cannabis in Iran",
         "type": "external",
         "weight": "low"
       },
@@ -228,7 +229,7 @@
     "code": "irn",
     "content_hash": "9f1c3bd076acfbf4b3e5f1aa08130059f005ad5b9ef6ba11105bcdf9445441fb",
     "notes_hash": "eaa6e507f742cdb588d9a1a9a0a181cce7652d3e2b3cfd0e0b0e2c67cb9c2653",
-    "model_hash": "06c4751fc41464306fd2b0e6396fdd6c0fa478b4e992ebb85c6d11f513497072"
+    "model_hash": "320e8ba6006c4e9b442c38ac035461433a336c3892163f5fc2ec89da05f59b58"
   },
   "geo_code": "IR",
   "node_type": "country",

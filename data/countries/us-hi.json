@@ -145,6 +145,7 @@
     "lng": -97
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Hawaii",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -168,7 +169,7 @@
     "code": "us-hi",
     "content_hash": "bef31aaea217fd19aef58f0cfd82c655bec045679992b40d241133d05e64e720",
     "notes_hash": "fcdae0f5d4a6a1719654e5cc03fa43c49048939f39d9783d9e735668b004a34b",
-    "model_hash": "0283c33344bf1de0b91a0164959e3bc5b7ff3b0b8e326c689947625a16c99fab"
+    "model_hash": "40b4b742d1afc5ad97ffa1c5161718a728d9789c9d42000f39d7244a4718c7bb"
   },
   "updated_at": "2026-04-10"
 }

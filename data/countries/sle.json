@@ -29,7 +29,10 @@
       "enforcement": "standard",
       "flags": [],
       "modifiers": [
-        "may"
+        "may",
+        "but",
+        "only",
+        "up_to"
       ]
     },
     "signals": {
@@ -64,6 +67,12 @@
           "type": "summary"
         },
         {
+          "title": "Cannabis in Sierra Leone",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Sierra_Leone",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
           "title": "International Narcotics Control Strategy Report: Volume I: Drug and Chemical Control",
           "url": "https://books.google.com/books?id=0jnyNWFuhXYC&pg=PA543",
           "depth": 2,
@@ -92,24 +101,19 @@
           "url": "https://books.google.com/books?id=wUd9CAAAQBAJ&pg=PA39",
           "depth": 2,
           "type": "reference"
-        },
-        {
-          "title": "Cannabis in Sierra Leone",
-          "url": "https://archive.org/details/hookersjournalb03hookgoog/page/n18",
-          "depth": 2,
-          "type": "reference"
         }
       ],
       "explain": [
         "rule: illegal | source: Sierra Leone | type: summary | priority: 1 | scope: general",
+        "rule: raw_illegal | source: Cannabis in Sierra Leone | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Sierra Leone | type: traversal | priority: 3 | scope: general",
         "rule: raw_illegal | source: Kush: Sierra Leone's new illegal drug | type: reference | priority: 2 | scope: general",
-        "rule: illegal | source: Kush: Sierra Leone's new illegal drug | type: reference | priority: 2 | scope: general",
-        "no traversal evidence"
+        "rule: illegal | source: Kush: Sierra Leone's new illegal drug | type: reference | priority: 2 | scope: general"
       ],
       "secondary_source": {
-        "has_article": false,
-        "article_len": 0,
-        "source_confidence": "no_secondary_source",
+        "has_article": true,
+        "article_len": 3377,
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
@@ -158,13 +162,14 @@
     "lng": -11.5
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Sierra_Leone",
     "wiki": "https://en.wikipedia.org/wiki/Sierra_Leone",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Sierra_Leone",
-        "title": "Wikipedia: Sierra Leone",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Sierra_Leone",
+        "title": "Wikipedia: Cannabis in Sierra Leone",
         "type": "external",
         "weight": "low"
       },
@@ -225,9 +230,9 @@
   },
   "hashes": {
     "code": "sle",
-    "content_hash": "a500f49cef7b8ac44b8167ae7ff05be7479f179209f46631d38872e0227da91c",
+    "content_hash": "88d0177abf0b2e007adcf853a56cfd97ac069b59414150ac96f52cac0a3d20f0",
     "notes_hash": "42e2911c66cf7864c3ef6ca41607a2c0aeecec825f1b352b3fe2976b5647fc1b",
-    "model_hash": "ddd2f7dff247d4aac69725073ba9a4d571f05cb3b5e6d783d5945a51523772c7"
+    "model_hash": "9ff01737de8baf46596fcfc54a42c4330d47efd1cc3a77575e4b607d9d10a028"
   },
   "geo_code": "SL",
   "node_type": "country",

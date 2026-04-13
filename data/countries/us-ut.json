@@ -143,6 +143,7 @@
     "lng": -97
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Utah",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -166,7 +167,7 @@
     "code": "us-ut",
     "content_hash": "2f8c8b1ec06ea2dd64a6a82e5ab49f7ae02e2dc7c683ce67e84734289e52aa86",
     "notes_hash": "b451b47dfa24b16c2bcb911ccc7ecc1b067be999b4147404508488abedad2362",
-    "model_hash": "b99e7a28536120a8c2f658e925563e3fe18974075ccc8e783ba0ef89b7b52b2a"
+    "model_hash": "47893bbda7720065c08fb1f49a015bff3b54ba8f12f581826276fe47e8e76008"
   },
   "updated_at": "2026-04-10"
 }

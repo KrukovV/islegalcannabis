@@ -21,15 +21,13 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
+        "sale": "illegal",
         "cultivation": null,
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
     },
     "signals": {
@@ -64,6 +62,12 @@
           "type": "summary"
         },
         {
+          "title": "Cannabis in Tuvalu",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Tuvalu",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
           "title": "Tuvalu 2019 Crime & Safety Report",
           "url": "https://www.osac.gov/Content/Report/11b5cbbc-4a38-4e62-9a53-15f4aec3f5ae",
           "depth": 2,
@@ -92,34 +96,32 @@
           "url": "https://www.ilo.org/public/english/bureau/program/dwcp/download/tuvalu.pdf",
           "depth": 2,
           "type": "reference"
-        },
-        {
-          "title": "Tourism Flaws Jewels of the Pacific",
-          "url": "https://www.austlii.edu.au/au/journals/AUFPPlatypus/1990/3.pdf",
-          "depth": 2,
-          "type": "reference"
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Tuvalu | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Tuvalu | type: traversal | priority: 3 | scope: trafficking",
+        "rule: sale_illegal | source: Cannabis in Tuvalu | type: traversal | priority: 3 | scope: trafficking",
+        "rule: raw_illegal | source: Cannabis in Tuvalu | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Tuvalu | type: traversal | priority: 3 | scope: general"
       ],
       "secondary_source": {
-        "has_article": false,
-        "article_len": 0,
-        "source_confidence": "no_secondary_source",
+        "has_article": true,
+        "article_len": 500,
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": null
+          "distribution_article": "illegal"
         }
       }
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Tuvalu. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -154,13 +156,14 @@
     "lng": 178
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Tuvalu",
     "wiki": "https://en.wikipedia.org/wiki/Tuvalu",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Tuvalu",
-        "title": "Wikipedia: Tuvalu",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Tuvalu",
+        "title": "Wikipedia: Cannabis in Tuvalu",
         "type": "external",
         "weight": "low"
       },
@@ -221,9 +224,9 @@
   },
   "hashes": {
     "code": "tuv",
-    "content_hash": "73eff58210bdad3b55ed6bbc3ec7e49b03bb5c94401480183a6bb52e10c5f95a",
+    "content_hash": "f4f96665297bbda66fcc295dbb7aff7734e3ac0d3d5a2f99538393579c2e891d",
     "notes_hash": "f9739f525bea9041c034a98999c04c3915c0d9e52419467070699ae83fd0e1c0",
-    "model_hash": "026bd760002a4c9dd9fb67f1a179b470ec10aea4ff48112d56660924e285ae36"
+    "model_hash": "48a29f2222b8bdd09a3562a9f472bbd09f170d8613353f604dd44e0b77ed29c6"
   },
   "geo_code": "TV",
   "node_type": "country",

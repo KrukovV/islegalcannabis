@@ -124,13 +124,14 @@
     "lng": 57
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Oman",
     "wiki": "https://en.wikipedia.org/wiki/Oman",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Oman",
-        "title": "Wikipedia: Oman / عمان",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Oman",
+        "title": "Wikipedia: Cannabis in Oman",
         "type": "external",
         "weight": "low"
       },
@@ -193,7 +194,7 @@
     "code": "omn",
     "content_hash": "dbc42ff12f1c6f223eab0478b81846f3f5c318359fce641bb65ea6a3bdf4b972",
     "notes_hash": "047949de036e190683a1e006b6bcf6ae1c3aea07cd6c72fbd10441b725344130",
-    "model_hash": "7743d8b12b357dfb549b8bc1fa05ec26d20af2e3e22ef381eaa04da919e51ad3"
+    "model_hash": "609d9c1ec6e006b683d5a53559b5ef9b937c83c783a1e69d811440c5bd1b1053"
   },
   "geo_code": "OM",
   "node_type": "country",

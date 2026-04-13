@@ -26,10 +26,8 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "enforcement": "fine-based",
+      "flags": [],
       "modifiers": []
     },
     "signals": {
@@ -40,8 +38,8 @@
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 1,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -62,6 +60,12 @@
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Eswatini",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Eswatini",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Drug laws, bioprospecting and the agricultural heritage of Cannabis in Africa",
@@ -95,25 +99,30 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Eswatini | type: traversal | priority: 3 | scope: cultivation",
+        "rule: illegal | source: Cannabis in Eswatini | type: traversal | priority: 3 | scope: cultivation",
+        "rule: penalty_fine | source: Cannabis in Eswatini | type: traversal | priority: 3 | scope: general"
       ],
       "secondary_source": {
-        "has_article": false,
-        "article_len": 0,
-        "source_confidence": "no_secondary_source",
+        "has_article": true,
+        "article_len": 1274,
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": null
+          "distribution_article": "illegal"
         }
       }
     },
-    "enforcement_flags": [],
+    "enforcement_flags": [
+      "fine_based"
+    ],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal",
+      "penalty_fine"
     ],
     "notes_normalized": "Cannabis is illegal in Eswatini. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -148,13 +157,14 @@
     "lng": 31.5
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Eswatini",
     "wiki": "https://en.wikipedia.org/wiki/Eswatini",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Eswatini",
-        "title": "Wikipedia: Eswatini",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Eswatini",
+        "title": "Wikipedia: Cannabis in Eswatini",
         "type": "external",
         "weight": "low"
       },
@@ -215,9 +225,9 @@
   },
   "hashes": {
     "code": "swz",
-    "content_hash": "fa1fb02a19ba0fa0e65a9251c7b12bebda1c61cc84d85568adb57093bbc7e3a8",
+    "content_hash": "c9cbefcd4025c4130b4dee5ec678a24db1867631116938fb91a03f6ee8b37545",
     "notes_hash": "a0181ccdfdf53d6a5202a931fca56934d9cf110763c086a10ce26620205e800f",
-    "model_hash": "07a2d199a96918f121a326b4a1f56e6bfbd0c98bbdb4baab643cd88e391943fa"
+    "model_hash": "dd554ace10130b8110681bb796e413a7b1af76712e227b78930cad332d645ad2"
   },
   "geo_code": "SZ",
   "node_type": "country",

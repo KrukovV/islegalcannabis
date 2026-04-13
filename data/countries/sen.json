@@ -161,13 +161,14 @@
     "lng": -14
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Senegal",
     "wiki": "https://en.wikipedia.org/wiki/Senegal",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Senegal",
-        "title": "Wikipedia: Senegal / Sénégal",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Senegal",
+        "title": "Wikipedia: Cannabis in Senegal",
         "type": "external",
         "weight": "low"
       },
@@ -230,7 +231,7 @@
     "code": "sen",
     "content_hash": "d1128e9350ec9a4e2d5e988b755f2325d69248ac53f9bdcae9a9511984e0d7c3",
     "notes_hash": "86b7838e6020c5e1d4bee7730aeaae099c46a8d4d27367977203f546ff2f25a3",
-    "model_hash": "73553f3fe7b9324183ce2dbb010ef8ccf2806b2217840e057e41e124ab4c099a"
+    "model_hash": "31fdfc036dc6d6d40e64b2e01f2688e12bb361eee009b70ad34ad0aeeafe32cd"
   },
   "geo_code": "SN",
   "node_type": "country",

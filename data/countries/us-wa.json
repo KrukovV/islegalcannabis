@@ -145,6 +145,7 @@
     "lng": -120.7401
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Washington",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -175,7 +176,7 @@
     "code": "us-wa",
     "content_hash": "6507ca2056fc978dc2d8a18a972bb4962e453abd5fa1ab62f7eedb9e10ced5ae",
     "notes_hash": "e8f962db5683ef9e54604916b1548ab57331e287a0096e0704dcc00dffea2223",
-    "model_hash": "89278010d12df31d901c9e99efb8266b55d70f38db212e24c7478e8f99a009a7"
+    "model_hash": "5dbe5336a96218fbca50f3e5443ecbb8cbc7e741a5ca68c90c37f7d89a7a651d"
   },
   "updated_at": "2024-01-01"
 }

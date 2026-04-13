@@ -146,13 +146,14 @@
     "lng": -77.5
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Jamaica",
     "wiki": "https://en.wikipedia.org/wiki/Jamaica",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Jamaica",
-        "title": "Wikipedia: Jamaica",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Jamaica",
+        "title": "Wikipedia: Cannabis in Jamaica",
         "type": "external",
         "weight": "low"
       },
@@ -215,7 +216,7 @@
     "code": "jam",
     "content_hash": "b80b41aec00411217ec1c91e41f7dcb703126874d5d403bfdf94d3ba1109979c",
     "notes_hash": "6ff41ce9b07bcadeb9ef069bc98849c9be0ebe339948fcca4245c90e3a00b33c",
-    "model_hash": "5d7c3210deb01ccd83dd9d6e0cb507d928f9e657fcc08006c30ea0bbc492070d"
+    "model_hash": "76e0bc08dd6d072caefb8af0b47d1e599a68e918147023909a7acf3fdbcdd2f8"
   },
   "geo_code": "JM",
   "node_type": "country",

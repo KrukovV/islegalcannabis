@@ -152,13 +152,14 @@
     "lng": 29
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Moldova",
     "wiki": "https://en.wikipedia.org/wiki/Moldova",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Moldova",
-        "title": "Wikipedia: Moldova",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Moldova",
+        "title": "Wikipedia: Cannabis in Moldova",
         "type": "external",
         "weight": "low"
       },
@@ -221,7 +222,7 @@
     "code": "mda",
     "content_hash": "40f914b1324cbc5428734462874eb239a18290ffd1ba240d50668ae63a1984c7",
     "notes_hash": "c1e72c7a6321d57ddfbf53f91343848c7f82e5f2b212c9718b55ca0baf934933",
-    "model_hash": "f7c01dde00e1a28439177487a47a0aeb7fc6de9973f8fcdb9744a14fa670bd16"
+    "model_hash": "6bbb01f92c422103635b3e416358ef46ee81626c2d5e79f4d69fc8315de5fc8a"
   },
   "geo_code": "MD",
   "node_type": "country",

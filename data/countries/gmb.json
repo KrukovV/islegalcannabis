@@ -81,7 +81,7 @@
       "secondary_source": {
         "has_article": true,
         "article_len": 141,
-        "source_confidence": "weak_article",
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
@@ -129,13 +129,14 @@
     "lng": -16.56666666
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_the_Gambia",
     "wiki": "https://en.wikipedia.org/wiki/Gambia",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Gambia",
-        "title": "Wikipedia: Gambia",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Gambia",
+        "title": "Wikipedia: Cannabis in Gambia",
         "type": "external",
         "weight": "low"
       },
@@ -196,9 +197,9 @@
   },
   "hashes": {
     "code": "gmb",
-    "content_hash": "c47e78b3c78ab1f0595c840062f81a3ce15de4ecc4596cd858c87aaa7007617e",
+    "content_hash": "3405aa731bccaec9d58440f1760339514083600cee1d4a0d668156531b74d562",
     "notes_hash": "210762848b850a05bc73e2f0bb38e1c1f2687ada2eadd7a632fdbea8016de4bf",
-    "model_hash": "bcebe17f6e7833681edd870043d51cfd8a38cd7f3e37eced7388b02790bd4697"
+    "model_hash": "bebc5a7516440c1508d5f668a1f1ad8b85185e84ee76609145d9f12c5b0dece5"
   },
   "geo_code": "GM",
   "node_type": "country",

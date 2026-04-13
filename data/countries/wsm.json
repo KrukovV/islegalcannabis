@@ -171,13 +171,14 @@
     "lng": -172.33333333
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Samoa",
     "wiki": "https://en.wikipedia.org/wiki/Samoa",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Samoa",
-        "title": "Wikipedia: Samoa / Sāmoa",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Samoa",
+        "title": "Wikipedia: Cannabis in Samoa",
         "type": "external",
         "weight": "low"
       },
@@ -240,7 +241,7 @@
     "code": "wsm",
     "content_hash": "1653288397a513a5bb9bebee4773675d1527d6d8d17fb4cd3cd395f193281d21",
     "notes_hash": "f477063d02c83d25f2434c779849e860b49a57bbdce6135f3c4c8f79d15ca723",
-    "model_hash": "82c3a447c2a60d61ebd9765652690a5eef79b7ff21a1fa14579ecfd485f2aa19"
+    "model_hash": "73553e3d2658a64d768b4cd2147b7430b88ec241a57ce9841a4cb9658d196f61"
   },
   "geo_code": "WS",
   "node_type": "country",

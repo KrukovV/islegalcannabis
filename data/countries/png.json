@@ -160,13 +160,14 @@
     "lng": 147
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Papua_New_Guinea",
     "wiki": "https://en.wikipedia.org/wiki/Papua_New_Guinea",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Papua_New_Guinea",
-        "title": "Wikipedia: Papua New Guinea / Papua Niu Gini",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Papua_New_Guinea",
+        "title": "Wikipedia: Cannabis in Papua New Guinea",
         "type": "external",
         "weight": "low"
       },
@@ -229,7 +230,7 @@
     "code": "png",
     "content_hash": "6464fc9f1b661fa4c1bb46086e0a1b4d2794530e7cd8802c7e5cedc1ed2159cc",
     "notes_hash": "578e1752120867c3991c9c1ef5627f3de4a11c6e67498f76482519027db744eb",
-    "model_hash": "276487e994cba536866351363462ddd8b3ca477fe273f944fd9690f848db99a1"
+    "model_hash": "b37ffeccb57d55d07770539b4d13695203fe34fb7989c19d78843d456574a1e3"
   },
   "geo_code": "PG",
   "node_type": "country",

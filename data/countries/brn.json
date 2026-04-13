@@ -179,13 +179,14 @@
     "lng": 114.66666666
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Brunei",
     "wiki": "https://en.wikipedia.org/wiki/Brunei",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Brunei",
-        "title": "Wikipedia: Brunei / Negara Brunei Darussalam",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Brunei",
+        "title": "Wikipedia: Cannabis in Brunei",
         "type": "external",
         "weight": "low"
       },
@@ -248,7 +249,7 @@
     "code": "brn",
     "content_hash": "cc6da7bda4f6264e899790a3c4bdc4598808b103574583d84e5cec3bb39358d1",
     "notes_hash": "bef03ec7438acfdb0a2bd53b4cff5b6d77c6476fd437fedabd7581f00b11f9b2",
-    "model_hash": "685d0df2f30307d095875a946294d0cf382fa8c08f26ab3b1b847cb8457ccc02"
+    "model_hash": "37ac35f4d6fde1e3e195fa51ac8b695edb5eb57ef0e98c824cdbbc04728eb309"
   },
   "geo_code": "BN",
   "node_type": "country",

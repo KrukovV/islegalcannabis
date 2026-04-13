@@ -124,13 +124,14 @@
     "lng": 30
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_South_Sudan",
     "wiki": "https://en.wikipedia.org/wiki/South_Sudan",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/South_Sudan",
-        "title": "Wikipedia: South Sudan",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_South_Sudan",
+        "title": "Wikipedia: Cannabis in South Sudan",
         "type": "external",
         "weight": "low"
       },
@@ -193,7 +194,7 @@
     "code": "ssd",
     "content_hash": "03cff3bb6b3fd3393009bb9c982842b85f1e741396df5120a44b3a9a813183f6",
     "notes_hash": "99cebe598f23f2d95f3f865ee4621a2c139b56aa07ae49b39f9bd441366c919b",
-    "model_hash": "43dcc0f7c30e8b072f3d2ad1d653e9aec2c2e1d0e3a94dcf988a7f02ceea67de"
+    "model_hash": "415cb9f206c167f300b6fc6e279e0a169efeec0fb6453e08ca6075c72f22b720"
   },
   "geo_code": "SS",
   "node_type": "country",

@@ -21,27 +21,30 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
+        "sale": "illegal",
         "cultivation": null,
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [
-        "distribution_fallback_illegal"
+        "trafficking_illegal",
+        "sale_illegal"
       ],
-      "modifiers": []
+      "modifiers": [
+        "up_to"
+      ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
       "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 4,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -49,19 +52,25 @@
           "severe": false
         },
         "trafficking": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
-          "fine": false,
-          "severe": false
+          "fine": true,
+          "severe": true
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Monaco",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Monaco",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Monaco",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Cannabis in Monaco",
@@ -95,29 +104,40 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Monaco | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Monaco | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Monaco | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_fine | source: Cannabis in Monaco | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Monaco | type: traversal | priority: 3 | scope: trafficking",
+        "rule: sale_illegal | source: Cannabis in Monaco | type: traversal | priority: 3 | scope: trafficking"
       ],
       "secondary_source": {
-        "has_article": false,
-        "article_len": 0,
-        "source_confidence": "no_secondary_source",
+        "has_article": true,
+        "article_len": 448,
+        "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
-          "prison_article": false,
+          "prison_article": true,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": null
+          "distribution_article": "illegal"
         }
       }
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "distribution_fallback_illegal"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is illegal in Monaco. Medical cannabis is illegal. Distribution is illegal."
+    "applied_rules": [
+      "raw_illegal",
+      "penalty_prison",
+      "penalty_fine",
+      "trafficking_illegal",
+      "sale_illegal"
+    ],
+    "notes_normalized": "Cannabis is illegal in Monaco. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Monaco. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Monaco. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Monaco}}",
   "facts": {
     "possession_limit": null,
@@ -148,13 +168,14 @@
     "lng": 7.4
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Monaco",
     "wiki": "https://en.wikipedia.org/wiki/Monaco",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Monaco",
-        "title": "Wikipedia: Monaco",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Monaco",
+        "title": "Wikipedia: Cannabis in Monaco",
         "type": "external",
         "weight": "low"
       },
@@ -215,9 +236,9 @@
   },
   "hashes": {
     "code": "mco",
-    "content_hash": "35ffdd7b4c875d98c319ea1883cd6df727eee1847b799df7b9199ce693ff7232",
-    "notes_hash": "a71b3ed0582a39d0f6bafae095d12a69c7db7961219c3b211b76a522f3a8c583",
-    "model_hash": "93b8b300b8ccf75c7551b09495423e165f51c2b521803134cca3aa89af1a55e5"
+    "content_hash": "39773165f16b87c65effdba22985eb496e21dd8d5d19e059ef7dacc2def09213",
+    "notes_hash": "6a79acb2e4a8b7acde94770905adb93e18238a4801704d29365f67e4d051c9c7",
+    "model_hash": "d017eaad16f8a3ae9637b275f9374527e56c6fdc17a568a6688a6e531cac7f42"
   },
   "geo_code": "MC",
   "node_type": "country",

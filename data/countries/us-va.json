@@ -143,6 +143,7 @@
     "lng": -97
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Virginia",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -173,7 +174,7 @@
     "code": "us-va",
     "content_hash": "4d23ea1f248d39dd9dabf4db2b7ad3b34715f45ef053e610e1bd3ccbf56adcdc",
     "notes_hash": "a27597f49e9f10762bd6ecbfd6aab01bbe4cf8e5ed88e4f64bcd12e7e49e6511",
-    "model_hash": "058139fefdbb8d50d2695a02c342a683c62281c85cd276f7f0f14392b9a73a1c"
+    "model_hash": "70762c9272170492b66bb27d8dfb524e0d857ed79aa0b9b41299a3f8e675e88c"
   },
   "updated_at": "2024-01-01"
 }

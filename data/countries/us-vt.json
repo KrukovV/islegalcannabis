@@ -145,6 +145,7 @@
     "lng": -97
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Vermont",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -168,7 +169,7 @@
     "code": "us-vt",
     "content_hash": "84f4a365d5c41f986c0f5041a754d21d9401bc6d9b7e5204c93c64f82925d1d8",
     "notes_hash": "1636788066b8e3a18ff09192cc12a59a408880d437fd764029abd9b4d37d3972",
-    "model_hash": "11552bbc02f423351a2d0c7dcc210407286831906a2841566ad0bf6cdd20ea03"
+    "model_hash": "1f983635f504af3cde9e8b4abf0713f63ff813db53f4f66d97bacb011d740917"
   },
   "updated_at": "2026-04-10"
 }

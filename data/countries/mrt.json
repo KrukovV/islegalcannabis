@@ -154,13 +154,14 @@
     "lng": -12
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Mauritania",
     "wiki": "https://en.wikipedia.org/wiki/Mauritania",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Mauritania",
-        "title": "Wikipedia: Mauritania / موريتانيا",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Mauritania",
+        "title": "Wikipedia: Cannabis in Mauritania",
         "type": "external",
         "weight": "low"
       },
@@ -223,7 +224,7 @@
     "code": "mrt",
     "content_hash": "3445ffadefe5a9a31d80293841c2abc06908062116c10020b2660a8a2eab015d",
     "notes_hash": "de01a0ae140020fac62033fd2e1acebc1926e6a6c58ffb0a1ec835ddb5240b10",
-    "model_hash": "785fe400f2e29d003c6eaba265742de461896ed347b80fc4d8645dd0ee3b0d84"
+    "model_hash": "5f76d235706380cc6d9c07baefdd4569d06b4126dc5fdf287d2de314df21ae96"
   },
   "geo_code": "MR",
   "node_type": "country",

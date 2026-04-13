@@ -118,16 +118,10 @@
     "lng": 12.45
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Vatican_City",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Vatican_City",
-        "title": "Wikipedia: Vatican City / Vaticano",
-        "type": "external",
-        "weight": "low"
-      },
       {
         "id": "wiki_truth",
         "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
@@ -187,7 +181,7 @@
     "code": "vat",
     "content_hash": "5a884e8fc18e8f9d8ef811f0cc72bf2a5a5cdeb0fdddc11064a4e6bcbdc6ba09",
     "notes_hash": "63bd1e0bad631635f192602ae4855cea9be93ec30a87da0560cd08d5f99f3cd7",
-    "model_hash": "e83a6ce6b989ef3e841a3cc2529d079a1bc5af80c16445cbc3bbffee148dc455"
+    "model_hash": "c66ed94df38c68c899b45a54fa821de089169a45d2ddd7b30ca09562441c4566"
   },
   "geo_code": "VA",
   "node_type": "country",

@@ -82,7 +82,7 @@
       "secondary_source": {
         "has_article": true,
         "article_len": 268,
-        "source_confidence": "weak_article",
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
@@ -130,13 +130,14 @@
     "lng": -72.41666666
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Haiti",
     "wiki": "https://en.wikipedia.org/wiki/Haiti",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Haiti",
-        "title": "Wikipedia: Haiti / Haïti",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Haiti",
+        "title": "Wikipedia: Cannabis in Haiti",
         "type": "external",
         "weight": "low"
       },
@@ -197,9 +198,9 @@
   },
   "hashes": {
     "code": "hti",
-    "content_hash": "766bff548e211567c387ff499065b8ee0022e0d37c503f34095ace85d0f6381a",
+    "content_hash": "470636fb37061bbf203b9212c0fb8bdb5dddb73d45ca4ed0b42e536f0612e3fc",
     "notes_hash": "ad03a2e6242039f04104bb3f817b79b7ce7e7e5bad5b21ce7d59045f6b0e926a",
-    "model_hash": "7af76368aa197713189ef827eea7e6c3faea5dbb3f76ea87092d733db1586f12"
+    "model_hash": "86365c57c5c6936dae91681e787db7664502344b29d96cc573082bd0377a4837"
   },
   "geo_code": "HT",
   "node_type": "country",

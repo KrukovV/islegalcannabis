@@ -27,10 +27,10 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "flags": [],
+      "modifiers": [
+        "usually"
+      ]
     },
     "signals": {
       "status": "illegal",
@@ -64,6 +64,12 @@
           "type": "summary"
         },
         {
+          "title": "Cannabis in Timor-Leste",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Timor-Leste",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
           "title": "Legal status of cannabis in Timor-Leste (East Timor) - Cannaconnection.com",
           "url": "https://www.cannaconnection.com/blog/14700-legal-status-timor-leste-east-timor",
           "depth": 2,
@@ -95,25 +101,26 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Timor-Leste | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Timor-Leste | type: traversal | priority: 3 | scope: general"
       ],
       "secondary_source": {
-        "has_article": false,
-        "article_len": 0,
-        "source_confidence": "no_secondary_source",
+        "has_article": true,
+        "article_len": 708,
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": null
+          "distribution_article": "illegal"
         }
       }
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Timor-Leste / Timór-Leste. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -148,13 +155,14 @@
     "lng": 125.91666666
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Timor-Leste",
     "wiki": "https://en.wikipedia.org/wiki/Timor-Leste",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Timor-Leste",
-        "title": "Wikipedia: Timor-Leste / Timór-Leste",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Timor-Leste",
+        "title": "Wikipedia: Cannabis in Timor-Leste",
         "type": "external",
         "weight": "low"
       },
@@ -215,9 +223,9 @@
   },
   "hashes": {
     "code": "tls",
-    "content_hash": "bd5a1c8fae2a469a6b7b13427e093811f883b34e56d64ee64c8c381d483758ce",
+    "content_hash": "3ecc54eb2c2b614d2e39d53b12c87ee467211c9c752b7b77b736b127d03f3685",
     "notes_hash": "4040304985f28144e59bad44a0b5e1b373cc7893e0f0ca46d8cc0cc91a9304f1",
-    "model_hash": "b1abd01cf9c9ede9101e52ec48dd4a0e356facc8eb2c946b80ee5f90303e1ce8"
+    "model_hash": "d9e9588dc1c6e06f459acab7c226fdda74a0c2db7aba3e286b6644b5a52b779e"
   },
   "geo_code": "TL",
   "node_type": "country",

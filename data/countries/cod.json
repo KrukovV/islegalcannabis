@@ -160,13 +160,14 @@
     "lng": 25
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_the_Democratic_Republic_of_the_Congo",
     "wiki": "https://en.wikipedia.org/wiki/Democratic_Republic_of_the_Congo",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Democratic_Republic_of_the_Congo",
-        "title": "Wikipedia: DR Congo / RD Congo",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Democratic_Republic_of_the_Congo",
+        "title": "Wikipedia: Cannabis in DR Congo",
         "type": "external",
         "weight": "low"
       },
@@ -229,7 +230,7 @@
     "code": "cod",
     "content_hash": "c60105c1fe545b2c5cb954767a62a9d6af955929612a18a922ab7dd384ee65e1",
     "notes_hash": "0f9cefbbf623aab804c8c24150a7bbecaf53df6a638ab439b67197686d37dc7b",
-    "model_hash": "8c482a9333a58a11fd73917a1d824d8b44c1b5eb118c8b35725b3ffc1df36dfc"
+    "model_hash": "e3725484031452614800ed2a04c533ca44f7d93be48d4bb632d0f3b9f2e79ead"
   },
   "geo_code": "CD",
   "node_type": "country",

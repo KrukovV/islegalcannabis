@@ -145,6 +145,7 @@
     "lng": -97
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/New_Mexico",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -168,7 +169,7 @@
     "code": "us-nm",
     "content_hash": "5ce29fe176e89a0a7d3c482cffcde58ff3d4da2d1f6aa323b221d1cbb673c706",
     "notes_hash": "c1291c7b323372c95b0d5e240211b5a0e7cbb5879fe3c972edb1eda43135209a",
-    "model_hash": "23137e7dedefdb11da1b567b61dd95cab1c56e0d777d0773f72179bfae53ef6b"
+    "model_hash": "73d58ddf91ae4e1ab2427463e110e464c76595e96f23e647be00fff2d516f107"
   },
   "updated_at": "2026-04-10"
 }

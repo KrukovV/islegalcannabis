@@ -145,6 +145,7 @@
     "lng": -97
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Ohio",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -175,7 +176,7 @@
     "code": "us-oh",
     "content_hash": "576184654ea414fd86bb3230bbba9167ba3b03dd64990d9fe7719aada8b019c0",
     "notes_hash": "2a368ff7ace807073e9c7bdeb6104aee6f9a971f1d3c4a79d2a0e656d644259c",
-    "model_hash": "99179a50b58ae670085c729c3d2d78c3bcc5eda8489ab5385408091307b2bff1"
+    "model_hash": "fdf167429e59b79ab381f6ec085ff0f2f0545b9e08a1d649257a48c360d21bc6"
   },
   "updated_at": "2024-01-01"
 }

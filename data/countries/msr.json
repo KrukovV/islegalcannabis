@@ -118,17 +118,10 @@
     "lng": -62.188252
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Montserrat",
     "wiki_truth": null,
-    "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Montserrat",
-        "title": "Wikipedia: Montserrat",
-        "type": "external",
-        "weight": "low"
-      }
-    ]
+    "citations": []
   },
   "updated_at": "2026-04-10",
   "normalized_version": "v1",
@@ -180,7 +173,7 @@
     "code": "msr",
     "content_hash": "61c7f8b94eb28b05b9da5c0fa4405d1715a4eacb8a21e388c4ebd9842bb64bed",
     "notes_hash": "206be8467a75ba0b9b1638c3f307021d63f390e187dca7b114d0981e5d883868",
-    "model_hash": "e6e0e89c47e8ffbd8df46d0ee1dc5f9454a132d1d401112d7e9b3daa63b9e488"
+    "model_hash": "2282632844c201034ccdf1f33477d9b71b89b0ae2a1fd38fec00dafc5633dd35"
   },
   "geo_code": "MS",
   "node_type": "country",

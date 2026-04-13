@@ -166,13 +166,14 @@
     "lng": 57.55
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Mauritius",
     "wiki": "https://en.wikipedia.org/wiki/Mauritius",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Mauritius",
-        "title": "Wikipedia: Mauritius / Maurice",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Mauritius",
+        "title": "Wikipedia: Cannabis in Mauritius",
         "type": "external",
         "weight": "low"
       },
@@ -235,7 +236,7 @@
     "code": "mus",
     "content_hash": "46c86a46b51c0eb7e612e9f708273309cfbb85aa4dd6368359d79fc37974173a",
     "notes_hash": "bc4ea297ee9928bf15f99f0430c3e25163ecc58a302e1f201da3949e5f329dbc",
-    "model_hash": "bf9dc8b799c378507e5393d001c464e5e63bac01aea66c51bb3dafd5c06a4db9"
+    "model_hash": "290ae4bc317ec32232cbd757f5d550952e3aa21f6ba49a6416366a85d1c1fd85"
   },
   "geo_code": "MU",
   "node_type": "country",

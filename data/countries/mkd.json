@@ -153,13 +153,14 @@
     "lng": 22
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_North_Macedonia",
     "wiki": "https://en.wikipedia.org/wiki/North_Macedonia",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/North_Macedonia",
-        "title": "Wikipedia: North Macedonia / Македонија",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_North_Macedonia",
+        "title": "Wikipedia: Cannabis in North Macedonia",
         "type": "external",
         "weight": "low"
       },
@@ -222,7 +223,7 @@
     "code": "mkd",
     "content_hash": "fba0a96ef8fdbc06e9b6275b7f321f728697de76cbd09142d50d8bdfb3496fc2",
     "notes_hash": "9125716cf1e06891fecbb38ce0bfb8b67e1738c586bdd498810e9f955b069d2b",
-    "model_hash": "f88901619d0d359b95c922d9ea1e84c7d1d13ce80f7d21965f2801af7de603f1"
+    "model_hash": "4f7943d91ca5f03666687d49d20dd40be9538474dfc15f9a8babebf3f0c3fcbb"
   },
   "geo_code": "MK",
   "node_type": "country",

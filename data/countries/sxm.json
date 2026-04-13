@@ -118,17 +118,10 @@
     "lng": -63.070133
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Sint_Maarten",
     "wiki_truth": null,
-    "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Sint_Maarten",
-        "title": "Wikipedia: Sint Maarten / Saint-Martin",
-        "type": "external",
-        "weight": "low"
-      }
-    ]
+    "citations": []
   },
   "updated_at": "2026-04-10",
   "normalized_version": "v1",
@@ -180,7 +173,7 @@
     "code": "sxm",
     "content_hash": "da470ebad96a67a5f8d62743737353f91f0e24b1c7df44ac869d96c6f6e15f04",
     "notes_hash": "9e463fd77539e67447b3f34349c2eac64420fa3b2c32f3e9d9b4c25bb89ce211",
-    "model_hash": "a2114a27080735a37502206e2ab33a2429db4b3f67bdf6766ba0940c603fa095"
+    "model_hash": "66313b4a7d906e482a6d5a48d497515cb4dae4cca81d3d4c09ecacc12d08b00d"
   },
   "geo_code": "SX",
   "node_type": "country",

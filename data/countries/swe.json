@@ -26,24 +26,20 @@
         "import": "illegal",
         "trafficking": null
       },
-      "enforcement": "fine-based",
+      "enforcement": "standard",
       "flags": [],
-      "modifiers": [
-        "only",
-        "however",
-        "but"
-      ]
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "HIGH_RISK",
+      "final_risk": "RESTRICTED",
       "enforcement_level": "active",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
+        "prison": false,
+        "prison_priority": 0,
         "arrest": false,
-        "fine": true,
-        "severity_score": 4,
+        "fine": false,
+        "severity_score": 0,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -57,19 +53,13 @@
           "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Sweden / Sverige",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Sweden",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Sweden",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Läkemedelsbehandling av nervsmärta",
@@ -100,49 +90,42 @@
           "url": "https://hudoc.echr.coe.int/eng?i=001-202724",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "Cannabis in Sweden",
+          "url": "https://web.archive.org/web/20161122221206/https://lakemedelsverket.se/malgrupp/Allmanhet/Sjukdom-och-behandling/Behandlingsrekommendationer---listan/Nervsmarta/",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
         "rule: raw_illegal | source: Sweden / Sverige | type: summary | priority: 1 | scope: general",
         "rule: illegal | source: Sweden / Sverige | type: summary | priority: 1 | scope: general",
         "rule: zero_tolerance | source: Sweden / Sverige | type: summary | priority: 1 | scope: general",
-        "rule: raw_illegal | source: Cannabis in Sweden | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Sweden | type: traversal | priority: 3 | scope: general",
-        "rule: raw_illegal | source: Cannabis in Sweden | type: traversal | priority: 3 | scope: possession",
-        "rule: medical_legal | source: Cannabis in Sweden | type: traversal | priority: 3 | scope: general",
-        "rule: medical_limited | source: Cannabis in Sweden | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_prison | source: Cannabis in Sweden | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_fine | source: Cannabis in Sweden | type: traversal | priority: 3 | scope: general",
-        "rule: medical_legal | source: Cannabis in Sweden | type: traversal | priority: 3 | scope: use",
-        "rule: legal | source: Cannabis in Sweden | type: traversal | priority: 3 | scope: general",
-        "rule: legal | source: Cannabis in Sweden | type: traversal | priority: 3 | scope: sale"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 4551,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": "illegal",
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
       "raw_illegal",
-      "zero_tolerance",
-      "penalty_prison",
-      "penalty_fine"
+      "zero_tolerance"
     ],
-    "notes_normalized": "Cannabis is illegal in Sweden / Sverige. Medical cannabis is limited. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Sweden / Sverige. Medical cannabis is limited. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in Sweden / Sverige. Medical cannabis is limited. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Sweden / Sverige. Medical cannabis is limited. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Sweden}} All cannabis-related activity illegal. The national police runs a \"disturb and annoy\" program aimed at users supported by the national \"zero tolerance\" policy.<ref>{{citation |url = http://www.unodc.org/pdf/research/Swedish_drug_control.pdf |title = Swedish drug control FINAL_14feb_merged |access-date = 17 February 2011 |archive-date = 17 May 2020 |archive-url = https://web.archive.org/web/20200517154255/http://www.unodc.org/pdf/research/Swedish_drug_control.pdf |url-status = live }}</ref><ref>{{citation |url = http://www.aklagare.se/upload/3/R%C3%A4ttsPMnarkotikafarlig.pdf |title = RättsPM 2009:1 |publisher = Åklagarmyndighetens Utvecklngscentrum |year = 2009 |language = sv |access-date = 6 September 2009 |archive-date = 10 January 2020 |archive-url = https://web.archive.org/web/20200110020418/https://www.aklagare.se/upload/3/R%C3%A4ttsPMnarkotikafarlig.pdf |url-status = dead }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -173,13 +156,14 @@
     "lng": 15
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Sweden",
     "wiki": "https://en.wikipedia.org/wiki/Sweden",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Sweden",
-        "title": "Wikipedia: Sweden / Sverige",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Sweden",
+        "title": "Wikipedia: Cannabis in Sweden",
         "type": "external",
         "weight": "low"
       },
@@ -240,9 +224,9 @@
   },
   "hashes": {
     "code": "swe",
-    "content_hash": "6efd37c6405691d6faf41ccd277b49487c4b6a2a19566a01858874b53666e7a3",
-    "notes_hash": "5964205728b0d04d897866078f1e9e0cf587b52f3e210976fddc5d55db0d35ee",
-    "model_hash": "199f07d4208a073fbac6f2c9210429fa8579200d9ea40828e99f0518e1fdd50c"
+    "content_hash": "906b04a30b4b448bc37643502d0bf8c59c496d80391a58f1a6c09abf987a0a09",
+    "notes_hash": "c64bb7fd28a2e2866e6e1bf28e61b7a914472bcf40f1e846be82de8be85ada93",
+    "model_hash": "076b5cd8ab51ff9d8d3d7eebf47b52b15372f91bef778b50053b32eaa455ab2e"
   },
   "geo_code": "SE",
   "node_type": "country",

@@ -164,13 +164,14 @@
     "lng": 114.188
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Hong_Kong",
     "wiki": "https://en.wikipedia.org/wiki/Hong_Kong",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Hong_Kong",
-        "title": "Wikipedia: Hong Kong / 香港",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Hong_Kong",
+        "title": "Wikipedia: Cannabis in Hong Kong",
         "type": "external",
         "weight": "low"
       },
@@ -233,7 +234,7 @@
     "code": "hkg",
     "content_hash": "4f7a05a2c50f528d72fce50223a3ecc29dd958017aa72ebbb8b14330a4042b5a",
     "notes_hash": "b10a0ced26f6b39793c4f211ceec921fbf58b3f4f3359b0756f8279b34662da0",
-    "model_hash": "ebd8f4407c67f7433553d2f21e3ca2d5339dd84cd49491e1c9e4c20d6f663438"
+    "model_hash": "b0c1aa85ca1cf5d01e4c47aaebcfe4ff42f36421cacc0a5d87881b7ada74de7f"
   },
   "geo_code": "HK",
   "node_type": "country",

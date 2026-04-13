@@ -134,13 +134,14 @@
     "lng": 175
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Fiji",
     "wiki": "https://en.wikipedia.org/wiki/Fiji",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Fiji",
-        "title": "Wikipedia: Fiji / Viti",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Fiji",
+        "title": "Wikipedia: Cannabis in Fiji",
         "type": "external",
         "weight": "low"
       },
@@ -203,7 +204,7 @@
     "code": "fji",
     "content_hash": "ba89a8c3b2ea823d30a7581d3ead42acf787f823529005a4621c0e951e3560cd",
     "notes_hash": "83a693914290dd386f0436731817cdeddc8fe1bcef9780aae84e62548c4c8d0c",
-    "model_hash": "90b800265b74b69848046de45696d8380f50f4f1c9b9ea54ec59c471808ed2c6"
+    "model_hash": "f90846ee30e0e8095208382eef95ed5f213071ca17ee25c7dd5dd59a6a54d77b"
   },
   "geo_code": "FJ",
   "node_type": "country",

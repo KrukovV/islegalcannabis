@@ -177,13 +177,14 @@
     "lng": 26
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Finland",
     "wiki": "https://en.wikipedia.org/wiki/Finland",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Finland",
-        "title": "Wikipedia: Finland / Suomi",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Finland",
+        "title": "Wikipedia: Cannabis in Finland",
         "type": "external",
         "weight": "low"
       },
@@ -246,7 +247,7 @@
     "code": "fin",
     "content_hash": "78a92805b5062eabc2691f383ded315a0f40ac1b415c384c5ffafddefe3d5aaf",
     "notes_hash": "a76863c8ba05a1b67e0c81877dc1fc953953583f98a4a23e296646059abab040",
-    "model_hash": "387d9c290b007274786399fd683ff48d2eac1f9cf7820d31272651a13064c818"
+    "model_hash": "ab6456e472c71e7f516bdd3257dba0732bfa6d13911bfb73c316d9af64efe625"
   },
   "geo_code": "FI",
   "node_type": "country",

@@ -27,7 +27,9 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [],
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
       "modifiers": []
     },
     "signals": {
@@ -62,12 +64,6 @@
           "type": "summary"
         },
         {
-          "title": "Cannabis in Turkmenistan",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Turkmenistan",
-          "depth": 1,
-          "type": "traversal"
-        },
-        {
           "title": "Cannabis",
           "url": "https://books.google.com/books?id=SVU8BQAAQBAJ&q=cannabis+turkmenistan&pg=PT116",
           "depth": 2,
@@ -75,26 +71,25 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Turkmenistan | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Turkmenistan | type: traversal | priority: 3 | scope: general"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 311,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal"
+      "distribution_fallback_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Turkmenistan / Туркмения. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -129,13 +124,14 @@
     "lng": 60
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Turkmenistan",
     "wiki": "https://en.wikipedia.org/wiki/Turkmenistan",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Turkmenistan",
-        "title": "Wikipedia: Turkmenistan / Туркмения",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Turkmenistan",
+        "title": "Wikipedia: Cannabis in Turkmenistan",
         "type": "external",
         "weight": "low"
       },
@@ -196,9 +192,9 @@
   },
   "hashes": {
     "code": "tkm",
-    "content_hash": "2b6fab7eb16afb928f62209f65be8fecdfaa9cd4be75382783eb87ae3180b503",
+    "content_hash": "c071500f5370c6a0db282744b4e17f2d482c59613500c15d12804e4a5b2ebf6e",
     "notes_hash": "dd2d93eecc2817b7f2afddcf828a5cba359f288a4cbefd95bb7b6f2af6a89e77",
-    "model_hash": "fbdbc37f8886ac9889320fb75e4ee1d9af492b29da759ea75b41aa6298a9686e"
+    "model_hash": "5b2276443825dd11a9871c123baac886e0d917dbeea09ac8e6133d981209df70"
   },
   "geo_code": "TM",
   "node_type": "country",

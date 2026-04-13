@@ -118,17 +118,10 @@
     "lng": 73.50521
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Heard_%26_McDonald_Islands",
     "wiki_truth": null,
-    "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Heard_%26_McDonald_Islands",
-        "title": "Wikipedia: Heard Island and McDonald Islands",
-        "type": "external",
-        "weight": "low"
-      }
-    ]
+    "citations": []
   },
   "updated_at": "2026-04-10",
   "normalized_version": "v1",
@@ -180,7 +173,7 @@
     "code": "hmd",
     "content_hash": "773b0d0bde9141469e2857a2c6dcbbb2bf210e23fe350c725ef24581351bac91",
     "notes_hash": "9f69830c05e0c67933239bda863a215079e94c6f4a807d1944b61d003493e7cf",
-    "model_hash": "948ef5864fb459554dc5b2b9669af2cbd4e0e90b809c00a1ec71c5fb3320ee79"
+    "model_hash": "c8475816b16ba6a8579154f348d875c7e98e847ad0291572b6f42a4d72c14ec5"
   },
   "geo_code": "HM",
   "node_type": "country",

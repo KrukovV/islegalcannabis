@@ -178,13 +178,14 @@
     "lng": 33
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Cyprus",
     "wiki": "https://en.wikipedia.org/wiki/Cyprus",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Cyprus",
-        "title": "Wikipedia: Cyprus / Κύπρος",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cyprus",
+        "title": "Wikipedia: Cannabis in Cyprus",
         "type": "external",
         "weight": "low"
       },
@@ -247,7 +248,7 @@
     "code": "cyp",
     "content_hash": "ac50ad553135b65c07ff7b83350c225503281eb56b758d8f06f8be6ddc4334cd",
     "notes_hash": "5228c19a8ae74f3b895a821c8e7364014020b72215b37e01cca7cdc5e77a3871",
-    "model_hash": "bcda195aa48a0683573d92f370274eb850624a014a48af9dceb8810438b377ad"
+    "model_hash": "b9646765374e2dd6c1ddb0c67f237bfab783ea323ae347953c23eff9b8613de5"
   },
   "geo_code": "CY",
   "node_type": "country",

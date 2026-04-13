@@ -59,14 +59,14 @@ function buildBuyIntent(data: CountryPageData): IntentSeed {
   const distribution = data.legal_model.distribution.status;
   const licensed = /\bsale\b|\bdispensary\b|\blicensed\b/.test(notes);
   let strength = 0.2;
-  let body = `Buying cannabis in ${label} is illegal in the normalized source data.`;
+  let body = `Buying cannabis in ${label} remains illegal.`;
 
   if (sale === "regulated" || distribution === "regulated") {
     strength = 1;
-    body = `Licensed cannabis sales are present in ${label} in the normalized source data.`;
+    body = `Licensed cannabis sales are available in ${label}.`;
   } else if (sale === "tolerated" || distribution === "tolerated" || distribution === "mixed" || distribution === "restricted" || licensed) {
     strength = 0.6;
-    body = `Buying cannabis in ${label} is conditional in the normalized source data and depends on the limited sale channels or restrictions that are explicitly stored.`;
+    body = `Buying cannabis in ${label} depends on limited sale channels or local restrictions.`;
   }
 
   return {
@@ -83,17 +83,17 @@ function buildPossessionIntent(data: CountryPageData): IntentSeed {
   const notes = normalizeText(`${data.notes_normalized} ${data.notes_raw}`);
   const penalties = data.legal_model.signals?.penalties;
   let strength = 0.4;
-  let body = `Personal possession in ${label} is restricted in the normalized source data.`;
+  let body = `Personal possession in ${label} remains restricted.`;
 
   if (possessionLimit) {
     strength = 0.9;
     body = `Possession in ${label}: ${possessionLimit}`;
   } else if (penalties?.possession?.prison) {
     strength = 0.7;
-    body = `Personal possession in ${label} carries prison exposure in the normalized source data.`;
+    body = `Personal possession in ${label} can lead to prison exposure.`;
   } else if (penalties?.possession?.arrest || penalties?.possession?.fine || /\bpossession\b/.test(notes)) {
     strength = 0.4;
-    body = `Personal possession in ${label} is limited by the penalty and notes signals stored in the normalized model.`;
+    body = `Personal possession in ${label} is limited by penalties or quantity rules.`;
   }
 
   return {
@@ -112,11 +112,11 @@ function buildTouristsIntent(data: CountryPageData): IntentSeed {
   const risk = data.legal_model.signals?.final_risk || "UNKNOWN";
   const allowed = data.legal_model.recreational.status === "LEGAL";
   const strength = explicit ? (allowed ? 1 : 0.5) : 0.5;
-  let body = `Tourists in ${label} should follow the same restricted cannabis rules reflected by the normalized recreational scope.`;
+  let body = `Tourists in ${label} should expect the same restricted cannabis rules as residents.`;
 
-  if (risk === "HIGH_RISK") body = `Tourists in ${label} face high legal risk in the normalized source data.`;
-  else if (allowed && scope === "PERSONAL_USE") body = `Tourists in ${label} have limited access only where the normalized local personal-use rules allow it.`;
-  else if (explicit) body = `Tourists in ${label} are limited by the explicit visitor or public-use signals stored in the normalized notes.`;
+  if (risk === "HIGH_RISK") body = `Tourists in ${label} face high legal risk.`;
+  else if (allowed && scope === "PERSONAL_USE") body = `Tourists in ${label} have access only where local personal-use rules allow it.`;
+  else if (explicit) body = `Tourists in ${label} face the visitor or public-use limits stated in the source notes.`;
 
   return {
     id: "tourists",
@@ -133,12 +133,12 @@ function buildAirportIntent(data: CountryPageData): IntentSeed {
   const traffickingIllegal = data.legal_model.distribution.scopes.trafficking === "illegal";
   const hasConflict = /\bairport\b|\btransport\b|\bfederal\b/.test(notes) || importIllegal || traffickingIllegal || data.parent_country?.code === "usa";
   const strength = hasConflict ? 1 : 0.3;
-  let body = `Airport transport in ${label} is restricted by the import and transport signals in the normalized model.`;
+  let body = `Airport transport in ${label} remains restricted.`;
 
   if (data.parent_country?.code === "usa") {
     body = `Airport rules in ${label} remain restricted because federal law still conflicts with state-level cannabis access.`;
   } else if (importIllegal) {
-    body = `Airport and border entry into ${label} is illegal for cannabis import in the normalized source data.`;
+    body = `Airport and border entry into ${label} remains illegal for cannabis import.`;
   } else if (traffickingIllegal) {
     body = `Airport and transport handling in ${label} remains restricted because trafficking or transport-related supply signals stay illegal.`;
   }
@@ -155,14 +155,14 @@ function buildMedicalIntent(data: CountryPageData): IntentSeed {
   const label = regionLabel(data);
   const medical = data.legal_model.medical.status;
   let strength = 0.2;
-  let body = `Medical cannabis is illegal in ${label} in the normalized source data.`;
+  let body = `Medical cannabis is illegal in ${label}.`;
 
   if (medical === "LEGAL") {
     strength = 1;
-    body = `Medical cannabis is legal in ${label} through the medical access path reflected in the normalized model.`;
+    body = `Medical cannabis is legal in ${label}.`;
   } else if (medical === "LIMITED") {
     strength = 0.7;
-    body = `Medical cannabis is limited in ${label} in the normalized source data.`;
+    body = `Medical cannabis is limited in ${label}.`;
   }
 
   return {

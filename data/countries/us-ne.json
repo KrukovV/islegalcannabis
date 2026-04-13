@@ -145,6 +145,7 @@
     "lng": -97
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Nebraska",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -168,7 +169,7 @@
     "code": "us-ne",
     "content_hash": "0c7b55b36b86143122a47e33caa2bb59768368e63b1b25258c634fed21a82d62",
     "notes_hash": "d0c19108d6c45d44410238ec02862f7fbab0f5317193966cfdf2f0531eb4e444",
-    "model_hash": "3e8a8b0cb48dd85f66120a7862273be7c4645208d13c2b74f87589833789c657"
+    "model_hash": "a267a2c3471e890a417b15f4f061767c24c02ef2da9c1f8ad2df7a5d43e3042f"
   },
   "updated_at": "2026-04-10"
 }

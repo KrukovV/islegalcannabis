@@ -169,13 +169,14 @@
     "lng": 39
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Eritrea",
     "wiki": "https://en.wikipedia.org/wiki/Eritrea",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Eritrea",
-        "title": "Wikipedia: Eritrea / إريتريا",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Eritrea",
+        "title": "Wikipedia: Cannabis in Eritrea",
         "type": "external",
         "weight": "low"
       },
@@ -238,7 +239,7 @@
     "code": "eri",
     "content_hash": "f7152d9427bb674d61c20bfbc04cefe94b2d5211769e26df7307acc1c7473e51",
     "notes_hash": "b30f0fa343f3590f69e1f5f856336ff4f95902fa0090653102782408e0fd0ecd",
-    "model_hash": "635cdf2132183352e9871386f02a74e4b283bba3bd6fcca6af17e48b5cf24160"
+    "model_hash": "f765247bef2d83e874f7d469484cf5155ea053eba77e074f9891941b7ad7b898"
   },
   "geo_code": "ER",
   "node_type": "country",

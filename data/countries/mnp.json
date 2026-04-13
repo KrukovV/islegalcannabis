@@ -118,17 +118,10 @@
     "lng": 145.734397
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Northern_Mariana_Islands",
     "wiki_truth": null,
-    "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Northern_Mariana_Islands",
-        "title": "Wikipedia: Northern Mariana Islands / Na Islas Mariånas",
-        "type": "external",
-        "weight": "low"
-      }
-    ]
+    "citations": []
   },
   "updated_at": "2026-04-10",
   "normalized_version": "v1",
@@ -180,7 +173,7 @@
     "code": "mnp",
     "content_hash": "05d2afa482d3b9fe62080301876d45d45d3738e120a5b237fd4b3250b8837b9b",
     "notes_hash": "e3733c2e764d3aabb2cbb3cca058bd47216941d2bac2c1cbc5c57e26a8b8e5c7",
-    "model_hash": "aa5d68fd81f40cbecd87a4ea6eb9d67b1a69d9e70734e5a8772334a82dcef9fa"
+    "model_hash": "ccafc023db6b274758accfb9dd32678b03ad40c32a9df767fef20e8094679bea"
   },
   "geo_code": "MP",
   "node_type": "country",

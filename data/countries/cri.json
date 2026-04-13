@@ -172,13 +172,14 @@
     "lng": -84
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Costa_Rica",
     "wiki": "https://en.wikipedia.org/wiki/Costa_Rica",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Costa_Rica",
-        "title": "Wikipedia: Costa Rica",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Costa_Rica",
+        "title": "Wikipedia: Cannabis in Costa Rica",
         "type": "external",
         "weight": "low"
       },
@@ -241,7 +242,7 @@
     "code": "cri",
     "content_hash": "26ebe86c1a6c8600abb52f8b11fe0ddd99566c6fa3cc3ddbee232b26c088bb25",
     "notes_hash": "7de6cad858881be8dde83b6a74c23bb87155f13dceab9cf904243b86147db16c",
-    "model_hash": "a203394ef165f1ab033483050315709219610bdf01f1ffa789a64f6a2d979abf"
+    "model_hash": "a20039b7477905a200981e8105b58e3b3c2fe4afcdcc61785527bfaf448b9109"
   },
   "geo_code": "CR",
   "node_type": "country",

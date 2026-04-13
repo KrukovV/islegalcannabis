@@ -151,13 +151,14 @@
     "lng": 105
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_China",
     "wiki": "https://en.wikipedia.org/wiki/People's_Republic_of_China",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/People's_Republic_of_China",
-        "title": "Wikipedia: China / 中国",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_China",
+        "title": "Wikipedia: Cannabis in China",
         "type": "external",
         "weight": "low"
       },
@@ -220,7 +221,7 @@
     "code": "chn",
     "content_hash": "caa180646306fed2a8860037420191385060705dae4348e1f9e8db67c699bdb2",
     "notes_hash": "428159c753d9caad47d252d05946b9e231d4b3d676c9bd9135f1f990f83505d9",
-    "model_hash": "e6abcca70fd729898f4b10838e28a368dbad59cb5c49d009887d9f4107ec80ef"
+    "model_hash": "435cfb8f2a4dfe6596eeaea9d8a0ec39f52832d3d1babd61ef8b5ad16dbbc0bb"
   },
   "geo_code": "CN",
   "node_type": "country",

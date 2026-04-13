@@ -5,6 +5,7 @@ import {
   statusToColor
 } from "@/lib/resultStatus";
 import type { CountryPageData } from "@/lib/countryPageStorage";
+import { assertCannabisWikiSource, isCannabisWikiSource } from "@/lib/wiki/cannabisSource";
 
 function includesFold(text: string, probe: string) {
   return String(text || "").toLowerCase().includes(String(probe || "").toLowerCase());
@@ -89,12 +90,13 @@ export function deriveCountryCardEntryFromCountryPageData(data: CountryPageData)
   const mapCategory = deriveMapCategoryFromCountryPageDataSignals(data, resultStatus);
   const mapReason = buildMapColorReason(data);
   const pageHref = `/c/${data.code}`;
+  const legalSourceUrl = isCannabisWikiSource(data.sources.legal) ? assertCannabisWikiSource(data.sources.legal) : null;
   const sources = (data.sources.citations || []).slice(0, 3).map((source) => ({
     id: source.id,
     title: source.title,
     url: source.url
   }));
-  const reasonSourceUrl = sources[0]?.url;
+  const reasonSourceUrl = legalSourceUrl || sources[0]?.url;
   const buildReason = (id: string, text: string, anchor: string, sourceUrl?: string) => ({
     id,
     text,
@@ -169,6 +171,7 @@ export function deriveCountryCardEntryFromCountryPageData(data: CountryPageData)
     geo: data.geo_code,
     code: data.code,
     pageHref,
+    detailsHref: legalSourceUrl,
     displayName: data.name,
     iso2: data.node_type === "state" ? data.geo_code : data.iso2,
     type: data.node_type,

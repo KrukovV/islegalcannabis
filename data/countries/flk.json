@@ -118,17 +118,10 @@
     "lng": -58.738602
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Falkland_Islands",
     "wiki_truth": null,
-    "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Falkland_Islands",
-        "title": "Wikipedia: Falkland Islands",
-        "type": "external",
-        "weight": "low"
-      }
-    ]
+    "citations": []
   },
   "updated_at": "2026-04-10",
   "normalized_version": "v1",
@@ -180,7 +173,7 @@
     "code": "flk",
     "content_hash": "0b2d89fc7110abf11511c2ee326c3d39de87cd666a4ca169e9bb08746abcc75b",
     "notes_hash": "e5f2ee6901fc18c267fa8ddc08ded290b48c060559ac423411e615c906de9c3a",
-    "model_hash": "dbef437ba53ca4e2ba4c1cf53cfec02b2f4cc813fb48cd689272156649ba39da"
+    "model_hash": "79ab1385f8d36af43ae4bfa7ac7f7366d12b422e7ddfee8c7bd4b938c805d1fc"
   },
   "geo_code": "FK",
   "node_type": "country",

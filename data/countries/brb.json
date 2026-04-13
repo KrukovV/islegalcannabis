@@ -169,13 +169,14 @@
     "lng": -59.53333333
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Barbados",
     "wiki": "https://en.wikipedia.org/wiki/Barbados",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Barbados",
-        "title": "Wikipedia: Barbados",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Barbados",
+        "title": "Wikipedia: Cannabis in Barbados",
         "type": "external",
         "weight": "low"
       },
@@ -238,7 +239,7 @@
     "code": "brb",
     "content_hash": "4fb275b6e9253d5ef908f0a1c8e5bbe94f7ac565976ed7f3676324b3bfce1f10",
     "notes_hash": "d5d8d924f397aaa02154d34767b9b797d6e8ecbc0cf405409b80fdf6aede6ba5",
-    "model_hash": "6604e4ed0722f5e4e4834de53c1e31d0d630bf656dc25f74b8e297a590f49b32"
+    "model_hash": "4bfa8c6f7e9649345c114196d5b167aaa6336db3a16ba8d74550b34f62cac3bc"
   },
   "geo_code": "BB",
   "node_type": "country",

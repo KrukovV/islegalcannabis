@@ -145,6 +145,7 @@
     "lng": -97
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Maryland",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -168,7 +169,7 @@
     "code": "us-md",
     "content_hash": "21f837d328113e719d12c826ac54f85cce7481413435dcd3fcb69651b8175857",
     "notes_hash": "c8f71a1e2c40fc82447887753b7867ee14c205f25618f27b7dac19446380f4ff",
-    "model_hash": "290b53f62e9e57690e19a5190e379b83f2b2289b2e45d57d25bb70c7c1250c8d"
+    "model_hash": "439313a7efc806a6de73dc77e07d6649a639816a9f466bea4d18bbf6afef67e7"
   },
   "updated_at": "2026-04-10"
 }

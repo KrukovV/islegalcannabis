@@ -145,6 +145,7 @@
     "lng": -89.3985
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Illinois",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -175,7 +176,7 @@
     "code": "us-il",
     "content_hash": "0bd2582b4cea67a66e41d59a0d67cfabc0ddcb0df555f55aa93693d23b280e0d",
     "notes_hash": "df9d9ef50301b2c349671a85f582bc9213de97f0773f6892df9d61f4c5149ab8",
-    "model_hash": "4b7db0ad2582b36b77789bfae6e7c0687553b2160f41a9c7f33094daa7d95701"
+    "model_hash": "d60781154e93a9697aae8057de4953cfc6171521a21f4fe39a9852ffc05b41a3"
   },
   "updated_at": "2024-01-01"
 }

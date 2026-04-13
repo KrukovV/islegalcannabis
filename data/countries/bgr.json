@@ -159,13 +159,14 @@
     "lng": 25
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Bulgaria",
     "wiki": "https://en.wikipedia.org/wiki/Bulgaria",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Bulgaria",
-        "title": "Wikipedia: Bulgaria / България",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bulgaria",
+        "title": "Wikipedia: Cannabis in Bulgaria",
         "type": "external",
         "weight": "low"
       },
@@ -228,7 +229,7 @@
     "code": "bgr",
     "content_hash": "65c8a7dd6a142f0d7136523df21466ccbcff9f3a4411674838973e771f4d7c85",
     "notes_hash": "5b2231adda2b2e201f166cdcc21983c16da08f8ab4d514da4a90e2745b7f5373",
-    "model_hash": "f9c7484cb377203a2dda9b93e3aac4c400df72ca897f01909c32efb17c760237"
+    "model_hash": "77dc658ebb49646ccc52aaf9012258ce7d1f389e4a6aea5522525fbd8398e5dd"
   },
   "geo_code": "BG",
   "node_type": "country",

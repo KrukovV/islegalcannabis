@@ -89,7 +89,7 @@
       "secondary_source": {
         "has_article": true,
         "article_len": 283,
-        "source_confidence": "weak_article",
+        "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": true,
@@ -140,13 +140,14 @@
     "lng": 1.5
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Andorra",
     "wiki": "https://en.wikipedia.org/wiki/Andorra",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Andorra",
-        "title": "Wikipedia: Andorra",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Andorra",
+        "title": "Wikipedia: Cannabis in Andorra",
         "type": "external",
         "weight": "low"
       },
@@ -207,9 +208,9 @@
   },
   "hashes": {
     "code": "and",
-    "content_hash": "4ab89a24120c407a7add819e3b7159e1c8869540e5baf5bf21bea9d7d8098fb0",
+    "content_hash": "1a4c12a3de07937d226e201912d037db07baa8d409bbe4748b94fdce7707aa08",
     "notes_hash": "371c9082100d585254d96f48231ddc89aab7e54a3c401257eabb8f56680172f6",
-    "model_hash": "f22575219e409608daaf0bdd0d30907de26fe26c49438ac30a921faf2c06c3b7"
+    "model_hash": "76ce076a37c37ec9c1cc009e0a0e73f71f169c76c158bbfcbccc878ec6e0cf69"
   },
   "geo_code": "AD",
   "node_type": "country",

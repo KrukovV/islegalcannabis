@@ -168,13 +168,14 @@
     "lng": 20
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Albania",
     "wiki": "https://en.wikipedia.org/wiki/Albania",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Albania",
-        "title": "Wikipedia: Albania / Shqipëria",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Albania",
+        "title": "Wikipedia: Cannabis in Albania",
         "type": "external",
         "weight": "low"
       },
@@ -237,7 +238,7 @@
     "code": "alb",
     "content_hash": "535002d92a678621615abdc939bbc7d89a9e05156b4387fd1b572655e24648cb",
     "notes_hash": "a9cf348b17e4e51738067ab789ecadf53715809c3853092746793b3efdfeabe4",
-    "model_hash": "d6b1b47232d5b0759cb9fff611b998d5d281da2b8bbf48eaa7cc4e012343720a"
+    "model_hash": "3332048126c98dd26ca94cca226ae52d571801d424331882be4008a922e21707"
   },
   "geo_code": "AL",
   "node_type": "country",

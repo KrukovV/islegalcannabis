@@ -152,13 +152,14 @@
     "lng": 38
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Ethiopia",
     "wiki": "https://en.wikipedia.org/wiki/Ethiopia",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Ethiopia",
-        "title": "Wikipedia: Ethiopia / ኢትዮጵያ",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ethiopia",
+        "title": "Wikipedia: Cannabis in Ethiopia",
         "type": "external",
         "weight": "low"
       },
@@ -221,7 +222,7 @@
     "code": "eth",
     "content_hash": "723cccb4b3ba6fcc647d5bec76f68a71caa6df5f21602474076d8d7a3658628d",
     "notes_hash": "7b7cbc1fa2c94de75c60a79ade3af8b0e09942faac2cbb23be66c01e5dfc9157",
-    "model_hash": "7b4f13709070b30c88ee7d1612393d65550bb51f02fa9dced2acd33aa585764e"
+    "model_hash": "18a1dad6a824b4d9db296264a179fb4e05702057c202ca43fda790fb7dcce67a"
   },
   "geo_code": "ET",
   "node_type": "country",

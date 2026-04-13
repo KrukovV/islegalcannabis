@@ -138,11 +138,11 @@ function takeLinkRefs(candidates, count, excluded = new Set()) {
 
 function buildCountryCitations(entry) {
   const candidates = [
-    entry.sources?.wiki
+    entry.sources?.legal
       ? {
-          id: "wiki_country",
-          url: entry.sources.wiki,
-          title: `Wikipedia: ${entry.name}`,
+          id: "wiki_legal",
+          url: entry.sources.legal,
+          title: `Wikipedia: Cannabis in ${entry.name.split(" / ")[0] || entry.name}`,
           type: "external",
           weight: "low"
         }
@@ -158,6 +158,21 @@ function buildCountryCitations(entry) {
       : null
   ].filter(Boolean);
   return candidates;
+}
+
+function isCannabisWikiSource(url) {
+  return /\/wiki\/Cannabis_in_/i.test(String(url || "").trim());
+}
+
+function pickCannabisLegalSource(notesMainArticles, signalSources = []) {
+  const mainArticleUrl = Array.isArray(notesMainArticles)
+    ? notesMainArticles.find((item) => isCannabisWikiSource(item?.url))?.url || null
+    : null;
+  if (mainArticleUrl) return String(mainArticleUrl).trim();
+  const traversalUrl = Array.isArray(signalSources)
+    ? signalSources.find((item) => item?.type === "traversal" && isCannabisWikiSource(item?.url))?.url || null
+    : null;
+  return traversalUrl ? String(traversalUrl).trim() : null;
 }
 
 function normalizeStateTitleFromWikiUrl(url, fallbackGeo) {
@@ -478,6 +493,7 @@ async function buildCountryEntries() {
         parent_country: null,
         state_modifiers: null,
         sources: {
+          legal: null,
           wiki: current.sources?.wiki || null,
           wiki_truth: current.sources?.wiki_truth || null,
           citations: []
@@ -514,10 +530,14 @@ async function buildCountryEntries() {
       sourceUrl: wikiClaim?.source_url || wikiRow?.source_url || null
     });
     entry.legal_model = statusModel;
+    entry.sources.legal = pickCannabisLegalSource(notesMainArticles, statusModel?.signals?.sources || []);
     entry.notes_raw = String(
       wikiClaim?.notes_raw || wikiClaim?.notes_text || wikiRow?.wiki_notes_hint || entry.notes_raw || ""
     ).trim();
     entry.notes_normalized = statusModel.notes_normalized;
+    if (entry.sources.legal === null && notesMainArticles.length > 0) {
+      console.warn(`NO_CANNABIS_LAYER2_SOURCE geo=${entry.iso2} article=${notesMainArticles[0]?.title || "unknown"}`);
+    }
   }
 
   const entriesByCode = Object.fromEntries(entries.map((entry) => [entry.code, entry]));
@@ -681,6 +701,12 @@ function buildStateEntries(usaEntry) {
           ? { lat: Number(centroid.lat), lng: Number(centroid.lon) }
           : usaEntry.coordinates,
       sources: {
+        legal:
+          law?.sourceUrl && isCannabisWikiSource(law.sourceUrl)
+            ? law.sourceUrl
+            : wikiRow.wiki_page_url && isCannabisWikiSource(wikiRow.wiki_page_url)
+              ? wikiRow.wiki_page_url
+              : null,
         wiki: wikiRow.wiki_page_url || null,
         wiki_truth: usaEntry.sources?.wiki_truth || null,
         citations: []

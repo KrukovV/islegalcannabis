@@ -83,7 +83,7 @@
       "secondary_source": {
         "has_article": true,
         "article_len": 184,
-        "source_confidence": "weak_article",
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
@@ -131,13 +131,14 @@
     "lng": -175
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Tonga",
     "wiki": "https://en.wikipedia.org/wiki/Tonga",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Tonga",
-        "title": "Wikipedia: Tonga",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Tonga",
+        "title": "Wikipedia: Cannabis in Tonga",
         "type": "external",
         "weight": "low"
       },
@@ -198,9 +199,9 @@
   },
   "hashes": {
     "code": "ton",
-    "content_hash": "db76305f2143ece4229723a08dc2af5632acc4b3d0012cb04c502172e4f5ec12",
+    "content_hash": "b996801900b8dcb15f3d3959bbe821be57489876365477d7cdaaf7cdf0f0bd4e",
     "notes_hash": "0fbf0bd57240cbf87ad042d92e54038fc350fe36e1ba12662a5147dd64ef8962",
-    "model_hash": "3b70b49440cbdaa94c36a64a6346cf47de03e5d9907e1534ce0f2ea65c990f3e"
+    "model_hash": "b6aee91141bb28d3a902db6688d5d3cf769ba2491ef91a35d3d6a23332c30fe0"
   },
   "geo_code": "TO",
   "node_type": "country",

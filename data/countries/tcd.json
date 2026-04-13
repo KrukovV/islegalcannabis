@@ -26,11 +26,11 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "fine-based",
-      "flags": [],
-      "modifiers": [
-        "but"
-      ]
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
@@ -40,8 +40,8 @@
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
-        "fine": true,
-        "severity_score": 1,
+        "fine": false,
+        "severity_score": 0,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -64,12 +64,6 @@
           "type": "summary"
         },
         {
-          "title": "Cannabis in Chad",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Chad",
-          "depth": 1,
-          "type": "traversal"
-        },
-        {
           "title": "5000 Francs CFA, Chad",
           "url": "https://en.numista.com/catalogue/pieces391028.html",
           "depth": 2,
@@ -83,30 +77,25 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Chad | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Chad | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_fine | source: Cannabis in Chad | type: traversal | priority: 3 | scope: general"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 434,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal",
-      "penalty_fine"
+      "distribution_fallback_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Chad / تشاد. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -141,13 +130,14 @@
     "lng": 19
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Chad",
     "wiki": "https://en.wikipedia.org/wiki/Chad",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Chad",
-        "title": "Wikipedia: Chad / تشاد",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Chad",
+        "title": "Wikipedia: Cannabis in Chad",
         "type": "external",
         "weight": "low"
       },
@@ -208,9 +198,9 @@
   },
   "hashes": {
     "code": "tcd",
-    "content_hash": "7bf30954cc3d5363d6b3da7ff24f29df5a5c658121d194873f6f1c9de172f786",
+    "content_hash": "1c068ba84447b4c3d7b43db459a558a4bfbe443b07100e7b2a4e944cdc9de1eb",
     "notes_hash": "79f0a3f0a60abb4624e47ded14c38c5c58bacb00b8d87dead3fd2de56d97f2c3",
-    "model_hash": "967bc90c3c134424c10ca202febd94963294b1252b433602408b294578be7924"
+    "model_hash": "dee06a870b5aec03158d29ff1a2eb8aa5e3a4e6d1516a5d993a09b7f1ed19c68"
   },
   "geo_code": "TD",
   "node_type": "country",

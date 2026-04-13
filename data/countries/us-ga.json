@@ -143,6 +143,7 @@
     "lng": -97
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Georgia_(U.S._state)",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -166,7 +167,7 @@
     "code": "us-ga",
     "content_hash": "924ac7798635d7815165929580019866d4eda21e99359304b303aa3dc17e8877",
     "notes_hash": "801e4ebdcddf8d4622c0cbc2f708ba542b0dc0f6494a8988c1c4f115edbf223e",
-    "model_hash": "2ef55c94283e0c7433ca2acd2be83cbf35eec1200f4f95d6f7a3431d1976bd51"
+    "model_hash": "17bc38c2f60ab6e4f6a1e4c9d9b045eba7f1021c3c7f87f193691034d685bbda"
   },
   "updated_at": "2026-04-10"
 }

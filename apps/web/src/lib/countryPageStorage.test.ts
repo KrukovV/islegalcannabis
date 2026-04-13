@@ -16,6 +16,7 @@ import {
   statusToColor,
   statusToHoverColor
 } from "@/lib/resultStatus";
+import { assertCannabisWikiSource, isCannabisWikiSource } from "@/lib/wiki/cannabisSource";
 import { NEW_MAP_WATER_COLOR } from "@/new-map/mapPalette";
 import { resolveLegalFillColor, resolveLegalHoverColor } from "@/new-map/legalStyle";
 
@@ -70,6 +71,18 @@ describe("countryPageStorage", () => {
     expect(cambodia.panel.critical.length).toBeGreaterThan(0);
     expect(india.panel.why[0]?.text).toContain("Green");
     expect(india.panel.info.length).toBeGreaterThan(0);
+  });
+
+  it("locks country legal sources to Cannabis_in_* pages and uses them for details", () => {
+    for (const code of ["aus", "irn", "prt", "deu", "jpn", "are"] as const) {
+      const page = getCountryPageData(code)!;
+      const card = deriveCountryCardEntryFromCountryPageData(page);
+      expect(isCannabisWikiSource(page.sources.legal)).toBe(true);
+      expect(() => assertCannabisWikiSource(page.sources.legal)).not.toThrow();
+      expect(card.detailsHref).toBe(page.sources.legal);
+      expect(card.sources[0]?.url).toBe(page.sources.legal);
+      expect(card.sources.some((source) => source.id === "wiki_country")).toBe(false);
+    }
   });
 
   it("builds state-level SEO nodes derived from USA", () => {
@@ -255,7 +268,7 @@ describe("countryPageStorage", () => {
     expect(deriveMapCategoryFromCountryPageData(china!)).toBe("ILLEGAL");
     expect(deriveResultStatusFromCountryPageData(estonia!)).toBe("DECRIM");
     expect(deriveMapCategoryFromCountryPageData(estonia!)).toBe("LEGAL_OR_DECRIM");
-    expect(deriveResultStatusFromCountryPageData(luxembourg!)).toBe("DECRIM");
+    expect(deriveResultStatusFromCountryPageData(luxembourg!)).toBe("MIXED");
     expect(deriveMapCategoryFromCountryPageData(luxembourg!)).toBe("LEGAL_OR_DECRIM");
     expect(deriveResultStatusFromCountryPageData(netherlands!)).toBe("MIXED");
     expect(deriveMapCategoryFromCountryPageData(netherlands!)).toBe("LEGAL_OR_DECRIM");

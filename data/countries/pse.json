@@ -118,17 +118,10 @@
     "lng": 35.291341
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Palestinian_Territories",
     "wiki_truth": null,
-    "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Palestinian_Territories",
-        "title": "Wikipedia: Palestine / فلسطين",
-        "type": "external",
-        "weight": "low"
-      }
-    ]
+    "citations": []
   },
   "updated_at": "2026-04-10",
   "normalized_version": "v1",
@@ -180,7 +173,7 @@
     "code": "pse",
     "content_hash": "b3176a6944ba6a6851e43cc6f6bc1695ca950847f78b62f09186f01ee53c091c",
     "notes_hash": "bff540f93b923d60183dc231bbc4c3b3ac0f9baf70c18dbbafcf2cc560f0c04f",
-    "model_hash": "45346e54da197778bf88f2e8aff24bf80851a1ff44ab1a91b2eeb500097bd6f6"
+    "model_hash": "1f345e859fd51af08646205cca5936a0364a8a62d3b4ea3d770ae2598e283834"
   },
   "geo_code": "PS",
   "node_type": "country",

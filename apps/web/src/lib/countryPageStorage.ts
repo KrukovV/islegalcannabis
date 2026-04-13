@@ -2,6 +2,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import type { CountryCardEntry } from "@/new-map/map.types";
+import { assertCannabisWikiSource, isCannabisWikiSource } from "@/lib/wiki/cannabisSource";
 import {
   deriveMapCategoryFromCountryPageDataSignals,
   deriveResultStatusFromCountryPageData,
@@ -164,6 +165,7 @@ export type CountryPageData = {
   graph: CountryGraphLinks;
   coordinates: { lat: number; lng: number } | null;
   sources: {
+    legal: string | null;
     wiki: string | null;
     wiki_truth: string | null;
     citations: CountryPageSource[];
@@ -291,6 +293,12 @@ export function validateCountryPageData(data: CountryPageData) {
   if (data.hashes.notes_hash !== expectedHashes.notes_hash) errors.push("NOTES_HASH_MISMATCH");
   if (data.hashes.content_hash !== expectedHashes.content_hash) errors.push("CONTENT_HASH_MISMATCH");
   if (data.hashes.model_hash !== expectedHashes.model_hash) errors.push("MODEL_HASH_MISMATCH");
+  if (data.node_type === "country" && data.sources.legal && !isCannabisWikiSource(data.sources.legal)) {
+    errors.push("INVALID_LEGAL_SOURCE");
+  }
+  if (data.node_type === "country" && data.sources.citations.some((source) => !source.url || source.id === "wiki_country")) {
+    errors.push("INVALID_COUNTRY_CITATION");
+  }
   return errors;
 }
 
@@ -549,12 +557,13 @@ export function deriveCountryCardEntryFromCountryPageData(data: CountryPageData)
   const mapCategory = deriveMapCategoryFromCountryPageDataSignals(data, resultStatus);
   const mapReason = buildMapColorReason(data);
   const pageHref = `/c/${data.code}`;
+  const legalSourceUrl = isCannabisWikiSource(data.sources.legal) ? assertCannabisWikiSource(data.sources.legal) : null;
   const sources = (data.sources.citations || []).slice(0, 3).map((source) => ({
     id: source.id,
     title: source.title,
     url: source.url
   }));
-  const reasonSourceUrl = sources[0]?.url;
+  const reasonSourceUrl = legalSourceUrl || sources[0]?.url;
   const buildReason = (id: string, text: string, anchor: string, sourceUrl?: string) => ({
     id,
     text,
@@ -625,6 +634,7 @@ export function deriveCountryCardEntryFromCountryPageData(data: CountryPageData)
     geo: data.geo_code,
     code: data.code,
     pageHref,
+    detailsHref: legalSourceUrl,
     displayName: data.name,
     iso2: data.node_type === "state" ? data.geo_code : data.iso2,
     type: data.node_type,

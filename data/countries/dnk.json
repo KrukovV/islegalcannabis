@@ -161,13 +161,14 @@
     "lng": 10
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Denmark",
     "wiki": "https://en.wikipedia.org/wiki/Denmark",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Denmark",
-        "title": "Wikipedia: Denmark / Danmark",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Denmark",
+        "title": "Wikipedia: Cannabis in Denmark",
         "type": "external",
         "weight": "low"
       },
@@ -230,7 +231,7 @@
     "code": "dnk",
     "content_hash": "97692a578c8c6867a128d8c57cf090cc12ca3c3e4f0ac082c10e95e6959a6057",
     "notes_hash": "effed591065f2c95740deedd08f3e17781a56bc30e018f7134dbfbe55c52b9d9",
-    "model_hash": "7499798b9e71f9f987acb7123b4563aecded0e3b9b898b71cebfe5fa8ec21a77"
+    "model_hash": "23fe455268798cf61c12c0e927368e927400c1ae788a1b1bac5556e3a4537ca3"
   },
   "geo_code": "DK",
   "node_type": "country",

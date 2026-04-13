@@ -145,6 +145,7 @@
     "lng": -97
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Louisiana",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -168,7 +169,7 @@
     "code": "us-la",
     "content_hash": "dab0313e310d3693b24906e73dbb5aec7e7804baff8872a375c0b6d8d53cb9a1",
     "notes_hash": "4cd96884bb5634832df758b2f765b1c906d1d5747dfa49af60c80eeb299c3ebe",
-    "model_hash": "7f946f3489d4be147346732afce3f6ea73309ead8339f398632649d9d0484332"
+    "model_hash": "e276b77eace782238baa5be16c4aaade1099ec138493bbfe3b4ecb3809c4c41d"
   },
   "updated_at": "2026-04-10"
 }

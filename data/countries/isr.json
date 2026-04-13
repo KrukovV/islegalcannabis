@@ -186,13 +186,14 @@
     "lng": 35.13
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Israel",
     "wiki": "https://en.wikipedia.org/wiki/Israel",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Israel",
-        "title": "Wikipedia: Israel / إسرائيل",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Israel",
+        "title": "Wikipedia: Cannabis in Israel",
         "type": "external",
         "weight": "low"
       },
@@ -255,7 +256,7 @@
     "code": "isr",
     "content_hash": "4d5770302a073d19679478b851e1b08c4c2d4dea2385c493ae6eaef48c8bc6c0",
     "notes_hash": "7bcfa5c7c5c0175fd6028696e31aacb76d95824f0ab35d46c5f84dac1ff30182",
-    "model_hash": "33f164463eeda1074c541d0d5e4e46a97518a538c2bff383adf362d9bd6283b5"
+    "model_hash": "f778b4ada66044c36e97af5c71a0f36b2a031c4b8e88ff3df008f6108b0d2f37"
   },
   "geo_code": "IL",
   "node_type": "country",

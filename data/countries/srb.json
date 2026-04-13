@@ -197,13 +197,14 @@
     "lng": 21
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Serbia",
     "wiki": "https://en.wikipedia.org/wiki/Serbia",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Serbia",
-        "title": "Wikipedia: Serbia / Србија",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Serbia",
+        "title": "Wikipedia: Cannabis in Serbia",
         "type": "external",
         "weight": "low"
       },
@@ -266,7 +267,7 @@
     "code": "srb",
     "content_hash": "a041de4e97b6e266415be10ccc138e6d5c7d0aa47845ed21aed6c200a3f0e4d3",
     "notes_hash": "b93ed3e0850eb8830f75069ea25c3fd8d686f59c946e58073045c5e154a8d42a",
-    "model_hash": "b8b84b52d058010f4cfcbc06f8bd63876bd4edfbf577432b3ba18cc2b941accd"
+    "model_hash": "411d0c0082271cd722cf3e5ecf7d54ac28fa9da714211ee4208755e37e7dd925"
   },
   "geo_code": "RS",
   "node_type": "country",

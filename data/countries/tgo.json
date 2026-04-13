@@ -27,10 +27,10 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "flags": [],
+      "modifiers": [
+        "only"
+      ]
     },
     "signals": {
       "status": "illegal",
@@ -64,6 +64,12 @@
           "type": "summary"
         },
         {
+          "title": "Cannabis in Togo",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Togo",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
           "title": "International Narcotics Control Strategy Report, 1995",
           "url": "https://books.google.com/books?id=w0DlWjK3YCEC&pg=PA452",
           "depth": 2,
@@ -71,25 +77,26 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Togo | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Togo | type: traversal | priority: 3 | scope: general"
       ],
       "secondary_source": {
-        "has_article": false,
-        "article_len": 0,
-        "source_confidence": "no_secondary_source",
+        "has_article": true,
+        "article_len": 149,
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": null
+          "distribution_article": "illegal"
         }
       }
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Togo. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -124,13 +131,14 @@
     "lng": 1.16666666
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Togo",
     "wiki": "https://en.wikipedia.org/wiki/Togo",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Togo",
-        "title": "Wikipedia: Togo",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Togo",
+        "title": "Wikipedia: Cannabis in Togo",
         "type": "external",
         "weight": "low"
       },
@@ -191,9 +199,9 @@
   },
   "hashes": {
     "code": "tgo",
-    "content_hash": "ca553580b1ec4015ad1565958bb2356c6e8d87cd7a07fa55e8e3c4e39c54ddc2",
+    "content_hash": "09a51f1ee190be56b227c487a7020c178bd433899ec65fdf7cfab8bf1e02073d",
     "notes_hash": "729a48e64e7c320790012e02ae0f749bbb6907a70bb8501ddab605f7c16a5484",
-    "model_hash": "55004b478947b2b67936afce695f6555426037a6fb7c07021ecc145850acff72"
+    "model_hash": "0557274514c41beba2962b2e19f81e58833d5c403d1b8d10a2fd342fcc89adb4"
   },
   "geo_code": "TG",
   "node_type": "country",

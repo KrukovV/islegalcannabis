@@ -26,11 +26,11 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "fine-based",
-      "flags": [],
-      "modifiers": [
-        "but"
-      ]
+      "enforcement": "standard",
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
@@ -39,9 +39,9 @@
       "penalties": {
         "prison": false,
         "prison_priority": 0,
-        "arrest": true,
-        "fine": true,
-        "severity_score": 2,
+        "arrest": false,
+        "fine": false,
+        "severity_score": 0,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -55,19 +55,13 @@
           "severe": false
         }
       },
-      "confidence": "high",
+      "confidence": "medium",
       "sources": [
         {
           "title": "Tanzania",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Tanzania",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Tanzania",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "CANNABIS IN AFRICA",
@@ -95,33 +89,25 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Tanzania | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Tanzania | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_arrest | source: Cannabis in Tanzania | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_fine | source: Cannabis in Tanzania | type: traversal | priority: 3 | scope: general",
-        "rule: legal | source: Cannabis in Tanzania | type: traversal | priority: 3 | scope: general"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 2169,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
-    "enforcement_flags": [
-      "fine_based"
-    ],
+    "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal",
-      "penalty_arrest",
-      "penalty_fine"
+      "distribution_fallback_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Tanzania. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -156,13 +142,14 @@
     "lng": 35
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Tanzania",
     "wiki": "https://en.wikipedia.org/wiki/Tanzania",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Tanzania",
-        "title": "Wikipedia: Tanzania",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Tanzania",
+        "title": "Wikipedia: Cannabis in Tanzania",
         "type": "external",
         "weight": "low"
       },
@@ -223,9 +210,9 @@
   },
   "hashes": {
     "code": "tza",
-    "content_hash": "f62a0ac05917367f7d951b33c16491a021e8c5db72fcb3fde642114441478a92",
+    "content_hash": "8f6254b9428085cc6921263b8d571298939670ebb30c71e3020524f76d3c64ee",
     "notes_hash": "3a68839b381fff1b45873cde10095732eefb36380a753a5aeb36c8e8ddc32581",
-    "model_hash": "b3be4f63708504d090a0921b3d4c50cd35c3a71edfaadb9bba9d63b697350bd7"
+    "model_hash": "43f8c12b624ea489d4985e43d72c5545a63742c0afea6124a0f058906e1b33d0"
   },
   "geo_code": "TZ",
   "node_type": "country",

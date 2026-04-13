@@ -155,13 +155,14 @@
     "lng": 12
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Cameroon",
     "wiki": "https://en.wikipedia.org/wiki/Cameroon",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Cameroon",
-        "title": "Wikipedia: Cameroon / Cameroun",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cameroon",
+        "title": "Wikipedia: Cannabis in Cameroon",
         "type": "external",
         "weight": "low"
       },
@@ -224,7 +225,7 @@
     "code": "cmr",
     "content_hash": "e85f12a07f7a44c6ba8f82db4d9d5adb3279508855413bc23082f32bcd021d7a",
     "notes_hash": "5d37afb46c1850defec8df196058e5b0b134fbf6ebf98483425bc05ad933e23d",
-    "model_hash": "820a28969dc8a0c21b289392481e2aa04fa4f7e17aa44d80c28fd59111286db2"
+    "model_hash": "e37666bb38d728ed0a563954b7a78b68bf67937649a08117cbb5f951006802f4"
   },
   "geo_code": "CM",
   "node_type": "country",

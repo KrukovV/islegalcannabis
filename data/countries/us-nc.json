@@ -145,6 +145,7 @@
     "lng": -97
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/North_Carolina",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -168,7 +169,7 @@
     "code": "us-nc",
     "content_hash": "aa05287bdeba05c08cb119564888b12f3878e73da424a7149b2224f91f797cb4",
     "notes_hash": "9e0980226c3877a938878250a2ea2e0248ebc1b7ad081805df079e371c7584d2",
-    "model_hash": "b383673f4b1d4f74602b72ffae5e9eaa2f05c41ae3c34d4dc7966582eb566bcc"
+    "model_hash": "4a94d91a08eca85339573249b1b9aff8b07400d4ae21d6cdd76f32149c47c4fd"
   },
   "updated_at": "2026-04-10"
 }

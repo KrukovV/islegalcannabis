@@ -118,17 +118,10 @@
     "lng": -4.530069
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Isle_of_Man",
     "wiki_truth": null,
-    "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Isle_of_Man",
-        "title": "Wikipedia: Isle of Man / Mannin",
-        "type": "external",
-        "weight": "low"
-      }
-    ]
+    "citations": []
   },
   "updated_at": "2026-04-10",
   "normalized_version": "v1",
@@ -180,7 +173,7 @@
     "code": "imn",
     "content_hash": "b7466a34d52f5336f55d1bf8716366c733392c69abf7ffc40e6831b2d28d3f10",
     "notes_hash": "b8c881f6f4dfed1356d3052f02b0757a0235565a312954df8c054faf39f3a120",
-    "model_hash": "8b12654ac9107b43b2ebf00bcad71323e3c7e5aae86c5fb6aea45e36d581e6cf"
+    "model_hash": "06d31951a2e3609877e98ee2c9920b9172c05204e61951216684648476faf563"
   },
   "geo_code": "IM",
   "node_type": "country",

@@ -118,17 +118,10 @@
     "lng": -178.137436
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Wallis_%26_Futuna",
     "wiki_truth": null,
-    "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Wallis_%26_Futuna",
-        "title": "Wikipedia: Wallis and Futuna / Wallis et Futuna",
-        "type": "external",
-        "weight": "low"
-      }
-    ]
+    "citations": []
   },
   "updated_at": "2026-04-10",
   "normalized_version": "v1",
@@ -180,7 +173,7 @@
     "code": "wlf",
     "content_hash": "5cc0b5d67239239ad70be3d24f84e918cefdf405fde7235e3be45f5a20db4cba",
     "notes_hash": "4580151da812b8eac19f531183a20e46a1a1230b164c2b50f14d14209c1261ae",
-    "model_hash": "c4c05df3d02da5566a7c5c463dc76a35acabdced20c37f0653311b9d305b5acc"
+    "model_hash": "c34f639a8ba7899f7c9f96da07cf8148af85ad51fa62dbb8142140e4bebe65bc"
   },
   "geo_code": "WF",
   "node_type": "country",

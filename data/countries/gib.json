@@ -118,17 +118,10 @@
     "lng": -5.3467
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Gibraltar",
     "wiki_truth": null,
-    "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Gibraltar",
-        "title": "Wikipedia: Gibraltar",
-        "type": "external",
-        "weight": "low"
-      }
-    ]
+    "citations": []
   },
   "updated_at": "2026-04-10",
   "normalized_version": "v1",
@@ -180,7 +173,7 @@
     "code": "gib",
     "content_hash": "e7e68df83db5741a7b2da6f6c08438ae3da9e1106d7fca0529536f292c982b45",
     "notes_hash": "4240bcbe55beb93fac6bb803d5fb46bee93d1d3e28923e10cf55a5c5b40d7b44",
-    "model_hash": "2b70ad7fc5c8bcd99ea831211534ab44789b28b2a97ca2425b9646489553e046"
+    "model_hash": "53aea4e0c25e290f7f5def3c78d84dd15076231c78ae77671768d75706fdd10e"
   },
   "geo_code": "GI",
   "node_type": "country",

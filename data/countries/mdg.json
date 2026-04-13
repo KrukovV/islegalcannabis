@@ -155,13 +155,14 @@
     "lng": 47
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Madagascar",
     "wiki": "https://en.wikipedia.org/wiki/Madagascar",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Madagascar",
-        "title": "Wikipedia: Madagascar / Madagasikara",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Madagascar",
+        "title": "Wikipedia: Cannabis in Madagascar",
         "type": "external",
         "weight": "low"
       },
@@ -224,7 +225,7 @@
     "code": "mdg",
     "content_hash": "86e99e4fab04417e5b941ceb7c6e6008d21d4c822487b355385c4ef65d2c08d8",
     "notes_hash": "13efb8f150d5f45345af69dbca0e836ce03f4e49943972f6c906e65236f21cbe",
-    "model_hash": "cfd6dff09b719da24a3987a960a246f8ef1c8aa0b87aa9d5136130c273a07e3f"
+    "model_hash": "7e8f66befd5e9f3197577a05bf8fe66ce787642614f83716e426fb74db54012d"
   },
   "geo_code": "MG",
   "node_type": "country",

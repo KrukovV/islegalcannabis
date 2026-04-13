@@ -38,4 +38,13 @@ describe("countryIntentContent", () => {
     expect(sections[0]?.id).toBe("buy");
     expect(sections[0]?.heading).toContain("Can you buy cannabis");
   });
+
+  it("does not leak internal normalized-model wording into intent text", () => {
+    const australia = getCountryPageData("aus");
+    expect(australia).toBeTruthy();
+    const sections = buildCountryIntentSections(australia!);
+    const text = sections.map((section) => section.body).join(" ");
+    expect(text.toLowerCase()).not.toContain("normalized source data");
+    expect(text.toLowerCase()).not.toContain("normalized model");
+  });
 });

@@ -145,6 +145,7 @@
     "lng": -97
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Montana",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -168,7 +169,7 @@
     "code": "us-mt",
     "content_hash": "042ddc50258d1723efb357a4ee1043bf2ffdb8ba5dcc0669302468f0a02b8703",
     "notes_hash": "32b295687ccf09fb212b74af5aa37e8e48b9ea1d67e655b1a6b70753511cc1fb",
-    "model_hash": "39160d12f8613c1ea654b4629bda99980169f5af7b19e17089f0562913e83db6"
+    "model_hash": "f36f56f0c538791a8f12d5dd51925404ebf2bed50cdfb7ba0dca1c0c6997682d"
   },
   "updated_at": "2026-04-10"
 }

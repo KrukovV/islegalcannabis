@@ -118,17 +118,10 @@
     "lng": -56.332352
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/St._Pierre_%26_Miquelon",
     "wiki_truth": null,
-    "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/St._Pierre_%26_Miquelon",
-        "title": "Wikipedia: Saint Pierre and Miquelon / Saint-Pierre-et-Miquelon",
-        "type": "external",
-        "weight": "low"
-      }
-    ]
+    "citations": []
   },
   "updated_at": "2026-04-10",
   "normalized_version": "v1",
@@ -180,7 +173,7 @@
     "code": "spm",
     "content_hash": "e59a0a8c7b53b428f8b8cd7885654dac32b2dfd4c095ba3bd38b0a8b6f182d09",
     "notes_hash": "0c9bf3682ccf803094092e16431a334085a9643ff0eb4142d3f7abb30737fda6",
-    "model_hash": "883839fe34510f7c8688dad9be3dc32e17262d94a9640697c4822846b720eb2d"
+    "model_hash": "2d2c54a6cdafb16caed98706fb3ea8997355c3bb6efb587b02e0bc138feea964"
   },
   "geo_code": "PM",
   "node_type": "country",

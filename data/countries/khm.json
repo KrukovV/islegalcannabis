@@ -137,13 +137,14 @@
     "lng": 105
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Cambodia",
     "wiki": "https://en.wikipedia.org/wiki/Cambodia",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Cambodia",
-        "title": "Wikipedia: Cambodia / Kâmpŭchéa",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cambodia",
+        "title": "Wikipedia: Cannabis in Cambodia",
         "type": "external",
         "weight": "low"
       },
@@ -206,7 +207,7 @@
     "code": "khm",
     "content_hash": "a4456391688faee6eddf9635b00c0e4034bed42564bbfa47ae5ccef37c5f134a",
     "notes_hash": "8521b7ed18868b41ce6acb4d6902b475e3152e693d683fce2049265aabbaa07b",
-    "model_hash": "d972fbebd24f5300ee5f0d5e971ac7b30c1c2c9089bf3c47009f38a70b1e88e3"
+    "model_hash": "651611a72e69567bf320ebfd907d728580cdc9de5b21979f20ece8812556effc"
   },
   "geo_code": "KH",
   "node_type": "country",

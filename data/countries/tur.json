@@ -198,13 +198,14 @@
     "lng": 35
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Turkey",
     "wiki": "https://en.wikipedia.org/wiki/Turkey",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Turkey",
-        "title": "Wikipedia: Türkiye",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Turkey",
+        "title": "Wikipedia: Cannabis in Türkiye",
         "type": "external",
         "weight": "low"
       },
@@ -267,7 +268,7 @@
     "code": "tur",
     "content_hash": "e32cb0adcd25cd7d9d5fca062844d4779fd0be54efa026a98f122fb24610ffa1",
     "notes_hash": "5d8f6fd4e5b3f2c6306a2538de229e93070c9cd3e5ea2e06a451a34815edf832",
-    "model_hash": "8faeae4f731353b0e438848a79cd38c27dfdabfece6046a5ebead822a937e0d3"
+    "model_hash": "45b3f18e379ef86ff574b3b525cab449d79cd4f426d19741cf4005bc68dece59"
   },
   "geo_code": "TR",
   "node_type": "country",

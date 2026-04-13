@@ -157,13 +157,14 @@
     "lng": -2
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Ghana",
     "wiki": "https://en.wikipedia.org/wiki/Ghana",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Ghana",
-        "title": "Wikipedia: Ghana",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ghana",
+        "title": "Wikipedia: Cannabis in Ghana",
         "type": "external",
         "weight": "low"
       },
@@ -226,7 +227,7 @@
     "code": "gha",
     "content_hash": "ebe54731d42fef3bf8298bdb88a7426a360cf31ac788b6a13f2682929f752393",
     "notes_hash": "0b7bd0510e7312f3379173e13f9d57fbebefc6a9b82e3a7305ce48e23e2372c8",
-    "model_hash": "f087183b633109a1843c68b9a55be826b1a0ea3e73c6c5763ecd8dd816c3bb90"
+    "model_hash": "7f5ec94f4c5a4fc9390f162bfea231ec27d22f2f0622ae208e082f0735b8c05a"
   },
   "geo_code": "GH",
   "node_type": "country",

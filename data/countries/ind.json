@@ -193,13 +193,14 @@
     "lng": 77
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_India",
     "wiki": "https://en.wikipedia.org/wiki/India",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/India",
-        "title": "Wikipedia: India / भारत",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_India",
+        "title": "Wikipedia: Cannabis in India",
         "type": "external",
         "weight": "low"
       },
@@ -262,7 +263,7 @@
     "code": "ind",
     "content_hash": "602c42699713375b3ad78b5fad6f8bbce8f090030d10eace363e1c9901bcffb4",
     "notes_hash": "f2a752ffd7783d8a8adcdc355525e8c018d546a1dc3f70135820b8a5706ed9bc",
-    "model_hash": "75beba60af45ee41796080b475922b8cdcf8a333c8726fc4f632ec12d99200be"
+    "model_hash": "a729d13e2de4cf79a80c64ed322aeab8cabbf0edc0cae68cf45144e301afc077"
   },
   "geo_code": "IN",
   "node_type": "country",

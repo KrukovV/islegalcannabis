@@ -169,13 +169,14 @@
     "lng": 30
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Zimbabwe",
     "wiki": "https://en.wikipedia.org/wiki/Zimbabwe",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Zimbabwe",
-        "title": "Wikipedia: Zimbabwe",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Zimbabwe",
+        "title": "Wikipedia: Cannabis in Zimbabwe",
         "type": "external",
         "weight": "low"
       },
@@ -238,7 +239,7 @@
     "code": "zwe",
     "content_hash": "97ba06dc0ea83d987351a8d1886fe112a6d0bceed739b5a21798f124ef067e42",
     "notes_hash": "ce6f2d393218f60cf08c664122f3fcddcd145bab6db9ddd8395fcd970812a615",
-    "model_hash": "6735c760ddf59e24054d9769889a3045752c6621c0d3fe356e219f9ce05c9e25"
+    "model_hash": "8fb79779c8dd18d83d3ee57ad317c9fbeb5039112b178196a8a8f9286a5bd3f3"
   },
   "geo_code": "ZW",
   "node_type": "country",

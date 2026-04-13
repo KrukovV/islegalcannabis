@@ -167,13 +167,14 @@
     "lng": -88.75
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Belize",
     "wiki": "https://en.wikipedia.org/wiki/Belize",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Belize",
-        "title": "Wikipedia: Belize / Belice",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Belize",
+        "title": "Wikipedia: Cannabis in Belize",
         "type": "external",
         "weight": "low"
       },
@@ -236,7 +237,7 @@
     "code": "blz",
     "content_hash": "6d22d50cf2c8e26f87cc329ad30c120d52e89631a779d8999e506dcd97769d97",
     "notes_hash": "7b7954cc457456cf4aabb27a8617285c4c85987d865d32898a059d9a2cb958fd",
-    "model_hash": "f9ada4b8321a67b014e3e1ca316f7f23bf4d0f1732d7b504ebf3f085b86829fd"
+    "model_hash": "8571dc56d49d9dd8d142498dc3d4eae8cb203ce59d201519b3cf1f718e75ba8b"
   },
   "geo_code": "BZ",
   "node_type": "country",

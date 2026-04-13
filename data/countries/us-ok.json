@@ -143,6 +143,7 @@
     "lng": -97
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Oklahoma",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -166,7 +167,7 @@
     "code": "us-ok",
     "content_hash": "4fd89dc00a97ca199baecf18e1b13733e2f7a54005e14ef4a75ba08c9b56ba1b",
     "notes_hash": "3d118b91b98885357217368bd81cdab101669006290aa8c2742a412a8ccb214e",
-    "model_hash": "efe31040d8676e84f842bd2793fdb955d5e382af5e0f65a12453f3624fada491"
+    "model_hash": "bcc6fc7d96a007fb730f3483cb8ebc8d8ffaa6ca817bcf35782edac54159e227"
   },
   "updated_at": "2026-04-10"
 }

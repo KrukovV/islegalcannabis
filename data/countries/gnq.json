@@ -162,13 +162,14 @@
     "lng": 10
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Equatorial_Guinea",
     "wiki": "https://en.wikipedia.org/wiki/Equatorial_Guinea",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Equatorial_Guinea",
-        "title": "Wikipedia: Equatorial Guinea / Guinée équatoriale",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Equatorial_Guinea",
+        "title": "Wikipedia: Cannabis in Equatorial Guinea",
         "type": "external",
         "weight": "low"
       },
@@ -231,7 +232,7 @@
     "code": "gnq",
     "content_hash": "ab449522456515821a3b37f6c1230df16ac16e14d5846c2eab0a2d3dc3a7ed94",
     "notes_hash": "9460a5bd07ced8dcbee3ba183d26b4d580e2157528e6cf28277164d75ca349a9",
-    "model_hash": "031e2536d4deb9515c128ceaf7bcf9c41e2b26ea5ef01311d581991d83788480"
+    "model_hash": "1538809ff194c7fb676b63937c65aaaea74695fb3523c2edf6fe4b0454642db3"
   },
   "geo_code": "GQ",
   "node_type": "country",

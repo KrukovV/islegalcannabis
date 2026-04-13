@@ -145,6 +145,7 @@
     "lng": -105.7821
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Colorado",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -175,7 +176,7 @@
     "code": "us-co",
     "content_hash": "9f56360406c39d741969cdb6c88016e2d8ab0bb4f7b8b6ebc39a84d5e20209a4",
     "notes_hash": "f4f78d5507cffefe13d041ea5eedd8fd397e2dddf124744b3dc5168754e733d2",
-    "model_hash": "246885ea434186a0f9d56cf8c2743dc95a684744c247af4bb0b13993d1283ce8"
+    "model_hash": "bb2e68fb659b55c82df4cb89c670bcd28e7c64097cd2fa5696ab7f32d657e413"
   },
   "updated_at": "2024-01-01"
 }

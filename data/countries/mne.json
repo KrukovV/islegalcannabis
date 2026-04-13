@@ -27,9 +27,7 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
     },
     "signals": {
@@ -64,6 +62,12 @@
           "type": "summary"
         },
         {
+          "title": "Cannabis in Montenegro",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Montenegro",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
           "title": "International Narcotics Control Strategy Report: Volume I: Drug and Chemical Control",
           "url": "https://books.google.com/books?id=0jnyNWFuhXYC&pg=PA447",
           "depth": 2,
@@ -83,25 +87,26 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Montenegro | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Montenegro | type: traversal | priority: 3 | scope: general"
       ],
       "secondary_source": {
-        "has_article": false,
-        "article_len": 0,
-        "source_confidence": "no_secondary_source",
+        "has_article": true,
+        "article_len": 229,
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": null
+          "distribution_article": "illegal"
         }
       }
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Montenegro / Црна Гора. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -136,13 +141,14 @@
     "lng": 19.3
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Montenegro",
     "wiki": "https://en.wikipedia.org/wiki/Montenegro",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Montenegro",
-        "title": "Wikipedia: Montenegro / Црна Гора",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Montenegro",
+        "title": "Wikipedia: Cannabis in Montenegro",
         "type": "external",
         "weight": "low"
       },
@@ -203,9 +209,9 @@
   },
   "hashes": {
     "code": "mne",
-    "content_hash": "fb44bb6abd8afc3499932466d9b128da09e27cbd5b9dd0f3712fa60259ccfa82",
+    "content_hash": "a83a913c4fcd42548a46cccbb1da08d7b52ae2c305174a9554279454313fd403",
     "notes_hash": "15e77900e5e6e1c45922cc10a36b40e5f06d246fc3e75cb155882a9c76f1bfc1",
-    "model_hash": "fab1595f7811c4b3cac845fe47c2b3408e42be9983808be21ebd0d0e873691ea"
+    "model_hash": "4465cbdd1fdd41ee83afd9ea19d99b8a3f9a4e634b9bca095802dbb01c511394"
   },
   "geo_code": "ME",
   "node_type": "country",

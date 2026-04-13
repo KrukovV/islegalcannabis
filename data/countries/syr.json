@@ -173,13 +173,14 @@
     "lng": 38
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Syria",
     "wiki": "https://en.wikipedia.org/wiki/Syria",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Syria",
-        "title": "Wikipedia: Syria / سوريا",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Syria",
+        "title": "Wikipedia: Cannabis in Syria",
         "type": "external",
         "weight": "low"
       },
@@ -242,7 +243,7 @@
     "code": "syr",
     "content_hash": "e0714b55c387dd37d042bbdf5fb021b8be75060defad7bc74bc7c0f05e414e0e",
     "notes_hash": "1f175ae592dbf03341ded38f37b3cc0e75c3defc7e7f8012b512bd0f533fdf0b",
-    "model_hash": "7c2c6a4b57781c9f12bb55567fedcb8e179f44f0ce73c155541942d9d728ab4f"
+    "model_hash": "c19385930b16d324b9f3561c1f28c317c525190ebb3d36aa229f4081c154b75e"
   },
   "geo_code": "SY",
   "node_type": "country",

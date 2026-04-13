@@ -172,13 +172,14 @@
     "lng": -80
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Cuba",
     "wiki": "https://en.wikipedia.org/wiki/Cuba",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Cuba",
-        "title": "Wikipedia: Cuba",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Cuba",
+        "title": "Wikipedia: Cannabis in Cuba",
         "type": "external",
         "weight": "low"
       },
@@ -241,7 +242,7 @@
     "code": "cub",
     "content_hash": "18710df66cf195b085834789349d01f38b5ed58758a83dd60bc9487e414b888c",
     "notes_hash": "f7da2383204920ddb24d6709f655d75380d9c1714dccd340fe5190b55df9302e",
-    "model_hash": "6fcb2eb0d6ccf32d7a3e8d157f2c08c0f2c080ccd401d2efadd9badfea939d8e"
+    "model_hash": "a90e710a1d3e9093b78971a474ec954a7d70a2dbddf89e038fb798f209589aff"
   },
   "geo_code": "CU",
   "node_type": "country",

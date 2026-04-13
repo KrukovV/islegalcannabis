@@ -220,13 +220,14 @@
     "lng": 133
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Australia",
     "wiki": "https://en.wikipedia.org/wiki/Australia",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Australia",
-        "title": "Wikipedia: Australia",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Australia",
+        "title": "Wikipedia: Cannabis in Australia",
         "type": "external",
         "weight": "low"
       },
@@ -289,7 +290,7 @@
     "code": "aus",
     "content_hash": "9cf54f23fc09460c077ea1aeffd67fffef570efcbd59ddcd713d00d72e0fc60f",
     "notes_hash": "68232c768fc86be79b6a370d0cbca5ff80aa8bd7527b52ff657f911e94040894",
-    "model_hash": "d352c2cc10935266cc941c3885266470ea085e1d060e0734d759d17a76e001d6"
+    "model_hash": "568f56c8506e3d4f7dd76663388a89693383f27685adf854acb0baa27ba235c2"
   },
   "geo_code": "AU",
   "node_type": "country",

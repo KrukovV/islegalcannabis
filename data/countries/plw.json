@@ -159,13 +159,14 @@
     "lng": 134.5
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Palau",
     "wiki": "https://en.wikipedia.org/wiki/Palau",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Palau",
-        "title": "Wikipedia: Palau / Belau",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Palau",
+        "title": "Wikipedia: Cannabis in Palau",
         "type": "external",
         "weight": "low"
       },
@@ -228,7 +229,7 @@
     "code": "plw",
     "content_hash": "945870987ecc91f6d22d05a62d4416eccf7623c3a993b83d5a5ca110d336ee44",
     "notes_hash": "e0d6b9304f86fe6a05d9232050c76c308f6e30801c77acfdb1e11f0850dfdcef",
-    "model_hash": "70ea6b2ed285a43b8aaa7825b8a36b8255d95601540ac28c1fd59997135511f7"
+    "model_hash": "21eb51209d2fd0a7a9a776390b309d877cd5a3c3ba6c84a1ddd04fc799de4113"
   },
   "geo_code": "PW",
   "node_type": "country",

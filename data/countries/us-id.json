@@ -143,6 +143,7 @@
     "lng": -97
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Idaho",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -166,7 +167,7 @@
     "code": "us-id",
     "content_hash": "b0437b41baba14cc5f3383ec14cd3532b3ae83b41f8c64fa43446c010b9d559e",
     "notes_hash": "1c3aed61ed4aaf9c1cb2d6b5337cfd146fba750576636e8059ecd2a665535f7a",
-    "model_hash": "370eb9bc2040c9e3aaa73c22ac6be98a3ee40b5aa6647c874f70da84477a12a5"
+    "model_hash": "d9b584acafa2866130e2adc745330224aeeaef1eced30044971723ea58fd2a7e"
   },
   "updated_at": "2026-04-10"
 }

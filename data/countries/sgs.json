@@ -118,17 +118,10 @@
     "lng": -31.063179
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/South_Georgia_%26_South_Sandwich_Islands",
     "wiki_truth": null,
-    "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/South_Georgia_%26_South_Sandwich_Islands",
-        "title": "Wikipedia: South Georgia",
-        "type": "external",
-        "weight": "low"
-      }
-    ]
+    "citations": []
   },
   "updated_at": "2026-04-10",
   "normalized_version": "v1",
@@ -180,7 +173,7 @@
     "code": "sgs",
     "content_hash": "8004b49c9c1758c3d6bc990f73af07580579ece2e6cf51ebd81994dfc757363a",
     "notes_hash": "871c5a9600488c5dc92eeb242bc9aefcc370e80c7ac4038bbee9e67b0b28c125",
-    "model_hash": "bd78128316ab48347caae502b0b70af07e493741d6c153e262f050a0af7bf71f"
+    "model_hash": "f9f355237d4501883e03dbee3c90d78ea109327a789cb63eeccfe21f4412b1b2"
   },
   "geo_code": "GS",
   "node_type": "country",

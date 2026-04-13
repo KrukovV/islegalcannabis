@@ -207,13 +207,14 @@
     "lng": -2
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_the_United_Kingdom",
     "wiki": "https://en.wikipedia.org/wiki/United_Kingdom",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/United_Kingdom",
-        "title": "Wikipedia: United Kingdom",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_United_Kingdom",
+        "title": "Wikipedia: Cannabis in United Kingdom",
         "type": "external",
         "weight": "low"
       },
@@ -276,7 +277,7 @@
     "code": "gbr",
     "content_hash": "514ca3983b8866053bccaf86191ee994b8d38ccd9b402e8d7083e17d57f2666b",
     "notes_hash": "fdb24c880138723f56c1b505dc6b6cf163dfd065657c3eddcd95a8111bf2ac8a",
-    "model_hash": "863f5c83d4a6f1993bba8022f6f87036f5a0540a9049fabf6d326711c73d10c0"
+    "model_hash": "fc885b8a037990a6b9d5fc39bb5d8d016e433e4caec24b3d8f306d5157bb6817"
   },
   "geo_code": "GB",
   "node_type": "country",

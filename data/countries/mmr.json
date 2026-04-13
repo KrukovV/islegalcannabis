@@ -159,13 +159,14 @@
     "lng": 98
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Myanmar",
     "wiki": "https://en.wikipedia.org/wiki/Myanmar",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Myanmar",
-        "title": "Wikipedia: Myanmar / မြန်မာ",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Myanmar",
+        "title": "Wikipedia: Cannabis in Myanmar",
         "type": "external",
         "weight": "low"
       },
@@ -228,7 +229,7 @@
     "code": "mmr",
     "content_hash": "a9b9ae6f7927fdae206577a029a3722426d66817e5904b0b8229ccc14d0b8160",
     "notes_hash": "e8334dfa73ed3fda04b2e73c697ee50fc68ae3501f36fd1cdf9b9746ef6d88f8",
-    "model_hash": "b5e5e567c764478dfe4f6755c82e3f7a211abe67449c957d80630484d4632d3c"
+    "model_hash": "aca3d238c628edf75724be6c45abac44845668499756c6276273d2931fe57a58"
   },
   "geo_code": "MM",
   "node_type": "country",

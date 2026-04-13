@@ -165,13 +165,14 @@
     "lng": 43
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Djibouti",
     "wiki": "https://en.wikipedia.org/wiki/Djibouti",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Djibouti",
-        "title": "Wikipedia: Djibouti / جيبوتي",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Djibouti",
+        "title": "Wikipedia: Cannabis in Djibouti",
         "type": "external",
         "weight": "low"
       },
@@ -234,7 +235,7 @@
     "code": "dji",
     "content_hash": "6e845d9082d52d62b3cf5e697f7f91add26bda19812526ad20abcaeefe17831e",
     "notes_hash": "94c08e53f3434d03070adc3a18c8b7fd4dada8ea8ce0723fef17724fa57f8679",
-    "model_hash": "e1984651b658d97d27b0d0e1d5a5c8aca10f56329860eacbd3f0bac165de9f7e"
+    "model_hash": "7d98aa8efe2e3fe32a325ef12df9ebb84feb611b76413022a470c1d42b168be5"
   },
   "geo_code": "DJ",
   "node_type": "country",

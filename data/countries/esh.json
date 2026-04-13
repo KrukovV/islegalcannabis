@@ -118,17 +118,10 @@
     "lng": -12.630304
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Western_Sahara",
     "wiki_truth": null,
-    "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Western_Sahara",
-        "title": "Wikipedia: Western Sahara / الصحراء الغربية",
-        "type": "external",
-        "weight": "low"
-      }
-    ]
+    "citations": []
   },
   "updated_at": "2026-04-10",
   "normalized_version": "v1",
@@ -180,7 +173,7 @@
     "code": "esh",
     "content_hash": "33e71869c3ae2643bdf26b2818bb6b5212fec96cee0e814506bdf9b81462ddcf",
     "notes_hash": "cfac79f8a2ce861e52f5f9256e3ff237f79d6be199537e7c6483d9f82d5c6ca2",
-    "model_hash": "205e2153c3458ac3e6ff7592f27ab7f078b25dbf008410c8afdbafdde83db7a6"
+    "model_hash": "2be9566577763a7c0c5e679ddabed1e08758378d7abede88a66407fd14fdf4b4"
   },
   "geo_code": "EH",
   "node_type": "country",

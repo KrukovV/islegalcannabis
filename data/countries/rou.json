@@ -152,13 +152,14 @@
     "lng": 25
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Romania",
     "wiki": "https://en.wikipedia.org/wiki/Romania",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Romania",
-        "title": "Wikipedia: Romania / România",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Romania",
+        "title": "Wikipedia: Cannabis in Romania",
         "type": "external",
         "weight": "low"
       },
@@ -221,7 +222,7 @@
     "code": "rou",
     "content_hash": "3d3a323e0bf352563bb69eae5d15937eb70742b770b916de60154ddd2172407d",
     "notes_hash": "03df59b08957be863fbdb8a7185f91ed2dca6a35a8102c4869e0ba6188077230",
-    "model_hash": "440d27ba5a6ef7e8de45929d33b54b09ce588e5cf44d3b5e7764ce2722d86cff"
+    "model_hash": "d972771e07936356cfb3b095e457cfe2bc6a317212225625a37f5567765a7a3c"
   },
   "geo_code": "RO",
   "node_type": "country",

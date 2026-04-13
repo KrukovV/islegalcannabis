@@ -124,13 +124,14 @@
     "lng": -85
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Nicaragua",
     "wiki": "https://en.wikipedia.org/wiki/Nicaragua",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Nicaragua",
-        "title": "Wikipedia: Nicaragua",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Nicaragua",
+        "title": "Wikipedia: Cannabis in Nicaragua",
         "type": "external",
         "weight": "low"
       },
@@ -193,7 +194,7 @@
     "code": "nic",
     "content_hash": "1375f9fb2aaa412088de7dacd8c5f132c16da4455d041b1678c2f85c021ef3fa",
     "notes_hash": "58430e80f753709d1524ac8ddafbd1f79b58ac8e5c105e7a763463544d3fdfbe",
-    "model_hash": "4b06630838e38a8ebf8504b1a37482890b26fecc4629f4a835ca8ca95d21e2c7"
+    "model_hash": "98a17d92d6419f0df37dd6fe0f6fd2aa506e2f02269f1c1ef22b491de4897afa"
   },
   "geo_code": "NI",
   "node_type": "country",

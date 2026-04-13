@@ -118,17 +118,10 @@
     "lng": 19.869671
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/%C3%85land_Islands",
     "wiki_truth": null,
-    "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/%C3%85land_Islands",
-        "title": "Wikipedia: Åland Islands / Åland",
-        "type": "external",
-        "weight": "low"
-      }
-    ]
+    "citations": []
   },
   "updated_at": "2026-04-10",
   "normalized_version": "v1",
@@ -180,7 +173,7 @@
     "code": "ala",
     "content_hash": "2da907be7df738f92c276319dcd2dffa8a79d5be6fe7ced30bc267475a7f8786",
     "notes_hash": "ce3f0432775bf23e4c65d6be21f49c9e38339d6f94b134fdd2b5c3121392b3ae",
-    "model_hash": "d4ecac3efa85b1e4aeaa64dbd8a0f0e78d46fd48049140e406f56d47d39ca89e"
+    "model_hash": "f25ef5833d31511d6a40cabdc0924291d24d18c5cbafd1a7bedfdc89cd1e2f5c"
   },
   "geo_code": "AX",
   "node_type": "country",

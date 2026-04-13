@@ -134,13 +134,14 @@
     "lng": 28
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Belarus",
     "wiki": "https://en.wikipedia.org/wiki/Belarus",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Belarus",
-        "title": "Wikipedia: Belarus / Белару́сь",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Belarus",
+        "title": "Wikipedia: Cannabis in Belarus",
         "type": "external",
         "weight": "low"
       },
@@ -203,7 +204,7 @@
     "code": "blr",
     "content_hash": "e3e9a3bb5df9b6c7a50961cbbc1054a31b9ebb32a93d25c765336cbe17d0dd29",
     "notes_hash": "e4fe433bc1896102206fc1ab00f52d81d3026056bd5307861e55d4592b30d5db",
-    "model_hash": "8e89cc50eb58b7e4f076c9f01a93025743d0a92591e05bcef9e5ae35dbbdd310"
+    "model_hash": "70e409a071540ef0ba748bfdcacfd9e63c2dd0aaff1b91c9c997dfffc0b2f3cf"
   },
   "geo_code": "BY",
   "node_type": "country",

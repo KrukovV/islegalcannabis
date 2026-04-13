@@ -145,6 +145,7 @@
     "lng": -97
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Mississippi",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -168,7 +169,7 @@
     "code": "us-ms",
     "content_hash": "ed2a551624dcd576d49c65e459d34501b1873d790c867c7084fa4582dd4ca12c",
     "notes_hash": "fe31a25efce8c9b744e5ecd3cedd396ec966bfc82b554fafb780dc16d41f3532",
-    "model_hash": "a73019c9eb87aee5e984c28756137cd319f0f3b8f3dc9b7239c7d777fa6e73c1"
+    "model_hash": "74d53cb16175206f4d2beaace084b49a62db9c48c060f3cdf2a911b4a7cf6d5a"
   },
   "updated_at": "2026-04-10"
 }

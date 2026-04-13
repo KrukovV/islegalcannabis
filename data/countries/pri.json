@@ -118,17 +118,10 @@
     "lng": -66.481065
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Puerto_Rico",
     "wiki_truth": null,
-    "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Puerto_Rico",
-        "title": "Wikipedia: Puerto Rico",
-        "type": "external",
-        "weight": "low"
-      }
-    ]
+    "citations": []
   },
   "updated_at": "2026-04-10",
   "normalized_version": "v1",
@@ -180,7 +173,7 @@
     "code": "pri",
     "content_hash": "177d13eff09460a27231cb82effc1edc3541f6edd701da69236b60e239819e8f",
     "notes_hash": "0f575ae29f154d2b783ef9e92c4fedfcee674bd12eddfebaac22cb530c52605d",
-    "model_hash": "4e86c89ae4d9c90bfc6925afee4fcd15fdab50962f2cade9d98dd4659ab972ef"
+    "model_hash": "f2dee83b38c62b5ce400845bd36597b82668a3c92777ed0cade2c0d59b62b1b5"
   },
   "geo_code": "PR",
   "node_type": "country",

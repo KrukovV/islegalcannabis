@@ -118,17 +118,10 @@
     "lng": -128.317536
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Pitcairn_Islands",
     "wiki_truth": null,
-    "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Pitcairn_Islands",
-        "title": "Wikipedia: Pitcairn Islands",
-        "type": "external",
-        "weight": "low"
-      }
-    ]
+    "citations": []
   },
   "updated_at": "2026-04-10",
   "normalized_version": "v1",
@@ -180,7 +173,7 @@
     "code": "pcn",
     "content_hash": "0d550ae294b014dc74e2f77a50693c5aaa39d87d90691277bfff2e658b90987e",
     "notes_hash": "16d3ae036a4df26e59c2d02c45c12ce11d5925983e1aec3eaec14df3d1a0c8ad",
-    "model_hash": "a87f72a7f47ec28c4c71d96e91f0875f5f7cd7d55c512f8e94a106a60ebad7b3"
+    "model_hash": "d5e5b4cebfc36df0b4a12d49d3fc633ec6d490bd72c76c4b974da83f243e7d08"
   },
   "geo_code": "PN",
   "node_type": "country",

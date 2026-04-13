@@ -28,31 +28,28 @@
       },
       "enforcement": "fine-based",
       "flags": [],
-      "modifiers": [
-        "may",
-        "however"
-      ]
+      "modifiers": []
     },
     "signals": {
       "status": "restricted",
       "final_risk": "RESTRICTED",
       "enforcement_level": "rare",
       "penalties": {
-        "prison": true,
-        "prison_priority": 3,
+        "prison": false,
+        "prison_priority": 0,
         "arrest": false,
         "fine": true,
-        "severity_score": 4,
+        "severity_score": 1,
         "possession": {
-          "prison": true,
+          "prison": false,
           "arrest": false,
           "fine": true,
-          "severe": true
+          "severe": false
         },
         "trafficking": {
           "prison": false,
           "arrest": false,
-          "fine": true,
+          "fine": false,
           "severe": false
         }
       },
@@ -63,12 +60,6 @@
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Singapore",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Singapore",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Drugs and Inhalants",
@@ -99,6 +90,12 @@
           "url": "https://web.archive.org/web/20170807235438/http://statutes.agc.gov.sg/aol/search/display/view.w3p;page=0;query=DocId%3Ac13adadb-7d1b-45f8-a3bb-92175f83f4f5%20Depth%3A0%20ValidTime%3A02%2F10%2F2013%20TransactionTime%3A02%2F10%2F2013%20Status%3Ainforce;rec=0;whole=yes",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "Cannabis in Singapore",
+          "url": "https://web.archive.org/web/20170808000038/https://www.cnb.gov.sg/drugs/bannedsubstance/cannabis.aspx;rec=0;whole=yes",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -109,27 +106,19 @@
         "rule: penalty_fine | source: Singapore / Singapura | type: summary | priority: 1 | scope: general",
         "rule: enforcement_rare | source: Singapore / Singapura | type: summary | priority: 1 | scope: use",
         "rule: penalty_fine | source: Singapore / Singapura | type: summary | priority: 1 | scope: use",
-        "rule: raw_illegal | source: Cannabis in Singapore | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Singapore | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_prison | source: Cannabis in Singapore | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_fine | source: Cannabis in Singapore | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_years | source: Cannabis in Singapore | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_fine | source: Cannabis in Singapore | type: traversal | priority: 3 | scope: trafficking",
-        "rule: medical_legal | source: Cannabis in Singapore | type: traversal | priority: 3 | scope: general",
-        "rule: medical_limited | source: Cannabis in Singapore | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_fine | source: Cannabis in Singapore | type: traversal | priority: 3 | scope: cultivation"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 3033,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": "rare",
           "enforcement_article": null,
           "distribution_notes": "illegal",
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
@@ -141,13 +130,11 @@
       "illegal",
       "raw_illegal",
       "penalty_fine",
-      "enforcement_rare",
-      "penalty_prison",
-      "penalty_years"
+      "enforcement_rare"
     ],
-    "notes_normalized": "Cannabis is illegal in Singapore / Singapura. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Singapore / Singapura. Medical cannabis is illegal. Distribution is illegal."
   },
-  "notes_normalized": "Cannabis is illegal in Singapore / Singapura. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Singapore / Singapura. Medical cannabis is illegal. Distribution is illegal.",
   "notes_raw": "{{main|Cannabis in Singapore}} Banned in 1870.<ref name=\"Bunyapraphatsō̜n1999\">{{cite book|last=Bunyapraphatsō̜n |first=Nanthawan |title=Medicinal and poisonous plants|url=https://books.google.com/books?id=ifDwAAAAMAAJ|year=1999|publisher=Backhuys Publishers|isbn=978-90-5782-042-7|page=169}}</ref> Cannabis is a Class A drug under the Misuse of Drugs Act, making it illegal to cultivate, sell, or possess. Those who are caught with {{cvt|500|g|lboz}} of cannabis or more are considered drug traffickers and are liable to be punished with an automatic death penalty.<ref>{{citation |url = http://www.erowid.org/plants/cannabis/cannabis_law.shtml#singapore |title = Cannabis legal status vault – Singapore |publisher = Erowid.org |access-date = 17 February 2011 |archive-date = 15 December 2019 |archive-url = https://web.archive.org/web/20191215152836/https://www.erowid.org/plants/cannabis/cannabis_law.shtml#singapore |url-status = live }}</ref><ref>{{cite web|title=MISUSE OF DRUGS ACT|url=http://statutes.agc.gov.sg/aol/search/display/view.w3p;page=0;query=DocId%3Ac13adadb-7d1b-45f8-a3bb-92175f83f4f5%20Depth%3A0%20ValidTime%3A02%2F10%2F2013%20TransactionTime%3A02%2F10%2F2013%20Status%3Ainforce;rec=0;whole=yes|work=Attorney-General's Chamber|publisher=Singapore Government|access-date=3 October 2013|date=31 March 2008|archive-date=7 August 2017|archive-url=https://web.archive.org/web/20170807235438/http://statutes.agc.gov.sg/aol/search/display/view.w3p;page=0;query=DocId%3Ac13adadb-7d1b-45f8-a3bb-92175f83f4f5%20Depth%3A0%20ValidTime%3A02%2F10%2F2013%20TransactionTime%3A02%2F10%2F2013%20Status%3Ainforce;rec=0;whole=yes|url-status=dead}}</ref>  In rare cases, permission has been granted to use cannabis-derived pharmaceuticals for treatment of epilepsy.<ref>{{Cite web|url=https://www.straitstimes.com/singapore/cannabis-derived-drug-approved-for-second-patient|title=Cannabis-derived drug approved for second patient|date=17 June 2021|website=The Straits Times|access-date=19 June 2021|archive-date=19 June 2021|archive-url=https://web.archive.org/web/20210619172901/https://www.straitstimes.com/singapore/cannabis-derived-drug-approved-for-second-patient|url-status=live}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -178,13 +165,14 @@
     "lng": 103.8
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Singapore",
     "wiki": "https://en.wikipedia.org/wiki/Singapore",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Singapore",
-        "title": "Wikipedia: Singapore / Singapura",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Singapore",
+        "title": "Wikipedia: Cannabis in Singapore",
         "type": "external",
         "weight": "low"
       },
@@ -245,9 +233,9 @@
   },
   "hashes": {
     "code": "sgp",
-    "content_hash": "110cd46235bafc7b94afefd7c656b17fa6c03950192fac2577395b9bb21e8d06",
-    "notes_hash": "d532506f798cc28c65927ec746b845758c8da84c86a18eae9b21429a1f5a044b",
-    "model_hash": "5546525ffb9b8d045bb90927604c617be43d4c4fff3883b422d90145529a654f"
+    "content_hash": "6bcdd9091e5a48ef60d17d98e5891edd739ce0517c5ccacfeb3df8105b82042a",
+    "notes_hash": "b63e778bae3602e4c49e8709009289872b0dcb7cb0d85dc1a53f6251033b0797",
+    "model_hash": "2b8551ae005c31b08b6e5c09826a02d1ea3cf0bb22f292a710705a4553192661"
   },
   "geo_code": "SG",
   "node_type": "country",

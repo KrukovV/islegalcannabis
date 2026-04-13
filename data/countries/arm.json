@@ -161,13 +161,14 @@
     "lng": 45
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Armenia",
     "wiki": "https://en.wikipedia.org/wiki/Armenia",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Armenia",
-        "title": "Wikipedia: Armenia / Հայաստան",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Armenia",
+        "title": "Wikipedia: Cannabis in Armenia",
         "type": "external",
         "weight": "low"
       },
@@ -230,7 +231,7 @@
     "code": "arm",
     "content_hash": "cca94616fbcbe9ff7334a374b5b12bcb74aafb97e62f24846846ca9a355b67e7",
     "notes_hash": "004a24d51da8bd9c26ff285564e93d7ab2fc15e1a1bf005c36569d9ba7a5fe3b",
-    "model_hash": "6db528f709d8d60bbdb128ba0b3d9a0fe855cf13b589f2b853651f3a023cb824"
+    "model_hash": "9e0bb1687c40cdb3e0cff75d6ec2b19e04ee9e92e65c01899f8207c90af6abb5"
   },
   "geo_code": "AM",
   "node_type": "country",

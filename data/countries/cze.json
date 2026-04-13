@@ -195,13 +195,14 @@
     "lng": 15.5
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_the_Czech_Republic",
     "wiki": "https://en.wikipedia.org/wiki/Czech_Republic",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Czech_Republic",
-        "title": "Wikipedia: Czechia / Česko",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Czech_Republic",
+        "title": "Wikipedia: Cannabis in Czechia",
         "type": "external",
         "weight": "low"
       },
@@ -264,7 +265,7 @@
     "code": "cze",
     "content_hash": "9c05eb336baf329160fa008a9e75303fe7037e2d3f1f375f7415713834e0acbe",
     "notes_hash": "be0f7bb745951358b4a7bd84995f1153c2d53e16e39a78ee444c42f53b19d562",
-    "model_hash": "36ab9d1ca4283e034843f92b46265c82d0afe01258082c4019f18a32a4444fcd"
+    "model_hash": "478953c5bdc04b06affc67697809529eb37150261c54a829fe242f25b06e94a6"
   },
   "geo_code": "CZ",
   "node_type": "country",

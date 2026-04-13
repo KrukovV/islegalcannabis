@@ -23,13 +23,18 @@
         "use": null,
         "sale": null,
         "cultivation": null,
-        "import": null,
-        "trafficking": null
+        "import": "illegal",
+        "trafficking": "illegal"
       },
       "enforcement": "fine-based",
-      "flags": [],
+      "flags": [
+        "import_illegal"
+      ],
       "modifiers": [
-        "up_to"
+        "up_to",
+        "only",
+        "but",
+        "may"
       ]
     },
     "signals": {
@@ -38,10 +43,10 @@
       "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 2,
+        "prison_priority": 3,
         "arrest": true,
         "fine": true,
-        "severity_score": 3,
+        "severity_score": 4,
         "possession": {
           "prison": true,
           "arrest": true,
@@ -49,10 +54,10 @@
           "severe": true
         },
         "trafficking": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
           "fine": false,
-          "severe": false
+          "severe": true
         }
       },
       "confidence": "high",
@@ -62,6 +67,12 @@
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Russia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Russia",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "How the Ruskey's do Cannabis - A Look at Regulation in Russia",
@@ -92,18 +103,29 @@
           "url": "https://books.google.com/books?id=zPa-DAAAQBAJ&pg=PA54",
           "depth": 2,
           "type": "reference"
-        },
-        {
-          "title": "Народное хозяйство СССР за 70 лет",
-          "url": "https://istmat.info/node/9278",
-          "depth": 2,
-          "type": "reference"
         }
       ],
       "explain": [
         "rule: penalty_arrest | source: Russia / Россия | type: summary | priority: 1 | scope: possession",
         "rule: penalty_fine | source: Russia / Россия | type: summary | priority: 1 | scope: possession",
         "rule: penalty_criminal_offense | source: Russia / Россия | type: summary | priority: 1 | scope: possession",
+        "rule: raw_illegal | source: Cannabis in Russia | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Russia | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_arrest | source: Cannabis in Russia | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_fine | source: Cannabis in Russia | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_criminal_offense | source: Cannabis in Russia | type: traversal | priority: 3 | scope: possession",
+        "rule: illegal | source: Cannabis in Russia | type: traversal | priority: 3 | scope: cultivation",
+        "rule: raw_illegal | source: Cannabis in Russia | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Russia | type: traversal | priority: 3 | scope: trafficking",
+        "rule: illegal | source: Cannabis in Russia | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_fine | source: Cannabis in Russia | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_arrest | source: Cannabis in Russia | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_criminal_offense | source: Cannabis in Russia | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_years | source: Cannabis in Russia | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Russia | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Russia | type: traversal | priority: 3 | scope: import",
+        "rule: import_illegal | source: Cannabis in Russia | type: traversal | priority: 3 | scope: import",
+        "rule: penalty_years | source: Cannabis in Russia | type: traversal | priority: 3 | scope: import",
         "rule: penalty_fine | source: Russia Seeks Balance in Drug-Use Sentencing | type: reference | priority: 2 | scope: general",
         "rule: penalty_fine | source: Russia Enacts Sweeping Reforms in Drug Laws: No Jail for Possession | type: reference | priority: 2 | scope: general",
         "rule: penalty_fine | source: Is weed legal in Russia? Will it legalize in 2023? | type: reference | priority: 2 | scope: general",
@@ -112,20 +134,19 @@
         "rule: penalty_arrest | source: WNBA star Brittney Griner released from Russian detention in prisoner swap for convicted arms dealer | type: reference | priority: 2 | scope: general",
         "rule: penalty_fine | source: WNBA star Brittney Griner released from Russian detention in prisoner swap for convicted arms dealer | type: reference | priority: 2 | scope: general",
         "rule: penalty_fine | source: The Other American Jailed in Russia on Marijuana Charges | type: reference | priority: 2 | scope: general",
-        "rule: penalty_fine | source: Russia arrests German for carrying cannabis gummy bears | type: reference | priority: 2 | scope: general",
-        "no traversal evidence"
+        "rule: penalty_fine | source: Russia arrests German for carrying cannabis gummy bears | type: reference | priority: 2 | scope: general"
       ],
       "secondary_source": {
-        "has_article": false,
-        "article_len": 0,
-        "source_confidence": "no_secondary_source",
+        "has_article": true,
+        "article_len": 6076,
+        "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": true,
           "prison_article": true,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": null
+          "distribution_article": "illegal"
         }
       }
     },
@@ -136,7 +157,10 @@
       "penalty_arrest",
       "penalty_fine",
       "penalty_criminal_offense",
-      "penalty_years"
+      "raw_illegal",
+      "penalty_years",
+      "penalty_prison",
+      "import_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Russia / Россия. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
@@ -171,13 +195,14 @@
     "lng": 100
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Russia",
     "wiki": "https://en.wikipedia.org/wiki/Russia",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Russia",
-        "title": "Wikipedia: Russia / Россия",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Russia",
+        "title": "Wikipedia: Cannabis in Russia",
         "type": "external",
         "weight": "low"
       },
@@ -238,9 +263,9 @@
   },
   "hashes": {
     "code": "rus",
-    "content_hash": "7395f1ac901f9e32d7b401c6f8f0d4844dccc43060a106b36c001ceec5e369f3",
+    "content_hash": "bdf49f64a9944c5388a678c231ff1796bbe224171956fca88729c1c26aa55ea6",
     "notes_hash": "b5e6a5a6c9d3bc84a4a23b66dc7fbedc40f167565121fdc08a39548d59d95289",
-    "model_hash": "0073392ecec65e32b7cd2b43ebcd02437f3edd13bd0e24f802d059d78153d571"
+    "model_hash": "8edda15ea2d5ca20ecd2ce8eaac3bd9c40ae8798cafe379f296b855c74d4f4b5"
   },
   "geo_code": "RU",
   "node_type": "country",

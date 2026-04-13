@@ -156,13 +156,14 @@
     "lng": -58
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Paraguay",
     "wiki": "https://en.wikipedia.org/wiki/Paraguay",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Paraguay",
-        "title": "Wikipedia: Paraguay / Paraguái",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Paraguay",
+        "title": "Wikipedia: Cannabis in Paraguay",
         "type": "external",
         "weight": "low"
       },
@@ -225,7 +226,7 @@
     "code": "pry",
     "content_hash": "f16ef6108801dc9c2a78f1b0a37aef3f239e59deee7c244966ca47da66d1a7ed",
     "notes_hash": "97c9e4b0f3a066ca9479be8d3f7dbf44cf3a9e51e51194bd779506c8a53f54a0",
-    "model_hash": "b17cf9fa1f7862d8b1c8df75b5515d03f3e4947037f00e54f6317bc345408041"
+    "model_hash": "413b0192a494443594165669d8021175c32f562f106fc95a075f2fca50f12a54"
   },
   "geo_code": "PY",
   "node_type": "country",

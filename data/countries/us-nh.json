@@ -145,6 +145,7 @@
     "lng": -97
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/New_Hampshire",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -168,7 +169,7 @@
     "code": "us-nh",
     "content_hash": "fa2211d0a277709737c737929fd825c856177097bb499f644d69b8e71e6b127b",
     "notes_hash": "80caa221285ca4a49edeb7babdf207adac8e9cb3f606be89a1fb34d371d0df7b",
-    "model_hash": "b491aceafa84ab1cdfb31cb05d5b26f0d88811fba30791857fbb78b2a447dc4d"
+    "model_hash": "81fe6cb3481c1a3f46151827905bce969cbb486eca147a537ba1bd328e42ce98"
   },
   "updated_at": "2026-04-10"
 }

@@ -196,13 +196,14 @@
     "lng": 2.2137
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_France",
     "wiki": "https://en.wikipedia.org/wiki/France",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/France",
-        "title": "Wikipedia: France",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_France",
+        "title": "Wikipedia: Cannabis in France",
         "type": "external",
         "weight": "low"
       },
@@ -265,7 +266,7 @@
     "code": "fra",
     "content_hash": "cd5380d9709b238cb54694095a8d0ff062f3fddc07c5c38e2a4d053255db8d72",
     "notes_hash": "15440b589840319aed174927933052bb47f9e3ae7a74cf19c437e61e9271d87f",
-    "model_hash": "37523d3af586a727c4616b2b7427b28c568295540246eeba1c64c83ef7557240"
+    "model_hash": "62578b5bacd0dae40199a99de568ff0c4dea5f1d324056c326b4912248db8ac6"
   },
   "geo_code": "FR",
   "node_type": "country",

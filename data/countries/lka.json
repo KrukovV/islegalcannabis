@@ -177,13 +177,14 @@
     "lng": 81
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Sri_Lanka",
     "wiki": "https://en.wikipedia.org/wiki/Sri_Lanka",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Sri_Lanka",
-        "title": "Wikipedia: Sri Lanka / ශ්‍රී ලංකාව",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Sri_Lanka",
+        "title": "Wikipedia: Cannabis in Sri Lanka",
         "type": "external",
         "weight": "low"
       },
@@ -246,7 +247,7 @@
     "code": "lka",
     "content_hash": "e85c6e55a5d28d9b1d0804d95d23a3970e3bb59753bd5df77657b0e0db0a8977",
     "notes_hash": "7b685f4a2e05ed14e256d8c8bcaea179d459886e0ce5b70203805ab603bb194f",
-    "model_hash": "16365303fab1c8a3f55f47d4088aa8bb4106129032e4ae707bcb0128a672bf04"
+    "model_hash": "182830ba91da19b8fd812d92d4bf738dd1a9c2680c198ddf13cefabf769a2220"
   },
   "geo_code": "LK",
   "node_type": "country",

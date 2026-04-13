@@ -126,16 +126,10 @@
     "lng": 174
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/New_Zealand",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/New_Zealand",
-        "title": "Wikipedia: New Zealand / Aotearoa",
-        "type": "external",
-        "weight": "low"
-      },
       {
         "id": "wiki_truth",
         "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
@@ -195,7 +189,7 @@
     "code": "nzl",
     "content_hash": "e6e7f339413496f483b3331d9e9f24bfebe88fddbd3c8e2c4bdb4914dc5cc57f",
     "notes_hash": "a05a95c50b91916d960c9c4e4e2bdbc9fda180c2f4eea4182706a46048959ec4",
-    "model_hash": "2110a27aba9d200125574729673d1a49cff32a3e5bf9833d425d15f15f399653"
+    "model_hash": "a9381d9c8c209d9e4cd4de66a2adaea8b209d1bf9965fd4c492e4b857d4650eb"
   },
   "geo_code": "NZ",
   "node_type": "country",

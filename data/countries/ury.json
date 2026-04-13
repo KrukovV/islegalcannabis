@@ -175,13 +175,14 @@
     "lng": -56
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Uruguay",
     "wiki": "https://en.wikipedia.org/wiki/Uruguay",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Uruguay",
-        "title": "Wikipedia: Uruguay",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Uruguay",
+        "title": "Wikipedia: Cannabis in Uruguay",
         "type": "external",
         "weight": "low"
       },
@@ -244,7 +245,7 @@
     "code": "ury",
     "content_hash": "320cb26281dc548fa1fd863766f67270ba30333ca9f15d05e5e04d0c0d9e821f",
     "notes_hash": "7c977fd0dfb0932b3f1b2a302639054d20ef6dfee0efd8eb2b1e9b1ac386c8ad",
-    "model_hash": "97fe6d44f4aac9678f77c557186cd239e8cb965e056fdf1920fbdfceae096b8a"
+    "model_hash": "b06646acfd73dd996cf4cce4c07895506863fd3176d71f5b62133db3da39d55f"
   },
   "geo_code": "UY",
   "node_type": "country",

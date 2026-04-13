@@ -145,6 +145,7 @@
     "lng": -85.6024
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Michigan",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -175,7 +176,7 @@
     "code": "us-mi",
     "content_hash": "d43ffb051cd830881329527853b455bf432f4b8bfadef58f25e8dd394c721117",
     "notes_hash": "47f08b71aa7e8274c4bf4ceed57fdf5f60a4f2d4a4aecce6175992d832555a65",
-    "model_hash": "a19a7fdef9972c68f6f69cf21779f8a17a433f8198c310b39e16a2bb2003f9f3"
+    "model_hash": "686a592964d8527670610bee4438d2aebeeafd72b42141288cd3f35ce35e8c8f"
   },
   "updated_at": "2024-01-01"
 }

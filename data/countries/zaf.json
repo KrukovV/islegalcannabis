@@ -17,29 +17,35 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "tolerated",
+      "status": "illegal",
       "scopes": {
         "possession": "restricted",
         "use": "restricted",
-        "sale": null,
+        "sale": "illegal",
         "cultivation": "tolerated",
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [],
-      "modifiers": []
+      "modifiers": [
+        "may",
+        "only",
+        "however",
+        "but",
+        "up_to"
+      ]
     },
     "signals": {
-      "status": "tolerated",
-      "final_risk": "LIMITED",
-      "enforcement_level": "active",
+      "status": "restricted",
+      "final_risk": "RESTRICTED",
+      "enforcement_level": "rare",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
-        "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "prison": true,
+        "prison_priority": 3,
+        "arrest": true,
+        "fine": true,
+        "severity_score": 4,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -48,18 +54,24 @@
         },
         "trafficking": {
           "prison": false,
-          "arrest": false,
+          "arrest": true,
           "fine": false,
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "South Africa / Sewula Afrika",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in South Africa",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_South_Africa",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Cannabis in South Africa",
@@ -90,42 +102,71 @@
           "url": "https://books.google.com/books?id=0PoY5d5wIbsC",
           "depth": 2,
           "type": "reference"
-        },
-        {
-          "title": "Prohibition & Resistance: A Socio-Political Exploration of the Changing Dynamics of the Southern African Cannabis Trade, c. 1850 – the present",
-          "url": "https://daggacouple.co.za/wp-content/uploads/2009/02/Prohibition-ResistanceA-Socio-Political-Exploration-of-the-Changing-Dynamics-of-the-Southern-African-Cannabis-Trade.pdf",
-          "depth": 2,
-          "type": "reference"
         }
       ],
       "explain": [
         "rule: private_cultivation | source: South Africa / Sewula Afrika | type: summary | priority: 1 | scope: cultivation",
         "rule: legal | source: South Africa / Sewula Afrika | type: summary | priority: 1 | scope: cultivation",
         "rule: legal | source: South Africa / Sewula Afrika | type: summary | priority: 1 | scope: general",
-        "rule: medical_legal | source: South Africa: How To Get A Medical Cannabis Prescription | type: reference | priority: 2 | scope: general",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in South Africa | type: traversal | priority: 3 | scope: sale",
+        "rule: sale_illegal | source: Cannabis in South Africa | type: traversal | priority: 3 | scope: sale",
+        "rule: illegal | source: Cannabis in South Africa | type: traversal | priority: 3 | scope: sale",
+        "rule: raw_illegal | source: Cannabis in South Africa | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in South Africa | type: traversal | priority: 3 | scope: trafficking",
+        "rule: illegal | source: Cannabis in South Africa | type: traversal | priority: 3 | scope: trafficking",
+        "rule: enforcement_rare | source: Cannabis in South Africa | type: traversal | priority: 3 | scope: cultivation",
+        "rule: legal | source: Cannabis in South Africa | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in South Africa | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in South Africa | type: traversal | priority: 3 | scope: general",
+        "rule: private_cultivation | source: Cannabis in South Africa | type: traversal | priority: 3 | scope: cultivation",
+        "rule: possession_decriminalized | source: Cannabis in South Africa | type: traversal | priority: 3 | scope: cultivation",
+        "rule: raw_illegal | source: Cannabis in South Africa | type: traversal | priority: 3 | scope: use",
+        "rule: possession_decriminalized | source: Cannabis in South Africa | type: traversal | priority: 3 | scope: use",
+        "rule: illegal | source: Cannabis in South Africa | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_fine | source: Cannabis in South Africa | type: traversal | priority: 3 | scope: cultivation",
+        "rule: raw_illegal | source: Cannabis in South Africa | type: traversal | priority: 3 | scope: cultivation",
+        "rule: illegal | source: Cannabis in South Africa | type: traversal | priority: 3 | scope: cultivation",
+        "rule: social_club_distribution | source: Cannabis in South Africa | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in South Africa | type: traversal | priority: 3 | scope: cultivation",
+        "rule: private_cultivation | source: Cannabis in South Africa | type: traversal | priority: 3 | scope: sale",
+        "rule: social_club_distribution | source: Cannabis in South Africa | type: traversal | priority: 3 | scope: sale",
+        "rule: penalty_arrest | source: Cannabis in South Africa | type: traversal | priority: 3 | scope: trafficking",
+        "rule: medical_legal | source: Cannabis in South Africa | type: traversal | priority: 3 | scope: sale",
+        "rule: legal | source: Cannabis in South Africa | type: traversal | priority: 3 | scope: use",
+        "rule: legal | source: Cannabis in South Africa | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_prison | source: Cannabis in South Africa | type: traversal | priority: 3 | scope: general",
+        "rule: medical_legal | source: South Africa: How To Get A Medical Cannabis Prescription | type: reference | priority: 2 | scope: general"
       ],
       "secondary_source": {
-        "has_article": false,
-        "article_len": 0,
-        "source_confidence": "no_secondary_source",
+        "has_article": true,
+        "article_len": 21200,
+        "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
-          "prison_article": false,
+          "prison_article": true,
           "enforcement_notes": null,
-          "enforcement_article": null,
+          "enforcement_article": "rare",
           "distribution_notes": "tolerated",
-          "distribution_article": null
+          "distribution_article": "illegal"
         }
       }
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "private_cultivation"
+    "enforcement_flags": [
+      "weak_enforcement",
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is legal in South Africa / Sewula Afrika. Medical cannabis is legal. Distribution is tolerated."
+    "applied_rules": [
+      "private_cultivation",
+      "raw_illegal",
+      "enforcement_rare",
+      "possession_decriminalized",
+      "penalty_fine",
+      "penalty_arrest",
+      "penalty_prison"
+    ],
+    "notes_normalized": "Cannabis is legal in South Africa / Sewula Afrika. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is legal in South Africa / Sewula Afrika. Medical cannabis is legal. Distribution is tolerated.",
+  "notes_normalized": "Cannabis is legal in South Africa / Sewula Afrika. Medical cannabis is legal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in South Africa}} Private use and cultivation have been legal since September 2018.<ref>{{cite web|url=https://ewn.co.za/2018/09/18/concourt-upholds-ruling-that-private-use-of-dagga-is-legal|title=ConCourt upholds ruling that private use of dagga is legal|first=Mia|last=Lindeque|access-date=18 September 2018|archive-date=30 June 2019|archive-url=https://web.archive.org/web/20190630092912/https://ewn.co.za/2018/09/18/concourt-upholds-ruling-that-private-use-of-dagga-is-legal|url-status=live}}</ref><ref>{{Cite web|url=https://www.timeslive.co.za/news/south-africa/2018-09-18-ban-on-private-use-of-dagga-at-home-is-ruled-unconstitutional/|title=The highest court has spoken: You are allowed to smoke – and grow – dagga at home|website=TimesLIVE|date=18 September 2018 |access-date=18 September 2018|archive-date=27 November 2018|archive-url=https://web.archive.org/web/20181127234223/https://www.timeslive.co.za/news/south-africa/2018-09-18-ban-on-private-use-of-dagga-at-home-is-ruled-unconstitutional/|url-status=live}}</ref><ref>{{cite news |date= 18 September 2018 |title= South Africa's highest court legalises cannabis use |url= https://www.bbc.co.uk/news/world-africa-45559954 |publisher= BBC News |access-date= 4 November 2021 |archive-date= 4 November 2021 |archive-url= https://web.archive.org/web/20211104002656/https://www.bbc.co.uk/news/world-africa-45559954 |url-status= live }}</ref><ref>{{cite news |last= Gwegwe |first= Siseko |date= 12 October 2021 |title= Cannabis weed in South Africa – What's legal and what's not? |url= https://www.thesouthafrican.com/news/cannabis-marijuana-weed-legal-status-in-south-africa-law-government/ |work= TheSouthAfrican.com |access-date= 4 November 2021 |archive-date= 4 November 2021 |archive-url= https://web.archive.org/web/20211104004200/https://www.thesouthafrican.com/news/cannabis-marijuana-weed-legal-status-in-south-africa-law-government/ |url-status= live }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -156,13 +197,14 @@
     "lng": 24
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_South_Africa",
     "wiki": "https://en.wikipedia.org/wiki/South_Africa",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/South_Africa",
-        "title": "Wikipedia: South Africa / Sewula Afrika",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_South_Africa",
+        "title": "Wikipedia: Cannabis in South Africa",
         "type": "external",
         "weight": "low"
       },
@@ -223,9 +265,9 @@
   },
   "hashes": {
     "code": "zaf",
-    "content_hash": "bfa8d9784293ab16412940420dd3841238b73ab1bb617d150e596769047ad892",
-    "notes_hash": "2097314e10f45172483c56002e925365d9082d1fa0666d7669703e994261d60c",
-    "model_hash": "91f8324f3399a6d03500dabd218658eb91f0bfb377a488e3b69907b263ce5291"
+    "content_hash": "cc34ad8d4917ae2832140bcccf44588868e180c0a209f3348abbc4455aa72abd",
+    "notes_hash": "29ea8aa9cd3d2d53813e4acb46a42a5e19127aaaa89cf3467946b31eab366e24",
+    "model_hash": "39cf983b0cc92620e03e770243c4adfc87ca3d2578e26eb9b73c953c7281c6d6"
   },
   "geo_code": "ZA",
   "node_type": "country",

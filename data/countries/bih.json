@@ -157,13 +157,14 @@
     "lng": 18
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Bosnia_and_Herzegovina",
     "wiki": "https://en.wikipedia.org/wiki/Bosnia_and_Herzegovina",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Bosnia_and_Herzegovina",
-        "title": "Wikipedia: Bosnia and Herzegovina / Bosna i Hercegovina",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bosnia_and_Herzegovina",
+        "title": "Wikipedia: Cannabis in Bosnia and Herzegovina",
         "type": "external",
         "weight": "low"
       },
@@ -226,7 +227,7 @@
     "code": "bih",
     "content_hash": "1c9b33b6eb910ebba63ddc89f0d3a885a5857a39201db6d7543c40d3a8e0d1f3",
     "notes_hash": "d321b095b67c333e2269e008fd48c59ce91aa4357c4ce0d40d9bddf76177ae42",
-    "model_hash": "30184c6089f476ad1af8bc20b309b540848d218eaa83076c66361cebfe058ef1"
+    "model_hash": "bfb7333d76026aeccb45b116538939b1c46fc524bfa1af4872213594e46b044c"
   },
   "geo_code": "BA",
   "node_type": "country",

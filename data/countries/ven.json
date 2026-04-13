@@ -38,7 +38,7 @@
       "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 3,
+        "prison_priority": 1,
         "arrest": false,
         "fine": false,
         "severity_score": 4,
@@ -65,12 +65,6 @@
         },
         {
           "title": "Cannabis in Venezuela",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Venezuela",
-          "depth": 1,
-          "type": "traversal"
-        },
-        {
-          "title": "Cannabis in Venezuela",
           "url": "https://www.eee.com.ve/upload/LeyOrganicadeDrogas.sept10.pdf",
           "depth": 2,
           "type": "reference"
@@ -86,23 +80,19 @@
         "rule: penalty_prison | source: Venezuela | type: summary | priority: 1 | scope: possession",
         "rule: penalty_years | source: Venezuela | type: summary | priority: 1 | scope: possession",
         "rule: penalty_criminal_offense | source: Venezuela | type: summary | priority: 1 | scope: possession",
-        "rule: raw_illegal | source: Cannabis in Venezuela | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Venezuela | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_prison | source: Cannabis in Venezuela | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_years | source: Cannabis in Venezuela | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_criminal_offense | source: Cannabis in Venezuela | type: traversal | priority: 3 | scope: possession"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 473,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": true,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
@@ -110,8 +100,7 @@
     "applied_rules": [
       "penalty_prison",
       "penalty_years",
-      "penalty_criminal_offense",
-      "raw_illegal"
+      "penalty_criminal_offense"
     ],
     "notes_normalized": "Cannabis is illegal in Venezuela. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
@@ -146,13 +135,14 @@
     "lng": -66
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Venezuela",
     "wiki": "https://en.wikipedia.org/wiki/Venezuela",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Venezuela",
-        "title": "Wikipedia: Venezuela",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Venezuela",
+        "title": "Wikipedia: Cannabis in Venezuela",
         "type": "external",
         "weight": "low"
       },
@@ -213,9 +203,9 @@
   },
   "hashes": {
     "code": "ven",
-    "content_hash": "7be17ee69f704c7eee812769b834582ad724f8281a63525d76e7dd4b6f3db9ad",
+    "content_hash": "adc99ba5aa22d7ba614c3c20fed7955d959d709acaeb5521304ab4f09f8625f4",
     "notes_hash": "621d0f30994afa165750655a71a41c87c6c10d31b65f78b307f654dfc30382c3",
-    "model_hash": "a8a5863b304d28e46fdea63aa44da1bf79a68254ac1b172897f6dcdb011e2ec9"
+    "model_hash": "569a7378cb8eea142206d8b2fbf9da626c9ad5fad93a5c9e39ce85ff3ef0c8fd"
   },
   "geo_code": "VE",
   "node_type": "country",

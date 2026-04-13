@@ -167,13 +167,14 @@
     "lng": 36
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Jordan",
     "wiki": "https://en.wikipedia.org/wiki/Jordan",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Jordan",
-        "title": "Wikipedia: Jordan / الأردن",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Jordan",
+        "title": "Wikipedia: Cannabis in Jordan",
         "type": "external",
         "weight": "low"
       },
@@ -236,7 +237,7 @@
     "code": "jor",
     "content_hash": "65deff477035ce63b2e69ecc14319703e356654f4697c0895910e5ff45949141",
     "notes_hash": "668b6d3b23eb049311702608a05cd59d95e1bd012935bdf5717cdcc1fccb8970",
-    "model_hash": "8085d35500946c927cc067580fc7d69a60f1052f3712295927bbe2520651e6a2"
+    "model_hash": "8f9b8b7882a8908ef322fa4b389473e6719e31773225d5f098869dffe27b0a15"
   },
   "geo_code": "JO",
   "node_type": "country",

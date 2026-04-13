@@ -143,6 +143,7 @@
     "lng": -97
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Iowa",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -166,7 +167,7 @@
     "code": "us-ia",
     "content_hash": "99840a3244246f3a4f0fecd67f3b0b9a2ea52df84edbfa6f08b58404aa90975a",
     "notes_hash": "5d629a08adfbf1d5de4bab4943c18a9e0ca54d0b3b1b37bd9ef4073b285af8be",
-    "model_hash": "ca00b552e7b06188321568f9f8535c4472ce0db48e941110b4dcc1a61a09ba76"
+    "model_hash": "9c8bf1d3c250aa56af13828a8762be18009fc5f6f62193e99aaced3cc8d1d84c"
   },
   "updated_at": "2026-04-10"
 }

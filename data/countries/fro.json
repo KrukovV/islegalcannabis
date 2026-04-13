@@ -118,17 +118,10 @@
     "lng": -7.058429
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Faroe_Islands",
     "wiki_truth": null,
-    "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Faroe_Islands",
-        "title": "Wikipedia: Faroe Islands / Færøerne",
-        "type": "external",
-        "weight": "low"
-      }
-    ]
+    "citations": []
   },
   "updated_at": "2026-04-10",
   "normalized_version": "v1",
@@ -180,7 +173,7 @@
     "code": "fro",
     "content_hash": "fdbf35a9935d25c6ad8a8c269393c1e98c6384134901b8e48ec3b536f4eba6f8",
     "notes_hash": "259392571d1f35b9b01cd94b07bc402660754c492e256189005513f8ec27b139",
-    "model_hash": "7736e6da6a9f2f7c2ac826b074a08c426478df7911a719224ba4cea3425e64f0"
+    "model_hash": "f66f661338b6f1d961536fed0c7e4ee84bc4cecc720eb7a8ded13539f5ab2956"
   },
   "geo_code": "FO",
   "node_type": "country",

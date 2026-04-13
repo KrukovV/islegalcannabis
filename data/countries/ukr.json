@@ -21,16 +21,22 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
-        "cultivation": null,
+        "sale": "illegal",
+        "cultivation": "tolerated",
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [
-        "distribution_fallback_illegal"
+        "sale_illegal"
       ],
-      "modifiers": []
+      "modifiers": [
+        "up_to",
+        "however",
+        "may",
+        "but",
+        "only"
+      ]
     },
     "signals": {
       "status": "illegal",
@@ -40,8 +46,8 @@
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 1,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -51,17 +57,23 @@
         "trafficking": {
           "prison": false,
           "arrest": false,
-          "fine": false,
+          "fine": true,
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Ukraine / Україна",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Ukraine",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ukraine",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Про внесення змін до Кодексу України про адміністративні правопорушення та Кримінального кодексу України щодо посилення відповідальності за незаконний посів або незаконне вирощування снотворного маку чи конопель (№ 1165-VI)",
@@ -92,37 +104,40 @@
           "url": "https://www.internationalhempassociation.org/jiha/iha02113.html",
           "depth": 2,
           "type": "reference"
-        },
-        {
-          "title": "The permissible limit of possession of marijuana is planned to be increased",
-          "url": "https://www.golosua.com/ua/main/article/podiyi/20100701_dopustimu-mezhu-zberigannya-marihuani-planuyut-zbi",
-          "depth": 2,
-          "type": "reference"
         }
       ],
       "explain": [
+        "rule: medical_legal | source: Cannabis in Ukraine | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Ukraine | type: traversal | priority: 3 | scope: sale",
+        "rule: sale_illegal | source: Cannabis in Ukraine | type: traversal | priority: 3 | scope: sale",
+        "rule: legal | source: Cannabis in Ukraine | type: traversal | priority: 3 | scope: general",
+        "rule: private_cultivation | source: Cannabis in Ukraine | type: traversal | priority: 3 | scope: cultivation",
+        "rule: legal | source: Cannabis in Ukraine | type: traversal | priority: 3 | scope: cultivation",
         "rule: medical_legal | source: Medical cannabis has been legalized in Ukraine | type: reference | priority: 2 | scope: general",
         "rule: medical_legal | source: Medical cannabis legalized in Ukraine | type: reference | priority: 2 | scope: general",
-        "rule: medical_legal | source: Medical Cannabis Legalized in Ukraine: Law Now in Effect | type: reference | priority: 2 | scope: general",
-        "no traversal evidence"
+        "rule: medical_legal | source: Medical Cannabis Legalized in Ukraine: Law Now in Effect | type: reference | priority: 2 | scope: general"
       ],
       "secondary_source": {
-        "has_article": false,
-        "article_len": 0,
-        "source_confidence": "no_secondary_source",
+        "has_article": true,
+        "article_len": 5737,
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": null
+          "distribution_article": "illegal"
         }
       }
     },
-    "enforcement_flags": [],
+    "enforcement_flags": [
+      "fine_based"
+    ],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "penalty_fine",
+      "sale_illegal",
+      "private_cultivation"
     ],
     "notes_normalized": "Cannabis is illegal in Ukraine / Україна. Medical cannabis is legal. Distribution is illegal."
   },
@@ -157,13 +172,14 @@
     "lng": 32
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Ukraine",
     "wiki": "https://en.wikipedia.org/wiki/Ukraine",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Ukraine",
-        "title": "Wikipedia: Ukraine / Україна",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Ukraine",
+        "title": "Wikipedia: Cannabis in Ukraine",
         "type": "external",
         "weight": "low"
       },
@@ -224,9 +240,9 @@
   },
   "hashes": {
     "code": "ukr",
-    "content_hash": "5f548bc981d7ce66166cca9d6c508bd382771a5c21d09945e642774a91ae03fc",
+    "content_hash": "3408c18a187afc90af4ba51f63b56c9fb4e1ed8e0495c965b77200faeec8a8c7",
     "notes_hash": "fca5e77345ddea24079c2c354076e3a93c651b4f92f42c42afcfb4a40f5bdd63",
-    "model_hash": "a63c4ab930c61ce7b13c993d6545ac027dd39b7a1d2d64fda713c907e759c738"
+    "model_hash": "189c8b70673c10296c9f24a462c1d3e6fcb71f1c5972eddcd51162bbab92f3c0"
   },
   "geo_code": "UA",
   "node_type": "country",

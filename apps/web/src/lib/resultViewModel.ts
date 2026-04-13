@@ -11,6 +11,7 @@ import {
   getCountryPageIndexByIso2
 } from "@/lib/countryPageStorage";
 import { normalizeStatus, type ResultStatus } from "@/lib/resultStatus";
+import { isCannabisWikiSource } from "@/lib/wiki/cannabisSource";
 
 function bulletsToText(profile: JurisdictionLawProfile) {
   return buildBullets(profile).map((item) => `${item.label}: ${item.value}`);
@@ -50,12 +51,15 @@ function reasonLink(countryPageHref: string | null, anchor: string, sourceUrl?: 
 }
 
 function findSourceUrl(profile: JurisdictionLawProfile, category: string) {
+  const mainArticleUrl = profile.wiki_claim?.notes_main_articles?.find((item) => isCannabisWikiSource(item?.url))?.url;
+  if (mainArticleUrl) return mainArticleUrl;
+  const legalSources = Array.isArray(profile.legal_ssot?.sources) ? profile.legal_ssot.sources : [];
+  const traversalUrl = legalSources.find((source) => isCannabisWikiSource(source?.url))?.url;
+  if (traversalUrl) return traversalUrl;
   const facts = Array.isArray(profile.facts) ? profile.facts : [];
   const factMatch = facts.find((fact) => String(fact.category || "").toLowerCase() === category);
-  if (factMatch?.url) return factMatch.url;
-  const legalSources = Array.isArray(profile.legal_ssot?.sources) ? profile.legal_ssot.sources : [];
-  if (legalSources[0]?.url) return legalSources[0].url;
-  return profile.sources[0]?.url;
+  if (isCannabisWikiSource(factMatch?.url)) return factMatch?.url;
+  return undefined;
 }
 
 function buildReason(

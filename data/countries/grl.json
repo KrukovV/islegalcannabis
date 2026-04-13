@@ -89,7 +89,7 @@
       "secondary_source": {
         "has_article": true,
         "article_len": 158,
-        "source_confidence": "weak_article",
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
@@ -137,13 +137,14 @@
     "lng": -40
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Greenland",
     "wiki": "https://en.wikipedia.org/wiki/Greenland",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Greenland",
-        "title": "Wikipedia: Greenland / Kalaallit Nunaat",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Greenland",
+        "title": "Wikipedia: Cannabis in Greenland",
         "type": "external",
         "weight": "low"
       },
@@ -204,9 +205,9 @@
   },
   "hashes": {
     "code": "grl",
-    "content_hash": "639744ec279577071c1b550a5aee1ea0d5feff51952b4642fcdf4c8210c06d96",
+    "content_hash": "ad6b4c9642bb0b5fa00ed7038008a8919c67725f3f7a483b45d23995906200b2",
     "notes_hash": "803518579d58996ee5d423f464c3cd63a17568d1fb49c336e44974db824f7596",
-    "model_hash": "b09a776ce91483dec88292377026efeba3bc19410be0e83188122e4d2aa4f769"
+    "model_hash": "0ca4c1486f96b54f61fb4fb96559e090cadba6bbbfec1946970341f7a5823ce7"
   },
   "geo_code": "GL",
   "node_type": "country",

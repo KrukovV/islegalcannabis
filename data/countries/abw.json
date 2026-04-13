@@ -118,17 +118,10 @@
     "lng": -69.972795
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Aruba",
     "wiki_truth": null,
-    "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Aruba",
-        "title": "Wikipedia: Aruba",
-        "type": "external",
-        "weight": "low"
-      }
-    ]
+    "citations": []
   },
   "updated_at": "2026-04-10",
   "normalized_version": "v1",
@@ -180,7 +173,7 @@
     "code": "abw",
     "content_hash": "6e9470d1e2a17b5a1a516a4b960e4e0f247d1341ef05241ccdefbf243981f6a2",
     "notes_hash": "4816523bd30d7fd2f2c57436f3125e6e15aded1b3bda6d4ffc8bacd1ab98106a",
-    "model_hash": "06c0f04e792e51e1df844d3583e1881abed87e0d1d6ac57b1470cbdafb2b7f81"
+    "model_hash": "74c493623eead3103ed38f93cd61988596c9089c80723a9f9b9857efff46addb"
   },
   "geo_code": "AW",
   "node_type": "country",

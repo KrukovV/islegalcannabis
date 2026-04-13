@@ -175,13 +175,14 @@
     "lng": 19.5
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Slovakia",
     "wiki": "https://en.wikipedia.org/wiki/Slovakia",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Slovakia",
-        "title": "Wikipedia: Slovakia / Slovensko",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Slovakia",
+        "title": "Wikipedia: Cannabis in Slovakia",
         "type": "external",
         "weight": "low"
       },
@@ -244,7 +245,7 @@
     "code": "svk",
     "content_hash": "b6d6880b16a70ef954179594b88237cc256b2dcd94d7b3f05d256181dce5cf7f",
     "notes_hash": "dda01075d28251adbe34082c7deeb50a5af4746ea41624bded7dcc8042d69854",
-    "model_hash": "73ff09d31cee1ff52daaa59d84875a3d6e51f1e00f1ca483c0a84f3362bfa1cf"
+    "model_hash": "10ad3a3b97bda7e8c860b6dbbd92843dfda9a4bd88f21208b8c8cf7b6a22b899"
   },
   "geo_code": "SK",
   "node_type": "country",

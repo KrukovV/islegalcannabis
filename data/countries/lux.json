@@ -17,33 +17,40 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "mixed",
       "scopes": {
         "possession": "restricted",
         "use": "restricted",
-        "sale": null,
-        "cultivation": null,
+        "sale": "regulated",
+        "cultivation": "tolerated",
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
-      "enforcement": "standard",
-      "flags": [],
-      "modifiers": []
+      "enforcement": "fine-based",
+      "flags": [
+        "sale_regulated",
+        "distribution_mixed_strong_penalty"
+      ],
+      "modifiers": [
+        "up_to",
+        "only",
+        "however"
+      ]
     },
     "signals": {
-      "status": "restricted",
-      "final_risk": "LIMITED",
+      "status": "illegal",
+      "final_risk": "HIGH_RISK",
       "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 4,
         "possession": {
           "prison": false,
           "arrest": false,
-          "fine": false,
+          "fine": true,
           "severe": false
         },
         "trafficking": {
@@ -53,13 +60,19 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Luxembourg / Luxemburg",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Luxembourg",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Luxembourg",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Annual Report on the State of the Drugs Problem in the European Union",
@@ -90,41 +103,53 @@
           "url": "https://delano.lu/d/detail/news/cannabis-medicinal-purposes-pilot-project/160906",
           "depth": 2,
           "type": "reference"
-        },
-        {
-          "title": "Cannabis for medical use legalised in Luxembourg",
-          "url": "https://luxtimes.lu/luxembourg/34274-cannabis-for-medical-use-legalised-in-luxembourg",
-          "depth": 2,
-          "type": "reference"
         }
       ],
       "explain": [
         "rule: possession_decriminalized | source: Luxembourg / Luxemburg | type: summary | priority: 1 | scope: general",
         "rule: legal | source: Luxembourg / Luxemburg | type: summary | priority: 1 | scope: cultivation",
-        "rule: medical_legal | source: Cannabis for medical use legalised in Luxembourg | type: reference | priority: 2 | scope: use",
-        "no traversal evidence"
+        "rule: medical_legal | source: Cannabis in Luxembourg | type: traversal | priority: 3 | scope: use",
+        "rule: raw_illegal | source: Cannabis in Luxembourg | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Luxembourg | type: traversal | priority: 3 | scope: trafficking",
+        "rule: illegal | source: Cannabis in Luxembourg | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_prison | source: Cannabis in Luxembourg | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Luxembourg | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Luxembourg | type: traversal | priority: 3 | scope: possession",
+        "rule: private_cultivation | source: Cannabis in Luxembourg | type: traversal | priority: 3 | scope: cultivation",
+        "rule: sale_regulated | source: Cannabis in Luxembourg | type: traversal | priority: 3 | scope: sale",
+        "rule: legal | source: Cannabis in Luxembourg | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in Luxembourg | type: traversal | priority: 3 | scope: use",
+        "rule: medical_legal | source: Cannabis for medical use legalised in Luxembourg | type: reference | priority: 2 | scope: use"
       ],
       "secondary_source": {
-        "has_article": false,
-        "article_len": 0,
-        "source_confidence": "no_secondary_source",
+        "has_article": true,
+        "article_len": 3968,
+        "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
-          "prison_article": false,
+          "prison_article": true,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": "restricted",
-          "distribution_article": null
+          "distribution_article": "illegal"
         }
       }
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "possession_decriminalized"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is decriminalized in Luxembourg / Luxemburg. Medical cannabis is legal. Distribution is restricted."
+    "applied_rules": [
+      "possession_decriminalized",
+      "raw_illegal",
+      "penalty_prison",
+      "penalty_fine",
+      "private_cultivation",
+      "sale_regulated",
+      "distribution_mixed_strong_penalty"
+    ],
+    "notes_normalized": "Cannabis is decriminalized in Luxembourg / Luxemburg. Medical cannabis is legal. Distribution is mixed. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is decriminalized in Luxembourg / Luxemburg. Medical cannabis is legal. Distribution is restricted.",
+  "notes_normalized": "Cannabis is decriminalized in Luxembourg / Luxemburg. Medical cannabis is legal. Distribution is mixed. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Luxembourg}} Decriminalized in 2001.<ref>{{citation |title=Decriminalisation in Europe? |url=https://www.emcdda.europa.eu/attachements.cfm/att_5741_EN_Decriminalisation_Legal_Approaches.pdf |publisher=European Monitoring Centre for Drugs and Drug Addiction |date=November 2001}}</ref> Home use and cultivation legal since 21 July 2023.<ref name=\"lu\" /><ref name=\"law Luxembourg\">{{Cite act |language=fr |date=10 July 2023 |title=Loi du 10 juillet 2023 portant modification de la loi modifiée du 19 février 1973 concernant la vente de substances médicamenteuses et la lutte contre la toxicomanie |trans-title=Law of 10 July 2023 amending the amended law of 19 February 1973 concerning the sale of medicinal substances and the fight against drug addiction |url=https://mj.gouvernement.lu/dam-assets/dossiers/cannabis/loi-du-10-juillet-2023-cannabis.pdf |access-date=2024-01-16 |url-status=live |archive-url=https://web.archive.org/web/20240109044110/https://mj.gouvernement.lu/dam-assets/dossiers/cannabis/loi-du-10-juillet-2023-cannabis.pdf |archive-date=2024-01-09}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -155,13 +180,14 @@
     "lng": 6.16666666
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Luxembourg",
     "wiki": "https://en.wikipedia.org/wiki/Luxembourg",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Luxembourg",
-        "title": "Wikipedia: Luxembourg / Luxemburg",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Luxembourg",
+        "title": "Wikipedia: Cannabis in Luxembourg",
         "type": "external",
         "weight": "low"
       },
@@ -222,9 +248,9 @@
   },
   "hashes": {
     "code": "lux",
-    "content_hash": "8c52257c96425fcaf49f12b7187ff41bfe27196a197c22a5c3fe7bb0d1a527b5",
-    "notes_hash": "bad819dc486e0c832a2cb0bb914f72aff7938492bc62358b4b16cfb2bdcac872",
-    "model_hash": "dd04111a9373ac8f49b2e34242ef0f1f0539baab670b63ee288bcb4f10b71d72"
+    "content_hash": "c16f6cbd6137c45368c1dc3e1de4c4904aac233ee9b73a94b185e5d1aee7bb2e",
+    "notes_hash": "4968fedbbbcec3e80a0fbe89578d83ba94b33f2178fe97a2b3a65bcf11b4dfc3",
+    "model_hash": "5a2a4f38920bb91a2e8c48b2ad82902ed9b0c1a0b7b2b4349c5c7715706b4d44"
   },
   "geo_code": "LU",
   "node_type": "country",

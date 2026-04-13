@@ -170,13 +170,14 @@
     "lng": -64
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Argentina",
     "wiki": "https://en.wikipedia.org/wiki/Argentina",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Argentina",
-        "title": "Wikipedia: Argentina",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Argentina",
+        "title": "Wikipedia: Cannabis in Argentina",
         "type": "external",
         "weight": "low"
       },
@@ -239,7 +240,7 @@
     "code": "arg",
     "content_hash": "0055666fe4642c6cafb16883a0091b999f3a292da1b53b0f3621422cb9c14bad",
     "notes_hash": "3836d677b306b5d5e3177ca30d30fe499d686dfd0aa6a3668396e81ac2d90263",
-    "model_hash": "ad55f9e363ffb9c70010c74cf03a154875c95a80b98d454b74b57dc7798f0037"
+    "model_hash": "531f63dc6733b53d2c17ed1a4d76080ba3e99090bf64215fdf1d2fbc40be6ae1"
   },
   "geo_code": "AR",
   "node_type": "country",

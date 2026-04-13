@@ -118,17 +118,10 @@
     "lng": -68.920578
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Cura%C3%A7ao",
     "wiki_truth": null,
-    "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Cura%C3%A7ao",
-        "title": "Wikipedia: Curaçao / Pais Kòrsou",
-        "type": "external",
-        "weight": "low"
-      }
-    ]
+    "citations": []
   },
   "updated_at": "2026-04-10",
   "normalized_version": "v1",
@@ -180,7 +173,7 @@
     "code": "cuw",
     "content_hash": "d6a010609d3c83c568377650e4fbc034880185d18a81c14b71b818785fc34982",
     "notes_hash": "dfcaed8ab4f74fd67e5131121713baa00b71f2e3fa074ad2ca2f80ceb6e90ddd",
-    "model_hash": "4d6199fc71fac3d9b206a12892d3e8366f425b45b97d1fb7f4387d54543ac6f4"
+    "model_hash": "74426dca25e0109643b01f097360ae17872144d6810b587772ab3acb40110bbb"
   },
   "geo_code": "CW",
   "node_type": "country",

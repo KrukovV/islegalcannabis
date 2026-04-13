@@ -24,12 +24,15 @@
         "sale": null,
         "cultivation": null,
         "import": null,
-        "trafficking": null
+        "trafficking": "illegal"
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [],
       "modifiers": [
-        "up_to"
+        "up_to",
+        "but",
+        "however",
+        "may"
       ]
     },
     "signals": {
@@ -38,9 +41,9 @@
       "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 1,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
+        "fine": true,
         "severity_score": 4,
         "possession": {
           "prison": true,
@@ -49,10 +52,10 @@
           "severe": true
         },
         "trafficking": {
-          "prison": false,
+          "prison": true,
           "arrest": false,
-          "fine": false,
-          "severe": false
+          "fine": true,
+          "severe": true
         }
       },
       "confidence": "high",
@@ -62,6 +65,12 @@
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Poland",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Poland",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Internetowy System Aktów Prawnych",
@@ -92,37 +101,44 @@
           "url": "https://wiadomosci.onet.pl/kraj/szef-wolnych-konopi-pis-rozmawia-z-nami-o-legalizacji-marihuany-medycznej/fhz1v8",
           "depth": 2,
           "type": "reference"
-        },
-        {
-          "title": "Medyczna marihuana coraz bliżej",
-          "url": "https://wiadomosci.wp.pl/kat,1339,title,Medyczna-marihuana-coraz-blizej,wid,18553232,wiadomosc.html",
-          "depth": 2,
-          "type": "reference"
         }
       ],
       "explain": [
         "rule: penalty_prison | source: Poland / Polska | type: summary | priority: 1 | scope: possession",
         "rule: penalty_years | source: Poland / Polska | type: summary | priority: 1 | scope: possession",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Poland | type: traversal | priority: 3 | scope: possession",
+        "rule: illegal | source: Cannabis in Poland | type: traversal | priority: 3 | scope: possession",
+        "rule: medical_legal | source: Cannabis in Poland | type: traversal | priority: 3 | scope: use",
+        "rule: legal | source: Cannabis in Poland | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in Poland | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Poland | type: traversal | priority: 3 | scope: trafficking",
+        "rule: illegal | source: Cannabis in Poland | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_prison | source: Cannabis in Poland | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_fine | source: Cannabis in Poland | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_years | source: Cannabis in Poland | type: traversal | priority: 3 | scope: trafficking"
       ],
       "secondary_source": {
-        "has_article": false,
-        "article_len": 0,
-        "source_confidence": "no_secondary_source",
+        "has_article": true,
+        "article_len": 3163,
+        "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": true,
-          "prison_article": false,
+          "prison_article": true,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": null
+          "distribution_article": "illegal"
         }
       }
     },
-    "enforcement_flags": [],
+    "enforcement_flags": [
+      "fine_based"
+    ],
     "applied_rules": [
       "penalty_prison",
-      "penalty_years"
+      "penalty_years",
+      "raw_illegal",
+      "penalty_fine"
     ],
     "notes_normalized": "Cannabis is illegal in Poland / Polska. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
   },
@@ -157,13 +173,14 @@
     "lng": 20
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Poland",
     "wiki": "https://en.wikipedia.org/wiki/Poland",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Poland",
-        "title": "Wikipedia: Poland / Polska",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Poland",
+        "title": "Wikipedia: Cannabis in Poland",
         "type": "external",
         "weight": "low"
       },
@@ -224,9 +241,9 @@
   },
   "hashes": {
     "code": "pol",
-    "content_hash": "7ecbf55d8c399a0be64c17c50c5cb265a5fa08fced3ba059f528855ef841f4a9",
+    "content_hash": "8788e01c35ebc3ec65600850f00357e43ab55eb725e8b75a4fe7bbf52ad02949",
     "notes_hash": "5609cffce428e3e9ce7e12362e2510e8052d2b94dc40d199471fd4dd6b100151",
-    "model_hash": "bf078f69a54e099ff2451ffe56a0352bf370fb7542cca5292ee8652a8ee1cfb6"
+    "model_hash": "aed85064391cbf0b49c59aa27277e62a46957a4840497576a74a16ac88445b6e"
   },
   "geo_code": "PL",
   "node_type": "country",

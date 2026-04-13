@@ -141,13 +141,14 @@
     "lng": 121
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Taiwan",
     "wiki": "https://en.wikipedia.org/wiki/Taiwan",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Taiwan",
-        "title": "Wikipedia: Taiwan / 台灣",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Taiwan",
+        "title": "Wikipedia: Cannabis in Taiwan",
         "type": "external",
         "weight": "low"
       },
@@ -210,7 +211,7 @@
     "code": "twn",
     "content_hash": "e843570c1891f30d78d22fbace9be4e6c31b8737f9e28d01e00501ad5bca647a",
     "notes_hash": "29a748c8a21061f9d3497d3c7805ca2b1c0d39db4fabb2363a48844b462b0ba7",
-    "model_hash": "0ea8ceb2acbd28668634bd39790006aea8673b28df85ea3fbd25f026b1490042"
+    "model_hash": "364cc9d689381d3af8372c9ab9b1eb5dc0d1d1f4b3566affe5387c9dc35767fd"
   },
   "geo_code": "TW",
   "node_type": "country",

@@ -118,17 +118,10 @@
     "lng": -71.752704
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Turks_%26_Caicos_Islands",
     "wiki_truth": null,
-    "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Turks_%26_Caicos_Islands",
-        "title": "Wikipedia: Turks and Caicos Islands",
-        "type": "external",
-        "weight": "low"
-      }
-    ]
+    "citations": []
   },
   "updated_at": "2026-04-10",
   "normalized_version": "v1",
@@ -180,7 +173,7 @@
     "code": "tca",
     "content_hash": "e82e0f509f8cef51b870734451fe55ae7cea415ca1ff1560dc05a6cc997d4808",
     "notes_hash": "21d30bf9bbfbf8ee38a4b643af11e60ced67b55d63d82ebea5729aa81f5ba673",
-    "model_hash": "8ea8e86da17ab32b2f4d4ce3f519d75a582c1fe70ffa1cb1f33a24627055e4e0"
+    "model_hash": "cefd3c7a6a6545f5d45b21d13b53b905abab1f9b8a89da0353390fb09d5f0c68"
   },
   "geo_code": "TC",
   "node_type": "country",

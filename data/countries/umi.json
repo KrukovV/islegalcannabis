@@ -118,17 +118,10 @@
     "lng": 166.644535
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/U.S._Outlying_Islands",
     "wiki_truth": null,
-    "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/U.S._Outlying_Islands",
-        "title": "Wikipedia: United States Minor Outlying Islands",
-        "type": "external",
-        "weight": "low"
-      }
-    ]
+    "citations": []
   },
   "updated_at": "2026-04-10",
   "normalized_version": "v1",
@@ -180,7 +173,7 @@
     "code": "umi",
     "content_hash": "a7288a23021cc6193c3744016f3175ec1a28c62d8e9dc97d82faaa46a2cbdf8c",
     "notes_hash": "76e8c027f7a633e8c22d02e9ecc9ec08c05e0a144c861308238565baca8f869b",
-    "model_hash": "6211484d59dac91cf0c18af98e8c6b99bdf08d704b04016b11d32ed8d0c7623c"
+    "model_hash": "23035d009ee88a7db8f33647d89a3e69a4d315f353c9dcc6f73ee3cae9196745"
   },
   "geo_code": "UM",
   "node_type": "country",

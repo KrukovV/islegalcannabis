@@ -145,6 +145,7 @@
     "lng": -97
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/Connecticut",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
@@ -175,7 +176,7 @@
     "code": "us-ct",
     "content_hash": "e1365c52be6dbacc6a422186fb1a94adda54ca48633e3891bdfb31ed87f4b0c1",
     "notes_hash": "6a97b44a92dec5497120903db10e740e5039ebd5f7441aa8f885e06717bad0fe",
-    "model_hash": "9b735752113c9f1e9281ee7ce61208d66c79e9bf5db562faf9f79e88a58f36aa"
+    "model_hash": "f75c2b77010f8fb534a9c8dd99da1afb4c5592b6151a353dea7929d58c040f0d"
   },
   "updated_at": "2024-01-01"
 }

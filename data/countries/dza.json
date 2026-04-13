@@ -158,13 +158,14 @@
     "lng": 3
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Algeria",
     "wiki": "https://en.wikipedia.org/wiki/Algeria",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Algeria",
-        "title": "Wikipedia: Algeria / الجزائر",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Algeria",
+        "title": "Wikipedia: Cannabis in Algeria",
         "type": "external",
         "weight": "low"
       },
@@ -227,7 +228,7 @@
     "code": "dza",
     "content_hash": "c0584ab6a4f16f7a1ae7e2373e3f9cf94483e941d148114070372ec414f4732f",
     "notes_hash": "5ffcddfa424b8f9da42f8d40f65562db962357906b5da65c49024a22d4b8edc2",
-    "model_hash": "501774daaa898b109de5054f88be14431e147b2c6cffce7373f894e548dbf095"
+    "model_hash": "51121e32b41a55b11f48943e456d4e869c7cb495e8425c574ff43fbf14231185"
   },
   "geo_code": "DZ",
   "node_type": "country",

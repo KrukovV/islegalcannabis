@@ -191,13 +191,14 @@
     "lng": 112.5
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Malaysia",
     "wiki": "https://en.wikipedia.org/wiki/Malaysia",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Malaysia",
-        "title": "Wikipedia: Malaysia / مليسيا",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Malaysia",
+        "title": "Wikipedia: Cannabis in Malaysia",
         "type": "external",
         "weight": "low"
       },
@@ -260,7 +261,7 @@
     "code": "mys",
     "content_hash": "a43400aac5a4f2805ca324b6e407484ef764357b6635a08ec756f62f96fce5d7",
     "notes_hash": "d4447faa4f9a9d76ba5d0a6459485327231e9ffc32031051f20ac51a99c9477b",
-    "model_hash": "11cdd1294c0feb78d8216cc141775a24e596ac67c5535b3abc173d74b17ca815"
+    "model_hash": "7817f46520d11cf3a913f215924c116627ef5a8b922d99cc96aa2eab87c2cc33"
   },
   "geo_code": "MY",
   "node_type": "country",

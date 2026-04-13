@@ -168,13 +168,14 @@
     "lng": -64.75
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Bermuda",
     "wiki": "https://en.wikipedia.org/wiki/Bermuda",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Bermuda",
-        "title": "Wikipedia: Bermuda",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Bermuda",
+        "title": "Wikipedia: Cannabis in Bermuda",
         "type": "external",
         "weight": "low"
       },
@@ -237,7 +238,7 @@
     "code": "bmu",
     "content_hash": "e49254d4ce0e5a0afe09563bd4b51b1f107247d61b34106c5473da2725afe635",
     "notes_hash": "1acae1e75082529f3c98a8832068b54ece2162826829e15a77bd1461e4056354",
-    "model_hash": "d476ce4943a94957304cd956e8f21be9fee005272fecb7fb2fec33b25ea5ef00"
+    "model_hash": "014f4c6d3906727e6dbafdd9d9fc190a96cd65e70d154c4829a14eb26ec3be29"
   },
   "geo_code": "BM",
   "node_type": "country",

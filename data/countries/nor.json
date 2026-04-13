@@ -177,13 +177,14 @@
     "lng": 10
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Norway",
     "wiki": "https://en.wikipedia.org/wiki/Norway",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Norway",
-        "title": "Wikipedia: Norway / Noreg",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Norway",
+        "title": "Wikipedia: Cannabis in Norway",
         "type": "external",
         "weight": "low"
       },
@@ -246,7 +247,7 @@
     "code": "nor",
     "content_hash": "e3616482b5c0053e60a14f96535fc9c406208eaf982f73a560bf9d9420ec7ea2",
     "notes_hash": "4a13216d6f02fc1b541b3da51f623d9980e7433947bc2476d213eaa9574e7621",
-    "model_hash": "43f1d46b24834774288c033984eb1c9cdcbdef4c23a06d20eb9c7491ba7cd775"
+    "model_hash": "bf010c0e7e5ae658232e62582c2acf5372a57650d8128c067f83c46f13083a7f"
   },
   "geo_code": "NO",
   "node_type": "country",

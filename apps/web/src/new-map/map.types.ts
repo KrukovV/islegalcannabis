@@ -30,6 +30,7 @@ export type CountryCardEntry = {
   geo: string;
   code: string;
   pageHref: string;
+  detailsHref: string | null;
   displayName: string;
   iso2: string | null;
   type: "country" | "state";

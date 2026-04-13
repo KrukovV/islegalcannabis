@@ -118,17 +118,10 @@
     "lng": -5.71262
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/St._Helena",
     "wiki_truth": null,
-    "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/St._Helena",
-        "title": "Wikipedia: Saint Helena, Ascension and Tristan da Cunha",
-        "type": "external",
-        "weight": "low"
-      }
-    ]
+    "citations": []
   },
   "updated_at": "2026-04-10",
   "normalized_version": "v1",
@@ -180,7 +173,7 @@
     "code": "shn",
     "content_hash": "300f6e5be3ceaac6285ee3cac7790b43b33b85c3d5488605215549ca92f7d9fe",
     "notes_hash": "74cba1386a029a76f55c423fed55828f72052aa661d0171a487cc681f03ebfba",
-    "model_hash": "28ffeb348f484f462457c825f1b79a24e7cd82735f4aee6209568ed409e3bc54"
+    "model_hash": "143543e474924e1124bd5fdd5f52fcf8b0fce2a88976942c9b50561c68156727"
   },
   "geo_code": "SH",
   "node_type": "country",

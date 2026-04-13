@@ -163,13 +163,14 @@
     "lng": 38
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Kenya",
     "wiki": "https://en.wikipedia.org/wiki/Kenya",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Kenya",
-        "title": "Wikipedia: Kenya",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kenya",
+        "title": "Wikipedia: Cannabis in Kenya",
         "type": "external",
         "weight": "low"
       },
@@ -232,7 +233,7 @@
     "code": "ken",
     "content_hash": "470e54e7821febb43b835c9c337d1c13229c760893314a7873359c486d681772",
     "notes_hash": "b5df4f2aeb7b31754b129fdd495141f856bf372b04d67110201f643b6b33471b",
-    "model_hash": "df66774653c88d01120723ad6cdee48519dfa7adfb01d686f8fd70dafa3ce00e"
+    "model_hash": "bb70667793f954c348007fa1cca64448c1397768d06897354f0cb7cce1c89bb4"
   },
   "geo_code": "KE",
   "node_type": "country",

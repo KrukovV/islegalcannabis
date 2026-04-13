@@ -27,10 +27,10 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [],
-      "modifiers": [
-        "but"
-      ]
+      "flags": [
+        "distribution_fallback_illegal"
+      ],
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
@@ -64,12 +64,6 @@
           "type": "summary"
         },
         {
-          "title": "Cannabis in Rwanda",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Rwanda",
-          "depth": 1,
-          "type": "traversal"
-        },
-        {
           "title": "Rwanda legalises medical use of Cannabis",
           "url": "https://www.theeastafrican.co.ke/tea/news/east-africa/rwanda-legalises-medical-use-of-cannabis--3456728",
           "depth": 2,
@@ -101,26 +95,25 @@
         }
       ],
       "explain": [
-        "rule: raw_illegal | source: Cannabis in Rwanda | type: traversal | priority: 3 | scope: general",
-        "rule: medical_legal | source: Cannabis in Rwanda | type: traversal | priority: 3 | scope: general"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 609,
-        "source_confidence": "no_prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "raw_illegal"
+      "distribution_fallback_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Rwanda. Medical cannabis is legal. Distribution is illegal."
   },
@@ -155,13 +148,14 @@
     "lng": 30
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Rwanda",
     "wiki": "https://en.wikipedia.org/wiki/Rwanda",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Rwanda",
-        "title": "Wikipedia: Rwanda",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Rwanda",
+        "title": "Wikipedia: Cannabis in Rwanda",
         "type": "external",
         "weight": "low"
       },
@@ -222,9 +216,9 @@
   },
   "hashes": {
     "code": "rwa",
-    "content_hash": "6e6e2446455eccd579a0e84c3539df9cfc56147086f69f4f85e57e59f9543efe",
+    "content_hash": "1f48d8cec4743441d904a05ce897339367f67f129d61ee1e50916d2cf11430dc",
     "notes_hash": "2a55eb50ad23fe03a02373e7fd695deac3542ff9715a1bad0d3977ca0dc24d18",
-    "model_hash": "fbe89820a190c850422d2930eed4db9c0df50ce0058bc6d61aea57de10613f8f"
+    "model_hash": "faa757429d6cefb68ff9c0d9cc7d503366746b8fd801db12e616009d54f9595e"
   },
   "geo_code": "RW",
   "node_type": "country",

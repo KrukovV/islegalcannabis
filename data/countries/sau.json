@@ -180,13 +180,14 @@
     "lng": 45
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Saudi_Arabia",
     "wiki": "https://en.wikipedia.org/wiki/Saudi_Arabia",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Saudi_Arabia",
-        "title": "Wikipedia: Saudi Arabia / السعودية",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Saudi_Arabia",
+        "title": "Wikipedia: Cannabis in Saudi Arabia",
         "type": "external",
         "weight": "low"
       },
@@ -249,7 +250,7 @@
     "code": "sau",
     "content_hash": "03fac370a6077f7e58790aba0d3c54ec52beec79577663a2ad1042b66c34d8d0",
     "notes_hash": "0a1fb0fbaf0f647976d8db8de27b3bf3fd0c79ab7079af9691309894536fef25",
-    "model_hash": "6c4963a36a449e13d88da24645a80bff2346626081d00327c0bd3b6b0e8e3f64"
+    "model_hash": "bc905a232d12908a92e22561d4cc79fbcf56894ffada87a290ccfa6f6e635252"
   },
   "geo_code": "SA",
   "node_type": "country",

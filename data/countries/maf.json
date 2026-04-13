@@ -118,17 +118,10 @@
     "lng": -63.049399
   },
   "sources": {
+    "legal": null,
     "wiki": "https://en.wikipedia.org/wiki/St._Martin",
     "wiki_truth": null,
-    "citations": [
-      {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/St._Martin",
-        "title": "Wikipedia: Saint Martin",
-        "type": "external",
-        "weight": "low"
-      }
-    ]
+    "citations": []
   },
   "updated_at": "2026-04-10",
   "normalized_version": "v1",
@@ -180,7 +173,7 @@
     "code": "maf",
     "content_hash": "874913cdeb73163714c02bb30668ab869165570475285e66192c639eab5b59d2",
     "notes_hash": "9df3110902ee72967249241c35ad3a5985573bcac274eac285032e13369b9bad",
-    "model_hash": "7481284abee6556da0d2ed4ddd9c5c99e9b35852dc261edc5acada28c7886155"
+    "model_hash": "a462019031edb8c5ef9c77e93b3b52c755eee30cde22e08867d98e02f8a2eb80"
   },
   "geo_code": "MF",
   "node_type": "country",

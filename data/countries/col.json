@@ -171,13 +171,14 @@
     "lng": -72
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Colombia",
     "wiki": "https://en.wikipedia.org/wiki/Colombia",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Colombia",
-        "title": "Wikipedia: Colombia",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Colombia",
+        "title": "Wikipedia: Cannabis in Colombia",
         "type": "external",
         "weight": "low"
       },
@@ -240,7 +241,7 @@
     "code": "col",
     "content_hash": "4151e70cb33a6b3b4d91a22d9d029d73e30db1748cdec7a3c00e97b63e8a4e86",
     "notes_hash": "84ea0f3a49bf7b225e081e1de373700234d99ad251b1fc9db53fd8f326f19bc8",
-    "model_hash": "44e26be916c6b1fee4d45844628164f542965ac4dc55a9219ba119af2f6718d5"
+    "model_hash": "51db43948671785611ca6e5a2718b1ddf55cbbe81396641feb89bb02df9adf40"
   },
   "geo_code": "CO",
   "node_type": "country",

@@ -180,13 +180,14 @@
     "lng": 30
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Egypt",
     "wiki": "https://en.wikipedia.org/wiki/Egypt",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Egypt",
-        "title": "Wikipedia: Egypt / مصر",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Egypt",
+        "title": "Wikipedia: Cannabis in Egypt",
         "type": "external",
         "weight": "low"
       },
@@ -249,7 +250,7 @@
     "code": "egy",
     "content_hash": "f1dd4784055b3d02629a46562d668395371cdbb48e1d411c477fc2a2800167d3",
     "notes_hash": "3ecc6fb5a17f4ab8412abdef95007cd2dd32cd273eda74c27b7d6d551eb3b0dc",
-    "model_hash": "e8737bd02e9dce806c7202fe8cb8de16d85b0919819b425708be4efde0412804"
+    "model_hash": "584a29f9235b549a848f93997d018cd56505c6b78eaa04734677529f48bc072a"
   },
   "geo_code": "EG",
   "node_type": "country",

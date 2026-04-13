@@ -190,13 +190,14 @@
     "lng": 120
   },
   "sources": {
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Indonesia",
     "wiki": "https://en.wikipedia.org/wiki/Indonesia",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
       {
-        "id": "wiki_country",
-        "url": "https://en.wikipedia.org/wiki/Indonesia",
-        "title": "Wikipedia: Indonesia",
+        "id": "wiki_legal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Indonesia",
+        "title": "Wikipedia: Cannabis in Indonesia",
         "type": "external",
         "weight": "low"
       },
@@ -259,7 +260,7 @@
     "code": "idn",
     "content_hash": "f3724ebac2157bf5a91b12a8af1eb180a19e2d5a4b66b3502c2589f1c814da4c",
     "notes_hash": "7dcee981f6290ab5e43d08ff38456bb8efb883b4f1a59f49241670b6bf895722",
-    "model_hash": "a80d6b73fd438d1ab78aed94264fa535513214aeb8faaff00fe27b2059683859"
+    "model_hash": "285305b232662cae8883ed03cfcaf3933d4fe6adc0aad8886c21afcb292da8cf"
   },
   "geo_code": "ID",
   "node_type": "country",
