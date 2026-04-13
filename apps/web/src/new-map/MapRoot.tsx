@@ -5,13 +5,13 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import maplibregl, { type StyleSpecification } from "maplibre-gl";
 import type { RuntimeIdentity } from "@/lib/runtimeIdentity";
 import type { CountryPageData } from "@/lib/countryPageStorage";
+import { deriveCountryCardEntryFromCountryPageData } from "@/lib/countryCardEntry";
 import { createMap } from "./createMap";
 import type { CountryCardEntry, LegalCountryCollection } from "./map.types";
 import styles from "./MapRoot.module.css";
 import { NEW_MAP_WATER_COLOR } from "./mapPalette";
 import { hasFirstVisualReady, onFirstVisualReady, resetFirstVisualReady } from "./startupTrace";
 import AsciiOverlay from "./ascii/AsciiOverlay";
-import UnifiedSeoStatusPanel from "./components/UnifiedSeoStatusPanel";
 import ViewportCountryPopup from "./components/ViewportCountryPopup";
 
 type Props = {
@@ -93,8 +93,8 @@ export default function MapRoot({
   const [hoveredGeo, setHoveredGeo] = useState<SelectedGeo>(null);
   const [seoPanelOpen, setSeoPanelOpen] = useState(Boolean(initialGeoCode));
   const [cardIndex, setCardIndex] = useState<Record<string, CountryCardEntry>>({});
+  const [popupAnchor, setPopupAnchor] = useState<{ x: number; y: number } | null>(null);
   const selectedFeatureStateRef = useRef<{ source: "legal-countries" | "us-states"; id: string } | null>(null);
-  const selectedGeoEntry = selectedGeo ? cardIndex[selectedGeo] ?? null : null;
   const showDebugOverlay = runtimeIdentity.runtimeMode !== "production";
   const initialGeoAppliedRef = useRef(false);
   const seoCountryCode = seoCountryData?.code || null;
@@ -106,10 +106,16 @@ export default function MapRoot({
     }
     return seoCountryData;
   }, [seoCountryData, seoCountryIndex, seoRouteGeoCode]);
-  const showViewportCountryPopup = Boolean(
-    selectedGeoEntry &&
-      (!activeSeoData || !seoPanelOpen || selectedGeo !== activeSeoData.geo_code)
-  );
+  const popupGeoCode = selectedGeo || (activeSeoData && seoPanelOpen ? activeSeoData.geo_code : null);
+  const selectedGeoEntry = useMemo(() => {
+    if (!popupGeoCode) return null;
+    const indexed = cardIndex[popupGeoCode];
+    if (indexed) return indexed;
+    if (activeSeoData && popupGeoCode === activeSeoData.geo_code) {
+      return deriveCountryCardEntryFromCountryPageData(activeSeoData);
+    }
+    return null;
+  }, [activeSeoData, cardIndex, popupGeoCode]);
   const seoMarkerEntry = useMemo(() => {
     if (!activeSeoData) return null;
     const cardEntry = cardIndex[activeSeoData.geo_code];
@@ -131,15 +137,18 @@ export default function MapRoot({
 
   const handleSeoMarkerToggle = useCallback(() => {
     if (!seoMarkerEntry) return;
+    if (selectedGeo === seoMarkerEntry.code && seoPanelOpen) {
+      setSeoPanelOpen(false);
+      setSelectedGeo(null);
+      return;
+    }
     setSelectedGeo(seoMarkerEntry.code);
-    setSeoPanelOpen((current) => {
-      if (selectedGeo === seoMarkerEntry.code) return !current;
-      return true;
-    });
+    setSeoPanelOpen(true);
   }, [seoMarkerEntry, selectedGeo]);
 
   const handleSeoPanelClose = useCallback(() => {
     setSeoPanelOpen(false);
+    setSelectedGeo(null);
   }, []);
 
   const applyGeoToMap = useCallback((geo: ActiveGeo, options?: { recenter?: boolean }) => {
@@ -266,6 +275,34 @@ export default function MapRoot({
       selectedFeatureStateRef.current = null;
     };
   }, [selectedGeo]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    const container = containerRef.current;
+    const coords = selectedGeoEntry?.coordinates;
+    if (!map || !container || typeof coords?.lng !== "number" || typeof coords?.lat !== "number") {
+      setPopupAnchor(null);
+      return;
+    }
+
+    const updatePopupAnchor = () => {
+      const rect = container.getBoundingClientRect();
+      const point = map.project([coords.lng, coords.lat]);
+      setPopupAnchor({
+        x: rect.left + point.x,
+        y: rect.top + point.y
+      });
+    };
+
+    updatePopupAnchor();
+    map.on("move", updatePopupAnchor);
+    map.on("resize", updatePopupAnchor);
+
+    return () => {
+      map.off("move", updatePopupAnchor);
+      map.off("resize", updatePopupAnchor);
+    };
+  }, [selectedGeoEntry?.geo, selectedGeoEntry?.coordinates?.lat, selectedGeoEntry?.coordinates?.lng]);
 
   useEffect(() => {
     if (!initialGeoCode || initialGeoAppliedRef.current || !mapReady) return;
@@ -490,11 +527,8 @@ export default function MapRoot({
           </div>
         </div>
       ) : null}
-      {activeSeoData && seoPanelOpen ? (
-        <UnifiedSeoStatusPanel data={activeSeoData} onClose={handleSeoPanelClose} />
-      ) : null}
-      {showViewportCountryPopup && selectedGeoEntry ? (
-        <ViewportCountryPopup entry={selectedGeoEntry} onClose={() => setSelectedGeo(null)} />
+      {selectedGeoEntry && popupAnchor ? (
+        <ViewportCountryPopup entry={selectedGeoEntry} anchor={popupAnchor} onClose={handleSeoPanelClose} />
       ) : null}
       <div
         ref={containerRef}

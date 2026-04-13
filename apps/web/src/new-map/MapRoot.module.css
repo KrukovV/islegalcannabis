@@ -583,9 +583,6 @@
 .viewportPopupPanel {
   position: fixed;
   z-index: 33;
-  left: 50%;
-  bottom: var(--new-map-bottom-safe);
-  transform: translateX(-50%);
   width: min(420px, calc(100vw - 32px));
   max-height: calc(100vh - var(--new-map-bottom-safe) - var(--new-map-panel-top-margin));
   overflow-y: auto;
@@ -595,6 +592,14 @@
   box-shadow: 0 12px 30px rgba(40, 55, 70, 0.12);
   padding: 16px 18px 20px;
   color: #283746;
+}
+
+.viewportPopupPanel[data-placement="left"] {
+  transform-origin: right center;
+}
+
+.viewportPopupPanel[data-placement="right"] {
+  transform-origin: left center;
 }
 
 .viewportPopupHeader {
