@@ -17,11 +17,11 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "illegal",
+      "status": "mixed",
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": "illegal",
+        "sale": "regulated",
         "cultivation": null,
         "import": null,
         "trafficking": "illegal"
@@ -30,13 +30,10 @@
       "flags": [
         "trafficking_illegal",
         "sale_illegal",
-        "sale_regulated"
+        "sale_regulated",
+        "distribution_mixed_strong_penalty"
       ],
-      "modifiers": [
-        "but",
-        "however",
-        "up_to"
-      ]
+      "modifiers": []
     },
     "signals": {
       "status": "illegal",
@@ -44,7 +41,7 @@
       "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 3,
+        "prison_priority": 1,
         "arrest": false,
         "fine": false,
         "severity_score": 4,
@@ -68,12 +65,6 @@
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Turkey",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Turkey",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "Cannabis in Turkey",
@@ -104,6 +95,12 @@
           "url": "https://www.haberler.com/politika/saglikla-ilgili-kanun-teklifi-tbmm-komisyonunda-kabul-edildi-18815091-haberi/",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "Cannabis in Turkey",
+          "url": "https://halktv.com.tr/ekonomi/izin-verildi-ama-sadece-eczanelerde-satilacak-953269h",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -119,38 +116,20 @@
         "rule: sale_illegal | source: Türkiye | type: summary | priority: 1 | scope: trafficking",
         "rule: raw_illegal | source: Türkiye | type: summary | priority: 1 | scope: trafficking",
         "rule: medical_legal | source: Türkiye | type: summary | priority: 1 | scope: trafficking",
-        "rule: raw_illegal | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: use",
-        "rule: medical_legal | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: use",
-        "rule: medical_limited | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: use",
-        "rule: raw_illegal | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: cultivation",
-        "rule: illegal | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: cultivation",
-        "rule: sale_regulated | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: sale",
-        "rule: medical_legal | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: sale",
-        "rule: medical_legal | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: cultivation",
-        "rule: illegal | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: use",
-        "rule: penalty_prison | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: general",
-        "rule: raw_illegal | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_years | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_criminal_offense | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_prison | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_years | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_criminal_offense | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: trafficking",
-        "rule: trafficking_illegal | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: trafficking",
-        "rule: sale_illegal | source: Cannabis in Turkey | type: traversal | priority: 3 | scope: trafficking",
-        "rule: sale_regulated | source: Turkish MPs pass bill to legalize pharmacy sale of medicinal cannabis | type: reference | priority: 2 | scope: sale"
+        "rule: sale_regulated | source: Turkish MPs pass bill to legalize pharmacy sale of medicinal cannabis | type: reference | priority: 2 | scope: sale",
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 2281,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": true,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": "illegal",
-          "distribution_article": "illegal"
+          "distribution_article": "regulated"
         }
       }
     },
@@ -163,11 +142,12 @@
       "penalty_prison",
       "trafficking_illegal",
       "sale_illegal",
-      "sale_regulated"
+      "sale_regulated",
+      "distribution_mixed_strong_penalty"
     ],
-    "notes_normalized": "Cannabis is illegal in Türkiye. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Türkiye. Medical cannabis is illegal. Distribution is mixed. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Türkiye. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Türkiye. Medical cannabis is illegal. Distribution is mixed. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Turkey}} Medical grade cannabis containing less than 0.3% THC legalized in 2025.<ref>https://www.haberler.com/politika/saglikla-ilgili-kanun-teklifi-tbmm-komisyonunda-kabul-edildi-18815091-haberi/ Sağlıkla İlgili Kanun Teklifi TBMM Komisyonunda Kabul Edildi - Haberler</ref><ref>https://halktv.com.tr/ekonomi/izin-verildi-ama-sadece-eczanelerde-satilacak-953269h İzin verildi ama sadece eczanelerde satılacak</ref> Recreational use is illegal and is punishable by 1 year of probation while repetition is punishable by 2 years of probation and enforced treatment.<ref name=\"EMCDDATurkey\">{{citation |url = http://www.emcdda.europa.eu/publications/country-overviews/tr |title = Country overview: Turkey |author = European Monitoring Centre for Drugs and Drug Addiction |author-link = European Monitoring Centre for Drugs and Drug Addiction |date = 31 January 2012 |publisher = European Monitoring Centre for Drugs and Drug Addiction |location = [[Lisbon]] |oclc = 527925326 |access-date = 5 June 2018 |archive-date = 4 February 2015 |archive-url = https://web.archive.org/web/20150204001431/http://www.emcdda.europa.eu/publications/country-overviews/tr |url-status = live }}</ref> Sale and supply is punishable by a prison term of 5–10 years, and production or trafficking by a minimum term of 10 years.<ref name=\"EMCDDATurkey\" /><ref>{{cite web |title=Turkish MPs pass bill to legalize pharmacy sale of medicinal cannabis | date=21 July 2025 |url=https://www.hurriyetdailynews.com/turkish-mps-pass-bill-to-legalize-pharmacy-sale-of-medicinal-cannabis-211713 |publisher=Hurriyet Daily News |access-date=21 Jul 2025}}</ref>",
   "facts": {
     "possession_limit": null,
@@ -205,7 +185,7 @@
       {
         "id": "wiki_legal",
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Turkey",
-        "title": "Wikipedia: Cannabis in Türkiye",
+        "title": "Wikipedia: Cannabis in Turkey",
         "type": "external",
         "weight": "low"
       },
@@ -266,9 +246,9 @@
   },
   "hashes": {
     "code": "tur",
-    "content_hash": "e32cb0adcd25cd7d9d5fca062844d4779fd0be54efa026a98f122fb24610ffa1",
-    "notes_hash": "5d8f6fd4e5b3f2c6306a2538de229e93070c9cd3e5ea2e06a451a34815edf832",
-    "model_hash": "45b3f18e379ef86ff574b3b525cab449d79cd4f426d19741cf4005bc68dece59"
+    "content_hash": "444fdf8d583ce2af49d2f1ca9dc039c45d9e70b4c74ab853dd91988b4d112876",
+    "notes_hash": "23a90d140712e789c48a33872e9620286863d7fd5595faa900f4116ee94caa0f",
+    "model_hash": "7e3b936c0370fac3549cc0bfcfc8c7374dfffb7af5a2047db09fbcd3424a6271"
   },
   "geo_code": "TR",
   "node_type": "country",

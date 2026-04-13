@@ -21,15 +21,13 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
+        "sale": "illegal",
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
     },
     "signals": {
@@ -64,6 +62,12 @@
           "type": "summary"
         },
         {
+          "title": "Cannabis in Mali",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Mali",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
           "title": "Decriminalization of Marihuana: Hearings Before the Select Committee on Narcotics Abuse and Control, House of Representatives, Ninety-fifth Congress, First Session, March 14, 15, and 16, 1977",
           "url": "https://books.google.com/books?id=pdDUAAAAMAAJ",
           "depth": 2,
@@ -95,25 +99,28 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Mali | type: traversal | priority: 3 | scope: sale",
+        "rule: sale_illegal | source: Cannabis in Mali | type: traversal | priority: 3 | scope: sale",
+        "rule: illegal | source: Cannabis in Mali | type: traversal | priority: 3 | scope: sale",
+        "rule: medical_legal | source: Cannabis in Mali | type: traversal | priority: 3 | scope: general"
       ],
       "secondary_source": {
-        "has_article": false,
-        "article_len": 0,
-        "source_confidence": "no_secondary_source",
+        "has_article": true,
+        "article_len": 544,
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": null
+          "distribution_article": "illegal"
         }
       }
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Mali. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -216,9 +223,9 @@
   },
   "hashes": {
     "code": "mli",
-    "content_hash": "823c00b565b8839628e55ac3bf58ac78223f8255a04dc84c9aaa8dd0d7f06979",
+    "content_hash": "b83a3af118a9c75c70b7b4086788f0487603a15742c345890da143f841a6d755",
     "notes_hash": "07c738f77574066bc00bcb0ad373fdfe5e0c1c154a5a03a4e002f3aa98e1a24d",
-    "model_hash": "42f287a4ba9ff403138cc5eaf1f59e925b7041e9ee7565e11bae84328e5137df"
+    "model_hash": "f8f16ebee9c8131e56becafa754dfdb8071702fa5aef5e1dcf23dc9a72bf508c"
   },
   "geo_code": "ML",
   "node_type": "country",

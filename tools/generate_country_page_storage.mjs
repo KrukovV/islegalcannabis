@@ -149,7 +149,7 @@ function buildCountryCitations(entry) {
       ? {
           id: "wiki_legal",
           url: entry.sources.legal,
-          title: `Wikipedia: Cannabis in ${entry.name.split(" / ")[0] || entry.name}`,
+          title: `Wikipedia: ${formatWikipediaTitleFromUrl(entry.sources.legal, `Cannabis in ${entry.name.split(" / ")[0] || entry.name}`)}`,
           type: "external",
           weight: "low"
         }
@@ -202,6 +202,14 @@ function canonicalizeWikiTitle(value) {
 
 function mergeText(primaryText, secondaryText) {
   return [String(primaryText || "").trim(), String(secondaryText || "").trim()].filter(Boolean).join(" ").trim();
+}
+
+function formatWikipediaTitleFromUrl(url, fallbackTitle = "") {
+  const raw = String(url || "").trim();
+  if (!raw) return String(fallbackTitle || "").trim();
+  const slug = raw.split("/wiki/")[1] || "";
+  const decoded = canonicalizeWikiTitle(decodeURIComponent(slug));
+  return decoded || String(fallbackTitle || "").trim();
 }
 
 function buildWikiUrlFromTitle(title) {
@@ -800,7 +808,7 @@ async function buildStateEntries(usaEntry) {
             code: `wiki-legal-${code}`,
             id: `wiki-legal-${code}`,
             url: entry.sources.legal,
-            title: `Wikipedia: Cannabis in ${entry.name}`,
+            title: `Wikipedia: ${formatWikipediaTitleFromUrl(entry.sources.legal, legalSource?.title || `Cannabis in ${entry.name}`)}`,
             type: "external",
             weight: "low"
           }

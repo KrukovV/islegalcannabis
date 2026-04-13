@@ -217,7 +217,7 @@
       {
         "id": "wiki_legal",
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_United_States",
-        "title": "Wikipedia: Cannabis in United States",
+        "title": "Wikipedia: Cannabis in the United States",
         "type": "external",
         "weight": "low"
       },
@@ -280,7 +280,7 @@
     "code": "usa",
     "content_hash": "bdd12ab324a81138313f1a928ecf30c72731a69d285a8af67827ace5f4b3374e",
     "notes_hash": "5f78e1ea536e9cd42003d6a5b3e6afb0b813ce6688740bd8d341f63003810994",
-    "model_hash": "a12fcdcb8766619da321988ecc059cc7b9c28a7796e6c437bf7dc1fa9d127d8a"
+    "model_hash": "af71631c547fb73aa2d0197f5583d2ad90a1184bb4f7f89b10ff4697974cabc5"
   },
   "geo_code": "US",
   "node_type": "country",

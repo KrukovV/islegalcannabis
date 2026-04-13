@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { CountryPageData } from "@/lib/countryPageStorage";
 import { deriveCountryCardEntryFromCountryPageData } from "@/lib/countryCardEntry";
 import { buildCountryIntentSections } from "@/lib/seo/countryIntentContent";
+import { formatDistributionDetail, formatMedicalDetail, formatRecreationalDetail } from "../statusPresentation";
 import styles from "../MapRoot.module.css";
 
 export default function UnifiedSeoStatusPanel({
@@ -99,13 +100,19 @@ export default function UnifiedSeoStatusPanel({
         <h3 className={styles.seoPanelSubheading}>Law snapshot</h3>
         <ul className={styles.seoPanelList}>
           <li>
-            <Link href={`/c/${data.code}#law-recreational`}>{card.recreationalSummary}</Link>
+            <Link href={`/c/${data.code}#law-recreational`}>
+              Recreational: {formatRecreationalDetail(card)}
+            </Link>
           </li>
           <li>
-            <Link href={`/c/${data.code}#law-medical`}>{card.medicalSummary}</Link>
+            <Link href={`/c/${data.code}#law-medical`}>
+              Medical: {formatMedicalDetail(card)}
+            </Link>
           </li>
           <li>
-            <Link href={`/c/${data.code}#law-distribution`}>{card.distributionSummary}</Link>
+            <Link href={`/c/${data.code}#law-distribution`}>
+              Distribution: {formatDistributionDetail(card)}
+            </Link>
           </li>
         </ul>
         <p className={styles.seoPanelIntro}>{data.notes_normalized}</p>

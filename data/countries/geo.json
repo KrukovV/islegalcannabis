@@ -184,7 +184,7 @@
       {
         "id": "wiki_legal",
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Georgia_(country)",
-        "title": "Wikipedia: Cannabis in Georgia",
+        "title": "Wikipedia: Cannabis in Georgia (country)",
         "type": "external",
         "weight": "low"
       },
@@ -247,7 +247,7 @@
     "code": "geo",
     "content_hash": "20c6a9fb4883da795d067a555b619e08dc09de77ba809cba780dcbce1d858274",
     "notes_hash": "111bf5044b2817ded4f120cec61060965f104caa72a638919a632973d7c61b84",
-    "model_hash": "398e8f31b89f048d022e78827796af52304e21959d75987494ed0ddf16285c75"
+    "model_hash": "8629a36673629d82f6441c8d11006e5e133bc5f10493411270bc16ae27ea871b"
   },
   "geo_code": "GE",
   "node_type": "country",

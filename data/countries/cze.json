@@ -202,7 +202,7 @@
       {
         "id": "wiki_legal",
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Czech_Republic",
-        "title": "Wikipedia: Cannabis in Czechia",
+        "title": "Wikipedia: Cannabis in the Czech Republic",
         "type": "external",
         "weight": "low"
       },
@@ -265,7 +265,7 @@
     "code": "cze",
     "content_hash": "9c05eb336baf329160fa008a9e75303fe7037e2d3f1f375f7415713834e0acbe",
     "notes_hash": "be0f7bb745951358b4a7bd84995f1153c2d53e16e39a78ee444c42f53b19d562",
-    "model_hash": "478953c5bdc04b06affc67697809529eb37150261c54a829fe242f25b06e94a6"
+    "model_hash": "581127ff90cbbd548d6e0ae21580d5f6842554d8dae584c11a4bcda01b746c6f"
   },
   "geo_code": "CZ",
   "node_type": "country",

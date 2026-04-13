@@ -148,7 +148,7 @@
       {
         "id": "wiki_legal",
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Dominican_Republic",
-        "title": "Wikipedia: Cannabis in Dominican Republic",
+        "title": "Wikipedia: Cannabis in the Dominican Republic",
         "type": "external",
         "weight": "low"
       },
@@ -211,7 +211,7 @@
     "code": "dom",
     "content_hash": "cb53e5cbd67357c9b630c57ec6eb718a25d1e021a7e509fdeb7297d8950da495",
     "notes_hash": "394ae726aa8f4508957f8d7231d3f8dc4d6ffbf7bde47b373cd0f4654d74c415",
-    "model_hash": "614b02accf926b9c45a608aaee46088ef1ada3977666429c007f44c19de5a3b3"
+    "model_hash": "cb77267afdccd6fc9075f1e253b89c23da949e7d1f47bdcfe83c634cd3cccd0c"
   },
   "geo_code": "DO",
   "node_type": "country",

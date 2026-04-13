@@ -152,7 +152,7 @@
       {
         "id": "wiki-legal-us-wa",
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_Washington_(state)",
-        "title": "Wikipedia: Cannabis in Washington",
+        "title": "Wikipedia: Cannabis in Washington (state)",
         "type": "external",
         "weight": "low"
       },
@@ -183,7 +183,7 @@
     "code": "us-wa",
     "content_hash": "6507ca2056fc978dc2d8a18a972bb4962e453abd5fa1ab62f7eedb9e10ced5ae",
     "notes_hash": "e8f962db5683ef9e54604916b1548ab57331e287a0096e0704dcc00dffea2223",
-    "model_hash": "632d45dbf4aa827f416bb8f52d12a057f78f41a8f0f3e1d86b6618723afc1756"
+    "model_hash": "229426526ab50d01cb0b999169bc394b21d80b0fcb8dae894474d9ef1e0be8e4"
   },
   "updated_at": "2024-01-01"
 }

@@ -131,7 +131,7 @@
       {
         "id": "wiki_legal",
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_S%C3%A3o_Tom%C3%A9_and_Principe",
-        "title": "Wikipedia: Cannabis in São Tomé and Príncipe",
+        "title": "Wikipedia: Cannabis in São Tomé and Principe",
         "type": "external",
         "weight": "low"
       },
@@ -194,7 +194,7 @@
     "code": "stp",
     "content_hash": "4fc64f7717b04b9996f0aecdf87f1ad0b9bba103be2ca91b43e83661f9d4b82f",
     "notes_hash": "542cec5ccb9e02af28c6647ab82b49170839e1011d8edbf51a5e60de5e9e9637",
-    "model_hash": "762d09cead279608c126d908adb8ac02f06bacd42c853ba7d85b97725833bd89"
+    "model_hash": "ce4b89f23ed9f8fcc07ba555bb3e113be967451b78c44837b26d48fa3ec30817"
   },
   "geo_code": "ST",
   "node_type": "country",

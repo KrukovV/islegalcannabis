@@ -27,9 +27,7 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
     },
     "signals": {
@@ -64,6 +62,12 @@
           "type": "summary"
         },
         {
+          "title": "Cannabis in Mozambique",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Mozambique",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
           "title": "Carlos Cardoso: Telling the Truth in Mozambique",
           "url": "https://books.google.com/books?id=dnOIJThvRssC&pg=PA269",
           "depth": 2,
@@ -92,34 +96,29 @@
           "url": "https://books.google.com/books?id=LvbJsQgnlXwC&pg=PA65",
           "depth": 2,
           "type": "reference"
-        },
-        {
-          "title": "Non-Timber Forest Products in the Global Context",
-          "url": "https://books.google.com/books?id=eQiSxsvuZ9kC&pg=PA93",
-          "depth": 2,
-          "type": "reference"
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Mozambique | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Mozambique | type: traversal | priority: 3 | scope: general"
       ],
       "secondary_source": {
-        "has_article": false,
-        "article_len": 0,
-        "source_confidence": "no_secondary_source",
+        "has_article": true,
+        "article_len": 812,
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": null
+          "distribution_article": "illegal"
         }
       }
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Mozambique / Moçambique. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -222,9 +221,9 @@
   },
   "hashes": {
     "code": "moz",
-    "content_hash": "c6347a9b637d2f94a7e7e1ceffccefdf2a8ccdabb27b76c3ed9589a9c5c088d2",
+    "content_hash": "a0ddeb659b3e7bbc4be4c6975abdc0a3652d52a39a3216ca7c294fe1bf324f9c",
     "notes_hash": "ebc793619c31796b8002bb3ef3a2549263bac9c6ff79979dbaffed9a6f71cc99",
-    "model_hash": "fcc0a8c55bdca215547e7b3aa1291860c269e3dc5a4d4de8b3392627d0b08038"
+    "model_hash": "4d7d9eb7a638ee78211999bc0ee9ee158fa631bb5bc9d42f5b1140b55b00f80e"
   },
   "geo_code": "MZ",
   "node_type": "country",

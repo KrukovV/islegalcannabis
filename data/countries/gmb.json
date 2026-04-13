@@ -136,7 +136,7 @@
       {
         "id": "wiki_legal",
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Gambia",
-        "title": "Wikipedia: Cannabis in Gambia",
+        "title": "Wikipedia: Cannabis in the Gambia",
         "type": "external",
         "weight": "low"
       },
@@ -199,7 +199,7 @@
     "code": "gmb",
     "content_hash": "3405aa731bccaec9d58440f1760339514083600cee1d4a0d668156531b74d562",
     "notes_hash": "210762848b850a05bc73e2f0bb38e1c1f2687ada2eadd7a632fdbea8016de4bf",
-    "model_hash": "bebc5a7516440c1508d5f668a1f1ad8b85185e84ee76609145d9f12c5b0dece5"
+    "model_hash": "92aa3c25d2a257656f31f4a52675e64bf0ec145bf1d7f0ae3525e1c1f528a660"
   },
   "geo_code": "GM",
   "node_type": "country",

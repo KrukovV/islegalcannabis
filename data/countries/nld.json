@@ -201,7 +201,7 @@
       {
         "id": "wiki_legal",
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Netherlands",
-        "title": "Wikipedia: Cannabis in Netherlands",
+        "title": "Wikipedia: Cannabis in the Netherlands",
         "type": "external",
         "weight": "low"
       },
@@ -264,7 +264,7 @@
     "code": "nld",
     "content_hash": "57f9c38ed0f3f893dc8735bb27fb342cad3ad48e9a2ef0b1b216e8ee83750a62",
     "notes_hash": "047e0c2c9bce78732303ef221b6ed2086c7f5b2fe8e0916a4266d4a2590dca49",
-    "model_hash": "36c1bec41c38154a4ea7f05f6d90fb098ad65672ca9fc17e45376f286da480ad"
+    "model_hash": "c1b7a4851eb61491d33525c285cce1daaab27f1289ca1008367a1b78c84b6d9c"
   },
   "geo_code": "NL",
   "node_type": "country",

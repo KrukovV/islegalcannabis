@@ -27,10 +27,13 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "flags": [],
+      "modifiers": [
+        "but",
+        "however",
+        "only",
+        "may"
+      ]
     },
     "signals": {
       "status": "illegal",
@@ -64,6 +67,12 @@
           "type": "summary"
         },
         {
+          "title": "Cannabis in Palau",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Palau",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
           "title": "International Law Issues in the South Pacific",
           "url": "https://books.google.com/books?id=In6bAAAAMAAJ",
           "depth": 2,
@@ -92,34 +101,30 @@
           "url": "https://books.google.com/books?id=uH1BcMbPXCsC&pg=PA14",
           "depth": 2,
           "type": "reference"
-        },
-        {
-          "title": "Islands at Risk?: Environments, Economies and Contemporary Change",
-          "url": "https://books.google.com/books?id=JZ8DfSm2uXsC&pg=PA65",
-          "depth": 2,
-          "type": "reference"
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Palau | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Palau | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in Palau | type: traversal | priority: 3 | scope: general"
       ],
       "secondary_source": {
-        "has_article": false,
-        "article_len": 0,
-        "source_confidence": "no_secondary_source",
+        "has_article": true,
+        "article_len": 1797,
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": null
+          "distribution_article": "illegal"
         }
       }
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Palau / Belau. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -222,9 +227,9 @@
   },
   "hashes": {
     "code": "plw",
-    "content_hash": "22469a4eeac454f369ad98e4195153773abbf9bc0fb5b1c731f8c5677cb335fc",
+    "content_hash": "945870987ecc91f6d22d05a62d4416eccf7623c3a993b83d5a5ca110d336ee44",
     "notes_hash": "e0d6b9304f86fe6a05d9232050c76c308f6e30801c77acfdb1e11f0850dfdcef",
-    "model_hash": "55d6023af6aff48845a84e1c498931413a50b7a0de8c9f1de9b411fa61126ca9"
+    "model_hash": "21eb51209d2fd0a7a9a776390b309d877cd5a3c3ba6c84a1ddd04fc799de4113"
   },
   "geo_code": "PW",
   "node_type": "country",

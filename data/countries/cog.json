@@ -162,7 +162,7 @@
       {
         "id": "wiki_legal",
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Republic_of_the_Congo",
-        "title": "Wikipedia: Cannabis in Congo",
+        "title": "Wikipedia: Cannabis in the Republic of the Congo",
         "type": "external",
         "weight": "low"
       },
@@ -225,7 +225,7 @@
     "code": "cog",
     "content_hash": "7c8ab508b6143bc21f63b0c29c6dd1e0b188e08d24645169146884c0f8547962",
     "notes_hash": "82d821d7f540f03426e93ac1ef7e74cb3407e03046ad7690f8bf98240dbb6c78",
-    "model_hash": "8732704efe10c12280ac4bba9c67be0268f9f226e175131e13d5879ced582522"
+    "model_hash": "6a6c745297f59e36ad2a429be11c5e67dab152a44a8751a2ac13098115f7be73"
   },
   "geo_code": "CG",
   "node_type": "country",

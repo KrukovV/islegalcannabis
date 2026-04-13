@@ -113,7 +113,7 @@ export default function MapRoot({
   const [popupAnchor, setPopupAnchor] = useState<{ x: number; y: number } | null>(null);
   const selectedFeatureStateRef = useRef<{ source: "legal-countries" | "us-states"; id: string } | null>(null);
   const showDebugOverlay = runtimeIdentity.runtimeMode !== "production";
-  const initialGeoAppliedRef = useRef(false);
+  const lastAppliedRouteGeoRef = useRef<string | null>(null);
   const seoCountryCode = seoCountryData?.code || null;
   const seoRouteGeoCode = String(seoCountryData?.geo_code || "").trim().toUpperCase() || null;
   const activeSeoData = useMemo(() => {
@@ -331,7 +331,12 @@ export default function MapRoot({
   }, [selectedGeoEntry?.geo, selectedGeoEntry?.coordinates?.lat, selectedGeoEntry?.coordinates?.lng]);
 
   useEffect(() => {
-    if (!initialGeoCode || initialGeoAppliedRef.current || !mapReady) return;
+    if (!initialGeoCode) {
+      lastAppliedRouteGeoRef.current = null;
+      return;
+    }
+    if (!mapReady) return;
+    if (lastAppliedRouteGeoRef.current === initialGeoCode) return;
     const entry = cardIndex[initialGeoCode];
     const seoEntry = activeSeoData && activeSeoData.geo_code === initialGeoCode
       ? {
@@ -342,8 +347,9 @@ export default function MapRoot({
       : null;
     const target = entry || seoEntry;
     if (!target) return;
-    initialGeoAppliedRef.current = true;
+    lastAppliedRouteGeoRef.current = initialGeoCode;
     setSelectedGeo(initialGeoCode);
+    setSeoPanelOpen(true);
     const map = mapRef.current;
     const lat = target.coordinates?.lat;
     const lng = target.coordinates?.lng;

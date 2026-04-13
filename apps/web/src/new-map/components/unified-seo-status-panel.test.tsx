@@ -56,5 +56,28 @@ describe("UnifiedSeoStatusPanel", () => {
     expect(html).toContain("Restricted in California");
     expect(html).toContain("Legal source →");
     expect(html).toContain("Cannabis_in_California");
+    expect(html).toContain("Recreational:");
+    expect(html).toContain("Medical:");
+    expect(html).toContain("Distribution:");
+  });
+
+  it("keeps Georgia country and Georgia state source titles distinct in the SEO panel", () => {
+    const countryHtml = renderToStaticMarkup(
+      createElement(UnifiedSeoStatusPanel, {
+        data: getCountryPageData("geo")!,
+        onClose: () => {}
+      })
+    );
+    const stateHtml = renderToStaticMarkup(
+      createElement(UnifiedSeoStatusPanel, {
+        data: getCountryPageData("us-ga")!,
+        onClose: () => {}
+      })
+    );
+
+    expect(countryHtml).toContain("Cannabis_in_Georgia_(country)");
+    expect(countryHtml).toContain("Wikipedia: Cannabis in Georgia (country)");
+    expect(stateHtml).toContain("Cannabis_in_Georgia_(U.S._state)");
+    expect(stateHtml).toContain("Wikipedia: Cannabis in Georgia (U.S. state)");
   });
 });

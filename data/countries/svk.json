@@ -17,19 +17,23 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "illegal",
+      "status": "tolerated",
       "scopes": {
         "possession": null,
         "use": null,
         "sale": null,
-        "cultivation": null,
+        "cultivation": "tolerated",
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [],
       "modifiers": [
-        "up_to"
+        "up_to",
+        "only",
+        "however",
+        "may",
+        "but"
       ]
     },
     "signals": {
@@ -38,9 +42,9 @@
       "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 1,
+        "prison_priority": 3,
         "arrest": false,
-        "fine": false,
+        "fine": true,
         "severity_score": 4,
         "possession": {
           "prison": true,
@@ -62,6 +66,12 @@
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Slovakia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Slovakia",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "High contrast",
@@ -92,43 +102,49 @@
           "url": "https://konopkar.sk/2019/08/21/prelomove-rozhodnutie-slovensko-legalizuje-cbd/",
           "depth": 2,
           "type": "reference"
-        },
-        {
-          "title": "Nečakaný zvrat: CBD slovenským pacientom nepomôže. Poslanec Smeru dal pozmeňujúci návrh",
-          "url": "https://konopkar.sk/2019/10/10/necakany-zvrat-cbd-slovenskym-pacientom-nepomoze-poslanec-smeru-dal-pozmenujuci-navrh/",
-          "depth": 2,
-          "type": "reference"
         }
       ],
       "explain": [
         "rule: penalty_prison | source: Slovakia / Slovensko | type: summary | priority: 1 | scope: possession",
         "rule: penalty_years | source: Slovakia / Slovensko | type: summary | priority: 1 | scope: possession",
         "rule: penalty_criminal_offense | source: Slovakia / Slovensko | type: summary | priority: 1 | scope: possession",
-        "no traversal evidence"
+        "rule: penalty_prison | source: Cannabis in Slovakia | type: traversal | priority: 3 | scope: possession",
+        "rule: raw_illegal | source: Cannabis in Slovakia | type: traversal | priority: 3 | scope: possession",
+        "rule: illegal | source: Cannabis in Slovakia | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_criminal_offense | source: Cannabis in Slovakia | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_fine | source: Cannabis in Slovakia | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in Slovakia | type: traversal | priority: 3 | scope: general",
+        "rule: private_cultivation | source: Cannabis in Slovakia | type: traversal | priority: 3 | scope: cultivation",
+        "rule: legal | source: Cannabis in Slovakia | type: traversal | priority: 3 | scope: cultivation"
       ],
       "secondary_source": {
-        "has_article": false,
-        "article_len": 0,
-        "source_confidence": "no_secondary_source",
+        "has_article": true,
+        "article_len": 2930,
+        "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": true,
-          "prison_article": false,
+          "prison_article": true,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": null
+          "distribution_article": "illegal"
         }
       }
     },
-    "enforcement_flags": [],
+    "enforcement_flags": [
+      "fine_based"
+    ],
     "applied_rules": [
       "penalty_prison",
       "penalty_years",
-      "penalty_criminal_offense"
+      "penalty_criminal_offense",
+      "raw_illegal",
+      "penalty_fine",
+      "private_cultivation"
     ],
-    "notes_normalized": "Cannabis is illegal in Slovakia / Slovensko. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
+    "notes_normalized": "Cannabis is illegal in Slovakia / Slovensko. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Slovakia / Slovensko. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
+  "notes_normalized": "Cannabis is illegal in Slovakia / Slovensko. Medical cannabis is illegal. Distribution is tolerated. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Slovakia}} Possession of small amounts punishable by up to 8 years in prison.<ref>{{cite news |title = High contrast |url = https://www.economist.com/europe/2010/08/26/high-contrast |newspaper = [[The Economist]] |location = London |issn = 0013-0613 |oclc = 60625410 |date = 26 August 2010 |access-date = 25 June 2012 |archive-url = https://archive.today/20190110221328/https://www.economist.com/europe/2010/08/26/high-contrast |archive-date = 10 January 2019 |url-status = live}}</ref><ref name=\"WSJSlovakia\">{{cite news |title = Slovakia's Incoming Leftist Premier Wants to Relax Tough Cannabis Laws |first = Leos |last = Rousek |url = https://blogs.wsj.com/emergingeurope/2012/04/03/slovakias-incoming-leftist-premier-wants-to-relax-tough-cannabis-laws/ |work = [[The Wall Street Journal]] |date = 3 April 2012 |access-date = 25 June 2012 |archive-date = 21 July 2018 |archive-url = https://web.archive.org/web/20180721073421/https://blogs.wsj.com/emergingeurope/2012/04/03/slovakias-incoming-leftist-premier-wants-to-relax-tough-cannabis-laws/ |url-status = live }}</ref>",
   "facts": {
     "possession_limit": null,
@@ -227,9 +243,9 @@
   },
   "hashes": {
     "code": "svk",
-    "content_hash": "bb84c20356ccf0bdb7d02ce75eb18105282704e98c1117e939e4ee93386cc552",
-    "notes_hash": "c764bf96840829d2a2ce389c860668d588c9b1802cd5446b541abddb76d88cd3",
-    "model_hash": "d2cd411e91616dae07be43744dd54751ff4f6ec533cb57a0568d0ced489e5f0c"
+    "content_hash": "b6d6880b16a70ef954179594b88237cc256b2dcd94d7b3f05d256181dce5cf7f",
+    "notes_hash": "dda01075d28251adbe34082c7deeb50a5af4746ea41624bded7dcc8042d69854",
+    "model_hash": "10ad3a3b97bda7e8c860b6dbbd92843dfda9a4bd88f21208b8c8cf7b6a22b899"
   },
   "geo_code": "SK",
   "node_type": "country",

@@ -154,7 +154,7 @@
       {
         "id": "wiki_legal",
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Bahamas",
-        "title": "Wikipedia: Cannabis in Bahamas",
+        "title": "Wikipedia: Cannabis in the Bahamas",
         "type": "external",
         "weight": "low"
       },
@@ -217,7 +217,7 @@
     "code": "bhs",
     "content_hash": "4b01d49b254f154eb06f7446dddfd2722fd85622ca113f96b21100d73701012e",
     "notes_hash": "b8d118d410b6a781dee5cf48e1a57959df7557c63e6461012ae3316e40321399",
-    "model_hash": "42f0946773e09621b5832113ffe0ee3acda8062faf4763e5b6ecf14cd5e2ea30"
+    "model_hash": "741cea074b57517363007232812b4e210919dc43665a7bf639935319572cfe24"
   },
   "geo_code": "BS",
   "node_type": "country",

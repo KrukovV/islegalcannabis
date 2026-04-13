@@ -144,7 +144,7 @@
       {
         "id": "wiki_legal",
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Maldives",
-        "title": "Wikipedia: Cannabis in Maldives",
+        "title": "Wikipedia: Cannabis in the Maldives",
         "type": "external",
         "weight": "low"
       },
@@ -207,7 +207,7 @@
     "code": "mdv",
     "content_hash": "359d0714b2228e9525517476a84395fcd81c09c8eacc407bf65e0b4746d0348f",
     "notes_hash": "c006687d7b36aa45333a4599a5d5a5934496fc3730c2f167da7de289dae1e831",
-    "model_hash": "f3bf09458e34a340671b4596c7133f714f45fc2511d0757613119fa7733d7f97"
+    "model_hash": "6c273dc42fe2de3b191e907ee3f8f7b88932e14cb885b16db3afabb387df0c65"
   },
   "geo_code": "MV",
   "node_type": "country",

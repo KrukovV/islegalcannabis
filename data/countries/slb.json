@@ -164,7 +164,7 @@
       {
         "id": "wiki_legal",
         "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Solomon_Islands",
-        "title": "Wikipedia: Cannabis in Solomon Islands",
+        "title": "Wikipedia: Cannabis in the Solomon Islands",
         "type": "external",
         "weight": "low"
       },
@@ -227,7 +227,7 @@
     "code": "slb",
     "content_hash": "71647c188d77f6f54126b96eef1c56b4c10c664ad4ce76a66bdf4472542da1cb",
     "notes_hash": "490a36e903e86e9357542a9d482a07ef2d9bada63a112b4bad26a9ba2403b021",
-    "model_hash": "640c0616223fae1a09b3e761b77ccd4688ccf4ac111570b796915b90f25f7ef8"
+    "model_hash": "b08a6bee364e8989999bc3ab2e5cf4f45c91be7a4c159c61b5f85867b92c4bee"
   },
   "geo_code": "SB",
   "node_type": "country",

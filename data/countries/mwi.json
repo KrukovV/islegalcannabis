@@ -26,10 +26,13 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [],
       "modifiers": [
-        "but"
+        "but",
+        "up_to",
+        "only",
+        "however"
       ]
     },
     "signals": {
@@ -40,8 +43,8 @@
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 1,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -62,6 +65,12 @@
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Malawi",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Malawi",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Malawi ready to produce cannabis for industrial and medicinal use",
@@ -92,36 +101,39 @@
           "url": "https://www.theguardian.com/global-development/2020/feb/28/malawi-legalises-cannabis-amid-hopes-of-fresh-economic-growth",
           "depth": 2,
           "type": "reference"
-        },
-        {
-          "title": "Cannabis in Malawi",
-          "url": "https://web.archive.org/web/20110714034016/http://www.marijuanatipster.com/tiki-index.php?page=Malawi%20Gold",
-          "depth": 2,
-          "type": "reference"
         }
       ],
       "explain": [
         "rule: raw_illegal | source: Malawi / Malaŵi | type: summary | priority: 1 | scope: general",
         "rule: illegal | source: Malawi / Malaŵi | type: summary | priority: 1 | scope: general",
-        "no traversal evidence"
+        "rule: medical_legal | source: Cannabis in Malawi | type: traversal | priority: 3 | scope: cultivation",
+        "rule: penalty_fine | source: Cannabis in Malawi | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in Malawi | type: traversal | priority: 3 | scope: cultivation",
+        "rule: illegal | source: Cannabis in Malawi | type: traversal | priority: 3 | scope: cultivation",
+        "rule: raw_illegal | source: Cannabis in Malawi | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Malawi | type: traversal | priority: 3 | scope: general",
+        "rule: medical_legal | source: Cannabis in Malawi | type: traversal | priority: 3 | scope: use"
       ],
       "secondary_source": {
-        "has_article": false,
-        "article_len": 0,
-        "source_confidence": "no_secondary_source",
+        "has_article": true,
+        "article_len": 8863,
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": "illegal",
-          "distribution_article": null
+          "distribution_article": "illegal"
         }
       }
     },
-    "enforcement_flags": [],
+    "enforcement_flags": [
+      "fine_based"
+    ],
     "applied_rules": [
-      "raw_illegal"
+      "raw_illegal",
+      "penalty_fine"
     ],
     "notes_normalized": "Cannabis is illegal in Malawi / Malaŵi. Medical cannabis is legal. Distribution is illegal."
   },
@@ -224,9 +236,9 @@
   },
   "hashes": {
     "code": "mwi",
-    "content_hash": "53ed0bbba1192298f7aae8ef307882b7760ab29b2b325578fcab33539f7e461f",
+    "content_hash": "89014105df22cd94b41b658ee23bd6c5fe96b73d25b00a21ec4ad164bb58cc3b",
     "notes_hash": "a85579dd15710ecf9d1ad3f5ad832bafa952579db6764430a1244fb09aeda84a",
-    "model_hash": "c4843bacee4bec70cacb04904cc40ddc1ab52bd7bc10a493def844ce4d3f4111"
+    "model_hash": "aaf2c9fb370908d87ed241136ecdd744eeb30091c099eac41c214bb0a38fe230"
   },
   "geo_code": "MW",
   "node_type": "country",
