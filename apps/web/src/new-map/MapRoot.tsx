@@ -11,8 +11,8 @@ import styles from "./MapRoot.module.css";
 import { NEW_MAP_WATER_COLOR } from "./mapPalette";
 import { hasFirstVisualReady, onFirstVisualReady, resetFirstVisualReady } from "./startupTrace";
 import AsciiOverlay from "./ascii/AsciiOverlay";
-import { formatDistributionDetail, formatMedicalDetail, formatRecreationalDetail } from "./statusPresentation";
 import UnifiedSeoStatusPanel from "./components/UnifiedSeoStatusPanel";
+import ViewportCountryPopup from "./components/ViewportCountryPopup";
 
 type Props = {
   countriesUrl: string;
@@ -72,82 +72,6 @@ function setDebugState(partial: Partial<NewMapDebug>) {
   host.__NEW_MAP_DEBUG__ = current;
 }
 
-function escapeHtml(value: string) {
-  return value
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#39;");
-}
-
-function renderCountryPopup(entry: CountryCardEntry) {
-  const escapeHref = (value: string) => escapeHtml(value);
-  const renderReasonList = (
-    title: string,
-    icon: string,
-    items: Array<{ id: string; text: string; href: string; sourceUrl?: string }>
-  ) => {
-    if (!items.length) return "";
-    return [
-      `<section class="${styles.countryPopupSection}">`,
-      `<div class="${styles.countryPopupSectionTitle}">${icon} ${escapeHtml(title)}</div>`,
-      `<ul class="${styles.countryPopupList}">`,
-      ...items.map((item) =>
-        [
-          `<li class="${styles.countryPopupListItem}" data-reason-id="${escapeHtml(item.id)}">`,
-          `<a class="${styles.countryPopupReasonLink}" href="${escapeHref(item.href)}"><strong>${escapeHtml(item.text)}</strong></a>`,
-          item.sourceUrl
-            ? `<a class="${styles.countryPopupSourceLink}" href="${escapeHref(item.sourceUrl)}" target="_blank" rel="noreferrer">Source</a>`
-            : "",
-          `</li>`
-        ].join("")
-      ),
-      `</ul>`,
-      `</section>`
-    ].join("");
-  };
-
-  return [
-    `<div class="${styles.countryPopup}" data-testid="new-map-country-popup">`,
-    `<div class="${styles.countryPopupHeader}">`,
-    `<div>`,
-    `<div class="${styles.countryPopupTitle}">${escapeHtml(entry.displayName)}</div>`,
-    `<div class="${styles.countryPopupMeta}">ISO2: ${escapeHtml(entry.iso2 || "Unknown")}</div>`,
-    `</div>`,
-    `<div class="${styles.countryPopupBadge}" data-category="${escapeHtml(entry.mapCategory)}">${escapeHtml(entry.panel.levelTitle)}</div>`,
-    `</div>`,
-    `<p class="${styles.countryPopupSummary}">${escapeHtml(entry.panel.summary)}</p>`,
-    renderReasonList("Hard restrictions", "❗", entry.panel.critical),
-    renderReasonList("More context", "ℹ️", entry.panel.info),
-    renderReasonList("Why this color", "→", entry.panel.why),
-    `<section class="${styles.countryPopupSection}">`,
-    `<div class="${styles.countryPopupSectionTitle}">Law snapshot</div>`,
-    `<ul class="${styles.countryPopupList}">`,
-    `<li class="${styles.countryPopupPlainItem}">Recreational: ${escapeHtml(formatRecreationalDetail(entry))}</li>`,
-    `<li class="${styles.countryPopupPlainItem}">Medical: ${escapeHtml(formatMedicalDetail(entry))}</li>`,
-    `<li class="${styles.countryPopupPlainItem}">Distribution: ${escapeHtml(formatDistributionDetail(entry))}</li>`,
-    `</ul>`,
-    `</section>`,
-    entry.sources.length
-      ? [
-          `<section class="${styles.countryPopupSection}">`,
-          `<div class="${styles.countryPopupSectionTitle}">Sources</div>`,
-          `<ul class="${styles.countryPopupList}">`,
-          ...entry.sources.map((source) =>
-            `<li class="${styles.countryPopupPlainItem}"><a class="${styles.countryPopupSourceLink}" href="${escapeHref(source.url)}" target="_blank" rel="noreferrer">${escapeHtml(source.title)}</a></li>`
-          ),
-          `</ul>`,
-          `</section>`
-        ].join("")
-      : "",
-    `<div class="${styles.countryPopupFooter}">`,
-    `<a class="${styles.countryPopupCta}" href="${escapeHref(entry.pageHref)}">Details →</a>`,
-    `</div>`,
-    "</div>"
-  ].join("");
-}
-
 export default function MapRoot({
   countriesUrl,
   visibleStamp,
@@ -160,7 +84,6 @@ export default function MapRoot({
   const mapRef = useRef<maplibregl.Map | null>(null);
   const locationMarkerRef = useRef<maplibregl.Marker | null>(null);
   const infoMarkerRef = useRef<maplibregl.Marker | null>(null);
-  const cardIndexRef = useRef<Record<string, CountryCardEntry>>({});
   const [error, setError] = useState<string | null>(null);
   const [mapReady, setMapReady] = useState(false);
   const [visualReady, setVisualReady] = useState(false);
@@ -183,6 +106,10 @@ export default function MapRoot({
     }
     return seoCountryData;
   }, [seoCountryData, seoCountryIndex, seoRouteGeoCode]);
+  const showViewportCountryPopup = Boolean(
+    selectedGeoEntry &&
+      (!activeSeoData || !seoPanelOpen || selectedGeo !== activeSeoData.geo_code)
+  );
   const seoMarkerEntry = useMemo(() => {
     if (!activeSeoData) return null;
     const cardEntry = cardIndex[activeSeoData.geo_code];
@@ -261,10 +188,6 @@ export default function MapRoot({
       essential: true
     });
   }, []);
-
-  useEffect(() => {
-    cardIndexRef.current = cardIndex;
-  }, [cardIndex]);
 
   useEffect(() => {
     const map = mapRef.current;
@@ -455,10 +378,6 @@ export default function MapRoot({
           : loadStyle();
         const runtime = createMap(containerRef.current, {
           stylePromise,
-          getCountryPopupHtml: (geo) => {
-            const entry = cardIndexRef.current[geo];
-            return entry ? renderCountryPopup(entry) : null;
-          },
           onSelectGeo: (geo) => {
             setSelectedGeo(geo);
             if (geo && String(geo).trim().toUpperCase() === seoRouteGeoCode) {
@@ -573,6 +492,9 @@ export default function MapRoot({
       ) : null}
       {activeSeoData && seoPanelOpen ? (
         <UnifiedSeoStatusPanel data={activeSeoData} onClose={handleSeoPanelClose} />
+      ) : null}
+      {showViewportCountryPopup && selectedGeoEntry ? (
+        <ViewportCountryPopup entry={selectedGeoEntry} onClose={() => setSelectedGeo(null)} />
       ) : null}
       <div
         ref={containerRef}

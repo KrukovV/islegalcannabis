@@ -579,6 +579,155 @@
   justify-content: flex-start;
 }
 
+.viewportPopupPanel {
+  position: fixed;
+  z-index: 33;
+  left: 50%;
+  bottom: var(--new-map-bottom-safe);
+  transform: translateX(-50%);
+  width: min(460px, calc(100vw - 32px));
+  max-height: calc(100vh - var(--new-map-bottom-safe) - var(--new-map-panel-top-margin));
+  overflow-y: auto;
+  border-radius: 18px;
+  border: 1px solid rgba(103, 120, 133, 0.2);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 12px 30px rgba(40, 55, 70, 0.12);
+  padding: 16px 18px 18px;
+  color: #283746;
+}
+
+.viewportPopupHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.viewportPopupHeaderControls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+
+.viewportPopupTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.viewportPopupMeta {
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: #4f6476;
+}
+
+.viewportPopupBadge {
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.viewportPopupBadge[data-category="LEGAL_OR_DECRIM"] {
+  background: #daf0dc;
+  color: #35583d;
+}
+
+.viewportPopupBadge[data-category="LIMITED_OR_MEDICAL"] {
+  background: #f7edd0;
+  color: #765f14;
+}
+
+.viewportPopupBadge[data-category="ILLEGAL"] {
+  background: #efdadb;
+  color: #7b4345;
+}
+
+.viewportPopupBadge[data-category="UNKNOWN"] {
+  background: #e0e3e3;
+  color: #465761;
+}
+
+.viewportPopupClose {
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(86, 110, 128, 0.12);
+  color: #33485b;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.viewportPopupSummary {
+  margin: 14px 0 0;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: #33485b;
+}
+
+.viewportPopupSection {
+  display: grid;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.viewportPopupSectionTitle {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #607382;
+}
+
+.viewportPopupList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 6px;
+}
+
+.viewportPopupListItem,
+.viewportPopupPlainItem {
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: #33485b;
+}
+
+.viewportPopupReasonLink {
+  color: #1f4761;
+  text-decoration: none;
+}
+
+.viewportPopupReasonLink:hover,
+.viewportPopupSourceLink:hover,
+.viewportPopupCta:hover {
+  text-decoration: underline;
+}
+
+.viewportPopupSourceLink {
+  margin-left: 8px;
+  color: #607382;
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+.viewportPopupFooter {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 12px;
+}
+
+.viewportPopupCta {
+  color: #1f4761;
+  font-weight: 700;
+  text-decoration: none;
+}
+
 .countryPopupCta {
   color: #1f4761;
   font-weight: 700;

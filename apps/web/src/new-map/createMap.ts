@@ -16,7 +16,6 @@ const BASEMAP_STYLE_URL = "/api/new-map/basemap-style?v=20260331-host-header-sam
 
 const DEFAULT_CENTER: [number, number] = [25, 50];
 const DEFAULT_ZOOM = 1.55;
-const COUNTRY_POPUP_VERTICAL_OFFSET = 96;
 const FLAT_CAMERA = {
   center: DEFAULT_CENTER,
   zoom: DEFAULT_ZOOM,
@@ -29,7 +28,6 @@ type SelectedGeoCallback = (_geo: { iso2: string; country: string; lng: number; 
 type CreateMapOptions = {
   style?: StyleSpecification | string | null;
   stylePromise?: Promise<StyleSpecification>;
-  getCountryPopupHtml?: (_geo: string) => string | null;
   onSelectGeo?: (_geo: string | null) => void;
 };
 
@@ -374,25 +372,6 @@ export function createMap(
   const ready = new Promise<void>((resolve) => {
     resolveReady = resolve;
   });
-  const countryPopup = new maplibregl.Popup({
-    closeButton: true,
-    closeOnClick: false,
-    className: "new-map-country-popup-shell",
-    maxWidth: "320px",
-    offset: {
-      bottom: [0, -COUNTRY_POPUP_VERTICAL_OFFSET],
-      "bottom-left": [0, -COUNTRY_POPUP_VERTICAL_OFFSET],
-      "bottom-right": [0, -COUNTRY_POPUP_VERTICAL_OFFSET],
-      top: [0, 12],
-      "top-left": [0, 12],
-      "top-right": [0, 12],
-      left: [12, 0],
-      right: [-12, 0]
-    }
-  });
-  countryPopup.on("close", () => {
-    options?.onSelectGeo?.(null);
-  });
   const host = globalThis as typeof globalThis & {
     __NEW_MAP_DEBUG__?: Record<string, unknown>;
     __MAP_SELECTED_GEO__?: SelectedGeoCallback;
@@ -645,17 +624,9 @@ export function createMap(
       feature.id ||
       ""
     ).trim().toUpperCase();
-    const lng = event.lngLat.lng;
-    const lat = event.lngLat.lat;
     if (!country || !iso2) return;
-    const popupHtml = options?.getCountryPopupHtml?.(iso2);
-    if (!popupHtml) return;
-    countryPopup
-      .setLngLat([lng, lat])
-      .setHTML(popupHtml)
-      .addTo(map);
     options?.onSelectGeo?.(iso2);
-    host.__MAP_SELECTED_GEO__?.({ iso2, country, lng, lat });
+    host.__MAP_SELECTED_GEO__?.({ iso2, country, lng: event.lngLat.lng, lat: event.lngLat.lat });
   });
 
   map.on("styledata", () => {
@@ -734,7 +705,6 @@ export function createMap(
     },
     destroy: () => {
       destroyed = true;
-      countryPopup.remove();
       map.getCanvas().style.cursor = "";
       map.off("style.load", onStyleReady);
       map.off("moveend", ensureFlatCamera);
