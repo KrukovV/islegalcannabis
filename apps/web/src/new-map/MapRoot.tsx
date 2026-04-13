@@ -227,7 +227,7 @@ export default function MapRoot({
   useEffect(() => {
     const map = mapRef.current;
     const markerEntry = seoMarkerEntry;
-    if (!map || !markerEntry?.coordinates) {
+    if (!mapReady || !map || !markerEntry?.coordinates) {
       infoMarkerRef.current?.remove();
       infoMarkerRef.current = null;
       return;
@@ -238,6 +238,8 @@ export default function MapRoot({
     button.className = styles.infoMarker;
     button.textContent = "i";
     button.setAttribute("aria-label", `Open info for ${markerEntry.name}`);
+    button.setAttribute("data-seo-marker", "1");
+    button.setAttribute("data-seo-marker-geo", markerEntry.code);
     button.dataset.active =
       String(
         seoPanelOpen ||
@@ -265,7 +267,7 @@ export default function MapRoot({
       if (!mapRef.current) return;
       button.onclick = null;
     };
-  }, [handleSeoMarkerToggle, hoveredGeo, selectedGeo, seoMarkerEntry, seoPanelOpen]);
+  }, [handleSeoMarkerToggle, hoveredGeo, mapReady, selectedGeo, seoMarkerEntry, seoPanelOpen]);
 
   useEffect(() => {
     const map = mapRef.current;
