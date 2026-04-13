@@ -147,7 +147,7 @@
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_New_York",
     "wiki": "https://en.wikipedia.org/wiki/New_York",
-    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
     "citations": [
       {
         "id": "wiki-legal-us-ny",
@@ -172,8 +172,8 @@
       },
       {
         "id": "wiki-truth-us-ny",
-        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
+        "title": "Wikipedia: Legality of cannabis by U.S. jurisdiction",
         "type": "external",
         "weight": "low"
       }
@@ -183,7 +183,7 @@
     "code": "us-ny",
     "content_hash": "eb78e46c2fdfe593a1f9de1be0213b6724c497f19fd8235f770ddaab096a1417",
     "notes_hash": "04302b3e2cb65e7648f243f3eb07a7996f6411267d36a598f89db7884171af2b",
-    "model_hash": "a129200aa6fec5a4054d80ad3b07a9782377b6a1f2bfc8d15cceffbebc2a15bd"
+    "model_hash": "5efae75d2249b57e987dd578f2860d04d3d352d8130a5deccb3c2a24c521865a"
   },
   "updated_at": "2024-01-01"
 }

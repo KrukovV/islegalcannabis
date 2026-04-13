@@ -145,7 +145,7 @@
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Wisconsin",
     "wiki": "https://en.wikipedia.org/wiki/Wisconsin",
-    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
     "citations": [
       {
         "id": "wiki-legal-us-wi",
@@ -163,8 +163,8 @@
       },
       {
         "id": "wiki-truth-us-wi",
-        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
+        "title": "Wikipedia: Legality of cannabis by U.S. jurisdiction",
         "type": "external",
         "weight": "low"
       }
@@ -174,7 +174,7 @@
     "code": "us-wi",
     "content_hash": "e1217320a895b610340c78e7c6edf368c38cfb935250b03e7e86cc2f1936b9db",
     "notes_hash": "e8df7447c5087fb5901351a4f10c30010f23f6e48705fa04526bfd35f67c6e5c",
-    "model_hash": "9e2383f66edbe43d400200c269164c5997a20a640f7f96161888783e99d6f458"
+    "model_hash": "82a8d82cfc30e05f588a356c7764fcfcb09ece7c9db1e3dcf1f3d38ff5146aee"
   },
   "updated_at": "2026-04-10"
 }

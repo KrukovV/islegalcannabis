@@ -145,7 +145,7 @@
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Alabama",
     "wiki": "https://en.wikipedia.org/wiki/Alabama",
-    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
     "citations": [
       {
         "id": "wiki-legal-us-al",
@@ -163,8 +163,8 @@
       },
       {
         "id": "wiki-truth-us-al",
-        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
+        "title": "Wikipedia: Legality of cannabis by U.S. jurisdiction",
         "type": "external",
         "weight": "low"
       }
@@ -174,7 +174,7 @@
     "code": "us-al",
     "content_hash": "eb66ab5634bd7f237cc5b39fdc614582be0d0120347d74b81281bdcbd745ace6",
     "notes_hash": "3c61cc8e6a13b07b3cc11193634f9270224c4ea66f1518a59836e4c93f4a6220",
-    "model_hash": "384de33db7c5e1e911c8d3327971bfb879dc78b18aa91ca774a042e839bce9c2"
+    "model_hash": "ac6f563c712427ea729d01f6f88aac2542a019a8d89f2c6c69932cec5b7e3811"
   },
   "updated_at": "2026-04-10"
 }

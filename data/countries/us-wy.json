@@ -145,7 +145,7 @@
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Wyoming",
     "wiki": "https://en.wikipedia.org/wiki/Wyoming",
-    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
     "citations": [
       {
         "id": "wiki-legal-us-wy",
@@ -163,8 +163,8 @@
       },
       {
         "id": "wiki-truth-us-wy",
-        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
+        "title": "Wikipedia: Legality of cannabis by U.S. jurisdiction",
         "type": "external",
         "weight": "low"
       }
@@ -174,7 +174,7 @@
     "code": "us-wy",
     "content_hash": "ee2f7da1606815d7990fe7b7dfbd53d5de6e1a9218419ed24927d9257f27126a",
     "notes_hash": "c4bbe39ea0803702e306f6052ac0c57c34b215d07c161c14efc23d95388efa9f",
-    "model_hash": "8bbacc6f312f6f74a0c4ec421ebadb32a013b7d55789070f41c5238aba4648fa"
+    "model_hash": "174b9e0753991d6b0b64f7e2eeccdf89f41389b66255ebe20382d85563138532"
   },
   "updated_at": "2026-04-10"
 }

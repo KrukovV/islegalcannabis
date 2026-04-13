@@ -145,7 +145,7 @@
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_West_Virginia",
     "wiki": "https://en.wikipedia.org/wiki/West_Virginia",
-    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
     "citations": [
       {
         "id": "wiki-legal-us-wv",
@@ -163,8 +163,8 @@
       },
       {
         "id": "wiki-truth-us-wv",
-        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
+        "title": "Wikipedia: Legality of cannabis by U.S. jurisdiction",
         "type": "external",
         "weight": "low"
       }
@@ -174,7 +174,7 @@
     "code": "us-wv",
     "content_hash": "a4d06449cbbc6d2f1e6344e8ffd6d1b3b316a64cdff53cf21fff0a71ee7ec46b",
     "notes_hash": "b9dd9c0ef65b367c4e3ee3db65a2f9dc96f53213c7fe46a6f5f4fc01b10f0abb",
-    "model_hash": "e020b26bdf72a14b017edba8dc116b7eaefadaaea388324be22a78f4b6a9482e"
+    "model_hash": "a7d4830418a9d3d42fb05cd33df663220a0291f517732b9306e7e03fc5035c4c"
   },
   "updated_at": "2026-04-10"
 }

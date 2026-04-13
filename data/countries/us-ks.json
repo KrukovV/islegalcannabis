@@ -145,7 +145,7 @@
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Kansas",
     "wiki": "https://en.wikipedia.org/wiki/Kansas",
-    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
     "citations": [
       {
         "id": "wiki-legal-us-ks",
@@ -163,8 +163,8 @@
       },
       {
         "id": "wiki-truth-us-ks",
-        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
+        "title": "Wikipedia: Legality of cannabis by U.S. jurisdiction",
         "type": "external",
         "weight": "low"
       }
@@ -174,7 +174,7 @@
     "code": "us-ks",
     "content_hash": "e47b29abfc3712fd050add14b75b74b96d3b8b2813d929c2274313e9746b4f64",
     "notes_hash": "f37ae810833705756f74ae191f849988c665e4718cd06661432df890b3071e71",
-    "model_hash": "c021a1e0eae1c2284089fa8200091e8e8a21d29b7b7a2d0048916b2e646334f6"
+    "model_hash": "a5b0a79f8cadf4695e255b9ff27125bb012cc5099b07d05b931f61609ce0b53a"
   },
   "updated_at": "2026-04-10"
 }

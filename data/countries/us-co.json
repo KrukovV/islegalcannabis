@@ -147,7 +147,7 @@
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Colorado",
     "wiki": "https://en.wikipedia.org/wiki/Colorado",
-    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
     "citations": [
       {
         "id": "wiki-legal-us-co",
@@ -172,8 +172,8 @@
       },
       {
         "id": "wiki-truth-us-co",
-        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
+        "title": "Wikipedia: Legality of cannabis by U.S. jurisdiction",
         "type": "external",
         "weight": "low"
       }
@@ -183,7 +183,7 @@
     "code": "us-co",
     "content_hash": "9f56360406c39d741969cdb6c88016e2d8ab0bb4f7b8b6ebc39a84d5e20209a4",
     "notes_hash": "f4f78d5507cffefe13d041ea5eedd8fd397e2dddf124744b3dc5168754e733d2",
-    "model_hash": "0827d30c7ad06353f5f3820b128c9c4ed0628670c562be12fdb162a95c7b4102"
+    "model_hash": "567fa8d56df6115c9ca8e9a5865ed7c581c95aab7e2de616624d4e6eebc09f0a"
   },
   "updated_at": "2024-01-01"
 }

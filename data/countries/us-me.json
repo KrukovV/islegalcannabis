@@ -147,7 +147,7 @@
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Maine",
     "wiki": "https://en.wikipedia.org/wiki/Maine",
-    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
     "citations": [
       {
         "id": "wiki-legal-us-me",
@@ -165,8 +165,8 @@
       },
       {
         "id": "wiki-truth-us-me",
-        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
+        "title": "Wikipedia: Legality of cannabis by U.S. jurisdiction",
         "type": "external",
         "weight": "low"
       }
@@ -176,7 +176,7 @@
     "code": "us-me",
     "content_hash": "1ab496be4e9a45ea9a629ce05180880422fedf047d69e50f842678b76f36cd69",
     "notes_hash": "004a7fe9494c551fda648a651686f1f8f40f441ae2bfc07b76e2a3213bd8ea28",
-    "model_hash": "7c74fa3e4f5de176c652b792c8d93d9e177abf609644ccd0026acd2282e9cf38"
+    "model_hash": "a0b2bdcba198bfa2a63305ba04af32e888265802a570d055a65592538d1efe24"
   },
   "updated_at": "2026-04-10"
 }

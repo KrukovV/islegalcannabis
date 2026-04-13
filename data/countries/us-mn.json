@@ -147,7 +147,7 @@
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Minnesota",
     "wiki": "https://en.wikipedia.org/wiki/Minnesota",
-    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
     "citations": [
       {
         "id": "wiki-legal-us-mn",
@@ -165,8 +165,8 @@
       },
       {
         "id": "wiki-truth-us-mn",
-        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
+        "title": "Wikipedia: Legality of cannabis by U.S. jurisdiction",
         "type": "external",
         "weight": "low"
       }
@@ -176,7 +176,7 @@
     "code": "us-mn",
     "content_hash": "e50b0185537ec50681e33990fcf53f0f4ca89c7e7e2171d477fb53f765f5c56c",
     "notes_hash": "294cc1ed52b1360ea53dd7e60eaeb1d7caca8c1dc11a8e3c7c53c216ad457f11",
-    "model_hash": "9a886dcd331e99c3b478bd9846816e45fa28262cb24aa05fd0976cd442e34127"
+    "model_hash": "43337e56fd900cd25f8f9f031a9b8795a9167580b07157953311fba690d60a59"
   },
   "updated_at": "2026-04-10"
 }

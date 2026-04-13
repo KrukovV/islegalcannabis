@@ -147,7 +147,7 @@
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Delaware",
     "wiki": "https://en.wikipedia.org/wiki/Delaware",
-    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
     "citations": [
       {
         "id": "wiki-legal-us-de",
@@ -165,8 +165,8 @@
       },
       {
         "id": "wiki-truth-us-de",
-        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
+        "title": "Wikipedia: Legality of cannabis by U.S. jurisdiction",
         "type": "external",
         "weight": "low"
       }
@@ -176,7 +176,7 @@
     "code": "us-de",
     "content_hash": "309e3c1a70c801fa3b51c87a5d8bd9022e39eda0105c0e91a67e9ca85270737f",
     "notes_hash": "9885c9ceffa96af17ea0edf90572cfa49044bea5152e1b90f54e52ca52d63774",
-    "model_hash": "bf2abc3869c26ec28a3f7e3e582aaeecd0c78d0a4cfa32ec4fd417046a69da0a"
+    "model_hash": "89b924c72dd521ce9f7210fa19ad56fb4152384cdeabdd6d275b95ec48bcd4a6"
   },
   "updated_at": "2026-04-10"
 }

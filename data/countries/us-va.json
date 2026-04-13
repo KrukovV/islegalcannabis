@@ -145,7 +145,7 @@
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Virginia",
     "wiki": "https://en.wikipedia.org/wiki/Virginia",
-    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
     "citations": [
       {
         "id": "wiki-legal-us-va",
@@ -170,8 +170,8 @@
       },
       {
         "id": "wiki-truth-us-va",
-        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
+        "title": "Wikipedia: Legality of cannabis by U.S. jurisdiction",
         "type": "external",
         "weight": "low"
       }
@@ -181,7 +181,7 @@
     "code": "us-va",
     "content_hash": "4d23ea1f248d39dd9dabf4db2b7ad3b34715f45ef053e610e1bd3ccbf56adcdc",
     "notes_hash": "a27597f49e9f10762bd6ecbfd6aab01bbe4cf8e5ed88e4f64bcd12e7e49e6511",
-    "model_hash": "72309ff7d269fdf664d2b334425ac568127c942ed7b8b1984e46aebf0853c814"
+    "model_hash": "87520e20a551a709590f2e9795b1a06e07ce49d0461fbbe27593e0b75599d2a0"
   },
   "updated_at": "2024-01-01"
 }

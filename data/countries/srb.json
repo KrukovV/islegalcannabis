@@ -32,9 +32,7 @@
         "sale_illegal"
       ],
       "modifiers": [
-        "up_to",
-        "may",
-        "however"
+        "up_to"
       ]
     },
     "signals": {
@@ -43,7 +41,7 @@
       "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 3,
+        "prison_priority": 1,
         "arrest": false,
         "fine": true,
         "severity_score": 4,
@@ -67,12 +65,6 @@
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
-        },
-        {
-          "title": "Cannabis in Serbia",
-          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Serbia",
-          "depth": 1,
-          "type": "traversal"
         },
         {
           "title": "United Nations Treaty Collection",
@@ -103,6 +95,12 @@
           "url": "https://arhiva.glas-javnosti.rs/arhiva/2005/05/07/srpski/D05050602.shtml",
           "depth": 2,
           "type": "reference"
+        },
+        {
+          "title": "Cannabis in Serbia",
+          "url": "https://www.b92.net/info/vesti/index.php?yyyy=2007&mm=05&dd=03&nav_id=244865",
+          "depth": 2,
+          "type": "reference"
         }
       ],
       "explain": [
@@ -119,36 +117,19 @@
         "rule: penalty_years | source: Serbia / Србија | type: summary | priority: 1 | scope: cultivation",
         "rule: penalty_criminal_offense | source: Serbia / Србија | type: summary | priority: 1 | scope: cultivation",
         "rule: penalty_fine | source: Serbia / Србија | type: summary | priority: 1 | scope: general",
-        "rule: raw_illegal | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: general",
-        "rule: illegal | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_prison | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_fine | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_years | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_criminal_offense | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: possession",
-        "rule: penalty_prison | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_years | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_criminal_offense | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: trafficking",
-        "rule: trafficking_illegal | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: trafficking",
-        "rule: sale_illegal | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: trafficking",
-        "rule: penalty_prison | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: cultivation",
-        "rule: penalty_years | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: cultivation",
-        "rule: penalty_criminal_offense | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: cultivation",
-        "rule: penalty_fine | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: general",
-        "rule: penalty_prison | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: general",
-        "rule: medical_legal | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: general",
-        "rule: raw_illegal | source: Cannabis in Serbia | type: traversal | priority: 3 | scope: use"
+        "no traversal evidence"
       ],
       "secondary_source": {
-        "has_article": true,
-        "article_len": 3851,
-        "source_confidence": "prison_signal",
+        "has_article": false,
+        "article_len": 0,
+        "source_confidence": "no_secondary_source",
         "signals": {
           "prison_notes": true,
-          "prison_article": true,
+          "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": "illegal",
-          "distribution_article": "illegal"
+          "distribution_article": null
         }
       }
     },
@@ -161,8 +142,7 @@
       "penalty_years",
       "penalty_criminal_offense",
       "trafficking_illegal",
-      "sale_illegal",
-      "raw_illegal"
+      "sale_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Serbia / Србија. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
@@ -265,9 +245,9 @@
   },
   "hashes": {
     "code": "srb",
-    "content_hash": "a041de4e97b6e266415be10ccc138e6d5c7d0aa47845ed21aed6c200a3f0e4d3",
+    "content_hash": "0c92042a5ea9cc27d395603d5f6ad70572a0bf30db6903ed549c90b27ffafbff",
     "notes_hash": "b93ed3e0850eb8830f75069ea25c3fd8d686f59c946e58073045c5e154a8d42a",
-    "model_hash": "411d0c0082271cd722cf3e5ecf7d54ac28fa9da714211ee4208755e37e7dd925"
+    "model_hash": "7021e7dc381324ee873a3d8d4885784a12fbb670c9ffdedd82cda5a9d85dec2c"
   },
   "geo_code": "RS",
   "node_type": "country",

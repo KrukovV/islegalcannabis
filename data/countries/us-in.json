@@ -37,7 +37,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is illegal in Indiana under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}} Cannabis in Indiana is illegal for recreational use, with the exception of limited medical usage. Possession of any amount is a Class B misdemeanor, punishable by up to 180 days in prison and a fine of up to $1000.\n\n\n== History ==\n\n\n=== Prohibition (1913) ===\nIn 1913, Indiana banned the sale of marijuana without a prescription.\n\n\n=== Failed attempts to raise or lower penalties (2013) ===\nIn February 2013, a bill to decriminalize small amounts of marijuana was killed in committee. Following that, the Senate offered an amendment to the previously approved House Bill 1006, which had included decreased penalties for cannabis possession, with an amendment to instead raise certain types of possession from misdemeanors to felonies. Governor Mike Pence stated: \"I think we need to focus on reducing crime, not reducing penalties.\"\n\n\n=== Marion County (2019) ===\nOn September 30, 2019, possession of 1 ounce (28 g) of marijuana or less was decriminalized in Marion County.\n\n\n=== Attempts at Delta-8 regulation ===\nUnder Indiana law, delta-9 products are illegal, but delta-8 products are not. State Senators Michael Young and Liz Brown introduced a bill during the 2022 session to outlaw delta-8 products, but it died in session due to concerns that it would outlaw CBD oil.\n\n\n== First Church of Cannabis ==\nPending the 2015 passage of Indiana's Religious Freedom Restoration Act (RFRA), Bill Levin created the First Church of Cannabis in Indiana. The church was founded in March 2015, and received its recognition as a religious non-profit entity on March 26, the same day that the governor signed the RFRA. Prior to the RFRA's taking effect, an Indiana police chief warned the church that the RFRA would not protect the church's use of sacramental marijuana.\nThe church held its first service on July 1—the same day that the RFRA took effect—and promptly filed a lawsuit against the state, alleging that the state's marijuana laws infringe on the church's freedom of religion.\n\n\n== Medical cannabis ==\n\n\n=== Failed attempts to legalize medical marijuana (2015) ===\nIn early 2015, bills were introduced both in the House and Senate to legalize medical cannabis for certain severe conditions with a doctor's recommendation, but the House Bill failed to advance, and the Senate bill did not receive a hearing.\n\n\n=== CBD legalized for epilepsy (2017) ===\nIn April 2017, Governor Eric Holcomb signed legislation to allow the use of CBD oil (less than 0.3% THC) for uncontrollable seizures.\nThe new law went into effect July 1, 2017.\n\n\n=== CBD legalized for any use (2018) ===\nIn March 2018, legislation was signed to allow the use and sale of CBD for any purpose (less than 0.3% THC), with additional requirement imposed for testing and labelling.\n\n\n== Legislation ==\nLaws affecting possession, cultivation and sale of marijuana were amended to reduce the penalties for simple possession, but enhance the penalties for delivery, and possession with the intent to deliver, in certain circumstances (amendments effective on July 1, 2014, under IC 35-48-4).\nSale or cultivation of more than 10 lbs or within 1,000 feet of a school, or any other specialized area, will result in a minimum of 2–8 years and a $10,000 fine.\n\n\n== References ==",
+  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}}",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -145,7 +145,7 @@
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Indiana",
     "wiki": "https://en.wikipedia.org/wiki/Indiana",
-    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
     "citations": [
       {
         "id": "wiki-legal-us-in",
@@ -163,8 +163,8 @@
       },
       {
         "id": "wiki-truth-us-in",
-        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
+        "title": "Wikipedia: Legality of cannabis by U.S. jurisdiction",
         "type": "external",
         "weight": "low"
       }
@@ -174,7 +174,7 @@
     "code": "us-in",
     "content_hash": "219ee79d79db436aa1948c1b1c10633c484dbb4ca0eeb45bcd2974ab571d6675",
     "notes_hash": "763be14f0b725fdcbed91eb09de6913e0c46b0100a10172c58169c7e949c0e90",
-    "model_hash": "8580b979331d5671b5aa9703fbb199f2b76610c8d1b9512397343948fc79e43b"
+    "model_hash": "bfb293efa3d14b39d6965321cc9e94dad9bdf8ca5057b5f70bb5114e1531d2cf"
   },
   "updated_at": "2026-04-10"
 }

@@ -147,7 +147,7 @@
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Missouri",
     "wiki": "https://en.wikipedia.org/wiki/Missouri",
-    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
     "citations": [
       {
         "id": "wiki-legal-us-mo",
@@ -165,8 +165,8 @@
       },
       {
         "id": "wiki-truth-us-mo",
-        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
+        "title": "Wikipedia: Legality of cannabis by U.S. jurisdiction",
         "type": "external",
         "weight": "low"
       }
@@ -176,7 +176,7 @@
     "code": "us-mo",
     "content_hash": "6ca99b17eb94948148de34f70a51ae9e62b531faae8b62f34d98ed596628706e",
     "notes_hash": "069f4336518bc62d4720e75627a2f45d60791a6d4be2d90512429d8fdabc2601",
-    "model_hash": "1a1b3c55dfc7c334d7938d828b281fb2664feb5ca23c4295a5686f7085706fac"
+    "model_hash": "efc5054f20b412d9d8fc725bdf897534e1f91d87320a758ec4bb3da2a33b428f"
   },
   "updated_at": "2026-04-10"
 }

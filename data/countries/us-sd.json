@@ -145,7 +145,7 @@
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_South_Dakota",
     "wiki": "https://en.wikipedia.org/wiki/South_Dakota",
-    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
     "citations": [
       {
         "id": "wiki-legal-us-sd",
@@ -163,8 +163,8 @@
       },
       {
         "id": "wiki-truth-us-sd",
-        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
+        "title": "Wikipedia: Legality of cannabis by U.S. jurisdiction",
         "type": "external",
         "weight": "low"
       }
@@ -174,7 +174,7 @@
     "code": "us-sd",
     "content_hash": "7e39bfab0de871da50426ee314440756505af6e142f84973683de5266d7761b2",
     "notes_hash": "fe0e9bb4623cb74614024fd89cee90f6046d695ae6c6537ed662ccbe3cf30b0c",
-    "model_hash": "51cef9f10155c6a9e1174f4271e4ff65ab3f88818b27ed6dd648efa0f4f6fbcd"
+    "model_hash": "3f1c57aa3e2335eb24bfc9f1444e6741b2bbc340f1fb0626ed4c8ebc502fcd80"
   },
   "updated_at": "2026-04-10"
 }

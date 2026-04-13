@@ -145,7 +145,7 @@
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Idaho",
     "wiki": "https://en.wikipedia.org/wiki/Idaho",
-    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
     "citations": [
       {
         "id": "wiki-legal-us-id",
@@ -163,8 +163,8 @@
       },
       {
         "id": "wiki-truth-us-id",
-        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
+        "title": "Wikipedia: Legality of cannabis by U.S. jurisdiction",
         "type": "external",
         "weight": "low"
       }
@@ -174,7 +174,7 @@
     "code": "us-id",
     "content_hash": "b0437b41baba14cc5f3383ec14cd3532b3ae83b41f8c64fa43446c010b9d559e",
     "notes_hash": "1c3aed61ed4aaf9c1cb2d6b5337cfd146fba750576636e8059ecd2a665535f7a",
-    "model_hash": "0678ebd76ba649fcf1af394ba8b6ec03bfc410e5ba4044200c488459bec6ae65"
+    "model_hash": "e06e7fe5cb14823f8f7450ef237e7857182c9edd7eecd5ee52292c9edda4cadc"
   },
   "updated_at": "2026-04-10"
 }

@@ -147,7 +147,7 @@
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Montana",
     "wiki": "https://en.wikipedia.org/wiki/Montana",
-    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
     "citations": [
       {
         "id": "wiki-legal-us-mt",
@@ -165,8 +165,8 @@
       },
       {
         "id": "wiki-truth-us-mt",
-        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
+        "title": "Wikipedia: Legality of cannabis by U.S. jurisdiction",
         "type": "external",
         "weight": "low"
       }
@@ -176,7 +176,7 @@
     "code": "us-mt",
     "content_hash": "042ddc50258d1723efb357a4ee1043bf2ffdb8ba5dcc0669302468f0a02b8703",
     "notes_hash": "32b295687ccf09fb212b74af5aa37e8e48b9ea1d67e655b1a6b70753511cc1fb",
-    "model_hash": "782f56a3e523911b611fdf5ee76f30d5eb41388c876e57e98805534bc349c71d"
+    "model_hash": "96af1ebdc4cb937a28006e482cbb5c436dc6c0c3f14b017380738a8cd6a2dbd5"
   },
   "updated_at": "2026-04-10"
 }

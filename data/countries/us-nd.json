@@ -147,7 +147,7 @@
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_North_Dakota",
     "wiki": "https://en.wikipedia.org/wiki/North_Dakota",
-    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
     "citations": [
       {
         "id": "wiki-legal-us-nd",
@@ -165,8 +165,8 @@
       },
       {
         "id": "wiki-truth-us-nd",
-        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
+        "title": "Wikipedia: Legality of cannabis by U.S. jurisdiction",
         "type": "external",
         "weight": "low"
       }
@@ -176,7 +176,7 @@
     "code": "us-nd",
     "content_hash": "6c7195124f035b364909110609b46b76f6313a1a981bdde441a9fc604aea9d7f",
     "notes_hash": "8cb630cebac1a92aafe03b7e39e01e43128c3b37475bac6243172b5a8c64ae51",
-    "model_hash": "f62a6abd6e3468a7af29d0ae81b6c360c4156fbdd6770caf8cf42ab15571d6a5"
+    "model_hash": "dd315d74ebd18c2da67bbba75c710d8ec47a5bb6ebbb3b28ff134934323456b3"
   },
   "updated_at": "2026-04-10"
 }

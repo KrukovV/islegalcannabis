@@ -145,7 +145,7 @@
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Tennessee",
     "wiki": "https://en.wikipedia.org/wiki/Tennessee",
-    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
     "citations": [
       {
         "id": "wiki-legal-us-tn",
@@ -163,8 +163,8 @@
       },
       {
         "id": "wiki-truth-us-tn",
-        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
+        "title": "Wikipedia: Legality of cannabis by U.S. jurisdiction",
         "type": "external",
         "weight": "low"
       }
@@ -174,7 +174,7 @@
     "code": "us-tn",
     "content_hash": "dc2bfe205303ad125c7ed5843c079c206ddc2b5df9a786e5585a6cd8cd77c59a",
     "notes_hash": "b8c7fff480177229a23e5406e58eac8728d92e171858e878a9ecf183002494d1",
-    "model_hash": "df0e52ab9cdd41e27364f55de605c5223d60cde4864f52bc8271c73f0f59a7d8"
+    "model_hash": "3035eb8ebb4b3c28ed3c0e8300409acd22ba039ab49a1d29dc6c2f7889c313c1"
   },
   "updated_at": "2026-04-10"
 }

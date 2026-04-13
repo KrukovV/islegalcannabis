@@ -147,7 +147,7 @@
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Nevada",
     "wiki": "https://en.wikipedia.org/wiki/Nevada",
-    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
     "citations": [
       {
         "id": "wiki-legal-us-nv",
@@ -172,8 +172,8 @@
       },
       {
         "id": "wiki-truth-us-nv",
-        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
+        "title": "Wikipedia: Legality of cannabis by U.S. jurisdiction",
         "type": "external",
         "weight": "low"
       }
@@ -183,7 +183,7 @@
     "code": "us-nv",
     "content_hash": "50a8ae95bf57eb8a3cf54481d623d4aab81ce535be54a5399548efd9d5ffbae9",
     "notes_hash": "d869da2b8cd4fb1d720376f09b9d9ea17bf6deeb4ae44e7db1ac078900721f31",
-    "model_hash": "3045a06d91c9ef3adb7d1f41bd52d77b1558f69e4c0cb805fbaabeebca26af88"
+    "model_hash": "caf7f43e5dc8fcae89b21950822d94a6b8b6cbc367769f0cdb0a94bb7f4815f3"
   },
   "updated_at": "2024-01-01"
 }

@@ -147,7 +147,7 @@
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Arizona",
     "wiki": "https://en.wikipedia.org/wiki/Arizona",
-    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
     "citations": [
       {
         "id": "wiki-legal-us-az",
@@ -172,8 +172,8 @@
       },
       {
         "id": "wiki-truth-us-az",
-        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
+        "title": "Wikipedia: Legality of cannabis by U.S. jurisdiction",
         "type": "external",
         "weight": "low"
       }
@@ -183,7 +183,7 @@
     "code": "us-az",
     "content_hash": "510eaa099bfe145ff787058444c952911c724c8b0c7f74f42412f5cbba956810",
     "notes_hash": "8ac5c7e0c44735e8a5d67984c235e867ba0d02c93b5f987c59199b5f47ffff04",
-    "model_hash": "2fe5a0fe398cae3f27fbdb7e706dca5a44b72ceb93b4e11cc1d98f9c57f4e3bf"
+    "model_hash": "286fc9bbc2b461f85793d5fda8842c2abdc45522bcc960808e3364237c30c14e"
   },
   "updated_at": "2024-01-01"
 }

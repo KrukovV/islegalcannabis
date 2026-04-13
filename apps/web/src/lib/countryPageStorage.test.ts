@@ -117,8 +117,19 @@ describe("countryPageStorage", () => {
       expect(page?.node_type).toBe("state");
       expect(page?.sources.legal).toContain("Cannabis_in_");
       expect(() => assertCannabisWikiSource(page?.sources.legal || "")).not.toThrow();
+      expect(page?.sources.wiki_truth).toBe("https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction");
       expect(page?.sources.citations[0]?.url).toBe(page?.sources.legal);
     }
+  });
+
+  it("keeps Georgia country and Georgia state on different Cannabis_in_* sources", () => {
+    const country = getCountryPageData("geo");
+    const state = getCountryPageData("us-ga");
+    expect(country?.sources.legal).toContain("Cannabis_in_Georgia_(country)");
+    expect(country?.sources.wiki_truth).toBe("https://en.wikipedia.org/wiki/Legality_of_cannabis");
+    expect(state?.sources.legal).toContain("Cannabis_in_Georgia_(U.S._state)");
+    expect(state?.sources.wiki_truth).toBe("https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction");
+    expect(country?.sources.legal).not.toBe(state?.sources.legal);
   });
 
   it("keeps mixed US state recreational coverage instead of all-legal inheritance", () => {

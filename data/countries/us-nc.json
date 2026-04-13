@@ -147,7 +147,7 @@
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_North_Carolina",
     "wiki": "https://en.wikipedia.org/wiki/North_Carolina",
-    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
     "citations": [
       {
         "id": "wiki-legal-us-nc",
@@ -165,8 +165,8 @@
       },
       {
         "id": "wiki-truth-us-nc",
-        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
+        "title": "Wikipedia: Legality of cannabis by U.S. jurisdiction",
         "type": "external",
         "weight": "low"
       }
@@ -176,7 +176,7 @@
     "code": "us-nc",
     "content_hash": "aa05287bdeba05c08cb119564888b12f3878e73da424a7149b2224f91f797cb4",
     "notes_hash": "9e0980226c3877a938878250a2ea2e0248ebc1b7ad081805df079e371c7584d2",
-    "model_hash": "aebf7e996da9171788d2fe2a00869650b04af99475ef005bc1b661e7ac24486a"
+    "model_hash": "8bb8e74260d13d3b3e3817ece57033588289a45a44f022f9f5171b97313febd6"
   },
   "updated_at": "2026-04-10"
 }

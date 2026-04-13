@@ -22,5 +22,7 @@ describe("sitemap", () => {
     const urls = entries.map((entry) => entry.url);
     expect(urls).toContain("https://islegal.info/c/nld");
     expect(urls).toContain("https://islegal.info/c/us-ca");
+    expect(urls).toContain("https://islegal.info/c/geo");
+    expect(urls).toContain("https://islegal.info/c/us-ga");
   });
 });

@@ -147,7 +147,7 @@
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_California",
     "wiki": "https://en.wikipedia.org/wiki/California",
-    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
     "citations": [
       {
         "id": "wiki-legal-us-ca",
@@ -172,8 +172,8 @@
       },
       {
         "id": "wiki-truth-us-ca",
-        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
+        "title": "Wikipedia: Legality of cannabis by U.S. jurisdiction",
         "type": "external",
         "weight": "low"
       }
@@ -183,7 +183,7 @@
     "code": "us-ca",
     "content_hash": "137fc3444087705457dd4836cfdf0320d67770d466ae05136a2d3ea12538131b",
     "notes_hash": "4b7f9edd7c44cec6dd60522a361a45c879dcfd87f3f1825e4458a59eecd33bba",
-    "model_hash": "a633028fd58075bfafe9a3aef207a1c249dc20a8c43ac161319e4be2088bd572"
+    "model_hash": "c2656bd198920943ce34202bd23e6a1a7619cf06ee7e2be279c4a7c9e3cae1b2"
   },
   "updated_at": "2025-12-14"
 }

@@ -145,7 +145,7 @@
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Georgia_(U.S._state)",
     "wiki": "https://en.wikipedia.org/wiki/Georgia_(U.S._state)",
-    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
     "citations": [
       {
         "id": "wiki-legal-us-ga",
@@ -163,8 +163,8 @@
       },
       {
         "id": "wiki-truth-us-ga",
-        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
+        "title": "Wikipedia: Legality of cannabis by U.S. jurisdiction",
         "type": "external",
         "weight": "low"
       }
@@ -174,7 +174,7 @@
     "code": "us-ga",
     "content_hash": "924ac7798635d7815165929580019866d4eda21e99359304b303aa3dc17e8877",
     "notes_hash": "801e4ebdcddf8d4622c0cbc2f708ba542b0dc0f6494a8988c1c4f115edbf223e",
-    "model_hash": "e32edcabc8dcd88d6a2320c40cecd46b9f78d3d1d250daa907a0c03076297c7e"
+    "model_hash": "cfdd195f99e265f930ddfb257262916cae537aedcaeb80a4f6d1f3c8799df17c"
   },
   "updated_at": "2026-04-10"
 }

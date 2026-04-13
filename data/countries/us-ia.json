@@ -145,7 +145,7 @@
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Iowa",
     "wiki": "https://en.wikipedia.org/wiki/Iowa",
-    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
     "citations": [
       {
         "id": "wiki-legal-us-ia",
@@ -163,8 +163,8 @@
       },
       {
         "id": "wiki-truth-us-ia",
-        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
+        "title": "Wikipedia: Legality of cannabis by U.S. jurisdiction",
         "type": "external",
         "weight": "low"
       }
@@ -174,7 +174,7 @@
     "code": "us-ia",
     "content_hash": "99840a3244246f3a4f0fecd67f3b0b9a2ea52df84edbfa6f08b58404aa90975a",
     "notes_hash": "5d629a08adfbf1d5de4bab4943c18a9e0ca54d0b3b1b37bd9ef4073b285af8be",
-    "model_hash": "2a2f2348ad6c6e661123a7196c909ae34610d026e239c438d00d6c0d11ee3654"
+    "model_hash": "8d7a13522b65761d114b860f4a362787530a0106e71a751a88cbda1fd29be394"
   },
   "updated_at": "2026-04-10"
 }

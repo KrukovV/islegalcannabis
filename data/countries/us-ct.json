@@ -147,7 +147,7 @@
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Connecticut",
     "wiki": "https://en.wikipedia.org/wiki/Connecticut",
-    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
+    "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
     "citations": [
       {
         "id": "wiki-legal-us-ct",
@@ -172,8 +172,8 @@
       },
       {
         "id": "wiki-truth-us-ct",
-        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-        "title": "Wikipedia: Legality of cannabis",
+        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
+        "title": "Wikipedia: Legality of cannabis by U.S. jurisdiction",
         "type": "external",
         "weight": "low"
       }
@@ -183,7 +183,7 @@
     "code": "us-ct",
     "content_hash": "e1365c52be6dbacc6a422186fb1a94adda54ca48633e3891bdfb31ed87f4b0c1",
     "notes_hash": "6a97b44a92dec5497120903db10e740e5039ebd5f7441aa8f885e06717bad0fe",
-    "model_hash": "c609eb967ad105bd20017c0834dfe79f945412f91cd4c3d0b9f2375be5afbf4a"
+    "model_hash": "98b14d63ab92a95a4098feaceb1157775ac0248e9ed3363325bca909fd5dff59"
   },
   "updated_at": "2024-01-01"
 }

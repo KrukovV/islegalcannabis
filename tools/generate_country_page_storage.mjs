@@ -18,6 +18,7 @@ const WIKI_CLAIMS_MAP_PATH = path.join(ROOT, "data", "wiki", "wiki_claims_map.js
 const WIKI_CLAIMS_ENRICHED_PATH = path.join(ROOT, "data", "wiki", "wiki_claims_enriched.json");
 const WIKI_TRAVERSAL_CACHE_PATH = path.join(ROOT, "data", "wiki", "wiki_traversal_cache.json");
 const WIKI_API_BASE = "https://en.wikipedia.org/w/api.php";
+const US_STATES_WIKI_TRUTH_URL = "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction";
 const SECONDARY_SOURCE_USER_AGENT = "islegalcannabis/wiki-secondary-enrichment";
 const SECONDARY_SOURCE_AUDIT_CODES = new Set(["EG", "RU", "CN", "NL", "TT"]);
 const usStateCannabisSourceCache = new Map();
@@ -157,7 +158,10 @@ function buildCountryCitations(entry) {
       ? {
           id: "wiki_truth",
           url: entry.sources.wiki_truth,
-          title: "Wikipedia: Legality of cannabis",
+          title:
+            entry.node_type === "state"
+              ? "Wikipedia: Legality of cannabis by U.S. jurisdiction"
+              : "Wikipedia: Legality of cannabis",
           type: "external",
           weight: "low"
         }
@@ -782,7 +786,7 @@ async function buildStateEntries(usaEntry) {
       sources: {
         legal: legalSource?.url || null,
         wiki: wikiRow.wiki_page_url || null,
-        wiki_truth: usaEntry.sources?.wiki_truth || null,
+        wiki_truth: US_STATES_WIKI_TRUTH_URL,
         citations: []
       },
       hashes: { code, content_hash: "", notes_hash: "", model_hash: "" },
@@ -826,7 +830,7 @@ async function buildStateEntries(usaEntry) {
             code: `wiki-truth-${code}`,
             id: `wiki-truth-${code}`,
             url: entry.sources.wiki_truth,
-            title: "Wikipedia: Legality of cannabis",
+            title: "Wikipedia: Legality of cannabis by U.S. jurisdiction",
             type: "external",
             weight: "low"
           }
