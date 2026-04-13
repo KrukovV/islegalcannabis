@@ -37,7 +37,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is illegal in Kansas under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}}",
+  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}} Cannabis in Kansas is fully illegal, and possession of even small amounts is a misdemeanor crime. Cannabis is only legal in Kansas in the form of THC free cannabidiol oil, also known as CBD.\n\n\n== History ==\n\n\n=== 1927 prohibition ===\nIn the early 20th century, most states west of the Mississippi enacted laws banning cannabis, with Kansas doing so in 1927.\n\n\n=== 2013–2015 medical cannabis attempts ===\nSenate bill 9 was pre-filed by David Haley (D) on January 10, 2013. This cannabis compassion and care act will allow the use of medical marijuana for certain debilitating conditions. Patients would be allowed to own 12 plants or 6 ounces (170 g) of marijuana for therapeutic purposes. During the 2015 legislative session, the equivalent bill was passed in the House in mid-2015, but stalled in the Senate, who intend to reopen discussion of the bill in 2016. The bill would also decrease penalties for cannabis possession, and order a state study of industrial hemp.\n\n\n=== 2015 Wichita decriminalization ===\nIn April 2015, the city of Wichita voted to decriminalize cannabis municipally, with a vote of 54-45, reducing first time possession to a criminal infraction with a $50 fine, rather than a misdemeanor with fines up to $2500 and a year of jail time, as under state law. The Kansas Attorney General stated that he would sue the city if the measure passed, arguing the city does not have legal authority to reduce cannabis penalties. The Kansas Attorney General subsequently sued the city to hold the initiative. The Wichita City Council later unanimously voted to approve a similar ordinance in 2017.\n\n\n=== Shona Banda case ===\n\nIn March 2015, Garden City resident Shona Banda, who uses medical cannabis to treat her debilitating Crohn's disease, was arrested and charged with five felony counts in relation to cannabis. Banda's usage of medical cannabis had been discovered after her 11-year-old child spoke publicly of his mother's usage at school; the boy was removed from her home by Child Protective Services and later placed with Banda's ex-husband. Banda faced up to 30 years for her use and possession of cannabis. In August 2017, she pleaded no contest to possession of drug paraphernalia with intent to manufacture and was sentenced to 12 months of \"mail-in probation\", allowing her to complete probation while living in Spokane, Washington.\n\n\n=== Lawsuit against Colorado ===\nIn 2015, 10 sheriffs from Kansas and two other states sued the state of Colorado, alleging that the state's legalization of cannabis was placing an undue burden on law enforcement in neighboring states. The states of Nebraska and Oklahoma joined the suit, and Colorado responded that \"Nebraska and Oklahoma filed this case in an attempt to reach across their borders and selectively invalidate state laws with which they disagree.\" The U.S. Supreme Court refused to hear the case.\n\n\n=== CBD oil ===\nOn May 14, 2018, Governor Jeff Colyer signed SB 282 which exempted CBD oil from the definition of marijuana, which allowed the legalization of CBD oil.\n\n\n=== 2021 medicinal bill ===\nOn March 17, 2021, the Kansas State House introduced a medicinal marijuana bill. The bill would allow the sale of raw plant material (flower), oils, tinctures, patches, and edibles to patients with conditions including chronic pain, cancer, lupus, Alzheimer's, Parkinson's, among others. Smoking and using vaporizers (that come into \"direct contact\" with a heating element) would still be illegal under the bill. The bill was referred to the Committee on Federal and State Affairs and did not progress. \n\n\n== Criminal penalties ==\nThe first possession charge of less than 450 grams (16 oz) will result in a class-B misdemeanor with up to 6 month incarceration sentence and a $1,000 fine maximum. A subsequent offense for possessing any amount can result in a fine of up to $100,000 and a sentence of up to 3½ years. Sale or distribution of any amount can result in a $300,000 to $500,000 fine and an incarceration sentence depending on the quantity and severity of the offense.\n\n\n== References ==",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -143,10 +143,17 @@
     "lng": -97
   },
   "sources": {
-    "legal": null,
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Kansas",
     "wiki": "https://en.wikipedia.org/wiki/Kansas",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
+      {
+        "id": "wiki-legal-us-ks",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Kansas",
+        "title": "Wikipedia: Cannabis in Kansas",
+        "type": "external",
+        "weight": "low"
+      },
       {
         "id": "wiki-us-ks",
         "url": "https://en.wikipedia.org/wiki/Kansas",
@@ -167,7 +174,7 @@
     "code": "us-ks",
     "content_hash": "e47b29abfc3712fd050add14b75b74b96d3b8b2813d929c2274313e9746b4f64",
     "notes_hash": "f37ae810833705756f74ae191f849988c665e4718cd06661432df890b3071e71",
-    "model_hash": "ae6d4eac007de1ab5824b8026c610861cc4318a2192c571d3c745a3a371ff95d"
+    "model_hash": "c021a1e0eae1c2284089fa8200091e8e8a21d29b7b7a2d0048916b2e646334f6"
   },
   "updated_at": "2026-04-10"
 }

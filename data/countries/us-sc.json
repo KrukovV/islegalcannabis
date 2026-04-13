@@ -37,7 +37,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is illegal in South Carolina under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}}",
+  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}} Cannabis in South Carolina is illegal for recreational use. Use of low-THC CBD oil is allowed for certain medical conditions. But THC-A hemp is federally legal, per 2018 farm bill.\n\n\n== Industrial Hemp ==\nThe cultivation of industrial hemp in South Carolina dates back to at least the 18th century. In 1733, an act was passed in the colony to encourage the growth of hemp for its \"useful manufacture to his Majesty's Royal Navy\". The cultivation of industrial hemp was greatly limited nationwide as a result of the federal 1937 Marihuana Tax Act.\nIn 2017, South Carolina re-legalized the growing of industrial hemp, under the auspices of the federal 2014 Farm Bill. The new legislation permits up to 20 cultivators to hold state licenses for 20 acres (8.1 ha) each, expanding to 50 licenses and 50 acres (20 ha) for 2018.\n\n\n== 2014 legalization of CBD ==\nIn June 2014, Republican governor Nikki Haley signed into law Senate Bill 1035, \"Julian's Law\", following a unanimous Senate vote and a 92–5 House vote. The law allows children with severe epilepsy to be treated with CBD oil if recommended by a physician.\n\n\n== References ==",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -143,10 +143,17 @@
     "lng": -97
   },
   "sources": {
-    "legal": null,
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_South_Carolina",
     "wiki": "https://en.wikipedia.org/wiki/South_Carolina",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
+      {
+        "id": "wiki-legal-us-sc",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_South_Carolina",
+        "title": "Wikipedia: Cannabis in South Carolina",
+        "type": "external",
+        "weight": "low"
+      },
       {
         "id": "wiki-us-sc",
         "url": "https://en.wikipedia.org/wiki/South_Carolina",
@@ -167,7 +174,7 @@
     "code": "us-sc",
     "content_hash": "5a01b3f0027bc4aeab05dc455e63382c4e4c0acccfec53a38d0a4c5d22ed5190",
     "notes_hash": "49b54284052c322f9fb99bd07a89e3420a0faba6c492973d422cc0f000c4a471",
-    "model_hash": "9d22fdcceae6da18e11c40e95dc8d9aab1b3171c3e022730304d8415b7162515"
+    "model_hash": "3f522950c6f98f2cd1b2896d24174d6cc809c50c3110069b3433c85d4aecfa6c"
   },
   "updated_at": "2026-04-10"
 }

@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in Vermont under state law for recreational adult use. Medical cannabis is also legal in Vermont. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} Cannabis in Vermont as of May 2004 is legal for medical use, and legal for recreational use as of July 1, 2018.\n\n\n== History ==\n\n\n=== Prohibition (1915) ===\nAs part of a larger trend of restricting cannabis in the early 20th century, Vermont banned the drug in 1915.\n\n\n=== Medical use (2004) ===\nOn May 19, 2004, Vermont legalized medical cannabis when Governor James Douglas announced he would allow Senate Bill 76 to pass without his signature. The law was further expanded in June 2007 when Senate Bill 7 passed without Governor Douglas' signature once again.\n\n\n=== Decriminalization (2013) ===\nOn June 6, 2013, Governor Peter Shumlin signed HB200 which decriminalized the possession of 1 ounce or less to a civil infraction.\n\n\n== Legalization ==\nVermont has taken legalization plans into consideration as early as 2014. With no initiative process in Vermont, legalization efforts went through the state legislature and had to either be approved by the governor, or be veto-proof.\n\n\n=== 2014 ===\nIn 2014, Governor Shumlin stated his support for a tax-and-regulate system for cannabis. A Rand Corporation study commissioned by the state in May 2014 and released in January 2015 stated that Vermont could gain $20 million and $75 million a year in tax revenue, but noted too that these sums would be vulnerable to either federal interference, or market competition if a neighboring state were also to legalize; in the latter case, Rand stated, \"It is not clear that Vermont has any long-run comparative advantage in hosting the industry.\"\n\n\n=== 2015 ===\nIn April 2015, as a form of political theater, two state representatives facetiously introduced HB502, which would re-illegalize alcohol, giving it penalties equivalent to those for cannabis.\nIn 2015, Senate Bill 95 and House bill 277 were submitted, proposing a regulated system of legal recreational cannabis sales, however neither bill passed during the 2015 legislative session.\n\n\n=== 2017–2018 ===\nIn May 2017, the Vermont House approved a bill to allow personal possession, use, and cultivation of cannabis but not commercial sales by a 74–68 vote, while the Vermont Senate in April approved a broader bill allowing cannabis commercial sale by a 21–9 vote. On May 10, 2017, a joint bill formerly concerning fentanyl was amended to legalize cannabis, and approved by the entire state legislature, for the first time in U.S. history. The bill, titled S.22 \"An act relating to increased penalties for possession, sale, and dispensation of fentanyl\", was amended to allow possession of an ounce of cannabis under title 18 of the Vermont Statutes Annotated. On May 24, Governor Phil Scott vetoed the bill, and reconsideration was blocked in June by the minority party during a one-day \"veto session\" of the legislature.\nThe state house voted on January 4, 2018, to pass H.511, an amended version of the 2017 bill. The bill legalized adult personal possession of one ounce of cannabis and allows individuals to cultivate two plants. The senate passed the bill by voice vote on January 10, 2018, and Governor Phil Scott allowed it to pass on January 22, by neither signing nor vetoing, becoming \"An act relating to eliminating penalties for possession of limited amounts of marijuana by adults 21 years of age or older\"; its provisions have taken effect as of July 1, 2018.\n\n\n=== Regulated sales ===\nThe 2018 act has no sales or revenue provisions. Some legislators said they would move towards a future tax-and-regulate plan which is being studied by the governor's Marijuana Advisory Commission with a report due in 2019. The legislature failed to create a tax-and-regulate system in the 2018 session. Regulated sales entered into law in October 2020 when S.54 went into effect. State licensed medical cannabis dispensaries began selling to adults on May 1, 2022, and retailers began selling to adults in October 2022.\n\n\n== References ==\n\n\n== Further reading ==\n\nJonathan P. Caulkins; Beau Kilmer; Mark A. R. Kleiman; Robert J MacCoun; Greg Midgette; Pat Oglesby; Rosalie Liccardo Pacula; Peter H. Reuter (2015), Considering Marijuana Legalization: Insights for Vermont and Other Jurisdictions, RAND Corporation",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -145,10 +145,17 @@
     "lng": -97
   },
   "sources": {
-    "legal": null,
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Vermont",
     "wiki": "https://en.wikipedia.org/wiki/Vermont",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
+      {
+        "id": "wiki-legal-us-vt",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Vermont",
+        "title": "Wikipedia: Cannabis in Vermont",
+        "type": "external",
+        "weight": "low"
+      },
       {
         "id": "wiki-us-vt",
         "url": "https://en.wikipedia.org/wiki/Vermont",
@@ -169,7 +176,7 @@
     "code": "us-vt",
     "content_hash": "84f4a365d5c41f986c0f5041a754d21d9401bc6d9b7e5204c93c64f82925d1d8",
     "notes_hash": "1636788066b8e3a18ff09192cc12a59a408880d437fd764029abd9b4d37d3972",
-    "model_hash": "1f983635f504af3cde9e8b4abf0713f63ff813db53f4f66d97bacb011d740917"
+    "model_hash": "f59d1b06dbb347289e8643839cc2668b7ff959d1b12a53f85853d9774263aa97"
   },
   "updated_at": "2026-04-10"
 }

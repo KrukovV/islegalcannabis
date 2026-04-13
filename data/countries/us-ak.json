@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in Alaska under state law for recreational adult use. Medical cannabis is also legal in Alaska. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} Cannabis in Alaska is legal for recreational use since 2014. It was first legalized by the court ruling Ravin v. State in 1975, but later recriminalized by Measure 2 in 1990. Ballot measures in 2000 and 2004 attempted (but failed) to legalize recreational use, until finally Measure 2 in 2014 passed with 53.2% of the vote. Medical use was legalized by way of Measure 8 in 1998.\n\n\n== History ==\n\n\n=== Decriminalization (1975) ===\nOn May 16, 1975, Alaska became the second state in the U.S. to decriminalize cannabis. The law imposed a $100 fine (equivalent to $600 in 2025) for persons possessing cannabis, and became law without the governor's signature. It passed just a week before the Ravin ruling.\n\n\n=== Ravin v. State (1975) ===\nRavin v. State was a 1975 decision by the Alaska Supreme Court that held the Alaska Constitution's right to privacy protects an adult's ability to use and possess a small amount of marijuana in the home for personal use. The Alaska Supreme Court thereby became the first – and only – U.S. state or federal court to announce a constitutional right to privacy that protects some level of marijuana use and possession.\n\n\n=== Decriminalization (1982) ===\nIn 1982, following the Ravin decision, the state legislature decriminalized possession of up to four ounces (110 g) of cannabis in the home, or one ounce (28 g) outside the home.\n\n\n=== Recriminalization (1990) ===\n\nIn 1990, Measure 2 to recriminalize cannabis passed with 54.3% of the vote. The measure imposed a penalty of up to 90 days in jail and a fine of up to $1000 for simple possession.\n\n\n=== Medical legalization (1998) ===\nIn 1998, Measure 8 to legalize the medical use of cannabis passed with 58.7% of the vote. The measure allowed patients with a doctor's recommendation to possess up to one ounce (28 g) of cannabis or grow six plants.\n\n\n=== Failed recreational legalization (2000) ===\nIn 2000, Measure 5 to legalize the recreational use of cannabis failed with 40.9% of the vote.\n\n\n=== Recriminalization struck down (2003) ===\nNoy v. State is a case decided by the Alaska Court of Appeals in 2003. David S. Noy was convicted of possessing less than eight ounces (230 g) of marijuana by a jury. However, in 1975, the Alaska Supreme Court had ruled in Ravin v. State that possessing less than four ounces (110 g) of marijuana in one's home is protected by the Alaska Constitution's privacy clause. The amount possessed being over four ounces was highly in question on appeal. Thus, the Court of Appeals overturned Noy's conviction and struck down the part of the law that criminalized possession of less than four ounces of marijuana.\n\n\n=== Failed recreational legalization (2004) ===\nIn 2004, Measure 2 to legalize the recreational use of cannabis failed with 44.3% of the vote.\n\n\n=== Recriminalization (2006) ===\nThe state legislature passed a new law making possession of under one ounce (28 g) a misdemeanor punishable by up to 90 days in jail.  Possession of one to four ounces (28–113 g) was made a misdemeanor punishable by up to a year in jail. Possession of over 4 ounces (110 g) was made a felony.  The measure was pushed by Governor Frank Murkowski.\n\n\n=== Recreational legalization (2014) ===\n\nIn 2014, Measure 2 to legalize the recreational use of cannabis passed with 53.2% of the vote. The measure allows adults 21 and over to possess up to one ounce (28 g) of cannabis and cultivate six plants, effective February 24, 2015. It also allows the sale of cannabis at state-licensed dispensaries, the first of which opened on October 29, 2016. The passage of Measure 2 made Alaska the third state to legalize the recreational use and sale of marijuana, preceded by Colorado and Washington in 2012.\n\n\n== Business ==\n\nThe state of Alaska collected its first full month of cannabis tax proceeds in November 2016, raising $80,000 for the state. Cannabis buds are taxed at $50/oz and stems and leaves are taxed at $15/oz. The state reported fiscal year 2017 marijuana tax revenue of $1,745,767 (cultivators only - not retail). In December 2016 and January 2017, widespread supply shortages were reported, causing many cannabis shops to temporarily cease operations until inventory was restored. In January 2017, Anchorage Assemblyman Forrest Dunbar proposed legislation banning cannabis stores from advertising discounts to active-duty military, who are prohibited by federal policy from consuming cannabis.\nIn 2020, the cannabis industry was hit by a decline in tourist traffic. Tourists make up nearly 20% of the state's wholesale cannabis market during the summer months, according to an interview with Brandon Emmett, chief operating officer of Alaska-based cannabis brand Good Titrations. He also added that it was not disastrous for the owners of the cannabis business, but they felt it.\n\n\n== References ==\n\n\n== Bibliography ==\nBrandeis, Jason (2012). \"The Continuing Vitality of Ravin v. State: Alaskans Still Have a Constitutional Right to Possess Marijuana in the Privacy of Their Homes\". Alaska Law Review. 29 (2): 175–236.\n\n\n== External links ==\n\nTimeline: Notable moments in 40 years of Alaska's history with marijuana\nAlaska's Alcohol and Marijuana Control Office official website",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -145,10 +145,17 @@
     "lng": -97
   },
   "sources": {
-    "legal": null,
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Alaska",
     "wiki": "https://en.wikipedia.org/wiki/Alaska",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
+      {
+        "id": "wiki-legal-us-ak",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Alaska",
+        "title": "Wikipedia: Cannabis in Alaska",
+        "type": "external",
+        "weight": "low"
+      },
       {
         "id": "wiki-us-ak",
         "url": "https://en.wikipedia.org/wiki/Alaska",
@@ -169,7 +176,7 @@
     "code": "us-ak",
     "content_hash": "7c3daddcda35b7d30c11d69b81f21436778b0b4b69db5670a5c70c22b074d94d",
     "notes_hash": "5e01927b43ea2b2287bd34582755135e37154b9af4f20acb2971a7aef9c0f602",
-    "model_hash": "64a7d9fa3f95ac93eb2e2d6868e5e87bbb630ebf17bf7b44d650125f382e0979"
+    "model_hash": "dd501971bc36d557b627e9b671292005b3fc303533aee755653c7d2480fb07a5"
   },
   "updated_at": "2026-04-10"
 }

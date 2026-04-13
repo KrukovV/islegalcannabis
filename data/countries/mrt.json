@@ -21,27 +21,28 @@
       "scopes": {
         "possession": null,
         "use": null,
-        "sale": null,
+        "sale": "illegal",
         "cultivation": null,
         "import": null,
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
-      "modifiers": []
+      "flags": [],
+      "modifiers": [
+        "but",
+        "may"
+      ]
     },
     "signals": {
       "status": "illegal",
-      "final_risk": "RESTRICTED",
+      "final_risk": "HIGH_RISK",
       "enforcement_level": "active",
       "penalties": {
-        "prison": false,
-        "prison_priority": 0,
+        "prison": true,
+        "prison_priority": 3,
         "arrest": false,
         "fine": false,
-        "severity_score": 0,
+        "severity_score": 4,
         "possession": {
           "prison": false,
           "arrest": false,
@@ -55,13 +56,19 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Mauritania / موريتانيا",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Mauritania",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Mauritania",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Cannabis in Mauritania",
@@ -92,38 +99,38 @@
           "url": "https://carnegieendowment.org/research/2012/09/organized-crime-and-conflict-in-the-sahel-sahara-region?lang=en",
           "depth": 2,
           "type": "reference"
-        },
-        {
-          "title": "Cannabis in Mauritania",
-          "url": "https://allafrica.com/stories/201504202237.html",
-          "depth": 2,
-          "type": "reference"
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Mauritania | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Mauritania | type: traversal | priority: 3 | scope: general",
+        "rule: raw_illegal | source: Cannabis in Mauritania | type: traversal | priority: 3 | scope: sale",
+        "rule: sale_illegal | source: Cannabis in Mauritania | type: traversal | priority: 3 | scope: sale",
+        "rule: illegal | source: Cannabis in Mauritania | type: traversal | priority: 3 | scope: sale",
+        "rule: penalty_prison | source: Cannabis in Mauritania | type: traversal | priority: 3 | scope: general"
       ],
       "secondary_source": {
-        "has_article": false,
-        "article_len": 0,
-        "source_confidence": "no_secondary_source",
+        "has_article": true,
+        "article_len": 2828,
+        "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": false,
-          "prison_article": false,
+          "prison_article": true,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": null
+          "distribution_article": "illegal"
         }
       }
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal",
+      "penalty_prison"
     ],
-    "notes_normalized": "Cannabis is illegal in Mauritania / موريتانيا. Medical cannabis is illegal. Distribution is illegal."
+    "notes_normalized": "Cannabis is illegal in Mauritania / موريتانيا. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
-  "notes_normalized": "Cannabis is illegal in Mauritania / موريتانيا. Medical cannabis is illegal. Distribution is illegal.",
+  "notes_normalized": "Cannabis is illegal in Mauritania / موريتانيا. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected.",
   "notes_raw": "{{main|Cannabis in Mauritania}}",
   "facts": {
     "possession_limit": null,
@@ -222,9 +229,9 @@
   },
   "hashes": {
     "code": "mrt",
-    "content_hash": "3445ffadefe5a9a31d80293841c2abc06908062116c10020b2660a8a2eab015d",
-    "notes_hash": "de01a0ae140020fac62033fd2e1acebc1926e6a6c58ffb0a1ec835ddb5240b10",
-    "model_hash": "5f76d235706380cc6d9c07baefdd4569d06b4126dc5fdf287d2de314df21ae96"
+    "content_hash": "2ef19dfb3a253e6bab019fc13f7644f6c6955513da8fa4213b8e753cd3a8cab3",
+    "notes_hash": "7adf7ddce35a3c75a3bd44a8a3dc1c5c2e9f222485142055b988fce8fe615f35",
+    "model_hash": "e1037adf21b3bb0f1d8f0a9fa7ab0a14b0a348f552356d66cffdfeeaa2df05b9"
   },
   "geo_code": "MR",
   "node_type": "country",

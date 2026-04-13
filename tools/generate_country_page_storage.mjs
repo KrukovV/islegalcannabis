@@ -20,6 +20,12 @@ const WIKI_TRAVERSAL_CACHE_PATH = path.join(ROOT, "data", "wiki", "wiki_traversa
 const WIKI_API_BASE = "https://en.wikipedia.org/w/api.php";
 const SECONDARY_SOURCE_USER_AGENT = "islegalcannabis/wiki-secondary-enrichment";
 const SECONDARY_SOURCE_AUDIT_CODES = new Set(["EG", "RU", "CN", "NL", "TT"]);
+const usStateCannabisSourceCache = new Map();
+const US_STATE_CANNABIS_TITLE_OVERRIDES = {
+  Georgia: "Cannabis in Georgia (U.S. state)",
+  Washington: "Cannabis in Washington (state)",
+  "District of Columbia": "Cannabis in Washington, D.C."
+};
 
 const CLUSTER_MAP = {
   LATAM: new Set(["arg", "bra", "chl", "col", "per", "pry", "ury"]),
@@ -192,6 +198,78 @@ function canonicalizeWikiTitle(value) {
 
 function mergeText(primaryText, secondaryText) {
   return [String(primaryText || "").trim(), String(secondaryText || "").trim()].filter(Boolean).join(" ").trim();
+}
+
+function buildWikiUrlFromTitle(title) {
+  const normalized = canonicalizeWikiTitle(title);
+  if (!normalized) return "";
+  return `https://en.wikipedia.org/wiki/${encodeURIComponent(normalized.replace(/ /g, "_"))}`;
+}
+
+async function resolveWikipediaPage(candidates) {
+  const queue = Array.from(
+    new Set((Array.isArray(candidates) ? candidates : []).map((item) => canonicalizeWikiTitle(item)).filter(Boolean))
+  );
+  for (const title of queue) {
+    try {
+      const params = new URLSearchParams({
+        action: "query",
+        prop: "info|extracts",
+        inprop: "url",
+        explaintext: "true",
+        redirects: "1",
+        titles: title,
+        format: "json",
+        origin: "*"
+      });
+      const response = await fetch(`${WIKI_API_BASE}?${params.toString()}`, {
+        headers: { "user-agent": SECONDARY_SOURCE_USER_AGENT }
+      });
+      if (!response.ok) continue;
+      const payload = await response.json();
+      const pages = payload?.query?.pages && typeof payload.query.pages === "object" ? Object.values(payload.query.pages) : [];
+      const page = pages[0] || {};
+      if (page?.missing !== undefined || !page?.title) continue;
+      const resolvedTitle = canonicalizeWikiTitle(page.title);
+      const extract = String(page?.extract || "").trim();
+      if (/may refer to:/i.test(extract)) continue;
+      return {
+        title: resolvedTitle,
+        url: String(page?.canonicalurl || buildWikiUrlFromTitle(resolvedTitle)).trim(),
+        text: extract
+      };
+    } catch {
+      continue;
+    }
+  }
+  return null;
+}
+
+async function resolveUsStateCannabisSource(stateName) {
+  const normalized = canonicalizeWikiTitle(stateName);
+  if (!normalized) return null;
+  if (usStateCannabisSourceCache.has(normalized)) {
+    return usStateCannabisSourceCache.get(normalized);
+  }
+  const slug = normalized.replace(/ /g, "_");
+  const result = await resolveWikipediaPage([
+    `Cannabis_in_${slug}_(U.S._state)`,
+    `Cannabis_in_${slug}_(state)`,
+    `Cannabis_in_${slug}`,
+    `Cannabis_in_${slug}_state`
+  ]);
+  const fallbackTitle = canonicalizeWikiTitle(US_STATE_CANNABIS_TITLE_OVERRIDES[normalized] || `Cannabis in ${normalized}`);
+  const stableResult =
+    result ||
+    (fallbackTitle
+      ? {
+          title: fallbackTitle,
+          url: buildWikiUrlFromTitle(fallbackTitle),
+          text: ""
+        }
+      : null);
+  usStateCannabisSourceCache.set(normalized, stableResult);
+  return stableResult;
 }
 
 async function fetchWikiExtract(title) {
@@ -583,7 +661,7 @@ async function buildCountryEntries() {
   return { entries, entriesByCode };
 }
 
-function buildStateEntries(usaEntry) {
+async function buildStateEntries(usaEntry) {
   const centroids = loadUsStateCentroids();
   const lawsByGeo = loadUsStateLawByGeo();
   const wikiByGeo = loadUsStateWikiByGeo();
@@ -606,6 +684,7 @@ function buildStateEntries(usaEntry) {
     const recreationalEnforcement = parseStateEnforcement(rawRow?.recreational_raw, recreationalStatus);
     const enforcementStrength = parseStateEnforcementStrength(rawRow?.recreational_raw, recreationalStatus);
     const name = normalizeStateTitleFromWikiUrl(wikiRow.wiki_page_url, geo);
+    const legalSource = await resolveUsStateCannabisSource(name);
     const facts = {
       possession_limit: law?.possession_limit || null,
       cultivation:
@@ -668,7 +747,7 @@ function buildStateEntries(usaEntry) {
         applied_rules: []
       },
       notes_normalized: "",
-      notes_raw: String(rawRow?.recreational_raw || law?.recreational || "").trim(),
+      notes_raw: mergeText(String(rawRow?.recreational_raw || law?.recreational || "").trim(), legalSource?.text || ""),
       facts,
       parent_country: parentRef,
       state_modifiers: {
@@ -701,12 +780,7 @@ function buildStateEntries(usaEntry) {
           ? { lat: Number(centroid.lat), lng: Number(centroid.lon) }
           : usaEntry.coordinates,
       sources: {
-        legal:
-          law?.sourceUrl && isCannabisWikiSource(law.sourceUrl)
-            ? law.sourceUrl
-            : wikiRow.wiki_page_url && isCannabisWikiSource(wikiRow.wiki_page_url)
-              ? wikiRow.wiki_page_url
-              : null,
+        legal: legalSource?.url || null,
         wiki: wikiRow.wiki_page_url || null,
         wiki_truth: usaEntry.sources?.wiki_truth || null,
         citations: []
@@ -717,6 +791,16 @@ function buildStateEntries(usaEntry) {
 
     entry.notes_normalized = formatStateNotes(entry);
     entry.sources.citations = uniqueByCode([
+      entry.sources.legal
+        ? {
+            code: `wiki-legal-${code}`,
+            id: `wiki-legal-${code}`,
+            url: entry.sources.legal,
+            title: `Wikipedia: Cannabis in ${entry.name}`,
+            type: "external",
+            weight: "low"
+          }
+        : null,
       law?.sources?.[0]
         ? {
             code: `source-${code}`,
@@ -727,7 +811,7 @@ function buildStateEntries(usaEntry) {
             weight: "low"
           }
         : null,
-      entry.sources.wiki
+      entry.sources.wiki && entry.sources.wiki !== entry.sources.legal
         ? {
             code: `wiki-${code}`,
             id: `wiki-${code}`,
@@ -748,6 +832,10 @@ function buildStateEntries(usaEntry) {
           }
         : null
     ]).map(({ code: _discard, ...citation }) => citation);
+
+    if (!entry.sources.legal) {
+      console.warn(`NO_STATE_CANNABIS_LAYER2_SOURCE geo=${geo} state=${name}`);
+    }
 
     stateEntries.push(entry);
   }
@@ -832,7 +920,7 @@ async function main() {
   const { entries: countryEntries, entriesByCode: countryEntriesByCode } = await buildCountryEntries();
   const usaEntry = countryEntriesByCode.usa;
   if (!usaEntry) throw new Error("USA_COUNTRY_ENTRY_MISSING");
-  const stateEntries = buildStateEntries(usaEntry);
+  const stateEntries = await buildStateEntries(usaEntry);
   const entries = [...countryEntries, ...stateEntries];
   const entriesByCode = Object.fromEntries(entries.map((entry) => [entry.code, entry]));
   const edges = buildEdges(entriesByCode, entries);

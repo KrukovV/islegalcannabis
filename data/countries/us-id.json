@@ -37,7 +37,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is illegal in Idaho under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}}",
+  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}} Cannabis in Idaho is fully illegal for any use, whether recreational or medical. The laws on cannabis prohibition in Idaho are among the most severe in the United States, with possession of even small amounts of it a misdemeanor crime, and no legality of medical marijuana. As of 2018, support for the legalization of medical cannabis is broadly popular in the state, while legalization of the drug recreationally remains a wedge issue. Both the state's legislature as a whole and its governor, Brad Little, remain staunchly opposed to its legalization for medicinal or recreational purposes.\nIn February 2021, cannabidiol with up to 0.1% THC content was descheduled in the form of the prescription drug Epidiolex. Two months later, production and transport of hemp with a THC content of up to 0.3% was legalized.\n\n\n== Prohibition ==\n\nIn the early 20th century, amidst a nationwide trend of cannabis prohibition, Idaho outlawed the drug in 1927. In the same period, the mayor of Boise noted his concerns:\n\nThe Mexican beet field workers have introduced a new problem-the smoking in cigarettes or pipes of marijuana or grifo. its use is as demoralizing as the use of narcotics. Smoking grifo is quite prevalent along the Oregon Short Line Railroad; and Idaho has no law to cope with the use and spread of this dangerous drug (WCTU, 1928: 3).\nIn 2013, the Idaho Legislature preemptively approved a statement of their opposition to ever legalizing cannabis.\nOn February 3, 2021, as a response to the legalization of cannabis in surrounding states, the Idaho Senate approved a constitutional amendment introduced by C. Scott Grow banning the legalization of cannabis – or any other Schedule I or Schedule II drug – with a vote of 24–11. On April 15, the amendment failed in the Idaho House of Representatives, who voted 42–28 in favor of the amendment – falling five votes short of the required two-thirds supermajority. No Democratic member of either chamber voted in favor of the amendment, and a handful of Republicans in both chambers voted in opposition as well.\nIn 2025, Bruce Skaug sponsored two Prohibitionist laws regarding marijuana in Idaho. Skaug was floor sponsor of “House Joint Resolution 4” which removed the ability to legalize marijuana in the state of Idaho from anyone besides the legislature. Skaug also introduced “House Bill 7” to place minimum sentences and fines on citizens arrested in Idaho with possession of any small amount of marijuana.\n\n\n== Reform ==\nAttempts to field ballot initiatives to vote on medical cannabis failed in 2012 and 2014 due to insufficient signatures, and a 2016 attempt was withdrawn before the signatures were counted. In 2018 another attempt was drawn when its organizer had to quit to care for her ailing son. In 2020, another effort to put medical marijuana on the ballot was suspended due to the COVID-19 pandemic.\nSenate Bill 1146a, which would have legalized CBD oil for persons with severe epilepsy, passed the Idaho Legislature following \"lengthy and emotional\" hearings, but was vetoed by Governor Butch Otter in April 2015.\nIn his veto, Otter stated:\n\nIt ignores ongoing scientific testing on alternative treatments... It asks us to trust but not to verify. It asks us to legalize the limited use of cannabidiol oil, contrary to federal law. And it asks us to look past the potential for misuse and abuse with criminal intent.\nThe Idaho Attorney General, in report 132–133, clarified in 2015 that CBD containing 0% THC is permissible as long as it is derived from one of the five identified (non-flower) parts of the cannabis plant.\nOn February 8, 2021, the Senate passed SB 1017 by a vote of 30–3, which included a provision for removing Epidiolex, a brand of prescription cannabidiol, from its Schedule V listing and limiting its THC content to 0.1%. On February 19, it was passed by the House, and on February 26, Governor Brad Little signed the bill into law.\nOn April 16, after a 44–26 vote in the House and a 30–5 vote in the Senate, Little signed House Bill 126, legalizing the production and transport of hemp with up to 0.3% THC content, making Idaho the final state to legalize the crop after it was legalized federally in 2018.\n\n\n== See also ==\nLegality of cannabis\nBoise Hempfest\nMoscow Hemp Fest\n\n\n== References ==",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -143,10 +143,17 @@
     "lng": -97
   },
   "sources": {
-    "legal": null,
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Idaho",
     "wiki": "https://en.wikipedia.org/wiki/Idaho",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
+      {
+        "id": "wiki-legal-us-id",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Idaho",
+        "title": "Wikipedia: Cannabis in Idaho",
+        "type": "external",
+        "weight": "low"
+      },
       {
         "id": "wiki-us-id",
         "url": "https://en.wikipedia.org/wiki/Idaho",
@@ -167,7 +174,7 @@
     "code": "us-id",
     "content_hash": "b0437b41baba14cc5f3383ec14cd3532b3ae83b41f8c64fa43446c010b9d559e",
     "notes_hash": "1c3aed61ed4aaf9c1cb2d6b5337cfd146fba750576636e8059ecd2a665535f7a",
-    "model_hash": "d9b584acafa2866130e2adc745330224aeeaef1eced30044971723ea58fd2a7e"
+    "model_hash": "0678ebd76ba649fcf1af394ba8b6ec03bfc410e5ba4044200c488459bec6ae65"
   },
   "updated_at": "2026-04-10"
 }

@@ -37,7 +37,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is illegal in Georgia under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}}",
+  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}} Cannabis in Georgia is illegal for recreational use, but decriminalized in the cities of Atlanta, Savannah, Macon, Athens, and others.  Limited medical use is allowed in the form of cannabis oil containing less than 5% THC.\n\n\n== Illicit trade ==\nIn the 1970s and 1980s, a number of county sheriffs and deputies were prosecuted for their involvement in the drug trade, including Sheriff John David Davis, a former moonshiner who had been pardoned by President Nixon and was convicted in 1984 of smuggling cannabis into south Georgia. Davis' case parallels that of a number of other former moonshiners who segued into the cannabis trade.\n\n\n=== 1983 paraquat spraying ===\nIn 1983, amidst controversy, the Drug Enforcement Administration conducted aerial spraying of illegal cannabis plots in the Chattahoochee National Forest in northern Georgia, using the herbicide paraquat. Citizens and a congressman objected, noting paraquat's dangers, and a temporary restraining order was placed on further spraying. The federal Drug Abuse Policy Officer Pat McKelvey rebutted that paraquat is a safe and widely used herbicide, and alleged that the objections to the DEA spraying had been raised by cannabis growers and legalization advocates.\n\n\n== Policy reforms ==\n\n\n=== 1980 medical legalization ===\nIn February 1980, a 50-0 Senate vote and a 156-8 House vote passed  Mona Taft's bill supporting legal medical marijuana in Georgia for people diagnosed with glaucoma and cancer patients undergoing chemotherapy and radiation. Members from both parties came together to support Taft, including then-state Sen. Paul Broun. According to a Feb. 14, 1980, Knight-Ridder wire report about the bill, Broun hugged Taft when the legislation passed the Senate. The bill's sponsor, Rep. Virlyn Smith, R-Fairburn, even told the widow that he'd recently given a constituent taking chemotherapy a recipe for marijuana-laced chocolate-chip cookies. Georgia's program had effectively ended without ever supplying a single patient with the medical marijuana promised. Subsequent Georgia governors had the authority to reappoint the board, but never acted. As a result, the law has lingered on the books for the last 30 years.\n\n\n=== 2015 medical legalization ===\nA measure to allow medical cannabis oil up to 5% tetrahydrocannabinol (THC) passed the Georgia House in February 2015. On April 16, 2015, the low-THC cannabis oil (rich in cannabidiol, or CBD) was legalized for medical use in the state under HB 1, the Haleigh’s Hope Act. The bill was immediately enacted after being signed by Governor Nathan Deal.  The bill allowed possession of the oil for eight qualifying medical conditions but did not provide for cultivation or distribution within the state.  A May 2017 expansion under SB 16 added six more conditions.  In 2018, HB 65 added intractable pain and posttraumatic stress disorder (PTSD).  In April 2019 legislation was approved (House Bill 324) to allow in-state cultivation of cannabis and sale of the low-THC oil. In 2021, SB 195 was approved to allow the sale of cannabis tinctures, transdermal patches, lotions, and capsules, while still prohibiting edible products and flower.  On April 28, 2023, the first licensed sales began with the opening of dispensaries in Marietta and Macon.\nGeorgia Full Medical Marijuana Program Expansion Bill passed by GA Senate and House March 18, 2026. Awaiting Governor Signature.\n\n\n=== Municipal level ===\nIn October 2017, Atlanta City Council voted 15–0 to reduce the penalty for up to 1 ounce (28 g) of cannabis to a $75 fine.  Savannah City Council followed in March 2018 by voting 8–1 to reduce the penalty to a $150 fine. Other jurisdictions that have decriminalized or otherwise acted to reduce penalties include: Clarkston (2016), South Fulton (2018), Forest Park (2018), Kingsland (2018), Statesboro (2018), Macon–Bibb County (2019), Augusta (2019), Chamblee (2019), Tybee Island (2021), Athens–Clarke County (2022), Stonecrest (2022), and East Point (2023).\n\n\n== References ==",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -143,10 +143,17 @@
     "lng": -97
   },
   "sources": {
-    "legal": null,
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Georgia_(U.S._state)",
     "wiki": "https://en.wikipedia.org/wiki/Georgia_(U.S._state)",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
+      {
+        "id": "wiki-legal-us-ga",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Georgia_(U.S._state)",
+        "title": "Wikipedia: Cannabis in Georgia",
+        "type": "external",
+        "weight": "low"
+      },
       {
         "id": "wiki-us-ga",
         "url": "https://en.wikipedia.org/wiki/Georgia_(U.S._state)",
@@ -167,7 +174,7 @@
     "code": "us-ga",
     "content_hash": "924ac7798635d7815165929580019866d4eda21e99359304b303aa3dc17e8877",
     "notes_hash": "801e4ebdcddf8d4622c0cbc2f708ba542b0dc0f6494a8988c1c4f115edbf223e",
-    "model_hash": "17bc38c2f60ab6e4f6a1e4c9d9b045eba7f1021c3c7f87f193691034d685bbda"
+    "model_hash": "e32edcabc8dcd88d6a2320c40cecd46b9f78d3d1d250daa907a0c03076297c7e"
   },
   "updated_at": "2026-04-10"
 }

@@ -19,4 +19,19 @@ describe("ViewportCountryPopup", () => {
     expect(html).toContain('href="/c/aus"');
     expect(html).not.toContain("Legal source →");
   });
+
+  it("keeps Details CTA on the state SEO page while state legal source stays external elsewhere", () => {
+    const entry = deriveCountryCardEntryFromCountryPageData(getCountryPageData("us-ca")!);
+    const html = renderToStaticMarkup(
+      createElement(ViewportCountryPopup, {
+        entry,
+        anchor: { x: 100, y: 100 },
+        onClose: () => {}
+      })
+    );
+
+    expect(html).toContain("Details →");
+    expect(html).toContain('href="/c/us-ca"');
+    expect(html).not.toContain("Legal source →");
+  });
 });

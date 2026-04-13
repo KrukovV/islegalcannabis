@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in Rhode Island under state law for recreational adult use. Medical cannabis is also legal in Rhode Island. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} Cannabis in Rhode Island is legal for medical and adult use. Medical use of cannabis was legalized in Rhode Island through legislation approved in 2006, and recreational adult use was legalized in 2022.\n\n\n== Prohibition ==\nRhode Island first banned the sale of cannabis without a prescription in 1918.\nAs of 2012, Rhode Island had some of the strictest mandatory minimums for large-scale cannabis possession in the United States. Possession of more than 5 kg results in a sentence of 20 years' imprisonment and fines of between $25,000 and $100,000.\n\n\n=== Legalization proposals ===\nBills to legalize marijuana have been introduced in the Rhode Island General Assembly every year since 2011, but have to date been \"held for further study\" with no action.\nThe group Regulate Rhode Island (the state affiliate of the Marijuana Policy Project) advocates for legalization.\nFollowing the success of recreational cannabis ballot initiatives in four states and the District of Columbia in 2012 and 2014, advocates in Rhode Island, where there is no public ballot initiative process, pressed their legislature to allow a public vote on legalizing recreational cannabis. In 2016 advocates cited a recent Brown University poll showing 55% of state residents support legalization. A February 2017 poll showed 59% of Rhode Islanders in favor of full legalization.\nBills legalizing any adult use, establishing legal sales, and expunging past offenses were signed into law on May 25, 2022. The bill was celebrated for its policies focused on promoting equity, including offering priority store licenses to low-income applicants and worker co-ops and the \"automatic,\" state-initiated expungement of past marijuana convictions in rather than requiring people to petition the court for an expungement.\n\n\n== Medical marijuana ==\nIn 2006 Rhode Island legalized medical marijuana, becoming the eleventh state to do so. The legislation was passed the year in 2005, winning approval in the state House by a vote of 52-10 and the state Senate by a vote of 33–1. Republican Governor Don Carcieri vetoed the legislation, but the Legislature overrode the veto, by a vote of 59–13 in the state House and 28–6 in the state Senate.\nUnder Rhode Island law, \"Approved Qualifying Debilitating Medical Conditions\" for medical marijuana are: cancer, glaucoma, HIV/AIDS, hepatitis C, or a \"chronic or debilitating disease or medical condition or its treatment that produces one or more of the following\": cachexia (wasting syndrome); \"severe, debilitating, chronic pain\"; \"severe nausea\"; epilepsy or other seizures; \"severe and persistent muscle spasms, including but not limited to those characteristic of multiple sclerosis or Crohn's disease\"; and Alzheimer's disease-related agitation.\nIn June 2009, Rhode Island introduced a cannabis dispensary system, making them the second state nationwide (after California) to do so.\nIn October 2016, there were 15,470 patients in Rhode Island, along with three dispensaries (which are permitted to grow marijuana for their patients' use).\nAs of 2019, there are three medical cannabis dispensaries in Rhode Island: Thomas C. Slater Compassion Center in Providence, Summit Medical Compassion Center in Warwick, and Greenleaf Compassion Center in Portsmouth.\n\n\n== Religious use ==\nThe Healing Church in Rhode Island is a Rhode Island–based religious sect whose adherents believe that marijuana is a \"holy herb\" and use it in religious rituals.\n\n\n== See also ==\nRhode Island Patient Advocacy Coalition \n\n\n== References ==\n\n\n== Further reading ==\nTom Mooney (May 25, 2022). \"What you need to know about legal cannabis in Rhode Island\". Providence Journal.",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -145,10 +145,17 @@
     "lng": -97
   },
   "sources": {
-    "legal": null,
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Rhode_Island",
     "wiki": "https://en.wikipedia.org/wiki/Rhode_Island",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
+      {
+        "id": "wiki-legal-us-ri",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Rhode_Island",
+        "title": "Wikipedia: Cannabis in Rhode Island",
+        "type": "external",
+        "weight": "low"
+      },
       {
         "id": "wiki-us-ri",
         "url": "https://en.wikipedia.org/wiki/Rhode_Island",
@@ -169,7 +176,7 @@
     "code": "us-ri",
     "content_hash": "39b187c2909da8e5b9a2a8e0190d3453958c2099c324dc41b31a307a144ca1a2",
     "notes_hash": "0540a4a6c5c72c6e1d7d2384f440f52c1b5e0445ea7ec95ad862e1f6ddbfda0c",
-    "model_hash": "aa4427f1f8c52a29c63e98ba92737d50b19a49365a0b23f9c4686379a229a320"
+    "model_hash": "61994de41e117e0f57cbd163262790dcb5c2441beb5eda9a9ed13b39e3fe0808"
   },
   "updated_at": "2026-04-10"
 }

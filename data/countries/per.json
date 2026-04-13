@@ -22,7 +22,7 @@
         "possession": "restricted",
         "use": "restricted",
         "sale": null,
-        "cultivation": null,
+        "cultivation": "tolerated",
         "import": null,
         "trafficking": "illegal"
       },
@@ -31,7 +31,9 @@
         "trafficking_illegal"
       ],
       "modifiers": [
-        "up_to"
+        "up_to",
+        "but",
+        "may"
       ]
     },
     "signals": {
@@ -40,7 +42,7 @@
       "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 1,
+        "prison_priority": 3,
         "arrest": false,
         "fine": false,
         "severity_score": 4,
@@ -64,6 +66,12 @@
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Peru",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Peru",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Ley Nº 28002",
@@ -94,12 +102,6 @@
           "url": "https://www.peruthisweek.com/news-peru-rules-out-proposals-to-legalize-marijuana-100053",
           "depth": 2,
           "type": "reference"
-        },
-        {
-          "title": "Legalización de la marihuana en Perú a debate",
-          "url": "https://peru21.pe/actualidad/marihuana-vacio-legal-impulsa-mercado-negro-venta-nuestro-pais-2192533",
-          "depth": 2,
-          "type": "reference"
         }
       ],
       "explain": [
@@ -107,20 +109,28 @@
         "rule: penalty_prison | source: Peru / Piruw | type: summary | priority: 1 | scope: trafficking",
         "rule: penalty_years | source: Peru / Piruw | type: summary | priority: 1 | scope: trafficking",
         "rule: trafficking_illegal | source: Peru / Piruw | type: summary | priority: 1 | scope: trafficking",
-        "rule: medical_legal | source: Medical marijuana is now legal in Peru | type: reference | priority: 2 | scope: general",
-        "no traversal evidence"
+        "rule: possession_decriminalized | source: Cannabis in Peru | type: traversal | priority: 3 | scope: possession",
+        "rule: medical_legal | source: Cannabis in Peru | type: traversal | priority: 3 | scope: possession",
+        "rule: penalty_prison | source: Cannabis in Peru | type: traversal | priority: 3 | scope: trafficking",
+        "rule: penalty_years | source: Cannabis in Peru | type: traversal | priority: 3 | scope: trafficking",
+        "rule: trafficking_illegal | source: Cannabis in Peru | type: traversal | priority: 3 | scope: trafficking",
+        "rule: private_cultivation | source: Cannabis in Peru | type: traversal | priority: 3 | scope: trafficking",
+        "rule: legal | source: Cannabis in Peru | type: traversal | priority: 3 | scope: trafficking",
+        "rule: medical_legal | source: Cannabis in Peru | type: traversal | priority: 3 | scope: use",
+        "rule: medical_legal | source: Cannabis in Peru | type: traversal | priority: 3 | scope: sale",
+        "rule: medical_legal | source: Medical marijuana is now legal in Peru | type: reference | priority: 2 | scope: general"
       ],
       "secondary_source": {
-        "has_article": false,
-        "article_len": 0,
-        "source_confidence": "no_secondary_source",
+        "has_article": true,
+        "article_len": 1497,
+        "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": true,
-          "prison_article": false,
+          "prison_article": true,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": "illegal",
-          "distribution_article": null
+          "distribution_article": "illegal"
         }
       }
     },
@@ -129,7 +139,8 @@
       "possession_decriminalized",
       "penalty_prison",
       "penalty_years",
-      "trafficking_illegal"
+      "trafficking_illegal",
+      "private_cultivation"
     ],
     "notes_normalized": "Cannabis is decriminalized in Peru / Piruw. Medical cannabis is legal. Distribution is illegal. Prison exposure detected."
   },
@@ -232,9 +243,9 @@
   },
   "hashes": {
     "code": "per",
-    "content_hash": "25087608bf5678d5b1fab80477833a40fc67b972d86cec63555f6c32c0846345",
+    "content_hash": "7d233c7dfcf3cde385c5a97d5213a95ee3f65c7dd012e05c1aa594d78283c84f",
     "notes_hash": "4584d0f3294109d0b45d45dbcabfcd826d75bc8a6b728b0e10509681c113671c",
-    "model_hash": "81ce5efe23c3e46bc0db4441529c956819abd949db4d2387582387fe1d893e14"
+    "model_hash": "d7e6c38015f2660d17c8906748d7f9c552caf3829353f40268e3691beaf33c1b"
   },
   "geo_code": "PE",
   "node_type": "country",

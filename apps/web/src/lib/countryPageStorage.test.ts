@@ -102,6 +102,23 @@ describe("countryPageStorage", () => {
     expect(florida?.legal_model.medical.status).toBe("LEGAL");
     expect(idaho?.legal_model.recreational.status).toBe("ILLEGAL");
     expect(newYork?.legal_model.recreational.status).toBe("LEGAL");
+    expect(california?.sources.legal).toContain("Cannabis_in_California");
+    expect(texas?.sources.legal).toContain("Cannabis_in_Texas");
+    expect(florida?.sources.legal).toContain("Cannabis_in_Florida");
+    expect(newYork?.sources.legal).toContain("Cannabis_in_New_York");
+  });
+
+  it("locks every US state legal source to a Cannabis_in_* article", () => {
+    const stateCodes = listCountryPageCodes().filter((code) => code.startsWith("us-"));
+    expect(stateCodes).toHaveLength(50);
+
+    for (const code of stateCodes) {
+      const page = getCountryPageData(code);
+      expect(page?.node_type).toBe("state");
+      expect(page?.sources.legal).toContain("Cannabis_in_");
+      expect(() => assertCannabisWikiSource(page?.sources.legal || "")).not.toThrow();
+      expect(page?.sources.citations[0]?.url).toBe(page?.sources.legal);
+    }
   });
 
   it("keeps mixed US state recreational coverage instead of all-legal inheritance", () => {

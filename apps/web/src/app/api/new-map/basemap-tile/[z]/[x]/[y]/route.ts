@@ -25,12 +25,20 @@ function buildTileHeaders() {
 export async function GET(_request: Request, context: { params: Promise<{ z: string; x: string; y: string }> }) {
   const { z, x, y } = await context.params;
   const upstreamUrl = buildUpstreamTileUrl(z, x, y);
-  const response = await fetch(upstreamUrl, {
-    headers: {
-      accept: "application/x-protobuf"
-    },
-    cache: "no-store"
-  });
+  let response;
+  try {
+    response = await fetch(upstreamUrl, {
+      headers: {
+        accept: "application/x-protobuf"
+      },
+      cache: "no-store"
+    });
+  } catch {
+    return new Response(EMPTY_TILE_BYTES, {
+      status: 200,
+      headers: buildTileHeaders()
+    });
+  }
 
   if (response.status === 404) {
     return new Response(EMPTY_TILE_BYTES, {
@@ -40,7 +48,10 @@ export async function GET(_request: Request, context: { params: Promise<{ z: str
   }
 
   if (!response.ok) {
-    return new Response(`basemap_tile_fetch_failed:${response.status}`, { status: 502 });
+    return new Response(EMPTY_TILE_BYTES, {
+      status: 200,
+      headers: buildTileHeaders()
+    });
   }
 
   return new Response(response.body, {

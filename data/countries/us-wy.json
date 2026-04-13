@@ -37,7 +37,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is illegal in Wyoming under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}}",
+  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}} Cannabis is strictly illegal in Wyoming. The state has some of the strictest cannabis laws in the United States. Cannabis itself is not allowed for medical purposes, but a 2015 law allows limited use of non-psychoactive Cannabidiol. An effort was made to place two initiatives on the 2022 ballot, one to legalize medical cannabis, and the other to decriminalize personal use.\nPossession of under three ounces (85 g) of cannabis is a misdemeanor that can be punished with up to a year in jail and a $1000 fine; possession of over three ounces is a felony.\n\n\n== Prohibition ==\nWyoming passed laws banning cannabis in the early 20th century, though sources differ as to the exact date: 1913 or 1929.\n\n\n== Medical use ==\nIn July 2015, a law took effect allowing the use of cannabidiol to treat seizures. The law is narrow and does not provide for in-state access.\n\n\n== Attempts to change legality ==\nIn 2015, the Wyoming chapter of the National Organization for the Reform of Marijuana Laws (NORML) gathered signatures to place legal medical marijuana on the 2016 election ballot as a ballot initiative. Wyoming has some of the most stringent ballot initiative requirements in the country, due to which the state has not seen a public initiative reach the ballot since 1991.\nIn 2016, legislation in the Wyoming House of Representatives to decriminalize possession of one ounce (28 g) or less of marijuana (sponsored by State Representative James Byrd of Cheyenne) failed for the third year in a row.\nIn 2017, supporters sought 25,000 signatures to put the Peggy A. Kelley Wyoming Cannabis Act of 2016 on the 2018 ballot as a public initiative, but failed to gather the required signatures by the February 14 deadline.\nIn 2021, a bill was filed by lawmakers that would legalize cannabis both for recreational and medical use. The bill however later died in the Wyoming House of Representatives after it was missing a deadline.\n\n\n=== 2022 initiatives ===\nOn June 11, 2021, two ballot initiatives were introduced by the Libertarian Party of Wyoming, one to legalize cannabis for medical use, and another to decriminalize personal use. On August 11, after the certification of an initial 100 signatures, the secretary of state of Wyoming approved the start of general signature-gathering for the initiatives. 41,776 signatures will be required to place each initiative on the 2022 general election ballot. Libertarian State Representative Marshall Burt, who co-sponsored the failed effort to legalize cannabis through an act of the legislature, is supporting the initiatives. Speaking alongside patient advocates and Libertarian National Committee Chair Joe Bishop-Henchman on the steps of the Wyoming Capitol prior to delivering the initiatives to the secretary of state, he said \"the Legislature knows that this is coming\", and expressed confidence that organizers would be able to collect enough signatures to place the initiatives on the ballot. If the efforts are successful, these would be the first initiatives to appear on a Wyoming ballot in three decades.\n\n\n=== 2023 and 2024 ballot ===\nIn 2023, two major efforts failed. First, it was announced that enough signatures had been collected for the 2024 ballot, but did not qualify based on geographical location. Second, in Cheyenne, there was an effort to decriminalize but it also failed.\nOn September 19, 2023 a Joint Judiciary meeting was held and the topic of lessening penalties for cannabis was mentioned. Rachel Rodriguez-Williams cited the high potency of modern THC and regarding current Wyoming cannabis laws stated “I think this is pretty lenient compared to other states throughout the nation.“\n\n\n== Polling ==\nAn October 2014 poll of Wyoming residents conducted by the University of Wyoming found that 35% supported legalizing the use of marijuana by adults, while 60% opposed such a measure. However, a large majority favored allowing adults to use marijuana if prescribed by a physician (72% support, 25% oppose). Compared to a previous survey in 2000, the 2014 results showed a modest increase in support for legalized personal marijuana use and no change in support of medical marijuana use. A 2016 study by the University of Wyoming showed that 81 percent of Wyoming residents supported legalizing prescribed medical cannabis.\n\n\n== References ==",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -143,10 +143,17 @@
     "lng": -97
   },
   "sources": {
-    "legal": null,
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Wyoming",
     "wiki": "https://en.wikipedia.org/wiki/Wyoming",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
+      {
+        "id": "wiki-legal-us-wy",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Wyoming",
+        "title": "Wikipedia: Cannabis in Wyoming",
+        "type": "external",
+        "weight": "low"
+      },
       {
         "id": "wiki-us-wy",
         "url": "https://en.wikipedia.org/wiki/Wyoming",
@@ -167,7 +174,7 @@
     "code": "us-wy",
     "content_hash": "ee2f7da1606815d7990fe7b7dfbd53d5de6e1a9218419ed24927d9257f27126a",
     "notes_hash": "c4bbe39ea0803702e306f6052ac0c57c34b215d07c161c14efc23d95388efa9f",
-    "model_hash": "623055576e9dfa69de870626eb358d85b224a113bcfd0f3db7c329993641de4b"
+    "model_hash": "8bbacc6f312f6f74a0c4ec421ebadb32a013b7d55789070f41c5238aba4648fa"
   },
   "updated_at": "2026-04-10"
 }

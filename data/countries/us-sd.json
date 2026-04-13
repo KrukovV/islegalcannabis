@@ -37,7 +37,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is illegal in South Dakota under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|3}}",
+  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|3}} Cannabis in South Dakota is legal for medical use as of July 1, 2021, having been legalized by a ballot initiative on November 3, 2020. Prior to then, cannabis was fully illegal, with South Dakota being the only U.S. state which outlawed ingestion of controlled substances. Testing positive for cannabis can be a misdemeanor offense. South Dakota would have become the first state in US history to legalize recreational and medical cannabis simultaneously, but an amendment legalizing recreational marijuana that was approved in the same election was struck down as unconstitutional the following February. The challenge claimed the amendment violated Amendment Z, the \"Single-Subject Rule\".  The decision was appealed to the South Dakota Supreme Court, which upheld the lower court's decision on November 24, 2021.  \nAttempts to delay the implementation of the medical marijuana program to January 2022 failed due to disagreements in the South Dakota state legislature; medical marijuana therefore became legal in July 2021 under the timeframe established in Initiated Measure 26.\nSouth Dakota has one of the harshest cannabis laws in the United States. Possession of any amounts of edibles, hash, and concentrates is a Class 5 felony, punishable by up to 5 years in prison and a fine of up to $10,000.\n\n\n== History ==\n\n\n=== Prohibition (1931) ===\nAs part of a larger trend nationwide to restrict cannabis, South Dakota banned the drug in 1931.\n\n\n=== Decriminalization and repeal (1977) ===\nIn 1977, during a short-lived wave of decriminalization in the country, South Dakota decriminalized cannabis, but repealed that law \"almost immediately\" afterward.\n\n\n== Reform ==\n\n\n=== Medical cannabis attempts (2006–2015) ===\nBallot initiatives to legalize medical marijuana appeared on the 2006 and 2010 election ballots in South Dakota, but failed both times. The 2006 initiative lost 52%-47%, while the 2010 initiative lost 63%-36%. Cannabis activist Emmett Reistroffer commented that the decrease of support in 2010 was due in part to the rise of the Tea Party movement and the presence of an anti-cigarette smoking bill on the same ballot.\nIn mid-2015, there was an effort to place yet another ballot initiative on the 2016 election to legalize medical marijuana, but unlike in 2006 and 2010, the Marijuana Policy Project did not anticipate financially supporting the initiative due to strong cannabis campaigns in other states requiring attention for that election.\n\n\n=== Decriminalization attempt ===\nIn mid-2015, South Dakotans Against Prohibition (SDAP) began circulating petitions to put decriminalization of marijuana on the November 2016 ballot, reclassifying possession of 1 ounce (28 g) or less a civil, rather than criminal, infraction, and remove penalties for paraphernalia and consumption. However, SDAP failed to gather the 13,871 signatures necessary to place an initiated measure on the ballot and stated it would withdraw its petition.\n\n\n=== 2018 medical cannabis ballot initiative ===\nIn November 2017, activists turned in over 15,000 signatures, narrowly meeting valid signature requirements, in order to place medical cannabis on the 2018 ballot. The initiative failed to make the ballot due to an insufficient number of valid signatures. \n\n\n=== 2020 cannabis ballot initiative ===\nSouth Dakota Initiated Measure 26 was certified by the South Dakota Secretary of State for the 2020 ballot on December 19, 2019.\nA vote on South Dakota Constitutional Amendment A was also held in 2020, which would have legalized the use of recreational marijuana in South Dakota.\nBoth measures, coming in effect on July 1, 2021, were passed by voters with a 69.9% margin in favor for Initiated Measure 26 and 54.2% for Constitutional Amendment A, respectively. South Dakota therefore would have become the first state to go from a prohibition state to a legalization state, leapfrogging their way around many obstacles that other states go through to legalize cannabis.\nHowever, on February 8, 2021, a judge ruled in favor of a lawsuit that argued Amendment A was unconstitutional due to violating the state's single-subject rule for ballot measures. This prevented the legalization of recreational marijuana in South Dakota from going into effect, pending a higher court's decision. The case was subsequently appealed to the South Dakota Supreme Court, and the defendants submitted their initial arguments on March 10, 2021.\nOn November 24, 2021, the South Dakota Supreme Court ruled 4-1 that the Amendment A was unconstitutional, striking down recreational legalization. This decision was reached because of the state's rule requiring proposed constitutional amendments to be single-subject only.\n\n\n=== 2022 cannabis ballot initiative ===\nIn May 2022, pro-legalization activists in South Dakota collected and submitted enough signatures to put legalization on the November ballot (South Dakota Initiated Measure 27). The group South Dakotans for Better Marijuana Laws (SDBML) organized the petition drive. In the November 2022 election, the initiative was rejected with 52.92% voting no.\n\n\n== Recreational legalization on the Flandreau Santee Sioux Tribe reservation ==\n\nIn mid-2015, the Flandreau Santee Sioux Tribe, located in eastern South Dakota, stated their intent to begin growing cannabis on one authorized site on their reservation, and commenced selling the product on 1 January 2016, following a vote of tribal authorities which decided 5–1 to legalize cannabis. Facing legal uncertainties, the tribe destroyed millions of dollars' worth of marijuana on November 7, 2015.\n\n\n== References ==",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -143,10 +143,17 @@
     "lng": -97
   },
   "sources": {
-    "legal": null,
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_South_Dakota",
     "wiki": "https://en.wikipedia.org/wiki/South_Dakota",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
+      {
+        "id": "wiki-legal-us-sd",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_South_Dakota",
+        "title": "Wikipedia: Cannabis in South Dakota",
+        "type": "external",
+        "weight": "low"
+      },
       {
         "id": "wiki-us-sd",
         "url": "https://en.wikipedia.org/wiki/South_Dakota",
@@ -167,7 +174,7 @@
     "code": "us-sd",
     "content_hash": "7e39bfab0de871da50426ee314440756505af6e142f84973683de5266d7761b2",
     "notes_hash": "fe0e9bb4623cb74614024fd89cee90f6046d695ae6c6537ed662ccbe3cf30b0c",
-    "model_hash": "2637fc857789b11fc54ad889ad192e11d656042f7aeedab16e4ada909ca1941a"
+    "model_hash": "51cef9f10155c6a9e1174f4271e4ff65ab3f88818b27ed6dd648efa0f4f6fbcd"
   },
   "updated_at": "2026-04-10"
 }

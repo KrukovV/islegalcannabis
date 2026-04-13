@@ -26,10 +26,12 @@
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [],
       "modifiers": [
-        "but"
+        "but",
+        "however",
+        "only"
       ]
     },
     "signals": {
@@ -38,10 +40,10 @@
       "enforcement_level": "active",
       "penalties": {
         "prison": true,
-        "prison_priority": 1,
-        "arrest": false,
-        "fine": false,
-        "severity_score": 4,
+        "prison_priority": 3,
+        "arrest": true,
+        "fine": true,
+        "severity_score": 8,
         "possession": {
           "prison": true,
           "arrest": false,
@@ -55,13 +57,19 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Namibia / Namibië",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Namibia",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Namibia",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Legality of cannabis (notes)",
@@ -74,26 +82,37 @@
         "rule: raw_illegal | source: Namibia / Namibië | type: summary | priority: 1 | scope: general",
         "rule: illegal | source: Namibia / Namibië | type: summary | priority: 1 | scope: general",
         "rule: penalty_prison | source: Namibia / Namibië | type: summary | priority: 1 | scope: possession",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Namibia | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_prison | source: Cannabis in Namibia | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Namibia | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_years | source: Cannabis in Namibia | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in Namibia | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_arrest | source: Cannabis in Namibia | type: traversal | priority: 3 | scope: general",
+        "rule: medical_legal | source: Cannabis in Namibia | type: traversal | priority: 3 | scope: cultivation"
       ],
       "secondary_source": {
-        "has_article": false,
-        "article_len": 0,
-        "source_confidence": "no_secondary_source",
+        "has_article": true,
+        "article_len": 11181,
+        "source_confidence": "prison_signal",
         "signals": {
           "prison_notes": true,
-          "prison_article": false,
+          "prison_article": true,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": "illegal",
-          "distribution_article": null
+          "distribution_article": "illegal"
         }
       }
     },
-    "enforcement_flags": [],
+    "enforcement_flags": [
+      "fine_based"
+    ],
     "applied_rules": [
       "raw_illegal",
-      "penalty_prison"
+      "penalty_prison",
+      "penalty_fine",
+      "penalty_years",
+      "penalty_arrest"
     ],
     "notes_normalized": "Cannabis is illegal in Namibia / Namibië. Medical cannabis is illegal. Distribution is illegal. Prison exposure detected."
   },
@@ -196,9 +215,9 @@
   },
   "hashes": {
     "code": "nam",
-    "content_hash": "931d9ca4cef553891621f43680c200d4f079f23547375648073438417aae530b",
+    "content_hash": "f672844f073df37d07d5a917c9677cb555e26887794b05d054108861e89611da",
     "notes_hash": "886ed2402139ba1efab77f0abb0160306b3b26f7e23850615df0160d927b8717",
-    "model_hash": "ede92dc9940639f377f6cc3287576a08b2ea3174649a440c9a7499fd666599e0"
+    "model_hash": "a8c6c3ecafd4e74bc3f54f4621a38baf3292d56f9b3c5e1427135653b3e4a90c"
   },
   "geo_code": "NA",
   "node_type": "country",

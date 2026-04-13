@@ -37,7 +37,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is illegal in Arkansas under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|3}}",
+  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|3}} Cannabis in Arkansas is illegal for recreational use. First-time possession of up to four ounces (110 g) is punished with a fine of up to $2,500, imprisonment of up to a year, and a mandatory six month driver's license suspension. Medical use was legalized in 2016 by way of a ballot measure to amend the state constitution.\n\n\n== Prohibition ==\nCannabis was criminalized in Arkansas in 1923; New Mexico, Nevada, Oregon, and Washington also banned cannabis in that year.\n\n\n== Legal penalties ==\nThe possession of under four ounces (110 g) of cannabis is a Class A misdemeanor under state law, carrying a fine of up to $2,500 and up to one year imprisonment.  For those with two existing convictions, possession of over one ounce (28 g) is a Class D felony punishable by a fine of up to $6,000 and a maximum six years in prison.\nAs Arkansas is a \"Smoke a joint, lose your license\" state, any conviction for a cannabis offense is punished with a mandatory six month driver's license suspension.\n\n\n== Reforms ==\n\n\n=== Failed medical cannabis initiative (2012) ===\nIn 2012, the Arkansas Medical Marijuana Act (Issue 5) qualified for vote on the statewide ballot. The act would have allowed non-profit organizations to grow and sell medical cannabis and additionally permitted patients who live over five miles from a legal dispensary to cultivate a small number of plants on their own property.  The act was defeated by a vote of 48.6% to 51.4%.\n\n\n=== Medical cannabis legalized (2016) ===\nOn November 8, 2016, Arkansas voters approved Issue 6, the Arkansas Medical Marijuana Amendment, to legalize the medical use of cannabis.  A separate measure, the Arkansas Medical Cannabis Act (Issue 7), was disqualified from the ballot 12 days before the election by the Arkansas Supreme Court.\nThe Arkansas Medical Marijuana Amendment passed by a vote of 53%–47% as an amendment to the state constitution.  It allows patients who obtain a doctor's recommendation to possess up to 2+1⁄2 ounces (71 g) of cannabis for treatment of any of 12 qualifying medical conditions.  It also requires that between 20 and 40 cannabis dispensaries and 4 to 8 cultivators be licensed by the state.  No allowance was made for patients to cultivate at home.\nLicensed sales did not begin until May 2019 when the first dispensary opened in Hot Springs.  The dispensary was one of 32 initially licensed by the state along with 5 cultivators. As of early 2025 Arkansas has 8 cultivators, and 38 dispensaries. Current state law caps the number of cultivation licenses issued by the medical marijuana board to 8, and the maximum number of dispensary licenses to 40.\n\n\n=== Failed recreational cannabis initiative (2022) ===\nOn September 22, 2022, the Supreme Court of Arkansas ruled that Issue 4, the Marijuana Legalization Initiative, was valid for the November 2022 ballot after it was initially blocked by the Board of Election Commissioners. If approved, the initiative would have: \n\nallowed the possession of up to one ounce of cannabis for adults 21 and over\nallowed the sale of cannabis at dispensaries licensed by the state\nnot allowed for any home cultivation\nallowed the state to impose a 10% tax on recreational cannabis sales, in addition to existing state and local sales taxes\ndivided tax revenue up between law enforcement (15 percent), the University of Arkansas for Medical Sciences (10 percent), and the state drug court program (5 percent), with the remainder going to the state general fund\nThe initiative failed with 44% of the vote on November 8, 2022, however.\n\n\n=== Municipal reforms ===\nIn 2006, Eureka Springs residents voted 64%–36% to make enforcement of cannabis laws the lowest police priority.  Fayetteville residents approved a similar initiative in 2008 by a 62%–38% margin.  However, a 2019 report by the Arkansas Justice Collective found that cannabis arrests actually increased by 44% in Fayetteville since the measure passed.\nIn 2021, the Little Rock Board of Directors voted 7–3 to require that \"investigations, citations, arrests, property seizures, etc. for adult misdemeanor marijuana offenses\" be made the lowest law enforcement and prosecutorial priority when the amount of cannabis is deemed to be for personal use.\n\n\n== References ==",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -143,10 +143,17 @@
     "lng": -97
   },
   "sources": {
-    "legal": null,
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Arkansas",
     "wiki": "https://en.wikipedia.org/wiki/Arkansas",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
+      {
+        "id": "wiki-legal-us-ar",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Arkansas",
+        "title": "Wikipedia: Cannabis in Arkansas",
+        "type": "external",
+        "weight": "low"
+      },
       {
         "id": "wiki-us-ar",
         "url": "https://en.wikipedia.org/wiki/Arkansas",
@@ -167,7 +174,7 @@
     "code": "us-ar",
     "content_hash": "45e0d19b99dba2baf0ff0b2e9772224f796226dbac5f8d55fda7dc86758f6563",
     "notes_hash": "72de72aa79191ed378371f90b8637b4c991c09131161598d9452a3c8d1323f4e",
-    "model_hash": "476894fa8a647b9f96b5d96cce345ada25b52e59ab90cef801fde036cfdb04da"
+    "model_hash": "f771bde46eff38353fd4def3c12985a762979e1143d743d560e8db9be97463aa"
   },
   "updated_at": "2026-04-10"
 }

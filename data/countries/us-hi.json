@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is decriminalized in Hawaii in limited state-level practice, but it is not fully legal under state law. Medical cannabis is not broadly legal in Hawaii. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#80CE69; color:#000000; text-align:center;\" | {{Hs|2}} <span style=\"font-size:25px;\">●</span>",
+  "notes_raw": "style=\"background:#80CE69; color:#000000; text-align:center;\" | {{Hs|2}} <span style=\"font-size:25px;\">●</span> Cannabis in Hawaii is illegal for recreational use, but decriminalized for possession of three grams or less. Medical use was legalized through legislation passed in 2000, making Hawaii the first state to legalize medical use through state legislature rather than through ballot initiative.\n\n\n== Medical cannabis (2000) ==\nIn 2000, Hawaiian governor Ben Cayetano signed into law Act 228, allowing medical marijuana cardholders to grow their own cannabis or appoint a caretaker to do so. In signing the law, Hawaii became the 8th state to legalize medical cannabis and the first to do so through an act of state legislature. The law did not establish any legal market or dispensaries.\n\n\n=== Dispensary program (2015) ===\nIn 2015, the Medical Marijuana Dispensary Program of Hawaii was created to require those who qualify for medical marijuana to register before using marijuana for medical purposes. To register, you must have a licensed physician certifying that the patient’s health condition can be benefited from medical marijuana. The patient will then receive a 329 Registration Card issued by the Department of Health. The goal of the Department of Health for issuing the 329 Registration Card is to issue it in a timely manner so that patients can continue or start to use medical marijuana legally.\nIn July 2015, The Act 241 was passed. It states that the Hawaii Department of Health will administer the Medical Marijuana Dispensary Program by 2016 and dispensaries can begin to dispense medical and manufactured marijuana products as early as July 2016 assuming that the Department of Health grants approval to these dispensaries.\nTo address legal acquisition of cannabis, in 2016 Senate Bill 321 established a dispensary system, allowing eight dispensaries in the state, designated by island. In August 2017, the first legal medical cannabis dispensary sale was made in Maui.\n\n\n== Industrial hemp (2016) ==\nIn July 2016, Governor David Ige signed Act 228, creating a pilot program allowing the Hawaii Department of Agriculture to oversee the cultivation of industrial hemp for agricultural or academic research.\nIn February 2017, the Hawaii House of Representatives Agricultural Committee passed legislation to remove criminal or civil sanctions for the \"planting, growing, harvesting, possessing, processing, selling, or buying\" of industrial hemp.\n\n\n== Failed legalization attempt (2019) ==\nIn February 2019, a bill was introduced to legalize recreational marijuana for adults 21 and over, however, it died in the House of Representatives the following month.\n\n\n== Decriminalization (2020) ==\nOn July 1, 2019, Governor David Ige announced that he would let a legislature-passed bill to decriminalize small amounts of cannabis become law without him actually signing it.  Beginning on January 11, 2020, this bill made possession of three grams or less of marijuana punishable by a $130 fine. Under the former law, possessing even a tiny amount of cannabis was punishable by up to 30 days in jail and a fine of up to $1,000.\n\n\n== References ==",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -145,10 +145,17 @@
     "lng": -97
   },
   "sources": {
-    "legal": null,
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Hawaii",
     "wiki": "https://en.wikipedia.org/wiki/Hawaii",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
+      {
+        "id": "wiki-legal-us-hi",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Hawaii",
+        "title": "Wikipedia: Cannabis in Hawaii",
+        "type": "external",
+        "weight": "low"
+      },
       {
         "id": "wiki-us-hi",
         "url": "https://en.wikipedia.org/wiki/Hawaii",
@@ -169,7 +176,7 @@
     "code": "us-hi",
     "content_hash": "bef31aaea217fd19aef58f0cfd82c655bec045679992b40d241133d05e64e720",
     "notes_hash": "fcdae0f5d4a6a1719654e5cc03fa43c49048939f39d9783d9e735668b004a34b",
-    "model_hash": "40b4b742d1afc5ad97ffa1c5161718a728d9789c9d42000f39d7244a4718c7bb"
+    "model_hash": "01580e02463773f63ce25b2aa5da981e6ee2de8bd2b068a361f596d3a7318f17"
   },
   "updated_at": "2026-04-10"
 }

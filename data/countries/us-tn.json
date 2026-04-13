@@ -37,7 +37,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is illegal in Tennessee under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}}",
+  "notes_raw": "style=\"background:#C4C9CD;\" | {{Hs|5}} Cannabis in Tennessee is illegal for most use, with the exceptions of limited medical purposes and Hemp derived products containing less than 0.3% THC. Possession of even small amounts is a criminal misdemeanor, but there are limited legal allowances for non-psychoactive CBD oil as medical cannabis, and the authorities have not been able to enforce the law.\n\n\n== 2015 legalization of CBD oil ==\nIn May 2015, Tennessee governor Bill Haslam signed Senate Bill 280 into law, against his earlier opposition. The bill legalized the possession and use of marijuana to treat a limited number of severe conditions, including epilepsy. The bill has no provisions for legal sale, thus requiring patients to acquire the drug outside the state of Tennessee; possession of CBD oil without proof that it was obtained legally outside of Tennessee was a misdemeanor.\n\n\n== Municipal decriminalization ==\nAt the start of 2015 the Tennessee chapter of the National Organization for the Reform of Marijuana Laws launched a petition to place a referendum on the November ballot for Davidson County to defund local law enforcement prosecution against possession of small amounts of marijuana. The measure failed to reach the ballot, as by the 6 August deadline the movement had only collected about 4,000 of the required 6,845 signatures to get the measure onto the ballot.\nIn 2016, both Nashville and Memphis succeeded in decriminalizing possession of small amounts of cannabis, with Memphis reducing punishment to a $50 fine. Seven months later, however, a repeal was signed into Tennessee law. This repeal also prevented local governments  from creating their own drug possession sanctions in the future.\nIn July 2020, Nashville partially decriminalized cannabis possession, with the district attorney dropping all charges of marijuana possession under 1⁄2 ounce (14 g).\n\n\n== Enforcement ==\nIn 2016 the Daily Helmsman noted that Tennessee spent $43 million in 2010 on prosecuting the 42% of their drug arrests which were for 1⁄2 ounce (14 g) marijuana or less.\n\n\n== 2021 failed medical legalization ==\nOn March 3, 2021 a bill was filed by representatives Janice Bowling and Iris Rudder that would legalize medicinal cannabis to treat severe medical conditions.  On March 23, 2021 the bill however later died in the state senate.\n\n\n== See also ==\nTennessee Governor's Task Force on Marijuana Eradication\n\n\n== References ==",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -143,10 +143,17 @@
     "lng": -97
   },
   "sources": {
-    "legal": null,
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Tennessee",
     "wiki": "https://en.wikipedia.org/wiki/Tennessee",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
+      {
+        "id": "wiki-legal-us-tn",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Tennessee",
+        "title": "Wikipedia: Cannabis in Tennessee",
+        "type": "external",
+        "weight": "low"
+      },
       {
         "id": "wiki-us-tn",
         "url": "https://en.wikipedia.org/wiki/Tennessee",
@@ -167,7 +174,7 @@
     "code": "us-tn",
     "content_hash": "dc2bfe205303ad125c7ed5843c079c206ddc2b5df9a786e5585a6cd8cd77c59a",
     "notes_hash": "b8c7fff480177229a23e5406e58eac8728d92e171858e878a9ecf183002494d1",
-    "model_hash": "0794b997c1d91fadd54e667cf5d35bc5927bedf0d6c5884cdcdfe8a4c319f697"
+    "model_hash": "df0e52ab9cdd41e27364f55de605c5223d60cde4864f52bc8271c73f0f59a7d8"
   },
   "updated_at": "2026-04-10"
 }

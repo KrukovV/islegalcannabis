@@ -17,39 +17,41 @@
       "override_reason": null
     },
     "distribution": {
-      "status": "restricted",
+      "status": "regulated",
       "scopes": {
         "possession": "restricted",
         "use": "restricted",
-        "sale": null,
-        "cultivation": null,
+        "sale": "regulated",
+        "cultivation": "tolerated",
         "import": null,
         "trafficking": null
       },
-      "enforcement": "standard",
+      "enforcement": "fine-based",
       "flags": [
-        "distribution_fallback_restricted"
+        "social_club_distribution"
       ],
       "modifiers": [
         "up_to",
         "but",
-        "only"
+        "only",
+        "however",
+        "may"
       ]
     },
     "signals": {
-      "status": "restricted",
+      "status": "regulated",
       "final_risk": "LIMITED",
       "enforcement_level": "active",
       "penalties": {
         "prison": false,
         "prison_priority": 0,
         "arrest": false,
-        "fine": false,
-        "severity_score": 0,
+        "fine": true,
+        "severity_score": 1,
         "possession": {
           "prison": false,
           "arrest": false,
-          "fine": false,
+          "fine": true,
           "severe": false
         },
         "trafficking": {
@@ -59,13 +61,19 @@
           "severe": false
         }
       },
-      "confidence": "medium",
+      "confidence": "high",
       "sources": [
         {
           "title": "Malta",
           "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
           "depth": 0,
           "type": "summary"
+        },
+        {
+          "title": "Cannabis in Malta",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Malta",
+          "depth": 1,
+          "type": "traversal"
         },
         {
           "title": "Malta Becomes First E.U. Country to Legalize Marijuana",
@@ -96,39 +104,52 @@
           "url": "https://www.timesofmalta.com/mobile/articles/view/20140519/local/cannabis-saplings-in-zebbug-roundabout-removed.519631",
           "depth": 2,
           "type": "reference"
-        },
-        {
-          "title": "Simple possession to remain an 'arrestable offence' - but only to fight drug trade – Bonnici",
-          "url": "https://www.independent.com.mt/articles/2015-03-17/local-news/Simple-possession-to-remain-an-arrestable-offence-but-only-to-fight-drug-trade-Bonnici-6736132323",
-          "depth": 2,
-          "type": "reference"
         }
       ],
       "explain": [
-        "rule: medical_legal | source: Malta has officially legalised medical cannabis | type: reference | priority: 2 | scope: general",
-        "no traversal evidence"
+        "rule: possession_decriminalized | source: Cannabis in Malta | type: traversal | priority: 3 | scope: cultivation",
+        "rule: medical_legal | source: Cannabis in Malta | type: traversal | priority: 3 | scope: general",
+        "rule: possession_decriminalized | source: Cannabis in Malta | type: traversal | priority: 3 | scope: possession",
+        "rule: possession_decriminalized | source: Cannabis in Malta | type: traversal | priority: 3 | scope: use",
+        "rule: penalty_fine | source: Cannabis in Malta | type: traversal | priority: 3 | scope: possession",
+        "rule: medical_legal | source: Cannabis in Malta | type: traversal | priority: 3 | scope: use",
+        "rule: private_cultivation | source: Cannabis in Malta | type: traversal | priority: 3 | scope: cultivation",
+        "rule: legal | source: Cannabis in Malta | type: traversal | priority: 3 | scope: cultivation",
+        "rule: social_club_distribution | source: Cannabis in Malta | type: traversal | priority: 3 | scope: sale",
+        "rule: legal | source: Cannabis in Malta | type: traversal | priority: 3 | scope: sale",
+        "rule: private_cultivation | source: Cannabis in Malta | type: traversal | priority: 3 | scope: sale",
+        "rule: illegal | source: Cannabis in Malta | type: traversal | priority: 3 | scope: general",
+        "rule: penalty_fine | source: Cannabis in Malta | type: traversal | priority: 3 | scope: general",
+        "rule: legal | source: Cannabis in Malta | type: traversal | priority: 3 | scope: use",
+        "rule: medical_legal | source: Malta has officially legalised medical cannabis | type: reference | priority: 2 | scope: general"
       ],
       "secondary_source": {
-        "has_article": false,
-        "article_len": 0,
-        "source_confidence": "no_secondary_source",
+        "has_article": true,
+        "article_len": 3451,
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": null
+          "distribution_article": "illegal"
         }
       }
     },
-    "enforcement_flags": [],
-    "applied_rules": [
-      "distribution_fallback_restricted"
+    "enforcement_flags": [
+      "fine_based"
     ],
-    "notes_normalized": "Cannabis is legal in Malta. Medical cannabis is legal. Distribution is restricted."
+    "applied_rules": [
+      "possession_decriminalized",
+      "penalty_fine",
+      "private_cultivation",
+      "social_club_distribution",
+      "illegal"
+    ],
+    "notes_normalized": "Cannabis is legal in Malta. Medical cannabis is legal. Distribution is regulated."
   },
-  "notes_normalized": "Cannabis is legal in Malta. Medical cannabis is legal. Distribution is restricted.",
+  "notes_normalized": "Cannabis is legal in Malta. Medical cannabis is legal. Distribution is regulated.",
   "notes_raw": "{{main|Cannabis in Malta}} On 30 March 2021, Prime Minister [[Robert Abela]] announced a proposal to legalize possession of up to {{cvt|7|g|frac=4}} and the cultivation of up to 4 plants, and for people charged with possession in the past to have it expunged from their criminal records.<ref>{{cite news |last1=Meilak |first1=Nicole |title=Cannabis reform: possession up to 7g, cultivation of four plants at home |url=https://www.maltatoday.com.mt/news/national/108696/public_consultation_on_cannabis_whitepaper |access-date=31 March 2021 |work=Malta Today |date=30 March 2021 |archive-date=30 March 2021 |archive-url=https://web.archive.org/web/20210330155031/https://www.maltatoday.com.mt/news/national/108696/public_consultation_on_cannabis_whitepaper |url-status=live }}</ref> In December 2021, legislation was passed by the Maltese Parliament and signed into law by President [[George Vella]].<ref>{{Cite web|title=Cannabis bill approved in parliament, in first for Europe|url=https://timesofmalta.com/articles/view/cannabis-bill-approved-in-parliament-in-first-for-europe.921310|access-date=14 December 2021|website=Times of Malta|date=14 December 2021 |language=en-gb|archive-date=14 December 2021|archive-url=https://web.archive.org/web/20211214210838/https://timesofmalta.com/articles/view/cannabis-bill-approved-in-parliament-in-first-for-europe.921310|url-status=live}}</ref><ref>{{cite news |last1=Jaeger |first1=Kyle |title=Malta Officially Legalizes Marijuana With President's Signature, Becoming First In Europe To End Cannabis Prohibition |url=https://www.marijuanamoment.net/malta-officially-legalizes-marijuana-with-presidents-signature-becoming-first-in-europe-to-end-cannabis-prohibition/ |access-date=18 December 2021 |work=Marijuana Moment |date=18 December 2021 |archive-date=18 December 2021 |archive-url=https://web.archive.org/web/20211218204524/https://www.marijuanamoment.net/malta-officially-legalizes-marijuana-with-presidents-signature-becoming-first-in-europe-to-end-cannabis-prohibition/ |url-status=live }}</ref>",
   "facts": {
     "possession_limit": "up to 7 g",
@@ -227,9 +248,9 @@
   },
   "hashes": {
     "code": "mlt",
-    "content_hash": "79b506a8bf388e0baf4d6f480e89d7c58bba43f3f499bbc00db4d3f8b8276073",
-    "notes_hash": "304418aa4d9b1eb523ddb06cd754d31f28c38478e543d24b82707f32368fa328",
-    "model_hash": "a46c58e4ba9067bcca674df7ceccf426f93dd3343a8807ab3589d3426b966894"
+    "content_hash": "56d55edd9609a8a434b85c1242b375461524de52aedbe2ef5026a4abd2a9018e",
+    "notes_hash": "0fbf7a6c65ac4b8231acb3af7c30214a3db0d335109686648e4f32fb397dd807",
+    "model_hash": "9deee065dfc49f8c740b8f41182765239e61af07a2205074956a9598a18838ff"
   },
   "geo_code": "MT",
   "node_type": "country",

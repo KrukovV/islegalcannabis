@@ -42,4 +42,19 @@ describe("UnifiedSeoStatusPanel", () => {
     expect(html).toContain("No dedicated Cannabis_in_* source.");
     expect(html).not.toContain("Country page →");
   });
+
+  it("uses Cannabis_in_* legal sources for US state SEO panels too", () => {
+    const data = getCountryPageData("us-ca");
+    expect(data).toBeTruthy();
+    const html = renderToStaticMarkup(
+      createElement(UnifiedSeoStatusPanel, {
+        data: data!,
+        onClose: () => {}
+      })
+    );
+
+    expect(html).toContain("Restricted in California");
+    expect(html).toContain("Legal source →");
+    expect(html).toContain("Cannabis_in_California");
+  });
 });

@@ -37,7 +37,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is illegal in West Virginia under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|3}}",
+  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|3}} Cannabis in West Virginia is illegal for recreational use, but decriminalized in the city of Charleston and partially decriminalized in the city of Morgantown. Possession of small amounts is a misdemeanor crime. Medical use was legalized in 2017 through legislation signed by Governor Jim Justice.\n\n\n== Medical cannabis ==\nMedical cannabis bills were introduced in West Virginia in each year between 2010 and 2015, when Senate Bill 546 and House Bill 2909 sought to legalize cannabis for medical use, but failed to advance prior to the end of the legislative session on March 14.\nIn 2017, Senate Bill 386 was passed, legalizing medical cannabis for specific chronic medical conditions via pill, oil, topical form, including gels, creams, and ointments, tincture, liquid, and dermal patch. Governor Justice signed it into law on April 19, 2017, and it went into effect in July 2018. However, the WV DHHR states that it wasn't until July 1, 2019, that effects of the law allowed the state to \"issue the patient and caregiver identification cards necessary to obtain medical cannabis.\" SB 339, passed and signed into law by Gov. Justice in 2020, permitted the sale of medical cannabis in dry leaf and plant form for vaporization. The sale of commercially produced medical cannabis edibles remains prohibited under state law. Under state law, registered medical cannabis patients may possess a 30-day supply of medical cannabis, defined as six ounces per 30 day period.\nUp to 100 dispensary licenses, 10 processor licenses, and 10 grower licenses can be issued under state law. The state's first medical cannabis dispensary, Trulieve, on Earl L. Core Road in Morgantown, opened in November 2021. As of May 2025, there are 65 active dispensaries, 9 active processors, and 9 active growers licensed by the Office of Medical Cannabis.\n\n\n== References ==",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -143,10 +143,17 @@
     "lng": -97
   },
   "sources": {
-    "legal": null,
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_West_Virginia",
     "wiki": "https://en.wikipedia.org/wiki/West_Virginia",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
+      {
+        "id": "wiki-legal-us-wv",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_West_Virginia",
+        "title": "Wikipedia: Cannabis in West Virginia",
+        "type": "external",
+        "weight": "low"
+      },
       {
         "id": "wiki-us-wv",
         "url": "https://en.wikipedia.org/wiki/West_Virginia",
@@ -167,7 +174,7 @@
     "code": "us-wv",
     "content_hash": "a4d06449cbbc6d2f1e6344e8ffd6d1b3b316a64cdff53cf21fff0a71ee7ec46b",
     "notes_hash": "b9dd9c0ef65b367c4e3ee3db65a2f9dc96f53213c7fe46a6f5f4fc01b10f0abb",
-    "model_hash": "29eb22cdefb8d026a4003ae777c9926f0a25c962c5088c6ceb93968e3499c368"
+    "model_hash": "e020b26bdf72a14b017edba8dc116b7eaefadaaea388324be22a78f4b6a9482e"
   },
   "updated_at": "2026-04-10"
 }

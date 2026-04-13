@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in Maine under state law for recreational adult use. Medical cannabis is also legal in Maine. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} Cannabis in Maine is legal for recreational use. It was originally prohibited in 1913. Possession of small amounts of the drug was decriminalized in 1976 under state legislation passed the previous year. The state's first medical cannabis law was passed in 1999, allowing patients to grow their own plants. The cities of Portland and South Portland decriminalized the possession and recreational use of marijuana in 2013 and 2014, respectively.\nIn 2016, a ballot initiative proposed the statewide legalization of marijuana use and sale. With all precincts reporting, the results showed a \"Yes\" vote passing by less than 1 percentage point. However, opponents of the measure sought a recount. Opponents of the measure conceded their effort on December 17, after the recount showed no change in the outcome and that the legalization of cannabis in Maine would go forward.\n\n\n== History ==\n\n\n=== Prohibition (1913) ===\nAs part of a larger trend of restricting marijuana in the early 20th century, Maine banned the drug in 1913; Massachusetts having been the first to ban sale without a prescription, in 1911.\n\n\n=== Decriminalization (1976) ===\nIn 1976, Maine decriminalized possession of small amounts of cannabis (following 1975 legislation), becoming the third state to do so.\n\n\n=== Medical marijuana (1999) ===\nOn November 2, 1999, Maine legalized medical marijuana when 62% of the populace voted yes on Question 2.\n\n\n=== Decriminalization (2009) ===\nOn May 1, 2009, Maine decriminalized marijuana when Governor John Baldacci signed legislation (LD 250) which made possession of 2+1⁄2 ounces (71 g) or less a civil infraction.\n\n\n=== Municipal legalization (2013–2014) ===\nOn November 5, 2013, voters in Portland passed Question 1 by 67% which legalized the possession of 2+1⁄2 ounces (71 g) within the city's limits.\nThe separate municipality of South Portland voted to legalize marijuana in November 2014, succeeding with 6,326 to 5,755 in favor. During the same election, the city of Lewiston voted down legalization, 7,366 to 6,044 against.\n\n\n== Legalization (2016) ==\n\nThe Marijuana Legalization Act, which was to take effect within 40 days of November 8, 2016 permits adults who are not participating in the state's medical cannabis program to legally grow and to possess personal use quantities of cannabis while also licensing commercial cannabis production and retail sales. The law imposes a 10 percent tax on commercial marijuana sales. Under the law, localities have the authority to regulate, limit, or prohibit the operation of marijuana businesses. Onsite consumption is permitted under the law in establishments licensed for such activity. Retail sales were set to begin in February 2018, in order to allow agencies to form regulations for the new industry.\nIn November 2017, Governor LePage vetoed a bill to tax and regulate recreational cannabis sales, citing conflicts with federal law. LePage's veto was overturned by the state legislature on May 2, 2018, allowing the bill to become law.\nSales were projected to begin in spring of 2020, though the COVID-19 pandemic delayed the timeline.\nAfter Maine citizens voted to legalize recreational cannabis in November 2016, Maine dispensaries were allowed to sell recreational cannabis products starting October 9, 2020. That year, Maine recorded over $111 million in medical marijuana sales. Currently adult use marijuana sales are taxed at 10 percent. \n\n\n== See also ==\nLegality of cannabis by U.S. jurisdiction\n\n\n== References ==",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -145,10 +145,17 @@
     "lng": -97
   },
   "sources": {
-    "legal": null,
+    "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Maine",
     "wiki": "https://en.wikipedia.org/wiki/Maine",
     "wiki_truth": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
     "citations": [
+      {
+        "id": "wiki-legal-us-me",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Maine",
+        "title": "Wikipedia: Cannabis in Maine",
+        "type": "external",
+        "weight": "low"
+      },
       {
         "id": "wiki-us-me",
         "url": "https://en.wikipedia.org/wiki/Maine",
@@ -169,7 +176,7 @@
     "code": "us-me",
     "content_hash": "1ab496be4e9a45ea9a629ce05180880422fedf047d69e50f842678b76f36cd69",
     "notes_hash": "004a7fe9494c551fda648a651686f1f8f40f441ae2bfc07b76e2a3213bd8ea28",
-    "model_hash": "ead0ffd192cdd3ab89175a1585cadb147bf2195fc037b2dbac8a1484ef78a2c3"
+    "model_hash": "7c74fa3e4f5de176c652b792c8d93d9e177abf609644ccd0026acd2282e9cf38"
   },
   "updated_at": "2026-04-10"
 }

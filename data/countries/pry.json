@@ -29,7 +29,8 @@
       "enforcement": "standard",
       "flags": [],
       "modifiers": [
-        "up_to"
+        "up_to",
+        "but"
       ]
     },
     "signals": {
@@ -64,6 +65,12 @@
           "type": "summary"
         },
         {
+          "title": "Cannabis in Paraguay",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Paraguay",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
           "title": "Paraguay deploys anti-narco top guns to combat economic need for weed &#124; Laurence Blair &#124; Global development",
           "url": "https://www.theguardian.com/global-development/2015/jun/25/paraguay-drugs-small-farmers-marijuana-cocaine",
           "depth": 2,
@@ -92,35 +99,33 @@
           "url": "https://ea.com.py/v2/en-paraguay-la-posesion-y-consumo-personal-de-la-marihuana-es-legal/",
           "depth": 2,
           "type": "reference"
-        },
-        {
-          "title": "Cannabis in Paraguay",
-          "url": "https://web.archive.org/web/20190420013131/http://www.druglawreform.info/en/country-information/latin-america/paraguay/item/206-paraguay",
-          "depth": 2,
-          "type": "reference"
         }
       ],
       "explain": [
         "rule: penalty_criminal_offense | source: Paraguay / Paraguái | type: summary | priority: 1 | scope: possession",
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Paraguay | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Paraguay | type: traversal | priority: 3 | scope: general",
+        "rule: possession_decriminalized | source: Cannabis in Paraguay | type: traversal | priority: 3 | scope: possession"
       ],
       "secondary_source": {
-        "has_article": false,
-        "article_len": 0,
-        "source_confidence": "no_secondary_source",
+        "has_article": true,
+        "article_len": 1276,
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": true,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": null
+          "distribution_article": "illegal"
         }
       }
     },
     "enforcement_flags": [],
     "applied_rules": [
       "penalty_criminal_offense",
+      "raw_illegal",
+      "possession_decriminalized",
       "rec_implies_med_floor"
     ],
     "notes_normalized": "Cannabis is decriminalized in Paraguay / Paraguái. Medical cannabis is limited. Distribution is restricted. Prison exposure detected."
@@ -224,9 +229,9 @@
   },
   "hashes": {
     "code": "pry",
-    "content_hash": "f16ef6108801dc9c2a78f1b0a37aef3f239e59deee7c244966ca47da66d1a7ed",
+    "content_hash": "49fe149614fe6ced4addc96138fffb6117a5a355ee67cf208c0f38433646d1fc",
     "notes_hash": "97c9e4b0f3a066ca9479be8d3f7dbf44cf3a9e51e51194bd779506c8a53f54a0",
-    "model_hash": "413b0192a494443594165669d8021175c32f562f106fc95a075f2fca50f12a54"
+    "model_hash": "961e92e95687993a02043768632733eef6593b43913f87c50402fd2b9b297ba9"
   },
   "geo_code": "PY",
   "node_type": "country",

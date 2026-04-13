@@ -27,9 +27,7 @@
         "trafficking": null
       },
       "enforcement": "standard",
-      "flags": [
-        "distribution_fallback_illegal"
-      ],
+      "flags": [],
       "modifiers": []
     },
     "signals": {
@@ -64,6 +62,12 @@
           "type": "summary"
         },
         {
+          "title": "Cannabis in Yemen",
+          "url": "https://en.wikipedia.org/wiki/Cannabis_in_Yemen",
+          "depth": 1,
+          "type": "traversal"
+        },
+        {
           "title": "Legality of cannabis (notes)",
           "url": "https://en.wikipedia.org/wiki/Cannabis_in_Yemen",
           "depth": 2,
@@ -71,25 +75,26 @@
         }
       ],
       "explain": [
-        "no traversal evidence"
+        "rule: raw_illegal | source: Cannabis in Yemen | type: traversal | priority: 3 | scope: general",
+        "rule: illegal | source: Cannabis in Yemen | type: traversal | priority: 3 | scope: general"
       ],
       "secondary_source": {
-        "has_article": false,
-        "article_len": 0,
-        "source_confidence": "no_secondary_source",
+        "has_article": true,
+        "article_len": 399,
+        "source_confidence": "no_prison_signal",
         "signals": {
           "prison_notes": false,
           "prison_article": false,
           "enforcement_notes": null,
           "enforcement_article": null,
           "distribution_notes": null,
-          "distribution_article": null
+          "distribution_article": "illegal"
         }
       }
     },
     "enforcement_flags": [],
     "applied_rules": [
-      "distribution_fallback_illegal"
+      "raw_illegal"
     ],
     "notes_normalized": "Cannabis is illegal in Yemen / اليمن. Medical cannabis is illegal. Distribution is illegal."
   },
@@ -192,9 +197,9 @@
   },
   "hashes": {
     "code": "yem",
-    "content_hash": "bd7aefb3a7a1d8ed67a824fb5ba97d14094c500bc0189db13d5d5c6259fde6ed",
+    "content_hash": "6bd553afc0714692e381101be457186d819c73ad196e8340ca3dd124eca066de",
     "notes_hash": "6c90f9be1701205c93f3521301b40501435791124b2765a5666926d99177ce63",
-    "model_hash": "0666d6ec0804de89dbbfcedb35c69cb2fcd6c7d41d13962e8d941d25feea8990"
+    "model_hash": "de77d2e593638cf0ae39805f4651beb7709b0cf3b7564224e247c15cbb1ae675"
   },
   "geo_code": "YE",
   "node_type": "country",
