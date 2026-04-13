@@ -147,15 +147,9 @@ export default function ViewportCountryPopup({
       ) : null}
 
       <div className={styles.viewportPopupFooter}>
-        {entry.detailsHref ? (
-          <a className={styles.viewportPopupCta} href={entry.detailsHref} target="_blank" rel="noreferrer">
-            Legal source →
-          </a>
-        ) : (
-          <Link className={styles.viewportPopupCta} href={entry.pageHref}>
-            Country page →
-          </Link>
-        )}
+        <Link className={styles.viewportPopupCta} href={entry.pageHref}>
+          Details →
+        </Link>
       </div>
     </aside>
   );

@@ -15,6 +15,7 @@ export default function UnifiedSeoStatusPanel({
 }) {
   const card = deriveCountryCardEntryFromCountryPageData(data);
   const intents = buildCountryIntentSections(data);
+  const label = data.name.split(" / ")[0] || data.name;
 
   return (
     <aside className={styles.seoOverlayPanel} data-testid="new-map-seo-overlay">
@@ -25,6 +26,7 @@ export default function UnifiedSeoStatusPanel({
             <span className={styles.unifiedPanelStatusBadge} data-category={card.mapCategory}>
               {card.panel.levelTitle}
             </span>
+            <h2 className={styles.seoPanelStatusTitle}>{card.panel.levelTitle} in {label}</h2>
           </div>
           <p className={styles.seoPanelIntro}>{card.panel.summary}</p>
         </div>
@@ -164,7 +166,7 @@ export default function UnifiedSeoStatusPanel({
             Legal source →
           </a>
         ) : (
-          <Link href={card.pageHref}>Country page →</Link>
+          <span className={styles.seoPanelMuted}>No dedicated Cannabis_in_* source.</span>
         )}
       </section>
     </aside>

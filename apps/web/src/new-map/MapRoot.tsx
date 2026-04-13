@@ -73,6 +73,22 @@ function setDebugState(partial: Partial<NewMapDebug>) {
   host.__NEW_MAP_DEBUG__ = current;
 }
 
+function safeSetFeatureState(
+  map: maplibregl.Map | null,
+  target: { source: "legal-countries" | "us-states"; id: string },
+  state: { selected: boolean }
+) {
+  if (!map) return;
+  try {
+    const style = typeof map.getStyle === "function" ? map.getStyle() : null;
+    const hasSource = Boolean(style?.sources && target.source in style.sources);
+    if (!hasSource) return;
+    map.setFeatureState({ source: target.source, id: target.id }, state);
+  } catch {
+    return;
+  }
+}
+
 export default function MapRoot({
   countriesUrl,
   visibleStamp,
@@ -257,7 +273,7 @@ export default function MapRoot({
     const clearSelected = () => {
       const current = selectedFeatureStateRef.current;
       if (!current) return;
-      map.setFeatureState({ source: current.source, id: current.id }, { selected: false });
+      safeSetFeatureState(map, current, { selected: false });
       selectedFeatureStateRef.current = null;
     };
 
@@ -273,15 +289,15 @@ export default function MapRoot({
     };
     const current = selectedFeatureStateRef.current;
     if (current && (current.source !== nextState.source || current.id !== nextState.id)) {
-      map.setFeatureState({ source: current.source, id: current.id }, { selected: false });
+      safeSetFeatureState(map, current, { selected: false });
     }
-    map.setFeatureState({ source: nextState.source, id: nextState.id }, { selected: true });
+    safeSetFeatureState(map, nextState, { selected: true });
     selectedFeatureStateRef.current = nextState;
 
     return () => {
       const active = selectedFeatureStateRef.current;
       if (!active || active.id !== nextState.id || active.source !== nextState.source) return;
-      map.setFeatureState({ source: active.source, id: active.id }, { selected: false });
+      safeSetFeatureState(map, active, { selected: false });
       selectedFeatureStateRef.current = null;
     };
   }, [selectedGeo]);

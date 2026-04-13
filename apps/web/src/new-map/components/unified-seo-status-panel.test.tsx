@@ -23,9 +23,23 @@ describe("UnifiedSeoStatusPanel", () => {
       );
 
       expect(html).toContain(`data-category="${fixture.category}"`);
-      expect(html).toContain(fixture.text);
+      expect(html).toContain(`${fixture.text} in`);
       expect(html).toContain("Legal source →");
       expect(html).toContain(fixture.source);
     }
+  });
+
+  it("does not render a dead country-page CTA when no Cannabis_in_* source exists", () => {
+    const data = getCountryPageData("ata");
+    expect(data).toBeTruthy();
+    const html = renderToStaticMarkup(
+      createElement(UnifiedSeoStatusPanel, {
+        data: data!,
+        onClose: () => {}
+      })
+    );
+
+    expect(html).toContain("No dedicated Cannabis_in_* source.");
+    expect(html).not.toContain("Country page →");
   });
 });

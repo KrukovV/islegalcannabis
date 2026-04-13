@@ -137,6 +137,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .unifiedPanelStatusBadge {
@@ -165,6 +166,18 @@
 .unifiedPanelStatusBadge[data-category="UNKNOWN"] {
   background: #e0e3e3;
   color: #465761;
+}
+
+.seoPanelStatusTitle {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.2;
+  color: #283746;
+}
+
+.seoPanelMuted {
+  color: #607382;
+  font-size: 0.86rem;
 }
 
 .unifiedPanelStatusDot {
