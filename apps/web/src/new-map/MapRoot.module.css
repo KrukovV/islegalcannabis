@@ -1,6 +1,7 @@
 .root {
   --new-map-chatbar-height: 72px;
-  --new-map-bottom-safe: calc(var(--new-map-chatbar-height) + 24px);
+  --new-map-chatbar-footprint: 132px;
+  --new-map-bottom-safe: calc(var(--new-map-chatbar-footprint) + 20px);
   --new-map-panel-top-margin: 20px;
   position: relative;
   width: 100vw;
@@ -244,7 +245,7 @@
   position: absolute;
   z-index: 32;
   left: 50%;
-  bottom: 16px;
+  bottom: 20px;
   width: min(720px, 90vw);
   transform: translateX(-50%);
   display: grid;
@@ -585,14 +586,14 @@
   left: 50%;
   bottom: var(--new-map-bottom-safe);
   transform: translateX(-50%);
-  width: min(460px, calc(100vw - 32px));
+  width: min(420px, calc(100vw - 32px));
   max-height: calc(100vh - var(--new-map-bottom-safe) - var(--new-map-panel-top-margin));
   overflow-y: auto;
   border-radius: 18px;
   border: 1px solid rgba(103, 120, 133, 0.2);
   background: rgba(255, 255, 255, 0.96);
   box-shadow: 0 12px 30px rgba(40, 55, 70, 0.12);
-  padding: 16px 18px 18px;
+  padding: 16px 18px 20px;
   color: #283746;
 }
 
