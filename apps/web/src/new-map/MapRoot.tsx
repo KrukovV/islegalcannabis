@@ -12,6 +12,7 @@ import styles from "./MapRoot.module.css";
 import { NEW_MAP_WATER_COLOR } from "./mapPalette";
 import { hasFirstVisualReady, onFirstVisualReady, resetFirstVisualReady } from "./startupTrace";
 import AsciiOverlay from "./ascii/AsciiOverlay";
+import UnifiedSeoStatusPanel from "./components/UnifiedSeoStatusPanel";
 import ViewportCountryPopup from "./components/ViewportCountryPopup";
 
 type Props = {
@@ -106,7 +107,12 @@ export default function MapRoot({
     }
     return seoCountryData;
   }, [seoCountryData, seoCountryIndex, seoRouteGeoCode]);
-  const popupGeoCode = selectedGeo || (activeSeoData && seoPanelOpen ? activeSeoData.geo_code : null);
+  const showSeoOverlay = Boolean(activeSeoData && seoPanelOpen);
+  const popupGeoCode =
+    selectedGeo &&
+    !(showSeoOverlay && selectedGeo === String(activeSeoData?.geo_code || "").trim().toUpperCase())
+      ? selectedGeo
+      : null;
   const selectedGeoEntry = useMemo(() => {
     if (!popupGeoCode) return null;
     const indexed = cardIndex[popupGeoCode];
@@ -148,6 +154,10 @@ export default function MapRoot({
 
   const handleSeoPanelClose = useCallback(() => {
     setSeoPanelOpen(false);
+    setSelectedGeo(null);
+  }, []);
+
+  const handleCountryPopupClose = useCallback(() => {
     setSelectedGeo(null);
   }, []);
 
@@ -417,9 +427,6 @@ export default function MapRoot({
           stylePromise,
           onSelectGeo: (geo) => {
             setSelectedGeo(geo);
-            if (geo && String(geo).trim().toUpperCase() === seoRouteGeoCode) {
-              setSeoPanelOpen(true);
-            }
             setDebugState({ selectedId: geo });
           }
         });
@@ -527,8 +534,11 @@ export default function MapRoot({
           </div>
         </div>
       ) : null}
+      {showSeoOverlay && activeSeoData ? (
+        <UnifiedSeoStatusPanel data={activeSeoData} onClose={handleSeoPanelClose} />
+      ) : null}
       {selectedGeoEntry && popupAnchor ? (
-        <ViewportCountryPopup entry={selectedGeoEntry} anchor={popupAnchor} onClose={handleSeoPanelClose} />
+        <ViewportCountryPopup entry={selectedGeoEntry} anchor={popupAnchor} onClose={handleCountryPopupClose} />
       ) : null}
       <div
         ref={containerRef}
