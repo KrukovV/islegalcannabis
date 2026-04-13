@@ -79,7 +79,7 @@ export default function StatusPanel({
             {panel.critical.map((reason) => (
               <li key={reason.id} className={styles.statusReasonItem}>
                 <ReasonLink href={reason.href} text={reason.text} />
-                {reason.sourceUrl ? (
+                {reason.sourceUrl && reason.sourceUrl !== reason.href ? (
                   <a
                     href={reason.sourceUrl}
                     target="_blank"
@@ -102,7 +102,7 @@ export default function StatusPanel({
             {panel.info.map((reason) => (
               <li key={reason.id} className={styles.statusReasonItem}>
                 <ReasonLink href={reason.href} text={reason.text} />
-                {reason.sourceUrl ? (
+                {reason.sourceUrl && reason.sourceUrl !== reason.href ? (
                   <a
                     href={reason.sourceUrl}
                     target="_blank"
@@ -125,7 +125,7 @@ export default function StatusPanel({
             {panel.why.map((reason) => (
               <li key={reason.id} className={styles.statusReasonItem}>
                 <ReasonLink href={reason.href} text={reason.text} />
-                {reason.sourceUrl ? (
+                {reason.sourceUrl && reason.sourceUrl !== reason.href ? (
                   <a
                     href={reason.sourceUrl}
                     target="_blank"

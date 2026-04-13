@@ -44,8 +44,8 @@ function getCountryPageHref(profile: JurisdictionLawProfile) {
 }
 
 function reasonLink(countryPageHref: string | null, anchor: string, sourceUrl?: string) {
-  if (countryPageHref) return `${countryPageHref}${anchor}`;
   if (sourceUrl) return sourceUrl;
+  if (countryPageHref) return `${countryPageHref}${anchor}`;
   return "/";
 }
 

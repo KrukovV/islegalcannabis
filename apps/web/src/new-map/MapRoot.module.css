@@ -1,4 +1,7 @@
 .root {
+  --new-map-chatbar-height: 72px;
+  --new-map-bottom-safe: calc(var(--new-map-chatbar-height) + 24px);
+  --new-map-panel-top-margin: 20px;
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -101,16 +104,17 @@
 .seoOverlayPanel {
   position: absolute;
   z-index: 31;
-  top: 20px;
+  top: var(--new-map-panel-top-margin);
   right: 20px;
+  bottom: var(--new-map-bottom-safe);
   width: min(420px, calc(100vw - 40px));
-  max-height: min(78vh, 840px);
+  max-height: calc(100vh - var(--new-map-bottom-safe) - var(--new-map-panel-top-margin));
   overflow-y: auto;
   background: rgba(255, 255, 255, 0.94);
   border: 1px solid rgba(103, 120, 133, 0.2);
   border-radius: 18px;
   box-shadow: 0 12px 30px rgba(40, 55, 70, 0.12);
-  padding: 18px 18px 14px;
+  padding: 18px 18px 18px;
   color: #283746;
   backdrop-filter: blur(18px);
 }
@@ -240,7 +244,7 @@
   position: absolute;
   z-index: 32;
   left: 50%;
-  bottom: 72px;
+  bottom: 16px;
   width: min(720px, 90vw);
   transform: translateX(-50%);
   display: grid;
@@ -251,7 +255,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  min-height: 56px;
+  min-height: var(--new-map-chatbar-height);
   padding: 8px 10px;
   border-radius: 28px;
   border: 1px solid rgba(103, 120, 133, 0.22);
@@ -260,6 +264,7 @@
   backdrop-filter: blur(18px);
 }
 
+.aiChromeButton,
 .aiAction,
 .aiSubmit {
   width: 40px;
@@ -273,9 +278,27 @@
   cursor: pointer;
 }
 
+.aiChromeButton {
+  flex: 0 0 auto;
+}
+
 .aiSubmit:disabled {
   opacity: 0.5;
   cursor: default;
+}
+
+.aiCollapsedButton {
+  min-height: var(--new-map-chatbar-height);
+  padding: 0 20px;
+  border: 1px solid rgba(103, 120, 133, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 12px 30px rgba(40, 55, 70, 0.18);
+  color: #33485b;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  backdrop-filter: blur(18px);
 }
 
 .aiInput {

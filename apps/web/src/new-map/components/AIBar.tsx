@@ -36,6 +36,7 @@ function trimQuery(value: string) {
 
 export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Props) {
   const aiInputLocked = process.env.NODE_ENV === "production";
+  const [isOpen, setIsOpen] = useState(true);
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const [answer, setAnswer] = useState<string | null>(null);
@@ -93,6 +94,30 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
     }
   }
 
+  function handleClear() {
+    setQuery("");
+    setAnswer(null);
+    setSources([]);
+    setSafetyNote(null);
+    setError(null);
+  }
+
+  if (!isOpen) {
+    return (
+      <div className={styles.aiDock} data-testid="new-map-ai-dock">
+        <button
+          type="button"
+          className={styles.aiCollapsedButton}
+          data-testid="new-map-ai-expand"
+          onClick={() => setIsOpen(true)}
+          aria-label="Open AI chat"
+        >
+          Ask
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div className={styles.aiDock} data-testid="new-map-ai-dock">
       {answer || error ? (
@@ -116,6 +141,14 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
         </div>
       ) : null}
       <form className={styles.aiBar} onSubmit={onSubmit}>
+        <button
+          type="button"
+          className={styles.aiChromeButton}
+          onClick={() => setIsOpen(false)}
+          aria-label="Collapse AI chat"
+        >
+          −
+        </button>
         <button type="button" className={styles.aiAction} aria-label="More actions">
           +
         </button>
@@ -140,6 +173,14 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
         >
           <span className={`${styles.aiGpsDot} ${gpsDotClassName}`} />
           <span>GPS</span>
+        </button>
+        <button
+          type="button"
+          className={styles.aiChromeButton}
+          onClick={handleClear}
+          aria-label="Clear AI chat"
+        >
+          ×
         </button>
         <button
           type="submit"
