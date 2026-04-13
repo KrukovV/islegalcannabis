@@ -122,6 +122,17 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
     <div className={styles.aiDock} data-testid="new-map-ai-dock">
       {answer || error ? (
         <div className={styles.aiAnswerCard} data-testid="new-map-ai-answer">
+          <div className={styles.aiAnswerHeader}>
+            <div className={styles.aiAnswerTitle}>Dialog</div>
+            <button
+              type="button"
+              className={styles.aiAnswerClose}
+              onClick={() => setIsOpen(false)}
+              aria-label="Collapse AI chat"
+            >
+              ×
+            </button>
+          </div>
           <div className={styles.aiAnswerText}>{error || answer}</div>
           {!error ? (
             <div className={styles.aiAnswerMeta}>
@@ -141,14 +152,6 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
         </div>
       ) : null}
       <form className={styles.aiBar} onSubmit={onSubmit}>
-        <button
-          type="button"
-          className={styles.aiChromeButton}
-          onClick={() => setIsOpen(false)}
-          aria-label="Collapse AI chat"
-        >
-          −
-        </button>
         <button type="button" className={styles.aiAction} aria-label="More actions">
           +
         </button>
@@ -175,14 +178,6 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
           <span>GPS</span>
         </button>
         <button
-          type="button"
-          className={styles.aiChromeButton}
-          onClick={handleClear}
-          aria-label="Clear AI chat"
-        >
-          ×
-        </button>
-        <button
           type="submit"
           className={styles.aiSubmit}
           aria-label="Submit AI query"
@@ -195,6 +190,16 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
         <div className={styles.aiGeoHint} data-testid="new-map-ai-geo-hint">
           {ipStatus.message}
         </div>
+      ) : null}
+      {(answer || error || query) && isOpen ? (
+        <button
+          type="button"
+          className={styles.aiClearGhost}
+          onClick={handleClear}
+          aria-label="Clear AI chat"
+        >
+          Clear chat
+        </button>
       ) : null}
     </div>
   );
