@@ -139,6 +139,34 @@
   gap: 10px;
 }
 
+.unifiedPanelStatusBadge {
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.unifiedPanelStatusBadge[data-category="LEGAL_OR_DECRIM"] {
+  background: #daf0dc;
+  color: #35583d;
+}
+
+.unifiedPanelStatusBadge[data-category="LIMITED_OR_MEDICAL"] {
+  background: #f7edd0;
+  color: #765f14;
+}
+
+.unifiedPanelStatusBadge[data-category="ILLEGAL"] {
+  background: #efdadb;
+  color: #7b4345;
+}
+
+.unifiedPanelStatusBadge[data-category="UNKNOWN"] {
+  background: #e0e3e3;
+  color: #465761;
+}
+
 .unifiedPanelStatusDot {
   width: 12px;
   height: 12px;
