@@ -1,0 +1,207 @@
+{
+  "generatedAt": "2026-04-14T08:52:49.568Z",
+  "locales": [
+    "es",
+    "pt",
+    "de",
+    "fr",
+    "nl"
+  ],
+  "scope": {
+    "countries": [
+      "bra",
+      "deu",
+      "esp",
+      "fra",
+      "nld",
+      "prt",
+      "tha",
+      "usa"
+    ],
+    "states": "us-*"
+  },
+  "entries": {
+    "bra": {
+      "source": {
+        "title": "Cannabis in Brazil",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Brazil"
+      },
+      "translations": {
+        "pt": {
+          "title": "Cannabis no Brasil",
+          "summary": "Cannabis no Brasil é ilegal, mas não há pena de prisão para uso pessoal desde 2006, tratando-se neste âmbito de uma contravenção.\nDesde junho de 2024, a partir da conclusão do julgamento do Recurso Extraordinário 635.659 (Tema 506), o Supremo Tribunal Federal (STF) descriminalizou o uso de cannabis no Brasil, fixando critérios objetivos para a quantidade considerada destinada ao consumo pessoal, diferenciando-a do tráfico de drogas.",
+          "url": "https://pt.wikipedia.org/wiki/Cannabis_no_Brasil"
+        },
+        "fr": {
+          "title": "Cannabis au Brésil",
+          "summary": "La possession de cannabis au Brésil pour consommation personnelle est passible d'emprisonnement de 5 à 15 ans, en plus d'impliquer un avertissement, des travaux d'intérêt général ainsi qu'un stage d'éducation sur les effets de la consommation de drogues.",
+          "url": "https://fr.wikipedia.org/wiki/Cannabis_au_Br%C3%A9sil"
+        }
+      }
+    },
+    "deu": {
+      "source": {
+        "title": "Cannabis in Germany",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Germany"
+      },
+      "translations": {
+        "de": {
+          "title": "Cannabis in Deutschland",
+          "summary": "Cannabis (Hanf) wurde auf dem Gebiet des heutigen Deutschland lange als Kulturpflanze angebaut; der Konsum wurde jedoch im 20. Jahrhundert schrittweise unter Verbot gestellt. Seit 2017 ist auch THC-haltiges Cannabis in bestimmten medizinischen Kontexten legal, für den Freizeitkonsum blieb es jedoch weiterhin illegal. Eine teilweise Legalisierung von THC-haltigem Cannabis für den Freizeitgebrauch wurde 2021 im Koalitionsvertrag angekündigt. Ein entsprechender Gesetzentwurf wurde im Februar 2024 vom Bundestag mehrheitlich angenommen und trat als Cannabisgesetz am 1. April 2024 in Kraft.",
+          "url": "https://de.wikipedia.org/wiki/Cannabis_in_Deutschland"
+        },
+        "fr": {
+          "title": "Cannabis en Allemagne",
+          "summary": "En Allemagne, le cannabis est légalisé à des fins récréatives pour les adultes depuis le 1er avril 2024. C'est le neuvième pays au monde à légaliser le cannabis à des fins récréatives.\nChaque adulte allemand a le droit de posséder 25 grammes de cannabis. La production est réalisée localement avec trois plants de cannabis à domicile (si vous habitez en Allemagne depuis 6 mois) ou avec l'aide d'associations d'usagers à but non lucratif (limite d'achat de 50 grammes par personne par mois).\nLa consommation de cannabis à moins de 100 mètres de certaines zones  (y compris les écoles, les jardins d'enfants, les terrains de jeux publics, les installations sportives et les « zones piétonnes des centres-villes » entre 7 h et 20 h) est interdite.\nEn février 2008, 7 patients allemands ont pu bénéficier d'un traitement au cannabis médical, distribué sur ordonnance en pharmacie. Afin d'en réguler l'usage thérapeutique, l'Allemagne s'inspire du modèle de son voisin néerlandais, qui le distribue de cette manière depuis 2003 (120 kg en 2008).\nCependant, le Tribunal constitutionnel fédéral a estimé que la possession d’une faible quantité de cannabis exclusivement destinée à la consommation personnelle et occasionnelle ne méritait pas de sanction pénale dès lors qu’elle ne présentait pas de danger pour les tiers. Les ministères de la Justice des länder ont été invités à fixer dans des directives les critères selon lesquels l’affaire serait classée sans suite par les parquets. La quantité correspondant à la consommation personnelle fait partie de ces critères.\nAuparavant, cette quantité variait entre 5 et 30 grammes de cannabis selon les lands - la Bavière, par exemple, est beaucoup plus stricte que la Basse-Saxe. Mais depuis 2007, il ne reste plus que trois valeurs différentes : les Lands de Brême, Berlin et Niedersachsen ont arrêté leur volume autorisé à 15 grammes, le Baden-Würtemberg s'est décidé pour trois unités de consommation (c'est-à-dire 2 grammes par unité de consommation, donc environ 6 grammes) ; l'ensemble des autres Länder ont fixé leur limite à 6 grammes.\nEn janvier 2017, l'Allemagne légalise l'usage thérapeutique du cannabis pour les « pathologies graves » — cancers, épilepsie, sclérose en plaques — « sans thérapies alternatives ». Les produits seront distribués en pharmacie et la prescription sera remboursée par l'assurance maladie. L'Allemagne s'approvisionnera à l'étranger le temps de rendre opérationnelle une agence publique du cannabis médical chargée de sa culture dans le pays.\nEn Allemagne, en 2019, à contre-courant, le juge Andreas Müller considère comme inconstitutionnelles les dispositions de la loi sur les stupéfiants qui font du trafic illégal de produits à base de cannabis une infraction punissable. Le 20 avril 2020, Müller envoie un mémoire de 140 pages à la Cour constitutionnelle . En mai 2022, le ministre libéral de la Justice Marco Buschmann (FDP) promet un projet de loi de légalisation du cannabis à des fins récréatives, en vigueur dans un an . L'Allemagne ne lance rien de moins qu'une révolution sociétale au cœur de l'Europe. Le 30 juin 2022, le ministre de la Santé Karl Lauterbach se déclare favorable mais prudent . Le 22 mars 2024, Le Bundesrat allemand approuve une légalisation partielle du cannabis en Allemagne, qui entre en vigueur le 1er avril 2024.",
+          "url": "https://fr.wikipedia.org/wiki/Cannabis_en_Allemagne"
+        }
+      }
+    },
+    "esp": {
+      "source": {
+        "title": "Cannabis in Spain",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Spain"
+      },
+      "translations": {
+        "es": {
+          "title": "Cannabis en España",
+          "summary": "El cannabis es un género de planta autóctono en España,​ hoy fiscalizado legalmente. Se refiere también con la palabra «cannabis» a los cogollos secos de la planta que tienen un efecto psicoactivo, usados con fines médicos o lúdicos.\nEl cultivo y los usos de la planta es ilegal para algunos fines comerciales (de lucro). La posesión y el uso están descriminalizados para fines personales, así como para otros fines que no sean su compraventa. \nAsimismo, existe un régimen legal paralelo para usos industriales de algunas variedades, referidas como cáñamo industrial. \nFinalmente, existen una serie de medicamentos autorizados bajo distintas disposiciones legales, para usos médicos, entre los cuales:\n\ndos fármaco de cannabis legales en España, el nabiximols (o Sativex®) y el cannabidiol (Epidyolex®), un analgésico para los dolores provocados por la esclerosis múltiple,\nfórmulas magistrales tipificadas de preparados estandarizados de cannabis, desde 2025.​",
+          "url": "https://es.wikipedia.org/wiki/Cannabis_en_Espa%C3%B1a"
+        },
+        "pt": {
+          "title": "Cannabis na Espanha",
+          "summary": "Em 14 de novembro de 2006, na Espanha, a Izquierda Unida propôs uma modificação na Lei José Luis Corcuera (Lei Orgánica 1/92 de 21 de fevereiro, de protección de la seguridad ciudadana), no qual é aberto uma discussão em determinados casos, ao invés da punição arbitrária.",
+          "url": "https://pt.wikipedia.org/wiki/Cannabis_na_Espanha"
+        },
+        "fr": {
+          "title": "Cannabis en Espagne",
+          "summary": "Le Cannabis en Espagne est une plante autochtone (présente depuis au moins le néolithique), et à ce jour réglementée par le Code pénal espagnol qui en interdit la fabrication, le trafic, ainsi que la culture, mais qui n’en interdit pas la consommation.",
+          "url": "https://fr.wikipedia.org/wiki/Cannabis_en_Espagne"
+        }
+      }
+    },
+    "fra": {
+      "source": {
+        "title": "Cannabis in France",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_France"
+      },
+      "translations": {
+        "es": {
+          "title": "Cannabis en Francia",
+          "summary": "El cannabis en Francia es ilegal para uso personal, aunque ha sido y sigue siendo una de las drogas ilegales más populares. Ciertos derivados del cannabis están permitidos para usos medicinales concretos.",
+          "url": "https://es.wikipedia.org/wiki/Cannabis_en_Francia"
+        },
+        "fr": {
+          "title": "Cannabis en France",
+          "summary": "En France, le cannabis est la substance psychoactive la plus consommée après l'alcool, le tabac, la caféine et les médicaments psychotropes et le premier stupéfiant loin devant les champignons hallucinogènes, la cocaïne et l'ecstasy. En 2012, 13,4 millions de Français de 15 à 64 ans l'ont déjà expérimenté et 1,2 million de Métropolitains (environ 2 %) se disent des utilisateurs réguliers. La France se place au quatrième rang dans l'Union européenne derrière la République tchèque, l'Espagne et l'Italie quant à la consommation mensuelle et au deuxième après le Danemark quant à l'expérimentation au cours de la vie.",
+          "url": "https://fr.wikipedia.org/wiki/Cannabis_en_France"
+        }
+      }
+    },
+    "nld": {
+      "source": {
+        "title": "Cannabis in the Netherlands",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Netherlands"
+      },
+      "translations": {
+        "es": {
+          "title": "Cannabis en los Países Bajos",
+          "summary": "El cannabis en los Países Bajos es ilegal, pero está despenalizado para uso personal. Su consumo recreativo es tolerado y está permitido en las coffee shops.",
+          "url": "https://es.wikipedia.org/wiki/Cannabis_en_los_Pa%C3%ADses_Bajos"
+        },
+        "pt": {
+          "title": "Cannabis nos Países Baixos",
+          "summary": "A posse e/ou venda de maconha é tolerada em pequenas quantidades nos Países Baixos. Pode-se comprar a planta em lojas especiais (chamadas de \"coffeeshops\") se estiver com dezoito anos ou mais. A compra e venda de cannabis em qualquer outro lugar, é ilegal. O cultivo e a venda por atacado de maconha é igualmente \"tolerada\" em pequenas quantidades (as orientações são de não mais que cinco plantas em casa ou a posse de cinco gramas por adulto no máximo). As diretrizes de tolerância aparecem no apêndice da Lei do Ópio, que afirma muito claramente que cada parte da planta do cânhamo é proibida, exceto as sementes, isso por causa de acordos com muitos dos tratados internacionais que os Países Baixos assinaram. É por esta razão que a cannabis sativa não pode ser completamente legalizada no país. Assim, continua a ser ilegal, mas é \"tolerada\". Uma decisão judicial recente permitiu a um paciente usuário de maconha medicinal a posse de um pequeno número de plantas de cannabis, no entanto, o governo está apelando da decisão.\nEm 2009, 27 cafés vendiam maconha em Roterdã, mas todos aqueles localizados a menos de 250 metros de escolas tiveram que fechar as portas. Isso é quase a metade dos coffeeshops que atualmente operam no território da cidade. Isso aconteceu devido a uma nova política de prefeito Ivo Opstelten e do conselho da cidade, como resultado do aumento do uso de drogas leves entre os alunos.\nEmbora o uso ao ar livre seja proibido, ele também é \"tolerado\" na maioria dos lugares. Desde janeiro de 2006, no entanto, certas áreas no distrito \"De Baarsjes\", em Amsterdã, foram declaradas oficialmente zonas livres de cannabis por causa de incômodo causado pelo usuário aos moradores das áreas. As concentrações mais altas de THC e o aumento do turismo de drogas têm desafiado a política atual e levou a uma reavaliação da atual abordagem, como uma recente tentativa fracassada do governo neerlandês em impedir que turistas pudessem comprar maconha nos coffeshops. O tráfico de drogas efetuado por migrantes ilegais também cresceu, pois como o país é membro do Mercado Comum ele não barra foragidos da justiça de países como Marrocos.",
+          "url": "https://pt.wikipedia.org/wiki/Cannabis_nos_Pa%C3%ADses_Baixos"
+        },
+        "fr": {
+          "title": "Cannabis aux Pays-Bas",
+          "summary": "Aux Pays-Bas, l'usage et la revente de cannabis sont réglementés mais non légalisés ; il peut être acheté dans les coffee shops, des magasins ayant une licence spéciale pour ce commerce. Concernant la possession, il existe une tolérance jusqu'à cinq grammes.\nLa loi n'interdit pas la consommation. La consommation dans les endroits privés est tolérée. Celle dans les lieux publics est soumise à une réglementation plus stricte : pas de trouble à l'ordre public, pas de consommation en présence de mineurs (écoles, transports publics). De plus, les maires peuvent prendre des arrêtés interdisant la consommation de Bediol (11 %) et Bedrobinol (6 % + 7,5 % CBD (cannabidiol)[précision nécessaire]). Le Bureau du cannabis médicinal (BMC), qui dépend directement du Ministère de la Santé et des Sports néerlandais, est chargé d'assurer le contrôle de la distribution de ces nouveaux médicaments.\nEn 2008, 120 kg de cannabis médical ont ainsi été vendus au travers du réseau des pharmacies.\nConcernant la culture, celle-ci est autorisée jusqu'à cinq plants par personne et est considérée à titre de consommation personnelle. Au-delà, l'amende est de vingt-cinq euros et cinquante centimes par pied.\nFin 2017, le gouvernement néerlandais lance, à titre expérimental, une culture légale du cannabis, supervisée par l'État. En 2019, à la suite de cette phase d'expérimentation, le gouvernement donne son feu vert et les Pays-Bas deviennent le premier pays de l'Union Européenne à légaliser la production de cannabis. L'ensemble du dispositif est entré en vigueur en 2021.",
+          "url": "https://fr.wikipedia.org/wiki/Cannabis_aux_Pays-Bas"
+        }
+      }
+    },
+    "prt": {
+      "source": {
+        "title": "Cannabis in Portugal",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_Portugal"
+      },
+      "translations": {
+        "es": {
+          "title": "Cannabis en Portugal",
+          "summary": "El cannabis en Portugal se encuentra decriminalizado, como resultado de la despenalización de todas las drogas en Portugal en 2001. El uso médico del cannabis se legalizó en 2018.",
+          "url": "https://es.wikipedia.org/wiki/Cannabis_en_Portugal"
+        },
+        "pt": {
+          "title": "Canábis em Portugal",
+          "summary": "A canábis em Portugal foi descriminalizada em 2001, quando a posse de todas as drogas ilícitas foi descriminalizada no país, sendo as sanções penais substituídas por sanções civis e programas de dissuasão.\nA posse de canábis é punível como contraordenação, caso se destine a consumo pessoal, limitando-se a 25 g de flor, 2,5 g de canábis, 5 g de haxixe e 2,5 g de óleo de canábis. Os limites são definidos por dez doses diárias. Se forem excedidos, é considerado crime, podendo ser de consumo de droga ou tráfico de drogas.\nO uso da canábis em Portugal foi descriminalizado a partir de 1 de julho de 2001, por lei aprovada pelo Parlamento. Até a lei ser aprovada, os usuários podiam ser condenados a penas de mais de um ano de prisão. Espanha e Itália foram os dois países europeus a descriminalizar o uso da marijuana antes de Portugal.",
+          "url": "https://pt.wikipedia.org/wiki/Can%C3%A1bis_em_Portugal"
+        },
+        "fr": {
+          "title": "Cannabis au Portugal",
+          "summary": "Le commerce de cannabis au Portugal est une infraction pénale. La loi no 30/2000 du 29 novembre 2000 a cependant dépénalisé la consommation personnelle de produits stupéfiants en abrogeant partiellement le décret-loi n° 15/93 du 22 janvier 1993.\nLa loi a aussi dépénalisé leur acquisition et leur détention lorsque celles-ci sont liées à la consommation personnelle, mais seulement dans la mesure où la quantité détenue n’excède pas les besoins d’une personne pendant dix jours (soit cinq grammes pour le haschich et 25 grammes pour l'herbe), ces infractions sont désormais du domaine de l'infraction administrative et non plus du pénal.\nEn effet, cette loi donne pour priorité de soigner les toxicomanes avant de les punir. Les sanctions administratives visent donc surtout les consommateurs non toxicomanes, mais qui sont déjà fichés. La sanction consiste en principe en une amende. Pour les consommateurs de cannabis, elle est comprise entre 25 et 150 euros.\nPour la culture, la loi diffère en fonction de l'ampleur de la culture de 30 jours-amende en cas de culture à des fins personnelles à 12 ans de prison en cas de culture pour la revente.\nLa vente de cannabis reste totalement interdite et peut entraîner une peine de prison de un à cinq ans.\nEn 2018, un projet de loi est examiné pour autoriser l'utilisation du cannabis à des fins thérapeutiques lorsque « les traitements conventionnels avec des médicaments autorisés ne produisent pas les effets attendus ou ne provoquent pas d'effets significatifs ».",
+          "url": "https://fr.wikipedia.org/wiki/Cannabis_au_Portugal"
+        }
+      }
+    },
+    "us-ca": {
+      "source": {
+        "title": "Cannabis in California",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_California"
+      },
+      "translations": {
+        "es": {
+          "title": "Cannabis en California",
+          "summary": "El cannabis en California es legal para uso medicinal desde 1996, y para uso recreativo desde 2016. California está a la vanguardia de los esfuerzos para liberalizar las leyes que regulan cannabis en los Estados Unidos, pues en 1972 presentó la primera iniciativa para su legalización (la llamada «Proposición 19»). Aunque no tuvo éxito, California se convertiría más tarde en el primer estado en legalizar el cannabis medicinal con la aprobación en 1996 de la Compassionate Use Act ('Ley de Uso Compasivo' o «Proposición 215»).​ En noviembre de 2016, los votantes de California aprobaron la Adult Use of Marijuana Act ('Ley de Uso de Marihuana por Adultos', o «Propuesta 64») para legalizar el uso recreativo del cannabis.\nComo resultado de la legalización recreativa, los gobiernos locales (ciudades y condados) no pueden prohibir que los adultos cultiven, usen o transporten marihuana para uso personal. Las actividades comerciales pueden estar reguladas o prohibidas por los gobiernos locales, aunque no se pueden prohibir la transferencia entre personas.​​ Tras la legalización recreativa, los cultivadores y proveedores de cannabis medicinal existentes debían registrarse, cumplir con las regulaciones y solicitar permisos, por lo que cerraron más de la mitad de los dispensarios sin ánimo de lucro que proporcionan marihuana medicinal. Las agencias locales han tardado en aprobar las tiendas minoristas que venden cannabis con fines recreativos, y la mayoría de las ciudades y condados prohíben la venta minorista con un enfoque de esperar y ver. Muchos cultivadores existentes han tardado en solicitar permisos, ya que se ha estimado que el 60% o más de todo el cannabis consumido en los Estados Unidos proviene del norte de California. La exportación de marihuana a otros estados sigue siendo ilegal ya que la Administración de Control de Drogas la considera una droga de la Lista 1.\nLa reducción de la actividad ilegal se considera esencial para el éxito de las operaciones legales que pagan los considerables impuestos evaluados por las autoridades estatales y locales. Muchas personas no tienen tiendas minoristas cercanas que vendan cannabis y continúan comprando a vendedores sin licencia. El cultivo ilegal continúa en áreas rurales remotas. Las redadas y la confiscación por parte de las fuerzas del orden de las operaciones minoristas y de cultivo ilegales han continuado y, en algunos casos, se han intensificado después de la legalización.\nLas principales agencias reguladoras de California fueron inicialmente la Oficina de Control de Cannabis (BCC, Bureau of Cannabis Control), el Departamento de Alimentos y Agricultura y el Departamento de Salud Pública.  Sus responsabilidades se fusionaron bajo el Departamento de Control de Cannabis en 2021.\nLey de Derecho de Acceso de los Pacientes al Cannabis Medicinal (SB 1186):​ Firmada en ley por el Gobernador el 18 de septiembre de 2022, esta Ley impedirá que las agencias locales prohíban la entrega de cannabis medicinal. El propósito de la nueva ley, que será efectiva a partir del 1 de enero de 2024,​ es permitir que los minoristas que solo entregan productos médicos operen en ciudades y condados que actualmente detienen la entrega médica.",
+          "url": "https://es.wikipedia.org/wiki/Cannabis_en_California"
+        },
+        "de": {
+          "title": "Rechtliche Stellung des Cannabisgebrauchs in Kalifornien",
+          "summary": "Cannabis ist seit 1996 in Kalifornien legal für medizinische Zwecke, und seit 2018 auch für den Freizeitgebrauch.",
+          "url": "https://de.wikipedia.org/wiki/Rechtliche_Stellung_des_Cannabisgebrauchs_in_Kalifornien"
+        },
+        "nl": {
+          "title": "Softdrugsbeleid in Californië",
+          "summary": "Het softdrugsbeleid in Californië is veel liberaler dan dat van de meeste andere staten van de Verenigde Staten. Californië was de eerste staat in de VS die medicinaal gebruik van cannabis legaliseerde nadat in 1996 Proposition 215 per referendum werd aangenomen met 55% voorstemmen. Deze wet gaf inwoners van Californië met een doktersadvies het recht marihuana en hasjiesj te bezitten, gebruiken, verbouwen en aan te schaffen in speciale winkeltjes. In de praktijk blijkt het niet moeilijk om een doktersverklaring te krijgen. De uitvoering van dit beleid is verschillend: enkele steden hebben ervoor gekozen geen winkeltjes toe te staan terwijl Oakland de bijnaam Oaksterdam heeft gekregen. In Los Angeles leidde onduidelijke regelgeving tot een explosie van cannabiswinkeltjes, naar schatting 900 in 2010. De gemeente probeert dit aantal terug te dringen.\nOok voor het recreatieve gebruik van cannabis is de Californische justitie vrij mild. In 2000 werd Proposition 36 (Substance Abuse and Crime Prevention Act) aangenomen met 61%. Deze bepaalde dat cannabisbezitters die voor de eerste of tweede keer werden betrapt een hulpprogramma aangeboden kregen in plaats van juridische vervolging. Op 30 september 2010 tekende gouverneur Arnold Schwarzenegger een wet die bezit tot 28,5 gram degradeerde van misdrijf naar overtreding zonder rechtsgang. Overtreders krijgen een boete van 100 Amerikaanse dollar. De wet gaat op 1 januari 2011 in. Op 2 november 2010 werd Proposition 19 bij referendum verworpen. Dit voorstel zou marihuana in Californië verregaand hebben gelegaliseerd en gereguleerd.\nOndanks de liberale staatswetten blijven handelingen aangaande softdrugs officieel verboden volgens de federale Controlled Substances Act.\n2014: De Proposition 47, ingevoerd in 2014, veranderde de manier waarop bepaalde diefstal- en drugsbezitdelicten, met name die gerelateerd aan geconcentreerde cannabis, werden bekeken. Deze misdaden werden gedegradeerd van ernstige overtredingen (felonies) naar minder ernstige overtredingen (misdemeanors), met een maximale straf van een jaar gevangenisstraf. Deze verandering was echter niet van toepassing op mensen met eerdere veroordelingen of individuen die zich moeten registreren als zedendelinquenten.\n2016: De Proposition 64 veranderde het landschap in Californië door het voor personen van 21 jaar en ouder legaal te maken om marihuana te gebruiken en te kweken voor persoonlijk gebruik. Het verminderde ook de straffen voor misdrijven gerelateerd aan marihuana voor zowel volwassenen als jongeren. Bovendien opende het de mogelijkheid om eerdere veroordelingen met betrekking tot marihuana te herzien, te verbergen of zelfs te seponeren voor degenen die hiervoor in aanmerking komen.",
+          "url": "https://nl.wikipedia.org/wiki/Softdrugsbeleid_in_Californi%C3%AB"
+        }
+      }
+    },
+    "us-ny": {
+      "source": {
+        "title": "Cannabis in New York",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_New_York"
+      },
+      "translations": {
+        "de": {
+          "title": "Rechtliche Stellung des Cannabisgebrauchs in New York",
+          "summary": "Cannabis wurde im Staat New York 2014 teilweise legalisiert. 2021 folgte die vollständige Legalisierung.",
+          "url": "https://de.wikipedia.org/wiki/Rechtliche_Stellung_des_Cannabisgebrauchs_in_New_York"
+        }
+      }
+    },
+    "usa": {
+      "source": {
+        "title": "Cannabis in the United States",
+        "url": "https://en.wikipedia.org/wiki/Cannabis_in_the_United_States"
+      },
+      "translations": {
+        "pt": {
+          "title": "Cannabis nos Estados Unidos",
+          "summary": "O uso, a venda e a posse de cannabis acima de 0,3% de THC nos Estados Unidos, apesar das leis em muitos estados permitirem em várias circunstâncias, é ilegal segundo a lei federal. Como uma droga de Classe I sob a Lei de Substâncias Controladas, de 1970, do governo federal americano, cannabis acima de 0,3% THC (termo legal para maconha) é considerado \"não aceito para uso médico\" e tem alto potencial para abuso e dependência física ou psicológica. O uso de cannabis é ilegal por qualquer motivo, com exceção dos programas de pesquisa aprovados pelo FDA. Contudo, em vários estados legislações aprovadas permitem isenções para vários usos, incluindo para fins médicos, industriais e recreativos.\nO uso industrial de cannabis (hemp, ou cânhamo) foi considerado ilegal o cultivo sem uma licença de acordo com a Lei de Substâncias Controladas por causa de sua relação com o uso de maconha como droga e todos os produtos importados devem aderir a uma política de tolerância zero. A Lei Agrícola de 2014 permite que universidades e departamentos de agricultura em nível estadual cultivem cannabis para pesquisar seu potencial industrial. Em dezembro de 2018, o cânhamo foi autorizado a ser cultivado nos Estados Unidos sob a lei federal depois que a Lei de Agricultura de Cânhamo foi incluída numa nova legislação aprovada pelo Congresso em 2018.\n\nComo uma droga psicoativa, a cannabis continua a encontrar grande aceitação entre os usuários para uso recreativo e médico nos Estados Unidos. Até 2021, dezoito estados, dois territórios incorporados e o Distrito de Colúmbia já legalizaram o uso recreativo de cannabis. Trinta e seis estados, quatro territórios e o Distrito de Colúmbia legalizaram o uso médico da droga. Vários esforços sociais e políticos existiram para remover o estigma e a legislação ao redor do cannabis perante a Lei de Substâncias Controladas, mas todas fracassaram, e a Suprema Corte dos Estados Unidos já julgou, em 2001 e 2005, que o governo federal tem o direito de regulamentar e criminalizar a cannabis, seja ela medicinal ou recreativa. Como resultado, existe dispensários de cannabis licenciados por cada estado; essas empresas vendem produtos de maconha que não foram aprovados pela Food and Drug Administration, nem estão legalmente registrados no governo federal para vender substâncias controladas. Embora a cannabis não tenha sido aprovada, o FDA reconhece os benefícios potenciais e aprovou duas drogas que contêm componentes da maconha.",
+          "url": "https://pt.wikipedia.org/wiki/Cannabis_nos_Estados_Unidos"
+        },
+        "de": {
+          "title": "Rechtliche Stellung des Cannabisgebrauchs in den USA",
+          "summary": "Der Gebrauch, Besitz und Verkauf von Cannabis in den Vereinigten Staaten ist durch Bundesrecht verboten. Dennoch haben bisher 24 der 50 amerikanischen Bundesstaaten sowie der Bundesdistrikt und Regierungssitz Washington, D.C. Cannabis als Rauschmittel für Personen ab 21 Jahren legalisiert. 7 weitere Staaten haben den Besitz kleinerer Mengen entkriminalisiert.\nEine Herabstufung von Cannabis aus dem Anhang I des Controlled Substances Act, wo Cannabis zur Zeit zusammen mit Drogen wie Heroin aufgeführt ist, in den Anhang III (Drogen mit medizinischem Nutzen und moderatem Missbrauchspotenzial), wird vom Justizministerium angestrebt. Präsident Donald Trump bestätigte im August 2025, dass auch die von ihm geführte Regierung die Herabstufung von Cannabis anstrebt.",
+          "url": "https://de.wikipedia.org/wiki/Rechtliche_Stellung_des_Cannabisgebrauchs_in_den_USA"
+        },
+        "fr": {
+          "title": "Cannabis aux États-Unis",
+          "summary": "Aux États-Unis, la principale loi est le Controlled Substances Act de 1970, qui a remplacé le Marihuana Tax Act de 1937, déclaré anticonstitutionnel par la Cour suprême. Depuis 2012, en commençant par le Colorado, plusieurs dizaines d'états américains ont légalisé l'usage récréatif du Cannabis.",
+          "url": "https://fr.wikipedia.org/wiki/Cannabis_aux_%C3%89tats-Unis"
+        }
+      }
+    }
+  }
+}
