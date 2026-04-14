@@ -58,9 +58,9 @@
   },
   "related_codes": [
     "usa",
-    "us-ct",
-    "us-de",
-    "us-ga"
+    "us-wy",
+    "us-ia",
+    "us-ks"
   ],
   "related_names": [
     {
@@ -68,16 +68,16 @@
       "name": "United States"
     },
     {
-      "code": "us-ct",
-      "name": "Connecticut"
+      "code": "us-wy",
+      "name": "Wyoming"
     },
     {
-      "code": "us-de",
-      "name": "Delaware"
+      "code": "us-ia",
+      "name": "Iowa"
     },
     {
-      "code": "us-ga",
-      "name": "Georgia"
+      "code": "us-ks",
+      "name": "Kansas"
     }
   ],
   "graph": {
@@ -85,30 +85,30 @@
     "seo_cluster": "USA_CLUSTER",
     "geo_neighbors": [
       {
-        "code": "us-ak",
-        "name": "Alaska"
+        "code": "us-sd",
+        "name": "South Dakota"
       },
       {
-        "code": "us-al",
-        "name": "Alabama"
+        "code": "us-ne",
+        "name": "Nebraska"
       },
       {
-        "code": "us-ar",
-        "name": "Arkansas"
+        "code": "us-mn",
+        "name": "Minnesota"
       }
     ],
     "legal_similarity": [
       {
-        "code": "us-hi",
-        "name": "Hawaii"
+        "code": "us-ms",
+        "name": "Mississippi"
       },
       {
         "code": "us-la",
         "name": "Louisiana"
       },
       {
-        "code": "us-ms",
-        "name": "Mississippi"
+        "code": "us-nc",
+        "name": "North Carolina"
       }
     ],
     "cluster_links": [
@@ -117,22 +117,22 @@
         "name": "United States"
       },
       {
-        "code": "us-ia",
-        "name": "Iowa"
+        "code": "us-co",
+        "name": "Colorado"
       }
     ],
     "same_country_states": [
       {
-        "code": "us-ct",
-        "name": "Connecticut"
+        "code": "us-wy",
+        "name": "Wyoming"
       },
       {
-        "code": "us-de",
-        "name": "Delaware"
+        "code": "us-ia",
+        "name": "Iowa"
       },
       {
-        "code": "us-ga",
-        "name": "Georgia"
+        "code": "us-ks",
+        "name": "Kansas"
       }
     ],
     "federal_parent": {
@@ -141,8 +141,8 @@
     }
   },
   "coordinates": {
-    "lat": 38,
-    "lng": -97
+    "lat": 47.4675,
+    "lng": -100.302
   },
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_North_Dakota",
@@ -174,9 +174,9 @@
   },
   "hashes": {
     "code": "us-nd",
-    "content_hash": "6c7195124f035b364909110609b46b76f6313a1a981bdde441a9fc604aea9d7f",
+    "content_hash": "2cb4d368a900ba7222b1d42569b95f782ac53a063cd11912ee120eae8b9c1978",
     "notes_hash": "8cb630cebac1a92aafe03b7e39e01e43128c3b37475bac6243172b5a8c64ae51",
-    "model_hash": "dd315d74ebd18c2da67bbba75c710d8ec47a5bb6ebbb3b28ff134934323456b3"
+    "model_hash": "d53cc1504d76ba79d2be055a3b477259bca2da4ef83838f3dccb65ab038e9e82"
   },
   "updated_at": "2026-04-10"
 }

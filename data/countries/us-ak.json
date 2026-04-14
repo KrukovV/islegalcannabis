@@ -58,9 +58,9 @@
   },
   "related_codes": [
     "usa",
-    "us-ga",
+    "us-id",
     "us-hi",
-    "us-ia"
+    "us-ut"
   ],
   "related_names": [
     {
@@ -68,16 +68,16 @@
       "name": "United States"
     },
     {
-      "code": "us-ga",
-      "name": "Georgia"
+      "code": "us-id",
+      "name": "Idaho"
     },
     {
       "code": "us-hi",
       "name": "Hawaii"
     },
     {
-      "code": "us-ia",
-      "name": "Iowa"
+      "code": "us-ut",
+      "name": "Utah"
     }
   ],
   "graph": {
@@ -85,30 +85,30 @@
     "seo_cluster": "USA_CLUSTER",
     "geo_neighbors": [
       {
-        "code": "us-al",
-        "name": "Alabama"
+        "code": "us-wa",
+        "name": "Washington"
       },
       {
-        "code": "us-ar",
-        "name": "Arkansas"
+        "code": "us-or",
+        "name": "Oregon"
       },
       {
-        "code": "us-ct",
-        "name": "Connecticut"
+        "code": "us-ca",
+        "name": "California"
       }
     ],
     "legal_similarity": [
       {
-        "code": "us-de",
-        "name": "Delaware"
+        "code": "us-nv",
+        "name": "Nevada"
       },
       {
-        "code": "us-md",
-        "name": "Maryland"
+        "code": "us-mt",
+        "name": "Montana"
       },
       {
-        "code": "us-me",
-        "name": "Maine"
+        "code": "us-az",
+        "name": "Arizona"
       }
     ],
     "cluster_links": [
@@ -117,22 +117,22 @@
         "name": "United States"
       },
       {
-        "code": "us-id",
-        "name": "Idaho"
+        "code": "us-wy",
+        "name": "Wyoming"
       }
     ],
     "same_country_states": [
       {
-        "code": "us-ga",
-        "name": "Georgia"
+        "code": "us-id",
+        "name": "Idaho"
       },
       {
         "code": "us-hi",
         "name": "Hawaii"
       },
       {
-        "code": "us-ia",
-        "name": "Iowa"
+        "code": "us-ut",
+        "name": "Utah"
       }
     ],
     "federal_parent": {
@@ -141,8 +141,8 @@
     }
   },
   "coordinates": {
-    "lat": 38,
-    "lng": -97
+    "lat": 65.3609,
+    "lng": -151.604
   },
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Alaska",
@@ -174,9 +174,9 @@
   },
   "hashes": {
     "code": "us-ak",
-    "content_hash": "7c3daddcda35b7d30c11d69b81f21436778b0b4b69db5670a5c70c22b074d94d",
+    "content_hash": "253ed8566c2c70c91cc09072c50fd47cc41b5f5154b02f85ca867036c2b6b5d4",
     "notes_hash": "5e01927b43ea2b2287bd34582755135e37154b9af4f20acb2971a7aef9c0f602",
-    "model_hash": "0a900ca94f9268ec0160b879d485fdc6905e6da7c8ebde4858bdb22757ab4bd9"
+    "model_hash": "a9da5949d6f149e4a4cdd2bdfeeb2b813beb3fb14b57f806dff5e020c778701f"
   },
   "updated_at": "2026-04-10"
 }

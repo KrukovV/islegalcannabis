@@ -56,9 +56,9 @@
   },
   "related_codes": [
     "usa",
-    "us-ct",
-    "us-de",
-    "us-ga"
+    "us-nj",
+    "us-ny",
+    "us-wv"
   ],
   "related_names": [
     {
@@ -66,16 +66,16 @@
       "name": "United States"
     },
     {
-      "code": "us-ct",
-      "name": "Connecticut"
+      "code": "us-nj",
+      "name": "New Jersey"
     },
     {
-      "code": "us-de",
-      "name": "Delaware"
+      "code": "us-ny",
+      "name": "New York"
     },
     {
-      "code": "us-ga",
-      "name": "Georgia"
+      "code": "us-wv",
+      "name": "West Virginia"
     }
   ],
   "graph": {
@@ -83,30 +83,26 @@
     "seo_cluster": "USA_CLUSTER",
     "geo_neighbors": [
       {
-        "code": "us-ak",
-        "name": "Alaska"
+        "code": "us-md",
+        "name": "Maryland"
       },
       {
-        "code": "us-al",
-        "name": "Alabama"
+        "code": "us-de",
+        "name": "Delaware"
       },
       {
-        "code": "us-ar",
-        "name": "Arkansas"
+        "code": "us-va",
+        "name": "Virginia"
       }
     ],
     "legal_similarity": [
       {
-        "code": "us-va",
-        "name": "Virginia"
+        "code": "us-fl",
+        "name": "Florida"
       },
       {
         "code": "us-tx",
         "name": "Texas"
-      },
-      {
-        "code": "us-fl",
-        "name": "Florida"
       }
     ],
     "cluster_links": [
@@ -115,22 +111,22 @@
         "name": "United States"
       },
       {
-        "code": "us-hi",
-        "name": "Hawaii"
+        "code": "us-ct",
+        "name": "Connecticut"
       }
     ],
     "same_country_states": [
       {
-        "code": "us-ct",
-        "name": "Connecticut"
+        "code": "us-nj",
+        "name": "New Jersey"
       },
       {
-        "code": "us-de",
-        "name": "Delaware"
+        "code": "us-ny",
+        "name": "New York"
       },
       {
-        "code": "us-ga",
-        "name": "Georgia"
+        "code": "us-wv",
+        "name": "West Virginia"
       }
     ],
     "federal_parent": {
@@ -139,8 +135,8 @@
     }
   },
   "coordinates": {
-    "lat": 38,
-    "lng": -97
+    "lat": 40.8601,
+    "lng": -77.6094
   },
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Pennsylvania",
@@ -179,9 +175,9 @@
   },
   "hashes": {
     "code": "us-pa",
-    "content_hash": "ae2496db623adae46182fd6c53c172e1b339a9c6d43faaf0514cdde4497cbe0f",
+    "content_hash": "9a4f07248c2bd4e4b38d6800951405c0ed5cd46cf5fb9c06b8c50b3de0057907",
     "notes_hash": "6961473301d1cc63225a242a73394e63315285c75a6567bdfcdf4c0c7c99d17a",
-    "model_hash": "c72f3a21e79e496fb09acb543f989a8bc3baab55db9e132f9254b36d6c7336fb"
+    "model_hash": "24a7cc4316b3cfdfd10bb78a923f8ed4e4438ccb4b9fc9c2c045953f6f8d9438"
   },
   "updated_at": "2024-01-01"
 }

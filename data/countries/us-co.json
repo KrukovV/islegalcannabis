@@ -58,9 +58,9 @@
   },
   "related_codes": [
     "usa",
-    "us-ar",
-    "us-ga",
-    "us-hi"
+    "us-ne",
+    "us-sd",
+    "us-ks"
   ],
   "related_names": [
     {
@@ -68,16 +68,16 @@
       "name": "United States"
     },
     {
-      "code": "us-ar",
-      "name": "Arkansas"
+      "code": "us-ne",
+      "name": "Nebraska"
     },
     {
-      "code": "us-ga",
-      "name": "Georgia"
+      "code": "us-sd",
+      "name": "South Dakota"
     },
     {
-      "code": "us-hi",
-      "name": "Hawaii"
+      "code": "us-ks",
+      "name": "Kansas"
     }
   ],
   "graph": {
@@ -85,30 +85,30 @@
     "seo_cluster": "USA_CLUSTER",
     "geo_neighbors": [
       {
-        "code": "us-az",
-        "name": "Arizona"
+        "code": "us-wy",
+        "name": "Wyoming"
       },
       {
-        "code": "us-ak",
-        "name": "Alaska"
+        "code": "us-nm",
+        "name": "New Mexico"
       },
       {
-        "code": "us-al",
-        "name": "Alabama"
+        "code": "us-ut",
+        "name": "Utah"
       }
     ],
     "legal_similarity": [
       {
-        "code": "us-ct",
-        "name": "Connecticut"
+        "code": "us-az",
+        "name": "Arizona"
       },
       {
-        "code": "us-de",
-        "name": "Delaware"
+        "code": "us-mt",
+        "name": "Montana"
       },
       {
-        "code": "us-md",
-        "name": "Maryland"
+        "code": "us-nv",
+        "name": "Nevada"
       }
     ],
     "cluster_links": [
@@ -117,22 +117,22 @@
         "name": "United States"
       },
       {
-        "code": "us-ia",
-        "name": "Iowa"
+        "code": "us-id",
+        "name": "Idaho"
       }
     ],
     "same_country_states": [
       {
-        "code": "us-ar",
-        "name": "Arkansas"
+        "code": "us-ne",
+        "name": "Nebraska"
       },
       {
-        "code": "us-ga",
-        "name": "Georgia"
+        "code": "us-sd",
+        "name": "South Dakota"
       },
       {
-        "code": "us-hi",
-        "name": "Hawaii"
+        "code": "us-ks",
+        "name": "Kansas"
       }
     ],
     "federal_parent": {
@@ -181,9 +181,9 @@
   },
   "hashes": {
     "code": "us-co",
-    "content_hash": "9f56360406c39d741969cdb6c88016e2d8ab0bb4f7b8b6ebc39a84d5e20209a4",
+    "content_hash": "bd35df88ba0b94cc92d9d86952f9592e2c4e589da656d831ce04c06cfc0f7ff7",
     "notes_hash": "f4f78d5507cffefe13d041ea5eedd8fd397e2dddf124744b3dc5168754e733d2",
-    "model_hash": "397e0b18b78d031ad439ba52b74660683277582e96635f55d1cced1634b416a2"
+    "model_hash": "bd11b4a29b253727ce9dc90255de6fe6d6df7e28575108279604d57da8913350"
   },
   "updated_at": "2024-01-01"
 }

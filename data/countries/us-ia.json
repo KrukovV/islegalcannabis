@@ -56,9 +56,9 @@
   },
   "related_codes": [
     "usa",
-    "us-ct",
-    "us-de",
-    "us-hi"
+    "us-ne",
+    "us-ar",
+    "us-in"
   ],
   "related_names": [
     {
@@ -66,16 +66,16 @@
       "name": "United States"
     },
     {
-      "code": "us-ct",
-      "name": "Connecticut"
+      "code": "us-ne",
+      "name": "Nebraska"
     },
     {
-      "code": "us-de",
-      "name": "Delaware"
+      "code": "us-ar",
+      "name": "Arkansas"
     },
     {
-      "code": "us-hi",
-      "name": "Hawaii"
+      "code": "us-in",
+      "name": "Indiana"
     }
   ],
   "graph": {
@@ -83,30 +83,30 @@
     "seo_cluster": "USA_CLUSTER",
     "geo_neighbors": [
       {
-        "code": "us-ak",
-        "name": "Alaska"
+        "code": "us-mo",
+        "name": "Missouri"
       },
       {
-        "code": "us-al",
-        "name": "Alabama"
+        "code": "us-mn",
+        "name": "Minnesota"
       },
       {
-        "code": "us-ar",
-        "name": "Arkansas"
+        "code": "us-il",
+        "name": "Illinois"
       }
     ],
     "legal_similarity": [
       {
-        "code": "us-ga",
-        "name": "Georgia"
+        "code": "us-wi",
+        "name": "Wisconsin"
       },
       {
-        "code": "us-id",
-        "name": "Idaho"
+        "code": "us-ks",
+        "name": "Kansas"
       },
       {
-        "code": "us-in",
-        "name": "Indiana"
+        "code": "us-sd",
+        "name": "South Dakota"
       }
     ],
     "cluster_links": [
@@ -115,22 +115,22 @@
         "name": "United States"
       },
       {
-        "code": "us-ks",
-        "name": "Kansas"
+        "code": "us-ok",
+        "name": "Oklahoma"
       }
     ],
     "same_country_states": [
       {
-        "code": "us-ct",
-        "name": "Connecticut"
+        "code": "us-ne",
+        "name": "Nebraska"
       },
       {
-        "code": "us-de",
-        "name": "Delaware"
+        "code": "us-ar",
+        "name": "Arkansas"
       },
       {
-        "code": "us-hi",
-        "name": "Hawaii"
+        "code": "us-in",
+        "name": "Indiana"
       }
     ],
     "federal_parent": {
@@ -139,8 +139,8 @@
     }
   },
   "coordinates": {
-    "lat": 38,
-    "lng": -97
+    "lat": 42.0423,
+    "lng": -93.3891
   },
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Iowa",
@@ -172,9 +172,9 @@
   },
   "hashes": {
     "code": "us-ia",
-    "content_hash": "99840a3244246f3a4f0fecd67f3b0b9a2ea52df84edbfa6f08b58404aa90975a",
+    "content_hash": "83eafaf96838b43e67bae52ffef2e2f31ac4b752feb001be629e33311d4add19",
     "notes_hash": "5d629a08adfbf1d5de4bab4943c18a9e0ca54d0b3b1b37bd9ef4073b285af8be",
-    "model_hash": "8d7a13522b65761d114b860f4a362787530a0106e71a751a88cbda1fd29be394"
+    "model_hash": "dd74c4c92f112f6660cd3ceb20b1e16aac63844bf8a313292e0f70625b3f80a1"
   },
   "updated_at": "2026-04-10"
 }

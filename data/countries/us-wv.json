@@ -56,9 +56,9 @@
   },
   "related_codes": [
     "usa",
-    "us-ct",
-    "us-de",
-    "us-hi"
+    "us-md",
+    "us-pa",
+    "us-de"
   ],
   "related_names": [
     {
@@ -66,16 +66,16 @@
       "name": "United States"
     },
     {
-      "code": "us-ct",
-      "name": "Connecticut"
+      "code": "us-md",
+      "name": "Maryland"
+    },
+    {
+      "code": "us-pa",
+      "name": "Pennsylvania"
     },
     {
       "code": "us-de",
       "name": "Delaware"
-    },
-    {
-      "code": "us-hi",
-      "name": "Hawaii"
     }
   ],
   "graph": {
@@ -83,30 +83,30 @@
     "seo_cluster": "USA_CLUSTER",
     "geo_neighbors": [
       {
-        "code": "us-ak",
-        "name": "Alaska"
+        "code": "us-oh",
+        "name": "Ohio"
       },
       {
-        "code": "us-al",
-        "name": "Alabama"
+        "code": "us-va",
+        "name": "Virginia"
       },
       {
-        "code": "us-ar",
-        "name": "Arkansas"
+        "code": "us-nc",
+        "name": "North Carolina"
       }
     ],
     "legal_similarity": [
       {
-        "code": "us-ga",
-        "name": "Georgia"
+        "code": "us-sc",
+        "name": "South Carolina"
       },
       {
-        "code": "us-ia",
-        "name": "Iowa"
+        "code": "us-ky",
+        "name": "Kentucky"
       },
       {
-        "code": "us-id",
-        "name": "Idaho"
+        "code": "us-in",
+        "name": "Indiana"
       }
     ],
     "cluster_links": [
@@ -115,22 +115,22 @@
         "name": "United States"
       },
       {
-        "code": "us-in",
-        "name": "Indiana"
+        "code": "us-tn",
+        "name": "Tennessee"
       }
     ],
     "same_country_states": [
       {
-        "code": "us-ct",
-        "name": "Connecticut"
+        "code": "us-md",
+        "name": "Maryland"
+      },
+      {
+        "code": "us-pa",
+        "name": "Pennsylvania"
       },
       {
         "code": "us-de",
         "name": "Delaware"
-      },
-      {
-        "code": "us-hi",
-        "name": "Hawaii"
       }
     ],
     "federal_parent": {
@@ -139,8 +139,8 @@
     }
   },
   "coordinates": {
-    "lat": 38,
-    "lng": -97
+    "lat": 38.6422,
+    "lng": -80.7128
   },
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_West_Virginia",
@@ -172,9 +172,9 @@
   },
   "hashes": {
     "code": "us-wv",
-    "content_hash": "a4d06449cbbc6d2f1e6344e8ffd6d1b3b316a64cdff53cf21fff0a71ee7ec46b",
+    "content_hash": "b9a3e3ba8f91b66c13a6bb54f0714399e1d39ba03f7e0ff0436284c90c6118b5",
     "notes_hash": "b9dd9c0ef65b367c4e3ee3db65a2f9dc96f53213c7fe46a6f5f4fc01b10f0abb",
-    "model_hash": "a7d4830418a9d3d42fb05cd33df663220a0291f517732b9306e7e03fc5035c4c"
+    "model_hash": "8db086d22c1fe6c1200f0380d2454103bb57af80998f26773d51c026d7e4873a"
   },
   "updated_at": "2026-04-10"
 }

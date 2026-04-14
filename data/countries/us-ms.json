@@ -58,9 +58,9 @@
   },
   "related_codes": [
     "usa",
-    "us-ct",
-    "us-de",
-    "us-ga"
+    "us-tn",
+    "us-ky",
+    "us-mo"
   ],
   "related_names": [
     {
@@ -68,16 +68,16 @@
       "name": "United States"
     },
     {
-      "code": "us-ct",
-      "name": "Connecticut"
+      "code": "us-tn",
+      "name": "Tennessee"
     },
     {
-      "code": "us-de",
-      "name": "Delaware"
+      "code": "us-ky",
+      "name": "Kentucky"
     },
     {
-      "code": "us-ga",
-      "name": "Georgia"
+      "code": "us-mo",
+      "name": "Missouri"
     }
   ],
   "graph": {
@@ -85,30 +85,30 @@
     "seo_cluster": "USA_CLUSTER",
     "geo_neighbors": [
       {
-        "code": "us-ak",
-        "name": "Alaska"
-      },
-      {
         "code": "us-al",
         "name": "Alabama"
       },
       {
         "code": "us-ar",
         "name": "Arkansas"
-      }
-    ],
-    "legal_similarity": [
-      {
-        "code": "us-hi",
-        "name": "Hawaii"
       },
       {
         "code": "us-la",
         "name": "Louisiana"
-      },
+      }
+    ],
+    "legal_similarity": [
       {
         "code": "us-nc",
         "name": "North Carolina"
+      },
+      {
+        "code": "us-ne",
+        "name": "Nebraska"
+      },
+      {
+        "code": "us-nd",
+        "name": "North Dakota"
       }
     ],
     "cluster_links": [
@@ -117,22 +117,22 @@
         "name": "United States"
       },
       {
-        "code": "us-ia",
-        "name": "Iowa"
+        "code": "us-ga",
+        "name": "Georgia"
       }
     ],
     "same_country_states": [
       {
-        "code": "us-ct",
-        "name": "Connecticut"
+        "code": "us-tn",
+        "name": "Tennessee"
       },
       {
-        "code": "us-de",
-        "name": "Delaware"
+        "code": "us-ky",
+        "name": "Kentucky"
       },
       {
-        "code": "us-ga",
-        "name": "Georgia"
+        "code": "us-mo",
+        "name": "Missouri"
       }
     ],
     "federal_parent": {
@@ -141,8 +141,8 @@
     }
   },
   "coordinates": {
-    "lat": 38,
-    "lng": -97
+    "lat": 32.8657,
+    "lng": -89.7189
   },
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Mississippi",
@@ -174,9 +174,9 @@
   },
   "hashes": {
     "code": "us-ms",
-    "content_hash": "ed2a551624dcd576d49c65e459d34501b1873d790c867c7084fa4582dd4ca12c",
+    "content_hash": "25afb32bfb57ac6c4e19cbbdc66cf26364e1e8cf82ee402508aba8adc672cbbd",
     "notes_hash": "fe31a25efce8c9b744e5ecd3cedd396ec966bfc82b554fafb780dc16d41f3532",
-    "model_hash": "dd2e12f9caf37e118d5ecdd77654d9200e86f094c42e72556dfa775c441b1f18"
+    "model_hash": "c26cf25b8c3487cc476f9747df93df761b9cf20f62606b5b4226576a930fe895"
   },
   "updated_at": "2026-04-10"
 }

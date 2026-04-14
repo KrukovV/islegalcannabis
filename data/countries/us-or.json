@@ -58,9 +58,9 @@
   },
   "related_codes": [
     "usa",
-    "us-ga",
-    "us-hi",
-    "us-ia"
+    "us-ut",
+    "us-wy",
+    "us-co"
   ],
   "related_names": [
     {
@@ -68,16 +68,16 @@
       "name": "United States"
     },
     {
-      "code": "us-ga",
-      "name": "Georgia"
+      "code": "us-ut",
+      "name": "Utah"
     },
     {
-      "code": "us-hi",
-      "name": "Hawaii"
+      "code": "us-wy",
+      "name": "Wyoming"
     },
     {
-      "code": "us-ia",
-      "name": "Iowa"
+      "code": "us-co",
+      "name": "Colorado"
     }
   ],
   "graph": {
@@ -85,30 +85,30 @@
     "seo_cluster": "USA_CLUSTER",
     "geo_neighbors": [
       {
-        "code": "us-ak",
-        "name": "Alaska"
+        "code": "us-wa",
+        "name": "Washington"
       },
       {
-        "code": "us-al",
-        "name": "Alabama"
+        "code": "us-id",
+        "name": "Idaho"
       },
       {
-        "code": "us-ar",
-        "name": "Arkansas"
+        "code": "us-nv",
+        "name": "Nevada"
       }
     ],
     "legal_similarity": [
       {
-        "code": "us-ct",
-        "name": "Connecticut"
+        "code": "us-ca",
+        "name": "California"
       },
       {
-        "code": "us-de",
-        "name": "Delaware"
+        "code": "us-mt",
+        "name": "Montana"
       },
       {
-        "code": "us-md",
-        "name": "Maryland"
+        "code": "us-az",
+        "name": "Arizona"
       }
     ],
     "cluster_links": [
@@ -117,22 +117,22 @@
         "name": "United States"
       },
       {
-        "code": "us-id",
-        "name": "Idaho"
+        "code": "us-nm",
+        "name": "New Mexico"
       }
     ],
     "same_country_states": [
       {
-        "code": "us-ga",
-        "name": "Georgia"
+        "code": "us-ut",
+        "name": "Utah"
       },
       {
-        "code": "us-hi",
-        "name": "Hawaii"
+        "code": "us-wy",
+        "name": "Wyoming"
       },
       {
-        "code": "us-ia",
-        "name": "Iowa"
+        "code": "us-co",
+        "name": "Colorado"
       }
     ],
     "federal_parent": {
@@ -141,8 +141,8 @@
     }
   },
   "coordinates": {
-    "lat": 38,
-    "lng": -97
+    "lat": 43.8333,
+    "lng": -120.386
   },
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Oregon",
@@ -181,9 +181,9 @@
   },
   "hashes": {
     "code": "us-or",
-    "content_hash": "5fbc478a8e8e8073dd782c69cae82dc9a55858ba7fbd22e699a16c020929ce11",
+    "content_hash": "85bb6f88eaef8dc4c03b5ffd9cf2e36b2ba69b4c91f5ab537afcbe2c84332541",
     "notes_hash": "a2be9738d4c8373c1aa6c54037fd80c0e417e94859a0a877985e29bd5e5d863d",
-    "model_hash": "e07d9b3c7baa3ba26b18f1849a60454c530804a795031fe60880d13b0fe2f5ba"
+    "model_hash": "3d4306fae6f6216f69b7a41b7d65b14728b0e1035bd74eca87fb0f22c73a2eeb"
   },
   "updated_at": "2024-01-01"
 }

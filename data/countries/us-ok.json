@@ -37,7 +37,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is illegal in Oklahoma under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|3}}",
+  "notes_raw": "style=\"background:#80CE69;\" | {{Hs|3}} Cannabis in Oklahoma is illegal for recreational use, but legal for medical use with a state-issued license, while CBD oil derived from industrial hemp is legal without a license.\n\n\n== History ==\nAs part of a larger trend nationwide to restrict cannabis, Oklahoma banned the drug in 1933. Through the decades, Oklahoma authorities actively prosecuted cannabis users, sellers and growers including through the use of helicopter patrols.\nIn April 2015, The Governor signed HB 2154 allowing the Sale of CBD oil with less than 0.3% THC under specified restrictions. The use of CBD oil manufactured from industrial hemp (which was sold over the counter, without restrictions) became widespread in Oklahoma during the mid-late 2010s. Later in 2015, Green the Vote announced that they were beginning a new petition drive to place medical legalization on the 2016 ballot. The initiative gathered the required number of signatures, but backers alleged that Attorney General Scott Pruitt had changed the verbiage of the initiative in a misleading way. After Oklahomans for Health sued over the ballot rewrite, the Oklahoma Supreme Court ordered the original language be restored. As result of the legal dispute, the vote for the initiative was pushed back to 2018. Governor Mary Fallin established a ballot date on January 4, 2018, of June 26, 2018 as a referendum initiative.\nThe referendum (State Question 788) ultimately passed 57%-43%, making Oklahoma the 30th US state to legalize medical use of cannabis. This approval by popular vote was noteworthy as it happened during a primary election rather than in a general election.   SQ 788 instructed the state to promulgate a regulatory scheme for Marijuana online within 30 days and begin licensing by August 25. 2018; however, on July 10, 2018, the Oklahoma Board of Health voted 5–4 to ban smokable marijuana products at dispensaries and to require licensed pharmacists to be on-site at dispensaries. After two lawsuits were filed these regulations were dropped. Some local jurisdictions have tried to further regulate licensed cannabis use but such efforts have largely failed under judicial review.\nThe state created the Oklahoma Medical Marijuana Authority (OMMA) under the state Board of Health to regulate licenses for growers and patients, and its first director was appointed in October 2018.\nOn August 1, 2018, many of the original rules promulgated by the Oklahoma Board of Health (OBH) were rescinded with the support of Oklahoma State Attorney general Mike Hunter who stated that the OBH rules overreached and did not meet the intent of SQ 788.  Oklahoma City adopted the \"simple possession\" rule in their city code on October 26, 2018, and additionally lowered the maximum fine for possession of marijuana paraphernalia to $50.\nIn December 2025, The New York Times reported that dozens of illicit cannabis cultivation operations in Oklahoma are owned by leaders of several Chinese hometown associations in New York City, some having links to pro-Chinese Communist Party united front groups.\n\n\n== Medical use regulations ==\nThe statewide regulator for marijuana is the Oklahoma Medical Marijuana Authority.\nUnder SQ 788, an individual who obtains a Medical Marijuana License from the state of Oklahoma may consume marijuana legally and may legally possess up to:\n\n3 ounces (85 g) of marijuana\n6 mature marijuana plants (defined as plants that are in the budding stage)\n6 seedling plants (defined as plants that are in the vegetative stage and are not yet budding)\n1 ounce (28 g) of concentrated marijuana\n72 ounces (2,000 g) of edible marijuana\n8 ounces (230 g) of marijuana in their residence\nSmokable forms of medical marijuana can be legally consumed by license holders in any place that allows the smoking of tobacco products, while edible forms of medical marijuana can be consumed anywhere. All forms of medical marijuana are still deemed to be illegal under federal law; consequently Oklahoma medical marijuana license holders are not exempt from federal prosecution for cannabis possession when they are present on federal lands in Oklahoma (including military posts and lands administered by the National Park Service or the Department of Agriculture), as well as on tribal trust land.\n\n\n=== CBD clinical trials ===\nIn April 2015, Governor Mary Fallin signed into law a bill which allows clinical trials of CBD oil; Fallin emphasized to the press that she does not condone the full legalization of cannabis.\n\n\n== Prosecution for non-licensed use ==\nUnlicensed simple possession of up to 1+1⁄2 ounces (43 g) is now punishable by a misdemeanor conviction and a $400 fine.\nSince October 1, 2013, DUI (driving under intoxication) penalties include being jailed for no less than 10 days or more than 1 year if: A person \"has any amount of a Schedule I chemical or controlled substance, as defined in Section 2-204 of Title 63 of the Oklahoma Statutes, or one of its metabolites or analogs in the person’s blood, saliva, urine or any other bodily fluid at the time of a test of such person's blood, saliva, urine or any other bodily fluid administered within two (2) hours after the arrest of such person.\" A second offense will have longer sentencing as well as require an ignition interlock device that can only detect alcohol even if person is not a user of alcohol.\nNon-licensed making of hashish (including through the use of a simple grinder) or making brownies is still restricted. Licensed medical users can make and possess these products.\n\n\n== Feral hemp research ==\nIn 2018 Hempyre Genetics was hired to research strains of feral cannabis growing at undisclosed locations in Oklahoma, in order to advise legal hemp farmers as to what genetic traits were thriving in the state.\n\n\n== 2022–2023 legalization initiative ==\nOklahoma State Question 820 was a voter initiative to legalize adult purchasing, possession and consumption of cannabis in Oklahoma, but it was rejected by the majority of voters after appearing as the only statewide issue on the ballot in a March 7, 2023 special election. It would have placed the Oklahoma Medical Marijuana Authority in charge of business regulation.\n\n\n== References ==\n\n\n== External links ==\nProPublica: Fields of Green",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -56,9 +56,9 @@
   },
   "related_codes": [
     "usa",
-    "us-ct",
-    "us-de",
-    "us-hi"
+    "us-mo",
+    "us-ne",
+    "us-la"
   ],
   "related_names": [
     {
@@ -66,16 +66,16 @@
       "name": "United States"
     },
     {
-      "code": "us-ct",
-      "name": "Connecticut"
+      "code": "us-mo",
+      "name": "Missouri"
     },
     {
-      "code": "us-de",
-      "name": "Delaware"
+      "code": "us-ne",
+      "name": "Nebraska"
     },
     {
-      "code": "us-hi",
-      "name": "Hawaii"
+      "code": "us-la",
+      "name": "Louisiana"
     }
   ],
   "graph": {
@@ -83,12 +83,12 @@
     "seo_cluster": "USA_CLUSTER",
     "geo_neighbors": [
       {
-        "code": "us-ak",
-        "name": "Alaska"
+        "code": "us-ks",
+        "name": "Kansas"
       },
       {
-        "code": "us-al",
-        "name": "Alabama"
+        "code": "us-tx",
+        "name": "Texas"
       },
       {
         "code": "us-ar",
@@ -97,16 +97,16 @@
     ],
     "legal_similarity": [
       {
-        "code": "us-ga",
-        "name": "Georgia"
-      },
-      {
         "code": "us-ia",
         "name": "Iowa"
       },
       {
-        "code": "us-id",
-        "name": "Idaho"
+        "code": "us-sd",
+        "name": "South Dakota"
+      },
+      {
+        "code": "us-al",
+        "name": "Alabama"
       }
     ],
     "cluster_links": [
@@ -115,22 +115,22 @@
         "name": "United States"
       },
       {
-        "code": "us-in",
-        "name": "Indiana"
+        "code": "us-ms",
+        "name": "Mississippi"
       }
     ],
     "same_country_states": [
       {
-        "code": "us-ct",
-        "name": "Connecticut"
+        "code": "us-mo",
+        "name": "Missouri"
       },
       {
-        "code": "us-de",
-        "name": "Delaware"
+        "code": "us-ne",
+        "name": "Nebraska"
       },
       {
-        "code": "us-hi",
-        "name": "Hawaii"
+        "code": "us-la",
+        "name": "Louisiana"
       }
     ],
     "federal_parent": {
@@ -139,8 +139,8 @@
     }
   },
   "coordinates": {
-    "lat": 38,
-    "lng": -97
+    "lat": 35.452,
+    "lng": -97.1309
   },
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Oklahoma",
@@ -172,9 +172,9 @@
   },
   "hashes": {
     "code": "us-ok",
-    "content_hash": "4fd89dc00a97ca199baecf18e1b13733e2f7a54005e14ef4a75ba08c9b56ba1b",
+    "content_hash": "c8fa908c6181539e6708f08a9bcec1bd6d8ca66a2367655a0d31ead79f0470a8",
     "notes_hash": "3d118b91b98885357217368bd81cdab101669006290aa8c2742a412a8ccb214e",
-    "model_hash": "8165eec35b1846e25d30705df980d843a7eed1b20e4b730c4886a8f9b04612cf"
+    "model_hash": "8efd31c0e2e351155ee20de0e71ad831530eb4620427a5f5f33922b4901b9c3c"
   },
   "updated_at": "2026-04-10"
 }

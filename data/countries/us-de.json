@@ -58,9 +58,9 @@
   },
   "related_codes": [
     "usa",
-    "us-ga",
-    "us-hi",
-    "us-ia"
+    "us-va",
+    "us-nc",
+    "us-wv"
   ],
   "related_names": [
     {
@@ -68,16 +68,16 @@
       "name": "United States"
     },
     {
-      "code": "us-ga",
-      "name": "Georgia"
+      "code": "us-va",
+      "name": "Virginia"
     },
     {
-      "code": "us-hi",
-      "name": "Hawaii"
+      "code": "us-nc",
+      "name": "North Carolina"
     },
     {
-      "code": "us-ia",
-      "name": "Iowa"
+      "code": "us-wv",
+      "name": "West Virginia"
     }
   ],
   "graph": {
@@ -85,16 +85,16 @@
     "seo_cluster": "USA_CLUSTER",
     "geo_neighbors": [
       {
-        "code": "us-ak",
-        "name": "Alaska"
+        "code": "us-nj",
+        "name": "New Jersey"
       },
       {
-        "code": "us-al",
-        "name": "Alabama"
+        "code": "us-md",
+        "name": "Maryland"
       },
       {
-        "code": "us-ar",
-        "name": "Arkansas"
+        "code": "us-pa",
+        "name": "Pennsylvania"
       }
     ],
     "legal_similarity": [
@@ -103,12 +103,12 @@
         "name": "Connecticut"
       },
       {
-        "code": "us-md",
-        "name": "Maryland"
+        "code": "us-ny",
+        "name": "New York"
       },
       {
-        "code": "us-me",
-        "name": "Maine"
+        "code": "us-ri",
+        "name": "Rhode Island"
       }
     ],
     "cluster_links": [
@@ -117,22 +117,22 @@
         "name": "United States"
       },
       {
-        "code": "us-id",
-        "name": "Idaho"
+        "code": "us-ma",
+        "name": "Massachusetts"
       }
     ],
     "same_country_states": [
       {
-        "code": "us-ga",
-        "name": "Georgia"
+        "code": "us-va",
+        "name": "Virginia"
       },
       {
-        "code": "us-hi",
-        "name": "Hawaii"
+        "code": "us-nc",
+        "name": "North Carolina"
       },
       {
-        "code": "us-ia",
-        "name": "Iowa"
+        "code": "us-wv",
+        "name": "West Virginia"
       }
     ],
     "federal_parent": {
@@ -141,8 +141,8 @@
     }
   },
   "coordinates": {
-    "lat": 38,
-    "lng": -97
+    "lat": 38.8657,
+    "lng": -75.4112
   },
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Delaware",
@@ -174,9 +174,9 @@
   },
   "hashes": {
     "code": "us-de",
-    "content_hash": "309e3c1a70c801fa3b51c87a5d8bd9022e39eda0105c0e91a67e9ca85270737f",
+    "content_hash": "bba83cdf88117e312772132de66342b051f5db152c990f91552e6d24e86ffd02",
     "notes_hash": "9885c9ceffa96af17ea0edf90572cfa49044bea5152e1b90f54e52ca52d63774",
-    "model_hash": "65db3a64dd106e3a6a0e0b4927d06856cedc3c0e5f68edcb6a4eed9955294c37"
+    "model_hash": "c8d1fc1a36748010e7e8b56b2a7634830dced43e96ac398504e2cc2e1ab40f98"
   },
   "updated_at": "2026-04-10"
 }

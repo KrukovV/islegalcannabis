@@ -58,9 +58,9 @@
   },
   "related_codes": [
     "usa",
-    "us-fl",
-    "us-al",
-    "us-ar"
+    "us-nj",
+    "us-de",
+    "us-pa"
   ],
   "related_names": [
     {
@@ -68,16 +68,16 @@
       "name": "United States"
     },
     {
-      "code": "us-fl",
-      "name": "Florida"
+      "code": "us-nj",
+      "name": "New Jersey"
     },
     {
-      "code": "us-al",
-      "name": "Alabama"
+      "code": "us-de",
+      "name": "Delaware"
     },
     {
-      "code": "us-ar",
-      "name": "Arkansas"
+      "code": "us-pa",
+      "name": "Pennsylvania"
     }
   ],
   "graph": {
@@ -85,30 +85,30 @@
     "seo_cluster": "USA_CLUSTER",
     "geo_neighbors": [
       {
-        "code": "us-ny",
-        "name": "New York"
+        "code": "us-ri",
+        "name": "Rhode Island"
       },
       {
-        "code": "us-nj",
-        "name": "New Jersey"
-      },
-      {
-        "code": "us-mi",
-        "name": "Michigan"
-      }
-    ],
-    "legal_similarity": [
-      {
-        "code": "us-il",
-        "name": "Illinois"
-      },
-      {
-        "code": "us-ak",
-        "name": "Alaska"
+        "code": "us-nh",
+        "name": "New Hampshire"
       },
       {
         "code": "us-ct",
         "name": "Connecticut"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "us-vt",
+        "name": "Vermont"
+      },
+      {
+        "code": "us-me",
+        "name": "Maine"
+      },
+      {
+        "code": "us-ny",
+        "name": "New York"
       }
     ],
     "cluster_links": [
@@ -117,22 +117,22 @@
         "name": "United States"
       },
       {
-        "code": "us-de",
-        "name": "Delaware"
+        "code": "us-md",
+        "name": "Maryland"
       }
     ],
     "same_country_states": [
       {
-        "code": "us-fl",
-        "name": "Florida"
+        "code": "us-nj",
+        "name": "New Jersey"
       },
       {
-        "code": "us-al",
-        "name": "Alabama"
+        "code": "us-de",
+        "name": "Delaware"
       },
       {
-        "code": "us-ar",
-        "name": "Arkansas"
+        "code": "us-pa",
+        "name": "Pennsylvania"
       }
     ],
     "federal_parent": {
@@ -181,9 +181,9 @@
   },
   "hashes": {
     "code": "us-ma",
-    "content_hash": "9094afba9adf59b60f793f1d43f294c7c4c61ae5ba4442cb89c9872f3d895aef",
+    "content_hash": "4bfa428f80006647bd99b231f753fcb402ce6a9971862149775192418aff29f0",
     "notes_hash": "f3db6e27f8b4a2e5154ff1d0a20005c08137a5c1fadfbfdc3200a4423bdef339",
-    "model_hash": "f0ae2a20b6d4adcc5e218b9b4f1fc0d636057d89d94182b169b6d254af89502e"
+    "model_hash": "a4ef0b34d5d1cc5ab0c0dbb57a867f44c4632efcaed8e5925ca72d7c0ca98957"
   },
   "updated_at": "2024-01-01"
 }

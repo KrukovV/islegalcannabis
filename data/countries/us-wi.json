@@ -56,9 +56,9 @@
   },
   "related_codes": [
     "usa",
-    "us-ct",
-    "us-de",
-    "us-hi"
+    "us-mo",
+    "us-oh",
+    "us-tn"
   ],
   "related_names": [
     {
@@ -66,16 +66,16 @@
       "name": "United States"
     },
     {
-      "code": "us-ct",
-      "name": "Connecticut"
+      "code": "us-mo",
+      "name": "Missouri"
     },
     {
-      "code": "us-de",
-      "name": "Delaware"
+      "code": "us-oh",
+      "name": "Ohio"
     },
     {
-      "code": "us-hi",
-      "name": "Hawaii"
+      "code": "us-tn",
+      "name": "Tennessee"
     }
   ],
   "graph": {
@@ -83,30 +83,30 @@
     "seo_cluster": "USA_CLUSTER",
     "geo_neighbors": [
       {
-        "code": "us-ak",
-        "name": "Alaska"
+        "code": "us-il",
+        "name": "Illinois"
       },
       {
-        "code": "us-al",
-        "name": "Alabama"
+        "code": "us-mi",
+        "name": "Michigan"
       },
       {
-        "code": "us-ar",
-        "name": "Arkansas"
+        "code": "us-mn",
+        "name": "Minnesota"
       }
     ],
     "legal_similarity": [
-      {
-        "code": "us-ga",
-        "name": "Georgia"
-      },
       {
         "code": "us-ia",
         "name": "Iowa"
       },
       {
-        "code": "us-id",
-        "name": "Idaho"
+        "code": "us-in",
+        "name": "Indiana"
+      },
+      {
+        "code": "us-ky",
+        "name": "Kentucky"
       }
     ],
     "cluster_links": [
@@ -115,22 +115,22 @@
         "name": "United States"
       },
       {
-        "code": "us-in",
-        "name": "Indiana"
+        "code": "us-ar",
+        "name": "Arkansas"
       }
     ],
     "same_country_states": [
       {
-        "code": "us-ct",
-        "name": "Connecticut"
+        "code": "us-mo",
+        "name": "Missouri"
       },
       {
-        "code": "us-de",
-        "name": "Delaware"
+        "code": "us-oh",
+        "name": "Ohio"
       },
       {
-        "code": "us-hi",
-        "name": "Hawaii"
+        "code": "us-tn",
+        "name": "Tennessee"
       }
     ],
     "federal_parent": {
@@ -139,8 +139,8 @@
     }
   },
   "coordinates": {
-    "lat": 38,
-    "lng": -97
+    "lat": 44.3709,
+    "lng": -89.5831
   },
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Wisconsin",
@@ -172,9 +172,9 @@
   },
   "hashes": {
     "code": "us-wi",
-    "content_hash": "e1217320a895b610340c78e7c6edf368c38cfb935250b03e7e86cc2f1936b9db",
+    "content_hash": "e2d44292cb4582e9ea780e66f8eada14a9f5b4bfe1768e95893e35509cdd786e",
     "notes_hash": "e8df7447c5087fb5901351a4f10c30010f23f6e48705fa04526bfd35f67c6e5c",
-    "model_hash": "82a8d82cfc30e05f588a356c7764fcfcb09ece7c9db1e3dcf1f3d38ff5146aee"
+    "model_hash": "0f833f812ae11d036b8d9e3acdc099695b6a4ba46bf71366fb7f5d612bd7bacb"
   },
   "updated_at": "2026-04-10"
 }

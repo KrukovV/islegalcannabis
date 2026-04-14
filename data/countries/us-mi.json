@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in Michigan under state law for recreational adult use. Medical cannabis is also legal in Michigan. Cannabis remains federally illegal in United States. Possession is limited to varies (see official sources).",
-  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} Cannabis in Michigan is legal for recreational use.  A 2018 initiative to legalize recreational use (the  Michigan Regulation and Taxation of Marihuana Act) passed with 56% of the vote.  State-licensed sales of recreational cannabis began in December 2019.\nMedical use was legalized in 2008 through the Michigan Compassionate Care Initiative.  It passed with 63% of the vote.\n\n\n== Prohibition ==\nBefore cannabis was legalized in the state, possession of any amounts was a misdemeanor offense punishable by up to one year's incarceration and a $2,000 fine, while actual use was punishable by up to 90 days in jail and a $100 fine. If possession was in a public park, the sentence was at most two years and a $2,000 fine. Distributing cannabis without remuneration was a misdemeanor punishable by at most one year in jail and a $1,000 fine.  The sale and cultivation of cannabis was a felony punishable by up to 15 years imprisonment and $10,000,000 in fines depending on the number of plants grown and the amount of usable cannabis sold.\nAfter legalization, police in Michigan still have probable cause to search an occupied car if they smell of marijuana. This is because certain prohibitions remain, for example it is still illegal to consume marijuana as the driver of a car, or smoke it as a passenger.\n\n\n== Municipal reforms ==\nPrior to statewide legalization, many cities in Michigan decriminalized cannabis or made enforcement of cannabis laws the lowest priority.  Among the cities to enact such reforms were: Ann Arbor (1972), Kalamazoo (2012), Detroit (2012), Flint (2012), Grand Rapids (2012), Ypsilanti (2012), Ferndale (2013), Jackson (2013), Lansing (2013), Hazel Park (2014), Oak Park (2014), Berkley (2014), Huntington Woods (2014), Mount Pleasant (2014), Pleasant Ridge (2014), Port Huron (2014), Saginaw (2014), East Lansing (2015), Keego Harbor (2015), and Portage (2015).\n\n\n=== Ann Arbor ===\n\nSince the 1970s, the college town of Ann Arbor has enacted some of the most lenient laws on cannabis possession in the nation. These include a 1972 city council ordinance, a 1974 voter referendum making possession of small amounts a civil infraction subject to a small fine, and a 2004 referendum on the medical use of cannabis. Since state law took precedence over municipal law, the far-stricter state cannabis laws were still enforced on University of Michigan property.\n\n\n== Medical legalization (2008) ==\n\nMedical use of cannabis was legalized with the passage of Proposal 1, the Michigan Compassionate Care Initiative, on November 4, 2008.  The measure legalized the possession of up to 2+1⁄2 ounces (71 g) of cannabis for patients with certain medical conditions and the approval of a physician.  Although it did not explicitly allow dispensaries to operate, it did allow patients or their caregivers to cultivate up to 12 cannabis plants.  The measure faced opposition from law enforcement officials and drug czar John P. Walters, but it was ultimately approved by a 63–37 margin, making Michigan the 13th state to legalize medical use and the first Midwestern state to do so.\nIn February 2013, the Supreme Court of Michigan ruled that the 2008 initiative did not allow for the operation of medical cannabis dispensaries in the state.  An estimated 75 to 100 dispensaries were operating under this legal gray area at the time.\nIn September 2016, Gov. Rick Snyder signed a package of bills that among other reforms: (a) allowed the operation and regulation of medical cannabis dispensaries; (b) set a taxation rate of 3% on medical cannabis; and (c) allowed the use of non-smokable forms such as topicals and edibles.\n\n\n== Recreational legalization (2018) ==\n\nIn November 2017, legalization proponents submitted 365,000 signatures to put a cannabis legalization measure on the 2018 ballot.  In April 2018, it was certified that supporters had turned in the requisite number of valid signatures.  In June 2018, state lawmakers declined the option to pass the measure themselves, sending it to the November ballot.  On November 6, 2018, Michigan voters approved Proposal 1 by a 56–44 margin, making Michigan the 10th state (and first in the Midwest) to legalize cannabis for recreational use.\nThe Michigan Regulation and Taxation of Marijuana Act allows persons age 21 and over to possess up to 2+1⁄2 ounces (71 g) of cannabis in public, up to 10 ounces (280 g) at home, and cultivate up to 12 plants at home.  It also sets up a system for the state-licensed cultivation and distribution of cannabis, with sales subject to a 10% excise tax (in addition to the state's 6% sales tax).  The law went into effect on December 6, 2018, and the first dispensaries opened to the public on December 1, 2019.\nDuring fiscal year 2021, the state of Michigan collected $175 million from a 10% excise tax on recreational cannabis sales. That money was given back to counties, towns, cities, and townships, each municipality receiving over $56,000 for every recreational retail location in its boundaries.\nIn October 2023, cannabis reform bills were signed into law by the Governor Gretchen Whitmer, explicitly allowing tribal businesses easier access to cannabis commerce and trade, as well as other related purposes in and around tribal lands.\n\n\n== Public opinion ==\n\nNote: For polls after 2016, see Michigan Regulation and Taxation of Marijuana Act.\n\n\n== References ==",
   "facts": {
     "possession_limit": "varies (see official sources)",
     "cultivation": null,
@@ -58,9 +58,9 @@
   },
   "related_codes": [
     "usa",
-    "us-al",
-    "us-ar",
-    "us-ga"
+    "us-ky",
+    "us-wv",
+    "us-ia"
   ],
   "related_names": [
     {
@@ -68,16 +68,16 @@
       "name": "United States"
     },
     {
-      "code": "us-al",
-      "name": "Alabama"
+      "code": "us-ky",
+      "name": "Kentucky"
     },
     {
-      "code": "us-ar",
-      "name": "Arkansas"
+      "code": "us-wv",
+      "name": "West Virginia"
     },
     {
-      "code": "us-ga",
-      "name": "Georgia"
+      "code": "us-ia",
+      "name": "Iowa"
     }
   ],
   "graph": {
@@ -85,30 +85,30 @@
     "seo_cluster": "USA_CLUSTER",
     "geo_neighbors": [
       {
-        "code": "us-il",
-        "name": "Illinois"
+        "code": "us-wi",
+        "name": "Wisconsin"
       },
       {
-        "code": "us-ny",
-        "name": "New York"
+        "code": "us-in",
+        "name": "Indiana"
       },
       {
-        "code": "us-nj",
-        "name": "New Jersey"
+        "code": "us-oh",
+        "name": "Ohio"
       }
     ],
     "legal_similarity": [
       {
-        "code": "us-ak",
-        "name": "Alaska"
+        "code": "us-il",
+        "name": "Illinois"
       },
       {
-        "code": "us-ct",
-        "name": "Connecticut"
+        "code": "us-mn",
+        "name": "Minnesota"
       },
       {
-        "code": "us-de",
-        "name": "Delaware"
+        "code": "us-mo",
+        "name": "Missouri"
       }
     ],
     "cluster_links": [
@@ -117,22 +117,22 @@
         "name": "United States"
       },
       {
-        "code": "us-hi",
-        "name": "Hawaii"
+        "code": "us-tn",
+        "name": "Tennessee"
       }
     ],
     "same_country_states": [
       {
-        "code": "us-al",
-        "name": "Alabama"
+        "code": "us-ky",
+        "name": "Kentucky"
       },
       {
-        "code": "us-ar",
-        "name": "Arkansas"
+        "code": "us-wv",
+        "name": "West Virginia"
       },
       {
-        "code": "us-ga",
-        "name": "Georgia"
+        "code": "us-ia",
+        "name": "Iowa"
       }
     ],
     "federal_parent": {
@@ -181,9 +181,9 @@
   },
   "hashes": {
     "code": "us-mi",
-    "content_hash": "d43ffb051cd830881329527853b455bf432f4b8bfadef58f25e8dd394c721117",
+    "content_hash": "7ec701097e067f6cefcfe67a2096d092231c82c79b78409735f77f66bc7aeb85",
     "notes_hash": "47f08b71aa7e8274c4bf4ceed57fdf5f60a4f2d4a4aecce6175992d832555a65",
-    "model_hash": "75d26bc51cf0588f11a0c936d5d24bd3754444369a62744822e417549a16cd6a"
+    "model_hash": "91e41452ae3d0c41fc64c346cd303c5dc78308b953d4c29fda772a9e1b3829f0"
   },
   "updated_at": "2024-01-01"
 }

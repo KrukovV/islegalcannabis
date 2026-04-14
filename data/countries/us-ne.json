@@ -58,9 +58,9 @@
   },
   "related_codes": [
     "usa",
-    "us-ct",
-    "us-de",
-    "us-ga"
+    "us-ia",
+    "us-co",
+    "us-ok"
   ],
   "related_names": [
     {
@@ -68,16 +68,16 @@
       "name": "United States"
     },
     {
-      "code": "us-ct",
-      "name": "Connecticut"
+      "code": "us-ia",
+      "name": "Iowa"
     },
     {
-      "code": "us-de",
-      "name": "Delaware"
+      "code": "us-co",
+      "name": "Colorado"
     },
     {
-      "code": "us-ga",
-      "name": "Georgia"
+      "code": "us-ok",
+      "name": "Oklahoma"
     }
   ],
   "graph": {
@@ -85,30 +85,30 @@
     "seo_cluster": "USA_CLUSTER",
     "geo_neighbors": [
       {
-        "code": "us-ak",
-        "name": "Alaska"
+        "code": "us-sd",
+        "name": "South Dakota"
       },
       {
-        "code": "us-al",
-        "name": "Alabama"
+        "code": "us-ks",
+        "name": "Kansas"
       },
       {
-        "code": "us-ar",
-        "name": "Arkansas"
+        "code": "us-nd",
+        "name": "North Dakota"
       }
     ],
     "legal_similarity": [
       {
-        "code": "us-hi",
-        "name": "Hawaii"
+        "code": "us-ms",
+        "name": "Mississippi"
       },
       {
         "code": "us-la",
         "name": "Louisiana"
       },
       {
-        "code": "us-ms",
-        "name": "Mississippi"
+        "code": "us-nc",
+        "name": "North Carolina"
       }
     ],
     "cluster_links": [
@@ -117,22 +117,22 @@
         "name": "United States"
       },
       {
-        "code": "us-ia",
-        "name": "Iowa"
+        "code": "us-mn",
+        "name": "Minnesota"
       }
     ],
     "same_country_states": [
       {
-        "code": "us-ct",
-        "name": "Connecticut"
+        "code": "us-ia",
+        "name": "Iowa"
       },
       {
-        "code": "us-de",
-        "name": "Delaware"
+        "code": "us-co",
+        "name": "Colorado"
       },
       {
-        "code": "us-ga",
-        "name": "Georgia"
+        "code": "us-ok",
+        "name": "Oklahoma"
       }
     ],
     "federal_parent": {
@@ -141,8 +141,8 @@
     }
   },
   "coordinates": {
-    "lat": 38,
-    "lng": -97
+    "lat": 41.5002,
+    "lng": -99.6855
   },
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Nebraska",
@@ -174,9 +174,9 @@
   },
   "hashes": {
     "code": "us-ne",
-    "content_hash": "0c7b55b36b86143122a47e33caa2bb59768368e63b1b25258c634fed21a82d62",
+    "content_hash": "101b361dd831dbc9815ce7dc61a2b6011832f9acbcf482787312d995c84312a8",
     "notes_hash": "d0c19108d6c45d44410238ec02862f7fbab0f5317193966cfdf2f0531eb4e444",
-    "model_hash": "a1b8c21fc095bdbf270eb048759c55aae71eead73c5ec976c98f5c6e61b90c7c"
+    "model_hash": "bea49d72b97a36a5391e642bcc2aa0eed2cf21b66af5874381c0347e5cdf404a"
   },
   "updated_at": "2026-04-10"
 }

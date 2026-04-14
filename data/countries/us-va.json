@@ -56,9 +56,9 @@
   },
   "related_codes": [
     "usa",
-    "us-ct",
     "us-de",
-    "us-ga"
+    "us-nj",
+    "us-sc"
   ],
   "related_names": [
     {
@@ -66,16 +66,16 @@
       "name": "United States"
     },
     {
-      "code": "us-ct",
-      "name": "Connecticut"
-    },
-    {
       "code": "us-de",
       "name": "Delaware"
     },
     {
-      "code": "us-ga",
-      "name": "Georgia"
+      "code": "us-nj",
+      "name": "New Jersey"
+    },
+    {
+      "code": "us-sc",
+      "name": "South Carolina"
     }
   ],
   "graph": {
@@ -83,16 +83,16 @@
     "seo_cluster": "USA_CLUSTER",
     "geo_neighbors": [
       {
-        "code": "us-ak",
-        "name": "Alaska"
+        "code": "us-md",
+        "name": "Maryland"
       },
       {
-        "code": "us-al",
-        "name": "Alabama"
+        "code": "us-nc",
+        "name": "North Carolina"
       },
       {
-        "code": "us-ar",
-        "name": "Arkansas"
+        "code": "us-wv",
+        "name": "West Virginia"
       }
     ],
     "legal_similarity": [
@@ -101,12 +101,12 @@
         "name": "Pennsylvania"
       },
       {
-        "code": "us-tx",
-        "name": "Texas"
-      },
-      {
         "code": "us-fl",
         "name": "Florida"
+      },
+      {
+        "code": "us-tx",
+        "name": "Texas"
       }
     ],
     "cluster_links": [
@@ -115,22 +115,22 @@
         "name": "United States"
       },
       {
-        "code": "us-hi",
-        "name": "Hawaii"
+        "code": "us-oh",
+        "name": "Ohio"
       }
     ],
     "same_country_states": [
-      {
-        "code": "us-ct",
-        "name": "Connecticut"
-      },
       {
         "code": "us-de",
         "name": "Delaware"
       },
       {
-        "code": "us-ga",
-        "name": "Georgia"
+        "code": "us-nj",
+        "name": "New Jersey"
+      },
+      {
+        "code": "us-sc",
+        "name": "South Carolina"
       }
     ],
     "federal_parent": {
@@ -139,8 +139,8 @@
     }
   },
   "coordinates": {
-    "lat": 38,
-    "lng": -97
+    "lat": 37.7403,
+    "lng": -78.2431
   },
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Virginia",
@@ -179,9 +179,9 @@
   },
   "hashes": {
     "code": "us-va",
-    "content_hash": "4d23ea1f248d39dd9dabf4db2b7ad3b34715f45ef053e610e1bd3ccbf56adcdc",
+    "content_hash": "9633cdb531d623fe00c8dbba0367a25b3169085211a5c0dce62ca990ea7cb7bb",
     "notes_hash": "a27597f49e9f10762bd6ecbfd6aab01bbe4cf8e5ed88e4f64bcd12e7e49e6511",
-    "model_hash": "57597613fd2fe179196b3edf1814706f30644a64dd45d2625ef89444b97194db"
+    "model_hash": "969070e5e1ed9d1ec988ac30a277a5146b495b1cbee4a0597c1dde78feffb5c2"
   },
   "updated_at": "2024-01-01"
 }

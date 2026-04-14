@@ -58,9 +58,9 @@
   },
   "related_codes": [
     "usa",
-    "us-tx",
-    "us-al",
-    "us-ar"
+    "us-wy",
+    "us-mt",
+    "us-co"
   ],
   "related_names": [
     {
@@ -68,16 +68,16 @@
       "name": "United States"
     },
     {
-      "code": "us-tx",
-      "name": "Texas"
+      "code": "us-wy",
+      "name": "Wyoming"
     },
     {
-      "code": "us-al",
-      "name": "Alabama"
+      "code": "us-mt",
+      "name": "Montana"
     },
     {
-      "code": "us-ar",
-      "name": "Arkansas"
+      "code": "us-co",
+      "name": "Colorado"
     }
   ],
   "graph": {
@@ -89,6 +89,20 @@
         "name": "California"
       },
       {
+        "code": "us-ut",
+        "name": "Utah"
+      },
+      {
+        "code": "us-id",
+        "name": "Idaho"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "us-or",
+        "name": "Oregon"
+      },
+      {
         "code": "us-az",
         "name": "Arizona"
       },
@@ -97,42 +111,28 @@
         "name": "Washington"
       }
     ],
-    "legal_similarity": [
-      {
-        "code": "us-co",
-        "name": "Colorado"
-      },
-      {
-        "code": "us-ak",
-        "name": "Alaska"
-      },
-      {
-        "code": "us-ct",
-        "name": "Connecticut"
-      }
-    ],
     "cluster_links": [
       {
         "code": "usa",
         "name": "United States"
       },
       {
-        "code": "us-de",
-        "name": "Delaware"
+        "code": "us-nm",
+        "name": "New Mexico"
       }
     ],
     "same_country_states": [
       {
-        "code": "us-tx",
-        "name": "Texas"
+        "code": "us-wy",
+        "name": "Wyoming"
       },
       {
-        "code": "us-al",
-        "name": "Alabama"
+        "code": "us-mt",
+        "name": "Montana"
       },
       {
-        "code": "us-ar",
-        "name": "Arkansas"
+        "code": "us-co",
+        "name": "Colorado"
       }
     ],
     "federal_parent": {
@@ -181,9 +181,9 @@
   },
   "hashes": {
     "code": "us-nv",
-    "content_hash": "50a8ae95bf57eb8a3cf54481d623d4aab81ce535be54a5399548efd9d5ffbae9",
+    "content_hash": "5d045ec2096215cce2ac0e3603d27e80650a4540ab81fb510f62e6cbb4be8751",
     "notes_hash": "d869da2b8cd4fb1d720376f09b9d9ea17bf6deeb4ae44e7db1ac078900721f31",
-    "model_hash": "00279dc210054ddcff787a3c6724ff8e29a42ac31f40acada7f8e099959dcf0a"
+    "model_hash": "fd47a57a8def96a66cfe449dc8e84d4af9670348a005706d1d32884b14a987f5"
   },
   "updated_at": "2024-01-01"
 }

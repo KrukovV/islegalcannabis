@@ -56,9 +56,9 @@
   },
   "related_codes": [
     "usa",
-    "us-ct",
-    "us-de",
-    "us-ga"
+    "us-la",
+    "us-ar",
+    "us-ne"
   ],
   "related_names": [
     {
@@ -66,16 +66,16 @@
       "name": "United States"
     },
     {
-      "code": "us-ct",
-      "name": "Connecticut"
+      "code": "us-la",
+      "name": "Louisiana"
     },
     {
-      "code": "us-de",
-      "name": "Delaware"
+      "code": "us-ar",
+      "name": "Arkansas"
     },
     {
-      "code": "us-ga",
-      "name": "Georgia"
+      "code": "us-ne",
+      "name": "Nebraska"
     }
   ],
   "graph": {
@@ -83,30 +83,30 @@
     "seo_cluster": "USA_CLUSTER",
     "geo_neighbors": [
       {
-        "code": "us-ak",
-        "name": "Alaska"
+        "code": "us-ok",
+        "name": "Oklahoma"
       },
       {
-        "code": "us-al",
-        "name": "Alabama"
+        "code": "us-nm",
+        "name": "New Mexico"
       },
       {
-        "code": "us-ar",
-        "name": "Arkansas"
+        "code": "us-ks",
+        "name": "Kansas"
       }
     ],
     "legal_similarity": [
       {
-        "code": "us-pa",
-        "name": "Pennsylvania"
+        "code": "us-fl",
+        "name": "Florida"
       },
       {
         "code": "us-va",
         "name": "Virginia"
       },
       {
-        "code": "us-fl",
-        "name": "Florida"
+        "code": "us-pa",
+        "name": "Pennsylvania"
       }
     ],
     "cluster_links": [
@@ -115,22 +115,22 @@
         "name": "United States"
       },
       {
-        "code": "us-hi",
-        "name": "Hawaii"
+        "code": "us-co",
+        "name": "Colorado"
       }
     ],
     "same_country_states": [
       {
-        "code": "us-ct",
-        "name": "Connecticut"
+        "code": "us-la",
+        "name": "Louisiana"
       },
       {
-        "code": "us-de",
-        "name": "Delaware"
+        "code": "us-ar",
+        "name": "Arkansas"
       },
       {
-        "code": "us-ga",
-        "name": "Georgia"
+        "code": "us-ne",
+        "name": "Nebraska"
       }
     ],
     "federal_parent": {
@@ -179,9 +179,9 @@
   },
   "hashes": {
     "code": "us-tx",
-    "content_hash": "77ffe02f33f1c88645719968db0aec96c82c0002e5fc29844d3c0c31ba22ce61",
+    "content_hash": "6a98b7fe69c96a648e7883ec9afa44916d00e24c1b8ff50ee007fa5f9e49c8ff",
     "notes_hash": "a159c6246e9c2100158dc079b42ecc6ee62482789b64caf50d30847fb71c68da",
-    "model_hash": "5b5f0766b11274df7f1394fa568f5fe74dbff1a2f5035fae62b238289a4ecf80"
+    "model_hash": "8abdb993d4413a6a2b0d2b445d19959b0991f760475fee92f63c407887b15b6c"
   },
   "updated_at": "2024-01-01"
 }

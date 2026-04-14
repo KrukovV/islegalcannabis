@@ -56,9 +56,9 @@
   },
   "related_codes": [
     "usa",
-    "us-ct",
-    "us-de",
-    "us-hi"
+    "us-mi",
+    "us-mo",
+    "us-al"
   ],
   "related_names": [
     {
@@ -66,16 +66,16 @@
       "name": "United States"
     },
     {
-      "code": "us-ct",
-      "name": "Connecticut"
+      "code": "us-mi",
+      "name": "Michigan"
     },
     {
-      "code": "us-de",
-      "name": "Delaware"
+      "code": "us-mo",
+      "name": "Missouri"
     },
     {
-      "code": "us-hi",
-      "name": "Hawaii"
+      "code": "us-al",
+      "name": "Alabama"
     }
   ],
   "graph": {
@@ -83,30 +83,30 @@
     "seo_cluster": "USA_CLUSTER",
     "geo_neighbors": [
       {
-        "code": "us-ak",
-        "name": "Alaska"
+        "code": "us-ky",
+        "name": "Kentucky"
       },
       {
-        "code": "us-al",
-        "name": "Alabama"
+        "code": "us-il",
+        "name": "Illinois"
       },
       {
-        "code": "us-ar",
-        "name": "Arkansas"
+        "code": "us-oh",
+        "name": "Ohio"
       }
     ],
     "legal_similarity": [
       {
-        "code": "us-ga",
-        "name": "Georgia"
+        "code": "us-tn",
+        "name": "Tennessee"
       },
       {
-        "code": "us-ia",
-        "name": "Iowa"
+        "code": "us-wv",
+        "name": "West Virginia"
       },
       {
-        "code": "us-id",
-        "name": "Idaho"
+        "code": "us-wi",
+        "name": "Wisconsin"
       }
     ],
     "cluster_links": [
@@ -115,22 +115,22 @@
         "name": "United States"
       },
       {
-        "code": "us-ks",
-        "name": "Kansas"
+        "code": "us-ga",
+        "name": "Georgia"
       }
     ],
     "same_country_states": [
       {
-        "code": "us-ct",
-        "name": "Connecticut"
+        "code": "us-mi",
+        "name": "Michigan"
       },
       {
-        "code": "us-de",
-        "name": "Delaware"
+        "code": "us-mo",
+        "name": "Missouri"
       },
       {
-        "code": "us-hi",
-        "name": "Hawaii"
+        "code": "us-al",
+        "name": "Alabama"
       }
     ],
     "federal_parent": {
@@ -139,8 +139,8 @@
     }
   },
   "coordinates": {
-    "lat": 38,
-    "lng": -97
+    "lat": 39.8874,
+    "lng": -86.1396
   },
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Indiana",
@@ -172,9 +172,9 @@
   },
   "hashes": {
     "code": "us-in",
-    "content_hash": "219ee79d79db436aa1948c1b1c10633c484dbb4ca0eeb45bcd2974ab571d6675",
+    "content_hash": "53feb467e54b71af89537f271b1f29990cfa89f7fe09b9254e0d207fb54146c5",
     "notes_hash": "763be14f0b725fdcbed91eb09de6913e0c46b0100a10172c58169c7e949c0e90",
-    "model_hash": "bfb293efa3d14b39d6965321cc9e94dad9bdf8ca5057b5f70bb5114e1531d2cf"
+    "model_hash": "9de5e015ad710c64f5a79fd0fe270cf01e505d8d85dc139e106e914ab388b61d"
   },
   "updated_at": "2026-04-10"
 }

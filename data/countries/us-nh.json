@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is decriminalized in New Hampshire in limited state-level practice, but it is not fully legal under state law. Medical cannabis is not broadly legal in New Hampshire. Cannabis remains federally illegal in United States.",
-  "notes_raw": "style=\"background:#80CE69; color:#000000; text-align:center;\" | {{Hs|2}} <span style=\"font-size:25px;\">●</span>",
+  "notes_raw": "style=\"background:#80CE69; color:#000000; text-align:center;\" | {{Hs|2}} <span style=\"font-size:25px;\">●</span> Cannabis in New Hampshire is illegal for recreational use and decriminalized for possession of up to three-quarters of an ounce (21 g) as of July 18, 2017. Medical use is legal through legislation passed in 2013. As of December 2024, New Hampshire is the only state left within the New England and North-East corner area of the USA yet to legally allow recreational cannabis.\n\n\n== Medical cannabis (2013) ==\nIn July 2013, then-Governor Maggie Hassan signed into law a bill allowing the use of medical cannabis for patients with \"chronic or terminal diseases\" and \"debilitating medical conditions.\" The bill was noted as one of the stricter medical marijuana bills in the nation, allowing cannabis only after all other treatment methods have failed. Hassan also modified the measure, prohibiting patients from growing their own cannabis.\n\n\n== Failed legalization (2014) ==\nOn January 15, 2014, New Hampshire's legislature voted preliminarily 170 to 162 in favor of House Bill 492, based on Colorado Amendment 64, which would have legalized the personal use of up to 1 ounce (28 g) of marijuana by those over 21 years old as well as production and sale by licensed facilities and dispensaries.\n\n\n== Decriminalization (2017) ==\nOn July 18, 2017, New Hampshire decriminalized cannabis, replacing misdemeanor charges with a $100 fine for a first or second offense and $300 for a third offense. Four offenses within three years would result in misdemeanor charges. Individuals who refuse to identify themselves to police could still be subject to arrest.\n\n\n== Support of legalization of cannabis policy (2023) ==\nIn May 2023, then-Governor Chris Sununu said he supports, in principle, the legalization of cannabis with conditions—despite for years being completely surrounded by jurisdictions already with legalized cannabis in Vermont, Maine, and Massachusetts; plus Canada to the north. The New Hampshire House of Representatives passed several bills on cannabis legalization for years—but the New Hampshire Senate has taken no action, tabling or rejecting the bills for years.\n\n\n== Medical Marijuana Expansion Bill (2024) ==\nIn July 2024, Sununu signed an extensive omnibus bill that passed the legislature further enhancing reforms and expansion of medical cannabis and other related items. This does not include cannabis legalisation however, which failed.\n\n\n== References ==",
   "facts": {
     "possession_limit": null,
     "cultivation": null,
@@ -59,8 +59,8 @@
   "related_codes": [
     "usa",
     "us-ct",
-    "us-de",
-    "us-ga"
+    "us-me",
+    "us-ny"
   ],
   "related_names": [
     {
@@ -72,12 +72,12 @@
       "name": "Connecticut"
     },
     {
-      "code": "us-de",
-      "name": "Delaware"
+      "code": "us-me",
+      "name": "Maine"
     },
     {
-      "code": "us-ga",
-      "name": "Georgia"
+      "code": "us-ny",
+      "name": "New York"
     }
   ],
   "graph": {
@@ -85,30 +85,30 @@
     "seo_cluster": "USA_CLUSTER",
     "geo_neighbors": [
       {
-        "code": "us-ak",
-        "name": "Alaska"
+        "code": "us-vt",
+        "name": "Vermont"
       },
       {
-        "code": "us-al",
-        "name": "Alabama"
+        "code": "us-ma",
+        "name": "Massachusetts"
       },
       {
-        "code": "us-ar",
-        "name": "Arkansas"
+        "code": "us-ri",
+        "name": "Rhode Island"
       }
     ],
     "legal_similarity": [
       {
-        "code": "us-hi",
-        "name": "Hawaii"
-      },
-      {
-        "code": "us-la",
-        "name": "Louisiana"
+        "code": "us-nc",
+        "name": "North Carolina"
       },
       {
         "code": "us-ms",
         "name": "Mississippi"
+      },
+      {
+        "code": "us-la",
+        "name": "Louisiana"
       }
     ],
     "cluster_links": [
@@ -117,8 +117,8 @@
         "name": "United States"
       },
       {
-        "code": "us-ia",
-        "name": "Iowa"
+        "code": "us-nj",
+        "name": "New Jersey"
       }
     ],
     "same_country_states": [
@@ -127,12 +127,12 @@
         "name": "Connecticut"
       },
       {
-        "code": "us-de",
-        "name": "Delaware"
+        "code": "us-me",
+        "name": "Maine"
       },
       {
-        "code": "us-ga",
-        "name": "Georgia"
+        "code": "us-ny",
+        "name": "New York"
       }
     ],
     "federal_parent": {
@@ -141,8 +141,8 @@
     }
   },
   "coordinates": {
-    "lat": 38,
-    "lng": -97
+    "lat": 43.5993,
+    "lng": -71.6301
   },
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_New_Hampshire",
@@ -174,9 +174,9 @@
   },
   "hashes": {
     "code": "us-nh",
-    "content_hash": "fa2211d0a277709737c737929fd825c856177097bb499f644d69b8e71e6b127b",
+    "content_hash": "18eb948ce2e270b0fa7a0f6e212c7fa53e8ffbfca0062b018696274d3e48ec46",
     "notes_hash": "80caa221285ca4a49edeb7babdf207adac8e9cb3f606be89a1fb34d371d0df7b",
-    "model_hash": "69ef04e4b9ae1bdda25712a923835e9a8c7cfbaef710aca0ed1f1751a33b6ba3"
+    "model_hash": "7120f1af317f1df9a8c840c55dcb45147604ddeab75e08df109da97c4312fd21"
   },
   "updated_at": "2026-04-10"
 }

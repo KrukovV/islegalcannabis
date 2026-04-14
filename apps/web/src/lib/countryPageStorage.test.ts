@@ -132,6 +132,15 @@ describe("countryPageStorage", () => {
     expect(country?.sources.legal).not.toBe(state?.sources.legal);
   });
 
+  it("keeps Georgia state route coordinates and details distinct from the USA parent", () => {
+    const usa = getCountryPageData("usa");
+    const georgiaState = getCountryPageData("us-ga");
+    const georgiaCard = deriveCountryCardEntryFromCountryPageData(georgiaState!);
+    expect(georgiaCard.pageHref).toBe("/c/us-ga");
+    expect(georgiaState?.coordinates).toEqual({ lat: 32.8547, lng: -83.4078 });
+    expect(georgiaState?.coordinates).not.toEqual(usa?.coordinates);
+  });
+
   it("keeps mixed US state recreational coverage instead of all-legal inheritance", () => {
     const stateCodes = listCountryPageCodes().filter((code) => code.startsWith("us-"));
     const statuses = stateCodes.map((code) => getCountryPageData(code)?.legal_model.recreational.status);

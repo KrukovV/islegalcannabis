@@ -56,9 +56,9 @@
   },
   "related_codes": [
     "usa",
-    "us-ct",
-    "us-de",
-    "us-hi"
+    "us-nc",
+    "us-fl",
+    "us-ms"
   ],
   "related_names": [
     {
@@ -66,16 +66,16 @@
       "name": "United States"
     },
     {
-      "code": "us-ct",
-      "name": "Connecticut"
+      "code": "us-nc",
+      "name": "North Carolina"
     },
     {
-      "code": "us-de",
-      "name": "Delaware"
+      "code": "us-fl",
+      "name": "Florida"
     },
     {
-      "code": "us-hi",
-      "name": "Hawaii"
+      "code": "us-ms",
+      "name": "Mississippi"
     }
   ],
   "graph": {
@@ -83,26 +83,26 @@
     "seo_cluster": "USA_CLUSTER",
     "geo_neighbors": [
       {
-        "code": "us-ak",
-        "name": "Alaska"
+        "code": "us-sc",
+        "name": "South Carolina"
       },
       {
         "code": "us-al",
         "name": "Alabama"
       },
       {
-        "code": "us-ar",
-        "name": "Arkansas"
+        "code": "us-tn",
+        "name": "Tennessee"
       }
     ],
     "legal_similarity": [
       {
-        "code": "us-ia",
-        "name": "Iowa"
+        "code": "us-ky",
+        "name": "Kentucky"
       },
       {
-        "code": "us-id",
-        "name": "Idaho"
+        "code": "us-wv",
+        "name": "West Virginia"
       },
       {
         "code": "us-in",
@@ -115,22 +115,22 @@
         "name": "United States"
       },
       {
-        "code": "us-ks",
-        "name": "Kansas"
+        "code": "us-va",
+        "name": "Virginia"
       }
     ],
     "same_country_states": [
       {
-        "code": "us-ct",
-        "name": "Connecticut"
+        "code": "us-nc",
+        "name": "North Carolina"
       },
       {
-        "code": "us-de",
-        "name": "Delaware"
+        "code": "us-fl",
+        "name": "Florida"
       },
       {
-        "code": "us-hi",
-        "name": "Hawaii"
+        "code": "us-ms",
+        "name": "Mississippi"
       }
     ],
     "federal_parent": {
@@ -139,8 +139,8 @@
     }
   },
   "coordinates": {
-    "lat": 38,
-    "lng": -97
+    "lat": 32.8547,
+    "lng": -83.4078
   },
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Georgia_(U.S._state)",
@@ -172,9 +172,9 @@
   },
   "hashes": {
     "code": "us-ga",
-    "content_hash": "924ac7798635d7815165929580019866d4eda21e99359304b303aa3dc17e8877",
+    "content_hash": "d3e376acf59dc3d38a69a18a1a096fe60d3d7b6c750998c10405ae7ee8dc482a",
     "notes_hash": "801e4ebdcddf8d4622c0cbc2f708ba542b0dc0f6494a8988c1c4f115edbf223e",
-    "model_hash": "8ba644ab08b4275b1dc888cf6c91aaab1ae93813269db9988eda64bd94ca32e3"
+    "model_hash": "8576ab2adc8b26bad5d2a4f455f8b9a43ddade512bcbf1072452ff1b02d7dcd0"
   },
   "updated_at": "2026-04-10"
 }

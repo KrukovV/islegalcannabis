@@ -56,9 +56,9 @@
   },
   "related_codes": [
     "usa",
-    "us-ct",
-    "us-de",
-    "us-hi"
+    "us-mn",
+    "us-co",
+    "us-mo"
   ],
   "related_names": [
     {
@@ -66,16 +66,16 @@
       "name": "United States"
     },
     {
-      "code": "us-ct",
-      "name": "Connecticut"
+      "code": "us-mn",
+      "name": "Minnesota"
     },
     {
-      "code": "us-de",
-      "name": "Delaware"
+      "code": "us-co",
+      "name": "Colorado"
     },
     {
-      "code": "us-hi",
-      "name": "Hawaii"
+      "code": "us-mo",
+      "name": "Missouri"
     }
   ],
   "graph": {
@@ -83,30 +83,30 @@
     "seo_cluster": "USA_CLUSTER",
     "geo_neighbors": [
       {
-        "code": "us-ak",
-        "name": "Alaska"
+        "code": "us-nd",
+        "name": "North Dakota"
       },
       {
-        "code": "us-al",
-        "name": "Alabama"
+        "code": "us-ne",
+        "name": "Nebraska"
       },
       {
-        "code": "us-ar",
-        "name": "Arkansas"
+        "code": "us-ks",
+        "name": "Kansas"
       }
     ],
     "legal_similarity": [
-      {
-        "code": "us-ga",
-        "name": "Georgia"
-      },
       {
         "code": "us-ia",
         "name": "Iowa"
       },
       {
-        "code": "us-id",
-        "name": "Idaho"
+        "code": "us-wy",
+        "name": "Wyoming"
+      },
+      {
+        "code": "us-ok",
+        "name": "Oklahoma"
       }
     ],
     "cluster_links": [
@@ -115,22 +115,22 @@
         "name": "United States"
       },
       {
-        "code": "us-in",
-        "name": "Indiana"
+        "code": "us-mt",
+        "name": "Montana"
       }
     ],
     "same_country_states": [
       {
-        "code": "us-ct",
-        "name": "Connecticut"
+        "code": "us-mn",
+        "name": "Minnesota"
       },
       {
-        "code": "us-de",
-        "name": "Delaware"
+        "code": "us-co",
+        "name": "Colorado"
       },
       {
-        "code": "us-hi",
-        "name": "Hawaii"
+        "code": "us-mo",
+        "name": "Missouri"
       }
     ],
     "federal_parent": {
@@ -139,8 +139,8 @@
     }
   },
   "coordinates": {
-    "lat": 38,
-    "lng": -97
+    "lat": 44.4711,
+    "lng": -100.255
   },
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_South_Dakota",
@@ -172,9 +172,9 @@
   },
   "hashes": {
     "code": "us-sd",
-    "content_hash": "7e39bfab0de871da50426ee314440756505af6e142f84973683de5266d7761b2",
+    "content_hash": "2a9702e03f6243dc12c9fcb2a807dd7c755c8c2e138ee2be2d0e81dd72360be1",
     "notes_hash": "fe0e9bb4623cb74614024fd89cee90f6046d695ae6c6537ed662ccbe3cf30b0c",
-    "model_hash": "3f1c57aa3e2335eb24bfc9f1444e6741b2bbc340f1fb0626ed4c8ebc502fcd80"
+    "model_hash": "5fb6a8ef8b022ce1206a3d6f5ebcc956c880f301c05ca1a43ab16c7997fa7bfd"
   },
   "updated_at": "2026-04-10"
 }

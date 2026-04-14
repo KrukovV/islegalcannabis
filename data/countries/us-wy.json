@@ -56,9 +56,9 @@
   },
   "related_codes": [
     "usa",
-    "us-ct",
-    "us-de",
-    "us-hi"
+    "us-ne",
+    "us-nd",
+    "us-nm"
   ],
   "related_names": [
     {
@@ -66,16 +66,16 @@
       "name": "United States"
     },
     {
-      "code": "us-ct",
-      "name": "Connecticut"
+      "code": "us-ne",
+      "name": "Nebraska"
     },
     {
-      "code": "us-de",
-      "name": "Delaware"
+      "code": "us-nd",
+      "name": "North Dakota"
     },
     {
-      "code": "us-hi",
-      "name": "Hawaii"
+      "code": "us-nm",
+      "name": "New Mexico"
     }
   ],
   "graph": {
@@ -83,30 +83,30 @@
     "seo_cluster": "USA_CLUSTER",
     "geo_neighbors": [
       {
-        "code": "us-ak",
-        "name": "Alaska"
+        "code": "us-co",
+        "name": "Colorado"
       },
       {
-        "code": "us-al",
-        "name": "Alabama"
+        "code": "us-mt",
+        "name": "Montana"
       },
       {
-        "code": "us-ar",
-        "name": "Arkansas"
+        "code": "us-ut",
+        "name": "Utah"
       }
     ],
     "legal_similarity": [
       {
-        "code": "us-ga",
-        "name": "Georgia"
-      },
-      {
-        "code": "us-ia",
-        "name": "Iowa"
-      },
-      {
         "code": "us-id",
         "name": "Idaho"
+      },
+      {
+        "code": "us-sd",
+        "name": "South Dakota"
+      },
+      {
+        "code": "us-ks",
+        "name": "Kansas"
       }
     ],
     "cluster_links": [
@@ -115,22 +115,22 @@
         "name": "United States"
       },
       {
-        "code": "us-in",
-        "name": "Indiana"
+        "code": "us-az",
+        "name": "Arizona"
       }
     ],
     "same_country_states": [
       {
-        "code": "us-ct",
-        "name": "Connecticut"
+        "code": "us-ne",
+        "name": "Nebraska"
       },
       {
-        "code": "us-de",
-        "name": "Delaware"
+        "code": "us-nd",
+        "name": "North Dakota"
       },
       {
-        "code": "us-hi",
-        "name": "Hawaii"
+        "code": "us-nm",
+        "name": "New Mexico"
       }
     ],
     "federal_parent": {
@@ -139,8 +139,8 @@
     }
   },
   "coordinates": {
-    "lat": 38,
-    "lng": -97
+    "lat": 42.9999,
+    "lng": -107.552
   },
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Wyoming",
@@ -172,9 +172,9 @@
   },
   "hashes": {
     "code": "us-wy",
-    "content_hash": "ee2f7da1606815d7990fe7b7dfbd53d5de6e1a9218419ed24927d9257f27126a",
+    "content_hash": "45dc2ed098d2f1a90c7bd2fa9aad88f356ed869b749e02994dd36de264b13a14",
     "notes_hash": "c4bbe39ea0803702e306f6052ac0c57c34b215d07c161c14efc23d95388efa9f",
-    "model_hash": "174b9e0753991d6b0b64f7e2eeccdf89f41389b66255ebe20382d85563138532"
+    "model_hash": "94b56414b49d434bad3eda2ceabe61ba45a927767833e52cbac72176ad3202f7"
   },
   "updated_at": "2026-04-10"
 }

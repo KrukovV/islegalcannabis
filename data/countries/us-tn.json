@@ -56,9 +56,9 @@
   },
   "related_codes": [
     "usa",
-    "us-ct",
-    "us-de",
-    "us-hi"
+    "us-ms",
+    "us-oh",
+    "us-il"
   ],
   "related_names": [
     {
@@ -66,16 +66,16 @@
       "name": "United States"
     },
     {
-      "code": "us-ct",
-      "name": "Connecticut"
+      "code": "us-ms",
+      "name": "Mississippi"
     },
     {
-      "code": "us-de",
-      "name": "Delaware"
+      "code": "us-oh",
+      "name": "Ohio"
     },
     {
-      "code": "us-hi",
-      "name": "Hawaii"
+      "code": "us-il",
+      "name": "Illinois"
     }
   ],
   "graph": {
@@ -83,30 +83,30 @@
     "seo_cluster": "USA_CLUSTER",
     "geo_neighbors": [
       {
-        "code": "us-ak",
-        "name": "Alaska"
+        "code": "us-ky",
+        "name": "Kentucky"
       },
       {
         "code": "us-al",
         "name": "Alabama"
       },
       {
-        "code": "us-ar",
-        "name": "Arkansas"
+        "code": "us-ga",
+        "name": "Georgia"
       }
     ],
     "legal_similarity": [
       {
-        "code": "us-ga",
-        "name": "Georgia"
+        "code": "us-in",
+        "name": "Indiana"
       },
       {
-        "code": "us-ia",
-        "name": "Iowa"
+        "code": "us-ar",
+        "name": "Arkansas"
       },
       {
-        "code": "us-id",
-        "name": "Idaho"
+        "code": "us-sc",
+        "name": "South Carolina"
       }
     ],
     "cluster_links": [
@@ -115,22 +115,22 @@
         "name": "United States"
       },
       {
-        "code": "us-in",
-        "name": "Indiana"
+        "code": "us-wv",
+        "name": "West Virginia"
       }
     ],
     "same_country_states": [
       {
-        "code": "us-ct",
-        "name": "Connecticut"
+        "code": "us-ms",
+        "name": "Mississippi"
       },
       {
-        "code": "us-de",
-        "name": "Delaware"
+        "code": "us-oh",
+        "name": "Ohio"
       },
       {
-        "code": "us-hi",
-        "name": "Hawaii"
+        "code": "us-il",
+        "name": "Illinois"
       }
     ],
     "federal_parent": {
@@ -139,8 +139,8 @@
     }
   },
   "coordinates": {
-    "lat": 38,
-    "lng": -97
+    "lat": 35.7514,
+    "lng": -86.3415
   },
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Tennessee",
@@ -172,9 +172,9 @@
   },
   "hashes": {
     "code": "us-tn",
-    "content_hash": "dc2bfe205303ad125c7ed5843c079c206ddc2b5df9a786e5585a6cd8cd77c59a",
+    "content_hash": "b0b2741a15fbe2afe2c7737f641a05fe63281ef80864b6cb4659319e06dd04c3",
     "notes_hash": "b8c7fff480177229a23e5406e58eac8728d92e171858e878a9ecf183002494d1",
-    "model_hash": "3035eb8ebb4b3c28ed3c0e8300409acd22ba039ab49a1d29dc6c2f7889c313c1"
+    "model_hash": "e4d75e2ea9e6367a81e798a2bb82aa547f34a590b60c1eb77612136a9a893128"
   },
   "updated_at": "2026-04-10"
 }

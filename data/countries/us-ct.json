@@ -39,7 +39,7 @@
     "applied_rules": []
   },
   "notes_normalized": "Cannabis is legal in Connecticut under state law for recreational adult use. Medical cannabis is also legal in Connecticut. Cannabis remains federally illegal in United States. Possession is limited to varies (see official sources).",
-  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}}",
+  "notes_raw": "style=\"background:#196E92;\" | {{Hs|1}} Cannabis in Connecticut is legal for recreational use since July 1, 2021. Medical use was legalized through legislation passed in 2012.\n\n\n== Decriminalization (2011) ==\nIn June 2011, Governor Dannel Malloy signed legislation that decriminalized cannabis possession. This followed a close vote in the Senate and 90–57 vote in the House. Governor Malloy stated:\n\n\"Let me make it clear - we are not legalizing the use of marijuana. In modifying this law, we are recognizing that the punishment should fit the crime, and acknowledging the effects of its application. There is no question that the state’s criminal justice resources could be more effectively utilized for convicting, incarcerating and supervising violent and more serious offenders.\"\n\n\n== Medical cannabis (2012) ==\nIn June 2012, Governor Malloy signed into law a medical marijuana program for his state, following a 21–13 vote in the Senate.\n\n\n== Recreational cannabis (2021) ==\nIn April 2018, a recreational marijuana bill was approved to be sent to the General Assembly in a 27–24 vote. The plan was to be sent to the General Assembly in October 2018, though the effort ultimately stalled. All told, three separate bills were proposed but not approved. In March 2020, Governor Ned Lamont proposed a bill that had legislative support, only for the state government to shut down due to the COVID-19 pandemic two weeks later.\nEfforts to legalize recreational marijuana renewed in 2021, with Lamont vowing to make a push for legalization that would enable sales to begin in May 2022. A bill by Lamont narrowly passed the state Judiciary Committee by a 22–16 vote on April 6, and another competing bill, praised by the legislature's progressives, had cleared the legislature's Labor and Public Employees Committee in a 9–4 vote just days earlier on March 25. On April 14, several Democratic legislators, including president pro tempore Martin Looney, said they would vote against the measure passed by the Judiciary, stating they were concerned about a lack of provisions for social equity within the bill.\nOn June 22, 2021, Governor Lamont signed Senate Bill 1201 that legalized recreational cannabis. It states that possession of cannabis among adults age 21 and over will be legal in Connecticut beginning July 1, 2021. Adults cannot have more than 1+1⁄2 ounces (43 g) of cannabis on their person, and no more than 5 ounces (140 g) in their homes or locked in their car trunk or glove box. Retail sales of cannabis aim to begin in Connecticut by the end of 2022. The sale, manufacture, and cultivation of cannabis (aside from home grow) requires a license from the state. Products that contain delta-8-THC, delta-9-THC, or delta-10-THC are considered cannabis and may only be sold by licensed retailers. Individuals who are not licensed by the state may gift cannabis to others but may not sell it. Individuals may not gift cannabis to another individual who has “paid” or “donated” for another product. All adults age 21 and over will be permitted to grow six cannabis plants indoors within their homes beginning July 1, 2023. \nOutdoor cannabis cultivation remains a felony.\n\n\n== Low-level cannabis criminal records (2023) ==\nFrom January 1, 2023 thousands of low-level cannabis criminal records will be automatically \"expunged or cleared\" - with a new scheme implemented by the Governor of Connecticut.\n\n\n== References ==",
   "facts": {
     "possession_limit": "varies (see official sources)",
     "cultivation": null,
@@ -58,9 +58,9 @@
   },
   "related_codes": [
     "usa",
-    "us-ga",
-    "us-hi",
-    "us-ia"
+    "us-de",
+    "us-md",
+    "us-pa"
   ],
   "related_names": [
     {
@@ -68,16 +68,16 @@
       "name": "United States"
     },
     {
-      "code": "us-ga",
-      "name": "Georgia"
+      "code": "us-de",
+      "name": "Delaware"
     },
     {
-      "code": "us-hi",
-      "name": "Hawaii"
+      "code": "us-md",
+      "name": "Maryland"
     },
     {
-      "code": "us-ia",
-      "name": "Iowa"
+      "code": "us-pa",
+      "name": "Pennsylvania"
     }
   ],
   "graph": {
@@ -85,19 +85,43 @@
     "seo_cluster": "USA_CLUSTER",
     "geo_neighbors": [
       {
-        "code": "us-ak",
-        "name": "Alaska"
+        "code": "us-ri",
+        "name": "Rhode Island"
       },
       {
-        "code": "us-al",
-        "name": "Alabama"
+        "code": "us-ma",
+        "name": "Massachusetts"
       },
       {
-        "code": "us-ar",
-        "name": "Arkansas"
+        "code": "us-nh",
+        "name": "New Hampshire"
       }
     ],
     "legal_similarity": [
+      {
+        "code": "us-nj",
+        "name": "New Jersey"
+      },
+      {
+        "code": "us-vt",
+        "name": "Vermont"
+      },
+      {
+        "code": "us-ny",
+        "name": "New York"
+      }
+    ],
+    "cluster_links": [
+      {
+        "code": "usa",
+        "name": "United States"
+      },
+      {
+        "code": "us-me",
+        "name": "Maine"
+      }
+    ],
+    "same_country_states": [
       {
         "code": "us-de",
         "name": "Delaware"
@@ -107,32 +131,8 @@
         "name": "Maryland"
       },
       {
-        "code": "us-me",
-        "name": "Maine"
-      }
-    ],
-    "cluster_links": [
-      {
-        "code": "usa",
-        "name": "United States"
-      },
-      {
-        "code": "us-id",
-        "name": "Idaho"
-      }
-    ],
-    "same_country_states": [
-      {
-        "code": "us-ga",
-        "name": "Georgia"
-      },
-      {
-        "code": "us-hi",
-        "name": "Hawaii"
-      },
-      {
-        "code": "us-ia",
-        "name": "Iowa"
+        "code": "us-pa",
+        "name": "Pennsylvania"
       }
     ],
     "federal_parent": {
@@ -141,8 +141,8 @@
     }
   },
   "coordinates": {
-    "lat": 38,
-    "lng": -97
+    "lat": 41.6486,
+    "lng": -72.7594
   },
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Connecticut",
@@ -181,9 +181,9 @@
   },
   "hashes": {
     "code": "us-ct",
-    "content_hash": "e1365c52be6dbacc6a422186fb1a94adda54ca48633e3891bdfb31ed87f4b0c1",
+    "content_hash": "f5f96cd04fa048ed5b19d28d807d671c7c389baeac37f346c9d59646ea62163d",
     "notes_hash": "6a97b44a92dec5497120903db10e740e5039ebd5f7441aa8f885e06717bad0fe",
-    "model_hash": "f0193018dcaa8f8f2e5a0279b059394dbe069a67cfb915d5c44390676361176c"
+    "model_hash": "00a4ea20e914b40884bb0c2df117e7bb000f25831b164be674d14555e4ec0766"
   },
   "updated_at": "2024-01-01"
 }

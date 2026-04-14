@@ -58,9 +58,9 @@
   },
   "related_codes": [
     "usa",
-    "us-ga",
-    "us-hi",
-    "us-ia"
+    "us-nj",
+    "us-pa",
+    "us-de"
   ],
   "related_names": [
     {
@@ -68,16 +68,16 @@
       "name": "United States"
     },
     {
-      "code": "us-ga",
-      "name": "Georgia"
+      "code": "us-nj",
+      "name": "New Jersey"
     },
     {
-      "code": "us-hi",
-      "name": "Hawaii"
+      "code": "us-pa",
+      "name": "Pennsylvania"
     },
     {
-      "code": "us-ia",
-      "name": "Iowa"
+      "code": "us-de",
+      "name": "Delaware"
     }
   ],
   "graph": {
@@ -85,30 +85,30 @@
     "seo_cluster": "USA_CLUSTER",
     "geo_neighbors": [
       {
-        "code": "us-ak",
-        "name": "Alaska"
+        "code": "us-nh",
+        "name": "New Hampshire"
       },
       {
-        "code": "us-al",
-        "name": "Alabama"
+        "code": "us-ma",
+        "name": "Massachusetts"
       },
       {
-        "code": "us-ar",
-        "name": "Arkansas"
+        "code": "us-ct",
+        "name": "Connecticut"
       }
     ],
     "legal_similarity": [
       {
-        "code": "us-ct",
-        "name": "Connecticut"
+        "code": "us-ny",
+        "name": "New York"
       },
       {
-        "code": "us-de",
-        "name": "Delaware"
+        "code": "us-ri",
+        "name": "Rhode Island"
       },
       {
-        "code": "us-md",
-        "name": "Maryland"
+        "code": "us-me",
+        "name": "Maine"
       }
     ],
     "cluster_links": [
@@ -117,22 +117,22 @@
         "name": "United States"
       },
       {
-        "code": "us-id",
-        "name": "Idaho"
+        "code": "us-md",
+        "name": "Maryland"
       }
     ],
     "same_country_states": [
       {
-        "code": "us-ga",
-        "name": "Georgia"
+        "code": "us-nj",
+        "name": "New Jersey"
       },
       {
-        "code": "us-hi",
-        "name": "Hawaii"
+        "code": "us-pa",
+        "name": "Pennsylvania"
       },
       {
-        "code": "us-ia",
-        "name": "Iowa"
+        "code": "us-de",
+        "name": "Delaware"
       }
     ],
     "federal_parent": {
@@ -141,8 +141,8 @@
     }
   },
   "coordinates": {
-    "lat": 38,
-    "lng": -97
+    "lat": 44.0886,
+    "lng": -72.7317
   },
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Vermont",
@@ -174,9 +174,9 @@
   },
   "hashes": {
     "code": "us-vt",
-    "content_hash": "84f4a365d5c41f986c0f5041a754d21d9401bc6d9b7e5204c93c64f82925d1d8",
+    "content_hash": "ee1be3d2dbdfa4fbee52dc4f3a8aae86783a9cf8c03ab4238d29f56c9dc4ca34",
     "notes_hash": "1636788066b8e3a18ff09192cc12a59a408880d437fd764029abd9b4d37d3972",
-    "model_hash": "f469cda95d016165c86b93323abc77d5f432ce8203326719a0237adea4dd4adc"
+    "model_hash": "d015ab85c6acde50a4cede81f78cb17bb0ffe11fde5fcd44ce1501879d28f68b"
   },
   "updated_at": "2026-04-10"
 }

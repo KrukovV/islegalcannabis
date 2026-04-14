@@ -58,9 +58,9 @@
   },
   "related_codes": [
     "usa",
-    "us-al",
-    "us-ar",
-    "us-de"
+    "us-ut",
+    "us-wy",
+    "us-co"
   ],
   "related_names": [
     {
@@ -68,16 +68,16 @@
       "name": "United States"
     },
     {
-      "code": "us-al",
-      "name": "Alabama"
+      "code": "us-ut",
+      "name": "Utah"
     },
     {
-      "code": "us-ar",
-      "name": "Arkansas"
+      "code": "us-wy",
+      "name": "Wyoming"
     },
     {
-      "code": "us-de",
-      "name": "Delaware"
+      "code": "us-co",
+      "name": "Colorado"
     }
   ],
   "graph": {
@@ -85,8 +85,22 @@
     "seo_cluster": "USA_CLUSTER",
     "geo_neighbors": [
       {
+        "code": "us-or",
+        "name": "Oregon"
+      },
+      {
+        "code": "us-id",
+        "name": "Idaho"
+      },
+      {
         "code": "us-nv",
         "name": "Nevada"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "us-mt",
+        "name": "Montana"
       },
       {
         "code": "us-ca",
@@ -97,42 +111,28 @@
         "name": "Arizona"
       }
     ],
-    "legal_similarity": [
-      {
-        "code": "us-co",
-        "name": "Colorado"
-      },
-      {
-        "code": "us-ak",
-        "name": "Alaska"
-      },
-      {
-        "code": "us-ct",
-        "name": "Connecticut"
-      }
-    ],
     "cluster_links": [
       {
         "code": "usa",
         "name": "United States"
       },
       {
-        "code": "us-ga",
-        "name": "Georgia"
+        "code": "us-nm",
+        "name": "New Mexico"
       }
     ],
     "same_country_states": [
       {
-        "code": "us-al",
-        "name": "Alabama"
+        "code": "us-ut",
+        "name": "Utah"
       },
       {
-        "code": "us-ar",
-        "name": "Arkansas"
+        "code": "us-wy",
+        "name": "Wyoming"
       },
       {
-        "code": "us-de",
-        "name": "Delaware"
+        "code": "us-co",
+        "name": "Colorado"
       }
     ],
     "federal_parent": {
@@ -181,9 +181,9 @@
   },
   "hashes": {
     "code": "us-wa",
-    "content_hash": "6507ca2056fc978dc2d8a18a972bb4962e453abd5fa1ab62f7eedb9e10ced5ae",
+    "content_hash": "352d377b3a6ef56f7dcf39454d090a4c4e130b6beb17fcbcadf69a1cec020235",
     "notes_hash": "e8f962db5683ef9e54604916b1548ab57331e287a0096e0704dcc00dffea2223",
-    "model_hash": "229426526ab50d01cb0b999169bc394b21d80b0fcb8dae894474d9ef1e0be8e4"
+    "model_hash": "99347a003ee902f88af71cddbc0c16400c3e4d7059c2d5dc2cc3eb92d98c2dc0"
   },
   "updated_at": "2024-01-01"
 }

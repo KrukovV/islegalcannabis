@@ -9,11 +9,13 @@ import styles from "../MapRoot.module.css";
 export default function ViewportCountryPopup({
   entry,
   anchor,
-  onClose
+  onClose,
+  onOpenDetails
 }: {
   entry: CountryCardEntry;
   anchor: { x: number; y: number } | null;
   onClose: () => void;
+  onOpenDetails?: (_entry: CountryCardEntry) => void;
 }) {
   const panelRef = useRef<HTMLElement | null>(null);
   const [position, setPosition] = useState<{ left: number; top: number; placement: "left" | "right" }>({
@@ -147,9 +149,17 @@ export default function ViewportCountryPopup({
       ) : null}
 
       <div className={styles.viewportPopupFooter}>
-        <Link className={styles.viewportPopupCta} href={entry.pageHref}>
+        <a
+          className={styles.viewportPopupCta}
+          href={entry.pageHref}
+          onClick={(event) => {
+            if (!onOpenDetails) return;
+            event.preventDefault();
+            onOpenDetails(entry);
+          }}
+        >
           Details →
-        </Link>
+        </a>
       </div>
     </aside>
   );

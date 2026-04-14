@@ -9,6 +9,7 @@ const OUTPUT_DIR = path.join(ROOT, "data", "countries");
 const OUTPUT_INDEX_PATH = path.join(ROOT, "data", "index.json");
 const GRAPH_DIR = path.join(ROOT, "data", "graph");
 const GRAPH_PATH = path.join(GRAPH_DIR, "country-graph.json");
+const US_STATES_GEOJSON_PATH = path.join(ROOT, "apps", "web", "public", "us-states.geojson");
 const US_STATE_CENTROIDS_PATH = path.join(ROOT, "data", "centroids", "us_adm1.json");
 const US_STATE_ROWS_PATH = path.join(ROOT, "data", "wiki", "cache", "legality_us_states.json");
 const US_STATE_WIKI_PATH = path.join(ROOT, "data", "ssot", "us_states_wiki.json");
@@ -443,6 +444,22 @@ function loadUsStateCentroids() {
   return payload?.items || {};
 }
 
+function loadUsStateLabelAnchors() {
+  const payload = readJson(US_STATES_GEOJSON_PATH);
+  return Object.fromEntries(
+    (Array.isArray(payload?.features) ? payload.features : [])
+      .map((feature) => feature?.properties || null)
+      .filter(Boolean)
+      .map((properties) => {
+        const geo = String(properties.geo || "").toUpperCase();
+        const lat = Number(properties.labelAnchorLat);
+        const lng = Number(properties.labelAnchorLng);
+        return [geo, Number.isFinite(lat) && Number.isFinite(lng) ? { lat, lon: lng } : null];
+      })
+      .filter(([geo, value]) => /^US-[A-Z]{2}$/.test(geo) && value)
+  );
+}
+
 function loadUsStateLawByGeo() {
   if (!fs.existsSync(US_LAWS_DIR)) return new Map();
   return new Map(
@@ -675,6 +692,7 @@ async function buildCountryEntries() {
 
 async function buildStateEntries(usaEntry) {
   const centroids = loadUsStateCentroids();
+  const labelAnchors = loadUsStateLabelAnchors();
   const lawsByGeo = loadUsStateLawByGeo();
   const wikiByGeo = loadUsStateWikiByGeo();
   const rawRowsByGeo = loadUsStateRawRowsByGeo();
@@ -686,7 +704,7 @@ async function buildStateEntries(usaEntry) {
     const code = `us-${stateCode}`;
     const rawRow = rawRowsByGeo.get(geo);
     const law = lawsByGeo.get(geo);
-    const centroid = centroids[geo] || null;
+    const centroid = centroids[geo] || labelAnchors[geo] || null;
     const fallbackRec = "ILLEGAL";
     const fallbackMed = "ILLEGAL";
     const recreationalStatus = law

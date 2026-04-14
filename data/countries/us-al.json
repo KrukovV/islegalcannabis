@@ -56,9 +56,9 @@
   },
   "related_codes": [
     "usa",
-    "us-de",
-    "us-hi",
-    "us-in"
+    "us-la",
+    "us-in",
+    "us-fl"
   ],
   "related_names": [
     {
@@ -66,16 +66,16 @@
       "name": "United States"
     },
     {
-      "code": "us-de",
-      "name": "Delaware"
-    },
-    {
-      "code": "us-hi",
-      "name": "Hawaii"
+      "code": "us-la",
+      "name": "Louisiana"
     },
     {
       "code": "us-in",
       "name": "Indiana"
+    },
+    {
+      "code": "us-fl",
+      "name": "Florida"
     }
   ],
   "graph": {
@@ -83,30 +83,30 @@
     "seo_cluster": "USA_CLUSTER",
     "geo_neighbors": [
       {
-        "code": "us-ak",
-        "name": "Alaska"
+        "code": "us-tn",
+        "name": "Tennessee"
+      },
+      {
+        "code": "us-ms",
+        "name": "Mississippi"
+      },
+      {
+        "code": "us-ga",
+        "name": "Georgia"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "us-ky",
+        "name": "Kentucky"
       },
       {
         "code": "us-ar",
         "name": "Arkansas"
       },
       {
-        "code": "us-ct",
-        "name": "Connecticut"
-      }
-    ],
-    "legal_similarity": [
-      {
-        "code": "us-ga",
-        "name": "Georgia"
-      },
-      {
-        "code": "us-ia",
-        "name": "Iowa"
-      },
-      {
-        "code": "us-id",
-        "name": "Idaho"
+        "code": "us-sc",
+        "name": "South Carolina"
       }
     ],
     "cluster_links": [
@@ -115,22 +115,22 @@
         "name": "United States"
       },
       {
-        "code": "us-ks",
-        "name": "Kansas"
+        "code": "us-mo",
+        "name": "Missouri"
       }
     ],
     "same_country_states": [
       {
-        "code": "us-de",
-        "name": "Delaware"
-      },
-      {
-        "code": "us-hi",
-        "name": "Hawaii"
+        "code": "us-la",
+        "name": "Louisiana"
       },
       {
         "code": "us-in",
         "name": "Indiana"
+      },
+      {
+        "code": "us-fl",
+        "name": "Florida"
       }
     ],
     "federal_parent": {
@@ -139,8 +139,8 @@
     }
   },
   "coordinates": {
-    "lat": 38,
-    "lng": -97
+    "lat": 32.8551,
+    "lng": -86.7184
   },
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Alabama",
@@ -172,9 +172,9 @@
   },
   "hashes": {
     "code": "us-al",
-    "content_hash": "eb66ab5634bd7f237cc5b39fdc614582be0d0120347d74b81281bdcbd745ace6",
+    "content_hash": "19156f7e42467cd2049a9592b6a0923bbc2cca5591727c088198f9f273d81e4a",
     "notes_hash": "3c61cc8e6a13b07b3cc11193634f9270224c4ea66f1518a59836e4c93f4a6220",
-    "model_hash": "ac6f563c712427ea729d01f6f88aac2542a019a8d89f2c6c69932cec5b7e3811"
+    "model_hash": "be81ad21219c997a199b3522551d573238a02c2371f58da547471ff7188e1b7f"
   },
   "updated_at": "2026-04-10"
 }

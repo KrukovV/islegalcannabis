@@ -26,6 +26,21 @@ type Props = {
 
 const EMPTY_SEO_COUNTRY_INDEX: Record<string, CountryPageData> = {};
 
+function parseSeoCodeFromPath(pathname: string): string | null {
+  const match = pathname.match(/^\/(?:[a-z]{2}\/)?c\/([^/?#]+)$/i);
+  return match?.[1] || null;
+}
+
+function parseSeoCodeFromHref(href: string): string | null {
+  if (!href) return null;
+  try {
+    const url = new URL(href, typeof window !== "undefined" ? window.location.origin : "https://islegal.info");
+    return parseSeoCodeFromPath(url.pathname);
+  } catch {
+    return parseSeoCodeFromPath(href);
+  }
+}
+
 type NewMapDebug = {
   mounted: boolean;
   selectedId?: string | null;
@@ -111,18 +126,27 @@ export default function MapRoot({
   const [seoPanelOpen, setSeoPanelOpen] = useState(Boolean(initialGeoCode));
   const [cardIndex, setCardIndex] = useState<Record<string, CountryCardEntry>>({});
   const [popupAnchor, setPopupAnchor] = useState<{ x: number; y: number } | null>(null);
+  const [activeRouteSeoData, setActiveRouteSeoData] = useState<CountryPageData | null>(seoCountryData);
   const selectedFeatureStateRef = useRef<{ source: "legal-countries" | "us-states"; id: string } | null>(null);
+  const seoDataByCodeRef = useRef<Record<string, CountryPageData>>({});
   const showDebugOverlay = runtimeIdentity.runtimeMode !== "production";
   const lastAppliedRouteGeoRef = useRef<string | null>(null);
-  const seoCountryCode = seoCountryData?.code || null;
-  const seoRouteGeoCode = String(seoCountryData?.geo_code || "").trim().toUpperCase() || null;
+  const seoCountryCode = activeRouteSeoData?.code || null;
+  const seoRouteGeoCode = String(activeRouteSeoData?.geo_code || "").trim().toUpperCase() || null;
+
+  useEffect(() => {
+    if (!seoCountryData) return;
+    seoDataByCodeRef.current[seoCountryData.code.toLowerCase()] = seoCountryData;
+    seoDataByCodeRef.current[String(seoCountryData.geo_code || "").trim().toUpperCase()] = seoCountryData;
+    setActiveRouteSeoData(seoCountryData);
+  }, [seoCountryData]);
   const activeSeoData = useMemo(() => {
-    if (!seoCountryData) return null;
+    if (!activeRouteSeoData) return null;
     if (seoRouteGeoCode && seoCountryIndex[seoRouteGeoCode]) {
       return seoCountryIndex[seoRouteGeoCode];
     }
-    return seoCountryData;
-  }, [seoCountryData, seoCountryIndex, seoRouteGeoCode]);
+    return activeRouteSeoData;
+  }, [activeRouteSeoData, seoCountryIndex, seoRouteGeoCode]);
   const showSeoOverlay = Boolean(activeSeoData && seoPanelOpen);
   const popupGeoCode =
     selectedGeo &&
@@ -173,9 +197,65 @@ export default function MapRoot({
     setSelectedGeo(null);
   }, []);
 
+  const loadSeoCountryData = useCallback(async (code: string) => {
+    const normalizedCode = String(code || "").trim().toLowerCase();
+    if (!normalizedCode) return null;
+    const cached = seoDataByCodeRef.current[normalizedCode];
+    if (cached) return cached;
+    const response = await fetch(`/api/new-map/country-page?code=${encodeURIComponent(normalizedCode)}`, {
+      cache: "no-store",
+      credentials: "same-origin"
+    });
+    if (!response.ok) return null;
+    const data = (await response.json()) as CountryPageData;
+    seoDataByCodeRef.current[normalizedCode] = data;
+    seoDataByCodeRef.current[String(data.geo_code || "").trim().toUpperCase()] = data;
+    return data;
+  }, []);
+
+  const activateSeoRoute = useCallback(
+    async (code: string, options?: { pushUrl?: boolean }) => {
+      const data = await loadSeoCountryData(code);
+      if (!data) return false;
+      const targetHref = `/c/${data.code}`;
+      if (options?.pushUrl && typeof window !== "undefined" && window.location.pathname !== targetHref) {
+        window.history.pushState({ seoCode: data.code }, "", targetHref);
+      }
+      setActiveRouteSeoData(data);
+      setSeoPanelOpen(true);
+      setSelectedGeo(data.geo_code);
+      const lat = data.coordinates?.lat;
+      const lng = data.coordinates?.lng;
+      const map = mapRef.current;
+      if (map && typeof lat === "number" && typeof lng === "number") {
+        const targetZoom = String(data.geo_code || "").toUpperCase().startsWith("US-") ? 4.8 : 3.2;
+        map.easeTo({
+          center: [lng, lat],
+          zoom: Math.max(map.getZoom(), targetZoom),
+          duration: 700,
+          essential: true
+        });
+      }
+      return true;
+    },
+    [loadSeoCountryData]
+  );
+
   const handleCountryPopupClose = useCallback(() => {
     setSelectedGeo(null);
   }, []);
+
+  const handleOpenDetails = useCallback(
+    async (entry: CountryCardEntry) => {
+      const code = parseSeoCodeFromHref(entry.pageHref);
+      if (!code) return;
+      const activated = await activateSeoRoute(code, { pushUrl: true });
+      if (!activated && typeof window !== "undefined") {
+        window.location.assign(entry.pageHref);
+      }
+    },
+    [activateSeoRoute]
+  );
 
   const applyGeoToMap = useCallback((geo: ActiveGeo, options?: { recenter?: boolean }) => {
     const map = mapRef.current;
@@ -371,13 +451,30 @@ export default function MapRoot({
       return;
     }
     return onFirstVisualReady(() => setVisualReady(true));
-  }, [countriesUrl, seoCountryIndex]);
+  }, [countriesUrl]);
 
   useEffect(() => {
     if (seoCountryData) {
       setSeoPanelOpen(true);
     }
   }, [seoCountryCode, seoCountryData, seoCountryIndex]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const handlePopState = () => {
+      const code = parseSeoCodeFromPath(window.location.pathname);
+      if (!code) {
+        setActiveRouteSeoData(null);
+        setSeoPanelOpen(false);
+        setSelectedGeo(null);
+        lastAppliedRouteGeoRef.current = null;
+        return;
+      }
+      void activateSeoRoute(code, { pushUrl: false });
+    };
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, [activateSeoRoute]);
 
   useEffect(() => {
     let cancelled = false;
@@ -517,7 +614,7 @@ export default function MapRoot({
       cancelled = true;
       cleanup();
     };
-  }, [countriesUrl, seoCountryIndex, seoRouteGeoCode]);
+  }, [countriesUrl]);
 
   return (
     <section
@@ -562,7 +659,12 @@ export default function MapRoot({
         <UnifiedSeoStatusPanel data={activeSeoData} onClose={handleSeoPanelClose} />
       ) : null}
       {selectedGeoEntry && popupAnchor ? (
-        <ViewportCountryPopup entry={selectedGeoEntry} anchor={popupAnchor} onClose={handleCountryPopupClose} />
+        <ViewportCountryPopup
+          entry={selectedGeoEntry}
+          anchor={popupAnchor}
+          onClose={handleCountryPopupClose}
+          onOpenDetails={handleOpenDetails}
+        />
       ) : null}
       <div
         ref={containerRef}

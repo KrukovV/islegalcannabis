@@ -56,9 +56,9 @@
   },
   "related_codes": [
     "usa",
-    "us-ct",
-    "us-de",
-    "us-hi"
+    "us-al",
+    "us-fl",
+    "us-oh"
   ],
   "related_names": [
     {
@@ -66,16 +66,16 @@
       "name": "United States"
     },
     {
-      "code": "us-ct",
-      "name": "Connecticut"
+      "code": "us-al",
+      "name": "Alabama"
     },
     {
-      "code": "us-de",
-      "name": "Delaware"
+      "code": "us-fl",
+      "name": "Florida"
     },
     {
-      "code": "us-hi",
-      "name": "Hawaii"
+      "code": "us-oh",
+      "name": "Ohio"
     }
   ],
   "graph": {
@@ -83,30 +83,30 @@
     "seo_cluster": "USA_CLUSTER",
     "geo_neighbors": [
       {
-        "code": "us-ak",
-        "name": "Alaska"
+        "code": "us-nc",
+        "name": "North Carolina"
       },
-      {
-        "code": "us-al",
-        "name": "Alabama"
-      },
-      {
-        "code": "us-ar",
-        "name": "Arkansas"
-      }
-    ],
-    "legal_similarity": [
       {
         "code": "us-ga",
         "name": "Georgia"
       },
       {
-        "code": "us-ia",
-        "name": "Iowa"
+        "code": "us-va",
+        "name": "Virginia"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "us-wv",
+        "name": "West Virginia"
       },
       {
-        "code": "us-id",
-        "name": "Idaho"
+        "code": "us-tn",
+        "name": "Tennessee"
+      },
+      {
+        "code": "us-ky",
+        "name": "Kentucky"
       }
     ],
     "cluster_links": [
@@ -115,22 +115,22 @@
         "name": "United States"
       },
       {
-        "code": "us-in",
-        "name": "Indiana"
+        "code": "us-md",
+        "name": "Maryland"
       }
     ],
     "same_country_states": [
       {
-        "code": "us-ct",
-        "name": "Connecticut"
+        "code": "us-al",
+        "name": "Alabama"
       },
       {
-        "code": "us-de",
-        "name": "Delaware"
+        "code": "us-fl",
+        "name": "Florida"
       },
       {
-        "code": "us-hi",
-        "name": "Hawaii"
+        "code": "us-oh",
+        "name": "Ohio"
       }
     ],
     "federal_parent": {
@@ -139,8 +139,8 @@
     }
   },
   "coordinates": {
-    "lat": 38,
-    "lng": -97
+    "lat": 33.8578,
+    "lng": -80.6471
   },
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_South_Carolina",
@@ -172,9 +172,9 @@
   },
   "hashes": {
     "code": "us-sc",
-    "content_hash": "5a01b3f0027bc4aeab05dc455e63382c4e4c0acccfec53a38d0a4c5d22ed5190",
+    "content_hash": "2553d7a11f388ccaed614026dc25aee35697db11607712f69458faa8f8caf1c0",
     "notes_hash": "49b54284052c322f9fb99bd07a89e3420a0faba6c492973d422cc0f000c4a471",
-    "model_hash": "6dc6ff66383b6d861152050d602d0554076f0ea6773998d63f86e119a65982c1"
+    "model_hash": "4551f01fd72ea608351c5007574550b48f6894ba2e0af2e99a3c754bfbcd4213"
   },
   "updated_at": "2026-04-10"
 }

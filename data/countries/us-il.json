@@ -58,9 +58,9 @@
   },
   "related_codes": [
     "usa",
-    "us-ar",
-    "us-ga",
-    "us-hi"
+    "us-ia",
+    "us-ky",
+    "us-tn"
   ],
   "related_names": [
     {
@@ -68,16 +68,16 @@
       "name": "United States"
     },
     {
-      "code": "us-ar",
-      "name": "Arkansas"
+      "code": "us-ia",
+      "name": "Iowa"
     },
     {
-      "code": "us-ga",
-      "name": "Georgia"
+      "code": "us-ky",
+      "name": "Kentucky"
     },
     {
-      "code": "us-hi",
-      "name": "Hawaii"
+      "code": "us-tn",
+      "name": "Tennessee"
     }
   ],
   "graph": {
@@ -85,30 +85,30 @@
     "seo_cluster": "USA_CLUSTER",
     "geo_neighbors": [
       {
-        "code": "us-mi",
-        "name": "Michigan"
+        "code": "us-in",
+        "name": "Indiana"
       },
       {
-        "code": "us-ak",
-        "name": "Alaska"
+        "code": "us-mo",
+        "name": "Missouri"
       },
       {
-        "code": "us-al",
-        "name": "Alabama"
+        "code": "us-wi",
+        "name": "Wisconsin"
       }
     ],
     "legal_similarity": [
       {
-        "code": "us-ct",
-        "name": "Connecticut"
+        "code": "us-mi",
+        "name": "Michigan"
       },
       {
-        "code": "us-de",
-        "name": "Delaware"
+        "code": "us-mn",
+        "name": "Minnesota"
       },
       {
-        "code": "us-md",
-        "name": "Maryland"
+        "code": "us-oh",
+        "name": "Ohio"
       }
     ],
     "cluster_links": [
@@ -117,22 +117,22 @@
         "name": "United States"
       },
       {
-        "code": "us-ia",
-        "name": "Iowa"
+        "code": "us-ar",
+        "name": "Arkansas"
       }
     ],
     "same_country_states": [
       {
-        "code": "us-ar",
-        "name": "Arkansas"
+        "code": "us-ia",
+        "name": "Iowa"
       },
       {
-        "code": "us-ga",
-        "name": "Georgia"
+        "code": "us-ky",
+        "name": "Kentucky"
       },
       {
-        "code": "us-hi",
-        "name": "Hawaii"
+        "code": "us-tn",
+        "name": "Tennessee"
       }
     ],
     "federal_parent": {
@@ -181,9 +181,9 @@
   },
   "hashes": {
     "code": "us-il",
-    "content_hash": "0bd2582b4cea67a66e41d59a0d67cfabc0ddcb0df555f55aa93693d23b280e0d",
+    "content_hash": "6dbafb2baba11c21c4c64b1a06b7723ed3dbf8c7cd0bae5f0dbbca92bc59ae35",
     "notes_hash": "df9d9ef50301b2c349671a85f582bc9213de97f0773f6892df9d61f4c5149ab8",
-    "model_hash": "6b56d34d3071838ce22dd6be0161914d1f6edd2f2e5464b076e5f3f3ffd7cb47"
+    "model_hash": "bcf826609a6c597ed862d5e8814f042cbe7dafeb69f30e82d546a308fc21928d"
   },
   "updated_at": "2024-01-01"
 }

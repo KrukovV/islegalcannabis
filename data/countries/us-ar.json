@@ -56,9 +56,9 @@
   },
   "related_codes": [
     "usa",
-    "us-de",
-    "us-hi",
-    "us-in"
+    "us-il",
+    "us-ky",
+    "us-ks"
   ],
   "related_names": [
     {
@@ -66,16 +66,16 @@
       "name": "United States"
     },
     {
-      "code": "us-de",
-      "name": "Delaware"
+      "code": "us-il",
+      "name": "Illinois"
     },
     {
-      "code": "us-hi",
-      "name": "Hawaii"
+      "code": "us-ky",
+      "name": "Kentucky"
     },
     {
-      "code": "us-in",
-      "name": "Indiana"
+      "code": "us-ks",
+      "name": "Kansas"
     }
   ],
   "graph": {
@@ -83,30 +83,30 @@
     "seo_cluster": "USA_CLUSTER",
     "geo_neighbors": [
       {
-        "code": "us-ak",
-        "name": "Alaska"
+        "code": "us-ms",
+        "name": "Mississippi"
+      },
+      {
+        "code": "us-mo",
+        "name": "Missouri"
+      },
+      {
+        "code": "us-la",
+        "name": "Louisiana"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "us-ok",
+        "name": "Oklahoma"
       },
       {
         "code": "us-al",
         "name": "Alabama"
       },
       {
-        "code": "us-ct",
-        "name": "Connecticut"
-      }
-    ],
-    "legal_similarity": [
-      {
-        "code": "us-ga",
-        "name": "Georgia"
-      },
-      {
-        "code": "us-ia",
-        "name": "Iowa"
-      },
-      {
-        "code": "us-id",
-        "name": "Idaho"
+        "code": "us-tn",
+        "name": "Tennessee"
       }
     ],
     "cluster_links": [
@@ -115,22 +115,22 @@
         "name": "United States"
       },
       {
-        "code": "us-ks",
-        "name": "Kansas"
+        "code": "us-ia",
+        "name": "Iowa"
       }
     ],
     "same_country_states": [
       {
-        "code": "us-de",
-        "name": "Delaware"
+        "code": "us-il",
+        "name": "Illinois"
       },
       {
-        "code": "us-hi",
-        "name": "Hawaii"
+        "code": "us-ky",
+        "name": "Kentucky"
       },
       {
-        "code": "us-in",
-        "name": "Indiana"
+        "code": "us-ks",
+        "name": "Kansas"
       }
     ],
     "federal_parent": {
@@ -139,8 +139,8 @@
     }
   },
   "coordinates": {
-    "lat": 38,
-    "lng": -97
+    "lat": 34.7563,
+    "lng": -92.1428
   },
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Arkansas",
@@ -172,9 +172,9 @@
   },
   "hashes": {
     "code": "us-ar",
-    "content_hash": "45e0d19b99dba2baf0ff0b2e9772224f796226dbac5f8d55fda7dc86758f6563",
+    "content_hash": "8fd1b88f325545c401e387dff6732c591b0227b5bcdcc1a26281191871ec2a37",
     "notes_hash": "72de72aa79191ed378371f90b8637b4c991c09131161598d9452a3c8d1323f4e",
-    "model_hash": "a76ffc11a82befac93ad6d7c12d9e1cf916356826c275c6fed2f9fb0aa56fab5"
+    "model_hash": "693b85bc0064017aa85ff5cd2dff99d7767e7de31e3ea673d749046b83923793"
   },
   "updated_at": "2026-04-10"
 }

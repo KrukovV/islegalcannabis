@@ -58,9 +58,9 @@
   },
   "related_codes": [
     "usa",
-    "us-ct",
-    "us-de",
-    "us-ga"
+    "us-ok",
+    "us-tn",
+    "us-tx"
   ],
   "related_names": [
     {
@@ -68,16 +68,16 @@
       "name": "United States"
     },
     {
-      "code": "us-ct",
-      "name": "Connecticut"
+      "code": "us-ok",
+      "name": "Oklahoma"
     },
     {
-      "code": "us-de",
-      "name": "Delaware"
+      "code": "us-tn",
+      "name": "Tennessee"
     },
     {
-      "code": "us-ga",
-      "name": "Georgia"
+      "code": "us-tx",
+      "name": "Texas"
     }
   ],
   "graph": {
@@ -85,30 +85,30 @@
     "seo_cluster": "USA_CLUSTER",
     "geo_neighbors": [
       {
-        "code": "us-ak",
-        "name": "Alaska"
-      },
-      {
-        "code": "us-al",
-        "name": "Alabama"
-      },
-      {
-        "code": "us-ar",
-        "name": "Arkansas"
-      }
-    ],
-    "legal_similarity": [
-      {
-        "code": "us-hi",
-        "name": "Hawaii"
-      },
-      {
         "code": "us-ms",
         "name": "Mississippi"
       },
       {
+        "code": "us-ar",
+        "name": "Arkansas"
+      },
+      {
+        "code": "us-al",
+        "name": "Alabama"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "us-ne",
+        "name": "Nebraska"
+      },
+      {
         "code": "us-nc",
         "name": "North Carolina"
+      },
+      {
+        "code": "us-nd",
+        "name": "North Dakota"
       }
     ],
     "cluster_links": [
@@ -117,22 +117,22 @@
         "name": "United States"
       },
       {
-        "code": "us-ia",
-        "name": "Iowa"
+        "code": "us-mo",
+        "name": "Missouri"
       }
     ],
     "same_country_states": [
       {
-        "code": "us-ct",
-        "name": "Connecticut"
+        "code": "us-ok",
+        "name": "Oklahoma"
       },
       {
-        "code": "us-de",
-        "name": "Delaware"
+        "code": "us-tn",
+        "name": "Tennessee"
       },
       {
-        "code": "us-ga",
-        "name": "Georgia"
+        "code": "us-tx",
+        "name": "Texas"
       }
     ],
     "federal_parent": {
@@ -141,8 +141,8 @@
     }
   },
   "coordinates": {
-    "lat": 38,
-    "lng": -97
+    "lat": 30.5274,
+    "lng": -91.9991
   },
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Louisiana",
@@ -174,9 +174,9 @@
   },
   "hashes": {
     "code": "us-la",
-    "content_hash": "dab0313e310d3693b24906e73dbb5aec7e7804baff8872a375c0b6d8d53cb9a1",
+    "content_hash": "592a098c9103943982be772e8d759a563c9017ee432be0eb1e46ee33bd4bf9cb",
     "notes_hash": "4cd96884bb5634832df758b2f765b1c906d1d5747dfa49af60c80eeb299c3ebe",
-    "model_hash": "d442e8faec788d4f3e1e6893100f09384f81093b078c64330a0c3724f1279357"
+    "model_hash": "cc7bda634f1f7d1dfc1958fca5a6d1d4ba1d19b824c865732af93e1cc74a5225"
   },
   "updated_at": "2026-04-10"
 }

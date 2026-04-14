@@ -58,9 +58,9 @@
   },
   "related_codes": [
     "usa",
-    "us-ga",
-    "us-hi",
-    "us-ia"
+    "us-wv",
+    "us-nc",
+    "us-oh"
   ],
   "related_names": [
     {
@@ -68,16 +68,16 @@
       "name": "United States"
     },
     {
-      "code": "us-ga",
-      "name": "Georgia"
+      "code": "us-wv",
+      "name": "West Virginia"
     },
     {
-      "code": "us-hi",
-      "name": "Hawaii"
+      "code": "us-nc",
+      "name": "North Carolina"
     },
     {
-      "code": "us-ia",
-      "name": "Iowa"
+      "code": "us-oh",
+      "name": "Ohio"
     }
   ],
   "graph": {
@@ -85,30 +85,30 @@
     "seo_cluster": "USA_CLUSTER",
     "geo_neighbors": [
       {
-        "code": "us-ak",
-        "name": "Alaska"
-      },
-      {
-        "code": "us-al",
-        "name": "Alabama"
-      },
-      {
-        "code": "us-ar",
-        "name": "Arkansas"
-      }
-    ],
-    "legal_similarity": [
-      {
-        "code": "us-ct",
-        "name": "Connecticut"
+        "code": "us-pa",
+        "name": "Pennsylvania"
       },
       {
         "code": "us-de",
         "name": "Delaware"
       },
       {
-        "code": "us-me",
-        "name": "Maine"
+        "code": "us-va",
+        "name": "Virginia"
+      }
+    ],
+    "legal_similarity": [
+      {
+        "code": "us-nj",
+        "name": "New Jersey"
+      },
+      {
+        "code": "us-ny",
+        "name": "New York"
+      },
+      {
+        "code": "us-ct",
+        "name": "Connecticut"
       }
     ],
     "cluster_links": [
@@ -117,22 +117,22 @@
         "name": "United States"
       },
       {
-        "code": "us-id",
-        "name": "Idaho"
+        "code": "us-ri",
+        "name": "Rhode Island"
       }
     ],
     "same_country_states": [
       {
-        "code": "us-ga",
-        "name": "Georgia"
+        "code": "us-wv",
+        "name": "West Virginia"
       },
       {
-        "code": "us-hi",
-        "name": "Hawaii"
+        "code": "us-nc",
+        "name": "North Carolina"
       },
       {
-        "code": "us-ia",
-        "name": "Iowa"
+        "code": "us-oh",
+        "name": "Ohio"
       }
     ],
     "federal_parent": {
@@ -141,8 +141,8 @@
     }
   },
   "coordinates": {
-    "lat": 38,
-    "lng": -97
+    "lat": 39.3874,
+    "lng": -77.0454
   },
   "sources": {
     "legal": "https://en.wikipedia.org/wiki/Cannabis_in_Maryland",
@@ -174,9 +174,9 @@
   },
   "hashes": {
     "code": "us-md",
-    "content_hash": "21f837d328113e719d12c826ac54f85cce7481413435dcd3fcb69651b8175857",
+    "content_hash": "3baed05e297160c185e18e951efb0c8f8b6372b454c59ff06c92a3f07d7108d8",
     "notes_hash": "c8f71a1e2c40fc82447887753b7867ee14c205f25618f27b7dac19446380f4ff",
-    "model_hash": "6ca6de3c0332b7de7c5cf76fd7183fe46f3b54bc89e859f9dee4a534c94f1351"
+    "model_hash": "f8b038d5bb2f28de113e1ecf77dd5a73b2d855e4b7eb51e3476b7fc9f53155b1"
   },
   "updated_at": "2026-04-10"
 }
