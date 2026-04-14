@@ -163,7 +163,11 @@ const STATUS_LABELS: Record<SeoAltLocale, Record<string, string>> = {
 };
 
 export function getLocalizedCountryName(data: CountryPageData, locale: SeoLocale) {
-  return getDisplayName(data.iso2, locale) || data.name;
+  const display = getDisplayName(data.iso2, locale) || data.name;
+  if (display.includes(" / ")) {
+    return locale === "en" ? display.split(" / ")[0].trim() : display.split(" / ").at(-1)?.trim() || display;
+  }
+  return display;
 }
 
 function translateStatus(locale: SeoAltLocale, status: string | null | undefined) {
@@ -213,6 +217,9 @@ export function getSeoText(locale: SeoLocale) {
       risk: "Risk",
       keyFacts: "Key facts",
       relatedPlaces: "Related places",
+      possession: "Possession",
+      cultivation: "Cultivation",
+      penalty: "Penalty",
       intro: (data: CountryPageData) => data.notes_normalized
     };
   }
@@ -227,6 +234,9 @@ export function getSeoText(locale: SeoLocale) {
     risk: copy.risk,
     keyFacts: copy.keyFacts,
     relatedPlaces: copy.relatedPlaces,
+    possession: copy.possession,
+    cultivation: copy.cultivation,
+    penalty: copy.penalty,
     intro: (data: CountryPageData) => getLocalizedSeoIntro(data, locale)
   };
 }

@@ -6,6 +6,7 @@ import maplibregl, { type StyleSpecification } from "maplibre-gl";
 import type { RuntimeIdentity } from "@/lib/runtimeIdentity";
 import type { CountryPageData } from "@/lib/countryPageStorage";
 import { deriveCountryCardEntryFromCountryPageData } from "@/lib/countryCardEntry";
+import type { SeoLocale } from "@/lib/seo/i18n";
 import { createMap } from "./createMap";
 import type { CountryCardEntry, LegalCountryCollection } from "./map.types";
 import styles from "./MapRoot.module.css";
@@ -22,6 +23,7 @@ type Props = {
   initialGeoCode?: string | null;
   seoCountryData?: CountryPageData | null;
   seoCountryIndex?: Record<string, CountryPageData>;
+  locale?: SeoLocale;
 };
 
 const EMPTY_SEO_COUNTRY_INDEX: Record<string, CountryPageData> = {};
@@ -110,7 +112,8 @@ export default function MapRoot({
   runtimeIdentity,
   initialGeoCode = null,
   seoCountryData = null,
-  seoCountryIndex = EMPTY_SEO_COUNTRY_INDEX
+  seoCountryIndex = EMPTY_SEO_COUNTRY_INDEX,
+  locale = "en"
 }: Props) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
@@ -656,11 +659,12 @@ export default function MapRoot({
         </div>
       ) : null}
       {showSeoOverlay && activeSeoData ? (
-        <UnifiedSeoStatusPanel data={activeSeoData} onClose={handleSeoPanelClose} />
+        <UnifiedSeoStatusPanel data={activeSeoData} locale={locale} onClose={handleSeoPanelClose} />
       ) : null}
       {selectedGeoEntry && popupAnchor ? (
         <ViewportCountryPopup
           entry={selectedGeoEntry}
+          locale={locale}
           anchor={popupAnchor}
           onClose={handleCountryPopupClose}
           onOpenDetails={handleOpenDetails}

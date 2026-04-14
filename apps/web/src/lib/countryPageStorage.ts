@@ -623,11 +623,11 @@ export function deriveCountryCardEntryFromCountryPageData(data: CountryPageData)
           : "Decriminalized or partly allowed in practice.";
 
   if (mapCategory === "ILLEGAL") {
-    why.push(buildReason("why-red", "Red because hard restrictions remain and no lawful access is confirmed.", "#law-summary", reasonSourceUrl));
+    why.push(buildReason("why-red", "Red because hard restrictions remain and no lawful access is confirmed.", "#law-status-explanation", reasonSourceUrl));
   } else if (mapCategory === "LIMITED_OR_MEDICAL") {
-    why.push(buildReason("why-yellow", mapReason || "Yellow because restrictions remain, but there is limited lawful access.", "#law-summary", reasonSourceUrl));
+    why.push(buildReason("why-yellow", mapReason || "Yellow because restrictions remain, but there is limited lawful access.", "#law-status-explanation", reasonSourceUrl));
   } else {
-    why.push(buildReason("why-green", mapReason || "Green because current access is legal, decriminalized, or tolerated.", "#law-summary", reasonSourceUrl));
+    why.push(buildReason("why-green", mapReason || "Green because current access is legal, decriminalized, or tolerated.", "#law-status-explanation", reasonSourceUrl));
   }
 
   return {

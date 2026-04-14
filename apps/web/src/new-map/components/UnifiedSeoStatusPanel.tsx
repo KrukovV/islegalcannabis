@@ -4,32 +4,38 @@ import Link from "next/link";
 import type { CountryPageData } from "@/lib/countryPageStorage";
 import { deriveCountryCardEntryFromCountryPageData } from "@/lib/countryCardEntry";
 import { buildCountryIntentSections } from "@/lib/seo/countryIntentContent";
+import type { SeoLocale } from "@/lib/seo/i18n";
+import { getSeoText } from "@/lib/seo/i18n";
+import { localizePanel } from "@/lib/seo/panelLocale";
 import { formatDistributionDetail, formatMedicalDetail, formatRecreationalDetail } from "../statusPresentation";
 import styles from "../MapRoot.module.css";
 
 export default function UnifiedSeoStatusPanel({
   data,
+  locale,
   onClose
 }: {
   data: CountryPageData;
+  locale: SeoLocale;
   onClose: () => void;
 }) {
   const card = deriveCountryCardEntryFromCountryPageData(data);
-  const intents = buildCountryIntentSections(data);
-  const label = data.name.split(" / ")[0] || data.name;
+  const intents = buildCountryIntentSections(data, { locale });
+  const seo = getSeoText(locale);
+  const panel = localizePanel(card, data, locale);
 
   return (
     <aside className={styles.seoOverlayPanel} data-testid="new-map-seo-overlay">
       <div className={styles.seoPanelHeader}>
         <div>
-          <div className={styles.eyebrow}>{data.node_type === "state" ? "State View" : "Country View"}</div>
+          <div className={styles.eyebrow}>{data.node_type === "state" ? panel.labels.eyebrowState : panel.labels.eyebrowCountry}</div>
           <div className={styles.unifiedPanelStatusRow}>
             <span className={styles.unifiedPanelStatusBadge} data-category={card.mapCategory}>
-              {card.panel.levelTitle}
+              {panel.levelTitle}
             </span>
-            <h2 className={styles.seoPanelStatusTitle}>{card.panel.levelTitle} in {label}</h2>
+            <h2 className={styles.seoPanelStatusTitle}>{panel.title}</h2>
           </div>
-          <p className={styles.seoPanelIntro}>{card.panel.summary}</p>
+          <p className={styles.seoPanelIntro}>{panel.summary}</p>
         </div>
         <button type="button" className={styles.seoPanelClose} onClick={onClose} aria-label="Close country info">
           ×
@@ -37,11 +43,11 @@ export default function UnifiedSeoStatusPanel({
       </div>
 
       <section className={styles.seoPanelSection}>
-        {card.panel.critical.length > 0 ? (
+        {panel.critical.length > 0 ? (
           <>
-            <h3 className={styles.seoPanelSubheading}>Hard restrictions</h3>
+            <h3 className={styles.seoPanelSubheading}>{panel.labels.hardRestrictions}</h3>
             <ul className={styles.seoPanelList}>
-              {card.panel.critical.map((reason) => (
+              {panel.critical.map((reason) => (
                 <li key={reason.id}>
                   <Link href={reason.href}>{reason.text}</Link>
                   {reason.sourceUrl && reason.sourceUrl !== reason.href ? (
@@ -57,11 +63,11 @@ export default function UnifiedSeoStatusPanel({
             </ul>
           </>
         ) : null}
-        {card.panel.info.length > 0 ? (
+        {panel.info.length > 0 ? (
           <>
-            <h3 className={styles.seoPanelSubheading}>More context</h3>
+            <h3 className={styles.seoPanelSubheading}>{panel.labels.moreContext}</h3>
             <ul className={styles.seoPanelList}>
-              {card.panel.info.map((reason) => (
+              {panel.info.map((reason) => (
                 <li key={reason.id}>
                   <Link href={reason.href}>{reason.text}</Link>
                   {reason.sourceUrl && reason.sourceUrl !== reason.href ? (
@@ -77,11 +83,11 @@ export default function UnifiedSeoStatusPanel({
             </ul>
           </>
         ) : null}
-        {card.panel.why.length > 0 ? (
+        {panel.why.length > 0 ? (
           <>
-            <h3 className={styles.seoPanelSubheading}>Why this color</h3>
+            <h3 className={styles.seoPanelSubheading}>{panel.labels.whyThisColor}</h3>
             <ul className={styles.seoPanelList}>
-              {card.panel.why.map((reason) => (
+              {panel.why.map((reason) => (
                 <li key={reason.id}>
                   <Link href={reason.href}>{reason.text}</Link>
                   {reason.sourceUrl && reason.sourceUrl !== reason.href ? (
@@ -97,29 +103,29 @@ export default function UnifiedSeoStatusPanel({
             </ul>
           </>
         ) : null}
-        <h3 className={styles.seoPanelSubheading}>Law snapshot</h3>
+        <h3 className={styles.seoPanelSubheading}>{panel.labels.lawSnapshot}</h3>
         <ul className={styles.seoPanelList}>
           <li>
             <Link href={`/c/${data.code}#law-recreational`}>
-              Recreational: {formatRecreationalDetail(card)}
+              {seo.recreational}: {formatRecreationalDetail(card)}
             </Link>
           </li>
           <li>
             <Link href={`/c/${data.code}#law-medical`}>
-              Medical: {formatMedicalDetail(card)}
+              {seo.medical}: {formatMedicalDetail(card)}
             </Link>
           </li>
           <li>
             <Link href={`/c/${data.code}#law-distribution`}>
-              Distribution: {formatDistributionDetail(card)}
+              {seo.distribution}: {formatDistributionDetail(card)}
             </Link>
           </li>
         </ul>
-        <p className={styles.seoPanelIntro}>{data.notes_normalized}</p>
+        <p className={styles.seoPanelIntro}>{seo.intro(data)}</p>
       </section>
 
       <section className={styles.seoPanelSection}>
-        <h3 className={styles.seoPanelSubheading}>Intent</h3>
+        <h3 className={styles.seoPanelSubheading}>{panel.labels.intent}</h3>
         {intents.map((intent) => (
           <div key={intent.id} className={styles.unifiedPanelIntentBlock}>
             <p className={styles.unifiedPanelIntentTitle}>{intent.heading}</p>
@@ -129,7 +135,7 @@ export default function UnifiedSeoStatusPanel({
       </section>
 
       <section className={styles.seoPanelSection}>
-        <h3 className={styles.seoPanelSubheading}>Related</h3>
+        <h3 className={styles.seoPanelSubheading}>{panel.labels.related}</h3>
         <ul className={styles.seoPanelList}>
           {data.related_names.map((item) => (
             <li key={item.code}>
@@ -141,7 +147,7 @@ export default function UnifiedSeoStatusPanel({
 
       {card.sources.length > 0 ? (
         <section className={styles.seoPanelSection}>
-          <h3 className={styles.seoPanelSubheading}>Sources</h3>
+          <h3 className={styles.seoPanelSubheading}>{panel.labels.sources}</h3>
           <ul className={styles.seoPanelList}>
             {card.sources.map((source) => (
               <li key={source.id}>
@@ -154,7 +160,7 @@ export default function UnifiedSeoStatusPanel({
         </section>
       ) : data.sources.citations.length > 0 ? (
         <section className={styles.seoPanelSection}>
-          <h3 className={styles.seoPanelSubheading}>Sources</h3>
+          <h3 className={styles.seoPanelSubheading}>{panel.labels.sources}</h3>
           <ul className={styles.seoPanelList}>
             {data.sources.citations.map((source) => (
               <li key={source.id}>
@@ -170,10 +176,10 @@ export default function UnifiedSeoStatusPanel({
       <section className={styles.seoPanelSection}>
         {card.detailsHref ? (
           <a href={card.detailsHref} rel="nofollow noopener noreferrer" target="_blank">
-            Legal source →
+            {panel.labels.legalSource}
           </a>
         ) : (
-          <span className={styles.seoPanelMuted}>No dedicated Cannabis_in_* source.</span>
+          <span className={styles.seoPanelMuted}>{panel.labels.noDedicatedSource}</span>
         )}
       </section>
     </aside>

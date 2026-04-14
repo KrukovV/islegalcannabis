@@ -2,17 +2,22 @@
 
 import { useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
+import type { SeoLocale } from "@/lib/seo/i18n";
+import { getSeoText } from "@/lib/seo/i18n";
+import { localizePanelFromEntry } from "@/lib/seo/panelLocale";
 import { formatDistributionDetail, formatMedicalDetail, formatRecreationalDetail } from "../statusPresentation";
 import type { CountryCardEntry } from "../map.types";
 import styles from "../MapRoot.module.css";
 
 export default function ViewportCountryPopup({
   entry,
+  locale,
   anchor,
   onClose,
   onOpenDetails
 }: {
   entry: CountryCardEntry;
+  locale: SeoLocale;
   anchor: { x: number; y: number } | null;
   onClose: () => void;
   onOpenDetails?: (_entry: CountryCardEntry) => void;
@@ -23,6 +28,8 @@ export default function ViewportCountryPopup({
     top: 16,
     placement: "right"
   });
+  const seo = getSeoText(locale);
+  const panel = localizePanelFromEntry(entry, locale);
 
   useLayoutEffect(() => {
     if (!anchor || !panelRef.current || typeof window === "undefined") return;
@@ -101,12 +108,12 @@ export default function ViewportCountryPopup({
     >
       <div className={styles.viewportPopupHeader}>
         <div>
-          <div className={styles.viewportPopupTitle}>{entry.displayName}</div>
+        <div className={styles.viewportPopupTitle}>{entry.displayName}</div>
           <div className={styles.viewportPopupMeta}>ISO2: {entry.iso2 || "Unknown"}</div>
         </div>
         <div className={styles.viewportPopupHeaderControls}>
           <div className={styles.viewportPopupBadge} data-category={entry.mapCategory}>
-            {entry.panel.levelTitle}
+            {panel.levelTitle}
           </div>
           <button
             type="button"
@@ -119,23 +126,23 @@ export default function ViewportCountryPopup({
         </div>
       </div>
 
-      <p className={styles.viewportPopupSummary}>{entry.panel.summary}</p>
-      {renderList("Hard restrictions", "❗", entry.panel.critical)}
-      {renderList("More context", "ℹ️", entry.panel.info)}
-      {renderList("Why this color", "→", entry.panel.why)}
+      <p className={styles.viewportPopupSummary}>{panel.summary}</p>
+      {renderList(panel?.labels.hardRestrictions || "Hard restrictions", "❗", panel?.critical || entry.panel.critical)}
+      {renderList(panel?.labels.moreContext || "More context", "ℹ️", panel?.info || entry.panel.info)}
+      {renderList(panel?.labels.whyThisColor || "Why this color", "→", panel?.why || entry.panel.why)}
 
       <section className={styles.viewportPopupSection}>
-        <div className={styles.viewportPopupSectionTitle}>Law snapshot</div>
+        <div className={styles.viewportPopupSectionTitle}>{panel?.labels.lawSnapshot || "Law snapshot"}</div>
         <ul className={styles.viewportPopupList}>
-          <li className={styles.viewportPopupPlainItem}>Recreational: {formatRecreationalDetail(entry)}</li>
-          <li className={styles.viewportPopupPlainItem}>Medical: {formatMedicalDetail(entry)}</li>
-          <li className={styles.viewportPopupPlainItem}>Distribution: {formatDistributionDetail(entry)}</li>
+          <li className={styles.viewportPopupPlainItem}>{seo.recreational}: {formatRecreationalDetail(entry)}</li>
+          <li className={styles.viewportPopupPlainItem}>{seo.medical}: {formatMedicalDetail(entry)}</li>
+          <li className={styles.viewportPopupPlainItem}>{seo.distribution}: {formatDistributionDetail(entry)}</li>
         </ul>
       </section>
 
       {entry.sources.length > 0 ? (
         <section className={styles.viewportPopupSection}>
-          <div className={styles.viewportPopupSectionTitle}>Sources</div>
+          <div className={styles.viewportPopupSectionTitle}>{panel?.labels.sources || "Sources"}</div>
           <ul className={styles.viewportPopupList}>
             {entry.sources.map((source) => (
               <li key={source.id} className={styles.viewportPopupPlainItem}>
@@ -158,7 +165,7 @@ export default function ViewportCountryPopup({
             onOpenDetails(entry);
           }}
         >
-          Details →
+          {panel?.labels.details || "Details →"}
         </a>
       </div>
     </aside>

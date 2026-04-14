@@ -246,7 +246,7 @@ function buildStatusPanel(profile: JurisdictionLawProfile, statusLevel: ResultVi
       buildReason(
         "why-red",
         "Hard legal restrictions were found in the current law.",
-        reasonLink(countryPageHref, "#law-summary", sourceUrl),
+        reasonLink(countryPageHref, "#law-status-explanation", sourceUrl),
         sourceUrl
       )
     );
@@ -256,7 +256,7 @@ function buildStatusPanel(profile: JurisdictionLawProfile, statusLevel: ResultVi
       buildReason(
         "why-yellow",
         "This status combines restrictions with limited lawful access or weaker enforcement.",
-        reasonLink(countryPageHref, "#law-summary", sourceUrl),
+        reasonLink(countryPageHref, "#law-status-explanation", sourceUrl),
         sourceUrl
       )
     );
@@ -266,7 +266,7 @@ function buildStatusPanel(profile: JurisdictionLawProfile, statusLevel: ResultVi
       buildReason(
         "why-green",
         "No hard blocker overrides the current lawful or decriminalized access path.",
-        reasonLink(countryPageHref, "#law-summary", sourceUrl),
+        reasonLink(countryPageHref, "#law-status-explanation", sourceUrl),
         sourceUrl
       )
     );
