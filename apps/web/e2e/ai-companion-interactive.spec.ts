@@ -42,7 +42,7 @@ async function askWithHeaders(
   for (const pattern of FORBIDDEN_PATTERNS) {
     expect(answer).not.toMatch(pattern);
   }
-  await new Promise((resolve) => setTimeout(resolve, 800));
+  await new Promise((resolve) => setTimeout(resolve, 1200));
   return answer;
 }
 

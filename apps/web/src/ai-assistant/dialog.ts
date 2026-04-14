@@ -2,10 +2,12 @@ import type { AIContext, AIIntent, DialogState } from "./types";
 
 const dialogState: DialogState = {
   lastQuery: null,
+  lastUser: null,
   lastLocation: null,
   lastIntent: null,
   lastTopic: null,
   lastAnswer: null,
+  lastAssistant: null,
   tone: "calm",
   depth: "medium"
 };
@@ -57,19 +59,23 @@ export function getDialogState(): DialogState {
 
 export function resetDialogState() {
   dialogState.lastQuery = null;
+  dialogState.lastUser = null;
   dialogState.lastLocation = null;
   dialogState.lastIntent = null;
   dialogState.lastTopic = null;
   dialogState.lastAnswer = null;
+  dialogState.lastAssistant = null;
   dialogState.tone = "calm";
   dialogState.depth = "medium";
 }
 
 export function rememberDialog(context: Pick<AIContext, "query" | "intent" | "location" | "culture">, answer: string) {
   dialogState.lastQuery = String(context.query || "").trim() || null;
+  dialogState.lastUser = String(context.query || "").trim() || null;
   dialogState.lastIntent = context.intent;
   dialogState.lastLocation = context.location.name || context.location.geoHint || null;
   dialogState.lastTopic = context.culture[0]?.title || context.intent;
   dialogState.lastAnswer = String(answer || "").trim() || null;
+  dialogState.lastAssistant = String(answer || "").trim() || null;
   dialogState.depth = context.intent === "airport" || context.intent === "legal" ? "medium" : "short";
 }

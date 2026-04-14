@@ -8,6 +8,15 @@ function isLocalHost(hostname: string) {
 
 export function middleware(req: NextRequest) {
   const { pathname, hostname } = req.nextUrl;
+
+  if (hostname === "www.islegal.info") {
+    const nextUrl = req.nextUrl.clone();
+    nextUrl.hostname = "islegal.info";
+    nextUrl.protocol = "https";
+    nextUrl.port = "";
+    return NextResponse.redirect(nextUrl, 301);
+  }
+
   const redirectPath = resolveBrowserLocaleRedirect(pathname, req.headers.get("accept-language"));
 
   if (redirectPath) {
@@ -36,5 +45,9 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|.*\\.[^/]+$).*)"],
+  matcher: [
+    "/((?!api|_next/static|_next/image|.*\\.[^/]+$).*)",
+    "/robots.txt",
+    "/sitemap.xml"
+  ],
 };

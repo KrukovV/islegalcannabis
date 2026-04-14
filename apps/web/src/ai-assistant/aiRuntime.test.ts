@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { buildContext, generateAnswer } from "./aiRuntime";
 import { isContinuationQuery, rememberDialog } from "./dialog";
-import { buildPrompt } from "./prompt";
+import { buildMessages, buildPrompt } from "./prompt";
 
 describe("aiRuntime", () => {
   it("builds grounded legal context from country storage and query intent", () => {
@@ -37,5 +37,14 @@ describe("aiRuntime", () => {
     expect(prompt).toContain("Style examples:");
     expect(prompt).toContain("Индия каннабис?");
     expect(prompt).not.toContain("Что такое 420?");
+  });
+
+  it("caps llm message history to six entries", () => {
+    const firstContext = buildContext("Что по закону в Индии?", "IN", [], "ru");
+    rememberDialog(firstContext, "Тестовый прошлый ответ.");
+    const nextContext = buildContext("а еще?", "IN", [], "ru");
+    const messages = buildMessages({ query: "а еще?", context: nextContext });
+    expect(messages.length).toBeLessThanOrEqual(6);
+    expect(messages.at(-1)?.role).toBe("user");
   });
 });

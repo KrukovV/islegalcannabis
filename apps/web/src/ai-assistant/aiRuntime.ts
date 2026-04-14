@@ -1,19 +1,35 @@
+import os from "node:os";
 import socialRealityData from "../../../../data/generated/socialReality.global.json";
 import { getCountryPageIndexByGeoCode, getCountryPageIndexByIso2 } from "@/lib/countryPageStorage";
 import { deriveResultStatusFromCountryPageData } from "@/lib/resultStatus";
-import { buildPrompt } from "./prompt";
+import { buildMessages, type LlmMessage } from "./prompt";
 import type { AIContext, AIResponse, RagChunk } from "./types";
 import { detectIntent, enrichWithDialogContext, getDialogState, isContinuationQuery, rememberDialog } from "./dialog";
 import { getTravelRiskBlock } from "./rag";
 
 const OLLAMA_HOST = process.env.OLLAMA_HOST || "http://127.0.0.1:11434";
-const OLLAMA_URL = `${OLLAMA_HOST}/api/generate`;
+const OLLAMA_URL = `${OLLAMA_HOST}/api/chat`;
 const OLLAMA_TAGS_URL = `${OLLAMA_HOST}/api/tags`;
 const OLLAMA_STOP_URL = `${OLLAMA_HOST}/api/stop`;
-const OLLAMA_MODEL = process.env.AI_OLLAMA_MODEL || process.env.OLLAMA_MODEL || "codex-local:latest";
-const OLLAMA_GENERATE_TIMEOUT_MS = 15000;
+const AI_PROVIDER = process.env.AI_PROVIDER || (process.env.NODE_ENV === "production" ? "openai" : "ollama");
+const OLLAMA_PRIMARY_MODEL = process.env.AI_OLLAMA_MODEL || process.env.OLLAMA_MODEL || "phi3:mini";
+const OLLAMA_FALLBACK_MODEL = process.env.AI_OLLAMA_FALLBACK_MODEL || "gemma:2b";
+const OPENAI_MODEL = process.env.AI_MODEL || process.env.OPENAI_MODEL || "gpt-4o-mini";
+const OPENAI_BASE_URL = process.env.OPENAI_BASE_URL || "https://api.openai.com/v1";
+const CONVERSATIONAL_MODEL_CANDIDATES = [
+  OLLAMA_PRIMARY_MODEL,
+  OLLAMA_FALLBACK_MODEL,
+  "phi3:mini",
+  "gemma:2b"
+];
+const OLLAMA_GENERATE_TIMEOUT_MS = 12000;
+const EXTERNAL_GENERATE_TIMEOUT_MS = 8000;
+const MAX_CPU_LOAD_RATIO = 0.9;
+const OLLAMA_COOLDOWN_MS = 60000;
+const MIN_PARTIAL_WORDS = 24;
 let donationShown = false;
 let ollamaInferenceRunning = false;
+let ollamaCooldownUntil = 0;
 
 export class AIConnectionError extends Error {
   code: string;
@@ -320,6 +336,18 @@ function normalizedWords(text: string) {
   );
 }
 
+function countWords(text: string) {
+  return String(text || "")
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean).length;
+}
+
+function isUsablePartialAnswer(text: string) {
+  const trimmed = String(text || "").trim();
+  return trimmed.length >= 140 || countWords(trimmed) >= MIN_PARTIAL_WORDS;
+}
+
 function isRepeatAnswer(nextAnswer: string, lastAnswer: string | null | undefined) {
   if (!lastAnswer) return false;
   const left = normalizedWords(nextAnswer);
@@ -464,64 +492,181 @@ function buildFallbackAnswer(language: string | undefined) {
     : "Give me a second, the answer is still loading. Please try once more.";
 }
 
-async function stopOllamaModel() {
+function buildDeterministicBackup(context: AIContext) {
+  return generateAnswer(context);
+}
+
+function isCpuSaturated() {
+  const cores = typeof os.availableParallelism === "function" ? os.availableParallelism() : os.cpus().length || 1;
+  const ratio = os.loadavg()[0] / Math.max(cores, 1);
+  return ratio >= MAX_CPU_LOAD_RATIO;
+}
+
+async function stopOllamaModel(modelName?: string) {
   await fetch(OLLAMA_STOP_URL, {
     method: "POST",
     headers: { "content-type": "application/json" },
-    body: JSON.stringify({ name: OLLAMA_MODEL })
+    body: JSON.stringify({ name: modelName || getPreferredModels()[0] })
   }).catch(() => null);
 }
 
-async function runOllamaGenerate(prompt: string) {
-  let lastError: AIConnectionError | null = null;
-  for (let attempt = 0; attempt < 2; attempt += 1) {
-    await stopOllamaModel();
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), OLLAMA_GENERATE_TIMEOUT_MS);
-    const response = await fetch(OLLAMA_URL, {
+function getPreferredModels() {
+  return Array.from(new Set(CONVERSATIONAL_MODEL_CANDIDATES.filter(Boolean)));
+}
+
+function pickAvailableModel(availableModels: string[]) {
+  for (const model of getPreferredModels()) {
+    if (availableModels.includes(model)) return model;
+  }
+  return availableModels[0] || null;
+}
+
+async function runOllamaChat(model: string, messages: LlmMessage[]) {
+  const controller = new AbortController();
+  let timedOut = false;
+  const timeoutPromise = new Promise<Response | null>((resolve) => setTimeout(() => {
+    timedOut = true;
+    controller.abort();
+    resolve(null);
+  }, OLLAMA_GENERATE_TIMEOUT_MS));
+  const response = await Promise.race([
+    fetch(OLLAMA_URL, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({
-        model: OLLAMA_MODEL,
-        stream: false,
-        keep_alive: "10m",
-        prompt,
+        model,
+        stream: true,
+        keep_alive: "5m",
+        messages,
         options: {
           num_ctx: 1024,
-          num_predict: 128,
+          num_predict: 192,
           temperature: 0.7
         }
       }),
       signal: controller.signal
-    }).catch(() => null);
-    clearTimeout(timer);
-    if (!response) {
-      lastError = new AIConnectionError("NO_LLM", "Ollama generate call failed.", 503, `Expected ${OLLAMA_URL}`);
-      await stopOllamaModel();
-    } else if (!response.ok) {
-      const body = await response.text().catch(() => "");
-      lastError = new AIConnectionError(
-        "LLM_GENERATE_FAILED",
-        "Ollama returned a non-OK response.",
-        503,
-        body.slice(0, 200) || `HTTP ${response.status}`
-      );
-      await stopOllamaModel();
-    } else {
-      const payload = (await response.json()) as { response?: string };
-      const answer = String(payload.response || "").trim();
-      if (answer) {
-        return answer;
-      }
-      lastError = new AIConnectionError("EMPTY_LLM_RESPONSE", "Ollama returned an empty response.", 503);
-      await stopOllamaModel();
-    }
-    await new Promise((resolve) => setTimeout(resolve, 500));
+    }).catch(() => null),
+    timeoutPromise
+  ]);
+  if (!response) {
+    if (timedOut) await stopOllamaModel(model);
+    throw new AIConnectionError(
+      timedOut ? "LLM_TIMEOUT" : "NO_LLM",
+      timedOut ? "Ollama chat request timed out." : "Ollama chat call failed.",
+      503,
+      `Expected ${OLLAMA_URL}`
+    );
   }
-  throw lastError || new AIConnectionError("NO_LLM", "Ollama generate call failed.", 503, `Expected ${OLLAMA_URL}`);
+  if (!response.ok) {
+    const body = await response.text().catch(() => "");
+    throw new AIConnectionError(
+      timedOut ? "LLM_TIMEOUT" : "LLM_GENERATE_FAILED",
+      "Ollama returned a non-OK response.",
+      503,
+      body.slice(0, 200) || `HTTP ${response.status}`
+    );
+  }
+  if (!response.body) {
+    throw new AIConnectionError("EMPTY_LLM_RESPONSE", "Ollama returned an empty stream.", 503);
+  }
+  const reader = response.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
+  let answer = "";
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      const lines = buffer.split("\n");
+      buffer = lines.pop() || "";
+      for (const rawLine of lines) {
+        const line = rawLine.trim();
+        if (!line) continue;
+        const payload = JSON.parse(line) as { message?: { content?: string }; done?: boolean };
+        const chunk = String(payload.message?.content || "");
+        if (chunk) answer += chunk;
+        if (payload.done && answer.trim()) {
+          return answer.trim();
+        }
+      }
+    }
+  } catch {
+    if (timedOut && isUsablePartialAnswer(answer)) {
+      return answer.trim();
+    }
+    throw new AIConnectionError(
+      timedOut ? "LLM_TIMEOUT" : "LLM_GENERATE_FAILED",
+      timedOut ? "Ollama chat request timed out." : "Ollama streaming failed.",
+      503,
+      `Expected ${OLLAMA_URL}`
+    );
+  }
+  if (answer.trim()) return answer.trim();
+  throw new AIConnectionError("EMPTY_LLM_RESPONSE", "Ollama returned an empty response.", 503);
+}
+
+async function runExternalChat(messages: LlmMessage[]) {
+  const apiKey = process.env.OPENAI_API_KEY;
+  if (!apiKey) {
+    throw new AIConnectionError("NO_LLM", "External AI provider is not configured.", 503, "Missing OPENAI_API_KEY");
+  }
+  const controller = new AbortController();
+  const timeoutPromise = new Promise<Response | null>((resolve) => setTimeout(() => {
+    controller.abort();
+    resolve(null);
+  }, EXTERNAL_GENERATE_TIMEOUT_MS));
+  try {
+    const response = await Promise.race([
+      fetch(`${OPENAI_BASE_URL}/chat/completions`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          "content-type": "application/json"
+        },
+        body: JSON.stringify({
+          model: OPENAI_MODEL,
+          temperature: 0.7,
+          max_tokens: 220,
+          messages
+        }),
+        signal: controller.signal
+      }),
+      timeoutPromise
+    ]);
+    if (!response) {
+      throw new AIConnectionError("LLM_TIMEOUT", "External chat provider timed out.", 503);
+    }
+    if (!response.ok) {
+      const body = await response.text().catch(() => "");
+      throw new AIConnectionError("LLM_GENERATE_FAILED", "External chat provider returned a non-OK response.", 503, body.slice(0, 200) || `HTTP ${response.status}`);
+    }
+    const payload = (await response.json()) as {
+      choices?: Array<{ message?: { content?: string } }>;
+    };
+    const answer = String(payload.choices?.[0]?.message?.content || "").trim();
+    if (!answer) {
+      throw new AIConnectionError("EMPTY_LLM_RESPONSE", "External chat provider returned an empty response.", 503);
+    }
+    return answer;
+  } catch (error) {
+    if (error instanceof AIConnectionError) throw error;
+    throw new AIConnectionError("NO_LLM", "External AI provider is not reachable.", 503);
+  }
 }
 
 export async function verifyAssistantLlmConnection() {
+  if (AI_PROVIDER !== "ollama") {
+    if (!process.env.OPENAI_API_KEY) {
+      throw new AIConnectionError("NO_LLM", "External AI provider is not configured.", 503, "Missing OPENAI_API_KEY");
+    }
+    return {
+      connected: true,
+      host: OPENAI_BASE_URL,
+      model: OPENAI_MODEL,
+      availableModels: [OPENAI_MODEL]
+    };
+  }
   let response: Response;
   try {
     response = await fetch(OLLAMA_TAGS_URL, {
@@ -541,10 +686,11 @@ export async function verifyAssistantLlmConnection() {
   }
   const payload = (await response.json()) as { models?: Array<{ name?: string }> };
   const availableModels = (payload.models || []).map((item) => String(item.name || "").trim()).filter(Boolean);
-  if (!availableModels.includes(OLLAMA_MODEL)) {
+  const selectedModel = pickAvailableModel(availableModels);
+  if (!selectedModel) {
     throw new AIConnectionError(
       "MODEL_NOT_FOUND",
-      `Configured Ollama model is not installed: ${OLLAMA_MODEL}`,
+      "No compatible conversational Ollama model is installed.",
       503,
       availableModels.length ? `Available: ${availableModels.join(", ")}` : "No local Ollama models reported."
     );
@@ -552,7 +698,7 @@ export async function verifyAssistantLlmConnection() {
   return {
     connected: true,
     host: OLLAMA_HOST,
-    model: OLLAMA_MODEL,
+    model: selectedModel,
     availableModels
   };
 }
@@ -565,13 +711,35 @@ export async function answerWithAssistant(
 ): Promise<AIResponse> {
   const enrichedQuery = enrichWithDialogContext(query);
   const context = buildContext(query, geoHint, contextChunks, language);
-  const prompt = buildPrompt({ query: enrichedQuery, context });
-  if (ollamaInferenceRunning) {
+  const messages = buildMessages({ query: enrichedQuery, context });
+  const deterministicBackup = buildDeterministicBackup(context);
+  if (AI_PROVIDER === "ollama" && Date.now() < ollamaCooldownUntil) {
+    rememberDialog(context, deterministicBackup);
     return {
-      answer: buildFallbackAnswer(context.language),
+      answer: deterministicBackup,
       sources: context.sources,
       safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
-      model: OLLAMA_MODEL,
+      model: OLLAMA_PRIMARY_MODEL,
+      llm_connected: false
+    };
+  }
+  if (AI_PROVIDER === "ollama" && isCpuSaturated()) {
+    rememberDialog(context, deterministicBackup);
+    return {
+      answer: deterministicBackup,
+      sources: context.sources,
+      safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
+      model: OLLAMA_PRIMARY_MODEL,
+      llm_connected: false
+    };
+  }
+  if (ollamaInferenceRunning) {
+    rememberDialog(context, deterministicBackup);
+    return {
+      answer: deterministicBackup,
+      sources: context.sources,
+      safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
+      model: AI_PROVIDER === "ollama" ? OLLAMA_PRIMARY_MODEL : OPENAI_MODEL,
       llm_connected: false
     };
   }
@@ -580,22 +748,32 @@ export async function answerWithAssistant(
     const llm = await verifyAssistantLlmConnection();
     let answer: string;
     try {
-      answer = await runOllamaGenerate(prompt);
+      answer = AI_PROVIDER === "ollama"
+        ? await runOllamaChat(llm.model, messages)
+        : await runExternalChat(messages);
       if (isRepeatAnswer(answer, context.history.lastAnswer)) {
-        answer = await runOllamaGenerate(
-          [
-            prompt,
-            "",
-            "Retry rule: your last answer repeated earlier wording. Rewrite it with a new angle, stay on the same jurisdiction and topic, keep it concise, and do not repeat any sentence from the previous answer."
-          ].join("\n")
-        );
+        const retryMessages: LlmMessage[] = [
+          ...messages,
+          {
+            role: "user",
+            content:
+              "Retry rule: rewrite with a new angle, stay on the same place and topic, keep it concise, and do not repeat any sentence from your previous answer."
+          }
+        ];
+        answer = AI_PROVIDER === "ollama"
+          ? await runOllamaChat(llm.model, retryMessages)
+          : await runExternalChat(retryMessages);
       }
     } catch {
+      if (AI_PROVIDER === "ollama") {
+        ollamaCooldownUntil = Date.now() + OLLAMA_COOLDOWN_MS;
+      }
+      rememberDialog(context, deterministicBackup);
       return {
-        answer: buildFallbackAnswer(context.language),
+        answer: deterministicBackup || buildFallbackAnswer(context.language),
         sources: context.sources,
         safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
-        model: OLLAMA_MODEL,
+        model: llm.model,
         llm_connected: false
       };
     }

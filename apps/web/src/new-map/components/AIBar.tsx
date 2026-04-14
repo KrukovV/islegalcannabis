@@ -30,8 +30,44 @@ type AiQueryFailure = {
   };
 };
 
+type AiStreamEvent =
+  | {
+      type: "meta";
+      requestId?: string;
+      model?: string;
+    }
+  | {
+      type: "delta";
+      text?: string;
+    }
+  | {
+      type: "done";
+      ok?: boolean;
+      answer?: string;
+      sources?: string[];
+      safety_note?: string;
+      llm_connected?: boolean;
+      model?: string;
+    };
+
 function trimQuery(value: string) {
   return value.replace(/\s+/g, " ").trim().slice(0, 500);
+}
+
+function parseAiStream(buffer: string) {
+  const lines = buffer.split("\n");
+  const rest = lines.pop() || "";
+  const events: AiStreamEvent[] = [];
+  for (const rawLine of lines) {
+    const line = rawLine.trim();
+    if (!line) continue;
+    try {
+      events.push(JSON.parse(line) as AiStreamEvent);
+    } catch {
+      continue;
+    }
+  }
+  return { events, rest };
 }
 
 export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Props) {
@@ -62,17 +98,69 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
     if (aiInputLocked || !normalizedQuery || loading) return;
     setLoading(true);
     setError(null);
+    setAnswer(null);
+    setSources([]);
+    setSafetyNote(null);
     try {
       const response = await fetch("/api/ai-assistant/query", {
         method: "POST",
         headers: {
-          "content-type": "application/json"
+          "content-type": "application/json",
+          "x-ai-stream": "1"
         },
         body: JSON.stringify({
           message: normalizedQuery,
           geo_hint: activeGeo?.iso2
         })
       });
+      const contentType = String(response.headers.get("content-type") || "");
+      const isStream = contentType.includes("application/x-ndjson") && response.body;
+      if (isStream) {
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+        let buffer = "";
+        let streamedAnswer = "";
+        let sawDone = false;
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          buffer += decoder.decode(value, { stream: true });
+          const parsed = parseAiStream(buffer);
+          buffer = parsed.rest;
+          for (const streamEvent of parsed.events) {
+            if (streamEvent.type === "delta") {
+              const chunk = String(streamEvent.text || "");
+              if (!chunk) continue;
+              streamedAnswer += chunk;
+              setAnswer(streamedAnswer);
+            }
+            if (streamEvent.type === "done") {
+              sawDone = true;
+              if (streamEvent.ok === false) {
+                setError("Request failed.");
+                setAnswer(null);
+                setSources([]);
+                setSafetyNote(null);
+                break;
+              }
+              const finalAnswer = String(streamEvent.answer || streamedAnswer || "").trim();
+              setAnswer(finalAnswer || null);
+              setSources(Array.isArray(streamEvent.sources) ? streamEvent.sources : []);
+              setSafetyNote(streamEvent.safety_note || null);
+            }
+          }
+          if (sawDone) break;
+        }
+        if (!sawDone && streamedAnswer.trim()) {
+          setAnswer(streamedAnswer.trim());
+        }
+        if (!sawDone && !streamedAnswer.trim()) {
+          setError("Request failed.");
+          setAnswer(null);
+        }
+        return;
+      }
+
       const payload = (await response.json()) as AiQuerySuccess | AiQueryFailure;
       if (!response.ok || !payload.ok) {
         setError(payload.ok ? "Request failed." : payload.error?.message || "Request failed.");

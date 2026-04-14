@@ -30,10 +30,12 @@ export type TravelRiskBlock = {
 
 export type DialogState = {
   lastQuery: string | null;
+  lastUser: string | null;
   lastLocation: string | null;
   lastIntent: AIIntent | null;
   lastTopic: string | null;
   lastAnswer: string | null;
+  lastAssistant: string | null;
   tone: "calm";
   depth: "short" | "medium";
 };
