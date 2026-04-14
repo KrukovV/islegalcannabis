@@ -40,6 +40,7 @@ export default function CountrySeoPage({
   const seoCountryIndex = buildSeoCountryIndex(data.code);
   const intentSections = buildCountryIntentSections(data, { query });
   const heading = getCountrySeoTitle(data, locale);
+  const intro = seo.intro(data);
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -49,7 +50,7 @@ export default function CountrySeoPage({
         name: heading,
         acceptedAnswer: {
           "@type": "Answer",
-          text: data.notes_normalized
+          text: intro
         }
       }
     ]
@@ -74,7 +75,7 @@ export default function CountrySeoPage({
         <section id="seo-content" className={styles.section}>
           <p className={styles.eyebrow}>{data.node_type === "state" ? seo.statePrefix : seo.countryPrefix}</p>
           <h1 className={styles.title}>{heading}</h1>
-          <p className={styles.intro}>{seo.intro(data)}</p>
+          <p className={styles.intro}>{intro}</p>
           <div id="law-summary" className={styles.metaGrid}>
             <div id="law-recreational" className={styles.metaBlock}>
               <p className={styles.metaLabel}>{seo.recreational}</p>

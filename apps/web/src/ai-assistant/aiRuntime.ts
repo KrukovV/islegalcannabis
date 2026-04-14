@@ -3,12 +3,31 @@ import { getCountryPageIndexByGeoCode, getCountryPageIndexByIso2 } from "@/lib/c
 import { deriveResultStatusFromCountryPageData } from "@/lib/resultStatus";
 import { buildPrompt } from "./prompt";
 import type { AIContext, AIResponse, RagChunk } from "./types";
-import { detectIntent, enrichWithDialogContext, getDialogState, rememberDialog } from "./dialog";
+import { detectIntent, enrichWithDialogContext, getDialogState, isContinuationQuery, rememberDialog } from "./dialog";
 import { getTravelRiskBlock } from "./rag";
 
-const OLLAMA_URL = "http://127.0.0.1:11434/api/generate";
-const OLLAMA_MODEL = "llama3";
+const OLLAMA_HOST = process.env.OLLAMA_HOST || "http://127.0.0.1:11434";
+const OLLAMA_URL = `${OLLAMA_HOST}/api/generate`;
+const OLLAMA_TAGS_URL = `${OLLAMA_HOST}/api/tags`;
+const OLLAMA_STOP_URL = `${OLLAMA_HOST}/api/stop`;
+const OLLAMA_MODEL = process.env.AI_OLLAMA_MODEL || process.env.OLLAMA_MODEL || "codex-local:latest";
+const OLLAMA_GENERATE_TIMEOUT_MS = 15000;
 let donationShown = false;
+let ollamaInferenceRunning = false;
+
+export class AIConnectionError extends Error {
+  code: string;
+  status: number;
+  hint?: string;
+
+  constructor(code: string, message: string, status = 503, hint?: string) {
+    super(message);
+    this.name = "AIConnectionError";
+    this.code = code;
+    this.status = status;
+    this.hint = hint;
+  }
+}
 
 type SocialRealityPayload = {
   entries?: Array<{
@@ -42,6 +61,12 @@ function getCountryPageForHint(geoHint: string | undefined) {
 function detectLanguage(query: string, language: string | undefined) {
   if (/[А-Яа-яЁё]/.test(query)) return "ru";
   return language || "en";
+}
+
+function isCasualQuery(query: string) {
+  return /^(how are you|how's it going|hows it going|what's up|whats up|как дела|как ты|ты как|ты здесь)\??$/i.test(
+    String(query || "").trim()
+  );
 }
 
 function getSocialReality(geoHint: string | null) {
@@ -85,15 +110,18 @@ export function buildContext(
   const resolvedLanguage = detectLanguage(query, language);
   const social = getSocialReality(geoHint || null);
   const intent = detectIntent(query);
+  const casual = isCasualQuery(query);
+  const includeLegal = !casual && intent !== "culture";
+  const includeCulture = intent === "culture" || /420|reggae|marley|music|culture|artist|song|movie/i.test(query);
   const culture = contextChunks
-    .filter((chunk) => chunk.kind === "culture")
+    .filter((chunk) => chunk.kind === "culture" && includeCulture)
     .slice(0, 2)
     .map((chunk) => ({
       title: chunk.title,
       text: chunk.text,
       source: chunk.source
     }));
-  const legal = countryPage
+  const legal = countryPage && includeLegal
     ? {
         resultStatus: deriveResultStatusFromCountryPageData(countryPage),
         recreational: countryPage.legal_model.recreational.status,
@@ -114,20 +142,20 @@ export function buildContext(
     },
     intent,
     legal,
-    notes: countryPage?.notes_normalized || null,
-    enforcement: countryPage
+    notes: includeLegal ? countryPage?.notes_normalized || null : null,
+    enforcement: countryPage && includeLegal
       ? {
           level: countryPage.legal_model.signals?.enforcement_level || null,
           recreational: countryPage.legal_model.recreational.enforcement
         }
       : null,
-    medical: countryPage
+    medical: countryPage && includeLegal
       ? {
           status: countryPage.legal_model.medical.status,
           scope: countryPage.legal_model.medical.scope
         }
       : null,
-    social,
+    social: casual ? null : social,
     airports: {
       summary: getAirportSummary(query, {
         query,
@@ -138,20 +166,20 @@ export function buildContext(
         },
         intent,
         legal,
-        notes: countryPage?.notes_normalized || null,
-        enforcement: countryPage
-          ? {
-              level: countryPage.legal_model.signals?.enforcement_level || null,
-              recreational: countryPage.legal_model.recreational.enforcement
-            }
-          : null,
-        medical: countryPage
-          ? {
-              status: countryPage.legal_model.medical.status,
-              scope: countryPage.legal_model.medical.scope
-            }
-          : null,
-        social,
+          notes: includeLegal ? countryPage?.notes_normalized || null : null,
+          enforcement: countryPage && includeLegal
+            ? {
+                level: countryPage.legal_model.signals?.enforcement_level || null,
+                recreational: countryPage.legal_model.recreational.enforcement
+              }
+            : null,
+          medical: countryPage && includeLegal
+            ? {
+                status: countryPage.legal_model.medical.status,
+                scope: countryPage.legal_model.medical.scope
+              }
+            : null,
+          social: casual ? null : social,
         airports: {
           summary: null
         },
@@ -163,12 +191,10 @@ export function buildContext(
     culture,
     history: getDialogState(),
     sources: Array.from(
-      new Set(
-        [
-          ...(countryPage?.legal_model.signals?.sources?.map((item) => item.url || item.title) || []),
-          ...(contextChunks.map((chunk) => chunk.source) || [])
-        ].filter(Boolean)
-      )
+      new Set([
+        ...(includeLegal ? countryPage?.legal_model.signals?.sources?.map((item) => item.url || item.title) || [] : []),
+        ...(contextChunks.map((chunk) => chunk.source) || [])
+      ].filter(Boolean))
     )
   };
 
@@ -203,9 +229,9 @@ function composeLegalDetail(context: AIContext) {
   if (context.language === "ru") {
     const lines = [];
     if (context.legal.prison) {
-      lines.push("Важно: в данных есть prison exposure, так что это не выглядит как формальный запрет без последствий.");
+      lines.push("Это важно понимать: в данных есть prison exposure, так что это не выглядит как формальный запрет без последствий.");
     } else if (context.legal.arrest) {
-      lines.push("Важно: в данных есть arrest risk, даже если на практике всё иногда выглядит мягче.");
+      lines.push("Тут есть нюанс: в данных есть arrest risk, даже если на практике всё иногда выглядит мягче.");
     }
     if (context.enforcement?.level === "unenforced" || context.enforcement?.level === "rare") {
       lines.push("При этом enforcement в notes выглядит слабее: есть сигналы про rare convictions или unenforced practice.");
@@ -234,6 +260,13 @@ function composeTravelDetail(context: AIContext) {
     return `Особенно аккуратно с перелётами и границей: ${airportSummary}`;
   }
   return `Be especially careful with flights and borders: ${airportSummary}`;
+}
+
+function composeCasualReply(context: AIContext) {
+  if (context.language === "ru") {
+    return "Спокойно, на связи. Давай разберём, что тебе реально важно понять.";
+  }
+  return "All calm here. Let’s look at what you actually want to understand.";
 }
 
 function composeSocialDetail(context: AIContext) {
@@ -277,24 +310,251 @@ function composeFollowUp(context: AIContext) {
   return "If you want, I can compare this with another country or state.";
 }
 
-export function generateAnswer(context: AIContext): string {
-  const blocks = [
+function normalizedWords(text: string) {
+  return new Set(
+    String(text || "")
+      .toLowerCase()
+      .replace(/[^\p{L}\p{N}\s]+/gu, " ")
+      .split(/\s+/)
+      .filter(Boolean)
+  );
+}
+
+function isRepeatAnswer(nextAnswer: string, lastAnswer: string | null | undefined) {
+  if (!lastAnswer) return false;
+  const left = normalizedWords(nextAnswer);
+  const right = normalizedWords(lastAnswer);
+  if (!left.size || !right.size) return false;
+  let overlap = 0;
+  for (const word of left) {
+    if (right.has(word)) overlap += 1;
+  }
+  return overlap / Math.max(left.size, right.size) > 0.8;
+}
+
+function dedupeBlocks(blocks: Array<string | null>) {
+  const seen = new Set<string>();
+  const result: string[] = [];
+  for (const block of blocks) {
+    const normalized = String(block || "").trim();
+    if (!normalized) continue;
+    if (seen.has(normalized)) continue;
+    seen.add(normalized);
+    result.push(normalized);
+  }
+  return result;
+}
+
+function continueLastTopic(context: AIContext) {
+  const activeIntent = context.history.lastIntent || context.intent;
+  if (context.language === "ru") {
+    const blocks = dedupeBlocks([
+      activeIntent === "airport"
+        ? "Если копнуть глубже, главный риск здесь всё равно связан с перелётами и границей."
+        : context.history.lastAnswer
+          ? "Есть ещё момент, который важно понимать:"
+          : "Если копнуть глубже:",
+      activeIntent === "culture" ? composeCultureDetail(context) : composeSocialDetail(context),
+      activeIntent !== "culture" ? composeTravelDetail(context) : null,
+      composeMedicalDetail(context),
+      "Если интересно, можно сравнить это с другой страной или штатом."
+    ]);
+    return blocks.join("\n\n");
+  }
+  const blocks = dedupeBlocks([
+    activeIntent === "airport"
+      ? "If we go one layer deeper, the biggest risk still sits around flights and border control."
+      : context.history.lastAnswer
+        ? "There is another angle here that matters:"
+        : "If we go one layer deeper:",
+    activeIntent === "culture" ? composeCultureDetail(context) : composeSocialDetail(context),
+    activeIntent !== "culture" ? composeTravelDetail(context) : null,
+    composeMedicalDetail(context),
+    "If you want, we can compare this with another country or state."
+  ]);
+  return blocks.join("\n\n");
+}
+
+function generateLegal(context: AIContext) {
+  return dedupeBlocks([
     composeLead(context),
     composeLegalDetail(context),
-    context.intent === "airport" || context.intent === "tourists" ? composeTravelDetail(context) : null,
-    context.intent === "medical" ? composeMedicalDetail(context) : null,
-    context.intent === "culture" ? composeCultureDetail(context) : composeSocialDetail(context),
-    context.intent !== "medical" ? composeMedicalDetail(context) : null,
+    composeSocialDetail(context),
+    composeMedicalDetail(context),
     composeFollowUp(context)
-  ].filter(Boolean);
+  ]).join("\n\n");
+}
 
-  return blocks.join("\n\n");
+function generateTravel(context: AIContext) {
+  return dedupeBlocks([
+    composeLead(context),
+    composeTravelDetail(context),
+    composeLegalDetail(context),
+    composeSocialDetail(context),
+    composeFollowUp(context)
+  ]).join("\n\n");
+}
+
+function generateCulture(context: AIContext) {
+  return dedupeBlocks([
+    context.language === "ru"
+      ? `Если смотреть не только на закон, а на ощущение на месте в ${context.location.name || "этой стране"}:`
+      : `If we look at more than the law in ${context.location.name || "that place"}:`,
+    composeCultureDetail(context),
+    composeSocialDetail(context),
+    composeFollowUp(context)
+  ]).join("\n\n");
+}
+
+function generateGeneral(context: AIContext) {
+  if (isCasualQuery(context.query)) {
+    return dedupeBlocks([
+      composeCasualReply(context),
+      composeFollowUp(context)
+    ]).join("\n\n");
+  }
+  return dedupeBlocks([
+    composeLead(context),
+    context.intent === "airport" || context.intent === "tourists" ? composeTravelDetail(context) : null,
+    composeLegalDetail(context),
+    composeSocialDetail(context),
+    composeMedicalDetail(context),
+    composeFollowUp(context)
+  ]).join("\n\n");
+}
+
+export function generateAnswer(context: AIContext): string {
+  const continuation = isContinuationQuery(context.query) && Boolean(context.history.lastIntent);
+  if (continuation) {
+    return continueLastTopic(context);
+  }
+  const answer =
+    continuation
+      ? continueLastTopic(context)
+    : context.intent === "legal" || context.intent === "buy" || context.intent === "possession" || context.intent === "medical"
+      ? generateLegal(context)
+      : context.intent === "airport" || context.intent === "tourists"
+        ? generateTravel(context)
+        : context.intent === "culture"
+          ? generateCulture(context)
+          : generateGeneral(context);
+  if (isRepeatAnswer(answer, context.history.lastAnswer)) {
+    const alternate = dedupeBlocks([
+      composeMedicalDetail(context),
+      context.intent === "culture" ? composeCultureDetail(context) : composeSocialDetail(context),
+      context.intent === "airport" || context.intent === "tourists" ? composeTravelDetail(context) : null,
+      composeLegalDetail(context),
+      composeLead(context),
+      composeFollowUp(context)
+    ]).join("\n\n");
+    return alternate || answer;
+  }
+  return answer;
 }
 
 function injectDonation(answer: string) {
   if (donationShown) return answer;
   donationShown = true;
   return `${answer}\n\nIf this helped you, you can send a small thanks (1 USD).`;
+}
+
+function buildFallbackAnswer(language: string | undefined) {
+  return language === "ru"
+    ? "Секунду, сейчас подгружу ответ... попробуй ещё раз."
+    : "Give me a second, the answer is still loading. Please try once more.";
+}
+
+async function stopOllamaModel() {
+  await fetch(OLLAMA_STOP_URL, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ name: OLLAMA_MODEL })
+  }).catch(() => null);
+}
+
+async function runOllamaGenerate(prompt: string) {
+  let lastError: AIConnectionError | null = null;
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    await stopOllamaModel();
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), OLLAMA_GENERATE_TIMEOUT_MS);
+    const response = await fetch(OLLAMA_URL, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        model: OLLAMA_MODEL,
+        stream: false,
+        keep_alive: "10m",
+        prompt,
+        options: {
+          num_ctx: 1024,
+          num_predict: 128,
+          temperature: 0.7
+        }
+      }),
+      signal: controller.signal
+    }).catch(() => null);
+    clearTimeout(timer);
+    if (!response) {
+      lastError = new AIConnectionError("NO_LLM", "Ollama generate call failed.", 503, `Expected ${OLLAMA_URL}`);
+      await stopOllamaModel();
+    } else if (!response.ok) {
+      const body = await response.text().catch(() => "");
+      lastError = new AIConnectionError(
+        "LLM_GENERATE_FAILED",
+        "Ollama returned a non-OK response.",
+        503,
+        body.slice(0, 200) || `HTTP ${response.status}`
+      );
+      await stopOllamaModel();
+    } else {
+      const payload = (await response.json()) as { response?: string };
+      const answer = String(payload.response || "").trim();
+      if (answer) {
+        return answer;
+      }
+      lastError = new AIConnectionError("EMPTY_LLM_RESPONSE", "Ollama returned an empty response.", 503);
+      await stopOllamaModel();
+    }
+    await new Promise((resolve) => setTimeout(resolve, 500));
+  }
+  throw lastError || new AIConnectionError("NO_LLM", "Ollama generate call failed.", 503, `Expected ${OLLAMA_URL}`);
+}
+
+export async function verifyAssistantLlmConnection() {
+  let response: Response;
+  try {
+    response = await fetch(OLLAMA_TAGS_URL, {
+      method: "GET",
+      signal: AbortSignal.timeout(3000)
+    });
+  } catch {
+    throw new AIConnectionError(
+      "NO_LLM",
+      "Ollama is not reachable.",
+      503,
+      `Expected ${OLLAMA_TAGS_URL}`
+    );
+  }
+  if (!response.ok) {
+    throw new AIConnectionError("NO_LLM", "Ollama health check failed.", 503, `HTTP ${response.status}`);
+  }
+  const payload = (await response.json()) as { models?: Array<{ name?: string }> };
+  const availableModels = (payload.models || []).map((item) => String(item.name || "").trim()).filter(Boolean);
+  if (!availableModels.includes(OLLAMA_MODEL)) {
+    throw new AIConnectionError(
+      "MODEL_NOT_FOUND",
+      `Configured Ollama model is not installed: ${OLLAMA_MODEL}`,
+      503,
+      availableModels.length ? `Available: ${availableModels.join(", ")}` : "No local Ollama models reported."
+    );
+  }
+  return {
+    connected: true,
+    host: OLLAMA_HOST,
+    model: OLLAMA_MODEL,
+    availableModels
+  };
 }
 
 export async function answerWithAssistant(
@@ -304,47 +564,50 @@ export async function answerWithAssistant(
   language: string | undefined
 ): Promise<AIResponse> {
   const enrichedQuery = enrichWithDialogContext(query);
-  const context = buildContext(enrichedQuery, geoHint, contextChunks, language);
+  const context = buildContext(query, geoHint, contextChunks, language);
   const prompt = buildPrompt({ query: enrichedQuery, context });
-
+  if (ollamaInferenceRunning) {
+    return {
+      answer: buildFallbackAnswer(context.language),
+      sources: context.sources,
+      safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
+      model: OLLAMA_MODEL,
+      llm_connected: false
+    };
+  }
+  ollamaInferenceRunning = true;
   try {
-    const response = await fetch(OLLAMA_URL, {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({
-        model: OLLAMA_MODEL,
-        prompt,
-        stream: false,
-        options: {
-          temperature: 0.35
-        }
-      }),
-      signal: AbortSignal.timeout(7000)
-    });
-    if (!response.ok) {
-      const answer = injectDonation(generateAnswer(context));
-      rememberDialog(context);
+    const llm = await verifyAssistantLlmConnection();
+    let answer: string;
+    try {
+      answer = await runOllamaGenerate(prompt);
+      if (isRepeatAnswer(answer, context.history.lastAnswer)) {
+        answer = await runOllamaGenerate(
+          [
+            prompt,
+            "",
+            "Retry rule: your last answer repeated earlier wording. Rewrite it with a new angle, stay on the same jurisdiction and topic, keep it concise, and do not repeat any sentence from the previous answer."
+          ].join("\n")
+        );
+      }
+    } catch {
       return {
-        answer,
+        answer: buildFallbackAnswer(context.language),
         sources: context.sources,
-        safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice."
+        safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
+        model: OLLAMA_MODEL,
+        llm_connected: false
       };
     }
-    const payload = (await response.json()) as { response?: string };
-    const answer = String(payload.response || "").trim() || generateAnswer(context);
-    rememberDialog(context);
+    rememberDialog(context, answer);
     return {
       answer: injectDonation(answer),
       sources: context.sources,
-      safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice."
+      safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
+      model: llm.model,
+      llm_connected: true
     };
-  } catch {
-    const answer = injectDonation(generateAnswer(context));
-    rememberDialog(context);
-    return {
-      answer,
-      sources: context.sources,
-      safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice."
-    };
+  } finally {
+    ollamaInferenceRunning = false;
   }
 }

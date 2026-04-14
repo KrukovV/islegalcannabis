@@ -1,10 +1,17 @@
 import type { CountryPageData } from "@/lib/countryPageStorage";
 import { getDisplayName } from "@/lib/countryNames";
-
-export const SEO_LOCALES = ["en", "es", "fr", "de"] as const;
-export const SEO_ALT_LOCALES = ["es", "fr", "de"] as const;
-export type SeoLocale = (typeof SEO_LOCALES)[number];
-export type SeoAltLocale = (typeof SEO_ALT_LOCALES)[number];
+import {
+  SEO_ALT_LOCALES,
+  SEO_LOCALES,
+  buildSeoLanguageAlternates,
+  getEffectiveSeoLocale,
+  getSeoLocaleHref,
+  getSeoTranslation,
+  type SeoAltLocale,
+  type SeoLocale
+} from "@/lib/seo/wikiLocaleContent";
+export { SEO_ALT_LOCALES, SEO_LOCALES, getSeoLocaleHref, buildSeoLanguageAlternates };
+export type { SeoAltLocale, SeoLocale };
 
 export function isSeoAltLocale(value: string): value is SeoAltLocale {
   return SEO_ALT_LOCALES.includes(value as SeoAltLocale);
@@ -71,6 +78,34 @@ const ALT_COPY: Record<SeoAltLocale, LocaleCopy> = {
     possession: "Besitz",
     cultivation: "Anbau",
     penalty: "Strafe"
+  },
+  pt: {
+    title: (name) => `A cannabis é legal em ${name}?`,
+    eyebrowCountry: "Visão do país",
+    eyebrowState: "Visão do estado",
+    recreational: "Recreativo",
+    medical: "Medicinal",
+    distribution: "Distribuição",
+    risk: "Risco",
+    keyFacts: "Fatos principais",
+    relatedPlaces: "Locais relacionados",
+    possession: "Posse",
+    cultivation: "Cultivo",
+    penalty: "Penalidade"
+  },
+  nl: {
+    title: (name) => `Is cannabis legaal in ${name}?`,
+    eyebrowCountry: "Landweergave",
+    eyebrowState: "Staatweergave",
+    recreational: "Recreatief",
+    medical: "Medisch",
+    distribution: "Distributie",
+    risk: "Risico",
+    keyFacts: "Kernfeiten",
+    relatedPlaces: "Gerelateerde plaatsen",
+    possession: "Bezit",
+    cultivation: "Teelt",
+    penalty: "Straf"
   }
 };
 
@@ -104,16 +139,28 @@ const STATUS_LABELS: Record<SeoAltLocale, Record<string, string>> = {
     TOLERATED: "geduldet",
     DECRIMINALIZED: "entkriminalisiert",
     LIMITED: "begrenzt"
+  },
+  pt: {
+    LEGAL: "legal",
+    MIXED: "misto",
+    DECRIM: "descriminalizado",
+    ILLEGAL: "ilegal",
+    UNKNOWN: "desconhecido",
+    TOLERATED: "tolerado",
+    DECRIMINALIZED: "descriminalizado",
+    LIMITED: "limitado"
+  },
+  nl: {
+    LEGAL: "legaal",
+    MIXED: "gemengd",
+    DECRIM: "gedecriminaliseerd",
+    ILLEGAL: "illegaal",
+    UNKNOWN: "onbekend",
+    TOLERATED: "gedoogd",
+    DECRIMINALIZED: "gedecriminaliseerd",
+    LIMITED: "beperkt"
   }
 };
-
-export function getSeoLocaleHref(code: string, locale: SeoLocale) {
-  return locale === "en" ? `/c/${code}` : `/${locale}/c/${code}`;
-}
-
-export function buildSeoLanguageAlternates(code: string) {
-  return Object.fromEntries(SEO_LOCALES.map((locale) => [locale, getSeoLocaleHref(code, locale)])) as Record<SeoLocale, string>;
-}
 
 export function getLocalizedCountryName(data: CountryPageData, locale: SeoLocale) {
   return getDisplayName(data.iso2, locale) || data.name;
@@ -129,6 +176,13 @@ export function getLocalizedSeoTitle(data: CountryPageData, locale: SeoAltLocale
 }
 
 export function getLocalizedSeoIntro(data: CountryPageData, locale: SeoAltLocale) {
+  if (getEffectiveSeoLocale(data.code, locale) !== locale) {
+    return data.notes_normalized;
+  }
+  const translation = getSeoTranslation(data.code, locale);
+  if (translation?.summary) {
+    return translation.summary;
+  }
   const name = getLocalizedCountryName(data, locale);
   const rec = translateStatus(locale, data.legal_model.recreational.status);
   const med = translateStatus(locale, data.legal_model.medical.status);

@@ -1,5 +1,6 @@
 import { createRequestId, errorResponse, okResponse } from "@/lib/api/response";
-import { answerWithAssistant } from "@/ai-assistant/aiRuntime";
+import { AIConnectionError, answerWithAssistant, verifyAssistantLlmConnection } from "@/ai-assistant/aiRuntime";
+import { resetDialogState } from "@/ai-assistant/dialog";
 import { retrieveTopChunks } from "@/ai-assistant/rag";
 import type { AIRequest } from "@/ai-assistant/types";
 
@@ -51,6 +52,9 @@ export async function POST(req: Request) {
   if (process.env.NODE_ENV === "production") {
     return errorResponse(requestId, 403, "AI_DISABLED", "AI assistant is disabled in production.");
   }
+  if (req.headers.get("x-ai-reset") === "1") {
+    resetDialogState();
+  }
   let body: AIRequest;
   try {
     body = (await req.json()) as AIRequest;
@@ -70,7 +74,36 @@ export async function POST(req: Request) {
   const geoHint = sanitizeGeoHint(body.geo_hint);
   const context = retrieveTopChunks(message, geoHint, 5);
   const language = sanitizeLanguage(req.headers.get("accept-language"));
-  const result = await answerWithAssistant(message, geoHint, context, language);
+  let result;
+  try {
+    result = await answerWithAssistant(message, geoHint, context, language);
+  } catch (error) {
+    if (error instanceof AIConnectionError) {
+      return errorResponse(requestId, error.status, error.code, error.message, error.hint);
+    }
+    return errorResponse(requestId, 500, "AI_RUNTIME_FAILED", "AI runtime failed.");
+  }
 
   return okResponse(requestId, result);
+}
+
+export async function GET(req: Request) {
+  const requestId = createRequestId(req);
+  if (process.env.NODE_ENV === "production") {
+    return errorResponse(requestId, 403, "AI_DISABLED", "AI assistant is disabled in production.");
+  }
+  try {
+    const health = await verifyAssistantLlmConnection();
+    return okResponse(requestId, {
+      llm_connected: true,
+      model: health.model,
+      host: health.host,
+      available_models: health.availableModels
+    });
+  } catch (error) {
+    if (error instanceof AIConnectionError) {
+      return errorResponse(requestId, error.status, error.code, error.message, error.hint);
+    }
+    return errorResponse(requestId, 500, "AI_RUNTIME_FAILED", "AI runtime failed.");
+  }
 }

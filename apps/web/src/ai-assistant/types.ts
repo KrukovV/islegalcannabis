@@ -9,6 +9,8 @@ export type AIResponse = {
   answer: string;
   sources: string[];
   safety_note: string;
+  model?: string;
+  llm_connected?: boolean;
 };
 
 export type RagChunk = {
@@ -27,9 +29,11 @@ export type TravelRiskBlock = {
 };
 
 export type DialogState = {
+  lastQuery: string | null;
   lastLocation: string | null;
   lastIntent: AIIntent | null;
   lastTopic: string | null;
+  lastAnswer: string | null;
   tone: "calm";
   depth: "short" | "medium";
 };

@@ -1,6 +1,6 @@
 import { getBuildStamp } from "@/lib/buildStamp";
 import { getCountryPageData, listCountryPageData } from "@/lib/countryPageStorage";
-import { SEO_ALT_LOCALES, SEO_LOCALES, getSeoLocaleHref } from "@/lib/seo/i18n";
+import { buildSeoLanguageAlternates, getSeoLocaleHref, listSeoTranslationEntries } from "@/lib/seo/wikiLocaleContent";
 
 export const SEO_BASE_URL = "https://islegal.info";
 
@@ -28,9 +28,9 @@ function getPageLastModified(code: string) {
 }
 
 function buildLocaleAlternates(code: string) {
-  return SEO_LOCALES.map((locale) => ({
+  return Object.entries(buildSeoLanguageAlternates(code)).map(([locale, href]) => ({
     hreflang: locale,
-    href: toCanonicalUrl(getSeoLocaleHref(code, locale))
+    href: toCanonicalUrl(href)
   }));
 }
 
@@ -74,13 +74,11 @@ export function buildStateSitemapEntries(): SitemapEntry[] {
 }
 
 export function buildI18nSitemapEntries(): SitemapEntry[] {
-  return listCountryPageData().flatMap((entry) =>
-    SEO_ALT_LOCALES.map((locale) => ({
-      url: toCanonicalUrl(getSeoLocaleHref(entry.code, locale)),
-      lastModified: getPageLastModified(entry.code),
-      alternates: buildLocaleAlternates(entry.code)
-    }))
-  );
+  return listSeoTranslationEntries().map((entry) => ({
+    url: toCanonicalUrl(getSeoLocaleHref(entry.code, entry.locale)),
+    lastModified: getPageLastModified(entry.code),
+    alternates: buildLocaleAlternates(entry.code)
+  }));
 }
 
 function escapeXml(value: string) {

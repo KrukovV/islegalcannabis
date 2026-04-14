@@ -12,17 +12,19 @@ describe("sitemap", () => {
       expect(entry.url.includes("?")).toBe(false);
       expect(entry.lastModified instanceof Date).toBe(true);
       if (entry.url !== "https://islegal.info/") {
-        expect(entry.url.startsWith("https://islegal.info/c/")).toBe(true);
+        expect(entry.url.startsWith("https://islegal.info/")).toBe(true);
       }
     }
   });
 
-  it("includes countries and us states in the same canonical sitemap", () => {
+  it("includes countries, us states, and localized priority pages", () => {
     const entries = sitemap();
     const urls = entries.map((entry) => entry.url);
     expect(urls).toContain("https://islegal.info/c/nld");
     expect(urls).toContain("https://islegal.info/c/us-ca");
     expect(urls).toContain("https://islegal.info/c/geo");
     expect(urls).toContain("https://islegal.info/c/us-ga");
+    expect(urls).toContain("https://islegal.info/es/c/nld");
+    expect(urls).toContain("https://islegal.info/pt/c/nld");
   });
 });

@@ -1,27 +1,46 @@
 import type { AIContext, AIIntent, DialogState } from "./types";
 
 const dialogState: DialogState = {
+  lastQuery: null,
   lastLocation: null,
   lastIntent: null,
   lastTopic: null,
+  lastAnswer: null,
   tone: "calm",
   depth: "medium"
 };
 
 export function detectIntent(query: string): AIIntent {
-  if (/reggae|music|marley|artist|song|movie|culture/i.test(query)) return "culture";
-  if (/airport|flight|fly|travel|carry|border|customs|import|transport/i.test(query)) return "airport";
-  if (/tourist|visitor|public use/i.test(query)) return "tourists";
-  if (/medical|prescription|patient/i.test(query)) return "medical";
-  if (/buy|purchase|sale|dispensary|shop/i.test(query)) return "buy";
-  if (/possess|possession|carry limit|limit/i.test(query)) return "possession";
-  if (/legal|law|illegal|risk|allowed|can i smoke/i.test(query)) return "legal";
+  if (/reggae|music|marley|artist|song|movie|culture|культура|музыка/i.test(query)) return "culture";
+  if (/airport|flight|fly|travel|carry|border|customs|import|transport|аэропорт|перел[её]т|границ|тамож/i.test(query))
+    return "airport";
+  if (/tourist|visitor|public use|турист|туристам|путешеств/i.test(query)) return "tourists";
+  if (/medical|prescription|patient|медицин|рецепт|пациент/i.test(query)) return "medical";
+  if (/buy|purchase|sale|dispensary|shop|купить|магазин|продаж/i.test(query)) return "buy";
+  if (/possess|possession|carry limit|limit|хранен|лимит|сколько можно/i.test(query)) return "possession";
+  if (/legal|law|illegal|risk|allowed|can i smoke|закон|легал|нелегал|риск|можно ли/i.test(query)) return "legal";
   return "general";
+}
+
+export function isContinuationQuery(query: string) {
+  const trimmed = String(query || "").trim();
+  if (!trimmed) return false;
+  if (trimmed.length < 10) return true;
+  return /^(а\s*еще|а\s*ещё|еще|ещё|и\??|и что|что еще|что ещё|а дальше|подробнее|еще что|ещё что|more|and\??|what else|go on|anything else)\s*$/i.test(
+    trimmed
+  );
 }
 
 export function enrichWithDialogContext(query: string) {
   const trimmed = String(query || "").trim();
   if (!trimmed) return "";
+  if (isContinuationQuery(trimmed)) {
+    const suffix: string[] = [];
+    if (dialogState.lastIntent) suffix.push(`intent: ${dialogState.lastIntent}`);
+    if (dialogState.lastLocation) suffix.push(`place: ${dialogState.lastLocation}`);
+    if (dialogState.lastTopic) suffix.push(`topic: ${dialogState.lastTopic}`);
+    return suffix.length ? `${trimmed} (${suffix.join(", ")})` : trimmed;
+  }
   const intent = detectIntent(trimmed);
   if (intent !== "general") return trimmed;
   if (trimmed.length >= 24) return trimmed;
@@ -36,9 +55,21 @@ export function getDialogState(): DialogState {
   return { ...dialogState };
 }
 
-export function rememberDialog(context: Pick<AIContext, "intent" | "location" | "culture">) {
+export function resetDialogState() {
+  dialogState.lastQuery = null;
+  dialogState.lastLocation = null;
+  dialogState.lastIntent = null;
+  dialogState.lastTopic = null;
+  dialogState.lastAnswer = null;
+  dialogState.tone = "calm";
+  dialogState.depth = "medium";
+}
+
+export function rememberDialog(context: Pick<AIContext, "query" | "intent" | "location" | "culture">, answer: string) {
+  dialogState.lastQuery = String(context.query || "").trim() || null;
   dialogState.lastIntent = context.intent;
   dialogState.lastLocation = context.location.name || context.location.geoHint || null;
   dialogState.lastTopic = context.culture[0]?.title || context.intent;
+  dialogState.lastAnswer = String(answer || "").trim() || null;
   dialogState.depth = context.intent === "airport" || context.intent === "legal" ? "medium" : "short";
 }

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { resolveBrowserLocaleRedirect, resolveSeoRouteLocale } from "@/lib/seo/wikiLocaleContent";
 
 function isLocalHost(hostname: string) {
   return hostname === "localhost" || hostname === "127.0.0.1";
@@ -7,6 +8,13 @@ function isLocalHost(hostname: string) {
 
 export function middleware(req: NextRequest) {
   const { pathname, hostname } = req.nextUrl;
+  const redirectPath = resolveBrowserLocaleRedirect(pathname, req.headers.get("accept-language"));
+
+  if (redirectPath) {
+    const nextUrl = req.nextUrl.clone();
+    nextUrl.pathname = redirectPath;
+    return NextResponse.redirect(nextUrl);
+  }
 
   if (pathname.startsWith("/wiki-truth")) {
     const allow =
@@ -17,9 +25,16 @@ export function middleware(req: NextRequest) {
     }
   }
 
-  return NextResponse.next();
+  const requestHeaders = new Headers(req.headers);
+  requestHeaders.set("x-route-locale", resolveSeoRouteLocale(pathname));
+
+  return NextResponse.next({
+    request: {
+      headers: requestHeaders
+    }
+  });
 }
 
 export const config = {
-  matcher: ["/wiki-truth/:path*"],
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|.*\\.[^/]+$).*)"],
 };

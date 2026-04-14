@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import NewMapDeferredRuntime from "./_components/NewMapDeferredRuntime";
@@ -80,13 +81,15 @@ const NEW_MAP_PREFETCH_SCRIPT = `
 })();
 `;
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const routeHeaders = await headers();
+  const documentLang = routeHeaders.get("x-route-locale") || "en";
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={documentLang} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: NEW_MAP_PREFETCH_SCRIPT }} />
         <Script id="yandex-metrika" strategy="beforeInteractive">

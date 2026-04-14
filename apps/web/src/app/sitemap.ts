@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getBuildStamp } from "@/lib/buildStamp";
 import { listCountryPageData } from "@/lib/countryPageStorage";
+import { listSeoTranslationEntries, getSeoLocaleHref } from "@/lib/seo/wikiLocaleContent";
 
 const BASE_URL = "https://islegal.info";
 
@@ -21,6 +22,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...entries.map((entry) => ({
       url: `${BASE_URL}/c/${entry.code}`,
       lastModified: toLastModified(entry.updated_at || null)
+    })),
+    ...listSeoTranslationEntries().map((entry) => ({
+      url: `${BASE_URL}${getSeoLocaleHref(entry.code, entry.locale)}`,
+      lastModified: toLastModified(entries.find((item) => item.code === entry.code)?.updated_at || null)
     }))
   ];
 }

@@ -3,12 +3,15 @@ import { notFound } from "next/navigation";
 import CountrySeoPage, { getCountrySeoTitle } from "@/app/_components/CountrySeoPage";
 import { getCountryPageData, listCountryPageCodes } from "@/lib/countryPageStorage";
 import { buildSeoLanguageAlternates, isSeoAltLocale, type SeoAltLocale } from "@/lib/seo/i18n";
+import { getEffectiveSeoLocale, getSeoTranslation, listSeoTranslationEntries, type SeoLocale } from "@/lib/seo/wikiLocaleContent";
 
 export const revalidate = 604800;
 
 export async function generateStaticParams() {
-  const codes = listCountryPageCodes();
-  return ["es", "fr", "de"].flatMap((lang) => codes.map((code) => ({ lang, code })));
+  const codeSet = new Set(listCountryPageCodes());
+  return listSeoTranslationEntries()
+    .filter((entry) => codeSet.has(entry.code))
+    .map((entry) => ({ lang: entry.locale, code: entry.code }));
 }
 
 export async function generateMetadata({
@@ -30,19 +33,21 @@ export async function generateMetadata({
       robots: { index: false, follow: false }
     };
   }
-  const locale = lang as SeoAltLocale;
+  const requestedLocale = lang as SeoAltLocale;
+  const locale = getEffectiveSeoLocale(data.code, requestedLocale);
   const heading = getCountrySeoTitle(data, locale);
+  const localizedSummary = locale === "en" ? data.notes_normalized : getSeoTranslation(data.code, requestedLocale)?.summary || data.notes_normalized;
   return {
     title: heading,
-    description: data.notes_normalized,
+    description: localizedSummary,
     alternates: {
-      canonical: `/c/${data.code}`,
+      canonical: locale === "en" ? `/c/${data.code}` : `/${requestedLocale}/c/${data.code}`,
       languages: buildSeoLanguageAlternates(data.code)
     },
     openGraph: {
       title: heading,
-      description: data.notes_normalized,
-      url: `https://islegal.info/${locale}/c/${data.code}`,
+      description: localizedSummary,
+      url: locale === "en" ? `https://islegal.info/c/${data.code}` : `https://islegal.info/${requestedLocale}/c/${data.code}`,
       type: "article"
     }
   };
@@ -61,5 +66,6 @@ export default async function LocalizedCountryCodePage({
   const query = typeof resolvedSearchParams?.q === "string" ? resolvedSearchParams.q : null;
   const data = getCountryPageData(code);
   if (!data) notFound();
-  return <CountrySeoPage data={data} locale={lang as SeoAltLocale} query={query} />;
+  const locale = getEffectiveSeoLocale(data.code, lang as SeoAltLocale) as SeoLocale;
+  return <CountrySeoPage data={data} locale={locale} query={query} />;
 }
