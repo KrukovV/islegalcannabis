@@ -1,0 +1,77 @@
+# ========================================
+# CANONICAL HOST
+# ========================================
+Host: islegal.info
+
+# ========================================
+# CORE SEARCH ENGINES
+# ========================================
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+# ========================================
+# AI SEARCH
+# ========================================
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+# ========================================
+# AI TRAINING
+# ========================================
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+# ========================================
+# HEAVY / BAD SCRAPERS
+# ========================================
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Diffbot
+Disallow: /
+
+# ========================================
+# DEFAULT RULE
+# ========================================
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /build/
+Disallow: /draft/
+Disallow: /*?*
+
+# ========================================
+# SITEMAP
+# ========================================
+Sitemap: https://islegal.info/sitemap.xml
