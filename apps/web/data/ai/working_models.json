@@ -1,24 +1,17 @@
 {
-  "updatedAt": 1776288110243,
-  "workingModels": [],
+  "updatedAt": 1776291221503,
+  "workingModels": [
+    "deepseek-coder:1.3b"
+  ],
   "stats": {
-    "qwen3:4b": {
-      "name": "qwen3:4b",
-      "successTurns": 0,
-      "failTurns": 2,
-      "avgFirstTokenMs": 0,
-      "avgResponseMs": 0,
-      "avgLength": 0,
-      "lastUsedAt": 1776274335076
-    },
     "qwen2.5:1.5b": {
       "name": "qwen2.5:1.5b",
-      "successTurns": 260,
-      "failTurns": 86,
-      "avgFirstTokenMs": 4698.388461538461,
-      "avgResponseMs": 14519.961538461535,
-      "avgLength": 1145.1884615384613,
-      "lastUsedAt": 1776289073163
+      "successTurns": 289,
+      "failTurns": 96,
+      "avgFirstTokenMs": 4712.328719723183,
+      "avgResponseMs": 14547.702422145325,
+      "avgLength": 1133.2076124567477,
+      "lastUsedAt": 1776292608450
     },
     "phi3:mini": {
       "name": "phi3:mini",
@@ -64,6 +57,24 @@
       "avgResponseMs": 0,
       "avgLength": 0,
       "lastUsedAt": 1776289088195
+    },
+    "phi4-mini:3.8b": {
+      "name": "phi4-mini:3.8b",
+      "successTurns": 0,
+      "failTurns": 4,
+      "avgFirstTokenMs": 0,
+      "avgResponseMs": 0,
+      "avgLength": 0,
+      "lastUsedAt": 1776290913206
+    },
+    "deepseek-coder:1.3b": {
+      "name": "deepseek-coder:1.3b",
+      "successTurns": 42,
+      "failTurns": 3,
+      "avgFirstTokenMs": 4995.071428571428,
+      "avgResponseMs": 12346.690476190477,
+      "avgLength": 791.1190476190476,
+      "lastUsedAt": 1776292334925
     }
   }
 }

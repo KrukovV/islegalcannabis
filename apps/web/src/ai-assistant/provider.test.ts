@@ -45,14 +45,14 @@ describe("provider", () => {
     global.fetch = vi.fn(async () =>
       new Response(
         JSON.stringify({
-          models: [{ name: "qwen2.5:1.5b" }, { name: "llama3.2:3b" }]
+          models: [{ name: "qwen2.5:1.5b" }, { name: "deepseek-coder:1.3b" }]
         }),
         { status: 200, headers: { "content-type": "application/json" } }
       )
     ) as typeof fetch;
 
-    const health = await verifyProviderConnection(["llama3.2:3b"]);
-    expect(health.model).toBe("llama3.2:3b");
-    expect(health.preferredModels).toEqual(["llama3.2:3b"]);
+    const health = await verifyProviderConnection(["deepseek-coder:1.3b"]);
+    expect(health.model).toBe("deepseek-coder:1.3b");
+    expect(health.preferredModels).toEqual(["deepseek-coder:1.3b"]);
   });
 });

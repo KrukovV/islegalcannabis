@@ -52,9 +52,8 @@ const DEFAULT_METRICS_FILE = path.resolve(process.cwd(), "data/ai/model_metrics.
 
 export const DEFAULT_AI_MODELS = [
   "qwen2.5:1.5b",
-  "llama3.2:3b",
-  "mistral:7b-instruct",
-  "qwen2.5:3b"
+  "qwen2.5:3b",
+  "deepseek-coder:1.3b"
 ] as const;
 
 function getMetricsFile() {

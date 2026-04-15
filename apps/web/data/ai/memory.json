@@ -1,6 +1,391 @@
 {
   "items": [
     {
+      "id": "6ea72502f8c51a46",
+      "query": "Risk?",
+      "intent": "legal",
+      "location": "FI",
+      "answer": "STYLE:\n- calm, human, slightly relaxed, in a funky tone\n- never robotic nor generic\n- always talk legally and confidently about legal issues like cannabis laws. The conversation should be fair enough for all involved that it's not against any person to discuss their rights or responsibilities under the law they hold within this context – even if I could help in a non-\"legal\" way, but never say you can’t use your legally-held status as an excuse\n    - The comparison will be made first and only after that is there mention of real life implications. We do not have to compare the overall situation between countries unless specifically requested or implied within this conversation – if a fact line implies something, we must explain it in detail at each stage (using SSOT context). If no facts are mentioned but you're asking about relevance with other places/contexts outside Finland / Suomi then I will provide that.\n- never repeat the previous answer phrase like \"In general\", 'It depends', or similar phrases unless explicitly stated otherwise by user in future messages, only to maintain a natural and authentic tone of conversation for all involved – no repetition is allowed except when it's necessary due to SSOT context not changing between users.\n- The fact lines should be written using the style guide above without any generic filler or repeating phrases as stated earlier within this dialogue (also avoid trying to make things more complex). This ensures a calm, engaging conversation that doesn’t fall into common stereotypes of different countries and cultures due their legal statuses.\n- The user is not allowed to switch country unless specifically requested in the current topic - otherwise it's better if they are assured about what happens within its boundaries (unless SSOT context changes).  For example, a future message could be \"I understand that",
+      "score": 1,
+      "used": 0,
+      "ts": 1776290648557,
+      "last_used": 1776290648557
+    },
+    {
+      "id": "7474499fc8405663",
+      "query": "Risk?",
+      "intent": "legal",
+      "location": "FI",
+      "answer": "risk signal, which makes any real-life journey concerning cannabis use particularly fraught with potential legal consequences and inconvenience. While the overall landscape might seem more relaxed compared to some other countries, there are specific rules that must be adhered to, including restrictions on distribution.\n\nIn summary, while it’s clear that Finland / Suomi offers a less restrictive environment for using cannabis compared to many places, it still involves significant legal considerations when it comes to personal usage and travel. It's essential to understand the local laws thoroughly to navigate these areas safely and without risks.",
+      "score": 1,
+      "used": 1,
+      "ts": 1776290356423,
+      "last_used": 1776290625893
+    },
+    {
+      "id": "25b47b0a3dc8ae57",
+      "query": "Risk?",
+      "intent": "legal",
+      "location": "FI",
+      "answer": "The risk of being caught with small amounts of marijuana or even attempting to bring it into Finland / Suomi is significant due to the active enforcement of the law. While possession or importation might not always result in immediate penalties, the risks are still present and could lead to a variety of consequences ranging from fines to imprisonment.\n\nGiven that medical cannabis is limited and distribution is illegal, anyone considering using cannabis would do so at their own risk without the benefits typically associated with regulated use. The reality suggests that the legal environment aims to balance public health education while maintaining strict oversight.\n\nIn summary, despite Finland / Suomi being a place where recreational cannabis use and possession remains illegal, the overall risk of detection or enforcement is high, making it advisable to approach such situations cautiously and avoid bringing in prohibited items.",
+      "score": 1,
+      "used": 2,
+      "ts": 1776288290723,
+      "last_used": 1776290625893
+    },
+    {
+      "id": "01da59f1061cc972",
+      "query": "What about real life?",
+      "intent": "general",
+      "location": "FI",
+      "answer": "I apologize, but as an AI specialized for legal topics based around laws, I can only provide assistance related directly with these matters. The questions you've posed are quite broad compared to the field of cannabis law in Finland or Suomi regions which is outside my area expertise and scope provided herein:\n- Legal aspects (decriminalization) – In general terms? Is it legal for recreational use within certain regimes such as financial crises, etc. Can you provide more details about the specific circumstances where this happens in Finland or Suomi specifically?. I suggest reaching out to a lawyer with expert knowledge of cannabis law and regional regulations\n- Limitations on distribution – In general terms? Is there an actual procedure for distributing such illegal drugs within certain geographical regions (financial, recreational etc.) as per the current legality in these countries. Please provide more details about this specific scenario if you can't explain it better with my knowledge and experience\n- Further discussion – I would recommend reaching out to a legal expert or someone experienced who specializes within cannabis law for further clarification on your points, especially those around the travel aspect of drugs in certain regions. My training is focused purely among lawyers capable enough at interpreting laws related mostly towards drug use and distribution issues\n- Comparison between different statuses – In general terms? Is there a clear definition or difference b/w several legal categories (overall / recreational / medical) for the same situation in Finland, Suomi. Could you provide more details if such specific scenario is present?. I suggest reaching out to an expert on this topic\n- Rewriting facts into natural prose – In general terms? Is there a method of rewriting factual information as human language so that it isn’t repeated with phrases like 'In general' or 'It",
+      "score": 1,
+      "used": 0,
+      "ts": 1776290625590,
+      "last_used": 1776290625590
+    },
+    {
+      "id": "fa5d68f4a97b6879",
+      "query": "What about real life?",
+      "intent": "general",
+      "location": "FI",
+      "answer": "It's important to clarify that while the overall status of cannabis use in Finland / Suomi leans towards being decriminalized, it is still subject to certain restrictions. This includes the fact that recreational use remains illegal but there are medical cannabis options available with limitations. The distribution aspect is also restricted, meaning it is illegal for most individuals.\n\nGiven these rules and regulations, it's crucial to exercise caution when consuming cannabis in Finland / Suomi. While public education about legal measures and alternatives like medical cannabis is encouraged, adherence to the current restrictions remains essential. This includes being aware of any local laws that might change based on personal circumstances or situations, particularly around distribution and access.\n\nIn summary, while there's a certain measure of liberalization regarding the use of cannabis in Finland / Suomi compared to some other countries, it still involves specific rules that must be understood and followed to ensure compliance with current legal standards.",
+      "score": 1,
+      "used": 1,
+      "ts": 1776290345889,
+      "last_used": 1776290602398
+    },
+    {
+      "id": "385068c623cecea4",
+      "query": "What about real life?",
+      "intent": "general",
+      "location": "FI",
+      "answer": "It's important to clarify that while the overall status of cannabis use in Finland / Suomi leans towards being decriminalized and focused on public education campaigns rather than enforcement, there are still some limitations and restrictions. Specifically, recreational use and possession is illegal, which means it remains criminal under national laws.\n\nThis situation suggests a very restricted legal environment compared to other countries where the medical aspect of cannabis is recognized but distribution remains prohibited. The government's focus on educating citizens on safe consumption methods while strictly regulating production and marketing indicates a conservative approach to public health policy that aims to balance legalization with strict regulation.\n\nIn terms of travel, Finnish customs authorities might conduct random inspections for tobacco products including cannabis when incoming shipments are checked. This suggests there’s an active enforcement mechanism in place, meaning possession or importation could still be subject to scrutiny by law enforcement officials.\n\nOverall, the current legal landscape indicates a moderate approach towards both medical and recreational use in Finland / Suomi. The contrast with more liberal countries in this regard is noticeable but not quite as extreme as some other places where cannabis might be fully legalized for certain aspects while keeping possession or distribution strictly regulated.",
+      "score": 1,
+      "used": 2,
+      "ts": 1776288276507,
+      "last_used": 1776290602398
+    },
+    {
+      "id": "5e37d868363fcf66",
+      "query": "Is it legal?",
+      "intent": "legal",
+      "location": "DE",
+      "answer": "I apologize but your question seems more related towards the legal aspects of canned goods and regulations in Finland rather than a general conversation about cannabis laws within two regions (Germany vs Deutschland). I am designed to assist with topics outside my primary area such as specific geographical contexts, travel rules or regional legality.\n\nHowever, if you have any questions related to the application of canned goods in Finland and/or other general legal matters like distribution rights over time period (like recreational cannabis), I'd be happy to try to help with those! You could ask about different countries being used within your discussion or provide a specific context for your question.",
+      "score": 1,
+      "used": 0,
+      "ts": 1776290601958,
+      "last_used": 1776290601958
+    },
+    {
+      "id": "bc57280fe0066533",
+      "query": "Is it legal?",
+      "intent": "legal",
+      "location": "DE",
+      "answer": "It's absolutely permissible under German law for individuals over 18 years old to possess or consume recreational cannabis. However, importing, exporting, selling, and purchasing the drug for anyone under 16 is illegal and carries significant penalties including jail time. The country has strict laws against any form of cannabis distribution, so even possessing it is a violation. This makes Germany a place where the risks are high for tourists or visitors engaging in non-lawful activities related to cannabis.",
+      "score": 1,
+      "used": 7,
+      "ts": 1776279633984,
+      "last_used": 1776290591314
+    },
+    {
+      "id": "3d4935111f15521a",
+      "query": "Is it legal?",
+      "intent": "legal",
+      "location": "DE",
+      "answer": "Cannabis in Germany\n\nThe overall legal status of cannabis in Germany is legally permitted for both recreational and medical purposes. Recreational cannabis use is legal, while the distribution and possession aspects remain illegal.\n\nTo avoid potential risks, it's essential to understand that despite these legal boundaries, many individuals choose not to comply fully with German laws, particularly when they come from countries where the same substance might be freely accessible or socially accepted. This can lead to perceived low risk based on individual circumstances and experiences.\n\nIn practice, enforcement appears active in certain areas but is relatively low compared to other European nations due to better compliance rates among the general population. As such, penalties for non-compliance are not as severe, leading to a somewhat relaxed approach to cannabis use within these regulated parameters.\n\nNavigating this legal landscape calls for a balanced understanding of personal circumstances and local regulations to ensure both safety and adherence with the law while still exploring new experiences with the right preparation and understanding of potential risks.",
+      "score": 1,
+      "used": 8,
+      "ts": 1776279515841,
+      "last_used": 1776290591314
+    },
+    {
+      "id": "3172837cb45c8588",
+      "query": "Is it legal?",
+      "intent": "legal",
+      "location": "DE",
+      "answer": "User question: Is it legal?\n\nAnswer:\nIn Germany, recreational cannabis use is legal but distribution and possession are strictly prohibited due to a high risk of criminal activity. Enforcement is actively monitoring the situation.\n\nUseful previous answer: In Germany, recreational cannabis use is legal but distribution and possession are prohibited due to a high risk of criminal activity. Enforcement is actively mugging the streets on your way in.\nThe overall status in Germany regarding cannabis remains legally permitted for both medical and recreational purposes. It's important to note that while the use itself is legal, distribution and possession are subject to strict regulations that may lead to a higher risk if not followed properly.\nIt’s advisable to be aware of the specific laws pertaining to your location. Always seek local advice or contact authorities directly to confirm detailed requirements before taking any action.",
+      "score": 1,
+      "used": 9,
+      "ts": 1776279234574,
+      "last_used": 1776290591314
+    },
+    {
+      "id": "97d3083e01ed876a",
+      "query": "Cannabis in Finland",
+      "intent": "general",
+      "location": "DE",
+      "answer": "I'm sorry, but your request seems to be related more towards legal topics and privacy concerns than a conversation about cannabis laws between two specific regions of the world (Germany versus Deutschland). This is out of scope for me as an AI specialized in general knowledge. I can provide information on how you might proceed if you have any other questions or need assistance with something related to legal topics, such as traffic rules and regulations regarding cannabis sales between countries within the EU (European Union), but this falls outside my area's expertise because it involves specific geographical contexts that are not among my primary function areas.",
+      "score": 1,
+      "used": 0,
+      "ts": 1776290590890,
+      "last_used": 1776290590890
+    },
+    {
+      "id": "28b282ce8ce4c279",
+      "query": "Cannabis in Finland",
+      "intent": "general",
+      "location": "DE",
+      "answer": "traveling with it?\n\nUser question: Cannabis in Finland.\n\nIntent: general understanding\n\nAnswer rules:\nStay within Finland.\nDo not introduce other countries unless specifically asked.\nContinue discussing the legal status, enforcement practices, risks, and travel considerations without introducing new facts or changing topics.\nFact lines:\nPlace: Finland.\nOverall status is illegal.\nRecreational status is illegal.\nMedical status is considered as a rare exception but strictly regulated by health authorities.\nDistribution of cannabis is prohibited due to public health concerns.\nRisk signal is moderate_risk.\nEnforcement is strict and widespread.\n\nThe key point here, considering the provided fact lines, is that while it's not legally against consumption for both recreational and medical use in Finland, purchasing or distributing cannabis would still be considered illegal. The risk level indicates a cautious approach should be taken when planning to visit any country where this activity might occur under normal circumstances.",
+      "score": 1,
+      "used": 1,
+      "ts": 1776290317618,
+      "last_used": 1776290579002
+    },
+    {
+      "id": "87cb2647e87b9b55",
+      "query": "Germany cannabis?",
+      "intent": "general",
+      "location": "DE",
+      "answer": "In Germany, the use of cannabis remains legally permitted for both recreational and medical purposes. While distribution is strictly prohibited due to high enforcement efforts, the overall risk associated with using cannabis appears relatively low given the country's focus on medical research and treatment programs.\n\nGiven these factors, navigating the legal landscape in Germany can be complex but is not considered extremely risky compared to other countries where possession could lead to significant penalties for minors. The active law enforcement measures ensure that even low-risk behaviors remain monitored closely.",
+      "score": 1,
+      "used": 18,
+      "ts": 1776263489096,
+      "last_used": 1776290579002
+    },
+    {
+      "id": "e7378be0cc7d7148",
+      "query": "Germany cannabis?",
+      "intent": "general",
+      "location": "DE",
+      "answer": "In Germany (Deutschland), cannabis use remains legally permitted for both recreational and medical purposes, but distribution of the drug is strictly prohibited. Given Germany's focus on medical research and treatment programs, this legal approach appears relatively low risk. However, enforcement efforts are active across the country, creating a nuanced environment for navigating this complex legal landscape.\n\nTravel Note: While not explicitly stated in your fact lines, it’s worth noting that travelers or tourists entering Germany might encounter restrictions depending on their specific location within the country, including points of interest and tourist attractions where cannabis use may be more restricted due to local regulations.",
+      "score": 1,
+      "used": 32,
+      "ts": 1776259920106,
+      "last_used": 1776290579002
+    },
+    {
+      "id": "dae95d04b71e9611",
+      "query": "Compare with Germany",
+      "intent": "general",
+      "location": "DE",
+      "answer": "Traveling with cannabis in Germany / Deutschland often poses higher risks due to the country's legal restrictions on distribution. While the recreational use is generally tolerated without immediate legal consequences, possession can be scrutinized and could lead to fines for those caught by law enforcement. \n\nGermany / Deutschland prioritizes maintaining a high level of legal certainty around its laws and regulations, which means there are more strict controls in place compared to many other countries where cannabis has either decriminalized it or legalized recreational use. This higher risk is underscored by the fact that possession could be seen as suspicious activity.\n\nUnderstanding these distinctions can be crucial for travelers planning their journeys involving international travel with controlled substances. It’s essential to keep a close eye on any local regulations and check in advance if necessary, especially at border crossings where additional documentation might be required or waived depending on personal circumstances.\n\nIn summary, while Germany / Deutschland allows for recreational use of cannabis without immediate consequences, the possession aspect remains high risk due to its enforcement stance. Always ensure you comply with all legal requirements both inside and outside Germany / Deutschland when considering international travel involving controlled substances.",
+      "score": 1,
+      "used": 4,
+      "ts": 1776281060671,
+      "last_used": 1776290567287
+    },
+    {
+      "id": "e106a2ed99741bd6",
+      "query": "Compare with Germany",
+      "intent": "general",
+      "location": "DE",
+      "answer": "Compared with other countries where cannabis has either decriminalized it or legalized recreational use, Germany / Deutschland stands out for its consistent approach towards legalization and regulation. It's notable that while the recreational aspect is legal under certain circumstances for medical reasons, the possession of drugs remains illegal. This makes traveling with cannabis a bit tricky compared to places more lenient on other fronts.\n\nIn practice, travelers often need to be prepared; packing discreetly in your carry-on or concealing it from customs inspections can sometimes get them through. The risk is heightened due to stricter border control and frequent enforcement actions by authorities. Despite these challenges, Germany / Deutschland has maintained its position as a country where cannabis holds both recreational and medical significance, albeit under specific conditions.\n\nRemember that while the legal status might differ from some other countries, there are always ways to handle your belongings discreetly when traveling through airports or crossing customs checkpoints in Germany / Deutschland.",
+      "score": 1,
+      "used": 5,
+      "ts": 1776279791136,
+      "last_used": 1776290567287
+    },
+    {
+      "id": "cf0f2aebd3fef2d1",
+      "query": "Compare with Germany",
+      "intent": "general",
+      "location": "DE",
+      "answer": "Compared with other countries where cannabis has either decriminalized it or legalized recreational use, Germany / Deutschland takes a different path with its robust prohibition. This leads to a higher overall risk level compared to many regions, especially in terms of active law enforcement measures and high probability for severe legal consequences if caught. However, given the country's approach, there are specific areas where travelers might find limited restrictions. In any case, it’s important to adhere strictly to national laws while respecting international treaties regarding cannabis use outside of domestic jurisdictions.",
+      "score": 1,
+      "used": 6,
+      "ts": 1776279672646,
+      "last_used": 1776290567287
+    },
+    {
+      "id": "08ecd76d5f3a5461",
+      "query": "Travel with it?",
+      "intent": "airport",
+      "location": "DE",
+      "answer": "I'm sorry for any confusion but as an AI focused on legal topics and facts at present time due to privacy concerns regarding data from specific regions like Germany or Deutschland about cannabis laws in these areas — I can only provide information related specifically with those matters. Moreover, the question you asked has some misinformation because it appears that travel risks are a topic outside of my area of expertise and also includes legal details which is not within scope for me to discuss nor answer correctly or ethically due to privacy concerns regarding specific countries like Germany / Deutschland about cannabis laws in these areas. I recommend contacting the relevant authorities directly with your queries related to this matter, as they would be more equipped to handle such topics properly and informatively while respecting user's data safety measures set by privacy guidelines.",
+      "score": 1,
+      "used": 0,
+      "ts": 1776290567033,
+      "last_used": 1776290567033
+    },
+    {
+      "id": "7be1b419a73a4b6e",
+      "query": "Travel with it?",
+      "intent": "airport",
+      "location": "DE",
+      "answer": "travel note: Traveling with marijuana is highly regulated in Germany / Deutschland. It's important to act responsibly and avoid drawing attention. Authorities can easily confiscate or detain items suspected of being illegal substances.\n\nUseful previous answer continued:\n\nWhen traveling, especially through airports where authorities often have strict border control measures, it’s crucial to be cautious. Customs officers might inspect bags for suspicious items, leading to potential detention or seizures if the drug is detected in any form.\n\nStay informed about current regulations and local policies regarding cannabis availability and consumption during your trip. Understanding these rules can help you navigate through customs smoothly without encountering legal trouble.",
+      "score": 1,
+      "used": 3,
+      "ts": 1776281644459,
+      "last_used": 1776290555463
+    },
+    {
+      "id": "b73dadf1b87244d2",
+      "query": "Travel with it?",
+      "intent": "airport",
+      "location": "DE",
+      "answer": "When traveling, especially through airports where authorities often have strict border control measures, it's crucial to be cautious. Customs officers may inspect your bags and can even seize drugs if they find them. This underscores the importance of understanding local laws and being prepared for potential inspections.\n\nIn Germany / Deutschland, the legal status of cannabis aligns with those in many other countries: recreational use is legal but possession is restricted to 30 grams per person under their own name. The medical aspect is also legally sanctioned for specific conditions through legitimate prescriptions.\n\nHowever, distribution remains illegal, which means you cannot buy or sell cannabis recreationally. For medicinal purposes, a doctor's prescription is required and must be obtained in accordance with the law. This underscores the high-risk nature of dealing with cannabis illegally, especially when considering the potential health impacts from contaminated products.\n\nFor travelers like yourself, it’s essential to stay informed about local regulations and border control measures at airports. Always check ahead for any updates or special requirements related to crossing borders with controlled substances, such as checking in at customs stations beforehand if possible, even when traveling domestically.\n\nWhile medical cannabis is available through prescriptions, the distribution of recreational cannabis remains illegal, making it a high-risk activity for those planning trips involving international travel. It’s important to ensure you comply with all local laws and regulations both inside and outside of Germany / Deutschland.\n\nTraveling with cannabis in Germany / Deutschland is generally considered a higher risk due to its legal restrictions on distribution. Therefore, the best approach would be consulting with border control officers to find out any special procedures or permits required for international travel involving controlled substances. Always ensure you understand your situation fully before attempting to cross borders while traveling with cannabis.",
+      "score": 1,
+      "used": 4,
+      "ts": 1776281042166,
+      "last_used": 1776290555463
+    },
+    {
+      "id": "299e7cc83ba37b39",
+      "query": "Travel with it?",
+      "intent": "airport",
+      "location": "DE",
+      "answer": "When traveling, especially through airports where authorities often have strict border control measures, it’s crucial to be cautious. Customs officers might inspect your luggage and could find evidence of cannabis. To avoid any issues at the airport, pack discreetly in your carry-on or keep the item hidden from customs staff who might not be informed about your needs for medical use.\n\nThe risk is elevated due to increased scrutiny through checkpoints with strict enforcement measures. It’s a common occurrence that even those authorized by their healthcare providers can get caught carrying cannabis across borders. Therefore, preparing your belongings beforehand and knowing there’s no need or requirement to declare cannabis in customs declarations is imperative.",
+      "score": 1,
+      "used": 5,
+      "ts": 1776279777412,
+      "last_used": 1776290555463
+    },
+    {
+      "id": "848c01b5c3f00b24",
+      "query": "Risk?",
+      "intent": "legal",
+      "location": "DE",
+      "answer": "I'm sorry for the misunderstanding but as a AI focused on legal topics and facts at present time due to privacy concerns regarding data from specific regions like Germany, Deutschland or other non-German countries about cannabis laws in these areas , I can only provide information related specifically with those matters.",
+      "score": 1,
+      "used": 0,
+      "ts": 1776290555055,
+      "last_used": 1776290555055
+    },
+    {
+      "id": "7511e91051d6c6fb",
+      "query": "Risk?",
+      "intent": "legal",
+      "location": "DE",
+      "answer": "engage with, and using potentially unsanitary methods to prepare them, might lead to serious health issues including but not limited to poisoning, infections, and other adverse effects. The high risk signal indicates a heightened awareness of potential legal risks related to cannabis use in Germany/Deutschland. This necessitates cautious behavior and adherence to local laws, especially when it comes to possession and distribution.\n\nReal-life experiences often reveal that the legal landscape regarding marijuana varies from one country to another. While some places have fully embraced legalization for both recreational and medical purposes, others maintain strict enforcement of cannabis-related activities. Understanding these nuances is crucial before making any significant decisions about your personal use or dealing with others involved in this activity.",
+      "score": 1,
+      "used": 3,
+      "ts": 1776281631800,
+      "last_used": 1776290545930
+    },
+    {
+      "id": "23978c8a728fb82e",
+      "query": "Risk?",
+      "intent": "legal",
+      "location": "DE",
+      "answer": "...no source material available.\n\nFor a more detailed look at the current status and potential risks in Germany / Deutschland regarding cannabis use:\n\nLegal Status:\n- Recreational: Legal for personal consumption, possession up to 30 grams per individual.\n- Medical: Legal for treatment of specific conditions with proper prescription and approval.\n\nRisk Perception:\nIn real life, engaging with or being near areas where cannabis is illegally distributed can pose severe health risks. Potentially contaminated products are a common concern due to lack of regulation. This poses significant hazards to both personal safety and overall well-being. The high-risk nature of this situation underscores the importance of understanding local laws and regulations.\n\nCurrent Notes:\nCannabis is legal in Germany / Deutschland. Medical cannabis is legal, but distribution remains illegal. There's been a noted prison exposure incident related to cannabis use, highlighting potential risks associated with illegal distributions.\n\nWhile it may be tempting to explore areas where the drug isn't available for medical reasons, doing so carries substantial risks. This includes potentially compromised products and an increased likelihood of involvement in criminal activities that can lead to serious consequences, both physical and legal.",
+      "score": 1,
+      "used": 4,
+      "ts": 1776281017688,
+      "last_used": 1776290545930
+    },
+    {
+      "id": "0ea9c5af98125db9",
+      "query": "Risk?",
+      "intent": "legal",
+      "location": "DE",
+      "answer": "Risk:\n\nIn real life, engaging with or being near areas where cannabis is illegally distributed can pose severe health risks. Potentially contaminated products and illegal sale practices increase the likelihood of accidental poisoning or other adverse effects. It's crucial to maintain a safe distance from these environments to avoid any potential risks associated with accessing the illegal market. The risk signal underscores that even legitimate consumption might lead to unforeseen consequences.\n\nThe overall status in Germany / Deutschland is legal, recognizing both recreational and medical uses for cannabis. This allows individuals who meet specific age and condition requirements to access legal means of obtaining marijuana products safely while complying with stringent regulations on distribution and possession limits.",
+      "score": 1,
+      "used": 5,
+      "ts": 1776279766791,
+      "last_used": 1776290545930
+    },
+    {
+      "id": "bb6c6638bcdf9277",
+      "query": "What about real life?",
+      "intent": "general",
+      "location": "DE",
+      "answer": "I apologize but as an AI model focused on communicating with a human companion about topics related to canabis laws within specific countries (like German and Brazil), I don't have real-time access information regarding legal statuses in different regions around the world. Also, my main function is not providing advice or explanations based solely upon facts at this time due to privacy concerns for sensitive data like cannabidlai law enforcement agencies details.\n   If you want a general understanding of canabis laws across specific countries and about how they are regulated within those country (like under local laws in the United States), I would recommend consulting legal resources or experts specifically related to this topic, as my primary focus is on providing information based upon facts at present time due to privacy concerns.",
+      "score": 1,
+      "used": 0,
+      "ts": 1776290545505,
+      "last_used": 1776290545505
+    },
+    {
+      "id": "866f4b04f151e9ee",
+      "query": "What about real life?",
+      "intent": "general",
+      "location": "DE",
+      "answer": "Yes, it's perfectly legal to possess and consume recreational cannabis in Germany/Deutschland over the age of 18. However, attempting to sell, distribute, or provide cannabis to minors is strictly illegal, even if not done intentionally.\n\nThe high risk signal indicates a heightened awareness of potential legal risks related to cannabis use in Germany, including both recreational and medical contexts. This necessitates cautious behavior and adherence to local laws, especially when it comes to possession and distribution. While the overall status is generally favorable for those seeking legalization, the specifics can vary significantly from one individual or situation to another.\n\nIt's always wise to familiarize yourself with the country-specific regulations before making significant decisions regarding your cannabis use in Germany/Deutschland.",
+      "score": 1,
+      "used": 3,
+      "ts": 1776281617102,
+      "last_used": 1776290531125
+    },
+    {
+      "id": "976d299f424e7ddc",
+      "query": "What about real life?",
+      "intent": "general",
+      "location": "DE",
+      "answer": "It’s great that you’re seeking a reliable source on the legality and general guidelines for using cannabis in Germany / Deutschland. \n\nLet me expand on your query:\n\nGermany / Deutschland has legalized recreational use of marijuana since 2014 under specific conditions. This means individuals aged over 18 can legally possess, consume, and cultivate cannabis without any restrictions for personal consumption or medical purposes.\n\nOn the other hand, distribution of cannabis is strictly illegal in Germany / Deutschland, making it a high-risk endeavor from both a legal standpoint and an enforcement perspective. Despite this legal framework, users occasionally find themselves in situations where possession is not possible due to local laws on drug testing, which can lead to consequences for travelers or tourists.\n\nIn summary, while it's perfectly legal to possess and consume recreational cannabis under 18 years old, the legal landscape has become considerably stricter when it comes to distributing this substance. \n\nFor a more comprehensive understanding of how different situations affect your rights in Germany / Deutschland, always check local regulations and speak with knowledgeable authorities or professionals for personalized advice.",
+      "score": 1,
+      "used": 4,
+      "ts": 1776281001369,
+      "last_used": 1776290531125
+    },
+    {
+      "id": "7c36fc57fd025d6b",
+      "query": "What about real life?",
+      "intent": "general",
+      "location": "DE",
+      "answer": "Yes, it's perfectly legal to possess and consume recreational cannabis in Germany / Deutschland over the age of 18. However, attempting to sell, distribute, or provide marijuana to others is illegal and could result in severe consequences including prison time. The high risk associated with possession underscores the importance of following laws carefully.\n\nThe overall status in Germany regarding medical use is legal, recognizing prescriptions from licensed doctors for conditions like pain management and anxiety relief. Despite this, access remains limited by strict regulations on how cannabis can be obtained legally.",
+      "score": 1,
+      "used": 5,
+      "ts": 1776279751310,
+      "last_used": 1776290531125
+    },
+    {
+      "id": "2cf733f2b568a6e5",
+      "query": "Is it legal?",
+      "intent": "legal",
+      "location": "DE",
+      "answer": "It's important to note that while the overall status of cannabis consumption might be considered legal, there are specific exceptions and restrictions that need to be understood:\n- In Germany / Deutschland, it is generally illegal to possess or consume cannabis regardless of its intended use (recreationally or medically). However, this does not mean it is completely unregulated; certain medical conditions where cannabis can legally be prescribed exist.\n- The risk associated with consuming cannabis in any form remains high due to the potential for impaired judgment and increased health risks. This heightened risk warrants careful consideration when traveling to Germany / Deutschland.\n- Enforcement of prohibition laws in Germany / Deutschland is strictly followed, making it crucial to be fully aware of your surroundings and actions during travels.\nIn summary, despite its legal status being largely permitted across different uses (medical and recreational), there are significant regulations that could make the overall risk level high. Travelers must proceed with caution while respecting these laws and adhering to any local restrictions or guidelines.",
+      "score": 1,
+      "used": 0,
+      "ts": 1776290330625,
+      "last_used": 1776290330625
+    },
+    {
+      "id": "3d0fa8aee3163294",
+      "query": "Germany cannabis?",
+      "intent": "general",
+      "location": "DE",
+      "answer": "In Germany (Deutschland), cannabis use remains legally permitted for both recreational and medical purposes, but distribution of the drug is prohibited. The overall risk associated with using cannabis in Germany appears relatively low given the country's approach to medical research and treatment programs. There are instances where higher risks might manifest locally or within specific contexts. While laws enforcement is active, not everywhere, creating a nuanced environment for navigating this complex legal landscape.",
+      "score": 1,
+      "used": 38,
+      "ts": 1776258933854,
+      "last_used": 1776290307560
+    },
+    {
+      "id": "40a8a7589fb8c763",
+      "query": "Travel with it?",
+      "intent": "airport",
+      "location": "DE",
+      "answer": "...teractively inspect luggage, potentially leading to higher penalties or fines if the regulations are not followed correctly.\n\nRemember, while the overall status in Germany / Deutschland is legal, exercising caution and following local laws closely can help minimize any potential risks. Always keep a low profile when traveling through restricted areas like airports, where law enforcement might scrutinize more closely. Stay informed about customs procedures to avoid unnecessary complications or apprehensions.",
+      "score": 1,
+      "used": 0,
+      "ts": 1776290298879,
+      "last_used": 1776290298879
+    },
+    {
+      "id": "b5356a03f2bc5ef1",
+      "query": "Risk?",
+      "intent": "legal",
+      "location": "DE",
+      "answer": "...no guarantee of purity and potency can be made if they are purchased from unknown sources. Traveling to Germany / Deutschland, especially outside designated recreational areas like the countryside, could put you at higher risk due to increased opportunities for law enforcement presence and surveillance.\n\nTo mitigate risks:\n1. Stay aware of your surroundings.\n2. Avoid places known for frequent cannabis distribution.\n3. Exercise caution when purchasing from unknown vendors or online orders.",
+      "score": 1,
+      "used": 0,
+      "ts": 1776290293764,
+      "last_used": 1776290293764
+    },
+    {
+      "id": "bf07220e3f07d3f9",
+      "query": "What about real life?",
+      "intent": "general",
+      "location": "DE",
+      "answer": "User's question:\nWhat about real life?\n\nYour answer:\nYes, it's perfectly legal to possess and consume recreational cannabis in Germany/Deutschland over the age of 18.\nHowever, attempting to sell, distribute, or transport cannabis across German borders is illegal. This includes exporting cannabis seeds or products internationally. If you're interested in medicinal use, obtaining a prescription from a certified physician through authorized medical facilities is necessary.\nIf you have any further questions about laws regarding cannabis in Germany/Deutschland, feel free to ask!",
+      "score": 1,
+      "used": 0,
+      "ts": 1776290288723,
+      "last_used": 1776290288723
+    },
+    {
+      "id": "b4c5a0ce4f9b9532",
+      "query": "Is it legal?",
+      "intent": "legal",
+      "location": "DE",
+      "answer": "enforcement. Travelers should exercise caution in this area. For medicinal uses, prescriptions can be obtained from certified physicians under the supervision of German authorities. While not advisable for general tourism or leisure purposes, these laws provide a nuanced approach that balances legal accessibility with public safety measures.\n\nIf you're interested in exploring cannabis-related products, consider visiting specific cities known for their nightlife scenes or research locations that might have more relaxed regulations regarding medicinal or recreational use.",
+      "score": 1,
+      "used": 0,
+      "ts": 1776290283304,
+      "last_used": 1776290283304
+    },
+    {
       "id": "4497da8b0669a968",
       "query": "Cannabis in Cambodia",
       "intent": "general",
@@ -252,28 +637,6 @@
       "used": 0,
       "ts": 1776288340229,
       "last_used": 1776288340229
-    },
-    {
-      "id": "25b47b0a3dc8ae57",
-      "query": "Risk?",
-      "intent": "legal",
-      "location": "FI",
-      "answer": "The risk of being caught with small amounts of marijuana or even attempting to bring it into Finland / Suomi is significant due to the active enforcement of the law. While possession or importation might not always result in immediate penalties, the risks are still present and could lead to a variety of consequences ranging from fines to imprisonment.\n\nGiven that medical cannabis is limited and distribution is illegal, anyone considering using cannabis would do so at their own risk without the benefits typically associated with regulated use. The reality suggests that the legal environment aims to balance public health education while maintaining strict oversight.\n\nIn summary, despite Finland / Suomi being a place where recreational cannabis use and possession remains illegal, the overall risk of detection or enforcement is high, making it advisable to approach such situations cautiously and avoid bringing in prohibited items.",
-      "score": 1,
-      "used": 0,
-      "ts": 1776288290723,
-      "last_used": 1776288290723
-    },
-    {
-      "id": "385068c623cecea4",
-      "query": "What about real life?",
-      "intent": "general",
-      "location": "FI",
-      "answer": "It's important to clarify that while the overall status of cannabis use in Finland / Suomi leans towards being decriminalized and focused on public education campaigns rather than enforcement, there are still some limitations and restrictions. Specifically, recreational use and possession is illegal, which means it remains criminal under national laws.\n\nThis situation suggests a very restricted legal environment compared to other countries where the medical aspect of cannabis is recognized but distribution remains prohibited. The government's focus on educating citizens on safe consumption methods while strictly regulating production and marketing indicates a conservative approach to public health policy that aims to balance legalization with strict regulation.\n\nIn terms of travel, Finnish customs authorities might conduct random inspections for tobacco products including cannabis when incoming shipments are checked. This suggests there’s an active enforcement mechanism in place, meaning possession or importation could still be subject to scrutiny by law enforcement officials.\n\nOverall, the current legal landscape indicates a moderate approach towards both medical and recreational use in Finland / Suomi. The contrast with more liberal countries in this regard is noticeable but not quite as extreme as some other places where cannabis might be fully legalized for certain aspects while keeping possession or distribution strictly regulated.",
-      "score": 1,
-      "used": 0,
-      "ts": 1776288276507,
-      "last_used": 1776288276507
     },
     {
       "id": "c8880cfa28803379",
@@ -1200,39 +1563,6 @@
       "last_used": 1776282296022
     },
     {
-      "id": "dae95d04b71e9611",
-      "query": "Compare with Germany",
-      "intent": "general",
-      "location": "DE",
-      "answer": "Traveling with cannabis in Germany / Deutschland often poses higher risks due to the country's legal restrictions on distribution. While the recreational use is generally tolerated without immediate legal consequences, possession can be scrutinized and could lead to fines for those caught by law enforcement. \n\nGermany / Deutschland prioritizes maintaining a high level of legal certainty around its laws and regulations, which means there are more strict controls in place compared to many other countries where cannabis has either decriminalized it or legalized recreational use. This higher risk is underscored by the fact that possession could be seen as suspicious activity.\n\nUnderstanding these distinctions can be crucial for travelers planning their journeys involving international travel with controlled substances. It’s essential to keep a close eye on any local regulations and check in advance if necessary, especially at border crossings where additional documentation might be required or waived depending on personal circumstances.\n\nIn summary, while Germany / Deutschland allows for recreational use of cannabis without immediate consequences, the possession aspect remains high risk due to its enforcement stance. Always ensure you comply with all legal requirements both inside and outside Germany / Deutschland when considering international travel involving controlled substances.",
-      "score": 1,
-      "used": 2,
-      "ts": 1776281060671,
-      "last_used": 1776282283337
-    },
-    {
-      "id": "e106a2ed99741bd6",
-      "query": "Compare with Germany",
-      "intent": "general",
-      "location": "DE",
-      "answer": "Compared with other countries where cannabis has either decriminalized it or legalized recreational use, Germany / Deutschland stands out for its consistent approach towards legalization and regulation. It's notable that while the recreational aspect is legal under certain circumstances for medical reasons, the possession of drugs remains illegal. This makes traveling with cannabis a bit tricky compared to places more lenient on other fronts.\n\nIn practice, travelers often need to be prepared; packing discreetly in your carry-on or concealing it from customs inspections can sometimes get them through. The risk is heightened due to stricter border control and frequent enforcement actions by authorities. Despite these challenges, Germany / Deutschland has maintained its position as a country where cannabis holds both recreational and medical significance, albeit under specific conditions.\n\nRemember that while the legal status might differ from some other countries, there are always ways to handle your belongings discreetly when traveling through airports or crossing customs checkpoints in Germany / Deutschland.",
-      "score": 1,
-      "used": 3,
-      "ts": 1776279791136,
-      "last_used": 1776282283337
-    },
-    {
-      "id": "cf0f2aebd3fef2d1",
-      "query": "Compare with Germany",
-      "intent": "general",
-      "location": "DE",
-      "answer": "Compared with other countries where cannabis has either decriminalized it or legalized recreational use, Germany / Deutschland takes a different path with its robust prohibition. This leads to a higher overall risk level compared to many regions, especially in terms of active law enforcement measures and high probability for severe legal consequences if caught. However, given the country's approach, there are specific areas where travelers might find limited restrictions. In any case, it’s important to adhere strictly to national laws while respecting international treaties regarding cannabis use outside of domestic jurisdictions.",
-      "score": 1,
-      "used": 4,
-      "ts": 1776279672646,
-      "last_used": 1776282283337
-    },
-    {
       "id": "effde7b098a0a11c",
       "query": "Travel with it?",
       "intent": "airport",
@@ -1242,39 +1572,6 @@
       "used": 0,
       "ts": 1776282282080,
       "last_used": 1776282282080
-    },
-    {
-      "id": "7be1b419a73a4b6e",
-      "query": "Travel with it?",
-      "intent": "airport",
-      "location": "DE",
-      "answer": "travel note: Traveling with marijuana is highly regulated in Germany / Deutschland. It's important to act responsibly and avoid drawing attention. Authorities can easily confiscate or detain items suspected of being illegal substances.\n\nUseful previous answer continued:\n\nWhen traveling, especially through airports where authorities often have strict border control measures, it’s crucial to be cautious. Customs officers might inspect bags for suspicious items, leading to potential detention or seizures if the drug is detected in any form.\n\nStay informed about current regulations and local policies regarding cannabis availability and consumption during your trip. Understanding these rules can help you navigate through customs smoothly without encountering legal trouble.",
-      "score": 1,
-      "used": 1,
-      "ts": 1776281644459,
-      "last_used": 1776282269395
-    },
-    {
-      "id": "b73dadf1b87244d2",
-      "query": "Travel with it?",
-      "intent": "airport",
-      "location": "DE",
-      "answer": "When traveling, especially through airports where authorities often have strict border control measures, it's crucial to be cautious. Customs officers may inspect your bags and can even seize drugs if they find them. This underscores the importance of understanding local laws and being prepared for potential inspections.\n\nIn Germany / Deutschland, the legal status of cannabis aligns with those in many other countries: recreational use is legal but possession is restricted to 30 grams per person under their own name. The medical aspect is also legally sanctioned for specific conditions through legitimate prescriptions.\n\nHowever, distribution remains illegal, which means you cannot buy or sell cannabis recreationally. For medicinal purposes, a doctor's prescription is required and must be obtained in accordance with the law. This underscores the high-risk nature of dealing with cannabis illegally, especially when considering the potential health impacts from contaminated products.\n\nFor travelers like yourself, it’s essential to stay informed about local regulations and border control measures at airports. Always check ahead for any updates or special requirements related to crossing borders with controlled substances, such as checking in at customs stations beforehand if possible, even when traveling domestically.\n\nWhile medical cannabis is available through prescriptions, the distribution of recreational cannabis remains illegal, making it a high-risk activity for those planning trips involving international travel. It’s important to ensure you comply with all local laws and regulations both inside and outside of Germany / Deutschland.\n\nTraveling with cannabis in Germany / Deutschland is generally considered a higher risk due to its legal restrictions on distribution. Therefore, the best approach would be consulting with border control officers to find out any special procedures or permits required for international travel involving controlled substances. Always ensure you understand your situation fully before attempting to cross borders while traveling with cannabis.",
-      "score": 1,
-      "used": 2,
-      "ts": 1776281042166,
-      "last_used": 1776282269395
-    },
-    {
-      "id": "299e7cc83ba37b39",
-      "query": "Travel with it?",
-      "intent": "airport",
-      "location": "DE",
-      "answer": "When traveling, especially through airports where authorities often have strict border control measures, it’s crucial to be cautious. Customs officers might inspect your luggage and could find evidence of cannabis. To avoid any issues at the airport, pack discreetly in your carry-on or keep the item hidden from customs staff who might not be informed about your needs for medical use.\n\nThe risk is elevated due to increased scrutiny through checkpoints with strict enforcement measures. It’s a common occurrence that even those authorized by their healthcare providers can get caught carrying cannabis across borders. Therefore, preparing your belongings beforehand and knowing there’s no need or requirement to declare cannabis in customs declarations is imperative.",
-      "score": 1,
-      "used": 3,
-      "ts": 1776279777412,
-      "last_used": 1776282269395
     },
     {
       "id": "897f6d4dbef49d43",
@@ -1288,39 +1585,6 @@
       "last_used": 1776282268156
     },
     {
-      "id": "7511e91051d6c6fb",
-      "query": "Risk?",
-      "intent": "legal",
-      "location": "DE",
-      "answer": "engage with, and using potentially unsanitary methods to prepare them, might lead to serious health issues including but not limited to poisoning, infections, and other adverse effects. The high risk signal indicates a heightened awareness of potential legal risks related to cannabis use in Germany/Deutschland. This necessitates cautious behavior and adherence to local laws, especially when it comes to possession and distribution.\n\nReal-life experiences often reveal that the legal landscape regarding marijuana varies from one country to another. While some places have fully embraced legalization for both recreational and medical purposes, others maintain strict enforcement of cannabis-related activities. Understanding these nuances is crucial before making any significant decisions about your personal use or dealing with others involved in this activity.",
-      "score": 1,
-      "used": 1,
-      "ts": 1776281631800,
-      "last_used": 1776282252006
-    },
-    {
-      "id": "23978c8a728fb82e",
-      "query": "Risk?",
-      "intent": "legal",
-      "location": "DE",
-      "answer": "...no source material available.\n\nFor a more detailed look at the current status and potential risks in Germany / Deutschland regarding cannabis use:\n\nLegal Status:\n- Recreational: Legal for personal consumption, possession up to 30 grams per individual.\n- Medical: Legal for treatment of specific conditions with proper prescription and approval.\n\nRisk Perception:\nIn real life, engaging with or being near areas where cannabis is illegally distributed can pose severe health risks. Potentially contaminated products are a common concern due to lack of regulation. This poses significant hazards to both personal safety and overall well-being. The high-risk nature of this situation underscores the importance of understanding local laws and regulations.\n\nCurrent Notes:\nCannabis is legal in Germany / Deutschland. Medical cannabis is legal, but distribution remains illegal. There's been a noted prison exposure incident related to cannabis use, highlighting potential risks associated with illegal distributions.\n\nWhile it may be tempting to explore areas where the drug isn't available for medical reasons, doing so carries substantial risks. This includes potentially compromised products and an increased likelihood of involvement in criminal activities that can lead to serious consequences, both physical and legal.",
-      "score": 1,
-      "used": 2,
-      "ts": 1776281017688,
-      "last_used": 1776282252006
-    },
-    {
-      "id": "0ea9c5af98125db9",
-      "query": "Risk?",
-      "intent": "legal",
-      "location": "DE",
-      "answer": "Risk:\n\nIn real life, engaging with or being near areas where cannabis is illegally distributed can pose severe health risks. Potentially contaminated products and illegal sale practices increase the likelihood of accidental poisoning or other adverse effects. It's crucial to maintain a safe distance from these environments to avoid any potential risks associated with accessing the illegal market. The risk signal underscores that even legitimate consumption might lead to unforeseen consequences.\n\nThe overall status in Germany / Deutschland is legal, recognizing both recreational and medical uses for cannabis. This allows individuals who meet specific age and condition requirements to access legal means of obtaining marijuana products safely while complying with stringent regulations on distribution and possession limits.",
-      "score": 1,
-      "used": 3,
-      "ts": 1776279766791,
-      "last_used": 1776282252006
-    },
-    {
       "id": "44a0a89a0b675a35",
       "query": "What about real life?",
       "intent": "general",
@@ -1332,39 +1596,6 @@
       "last_used": 1776282250807
     },
     {
-      "id": "866f4b04f151e9ee",
-      "query": "What about real life?",
-      "intent": "general",
-      "location": "DE",
-      "answer": "Yes, it's perfectly legal to possess and consume recreational cannabis in Germany/Deutschland over the age of 18. However, attempting to sell, distribute, or provide cannabis to minors is strictly illegal, even if not done intentionally.\n\nThe high risk signal indicates a heightened awareness of potential legal risks related to cannabis use in Germany, including both recreational and medical contexts. This necessitates cautious behavior and adherence to local laws, especially when it comes to possession and distribution. While the overall status is generally favorable for those seeking legalization, the specifics can vary significantly from one individual or situation to another.\n\nIt's always wise to familiarize yourself with the country-specific regulations before making significant decisions regarding your cannabis use in Germany/Deutschland.",
-      "score": 1,
-      "used": 1,
-      "ts": 1776281617102,
-      "last_used": 1776282237313
-    },
-    {
-      "id": "976d299f424e7ddc",
-      "query": "What about real life?",
-      "intent": "general",
-      "location": "DE",
-      "answer": "It’s great that you’re seeking a reliable source on the legality and general guidelines for using cannabis in Germany / Deutschland. \n\nLet me expand on your query:\n\nGermany / Deutschland has legalized recreational use of marijuana since 2014 under specific conditions. This means individuals aged over 18 can legally possess, consume, and cultivate cannabis without any restrictions for personal consumption or medical purposes.\n\nOn the other hand, distribution of cannabis is strictly illegal in Germany / Deutschland, making it a high-risk endeavor from both a legal standpoint and an enforcement perspective. Despite this legal framework, users occasionally find themselves in situations where possession is not possible due to local laws on drug testing, which can lead to consequences for travelers or tourists.\n\nIn summary, while it's perfectly legal to possess and consume recreational cannabis under 18 years old, the legal landscape has become considerably stricter when it comes to distributing this substance. \n\nFor a more comprehensive understanding of how different situations affect your rights in Germany / Deutschland, always check local regulations and speak with knowledgeable authorities or professionals for personalized advice.",
-      "score": 1,
-      "used": 2,
-      "ts": 1776281001369,
-      "last_used": 1776282237313
-    },
-    {
-      "id": "7c36fc57fd025d6b",
-      "query": "What about real life?",
-      "intent": "general",
-      "location": "DE",
-      "answer": "Yes, it's perfectly legal to possess and consume recreational cannabis in Germany / Deutschland over the age of 18. However, attempting to sell, distribute, or provide marijuana to others is illegal and could result in severe consequences including prison time. The high risk associated with possession underscores the importance of following laws carefully.\n\nThe overall status in Germany regarding medical use is legal, recognizing prescriptions from licensed doctors for conditions like pain management and anxiety relief. Despite this, access remains limited by strict regulations on how cannabis can be obtained legally.",
-      "score": 1,
-      "used": 3,
-      "ts": 1776279751310,
-      "last_used": 1776282237313
-    },
-    {
       "id": "06fea76c38e8ab8e",
       "query": "Is it legal?",
       "intent": "legal",
@@ -1374,72 +1605,6 @@
       "used": 0,
       "ts": 1776282236146,
       "last_used": 1776282236146
-    },
-    {
-      "id": "bc57280fe0066533",
-      "query": "Is it legal?",
-      "intent": "legal",
-      "location": "DE",
-      "answer": "It's absolutely permissible under German law for individuals over 18 years old to possess or consume recreational cannabis. However, importing, exporting, selling, and purchasing the drug for anyone under 16 is illegal and carries significant penalties including jail time. The country has strict laws against any form of cannabis distribution, so even possessing it is a violation. This makes Germany a place where the risks are high for tourists or visitors engaging in non-lawful activities related to cannabis.",
-      "score": 1,
-      "used": 4,
-      "ts": 1776279633984,
-      "last_used": 1776282223701
-    },
-    {
-      "id": "3d4935111f15521a",
-      "query": "Is it legal?",
-      "intent": "legal",
-      "location": "DE",
-      "answer": "Cannabis in Germany\n\nThe overall legal status of cannabis in Germany is legally permitted for both recreational and medical purposes. Recreational cannabis use is legal, while the distribution and possession aspects remain illegal.\n\nTo avoid potential risks, it's essential to understand that despite these legal boundaries, many individuals choose not to comply fully with German laws, particularly when they come from countries where the same substance might be freely accessible or socially accepted. This can lead to perceived low risk based on individual circumstances and experiences.\n\nIn practice, enforcement appears active in certain areas but is relatively low compared to other European nations due to better compliance rates among the general population. As such, penalties for non-compliance are not as severe, leading to a somewhat relaxed approach to cannabis use within these regulated parameters.\n\nNavigating this legal landscape calls for a balanced understanding of personal circumstances and local regulations to ensure both safety and adherence with the law while still exploring new experiences with the right preparation and understanding of potential risks.",
-      "score": 1,
-      "used": 5,
-      "ts": 1776279515841,
-      "last_used": 1776282223701
-    },
-    {
-      "id": "3172837cb45c8588",
-      "query": "Is it legal?",
-      "intent": "legal",
-      "location": "DE",
-      "answer": "User question: Is it legal?\n\nAnswer:\nIn Germany, recreational cannabis use is legal but distribution and possession are strictly prohibited due to a high risk of criminal activity. Enforcement is actively monitoring the situation.\n\nUseful previous answer: In Germany, recreational cannabis use is legal but distribution and possession are prohibited due to a high risk of criminal activity. Enforcement is actively mugging the streets on your way in.\nThe overall status in Germany regarding cannabis remains legally permitted for both medical and recreational purposes. It's important to note that while the use itself is legal, distribution and possession are subject to strict regulations that may lead to a higher risk if not followed properly.\nIt’s advisable to be aware of the specific laws pertaining to your location. Always seek local advice or contact authorities directly to confirm detailed requirements before taking any action.",
-      "score": 1,
-      "used": 6,
-      "ts": 1776279234574,
-      "last_used": 1776282223701
-    },
-    {
-      "id": "87cb2647e87b9b55",
-      "query": "Germany cannabis?",
-      "intent": "general",
-      "location": "DE",
-      "answer": "In Germany, the use of cannabis remains legally permitted for both recreational and medical purposes. While distribution is strictly prohibited due to high enforcement efforts, the overall risk associated with using cannabis appears relatively low given the country's focus on medical research and treatment programs.\n\nGiven these factors, navigating the legal landscape in Germany can be complex but is not considered extremely risky compared to other countries where possession could lead to significant penalties for minors. The active law enforcement measures ensure that even low-risk behaviors remain monitored closely.",
-      "score": 1,
-      "used": 15,
-      "ts": 1776263489096,
-      "last_used": 1776282206645
-    },
-    {
-      "id": "e7378be0cc7d7148",
-      "query": "Germany cannabis?",
-      "intent": "general",
-      "location": "DE",
-      "answer": "In Germany (Deutschland), cannabis use remains legally permitted for both recreational and medical purposes, but distribution of the drug is strictly prohibited. Given Germany's focus on medical research and treatment programs, this legal approach appears relatively low risk. However, enforcement efforts are active across the country, creating a nuanced environment for navigating this complex legal landscape.\n\nTravel Note: While not explicitly stated in your fact lines, it’s worth noting that travelers or tourists entering Germany might encounter restrictions depending on their specific location within the country, including points of interest and tourist attractions where cannabis use may be more restricted due to local regulations.",
-      "score": 1,
-      "used": 29,
-      "ts": 1776259920106,
-      "last_used": 1776282206645
-    },
-    {
-      "id": "3d0fa8aee3163294",
-      "query": "Germany cannabis?",
-      "intent": "general",
-      "location": "DE",
-      "answer": "In Germany (Deutschland), cannabis use remains legally permitted for both recreational and medical purposes, but distribution of the drug is prohibited. The overall risk associated with using cannabis in Germany appears relatively low given the country's approach to medical research and treatment programs. There are instances where higher risks might manifest locally or within specific contexts. While laws enforcement is active, not everywhere, creating a nuanced environment for navigating this complex legal landscape.",
-      "score": 1,
-      "used": 36,
-      "ts": 1776258933854,
-      "last_used": 1776282206645
     },
     {
       "id": "3e7fcdeca2d52ffa",
@@ -2032,171 +2197,6 @@
       "used": 12,
       "ts": 1776254886533,
       "last_used": 1776257527624
-    },
-    {
-      "id": "8a724172f13f6a29",
-      "query": "and what about borders?",
-      "intent": "nearby",
-      "location": "DE",
-      "answer": "Reality on the ground can feel different: Germany / Deutschland remains legal in law. That is not permission, only the current social signal.\n\nPrison exposure is present in the data, so this does not read like a paper-only ban. Cannabis is legal in Germany / Deutschland. Medical cannabis is legal. Distribution is illegal. Prison exposure detected.\n\nCalm version: cannabis is legal in Germany / Deutschland in the current SSOT.\n\nIf you want, I can compare this with another country or state.",
-      "score": 1,
-      "used": 2,
-      "ts": 1776256931612,
-      "last_used": 1776257527620
-    },
-    {
-      "id": "fd98cde84b2834f4",
-      "query": "and what about borders?",
-      "intent": "nearby",
-      "location": "DE",
-      "answer": "If we start from Germany / Deutschland, the closest honest options right now look like this:\n• Germany / Deutschland — about 253 km away, mostly allowed. Cannabis is legal by law. Medical access exists. Buying or cross-border supply still carries real risk.\n• Czechia / Česko — about 341 km away, mostly allowed. Cannabis is decriminalized by law. Medical access exists. Buying or cross-border supply still carries real risk. Small-amount cases are often handled with fines. Enforcement looks softer than the formal law.\n• Netherlands / Nederland — about 553 km away, mostly allowed. Cannabis is not fully legal, but it is tolerated in practice. Medical access exists. Reality on the ground is looser than a strict ban.\nCrossing borders with cannabis is illegal in most countries.",
-      "score": 1,
-      "used": 8,
-      "ts": 1776256441589,
-      "last_used": 1776257527620
-    },
-    {
-      "id": "80b5313f6fb19f49",
-      "query": "how do I get to nearest place where weed is tolerated",
-      "intent": "nearby",
-      "location": "DE",
-      "answer": "Reality on the ground can feel different: Germany / Deutschland remains legal in law. That is not permission, only the current social signal.\n\nPrison exposure is present in the data, so this does not read like a paper-only ban. Cannabis is legal in Germany / Deutschland. Medical cannabis is legal. Distribution is illegal. Prison exposure detected.\n\nCalm version: cannabis is legal in Germany / Deutschland in the current SSOT.\n\nIf you want, I can compare this with another country or state.",
-      "score": 1,
-      "used": 23,
-      "ts": 1776254886484,
-      "last_used": 1776257527574
-    },
-    {
-      "id": "36d9e40c87ae4eee",
-      "query": "how do I get to nearest place where weed is tolerated",
-      "intent": "nearby",
-      "location": "DE",
-      "answer": "На земле это может ощущаться иначе: Germany / Deutschland remains legal in law. Это не разрешение, а просто social reality из текущих данных.\n\nЭто важно понимать: в данных есть prison exposure, так что это не выглядит как формальный запрет без последствий. Cannabis is legal in Germany / Deutschland. Medical cannabis is legal. Distribution is illegal. Prison exposure detected.\n\nСмотри спокойно: в Germany / Deutschland каннабис легален по текущим данным.\n\nЕсли хочешь, могу спокойно сравнить это с другой страной или штатом.",
-      "score": 1,
-      "used": 23,
-      "ts": 1776254665194,
-      "last_used": 1776257527574
-    },
-    {
-      "id": "8b3f741ad6f5b58a",
-      "query": "where can I smoke near me",
-      "intent": "nearby",
-      "location": "DE",
-      "answer": "Если смотреть от Germany / Deutschland, ближе всего сейчас выглядят такие варианты:\n• Germany / Deutschland — около 0 км, в основном разрешено. Cannabis is legal by law. Medical access exists. Buying or cross-border supply still carries real risk.\n• Netherlands / Nederland — около 372 км, в основном разрешено. Cannabis is not fully legal, but it is tolerated in practice. Medical access exists. Reality on the ground is looser than a strict ban.\n• Czechia / Česko — около 390 км, в основном разрешено. Cannabis is decriminalized by law. Medical access exists. Buying or cross-border supply still carries real risk. Small-amount cases are often handled with fines. Enforcement looks softer than the formal law.\nCrossing borders with cannabis is illegal in most countries.",
-      "score": 1,
-      "used": 20,
-      "ts": 1776254665143,
-      "last_used": 1776257527417
-    },
-    {
-      "id": "6e681a1ad61e5345",
-      "query": "where can I smoke near me",
-      "intent": "nearby",
-      "location": "DE",
-      "answer": "If we start from Germany / Deutschland, the closest honest options right now look like this:\n• Germany / Deutschland — about 253 km away, mostly allowed. Cannabis is legal by law. Medical access exists. Buying or cross-border supply still carries real risk.\n• Czechia / Česko — about 341 km away, mostly allowed. Cannabis is decriminalized by law. Medical access exists. Buying or cross-border supply still carries real risk. Small-amount cases are often handled with fines. Enforcement looks softer than the formal law.\n• Netherlands / Nederland — about 553 km away, mostly allowed. Cannabis is not fully legal, but it is tolerated in practice. Medical access exists. Reality on the ground is looser than a strict ban.\nCrossing borders with cannabis is illegal in most countries.",
-      "score": 1,
-      "used": 10,
-      "ts": 1776256441507,
-      "last_used": 1776257527417
-    },
-    {
-      "id": "0b0001aee224431f",
-      "query": "where can I smoke near me",
-      "intent": "nearby",
-      "location": "DE",
-      "answer": "Reality on the ground can feel different: Germany / Deutschland remains legal in law. That is not permission, only the current social signal.\n\nPrison exposure is present in the data, so this does not read like a paper-only ban. Cannabis is legal in Germany / Deutschland. Medical cannabis is legal. Distribution is illegal. Prison exposure detected.\n\nCalm version: cannabis is legal in Germany / Deutschland in the current SSOT.\n\nIf you want, I can compare this with another country or state.",
-      "score": 1,
-      "used": 0,
-      "ts": 1776256931588,
-      "last_used": 1776256931588
-    },
-    {
-      "id": "27c6701ba3e87c7f",
-      "query": "Hi",
-      "intent": "general",
-      "location": "BR",
-      "answer": "Certainly! While the current status of recreational use being decriminalized in Brazil / Brasil contrasts with its overall distribution and enforcement being mixed, there's a similar blend of laws across neighboring countries like Germany / Deutschland.\n\nGermany / Deutschland has a more straightforward approach to legalization compared to Brazil / Brasil. Medical cannabis is legal in Germany / Deutschland, which aligns with the status quo regarding medical use as it’s still regulated but generally well-organized for those who need it. This makes traveling with medical cannabis smoother and easier than navigating through the mixed distribution and high-risk territories of Brazil / Brasil.\n\nHowever, when considering enforcement in both countries, both places have strict measures against illegal activities. The risk signal in Brazil / Brasil might seem higher given active enforcement methods that include checkpoints and increased surveillance around border crossings, making it challenging to travel smoothly with cannabis. In Germany / Deutschland, the high-risk note suggests a more active effort from law-enforcement agencies which could mean stricter scrutiny of travelers who are suspected of possessing illegal substances.\n\nIn summary, while medical use remains legal in both places and overall distribution is mixed, enforcement practices have been somewhat laxer across Germany / Deutschland, making it a safer environment for travel with cannabis.",
-      "score": 0.8,
-      "used": 0,
-      "ts": 1776289073169,
-      "last_used": 1776289073169
-    },
-    {
-      "id": "2a466a803bf4a50b",
-      "query": "Cannabis in Cambodia",
-      "intent": "general",
-      "location": "KH",
-      "answer": "Understanding the legal landscape when traveling with marijuana in Cambodia / Kâmpŭchéa involves a complex interplay of strict regulations and enforcement measures. Despite the country's overall legal framework that restricts most forms of recreational use, it does not permit possession or consumption for personal use.\n\nIn Cambodia, even medical cannabis is largely unavailable due to stringent restrictions on distribution channels, making it nearly impossible to obtain legally through conventional means. This limits any potential route for obtaining medicinal products through regulated pathways. The risk of attempting to cross into the country with small amounts of marijuana remains high given these legal limitations and the country's stance against drug trafficking.\n\nIn terms of travel considerations, Cambodia's airports are high-security zones where crossing borders is closely monitored. Security personnel typically perform thorough checks upon arrival for any prohibited items, including drugs or illegal substances like marijuana. This adds another layer of risk to the journey, especially when attempting to carry small amounts across these checkpoints.\n\nThe overall status in Cambodia regarding cannabis and its possession remains restricted, with high enforcement signals present at all borders leading up to the country. The legal framework is not just restrictive but highly active in preventing unauthorized entry or exit of such items. Therefore, even small quantities carried during travel would likely be scrutinized and potentially confiscated based on these regulatory mechanisms.\n\nIn summary, while there might be a marginally lenient approach for medical use within certain boundaries, possessing marijuana for personal recreational use is strictly illegal. The overall legal status restricts most forms of possession or consumption, including medical applications, in Cambodia. The high enforcement signals across the country add significant risk to any attempts at cross-border travel involving prohibited substances like marijuana.",
-      "score": 0.8,
-      "used": 15,
-      "ts": 1776285733815,
-      "last_used": 1776288902071
-    },
-    {
-      "id": "ab7b2c01bdc85bdf",
-      "query": "Compare with Germany",
-      "intent": "general",
-      "location": "BR",
-      "answer": "Certainly! While the current status of recreational use being decriminalized in Brazil / Brasil contrasts with its overall distribution and enforcement being mixed, there's a similar blend of laws across neighboring countries like Germany / Deutschland.\n\nGermany / Deutschland has a more straightforward approach to legalization compared to Brazil / Brasil. Medical cannabis is legal in Germany / Deutschland, which aligns with the status quo regarding medical use as it’s still regulated but generally well-organized for those who need it. This makes traveling with medical cannabis smoother and easier than navigating through the mixed distribution and high-risk territories of Brazil / Brasil.\n\nHowever, when considering enforcement in both countries, both places have strict measures against illegal activities. The risk signal in Brazil / Brasil might seem higher given active enforcement methods that include checkpoints and increased surveillance around border crossings, making it challenging to to travel smoothly with cannabis. In Germany / Deutschland, the high-risk note suggests a more active effort from law-enforcement agencies which could mean stricter scrutiny of travelers who are suspected of possessing illegal substances.\n\nIn summary, while medical use remains legal in both places and overall distribution is mixed, enforcement practices have been somewhat laxer across Germany / Deutschland, making it a safer environment for travel with cannabis.",
-      "score": 0.8,
-      "used": 0,
-      "ts": 1776288548936,
-      "last_used": 1776288548936
-    },
-    {
-      "id": "974c183e7f16b021",
-      "query": "Travel with it?",
-      "intent": "airport",
-      "location": "BR",
-      "answer": "For travelers, particularly those heading for airports, it's important to be prepared due to the high risk associated with carrying marijuana into Brazil / Brasil. The fact lines indicate that while medical use is legal in Brazil / Brasil, possession and recreational use remain illegal without a valid prescription or authorization.\n\nThe current note emphasizes a mixed distribution status of cannabis within Brazil / Brasil, which means areas can be more lenient in terms of both medical and recreational access. However, the high-risk signal suggests even these places are likely to have strict enforcement practices, making compliance checks commonplace. Given this context, travelers should consider the following:\n\n1. **Medical Possession**: If you need it for medical purposes, make sure your prescriptions or documentation is up-to-date and properly verified at customs.\n2. **Recreational Use**: Despite its decriminalization status, recreational use in Brazil / Brasil remains illegal. Therefore, any attempt to carry marijuana for non-essential personal use should be avoided unless you are 100% confident of not facing the full consequences of criminal charges.\n\nWhen traveling through airports and other high-risk zones, it's crucial to that all your documents and items meet customs regulations. This includes having a clear understanding of what authorities expect from you when attempting to enter Brazil / Brasil with cannabis, ensuring you adhere to the necessary documentation requirements for medical use and avoiding any illegal activities that could lead to detention or potential legal consequences.\n\nThe fact lines summarize the overall status as mixed with a high-risk signal across all areas. While some places may be lenient regarding medical usage, enforcement practices are active, making compliance with border control stringent. The presence of high-control zones like airports further underscores the need for careful planning and documentation to navigate this challenging territory without triggering legal troubles.",
-      "score": 0.8,
-      "used": 0,
-      "ts": 1776288527843,
-      "last_used": 1776288527843
-    },
-    {
-      "id": "e6e7a04f725b19b7",
-      "query": "Risk?",
-      "intent": "legal",
-      "location": "BR",
-      "answer": "In the realm of real life, navigating Brazil / Brasil's complex marijuana laws can be quite challenging due to a blend of legal and enforcement practices that often don't align neatly with each other. The overall status in Brazil / Brasil leans towards being generally considered a controlled substance under national drug policies.\n\nRecreationally speaking, possessing or using marijuana without medical authorization is typically deemed illegal in Brazil / Brasil. This means anyone caught doing so faces potential penalties, including fines and even imprisonment if the law enforcement finds sufficient evidence of their activities. Despite this, there are some pockets where medical conditions permit legal access to cannabis for medicinal purposes.\n\nThe distribution landscape is mixed as well. Some regions have strict controls over both recreational use and possession, while others might be more lenient with medicinal preparations. This variability makes it difficult to generalize the risk level across Brazil / Brasil consistently.\n\nWhen considering risks associated with travel or visiting specific areas in Brazil / Brasil, especially those known for active law enforcement efforts, visitors should be prepared to face significant compliance checks. These could include random drug tests that might result in penalties and potential legal troubles. There is a possibility of prison exposure being detected in certain regions where stricter laws are enforced.\n\nThe current note highlights the high-risk status associated with marijuana use in Brazil / Brasil, emphasizing that even if one has permission for their medical condition to use cannabis, they face significant risks due to inconsistent enforcement policies across different areas within the country.",
-      "score": 0.8,
-      "used": 0,
-      "ts": 1776288502909,
-      "last_used": 1776288502909
-    },
-    {
-      "id": "998ae31391b94167",
-      "query": "What about real life?",
-      "intent": "general",
-      "location": "BR",
-      "answer": "It's generally considered illegal to possess, use, or distribute marijuana for recreational purposes in Brazil / Brasil, with the exception of medical use being legally sanctioned. However, due to varying interpretations and enforcement practices across different regions within the country, it can be challenging to navigate these laws effectively.\n\nMedical cannabis is officially permitted under the Therapeutic Use List (LUT), a government-maintained list that includes conditions where marijuana has been deemed beneficial by health professionals. This allows for limited legal access in specific medical settings. The LUT categorizes various ailments with potential cannabis-based treatments, including but not limited to chronic pain and glaucoma.\n\nDespite these legal frameworks, practical implementation often encounters significant obstacles due to the overall high-risk status of marijuana use in Brazil / Brasil. Despite decriminalization laws, widespread enforcement efforts continue, leading to an active criminal justice system response that significantly increases risks for those caught using or dealing cannabis products.\n\nThe key point is that while there are some clear legal guidelines around medical access and distribution, recreational possession and use remains illegal. This high-risk environment means that even if you have permission for your condition to use cannabis, getting caught could result in severe penalties including potential prison sentences. Therefore, it's crucial to understand both the legal permissions and the significant risks involved before attempting any form of marijuana-related activity.\n\nThe Brazilian government has a mixed stance regarding distribution: while some regions are more lenient with medicinal preparations and access, others maintain stricter control over recreational use and possession. This suggests that there is no definitive answer about legalization or decriminalization across all areas of Brazil / Brasil, further complicating the legal landscape for individuals planning to use marijuana recreationally.\n\nTravel note: If you're considering visiting or traveling in regions with active enforcement efforts, it's advisable to be prepared for significant compliance checks and potential penalties. This includes understanding that even though medical access is permitted, recreational use remains illegal under Brazil /",
-      "score": 0.8,
-      "used": 0,
-      "ts": 1776288481108,
-      "last_used": 1776288481108
-    },
-    {
-      "id": "0bef64f96578524b",
-      "query": "Compare with Germany",
-      "intent": "general",
-      "location": "KH",
-      "answer": "The situation regarding travel with marijuana or any other illicit substances through the airport in Cambodia / Kâmpŭchéa can be quite different from what you might find in countries like Germany / Deutschland. While it's illegal to possess, use, and transport this substance across borders within the EU, including Germany, certain exemptions apply for medicinal cannabis use.\n\nIn Germany, medical cannabis is regulated under strict guidelines by the Ministry of Health. To obtain a prescription, patients must meet specific criteria, such as severe chronic pain or other conditions that do not respond to conventional treatments. Patients are issued valid prescriptions which can be used in authorized pharmacies and facilities within the country.\n\nGermany also maintains some level of tolerance for personal possession under certain circumstances, particularly when traveling for tourism purposes. For instance, individuals may carry small amounts (usually less than 2 grams) as long as they travel with a prescription from a German doctor or pharmacist.\n\nWhile it’s generally advised to avoid bringing cannabis into Cambodia / Kâmpŭchéa due to the high risk of arrest and potential penalties, understanding that Germany / Deutschland offers some limited legal grounds for its possession provides an interesting comparison. This highlights how different countries handle medical cannabis in various ways but also underscores the importance of respecting laws when traveling or visiting places where recreational marijuana is illegal.",
-      "score": 0.8,
-      "used": 3,
-      "ts": 1776286352600,
-      "last_used": 1776288416446
-    },
-    {
-      "id": "688b9cbdf44d3568",
-      "query": "Travel with it?",
-      "intent": "airport",
-      "location": "FI",
-      "answer": "When traveling through Finland / Suomi, it’s important to consider the risk associated with bringing or using recreational cannabis on international flights. Given that the overall status of cannabis in the country is legal but not recreational, individuals planning to travel internationally should understand that they could face significant risks if caught with any amount of cannabis.\n\nThe risk is particularly heightened at airports and border crossings due to the active enforcement measures aimed at preventing illegal substances from entering or leaving the country. Even small amounts may be deemed suspicious or potentially prohibited, leading to delays in security screening processes.\n\nAs for international travel, it’s crucial to consider that the legal status regarding distribution might not extend to foreign territories, which could imply a stricter scrutiny of travelers’ belongings. The risk can escalate further due to border controls and customs inspections that are commonly vigilant with regard to controlled substances like cannabis.\n\nOverall, traveling with or bringing recreational cannabis into Finland / Suomi involves significant risks, including the likelihood of detection at airports, border checkpoints, and possibly even in transit locations. It’s advisable for anyone considering such a trip to familiarize themselves thoroughly with the local laws and customs regulations before embarking on this journey.",
-      "score": 0.8,
-      "used": 0,
-      "ts": 1776288307253,
-      "last_used": 1776288307253
     }
   ]
 }

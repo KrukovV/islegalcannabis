@@ -44,7 +44,7 @@ const OPENAI_MODEL = process.env.AI_MODEL || process.env.OPENAI_MODEL || "gpt-4o
 const OPENAI_BASE_URL = process.env.OPENAI_BASE_URL || "https://api.openai.com/v1";
 const OLLAMA_GENERATE_TIMEOUT_MS = Number(process.env.AI_TIMEOUT || 25000);
 const EXTERNAL_GENERATE_TIMEOUT_MS = 8000;
-const OLLAMA_FIRST_TOKEN_TIMEOUT_MS = Number(process.env.AI_FIRST_TOKEN_TIMEOUT || 8000);
+const OLLAMA_FIRST_TOKEN_TIMEOUT_MS = Number(process.env.AI_FIRST_TOKEN_TIMEOUT || 10000);
 const OLLAMA_STREAM_IDLE_MS = Number(process.env.AI_STREAM_IDLE || 5000);
 const OLLAMA_STREAM_MIN_PARTIAL_CHARS = 40;
 const OLLAMA_STREAM_RETRY_MIN_CHARS = 30;
@@ -54,18 +54,6 @@ const MODEL_HEALTH_TIMEOUT_MS = 5000;
 const MODEL_HEALTH_MIN_CHARS = 10;
 const MODEL_HEALTH_CACHE_MS = 10 * 60 * 1000;
 let ollamaInferenceLock: Promise<void> = Promise.resolve();
-
-function isFallbackModel(model: string) {
-  const normalized = String(model || "").toLowerCase();
-  return normalized.includes("llama") || normalized.includes("mistral");
-}
-
-function getOllamaTimeouts(model: string) {
-  return {
-    firstTokenTimeoutMs: isFallbackModel(model) ? 15000 : OLLAMA_FIRST_TOKEN_TIMEOUT_MS,
-    fullTimeoutMs: isFallbackModel(model) ? 40000 : OLLAMA_GENERATE_TIMEOUT_MS
-  };
-}
 
 async function withOllamaInferenceLock<T>(task: () => Promise<T>) {
   const previous = ollamaInferenceLock;
@@ -599,12 +587,11 @@ export async function generateWithProvider(
         if (attempt > 0) {
           await warmProviderModel([model]).catch(() => null);
         }
-        const timeouts = getOllamaTimeouts(model);
         const result = await withOllamaInferenceLock(() =>
           runOllamaChat(model, messages, {
             onDelta: options.onDelta,
-            firstTokenTimeoutMs: timeouts.firstTokenTimeoutMs,
-            fullTimeoutMs: timeouts.fullTimeoutMs,
+            firstTokenTimeoutMs: OLLAMA_FIRST_TOKEN_TIMEOUT_MS,
+            fullTimeoutMs: OLLAMA_GENERATE_TIMEOUT_MS,
             didRetry: attempt > 0
           })
         );
@@ -621,12 +608,11 @@ export async function generateWithProvider(
         if (attempt === 0 && isRetryableOllamaError(error)) {
           continue;
         }
-        const timeouts = getOllamaTimeouts(model);
         recordModelResult({
           model,
           success: false,
-          firstTokenMs: timeouts.firstTokenTimeoutMs,
-          responseMs: timeouts.fullTimeoutMs,
+          firstTokenMs: OLLAMA_FIRST_TOKEN_TIMEOUT_MS,
+          responseMs: OLLAMA_GENERATE_TIMEOUT_MS,
           length: 0
         });
         break;

@@ -1,5 +1,6 @@
 import type { AIContext } from "./types";
 import { fewShotDialogs } from "./fewShotDialogs";
+import { isContinuationQuery } from "./dialog";
 
 export type LlmMessage = {
   role: "system" | "user" | "assistant";
@@ -124,40 +125,48 @@ function selectFewShotDialogs(query: string, context: AIContext) {
   return [...exactIntent, ...general].slice(0, 3);
 }
 
-function summarizeConversation(context: AIContext) {
+function summarizeConversation(context: AIContext, continueTopic: boolean) {
   const location = context.location.name || context.location.geoHint || "unknown";
   const compare = context.compare?.name ? ` Comparison country: ${context.compare.name}.` : "";
   const focus = context.history.lastUser
     ? `Recent user focus: ${compactText(context.history.lastUser, 80)}.`
     : "Recent user focus: start or continue the same discussion.";
-  return `User discusses cannabis laws in ${location}. Continue same topic. Do not switch country.${compare}\n${focus}`;
+  const topicRule = continueTopic
+    ? "Continue the same subtopic."
+    : "The user may switch subtopics between turns. Answer the current question directly and keep only the same country locked.";
+  return `User discusses cannabis laws in ${location}. ${topicRule} Do not switch country.${compare}\n${focus}`;
 }
 
 export function buildMessages(input: {
   query: string;
   context: AIContext;
 }): LlmMessage[] {
+  const continueTopic = isContinuationQuery(input.query);
   const messages: LlmMessage[] = [
     { role: "system", content: AI_SYSTEM_PROMPT },
     {
       role: "system",
       content: [
-        summarizeConversation(input.context),
+        summarizeConversation(input.context, continueTopic),
         "Rules:",
         `- Stay strictly within ${input.context.location.name || input.context.location.geoHint || "the selected country"}.`,
         input.context.compare?.name ? `- Compare only ${input.context.location.name || input.context.location.geoHint} and ${input.context.compare.name}.` : "- Do not introduce any other country unless the user asks.",
-        "- Continue the previous conversation, do not restart.",
-        "- Add one new angle or insight."
+        continueTopic
+          ? "- Continue the previous conversation, do not restart."
+          : "- The user may ask a new subtopic. Answer the current question first.",
+        continueTopic
+          ? "- Add one new angle or insight."
+          : "- Keep country continuity, but do not drag the previous subtopic into the new answer."
       ].join("\n")
     }
   ];
   const casualGreeting = /^(how are you|how's it going|hows it going|what's up|whats up|как дела|как ты|ты как|ты здесь)\??$/i.test(
     input.query.trim()
   );
-  const lastAssistant = input.context.history.lastAssistant
+  const lastAssistant = continueTopic && input.context.history.lastAssistant
     ? [{ role: "assistant" as const, content: input.context.history.lastAssistant }]
     : [];
-  const lastUser = input.context.history.lastUser
+  const lastUser = continueTopic && input.context.history.lastUser
     ? [{ role: "user" as const, content: input.context.history.lastUser }]
     : [];
   messages.push(...lastAssistant, ...lastUser);
@@ -174,7 +183,7 @@ export function buildMessages(input: {
           ? "Answer rules: answer from the nearby options only, rank them by closeness and honesty, include distance, mention limited or tolerated places when present, and always include the border warning."
           : "Answer rules: use the fact lines exactly, never upgrade or downgrade a status, compare overall status first and only then mention limits like distribution or enforcement, do not invent possession rules unless a fact line states them, mention the compare place only if it is present in the question or follow-up, use the travel note only for travel or tourist questions, keep the answer compact, rewrite the facts into natural prose instead of repeating the labels, and avoid phrases like 'In general' or 'It depends'.",
       "Conversation summary:",
-      summarizeConversation(input.context),
+      summarizeConversation(input.context, continueTopic),
       "Fact lines:",
       compactContext(input.context),
       input.context.memory.length
@@ -189,6 +198,7 @@ export function buildPrompt(input: {
   query: string;
   context: AIContext;
 }) {
+  const continueTopic = isContinuationQuery(input.query);
   const casualGreeting = /^(how are you|how's it going|hows it going|what's up|whats up|как дела|как ты|ты как|ты здесь)\??$/i.test(
     input.query.trim()
   );
@@ -204,7 +214,7 @@ export function buildPrompt(input: {
       ].join("\n"))
       .join("\n\n"),
     "",
-    input.context.history.lastUser && input.context.history.lastAssistant
+    continueTopic && input.context.history.lastUser && input.context.history.lastAssistant
       ? ["Previous conversation:", `User: ${input.context.history.lastUser}`, `Assistant: ${input.context.history.lastAssistant}`, ""].join("\n")
       : "",
     input.context.memory.length
@@ -212,6 +222,7 @@ export function buildPrompt(input: {
       : "",
     `User question: ${input.query}`,
     `Intent: ${input.context.intent}`,
+    summarizeConversation(input.context, continueTopic),
     casualGreeting
       ? 'Answer rules: this is a casual greeting, reply warmly in one short sentence, start with "All calm here.", and do not switch topics on your own.'
       : input.context.intent === "culture"

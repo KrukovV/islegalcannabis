@@ -31,11 +31,11 @@ describe("modelMetrics", () => {
     saveModelMetricsStore({
       generated_at: "2026-04-15T00:00:00.000Z",
       base_url: "http://127.0.0.1:3000",
-      best_model: "phi3:mini",
-      fallback_chain: ["phi3:mini", "qwen2.5:1.5b", "gemma:2b"],
+      best_model: "deepseek-coder:1.3b",
+      fallback_chain: ["deepseek-coder:1.3b", "qwen2.5:1.5b", "qwen2.5:3b"],
       models: [
         {
-          model: "phi3:mini",
+          model: "deepseek-coder:1.3b",
           score: 0.82,
           speed: 0.8,
           stability: 0.8,
@@ -81,11 +81,10 @@ describe("modelMetrics", () => {
       ]
     });
 
-    expect(rankModelsByMetrics(["qwen2.5:1.5b", "phi3:mini", "smollm2:1.7b", "gemma:2b"])).toEqual([
-      "phi3:mini",
+    expect(rankModelsByMetrics(["qwen2.5:1.5b", "deepseek-coder:1.3b", "qwen2.5:3b"])).toEqual([
+      "deepseek-coder:1.3b",
       "qwen2.5:1.5b",
-      "smollm2:1.7b",
-      "gemma:2b"
+      "qwen2.5:3b"
     ]);
   });
 });

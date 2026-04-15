@@ -75,12 +75,24 @@ describe("aiRuntime", () => {
     expect(messages.length).toBeLessThanOrEqual(5);
     expect(messages[0]?.role).toBe("system");
     expect(messages[1]?.role).toBe("system");
-    expect(messages[1]?.content).toContain("Current country:");
+    expect(messages[1]?.content).toContain("User discusses cannabis laws in India");
     expect(messages[2]?.role).toBe("assistant");
     expect(messages[2]?.content).toContain("Тестовый прошлый ответ.");
     expect(messages[3]?.role).toBe("user");
     expect(messages[3]?.content).toContain("Что по закону в Индии?");
     expect(messages.at(-1)?.role).toBe("user");
+  });
+
+  it("does not drag the previous subtopic into a new non-follow-up question", () => {
+    const firstContext = buildContext("Что такое 420?", "FI", undefined, [], "ru");
+    rememberDialog(firstContext, "420 - это культурный шифр вокруг каннабиса.");
+    const nextContext = buildContext("Какие фильмы посоветуешь?", "FI", undefined, [], "ru");
+    const messages = buildMessages({ query: "Какие фильмы посоветуешь?", context: nextContext });
+
+    expect(messages.length).toBeLessThanOrEqual(3);
+    expect(messages.some((item) => item.role === "assistant")).toBe(false);
+    expect(messages[1]?.content).toContain("The user may switch subtopics between turns.");
+    expect(messages.at(-1)?.content).toContain("User question: Какие фильмы посоветуешь?");
   });
 
   it("expands too-short answers instead of returning empty or tiny output", () => {

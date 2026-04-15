@@ -4,9 +4,8 @@
   "best_model": "qwen2.5:1.5b",
   "fallback_chain": [
     "qwen2.5:1.5b",
-    "phi3:mini",
-    "smollm2:1.7b",
-    "gemma:2b"
+    "deepseek-coder:1.3b",
+    "qwen2.5:3b"
   ],
   "models": [
     {
