@@ -39,6 +39,7 @@
     "wiki:ingest": "node tools/wiki/wiki_ingest.mjs",
     "wiki:refresh": "node tools/wiki/wiki_refresh.mjs --all",
     "wiki:official_eval": "node tools/wiki/wiki_official_eval.mjs",
+    "ai:evaluate-models": "node --experimental-strip-types tools/ai/evaluateModels.ts",
     "allowlist:merge": "node tools/sources/merge_official_allowlist.mjs",
     "ci": "bash tools/ci-local.sh",
     "publish:preview": "node tools/github/preview_publish_state.mjs",

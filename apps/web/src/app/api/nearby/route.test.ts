@@ -14,26 +14,32 @@ describe("GET /api/nearby", () => {
     }
   });
 
-  it("returns nearby alternatives for illegal status", async () => {
+  it("returns truth-ranked nearby alternatives for France", async () => {
     const req = new Request("http://localhost/api/nearby?country=FR");
     const res = await GET(req);
     const json = await res.json();
     expect(json.ok).toBe(true);
-    expect(json.current.id).toBe("FR");
+    expect(json.current.geo).toBe("FR");
     expect(Array.isArray(json.nearby)).toBe(true);
     expect(json.nearby.length).toBeGreaterThan(0);
-    for (const item of json.nearby) {
-      expect(item.status).not.toBe(json.current.status);
-    }
+    expect(typeof json.warning).toBe("string");
+    expect(
+      json.nearby[0].access.truthScore >= 0.3 || ["limited", "tolerated"].includes(json.nearby[0].access.type)
+    ).toBe(true);
+    expect(json.warning).toBe("Crossing borders with cannabis is illegal in most countries.");
+    expect(typeof json.nearby[0].distance.raw_km).toBe("number");
+    expect(typeof json.nearby[0].distance.effective_km).toBe("number");
+    expect(["geo", "border", "access"]).toContain(json.nearby[0].distance.type);
   });
 
-  it("returns ok response for legal status", async () => {
+  it("returns US state candidates for California", async () => {
     const req = new Request("http://localhost/api/nearby?country=US&region=CA");
     const res = await GET(req);
     const json = await res.json();
     expect(json.ok).toBe(true);
-    expect(json.current.id).toBe("US-CA");
+    expect(json.current.geo).toBe("US-CA");
     expect(Array.isArray(json.nearby)).toBe(true);
     expect(json.nearby.length).toBeLessThanOrEqual(5);
+    expect(json.nearby.every((item: { geo: string }) => item.geo.startsWith("US-"))).toBe(true);
   });
 });

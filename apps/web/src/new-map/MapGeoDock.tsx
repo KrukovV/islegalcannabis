@@ -17,6 +17,7 @@ type Props = {
   mapReady: boolean;
   cardIndex: Record<string, CountryCardEntry>;
   selectedGeo: ActiveGeo;
+  routeGeo: ActiveGeo;
   clearSelectedGeo: () => void;
   applyGeoToMap: (_geo: ActiveGeo, _options?: { recenter?: boolean }) => void;
   centerMapToGeo: (_geo: ActiveGeo) => void;
@@ -26,6 +27,7 @@ export default function MapGeoDock({
   mapReady,
   cardIndex,
   selectedGeo,
+  routeGeo,
   clearSelectedGeo,
   applyGeoToMap,
   centerMapToGeo
@@ -47,7 +49,7 @@ export default function MapGeoDock({
       lng: currentGeo.lng ?? currentGeoEntry?.coordinates?.lng
     };
   }, [currentGeo, currentGeoEntry]);
-  const activeGeo: ActiveGeo = selectedGeo || currentGeoView;
+  const activeGeo: ActiveGeo = selectedGeo || routeGeo || currentGeoView;
 
   const handleGpsClick = useCallback(() => {
     if (geoStatus.status === "resolved" && currentGeoView) {
@@ -111,7 +113,16 @@ export default function MapGeoDock({
 
   return (
     <AIBar
-      activeGeo={activeGeo?.iso2 ? { country: activeGeo.country, iso2: activeGeo.iso2 } : null}
+      activeGeo={
+        activeGeo?.iso2
+          ? {
+              country: activeGeo.country,
+              iso2: activeGeo.iso2,
+              lat: activeGeo.lat,
+              lng: activeGeo.lng
+            }
+          : null
+      }
       geoStatus={geoStatus}
       ipStatus={ipStatus}
       onGpsClick={handleGpsClick}

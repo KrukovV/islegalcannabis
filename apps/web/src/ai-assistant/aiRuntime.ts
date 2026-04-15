@@ -1,49 +1,30 @@
 import os from "node:os";
 import socialRealityData from "../../../../data/generated/socialReality.global.json";
 import { getCountryPageIndexByGeoCode, getCountryPageIndexByIso2 } from "@/lib/countryPageStorage";
+import { findNearbyTruth } from "@/lib/geo/nearbyTruth";
 import { deriveResultStatusFromCountryPageData } from "@/lib/resultStatus";
 import { buildMessages, type LlmMessage } from "./prompt";
 import type { AIContext, AIResponse, RagChunk } from "./types";
-import { detectIntent, enrichWithDialogContext, getDialogState, isContinuationQuery, rememberDialog } from "./dialog";
+import { detectIntent, getDialogState, isContinuationQuery, rememberDialog } from "./dialog";
 import { getTravelRiskBlock } from "./rag";
+import { retrieveMemory, saveMemory, scoreMemory } from "./memory";
+import { applyDialogStyle, fallbackHumanized } from "./dialogStyle";
+import {
+  AIConnectionError,
+  generateWithProvider,
+  resolveAIProvider,
+  verifyProviderConnection,
+  warmProviderModel
+} from "./provider";
 
-const OLLAMA_HOST = process.env.OLLAMA_HOST || "http://127.0.0.1:11434";
-const OLLAMA_URL = `${OLLAMA_HOST}/api/chat`;
-const OLLAMA_TAGS_URL = `${OLLAMA_HOST}/api/tags`;
-const OLLAMA_STOP_URL = `${OLLAMA_HOST}/api/stop`;
-const AI_PROVIDER = process.env.AI_PROVIDER || (process.env.NODE_ENV === "production" ? "openai" : "ollama");
-const OLLAMA_PRIMARY_MODEL = process.env.AI_OLLAMA_MODEL || process.env.OLLAMA_MODEL || "phi3:mini";
-const OLLAMA_FALLBACK_MODEL = process.env.AI_OLLAMA_FALLBACK_MODEL || "gemma:2b";
-const OPENAI_MODEL = process.env.AI_MODEL || process.env.OPENAI_MODEL || "gpt-4o-mini";
-const OPENAI_BASE_URL = process.env.OPENAI_BASE_URL || "https://api.openai.com/v1";
-const CONVERSATIONAL_MODEL_CANDIDATES = [
-  OLLAMA_PRIMARY_MODEL,
-  OLLAMA_FALLBACK_MODEL,
-  "phi3:mini",
-  "gemma:2b"
-];
-const OLLAMA_GENERATE_TIMEOUT_MS = 12000;
-const EXTERNAL_GENERATE_TIMEOUT_MS = 8000;
 const MAX_CPU_LOAD_RATIO = 0.9;
 const OLLAMA_COOLDOWN_MS = 60000;
-const MIN_PARTIAL_WORDS = 24;
 let donationShown = false;
 let ollamaInferenceRunning = false;
 let ollamaCooldownUntil = 0;
-
-export class AIConnectionError extends Error {
-  code: string;
-  status: number;
-  hint?: string;
-
-  constructor(code: string, message: string, status = 503, hint?: string) {
-    super(message);
-    this.name = "AIConnectionError";
-    this.code = code;
-    this.status = status;
-    this.hint = hint;
-  }
-}
+let jurisdictionAliasCache: Array<{ alias: string; geo: string }> | null = null;
+const RU_OPENERS = ["Смотри спокойно:", "Если по факту:", "Тут есть нюанс:", "Интересный момент:"];
+const EN_OPENERS = ["Calm version:", "If we keep it real:", "Here is the nuance:", "Interesting angle:"];
 
 type SocialRealityPayload = {
   entries?: Array<{
@@ -58,6 +39,7 @@ type SocialRealityPayload = {
 const socialRealityEntries = (socialRealityData as SocialRealityPayload).entries || [];
 let countryPageIndexByIso2Cache: ReturnType<typeof getCountryPageIndexByIso2> | null = null;
 let countryPageIndexByGeoCodeCache: ReturnType<typeof getCountryPageIndexByGeoCode> | null = null;
+const COMPARE_QUERY_RE = /compare|vs\.?|versus|than|safer|better|difference|netherlands|germany|california|thailand|iran|india|jamaica|dubai/i;
 
 function getCountryPageForHint(geoHint: string | undefined) {
   if (!geoHint) return null;
@@ -74,8 +56,118 @@ function getCountryPageForHint(geoHint: string | undefined) {
   return null;
 }
 
+function getJurisdictionAliases() {
+  if (jurisdictionAliasCache) return jurisdictionAliasCache;
+  if (!countryPageIndexByGeoCodeCache) countryPageIndexByGeoCodeCache = getCountryPageIndexByGeoCode();
+  const aliases: Array<{ alias: string; geo: string }> = [];
+  for (const [geo, page] of countryPageIndexByGeoCodeCache.entries()) {
+    const lowerName = String(page.name || "").toLowerCase();
+    if (lowerName) aliases.push({ alias: lowerName, geo });
+    if (geo.startsWith("US-")) {
+      aliases.push({ alias: lowerName.replace(/,?\s+us$/i, ""), geo });
+      aliases.push({ alias: lowerName.replace(/,?\s+united states$/i, ""), geo });
+    }
+  }
+  aliases.push(
+    { alias: "netherlands", geo: "NL" },
+    { alias: "the netherlands", geo: "NL" },
+    { alias: "dutch", geo: "NL" },
+    { alias: "uae", geo: "AE" },
+    { alias: "dubai", geo: "AE" },
+    { alias: "california", geo: "US-CA" },
+    { alias: "thailand", geo: "TH" },
+    { alias: "germany", geo: "DE" }
+  );
+  jurisdictionAliasCache = aliases.sort((left, right) => right.alias.length - left.alias.length);
+  return jurisdictionAliasCache;
+}
+
+function escapeRegExp(value: string) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function hasAlias(text: string, alias: string) {
+  const escaped = escapeRegExp(alias.trim());
+  if (!escaped) return false;
+  return new RegExp(`(^|[^\\p{L}\\p{N}])${escaped}([^\\p{L}\\p{N}]|$)`, "iu").test(text);
+}
+
+function resolveMentionedJurisdictions(query: string) {
+  const normalizedQuery = String(query || "").toLowerCase();
+  const seen = new Set<string>();
+  const pages = [];
+  for (const entry of getJurisdictionAliases()) {
+    if (!hasAlias(normalizedQuery, entry.alias)) continue;
+    if (seen.has(entry.geo)) continue;
+    const page = getCountryPageForHint(entry.geo);
+    if (!page) continue;
+    seen.add(entry.geo);
+    pages.push(page);
+  }
+  return pages;
+}
+
+function isComparisonQuery(query: string) {
+  return COMPARE_QUERY_RE.test(String(query || ""));
+}
+
+function resolveLocationSelection(
+  query: string,
+  history: ReturnType<typeof getDialogState>,
+  geoHint: string | undefined
+) {
+  const mentioned = resolveMentionedJurisdictions(query);
+  const lockedPage = history.lastLocation ? getCountryPageForHint(history.lastLocation) : null;
+  const hintedPage = getCountryPageForHint(geoHint);
+  const comparison = isComparisonQuery(query);
+  const continuation = isContinuationQuery(query);
+
+  if (mentioned.length) {
+    if (comparison && lockedPage) {
+      const comparePage = mentioned.find((page) => page.geo_code !== lockedPage.geo_code) || null;
+      return {
+        primary: lockedPage,
+        compare: comparePage,
+        source: "user" as const
+      };
+    }
+    return {
+      primary: mentioned[0],
+      compare: mentioned.find((page) => page.geo_code !== mentioned[0].geo_code) || null,
+      source: "user" as const
+    };
+  }
+
+  if (lockedPage) {
+    if (
+      !continuation &&
+      !comparison &&
+      hintedPage &&
+      hintedPage.geo_code !== lockedPage.geo_code
+    ) {
+      return {
+        primary: hintedPage,
+        compare: null,
+        source: "ui" as const
+      };
+    }
+    return {
+      primary: lockedPage,
+      compare: null,
+      source: (history.source || "ui") as "user" | "ui" | "geo"
+    };
+  }
+
+  return {
+    primary: hintedPage,
+    compare: null,
+    source: "geo" as const
+  };
+}
+
 function detectLanguage(query: string, language: string | undefined) {
   if (/[А-Яа-яЁё]/.test(query)) return "ru";
+  if (/^[\t\n\r -~]+$/.test(query)) return "en";
   return language || "en";
 }
 
@@ -116,16 +208,51 @@ function getAirportSummary(query: string, context: ReturnType<typeof buildContex
   return null;
 }
 
+function shouldUseNearbyTruth(query: string, context: AIContext) {
+  return Boolean(
+    context.nearby &&
+      (
+        context.intent === "nearby" ||
+        context.history.lastIntent === "nearby" ||
+        /near me|nearest|nearby|closest|distance|safer|which option|tolerated|around me|border|what about borders|risk on the way|in real life|ближайш|рядом|куда ближе|что ближе|какой вариант безопаснее|границ|риск/i.test(
+          query
+        )
+      )
+  );
+}
+
 export function buildContext(
   query: string,
   geoHint: string | undefined,
+  coords: { lat?: number | null; lng?: number | null } | undefined,
   contextChunks: RagChunk[],
-  language: string | undefined
+  language: string | undefined,
+  memoryItems: AIContext["memory"] = []
 ): AIContext {
-  const countryPage = getCountryPageForHint(geoHint);
   const resolvedLanguage = detectLanguage(query, language);
-  const social = getSocialReality(geoHint || null);
-  const intent = detectIntent(query);
+  const history = getDialogState();
+  const detectedIntent = detectIntent(query);
+  const locationSelection =
+    detectedIntent === "nearby"
+      ? {
+          primary: getCountryPageForHint(history.lastLocation || geoHint),
+          compare: null,
+          source: history.lastLocation ? ((history.source || "ui") as "user" | "ui" | "geo") : ("geo" as const)
+        }
+      : resolveLocationSelection(query, history, geoHint);
+  const countryPage = locationSelection.primary;
+  const comparePage = locationSelection.compare;
+  const effectiveGeoHint = countryPage?.iso2 || countryPage?.geo_code || geoHint;
+  const social = getSocialReality(effectiveGeoHint || null);
+  const nearbyFollowUp =
+    history.lastIntent === "nearby" &&
+    (
+      isContinuationQuery(query) ||
+      /(nearest|near me|nearby|closest|distance|border|safer|tolerated|limited|which option|what about borders|risk on the way|in real life|distance|warning|поблизости|рядом|границ|риск|куда ближе|где ближе)/i.test(
+        query
+      )
+    );
+  const intent = nearbyFollowUp ? "nearby" : detectedIntent;
   const casual = isCasualQuery(query);
   const includeLegal = !casual && intent !== "culture";
   const includeCulture = intent === "culture" || /420|reggae|marley|music|culture|artist|song|movie/i.test(query);
@@ -148,13 +275,24 @@ export function buildContext(
         arrest: Boolean(countryPage.legal_model.signals?.penalties?.arrest)
       }
     : null;
+  const nearby =
+    intent === "nearby"
+      ? findNearbyTruth({
+          geoHint,
+          lat: coords?.lat,
+          lng: coords?.lng
+        })
+      : null;
 
   const assistantContext: AIContext = {
     query,
     language: resolvedLanguage,
     location: {
-      geoHint: geoHint || null,
-      name: countryPage?.name || null
+      geoHint: effectiveGeoHint || null,
+      name: countryPage?.name || null,
+      source: locationSelection.source,
+      lat: coords?.lat ?? countryPage?.coordinates?.lat ?? null,
+      lng: coords?.lng ?? countryPage?.coordinates?.lng ?? null
     },
     intent,
     legal,
@@ -177,8 +315,10 @@ export function buildContext(
         query,
         language: resolvedLanguage,
         location: {
-          geoHint: geoHint || null,
-          name: countryPage?.name || null
+          geoHint: effectiveGeoHint || null,
+          name: countryPage?.name || null,
+          lat: coords?.lat ?? countryPage?.coordinates?.lat ?? null,
+          lng: coords?.lng ?? countryPage?.coordinates?.lng ?? null
         },
         intent,
         legal,
@@ -200,15 +340,59 @@ export function buildContext(
           summary: null
         },
         culture,
-        history: getDialogState(),
+        compare: comparePage
+          ? {
+              geoHint: comparePage.geo_code || null,
+              name: comparePage.name || null,
+              recreational: comparePage.legal_model.recreational.status,
+              medical: comparePage.legal_model.medical.status,
+              finalRisk: comparePage.legal_model.signals?.final_risk || null,
+              notes: comparePage.notes_normalized || null
+            }
+          : null,
+        nearby: null,
+        memory: [],
+        history,
         sources: []
       })
     },
     culture,
-    history: getDialogState(),
+    compare: comparePage
+      ? {
+          geoHint: comparePage.geo_code || null,
+          name: comparePage.name || null,
+          recreational: comparePage.legal_model.recreational.status,
+          medical: comparePage.legal_model.medical.status,
+          finalRisk: comparePage.legal_model.signals?.final_risk || null,
+          notes: comparePage.notes_normalized || null
+        }
+      : null,
+    nearby: nearby
+      ? {
+          warning: nearby.warning,
+          results: [
+            ...(nearby.current ? [nearby.current] : []),
+            ...nearby.nearby
+          ].map((item) => ({
+            country: item.country,
+            geo: item.geo,
+            distanceKm: item.distance_km,
+            effectiveDistanceKm: item.effective_distance_km,
+            accessType: item.access.type,
+            truthScore: item.access.truthScore,
+            explanation: item.access.explanation,
+            whyThisResult: item.why_this_result,
+            destinationRisk: item.risk.destination,
+            pathRisk: item.risk.path
+          }))
+        }
+      : null,
+    memory: memoryItems,
+    history,
     sources: Array.from(
       new Set([
         ...(includeLegal ? countryPage?.legal_model.signals?.sources?.map((item) => item.url || item.title) || [] : []),
+        ...(comparePage?.legal_model.signals?.sources?.map((item) => item.url || item.title) || []),
         ...(contextChunks.map((chunk) => chunk.source) || [])
       ].filter(Boolean))
     )
@@ -219,25 +403,26 @@ export function buildContext(
 
 function composeLead(context: AIContext) {
   const place = context.location.name || context.location.geoHint || "this place";
+  const opener = pickOpener(context);
   if (!context.legal) {
     return context.language === "ru"
-      ? `Смотри спокойно: по этому месту у меня сейчас нет точного legal context в SSOT.`
-      : `Here is the calm version: I do not have exact legal context for ${place} in the current SSOT.`;
+      ? `${opener} по этому месту у меня сейчас нет точного legal context в SSOT.`
+      : `${opener} I do not have exact legal context for ${place} in the current SSOT.`;
   }
 
   if (context.language === "ru") {
-    if (context.legal.resultStatus === "LEGAL") return `Смотри спокойно: в ${place} каннабис легален по текущим данным.`;
-    if (context.legal.resultStatus === "MIXED") return `Смотри спокойно: в ${place} картина смешанная — это не полный ban, но и не чистый legal market.`;
-    if (context.legal.resultStatus === "DECRIM") return `Смотри спокойно: в ${place} статус мягче полного запрета, но это не то же самое, что полноценный legal market.`;
-    if (context.legal.resultStatus === "ILLEGAL") return `Смотри спокойно: в ${place} каннабис запрещён по текущему SSOT.`;
-    return `Смотри спокойно: по ${place} картина в данных неполная.`;
+    if (context.legal.resultStatus === "LEGAL") return `${opener} в ${place} каннабис легален по текущим данным.`;
+    if (context.legal.resultStatus === "MIXED") return `${opener} в ${place} картина смешанная — это не полный ban, но и не чистый legal market.`;
+    if (context.legal.resultStatus === "DECRIM") return `${opener} в ${place} статус мягче полного запрета, но это не то же самое, что полноценный legal market.`;
+    if (context.legal.resultStatus === "ILLEGAL") return `${opener} в ${place} каннабис запрещён по текущему SSOT.`;
+    return `${opener} по ${place} картина в данных неполная.`;
   }
 
-  if (context.legal.resultStatus === "LEGAL") return `Calm version: cannabis is legal in ${place} in the current SSOT.`;
-  if (context.legal.resultStatus === "MIXED") return `Calm version: ${place} is mixed in the current SSOT, so parts of the picture are softer while other parts stay restricted.`;
-  if (context.legal.resultStatus === "DECRIM") return `Calm version: ${place} is softer than a full ban, but that is not the same as a fully legal market.`;
-  if (context.legal.resultStatus === "ILLEGAL") return `Calm version: cannabis is illegal in ${place} in the current SSOT.`;
-  return `Calm version: the data for ${place} is still thin.`;
+  if (context.legal.resultStatus === "LEGAL") return `${opener} cannabis is legal in ${place} in the current SSOT.`;
+  if (context.legal.resultStatus === "MIXED") return `${opener} ${place} is mixed in the current SSOT, so parts of the picture are softer while other parts stay restricted.`;
+  if (context.legal.resultStatus === "DECRIM") return `${opener} ${place} is softer than a full ban, but that is not the same as a fully legal market.`;
+  if (context.legal.resultStatus === "ILLEGAL") return `${opener} cannabis is illegal in ${place} in the current SSOT.`;
+  return `${opener} the data for ${place} is still thin.`;
 }
 
 function composeLegalDetail(context: AIContext) {
@@ -317,13 +502,13 @@ function composeCultureDetail(context: AIContext) {
 
 function composeFollowUp(context: AIContext) {
   if (context.language === "ru") {
-    if (context.intent === "airport") return "Если хочешь, могу отдельно разобрать риск именно для поездки и перелёта.";
-    if (context.intent === "culture") return "Если хочешь, могу продолжить по cultural side без ухода от фактов.";
-    return "Если хочешь, могу спокойно сравнить это с другой страной или штатом.";
+    if (context.intent === "airport") return "Показать, где самые строгие аэропорты?";
+    if (context.intent === "culture") return "Разобрать глубже?";
+    return "Хочешь сравнить с другой страной?";
   }
-  if (context.intent === "airport") return "If you want, I can break this down specifically for flights and border risk.";
-  if (context.intent === "culture") return "If you want, I can stay on the culture side without drifting away from the facts.";
-  return "If you want, I can compare this with another country or state.";
+  if (context.intent === "airport") return "Want me to show the strictest airports too?";
+  if (context.intent === "culture") return "Want to go deeper?";
+  return "Want to compare it with another country?";
 }
 
 function normalizedWords(text: string) {
@@ -336,18 +521,6 @@ function normalizedWords(text: string) {
   );
 }
 
-function countWords(text: string) {
-  return String(text || "")
-    .trim()
-    .split(/\s+/)
-    .filter(Boolean).length;
-}
-
-function isUsablePartialAnswer(text: string) {
-  const trimmed = String(text || "").trim();
-  return trimmed.length >= 140 || countWords(trimmed) >= MIN_PARTIAL_WORDS;
-}
-
 function isRepeatAnswer(nextAnswer: string, lastAnswer: string | null | undefined) {
   if (!lastAnswer) return false;
   const left = normalizedWords(nextAnswer);
@@ -358,6 +531,52 @@ function isRepeatAnswer(nextAnswer: string, lastAnswer: string | null | undefine
     if (right.has(word)) overlap += 1;
   }
   return overlap / Math.max(left.size, right.size) > 0.8;
+}
+
+function needsCultureRetry(context: AIContext, answer: string) {
+  if (context.intent !== "culture") return false;
+  const lower = String(answer || "").toLowerCase();
+  return /\billegal\b|\blegal\b|\bdistribution\b|\bmedical\b|\bdecriminalized\b|\brisk\b|\bprison\b|\benforcement\b/.test(lower);
+}
+
+function needsCompareRetry(context: AIContext, answer: string) {
+  if (!context.compare?.name) return false;
+  if (!/compare|safer|tourist|tourists|best advice|which/i.test(context.query)) return false;
+  const lower = String(answer || "").toLowerCase();
+  const current = String(context.location.name || context.location.geoHint || "").toLowerCase();
+  const compare = String(context.compare.name || "").toLowerCase();
+  return !lower.includes(current) || !lower.includes(compare);
+}
+
+function needsTouristRetry(context: AIContext, answer: string) {
+  if (context.intent !== "tourists" && !/tourist|tourists/i.test(context.query)) return false;
+  return !/tourist|travel|visitor|airport|border/i.test(String(answer || "").toLowerCase());
+}
+
+function findUnexpectedJurisdiction(context: AIContext, answer: string) {
+  const lowerAnswer = String(answer || "").toLowerCase();
+  const allowed = new Set(
+    [context.location.geoHint, context.compare?.geoHint]
+      .map((item) => String(item || "").toUpperCase())
+      .filter(Boolean)
+  );
+  for (const entry of getJurisdictionAliases()) {
+    if (!hasAlias(lowerAnswer, entry.alias)) continue;
+    if (allowed.has(entry.geo)) continue;
+    return entry.geo;
+  }
+  return null;
+}
+
+function needsLocationRetry(context: AIContext, answer: string) {
+  const primaryName = String(context.location.name || context.location.geoHint || "").toLowerCase();
+  if (!primaryName) return false;
+  const lowerAnswer = String(answer || "").toLowerCase();
+  if (!lowerAnswer.includes(primaryName)) return true;
+  if (context.compare?.name && /compare|safer|than|versus|vs\.?|difference|tourist|travel/i.test(context.query)) {
+    if (!lowerAnswer.includes(String(context.compare.name).toLowerCase())) return true;
+  }
+  return Boolean(findUnexpectedJurisdiction(context, answer));
 }
 
 function dedupeBlocks(blocks: Array<string | null>) {
@@ -373,8 +592,43 @@ function dedupeBlocks(blocks: Array<string | null>) {
   return result;
 }
 
+function pickOpener(context: AIContext) {
+  const pool = context.language === "ru" ? RU_OPENERS : EN_OPENERS;
+  const seed = `${context.query}|${context.intent}|${context.location.geoHint || ""}`;
+  let hash = 0;
+  for (let index = 0; index < seed.length; index += 1) {
+    hash = (hash * 31 + seed.charCodeAt(index)) >>> 0;
+  }
+  return pool[hash % pool.length];
+}
+
+function rewriteRepeatedAnswer(context: AIContext, answer: string) {
+  const opener = context.language === "ru" ? "С другой стороны, важный момент:" : "From another angle, what matters is this:";
+  return `${opener}\n\n${answer}`;
+}
+
+function ensureNonEmptyAnswer(context: AIContext, answer: string) {
+  const text = String(answer || "").trim();
+  if (text.length >= 20) return text;
+  if (!text || text.length < 20) {
+    return fallbackHumanized(context.location.name || context.location.geoHint, context.intent, context.language);
+  }
+  const prefix =
+    context.language === "ru"
+      ? "Давай разверну чуть подробнее:\n\n"
+      : "Let me open that up a little more:\n\n";
+  return `${prefix}${text || generateGeneral(context)}`;
+}
+
+function needsShortAnswerRetry(answer: string) {
+  return String(answer || "").trim().length < 80;
+}
+
 function continueLastTopic(context: AIContext) {
   const activeIntent = context.history.lastIntent || context.intent;
+  if (activeIntent === "nearby") {
+    return generateNearby({ ...context, intent: "nearby" });
+  }
   if (context.language === "ru") {
     const blocks = dedupeBlocks([
       activeIntent === "airport"
@@ -454,30 +708,62 @@ function generateGeneral(context: AIContext) {
 export function generateAnswer(context: AIContext): string {
   const continuation = isContinuationQuery(context.query) && Boolean(context.history.lastIntent);
   if (continuation) {
-    return continueLastTopic(context);
+    return applyDialogStyle(ensureNonEmptyAnswer(context, continueLastTopic(context)), context.intent, context.language);
   }
   const answer =
     continuation
       ? continueLastTopic(context)
+    : context.intent === "nearby"
+      ? generateNearby(context)
     : context.intent === "legal" || context.intent === "buy" || context.intent === "possession" || context.intent === "medical"
       ? generateLegal(context)
       : context.intent === "airport" || context.intent === "tourists"
         ? generateTravel(context)
-        : context.intent === "culture"
+      : context.intent === "culture"
           ? generateCulture(context)
           : generateGeneral(context);
-  if (isRepeatAnswer(answer, context.history.lastAnswer)) {
-    const alternate = dedupeBlocks([
-      composeMedicalDetail(context),
-      context.intent === "culture" ? composeCultureDetail(context) : composeSocialDetail(context),
-      context.intent === "airport" || context.intent === "tourists" ? composeTravelDetail(context) : null,
-      composeLegalDetail(context),
-      composeLead(context),
-      composeFollowUp(context)
-    ]).join("\n\n");
-    return alternate || answer;
+  if (context.intent === "nearby") {
+    return applyDialogStyle(ensureNonEmptyAnswer(context, answer), context.intent, context.language);
   }
-  return answer;
+  if (isRepeatAnswer(answer, context.history.lastAnswer)) {
+    return applyDialogStyle(
+      ensureNonEmptyAnswer(context, rewriteRepeatedAnswer(context, answer)),
+      context.intent,
+      context.language
+    );
+  }
+  return applyDialogStyle(ensureNonEmptyAnswer(context, answer), context.intent, context.language);
+}
+
+function generateNearby(context: AIContext) {
+  if (!context.nearby?.results?.length) {
+    return context.language === "ru"
+      ? "Рядом я пока не вижу честных nearby-вариантов по текущим данным. Это не значит, что вариантов нет, а значит, что текущий truth-layer их не подтверждает."
+      : "I do not see any honest nearby options in the current data yet. That does not prove there are none, only that this truth layer does not confirm them.";
+  }
+  const top = context.nearby.results.slice(0, 3);
+  if (context.language === "ru") {
+    const intro = context.location.name
+      ? `Если смотреть от ${context.location.name}, ближе всего сейчас выглядят такие варианты:`
+      : "Если смотреть от твоей текущей точки, ближе всего сейчас выглядят такие варианты:";
+    const lines = top.map((item) => {
+      const access =
+        item.accessType === "legal" ? "легально" :
+        item.accessType === "mostly_allowed" ? "в основном разрешено" :
+        item.accessType === "limited" ? "ограничено" :
+        item.accessType === "tolerated" ? "терпимо на практике" :
+        "строго";
+      return `• ${item.country} — около ${Math.round(item.distanceKm)} км, ${access}. ${item.explanation}`;
+    });
+    return [intro, ...lines, context.nearby.warning].join("\n");
+  }
+  const intro = context.location.name
+    ? `If we start from ${context.location.name}, the closest honest options right now look like this:`
+    : "If we start from your current point, the closest honest options right now look like this:";
+  const lines = top.map((item) =>
+    `• ${item.country} — about ${Math.round(item.distanceKm)} km away, ${item.accessType.replaceAll("_", " ")}. ${item.explanation}`
+  );
+  return [intro, ...lines, context.nearby.warning].join("\n");
 }
 
 function injectDonation(answer: string) {
@@ -486,272 +772,94 @@ function injectDonation(answer: string) {
   return `${answer}\n\nIf this helped you, you can send a small thanks (1 USD).`;
 }
 
-function buildFallbackAnswer(language: string | undefined) {
-  return language === "ru"
-    ? "Секунду, сейчас подгружу ответ... попробуй ещё раз."
-    : "Give me a second, the answer is still loading. Please try once more.";
-}
-
-function buildDeterministicBackup(context: AIContext) {
-  return generateAnswer(context);
-}
-
 function isCpuSaturated() {
   const cores = typeof os.availableParallelism === "function" ? os.availableParallelism() : os.cpus().length || 1;
   const ratio = os.loadavg()[0] / Math.max(cores, 1);
   return ratio >= MAX_CPU_LOAD_RATIO;
 }
 
-async function stopOllamaModel(modelName?: string) {
-  await fetch(OLLAMA_STOP_URL, {
-    method: "POST",
-    headers: { "content-type": "application/json" },
-    body: JSON.stringify({ name: modelName || getPreferredModels()[0] })
-  }).catch(() => null);
+export async function verifyAssistantLlmConnection(overrideModels?: string[]) {
+  return verifyProviderConnection(overrideModels);
 }
 
-function getPreferredModels() {
-  return Array.from(new Set(CONVERSATIONAL_MODEL_CANDIDATES.filter(Boolean)));
-}
-
-function pickAvailableModel(availableModels: string[]) {
-  for (const model of getPreferredModels()) {
-    if (availableModels.includes(model)) return model;
-  }
-  return availableModels[0] || null;
-}
-
-async function runOllamaChat(model: string, messages: LlmMessage[]) {
-  const controller = new AbortController();
-  let timedOut = false;
-  const timeoutPromise = new Promise<Response | null>((resolve) => setTimeout(() => {
-    timedOut = true;
-    controller.abort();
-    resolve(null);
-  }, OLLAMA_GENERATE_TIMEOUT_MS));
-  const response = await Promise.race([
-    fetch(OLLAMA_URL, {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({
-        model,
-        stream: true,
-        keep_alive: "5m",
-        messages,
-        options: {
-          num_ctx: 1024,
-          num_predict: 192,
-          temperature: 0.7
-        }
-      }),
-      signal: controller.signal
-    }).catch(() => null),
-    timeoutPromise
-  ]);
-  if (!response) {
-    if (timedOut) await stopOllamaModel(model);
-    throw new AIConnectionError(
-      timedOut ? "LLM_TIMEOUT" : "NO_LLM",
-      timedOut ? "Ollama chat request timed out." : "Ollama chat call failed.",
-      503,
-      `Expected ${OLLAMA_URL}`
-    );
-  }
-  if (!response.ok) {
-    const body = await response.text().catch(() => "");
-    throw new AIConnectionError(
-      timedOut ? "LLM_TIMEOUT" : "LLM_GENERATE_FAILED",
-      "Ollama returned a non-OK response.",
-      503,
-      body.slice(0, 200) || `HTTP ${response.status}`
-    );
-  }
-  if (!response.body) {
-    throw new AIConnectionError("EMPTY_LLM_RESPONSE", "Ollama returned an empty stream.", 503);
-  }
-  const reader = response.body.getReader();
-  const decoder = new TextDecoder();
-  let buffer = "";
-  let answer = "";
-  try {
-    while (true) {
-      const { done, value } = await reader.read();
-      if (done) break;
-      buffer += decoder.decode(value, { stream: true });
-      const lines = buffer.split("\n");
-      buffer = lines.pop() || "";
-      for (const rawLine of lines) {
-        const line = rawLine.trim();
-        if (!line) continue;
-        const payload = JSON.parse(line) as { message?: { content?: string }; done?: boolean };
-        const chunk = String(payload.message?.content || "");
-        if (chunk) answer += chunk;
-        if (payload.done && answer.trim()) {
-          return answer.trim();
-        }
-      }
-    }
-  } catch {
-    if (timedOut && isUsablePartialAnswer(answer)) {
-      return answer.trim();
-    }
-    throw new AIConnectionError(
-      timedOut ? "LLM_TIMEOUT" : "LLM_GENERATE_FAILED",
-      timedOut ? "Ollama chat request timed out." : "Ollama streaming failed.",
-      503,
-      `Expected ${OLLAMA_URL}`
-    );
-  }
-  if (answer.trim()) return answer.trim();
-  throw new AIConnectionError("EMPTY_LLM_RESPONSE", "Ollama returned an empty response.", 503);
-}
-
-async function runExternalChat(messages: LlmMessage[]) {
-  const apiKey = process.env.OPENAI_API_KEY;
-  if (!apiKey) {
-    throw new AIConnectionError("NO_LLM", "External AI provider is not configured.", 503, "Missing OPENAI_API_KEY");
-  }
-  const controller = new AbortController();
-  const timeoutPromise = new Promise<Response | null>((resolve) => setTimeout(() => {
-    controller.abort();
-    resolve(null);
-  }, EXTERNAL_GENERATE_TIMEOUT_MS));
-  try {
-    const response = await Promise.race([
-      fetch(`${OPENAI_BASE_URL}/chat/completions`, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${apiKey}`,
-          "content-type": "application/json"
-        },
-        body: JSON.stringify({
-          model: OPENAI_MODEL,
-          temperature: 0.7,
-          max_tokens: 220,
-          messages
-        }),
-        signal: controller.signal
-      }),
-      timeoutPromise
-    ]);
-    if (!response) {
-      throw new AIConnectionError("LLM_TIMEOUT", "External chat provider timed out.", 503);
-    }
-    if (!response.ok) {
-      const body = await response.text().catch(() => "");
-      throw new AIConnectionError("LLM_GENERATE_FAILED", "External chat provider returned a non-OK response.", 503, body.slice(0, 200) || `HTTP ${response.status}`);
-    }
-    const payload = (await response.json()) as {
-      choices?: Array<{ message?: { content?: string } }>;
-    };
-    const answer = String(payload.choices?.[0]?.message?.content || "").trim();
-    if (!answer) {
-      throw new AIConnectionError("EMPTY_LLM_RESPONSE", "External chat provider returned an empty response.", 503);
-    }
-    return answer;
-  } catch (error) {
-    if (error instanceof AIConnectionError) throw error;
-    throw new AIConnectionError("NO_LLM", "External AI provider is not reachable.", 503);
-  }
-}
-
-export async function verifyAssistantLlmConnection() {
-  if (AI_PROVIDER !== "ollama") {
-    if (!process.env.OPENAI_API_KEY) {
-      throw new AIConnectionError("NO_LLM", "External AI provider is not configured.", 503, "Missing OPENAI_API_KEY");
-    }
-    return {
-      connected: true,
-      host: OPENAI_BASE_URL,
-      model: OPENAI_MODEL,
-      availableModels: [OPENAI_MODEL]
-    };
-  }
-  let response: Response;
-  try {
-    response = await fetch(OLLAMA_TAGS_URL, {
-      method: "GET",
-      signal: AbortSignal.timeout(3000)
-    });
-  } catch {
-    throw new AIConnectionError(
-      "NO_LLM",
-      "Ollama is not reachable.",
-      503,
-      `Expected ${OLLAMA_TAGS_URL}`
-    );
-  }
-  if (!response.ok) {
-    throw new AIConnectionError("NO_LLM", "Ollama health check failed.", 503, `HTTP ${response.status}`);
-  }
-  const payload = (await response.json()) as { models?: Array<{ name?: string }> };
-  const availableModels = (payload.models || []).map((item) => String(item.name || "").trim()).filter(Boolean);
-  const selectedModel = pickAvailableModel(availableModels);
-  if (!selectedModel) {
-    throw new AIConnectionError(
-      "MODEL_NOT_FOUND",
-      "No compatible conversational Ollama model is installed.",
-      503,
-      availableModels.length ? `Available: ${availableModels.join(", ")}` : "No local Ollama models reported."
-    );
-  }
-  return {
-    connected: true,
-    host: OLLAMA_HOST,
-    model: selectedModel,
-    availableModels
-  };
+export async function warmAssistantModel(overrideModels?: string[]) {
+  return warmProviderModel(overrideModels);
 }
 
 export async function answerWithAssistant(
   query: string,
   geoHint: string | undefined,
+  coords: { lat?: number | null; lng?: number | null } | undefined,
   contextChunks: RagChunk[],
-  language: string | undefined
+  language: string | undefined,
+  overrideModels?: string[]
 ): Promise<AIResponse> {
-  const enrichedQuery = enrichWithDialogContext(query);
-  const context = buildContext(query, geoHint, contextChunks, language);
-  const messages = buildMessages({ query: enrichedQuery, context });
-  const deterministicBackup = buildDeterministicBackup(context);
-  if (AI_PROVIDER === "ollama" && Date.now() < ollamaCooldownUntil) {
-    rememberDialog(context, deterministicBackup);
+  const initialContext = buildContext(query, geoHint, coords, contextChunks, language);
+  const memoryMatches = retrieveMemory(
+    query,
+    initialContext.intent,
+    initialContext.location.geoHint || undefined
+  ).map((item) => ({
+    query: item.query,
+    answer: item.answer,
+      score: item.score
+    }));
+  const context = buildContext(query, geoHint, coords, contextChunks, language, memoryMatches);
+  if (shouldUseNearbyTruth(query, context)) {
+    const nearbyContext = { ...context, intent: "nearby" as const };
+    const answer = generateAnswer(nearbyContext);
+    rememberDialog(nearbyContext, answer);
+    if (answer.length > 60) {
+      saveMemory({
+        query,
+        intent: nearbyContext.intent,
+        location: nearbyContext.location.geoHint || undefined,
+        answer,
+        score: scoreMemory(answer, Boolean(nearbyContext.history.lastIntent), Boolean(memoryMatches.length))
+      });
+    }
     return {
-      answer: deterministicBackup,
+      answer,
       sources: context.sources,
       safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
-      model: OLLAMA_PRIMARY_MODEL,
+      model: "truth-engine",
       llm_connected: false
     };
   }
-  if (AI_PROVIDER === "ollama" && isCpuSaturated()) {
-    rememberDialog(context, deterministicBackup);
-    return {
-      answer: deterministicBackup,
-      sources: context.sources,
-      safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
-      model: OLLAMA_PRIMARY_MODEL,
-      llm_connected: false
-    };
+  const messages = buildMessages({ query, context });
+  const provider = resolveAIProvider();
+  if (provider === "ollama" && Date.now() < ollamaCooldownUntil) {
+    throw new AIConnectionError("LLM_COOLDOWN", "Local Ollama model is cooling down after a failed run.", 503);
   }
-  if (ollamaInferenceRunning) {
-    rememberDialog(context, deterministicBackup);
-    return {
-      answer: deterministicBackup,
-      sources: context.sources,
-      safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
-      model: AI_PROVIDER === "ollama" ? OLLAMA_PRIMARY_MODEL : OPENAI_MODEL,
-      llm_connected: false
-    };
+  if (provider === "ollama" && isCpuSaturated()) {
+    throw new AIConnectionError("LLM_CPU_GUARD", "Local Ollama runner is saturated.", 503);
   }
-  ollamaInferenceRunning = true;
+  if (provider === "ollama" && ollamaInferenceRunning) {
+    throw new AIConnectionError("LLM_BUSY", "Local Ollama runner is busy with another request.", 503);
+  }
+  if (provider === "ollama") {
+    ollamaInferenceRunning = true;
+  }
   try {
-    const llm = await verifyAssistantLlmConnection();
+    const llm = await verifyAssistantLlmConnection(overrideModels);
     let answer: string;
+    let usedModel = llm.model;
     try {
-      answer = AI_PROVIDER === "ollama"
-        ? await runOllamaChat(llm.model, messages)
-        : await runExternalChat(messages);
-      if (isRepeatAnswer(answer, context.history.lastAnswer)) {
+      const result = await generateWithProvider(messages, { overrideModels });
+      answer = result.text;
+      usedModel = result.model;
+    } catch (error) {
+      if (provider === "ollama") {
+        ollamaCooldownUntil = Date.now() + OLLAMA_COOLDOWN_MS;
+      }
+      throw error;
+    }
+
+    if (isRepeatAnswer(answer, context.history.lastAnswer)) {
+      const memoryCandidate = memoryMatches.find((item) => item.answer.trim() !== String(context.history.lastAnswer || "").trim());
+      if (memoryCandidate) {
+        answer = memoryCandidate.answer;
+      } else {
         const retryMessages: LlmMessage[] = [
           ...messages,
           {
@@ -760,32 +868,66 @@ export async function answerWithAssistant(
               "Retry rule: rewrite with a new angle, stay on the same place and topic, keep it concise, and do not repeat any sentence from your previous answer."
           }
         ];
-        answer = AI_PROVIDER === "ollama"
-          ? await runOllamaChat(llm.model, retryMessages)
-          : await runExternalChat(retryMessages);
+        const retryResult = await generateWithProvider(retryMessages, { overrideModels: [usedModel] });
+        answer = retryResult.text;
       }
-    } catch {
-      if (AI_PROVIDER === "ollama") {
-        ollamaCooldownUntil = Date.now() + OLLAMA_COOLDOWN_MS;
-      }
-      rememberDialog(context, deterministicBackup);
-      return {
-        answer: deterministicBackup || buildFallbackAnswer(context.language),
-        sources: context.sources,
-        safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
-        model: llm.model,
-        llm_connected: false
-      };
+    }
+
+    if (
+      needsCultureRetry(context, answer) ||
+      needsCompareRetry(context, answer) ||
+      needsTouristRetry(context, answer) ||
+      needsLocationRetry(context, answer)
+    ) {
+      const retryMessages: LlmMessage[] = [
+        ...messages,
+        {
+          role: "user",
+          content:
+            context.intent === "culture"
+              ? "Retry rule: answer only from the culture fact lines, do not mention legal status, risk, prison, distribution, or medical access unless the user explicitly asked for law."
+              : context.compare?.name
+                ? `Retry rule: stay strictly on ${context.location.name || context.location.geoHint} and ${context.compare.name}. Do not introduce any other country. Answer the user's latest question directly with a new angle.`
+                : `Retry rule: answer strictly about ${context.location.name || context.location.geoHint}. Do not introduce any other country. Continue the same conversation and add one new insight.`
+        }
+      ];
+      const retryResult = await generateWithProvider(retryMessages, { overrideModels: [usedModel] });
+      answer = retryResult.text;
+    }
+    if (needsShortAnswerRetry(answer)) {
+      const retryMessages: LlmMessage[] = [
+        ...messages,
+        {
+          role: "user",
+          content:
+            context.compare?.name
+              ? `Retry rule: stay strictly on ${context.location.name || context.location.geoHint} and ${context.compare.name}, continue the same dialogue, do not restart, and answer in at least three full sentences.`
+              : `Retry rule: stay strictly on ${context.location.name || context.location.geoHint}, continue the same dialogue, do not restart, and answer in at least three full sentences.`
+        }
+      ];
+      const retryResult = await generateWithProvider(retryMessages, { overrideModels: [usedModel] });
+      answer = retryResult.text;
     }
     rememberDialog(context, answer);
+    if (answer.length > 60) {
+      saveMemory({
+        query,
+        intent: context.intent,
+        location: context.location.geoHint || undefined,
+        answer,
+        score: scoreMemory(answer, Boolean(context.history.lastIntent), Boolean(memoryMatches.length))
+      });
+    }
     return {
       answer: injectDonation(answer),
       sources: context.sources,
       safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
-      model: llm.model,
+      model: usedModel,
       llm_connected: true
     };
   } finally {
-    ollamaInferenceRunning = false;
+    if (provider === "ollama") {
+      ollamaInferenceRunning = false;
+    }
   }
 }

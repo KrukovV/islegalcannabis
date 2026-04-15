@@ -1,12 +1,14 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import styles from "../MapRoot.module.css";
 import type { GeoStatus, IpStatus } from "../hooks/useGeoStatus";
 
 type ActiveGeo = {
   country: string;
   iso2: string;
+  lat?: number;
+  lng?: number;
 } | null;
 
 type Props = {
@@ -14,6 +16,16 @@ type Props = {
   geoStatus: GeoStatus;
   ipStatus: IpStatus;
   onGpsClick: () => void;
+};
+
+type ChatMessage = {
+  id: string;
+  role: "user" | "assistant";
+  text: string;
+  sources?: string[];
+  safetyNote?: string | null;
+  error?: boolean;
+  streaming?: boolean;
 };
 
 type AiQuerySuccess = {
@@ -50,8 +62,32 @@ type AiStreamEvent =
       model?: string;
     };
 
+const CHAT_STORAGE_KEY = "ai_chat_history";
+const MODEL_OVERRIDE_STORAGE_KEY = "ai_model_override";
+
+function shouldLockAiInputByDefault() {
+  if (typeof window === "undefined") return true;
+  const host = window.location.hostname;
+  const isLocalHost =
+    host === "127.0.0.1" ||
+    host === "localhost" ||
+    host === "::1" ||
+    host.endsWith(".local");
+  return !isLocalHost && process.env.NODE_ENV === "production";
+}
+
 function trimQuery(value: string) {
   return value.replace(/\s+/g, " ").trim().slice(0, 500);
+}
+
+function createMessageId() {
+  return `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+}
+
+function isFallbackText(text: string) {
+  return /Секунду, модель думает чуть дольше обычного|Give me a second, the model is taking longer than usual/i.test(
+    String(text || "")
+  );
 }
 
 function parseAiStream(buffer: string) {
@@ -70,14 +106,40 @@ function parseAiStream(buffer: string) {
   return { events, rest };
 }
 
+function parseTrailingAiStreamEvent(buffer: string) {
+  const line = String(buffer || "").trim();
+  if (!line) return null;
+  try {
+    return JSON.parse(line) as AiStreamEvent;
+  } catch {
+    return null;
+  }
+}
+
+function shouldPreferFinalAnswer(streamedText: string, finalText: string) {
+  const streamed = String(streamedText || "").trim();
+  const final = String(finalText || "").trim();
+  if (!final) return false;
+  if (!streamed) return true;
+  if (streamed.length < 40 && final.length >= 40) return true;
+  return final.length > streamed.length + 20;
+}
+
 export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Props) {
-  const aiInputLocked = process.env.NODE_ENV === "production";
+  const requestControllerRef = useRef<AbortController | null>(null);
+  const resetRequestRef = useRef<Promise<void> | null>(null);
+  const messageRowRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const lastScrolledTargetRef = useRef<string | null>(null);
+  const streamBufferRef = useRef("");
+  const streamMessageIdRef = useRef<string | null>(null);
+  const streamFlushTimeoutRef = useRef<number | null>(null);
+  const warmStartedRef = useRef(false);
+  const activeGeoRef = useRef<string | null>(activeGeo?.iso2 || null);
+  const [aiInputLocked, setAiInputLocked] = useState(shouldLockAiInputByDefault);
   const [isOpen, setIsOpen] = useState(true);
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
-  const [answer, setAnswer] = useState<string | null>(null);
-  const [sources, setSources] = useState<string[]>([]);
-  const [safetyNote, setSafetyNote] = useState<string | null>(null);
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [error, setError] = useState<string | null>(null);
   const normalizedQuery = useMemo(() => trimQuery(query), [query]);
   const placeholder = aiInputLocked
@@ -93,14 +155,249 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
         : styles.aiGpsDotUnknown;
   const gpsClickable = geoStatus.status !== "resolving";
 
+  useEffect(() => {
+    try {
+      const raw = window.localStorage.getItem(CHAT_STORAGE_KEY);
+      if (!raw) return;
+      const parsed = JSON.parse(raw) as ChatMessage[];
+      if (!Array.isArray(parsed)) return;
+      setMessages(
+        parsed
+          .filter((item) => item && (item.role === "user" || item.role === "assistant"))
+          .slice(-24)
+          .map((item) => ({
+            id: String(item.id || createMessageId()),
+            role: item.role,
+            text: String(item.text || ""),
+            sources: Array.isArray(item.sources) ? item.sources.slice(0, 6) : [],
+            safetyNote: item.safetyNote || null,
+            error: Boolean(item.error),
+            streaming: false
+          }))
+      );
+    } catch {
+      window.localStorage.removeItem(CHAT_STORAGE_KEY);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (warmStartedRef.current) return;
+    warmStartedRef.current = true;
+    const keepUnlockedOnLocalhost = !shouldLockAiInputByDefault();
+    const model =
+      typeof window !== "undefined"
+        ? window.localStorage.getItem(MODEL_OVERRIDE_STORAGE_KEY) || ""
+        : "";
+    const params = new URLSearchParams({ warm: "1" });
+    if (model) params.set("model", model);
+    fetch(`/api/ai-assistant/query?${params.toString()}`)
+      .then((response) => {
+        setAiInputLocked(keepUnlockedOnLocalhost ? false : !response.ok);
+      })
+      .catch(() => {
+        setAiInputLocked(keepUnlockedOnLocalhost ? false : true);
+      });
+  }, []);
+
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(
+        CHAT_STORAGE_KEY,
+        JSON.stringify(messages.slice(-24).map((message) => ({
+          ...message,
+          streaming: false
+        })))
+      );
+    } catch {
+      // ignore storage write issues
+    }
+  }, [messages]);
+
+  useEffect(() => {
+    const lastMessage = messages[messages.length - 1];
+    if (!lastMessage) return;
+    const targetMessage =
+      lastMessage.role === "assistant" && !String(lastMessage.text || "").trim() && messages.length > 1
+        ? messages[messages.length - 2]
+        : lastMessage;
+    if (!targetMessage?.id) return;
+    const targetNode = messageRowRefs.current[targetMessage.id];
+    if (!targetNode) return;
+    const behavior = lastScrolledTargetRef.current === targetMessage.id ? "auto" : "smooth";
+    lastScrolledTargetRef.current = targetMessage.id;
+    window.requestAnimationFrame(() => {
+      targetNode.scrollIntoView({
+        behavior,
+        block: "start",
+        inline: "nearest"
+      });
+    });
+  }, [messages]);
+
+  useEffect(() => {
+    return () => {
+      requestControllerRef.current?.abort();
+      requestControllerRef.current = null;
+      if (streamFlushTimeoutRef.current !== null) {
+        window.clearTimeout(streamFlushTimeoutRef.current);
+        streamFlushTimeoutRef.current = null;
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const nextGeo = activeGeo?.iso2 || null;
+    const prevGeo = activeGeoRef.current;
+    activeGeoRef.current = nextGeo;
+    if (!prevGeo || !nextGeo || prevGeo === nextGeo) return;
+    requestControllerRef.current?.abort();
+    requestControllerRef.current = null;
+    resetStreamBuffer();
+    setLoading(false);
+    setError(null);
+    setMessages([]);
+    try {
+      window.localStorage.removeItem(CHAT_STORAGE_KEY);
+    } catch {
+      // ignore storage write issues
+    }
+    void resetServerDialog();
+  }, [activeGeo?.iso2]);
+
+  function appendChunkToAssistantMessage(messageId: string, chunk: string) {
+    setMessages((current) =>
+      current.map((message) =>
+        message.id === messageId
+          ? {
+              ...message,
+              text: `${message.text || ""}${chunk}`,
+              streaming: true
+            }
+          : message
+      )
+    );
+  }
+
+  function removeMessage(messageId: string) {
+    setMessages((current) => current.filter((message) => message.id !== messageId));
+  }
+
+  function flushBufferedChunks() {
+    const messageId = streamMessageIdRef.current;
+    const chunk = streamBufferRef.current;
+    if (!messageId || !chunk) return;
+    streamBufferRef.current = "";
+    appendChunkToAssistantMessage(messageId, chunk);
+  }
+
+  function scheduleChunkAppend(messageId: string, chunk: string) {
+    streamMessageIdRef.current = messageId;
+    streamBufferRef.current += chunk;
+    if (streamFlushTimeoutRef.current !== null) return;
+    streamFlushTimeoutRef.current = window.setTimeout(() => {
+      streamFlushTimeoutRef.current = null;
+      flushBufferedChunks();
+    }, 50);
+  }
+
+  function resetStreamBuffer() {
+    if (streamFlushTimeoutRef.current !== null) {
+      window.clearTimeout(streamFlushTimeoutRef.current);
+      streamFlushTimeoutRef.current = null;
+    }
+    streamBufferRef.current = "";
+    streamMessageIdRef.current = null;
+  }
+
+  function resetServerDialog() {
+    const resetRequest = fetch("/api/ai-assistant/query", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "x-ai-reset": "1"
+      },
+      body: JSON.stringify({ message: "reset" })
+    })
+      .then(() => {})
+      .catch(() => {})
+      .finally(() => {
+        if (resetRequestRef.current === resetRequest) {
+          resetRequestRef.current = null;
+        }
+      });
+    resetRequestRef.current = resetRequest;
+    return resetRequest;
+  }
+
+  async function requestNonStreamAnswer(input: {
+    message: string;
+    signal: AbortSignal;
+  }) {
+    const response = await fetch("/api/ai-assistant/query", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      signal: input.signal,
+      body: JSON.stringify({
+        message: input.message,
+        geo_hint: activeGeo?.iso2,
+        lat: activeGeo?.lat,
+        lng: activeGeo?.lng,
+        model: typeof window !== "undefined" ? window.localStorage.getItem(MODEL_OVERRIDE_STORAGE_KEY) || undefined : undefined
+      })
+    });
+    const payload = (await response.json()) as AiQuerySuccess | AiQueryFailure;
+    if (!response.ok || !payload.ok) {
+      throw new Error(payload.ok ? "Request failed." : payload.error?.message || "Request failed.");
+    }
+    return payload;
+  }
+
+  function finalizeAssistantMessage(
+    messageId: string,
+    payload: { text?: string; sources?: string[]; safetyNote?: string | null; error?: boolean; streaming?: boolean }
+  ) {
+    setMessages((current) =>
+      current.map((message) => {
+        if (message.id !== messageId) return message;
+        const currentText = String(message.text || "").trim();
+        const nextText = String(payload.text || "").trim();
+        const keepCurrentText = currentText && isFallbackText(nextText);
+        return {
+          ...message,
+          text: keepCurrentText ? currentText : (nextText || currentText),
+          sources: Array.isArray(payload.sources) ? payload.sources : message.sources || [],
+          safetyNote: payload.safetyNote ?? message.safetyNote ?? null,
+          error: Boolean(payload.error),
+          streaming: Boolean(payload.streaming)
+        };
+      })
+    );
+  }
+
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (aiInputLocked || !normalizedQuery || loading) return;
+    if (resetRequestRef.current) {
+      await resetRequestRef.current;
+    }
+    const userMessageId = createMessageId();
+    const assistantMessageId = createMessageId();
     setLoading(true);
     setError(null);
-    setAnswer(null);
-    setSources([]);
-    setSafetyNote(null);
+    setMessages((current) => [
+      ...current,
+      { id: userMessageId, role: "user", text: normalizedQuery },
+      { id: assistantMessageId, role: "assistant", text: "", sources: [], safetyNote: null, streaming: true }
+    ]);
+    setQuery("");
+    requestControllerRef.current?.abort();
+    resetStreamBuffer();
+    const controller = new AbortController();
+    requestControllerRef.current = controller;
+    let streamedAnswer = "";
+    let hasStreamStarted = false;
     try {
       const response = await fetch("/api/ai-assistant/query", {
         method: "POST",
@@ -108,9 +405,13 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
           "content-type": "application/json",
           "x-ai-stream": "1"
         },
+        signal: controller.signal,
         body: JSON.stringify({
           message: normalizedQuery,
-          geo_hint: activeGeo?.iso2
+          geo_hint: activeGeo?.iso2,
+          lat: activeGeo?.lat,
+          lng: activeGeo?.lng,
+          model: typeof window !== "undefined" ? window.localStorage.getItem(MODEL_OVERRIDE_STORAGE_KEY) || undefined : undefined
         })
       });
       const contentType = String(response.headers.get("content-type") || "");
@@ -119,11 +420,49 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
         const reader = response.body.getReader();
         const decoder = new TextDecoder();
         let buffer = "";
-        let streamedAnswer = "";
         let sawDone = false;
         while (true) {
           const { done, value } = await reader.read();
-          if (done) break;
+          if (done) {
+            buffer += decoder.decode();
+            const parsed = parseAiStream(buffer);
+            buffer = parsed.rest;
+            const trailingEvent = parseTrailingAiStreamEvent(buffer);
+            const finalEvents = trailingEvent ? [...parsed.events, trailingEvent] : parsed.events;
+            for (const streamEvent of finalEvents) {
+              if (streamEvent.type === "delta") {
+                const chunk = String(streamEvent.text || "");
+                if (!chunk) continue;
+                hasStreamStarted = true;
+                streamedAnswer += chunk;
+                scheduleChunkAppend(assistantMessageId, chunk);
+              }
+              if (streamEvent.type === "done") {
+                flushBufferedChunks();
+                sawDone = true;
+                if (streamEvent.ok === false) {
+                  setError("Request failed.");
+                  finalizeAssistantMessage(assistantMessageId, {
+                    text: hasStreamStarted ? streamedAnswer : "Request failed.",
+                    error: !hasStreamStarted,
+                    streaming: false
+                  });
+                } else {
+                  const finalAnswer = String(streamEvent.answer || streamedAnswer || "").trim();
+                  const preferredAnswer = shouldPreferFinalAnswer(streamedAnswer, finalAnswer)
+                    ? finalAnswer
+                    : (hasStreamStarted && streamedAnswer.trim() ? streamedAnswer.trim() : finalAnswer);
+                  finalizeAssistantMessage(assistantMessageId, {
+                    text: preferredAnswer,
+                    sources: Array.isArray(streamEvent.sources) ? streamEvent.sources : [],
+                    safetyNote: streamEvent.safety_note || null,
+                    streaming: false
+                  });
+                }
+              }
+            }
+            break;
+          }
           buffer += decoder.decode(value, { stream: true });
           const parsed = parseAiStream(buffer);
           buffer = parsed.rest;
@@ -131,32 +470,60 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
             if (streamEvent.type === "delta") {
               const chunk = String(streamEvent.text || "");
               if (!chunk) continue;
+              hasStreamStarted = true;
               streamedAnswer += chunk;
-              setAnswer(streamedAnswer);
+              scheduleChunkAppend(assistantMessageId, chunk);
             }
             if (streamEvent.type === "done") {
+              flushBufferedChunks();
               sawDone = true;
               if (streamEvent.ok === false) {
                 setError("Request failed.");
-                setAnswer(null);
-                setSources([]);
-                setSafetyNote(null);
+                finalizeAssistantMessage(assistantMessageId, {
+                  text: hasStreamStarted ? streamedAnswer : "Request failed.",
+                  error: !hasStreamStarted,
+                  streaming: false
+                });
                 break;
               }
               const finalAnswer = String(streamEvent.answer || streamedAnswer || "").trim();
-              setAnswer(finalAnswer || null);
-              setSources(Array.isArray(streamEvent.sources) ? streamEvent.sources : []);
-              setSafetyNote(streamEvent.safety_note || null);
+              const preferredAnswer = shouldPreferFinalAnswer(streamedAnswer, finalAnswer)
+                ? finalAnswer
+                : (hasStreamStarted && streamedAnswer.trim() ? streamedAnswer.trim() : finalAnswer);
+              finalizeAssistantMessage(assistantMessageId, {
+                text: preferredAnswer,
+                sources: Array.isArray(streamEvent.sources) ? streamEvent.sources : [],
+                safetyNote: streamEvent.safety_note || null,
+                streaming: false
+              });
             }
           }
           if (sawDone) break;
         }
+        flushBufferedChunks();
         if (!sawDone && streamedAnswer.trim()) {
-          setAnswer(streamedAnswer.trim());
+          finalizeAssistantMessage(assistantMessageId, {
+            text: streamedAnswer.trim(),
+            streaming: false
+          });
         }
         if (!sawDone && !streamedAnswer.trim()) {
-          setError("Request failed.");
-          setAnswer(null);
+          try {
+            const payload = await requestNonStreamAnswer({ message: normalizedQuery, signal: controller.signal });
+            finalizeAssistantMessage(assistantMessageId, {
+              text: payload.answer,
+              sources: Array.isArray(payload.sources) ? payload.sources : [],
+              safetyNote: payload.safety_note || null,
+              streaming: false
+            });
+          } catch {
+            setError("Request failed.");
+            finalizeAssistantMessage(assistantMessageId, {
+              text: "Request failed.",
+              error: true,
+              streaming: false
+            });
+          }
         }
         return;
       }
@@ -164,30 +531,56 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
       const payload = (await response.json()) as AiQuerySuccess | AiQueryFailure;
       if (!response.ok || !payload.ok) {
         setError(payload.ok ? "Request failed." : payload.error?.message || "Request failed.");
-        setAnswer(null);
-        setSources([]);
-        setSafetyNote(null);
+        finalizeAssistantMessage(assistantMessageId, {
+          text: payload.ok ? "Request failed." : payload.error?.message || "Request failed.",
+          error: true,
+          streaming: false
+        });
         return;
       }
-      setAnswer(payload.answer);
-      setSources(Array.isArray(payload.sources) ? payload.sources : []);
-      setSafetyNote(payload.safety_note || null);
-    } catch {
+      finalizeAssistantMessage(assistantMessageId, {
+        text: payload.answer,
+        sources: Array.isArray(payload.sources) ? payload.sources : [],
+        safetyNote: payload.safety_note || null,
+        streaming: false
+      });
+    } catch (error) {
+      flushBufferedChunks();
+      if (controller.signal.aborted || (error instanceof Error && error.name === "AbortError")) {
+        if (hasStreamStarted && streamedAnswer.trim()) {
+          finalizeAssistantMessage(assistantMessageId, {
+            text: streamedAnswer.trim(),
+            streaming: false
+          });
+        } else {
+          removeMessage(assistantMessageId);
+        }
+        return;
+      }
       setError("Request failed.");
-      setAnswer(null);
-      setSources([]);
-      setSafetyNote(null);
+      finalizeAssistantMessage(assistantMessageId, {
+        text: "Request failed.",
+        error: true,
+        streaming: false
+      });
     } finally {
+      if (requestControllerRef.current === controller) {
+        requestControllerRef.current = null;
+      }
+      resetStreamBuffer();
       setLoading(false);
     }
   }
 
   function handleClear() {
+    requestControllerRef.current?.abort();
+    requestControllerRef.current = null;
+    resetStreamBuffer();
     setQuery("");
-    setAnswer(null);
-    setSources([]);
-    setSafetyNote(null);
+    setMessages([]);
     setError(null);
+    window.localStorage.removeItem(CHAT_STORAGE_KEY);
+    void resetServerDialog();
   }
 
   if (!isOpen) {
@@ -208,7 +601,7 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
 
   return (
     <div className={styles.aiDock} data-testid="new-map-ai-dock">
-      {answer || error ? (
+      {messages.length > 0 ? (
         <div className={styles.aiAnswerCard} data-testid="new-map-ai-answer">
           <div className={styles.aiAnswerHeader}>
             <div className={styles.aiAnswerTitle}>Dialog</div>
@@ -221,22 +614,44 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
               ×
             </button>
           </div>
-          <div className={styles.aiAnswerText}>{error || answer}</div>
-          {!error ? (
-            <div className={styles.aiAnswerMeta}>
-              {safetyNote || "Not legal advice."}
-              {activeGeo ? ` · GEO_HINT=${activeGeo.iso2}` : ""}
-            </div>
-          ) : null}
-          {!error && sources.length > 0 ? (
-            <div className={styles.aiSources}>
-              {sources.slice(0, 6).map((source) => (
-                <span key={source}>
-                  {source}
-                </span>
-              ))}
-            </div>
-          ) : null}
+          <div className={styles.aiChatThread}>
+            {messages.map((message) => (
+              <div
+                key={message.id}
+                ref={(node) => {
+                  messageRowRefs.current[message.id] = node;
+                }}
+                className={`${styles.aiMessageRow} ${message.role === "user" ? styles.aiMessageRowUser : styles.aiMessageRowAssistant}`}
+                data-ai-message={message.role}
+                data-streaming={message.streaming ? "true" : "false"}
+              >
+                <div
+                  className={`${styles.aiBubble} ${message.role === "user" ? styles.aiBubbleUser : styles.aiBubbleAssistant} ${message.error ? styles.aiBubbleError : ""}`}
+                >
+                  <div className={styles.aiBubbleRole}>{message.role === "user" ? "You" : "AI"}</div>
+                  <div className={styles.aiAnswerText} data-ai-message-text={message.role}>
+                    {message.text}
+                  </div>
+                  {message.role === "assistant" ? (
+                    <>
+                      <div className={styles.aiAnswerMeta}>
+                        {(message.safetyNote || "Not legal advice.") + (activeGeo ? ` · GEO_HINT=${activeGeo.iso2}` : "")}
+                      </div>
+                      {Array.isArray(message.sources) && message.sources.length > 0 ? (
+                        <div className={styles.aiSources}>
+                          {message.sources.slice(0, 6).map((source) => (
+                            <span key={`${message.id}:${source}`}>
+                              {source}
+                            </span>
+                          ))}
+                        </div>
+                      ) : null}
+                    </>
+                  ) : null}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       ) : null}
       <form className={styles.aiBar} onSubmit={onSubmit}>
@@ -244,6 +659,7 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
           +
         </button>
         <input
+          data-ai-input="1"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           className={styles.aiInput}
@@ -279,7 +695,7 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
           {ipStatus.message}
         </div>
       ) : null}
-      {(answer || error || query) && isOpen ? (
+      {(messages.length > 0 || error || query) && isOpen ? (
         <button
           type="button"
           className={styles.aiClearGhost}

@@ -451,6 +451,50 @@
   white-space: pre-wrap;
 }
 
+.aiChatThread {
+  display: grid;
+  gap: 12px;
+}
+
+.aiMessageRow {
+  display: flex;
+}
+
+.aiMessageRowAssistant {
+  justify-content: flex-start;
+}
+
+.aiMessageRowUser {
+  justify-content: flex-end;
+}
+
+.aiBubble {
+  max-width: min(100%, 540px);
+  border-radius: 18px;
+  padding: 12px 14px;
+}
+
+.aiBubbleAssistant {
+  background: rgba(91, 115, 131, 0.1);
+}
+
+.aiBubbleUser {
+  background: rgba(206, 231, 207, 0.8);
+}
+
+.aiBubbleError {
+  background: rgba(234, 208, 209, 0.85);
+}
+
+.aiBubbleRole {
+  margin-bottom: 6px;
+  color: #526776;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .aiAnswerMeta {
   margin-top: 10px;
   color: #667988;

@@ -1,0 +1,69 @@
+{
+  "updatedAt": 1776288110243,
+  "workingModels": [],
+  "stats": {
+    "qwen3:4b": {
+      "name": "qwen3:4b",
+      "successTurns": 0,
+      "failTurns": 2,
+      "avgFirstTokenMs": 0,
+      "avgResponseMs": 0,
+      "avgLength": 0,
+      "lastUsedAt": 1776274335076
+    },
+    "qwen2.5:1.5b": {
+      "name": "qwen2.5:1.5b",
+      "successTurns": 260,
+      "failTurns": 86,
+      "avgFirstTokenMs": 4698.388461538461,
+      "avgResponseMs": 14519.961538461535,
+      "avgLength": 1145.1884615384613,
+      "lastUsedAt": 1776289073163
+    },
+    "phi3:mini": {
+      "name": "phi3:mini",
+      "successTurns": 1,
+      "failTurns": 1,
+      "avgFirstTokenMs": 2804,
+      "avgResponseMs": 3089,
+      "avgLength": 31,
+      "lastUsedAt": 1776269395629
+    },
+    "smollm2:1.7b": {
+      "name": "smollm2:1.7b",
+      "successTurns": 0,
+      "failTurns": 1,
+      "avgFirstTokenMs": 0,
+      "avgResponseMs": 0,
+      "avgLength": 0,
+      "lastUsedAt": 1776268672951
+    },
+    "gemma:2b": {
+      "name": "gemma:2b",
+      "successTurns": 1,
+      "failTurns": 1,
+      "avgFirstTokenMs": 3697,
+      "avgResponseMs": 4200,
+      "avgLength": 58,
+      "lastUsedAt": 1776269387791
+    },
+    "llama3.2:3b": {
+      "name": "llama3.2:3b",
+      "successTurns": 0,
+      "failTurns": 2,
+      "avgFirstTokenMs": 0,
+      "avgResponseMs": 0,
+      "avgLength": 0,
+      "lastUsedAt": 1776289103205
+    },
+    "mistral:7b-instruct": {
+      "name": "mistral:7b-instruct",
+      "successTurns": 0,
+      "failTurns": 5,
+      "avgFirstTokenMs": 0,
+      "avgResponseMs": 0,
+      "avgLength": 0,
+      "lastUsedAt": 1776289088195
+    }
+  }
+}

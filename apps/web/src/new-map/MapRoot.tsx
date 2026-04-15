@@ -681,6 +681,16 @@ export default function MapRoot({
         mapReady={mapReady}
         cardIndex={cardIndex}
         selectedGeo={selectedGeoView}
+        routeGeo={
+          seoMarkerEntry
+            ? {
+                country: seoMarkerEntry.name,
+                iso2: seoMarkerEntry.code || undefined,
+                lat: seoMarkerEntry.coordinates?.lat,
+                lng: seoMarkerEntry.coordinates?.lng
+              }
+            : null
+        }
         clearSelectedGeo={() => setSelectedGeo(null)}
         applyGeoToMap={applyGeoToMap}
         centerMapToGeo={centerMapToGeo}

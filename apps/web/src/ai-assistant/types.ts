@@ -1,9 +1,21 @@
 export type AIRequest = {
   message: string;
   geo_hint?: string;
+  lat?: number;
+  lng?: number;
+  model?: string;
 };
 
-export type AIIntent = "legal" | "buy" | "possession" | "tourists" | "airport" | "medical" | "culture" | "general";
+export type AIIntent =
+  | "legal"
+  | "buy"
+  | "possession"
+  | "tourists"
+  | "airport"
+  | "medical"
+  | "culture"
+  | "nearby"
+  | "general";
 
 export type AIResponse = {
   answer: string;
@@ -36,6 +48,7 @@ export type DialogState = {
   lastTopic: string | null;
   lastAnswer: string | null;
   lastAssistant: string | null;
+  source: "user" | "ui" | "geo" | null;
   tone: "calm";
   depth: "short" | "medium";
 };
@@ -46,6 +59,9 @@ export type AIContext = {
   location: {
     geoHint: string | null;
     name: string | null;
+    source?: "user" | "ui" | "geo" | null;
+    lat?: number | null;
+    lng?: number | null;
   };
   intent: AIIntent;
   legal: {
@@ -77,6 +93,34 @@ export type AIContext = {
     title: string;
     text: string;
     source: string;
+  }>;
+  compare: {
+    geoHint: string | null;
+    name: string | null;
+    recreational: string | null;
+    medical: string | null;
+    finalRisk: string | null;
+    notes: string | null;
+  } | null;
+  nearby: {
+    warning: string;
+    results: Array<{
+      country: string;
+      geo: string;
+      distanceKm: number;
+      effectiveDistanceKm: number;
+      accessType: "legal" | "mostly_allowed" | "limited" | "tolerated" | "strict";
+      truthScore: number;
+      explanation: string;
+      whyThisResult: string;
+      destinationRisk: "low" | "medium" | "high";
+      pathRisk: "low" | "medium" | "high";
+    }>;
+  } | null;
+  memory: Array<{
+    query: string;
+    answer: string;
+    score: number;
   }>;
   history: DialogState;
   sources: string[];
