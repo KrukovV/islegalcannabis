@@ -1,6 +1,6 @@
 import { createRequestId, errorResponse, okResponse } from "@/lib/api/response";
 import { answerWithAssistant, buildContext, buildDeterministicRetryInstruction, generateAnswer, needsOutputRetry, normalizeAnswer } from "@/ai-assistant/aiRuntime";
-import { isGlobalCultureQuery, isProductRiskQuery, isSmallAmountRiskQuery, rememberDialog, resetDialogState } from "@/ai-assistant/dialog";
+import { isGlobalCultureQuery, isProductRiskQuery, isSmallAmountRiskQuery, isTraceRiskQuery, rememberDialog, resetDialogState } from "@/ai-assistant/dialog";
 import { buildMessages } from "@/ai-assistant/prompt";
 import { AIConnectionError, generateWithProvider, resolveAIProvider, verifyProviderConnection, warmProviderModel } from "@/ai-assistant/provider";
 import { loadWorkingModelsStore } from "@/ai-assistant/modelHealth";
@@ -127,6 +127,43 @@ async function streamOllamaResponse(
           safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
           llm_connected: false,
           model: "compare-engine",
+          partial: false
+        }));
+        controller.close();
+      }
+    });
+    return new Response(stream, {
+      status: 200,
+      headers: {
+        "content-type": "application/x-ndjson; charset=utf-8",
+        "cache-control": "no-store"
+      }
+    });
+  }
+  if (isTraceRiskQuery(message)) {
+    const answer = generateAnswer(context);
+    rememberDialog(context, answer);
+    if (answer.length > 60) {
+      saveMemory({
+        query: message,
+        intent: context.intent,
+        location: context.location.geoHint || undefined,
+        answer,
+        score: scoreMemory(answer, Boolean(context.history.lastIntent), Boolean(memoryMatches.length))
+      });
+    }
+    const stream = new ReadableStream<Uint8Array>({
+      start(controller) {
+        controller.enqueue(streamEvent({ type: "meta", requestId, model: "trace-risk-engine" }));
+        controller.enqueue(streamEvent({ type: "delta", text: answer }));
+        controller.enqueue(streamEvent({
+          type: "done",
+          ok: true,
+          answer,
+          sources: context.sources,
+          safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
+          llm_connected: false,
+          model: "trace-risk-engine",
           partial: false
         }));
         controller.close();

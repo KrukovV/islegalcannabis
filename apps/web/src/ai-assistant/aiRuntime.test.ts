@@ -156,6 +156,35 @@ describe("aiRuntime", () => {
     expect(answer.length).toBeGreaterThan(120);
   });
 
+  it("answers smell or residue questions with a grounded trace-risk answer", () => {
+    const context = buildContext(
+      "If police find a grinder with residue, what tends to matter most there?",
+      "AT",
+      undefined,
+      [],
+      "en"
+    );
+    const answer = generateAnswer(context);
+
+    expect(answer).toContain("Austria");
+    expect(answer.toLowerCase()).toContain("residue");
+    expect(answer.toLowerCase()).toContain("police");
+    expect(answer.length).toBeGreaterThan(120);
+  });
+
+  it("uses different trace-risk wording for smell-only and grinder-residue prompts", () => {
+    const smell = generateAnswer(
+      buildContext("If I only smell like weed after a party, is that already dangerous?", "AT", undefined, [], "en")
+    );
+    const grinder = generateAnswer(
+      buildContext("If police find a grinder with residue, what tends to matter most there?", "AT", undefined, [], "en")
+    );
+
+    expect(smell).not.toBe(grinder);
+    expect(smell.toLowerCase()).toContain("smell");
+    expect(grinder.toLowerCase()).toContain("grinder");
+  });
+
   it("does not carry the previous product subtopic into a fresh compare question", () => {
     const firstContext = buildContext("Would CBD oil be treated clearly different from THC products?", "CL", undefined, [], "en");
     rememberDialog(firstContext, "Chile: CBD-like products are not automatically safe.");

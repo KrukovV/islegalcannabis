@@ -44,6 +44,12 @@ export function isSmallAmountRiskQuery(query: string) {
   );
 }
 
+export function isTraceRiskQuery(query: string) {
+  return /smell like weed|smell of weed|grinder with residue|trace residue|residue left in a pouch|residue in a pouch|only smell like|just smell like|smell after a party|pouch residue|grinder residue/i.test(
+    String(query || "")
+  );
+}
+
 export function isContinuationQuery(query: string) {
   const trimmed = String(query || "").trim();
   if (!trimmed) return false;

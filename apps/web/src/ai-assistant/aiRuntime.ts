@@ -5,7 +5,7 @@ import { findNearbyTruth } from "@/lib/geo/nearbyTruth";
 import { deriveResultStatusFromCountryPageData } from "@/lib/resultStatus";
 import { buildMessages, type LlmMessage } from "./prompt";
 import type { AIContext, AIResponse, RagChunk } from "./types";
-import { detectIntent, getDialogState, isContinuationQuery, isGlobalCultureQuery, isProductRiskQuery, isSmallAmountRiskQuery, rememberDialog } from "./dialog";
+import { detectIntent, getDialogState, isContinuationQuery, isGlobalCultureQuery, isProductRiskQuery, isSmallAmountRiskQuery, isTraceRiskQuery, rememberDialog } from "./dialog";
 import { getTravelRiskBlock } from "./rag";
 import { retrieveMemory, saveMemory, scoreMemory } from "./memory";
 import { applyDialogStyle, fallbackHumanized } from "./dialogStyle";
@@ -770,9 +770,17 @@ function generateGlobalCulture(context: AIContext) {
   return generateCulture(context);
 }
 
+function formatRiskSignal(value: string | null | undefined) {
+  return String(value || "unknown")
+    .toLowerCase()
+    .replaceAll("_", " ")
+    .replace(/^the risk is\s+/i, "")
+    .trim();
+}
+
 function generateProductRisk(context: AIContext) {
   const place = context.location.name || context.location.geoHint || "this place";
-  const risk = String(context.legal?.finalRisk || "unknown").toLowerCase().replaceAll("_", " ");
+  const risk = formatRiskSignal(context.legal?.finalRisk);
   const recreational = String(context.legal?.recreational || "unknown").toLowerCase().replaceAll("_", " ");
   const distribution = String(context.legal?.distribution || "unknown").toLowerCase().replaceAll("_", " ");
   const medical = String(context.legal?.medical || "unknown").toLowerCase().replaceAll("_", " ");
@@ -786,7 +794,7 @@ function generateProductRisk(context: AIContext) {
 
 function generateSmallAmountRisk(context: AIContext) {
   const place = context.location.name || context.location.geoHint || "this place";
-  const risk = String(context.legal?.finalRisk || "high").toLowerCase().replaceAll("_", " ");
+  const risk = formatRiskSignal(context.legal?.finalRisk || "high");
   const recreational = String(context.legal?.recreational || "illegal").toLowerCase().replaceAll("_", " ");
   const prison = Boolean(context.legal?.prison);
   const arrest = Boolean(context.legal?.arrest);
@@ -799,6 +807,36 @@ function generateSmallAmountRisk(context: AIContext) {
         ? "Arrest exposure exists in the underlying data, so a 'small amount' can still trigger real trouble."
         : "Enforcement can still bite before anyone cares how small the amount looked.",
     "The honest bottom line is simple: do not assume discretion, sympathy, or a personal-use story will protect you."
+  ].join("\n\n");
+}
+
+function generateTraceRisk(context: AIContext) {
+  const place = context.location.name || context.location.geoHint || "this place";
+  const risk = formatRiskSignal(context.legal?.finalRisk);
+  const prison = Boolean(context.legal?.prison);
+  const arrest = Boolean(context.legal?.arrest);
+  const query = String(context.query || "").toLowerCase();
+  const smellCase = /smell like weed|smell of weed|only smell like|just smell like|smell after a party/.test(query);
+  const grinderCase = /grinder|residue|pouch/.test(query);
+  const lead = smellCase
+    ? `${place}: the smell alone can still become a problem because it gives police or security a reason to start paying attention.`
+    : grinderCase
+      ? `${place}: a grinder or pouch with residue is more than a harmless leftover because it can be treated as physical drug evidence.`
+      : `${place}: trace signs like smell or residue can still create real exposure even when the amount looks trivial.`;
+  const escalation = smellCase
+    ? `What matters most is that smell can trigger questioning, searches, or extra scrutiny, and the practical risk signal here is ${risk}.`
+    : grinderCase
+      ? `What matters most is that residue gives police or airport staff something concrete to point at, and the practical risk signal here is ${risk}.`
+      : `What matters most is that trace evidence gives police or airport staff a concrete reason to escalate the encounter, and the practical risk signal here is ${risk}.`;
+  return [
+    lead,
+    escalation,
+    prison
+      ? "Because prison exposure exists in the underlying data, it is not smart to treat trace evidence as harmless."
+      : arrest
+        ? "Because arrest exposure exists in the underlying data, trace evidence can still turn into a real enforcement problem."
+        : "Even without a large quantity, trace evidence can still trigger searches, questioning, or extra scrutiny.",
+    "The safest reading is simple: do not assume that 'it is only residue' or 'it is only the smell' will calm the situation down."
   ].join("\n\n");
 }
 
@@ -823,8 +861,8 @@ function generateComparison(context: AIContext) {
   const current = context.location.name || context.location.geoHint || "the current place";
   const compare = context.compare?.name || "the comparison place";
   const currentStatus = context.legal?.resultStatus ? String(context.legal.resultStatus).toLowerCase().replaceAll("_", " ") : "unknown";
-  const currentRisk = context.legal?.finalRisk ? String(context.legal.finalRisk).toLowerCase().replaceAll("_", " ") : "unknown";
-  const compareRisk = context.compare?.finalRisk ? String(context.compare.finalRisk).toLowerCase().replaceAll("_", " ") : "unknown";
+  const currentRisk = formatRiskSignal(context.legal?.finalRisk);
+  const compareRisk = formatRiskSignal(context.compare?.finalRisk);
   const compareStatus =
     context.compare?.recreational === "LEGAL"
       ? "legal"
@@ -854,6 +892,9 @@ export function generateAnswer(context: AIContext): string {
   }
   if (context.compare?.name && /compare|safer|why/i.test(context.query)) {
     return applyDialogStyle(ensureNonEmptyAnswer(context, generateComparison(context)), context.intent, context.language);
+  }
+  if (isTraceRiskQuery(context.query)) {
+    return applyDialogStyle(ensureNonEmptyAnswer(context, generateTraceRisk(context)), context.intent, context.language);
   }
   if (isSmallAmountRiskQuery(context.query)) {
     return applyDialogStyle(ensureNonEmptyAnswer(context, generateSmallAmountRisk(context)), context.intent, context.language);
@@ -975,6 +1016,26 @@ export async function answerWithAssistant(
       sources: context.sources,
       safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
       model: "compare-engine",
+      llm_connected: false
+    };
+  }
+  if (isTraceRiskQuery(query)) {
+    const answer = generateAnswer(context);
+    rememberDialog(context, answer);
+    if (answer.length > 60) {
+      saveMemory({
+        query,
+        intent: context.intent,
+        location: context.location.geoHint || undefined,
+        answer,
+        score: scoreMemory(answer, Boolean(context.history.lastIntent), Boolean(memoryMatches.length))
+      });
+    }
+    return {
+      answer,
+      sources: context.sources,
+      safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
+      model: "trace-risk-engine",
       llm_connected: false
     };
   }
