@@ -107,6 +107,14 @@ function resolveMentionedJurisdictions(query: string) {
   return pages;
 }
 
+function resolveHistoryComparePage(history: ReturnType<typeof getDialogState>, lockedPageGeo?: string | null) {
+  const previousThread = [history.lastUser, history.lastAssistant, history.lastQuery].filter(Boolean).join(" ");
+  if (!previousThread) return null;
+  return (
+    resolveMentionedJurisdictions(previousThread).find((page) => page.geo_code !== lockedPageGeo) || null
+  );
+}
+
 function isComparisonQuery(query: string) {
   return COMPARE_QUERY_RE.test(String(query || ""));
 }
@@ -120,7 +128,6 @@ function resolveLocationSelection(
   const lockedPage = history.lastLocation ? getCountryPageForHint(history.lastLocation) : null;
   const hintedPage = getCountryPageForHint(geoHint);
   const comparison = isComparisonQuery(query);
-  const continuation = isContinuationQuery(query);
 
   if (mentioned.length) {
     if (comparison && lockedPage) {
@@ -139,21 +146,13 @@ function resolveLocationSelection(
   }
 
   if (lockedPage) {
-    if (
-      !continuation &&
-      !comparison &&
-      hintedPage &&
-      hintedPage.geo_code !== lockedPage.geo_code
-    ) {
-      return {
-        primary: hintedPage,
-        compare: null,
-        source: "ui" as const
-      };
-    }
+    const comparePage =
+      comparison || isContinuationQuery(query)
+        ? resolveHistoryComparePage(history, lockedPage.geo_code)
+        : null;
     return {
       primary: lockedPage,
-      compare: null,
+      compare: comparePage,
       source: (history.source || "ui") as "user" | "ui" | "geo"
     };
   }
@@ -553,6 +552,12 @@ function needsTouristRetry(context: AIContext, answer: string) {
   return !/tourist|travel|visitor|airport|border/i.test(String(answer || "").toLowerCase());
 }
 
+function needsCompanionStyleRetry(answer: string) {
+  return /\bi am an ai\b|\bas an ai\b|\blanguage model\b|\bi cannot access current laws\b|\bi can'?t access current laws\b/i.test(
+    String(answer || "")
+  );
+}
+
 function findUnexpectedJurisdiction(context: AIContext, answer: string) {
   const lowerAnswer = String(answer || "").toLowerCase();
   const allowed = new Set(
@@ -577,6 +582,31 @@ function needsLocationRetry(context: AIContext, answer: string) {
     if (!lowerAnswer.includes(String(context.compare.name).toLowerCase())) return true;
   }
   return Boolean(findUnexpectedJurisdiction(context, answer));
+}
+
+function buildLocationRetryInstruction(context: AIContext) {
+  const primary = context.location.name || context.location.geoHint || "the selected location";
+  if (context.compare?.name) {
+    return `Retry rule: You are currently discussing ${primary}. Compare ONLY these countries: ${primary} and ${context.compare.name}. Do not introduce any other country. If you mention a place outside this pair, the answer is wrong. Continue the same dialogue and answer the latest question directly.`;
+  }
+  return `Retry rule: You are currently discussing ${primary}. You MUST stay strictly within ${primary} unless the user explicitly changes location. Do not introduce any other country. Continue the same dialogue and answer the latest question directly.`;
+}
+
+export function needsCompanionRetry(context: AIContext, answer: string) {
+  return (
+    needsCultureRetry(context, answer) ||
+    needsCompareRetry(context, answer) ||
+    needsTouristRetry(context, answer) ||
+    needsCompanionStyleRetry(answer) ||
+    needsLocationRetry(context, answer)
+  );
+}
+
+export function buildCompanionRetryInstruction(context: AIContext) {
+  if (context.intent === "culture") {
+    return "Retry rule: answer only from the culture fact lines, do not mention legal status, risk, prison, distribution, or medical access unless the user explicitly asked for law.";
+  }
+  return buildLocationRetryInstruction(context);
 }
 
 function dedupeBlocks(blocks: Array<string | null>) {
@@ -621,7 +651,25 @@ function ensureNonEmptyAnswer(context: AIContext, answer: string) {
 }
 
 function needsShortAnswerRetry(answer: string) {
-  return String(answer || "").trim().length < 80;
+  return String(answer || "").trim().length < 60;
+}
+
+export function normalizeAnswer(text: string) {
+  const normalized = String(text || "").replace(/\s+/g, " ").trim();
+  return normalized.length >= 40 ? normalized : null;
+}
+
+export function needsOutputRetry(context: AIContext, answer: string | null) {
+  if (!answer) return true;
+  return needsShortAnswerRetry(answer) || needsCompanionRetry(context, answer);
+}
+
+export function buildDeterministicRetryInstruction(context: AIContext) {
+  const location = context.location.name || context.location.geoHint || "this location";
+  if (context.compare?.name) {
+    return `Answer again clearly about ${location} and ${context.compare.name}. Be specific. Name both places directly.`;
+  }
+  return `Answer again clearly about ${location}. Be specific.`;
 }
 
 function continueLastTopic(context: AIContext) {
@@ -705,8 +753,42 @@ function generateGeneral(context: AIContext) {
   ]).join("\n\n");
 }
 
+function generateComparison(context: AIContext) {
+  const current = context.location.name || context.location.geoHint || "the current place";
+  const compare = context.compare?.name || "the comparison place";
+  const currentStatus = context.legal?.resultStatus ? String(context.legal.resultStatus).toLowerCase().replaceAll("_", " ") : "unknown";
+  const currentRisk = context.legal?.finalRisk ? String(context.legal.finalRisk).toLowerCase().replaceAll("_", " ") : "unknown";
+  const compareRisk = context.compare?.finalRisk ? String(context.compare.finalRisk).toLowerCase().replaceAll("_", " ") : "unknown";
+  const compareStatus =
+    context.compare?.recreational === "LEGAL"
+      ? "legal"
+      : context.compare?.recreational === "DECRIM"
+        ? "decriminalized"
+        : context.compare?.medical === "LEGAL" || context.compare?.medical === "LIMITED"
+          ? "mixed"
+          : compareRisk;
+  const safer =
+    /high/.test(currentRisk) && !/high/.test(compareRisk)
+      ? compare
+      : /high/.test(compareRisk) && !/high/.test(currentRisk)
+        ? current
+        : compare;
+  return [
+    `${current} and ${compare} are not the same situation.`,
+    `${current}: overall status is ${currentStatus}, with a ${currentRisk} risk signal.`,
+    `${compare}: overall status is ${compareStatus}, with a ${compareRisk} risk signal.`,
+    `If the question is which is safer, ${safer} looks safer in practical terms, but travel or border movement with cannabis is still a bad idea.`
+  ].join("\n\n");
+}
+
 export function generateAnswer(context: AIContext): string {
   const continuation = isContinuationQuery(context.query) && Boolean(context.history.lastIntent);
+  if (context.intent === "nearby") {
+    return applyDialogStyle(ensureNonEmptyAnswer(context, generateNearby(context)), context.intent, context.language);
+  }
+  if (context.compare?.name && /compare|safer|why/i.test(context.query)) {
+    return applyDialogStyle(ensureNonEmptyAnswer(context, generateComparison(context)), context.intent, context.language);
+  }
   if (continuation) {
     return applyDialogStyle(ensureNonEmptyAnswer(context, continueLastTopic(context)), context.intent, context.language);
   }
@@ -722,9 +804,6 @@ export function generateAnswer(context: AIContext): string {
       : context.intent === "culture"
           ? generateCulture(context)
           : generateGeneral(context);
-  if (context.intent === "nearby") {
-    return applyDialogStyle(ensureNonEmptyAnswer(context, answer), context.intent, context.language);
-  }
   if (isRepeatAnswer(answer, context.history.lastAnswer)) {
     return applyDialogStyle(
       ensureNonEmptyAnswer(context, rewriteRepeatedAnswer(context, answer)),
@@ -798,7 +877,8 @@ export async function answerWithAssistant(
   const memoryMatches = retrieveMemory(
     query,
     initialContext.intent,
-    initialContext.location.geoHint || undefined
+    initialContext.location.geoHint || undefined,
+    initialContext.history.lastLocation || initialContext.location.geoHint || undefined
   ).map((item) => ({
     query: item.query,
     answer: item.answer,
@@ -873,41 +953,22 @@ export async function answerWithAssistant(
       }
     }
 
-    if (
-      needsCultureRetry(context, answer) ||
-      needsCompareRetry(context, answer) ||
-      needsTouristRetry(context, answer) ||
-      needsLocationRetry(context, answer)
-    ) {
+    let normalizedAnswer = normalizeAnswer(answer);
+    if (needsOutputRetry(context, normalizedAnswer)) {
       const retryMessages: LlmMessage[] = [
         ...messages,
         {
           role: "user",
-          content:
-            context.intent === "culture"
-              ? "Retry rule: answer only from the culture fact lines, do not mention legal status, risk, prison, distribution, or medical access unless the user explicitly asked for law."
-              : context.compare?.name
-                ? `Retry rule: stay strictly on ${context.location.name || context.location.geoHint} and ${context.compare.name}. Do not introduce any other country. Answer the user's latest question directly with a new angle.`
-                : `Retry rule: answer strictly about ${context.location.name || context.location.geoHint}. Do not introduce any other country. Continue the same conversation and add one new insight.`
+          content: buildDeterministicRetryInstruction(context)
         }
       ];
       const retryResult = await generateWithProvider(retryMessages, { overrideModels: [usedModel] });
-      answer = retryResult.text;
+      normalizedAnswer = normalizeAnswer(retryResult.text);
     }
-    if (needsShortAnswerRetry(answer)) {
-      const retryMessages: LlmMessage[] = [
-        ...messages,
-        {
-          role: "user",
-          content:
-            context.compare?.name
-              ? `Retry rule: stay strictly on ${context.location.name || context.location.geoHint} and ${context.compare.name}, continue the same dialogue, do not restart, and answer in at least three full sentences.`
-              : `Retry rule: stay strictly on ${context.location.name || context.location.geoHint}, continue the same dialogue, do not restart, and answer in at least three full sentences.`
-        }
-      ];
-      const retryResult = await generateWithProvider(retryMessages, { overrideModels: [usedModel] });
-      answer = retryResult.text;
-    }
+    answer =
+      normalizedAnswer && !needsOutputRetry(context, normalizedAnswer)
+        ? normalizedAnswer
+        : generateAnswer(context);
     rememberDialog(context, answer);
     if (answer.length > 60) {
       saveMemory({

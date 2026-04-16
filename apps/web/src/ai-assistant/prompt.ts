@@ -1,4 +1,5 @@
 import type { AIContext } from "./types";
+import { buildDialogMessages, summarizeHistory } from "./buildContext";
 import { fewShotDialogs } from "./fewShotDialogs";
 import { isContinuationQuery } from "./dialog";
 
@@ -7,105 +8,9 @@ export type LlmMessage = {
   content: string;
 };
 
-export const AI_SYSTEM_PROMPT = `You are a calm, intelligent AI companion who helps people understand cannabis laws, culture, and real-world situations.
-
-You are NOT a generic assistant.
-You speak like a real person: clear, grounded, slightly warm, never robotic.
-
----
-
-CORE RULES:
-
-1. Always answer using real data:
-- legal status comes ONLY from provided system data (/api/check)
-- do NOT invent laws
-
-2. Stay within the current country or state:
-- NEVER switch country unless user explicitly changes it
-- continue the same context
-
-3. Explain, don’t just state:
-- avoid short answers like “illegal”
-- always add meaning:
-  what it implies, how strict, what risk
-
-4. Be natural:
-- vary sentence structure
-- avoid repeating same phrases
-- no шаблоны типа “в целом картина такая”
-
-5. Add light personality:
-- calm tone
-- slightly human
-- minimal reggae vibe (very subtle, no slang spam)
-
----
-
-DIALOG BEHAVIOR:
-
-- continue conversation, don’t restart
-- build on previous answer
-- add one new insight each turn
-
-If user says:
-- "and?" / "а еще?" / "why?" → continue deeper
-- short follow-ups → DO NOT reset topic
-
----
-
-STRUCTURE OF EACH ANSWER:
-
-1. short natural opener
-2. factual explanation
-3. real-world context (if available)
-4. risk interpretation
-5. optional follow-up question
-
----
-
-STRICTLY AVOID:
-
-❌ “I am an AI”
-❌ “I may be wrong”
-❌ generic disclaimers
-❌ switching countries
-❌ repeating previous answer
-❌ empty filler text
-
----
-
-TRAVEL RULE:
-
-Only mention airports or borders if:
-- user asked about travel
-- OR risk is critically high
-
----
-
-SAFETY:
-
-- do NOT give instructions to bypass law
-- do NOT suggest illegal actions
-- you may explain risks and consequences
-
----
-
-STYLE EXAMPLE:
-
-Bad:
-"Cannabis is illegal. Risk is high."
-
-Good:
-"Смотри спокойно:
-формально запрещено, и законы применяются довольно строго.
-Это значит, что даже небольшое количество может создать реальные проблемы."
-
----
-
-GOAL:
-
-Be useful, human, and consistent.
-Not smart — but understandable and real.`;
+export const AI_SYSTEM_PROMPT = `Stay in the current country.
+Explain, do not just answer.
+Continue the same conversation.`;
 
 function compactText(value: string | null | undefined, limit = 120) {
   const text = String(value || "").replace(/\s+/g, " ").trim();
@@ -127,6 +32,26 @@ function humanizeStatus(value: string | null | undefined) {
 }
 
 function compactContext(context: AIContext) {
+  if (context.compare?.name && /compare|safer|why/i.test(context.query)) {
+    return [
+      `Place: ${context.location.name || context.location.geoHint || "unknown"}.`,
+      context.legal?.resultStatus ? `Overall status is ${humanizeStatus(context.legal.resultStatus)}.` : null,
+      context.legal?.finalRisk ? `Risk signal is ${humanizeStatus(context.legal.finalRisk)}.` : null,
+      `Comparison place: ${context.compare.name}.`,
+      context.compare?.recreational || context.compare?.medical || context.compare?.finalRisk
+        ? `Comparison overall status is ${humanizeStatus(
+            context.compare?.recreational === "LEGAL"
+              ? "LEGAL"
+              : context.compare?.recreational === "DECRIM"
+                ? "DECRIM"
+                : context.compare?.medical === "LEGAL" || context.compare?.medical === "LIMITED"
+                  ? "MIXED"
+                  : context.compare?.finalRisk || "unknown"
+          )}.`
+        : null,
+      context.compare?.finalRisk ? `Comparison risk signal is ${humanizeStatus(context.compare.finalRisk)}.` : null
+    ].filter(Boolean).join("\n");
+  }
   if (context.intent === "nearby" && context.nearby?.results?.length) {
     return [
       `Place: ${context.location.name || context.location.geoHint || "unknown"}.`,
@@ -194,84 +119,31 @@ function selectFewShotDialogs(query: string, context: AIContext) {
   return [...exactIntent, ...general].slice(0, 3);
 }
 
-function summarizeConversation(context: AIContext, continueTopic: boolean) {
-  const location = context.location.name || context.location.geoHint || "unknown";
-  const compare = context.compare?.name ? ` Comparison country: ${context.compare.name}.` : "";
-  const focus = context.history.lastUser
-    ? `Recent user focus: ${compactText(context.history.lastUser, 80)}.`
-    : "Recent user focus: start or continue the same discussion.";
-  const topicRule = continueTopic
-    ? "Continue the same subtopic."
-    : "The user may switch subtopics between turns. Answer the current question directly and keep only the same country locked.";
-  return `User discusses cannabis laws in ${location}. ${topicRule} Do not switch country.${compare}\n${focus}`;
-}
-
 export function buildMessages(input: {
   query: string;
   context: AIContext;
 }): LlmMessage[] {
-  const continueTopic = isContinuationQuery(input.query);
-  const messages: LlmMessage[] = [
-    { role: "system", content: AI_SYSTEM_PROMPT },
-    {
-      role: "system",
-      content: [
-        summarizeConversation(input.context, continueTopic),
-        "Rules:",
-        `- Stay strictly within ${input.context.location.name || input.context.location.geoHint || "the selected country"}.`,
-        input.context.compare?.name ? `- Compare only ${input.context.location.name || input.context.location.geoHint} and ${input.context.compare.name}.` : "- Do not introduce any other country unless the user asks.",
-        continueTopic
-          ? "- Continue the previous conversation, do not restart."
-          : "- The user may ask a new subtopic. Answer the current question first.",
-        continueTopic
-          ? "- Add one new angle or insight."
-          : "- Keep country continuity, but do not drag the previous subtopic into the new answer."
-      ].join("\n")
-    }
-  ];
-  const casualGreeting = /^(how are you|how's it going|hows it going|what's up|whats up|как дела|как ты|ты как|ты здесь)\??$/i.test(
-    input.query.trim()
-  );
-  const lastAssistant = continueTopic && input.context.history.lastAssistant
-    ? [{ role: "assistant" as const, content: input.context.history.lastAssistant }]
-    : [];
-  const lastUser = continueTopic && input.context.history.lastUser
-    ? [{ role: "user" as const, content: input.context.history.lastUser }]
-    : [];
-  messages.push(...lastAssistant, ...lastUser);
-  messages.push({
-    role: "user",
-    content: [
-      `User question: ${input.query}`,
-      `Intent: ${input.context.intent}`,
-      casualGreeting
-        ? 'Answer rules: this is a casual greeting, reply warmly in at least three full sentences, keep it over 90 characters, continue the same conversation instead of restarting, and explicitly invite the next question about the same place.'
-      : input.context.intent === "culture"
-        ? "Answer rules: use only the culture facts, stay on culture only, do not drift into legal analysis unless the user asks, and if the facts are thin say that plainly instead of guessing."
-      : input.context.intent === "nearby"
-          ? "Answer rules: answer from the nearby options only, rank them by closeness and honesty, include distance, mention limited or tolerated places when present, and always include the border warning."
-          : "Answer rules: use the fact lines exactly, never upgrade or downgrade a status, compare overall status first and only then mention limits like distribution or enforcement, do not invent possession rules unless a fact line states them, mention the compare place only if it is present in the question or follow-up, use the travel note only for travel or tourist questions, keep the answer compact, rewrite the facts into natural prose instead of repeating the labels, and avoid phrases like 'In general' or 'It depends'.",
-      "Conversation summary:",
-      summarizeConversation(input.context, continueTopic),
-      "Fact lines:",
-      compactContext(input.context),
-      input.context.memory.length
-        ? `Useful previous answer: ${compactText(input.context.memory[0]?.answer || "", 160)}`
-        : null
-    ].join("\n")
-  });
-  return messages.filter((item) => item.content.trim());
+  return buildDialogMessages({
+    query: input.query,
+    systemPrompt: AI_SYSTEM_PROMPT,
+    context: input.context,
+    factLines: compactContext(input.context)
+  }).filter((item) => item.content.trim());
 }
 
 export function buildPrompt(input: {
   query: string;
   context: AIContext;
 }) {
-  const continueTopic = isContinuationQuery(input.query);
-  const casualGreeting = /^(how are you|how's it going|hows it going|what's up|whats up|как дела|как ты|ты как|ты здесь)\??$/i.test(
-    input.query.trim()
-  );
   const relevantDialogs = selectFewShotDialogs(input.query, input.context);
+  const history: LlmMessage[] = [];
+  if (input.context.history.lastAssistant) {
+    history.push({ role: "assistant", content: input.context.history.lastAssistant });
+  }
+  if (input.context.history.lastUser) {
+    history.push({ role: "user", content: input.context.history.lastUser });
+  }
+  const summary = summarizeHistory([...history, { role: "user", content: input.query }]);
   return [
     AI_SYSTEM_PROMPT,
     "",
@@ -283,22 +155,13 @@ export function buildPrompt(input: {
       ].join("\n"))
       .join("\n\n"),
     "",
-    continueTopic && input.context.history.lastUser && input.context.history.lastAssistant
+    isContinuationQuery(input.query) && input.context.history.lastUser && input.context.history.lastAssistant
       ? ["Previous conversation:", `User: ${input.context.history.lastUser}`, `Assistant: ${input.context.history.lastAssistant}`, ""].join("\n")
       : "",
-    input.context.memory.length
-      ? ["Useful previous answers:", ...input.context.memory.map((item, index) => `${index + 1}. Q: ${item.query}\nA: ${item.answer}`), ""].join("\n")
-      : "",
+    `Location: ${input.context.history.lastLocation || input.context.location.name || input.context.location.geoHint || "unknown"}`,
+    summary,
+    input.context.compare?.name ? `Compare ONLY: ${input.context.history.lastLocation || input.context.location.name || input.context.location.geoHint || "unknown"} and ${input.context.compare.name}` : "",
     `User question: ${input.query}`,
-    `Intent: ${input.context.intent}`,
-    summarizeConversation(input.context, continueTopic),
-    casualGreeting
-      ? 'Answer rules: this is a casual greeting, reply warmly in one short sentence, start with "All calm here.", and do not switch topics on your own.'
-      : input.context.intent === "culture"
-        ? "Answer rules: use only the culture facts, stay on culture only, do not drift into legal analysis unless the user asks, and if the facts are thin say that plainly instead of guessing."
-        : input.context.intent === "nearby"
-          ? "Answer rules: answer from the nearby options only, rank them by closeness and honesty, include distance, mention limited or tolerated places when present, and always include the border warning."
-        : "Answer rules: use the fact lines exactly, never upgrade or downgrade a status, compare overall status first and only then mention limits like distribution or enforcement, do not invent possession rules unless a fact line states them, mention the compare place only if it is present in the question or follow-up, use the travel note only for travel or tourist questions, keep the answer compact, and rewrite the facts into natural prose instead of repeating the labels.",
     "Fact lines:",
     compactContext(input.context)
   ].join("\n");

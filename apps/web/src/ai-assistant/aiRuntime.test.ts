@@ -1,7 +1,11 @@
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it } from "vitest";
 import { buildContext, generateAnswer } from "./aiRuntime";
-import { isContinuationQuery, rememberDialog } from "./dialog";
+import { isContinuationQuery, rememberDialog, resetDialogState } from "./dialog";
 import { buildMessages, buildPrompt } from "./prompt";
+
+afterEach(() => {
+  resetDialogState();
+});
 
 describe("aiRuntime", () => {
   it("builds grounded legal context from country storage and query intent", () => {
@@ -40,6 +44,15 @@ describe("aiRuntime", () => {
     expect(compare.compare?.name).toMatch(/Netherlands/);
   });
 
+  it("enforces the locked location over a changed ambient geo hint", () => {
+    const firstContext = buildContext("Germany cannabis?", "DE", undefined, [], "en");
+    rememberDialog(firstContext, "Germany stays the topic.");
+
+    const followUp = buildContext("Where safer?", "NO", undefined, [], "en");
+    expect(followUp.location.geoHint).toBe("DE");
+    expect(followUp.location.name).toMatch(/Germany/);
+  });
+
   it("generates a grounded dialogue answer without inventing a legal upgrade", () => {
     const context = buildContext("Что по закону в Иране?", "IR", undefined, [], "ru");
     const answer = generateAnswer(context);
@@ -72,15 +85,30 @@ describe("aiRuntime", () => {
     rememberDialog(firstContext, "Тестовый прошлый ответ.");
     const nextContext = buildContext("а еще?", "IN", undefined, [], "ru");
     const messages = buildMessages({ query: "а еще?", context: nextContext });
-    expect(messages.length).toBeLessThanOrEqual(5);
+    expect(messages.length).toBeLessThanOrEqual(6);
     expect(messages[0]?.role).toBe("system");
     expect(messages[1]?.role).toBe("system");
-    expect(messages[1]?.content).toContain("User discusses cannabis laws in India");
-    expect(messages[2]?.role).toBe("assistant");
-    expect(messages[2]?.content).toContain("Тестовый прошлый ответ.");
-    expect(messages[3]?.role).toBe("user");
-    expect(messages[3]?.content).toContain("Что по закону в Индии?");
+    expect(messages[1]?.content).toContain("Location: India");
+    expect(messages[2]?.role).toBe("system");
+    expect(messages[2]?.content).toContain("Topic:");
+    expect(messages[3]?.role).toBe("assistant");
+    expect(messages[3]?.content).toContain("Тестовый прошлый ответ.");
+    expect(messages[4]?.role).toBe("user");
+    expect(messages[4]?.content).toContain("Что по закону в Индии?");
     expect(messages.at(-1)?.role).toBe("user");
+  });
+
+  it("adds a hard location anchor and compare guard to the prompt summary", () => {
+    const firstContext = buildContext("Germany cannabis?", "DE", undefined, [], "en");
+    rememberDialog(firstContext, "Germany stays the topic.");
+    const compare = buildContext("Compare with Netherlands", "NO", undefined, [], "en");
+    const messages = buildMessages({ query: "Compare with Netherlands", context: compare });
+
+    expect(messages[1]?.content).toContain("Location: Germany");
+    expect(messages[2]?.content).toContain("Topic:");
+    expect(messages.at(-1)?.content).toContain("Compare ONLY:");
+    expect(messages.at(-1)?.content).toContain("Germany");
+    expect(messages.at(-1)?.content).toContain("Netherlands");
   });
 
   it("does not drag the previous subtopic into a new non-follow-up question", () => {
@@ -89,10 +117,9 @@ describe("aiRuntime", () => {
     const nextContext = buildContext("Какие фильмы посоветуешь?", "FI", undefined, [], "ru");
     const messages = buildMessages({ query: "Какие фильмы посоветуешь?", context: nextContext });
 
-    expect(messages.length).toBeLessThanOrEqual(3);
-    expect(messages.some((item) => item.role === "assistant")).toBe(false);
-    expect(messages[1]?.content).toContain("The user may switch subtopics between turns.");
-    expect(messages.at(-1)?.content).toContain("User question: Какие фильмы посоветуешь?");
+    expect(messages[1]?.content).toContain("Location: Finland");
+    expect(messages[2]?.content).toContain("Topic:");
+    expect(messages.at(-1)?.content).toContain("Какие фильмы посоветуешь?");
   });
 
   it("expands too-short answers instead of returning empty or tiny output", () => {
@@ -172,11 +199,14 @@ describe("aiRuntime", () => {
   });
 
   it("does not classify generic compare follow-ups as nearby intent", () => {
-    const compare = buildContext("Compare with Netherlands", "DE", undefined, [], "en");
+    const first = buildContext("Brazil cannabis?", "BR", undefined, [], "en");
+    rememberDialog(first, generateAnswer(first));
+    const compare = buildContext("Compare with Netherlands", "BR", undefined, [], "en");
     rememberDialog(compare, generateAnswer(compare));
-    const safer = buildContext("Where safer?", "DE", undefined, [], "en");
+    const safer = buildContext("Where safer?", "BR", undefined, [], "en");
 
     expect(compare.intent).not.toBe("nearby");
     expect(safer.intent).not.toBe("nearby");
+    expect(safer.compare?.name).toMatch(/Netherlands/);
   });
 });

@@ -1,5 +1,5 @@
 import { createRequestId, errorResponse, okResponse } from "@/lib/api/response";
-import { answerWithAssistant, buildContext, generateAnswer } from "@/ai-assistant/aiRuntime";
+import { answerWithAssistant, buildContext, buildDeterministicRetryInstruction, generateAnswer, needsOutputRetry, normalizeAnswer } from "@/ai-assistant/aiRuntime";
 import { rememberDialog, resetDialogState } from "@/ai-assistant/dialog";
 import { buildMessages } from "@/ai-assistant/prompt";
 import { AIConnectionError, generateWithProvider, resolveAIProvider, verifyProviderConnection, warmProviderModel } from "@/ai-assistant/provider";
@@ -95,7 +95,8 @@ async function streamOllamaResponse(
   const memoryMatches = retrieveMemory(
     message,
     baseContext.intent,
-    baseContext.location.geoHint || undefined
+    baseContext.location.geoHint || undefined,
+    baseContext.history.lastLocation || baseContext.location.geoHint || undefined
   ).map((item) => ({
     query: item.query,
       answer: item.answer,
@@ -141,16 +142,6 @@ async function streamOllamaResponse(
     });
   }
   const messages = buildMessages({ query: message, context });
-  const shortRetryMessages = [
-    ...messages,
-    {
-      role: "user" as const,
-      content:
-        context.compare?.name
-          ? `Retry rule: stay strictly on ${context.location.name || context.location.geoHint} and ${context.compare.name}, continue the same dialogue, do not restart, and answer in at least three full sentences.`
-          : `Retry rule: stay strictly on ${context.location.name || context.location.geoHint}, continue the same dialogue, do not restart, and answer in at least three full sentences.`
-    }
-  ];
   const health = await verifyProviderConnection(modelOverride ? [modelOverride] : undefined);
   const model = health.model;
 
@@ -164,26 +155,31 @@ async function streamOllamaResponse(
             overrideModels: [model],
             onDelta: (chunk) => controller.enqueue(streamEvent({ type: "delta", text: chunk }))
           });
-          if (String(attempt.text || "").trim().length < 80) {
-            attempt = await generateWithProvider(shortRetryMessages, {
+          let normalizedText = normalizeAnswer(attempt.text);
+          if (needsOutputRetry(context, normalizedText)) {
+            const retryMessages = [
+              ...messages,
+              {
+                role: "user" as const,
+                content: buildDeterministicRetryInstruction(context)
+              }
+            ];
+            attempt = await generateWithProvider(retryMessages, {
               overrideModels: [model],
               onDelta: (chunk) => controller.enqueue(streamEvent({ type: "delta", text: chunk }))
             });
+            normalizedText = normalizeAnswer(attempt.text);
           }
-          finalResult = { text: attempt.text, partial: attempt.partial, model: attempt.model };
+          finalResult = {
+            text:
+              normalizedText && !needsOutputRetry(context, normalizedText)
+                ? normalizedText
+                : generateAnswer(context),
+            partial: attempt.partial,
+            model: attempt.model
+          };
         } catch {
-          finalResult = null;
-        }
-        if (!finalResult) {
-          controller.enqueue(streamEvent({
-            type: "done",
-            ok: false,
-            error: {
-              code: "LLM_GENERATE_FAILED",
-              message: "The local companion model failed."
-            }
-          }));
-          return;
+          finalResult = { text: generateAnswer(context), partial: false, model };
         }
         rememberDialog(context, finalResult.text);
         if (!finalResult.partial && finalResult.text.length > 60) {

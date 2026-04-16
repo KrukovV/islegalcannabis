@@ -42,15 +42,14 @@ const OLLAMA_TAGS_URL = `${OLLAMA_HOST}/api/tags`;
 const OLLAMA_UNLOAD_URL = `${OLLAMA_HOST}/api/generate`;
 const OPENAI_MODEL = process.env.AI_MODEL || process.env.OPENAI_MODEL || "gpt-4o-mini";
 const OPENAI_BASE_URL = process.env.OPENAI_BASE_URL || "https://api.openai.com/v1";
-const OLLAMA_GENERATE_TIMEOUT_MS = Number(process.env.AI_TIMEOUT || 35000);
+const OLLAMA_GENERATE_TIMEOUT_MS = Number(process.env.AI_TIMEOUT || 30000);
 const EXTERNAL_GENERATE_TIMEOUT_MS = 8000;
 const OLLAMA_FIRST_TOKEN_TIMEOUT_MS = Number(process.env.AI_FIRST_TOKEN_TIMEOUT || 20000);
-const OLLAMA_STREAM_IDLE_MS = Number(process.env.AI_STREAM_IDLE || 8000);
+const OLLAMA_STREAM_IDLE_MS = Number(process.env.AI_STREAM_IDLE || 5000);
 const OLLAMA_STREAM_MIN_PARTIAL_CHARS = 40;
 const OLLAMA_STREAM_RETRY_MIN_CHARS = 30;
-const OLLAMA_STREAM_FLUSH_CHARS = 20;
 const OLLAMA_STOP_TIMEOUT_MS = 1200;
-const MODEL_HEALTH_TIMEOUT_MS = 5000;
+const MODEL_HEALTH_TIMEOUT_MS = 12000;
 const MODEL_HEALTH_MIN_CHARS = 10;
 const MODEL_HEALTH_CACHE_MS = 10 * 60 * 1000;
 let ollamaInferenceLock: Promise<void> = Promise.resolve();
@@ -176,7 +175,6 @@ function applyOllamaLine(
     hasToken: boolean;
     sawChunk: boolean;
     answer: string;
-    emitBuffer: string;
     doneSeen: boolean;
     onDelta?: (_chunk: string) => void;
     onFirstToken: () => void;
@@ -186,17 +184,13 @@ function applyOllamaLine(
   if (!line) return state;
   const payload = JSON.parse(line) as { message?: { content?: string }; response?: string; done?: boolean };
   const chunk = String(payload.message?.content || payload.response || "");
-  let { hasToken, sawChunk, answer, emitBuffer, doneSeen } = state;
+  let { hasToken, sawChunk, answer, doneSeen } = state;
   if (chunk) {
     hasToken = true;
     if (!sawChunk) state.onFirstToken();
     sawChunk = true;
     answer += chunk;
-    emitBuffer += chunk;
-    if (emitBuffer.length >= OLLAMA_STREAM_FLUSH_CHARS || /[.!?\n]$/.test(emitBuffer)) {
-      state.onDelta?.(emitBuffer);
-      emitBuffer = "";
-    }
+    state.onDelta?.(chunk);
   }
   if (payload.done) {
     doneSeen = true;
@@ -206,7 +200,6 @@ function applyOllamaLine(
     hasToken,
     sawChunk,
     answer,
-    emitBuffer,
     doneSeen
   };
 }
@@ -224,6 +217,8 @@ async function runOllamaChat(
     didRetry?: boolean;
   } = {}
 ): Promise<ProviderGenerateResult> {
+  const promptLength = messages.reduce((sum, message) => sum + String(message.content || "").length, 0);
+  console.warn("AI_PROMPT_DIAG", JSON.stringify({ model, promptLength }));
   const controller = new AbortController();
   const startedAt = Date.now();
   let firstTokenAt = 0;
@@ -241,9 +236,9 @@ async function runOllamaChat(
         messages,
         options: {
           num_ctx: 1024,
-          num_predict: 384,
-          temperature: 0.85,
-          top_p: 0.9
+          num_predict: 200,
+          temperature: 0.7,
+          top_p: 0.85
         }
       }),
       signal: controller.signal
@@ -266,7 +261,6 @@ async function runOllamaChat(
   const decoder = new TextDecoder();
   let lineBuffer = "";
   let answer = "";
-  let emitBuffer = "";
   let hasToken = false;
   let sawChunk = false;
   let doneSeen = false;
@@ -292,11 +286,10 @@ async function runOllamaChat(
       const lines = lineBuffer.split("\n");
       lineBuffer = lines.pop() || "";
       for (const rawLine of lines) {
-        ({ hasToken, sawChunk, answer, emitBuffer, doneSeen } = applyOllamaLine(rawLine, {
+        ({ hasToken, sawChunk, answer, doneSeen } = applyOllamaLine(rawLine, {
           hasToken,
           sawChunk,
           answer,
-          emitBuffer,
           doneSeen,
           onDelta: options.onDelta,
           onFirstToken
@@ -306,11 +299,10 @@ async function runOllamaChat(
       if (doneSeen) break;
     }
     if (lineBuffer.trim()) {
-      ({ hasToken, sawChunk, answer, emitBuffer, doneSeen } = applyOllamaLine(lineBuffer, {
+      ({ hasToken, sawChunk, answer, doneSeen } = applyOllamaLine(lineBuffer, {
         hasToken,
         sawChunk,
         answer,
-        emitBuffer,
         doneSeen,
         onDelta: options.onDelta,
         onFirstToken
@@ -344,7 +336,6 @@ async function runOllamaChat(
     throw new AIConnectionError("NO_TOKENS", "Ollama returned no stream tokens.", 503, `Expected ${OLLAMA_URL}`);
   }
   if (doneSeen && !isUnusableAssistantText(finalText) && finalText.length >= minUsableChars) {
-    if (emitBuffer) options.onDelta?.(emitBuffer);
     logModelDiag({
       model,
       firstTokenMs: finalFirstTokenMs,
@@ -355,7 +346,6 @@ async function runOllamaChat(
     return { text: finalText, partial: false, model, provider: "ollama", firstTokenMs: finalFirstTokenMs, responseMs: finalResponseMs };
   }
   if (!doneSeen && !streamBroke && finalText.length >= minPartialChars && !isUnusableAssistantText(finalText)) {
-    if (emitBuffer) options.onDelta?.(emitBuffer);
     logModelDiag({
       model,
       firstTokenMs: finalFirstTokenMs,
@@ -517,8 +507,14 @@ export async function verifyProviderConnection(overrideModels?: string[]): Promi
   const candidateModels = pickAvailableModels(availableModels, overrideModels);
   const existing = loadWorkingModelsStore();
   let workingModels: string[] = [];
-  if (existing.updatedAt && (Date.now() - existing.updatedAt) < MODEL_HEALTH_CACHE_MS) {
-    workingModels = candidateModels.filter((model) => existing.workingModels.includes(model));
+  const cachedWorkingModels = candidateModels.filter((model) => existing.workingModels.includes(model));
+  if (cachedWorkingModels.length) {
+    workingModels = cachedWorkingModels;
+    if (!existing.updatedAt || (Date.now() - existing.updatedAt) >= MODEL_HEALTH_CACHE_MS) {
+      updateWorkingModels(workingModels);
+    }
+  } else if (existing.updatedAt && (Date.now() - existing.updatedAt) < MODEL_HEALTH_CACHE_MS) {
+    workingModels = cachedWorkingModels;
   } else {
     for (const model of candidateModels) {
       if (await checkOllamaModelHealth(model)) {

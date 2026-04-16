@@ -1,100 +1,20 @@
 {
-  "updatedAt": 1776331775200,
-  "workingModels": [],
+  "updatedAt": 1776356592551,
+  "workingModels": [
+    "qwen2.5:1.5b"
+  ],
   "stats": {
     "qwen2.5:1.5b": {
       "name": "qwen2.5:1.5b",
-      "successTurns": 359,
-      "failTurns": 108,
-      "avgFirstTokenMs": 4709.626740947076,
-      "avgResponseMs": 14174.01114206128,
-      "avgLength": 1134.9693593314764,
-      "lastUsedAt": 1776331988580
-    },
-    "phi3:mini": {
-      "name": "phi3:mini",
-      "successTurns": 1,
-      "failTurns": 1,
-      "avgFirstTokenMs": 2804,
-      "avgResponseMs": 3089,
-      "avgLength": 31,
-      "lastUsedAt": 1776269395629
-    },
-    "smollm2:1.7b": {
-      "name": "smollm2:1.7b",
-      "successTurns": 0,
-      "failTurns": 1,
-      "avgFirstTokenMs": 0,
-      "avgResponseMs": 0,
-      "avgLength": 0,
-      "lastUsedAt": 1776268672951
-    },
-    "gemma:2b": {
-      "name": "gemma:2b",
-      "successTurns": 1,
-      "failTurns": 1,
-      "avgFirstTokenMs": 3697,
-      "avgResponseMs": 4200,
-      "avgLength": 58,
-      "lastUsedAt": 1776269387791
-    },
-    "llama3.2:3b": {
-      "name": "llama3.2:3b",
-      "successTurns": 0,
-      "failTurns": 2,
-      "avgFirstTokenMs": 0,
-      "avgResponseMs": 0,
-      "avgLength": 0,
-      "lastUsedAt": 1776289103205
-    },
-    "mistral:7b-instruct": {
-      "name": "mistral:7b-instruct",
-      "successTurns": 0,
-      "failTurns": 5,
-      "avgFirstTokenMs": 0,
-      "avgResponseMs": 0,
-      "avgLength": 0,
-      "lastUsedAt": 1776289088195
-    },
-    "phi4-mini:3.8b": {
-      "name": "phi4-mini:3.8b",
-      "successTurns": 0,
-      "failTurns": 4,
-      "avgFirstTokenMs": 0,
-      "avgResponseMs": 0,
-      "avgLength": 0,
-      "lastUsedAt": 1776290913206
-    },
-    "deepseek-coder:1.3b": {
-      "name": "deepseek-coder:1.3b",
-      "successTurns": 82,
-      "failTurns": 6,
-      "avgFirstTokenMs": 4581.2317073170725,
-      "avgResponseMs": 12218.329268292684,
-      "avgLength": 852.9634146341464,
-      "lastUsedAt": 1776315635273
-    },
-    "qwen2.5:3b": {
-      "name": "qwen2.5:3b",
-      "successTurns": 0,
-      "failTurns": 1,
-      "avgFirstTokenMs": 0,
-      "avgResponseMs": 0,
-      "avgLength": 0,
-      "lastUsedAt": 1776328142249
-    },
-    "deepseek-r1:1.5b": {
-      "name": "deepseek-r1:1.5b",
-      "successTurns": 0,
-      "failTurns": 2,
-      "avgFirstTokenMs": 0,
-      "avgResponseMs": 0,
-      "avgLength": 0,
-      "lastUsedAt": 1776328849887
+      "successTurns": 500,
+      "failTurns": 47,
+      "avgFirstTokenMs": 2621.970000000002,
+      "avgResponseMs": 14377.238000000003,
+      "avgLength": 1017.286,
+      "lastUsedAt": 1776357197336
     }
   },
   "roles": {
-    "qwen2.5:1.5b": "primary",
-    "deepseek-coder:1.3b": "fallback"
+    "qwen2.5:1.5b": "primary"
   }
 }

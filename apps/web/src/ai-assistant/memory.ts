@@ -85,13 +85,15 @@ export function loadMemory() {
   return loadStore().items;
 }
 
-export function retrieveMemory(query: string, intent: string, location?: string) {
+export function retrieveMemory(query: string, intent: string, location?: string, currentLocation?: string) {
   const store = loadStore();
   const normalizedLocation = String(location || "").trim().toUpperCase();
+  const normalizedCurrentLocation = String(currentLocation || location || "").trim().toUpperCase();
   const matches = store.items
     .map((item) => {
       if (item.intent !== intent) return null;
       if (normalizedLocation && String(item.location || "").toUpperCase() !== normalizedLocation) return null;
+      if (normalizedCurrentLocation && String(item.location || "").toUpperCase() !== normalizedCurrentLocation) return null;
       const queryScore = matchQueryScore(query, item.query);
       if (!queryScore && !normalizeQuery(query).includes(normalizeQuery(item.query))) return null;
       const score = item.score + queryScore + Math.min(item.used * 0.05, 0.3);

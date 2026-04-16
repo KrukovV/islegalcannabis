@@ -74,9 +74,11 @@ export function resetDialogState() {
   dialogState.depth = "medium";
 }
 
-export function rememberDialog(context: Pick<AIContext, "query" | "intent" | "location" | "culture">, answer: string) {
-  dialogState.lastQuery = String(context.query || "").trim() || null;
-  dialogState.lastUser = String(context.query || "").trim() || null;
+export function rememberDialog(context: Pick<AIContext, "query" | "intent" | "location" | "culture" | "compare">, answer: string) {
+  const compareSuffix = context.compare?.name ? ` ${context.compare.name}` : "";
+  const query = `${String(context.query || "").trim()}${compareSuffix}`.trim();
+  dialogState.lastQuery = query || null;
+  dialogState.lastUser = query || null;
   dialogState.lastIntent = context.intent;
   dialogState.lastLocation = context.location.geoHint || context.location.name || null;
   dialogState.lastTopic = context.culture[0]?.title || context.intent;

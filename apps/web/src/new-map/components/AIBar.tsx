@@ -43,6 +43,8 @@ type AiQueryFailure = {
 };
 
 const MODEL_NO_RESPONSE_MESSAGE = "модель не ответила, попробуй ещё раз";
+const CLARIFY_QUESTION_MESSAGE = "Уточни вопрос, я отвечу точнее";
+const STREAM_SETTLE_MS = 4000;
 
 type AiStreamEvent =
   | {
@@ -135,6 +137,7 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
   const streamBufferRef = useRef("");
   const streamMessageIdRef = useRef<string | null>(null);
   const streamFlushTimeoutRef = useRef<number | null>(null);
+  const streamSettleTimeoutRef = useRef<number | null>(null);
   const warmStartedRef = useRef(false);
   const activeGeoRef = useRef<string | null>(activeGeo?.iso2 || null);
   const [aiInputLocked, setAiInputLocked] = useState(shouldLockAiInputByDefault);
@@ -307,8 +310,24 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
       window.clearTimeout(streamFlushTimeoutRef.current);
       streamFlushTimeoutRef.current = null;
     }
+    if (streamSettleTimeoutRef.current !== null) {
+      window.clearTimeout(streamSettleTimeoutRef.current);
+      streamSettleTimeoutRef.current = null;
+    }
     streamBufferRef.current = "";
     streamMessageIdRef.current = null;
+  }
+
+  function scheduleStreamSettle(controller: AbortController, hasStreamStarted: () => boolean) {
+    if (streamSettleTimeoutRef.current !== null) {
+      window.clearTimeout(streamSettleTimeoutRef.current);
+    }
+    streamSettleTimeoutRef.current = window.setTimeout(() => {
+      streamSettleTimeoutRef.current = null;
+      if (hasStreamStarted() && !controller.signal.aborted) {
+        controller.abort();
+      }
+    }, STREAM_SETTLE_MS);
   }
 
   function resetServerDialog() {
@@ -366,9 +385,13 @@ async function requestNonStreamAnswer(input: {
         const currentText = String(message.text || "").trim();
         const nextText = String(payload.text || "").trim();
         const keepCurrentText = currentText && isFallbackText(nextText);
+        const displayText =
+          !payload.error && nextText && nextText.length < 40
+            ? (currentText.length >= 40 ? currentText : CLARIFY_QUESTION_MESSAGE)
+            : nextText;
         return {
           ...message,
-          text: keepCurrentText ? currentText : (nextText || currentText),
+          text: keepCurrentText ? currentText : (displayText || currentText),
           sources: Array.isArray(payload.sources) ? payload.sources : message.sources || [],
           safetyNote: payload.safetyNote ?? message.safetyNote ?? null,
           error: Boolean(payload.error),
@@ -438,6 +461,7 @@ async function requestNonStreamAnswer(input: {
                 hasStreamStarted = true;
                 streamedAnswer += chunk;
                 scheduleChunkAppend(assistantMessageId, chunk);
+                scheduleStreamSettle(controller, () => hasStreamStarted);
               }
               if (streamEvent.type === "done") {
                 flushBufferedChunks();
@@ -475,6 +499,7 @@ async function requestNonStreamAnswer(input: {
               hasStreamStarted = true;
               streamedAnswer += chunk;
               scheduleChunkAppend(assistantMessageId, chunk);
+              scheduleStreamSettle(controller, () => hasStreamStarted);
             }
             if (streamEvent.type === "done") {
               flushBufferedChunks();
