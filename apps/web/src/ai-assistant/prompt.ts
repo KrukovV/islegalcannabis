@@ -1,14 +1,15 @@
 import type { AIContext } from "./types";
 import { buildDialogMessages, summarizeHistory } from "./buildContext";
 import { fewShotDialogs } from "./fewShotDialogs";
-import { isContinuationQuery } from "./dialog";
+import { isContinuationQuery, isGlobalCultureQuery } from "./dialog";
 
 export type LlmMessage = {
   role: "system" | "user" | "assistant";
   content: string;
 };
 
-export const AI_SYSTEM_PROMPT = `Stay in the current country.
+export const AI_SYSTEM_PROMPT = `Stay in the current country for law questions.
+For culture or history questions, answer globally and do not force the current country.
 Explain, do not just answer.
 Continue the same conversation.`;
 
@@ -32,6 +33,9 @@ function humanizeStatus(value: string | null | undefined) {
 }
 
 function compactContext(context: AIContext) {
+  if (isGlobalCultureQuery(context.query)) {
+    return "Global topic: cannabis culture and history.";
+  }
   if (context.compare?.name && /compare|safer|why/i.test(context.query)) {
     return [
       `Place: ${context.location.name || context.location.geoHint || "unknown"}.`,

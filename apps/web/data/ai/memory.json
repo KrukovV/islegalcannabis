@@ -1,6 +1,127 @@
 {
   "items": [
     {
+      "id": "fee023a0a4d7b840",
+      "query": "Is it enforced?",
+      "intent": "general",
+      "location": "ZA",
+      "answer": "In South Africa / Sewula Afrika, cannabis law is as follows: 1. **Legal**: - Recreational cannabis use and possession are legally permitted in the country under certain conditions. 2. **Restricted Enforced**: - The enforcement of restrictions on cannabis is limited. - Penalties for illegal distribution or sale are minimal compared to other forms of drug-related offenses, indicating a lesser level of enforceability. 3. **Medical Access**: - Medical marijuana use and possession is also legally permitted under the country’s medical marijuana program regulations. 4. **Distribution Status**: - Distribution of cannabis is formally prohibited by law but enforcement is very limited or rarely enforced due to its illegal nature in the current context. 5. **Risk Signal**: - There are risk signals indicating that cannabis use may be subject to restrictions, such as potential increased scrutiny from authorities, but these are not universally applicable across all users or locations within the country. In summary, South Africa",
+      "score": 1,
+      "used": 0,
+      "ts": 1776360529005,
+      "last_used": 1776360529005
+    },
+    {
+      "id": "af2d2091a2f0f8e9",
+      "query": "Is it enforced?",
+      "intent": "general",
+      "location": "ZA",
+      "answer": "The cannabis laws in South Africa / Sewula Afrika are as follows: - **Legal**: Cannabis is legal across the board, including for medical and recreational use. - **Restricted Distribution**: Distribution of cannabis is formally illegal, but enforcement signals show it is rarely enforced or unenforced. - **Enforcement Signal**: There has been a detection of prison exposure in the data, indicating that possession might be considered a crime. However, this does not necessarily imply widespread enforcement. In summary: 1. **Legal**: Cannabis is legal for recreational use and medical purposes. 2. **Restricted Distribution**: The distribution aspect is officially illegal but enforcement signals show it is rarely enforced or unenforced. 3. **Enforcement Signal**: There has been a detection of prison exposure, which suggests possession might be considered a crime. So, the overall impression is that cannabis is legal in South Africa / Sewula Afrika, and while there are some restrictions on distribution, enforcement signals indicate it is rarely enforced or un",
+      "score": 1,
+      "used": 1,
+      "ts": 1776359906366,
+      "last_used": 1776360519789
+    },
+    {
+      "id": "ed77da17e97f8996",
+      "query": "What is 420?",
+      "intent": "general",
+      "location": "ZA",
+      "answer": "In the context of your query, it seems that you're discussing cannabis use within the legal framework of South Africa / Sewula Afrika. Here are some key points: 1. Legal Status: - Recreational: Yes, for personal or social purposes (though not in public spaces) - Medical: Yes, for therapeutic and medical uses approved by healthcare providers 2. Distribution Laws: - Restrictions: The law generally prohibits the distribution of cannabis to minors and non-authorized individuals - Risk Signal: Restricted suggests there may be some exceptions or leniency in enforcement. 3. Enforcement Signals: - Enforcement Rare: While not strictly enforced, it's noted that such cases are relatively rare compared to other countries with stricter drug laws. 4. Overall Situation: - Legal Framework: The overall legal framework is more focused on medical use and recreational purposes rather than the distribution of cannabis for non-authorized individuals. 5. Risks: - Restricted: This indicates there",
+      "score": 1,
+      "used": 2,
+      "ts": 1776359038358,
+      "last_used": 1776360519789
+    },
+    {
+      "id": "cd04f495b5efc315",
+      "query": "Is it enforced?",
+      "intent": "general",
+      "location": "AU",
+      "answer": "The current cannabis laws in Australia are complex and vary by state or territory, but here's an overview: ### Overall Status: - **Cannabis is entirely prohibited across all states and territories except for the Northern Territory**. ### Recreational Status: - It is **illegal to possess, grow, cultivate, produce, manufacture, import, export, sell, tender for sale, or give away cannabis in any form (whether fresh, dried, smokeable, edible, or otherwise)** without a valid prescription from a medical practitioner who has registered with the Commonwealth of Australia. ### Medical Status: - **Medical marijuana** is legal under the Therapeutic Goods Administration (TGA) regulations. The TGA recognizes that cannabis can be used to treat certain conditions and permits its use for medicinal purposes when prescribed by a qualified health professional, provided they are registered with the Commonwealth of Australia. ### Distribution Status: - It is **illegal to distribute cannabis without a valid prescription from a medical practitioner registered with the Commonwealth",
+      "score": 1,
+      "used": 0,
+      "ts": 1776360437350,
+      "last_used": 1776360437350
+    },
+    {
+      "id": "6f38e78eec98b213",
+      "query": "Is it enforced?",
+      "intent": "general",
+      "location": "AU",
+      "answer": "In Australia, the use and possession of cannabis are generally prohibited under federal legislation. The situation regarding medical marijuana differs slightly from recreational use. 1. **Recreational Use**: It is currently illegal to possess or consume cannabis for any purpose in Australia, including recreational use. 2. **Medical Marijuana**: The medicinal use of cannabis is legal with a prescription from a healthcare provider who has obtained the necessary license or approval from the relevant regulatory body (the Therapeutic Goods Administration). 3. **Distribution and Trafficking**: It is illegal to distribute, manufacture, import, export, sell, purchase, barter, or possess cannabis for any purpose. 4. **Risk Signal**: The risk signal of \"high_risk\" indicates that cannabis use poses significant risks, including the potential for addiction, impaired judgment, health issues, and social problems. 5. **Enforcement Signal**: The enforcement signal being \"active\" suggests there are ongoing efforts to enforce these laws through law enforcement agencies such as police and customs officers",
+      "score": 1,
+      "used": 1,
+      "ts": 1776359773301,
+      "last_used": 1776360426762
+    },
+    {
+      "id": "0f8a8f1962bb41b7",
+      "query": "What is 420?",
+      "intent": "general",
+      "location": "AU",
+      "answer": "Let's break it down calmly:\n\nThere is another angle here that matters:\n\nReality on the ground can feel different: Australia remains formally illegal in law. That is not permission, only the current social signal.\n\nOn the medical side, access is legal in the current data.\n\nIf you want, we can compare this with another country or state.\n\nWant to keep going?",
+      "score": 1,
+      "used": 2,
+      "ts": 1776358923016,
+      "last_used": 1776360426762
+    },
+    {
+      "id": "d56f434a44237130",
+      "query": "Is it enforced?",
+      "intent": "general",
+      "location": "IN",
+      "answer": "The general cannabis law in India / भारत can be described as follows: 1. **Overall Status**: The overall legal status of marijuana (cannabis) in India is considered mixed due to varying regional laws and enforcement policies. 2. **Recreational Status**: Recreational use of marijuana is illegal throughout India, including all parts of the country. This means that individuals are not allowed to possess or consume cannabis for recreational purposes under any circumstances without facing legal consequences. 3. **Medical Status**: Medical use of cannabis is legally recognized in India. The Indian government has legalized medical marijuana through various regulations and permits, allowing patients with specific conditions (such as epilepsy) to obtain a doctor's prescription and access the drug for medicinal purposes. 4. **Distribution Status**: It is illegal to distribute or sell marijuana both recreationally and medically across all of India. 5. **Risk Signal**: The overall enforcement signal suggests that while there are laws against cannabis use, distribution, and medical possession",
+      "score": 1,
+      "used": 1,
+      "ts": 1776359516281,
+      "last_used": 1776360237781
+    },
+    {
+      "id": "be48b5739995ed4f",
+      "query": "What is 420?",
+      "intent": "general",
+      "location": "IN",
+      "answer": "Short and honest:\n\nThere is another angle here that matters:\n\nReality on the ground can feel different: Cannabis rules remain restrictive in India overall, but enforcement varies by region and social tolerance persists in specific contexts. That is not permission, only the current social signal.\n\nOn the medical side, access is legal in the current data.\n\nIf you want, we can compare this with another country or state.\n\nWant to keep going?",
+      "score": 1,
+      "used": 2,
+      "ts": 1776358510931,
+      "last_used": 1776360237781
+    },
+    {
+      "id": "04f8936f2abc1fbe",
+      "query": "Is it enforced?",
+      "intent": "general",
+      "location": "ES",
+      "answer": "In Spain / España, cannabis law is primarily decriminalized as of the current data available: 1. Recreational: Cannabis is legally consumed for recreational purposes in Spain / España but with strict regulations and controls. 2. Medical: There is legal access to medical cannabis, although obtaining it can be a bureaucratic process. On the enforcement front: - While there are records indicating that individuals have been incarcerated due to cannabis offenses (prison exposure), this does not necessarily mean the system is strictly enforcing every law. It's important to note that \"high_risk\" and \"active\" signals suggest some level of risk but also imply that certain areas or types of violations might still be addressed. - The overall decriminalization status indicates a change from previous strict prohibitions, suggesting a move towards more lenient regulations. It's worth noting that while the legal landscape is changing, enforcement in Spain / España may not always match up to those changes due to various factors like local interpretations and regional variations.",
+      "score": 1,
+      "used": 0,
+      "ts": 1776360176855,
+      "last_used": 1776360176855
+    },
+    {
+      "id": "7c49e62e3e317912",
+      "query": "Is it enforced?",
+      "intent": "general",
+      "location": "ES",
+      "answer": "Here in Spain / España: 1. **Overall Status**: Cannabis is \"decriminalized\" which means it's not entirely banned, but there are specific laws and regulations that apply. 2. **Recreational Status**: The recreational use of cannabis is also decriminalized. 3. **Medical Status**: Medical cannabis usage is legal in Spain / España. This includes the cultivation, possession, and distribution for medical purposes. 4. **Distribution Status**: Distribution of cannabis is considered illegal in Spain / España. 5. **Risk Signal**: There are high risk signals associated with this situation, suggesting that there may be a higher likelihood or severity of consequences if caught breaking these laws. 6. **Enforcement Signal**: The presence of \"active enforcement\" means that it's likely that authorities would be actively looking for and enforcing these regulations. In summary: Spain / España has made significant progress in cannabis legalization by decriminalizing its use, medical applications, but the possession and distribution remains illegal despite having legal",
+      "score": 1,
+      "used": 1,
+      "ts": 1776359383732,
+      "last_used": 1776360150070
+    },
+    {
+      "id": "cb8ffa41818e0cc6",
+      "query": "What is 420?",
+      "intent": "general",
+      "location": "ES",
+      "answer": "If we continue with facts: 1. **Cannabis (420)**: - 420 refers to a slang term often used in the cannabis community to denote the date of origin and sometimes the source location for the cannabis being distributed or sold. - In Spain / España, cannabis is decriminalized but not legalized under current laws. The term \"420\" might be commonly associated with this country due to its legal status and history. 2. **Risk Signal**: - While decriminalization means a low risk signal, enforcement signals indicate that the system remains active, suggesting there are still risks involved. - Active enforcement can mean increased monitoring or potential penalties for those caught dealing cannabis in Spain / España. 3. **Distribution Status**: - As of now, distribution is considered illegal, indicating that it is not allowed under current laws and regulations. - This lack of legal recognition makes the practice of distributing cannabis a significant risk, as it",
+      "score": 1,
+      "used": 2,
+      "ts": 1776358252914,
+      "last_used": 1776360150070
+    },
+    {
       "id": "849f4d7f77b96aed",
       "query": "Which is safer?",
       "intent": "general",
@@ -2078,127 +2199,6 @@
       "used": 0,
       "ts": 1776343703093,
       "last_used": 1776343703093
-    },
-    {
-      "id": "a4d6f530047be3ca",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "IR",
-      "answer": "What is cannabis law here?\n\nIran / ایران:\n- Overall status: Illegal\n- Risk signal: Restricted\n\nNetherlands / Nederland:\n- Overall status: Mixed (legal for medical marijuana)\n- Risk signal: Restricted",
-      "score": 1,
-      "used": 0,
-      "ts": 1776343573427,
-      "last_used": 1776343573427
-    },
-    {
-      "id": "80448838604d834d",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "KH",
-      "answer": "It's important to acknowledge that while it might be stated that marijuana use is illegal, the enforcement can vary significantly based on local circumstances.\n\nRegarding risks:\n\n1. Legal risks: Using or possessing marijuana could lead to legal consequences such as fines, community service, or even imprisonment. These outcomes depend heavily on where and how you are caught using the drug.\n\n2. Health Risks: There might be long-term health implications related to regular use, although these can vary depending on individual factors like age, health condition, and frequency of use.\n\n3. Social Implications: The social stigma associated with marijuana use in Cambodia / Kâmpŭchéa could lead individuals to feel isolated or ostracized from their peers, especially those who do not condone the use of cannabis.\n\n4. Availability and Quality: Given that cultivation is illegal, it can be difficult for users to know exactly what they are ingesting. This lack of consistency in quality and purity might pose some health risks over time.\n\n5. Health Risks: Regular use could potentially lead to long-term physical or mental health issues.\n\nRegarding safety:\n\nWhile the legal status of marijuana in Cambodia / Kâmpŭchéa is illegal, it",
-      "score": 1,
-      "used": 0,
-      "ts": 1776343345716,
-      "last_used": 1776343345716
-    },
-    {
-      "id": "6478263d14e53034",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "BR",
-      "answer": "In Brazil, cannabis law has evolved significantly since its legalization in January 2023 for recreational use but remains a grey area when it comes to medical marijuana and distribution of all forms.\n\nRecreational Use: Since cannabis is decriminalized, possession up to one gram per person per day is not penalized under Brazilian law. However, the specific weight limit varies by state and can be found on local regulations or websites specializing in legal cannabis products.\n\nMedical Marijuana: The use of medical marijuana for specific conditions such as chronic pain, epilepsy, and cancer treatment has been legalized in Brazil. Patients must obtain a prescription from their physician and can only access these products through authorized clinics or pharmacies that have obtained the necessary licenses from the National Agency of Drug Control (ANSE).\n\nDistribution: While cannabis is decriminalized, its distribution remains illegal at the federal level. This means it's not available on the black market but may still exist in unofficial channels or through unlicensed pharmacies. It’s important to note that these products are typically high risk due to their potential for abuse and misuse.\n\nRisk Signal: The overall situation suggests that while some recreational use is permitted, there's a higher risk associated with its availability",
-      "score": 1,
-      "used": 0,
-      "ts": 1776343171583,
-      "last_used": 1776343171583
-    },
-    {
-      "id": "0ca55b1a81a74be0",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "FI",
-      "answer": "Place: Finland / Suomi.\nOverall status is decriminalized.\nRisk signal is restricted.\n\nComparison Place: Netherlands / Nederland.\nComparison overall status is mixed.\nComparison risk signal is restricted.\n\nRegarding which place is safer, both countries share some similarities in terms of restrictions on cannabis use:\n- In Finland/Suomi, personal possession beyond 30 grams for personal use can be arrested without fines or imprisonment. This means individuals are at greater legal risk than those caught with less than the threshold.\n- The Netherlands/Nederland's legal framework is more lenient but also includes significant enforcement measures that could potentially lead to consequences if laws are breached.\n\nFrom these points, it seems Finland/Suomi imposes a higher level of restriction on personal cannabis possession and uses. It might be safer due to fewer legal consequences for what could otherwise be considered a minor offense, particularly the potential arrest without fines.\n\nHowever, important factors such as overall safety conditions in both countries should also be considered. Finland is generally known for having lower crime rates compared to many European nations, including its neighboring country of Estonia and Norway, though the specific safety standards are best gauged by local statistics or studies focusing on public perception and practices within",
-      "score": 1,
-      "used": 0,
-      "ts": 1776343084258,
-      "last_used": 1776343084258
-    },
-    {
-      "id": "4091112e7bcc763e",
-      "query": "What are real risks?",
-      "intent": "legal",
-      "location": "FI",
-      "answer": "You're absolutely right about staying focused on Finland/Suomi, which is an important rule to follow when discussing this topic in detail.\n\nLet me break down what we've discussed so far:\n\n**Enforcement Signal: Active**\n\nThis indicates that law enforcement actively monitors for cannabis-related offenses and can target individuals found with small quantities of personal use. The fact that there's a zero-tolerance policy also implies that strict measures are taken against illegal activities, even if they're not officially considered crimes per se.\n\n**Real Risks: Limited Information**\n\nGiven the restrictions on medical and distribution aspects, we don't have extensive information about actual risks associated with cannabis use or how these risks manifest in real life. The focus has been more on prevention, education, and legal enforcement rather than practical guidance on potential dangers.\n\nIf you want to delve into specific health concerns related to cannabis use in Finland/Suomi, it would be helpful if you could provide some context about what kind of information is most relevant or useful for your situation. This might include advice tailored specifically to users living within the country's borders.\n\nWould you like me to clarify any other points based on our conversation so far?",
-      "score": 1,
-      "used": 0,
-      "ts": 1776343028157,
-      "last_used": 1776343028157
-    },
-    {
-      "id": "d9b29fdab7deaa7e",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "IR",
-      "answer": "In Iran, cannabis law is considered illegal in various aspects including cultivation, possession, distribution, and use of the substance for recreational or medical purposes. This status makes it unlawful to possess, consume, distribute, or create marijuana-related substances according to Iranian laws. As enforcement remains active, the authorities are known to enforce such prohibitions rigorously.\n\nWould you like more information on any specific aspect of cannabis law in Iran?",
-      "score": 1,
-      "used": 0,
-      "ts": 1776342840198,
-      "last_used": 1776342840198
-    },
-    {
-      "id": "ebe5a9ad4259d10e",
-      "query": "Why?",
-      "intent": "general",
-      "location": "MA",
-      "answer": "When comparing the safety of Morocco / المغرب and the Netherlands / Nederland, it's essential to consider their legal statuses and potential risks: ### Morrocco / مغرب (Morocco): - **Overall Status:** Illegal - **Risk Signal:** Restricted ### Netherlands / Nederland: - **Overall Status:** Mixed - **Risk Signal:** Restricted **Comparison:** 1. **Legal Status:** - Morocco is illegal in its entirety, which can lead to severe legal consequences and restrictions on personal freedoms. - The Netherlands has a more mixed status but still presents some risks, primarily due to the country's history of colonization. 2. **Risk Signal:** - Both countries have restricted risk signals, suggesting that there are various potential dangers or restrictions associated with their populations, though not necessarily all equally severe in both cases. **Key Points:** - The overall status being illegal in Morocco is likely more restrictive and poses greater legal risks compared to the mixed status of the Netherlands.",
-      "score": 0.8,
-      "used": 0,
-      "ts": 1776357197396,
-      "last_used": 1776357197396
-    },
-    {
-      "id": "936f9e92fe328c7d",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "MA",
-      "answer": "Morocco's cannabis laws are a bit different from many other countries, but they do fall under the category of \"illegal.\" Here’s what you need to know: 1. **Overall Status**: Cannabis is formally illegal in Morocco / المغرب. 2. **Recreational Status**: Recreational use of cannabis is also officially banned in Morocco. 3. **Medical Status**: Medical marijuana is legal, but this can vary depending on the patient's situation and approval from a healthcare provider or authority. 4. **Distribution Status**: Distribution of cannabis is officially illegal in Morocco / المغرب. 5. **Risk Signal**: The general perception is that there are \"restricted\" opportunities for using or obtaining cannabis in some areas due to legal warnings, but enforcement might not be strictly followed. 6. **Enforcement Signal**: Despite the lack of official prohibition, you might encounter some informal tolerance zones where it's considered okay to use cannabis without risk of being caught. This is not a sanctioned way to consume cannabis and should",
-      "score": 0.8,
-      "used": 1,
-      "ts": 1776357091208,
-      "last_used": 1776357160379
-    },
-    {
-      "id": "0d70ba970c7f9035",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "MA",
-      "answer": "Short and honest:\n\nMorocco / المغرب and Netherlands / Nederland are not the same situation.\n\nMorocco / المغرب: overall status is formally illegal, with a restricted risk signal.\n\nNetherlands / Nederland: overall status is mixed, with a restricted risk signal.\n\nIf the question is which is safer, Netherlands / Nederland looks safer in practical terms, but travel or border movement with cannabis is still a bad idea.\n\nWant to keep going?",
-      "score": 0.8,
-      "used": 0,
-      "ts": 1776357154943,
-      "last_used": 1776357154943
-    },
-    {
-      "id": "a20e65cf22426e03",
-      "query": "What are real risks?",
-      "intent": "legal",
-      "location": "MA",
-      "answer": "Morocco's cannabis laws are indeed a bit unique, and they don't always match up with the general perception of enforcement. While it is officially banned, there can be some informal tolerance zones where people might find it acceptable to use or obtain cannabis in certain areas. The risk signal suggests that while you're unlikely to be caught for recreational use, there could potentially be risks involved if you are found using or possessing marijuana anyway. It's worth noting that these risks might vary depending on the specific circumstances and local authorities' interpretation of laws. Enforcement can indeed be active despite legal prohibitions, meaning that even though it is technically illegal, people who break the law may still do so without fear of immediate consequences. This makes for a somewhat unpredictable environment where both legality and unofficial tolerance coexist to varying degrees in different parts of Morocco / المغرب.",
-      "score": 0.8,
-      "used": 0,
-      "ts": 1776357111754,
-      "last_used": 1776357111754
-    },
-    {
-      "id": "c7594f0a8a665bdc",
-      "query": "Why?",
-      "intent": "general",
-      "location": "TH",
-      "answer": "Thailand / ประเทศไทย and the Netherlands / Nederland are two vastly different countries in terms of their approach to drug policies, which significantly impacts safety. ### Thailand: - **Legal Medical Use**: There is a legal medical use for marijuana (cannabis) in certain conditions, but possession or consumption without a valid prescription can lead to severe penalties. - **Prohibition vs. Restricted Usage**: While there are restrictions due to law enforcement's vigilance, the prohibition of recreational usage remains significant. This often results in potential exposure through illegal means. ### Netherlands: - **Widely Accepted for Medical Purposes**: The use and cultivation of marijuana (cannabis) is widely accepted with specific conditions. - **Relaxed Approach**: There is a more relaxed approach regarding marijuana, leading to fewer legal consequences and less strict enforcement of prohibition. This results in a safer environment where the risk signal suggests recreational usage is minimal. ### Comparison: 1. **Overall Status**: - Thailand: Legal but restricted",
-      "score": 0.8,
-      "used": 0,
-      "ts": 1776357016306,
-      "last_used": 1776357016306
     }
   ]
 }

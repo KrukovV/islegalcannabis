@@ -14,7 +14,7 @@ const dialogState: DialogState = {
 };
 
 export function detectIntent(query: string): AIIntent {
-  if (/reggae|music|marley|artist|song|movie|culture|культура|музыка/i.test(query)) return "culture";
+  if (/420|reggae|music|marley|artist|song|movie|culture|rastafari|make love not war|культура|музыка/i.test(query)) return "culture";
   if (/near me|nearest|nearby|closest|distance|best warning|where can i smoke near|where is legal near|where can i buy near|tolerated near|around me|ближайш|рядом|недалеко|где рядом|где поблизости|куда ближе|что ближе|куда поехать рядом/i.test(query)) {
     return "nearby";
   }
@@ -26,6 +26,22 @@ export function detectIntent(query: string): AIIntent {
   if (/possess|possession|carry limit|limit|хранен|лимит|сколько можно/i.test(query)) return "possession";
   if (/legal|law|illegal|risk|allowed|can i smoke|закон|легал|нелегал|риск|можно ли/i.test(query)) return "legal";
   return "general";
+}
+
+export function isGlobalCultureQuery(query: string) {
+  return /420|reggae|rastafari|bob marley|peter tosh|bunny wailer|make love not war|counterculture|hippie|airport.*import|import.*airport|airports?.*legal|where does .*make love not war/i.test(
+    String(query || "")
+  );
+}
+
+export function isProductRiskQuery(query: string) {
+  return /cbd|hemp|gummies|edibles?|flower|oil|vape|cartridge|cart/i.test(String(query || ""));
+}
+
+export function isSmallAmountRiskQuery(query: string) {
+  return /small stash|tiny amount|small amount|personal amount|only a tiny amount|very serious situation|small possession|just a little|little amount/i.test(
+    String(query || "")
+  );
 }
 
 export function isContinuationQuery(query: string) {

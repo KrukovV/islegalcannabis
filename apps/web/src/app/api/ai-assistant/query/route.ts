@@ -1,6 +1,6 @@
 import { createRequestId, errorResponse, okResponse } from "@/lib/api/response";
 import { answerWithAssistant, buildContext, buildDeterministicRetryInstruction, generateAnswer, needsOutputRetry, normalizeAnswer } from "@/ai-assistant/aiRuntime";
-import { rememberDialog, resetDialogState } from "@/ai-assistant/dialog";
+import { isGlobalCultureQuery, isProductRiskQuery, isSmallAmountRiskQuery, rememberDialog, resetDialogState } from "@/ai-assistant/dialog";
 import { buildMessages } from "@/ai-assistant/prompt";
 import { AIConnectionError, generateWithProvider, resolveAIProvider, verifyProviderConnection, warmProviderModel } from "@/ai-assistant/provider";
 import { loadWorkingModelsStore } from "@/ai-assistant/modelHealth";
@@ -103,6 +103,154 @@ async function streamOllamaResponse(
       score: item.score
   }));
   const context = buildContext(message, geoHint, coords, contextChunks, language, memoryMatches);
+  if (context.compare?.name && /compare|safer|why/i.test(message)) {
+    const answer = generateAnswer(context);
+    rememberDialog(context, answer);
+    if (answer.length > 60) {
+      saveMemory({
+        query: message,
+        intent: context.intent,
+        location: context.location.geoHint || undefined,
+        answer,
+        score: scoreMemory(answer, Boolean(context.history.lastIntent), Boolean(memoryMatches.length))
+      });
+    }
+    const stream = new ReadableStream<Uint8Array>({
+      start(controller) {
+        controller.enqueue(streamEvent({ type: "meta", requestId, model: "compare-engine" }));
+        controller.enqueue(streamEvent({ type: "delta", text: answer }));
+        controller.enqueue(streamEvent({
+          type: "done",
+          ok: true,
+          answer,
+          sources: context.sources,
+          safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
+          llm_connected: false,
+          model: "compare-engine",
+          partial: false
+        }));
+        controller.close();
+      }
+    });
+    return new Response(stream, {
+      status: 200,
+      headers: {
+        "content-type": "application/x-ndjson; charset=utf-8",
+        "cache-control": "no-store"
+      }
+    });
+  }
+  if (!context.compare?.name && isProductRiskQuery(message)) {
+    const answer = generateAnswer(context);
+    rememberDialog(context, answer);
+    if (answer.length > 60) {
+      saveMemory({
+        query: message,
+        intent: context.intent,
+        location: context.location.geoHint || undefined,
+        answer,
+        score: scoreMemory(answer, Boolean(context.history.lastIntent), Boolean(memoryMatches.length))
+      });
+    }
+    const stream = new ReadableStream<Uint8Array>({
+      start(controller) {
+        controller.enqueue(streamEvent({ type: "meta", requestId, model: "product-risk-engine" }));
+        controller.enqueue(streamEvent({ type: "delta", text: answer }));
+        controller.enqueue(streamEvent({
+          type: "done",
+          ok: true,
+          answer,
+          sources: context.sources,
+          safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
+          llm_connected: false,
+          model: "product-risk-engine",
+          partial: false
+        }));
+        controller.close();
+      }
+    });
+    return new Response(stream, {
+      status: 200,
+      headers: {
+        "content-type": "application/x-ndjson; charset=utf-8",
+        "cache-control": "no-store"
+      }
+    });
+  }
+  if (isGlobalCultureQuery(message)) {
+    const answer = generateAnswer(context);
+    rememberDialog(context, answer);
+    if (answer.length > 60) {
+      saveMemory({
+        query: message,
+        intent: context.intent,
+        location: context.location.geoHint || undefined,
+        answer,
+        score: scoreMemory(answer, Boolean(context.history.lastIntent), Boolean(memoryMatches.length))
+      });
+    }
+    const stream = new ReadableStream<Uint8Array>({
+      start(controller) {
+        controller.enqueue(streamEvent({ type: "meta", requestId, model: "culture-engine" }));
+        controller.enqueue(streamEvent({ type: "delta", text: answer }));
+        controller.enqueue(streamEvent({
+          type: "done",
+          ok: true,
+          answer,
+          sources: context.sources,
+          safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
+          llm_connected: false,
+          model: "culture-engine",
+          partial: false
+        }));
+        controller.close();
+      }
+    });
+    return new Response(stream, {
+      status: 200,
+      headers: {
+        "content-type": "application/x-ndjson; charset=utf-8",
+        "cache-control": "no-store"
+      }
+    });
+  }
+  if (isSmallAmountRiskQuery(message)) {
+    const answer = generateAnswer(context);
+    rememberDialog(context, answer);
+    if (answer.length > 60) {
+      saveMemory({
+        query: message,
+        intent: context.intent,
+        location: context.location.geoHint || undefined,
+        answer,
+        score: scoreMemory(answer, Boolean(context.history.lastIntent), Boolean(memoryMatches.length))
+      });
+    }
+    const stream = new ReadableStream<Uint8Array>({
+      start(controller) {
+        controller.enqueue(streamEvent({ type: "meta", requestId, model: "risk-engine" }));
+        controller.enqueue(streamEvent({ type: "delta", text: answer }));
+        controller.enqueue(streamEvent({
+          type: "done",
+          ok: true,
+          answer,
+          sources: context.sources,
+          safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
+          llm_connected: false,
+          model: "risk-engine",
+          partial: false
+        }));
+        controller.close();
+      }
+    });
+    return new Response(stream, {
+      status: 200,
+      headers: {
+        "content-type": "application/x-ndjson; charset=utf-8",
+        "cache-control": "no-store"
+      }
+    });
+  }
   if (shouldUseNearbyTruth(message, context)) {
     const nearbyContext = { ...context, intent: "nearby" as const };
     const answer = generateAnswer(nearbyContext);

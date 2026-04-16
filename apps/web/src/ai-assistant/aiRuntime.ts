@@ -5,7 +5,7 @@ import { findNearbyTruth } from "@/lib/geo/nearbyTruth";
 import { deriveResultStatusFromCountryPageData } from "@/lib/resultStatus";
 import { buildMessages, type LlmMessage } from "./prompt";
 import type { AIContext, AIResponse, RagChunk } from "./types";
-import { detectIntent, getDialogState, isContinuationQuery, rememberDialog } from "./dialog";
+import { detectIntent, getDialogState, isContinuationQuery, isGlobalCultureQuery, isProductRiskQuery, isSmallAmountRiskQuery, rememberDialog } from "./dialog";
 import { getTravelRiskBlock } from "./rag";
 import { retrieveMemory, saveMemory, scoreMemory } from "./memory";
 import { applyDialogStyle, fallbackHumanized } from "./dialogStyle";
@@ -39,7 +39,7 @@ type SocialRealityPayload = {
 const socialRealityEntries = (socialRealityData as SocialRealityPayload).entries || [];
 let countryPageIndexByIso2Cache: ReturnType<typeof getCountryPageIndexByIso2> | null = null;
 let countryPageIndexByGeoCodeCache: ReturnType<typeof getCountryPageIndexByGeoCode> | null = null;
-const COMPARE_QUERY_RE = /compare|vs\.?|versus|than|safer|better|difference|netherlands|germany|california|thailand|iran|india|jamaica|dubai/i;
+const COMPARE_QUERY_RE = /compare|vs\.?|versus|than|safer|better|difference|which is safer|which one is safer|why/i;
 
 function getCountryPageForHint(geoHint: string | undefined) {
   if (!geoHint) return null;
@@ -130,12 +130,13 @@ function resolveLocationSelection(
   const comparison = isComparisonQuery(query);
 
   if (mentioned.length) {
-    if (comparison && lockedPage) {
-      const comparePage = mentioned.find((page) => page.geo_code !== lockedPage.geo_code) || null;
+    if (comparison && (lockedPage || hintedPage)) {
+      const primaryPage = lockedPage || hintedPage;
+      const comparePage = mentioned.find((page) => page.geo_code !== primaryPage?.geo_code) || null;
       return {
-        primary: lockedPage,
+        primary: primaryPage,
         compare: comparePage,
-        source: "user" as const
+        source: lockedPage ? "user" as const : "geo" as const
       };
     }
     return {
@@ -535,6 +536,13 @@ function isRepeatAnswer(nextAnswer: string, lastAnswer: string | null | undefine
 function needsCultureRetry(context: AIContext, answer: string) {
   if (context.intent !== "culture") return false;
   const lower = String(answer || "").toLowerCase();
+  if (isGlobalCultureQuery(context.query)) {
+    if (/420/.test(context.query) && !/420|april 20|april twentieth|waldos/.test(lower)) return true;
+    if (/reggae|marley|rastafari/i.test(context.query) && !/reggae|bob marley|peter tosh|bunny wailer|rastafari/.test(lower)) return true;
+    if (/airport|import|make love not war/i.test(context.query) && !/airport|import|border|customs|make love not war|anti-war|counterculture/.test(lower)) {
+      return true;
+    }
+  }
   return /\billegal\b|\blegal\b|\bdistribution\b|\bmedical\b|\bdecriminalized\b|\brisk\b|\bprison\b|\benforcement\b/.test(lower);
 }
 
@@ -736,6 +744,64 @@ function generateCulture(context: AIContext) {
   ]).join("\n\n");
 }
 
+function generateGlobalCulture(context: AIContext) {
+  const query = String(context.query || "").toLowerCase();
+  if (/420/.test(query)) {
+    return [
+      "420 is cannabis slang, not a legal category.",
+      "The usual origin story points to a California high-school group called the Waldos, who used 4:20 as a meetup code.",
+      "From there it spread into wider cannabis culture and turned April 20 into a symbolic day for gatherings, activism, and celebration."
+    ].join("\n\n");
+  }
+  if (/reggae|marley|rastafari/.test(query)) {
+    return [
+      "The clearest reggae-linked cannabis figures are Bob Marley, Peter Tosh, and Bunny Wailer.",
+      "That link comes less from celebrity branding and more from Rastafari culture, where ganja was treated as part of spiritual and countercultural practice.",
+      "Snoop Dogg belongs in cannabis celebrity culture too, but he is more hip-hop than reggae."
+    ].join("\n\n");
+  }
+  if (/airport|import|make love not war/.test(query)) {
+    return [
+      "For airports, the honest answer is that legal cannabis import is basically nowhere as a normal traveler privilege.",
+      "Airports do not create their own cannabis legality: customs, border law, and national import rules control that, so crossing a border with cannabis is illegal in most cases even when local use is legal.",
+      "\"Make Love Not War\" is a 1960s anti-war counterculture slogan tied to peace activism and the broader hippie era, not a cannabis law rule."
+    ].join("\n\n");
+  }
+  return generateCulture(context);
+}
+
+function generateProductRisk(context: AIContext) {
+  const place = context.location.name || context.location.geoHint || "this place";
+  const risk = String(context.legal?.finalRisk || "unknown").toLowerCase().replaceAll("_", " ");
+  const recreational = String(context.legal?.recreational || "unknown").toLowerCase().replaceAll("_", " ");
+  const distribution = String(context.legal?.distribution || "unknown").toLowerCase().replaceAll("_", " ");
+  const medical = String(context.legal?.medical || "unknown").toLowerCase().replaceAll("_", " ");
+  return [
+    `${place}: CBD-like products are not automatically safe just because they sound softer than cannabis flower.`,
+    `The legal backdrop is still ${recreational} recreationally, ${medical} medically, and ${distribution} on distribution, with a ${risk} practical risk signal.`,
+    "The real problem is product ambiguity: police, customs, or airport screening may treat flower, oils, gummies, or vapes as cannabis-linked products first and sort out the chemistry later.",
+    "For a cautious traveler or buyer, assume risk stays real unless the product is clearly lawful in that jurisdiction and you are not crossing a border with it."
+  ].join("\n\n");
+}
+
+function generateSmallAmountRisk(context: AIContext) {
+  const place = context.location.name || context.location.geoHint || "this place";
+  const risk = String(context.legal?.finalRisk || "high").toLowerCase().replaceAll("_", " ");
+  const recreational = String(context.legal?.recreational || "illegal").toLowerCase().replaceAll("_", " ");
+  const prison = Boolean(context.legal?.prison);
+  const arrest = Boolean(context.legal?.arrest);
+  return [
+    `${place}: even a tiny amount should be treated as a serious situation, not a harmless technicality.`,
+    `The legal backdrop is still ${recreational}, and the practical risk signal reads ${risk}.`,
+    prison
+      ? "Prison exposure exists in the underlying data, so a 'small amount' does not automatically make this low-stakes."
+      : arrest
+        ? "Arrest exposure exists in the underlying data, so a 'small amount' can still trigger real trouble."
+        : "Enforcement can still bite before anyone cares how small the amount looked.",
+    "The honest bottom line is simple: do not assume discretion, sympathy, or a personal-use story will protect you."
+  ].join("\n\n");
+}
+
 function generateGeneral(context: AIContext) {
   if (isCasualQuery(context.query)) {
     return dedupeBlocks([
@@ -789,14 +855,21 @@ export function generateAnswer(context: AIContext): string {
   if (context.compare?.name && /compare|safer|why/i.test(context.query)) {
     return applyDialogStyle(ensureNonEmptyAnswer(context, generateComparison(context)), context.intent, context.language);
   }
+  if (isSmallAmountRiskQuery(context.query)) {
+    return applyDialogStyle(ensureNonEmptyAnswer(context, generateSmallAmountRisk(context)), context.intent, context.language);
+  }
+  if (isProductRiskQuery(context.query)) {
+    return applyDialogStyle(ensureNonEmptyAnswer(context, generateProductRisk(context)), context.intent, context.language);
+  }
+  if (isGlobalCultureQuery(context.query)) {
+    return applyDialogStyle(ensureNonEmptyAnswer(context, generateGlobalCulture(context)), "culture", context.language);
+  }
   if (continuation) {
     return applyDialogStyle(ensureNonEmptyAnswer(context, continueLastTopic(context)), context.intent, context.language);
   }
   const answer =
     continuation
       ? continueLastTopic(context)
-    : context.intent === "nearby"
-      ? generateNearby(context)
     : context.intent === "legal" || context.intent === "buy" || context.intent === "possession" || context.intent === "medical"
       ? generateLegal(context)
       : context.intent === "airport" || context.intent === "tourists"
@@ -885,6 +958,86 @@ export async function answerWithAssistant(
       score: item.score
     }));
   const context = buildContext(query, geoHint, coords, contextChunks, language, memoryMatches);
+  if (context.compare?.name && /compare|safer|why/i.test(query)) {
+    const answer = generateAnswer(context);
+    rememberDialog(context, answer);
+    if (answer.length > 60) {
+      saveMemory({
+        query,
+        intent: context.intent,
+        location: context.location.geoHint || undefined,
+        answer,
+        score: scoreMemory(answer, Boolean(context.history.lastIntent), Boolean(memoryMatches.length))
+      });
+    }
+    return {
+      answer,
+      sources: context.sources,
+      safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
+      model: "compare-engine",
+      llm_connected: false
+    };
+  }
+  if (!context.compare?.name && isProductRiskQuery(query)) {
+    const answer = generateAnswer(context);
+    rememberDialog(context, answer);
+    if (answer.length > 60) {
+      saveMemory({
+        query,
+        intent: context.intent,
+        location: context.location.geoHint || undefined,
+        answer,
+        score: scoreMemory(answer, Boolean(context.history.lastIntent), Boolean(memoryMatches.length))
+      });
+    }
+    return {
+      answer,
+      sources: context.sources,
+      safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
+      model: "product-risk-engine",
+      llm_connected: false
+    };
+  }
+  if (isSmallAmountRiskQuery(query)) {
+    const answer = generateAnswer(context);
+    rememberDialog(context, answer);
+    if (answer.length > 60) {
+      saveMemory({
+        query,
+        intent: context.intent,
+        location: context.location.geoHint || undefined,
+        answer,
+        score: scoreMemory(answer, Boolean(context.history.lastIntent), Boolean(memoryMatches.length))
+      });
+    }
+    return {
+      answer,
+      sources: context.sources,
+      safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
+      model: "risk-engine",
+      llm_connected: false
+    };
+  }
+  if (isGlobalCultureQuery(query)) {
+    const answer = generateAnswer(context);
+    rememberDialog(context, answer);
+    if (answer.length > 60) {
+      saveMemory({
+        query,
+        intent: context.intent,
+        location: context.location.geoHint || undefined,
+        answer,
+        score: scoreMemory(answer, Boolean(context.history.lastIntent), Boolean(memoryMatches.length))
+      });
+    }
+    return {
+      answer,
+      sources: context.sources,
+      safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
+      model: "culture-engine",
+      llm_connected: false
+    };
+  }
   if (shouldUseNearbyTruth(query, context)) {
     const nearbyContext = { ...context, intent: "nearby" as const };
     const answer = generateAnswer(nearbyContext);

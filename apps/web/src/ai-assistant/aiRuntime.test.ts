@@ -44,6 +44,14 @@ describe("aiRuntime", () => {
     expect(compare.compare?.name).toMatch(/Netherlands/);
   });
 
+  it("keeps the hinted route country as primary on a fresh compare prompt", () => {
+    const compare = buildContext("Compare Malaysia with Thailand in plain language.", "MY", undefined, [], "en");
+    expect(compare.location.geoHint).toBe("MY");
+    expect(compare.location.name).toMatch(/Malaysia/);
+    expect(compare.compare?.geoHint).toBe("TH");
+    expect(compare.compare?.name).toMatch(/Thailand/);
+  });
+
   it("enforces the locked location over a changed ambient geo hint", () => {
     const firstContext = buildContext("Germany cannabis?", "DE", undefined, [], "en");
     rememberDialog(firstContext, "Germany stays the topic.");
@@ -120,6 +128,44 @@ describe("aiRuntime", () => {
     expect(messages[1]?.content).toContain("Location: Finland");
     expect(messages[2]?.content).toContain("Topic:");
     expect(messages.at(-1)?.content).toContain("Какие фильмы посоветуешь?");
+  });
+
+  it("answers CBD-like product risk questions with a grounded non-empty product answer", () => {
+    const context = buildContext("If I carry CBD flower, is that still risky?", "IT", undefined, [], "en");
+    const answer = generateAnswer(context);
+
+    expect(answer).toContain("CBD-like products");
+    expect(answer).toContain("Italy");
+    expect(answer.toLowerCase()).toContain("risk");
+    expect(answer.length).toBeGreaterThan(120);
+  });
+
+  it("answers tiny-amount risk questions with a grounded severe-risk answer", () => {
+    const context = buildContext(
+      "If someone has only a tiny amount in Kuala Lumpur, is that still a very serious situation?",
+      "MY",
+      undefined,
+      [],
+      "en"
+    );
+    const answer = generateAnswer(context);
+
+    expect(answer).toContain("Malaysia");
+    expect(answer.toLowerCase()).toContain("tiny amount");
+    expect(answer.toLowerCase()).toContain("serious situation");
+    expect(answer.length).toBeGreaterThan(120);
+  });
+
+  it("does not carry the previous product subtopic into a fresh compare question", () => {
+    const firstContext = buildContext("Would CBD oil be treated clearly different from THC products?", "CL", undefined, [], "en");
+    rememberDialog(firstContext, "Chile: CBD-like products are not automatically safe.");
+    const compare = buildContext("Compare the practical risk with Portugal, but keep it simple.", "CL", undefined, [], "en");
+    const messages = buildMessages({ query: "Compare the practical risk with Portugal, but keep it simple.", context: compare });
+
+    expect(messages.some((message) => message.content.includes("CBD-like products"))).toBe(false);
+    expect(messages.at(-1)?.content).toContain("Compare ONLY:");
+    expect(messages.at(-1)?.content).toContain("Chile");
+    expect(messages.at(-1)?.content).toContain("Portugal");
   });
 
   it("expands too-short answers instead of returning empty or tiny output", () => {
