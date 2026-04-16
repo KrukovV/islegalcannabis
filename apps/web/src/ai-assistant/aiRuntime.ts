@@ -5,7 +5,7 @@ import { findNearbyTruth } from "@/lib/geo/nearbyTruth";
 import { deriveResultStatusFromCountryPageData } from "@/lib/resultStatus";
 import { buildMessages, type LlmMessage } from "./prompt";
 import type { AIContext, AIResponse, RagChunk } from "./types";
-import { detectIntent, getDialogState, isContinuationQuery, isGlobalCultureQuery, isProductRiskQuery, isSmallAmountRiskQuery, isTraceRiskQuery, rememberDialog } from "./dialog";
+import { detectIntent, getDialogState, isContinuationQuery, isGlobalCultureQuery, isProductRiskQuery, isSmallAmountRiskQuery, isTraceRiskQuery, isTravelRiskQuery, rememberDialog } from "./dialog";
 import { getTravelRiskBlock } from "./rag";
 import { retrieveMemory, saveMemory, scoreMemory } from "./memory";
 import { applyDialogStyle, fallbackHumanized } from "./dialogStyle";
@@ -840,6 +840,32 @@ function generateTraceRisk(context: AIContext) {
   ].join("\n\n");
 }
 
+function generateTravelRiskAnswer(context: AIContext) {
+  const place = context.location.name || context.location.geoHint || "this place";
+  const query = String(context.query || "").toLowerCase();
+  const airport = /airport|screening|bag|luggage|customs/.test(query);
+  const prescription = /prescription|medical document/.test(query);
+  const tourist = /tourist|public|asking where to find weed/.test(query);
+  const risk = formatRiskSignal(context.legal?.finalRisk);
+  const lines = [];
+  if (tourist) {
+    lines.push(`${place}: a careless tourist can create a real problem because public attention is often what turns a quiet situation into an enforcement situation.`);
+    lines.push(`What matters is not just the written law but the fact that public behavior gives police or security a reason to step in, and the practical risk signal here is ${risk}.`);
+  }
+  if (prescription) {
+    lines.push(`A foreign medical prescription does not automatically protect you on the ground in ${place}.`);
+    lines.push(context.medical?.status === "LEGAL" || context.medical?.status === "LIMITED"
+      ? "It may help explain context, but it does not override local rules, border rules, or officer discretion."
+      : "If the local medical channel is not openly recognized, foreign paperwork should not be treated as a safe shield.");
+  }
+  if (airport) {
+    lines.push(`Airport and customs risk should be treated seriously in ${place}, especially if something cannabis-related is forgotten in a bag.`);
+    lines.push("The problem is simple: screening turns a private mistake into a border or security issue very quickly.");
+  }
+  lines.push("The calm bottom line is: do not rely on being a tourist, on good intentions, or on paperwork to make cannabis-related risk disappear.");
+  return lines.join("\n\n");
+}
+
 function generateGeneral(context: AIContext) {
   if (isCasualQuery(context.query)) {
     return dedupeBlocks([
@@ -892,6 +918,9 @@ export function generateAnswer(context: AIContext): string {
   }
   if (context.compare?.name && /compare|safer|why/i.test(context.query)) {
     return applyDialogStyle(ensureNonEmptyAnswer(context, generateComparison(context)), context.intent, context.language);
+  }
+  if (isTravelRiskQuery(context.query)) {
+    return applyDialogStyle(ensureNonEmptyAnswer(context, generateTravelRiskAnswer(context)), context.intent, context.language);
   }
   if (isTraceRiskQuery(context.query)) {
     return applyDialogStyle(ensureNonEmptyAnswer(context, generateTraceRisk(context)), context.intent, context.language);
@@ -1016,6 +1045,26 @@ export async function answerWithAssistant(
       sources: context.sources,
       safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
       model: "compare-engine",
+      llm_connected: false
+    };
+  }
+  if (isTravelRiskQuery(query)) {
+    const answer = generateAnswer(context);
+    rememberDialog(context, answer);
+    if (answer.length > 60) {
+      saveMemory({
+        query,
+        intent: context.intent,
+        location: context.location.geoHint || undefined,
+        answer,
+        score: scoreMemory(answer, Boolean(context.history.lastIntent), Boolean(memoryMatches.length))
+      });
+    }
+    return {
+      answer,
+      sources: context.sources,
+      safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
+      model: "travel-risk-engine",
       llm_connected: false
     };
   }

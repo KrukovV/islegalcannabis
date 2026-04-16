@@ -185,6 +185,24 @@ describe("aiRuntime", () => {
     expect(grinder.toLowerCase()).toContain("grinder");
   });
 
+  it("answers tourist/public and foreign prescription travel-risk questions with grounded travel wording", () => {
+    const tourist = generateAnswer(
+      buildContext("Would a tourist being careless in public create a real problem?", "NZ", undefined, [], "en")
+    );
+    const prescription = generateAnswer(
+      buildContext("Does a foreign medical prescription change much on the ground?", "NZ", undefined, [], "en")
+    );
+    const airport = generateAnswer(
+      buildContext("How risky is airport screening if something cannabis-related is forgotten in a bag?", "NZ", undefined, [], "en")
+    );
+
+    expect(tourist.toLowerCase()).toContain("tourist");
+    expect(tourist.toLowerCase()).toContain("public");
+    expect(prescription.toLowerCase()).toContain("prescription");
+    expect(airport.toLowerCase()).toContain("airport");
+    expect(airport.toLowerCase()).toContain("bag");
+  });
+
   it("does not carry the previous product subtopic into a fresh compare question", () => {
     const firstContext = buildContext("Would CBD oil be treated clearly different from THC products?", "CL", undefined, [], "en");
     rememberDialog(firstContext, "Chile: CBD-like products are not automatically safe.");

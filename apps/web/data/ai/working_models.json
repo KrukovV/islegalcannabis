@@ -6,12 +6,12 @@
   "stats": {
     "qwen2.5:1.5b": {
       "name": "qwen2.5:1.5b",
-      "successTurns": 741,
-      "failTurns": 89,
-      "avgFirstTokenMs": 2694.4601889338783,
-      "avgResponseMs": 13943.079622132254,
-      "avgLength": 1019.2199730094467,
-      "lastUsedAt": 1776367444665
+      "successTurns": 775,
+      "failTurns": 91,
+      "avgFirstTokenMs": 2671.8361290322628,
+      "avgResponseMs": 14343.123870967742,
+      "avgLength": 1022.64,
+      "lastUsedAt": 1776369179808
     }
   },
   "roles": {

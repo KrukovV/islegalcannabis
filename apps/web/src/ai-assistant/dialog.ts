@@ -50,6 +50,12 @@ export function isTraceRiskQuery(query: string) {
   );
 }
 
+export function isTravelRiskQuery(query: string) {
+  return /tourist.*public|careless in public|asking where to find weed|foreign medical prescription|foreign prescription|medical document|forgotten in a bag|forgotten in bag|left in luggage|airport screening|customs side/i.test(
+    String(query || "")
+  );
+}
+
 export function isContinuationQuery(query: string) {
   const trimmed = String(query || "").trim();
   if (!trimmed) return false;
