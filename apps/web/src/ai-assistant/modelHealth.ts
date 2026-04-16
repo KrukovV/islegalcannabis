@@ -12,10 +12,13 @@ export type ModelStats = {
   lastUsedAt: number;
 };
 
+export type ModelRole = "primary" | "fallback" | "candidate";
+
 export type WorkingModelsStore = {
   updatedAt: number;
   workingModels: string[];
   stats: Record<string, ModelStats>;
+  roles?: Record<string, ModelRole>;
 };
 
 const DEFAULT_HEALTH_FILE = path.resolve(process.cwd(), "data/ai/working_models.json");
@@ -49,7 +52,8 @@ export function createEmptyWorkingModelsStore(): WorkingModelsStore {
   return {
     updatedAt: 0,
     workingModels: [],
-    stats: {}
+    stats: {},
+    roles: {}
   };
 }
 
@@ -61,7 +65,8 @@ export function loadWorkingModelsStore(): WorkingModelsStore {
     return {
       updatedAt: Number(parsed.updatedAt || 0),
       workingModels: Array.isArray(parsed.workingModels) ? parsed.workingModels.filter(Boolean) : [],
-      stats: parsed.stats && typeof parsed.stats === "object" ? parsed.stats as Record<string, ModelStats> : {}
+      stats: parsed.stats && typeof parsed.stats === "object" ? parsed.stats as Record<string, ModelStats> : {},
+      roles: parsed.roles && typeof parsed.roles === "object" ? parsed.roles as Record<string, ModelRole> : {}
     };
   } catch {
     return createEmptyWorkingModelsStore();
@@ -78,6 +83,15 @@ export function updateWorkingModels(workingModels: string[]) {
   const store = loadWorkingModelsStore();
   store.updatedAt = Date.now();
   store.workingModels = Array.from(new Set(workingModels.filter(Boolean)));
+  saveWorkingModelsStore(store);
+  return store;
+}
+
+export function setModelRole(model: string, role: ModelRole) {
+  const store = loadWorkingModelsStore();
+  store.roles = store.roles || {};
+  store.roles[model] = role;
+  store.updatedAt = Date.now();
   saveWorkingModelsStore(store);
   return store;
 }
@@ -146,6 +160,7 @@ function cleanupModels(store: WorkingModelsStore) {
     if (item.successTurns === 0 && item.failTurns > 5) {
       delete store.stats[item.name];
       store.workingModels = store.workingModels.filter((model) => model !== item.name);
+      if (store.roles) delete store.roles[item.name];
     }
   }
 }

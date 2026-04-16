@@ -1,5 +1,5 @@
-import { DEFAULT_AI_MODELS, rankModelsByMetrics } from "./modelMetrics";
-import { getBestModel, getFallbackChain, getKnownWorkingModels, loadWorkingModelsStore, recordModelResult, updateWorkingModels } from "./modelHealth";
+import { DEFAULT_AI_MODELS } from "./modelMetrics";
+import { loadWorkingModelsStore, recordModelResult, updateWorkingModels } from "./modelHealth";
 import type { LlmMessage } from "./prompt";
 
 export type AIProviderName = "ollama" | "openai";
@@ -42,10 +42,10 @@ const OLLAMA_TAGS_URL = `${OLLAMA_HOST}/api/tags`;
 const OLLAMA_UNLOAD_URL = `${OLLAMA_HOST}/api/generate`;
 const OPENAI_MODEL = process.env.AI_MODEL || process.env.OPENAI_MODEL || "gpt-4o-mini";
 const OPENAI_BASE_URL = process.env.OPENAI_BASE_URL || "https://api.openai.com/v1";
-const OLLAMA_GENERATE_TIMEOUT_MS = Number(process.env.AI_TIMEOUT || 25000);
+const OLLAMA_GENERATE_TIMEOUT_MS = Number(process.env.AI_TIMEOUT || 35000);
 const EXTERNAL_GENERATE_TIMEOUT_MS = 8000;
-const OLLAMA_FIRST_TOKEN_TIMEOUT_MS = Number(process.env.AI_FIRST_TOKEN_TIMEOUT || 10000);
-const OLLAMA_STREAM_IDLE_MS = Number(process.env.AI_STREAM_IDLE || 5000);
+const OLLAMA_FIRST_TOKEN_TIMEOUT_MS = Number(process.env.AI_FIRST_TOKEN_TIMEOUT || 20000);
+const OLLAMA_STREAM_IDLE_MS = Number(process.env.AI_STREAM_IDLE || 8000);
 const OLLAMA_STREAM_MIN_PARTIAL_CHARS = 40;
 const OLLAMA_STREAM_RETRY_MIN_CHARS = 30;
 const OLLAMA_STREAM_FLUSH_CHARS = 20;
@@ -91,8 +91,12 @@ function logModelDiag(input: {
   );
 }
 
+function stripThinking(text: string) {
+  return String(text || "").replace(/<think>[\s\S]*?<\/think>/gi, "").trim();
+}
+
 function isUnusableAssistantText(text: string) {
-  const normalized = String(text || "").trim().toLowerCase();
+  const normalized = stripThinking(text).toLowerCase();
   if (!normalized) return true;
   if (normalized.length < OLLAMA_STREAM_RETRY_MIN_CHARS) return true;
   return (
@@ -130,7 +134,7 @@ export function resolveAIProvider(): AIProviderName {
 }
 
 function getPreferredModels() {
-  return rankModelsByMetrics(Array.from(new Set(DEFAULT_AI_MODELS.filter(Boolean))));
+  return Array.from(new Set(DEFAULT_AI_MODELS.filter(Boolean)));
 }
 
 function sanitizeRequestedModels(models?: string[]) {
@@ -142,18 +146,7 @@ function pickAvailableModels(availableModels: string[], overrideModels?: string[
   if (exactRequested.length) {
     return exactRequested.filter((model) => availableModels.includes(model));
   }
-  const baseChain = getPreferredModels();
-  const requested = Array.isArray(overrideModels) && overrideModels.length
-    ? [...overrideModels, ...baseChain]
-    : baseChain;
-  const chain = Array.from(new Set(requested.filter(Boolean)));
-  const preferred = chain.filter((model) => availableModels.includes(model));
-  const filtered = getKnownWorkingModels(preferred.length ? preferred : availableModels);
-  if (filtered.length) {
-    const best = getBestModel(filtered);
-    return [best, ...getFallbackChain(filtered).filter((model) => model !== best)];
-  }
-  return availableModels;
+  return getPreferredModels().filter((model) => availableModels.includes(model));
 }
 
 async function stopOllamaModel(modelName?: string) {
@@ -334,7 +327,7 @@ async function runOllamaChat(
     }
   }
 
-  const finalText = String(answer || "").trim();
+  const finalText = stripThinking(answer);
   const finalFirstTokenMs = firstTokenAt ? firstTokenAt - startedAt : undefined;
   const finalResponseMs = Date.now() - startedAt;
   const minUsableChars = options.minUsableChars || OLLAMA_STREAM_RETRY_MIN_CHARS;
@@ -431,7 +424,7 @@ async function runOpenAiChat(model: string, messages: LlmMessage[]): Promise<Pro
     const payload = (await response.json()) as {
       choices?: Array<{ message?: { content?: string } }>;
     };
-    const answer = String(payload.choices?.[0]?.message?.content || "").trim();
+    const answer = stripThinking(String(payload.choices?.[0]?.message?.content || ""));
     if (!answer) {
       throw new AIConnectionError("EMPTY_LLM_RESPONSE", "External chat provider returned an empty response.", 503);
     }
@@ -578,49 +571,46 @@ export async function generateWithProvider(
   if (health.provider === "openai") {
     return runOpenAiChat(health.model, messages);
   }
-
+  const model = health.model;
   let lastError: unknown = null;
-  for (const model of health.preferredModels || [health.model]) {
-    const attempts = [0, 1];
-    for (const attempt of attempts) {
-      try {
-        if (attempt > 0) {
-          await warmProviderModel([model]).catch(() => null);
-        }
-        const result = await withOllamaInferenceLock(() =>
-          runOllamaChat(model, messages, {
-            onDelta: options.onDelta,
-            firstTokenTimeoutMs: OLLAMA_FIRST_TOKEN_TIMEOUT_MS,
-            fullTimeoutMs: OLLAMA_GENERATE_TIMEOUT_MS,
-            didRetry: attempt > 0
-          })
-        );
-        recordModelResult({
-          model,
-          success: true,
-          firstTokenMs: result.firstTokenMs,
-          responseMs: result.responseMs,
-          length: result.text.length
-        });
-        return result;
-      } catch (error) {
-        lastError = error;
-        if (attempt === 0 && isRetryableOllamaError(error)) {
-          continue;
-        }
-        recordModelResult({
-          model,
-          success: false,
-          firstTokenMs: OLLAMA_FIRST_TOKEN_TIMEOUT_MS,
-          responseMs: OLLAMA_GENERATE_TIMEOUT_MS,
-          length: 0
-        });
-        break;
+  for (const attempt of [0, 1]) {
+    try {
+      if (attempt > 0) {
+        await warmProviderModel([model]).catch(() => null);
       }
+      const result = await withOllamaInferenceLock(() =>
+        runOllamaChat(model, messages, {
+          onDelta: options.onDelta,
+          firstTokenTimeoutMs: OLLAMA_FIRST_TOKEN_TIMEOUT_MS,
+          fullTimeoutMs: OLLAMA_GENERATE_TIMEOUT_MS,
+          didRetry: attempt > 0
+        })
+      );
+      recordModelResult({
+        model,
+        success: true,
+        firstTokenMs: result.firstTokenMs,
+        responseMs: result.responseMs,
+        length: result.text.length
+      });
+      return result;
+    } catch (error) {
+      lastError = error;
+      if (attempt === 0 && isRetryableOllamaError(error)) {
+        continue;
+      }
+      recordModelResult({
+        model,
+        success: false,
+        firstTokenMs: OLLAMA_FIRST_TOKEN_TIMEOUT_MS,
+        responseMs: OLLAMA_GENERATE_TIMEOUT_MS,
+        length: 0
+      });
+      break;
     }
   }
   if (lastError instanceof AIConnectionError) {
     throw lastError;
   }
-  throw new AIConnectionError("LLM_GENERATE_FAILED", "All local conversational models failed.", 503);
+  throw new AIConnectionError("LLM_GENERATE_FAILED", "The local companion model failed.", 503);
 }

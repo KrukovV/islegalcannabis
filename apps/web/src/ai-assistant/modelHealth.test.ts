@@ -34,7 +34,7 @@ describe("modelHealth", () => {
 
   it("persists working models and scores fallback chain from real results", () => {
     process.env.AI_WORKING_MODELS_FILE = createTempFile();
-    updateWorkingModels(["qwen2.5:3b", "qwen2.5:1.5b", "deepseek-coder:1.3b"]);
+    updateWorkingModels(["qwen2.5:1.5b"]);
     recordModelResult({
       model: "qwen2.5:1.5b",
       success: true,
@@ -42,17 +42,10 @@ describe("modelHealth", () => {
       responseMs: 2400,
       length: 180
     });
-    recordModelResult({
-      model: "qwen2.5:3b",
-      success: false,
-      firstTokenMs: 5000,
-      responseMs: 5000,
-      length: 0
-    });
 
-    const chain = getFallbackChain(["qwen2.5:3b", "qwen2.5:1.5b", "deepseek-coder:1.3b"]);
+    const chain = getFallbackChain(["qwen2.5:1.5b"]);
     expect(chain[0]).toBe("qwen2.5:1.5b");
-    expect(getBestModel(["qwen2.5:3b", "qwen2.5:1.5b", "deepseek-coder:1.3b"])).toBe("qwen2.5:1.5b");
-    expect(loadWorkingModelsStore().workingModels).toContain("qwen2.5:3b");
+    expect(getBestModel(["qwen2.5:1.5b"])).toBe("qwen2.5:1.5b");
+    expect(loadWorkingModelsStore().workingModels).toEqual(["qwen2.5:1.5b"]);
   });
 });

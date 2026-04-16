@@ -1,9 +1,11 @@
 {
-  "updatedAt": 1760572800000,
+  "updatedAt": 1776315826202,
   "workingModels": [
-    "qwen2.5:1.5b",
-    "deepseek-coder:1.3b"
+    "qwen2.5:1.5b"
   ],
+  "roles": {
+    "qwen2.5:1.5b": "primary"
+  },
   "stats": {
     "qwen2.5:1.5b": {
       "name": "qwen2.5:1.5b",
@@ -12,15 +14,6 @@
       "avgFirstTokenMs": 11862,
       "avgResponseMs": 11619,
       "avgLength": 125,
-      "lastUsedAt": 1760572800000
-    },
-    "deepseek-coder:1.3b": {
-      "name": "deepseek-coder:1.3b",
-      "successTurns": 18,
-      "failTurns": 0,
-      "avgFirstTokenMs": 12422,
-      "avgResponseMs": 12399,
-      "avgLength": 114,
       "lastUsedAt": 1760572800000
     }
   }

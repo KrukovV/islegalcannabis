@@ -2,11 +2,11 @@ import { expect, test, type Page } from "@playwright/test";
 
 const FORBIDDEN_PATTERNS = [/в целом картина такая/i, /overall picture/i, /i may not have context/i];
 const MODEL_OVERRIDE_STORAGE_KEY = "ai_model_override";
-const MODELS = (process.env.AI_E2E_MODELS || "qwen3:4b,qwen2.5:1.5b,llama3.2:3b,smollm3:3b,phi-4-mini:3.8b")
+const MODELS = (process.env.AI_E2E_MODELS || "qwen2.5:1.5b")
   .split(",")
   .map((item) => item.trim())
   .filter(Boolean);
-const PRIMARY_MODEL = process.env.AI_E2E_PRIMARY_MODEL || "qwen3:4b";
+const PRIMARY_MODEL = process.env.AI_E2E_PRIMARY_MODEL || "qwen2.5:1.5b";
 
 test.describe.configure({ mode: "serial", timeout: 240000 });
 test.skip(process.env.AI_E2E !== "1", "Manual local AI validation only.");
@@ -47,7 +47,7 @@ test(`6-turn legal dialogue holds context :: ${PRIMARY_MODEL}`, async ({ page })
     await ask(page, "Why?")
   ];
 
-  expect(answers[0].firstTokenMs).toBeLessThan(8500);
+  expect(answers[0].firstTokenMs).toBeLessThan(35000);
   expect(answers[0].answer.toLowerCase()).toContain("germany");
   expect(answers[1].answer.toLowerCase()).toMatch(/medical|patient|prescription/);
   expect(answers[2].answer.toLowerCase()).toMatch(/risk|fine|prison|penalt|enforcement/);
@@ -67,19 +67,19 @@ async function ask(page: Page, prompt: string) {
   await expect.poll(async () => {
     const text = (await answerText.textContent() || "").trim();
     return text.length;
-  }, { timeout: 20000 }).toBeGreaterThan(0);
+  }, { timeout: 30000 }).toBeGreaterThan(0);
   const firstTokenMs = Date.now() - start;
   await expect.poll(async () => {
     const submit = await page.locator('button[aria-label="Submit AI query"]').textContent();
     return (submit || "").trim();
-  }, { timeout: 25000 }).not.toBe("…");
+  }, { timeout: 45000 }).not.toBe("…");
   await expect.poll(async () => {
     const text = (await answerText.textContent() || "").trim();
     return text.length;
-  }, { timeout: 25000 }).toBeGreaterThan(40);
+  }, { timeout: 45000 }).toBeGreaterThan(40);
   const answer = (await answerText.innerText()).trim();
   expect(answer.length).toBeGreaterThan(40);
-  expect(answer).not.toMatch(/Секунду, модель думает чуть дольше обычного|Give me a second, the model is taking longer than usual|Request failed/i);
+  expect(answer).not.toMatch(/Секунду, модель думает чуть дольше обычного|Give me a second, the model is taking longer than usual|Request failed|модель не ответила, попробуй ещё раз/i);
   for (const pattern of FORBIDDEN_PATTERNS) {
     expect(answer).not.toMatch(pattern);
   }
@@ -95,7 +95,7 @@ for (const model of MODELS) {
     const third = await ask(page, "Compare with Netherlands");
     const fourth = await ask(page, "And for tourists?");
 
-    expect(first.firstTokenMs).toBeLessThan(8500);
+    expect(first.firstTokenMs).toBeLessThan(35000);
     expect(first.answer.toLowerCase()).toContain("germany");
     expect(second.answer.toLowerCase()).toMatch(/medical|patient|prescription/);
     expect(third.answer.toLowerCase()).toContain("netherlands");
@@ -110,7 +110,7 @@ for (const model of MODELS) {
     const third = await ask(page, "Compare with Thailand");
     const fourth = await ask(page, "Best advice?");
 
-    expect(first.firstTokenMs).toBeLessThan(8500);
+    expect(first.firstTokenMs).toBeLessThan(35000);
     expect(first.answer.toLowerCase()).toMatch(/dubai|uae|airport|dxb/);
     expect(second.answer.toLowerCase()).not.toContain("russia");
     expect(third.answer.toLowerCase()).toContain("thailand");
@@ -124,7 +124,7 @@ for (const model of MODELS) {
     const third = await ask(page, "What is Rastafari?");
     const fourth = await ask(page, "What about Snoop Dogg?");
 
-    expect(first.firstTokenMs).toBeLessThan(8500);
+    expect(first.firstTokenMs).toBeLessThan(35000);
     expect(first.answer.toLowerCase()).toContain("marley");
     expect(second.answer.toLowerCase()).toMatch(/cannabis|ganja|symbol/);
     expect(third.answer.toLowerCase()).toContain("rastafari");

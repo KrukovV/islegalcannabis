@@ -51,9 +51,7 @@ export type ModelMetricsStore = {
 const DEFAULT_METRICS_FILE = path.resolve(process.cwd(), "data/ai/model_metrics.json");
 
 export const DEFAULT_AI_MODELS = [
-  "qwen2.5:1.5b",
-  "qwen2.5:3b",
-  "deepseek-coder:1.3b"
+  "qwen2.5:1.5b"
 ] as const;
 
 function getMetricsFile() {
@@ -129,5 +127,5 @@ export function getBestModels(limit = 3) {
       ...DEFAULT_AI_MODELS
     ])
   );
-  return ranked.slice(0, Math.max(limit, 1));
+  return ranked.slice(0, Math.max(Math.min(limit, 1), 1));
 }

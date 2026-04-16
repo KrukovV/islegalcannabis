@@ -152,32 +152,27 @@ async function streamOllamaResponse(
     }
   ];
   const health = await verifyProviderConnection(modelOverride ? [modelOverride] : undefined);
-  const preferredModels = Array.isArray(health.preferredModels) && health.preferredModels.length
-    ? health.preferredModels
-    : [health.model];
+  const model = health.model;
 
   const stream = new ReadableStream<Uint8Array>({
     async start(controller) {
       try {
+        controller.enqueue(streamEvent({ type: "meta", requestId, model }));
         let finalResult: { text: string; partial: boolean; model: string } | null = null;
-        for (const model of preferredModels) {
-          controller.enqueue(streamEvent({ type: "meta", requestId, model }));
-          try {
-            let attempt = await generateWithProvider(messages, {
+        try {
+          let attempt = await generateWithProvider(messages, {
+            overrideModels: [model],
+            onDelta: (chunk) => controller.enqueue(streamEvent({ type: "delta", text: chunk }))
+          });
+          if (String(attempt.text || "").trim().length < 80) {
+            attempt = await generateWithProvider(shortRetryMessages, {
               overrideModels: [model],
               onDelta: (chunk) => controller.enqueue(streamEvent({ type: "delta", text: chunk }))
             });
-            if (String(attempt.text || "").trim().length < 80) {
-              attempt = await generateWithProvider(shortRetryMessages, {
-                overrideModels: [model],
-                onDelta: (chunk) => controller.enqueue(streamEvent({ type: "delta", text: chunk }))
-              });
-            }
-            finalResult = { text: attempt.text, partial: attempt.partial, model: attempt.model };
-            break;
-          } catch {
-            continue;
           }
+          finalResult = { text: attempt.text, partial: attempt.partial, model: attempt.model };
+        } catch {
+          finalResult = null;
         }
         if (!finalResult) {
           controller.enqueue(streamEvent({
@@ -185,7 +180,7 @@ async function streamOllamaResponse(
             ok: false,
             error: {
               code: "LLM_GENERATE_FAILED",
-              message: "All conversational local models failed."
+              message: "The local companion model failed."
             }
           }));
           return;

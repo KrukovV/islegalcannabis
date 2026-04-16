@@ -42,6 +42,8 @@ type AiQueryFailure = {
   };
 };
 
+const MODEL_NO_RESPONSE_MESSAGE = "модель не ответила, попробуй ещё раз";
+
 type AiStreamEvent =
   | {
       type: "meta";
@@ -329,7 +331,7 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
     return resetRequest;
   }
 
-  async function requestNonStreamAnswer(input: {
+async function requestNonStreamAnswer(input: {
     message: string;
     signal: AbortSignal;
   }) {
@@ -349,7 +351,7 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
     });
     const payload = (await response.json()) as AiQuerySuccess | AiQueryFailure;
     if (!response.ok || !payload.ok) {
-      throw new Error(payload.ok ? "Request failed." : payload.error?.message || "Request failed.");
+      throw new Error(MODEL_NO_RESPONSE_MESSAGE);
     }
     return payload;
   }
@@ -441,9 +443,9 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
                 flushBufferedChunks();
                 sawDone = true;
                 if (streamEvent.ok === false) {
-                  setError("Request failed.");
+                  setError(MODEL_NO_RESPONSE_MESSAGE);
                   finalizeAssistantMessage(assistantMessageId, {
-                    text: hasStreamStarted ? streamedAnswer : "Request failed.",
+                    text: hasStreamStarted ? streamedAnswer : MODEL_NO_RESPONSE_MESSAGE,
                     error: !hasStreamStarted,
                     streaming: false
                   });
@@ -478,9 +480,9 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
               flushBufferedChunks();
               sawDone = true;
               if (streamEvent.ok === false) {
-                setError("Request failed.");
+                setError(MODEL_NO_RESPONSE_MESSAGE);
                 finalizeAssistantMessage(assistantMessageId, {
-                  text: hasStreamStarted ? streamedAnswer : "Request failed.",
+                  text: hasStreamStarted ? streamedAnswer : MODEL_NO_RESPONSE_MESSAGE,
                   error: !hasStreamStarted,
                   streaming: false
                 });
@@ -517,9 +519,9 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
               streaming: false
             });
           } catch {
-            setError("Request failed.");
+            setError(MODEL_NO_RESPONSE_MESSAGE);
             finalizeAssistantMessage(assistantMessageId, {
-              text: "Request failed.",
+              text: MODEL_NO_RESPONSE_MESSAGE,
               error: true,
               streaming: false
             });
@@ -530,9 +532,9 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
 
       const payload = (await response.json()) as AiQuerySuccess | AiQueryFailure;
       if (!response.ok || !payload.ok) {
-        setError(payload.ok ? "Request failed." : payload.error?.message || "Request failed.");
+        setError(MODEL_NO_RESPONSE_MESSAGE);
         finalizeAssistantMessage(assistantMessageId, {
-          text: payload.ok ? "Request failed." : payload.error?.message || "Request failed.",
+          text: MODEL_NO_RESPONSE_MESSAGE,
           error: true,
           streaming: false
         });
@@ -557,9 +559,9 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
         }
         return;
       }
-      setError("Request failed.");
+      setError(MODEL_NO_RESPONSE_MESSAGE);
       finalizeAssistantMessage(assistantMessageId, {
-        text: "Request failed.",
+        text: MODEL_NO_RESPONSE_MESSAGE,
         error: true,
         streaming: false
       });

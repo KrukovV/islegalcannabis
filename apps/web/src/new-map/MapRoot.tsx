@@ -193,7 +193,7 @@ export default function MapRoot({
     }
     setSelectedGeo(seoMarkerEntry.code);
     setSeoPanelOpen(true);
-  }, [seoMarkerEntry, selectedGeo]);
+  }, [seoMarkerEntry, selectedGeo, seoPanelOpen]);
 
   const handleSeoPanelClose = useCallback(() => {
     setSeoPanelOpen(false);
@@ -413,7 +413,7 @@ export default function MapRoot({
       map.off("move", updatePopupAnchor);
       map.off("resize", updatePopupAnchor);
     };
-  }, [selectedGeoEntry?.geo, selectedGeoEntry?.coordinates?.lat, selectedGeoEntry?.coordinates?.lng]);
+  }, [selectedGeoEntry?.geo, selectedGeoEntry?.coordinates, selectedGeoEntry?.coordinates?.lat, selectedGeoEntry?.coordinates?.lng]);
 
   useEffect(() => {
     if (!initialGeoCode) {

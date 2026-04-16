@@ -31,11 +31,11 @@ describe("modelMetrics", () => {
     saveModelMetricsStore({
       generated_at: "2026-04-15T00:00:00.000Z",
       base_url: "http://127.0.0.1:3000",
-      best_model: "deepseek-coder:1.3b",
-      fallback_chain: ["deepseek-coder:1.3b", "qwen2.5:1.5b", "qwen2.5:3b"],
+      best_model: "qwen2.5:1.5b",
+      fallback_chain: ["qwen2.5:1.5b"],
       models: [
         {
-          model: "deepseek-coder:1.3b",
+          model: "qwen2.5:1.5b",
           score: 0.82,
           speed: 0.8,
           stability: 0.8,
@@ -56,35 +56,9 @@ describe("modelMetrics", () => {
             successTurns: 12
           }
         },
-        {
-          model: "qwen2.5:1.5b",
-          score: 0.71,
-          speed: 0.76,
-          stability: 0.7,
-          context: 0.68,
-          engagement: 0.72,
-          scenarios: [],
-          metrics: {
-            avgFirstTokenMs: 1400,
-            avgFullResponseMs: 5800,
-            avgAnswerLength: 130,
-            streamBreaks: 1,
-            shortAnswers: 0,
-            repeatedAnswers: 0,
-            contextPassRate: 0.75,
-            engagementPassRate: 0.8,
-            modelFallbacks: 1,
-            failedTurns: 0,
-            successTurns: 12
-          }
-        }
       ]
     });
 
-    expect(rankModelsByMetrics(["qwen2.5:1.5b", "deepseek-coder:1.3b", "qwen2.5:3b"])).toEqual([
-      "deepseek-coder:1.3b",
-      "qwen2.5:1.5b",
-      "qwen2.5:3b"
-    ]);
+    expect(rankModelsByMetrics(["qwen2.5:1.5b", "qwen2.5:3b"])).toEqual(["qwen2.5:1.5b", "qwen2.5:3b"]);
   });
 });

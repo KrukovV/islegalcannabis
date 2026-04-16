@@ -54,7 +54,7 @@ type ModelResult = {
 };
 
 const BASE_URL = process.env.AI_EVAL_BASE_URL || "http://127.0.0.1:3000";
-const MODELS = (process.env.AI_EVAL_MODELS || "qwen2.5:1.5b,qwen2.5:3b,deepseek-coder:1.3b")
+const MODELS = (process.env.AI_EVAL_MODELS || "qwen2.5:1.5b")
   .split(",")
   .map((item) => item.trim())
   .filter(Boolean);

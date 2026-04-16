@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import type { RuntimeIdentity } from "@/lib/runtimeIdentity";
 import RuntimeParityBadge from "./RuntimeParityBadge";
 import styles from "./MapRemovedScreen.module.css";
@@ -20,9 +21,9 @@ export default function MapRemovedScreen({ runtimeIdentity, visibleStamp }: Prop
           new map subsystem is rebuilt from a clean base.
         </p>
         <div className={styles.actions}>
-          <a className={styles.primaryLink} href="/wiki-truth" data-testid="map-placeholder-link">
+          <Link className={styles.primaryLink} href="/wiki-truth" data-testid="map-placeholder-link">
             Open Wiki Truth
-          </a>
+          </Link>
           <div className={styles.secondaryMeta} data-testid="map-placeholder-runtime">
             RUNTIME={runtimeIdentity.mapRuntime.toUpperCase()}
           </div>

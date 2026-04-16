@@ -1,7 +1,7 @@
 import { expect, test, type Locator, type Page } from "@playwright/test";
 
 const MODEL_OVERRIDE_STORAGE_KEY = "ai_model_override";
-const MODELS = (process.env.AI_DIALOG_MODELS || "qwen2.5:1.5b,llama3.2:3b")
+const MODELS = (process.env.AI_DIALOG_MODELS || "qwen2.5:1.5b")
   .split(",")
   .map((item) => item.trim())
   .filter(Boolean);
@@ -23,7 +23,8 @@ const COUNTRY_GEO: Record<(typeof COUNTRIES)[number], { iso2: string; lat: numbe
 };
 const FORBIDDEN_PATTERNS = [
   /Request failed/i,
-  /All conversational local models failed/i,
+  /The local companion model failed/i,
+  /модель не ответила, попробуй ещё раз/i,
   /Give me a second, the model is taking longer than usual/i,
   /Секунду, модель думает чуть дольше обычного/i
 ];

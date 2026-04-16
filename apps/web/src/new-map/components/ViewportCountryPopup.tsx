@@ -54,11 +54,14 @@ export default function ViewportCountryPopup({
       Math.max(SAFE_TOP, unclampedTop),
       viewportHeight - SAFE_BOTTOM - panelHeight
     );
-    setPosition({
-      left,
-      top,
-      placement: preferRight ? "right" : "left"
+    const frameId = window.requestAnimationFrame(() => {
+      setPosition({
+        left,
+        top,
+        placement: preferRight ? "right" : "left"
+      });
     });
+    return () => window.cancelAnimationFrame(frameId);
   }, [anchor, entry.geo]);
 
   const renderList = (

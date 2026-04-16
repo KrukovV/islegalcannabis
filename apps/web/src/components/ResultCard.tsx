@@ -112,7 +112,7 @@ export default function ResultCard({
   isPaidUser = true,
   maxBullets,
   showRisks,
-  showSources: _showSources,
+  showSources,
   showPdf,
   showUpgradePrompt,
   locationContext,
@@ -128,6 +128,7 @@ export default function ResultCard({
   wikiLinks,
   linksTrust
 }: ResultCardProps) {
+  void showSources;
   const resolvedViewModel =
     viewModel ??
     buildResultViewModel({
