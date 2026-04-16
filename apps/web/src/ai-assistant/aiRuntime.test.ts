@@ -172,6 +172,14 @@ describe("aiRuntime", () => {
     expect(answer.length).toBeGreaterThan(120);
   });
 
+  it("answers broad smell/residue follow-ups with the trace-risk path", () => {
+    const answer = generateAnswer(buildContext("Can smell or residue still create trouble?", "MX", undefined, [], "en"));
+
+    expect(answer).toContain("Mexico");
+    expect(answer.toLowerCase()).toMatch(/smell|residue/);
+    expect(answer.length).toBeGreaterThan(120);
+  });
+
   it("uses different trace-risk wording for smell-only and grinder-residue prompts", () => {
     const smell = generateAnswer(
       buildContext("If I only smell like weed after a party, is that already dangerous?", "AT", undefined, [], "en")
@@ -201,6 +209,35 @@ describe("aiRuntime", () => {
     expect(prescription.toLowerCase()).toContain("prescription");
     expect(airport.toLowerCase()).toContain("airport");
     expect(airport.toLowerCase()).toContain("bag");
+  });
+
+  it("answers broad airport, public, and visitor follow-ups with grounded travel wording", () => {
+    const airport = generateAnswer(buildContext("What happens around airports or borders?", "SE", undefined, [], "en"));
+    const publicUse = generateAnswer(buildContext("What should I avoid doing in public?", "PL", undefined, [], "en"));
+    const visitor = generateAnswer(buildContext("Give me the safest summary for a visitor.", "MX", undefined, [], "en"));
+
+    expect(airport).toContain("Sweden");
+    expect(airport.toLowerCase()).toMatch(/airport|border/);
+    expect(publicUse).toContain("Poland");
+    expect(publicUse.toLowerCase()).toContain("public");
+    expect(visitor).toContain("Mexico");
+    expect(visitor.toLowerCase()).toMatch(/visitor|tourist/);
+  });
+
+  it("answers basic law-here prompts through the legal truth path", () => {
+    const answer = generateAnswer(buildContext("What is cannabis law here in simple terms?", "ZA", undefined, [], "en"));
+
+    expect(answer).toContain("South Africa");
+    expect(answer.toLowerCase()).toMatch(/legal|law|status|risk/);
+    expect(answer.length).toBeGreaterThan(120);
+  });
+
+  it("keeps 420 legal follow-ups anchored to the current country", () => {
+    const answer = generateAnswer(buildContext("Would 420 culture change anything legally here?", "AR", undefined, [], "en"));
+
+    expect(answer).toContain("Argentina");
+    expect(answer.toLowerCase()).toContain("420");
+    expect(answer.toLowerCase()).toMatch(/legal|law/);
   });
 
   it("does not carry the previous product subtopic into a fresh compare question", () => {

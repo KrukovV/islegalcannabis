@@ -45,13 +45,19 @@ export function isSmallAmountRiskQuery(query: string) {
 }
 
 export function isTraceRiskQuery(query: string) {
-  return /smell like weed|smell of weed|grinder with residue|trace residue|residue left in a pouch|residue in a pouch|only smell like|just smell like|smell after a party|pouch residue|grinder residue/i.test(
+  return /smell|residue|grinder with residue|trace residue|residue left in a pouch|residue in a pouch|pouch residue|grinder residue/i.test(
     String(query || "")
   );
 }
 
 export function isTravelRiskQuery(query: string) {
-  return /tourist.*public|careless in public|asking where to find weed|foreign medical prescription|foreign prescription|medical document|forgotten in a bag|forgotten in bag|left in luggage|airport screening|customs side/i.test(
+  return /tourist|visitor|public|airport|border|customs|careless in public|asking where to find weed|foreign medical prescription|foreign prescription|medical document|forgotten in a bag|forgotten in bag|left in luggage|airport screening|customs side/i.test(
+    String(query || "")
+  );
+}
+
+export function isBasicLawQuery(query: string) {
+  return /what is cannabis law here|cannabis law here|law here in simple terms|current cannabis situation here|without legal jargon|explain.*cannabis situation/i.test(
     String(query || "")
   );
 }

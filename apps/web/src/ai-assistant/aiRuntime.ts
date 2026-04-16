@@ -5,7 +5,7 @@ import { findNearbyTruth } from "@/lib/geo/nearbyTruth";
 import { deriveResultStatusFromCountryPageData } from "@/lib/resultStatus";
 import { buildMessages, type LlmMessage } from "./prompt";
 import type { AIContext, AIResponse, RagChunk } from "./types";
-import { detectIntent, getDialogState, isContinuationQuery, isGlobalCultureQuery, isProductRiskQuery, isSmallAmountRiskQuery, isTraceRiskQuery, isTravelRiskQuery, rememberDialog } from "./dialog";
+import { detectIntent, getDialogState, isBasicLawQuery, isContinuationQuery, isGlobalCultureQuery, isProductRiskQuery, isSmallAmountRiskQuery, isTraceRiskQuery, isTravelRiskQuery, rememberDialog } from "./dialog";
 import { getTravelRiskBlock } from "./rag";
 import { retrieveMemory, saveMemory, scoreMemory } from "./memory";
 import { applyDialogStyle, fallbackHumanized } from "./dialogStyle";
@@ -747,6 +747,14 @@ function generateCulture(context: AIContext) {
 function generateGlobalCulture(context: AIContext) {
   const query = String(context.query || "").toLowerCase();
   if (/420/.test(query)) {
+    if (/legal|law|here|change anything|change/.test(query)) {
+      const place = context.location.name || context.location.geoHint || "this place";
+      return [
+        `${place}: 420 culture does not change the legal situation.`,
+        "420 is cannabis slang and a cultural symbol, not a legal permission or a protected category.",
+        "So even if people recognize the reference, the practical answer still comes from local cannabis law, enforcement, and how public behavior is treated on the ground."
+      ].join("\n\n");
+    }
     return [
       "420 is cannabis slang, not a legal category.",
       "The usual origin story points to a California high-school group called the Waldos, who used 4:20 as a meetup code.",
@@ -845,7 +853,7 @@ function generateTravelRiskAnswer(context: AIContext) {
   const query = String(context.query || "").toLowerCase();
   const airport = /airport|screening|bag|luggage|customs/.test(query);
   const prescription = /prescription|medical document/.test(query);
-  const tourist = /tourist|public|asking where to find weed/.test(query);
+  const tourist = /tourist|visitor|public|asking where to find weed/.test(query);
   const risk = formatRiskSignal(context.legal?.finalRisk);
   const lines = [];
   if (tourist) {
@@ -918,6 +926,9 @@ export function generateAnswer(context: AIContext): string {
   }
   if (context.compare?.name && /compare|safer|why/i.test(context.query)) {
     return applyDialogStyle(ensureNonEmptyAnswer(context, generateComparison(context)), context.intent, context.language);
+  }
+  if (isBasicLawQuery(context.query)) {
+    return applyDialogStyle(ensureNonEmptyAnswer(context, generateLegal(context)), "legal", context.language);
   }
   if (isTravelRiskQuery(context.query)) {
     return applyDialogStyle(ensureNonEmptyAnswer(context, generateTravelRiskAnswer(context)), context.intent, context.language);
@@ -1045,6 +1056,26 @@ export async function answerWithAssistant(
       sources: context.sources,
       safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
       model: "compare-engine",
+      llm_connected: false
+    };
+  }
+  if (isBasicLawQuery(query)) {
+    const answer = generateAnswer(context);
+    rememberDialog(context, answer);
+    if (answer.length > 60) {
+      saveMemory({
+        query,
+        intent: context.intent,
+        location: context.location.geoHint || undefined,
+        answer,
+        score: scoreMemory(answer, Boolean(context.history.lastIntent), Boolean(memoryMatches.length))
+      });
+    }
+    return {
+      answer,
+      sources: context.sources,
+      safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
+      model: "truth-engine",
       llm_connected: false
     };
   }

@@ -1,17 +1,17 @@
 {
-  "updatedAt": 1776363419561,
+  "updatedAt": 1776372605204,
   "workingModels": [
     "qwen2.5:1.5b"
   ],
   "stats": {
     "qwen2.5:1.5b": {
       "name": "qwen2.5:1.5b",
-      "successTurns": 775,
-      "failTurns": 91,
-      "avgFirstTokenMs": 2671.8361290322628,
-      "avgResponseMs": 14343.123870967742,
-      "avgLength": 1022.64,
-      "lastUsedAt": 1776369179808
+      "successTurns": 837,
+      "failTurns": 101,
+      "avgFirstTokenMs": 2637.92353643967,
+      "avgResponseMs": 14039.562724014337,
+      "avgLength": 1021.9354838709677,
+      "lastUsedAt": 1776373868156
     }
   },
   "roles": {

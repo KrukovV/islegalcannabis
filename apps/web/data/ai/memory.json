@@ -1,6 +1,28 @@
 {
   "items": [
     {
+      "id": "c96315879a8d615c",
+      "query": "What should I avoid doing in public?",
+      "intent": "general",
+      "location": "ZA",
+      "answer": "In South Africa / Sewula Afrika, it's important to be aware of cultural norms and practices that may differ from what you're used to in your home country. Here are some general tips for navigating public spaces: 1. Respect local customs: South Africans often have strong traditions and rituals associated with visiting homes or attending ceremonies. It's polite to arrive on time, knock before entering, and be respectful of personal space. 2. Dress appropriately: While clothing is not a legal requirement in most public places in South Africa, dressing modestly can help avoid misunderstandings and may show respect for cultural norms. 3. Be mindful of the environment: South Africa has diverse environments, from bustling cities to rural areas. Adapting your behavior based on what you encounter can make interactions more enjoyable. 4. Avoid touching or physically interacting with animals unless they are pets; in that case, ask before handling. 5. Keep personal belongings secure: Public spaces may not always be as safe as home, so it",
+      "score": 1,
+      "used": 0,
+      "ts": 1776373123236,
+      "last_used": 1776373123236
+    },
+    {
+      "id": "ed77da17e97f8996",
+      "query": "What is 420?",
+      "intent": "general",
+      "location": "ZA",
+      "answer": "In the context of your query, it seems that you're discussing cannabis use within the legal framework of South Africa / Sewula Afrika. Here are some key points: 1. Legal Status: - Recreational: Yes, for personal or social purposes (though not in public spaces) - Medical: Yes, for therapeutic and medical uses approved by healthcare providers 2. Distribution Laws: - Restrictions: The law generally prohibits the distribution of cannabis to minors and non-authorized individuals - Risk Signal: Restricted suggests there may be some exceptions or leniency in enforcement. 3. Enforcement Signals: - Enforcement Rare: While not strictly enforced, it's noted that such cases are relatively rare compared to other countries with stricter drug laws. 4. Overall Situation: - Legal Framework: The overall legal framework is more focused on medical use and recreational purposes rather than the distribution of cannabis for non-authorized individuals. 5. Risks: - Restricted: This indicates there",
+      "score": 1,
+      "used": 3,
+      "ts": 1776359038358,
+      "last_used": 1776373102518
+    },
+    {
       "id": "fee023a0a4d7b840",
       "query": "Is it enforced?",
       "intent": "general",
@@ -20,17 +42,6 @@
       "score": 1,
       "used": 1,
       "ts": 1776359906366,
-      "last_used": 1776360519789
-    },
-    {
-      "id": "ed77da17e97f8996",
-      "query": "What is 420?",
-      "intent": "general",
-      "location": "ZA",
-      "answer": "In the context of your query, it seems that you're discussing cannabis use within the legal framework of South Africa / Sewula Afrika. Here are some key points: 1. Legal Status: - Recreational: Yes, for personal or social purposes (though not in public spaces) - Medical: Yes, for therapeutic and medical uses approved by healthcare providers 2. Distribution Laws: - Restrictions: The law generally prohibits the distribution of cannabis to minors and non-authorized individuals - Risk Signal: Restricted suggests there may be some exceptions or leniency in enforcement. 3. Enforcement Signals: - Enforcement Rare: While not strictly enforced, it's noted that such cases are relatively rare compared to other countries with stricter drug laws. 4. Overall Situation: - Legal Framework: The overall legal framework is more focused on medical use and recreational purposes rather than the distribution of cannabis for non-authorized individuals. 5. Risks: - Restricted: This indicates there",
-      "score": 1,
-      "used": 2,
-      "ts": 1776359038358,
       "last_used": 1776360519789
     },
     {
@@ -2188,17 +2199,6 @@
       "used": 0,
       "ts": 1776343721977,
       "last_used": 1776343721977
-    },
-    {
-      "id": "9fce116d811cc032",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "FI",
-      "answer": "The cannabis law in Finland is currently decriminalized, meaning that possessing or using marijuana for personal use is generally not punished severely by the authorities. However, it should be noted that this information may have changed since I last checked, so it's best to verify with current local authorities.\n\nRegarding enforcement, there are indications of active measures being taken against cannabis-related activities in Finland, including arrests and increased police presence around marijuana dispensaries. This suggests that while possession is generally not prosecuted, using or dealing the drug remains illegal and could lead to legal consequences depending on the circumstances.\n\nIt's important to respect local laws and be aware of potential sanctions for engaging with or promoting cannabis use.",
-      "score": 1,
-      "used": 0,
-      "ts": 1776343703093,
-      "last_used": 1776343703093
     }
   ]
 }
