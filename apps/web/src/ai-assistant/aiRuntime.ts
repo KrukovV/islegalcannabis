@@ -5,7 +5,7 @@ import { findNearbyTruth } from "@/lib/geo/nearbyTruth";
 import { deriveResultStatusFromCountryPageData } from "@/lib/resultStatus";
 import { buildMessages, type LlmMessage } from "./prompt";
 import type { AIContext, AIResponse, RagChunk } from "./types";
-import { detectIntent, getDialogState, isBasicLawQuery, isContinuationQuery, isCultureFollowupQuery, isGlobalCultureQuery, isProductRiskQuery, isSmallAmountRiskQuery, isTraceRiskQuery, isTravelRiskQuery, rememberDialog } from "./dialog";
+import { detectIntent, getDialogState, isBasicLawQuery, isContinuationQuery, isCultureFollowupQuery, isGlobalCultureQuery, isMarketAccessQuery, isProductRiskQuery, isSmallAmountRiskQuery, isTraceRiskQuery, isTravelRiskQuery, rememberDialog } from "./dialog";
 import { getTravelRiskBlock } from "./rag";
 import { retrieveMemory, saveMemory, scoreMemory } from "./memory";
 import { applyDialogStyle, fallbackHumanized } from "./dialogStyle";
@@ -50,6 +50,8 @@ function getCountryPageForHint(geoHint: string | undefined) {
   if (normalized.startsWith("US-")) {
     return countryPageIndexByGeoCodeCache.get(normalized) || null;
   }
+  const geoCodeMatch = countryPageIndexByGeoCodeCache.get(normalized);
+  if (geoCodeMatch) return geoCodeMatch;
   if (normalized.length === 2) {
     return countryPageIndexByIso2Cache.get(normalized) || null;
   }
@@ -63,6 +65,8 @@ function getJurisdictionAliases() {
   for (const [geo, page] of countryPageIndexByGeoCodeCache.entries()) {
     const lowerName = String(page.name || "").toLowerCase();
     if (lowerName) aliases.push({ alias: lowerName, geo });
+    const commonName = lowerName.split("/")[0]?.trim();
+    if (commonName && commonName !== lowerName) aliases.push({ alias: commonName, geo });
     if (geo.startsWith("US-")) {
       aliases.push({ alias: lowerName.replace(/,?\s+us$/i, ""), geo });
       aliases.push({ alias: lowerName.replace(/,?\s+united states$/i, ""), geo });
@@ -791,9 +795,9 @@ function generateGlobalCulture(context: AIContext) {
       "That gives the mood and history, but it is culture, not permission: local cannabis law still controls possession, buying, and public use."
     ].join("\n\n");
   }
-  if (/why did make love not war|make love not war become/.test(query)) {
+  if (/make love not war/.test(query)) {
     return [
-      "Make Love, Not War became powerful because it compressed a whole 1960s anti-war mood into one line.",
+      `${context.location.name || "This topic"}: Make Love, Not War became powerful because it compressed a whole 1960s anti-war mood into one line.`,
       "It came out of American counterculture and Vietnam War protest: peace, anti-violence, sexual freedom, and rejection of militarized politics all sat inside the phrase.",
       "The cannabis link is cultural, not legal: hippie scenes around Haight-Ashbury, rock festivals, and the Summer of Love made marijuana highly visible, so the slogan lives in the same world even though its origin is anti-war."
     ].join("\n\n");
@@ -822,6 +826,14 @@ function generateGlobalCulture(context: AIContext) {
     ].join("\n\n");
   }
   if (/reggae|marley|rastafari/.test(query)) {
+    if (/legal meaning|legally important|just cultural|law|permission|here|local/.test(query)) {
+      const place = context.location.name || context.location.geoHint || "this place";
+      return [
+        `${place}: reggae or Rastafari culture has cultural meaning, not legal force.`,
+        "The connection is real historically: reggae and Rastafari language often use ganja as a spiritual or countercultural symbol.",
+        "But on the ground, that does not change cannabis law, police discretion, public-use risk, or airport and border rules."
+      ].join("\n\n");
+    }
     return [
       "The clearest reggae-linked cannabis figures are Bob Marley, Peter Tosh, and Bunny Wailer.",
       "That link comes less from celebrity branding and more from Rastafari culture, where ganja was treated as part of spiritual and countercultural practice.",
@@ -934,8 +946,24 @@ function generateTravelRiskAnswer(context: AIContext) {
     lines.push(`Airport and customs risk should be treated seriously in ${place}, especially if something cannabis-related is forgotten in a bag.`);
     lines.push("The problem is simple: screening turns a private mistake into a border or security issue very quickly.");
   }
-  lines.push("The calm bottom line is: do not rely on being a tourist, on good intentions, or on paperwork to make cannabis-related risk disappear.");
+  lines.push(`The calm bottom line for ${place} is: do not rely on being a tourist, on good intentions, or on paperwork to make cannabis-related risk disappear.`);
   return lines.join("\n\n");
+}
+
+function generateMarketAccess(context: AIContext) {
+  const place = context.location.name || context.location.geoHint || "this place";
+  const recreational = String(context.legal?.recreational || "unknown").toLowerCase().replaceAll("_", " ");
+  const distribution = String(context.legal?.distribution || "unknown").toLowerCase().replaceAll("_", " ");
+  const risk = formatRiskSignal(context.legal?.finalRisk);
+  const regulated = /regulated|legal/.test(distribution) || /legal|decrim/.test(recreational);
+  return [
+    `${place}: do not read a legal or tolerated cannabis system as automatic tourist access.`,
+    `The current data reads recreational status as ${recreational}, distribution as ${distribution}, and the practical risk signal as ${risk}.`,
+    regulated
+      ? "Even where a market exists, access can depend on local rules, registration, residency, clubs, pharmacies, or licensed channels."
+      : "If distribution is not clearly legal, a visitor trying to buy is moving into the riskiest part of the system.",
+    "The useful rule is simple: being a visitor does not create a right to buy, and crossing borders with cannabis remains a separate high-risk issue."
+  ].join("\n\n");
 }
 
 function generateGeneral(context: AIContext) {
@@ -975,6 +1003,14 @@ function generateComparison(context: AIContext) {
       : /high/.test(compareRisk) && !/high/.test(currentRisk)
         ? current
         : compare;
+  if (/^why\??$/i.test(String(context.query || "").trim())) {
+    return [
+      `${current} versus ${compare}: the reason the risk differs is not culture or vibes, it is the legal status plus enforcement exposure.`,
+      `${current} carries a ${currentRisk} risk signal; ${compare} carries a ${compareRisk} risk signal.`,
+      "That means the safer side is the one with clearer lawful channels, lower enforcement exposure, and less chance that a small mistake turns into police, customs, or border trouble.",
+      `For this pair, ${safer} still looks safer in practical terms, but crossing borders with cannabis remains a bad idea in both directions.`
+    ].join("\n\n");
+  }
   return [
     `${current} and ${compare} are not the same situation.`,
     `${current}: overall status is ${currentStatus}, with a ${currentRisk} risk signal.`,
@@ -993,6 +1029,9 @@ export function generateAnswer(context: AIContext): string {
   }
   if (context.compare?.name && /compare|safer|why/i.test(context.query)) {
     return applyDialogStyle(ensureNonEmptyAnswer(context, generateComparison(context)), context.intent, context.language);
+  }
+  if (isMarketAccessQuery(context.query)) {
+    return applyDialogStyle(ensureNonEmptyAnswer(context, generateMarketAccess(context)), "buy", context.language);
   }
   if (isBasicLawQuery(context.query)) {
     return applyDialogStyle(ensureNonEmptyAnswer(context, generateLegal(context)), "legal", context.language);
@@ -1125,6 +1164,17 @@ export async function answerWithAssistant(
       sources: context.sources,
       safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
       model: "compare-engine",
+      llm_connected: false
+    };
+  }
+  if (isMarketAccessQuery(query)) {
+    const answer = generateAnswer(context);
+    rememberDialog(context, answer);
+    return {
+      answer,
+      sources: context.sources,
+      safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
+      model: "market-access-engine",
       llm_connected: false
     };
   }

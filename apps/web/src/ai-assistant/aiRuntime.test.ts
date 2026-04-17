@@ -52,6 +52,19 @@ describe("aiRuntime", () => {
     expect(compare.compare?.name).toMatch(/Thailand/);
   });
 
+  it("resolves common English compare aliases when display names include local scripts", () => {
+    const vietnam = buildContext("Compare practical risk with Vietnam.", "SG", undefined, [], "en");
+    const greece = buildContext("Compare with Greece.", "RO", undefined, [], "en");
+    const spain = buildContext("Compare with Spain.", "MA", undefined, [], "en");
+
+    expect(vietnam.compare?.name).toMatch(/Vietnam/);
+    expect(greece.compare?.name).toMatch(/Greece/);
+    expect(spain.compare?.name).toMatch(/Spain/);
+    expect(generateAnswer(vietnam)).toContain("Vietnam");
+    expect(generateAnswer(greece)).toContain("Greece");
+    expect(generateAnswer(spain)).toContain("Spain");
+  });
+
   it("enforces the locked location over a changed ambient geo hint", () => {
     const firstContext = buildContext("Germany cannabis?", "DE", undefined, [], "en");
     rememberDialog(firstContext, "Germany stays the topic.");
@@ -136,6 +149,15 @@ describe("aiRuntime", () => {
 
     expect(answer).toContain("CBD-like products");
     expect(answer).toContain("Italy");
+    expect(answer.toLowerCase()).toContain("risk");
+    expect(answer.length).toBeGreaterThan(120);
+  });
+
+  it("answers ambiguous product questions through product-risk instead of generic legal prose", () => {
+    const answer = generateAnswer(buildContext("Could product ambiguity create trouble?", "RO", undefined, [], "en"));
+
+    expect(answer).toContain("Romania");
+    expect(answer.toLowerCase()).toContain("product ambiguity");
     expect(answer.toLowerCase()).toContain("risk");
     expect(answer.length).toBeGreaterThan(120);
   });
@@ -234,9 +256,49 @@ describe("aiRuntime", () => {
 
   it("routes plain-language and medical/practice prompts through deterministic truth", () => {
     expect(generateAnswer(buildContext("What is cannabis law here in plain language?", "AR", undefined, [], "en"))).toContain("Argentina");
+    expect(generateAnswer(buildContext("What is the cannabis situation here in plain English?", "SE", undefined, [], "en"))).toContain("Sweden");
+    expect(generateAnswer(buildContext("Give me the current cannabis picture here like a local warning.", "GH", undefined, [], "en"))).toContain("Ghana");
+    expect(generateAnswer(buildContext("What is the practical cannabis risk here?", "LA", undefined, [], "en"))).toContain("Laos");
     expect(generateAnswer(buildContext("Is enforcement strict in real life?", "GR", undefined, [], "en"))).toContain("Greece");
     expect(generateAnswer(buildContext("How does medical cannabis change the picture?", "AR", undefined, [], "en"))).toContain("Argentina");
+    expect(generateAnswer(buildContext("How does medical cannabis fit the picture?", "ZA", undefined, [], "en"))).toContain("South Africa");
     expect(generateAnswer(buildContext("Is medical or industrial cannabis treated differently?", "GH", undefined, [], "en"))).toContain("Ghana");
+    expect(generateAnswer(buildContext("Give me the cannabis situation here like a traveler would understand it.", "CO", undefined, [], "en"))).toContain("Colombia");
+    expect(generateAnswer(buildContext("Is personal use tolerated or just culturally visible?", "NP", undefined, [], "en"))).toContain("Nepal");
+    expect(generateAnswer(buildContext("How does medical cannabis affect ordinary people?", "IE", undefined, [], "en"))).toContain("Ireland");
+    expect(generateAnswer(buildContext("Is enforcement predictable in real life?", "MX", undefined, [], "en"))).toContain("Mexico");
+    expect(generateAnswer(buildContext("How strict is enforcement for personal possession?", "RO", undefined, [], "en"))).toContain("Romania");
+    expect(generateAnswer(buildContext("What about medical cannabis access?", "RO", undefined, [], "en"))).toContain("Romania");
+    const market = generateAnswer(buildContext("Can tourists access the legal market?", "UY", undefined, [], "en"));
+    expect(market).toContain("Uruguay");
+    expect(market.toLowerCase()).toMatch(/tourist|visitor|access|buy|market/);
+  });
+
+  it("answers visitor buy/access prompts through market-access wording", () => {
+    const answer = generateAnswer(buildContext("Can a visitor buy anything legally?", "MX", undefined, [], "en"));
+
+    expect(answer).toContain("Mexico");
+    expect(answer.toLowerCase()).toMatch(/visitor|buy|access|market/);
+    expect(answer.length).toBeGreaterThan(120);
+  });
+
+  it("anchors broader luggage and border travel prompts to the current country", () => {
+    const luggage = generateAnswer(buildContext("What happens if something is forgotten in luggage?", "EG", undefined, [], "en"));
+    const border = generateAnswer(buildContext("What about taking something across a border?", "NP", undefined, [], "en"));
+    const exit = generateAnswer(buildContext("What about taking cannabis out of the country?", "UY", undefined, [], "en"));
+    const leave = generateAnswer(buildContext("Can cannabis leave the country legally?", "ZA", undefined, [], "en"));
+    const paperwork = generateAnswer(buildContext("If it is only medical paperwork from abroad, does it help?", "SE", undefined, [], "en"));
+
+    expect(luggage).toContain("Egypt");
+    expect(luggage.toLowerCase()).toMatch(/airport|customs|luggage|bag|border|security/);
+    expect(border).toContain("Nepal");
+    expect(border.toLowerCase()).toMatch(/border|customs|tourist|risk/);
+    expect(exit).toContain("Uruguay");
+    expect(exit.toLowerCase()).toMatch(/border|customs|country|risk/);
+    expect(leave).toContain("South Africa");
+    expect(leave.toLowerCase()).toMatch(/border|customs|country|risk/);
+    expect(paperwork).toContain("Sweden");
+    expect(paperwork.toLowerCase()).toMatch(/paperwork|medical|border|rules|risk/);
   });
 
   it("keeps 420 legal follow-ups anchored to the current country", () => {
@@ -245,6 +307,17 @@ describe("aiRuntime", () => {
     expect(answer).toContain("Argentina");
     expect(answer.toLowerCase()).toContain("420");
     expect(answer.toLowerCase()).toMatch(/legal|law/);
+  });
+
+  it("keeps reggae legal-meaning prompts anchored to the current country", () => {
+    const answer = generateAnswer(buildContext("Does reggae culture have any legal meaning here?", "SG", undefined, [], "en"));
+    const rastafari = generateAnswer(buildContext("Is Rastafari context legally important or just cultural?", "JM", undefined, [], "en"));
+
+    expect(answer).toContain("Singapore");
+    expect(answer.toLowerCase()).toContain("reggae");
+    expect(answer.toLowerCase()).toMatch(/legal|law|permission/);
+    expect(rastafari).toContain("Jamaica");
+    expect(rastafari.toLowerCase()).toMatch(/rastafari|legal|cultural|permission/);
   });
 
   it("keeps short culture continuations on cannabis, reggae, and law boundaries", () => {
@@ -263,10 +336,13 @@ describe("aiRuntime", () => {
 
   it("answers Make Love Not War and music follow-ups as culture, not legal drift", () => {
     const origin = generateAnswer(buildContext("Where does the expression Make Love Not War come from?", "JM", undefined, [], "en"));
+    const fit = generateAnswer(buildContext("Where does Make Love Not War fit with cannabis culture?", "AR", undefined, [], "en"));
     const music = generateAnswer(buildContext("music?", "JM", undefined, [], "en"));
     const performers = generateAnswer(buildContext("Which performers should I know if I want the reggae and cannabis-culture angle?", "JM", undefined, [], "en"));
 
     expect(origin.toLowerCase()).toMatch(/1960s|anti-war|counterculture|vietnam|peace/);
+    expect(fit).toContain("Argentina");
+    expect(fit.toLowerCase()).toMatch(/anti-war|counterculture|cannabis/);
     expect(music).toContain("Jamaica");
     expect(music.toLowerCase()).toMatch(/reggae|dub|roots|marley/);
     expect(performers.toLowerCase()).toMatch(/bob marley|peter tosh|lee scratch perry|snoop/);
@@ -370,5 +446,17 @@ describe("aiRuntime", () => {
     expect(compare.intent).not.toBe("nearby");
     expect(safer.intent).not.toBe("nearby");
     expect(safer.compare?.name).toMatch(/Netherlands/);
+  });
+
+  it("answers why follow-ups after compare without repeating the exact comparison", () => {
+    const first = buildContext("Compare this with Denmark.", "SE", undefined, [], "en");
+    const firstAnswer = generateAnswer(first);
+    rememberDialog(first, firstAnswer);
+    const why = generateAnswer(buildContext("why?", "SE", undefined, [], "en"));
+
+    expect(why).toContain("Sweden");
+    expect(why).toContain("Denmark");
+    expect(why).not.toBe(firstAnswer);
+    expect(why.toLowerCase()).toMatch(/reason|differs|risk/);
   });
 });
