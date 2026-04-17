@@ -14,7 +14,7 @@ const dialogState: DialogState = {
 };
 
 export function detectIntent(query: string): AIIntent {
-  if (/420|reggae|music|marley|artist|song|movie|culture|rastafari|make love not war|культура|музыка/i.test(query)) return "culture";
+  if (/420|reggae|music|marley|artist|actor|performer|song|movie|film|culture|rastafari|make love not war|культура|музыка/i.test(query)) return "culture";
   if (/near me|nearest|nearby|closest|distance|best warning|where can i smoke near|where is legal near|where can i buy near|tolerated near|around me|ближайш|рядом|недалеко|где рядом|где поблизости|куда ближе|что ближе|куда поехать рядом/i.test(query)) {
     return "nearby";
   }
@@ -32,6 +32,10 @@ export function isGlobalCultureQuery(query: string) {
   return /420|reggae|rastafari|bob marley|peter tosh|bunny wailer|make love not war|counterculture|hippie|airport.*import|import.*airport|airports?.*legal|where does .*make love not war/i.test(
     String(query || "")
   );
+}
+
+export function isCultureFollowupQuery(query: string) {
+  return /^(and\??|why\??|music\??|songs?\??|films?\??|movies?\??|actors?\??|artists?\??|performers?\??|history\??|more\??|what else\??)$/i.test(String(query || "").trim());
 }
 
 export function isProductRiskQuery(query: string) {
@@ -57,7 +61,7 @@ export function isTravelRiskQuery(query: string) {
 }
 
 export function isBasicLawQuery(query: string) {
-  return /what is cannabis law here|cannabis law here|law here in simple terms|current cannabis situation here|without legal jargon|explain.*cannabis situation/i.test(
+  return /what is cannabis law here|cannabis law here|law here in (?:simple terms|plain language)|current cannabis situation here|current cannabis situation|current cannabis status|current situation here|without legal jargon|explain.*cannabis (?:situation|law)|plain language|enforcement strict|strict in real life|medical cannabis change|medical or industrial cannabis treated differently/i.test(
     String(query || "")
   );
 }

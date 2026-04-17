@@ -2,6 +2,7 @@ import type { AIContext } from "./types";
 import { buildDialogMessages, summarizeHistory } from "./buildContext";
 import { fewShotDialogs } from "./fewShotDialogs";
 import { isContinuationQuery, isGlobalCultureQuery } from "./dialog";
+import { getTopicFacts } from "./knowledge";
 
 export type LlmMessage = {
   role: "system" | "user" | "assistant";
@@ -67,8 +68,15 @@ function compactContext(context: AIContext) {
     ].filter(Boolean).join("\n");
   }
   if (context.intent === "culture") {
+    const knowledge = getTopicFacts(context.query, 3);
+    const memory = context.memory[0]?.answer;
+    const learnedContext = [
+      knowledge.length ? `Relevant: ${knowledge.map((fact) => compactText(fact, 120)).filter(Boolean).join(" ")}` : null,
+      memory ? `Similar past style: ${compactText(memory, 200)}.` : null
+    ].filter(Boolean).join("\n");
     return [
       `Place: ${context.location.name || context.location.geoHint || "unknown"}.`,
+      learnedContext || null,
       ...context.culture.slice(0, 2).map((chunk, index) => `Culture fact ${index + 1}: ${compactText(`${chunk.title}: ${chunk.text}`, 220)}.`),
       context.social?.summary ? `Social context: ${compactText(context.social.summary, 120)}.` : null
     ].filter(Boolean).join("\n");
@@ -127,11 +135,19 @@ export function buildMessages(input: {
   query: string;
   context: AIContext;
 }): LlmMessage[] {
-  return buildDialogMessages({
+  const messages = buildDialogMessages({
     query: input.query,
     systemPrompt: AI_SYSTEM_PROMPT,
     context: input.context,
     factLines: compactContext(input.context)
+  }).filter((item) => item.content.trim());
+  const size = messages.reduce((sum, item) => sum + item.content.length, 0);
+  if (size <= 1200 || !input.context.memory.length) return messages;
+  return buildDialogMessages({
+    query: input.query,
+    systemPrompt: AI_SYSTEM_PROMPT,
+    context: { ...input.context, memory: [] },
+    factLines: compactContext({ ...input.context, memory: [] })
   }).filter((item) => item.content.trim());
 }
 

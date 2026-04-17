@@ -1,6 +1,16 @@
 {
   "items": [
     {
+      "id": "e8c8d05f4b72f795",
+      "query": "Is enforcement strict in real life?",
+      "intent": "general",
+      "location": "GR",
+      "answer": "If we keep it factual:\n\nFrom another angle, what matters is this:\n\nCalm version: cannabis is formally illegal in Greece / Ελλάδα in the current SSOT.\n\nPrison exposure is present in the data, so this does not read like a paper-only ban. Cannabis is formally illegal in Greece / Ελλάδα. Medical cannabis is legal. Distribution is formally illegal. Prison exposure detected.\n\nReality on the ground can feel different: Greece / Ελλάδα remains formally illegal in law. That is not permission, only the current social signal.\n\nOn the medical side, access is legal in the current data.\n\nWant to compare it with another country?",
+      "score": 1,
+      "ts": 1776378672250,
+      "last_used": 1776379540086
+    },
+    {
       "id": "c96315879a8d615c",
       "query": "What should I avoid doing in public?",
       "intent": "general",
@@ -10,17 +20,6 @@
       "used": 0,
       "ts": 1776373123236,
       "last_used": 1776373123236
-    },
-    {
-      "id": "ed77da17e97f8996",
-      "query": "What is 420?",
-      "intent": "general",
-      "location": "ZA",
-      "answer": "In the context of your query, it seems that you're discussing cannabis use within the legal framework of South Africa / Sewula Afrika. Here are some key points: 1. Legal Status: - Recreational: Yes, for personal or social purposes (though not in public spaces) - Medical: Yes, for therapeutic and medical uses approved by healthcare providers 2. Distribution Laws: - Restrictions: The law generally prohibits the distribution of cannabis to minors and non-authorized individuals - Risk Signal: Restricted suggests there may be some exceptions or leniency in enforcement. 3. Enforcement Signals: - Enforcement Rare: While not strictly enforced, it's noted that such cases are relatively rare compared to other countries with stricter drug laws. 4. Overall Situation: - Legal Framework: The overall legal framework is more focused on medical use and recreational purposes rather than the distribution of cannabis for non-authorized individuals. 5. Risks: - Restricted: This indicates there",
-      "score": 1,
-      "used": 3,
-      "ts": 1776359038358,
-      "last_used": 1776373102518
     },
     {
       "id": "fee023a0a4d7b840",
@@ -34,39 +33,6 @@
       "last_used": 1776360529005
     },
     {
-      "id": "af2d2091a2f0f8e9",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "ZA",
-      "answer": "The cannabis laws in South Africa / Sewula Afrika are as follows: - **Legal**: Cannabis is legal across the board, including for medical and recreational use. - **Restricted Distribution**: Distribution of cannabis is formally illegal, but enforcement signals show it is rarely enforced or unenforced. - **Enforcement Signal**: There has been a detection of prison exposure in the data, indicating that possession might be considered a crime. However, this does not necessarily imply widespread enforcement. In summary: 1. **Legal**: Cannabis is legal for recreational use and medical purposes. 2. **Restricted Distribution**: The distribution aspect is officially illegal but enforcement signals show it is rarely enforced or unenforced. 3. **Enforcement Signal**: There has been a detection of prison exposure, which suggests possession might be considered a crime. So, the overall impression is that cannabis is legal in South Africa / Sewula Afrika, and while there are some restrictions on distribution, enforcement signals indicate it is rarely enforced or un",
-      "score": 1,
-      "used": 1,
-      "ts": 1776359906366,
-      "last_used": 1776360519789
-    },
-    {
-      "id": "cd04f495b5efc315",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "AU",
-      "answer": "The current cannabis laws in Australia are complex and vary by state or territory, but here's an overview: ### Overall Status: - **Cannabis is entirely prohibited across all states and territories except for the Northern Territory**. ### Recreational Status: - It is **illegal to possess, grow, cultivate, produce, manufacture, import, export, sell, tender for sale, or give away cannabis in any form (whether fresh, dried, smokeable, edible, or otherwise)** without a valid prescription from a medical practitioner who has registered with the Commonwealth of Australia. ### Medical Status: - **Medical marijuana** is legal under the Therapeutic Goods Administration (TGA) regulations. The TGA recognizes that cannabis can be used to treat certain conditions and permits its use for medicinal purposes when prescribed by a qualified health professional, provided they are registered with the Commonwealth of Australia. ### Distribution Status: - It is **illegal to distribute cannabis without a valid prescription from a medical practitioner registered with the Commonwealth",
-      "score": 1,
-      "used": 0,
-      "ts": 1776360437350,
-      "last_used": 1776360437350
-    },
-    {
-      "id": "6f38e78eec98b213",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "AU",
-      "answer": "In Australia, the use and possession of cannabis are generally prohibited under federal legislation. The situation regarding medical marijuana differs slightly from recreational use. 1. **Recreational Use**: It is currently illegal to possess or consume cannabis for any purpose in Australia, including recreational use. 2. **Medical Marijuana**: The medicinal use of cannabis is legal with a prescription from a healthcare provider who has obtained the necessary license or approval from the relevant regulatory body (the Therapeutic Goods Administration). 3. **Distribution and Trafficking**: It is illegal to distribute, manufacture, import, export, sell, purchase, barter, or possess cannabis for any purpose. 4. **Risk Signal**: The risk signal of \"high_risk\" indicates that cannabis use poses significant risks, including the potential for addiction, impaired judgment, health issues, and social problems. 5. **Enforcement Signal**: The enforcement signal being \"active\" suggests there are ongoing efforts to enforce these laws through law enforcement agencies such as police and customs officers",
-      "score": 1,
-      "used": 1,
-      "ts": 1776359773301,
-      "last_used": 1776360426762
-    },
-    {
       "id": "0f8a8f1962bb41b7",
       "query": "What is 420?",
       "intent": "general",
@@ -76,50 +42,6 @@
       "used": 2,
       "ts": 1776358923016,
       "last_used": 1776360426762
-    },
-    {
-      "id": "d56f434a44237130",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "IN",
-      "answer": "The general cannabis law in India / भारत can be described as follows: 1. **Overall Status**: The overall legal status of marijuana (cannabis) in India is considered mixed due to varying regional laws and enforcement policies. 2. **Recreational Status**: Recreational use of marijuana is illegal throughout India, including all parts of the country. This means that individuals are not allowed to possess or consume cannabis for recreational purposes under any circumstances without facing legal consequences. 3. **Medical Status**: Medical use of cannabis is legally recognized in India. The Indian government has legalized medical marijuana through various regulations and permits, allowing patients with specific conditions (such as epilepsy) to obtain a doctor's prescription and access the drug for medicinal purposes. 4. **Distribution Status**: It is illegal to distribute or sell marijuana both recreationally and medically across all of India. 5. **Risk Signal**: The overall enforcement signal suggests that while there are laws against cannabis use, distribution, and medical possession",
-      "score": 1,
-      "used": 1,
-      "ts": 1776359516281,
-      "last_used": 1776360237781
-    },
-    {
-      "id": "be48b5739995ed4f",
-      "query": "What is 420?",
-      "intent": "general",
-      "location": "IN",
-      "answer": "Short and honest:\n\nThere is another angle here that matters:\n\nReality on the ground can feel different: Cannabis rules remain restrictive in India overall, but enforcement varies by region and social tolerance persists in specific contexts. That is not permission, only the current social signal.\n\nOn the medical side, access is legal in the current data.\n\nIf you want, we can compare this with another country or state.\n\nWant to keep going?",
-      "score": 1,
-      "used": 2,
-      "ts": 1776358510931,
-      "last_used": 1776360237781
-    },
-    {
-      "id": "04f8936f2abc1fbe",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "ES",
-      "answer": "In Spain / España, cannabis law is primarily decriminalized as of the current data available: 1. Recreational: Cannabis is legally consumed for recreational purposes in Spain / España but with strict regulations and controls. 2. Medical: There is legal access to medical cannabis, although obtaining it can be a bureaucratic process. On the enforcement front: - While there are records indicating that individuals have been incarcerated due to cannabis offenses (prison exposure), this does not necessarily mean the system is strictly enforcing every law. It's important to note that \"high_risk\" and \"active\" signals suggest some level of risk but also imply that certain areas or types of violations might still be addressed. - The overall decriminalization status indicates a change from previous strict prohibitions, suggesting a move towards more lenient regulations. It's worth noting that while the legal landscape is changing, enforcement in Spain / España may not always match up to those changes due to various factors like local interpretations and regional variations.",
-      "score": 1,
-      "used": 0,
-      "ts": 1776360176855,
-      "last_used": 1776360176855
-    },
-    {
-      "id": "7c49e62e3e317912",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "ES",
-      "answer": "Here in Spain / España: 1. **Overall Status**: Cannabis is \"decriminalized\" which means it's not entirely banned, but there are specific laws and regulations that apply. 2. **Recreational Status**: The recreational use of cannabis is also decriminalized. 3. **Medical Status**: Medical cannabis usage is legal in Spain / España. This includes the cultivation, possession, and distribution for medical purposes. 4. **Distribution Status**: Distribution of cannabis is considered illegal in Spain / España. 5. **Risk Signal**: There are high risk signals associated with this situation, suggesting that there may be a higher likelihood or severity of consequences if caught breaking these laws. 6. **Enforcement Signal**: The presence of \"active enforcement\" means that it's likely that authorities would be actively looking for and enforcing these regulations. In summary: Spain / España has made significant progress in cannabis legalization by decriminalizing its use, medical applications, but the possession and distribution remains illegal despite having legal",
-      "score": 1,
-      "used": 1,
-      "ts": 1776359383732,
-      "last_used": 1776360150070
     },
     {
       "id": "cb8ffa41818e0cc6",
@@ -133,28 +55,6 @@
       "last_used": 1776360150070
     },
     {
-      "id": "849f4d7f77b96aed",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "MA",
-      "answer": "In terms of safety, it's important to note that these two countries are quite different in their overall legal and political statuses, as well as the risks they present. Morocco / المغرب: - Overall status: Illegal - Risk Signal: Restricted Netherlands / Nederland: - Overall Status: Mixed (though generally considered more safe than Morocco) - Risk Signal: Restricted Both places have some degree of restriction or risk associated with them. However, it's crucial to remember that the risks can vary greatly depending on your individual circumstances and behavior. When comparing these two countries: - The overall status indicates a difference in legal landscape. - The risk signal suggests varying levels of restrictions or potential dangers for each country. - Both places have restricted risk signals, which is often interpreted as lower safety concerns. In practical terms, the Netherlands / Nederland seems to offer more stable and less dangerous environments compared to Morocco / المغرب. However, it's important to remember that safety isn't solely based on legal status alone",
-      "score": 1,
-      "used": 0,
-      "ts": 1776357175754,
-      "last_used": 1776357175754
-    },
-    {
-      "id": "d209d2590c8e94d1",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "TH",
-      "answer": "The comparison between Thailand / ประเทศไทย and the Netherlands / Nederland provides insights into their drug policies, which significantly differ. 1. **Thailand**: - Legal medical use of marijuana (cannabis) for specific conditions is legal in Thailand, but possession or consumption without a valid prescription can lead to severe penalties. - The risk signal suggests that while there are restrictions due to law enforcement's vigilance, the prohibition of recreational usage remains significant. This often results in potential exposure through illegal means. 2. **Netherlands**: - Widely accepted for medical purposes with cultivation and distribution under specific conditions. - There is a more relaxed approach regarding marijuana (cannabis) compared to Thailand, with fewer legal consequences and less strict enforcement of prohibition. ### Conclusion: - **Thailand**: The overall status is legal but poses restrictions on recreational usage. While there are penalties for possession or consumption without valid prescription, the risks can be high through illegal means. - **Netherlands",
-      "score": 1,
-      "used": 0,
-      "ts": 1776356993598,
-      "last_used": 1776356993598
-    },
-    {
       "id": "58e30eb03ded6164",
       "query": "Which is safer?",
       "intent": "general",
@@ -164,17 +64,6 @@
       "used": 0,
       "ts": 1776356807763,
       "last_used": 1776356807763
-    },
-    {
-      "id": "545bd4c7e1d4c4ac",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "CA",
-      "answer": "When comparing Canada and the Netherlands/Nederland, it's important to note that they are quite different in terms of safety considerations. Let's break down each aspect: ### Overall Status: - **Canada**: Generally considered a safe country for travel due to its well-established legal system. - **Netherlands / Nederland**: While generally regarded as a safer place overall, there can be specific risks related to certain areas or activities. ### Risk Signals: - **Canada**: A high-risk signal indicates that while Canada is generally considered safe, some regions may have higher safety concerns. - **Netherlands / Nederland**: The restricted risk signal suggests that the country's overall safety measures are in place but that certain areas or practices (like cannabis use) require caution. ### Conclusion: While both countries generally offer safe travel experiences for tourists, specific destinations and activities can vary. Canada is known to have fewer risks overall compared to some parts of the Netherlands. However, if you're looking at overall safety as a whole without considering specific",
-      "score": 1,
-      "used": 0,
-      "ts": 1776356661524,
-      "last_used": 1776356661524
     },
     {
       "id": "35cf4966374be855",
@@ -199,94 +88,6 @@
       "last_used": 1776356478848
     },
     {
-      "id": "504676046ccdbf13",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "JP",
-      "answer": "The risks associated with cannabis use in Japan / 日本 and the Netherlands / Nederland are quite different due to their varying legal statuses. In Japan, despite having laws against marijuana (cannabis), there have been no documented instances where police enforcement has actually occurred or been enforced on a regular basis. This suggests that while prohibition is legally established, it is not being effectively implemented. In contrast, the Netherlands / Nederland has a more complex approach to cannabis legalization and regulation. The country has experienced substantial growth in its cannabis culture over recent years with an increasing market for recreational use as well as medical and industrial applications of marijuana. It's worth noting that while there are still strict regulations on possession and sale, it is generally seen as socially accepted within the broader context. Thus, when comparing these two places: 1. **Legal Status**: Japan / 日本 has laws but enforcement has been inconsistent, while Netherlands / Nederland has a more regulated approach. 2. **Risk Signal**: In Japan / 日本, there",
-      "score": 1,
-      "used": 0,
-      "ts": 1776356473542,
-      "last_used": 1776356473542
-    },
-    {
-      "id": "5cc07f6e52e12915",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "DE",
-      "answer": "In comparison between Germany / Deutschland and the Netherlands / Nederland, it's important to note that both countries have their own unique approaches to cannabis regulation. Germany / Deutschland: - Legal medical use of cannabis is permitted under strict regulations for specific conditions. - The overall status is legal but has a high-risk signal indicating increased scrutiny from law enforcement due to perceived risks associated with the drug. Netherlands / Nederland: - Medical and recreational use of cannabis have been legalized since 2014. - Despite the decriminalization, there's still a restricted availability compared to other countries. This leads to a moderate risk signal that suggests it is not as high-risk as Germany but higher than some other places. Comparing these two: - **Germany / Deutschland** has stricter regulations and more oversight, leading to a higher overall risk level. - **Netherlands / Nederland**, while still regulated, offers less strict controls compared to Germany but maintains low tolerance due to its medical legalization. Given this information, the Netherlands",
-      "score": 1,
-      "used": 0,
-      "ts": 1776356327039,
-      "last_used": 1776356327039
-    },
-    {
-      "id": "d3e972e3cce2e280",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "DE",
-      "answer": "The current cannabis law in Germany / Deutschland is as follows: 1. **Legal**: Cannabis is legal for both recreational and medical use, although distribution remains illegal. 2. **Recreational Status**: There is no specific legislation regarding recreational use, but the practice is widely accepted and understood within society. 3. **Medical Status**: Medical cannabis access is regulated through special dispensary licenses issued by the state authorities. These dispensary operators are required to obtain permits from health regulators. 4. **Distribution Status**: Distribution of cannabis remains illegal according to current laws in Germany / Deutschland, which suggests a high level of enforcement against it. 5. **Risk and Enforcement Signals**: - High risk: The presence of an active prison exposure signal indicates that the practice is considered dangerous or risky. - Active enforcement: There is evidence of ongoing law enforcement activities aimed at monitoring and potentially punishing those engaged in cannabis-related activities, including distribution. In summary, while Germany / Deutschland generally adheres to its legal framework",
-      "score": 1,
-      "used": 1,
-      "ts": 1776356255958,
-      "last_used": 1776356309642
-    },
-    {
-      "id": "e71b532879254678",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "DE",
-      "answer": "Germany / Deutschland, compared to the Netherlands / Nederland, presents a different landscape regarding cannabis regulation and enforcement. While both countries recognize medical use of cannabis and permit its recreational consumption under certain conditions in Germany, there are notable differences: 1. **Legal Status**: In Germany, cannabis is considered a controlled substance subject to strict regulations including licensing for medical and personal usage. This can lead to stricter control measures and increased scrutiny from law enforcement authorities. 2. **Enforcement Environment**: - In Germany, the legal status of cannabis does not automatically translate into a risk-free environment. The high-risk signal indicates that despite the legalization, there is heightened awareness and potential for stricter enforcement due to perceived risks. - In contrast, in the Netherlands / Nederland, where medical use has been legalized since 2014 and recreational possession was decriminalized in 2019, the overall status of cannabis remains restricted but not as high-risk as Germany. The country maintains a low tolerance for the drug",
-      "score": 1,
-      "used": 0,
-      "ts": 1776356303989,
-      "last_used": 1776356303989
-    },
-    {
-      "id": "60cb719188f10f66",
-      "query": "Why?",
-      "intent": "general",
-      "location": "KH",
-      "answer": "In terms of safety, it's important to consider the legal and regulatory environment rather than solely focusing on restrictions or availability. ### Cambodia / Kâmpŭchéa: - **Overall Status:** Illegal - **Risk Signal (Restricted):** Indicates a strict prohibition but with limited enforcement mechanisms in place. This often means that while there are laws against cannabis, they may not be strictly enforced, leading to more ambiguous and potentially higher risk environments. ### Netherlands / Nederland: - **Overall Status:** Mixed - **Risk Signal (Mixed):** The \"mixed\" signal suggests a complex legal landscape where both legalization and prohibition exist. This can lead to varying degrees of regulation depending on the specific area or region within the country, making it harder to pinpoint one risk level consistently. ### Comparison: While both places have restrictions related to cannabis use, the Netherlands' \"mixed\" status indicates a more nuanced approach that combines elements of legal and illegal markets, which could result in higher overall risks. This is due",
-      "score": 1,
-      "used": 0,
-      "ts": 1776355801197,
-      "last_used": 1776355801197
-    },
-    {
-      "id": "d51404f6e7fdc3c2",
-      "query": "Why?",
-      "intent": "general",
-      "location": "KH",
-      "answer": "Based on the provided information, both countries have regulatory and legal systems in place that impact the safety of cannabis use for recreational purposes:\n\n1. **Cambodia / Kâmpŭchéa**:\n   - Overall Status: Illegal.\n   - Risk Signal: Restricted.\n   \n2. **Netherlands / Nederland**:\n   - Overall Status: Mixed (regulated but with restrictions).\n   - Risk Signal: Restricted.\n\nIn the Netherlands, medical and recreational cannabis use is regulated through strict legal procedures. This indicates a higher level of safety compared to Cambodia where there's no official recognition of cannabis for any lawful purpose. Both places impose some form of restrictions on their respective countries regarding the sale and distribution of cannabis, but in the Netherlands these are implemented within a system that adheres to certain regulations.\n\nWhile both places have measures in place to limit or regulate cannabis use for non-therapeutic purposes, the Netherlands' approach seems more comprehensive with stringent controls in place. Consequently, based on the given information, the **Netherlands** is generally considered safer regarding the regulation and legal framework surrounding medical and recreational cannabis usage.",
-      "score": 1,
-      "used": 10,
-      "ts": 1776344141766,
-      "last_used": 1776355784952
-    },
-    {
-      "id": "4ba8919872913180",
-      "query": "Why?",
-      "intent": "general",
-      "location": "KH",
-      "answer": "It's important to provide some factual context and a balanced response.\n\nLegal status being \"illegal\" generally means that it's prohibited under the law, which can create risks due to potential legal repercussions. However, this doesn't necessarily equate to safety when comparing different substances or scenarios.\n\nFor instance:\n- In countries with strict drug laws (like certain Western jurisdictions), recreational use is illegal and often results in significant fines or imprisonment for possession.\n- Some societies might view the drug as a health risk, leading to restrictions on its availability due to concerns about misuse or impaired judgment. These measures can sometimes be viewed as protective.\n\nOn the other hand:\n- In many places where marijuana isn't explicitly banned outright (including some parts of Cambodia / Kâmpŭchéa), there could still be legal risks associated with possession and use, even if the plant itself isn’t strictly regulated.\n- The effectiveness of law enforcement in Cambodia / Kâmpŭchéa is not widely known, making it difficult to gauge how effectively marijuana can be restricted or monitored.\n\nIt's also worth noting that individuals using cannabis often report varying degrees of harm from its use. However, these reports are generally based on anecdotal evidence and",
-      "score": 1,
-      "used": 11,
-      "ts": 1776343364225,
-      "last_used": 1776355784952
-    },
-    {
-      "id": "b0aa1e49ff505759",
-      "query": "Why?",
-      "intent": "general",
-      "location": "KH",
-      "answer": "The comparison between Cambodia/Kampuchia and the Netherlands/Nederland regarding their drug safety environments can be summarized as follows:\n\n### Comparison Between Cambodia/Kampong Phluk (Kâmpŭchéa) and Netherlands/Nederland\n\n**1. Legal Status:**\n   - **Cambodia**: The possession of any drugs for personal use is illegal in Cambodia.\n     - Penalties include severe fines, imprisonment, confiscation of large quantities of seized drugs, and the complete ban on drug cultivation or production.\n   - **Netherlands**: The Netherlands has a mixed legal status regarding cannabis (marijuana).\n     - The country generally has strict laws on other illicit substances but less so concerning marijuana. Access to marijuana is not completely prohibited as it can be legally purchased from licensed shops.\n     - Many areas in the Netherlands have an accepted attitude towards marijuana consumption, leading to more relaxed regulations compared to some neighboring countries.\n\n**2. Penalties and Consequences:**\n   - **Cambodia**: The penalties for drug possession are severe, including hefty fines and potential imprisonment.\n   - **Netherlands**: There are fewer legal consequences associated with using or possessing marijuana in the Netherlands. Legal activities like buying from",
-      "score": 1,
-      "used": 12,
-      "ts": 1776342743081,
-      "last_used": 1776355784952
-    },
-    {
       "id": "15919453f705e285",
       "query": "Which is safer?",
       "intent": "general",
@@ -298,28 +99,6 @@
       "last_used": 1776355779432
     },
     {
-      "id": "eb4ad75b933b8f53",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "KH",
-      "answer": "The Netherlands and Cambodia, while sharing similarities in terms of being legal and illegal drug markets, offer different levels of safety.\n\nIn Cambodia:\n- The possession of any drugs for personal use is illegal.\n- There are harsh penalties associated with cannabis possession, including severe fines and imprisonment.\n- The government has implemented a tough stance on all drugs, often leading to arrests and the confiscation of large quantities of seized drugs from drug users. This can lead to significant economic consequences and a reduction in disposable income.\n\nIn contrast:\nThe Netherlands:\n- It is known for its tolerance towards cannabis use, with most Dutch people being indifferent or accepting.\n- The country has strict laws on other illicit substances but less so regarding marijuana, which is often openly available from licensed shops or online markets. \n- Despite some occasional incidents of drug-related crime, the general public in many areas tends to be more tolerant and understanding about marijuana consumption.\n\nConsidering these factors:\n1. **Public Perception**: The Netherlands has a generally more accepting attitude towards cannabis use compared to Cambodia, which could translate into fewer social repercussions for those who choose to partake.\n2. **Economic Impact**: In Cambodia, the legal penalties can lead to significant personal and",
-      "score": 1,
-      "used": 13,
-      "ts": 1776342716623,
-      "last_used": 1776355761994
-    },
-    {
-      "id": "54d299a1295b3adc",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "KH",
-      "answer": "The cannabis laws in Cambodia, as I've previously explained, are considered illegal due to the overall restrictions of most drug-related activities in the country. It's important to note that these general statements should be verified with local authorities or specialized resources since regulations can change over time based on new legislation and enforcement actions.\n\nRegarding which is safer for recreational purposes, cannabis remains largely unregulated within Cambodia, but it's worth mentioning that there are significant risks associated with its use due to unpredictable effects. These risks include health issues such as liver disease, respiratory problems, heart conditions, and even the potential of mental health concerns like anxiety or depression in some users.\n\nFor medical treatment, despite the lack of legalization for cannabis-based medications, there may be certain limited circumstances where medical professionals can access legal supplies under strict supervision, but this is not a widespread practice. The safety aspects here are also questionable without proper oversight and regulation.\n\nIn summary, while there are no clear policies or measures in place to ensure user safety regarding recreational use of cannabis in Cambodia, the risks associated with its consumption are considerable when it comes to health complications and legal repercussions.",
-      "score": 1,
-      "used": 17,
-      "ts": 1776341206245,
-      "last_used": 1776355761994
-    },
-    {
       "id": "52371e3fd82af48c",
       "query": "Which is safer?",
       "intent": "general",
@@ -329,28 +108,6 @@
       "used": 14,
       "ts": 1776341978298,
       "last_used": 1776355761994
-    },
-    {
-      "id": "5825a9365929ae4c",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "KH",
-      "answer": "In the context of cannabis, the real risks in Cambodia / Kâmpŭchéa and Netherlands / Nederland are quite different due to their legal statuses. 1. **Cambodia / Kâmpŭchéa:** - **Legal Status:** Cannabis use remains illegal. - **Risk Signal:** \"Restricted.\" - This suggests that while cannabis is technically illegal, there might be some form of regulation or limitation placed upon its availability. However, this isn't necessarily enforced strictly and could vary based on local jurisdictions and community attitudes. 2. **Netherlands / Nederland:** - **Legal Status:** Cannabis use is legal. - **Risk Signal:** \"Mixed.\" - This indicates a mixed environment where both legal and illegal cannabis are present. It suggests that while there might be some regulation, the overall situation could vary widely depending on local laws, community attitudes, and enforcement efforts. When comparing these two places: - **Laws and Enforcement:** - In Cambodia",
-      "score": 1,
-      "used": 0,
-      "ts": 1776355756508,
-      "last_used": 1776355756508
-    },
-    {
-      "id": "96f615756f776ab1",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "KH",
-      "answer": "In the context of comparing risks between Cambodia and the Netherlands:\n\nCambodia:\n- The legal status of medical cannabis in Cambodia remains unclear as it isn't officially regulated.\n- There are no official records regarding the prohibition or regulation of other forms of cannabis.\n\nNetherlands (Nederland):\n- It is widely recognized that the Netherlands has a well-regulated and legalized market for medicinal and recreational cannabis use. \n- However, this status might change in response to international pressure due to health and safety concerns.\n- The overall risk signal indicates some restrictions on where or under what conditions cannabis can be legally purchased.\n\nIn summary:\n1. In Cambodia, there is no clear legal framework regarding the use of medical cannabis or other forms of cannabis.\n2. In contrast, the Netherlands has implemented stringent regulations for both medical and recreational uses of cannabis, indicating a more secure risk environment with stricter enforcement measures in place compared to Cambodia.\n\nIt's important to note that these statements can change based on recent policy developments or international pressures.",
-      "score": 1,
-      "used": 11,
-      "ts": 1776344085950,
-      "last_used": 1776355738703
     },
     {
       "id": "18a79b52297500a5",
@@ -430,17 +187,6 @@
       "last_used": 1776355712398
     },
     {
-      "id": "47e6a35221363270",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "KH",
-      "answer": "Cannabis is indeed illegal in Cambodia, both recreationally and medically. As for enforcement, while it's generally stated that the law is being followed, active measures of ensuring compliance are difficult to confirm due to the nature of cannabis cultivation and consumption which can be carried out discreetly without easy detection or immediate legal repercussions.\n\nGiven these guidelines about staying within Cambodia / Kâmpŭchéa and not introducing any other countries, how else might I assist with your inquiries related to this topic?",
-      "score": 1,
-      "used": 12,
-      "ts": 1776343263980,
-      "last_used": 1776355706684
-    },
-    {
       "id": "69b4803b8dffb5b7",
       "query": "Is it enforced?",
       "intent": "general",
@@ -518,17 +264,6 @@
       "last_used": 1776355598187
     },
     {
-      "id": "29791c728c534edf",
-      "query": "What are real risks?",
-      "intent": "legal",
-      "location": "KH",
-      "answer": "It's important to note that while there are legal and enforcement mechanisms, the reality for many individuals who use cannabis may not fully reflect these formal regulations due to various factors such as cultural norms, social acceptance, or personal circumstances. Regarding risks, it's crucial to understand that the health consequences of using any drug can be severe. For those seeking medical treatment related to cannabis use, there is currently no publicly recognized legal pathway in Cambodia / Kâmpŭchéa for obtaining cannabis-based medication. This makes accessing proper healthcare potentially more challenging and uncertain compared to other countries with legalized marijuana systems. The \"risk signal\" being restricted indicates that the public perception of cannabis usage remains a concern or taboo. While enforcement signals are active, which suggests there is some level of monitoring, it doesn't necessarily translate into widespread restriction. There may still be an opportunity for individuals who choose not to conform to these restrictions, but they might face challenges in accessing resources and services if needed. Given the overall environment where cannabis use remains",
-      "score": 1,
-      "used": 0,
-      "ts": 1776355575292,
-      "last_used": 1776355575292
-    },
-    {
       "id": "59e5995176e40887",
       "query": "Is it enforced?",
       "intent": "general",
@@ -562,17 +297,6 @@
       "last_used": 1776355429272
     },
     {
-      "id": "2f451416a954480e",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "KH",
-      "answer": "The legal status of cannabis in Cambodia / Kâmpŭchéa is indeed \"illegal\" and thus presents a significant risk for individuals using the substance recreationally. This can lead to potential health risks associated with drug use, including addiction, liver damage due to frequent consumption, and social consequences such as strained relationships or involvement with the criminal justice system. In contrast, the Netherlands / Nederland has a mixed legal status regarding cannabis. While it is technically \"legal\" (though not in every part of the country), its enforcement is often inconsistent, leading to varying degrees of legality based on local policies and personal circumstances. This inconsistency can result in users facing different levels of risk depending on where they are located within the country. The Netherlands has implemented a comprehensive approach to cannabis regulation that includes decriminalization and legalization in some areas, but also retains strict restrictions on its production, distribution, and possession. As such, while it might appear more lenient at first glance, the overall risk for drug use is still",
-      "score": 1,
-      "used": 0,
-      "ts": 1776355389247,
-      "last_used": 1776355389247
-    },
-    {
       "id": "07743d8e947c3019",
       "query": "What are real risks?",
       "intent": "legal",
@@ -582,39 +306,6 @@
       "used": 0,
       "ts": 1776355366956,
       "last_used": 1776355366956
-    },
-    {
-      "id": "1da6bc1af40cc49c",
-      "query": "Why?",
-      "intent": "general",
-      "location": "KH",
-      "answer": "In terms of safety, the comparison between Cambodia / Kâmpŭchéa and the Netherlands / Nederland can be nuanced due to their different legal statuses regarding cannabis possession: ### Cambodia / Kâmpŭchéa **Overall Status:** - **Illegal:** Cannabis possession in Cambodia is illegal. - **Severe Penalties:** Possession of even a small amount, typically less than 10 grams, carries significant fines and can lead to imprisonment. **Risk Signal:** - The risk signal indicates some level of restriction or regulation due to the legal prohibition, but it's generally lower compared to countries with strict enforcement (like Cambodia). ### Netherlands / Nederland **Overall Status:** - **Mixed:** While cannabis possession is decriminalized in the Netherlands, the use and distribution can still be regulated under certain circumstances. - **Low Enforcement Risk:** - Possession of less than 30 grams without any prior convictions results in administrative fines but not criminal prosecution. - The",
-      "score": 1,
-      "used": 0,
-      "ts": 1776355256715,
-      "last_used": 1776355256715
-    },
-    {
-      "id": "2bf312117ed9f259",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "KH",
-      "answer": "In comparison, Cambodia / Kâmpŭchéa and the Netherlands / Nederland both have significantly different legal and social approaches to cannabis possession. ### Overall Status: - **Cambodia / Kâmpŭchéa:** Cannabis possession is illegal and heavily enforced with severe penalties. - **Netherlands / Nederland:** The situation regarding marijuana in the Netherlands is mixed. It's generally decriminalized, meaning that possession of less than 30 grams carries no criminal prosecution but can lead to administrative fines. ### Risk Signal: Both places have a restricted or \"restricted\" risk signal for cannabis use and possession. However, the approach to enforcement and penalties differs significantly: - **Cambodia / Kâmpŭchéa:** The risks associated with using or possessing marijuana are severe due to high legal penalties. - **Netherlands / Nederland:** While there is some restriction on cannabis usage (due to its decriminalization), the risk of being caught and facing penalties remains relatively low, compared to prohibition countries.",
-      "score": 1,
-      "used": 0,
-      "ts": 1776355232006,
-      "last_used": 1776355232006
-    },
-    {
-      "id": "2fcca5977d45170b",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "KH",
-      "answer": "In Cambodia / Kâmpŭchéa, cannabis possession is illegal and strictly enforced with significant penalties for those caught in possession of or using the substance. Social consequences can also include social rejection from friends and family due to use or possession. Netherlands / Nederland has a mixed legal status regarding marijuana: it's generally decriminalized, meaning that possession is not prosecuted under heavy fines but rather as an administrative offense. The Netherlands does have strict enforcement in some cases, which may lead to harsher penalties for cannabis users. Overall, the risk of using cannabis and facing consequences varies significantly between these two places: - In Cambodia / Kâmpŭchéa: Potentially severe legal ramifications. - In Netherlands / Nederland: Mixed risks with potential but less severe consequences compared to prohibition countries.",
-      "score": 1,
-      "used": 0,
-      "ts": 1776355206510,
-      "last_used": 1776355206510
     },
     {
       "id": "542ca60c93e7ad09",
@@ -639,39 +330,6 @@
       "last_used": 1776355152244
     },
     {
-      "id": "75a2b627147372ff",
-      "query": "Why?",
-      "intent": "general",
-      "location": "KH",
-      "answer": "Both the Netherlands / Nederland and Cambodia / Kâmpŭchéa have specific travel advisories, but based on general considerations of security risks and typical activities undertaken, it would be generally advisable to avoid traveling to Cambodia / Kâmpŭchéa due to its illegal status. The Netherlands / Nederland is considered a safer destination compared to the restricted status in Cambodia / Kâmpŭchéa. The mixed risk signal indicates that while there are still some areas of concern, they do not typically exceed other destinations with similar levels of security risks. Both places have specific travel advisories that suggest visiting either would be worth considering if one is looking for a safe environment. However, the overall status and restricted nature in Cambodia / Kâmpŭchéa indicate an increased risk factor compared to the Netherlands / Nederland.",
-      "score": 1,
-      "used": 0,
-      "ts": 1776355093431,
-      "last_used": 1776355093431
-    },
-    {
-      "id": "311b491468a241ae",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "KH",
-      "answer": "The overall status of Cambodia / Kâmpŭchéa, which is illegal in the country, results in a high-risk environment for tourists and residents alike. This place has been designated as having an overall status that is restricted, meaning it presents a moderate risk to visitors. In contrast, the Netherlands / Nederland's mixed status suggests a generally safe environment despite being subject to international sanctions. The restricted risk signal indicates there are still areas of concern, but these risks do not typically exceed other destinations. Therefore, in terms of safety for both tourists and locals, the Netherlands / Nederland appears safer compared to Cambodia / Kâmpŭchéa due to its overall mixed status with a reduced risk level. Both places have specific travel advisories that suggest they are worth considering if one is looking to visit. However, based on general considerations of security risks and the types of activities typically undertaken, it would be generally advisable to avoid traveling to Cambodia / Kâmpŭchéa due to its illegal status and restricted",
-      "score": 1,
-      "used": 0,
-      "ts": 1776355073372,
-      "last_used": 1776355073372
-    },
-    {
-      "id": "5b6100bf9316a4ce",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "KH",
-      "answer": "Let's break it down calmly:\n\nCambodia / Kâmpŭchéa and Netherlands / Nederland are not the same situation.\n\nCambodia / Kâmpŭchéa: overall status is formally illegal, with a restricted risk signal.\n\nNetherlands / Nederland: overall status is mixed, with a restricted risk signal.\n\nIf the question is which is safer, Netherlands / Nederland looks safer in practical terms, but travel or border movement with cannabis is still a bad idea.\n\nWant to keep going?",
-      "score": 1,
-      "used": 1,
-      "ts": 1776349762672,
-      "last_used": 1776355031694
-    },
-    {
       "id": "43d0ebc379d7ddbf",
       "query": "What are real risks?",
       "intent": "legal",
@@ -694,39 +352,6 @@
       "last_used": 1776354966324
     },
     {
-      "id": "b28858a0178d6450",
-      "query": "Why?",
-      "intent": "general",
-      "location": "KH",
-      "answer": "### Comparison of Safety Between Cambodia / Kâmpŭchéa and the Netherlands / Nederland #### Overall Status: - **Cambodia / Kâmpŭchéa:** Illegal - **Netherlands / Nederland:** Mixed (Legal for adults with a controlled medicinal application, recreational use is legal) #### Legal Risks: - **Cambodia / Kâmpŭchéa:** No legal means available for obtaining medical cannabis. - **Netherlands / Nederland:** - Recreational use of cannabis: Legal for adults with a controlled system. - Medical marijuana applications: Through a licensed system. ### Conclusion on Safety: Both places present risks based on their legality and regulation. However, it is important to note that the Netherlands has developed systems that regulate cannabis in a way that reduces overall harm compared to the illegal status of cannabis in Cambodia. The Netherlands also recognizes medical benefits from cannabis, which can be beneficial for certain health conditions when used under controlled circumstances. In terms of absolute safety:",
-      "score": 1,
-      "used": 0,
-      "ts": 1776354882852,
-      "last_used": 1776354882852
-    },
-    {
-      "id": "46d6555003dc835b",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "KH",
-      "answer": "### Comparison of Safety Between Cambodia / Kâmpŭchéa and the Netherlands / Nederland #### Overall Status: - **Cambodia / Kâmpŭchéa:** Illegal - **Netherlands / Nederland:** Mixed (Legal for adults with a controlled medicinal application, recreational use is legal) #### Legal Risks: - **Cambodia / Kâmpŭchéa:** No legal means available for obtaining medical cannabis. - **Netherlands / Nederland:** - Recreational use of cannabis: Legal for adults with a controlled system. - Medical marijuana applications: Through a licensed system. ### Conclusion on Safety: Both places present risks based on their legality and regulation. However, it is important to note that the Netherlands has developed systems that regulate cannabis in a way that reduces overall harm compared to the illegal status of cannabis in Cambodia. The Netherlands also recognizes medical benefits from cannabis, which can be beneficial for certain health conditions when used under controlled circumstances. In terms of absolute safety,",
-      "score": 1,
-      "used": 0,
-      "ts": 1776354858998,
-      "last_used": 1776354858998
-    },
-    {
-      "id": "25af33de78e33431",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "KH",
-      "answer": "### Risks in Cambodia / Kâmpŭchéa vs. Netherlands / Nederland #### Cambodia / Kâmpŭchéa: **Status:** Illegal **Health Risks:** Cannabis use can lead to negative health outcomes, including addiction if used improperly. **Legal Risks:** No legal means are available for obtaining medical cannabis. #### Netherlands / Nederland: **Status:** Mixed **Health Risks:** Cannabis is widely recognized and often consumed legally in the Netherlands, with a controlled medicinal application. It has become popular as it is considered safe when regulated properly. **Legal Risks:** The country allows both recreational use of cannabis (legal for adults) and medical marijuana applications through a licensed system. ### Comparison: 1. **Overall Status:** - Cambodia / Kâmpŭchéa: Illegal - Netherlands / Nederland: Mixed 2. **Health Risks:** - Cambodia / Kâmpŭchéa: Potential negative health outcomes due to improper",
-      "score": 1,
-      "used": 0,
-      "ts": 1776354835449,
-      "last_used": 1776354835449
-    },
-    {
       "id": "831ea7f4aba46a0a",
       "query": "What are real risks?",
       "intent": "legal",
@@ -736,39 +361,6 @@
       "used": 0,
       "ts": 1776354810830,
       "last_used": 1776354810830
-    },
-    {
-      "id": "83d04ce616a1c98e",
-      "query": "Why?",
-      "intent": "general",
-      "location": "KH",
-      "answer": "When comparing the two countries, it's important to consider both their legal and safety statuses regarding marijuana use. ### Cambodia / Kâmpŭchéa: - **Overall Status:** Illegal cannabis possession can lead to severe penalties including fines, imprisonment, or confiscation of property. - **Risk Signal:** Restricted due to high risk associated with the country’s stance on marijuana. ### Netherlands / Nederland: - **Overall Status:** Mixed. The Netherlands has legal restrictions on the use and possession of certain substances, but it is generally considered a controlled environment compared to countries where cannabis is more freely available. - **Risk Signal:** Restricted as there are laws in place regarding marijuana use, which implies lower risks than places with less regulated or outright banned approaches. ### Conclusion: While both locations have their own set of challenges, the Netherlands / Nederland appears safer overall. This assessment takes into account that the country has comprehensive regulations and law enforcement mechanisms in place to control drug-related activities, whereas Cambodia is dealing with a legal prohibition",
-      "score": 1,
-      "used": 0,
-      "ts": 1776349807786,
-      "last_used": 1776349807786
-    },
-    {
-      "id": "89df6e076928bba8",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "KH",
-      "answer": "When comparing Cambodia / Kâmpŭchéa and the Netherlands / Nederland, let's break it down: ### Overall Status: - **Cambodia / Kâmpŭchéa:** This country has a restricted risk signal due to its illegal status for cannabis use. - **Netherlands / Nederland:** The Netherlands is considered mixed with regard to marijuana use, but this generally implies that there are laws in place and relatively low risks compared to other countries. ### Risk Signal: - **Cambodia / Kâmpŭchéa:** The restricted risk signal suggests potential dangers associated with the country’s legal stance on cannabis. - **Netherlands / Nederland:** The restriction indicates a more controlled environment regarding cannabis, although it is not entirely without risk due to various factors like drug use and general crime rates. ### Travel and Safety: Both places have varying levels of safety concerns. However, traveling or using marijuana in Cambodia requires caution as the country's stance on cannabis remains illegal and restricted by law enforcement. This",
-      "score": 1,
-      "used": 0,
-      "ts": 1776349784803,
-      "last_used": 1776349784803
-    },
-    {
-      "id": "6900c824c6bcce25",
-      "query": "What are real risks?",
-      "intent": "legal",
-      "location": "KH",
-      "answer": "Yes, it is enforced to a degree. The legal prohibition of cannabis means that its use and distribution are generally prohibited, but enforcement efforts may be limited by resource constraints. This can create challenges for those seeking access without engaging in illegal activities. Regarding the risks: 1. Health Risks: Use of recreational cannabis can lead to various health issues such as impaired judgment, increased risk of accidents or injuries, altered perception (including negative effects like paranoia), and potential addiction. 2. Legal Consequences: Possession or use of cannabis can result in fines, community service, or even legal consequences depending on the country's laws. 3. Social Risks: Cannabis possession can lead to social discrimination, including loss of employment opportunities, difficulty finding housing due to landlords' refusal to rent to users, and potential harassment by law enforcement. It's important for individuals considering cannabis use in Cambodia / Kâmpŭchéa to understand that the risks associated with illegal consumption are significant.",
-      "score": 1,
-      "used": 0,
-      "ts": 1776349717450,
-      "last_used": 1776349717450
     },
     {
       "id": "d19ca9d4c01f3c42",
@@ -793,28 +385,6 @@
       "last_used": 1776349606231
     },
     {
-      "id": "9ff32eb9b073530e",
-      "query": "Why?",
-      "intent": "general",
-      "location": "BR",
-      "answer": "Which is safer? Comparing Brazil (Brasil) and Netherlands (Nederland):\n\nBrazil:\n- Overall status: mixed.\n- Risk signal: high_risk.\n\nThe Netherlands:\n- Overall status: mixed.\n- Risk signal: restricted.\n\nBased on these facts, it seems that the Netherlands offers a lower risk level. Therefore, the Netherlands might be considered slightly safer due to its restricted risk signal.",
-      "score": 1,
-      "used": 6,
-      "ts": 1776343232878,
-      "last_used": 1776349585096
-    },
-    {
-      "id": "b2fa95991daae9f7",
-      "query": "Why?",
-      "intent": "general",
-      "location": "BR",
-      "answer": "The higher-risk signal in Brazil's cannabis regulations suggests significant potential risks, including legal penalties for possession or distribution exceeding personal use limits. This can lead to various consequences such as fines, imprisonment, or even confiscation of drugs.\n\nConsidering these factors, using cannabis responsibly under medical guidance while adhering strictly to the regulations is generally considered safer than engaging in illegal drug trade or distribution. It's crucial for individuals who are considering recreational use to understand all potential risks before making any decisions about their consumption.\n\nThe active enforcement rule indicates that there is a robust system in place to ensure compliance with the law and address violations effectively, which can make it safer by preventing misuse of cannabis products.\n\nIt's important to research all aspects carefully and consult healthcare providers or legal experts for personalized advice. This ensures informed decision-making based on current Brazilian laws and regulations.",
-      "score": 1,
-      "used": 7,
-      "ts": 1776342617071,
-      "last_used": 1776349585096
-    },
-    {
       "id": "54628e6b8e7e8127",
       "query": "Why?",
       "intent": "general",
@@ -824,28 +394,6 @@
       "used": 8,
       "ts": 1776341887018,
       "last_used": 1776349585096
-    },
-    {
-      "id": "a683becc7cf5e67f",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "BR",
-      "answer": "Both Brazil / Brasil and the Netherlands / Nederland have their own distinct approaches to cannabis possession, but they do not compare favorably with each other in terms of safety. Brazil's approach is characterized by a complex mix of legal and illegal practices regarding cannabis access, which means individuals may face higher levels of risk due to inconsistent enforcement. The country has both legalized medical use and recreational use, leading to more stringent regulation for medicinal cannabis. However, the overall status remains mixed with high potential risks associated with possession. In contrast, the Netherlands / Nederland's stance on cannabis is clear: it distinguishes between medicinal and recreational use, maintaining a lower risk signal due to its comprehensive regulation and reduced likelihood of criminal prosecution for small amounts. The country has legalized both types of cannabis for medical and recreational purposes, creating an environment where users can generally be more assured about the legality and safety of their activities. Therefore, while both countries have legal frameworks surrounding cannabis possession, the Netherlands / Nederland offers a safer environment in terms of regulation",
-      "score": 1,
-      "used": 0,
-      "ts": 1776349582765,
-      "last_used": 1776349582765
-    },
-    {
-      "id": "71ff510ec834abf1",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "BR",
-      "answer": "Which is safer between Brazil (Brasil) and the Netherlands (Nederland)?\n\nGiven that:\n- Brazil's overall status is mixed.\n- Brazil has a high risk signal.\n- The Netherlands' overall status is also mixed but with a lower risk signal.\n\nBased on these facts, it appears that both countries have varying levels of safety based on their risk signals. However, since the Netherlands generally offers less crime and higher standards in infrastructure compared to many other places worldwide, it might be considered slightly safer due to its lower risk level.",
-      "score": 1,
-      "used": 5,
-      "ts": 1776343222443,
-      "last_used": 1776349561876
     },
     {
       "id": "287ced8d2e48faa1",
@@ -870,17 +418,6 @@
       "last_used": 1776349561876
     },
     {
-      "id": "d34aa4b47548bbe9",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "BR",
-      "answer": "In comparing the risks in Brazil / Brasil with those in the Netherlands / Nederland, it's important to note that while both countries have laws regarding cannabis possession, their implementation can lead to different outcomes. In Brazil, there is a mix of legal and illegal practices related to cannabis access, which means individuals may face higher levels of risk due to the enforcement mixed signal. The Netherlands, on the other hand, has a clear distinction between medicinal and recreational use, with a more regulated approach that mitigates some risks associated with possession. This country also maintains a lower overall risk signal compared to Brazil, likely thanks to its comprehensive regulation and reduced likelihood of criminal prosecution for small amounts. These differences highlight how different legal frameworks can significantly impact the perceived safety of activities like cannabis possession in each country.",
-      "score": 1,
-      "used": 0,
-      "ts": 1776349559574,
-      "last_used": 1776349559574
-    },
-    {
       "id": "78f9d58b837ff7bf",
       "query": "Compare with Netherlands",
       "intent": "general",
@@ -900,17 +437,6 @@
       "score": 1,
       "used": 6,
       "ts": 1776343202529,
-      "last_used": 1776349522815
-    },
-    {
-      "id": "3891a3adbb45f352",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "BR",
-      "answer": "The Netherlands is generally considered safer due to strict regulations and enforcement measures aimed at reducing drug-related risks. Cannabis use in the Netherlands is tolerated but remains heavily regulated, with clear distinctions between medical and recreational use.\n\nFor example:\n- In Brazil, cannabis possession without a valid prescription can lead to legal penalties, including fines and community service.\n- In contrast, the Netherlands has strict laws that aim to limit harmful effects while maintaining some level of social acceptance. There is a well-developed system for tracking usage patterns, medical applications, and the potential risks.\n\nThe Netherlands also places more emphasis on education programs within schools about cannabis use and its consequences, aiming to decrease societal stigma around drug-related issues. This approach aims to balance personal freedom with public health considerations.\n\nBoth countries face challenges in enforcing regulations effectively and managing user populations properly, but they differ significantly in terms of overall perception of risk among the populace. In Brazil, there is a widespread belief that cannabis use should be completely legal or at least decriminalized for most people, whereas the Netherlands views it more from a medical standpoint.\n\nThe Netherlands has shown significant improvements in treating and educating on the effects of drugs, including cannabis, which have led to fewer reported incidents",
-      "score": 1,
-      "used": 8,
-      "ts": 1776340949195,
       "last_used": 1776349522815
     },
     {
@@ -980,61 +506,6 @@
       "last_used": 1776349459824
     },
     {
-      "id": "792d38169250f244",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "BR",
-      "answer": "The cannabis law in Brazil is indeed complex, reflecting both acceptance and concern regarding its legal framework.\n\nIn many places where recreational marijuana use has been decriminalized, there are restrictions on possession and usage. However, medical cannabis use has become more regulated in some areas for specific conditions with strict adherence to regulations, ensuring that it remains within legal boundaries.\n\nThe overall status of cannabis laws across Brazil is mixed, indicating a growing acceptance but also concern about the legal framework. This can be seen through varying enforcement measures depending on local jurisdictions, making them highly variable in application and regulation.\n\nThis situation suggests that while there's a shift towards more lenient attitudes toward marijuana possession for personal use, its medical applications are carefully controlled with regulations to prevent abuse or misuse. The status as \"high_risk\" and an \"active\" enforcement signal further emphasize the need for careful consideration when dealing with cannabis in Brazil.",
-      "score": 1,
-      "used": 10,
-      "ts": 1776341795929,
-      "last_used": 1776349459824
-    },
-    {
-      "id": "c43b2504fbb113b1",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "BR",
-      "answer": "In Brazil, the legal framework surrounding cannabis can be summarized as follows:\n\n**Overall Status**: The overall status of cannabis in Brazil is mixed. While there are areas where it has been legalized for medical purposes, others have stricter regulations.\n\n**Recreational Status**: The recreational use of marijuana is decriminalized. This means that possession for personal use can often be treated as an infraction rather than criminal activity under certain circumstances, depending on the municipality or state.\n\n**Medical Status**: Cannabis is medically legal in Brazil. Doctors are permitted to prescribe it if needed for various conditions such as chronic pain or epilepsy. However, access and availability may vary based on state or region within Brazil.\n\n**Distribution Status**: Distribution of cannabis can also be mixed. Some areas allow certain types of cannabis sales (like medical purposes), while others might have stricter regulations around legal sources and methods of obtaining it.\n\n**Risk Signal**: The risk signal indicates a high level of potential risks, suggesting the need for caution due to the widespread illegal use often associated with these activities.\n\n**Enforcement Signal**: There is an active enforcement presence in some areas. This suggests ongoing efforts by law enforcement agencies to regulate and control cannabis-related activities effectively.",
-      "score": 1,
-      "used": 7,
-      "ts": 1776342481480,
-      "last_used": 1776349459824
-    },
-    {
-      "id": "d6e8f9044fb1fcaa",
-      "query": "Why?",
-      "intent": "general",
-      "location": "FI",
-      "answer": "Netherlands / Nederland has a more restrictive policy compared to Finland / Suomi regarding cannabis use, which could be considered safer for several reasons: 1. **Decriminalization vs. Enforcement**: - **Finland**: Cannabis possession up to 7 grams (about a teaspoon) can be treated as a minor offense. - **Netherlands**: While some areas have decriminalized small amounts of cannabis, others remain fully illegal or heavily regulated. 2. **Public Perception and Safety**: - In Finland, there is generally less public concern about drug-related issues due to the legal status of marijuana being lower than in neighboring countries where cannabis use is more widespread. - The Netherlands has a reputation for strict enforcement of laws against drugs, which could lead to a higher perception of safety given its stricter regulations. 3. **Health Risks**: - Both places allow possession of small amounts of cannabis (up to 7 grams in Finland and no restrictions in the Netherlands), but there",
-      "score": 1,
-      "used": 0,
-      "ts": 1776349407985,
-      "last_used": 1776349407985
-    },
-    {
-      "id": "ca4eafbb335c8dfb",
-      "query": "Why?",
-      "intent": "general",
-      "location": "FI",
-      "answer": "Regarding which place is safer based on the information provided:\n\n- **Finland/Suomi**: Decriminalized with risk signals restricted.\n- **Netherlands/Nederland**: Has mixed status but overall law enforcement presence might suggest potential higher risks.\n\nConsidering these factors, it's reasonable to conclude that Finland/Suomi presents a generally lower level of legal and societal consequence associated with cannabis possession compared to the Netherlands/Nederland. However, this conclusion should be further corroborated by comprehensive local statistics on crime rates, public opinion surveys regarding drug use perceptions, and possibly more detailed studies focusing specifically on public safety in these contexts.\n\nIn terms of general trends observed across Europe, Finland tends to have lower crime levels than its neighboring countries like the Netherlands. This could indicate that, overall, being decriminalized might contribute to a safer environment for both personal decisions and societal norms regarding cannabis possession compared to places with more restrictive laws.",
-      "score": 1,
-      "used": 6,
-      "ts": 1776343113138,
-      "last_used": 1776349385965
-    },
-    {
-      "id": "c2214bed11b872e2",
-      "query": "Why?",
-      "intent": "general",
-      "location": "FI",
-      "answer": "Finland (Suomi) decriminalizes all drug use but has strict controls on its availability.\nNetherlands (Nederland) allows recreational marijuana use with certain restrictions.\n\nWhich is safer?\n\nIn terms of overall safety, both Finland and the Netherlands have similar levels of safety. However, it's important to consider specific risks:\n- Finland: There might be higher legal issues associated with non-medical drug use or dealing.\n- The Netherlands: There could be some health concerns related to marijuana consumption in a recreational context.\n\nIt’s advisable to stay informed about local laws and reactions rather than assuming one place is definitively safer.",
-      "score": 1,
-      "used": 7,
-      "ts": 1776342413543,
-      "last_used": 1776349385965
-    },
-    {
       "id": "395bda2ee2922f2b",
       "query": "Why?",
       "intent": "general",
@@ -1057,17 +528,6 @@
       "last_used": 1776349383646
     },
     {
-      "id": "93254c03a4b9ba95",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "FI",
-      "answer": "To compare the two places:\nFinland (Suomi) decriminalizes all drug use but has strict controls on its availability.\nNetherlands (Nederland) allows recreational marijuana use with certain restrictions.\n\nWhich is safer?\n\nIn terms of overall safety, both Finland and the Netherlands have similar levels of safety. However, it's important to consider specific risks:\n- Finland: There might be higher legal issues associated with non-medical drug use or dealing.\n- The Netherlands: There could be some health concerns related to marijuana consumption in a recreational context.\n\nIt's advisable to stay informed about local laws and reactions rather than assuming one place is definitively safer.",
-      "score": 1,
-      "used": 6,
-      "ts": 1776342392619,
-      "last_used": 1776349362942
-    },
-    {
       "id": "70d75828093ca5c2",
       "query": "Which is safer?",
       "intent": "general",
@@ -1076,17 +536,6 @@
       "score": 1,
       "used": 7,
       "ts": 1776341713261,
-      "last_used": 1776349362942
-    },
-    {
-      "id": "3a3c5c195efc4395",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "FI",
-      "answer": "The risk signals in Finland indicate that cannabis use remains highly restricted, with strict enforcement mechanisms to avoid legal repercussions. The risks include potential fines for possession or sale of cannabis, as well as difficulties navigating the complex regulatory framework.\n\nWhile there is a decriminalized status overall, it's important to note that this does not mean freedom from regulation or restrictions on access or use. The enforcement signals suggest active measures in place to ensure compliance with legal boundaries.\n\nThe current note clarifies that while medical cannabis usage is limited and regulated, the distribution of cannabis for recreational purposes remains illegal. This underscores how Finland maintains a high level of control over cannabis-related activities.\n\nIn terms of \"which is safer,\" given the context provided:\n\n- **Recreational Use**: Since it's illegal to use cannabis recreationally in Finland, it would be safest to not engage in this activity.\n- **Medical Use**: Given that medical use is limited and requires a prescription, the risks here are generally lower but still pose health-related concerns. It might be safer than recreational use since there’s no direct risk of legal consequences from prescribed drugs.\n\nThe key takeaway is that while Finland has established some form of regulated cannabis usage through its medical system",
-      "score": 1,
-      "used": 9,
-      "ts": 1776340814252,
       "last_used": 1776349362942
     },
     {
@@ -1101,50 +550,6 @@
       "last_used": 1776349360479
     },
     {
-      "id": "2d160631225aefc5",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "FI",
-      "answer": "Focusing on comparing only Finland/Suomi (Suomi) and the Netherlands/Nederland based on your provided facts:\n\nIn Finland/Suomi, cannabis use is decriminalized, meaning it's generally not considered a crime unless you're found with more than 30 grams of personal use. There are no fines for personal possession under these laws, but individuals can be arrested if they are caught in areas where alcohol or tobacco sales aren't allowed.\n\nIn the Netherlands/Nederland, cannabis is legal for medical purposes and has been decriminalized since 2014, with the option to obtain a prescription from a doctor. However, it's still considered illegal under most circumstances without a specific permit, which involves significant fines or even imprisonment in some cases if law enforcement finds any quantity of it.\n\nHere’s an analysis based on these differences:\n\n**Decriminalized and No Legal Enforcement:** Finland/Suomi is entirely decriminalized, meaning there are no legal consequences for personal use unless you exceed the 30-gram limit. The Netherlands/Nederland has medical legality but still retains some enforcement, leading to fines or potential imprisonment.\n\n**Risk Signal: Restricted vs. Mixed**: In Finland",
-      "score": 1,
-      "used": 6,
-      "ts": 1776343055624,
-      "last_used": 1776349339260
-    },
-    {
-      "id": "66f71436e01238c4",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "FI",
-      "answer": "Real risks in Finland include:\n1. The general risk of engaging with illegal substances which might involve legal or administrative issues.\n2. Health concerns related to cannabis use, such as potential side effects.\n3. Social implications if marijuana usage is seen negatively by the community.\n\nIn comparison to the Netherlands:\nThe Netherlands has a more liberal approach but still follows certain regulations and restrictions.\nHealth risks are generally considered lower in the Netherlands due to stricter controls on drug availability.\nOverall, it's important to remain informed about local laws and reactions rather than assuming everything will be smooth sailing.",
-      "score": 1,
-      "used": 7,
-      "ts": 1776342369967,
-      "last_used": 1776349339260
-    },
-    {
-      "id": "5363a4234a0aedab",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "FI",
-      "answer": "In comparison with the Netherlands/Nederland:\n\nThe Netherlands has a mixed legal status for cannabis compared to Finland/Suomi's decriminalized approach where recreational use is not tolerated but medical use and possession of small quantities are allowed under certain conditions.\n\nFacts:\nPlace: Netherlands / Nederland.\nOverall Status: Mixed.  \nRecreational Status: Tolerated\nMedical Status: Legal, though restrictions on its availability in pharmacies. \nRisk Signal: Restricted, indicating a cautious approach to public consumption. \nEnforcement Signal: Active, showing high levels of surveillance and compliance with legal boundaries.\n\nThe Netherlands has historically legalized medical cannabis, making it relatively straightforward compared to Finland's legal framework. The Dutch system emphasizes caution towards recreational use due to the country’s overall tolerance toward drug policy reform. \n\nIn summary:\n- Finland/Suomi: Decriminalized, no recreational risk but strict regulation.\n- Netherlands/Nederland: Mixed status, tolerable but with restrictions and enforcement.\n\nComparing these two places gives a clear overview of how cannabis laws differ in terms of medical use, recreational usage, potential risks associated with public consumption, and enforcement.",
-      "score": 1,
-      "used": 8,
-      "ts": 1776341681646,
-      "last_used": 1776349339260
-    },
-    {
-      "id": "095f1b97bd0ff2fe",
-      "query": "What are real risks?",
-      "intent": "legal",
-      "location": "FI",
-      "answer": "Yes, despite the overall legal framework being considered decriminalized, enforcement remains strict and active to ensure compliance with anti-drug laws. This means that even small amounts of cannabis may be detected through drug tests or searches by law enforcement. Real risks in Finland / Suomi include: - **Legal Consequences**: Possession can result in fines, community service, or even imprisonment. - **Health Risks**: While medical cannabis is available for certain conditions with proper prescription and usage guidelines, there are no regulations preventing the use of other marijuana products that may have unknown health risks. - **Community Pressure**: Public perception plays a significant role in how people react to drug-related issues, especially when it comes to public safety. - **Legal Risks**: Engaging in activities like purchasing or distributing cannabis could lead to legal troubles including fines and possible imprisonment. For medical use specifically: - The availability of medicinal cannabis is limited and regulated. Patients seeking this treatment would need a prescription from a healthcare provider and adhere",
-      "score": 1,
-      "used": 0,
-      "ts": 1776349336970,
-      "last_used": 1776349336970
-    },
-    {
       "id": "d684333b72e4684b",
       "query": "What are real risks?",
       "intent": "legal",
@@ -1153,17 +558,6 @@
       "score": 1,
       "used": 7,
       "ts": 1776342349013,
-      "last_used": 1776349316517
-    },
-    {
-      "id": "607870fa4dc62763",
-      "query": "What are real risks?",
-      "intent": "legal",
-      "location": "FI",
-      "answer": "As mentioned earlier, it's important to understand the current legal status of cannabis in Finland:\n\n1. **Overall Status**: Decriminalized, meaning it is less severe than a full ban but still illegal for most purposes under Finnish law.\n2. **Recreational Use**: Illegal unless used medically with a prescription.\n3. **Medical Use**: Limited, specifically regulated by the Ministry of Social Affairs and Health.\n4. **Distribution**: Distribution is also illegal.\n\nThe enforcement measures can be quite strict. While it's decriminalized overall, specific rules for its sale, cultivation, and possession are often followed very closely to avoid prosecution. The risk signals indicate a high level of restriction on cannabis use in Finland, with active enforcement mechanisms in place.\n\nThe latest question has been resolved based on the provided information. If you have any further questions or need additional clarification, feel free to ask!",
-      "score": 1,
-      "used": 11,
-      "ts": 1776340754544,
       "last_used": 1776349316517
     },
     {
@@ -1176,17 +570,6 @@
       "used": 8,
       "ts": 1776341650662,
       "last_used": 1776349316517
-    },
-    {
-      "id": "52bd34eaa97811bf",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "FI",
-      "answer": "Certainly! Here's a summary of the cannabis laws and enforcement in Finland / Suomi: ### Legal Status: - **Overall Law**: Cannabis use, possession, sale, or distribution are all considered illegal under Finnish law. ### Medical Status: - **Access to Medicinal Cannabis**: There is access to medical cannabis for qualifying patients. This involves a prescription from a healthcare provider and strict regulations on the type of products available. ### Enforcement: - **Enforcement Signal**: Although there is an overall prohibition, enforcement efforts are generally low. The police tend to focus their resources on more serious crimes rather than small-scale marijuana violations. ### Possession Limits: - **Possession Limit**: Typically, possession limits for cannabis are set at 30 grams or less per person per day. This can vary slightly depending on local regulations and the individual's specific circumstances. ### Legal vs Enforcement Differences: - While Finland is considered a place with decriminalized laws, enforcement remains in effect to maintain legal standards and",
-      "score": 1,
-      "used": 0,
-      "ts": 1776349314116,
-      "last_used": 1776349314116
     },
     {
       "id": "e9cddd60ea152e48",
@@ -1211,50 +594,6 @@
       "last_used": 1776349294051
     },
     {
-      "id": "36e5a4732dd8e600",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "FI",
-      "answer": "Thank you for providing such detailed information about the cannabis laws in Finland! Let me summarize:\n\nIn Finland, as of now, the cannabis law is characterized by decriminalization at the federal level:\n- It's generally considered legal, but recreational use remains illegal except for medical purposes.\n- There are active enforcement measures underpinning these regulations.\n\nRegarding personal consumption, Finnish authorities do not generally enforce penalties beyond what's allowed through local administrative controls. However, this might change depending on any updates in Finnish legislation or law enforcement actions.\n\nPlease let me know if you have any additional questions or need further clarification!",
-      "score": 1,
-      "used": 7,
-      "ts": 1776342324889,
-      "last_used": 1776349294051
-    },
-    {
-      "id": "48e4d758701d17f1",
-      "query": "Why?",
-      "intent": "general",
-      "location": "IR",
-      "answer": "Comparing the safety of using cannabis in Iran / ایران and Netherlands / Nederland, it's important to note that these are two very different legal systems regarding drug laws. In Iran, cannabis is considered illegal, making it a much more risky activity due to higher potential consequences such as imprisonment or fines. The risk signal for using cannabis in Iran indicates stricter enforcement of the law. In contrast, Netherlands / Nederland has a mixed status with respect to cannabis use and possession. While it remains technically illegal to sell or distribute cannabis under its strict drug laws, there are policies aimed at reducing harm through education and providing alternatives for users who may find it difficult to avoid using cannabis legally. This includes measures such as providing information on safe consumption methods and access to medical marijuana. By comparing these two places directly in terms of their overall status regarding cannabis use: - Iran / ایران: Legal, but strict enforcement means higher risk. - Netherlands / Nederland: Mixed legal status with policies aimed at reducing harm. Therefore",
-      "score": 1,
-      "used": 0,
-      "ts": 1776349242975,
-      "last_used": 1776349242975
-    },
-    {
-      "id": "72db47de5fdc2e6f",
-      "query": "Why?",
-      "intent": "general",
-      "location": "IR",
-      "answer": "The comparison between Iran / ایران and Netherlands / Nederland regarding the safety of marijuana use involves understanding their respective legal statuses and enforcement policies.\n\n1. Iran:\n   - Overall illegal status, meaning possession and usage are not permitted under any circumstances.\n   - Risk signal: Restricted but this term might be used to describe low tolerance for drug consumption or regulations that require licenses or permits.\n\n2. Netherlands:\n   - Mixed status with a restricted risk signal, indicating both legal use (recreational marijuana) and strict enforcement policies aimed at curbing illicit activities related to drugs.\n   \nBased on these facts:\n\n- Iran has a more restrictive approach towards marijuana due to its illegal status, but it doesn't necessarily equate to a safer environment. The high tolerance for drug use could lead to higher rates of substance abuse, crime, and public health issues compared to strict enforcement policies.\n\n- Netherlands maintains both legal recreational cannabis usage with stringent laws aimed at reducing overall drug traffic while still allowing the possession and consumption of marijuana by adults over 18 years old under specific conditions. It implements a zero-tolerance approach towards illegal or illicit use of drugs.\n   \nSo, considering safety factors such as public health, crime rates",
-      "score": 1,
-      "used": 4,
-      "ts": 1776343646143,
-      "last_used": 1776349200169
-    },
-    {
-      "id": "f606f0e692975feb",
-      "query": "Why?",
-      "intent": "general",
-      "location": "IR",
-      "answer": "Certainly! Let's compare Iran and the Netherlands regarding their cannabis laws.\n\n### Iran\n\n**Overall Status:**\n- **Illegal**: The use, possession, cultivation, production, importation, and exportation of marijuana are strictly prohibited in Iran.\n  \n**Risk Signal:**\n- **Restricted**: While it’s illegal, there are guidelines or warnings associated with using cannabis. This restricts the level of consumption but does not completely ban it.\n\n### Netherlands\n\n**Overall Status:**\n- **Mixed**: The use of cannabis in public places like schools, workplaces, or among minors is not allowed.\n  - **Possession by Adults Over 18**: Individuals over 18 who possess marijuana are generally not caught due to limited enforcement resources. However, possession by adults under the age of 18 is considered illegal and can result in fines.\n\n**Risk Signal:**\n- **Restricted**: There is a strict prohibition on all forms of cannabis use. This includes cultivation, importation, exportation, sale, production, distribution, or even possessing it for personal use.\n\n### Comparison\n\nNow that we’ve provided detailed facts about both places, let's answer the initial question:\n\n### Which Is Sa",
-      "score": 1,
-      "used": 5,
-      "ts": 1776342942477,
-      "last_used": 1776349200169
-    },
-    {
       "id": "78a33b416fccdd31",
       "query": "Why?",
       "intent": "general",
@@ -1277,94 +616,6 @@
       "last_used": 1776349197870
     },
     {
-      "id": "72a9104fb8f122a3",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "IR",
-      "answer": "Iran / ایران has an overall illegal status with a restricted risk signal, while Netherlands / Nederland maintains a mixed legal status for medical marijuana with a restricted risk signal.\n\nOn safety considerations:\n\n1. Iran: The high incidence of drug use is often linked to its widespread availability and low tolerance towards drugs.\n2. Netherlands: It's known for its strict enforcement policies that contribute to a safe environment compared to other countries where recreational cannabis consumption might be more prevalent.\n\nTo summarize, both countries have varying levels of safety regarding marijuana usage but Iran typically faces higher risks due to the broader acceptance of drug use overall and lower regulatory controls.",
-      "score": 1,
-      "used": 5,
-      "ts": 1776343603205,
-      "last_used": 1776349156320
-    },
-    {
-      "id": "81e396f5ef984001",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "IR",
-      "answer": "Certainly! Let's compare the status of cannabis laws in Iran and the Netherlands.\n\n### Iran\n\n**Overall Status:**\n- **Illegal**: The use, possession, cultivation, production, importation, and exportation of marijuana is strictly prohibited in Iran.\n  \n**Risk Signal:**\n- **Restricted**: While it’s illegal, there are guidelines or warnings associated with using cannabis. This restricts the level of consumption but does not completely ban it.\n\n### Netherlands\n\n**Overall Status:**\n- **Mixed**: The use of cannabis in public places like schools, workplaces, or among minors is not allowed.\n  - **Possession by Adults Over 18**: Individuals over 18 who possess marijuana are generally not caught due to limited enforcement resources. However, possession by adults under the age of 18 is considered illegal and can result in fines.\n\n**Risk Signal:**\n- **Restricted**: There is a strict prohibition on all forms of cannabis use. This includes cultivation, importation, exportation, sale, production, distribution, or even possessing it for personal use.\n\n### Comparison\n\n- **Overall Status**:\n  - Iran is illegal.\n  - Netherlands has mixed status with significant",
-      "score": 1,
-      "used": 6,
-      "ts": 1776342916294,
-      "last_used": 1776349156320
-    },
-    {
-      "id": "f1554e0fae652ba3",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "IR",
-      "answer": "You're absolutely right, I should have corrected my response earlier.\n\n**Iran / ایران:**\n- Overall status: Illegal\n- Recreational use: Prohibited \n- Medical use: Legal for certain conditions with specific regulations\n- Distribution: Not legal\n\n**Netherlands / Nederland:**\n- Overall status: Mixed (Allowed in some aspects, but not fully legalized)\n- Reccularly used: Tolerated but heavily regulated\n- Medical use: Legalized and widely available\n- Distributions are legal and regulated\n\nThe key differences are:\n1. **Overall Status**: Iran has an absolute prohibition of all cannabis-related activities.\n2. The Netherlands allows medical cannabis while maintaining regulation in some areas.\n\nIn summary, the risks and legal status differ significantly between both places. If you have any further questions about these countries or their policies related to cannabis, feel free to ask!",
-      "score": 1,
-      "used": 8,
-      "ts": 1776341543223,
-      "last_used": 1776349156320
-    },
-    {
-      "id": "8a5744aa26e188a2",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "IR",
-      "answer": "In Iran, using or selling cannabis can be considered illegal due to strict enforcement of drug laws. People who violate these laws may face legal consequences such as fines and imprisonment. The risk for individuals caught violating the law is high; however, this does not mean that everyone in Iran uses or sells cannabis. In contrast, the Netherlands has a more liberal stance on drugs compared to many other countries around the world. While it's still illegal to use or distribute certain substances (including cannabis), the country has implemented policies aimed at reducing harm and promoting public health. This means that while using cannabis is technically against Dutch law, there are significant restrictions in place designed to minimize negative consequences. In summary: - Iran / ایران: Law enforcement strict; risk of legal consequences high. - Netherlands / Nederland: Law enforcement not strictly enforced; overall status mixed but with policies aimed at public health.",
-      "score": 1,
-      "used": 0,
-      "ts": 1776349153946,
-      "last_used": 1776349153946
-    },
-    {
-      "id": "904501b6473d4241",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "IR",
-      "answer": "Certainly! Let's compare the overall status and risk signals of Iran and the Netherlands regarding cannabis laws.\n\n### Iran\n\n**Overall Status:**\n- **Illegal**: The use, possession, cultivation, production, importation, and exportation of marijuana is strictly prohibited in Iran.\n  \n**Risk Signal:**\n- **Restricted**: There are guidelines or warnings associated with using marijuana but it's still illegal. This restricts the level of consumption and availability.\n\n### Netherlands\n\n**Overall Status:**\n- **Mixed**: The use of cannabis in public places like schools, workplaces, or among minors is not allowed.\n  - **Possession by Adults Over 18**: Individuals over 18 who possess marijuana are generally not caught due to limited enforcement resources. However, possession by adults under the age of 18 is considered illegal and can result in fines.\n  \n**Risk Signal:**\n- **Restricted**: There is a strict prohibition on all forms of cannabis use. This includes cultivation, importation, exportation, sale, production, distribution, or even possessing it for personal use.\n\n### Comparison\n\n- **Overall Status**:\n  - **Iran**: Strictly illegal with restricted levels of enforcement",
-      "score": 1,
-      "used": 5,
-      "ts": 1776342889739,
-      "last_used": 1776349135499
-    },
-    {
-      "id": "89772cf81aaf32e3",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "IR",
-      "answer": "You're absolutely right, I should have corrected my response earlier. Let me clarify:\n\n**Iran / ایران:**\n- Overall status: Illegal\n- Recreational use: Prohibited \n- Medical use: Legal for certain conditions with specific regulations\n- Distribution: Not legal\n\n**Netherlands / Nederland:**\n- Overall status: Mixed (Allowed in some aspects, but not fully legalized)\n- Recreational use: Tolerated but heavily regulated\n- Medical use: Legalized and widely available\n- Distribution: Legalized and regulated\n\nThe key differences are:\n- Iran has an absolute prohibition of all cannabis-related activities.\n- The Netherlands allows medical cannabis while maintaining regulation in some areas.\n\nIn summary, the risks and legal status in both places differ significantly. If you have any further questions about these countries or their policies related to cannabis, feel free to ask!",
-      "score": 1,
-      "used": 7,
-      "ts": 1776341515905,
-      "last_used": 1776349135499
-    },
-    {
-      "id": "cf850fee9141c7d6",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "IR",
-      "answer": "Thank you for providing those details about both Iran/ایران and the Netherlands/Nederland. To compare these two countries regarding cannabis-related laws and enforcement:\n\n1. **Overall Status**: Iran/ایران's cannabis status is \"illegal,\" meaning it is illegal to produce, possess, use, or sell cannabis within its borders.\n   \n2. **Recreational Use**: In Iran/ایران, recreational use of cannabis is also prohibited due to legal restrictions.\n\n3. **Medical Status**: Medical cannabis usage in Iran/ایران is not allowed under any circumstances according to the current laws.\n\n4. **Distribution Status**: Cannabis distribution within Iran/ایران would be illegal and would likely result in arrest and potential severe penalties if caught by authorities.\n\n5. **Risk Signal**: In Iran/ایران, there seems to be a signal indicating that cannabis use is restricted or potentially controlled, but specific details on \"real\" risks are limited due to the strict legal framework.\n\n6. **Enforcement Signal**: There appears to be active enforcement mechanisms in place for controlling cannabis-related activities in Iran/ایران.\n\n7. **Comparison Place: Netherlands / Nederland**:\n   - Overall Status: In Netherlands/N",
-      "score": 1,
-      "used": 8,
-      "ts": 1776340622027,
-      "last_used": 1776349135499
-    },
-    {
-      "id": "aa1514a14437bc8d",
-      "query": "What are real risks?",
-      "intent": "legal",
-      "location": "IR",
-      "answer": "Short and honest: The law on cannabis enforcement varies widely within Iran / ایران, but it's generally not strictly enforced. While there are restrictions on certain activities related to the drug, widespread public use isn't common. This means that while it may be technically against the law, most people likely don't face legal consequences for using or distributing small amounts of cannabis. The risk associated with being caught is low, but this doesn't mean you should ignore the laws; it's still important to understand and adhere to local regulations.",
-      "score": 1,
-      "used": 0,
-      "ts": 1776349133139,
-      "last_used": 1776349133139
-    },
-    {
       "id": "330e9b2f5cc8d0aa",
       "query": "What are real risks?",
       "intent": "legal",
@@ -1384,17 +635,6 @@
       "score": 1,
       "used": 8,
       "ts": 1776341488896,
-      "last_used": 1776349121549
-    },
-    {
-      "id": "521bc09f93e236a4",
-      "query": "What are real risks?",
-      "intent": "legal",
-      "location": "IR",
-      "answer": "Regarding enforcement, it's important to clarify that cannabis is considered a controlled substance in Iran/ایران under Iranian laws. While there might be efforts or indications of monitoring for the purpose of drug control and law enforcement activities, I should stress that the current legal framework does not allow for recreational use or distribution of cannabis.\n\nAs for risks, because it's illegal, any encounter with authorities could potentially lead to arrests and severe penalties according to Iranian laws. However, there are no specific detailed reports on \"real\" risks due to lack of information; generally, users might face fines or legal consequences when caught without permission while consuming the substance.\n\nWould you like to explore more specifics regarding any of these points?",
-      "score": 1,
-      "used": 9,
-      "ts": 1776340597305,
       "last_used": 1776349121549
     },
     {
@@ -1442,28 +682,6 @@
       "last_used": 1776349107858
     },
     {
-      "id": "39a3339abcddbf08",
-      "query": "Why?",
-      "intent": "general",
-      "location": "KH",
-      "answer": "When comparing the safety of two countries, it's important to consider both legal and societal factors. Let's break down each aspect: ### Legal Status: 1. **Cambodia / Kâmpŭchéa**: - Cannabis (marijuana) is illegal for personal use and distribution. - Medical cannabis use is also banned. 2. **Netherlands / Nederland**: - Marijuana (cannabis) is technically illegal, but enforcement varies widely. - There are areas where marijuana use is tolerated or even encouraged. ### Risk Signals: 1. **Cambodia / Kâmpŭchéa**: - High perceived risk due to the complete prohibition of cannabis and other drugs. - Lower social acceptability may lead to greater concern about drug-related activities. 2. **Netherlands / Nederland**: - Moderate risk perception, with some areas showing a tolerant attitude towards marijuana use. - The legal status being mixed means that while it's illegal in general",
-      "score": 1,
-      "used": 0,
-      "ts": 1776348913336,
-      "last_used": 1776348913336
-    },
-    {
-      "id": "3acf9e7516e3c433",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "KH",
-      "answer": "When comparing the legal and safety situations between Cambodia / Kâmpŭchéa and the Netherlands / Nederland, several key factors come into play: ### Legal Status: - **Cambodia / Kâmpŭchéa**: The country has a formal policy of illegalizing cannabis, both for personal use and distribution. Medical cannabis is also banned. This makes the overall legal status of these substances more restrictive than in many other countries. - **Netherlands / Nederland**: While marijuana (cannabis) is technically illegal under current Dutch laws, enforcement varies widely. There are significant areas where cannabis use is tolerated or even encouraged. ### Risk Signals: - **Cambodia / Kâmpŭchéa**: The country's overall stance on drugs suggests a conservative approach with low tolerance for drug-related activities. This could imply lower perceived risks and social acceptability of illegal substances compared to the Netherlands, despite the legality status being more restrictive. - **Netherlands / Nederland**: The Netherlands has a generally higher",
-      "score": 1,
-      "used": 0,
-      "ts": 1776348889388,
-      "last_used": 1776348889388
-    },
-    {
       "id": "77e3e6cfc8042bbd",
       "query": "Compare with Netherlands",
       "intent": "general",
@@ -1484,17 +702,6 @@
       "used": 0,
       "ts": 1776348829823,
       "last_used": 1776348829823
-    },
-    {
-      "id": "38283b5fc3405386",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "KH",
-      "answer": "Cannabis, also known as marijuana in some regions, has a complex legal landscape in Cambodia / Kâmpŭchéa. The general consensus among authorities and public opinion is that cannabis is generally considered illegal in the country. From an enforcement standpoint, it appears that despite being broadly illegal, there's limited active enforcement of cannabis laws. This could be due to various factors such as high costs associated with law enforcement resources, low priorities for law enforcement efforts compared to other more pressing issues, and a lack of robust measures or technology to effectively monitor and enforce the legal prohibitions. In summary: - Cannabis is considered illegal overall. - There's limited active enforcement likely due to resource constraints. - It's generally not prohibited in medical contexts, but that doesn't necessarily translate into widespread or enforced distribution channels.",
-      "score": 1,
-      "used": 0,
-      "ts": 1776348797372,
-      "last_used": 1776348797372
     },
     {
       "id": "6749c9d27fc0c900",
@@ -1541,39 +748,6 @@
       "last_used": 1776348635599
     },
     {
-      "id": "aa0f01eb20227bf6",
-      "query": "Why?",
-      "intent": "general",
-      "location": "FI",
-      "answer": "When comparing the safety of Finland / Suomi and the Netherlands / Nederland, it's important to consider both their overall statuses and risk signals. **Finland / Suomi:** - **Overall Status:** Decriminalized - **Risk Signal:** Restricted In Finland, cannabis possession offenses are infrequent due to lenient enforcement. This leads to a lower likelihood of being prosecuted for personal use compared to its Dutch counterpart. The restricted risk signal indicates that while there might be some risks associated with illegal activities in the Netherlands, they are less likely to occur or would face fewer consequences. **Netherlands / Nederland:** - **Overall Status:** Mixed - **Risk Signal:** Restricted The Netherlands has a mixed approach where possession is decriminalized but maintains regulations on distribution and penalties. While it's not as lenient as Finland, the risk signal indicates that there are still some risks associated with potential distribution activities. However, due to the strict enforcement of these regulations, the likelihood of being prosecuted",
-      "score": 1,
-      "used": 0,
-      "ts": 1776348546608,
-      "last_used": 1776348546608
-    },
-    {
-      "id": "6b28e075b5bb894a",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "FI",
-      "answer": "Finland / Suomi and the Netherlands / Nederland have quite different approaches to cannabis legalization, leading to significant differences in safety profiles. **Finland / Suomi:** - **Overall Status:** Decriminalized - **Risk Signal:** Restricted - Possession offenses are rare due to lenient enforcement, resulting in a lower likelihood of being prosecuted for personal use. In Finland, possession offenses are infrequent because of the low enforcement levels. This means there is less risk associated with accidental possession or minor violations compared to its Dutch counterpart. **Netherlands / Nederland:** - **Overall Status:** Mixed - While decriminalized, it retains regulations on possession and distribution. It imposes strict regulations which include fines as punishment rather than criminal charges. This policy results in a higher risk signal due to the increased monitoring of personal use and enforcement against potential distribution activities. **Comparison:** In terms of safety, Finland / Suomi appears more lenient compared to the Netherlands / Nederland. The lower likelihood",
-      "score": 1,
-      "used": 0,
-      "ts": 1776348523108,
-      "last_used": 1776348523108
-    },
-    {
-      "id": "1f718716bfe2ece0",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "FI",
-      "answer": "In terms of the overall status and risk signals, Finland / Suomi is often considered more lenient compared to the Netherlands / Nederland in legal and societal norms regarding cannabis use. In Finland, possession offenses are relatively infrequent due to low enforcement, leading to a lower likelihood of being prosecuted for personal use. The country's decriminalization policy allows for fines as punishment rather than criminal charges. On the other hand, the Netherlands is known for its stricter approach towards cannabis legalization and regulation, which includes full decriminalization but still imposes regulations on possession and distribution. This results in a higher risk signal due to the increased monitoring of personal use and enforcement against potential distribution activities. In summary, while both countries have policies that allow for limited legal access to cannabis, Finland's approach is generally more lenient compared to the Netherlands' stricter measures.",
-      "score": 1,
-      "used": 0,
-      "ts": 1776348499801,
-      "last_used": 1776348499801
-    },
-    {
       "id": "96f6f4cb61ec4b4d",
       "query": "What are real risks?",
       "intent": "legal",
@@ -1583,94 +757,6 @@
       "used": 0,
       "ts": 1776348478504,
       "last_used": 1776348478504
-    },
-    {
-      "id": "bd6d66c92681dfe4",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "FI",
-      "answer": "Certainly! Let's clarify the current cannabis laws and enforcement in Finland / Suomi: **Overall Status:** - **Decriminalization:** Cannabis possession for personal use, up to 20 grams (about 1 tablespoon), has been decriminalized since 2007. - **Recreational Possession:** The consumption of cannabis is not illegal but remains subject to fines and warnings. **Medical Status:** - Medical cannabis prescriptions are available through the Finnish National Board of Health, requiring a doctor's prescription. However, access is limited due to strict regulations on how it can be used and its availability. **Distribution Status:** - **Formally Illegal:** The distribution of cannabis for any purpose remains illegal. - **Limited Enforcement:** While the law against distribution is in place, enforcement tends to be low priority, leading to less frequent or even non-existent police raids. **Risk Signal:** - Possession offenses are relatively infrequent and often result in fines rather than prosecution.",
-      "score": 1,
-      "used": 0,
-      "ts": 1776348455872,
-      "last_used": 1776348455872
-    },
-    {
-      "id": "1383f996fbe89bab",
-      "query": "Why?",
-      "intent": "general",
-      "location": "IR",
-      "answer": "Certainly! Let's compare the two countries and determine which one is safer based on their legal statuses, enforcement policies, and health risks. ### Comparison: **Place:** Iran / ایران - **Overall Status**: Illegal. - **Risk Signal**: Restricted. - **Health Risks**: Cannabis use carries significant health risks due to impurities, potency variations, potential interactions with other drugs, addiction, mental health problems, and social implications. There are also concerns related to the legal consequences of possession. **Comparison Place:** Netherlands / Nederland - **Overall Status**: Mixed. - **Risk Signal**: Restricted. - **Health Risks**: The Dutch government has more comprehensive laws regarding medical marijuana, focusing on ensuring its safety for medicinal use in specific conditions. This indicates fewer health risks compared to recreational use. - **Legal Consequences**: Possession is generally tolerated but not encouraged due to strict enforcement policies aimed at preventing illegal activities and maintaining a law-abiding society. ### Safety Comparison: **Iran",
-      "score": 1,
-      "used": 0,
-      "ts": 1776348385180,
-      "last_used": 1776348385180
-    },
-    {
-      "id": "14b37ce1a2d8e5c5",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "IR",
-      "answer": "Certainly! Here's a comparison between Iran / ایران and the Netherlands / Nederland: ### Real Risks: - **Iran/ ایران**: - **Health Risks**: Cannabis is not considered illegal, but its use carries significant health risks due to impurities, potency variations, and potential interactions with other drugs. There are also issues related to addiction, mental health problems, and social implications. - **Legal Consequences**: Possession of cannabis can result in severe penalties that may include fines or imprisonment, indicating a strong legal stance against its use. - **Netherlands/ Nederland**: - **Health Risks**: The Netherlands has more comprehensive laws regarding medical marijuana, focusing on ensuring its safety for medicinal use in specific conditions. This indicates fewer health risks compared to recreational use. - **Legal Consequences**: Possession is generally tolerated but not encouraged due to strict enforcement policies aimed at preventing illegal activities and maintaining a law-abiding society. ### Enforcement: - **",
-      "score": 1,
-      "used": 0,
-      "ts": 1776348360801,
-      "last_used": 1776348360801
-    },
-    {
-      "id": "1f21c8851a4034e1",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "IR",
-      "answer": "Certainly! Here's a comparison of the real risks and enforcement situation in Iran / ایران compared to the Netherlands / Nederland: ### Real Risks: - **Iran/ ایران**: - **Health Risks**: There are potential health risks associated with smoking cannabis, including respiratory issues. - **Legal Consequences**: Possession can result in severe penalties, which may include fines or even imprisonment. The severity of these punishments varies but generally indicates a strong legal stance against the use and possession of cannabis. - **Netherlands/ Nederland**: - **Health Risks**: The Netherlands has more comprehensive laws regarding medical marijuana, with regulations that focus on ensuring its safety for medicinal use in specific conditions. This means there are fewer health risks compared to recreational use. - **Legal Consequences**: Possession is generally tolerated but not encouraged due to the strict enforcement policies aimed at preventing illegal activities and maintaining a law-abiding society. ### Enforcement: - **Iran/ ا",
-      "score": 1,
-      "used": 0,
-      "ts": 1776348309893,
-      "last_used": 1776348309893
-    },
-    {
-      "id": "a1456104bf250858",
-      "query": "What are real risks?",
-      "intent": "legal",
-      "location": "IR",
-      "answer": "The overall legal framework of cannabis use and possession is indeed illegal throughout the country, as stated earlier. This means that it's generally considered a criminal offense to possess or consume marijuana within Iran / ایران. Regarding risks, given its illegality: 1. **Health Risks**: There are potential health risks associated with smoking any form of cannabis, including respiratory issues and other health problems. 2. **Legal Consequences**: Possession can result in severe penalties, which may include fines or even imprisonment depending on the quantity and circumstances. 3. **Social Issues**: It could lead to social isolation if caught by law enforcement, as well as potential legal troubles that can affect one's personal life and relationships. Given these points, it seems there is a risk signal indicating awareness of the illegality but limited active enforcement in practice due to the high-risk nature of cannabis use. The current note emphasizes the prohibition on all forms of cannabis usage within Iran / ایران.",
-      "score": 1,
-      "used": 0,
-      "ts": 1776348285305,
-      "last_used": 1776348285305
-    },
-    {
-      "id": "65e0769fdb1b1115",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "IR",
-      "answer": "The situation regarding cannabis laws in Iran / ایران can be summarized as follows: 1. **Legal Status**: Cannabis use and possession are officially illegal throughout the country. 2. **Enforcement**: While there appears to be some enforcement, it seems primarily focused on cases involving medical or industrial uses of cannabis rather than personal recreational use. The overall legal stance is that cannabis is not legally available for recreational purposes in Iran / ایران. 3. **Risk and Signal**: There is a risk signal indicating that people are generally aware of the illegality and have some level of knowledge about it, but there isn't clear evidence of active enforcement or widespread compliance with current laws. 4. **Medical Use**: Medical cannabis use is also illegal according to Iran's legal framework. 5. **Distribution**: Distribution channels for cannabis products appear to be non-existent in a legal sense, although some limited distribution may still occur without formal authorization due to the high risk associated with it. It's important to note that while",
-      "score": 1,
-      "used": 0,
-      "ts": 1776348261148,
-      "last_used": 1776348261148
-    },
-    {
-      "id": "e3128c4a9c574b75",
-      "query": "Why?",
-      "intent": "general",
-      "location": "KH",
-      "answer": "The safety of these two countries regarding cannabis use can be compared through their legal statuses and the extent to which they regulate it. ### Cambodia / Kâmpŭchéa - **Legal Status:** Cannabis is formally illegal, meaning possession and use are not criminalized in Cambodia. - **Risk Signal:** Restricted, indicating that while it's illegal, there are mechanisms in place for controlling access. These might include age restrictions or limited distribution points under the control of law enforcement. ### Netherlands / Nederland - **Legal Status:** The Netherlands has a more liberal approach to cannabis legalization, where possession and use are not criminalized. - **Risk Signal:** Restricted but regulated compared to Cambodia. This means that while it's legal, there is still a system in place for controlling access and distribution through licensed establishments and prescription for medical marijuana. ### Comparison **Overall Status:** - **Cambodia / Kâmpŭchéa**: Laws are strictly enforced. - **Netherlands / Nederland**: There’s",
-      "score": 1,
-      "used": 0,
-      "ts": 1776348025423,
-      "last_used": 1776348025423
-    },
-    {
-      "id": "f33546d29d9e1be1",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "KH",
-      "answer": "Certainly! Here’s a comparison between Cambodia and the Netherlands regarding cannabis legality, safety, and societal context: ### Overall Status **Cambodia / Kâmpŭchéa:** - **Legal Status:** Cannabis is formally illegal in the country (in the current SSOT). - **Medical Marijuana Status:** Medical marijuana is also officially illegal. - **Distribution:** Distribution of both cannabis and medical marijuana is strictly controlled and restricted. **Netherlands / Nederland:** - **Legal Status:** The Netherlands has a liberal approach to cannabis legalization, where possession and use are not criminalized. There is no national prohibition against using or growing marijuana. - **Medical Marijuana Status:** Medical marijuana in the Netherlands can be prescribed by doctors for conditions like chronic pain and severe anxiety. - **Distribution:** While medical marijuana is generally available, it has a more regulated and supervised distribution system compared to Cambodia. ### Safety **Cambodia / Kâmpŭchéa:** - **Cannabis Use:** Cannabis",
-      "score": 1,
-      "used": 0,
-      "ts": 1776348001858,
-      "last_used": 1776348001858
     },
     {
       "id": "4a419d53cf2a3f5a",
@@ -1704,61 +790,6 @@
       "used": 0,
       "ts": 1776347915436,
       "last_used": 1776347915436
-    },
-    {
-      "id": "5fa5c4185aad73e6",
-      "query": "Why?",
-      "intent": "general",
-      "location": "BR",
-      "answer": "**Brazil / Brasil** - **Overall Status**: Mixed - The legal framework allows for some controlled access to medical marijuana but varies across different states regarding recreational use, leading to a mixed enforcement environment. - **Risk Signal**: High_Risk - Instances of prosecution even for small amounts of marijuana have been reported in Brazil, indicating significant risks due to varying enforcement practices. **Netherlands / Nederland** - **Overall Status**: Mixed - The country allows for a regulated market for medical marijuana under strict laws that regulate its production and distribution. This approach results in moderate to low risk compared to the \"High_Risk\" status of Brazil. - **Risk Signal**: Restricted - The high-risk signal is not as high as \"High_Risk,\" indicating less likelihood of criminal prosecution for possession or use, with a more controlled approach to cannabis management. **Comparison** 1. **Overall Status Variation**: Both places have mixed legal statuses, but the Netherlands stands out with its stricter regulations and more controlled approach compared to",
-      "score": 1,
-      "used": 0,
-      "ts": 1776347853127,
-      "last_used": 1776347853127
-    },
-    {
-      "id": "0e7b50a89bc73486",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "BR",
-      "answer": "**Brazil / Brasil** - **Overall Status**: Mixed - In general, the legal landscape in Brazil / Brasil allows for some controlled access to medical marijuana but varies across different states regarding recreational use. There are significant variations in enforcement practices leading to a mixed enforcement environment overall. - **Risk Signal**: High_Risk - The high-risk signal indicates that while the legal framework allows for some controlled access, the actual risks and potential consequences can vary widely depending on location and circumstances. Instances of prosecution even for small amounts of marijuana have been reported. **Netherlands / Nederland** - **Overall Status**: Mixed - The Netherlands / Nederland allows a regulated market for medical marijuana under strict laws that regulate its production and distribution. - **Risk Signal**: Restricted - While the risk signal is not as high as \"High_Risk,\" it indicates moderate to low risks. This includes a more controlled approach to cannabis, with less likelihood of criminal prosecution for possession or use. **Comparison** 1. **Overall Status Variation",
-      "score": 1,
-      "used": 0,
-      "ts": 1776347830863,
-      "last_used": 1776347830863
-    },
-    {
-      "id": "791dde05ab5c7bd1",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "BR",
-      "answer": "In the context of comparing risks, it's important to note that the actual risks can depend on various factors such as personal circumstances and local enforcement practices. ### Brazil / Brasil - **Overall Status**: Mixed - In general, the legal landscape in Brazil / Brasil allows for some controlled access to medical marijuana. - However, there are significant variations across different states regarding recreational use. Some areas have more lenient approaches towards cannabis compared to others, leading to a mixed enforcement environment overall. - **Risk Signal**: High_Risk - The high-risk signal indicates that while the legal framework allows for some controlled access, the actual risks and potential consequences can vary widely depending on location and circumstances. - There is an overall high risk due to variations in enforcement across different regions, and instances of prosecution even for small amounts of marijuana have been reported. ### Netherlands / Nederland - **Overall Status**: Mixed - The Netherlands / Nederland allows a regulated market for medical marijuana under the Medical",
-      "score": 1,
-      "used": 0,
-      "ts": 1776347807750,
-      "last_used": 1776347807750
-    },
-    {
-      "id": "33e00989e55c06c7",
-      "query": "What are real risks?",
-      "intent": "legal",
-      "location": "BR",
-      "answer": "Yes, the enforcement of marijuana laws in Brazil / Brasil can vary significantly based on location and circumstances. Recreational use of small amounts is generally not prosecuted unless it occurs in public places or while driving. This approach has led to low prosecution rates overall, with many cases being either dropped or settled out of court. Medical marijuana access is officially legal under the Brazilian Medical Agency's guidelines, though enforcement can vary from state to state and city to city. In terms of distribution, some regions have stricter laws than others, leading to a mixed enforcement landscape. While possession of small quantities generally doesn't result in arrest or prosecution, more severe penalties could apply if cannabis is distributed with minors present. Regarding prison exposure, it's noted that there has been a detection of marijuana being used in prisons. This suggests that despite legal access, law enforcement might still target those who use cannabis illegally within prison walls. It’s important to note that while these regulations generally allow for medical and recreational use with less severe consequences",
-      "score": 1,
-      "used": 0,
-      "ts": 1776347784876,
-      "last_used": 1776347784876
-    },
-    {
-      "id": "508e7ef1b349f7dd",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "BR",
-      "answer": "Brazil / Brasil has a complex cannabis law landscape that can be summarized as follows: **Overall Status: Mixed** - Recreational use is decriminalized, meaning small amounts of cannabis are generally not prosecuted unless in public or during driving. - Medical marijuana is legal for certain conditions. **Recreational Status: Decriminalized** - Small amounts (under a set weight limit) can be possessed without serious consequences. Possession may result in fines and warnings, but prosecution rates have been relatively low, with many cases not being fully prosecuted. **Medical Status: Legal** - The use of medical marijuana is legal for certain conditions under the Brazilian Medical Agency's guidelines. **Distribution Status: Mixed** - There are varying degrees of regulation regarding cannabis distribution, including the sale or transfer of cannabis to minors. Distribution may be prohibited in some areas but not always enforced strictly across the board. - Some locations have stricter regulations and enforcement compared to others, leading to a mixed enforcement landscape. **Risk Signal:",
-      "score": 1,
-      "used": 0,
-      "ts": 1776347737220,
-      "last_used": 1776347737220
     },
     {
       "id": "55cd96083a39874b",
@@ -1838,17 +869,6 @@
       "last_used": 1776347410351
     },
     {
-      "id": "c70633f19a6a23e4",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "IR",
-      "answer": "Real risks in Iran / ایران and Netherlands / Nederland can be compared based on their legal statuses and enforcement practices. Iran / ایران: 1. Cannabis cultivation, sale, possession, import/export are all illegal. The legal framework includes a strict prohibition of cannabis. 2. Medical cannabis is also strictly regulated but remains illegal overall under the law. It's not officially recognized as medically acceptable in Iran / ایران. 3. Enforcement: In practice, despite the formal prohibition, there may be limited or sporadic efforts to enforce laws, making it difficult to fully trust enforcement. Netherlands / Nederland: 1. Cannabis cultivation, sale, and possession are all legal under medical cannabis programs when prescribed by a doctor. However, recreational use remains illegal. 2. Medical cannabis is regulated but still illegal in the broader context of drug prohibition policies in the Netherlands / Nederland. 3. Enforcement: The Dutch government has been more focused on reducing penalties for drug offenses to increase public trust in law enforcement and",
-      "score": 1,
-      "used": 0,
-      "ts": 1776347388471,
-      "last_used": 1776347388471
-    },
-    {
       "id": "c90fb3b4a1513c35",
       "query": "What are real risks?",
       "intent": "legal",
@@ -1858,50 +878,6 @@
       "used": 0,
       "ts": 1776347367578,
       "last_used": 1776347367578
-    },
-    {
-      "id": "86b4bd3adfd1c757",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "KH",
-      "answer": "Comparing Cambodia, which has an overall drug prohibition but with a \"restricted\" classification due to its lenient laws on cannabis possession for personal use or medical purposes, versus the Netherlands, known for having a mixed approach to drugs where cannabis is legally allowed in certain contexts such as medicinal use and through specific exemptions like safe consumption rooms, both countries have differing legal and enforcement practices. While Cambodia's \"restricted\" status means that despite its drug prohibition laws being illegal, individuals may still engage with or use cannabis without facing immediate legal consequences due to the lenient approach of local authorities. The Netherlands also maintains strict prohibitions but allows for a degree of tolerance through certain exemptions, including medical marijuana and safe consumption rooms where cannabis can be consumed under specific conditions and restrictions. The \"restricted\" classification in Cambodia and the mixed policy with some exemptions in the Netherlands both reflect different approaches to drug policies. It's important to note that while these countries have varying degrees of legalization or decriminalization for drugs like cannabis, their overall stance on drug prohibition is quite strict, hence they might be considered less safe places compared to those with more lenient regulations and practices. In terms of safety, both regions face challenges related to drug",
-      "score": 1,
-      "used": 0,
-      "ts": 1776347132223,
-      "last_used": 1776347132223
-    },
-    {
-      "id": "d6f46efec1fba1aa",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "KH",
-      "answer": "In Cambodia, cannabis use and possession are considered illegal under the country's drug laws, but enforcement efforts can be inconsistent and often depend on individual discretion of local law enforcement officers. In practice, many individuals may still engage with or use cannabis without facing immediate legal consequences due to the lenient \"restricted\" status in the country's drug policies. On the other hand, the Netherlands has a more mixed approach to drugs. While it is illegal to possess or consume recreational cannabis under national laws, enforcement efforts are generally active but not as uniformly stringent compared to some other countries where cannabis use could be considered completely prohibited. The \"restricted\" category reflects that while it's legally banned in most cases, there can still be a degree of tolerance and leniency regarding possession for personal use or medical purposes. It is important to note that the Netherlands has made significant efforts towards decriminalization through its policy of allowing medical marijuana and providing access for medical professionals. Additionally, there are specific exemptions such as \"safe consumption rooms\" where cannabis can be consumed under certain conditions and restrictions. In summary: - Cambodia: Overall status illegal, risk signal restricted - Netherlands: Comparison overall status mixed, comparison risk signal also restricted",
-      "score": 1,
-      "used": 0,
-      "ts": 1776347083684,
-      "last_used": 1776347083684
-    },
-    {
-      "id": "5bfaa402476baa1d",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "KH",
-      "answer": "In Cambodia, cannabis law is generally considered to be in the \"restricted\" category, which reflects a more lenient approach compared to some other countries where it might be classified as completely illegal. The possession and use of cannabis are still technically illegal according to national laws, though enforcement efforts can vary significantly depending on local circumstances. As indicated by the information provided: - Overall status is illegal - Recreational status is illegal - Medical status is illegal - Distribution status is illegal It's important to note that the \"restricted\" category in Cambodia means it's not universally banned like some other countries might be, but it doesn't mean use or possession is completely exempt from legal repercussions. In practice, many people engage with or use cannabis without facing immediate legal consequences due to law enforcement discretion and sometimes lack of effective prosecution in certain cases. This reflects the broader trend within Cambodia towards more lenient drug policies. Enforcement efforts are generally active, but there can be variability based on local circumstances and individual interpretation of laws. People traveling or residing in Cambodia should stay informed about their specific situation regarding cannabis use and possession to avoid legal issues.",
-      "score": 1,
-      "used": 0,
-      "ts": 1776346993597,
-      "last_used": 1776346993597
-    },
-    {
-      "id": "546a08083b097bda",
-      "query": "Why?",
-      "intent": "general",
-      "location": "BR",
-      "answer": "In Brazil, the cannabis law and enforcement landscape is indeed characterized by a mix of regulations that reflect both decriminalization for recreational use and legalization for medical purposes. The overall status in Brazil can be summarized as follows: **Recreational Status: Decriminalized (2017)** - Possession of up to 30 grams of cannabis has been decriminalized since 2017 without significant legal consequences or criminal penalties. **Medical Status: Legal** - Medical marijuana is fully legalized in Brazil, allowing access through prescription by certified physicians. This includes medical use and research purposes under strict regulations on dosage management. **Distribution Status: Mixed** - The legal sale of cannabis has been largely limited, with some areas maintaining strict regulations on its distribution and usage. Home consumption remains a possibility for individuals who follow the prescribed dosages and use it as directed by licensed physicians. The risk signal is described as \"high_risk,\" indicating that while there are fewer legal consequences for possession compared to other drugs, the high-risk nature of cannabis still requires careful consideration due to potential health risks and societal impacts. The enforcement signal being considered \"active\" suggests ongoing efforts by the Brazilian government to regulate cannabis",
-      "score": 1,
-      "used": 0,
-      "ts": 1776346880753,
-      "last_used": 1776346880753
     },
     {
       "id": "c4da0008f809ebab",
@@ -1915,28 +891,6 @@
       "last_used": 1776346688223
     },
     {
-      "id": "587acd960e56a3da",
-      "query": "Why?",
-      "intent": "general",
-      "location": "FI",
-      "answer": "Certainly! Comparing the risks in Finland/Suomi (Decriminalized) versus Netherlands/Nederland (Mixed), it's important to understand their differing legal statuses, enforcement policies, and public health concerns: ### Finland/Suomi (Decriminalized) - **Legal Status**: Marijuana and hashish are decriminalized but not fully legalized or regulated. This means users can possess these substances without severe penalties, as long as they do not exceed certain limits. - **Risk Signal**: The risk is more limited compared to other countries with stricter drug control policies. Users may face legal issues beyond the decriminalized status and potential health risks from unregulated substances. ### Netherlands/Nederland (Mixed) - **Legal Status**: The Netherlands has a mixed approach to drugs, with both recreational use and drug trafficking being regulated. While not fully legalized or regulated for all substances like marijuana, it maintains certain controls. - **Risk Signal**: More controlled compared to Finland/Suomi; stricter enforcement policies may lead to higher risks of possession, dealing, and health effects from illegal substances. ### Public Health Concerns: - **Finland/Suomi**: The risk is still present but generally less severe due to the",
-      "score": 1,
-      "used": 0,
-      "ts": 1776346576068,
-      "last_used": 1776346576068
-    },
-    {
-      "id": "7fd6e2f844f51718",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "FI",
-      "answer": "Sure, comparing the risks in Finland/Suomi and Netherlands/Nederland involves analyzing their drug enforcement policies, legal status of substances like marijuana and hashish, as well as overall public health and safety concerns. ### Finland/Suomi (Decriminalized) - **Legal Status**: Marijuana and hashish are decriminalized but not fully legalized or regulated. - **Risk Signal**: Limited to a restricted list of controlled drugs, making it less risky than other countries with stricter drug control policies. - **Public Health Concerns**: The risk is still present; users may face legal issues beyond the decriminalized status and potential health risks from unregulated substances. ### Netherlands/Nederland (Mixed) - **Legal Status**: The Netherlands has a mixed approach to drugs, with both recreational use and drug trafficking being regulated. It does not fully legalize or regulate all drugs but maintains certain controls. - **Risk Signal**: More controlled compared to Finland/Suomi; stricter enforcement policies may lead to higher risks of possession, dealing, and health effects from illegal substances. - **Public Health Concerns**: The risk is generally lower than in places with more severe drug control measures due to the presence",
-      "score": 1,
-      "used": 0,
-      "ts": 1776346477222,
-      "last_used": 1776346477222
-    },
-    {
       "id": "28369b3fb1ddca54",
       "query": "What are real risks?",
       "intent": "legal",
@@ -1946,39 +900,6 @@
       "used": 0,
       "ts": 1776346423957,
       "last_used": 1776346423957
-    },
-    {
-      "id": "e42458a71b1daace",
-      "query": "Why?",
-      "intent": "general",
-      "location": "IR",
-      "answer": "Based on the information provided, it seems that marijuana use and possession in Iran are generally prohibited across all fronts: recreational, medical, and distribution. The fact that there's a \"risk signal restricted\" status indicates measures have been taken to control access, which suggests a high level of regulation and potential enforcement against any violations. The presence of an \"enforcement signal active\" suggests strong mechanisms for enforcing these regulations. While Iran has strict laws regarding cannabis products, the lack of clear recreational usage information might imply that such activities are even more restricted. Given this context, it's reasonable to conclude that using marijuana in Iran is not only illegal but also subject to significant scrutiny and potential punishment due to the measures taken by authorities to restrict access and enforcement. This makes it much less safe compared to a place with lax regulations or outright legalization.",
-      "score": 1,
-      "used": 0,
-      "ts": 1776346315298,
-      "last_used": 1776346315298
-    },
-    {
-      "id": "a988cfcda481b6ec",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "KH",
-      "answer": "In comparing Cambodia / Kâmpŭchéa with the Netherlands / Nederland, it's important to note that while the overall legal status of drugs differs significantly between the two countries: 1. **Cambodia**: The primary risk signal \"restricted\" indicates challenges in enforcing drug laws due to public awareness or cultural attitudes. This could lead to varying degrees of compliance and potentially more lenient enforcement measures compared to the Netherlands. 2. **Netherlands**: Although illegal for recreational use, there are exemptions for medical cannabis usage under certain conditions, suggesting a relatively tolerant approach with specific exceptions. Comparing these places directly: - Both countries prohibit drug use. - In Cambodia, the risk of non-compliance is high due to potential enforcement challenges. - The Netherlands has an overall prohibition but allows limited medical cannabis usage. Considering this information, neither country can be definitively declared \"safer\" based on the given facts. However, in terms of general prohibitions and enforcement approaches: - **Cambodia** tends to have stricter laws and a more challenging environment for law enforcement. - **Netherlands**, despite prohibition, provides some exemptions that reduce the impact of drug crimes. Therefore, neither Cambodia nor Netherlands is necessarily safer",
-      "score": 1,
-      "used": 0,
-      "ts": 1776345916279,
-      "last_used": 1776345916279
-    },
-    {
-      "id": "60157a22cd111927",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "KH",
-      "answer": "In the context of the provided facts, the risks in Cambodia / Kâmpŭchéa are primarily focused on drug prohibition and enforcement. The overall status being \"illegal\" means that cannabis is not only prohibited but also has significant enforcement measures in place to ensure compliance. The risk signal indicating \"restricted\" suggests challenges might arise due to public awareness or cultural attitudes, which could potentially affect the effectiveness of these laws. On the other hand, the Netherlands / Nederland has a mixed status regarding drug prohibition. While it's considered illegal for recreational use and possession, there are certain exemptions in place that allow for medical cannabis usage under certain conditions. The risk signal being \"restricted\" indicates efforts to enforce this law but acknowledges potential challenges related to public awareness. These differences highlight how the legal landscape and enforcement mechanisms can vary significantly between countries despite similar overall prohibitions against specific substances like cannabis or other drugs.",
-      "score": 1,
-      "used": 0,
-      "ts": 1776345863074,
-      "last_used": 1776345863074
     },
     {
       "id": "739d261601fe1a9e",
@@ -2003,61 +924,6 @@
       "last_used": 1776345787492
     },
     {
-      "id": "c616a1b1dd6971f1",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "BR",
-      "answer": "In comparing Brazil, a country with an active but risky cannabis market, to the Netherlands, known for its regulated medical marijuana system, we see different approaches to managing recreational drug use and regulating pharmaceutical substances. **Brazil:** - **Overall Status**: Decriminalized (for personal use) + Regulated (medical). - **Risk Signal**: High risk due to high levels of drug trafficking, crime associated with cannabis use, and significant health concerns. - **Distribution Regulation**: Cannabis is legal for personal use but highly regulated, leading to specific rules on medical usage by licensed physicians. **Netherlands:** - **Overall Status**: Mixed (Regulated). - **Risk Signal**: Restricted due to fewer illegal activities related to the drug market and less severe penalties compared to some countries. - **Medical Use Regulation**: A strict regulatory framework for medical marijuana products, requiring a prescription from a doctor. This indicates a more controlled environment with clear regulations. **Comparison:** 1. **Overall Status Comparison**: Both Brazil and Netherlands have mixed overall statuses, reflecting the complexities of legal frameworks in their respective regions but with different approaches to managing cannabis use and regulating medical substances. 2. **Risk Signal Comparison**: Brazil has a",
-      "score": 1,
-      "used": 0,
-      "ts": 1776345665354,
-      "last_used": 1776345665354
-    },
-    {
-      "id": "2d79f9ec9cd5c6b6",
-      "query": "What are real risks?",
-      "intent": "legal",
-      "location": "BR",
-      "answer": "In Brazil, the cannabis situation is characterized by a mixed approach that reflects both personal use (decriminalized) and medical usage regulations. The overall status of enforcement in Brazil can be described as active but with significant risks due to high levels of drug trafficking, related crime, and health issues associated with cannabis use. **Recreational Status**: Cannabis is generally decriminalized for personal use in Brazil, meaning that individuals can possess small amounts without facing severe legal consequences. However, it remains illegal under federal law. **Medical Status**: The sale and distribution of medical marijuana products are regulated by the Ministry of Health through a licensing system. Patients must obtain a prescription from their physician to receive these medications. This indicates a strict regulatory framework for medical use. **Distribution Status**: Distribution and possession outside of prescribed circumstances in public spaces is not typically legal, but it remains illegal for anyone other than medical professionals who have legitimate prescriptions. The distribution status suggests that there are specific laws governing how this can be conducted legally. **Risk Signal**: Brazil has a high-risk signal indicating significant risks due to its high levels of drug trafficking, related crime, and health issues associated with cannabis use. **Enforcement Signal**: There is",
-      "score": 1,
-      "used": 0,
-      "ts": 1776345635397,
-      "last_used": 1776345635397
-    },
-    {
-      "id": "a1e96bf992747030",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "BR",
-      "answer": "In Brazil, the cannabis law and enforcement are characterized by a complex and mixed approach that reflects both personal use (decriminalized) and medical usage regulations. Here’s an overview: **Recreational Status**: Cannabis is generally decriminalized for personal use in Brazil. This means that individuals can possess small amounts of cannabis without facing severe legal consequences, though it remains illegal under federal law. **Medical Status**: The sale and distribution of medical marijuana products are regulated by the Ministry of Health through a licensing system. Patients must obtain a prescription from their physician to receive these medications. **Distribution Status**: Distribution and possession outside of prescribed circumstances in public spaces is not typically legal. However, it remains illegal for anyone other than medical professionals who have legitimate prescriptions. **Risk Signal**: Brazil has a high-risk signal, indicating that this area involves significant risk due to its high levels of drug trafficking, related crime, and health risks associated with cannabis use. **Enforcement Signal**: There is active law enforcement presence in places where cannabis-related offenses occur, suggesting that authorities are actively monitoring and enforcing regulations. This mixed approach reflects the challenges Brazil faces in managing a population that frequently uses recreational cannabis, while also regulating medical marijuana",
-      "score": 1,
-      "used": 0,
-      "ts": 1776345606334,
-      "last_used": 1776345606334
-    },
-    {
-      "id": "ba604882739d3efe",
-      "query": "Why?",
-      "intent": "general",
-      "location": "FI",
-      "answer": "In terms of safety, it's important to consider the legal and regulatory framework surrounding cannabis use in Finland: 1. **Legal Status**: In Finland, possession of small quantities of cannabis is decriminalized due to its status as an administrative offense rather than a criminal violation. This means that individuals are generally not subject to prosecution unless they engage in large-scale distribution or trafficking. 2. **Recreational Use Risks**: - **Health Risks**: Cannabis can have negative effects on mental health, including increased anxiety, depression, and potential psychotic disorders. - **Addiction Potential**: The risk of developing a substance use disorder is higher with cannabis than many other drugs because it is often used recreationally rather than medicinally. 3. **Social Risks**: Using cannabis could lead to social isolation and alienation from friends and family due to the stigma surrounding drug use in Finland. 4. **Legal Risks**: Even though possession of small quantities is not illegal, large amounts or other prohibited substances can be considered criminal offenses if discovered. 5. **Enforcement**: Although legal status suggests that enforcement efforts are ongoing, actual implementation can vary widely and depends on local police discretion rather than a",
-      "score": 1,
-      "used": 0,
-      "ts": 1776345541102,
-      "last_used": 1776345541102
-    },
-    {
-      "id": "2aa19997f70f0419",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "FI",
-      "answer": "In Finland, while the possession of small quantities of cannabis is treated as an administrative offense and not a criminal violation due to being decriminalized, there are significant risks associated with recreational use: 1. Health Risks: Cannabis can have negative effects on mental health, including increased anxiety, depression, and psychotic disorders. It can also lead to addiction. 2. Social Risks: Using cannabis can lead to social isolation and alienation from friends and family due to the stigma surrounding drug use in Finland. 3. Legal Risks: Even though possession of small quantities is not illegal, it could be considered as a criminal offense if found in larger amounts or with other prohibited substances. 4. Enforcement: Although legal status suggests that enforcement efforts are ongoing, actual implementation can vary widely and often depends on local police discretion. Regarding safety, medical cannabis use remains limited and primarily for therapeutic purposes only, whereas distribution is illegal, making it potentially dangerous to distribute without a proper license or permit. Overall, while the possession of small amounts of cannabis in Finland is legal, there are significant risks associated with recreational drug use. The legal status suggests that enforcement is active but may not always be effectively implemented across all regions.",
-      "score": 1,
-      "used": 0,
-      "ts": 1776345509051,
-      "last_used": 1776345509051
-    },
-    {
       "id": "85287120a67ec037",
       "query": "What are real risks?",
       "intent": "legal",
@@ -2067,50 +933,6 @@
       "used": 0,
       "ts": 1776345451818,
       "last_used": 1776345451818
-    },
-    {
-      "id": "5381a591e99ec0a1",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "FI",
-      "answer": "In Finland, cannabis law can be summarized as follows: - **Overall Status**: Decriminalized, meaning possession of small quantities of cannabis is treated as an administrative offense rather than a criminal violation. - **Recreational Possession**: Illegal under the Drug Act but not enforced strictly. - **Medical Use**: Limited medical use is recognized for specific conditions, with strict restrictions on distribution and manufacturing. - **Distribution**: The production and sale of cannabis products are illegal due to limitations placed on both manufacture and retailing. - **Risk Signal**: Restricted, indicating that the law enforcement agencies in Finland have an active effort to enforce prohibition against recreational cannabis use and possession. In summary, while there is a decriminalized status for cannabis under Finnish law, it remains illegal for recreational use. The strict implementation of laws by local authorities suggests a comprehensive approach aimed at enforcing prohibitions against cannabis-related activities.",
-      "score": 1,
-      "used": 0,
-      "ts": 1776345426278,
-      "last_used": 1776345426278
-    },
-    {
-      "id": "6c740367c9ff37c8",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "IR",
-      "answer": "In Iran, the legal and enforcement situation regarding cannabis is that it is entirely prohibited, meaning possession and use of marijuana are considered illegal activities under Iranian law. This makes the overall status for cannabis in Iran one of prohibition. Given this prohibition, there appears to be no recreational or medical uses permitted for cannabis within Iran's jurisdiction. Additionally, distribution of cannabis is also explicitly illegal. The enforcement situation is described as active, indicating that the authorities have mechanisms in place to monitor and enforce these laws effectively. This means that individuals who are found possessing or using marijuana could face significant penalties ranging from fines to imprisonment. The fact that the status for medical use is also prohibited further emphasizes the complete prohibition of cannabis in Iran's legal framework. The enforcement measures, including surveillance and potential raids on suspects, suggest a strong commitment to maintaining this strict prohibition against cannabis possession, use, and distribution within the country.",
-      "score": 1,
-      "used": 0,
-      "ts": 1776345321908,
-      "last_used": 1776345321908
-    },
-    {
-      "id": "f57481e689f1a5cf",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "IR",
-      "answer": "In Iran, the legal framework regarding cannabis includes: - **Overall Status**: The possession and use of cannabis are considered illegal in Iran. This makes it a prohibited substance under the country's laws. - **Recreational Use**: There is no recreational status for cannabis in Iran; individuals who consume or possess marijuana face severe penalties as it is deemed illegal. - **Medical Use**: Medical usage of cannabis is also illegal and not permitted in Iran, even though there may be medical conditions where its use might be considered. The enforcement situation in Iran regarding cannabis is active. This means that the Iranian government is actively enforcing these laws through various measures such as: 1. Surveillance: The authorities are constantly monitoring areas where cannabis cultivation or possession could take place. 2. Raids and Arrests: There have been instances of raids on suspected dealers, with arrests following up these investigations. 3. Penalties: Those caught in possession of small quantities face fines ranging from 500 to 1,000 rials (approximately $7-14 USD), while more significant amounts can lead to imprisonment or even longer sentences depending on the circumstances. These measures suggest that there is a significant level of enforcement",
-      "score": 1,
-      "used": 0,
-      "ts": 1776345224940,
-      "last_used": 1776345224940
-    },
-    {
-      "id": "601c5425627904ae",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "KH",
-      "answer": "Thank you for clarifying. Let's compare the two places directly:\n\nCambodia:\n- The legal status of medical cannabis is unclear; it isn't officially regulated.\n- There are no official records regarding the prohibition or regulation of other forms of cannabis.\n\nNetherlands (The Netherlands):\n- Officially recognizes a market for medicinal and recreational use of cannabis, with strict regulations in place to ensure safety and efficacy.\n- The risk signal indicates some restrictions on where and under what conditions cannabis can be legally purchased.\n\nIn this context:\n\n1. In Cambodia, medical and all forms of cannabis usage are not officially regulated or legal, which suggests a lower degree of security compared to the Netherlands regarding the use of these substances for recreational purposes. Cambodia might have greater risks associated with unregulated activities.\n2. The Netherlands, on the other hand, has implemented significant regulations that could be considered more secure due to its well-regulated market environment.\n\nGiven this information:\n\n- The Netherlands is generally regarded as a safer place compared to Cambodia regarding legal and regulated use of cannabis for recreational purposes.\n\nThe statement \"Netherlands / Nederland\" indicates some restrictions in safety, but the overall risk signal suggests it offers a safer environment than Cambodia /",
-      "score": 1,
-      "used": 0,
-      "ts": 1776344123809,
-      "last_used": 1776344123809
     },
     {
       "id": "d2bcd6885c6cd255",
@@ -2133,72 +955,6 @@
       "used": 0,
       "ts": 1776344041440,
       "last_used": 1776344041440
-    },
-    {
-      "id": "0556ac5d4c96347e",
-      "query": "Why?",
-      "intent": "general",
-      "location": "BR",
-      "answer": "### Which Country Is Safer?\n\nIn the comparison between **Brazil / Brasil** and **Netherlands / Nederland**, both countries face varying levels of risks, but the contrast becomes clearer with specific factors that contribute to their standing.\n\n#### Brazil / Brasil:\n- **Overall Status:** Mixed.\n- **Risk Signal:** High-Risk. \n  - This high-risk signal suggests a more serious or severe situation compared to other places, possibly due to broader issues involving legal and regulatory frameworks for marijuana use.\n  - Factors include the lack of a regulated and controlled market, which can lead to higher risk of adulteration, inconsistent quality, and potential harm.\n\n#### Netherlands / Nederland:\n- **Overall Status:** Mixed.\n- **Risk Signal:** Restricted. \n  - The restricted signal indicates fewer risks relative to other countries but still presents some level of caution or control due to the government's efforts in establishing regulations.\n  - This restricted status implies a higher degree of regulatory oversight and stricter enforcement mechanisms, which are designed to mitigate potential hazards associated with marijuana use.\n\n### Conclusion:\n**Netherlands / Nederland** generally has a more controlled and safer approach when it comes to marijuana. The restrictions and regulatory measures implemented by",
-      "score": 1,
-      "used": 0,
-      "ts": 1776343997398,
-      "last_used": 1776343997398
-    },
-    {
-      "id": "a28f4ca107cec118",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "BR",
-      "answer": "### Which Country Is Safer?\n\nComparing **Brazil / Brasil** and **Netherlands / Nederland**, let's look at some key factors to determine which one may be safer.\n\n#### Brazil / Brasil:\n1. **Legal Framework:** The country has a decriminalized approach for marijuana, but possession is still illegal.\n2. **Health Risks:** Impurities in products sold on the black market or self-manufactured ones pose significant health risks due to lack of regulation and quality assurance.\n3. **Enforcement:** Enforcement varies regionally, leading to inconsistent application of laws.\n\n#### Netherlands / Nederland:\n1. **Legal Framework:** The country has a fully legalized approach for marijuana with specific regulations ensuring high-quality control throughout the process and distribution channels.\n2. **Health Risks:** Health risks are significantly lower due to strict quality assurance measures in production and legal controls over consumption products.\n3. **Enforcement:** Strong regulatory system ensures consistency in enforcing laws, leading to greater safety for consumers.\n\n### Conclusion:\n**Netherlands / Nederland** generally has a safer overall approach compared to Brazil / Brasil when it comes to marijuana use, with better health outcomes and stricter enforcement mechanisms ensuring higher safety standards throughout",
-      "score": 1,
-      "used": 0,
-      "ts": 1776343981555,
-      "last_used": 1776343981555
-    },
-    {
-      "id": "756eb3a56ba4f2a0",
-      "query": "What are real risks?",
-      "intent": "legal",
-      "location": "BR",
-      "answer": "The enforcement of marijuana laws in Brazil varies depending on your region, but generally speaking, it's less strict compared to the previous penalties for possession. The government has made a cautious approach towards medical uses, even though research suggests some medicinal applications.\n\nHealth risks due to impurities and unregulated processing methods are concerns raised by experts. The distribution aspect seems mostly untrodden upon or restricted in certain regions of Brazil, leading to uncertainties about its legality and safety.\n\nOverall risk is considered high given these factors, but the actual enforcement can be patchy. The current note indicates a presence of both active enforcement efforts and instances where marijuana might pose risks for individuals using it without legal guidance.\n\nIf you have any further questions or need clarification on specific aspects related to Brazil / Brasil's cannabis laws, feel free to ask!",
-      "score": 1,
-      "used": 0,
-      "ts": 1776343937093,
-      "last_used": 1776343937093
-    },
-    {
-      "id": "13b52758ca4d1b33",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "BR",
-      "answer": "The cannabis law in Brazil has been somewhat mixed since the reform implemented in 2019, following a shift towards decriminalization of possession for personal use. This change led to less stringent penalties compared to previous laws, making it generally easier and less expensive to possess small amounts of marijuana.\n\nHowever, this doesn't mean that marijuana is entirely legal in Brazil. Despite its decriminalized status, the drug remains illegal under federal law. The government has taken a cautious approach with regards to medical uses, though research suggests some medicinal applications, including reducing nausea associated with chemotherapy treatments.\n\nThe distribution aspect appears more controversial; it seems largely unregulated but also less common as compared to where it's legal in other parts of the world. There are concerns about health risks due to impurities and processing methods not being subject to strict controls.\n\nEnforcement varies widely across regions within Brazil, with some cities having much stricter enforcement regimes than others. The overall risk associated with cannabis use is considered high given these factors.\n\nSo, while possession for personal consumption remains decriminalized, medical use has been legalized under certain conditions and restrictions remain on its distribution. It's worth noting that marijuana laws are highly localized, and the",
-      "score": 1,
-      "used": 0,
-      "ts": 1776343910187,
-      "last_used": 1776343910187
-    },
-    {
-      "id": "f80ae3e5a61258e5",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "FI",
-      "answer": "When comparing Finland/Suomi and the Netherlands/Nederland regarding cannabis use:\n\n1. **Decriminalized Status**: In Finland, possession of cannabis is generally not enforced due to its decriminalized status, which means you're unlikely to face legal consequences if caught with it. However, dealing or using marijuana remains illegal.\n\nIn contrast, in the Netherlands, recreational cannabis use has been made decriminalized since 2014, meaning possession can be seized but fines are minimal for violations of possession only. The usage itself is not subject to legal prosecution under certain conditions and a broader culture exists around its acceptance.\n\n2. **Legal Consequences**: In Finland/Suomi, using or dealing cannabis could lead to increased surveillance and possible criminal charges if caught by law enforcement. However, this may vary depending on local police response times and whether the drug is seized during an arrest for another reason. \n\nIn comparison:\n- The Netherlands/Nederland offers a legal framework that allows possession of small amounts of cannabis without legal repercussions. It also includes decriminalization policies like having access to certain pharmacies where cannabis can be legally purchased for personal use.\n\n3. **Cultural Acceptance**: Finland is known for its",
-      "score": 1,
-      "used": 0,
-      "ts": 1776343752287,
-      "last_used": 1776343752287
-    },
-    {
-      "id": "863a5de948fb4f08",
-      "query": "What are real risks?",
-      "intent": "legal",
-      "location": "FI",
-      "answer": "You're correct, it's important to understand that while possession of cannabis is generally not enforced by authorities in Finland/Suomi due to its decriminalized status, using or dealing the drug remains illegal and could result in legal consequences. This situation is constantly changing based on various factors such as policy updates or personal circumstances.\n\nIt’s crucial to note that these points were last updated some time ago, and I should verify current laws with a local authority for the most accurate information regarding any changes since then.\n\nLet me know if you have more questions about this topic!",
-      "score": 1,
-      "used": 0,
-      "ts": 1776343721977,
-      "last_used": 1776343721977
     }
   ]
 }

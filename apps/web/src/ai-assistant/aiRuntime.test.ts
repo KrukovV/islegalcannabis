@@ -232,12 +232,44 @@ describe("aiRuntime", () => {
     expect(answer.length).toBeGreaterThan(120);
   });
 
+  it("routes plain-language and medical/practice prompts through deterministic truth", () => {
+    expect(generateAnswer(buildContext("What is cannabis law here in plain language?", "AR", undefined, [], "en"))).toContain("Argentina");
+    expect(generateAnswer(buildContext("Is enforcement strict in real life?", "GR", undefined, [], "en"))).toContain("Greece");
+    expect(generateAnswer(buildContext("How does medical cannabis change the picture?", "AR", undefined, [], "en"))).toContain("Argentina");
+    expect(generateAnswer(buildContext("Is medical or industrial cannabis treated differently?", "GH", undefined, [], "en"))).toContain("Ghana");
+  });
+
   it("keeps 420 legal follow-ups anchored to the current country", () => {
     const answer = generateAnswer(buildContext("Would 420 culture change anything legally here?", "AR", undefined, [], "en"));
 
     expect(answer).toContain("Argentina");
     expect(answer.toLowerCase()).toContain("420");
     expect(answer.toLowerCase()).toMatch(/legal|law/);
+  });
+
+  it("keeps short culture continuations on cannabis, reggae, and law boundaries", () => {
+    const first = buildContext("Tell me about weed movies and Rastafari symbols here.", "NO", undefined, [], "en");
+    rememberDialog(first, "Norway: cannabis culture is separate from legal permission.");
+    const films = generateAnswer(buildContext("films?", "NO", undefined, [], "en"));
+    const actors = generateAnswer(buildContext("actors?", "NO", undefined, [], "en"));
+    const why = generateAnswer(buildContext("why?", "NO", undefined, [], "en"));
+
+    expect(films).toContain("Norway");
+    expect(films.toLowerCase()).toMatch(/film|reggae|cannabis/);
+    expect(actors.toLowerCase()).toMatch(/marley|peter tosh|snoop/);
+    expect(why.toLowerCase()).toMatch(/cannabis culture|reggae|rastafari|420/);
+    expect(why.toLowerCase()).toMatch(/law|legal|permission/);
+  });
+
+  it("answers Make Love Not War and music follow-ups as culture, not legal drift", () => {
+    const origin = generateAnswer(buildContext("Where does the expression Make Love Not War come from?", "JM", undefined, [], "en"));
+    const music = generateAnswer(buildContext("music?", "JM", undefined, [], "en"));
+    const performers = generateAnswer(buildContext("Which performers should I know if I want the reggae and cannabis-culture angle?", "JM", undefined, [], "en"));
+
+    expect(origin.toLowerCase()).toMatch(/1960s|anti-war|counterculture|vietnam|peace/);
+    expect(music).toContain("Jamaica");
+    expect(music.toLowerCase()).toMatch(/reggae|dub|roots|marley/);
+    expect(performers.toLowerCase()).toMatch(/bob marley|peter tosh|lee scratch perry|snoop/);
   });
 
   it("does not carry the previous product subtopic into a fresh compare question", () => {

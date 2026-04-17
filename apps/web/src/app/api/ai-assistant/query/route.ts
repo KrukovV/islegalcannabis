@@ -1,6 +1,6 @@
 import { createRequestId, errorResponse, okResponse } from "@/lib/api/response";
 import { answerWithAssistant, buildContext, buildDeterministicRetryInstruction, generateAnswer, needsOutputRetry, normalizeAnswer } from "@/ai-assistant/aiRuntime";
-import { isBasicLawQuery, isGlobalCultureQuery, isProductRiskQuery, isSmallAmountRiskQuery, isTraceRiskQuery, isTravelRiskQuery, rememberDialog, resetDialogState } from "@/ai-assistant/dialog";
+import { isBasicLawQuery, isCultureFollowupQuery, isGlobalCultureQuery, isProductRiskQuery, isSmallAmountRiskQuery, isTraceRiskQuery, isTravelRiskQuery, rememberDialog, resetDialogState } from "@/ai-assistant/dialog";
 import { buildMessages } from "@/ai-assistant/prompt";
 import { AIConnectionError, generateWithProvider, resolveAIProvider, verifyProviderConnection, warmProviderModel } from "@/ai-assistant/provider";
 import { loadWorkingModelsStore } from "@/ai-assistant/modelHealth";
@@ -99,22 +99,41 @@ async function streamOllamaResponse(
     baseContext.history.lastLocation || baseContext.location.geoHint || undefined
   ).map((item) => ({
     query: item.query,
-      answer: item.answer,
-      score: item.score
+    answer: item.answer,
+    score: item.score
   }));
   const context = buildContext(message, geoHint, coords, contextChunks, language, memoryMatches);
+  if (isGlobalCultureQuery(message)) {
+    const answer = generateAnswer(context);
+    rememberDialog(context, answer);
+    const stream = new ReadableStream<Uint8Array>({
+      start(controller) {
+        controller.enqueue(streamEvent({ type: "meta", requestId, model: "culture-engine" }));
+        controller.enqueue(streamEvent({ type: "delta", text: answer }));
+        controller.enqueue(streamEvent({
+          type: "done",
+          ok: true,
+          answer,
+          sources: context.sources,
+          safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
+          llm_connected: false,
+          model: "culture-engine",
+          partial: false
+        }));
+        controller.close();
+      }
+    });
+    return new Response(stream, {
+      status: 200,
+      headers: {
+        "content-type": "application/x-ndjson; charset=utf-8",
+        "cache-control": "no-store"
+      }
+    });
+  }
   if (context.compare?.name && /compare|safer|why/i.test(message)) {
     const answer = generateAnswer(context);
     rememberDialog(context, answer);
-    if (answer.length > 60) {
-      saveMemory({
-        query: message,
-        intent: context.intent,
-        location: context.location.geoHint || undefined,
-        answer,
-        score: scoreMemory(answer, Boolean(context.history.lastIntent), Boolean(memoryMatches.length))
-      });
-    }
     const stream = new ReadableStream<Uint8Array>({
       start(controller) {
         controller.enqueue(streamEvent({ type: "meta", requestId, model: "compare-engine" }));
@@ -143,15 +162,6 @@ async function streamOllamaResponse(
   if (isBasicLawQuery(message)) {
     const answer = generateAnswer(context);
     rememberDialog(context, answer);
-    if (answer.length > 60) {
-      saveMemory({
-        query: message,
-        intent: context.intent,
-        location: context.location.geoHint || undefined,
-        answer,
-        score: scoreMemory(answer, Boolean(context.history.lastIntent), Boolean(memoryMatches.length))
-      });
-    }
     const stream = new ReadableStream<Uint8Array>({
       start(controller) {
         controller.enqueue(streamEvent({ type: "meta", requestId, model: "truth-engine" }));
@@ -180,15 +190,6 @@ async function streamOllamaResponse(
   if (isTravelRiskQuery(message)) {
     const answer = generateAnswer(context);
     rememberDialog(context, answer);
-    if (answer.length > 60) {
-      saveMemory({
-        query: message,
-        intent: context.intent,
-        location: context.location.geoHint || undefined,
-        answer,
-        score: scoreMemory(answer, Boolean(context.history.lastIntent), Boolean(memoryMatches.length))
-      });
-    }
     const stream = new ReadableStream<Uint8Array>({
       start(controller) {
         controller.enqueue(streamEvent({ type: "meta", requestId, model: "travel-risk-engine" }));
@@ -217,15 +218,6 @@ async function streamOllamaResponse(
   if (isTraceRiskQuery(message)) {
     const answer = generateAnswer(context);
     rememberDialog(context, answer);
-    if (answer.length > 60) {
-      saveMemory({
-        query: message,
-        intent: context.intent,
-        location: context.location.geoHint || undefined,
-        answer,
-        score: scoreMemory(answer, Boolean(context.history.lastIntent), Boolean(memoryMatches.length))
-      });
-    }
     const stream = new ReadableStream<Uint8Array>({
       start(controller) {
         controller.enqueue(streamEvent({ type: "meta", requestId, model: "trace-risk-engine" }));
@@ -254,15 +246,6 @@ async function streamOllamaResponse(
   if (!context.compare?.name && isProductRiskQuery(message)) {
     const answer = generateAnswer(context);
     rememberDialog(context, answer);
-    if (answer.length > 60) {
-      saveMemory({
-        query: message,
-        intent: context.intent,
-        location: context.location.geoHint || undefined,
-        answer,
-        score: scoreMemory(answer, Boolean(context.history.lastIntent), Boolean(memoryMatches.length))
-      });
-    }
     const stream = new ReadableStream<Uint8Array>({
       start(controller) {
         controller.enqueue(streamEvent({ type: "meta", requestId, model: "product-risk-engine" }));
@@ -288,18 +271,9 @@ async function streamOllamaResponse(
       }
     });
   }
-  if (isGlobalCultureQuery(message)) {
+  if (context.intent === "culture" || context.history.lastIntent === "culture" || isCultureFollowupQuery(message)) {
     const answer = generateAnswer(context);
     rememberDialog(context, answer);
-    if (answer.length > 60) {
-      saveMemory({
-        query: message,
-        intent: context.intent,
-        location: context.location.geoHint || undefined,
-        answer,
-        score: scoreMemory(answer, Boolean(context.history.lastIntent), Boolean(memoryMatches.length))
-      });
-    }
     const stream = new ReadableStream<Uint8Array>({
       start(controller) {
         controller.enqueue(streamEvent({ type: "meta", requestId, model: "culture-engine" }));
@@ -328,15 +302,6 @@ async function streamOllamaResponse(
   if (isSmallAmountRiskQuery(message)) {
     const answer = generateAnswer(context);
     rememberDialog(context, answer);
-    if (answer.length > 60) {
-      saveMemory({
-        query: message,
-        intent: context.intent,
-        location: context.location.geoHint || undefined,
-        answer,
-        score: scoreMemory(answer, Boolean(context.history.lastIntent), Boolean(memoryMatches.length))
-      });
-    }
     const stream = new ReadableStream<Uint8Array>({
       start(controller) {
         controller.enqueue(streamEvent({ type: "meta", requestId, model: "risk-engine" }));
@@ -366,15 +331,6 @@ async function streamOllamaResponse(
     const nearbyContext = { ...context, intent: "nearby" as const };
     const answer = generateAnswer(nearbyContext);
     rememberDialog(nearbyContext, answer);
-    if (answer.length > 60) {
-      saveMemory({
-        query: message,
-        intent: nearbyContext.intent,
-        location: nearbyContext.location.geoHint || undefined,
-        answer,
-        score: scoreMemory(answer, Boolean(context.history.lastIntent), Boolean(memoryMatches.length))
-      });
-    }
     const stream = new ReadableStream<Uint8Array>({
       start(controller) {
         controller.enqueue(streamEvent({ type: "meta", requestId, model: "truth-engine" }));
@@ -447,7 +403,7 @@ async function streamOllamaResponse(
             intent: context.intent,
             location: context.location.geoHint || undefined,
             answer: finalResult.text,
-            score: scoreMemory(finalResult.text, Boolean(context.history.lastIntent), Boolean(memoryMatches.length))
+            score: scoreMemory(finalResult.text, Boolean(context.history.lastIntent))
           });
         }
         controller.enqueue(streamEvent({

@@ -5,7 +5,7 @@ import { findNearbyTruth } from "@/lib/geo/nearbyTruth";
 import { deriveResultStatusFromCountryPageData } from "@/lib/resultStatus";
 import { buildMessages, type LlmMessage } from "./prompt";
 import type { AIContext, AIResponse, RagChunk } from "./types";
-import { detectIntent, getDialogState, isBasicLawQuery, isContinuationQuery, isGlobalCultureQuery, isProductRiskQuery, isSmallAmountRiskQuery, isTraceRiskQuery, isTravelRiskQuery, rememberDialog } from "./dialog";
+import { detectIntent, getDialogState, isBasicLawQuery, isContinuationQuery, isCultureFollowupQuery, isGlobalCultureQuery, isProductRiskQuery, isSmallAmountRiskQuery, isTraceRiskQuery, isTravelRiskQuery, rememberDialog } from "./dialog";
 import { getTravelRiskBlock } from "./rag";
 import { retrieveMemory, saveMemory, scoreMemory } from "./memory";
 import { applyDialogStyle, fallbackHumanized } from "./dialogStyle";
@@ -734,6 +734,36 @@ function generateTravel(context: AIContext) {
 }
 
 function generateCulture(context: AIContext) {
+  const query = String(context.query || "").toLowerCase().trim();
+  const place = context.location.name || context.location.geoHint || "this place";
+  if (/^music\??$|^songs?\??$/.test(query)) {
+    return [
+      `${place}: if you ask simply "music?", I read that as reggae, dub, roots, and cannabis-counterculture music, not a generic playlist.`,
+      "Start with Bob Marley, Peter Tosh, Bunny Wailer, Burning Spear, and Lee Scratch Perry; Snoop Dogg fits the wider cannabis-culture lane, but not the reggae/Rastafari core.",
+      "The important boundary stays the same: music can explain the mood and symbols, but it does not change local cannabis law or public-use risk."
+    ].join("\n\n");
+  }
+  if (/^films?\??$|^movies?\??$/.test(query)) {
+    return [
+      `${place}: if you ask simply "films?", I read that as cannabis/reggae-culture films, not random cinema.`,
+      "Good directions are reggae/Rastafari documentaries around Bob Marley and Peter Tosh, plus cannabis-counterculture films that show the social side without pretending it changes the law.",
+      "The useful boundary is this: a film can explain the mood and symbols, but it does not make possession, buying, public use, or travel safer."
+    ].join("\n\n");
+  }
+  if (/^actors?\??$|^artists?\??$|^performers?\??$/.test(query)) {
+    return [
+      `${place}: for this topic, "actors" means cannabis-culture figures and reggae/Rastafari-linked artists, not generic movie celebrities.`,
+      "The core names are Bob Marley, Peter Tosh, and Bunny Wailer on the reggae/Rastafari side; Snoop Dogg fits cannabis celebrity culture, though more through hip-hop than reggae.",
+      "That cultural link is useful for understanding symbols and attitude, but it still stays separate from local law and enforcement."
+    ].join("\n\n");
+  }
+  if (/^(and\??|why\??|more\??|what else\??)$/.test(query)) {
+    return [
+      `${place}: the extra point is that cannabis culture and cannabis legality move on different tracks.`,
+      "Reggae, Rastafari language, 420 references, and weed films can make the topic feel familiar or even normalized, but they do not create legal permission.",
+      "So the smart reading is cultural curiosity on one side, and local law, public behavior, and travel risk on the other."
+    ].join("\n\n");
+  }
   return dedupeBlocks([
     context.language === "ru"
       ? `Если смотреть не только на закон, а на ощущение на месте в ${context.location.name || "этой стране"}:`
@@ -746,6 +776,36 @@ function generateCulture(context: AIContext) {
 
 function generateGlobalCulture(context: AIContext) {
   const query = String(context.query || "").toLowerCase();
+  if (/which performers|performers should i know|reggae and cannabis-culture angle/.test(query)) {
+    return [
+      "For the reggae and cannabis-culture angle, the core names are Bob Marley, Peter Tosh, Bunny Wailer, Burning Spear, and Lee Scratch Perry.",
+      "Bob Marley is the global doorway into reggae and Rastafari imagery; Peter Tosh is the direct legalization voice; Lee Scratch Perry points toward dub and studio culture.",
+      "Snoop Dogg fits the broader cannabis celebrity lane, but he is hip-hop rather than reggae/Rastafari."
+    ].join("\n\n");
+  }
+  if (/what music fits|music fits cannabis culture|reggae, dub, roots/.test(query)) {
+    const place = context.location.name || context.location.geoHint || "this place";
+    return [
+      `${place}: the cannabis-culture music lane is reggae, roots reggae, dub, and some dancehall, with local taste layered on top.`,
+      "The reliable reference points are Bob Marley, Peter Tosh, Bunny Wailer, Burning Spear, and Lee Scratch Perry.",
+      "That gives the mood and history, but it is culture, not permission: local cannabis law still controls possession, buying, and public use."
+    ].join("\n\n");
+  }
+  if (/why did make love not war|make love not war become/.test(query)) {
+    return [
+      "Make Love, Not War became powerful because it compressed a whole 1960s anti-war mood into one line.",
+      "It came out of American counterculture and Vietnam War protest: peace, anti-violence, sexual freedom, and rejection of militarized politics all sat inside the phrase.",
+      "The cannabis link is cultural, not legal: hippie scenes around Haight-Ashbury, rock festivals, and the Summer of Love made marijuana highly visible, so the slogan lives in the same world even though its origin is anti-war."
+    ].join("\n\n");
+  }
+  if (/while staying here|permission|confusing culture with permission/.test(query)) {
+    const place = context.location.name || context.location.geoHint || "this place";
+    return [
+      `${place}: the cultural frame can be useful, but it does not create permission.`,
+      "Weed movies, reggae mood, and Rastafari symbols belong to cannabis culture; they do not override local law, police practice, or public-use rules.",
+      "The safest reading is to enjoy the references as culture, while treating possession, buying, public use, and travel as separate legal-risk questions."
+    ].join("\n\n");
+  }
   if (/420/.test(query)) {
     if (/legal|law|here|change anything|change/.test(query)) {
       const place = context.location.name || context.location.geoHint || "this place";
@@ -770,12 +830,16 @@ function generateGlobalCulture(context: AIContext) {
   }
   if (/airport|import|make love not war/.test(query)) {
     return [
-      "For airports, the honest answer is that legal cannabis import is basically nowhere as a normal traveler privilege.",
-      "Airports do not create their own cannabis legality: customs, border law, and national import rules control that, so crossing a border with cannabis is illegal in most cases even when local use is legal.",
-      "\"Make Love Not War\" is a 1960s anti-war counterculture slogan tied to peace activism and the broader hippie era, not a cannabis law rule."
+      "\"Make Love, Not War\" is a 1960s anti-war slogan tied to American counterculture and Vietnam War protest.",
+      "It means: choose peace, intimacy, and human connection over violence and militarized politics.",
+      "It is not a cannabis permission rule, but it absolutely sits inside the hippie-counterculture environment where marijuana use was widespread and visible."
     ].join("\n\n");
   }
   return generateCulture(context);
+}
+
+function shouldUseCultureEngine(context: AIContext, query: string) {
+  return context.intent === "culture" || context.history.lastIntent === "culture" || isCultureFollowupQuery(query);
 }
 
 function formatRiskSignal(value: string | null | undefined) {
@@ -924,6 +988,9 @@ export function generateAnswer(context: AIContext): string {
   if (context.intent === "nearby") {
     return applyDialogStyle(ensureNonEmptyAnswer(context, generateNearby(context)), context.intent, context.language);
   }
+  if (isGlobalCultureQuery(context.query)) {
+    return applyDialogStyle(ensureNonEmptyAnswer(context, generateGlobalCulture(context)), "culture", context.language);
+  }
   if (context.compare?.name && /compare|safer|why/i.test(context.query)) {
     return applyDialogStyle(ensureNonEmptyAnswer(context, generateComparison(context)), context.intent, context.language);
   }
@@ -942,8 +1009,8 @@ export function generateAnswer(context: AIContext): string {
   if (isProductRiskQuery(context.query)) {
     return applyDialogStyle(ensureNonEmptyAnswer(context, generateProductRisk(context)), context.intent, context.language);
   }
-  if (isGlobalCultureQuery(context.query)) {
-    return applyDialogStyle(ensureNonEmptyAnswer(context, generateGlobalCulture(context)), "culture", context.language);
+  if (shouldUseCultureEngine(context, context.query)) {
+    return applyDialogStyle(ensureNonEmptyAnswer(context, generateCulture(context)), "culture", context.language);
   }
   if (continuation) {
     return applyDialogStyle(ensureNonEmptyAnswer(context, continueLastTopic(context)), context.intent, context.language);
@@ -1036,21 +1103,23 @@ export async function answerWithAssistant(
   ).map((item) => ({
     query: item.query,
     answer: item.answer,
-      score: item.score
-    }));
+    score: item.score
+  }));
   const context = buildContext(query, geoHint, coords, contextChunks, language, memoryMatches);
+  if (isGlobalCultureQuery(query)) {
+    const answer = generateAnswer(context);
+    rememberDialog(context, answer);
+    return {
+      answer,
+      sources: context.sources,
+      safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
+      model: "culture-engine",
+      llm_connected: false
+    };
+  }
   if (context.compare?.name && /compare|safer|why/i.test(query)) {
     const answer = generateAnswer(context);
     rememberDialog(context, answer);
-    if (answer.length > 60) {
-      saveMemory({
-        query,
-        intent: context.intent,
-        location: context.location.geoHint || undefined,
-        answer,
-        score: scoreMemory(answer, Boolean(context.history.lastIntent), Boolean(memoryMatches.length))
-      });
-    }
     return {
       answer,
       sources: context.sources,
@@ -1062,15 +1131,6 @@ export async function answerWithAssistant(
   if (isBasicLawQuery(query)) {
     const answer = generateAnswer(context);
     rememberDialog(context, answer);
-    if (answer.length > 60) {
-      saveMemory({
-        query,
-        intent: context.intent,
-        location: context.location.geoHint || undefined,
-        answer,
-        score: scoreMemory(answer, Boolean(context.history.lastIntent), Boolean(memoryMatches.length))
-      });
-    }
     return {
       answer,
       sources: context.sources,
@@ -1082,15 +1142,6 @@ export async function answerWithAssistant(
   if (isTravelRiskQuery(query)) {
     const answer = generateAnswer(context);
     rememberDialog(context, answer);
-    if (answer.length > 60) {
-      saveMemory({
-        query,
-        intent: context.intent,
-        location: context.location.geoHint || undefined,
-        answer,
-        score: scoreMemory(answer, Boolean(context.history.lastIntent), Boolean(memoryMatches.length))
-      });
-    }
     return {
       answer,
       sources: context.sources,
@@ -1102,15 +1153,6 @@ export async function answerWithAssistant(
   if (isTraceRiskQuery(query)) {
     const answer = generateAnswer(context);
     rememberDialog(context, answer);
-    if (answer.length > 60) {
-      saveMemory({
-        query,
-        intent: context.intent,
-        location: context.location.geoHint || undefined,
-        answer,
-        score: scoreMemory(answer, Boolean(context.history.lastIntent), Boolean(memoryMatches.length))
-      });
-    }
     return {
       answer,
       sources: context.sources,
@@ -1122,15 +1164,6 @@ export async function answerWithAssistant(
   if (!context.compare?.name && isProductRiskQuery(query)) {
     const answer = generateAnswer(context);
     rememberDialog(context, answer);
-    if (answer.length > 60) {
-      saveMemory({
-        query,
-        intent: context.intent,
-        location: context.location.geoHint || undefined,
-        answer,
-        score: scoreMemory(answer, Boolean(context.history.lastIntent), Boolean(memoryMatches.length))
-      });
-    }
     return {
       answer,
       sources: context.sources,
@@ -1142,15 +1175,6 @@ export async function answerWithAssistant(
   if (isSmallAmountRiskQuery(query)) {
     const answer = generateAnswer(context);
     rememberDialog(context, answer);
-    if (answer.length > 60) {
-      saveMemory({
-        query,
-        intent: context.intent,
-        location: context.location.geoHint || undefined,
-        answer,
-        score: scoreMemory(answer, Boolean(context.history.lastIntent), Boolean(memoryMatches.length))
-      });
-    }
     return {
       answer,
       sources: context.sources,
@@ -1159,18 +1183,9 @@ export async function answerWithAssistant(
       llm_connected: false
     };
   }
-  if (isGlobalCultureQuery(query)) {
+  if (shouldUseCultureEngine(context, query)) {
     const answer = generateAnswer(context);
     rememberDialog(context, answer);
-    if (answer.length > 60) {
-      saveMemory({
-        query,
-        intent: context.intent,
-        location: context.location.geoHint || undefined,
-        answer,
-        score: scoreMemory(answer, Boolean(context.history.lastIntent), Boolean(memoryMatches.length))
-      });
-    }
     return {
       answer,
       sources: context.sources,
@@ -1183,15 +1198,6 @@ export async function answerWithAssistant(
     const nearbyContext = { ...context, intent: "nearby" as const };
     const answer = generateAnswer(nearbyContext);
     rememberDialog(nearbyContext, answer);
-    if (answer.length > 60) {
-      saveMemory({
-        query,
-        intent: nearbyContext.intent,
-        location: nearbyContext.location.geoHint || undefined,
-        answer,
-        score: scoreMemory(answer, Boolean(nearbyContext.history.lastIntent), Boolean(memoryMatches.length))
-      });
-    }
     return {
       answer,
       sources: context.sources,
@@ -1270,7 +1276,7 @@ export async function answerWithAssistant(
         intent: context.intent,
         location: context.location.geoHint || undefined,
         answer,
-        score: scoreMemory(answer, Boolean(context.history.lastIntent), Boolean(memoryMatches.length))
+        score: scoreMemory(answer, Boolean(context.history.lastIntent))
       });
     }
     return {
