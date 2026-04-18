@@ -723,7 +723,7 @@ function generateLegal(context: AIContext) {
     composeLegalDetail(context),
     composeSocialDetail(context),
     composeMedicalDetail(context),
-    composeFollowUp(context)
+    composeFollowUp()
   ]).join("\n\n");
 }
 
@@ -733,7 +733,7 @@ function generateTravel(context: AIContext) {
     composeTravelDetail(context),
     composeLegalDetail(context),
     composeSocialDetail(context),
-    composeFollowUp(context)
+    composeFollowUp()
   ]).join("\n\n");
 }
 
@@ -774,7 +774,7 @@ function generateCulture(context: AIContext) {
       : `If we look at more than the law in ${context.location.name || "that place"}:`,
     composeCultureDetail(context),
     composeSocialDetail(context),
-    composeFollowUp(context)
+    composeFollowUp()
   ]).join("\n\n");
 }
 
@@ -978,7 +978,7 @@ function generateGeneral(context: AIContext) {
   if (isCasualQuery(context.normalizedQuery || context.query)) {
     return dedupeBlocks([
       composeCasualReply(context),
-      composeFollowUp(context)
+      composeFollowUp()
     ]).join("\n\n");
   }
   return dedupeBlocks([
@@ -987,7 +987,7 @@ function generateGeneral(context: AIContext) {
     composeLegalDetail(context),
     composeSocialDetail(context),
     composeMedicalDetail(context),
-    composeFollowUp(context)
+    composeFollowUp()
   ]).join("\n\n");
 }
 
