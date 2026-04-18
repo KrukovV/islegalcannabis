@@ -1,6 +1,76 @@
 {
   "items": [
     {
+      "id": "9bf583d9a0bb17fe",
+      "query": "что с каннабисом здесь простыми словами?",
+      "intent": "general",
+      "location": "SN",
+      "answer": "Смотри:\n\nЕсли по факту:\n\nТут есть нюанс: в Senegal / Sénégal каннабис запрещён по текущему SSOT.\n\nCannabis is формально запрещено in Senegal / Sénégal. Medical cannabis is формально запрещено. Distribution is формально запрещено.\n\nНа земле это может ощущаться иначе: Senegal / Sénégal remains формально запрещено in law. Это не разрешение, а просто social reality из текущих данных.\n\nЕсли вопрос именно про medical access: по текущим данным он не открыт как обычный legal channel.",
+      "score": 1,
+      "ts": 1776508373117,
+      "last_used": 1776508373117
+    },
+    {
+      "id": "1944b375eb9138cf",
+      "query": "что с каннабисом здесь простыми словами?",
+      "intent": "general",
+      "location": "CL",
+      "answer": "В Chile, каннабис относится к категории \"противопоказано\" (decriminalized). Это означает, что использование или продажа каннабидихармических веществ на законных условиях, такие как медицинские целебные purposes или разрешенные досуговые мероприятия, допускается. Однако в общем общественном использовании и легальной торговли он не позволяет. В отличие от многих стран в Южной Америке, где каннабис является полностью легальным наркотиком, в Чили это узаконено лишь на ограниченных условиях. Возможность использования или куриции каннабиса ограничивается для людей с официальной медицинской показаний. Каннабидихармические вещества также не могут быть раскапываться, продаваться или распространяться в общем",
+      "score": 1,
+      "ts": 1776508348705,
+      "last_used": 1776508362657
+    },
+    {
+      "id": "fb482446550e0475",
+      "query": "What would be the real-life risk for a traveler here?",
+      "intent": "airport",
+      "location": "PE",
+      "answer": "Short and honest:\n\nInteresting angle: Peru / Piruw is softer than a full ban, but that is not the same as a fully legal market.\n\nBe especially careful with flights and borders: Airports and borders are high-control zones. Crossing borders with cannabis can lead to criminal charges.\n\nPrison exposure is present in the data, so this does not read like a paper-only ban. Cannabis is decriminalized in Peru / Piruw. Medical cannabis is legal. Distribution is formally illegal. Prison exposure detected.\n\nReality on the ground can feel different: Peru / Piruw remains decriminalized in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals. That is not permission, only the current social signal.\n\nWant me to show the strictest airports too?",
+      "score": 1,
+      "ts": 1776460901437,
+      "last_used": 1776508442195
+    },
+    {
+      "id": "407c14923704c8ba",
+      "query": "why not?",
+      "intent": "general",
+      "location": "IE",
+      "answer": "Here it is plainly:\n\nIf we go one layer deeper, the biggest risk still sits around flights and border control.\n\nReality on the ground can feel different: Ireland / Éire remains decriminalized in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals. That is not permission, only the current social signal.\n\nOn the medical side, access is legal in the current data.\n\nIf you want, we can compare this with another country or state.\n\nWant to keep going?",
+      "score": 1,
+      "ts": 1776460980609,
+      "last_used": 1776508442190
+    },
+    {
+      "id": "292ba9b80870f6fe",
+      "query": "Long practical question: if cannabis feels socially normal, what still matters legally?",
+      "intent": "legal",
+      "location": "PE",
+      "answer": "Here’s the useful version:\n\nIf we keep it factual:\n\nCalm version: Peru / Piruw is softer than a full ban, but that is not the same as a fully legal market.\n\nPrison exposure is present in the data, so this does not read like a paper-only ban. Cannabis is decriminalized in Peru / Piruw. Medical cannabis is legal. Distribution is formally illegal. Prison exposure detected.\n\nReality on the ground can feel different: Peru / Piruw remains decriminalized in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals. That is not permission, only the current social signal.\n\nOn the medical side, access is legal in the current data.\n\nWant to compare it with another country?",
+      "score": 1,
+      "ts": 1776462348130,
+      "last_used": 1776462348130
+    },
+    {
+      "id": "024e5874511049c2",
+      "query": "объясни, что такое джоинт простыми словами",
+      "intent": "general",
+      "location": "PE",
+      "answer": "Если по факту: в Peru / Piruw статус мягче полного запрета, но это не то же самое, что полноценный legal market.\n\nЭто важно понимать: в данных есть prison exposure, так что это не выглядит как формальный запрет без последствий. Cannabis is decriminalized in Peru / Piruw. Medical cannabis is legal. Distribution is формально запрещено. Prison exposure detected.\n\nНа земле это может ощущаться иначе: Peru / Piruw remains decriminalized in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals. Это не разрешение, а просто social reality из текущих данных.\n\nЕсли смотреть именно на medical side: доступ там legal.\n\nХочешь сравнить с другой страной?",
+      "score": 1,
+      "ts": 1776460492131,
+      "last_used": 1776462308948
+    },
+    {
+      "id": "f5c2d61b72f07971",
+      "query": "Еу, как сам?",
+      "intent": "general",
+      "location": "DE",
+      "answer": "Если по факту:\n\nЕсть ещё момент, который важно понимать:\n\nНа земле это может ощущаться иначе: Germany / Deutschland remains legal in law. Это не разрешение, а просто social reality из текущих данных.\n\nЕсли смотреть именно на medical side: доступ там legal.\n\nЕсли интересно, можно сравнить это с другой страной или штатом.\n\nПродолжим?",
+      "score": 1,
+      "ts": 1776459166481,
+      "last_used": 1776459166481
+    },
+    {
       "id": "e8c8d05f4b72f795",
       "query": "Is enforcement strict in real life?",
       "intent": "general",
@@ -955,6 +1025,26 @@
       "used": 0,
       "ts": 1776344041440,
       "last_used": 1776344041440
+    },
+    {
+      "id": "e741b9b57ae5445a",
+      "query": "что с каннабисом здесь простыми словами?",
+      "intent": "general",
+      "location": "AT",
+      "answer": "Смотри:\n\nРазберём спокойно:\n\nТут есть нюанс: в Austria / Österreich статус мягче полного запрета, но это не то же самое, что полноценный legal market.\n\nЭто важно понимать: в данных есть prison exposure, так что это не выглядит как формальный запрет без последствий. Cannabis is decriminalized in Austria / Österreich. Medical cannabis is limited. Distribution is формально запрещено. Prison exposure detected.\n\nНа земле это может ощущаться иначе: Austria / Österreich remains decriminalized in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals. Это не разрешение, а просто social reality из текущих данных.\n\nЕсли смотреть именно на medical side: доступ там limited.",
+      "score": 0.6,
+      "ts": 1776508317232,
+      "last_used": 1776508332132
+    },
+    {
+      "id": "0289f21a718a6cd0",
+      "query": "Long practical question: if cannabis feels socially normal, what still matters legally?",
+      "intent": "legal",
+      "location": "IE",
+      "answer": "Here’s the useful version:\n\nIf we keep it factual:\n\nInteresting angle: cannabis is formally illegal in Ireland / Éire in the current SSOT.\n\nPrison exposure is present in the data, so this does not read like a paper-only ban. Cannabis is formally illegal in Ireland / Éire. Medical cannabis is legal. Distribution is formally illegal. Prison exposure detected.\n\nReality on the ground can feel different: Ireland / Éire remains decriminalized in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals. That is not permission, only the current social signal.\n\nOn the medical side, access is legal in the current data.\n\nWant to compare it with another country?",
+      "score": 0.6,
+      "ts": 1776462474964,
+      "last_used": 1776462747446
     }
   ]
 }

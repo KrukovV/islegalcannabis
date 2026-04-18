@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it } from "vitest";
-import { buildContext, generateAnswer } from "./aiRuntime";
+import { answerWithAssistant, buildContext, generateAnswer } from "./aiRuntime";
 import { isContinuationQuery, rememberDialog, resetDialogState } from "./dialog";
 import { buildMessages, buildPrompt } from "./prompt";
 
@@ -33,14 +33,14 @@ describe("aiRuntime", () => {
     expect(followUp.compare).toBeNull();
   });
 
-  it("keeps the current country and adds only the compare country on compare prompts", () => {
+  it("uses a changed selected route country and adds only the compare country on compare prompts", () => {
     const firstContext = buildContext("Germany cannabis?", "NO", undefined, [], "en");
     rememberDialog(firstContext, "Germany stays the topic.");
 
     const compare = buildContext("Compare with Netherlands", "NO", undefined, [], "en");
-    expect(compare.location.geoHint).toBe("DE");
+    expect(compare.location.geoHint).toBe("NO");
     expect(compare.compare?.geoHint).toBe("NL");
-    expect(compare.location.name).toMatch(/Germany/);
+    expect(compare.location.name).toMatch(/Norway/);
     expect(compare.compare?.name).toMatch(/Netherlands/);
   });
 
@@ -65,13 +65,41 @@ describe("aiRuntime", () => {
     expect(generateAnswer(spain)).toContain("Spain");
   });
 
-  it("enforces the locked location over a changed ambient geo hint", () => {
+  it("keeps the locked location for short follow-ups even when the ambient hint changes", () => {
     const firstContext = buildContext("Germany cannabis?", "DE", undefined, [], "en");
     rememberDialog(firstContext, "Germany stays the topic.");
 
     const followUp = buildContext("Where safer?", "NO", undefined, [], "en");
     expect(followUp.location.geoHint).toBe("DE");
     expect(followUp.location.name).toMatch(/Germany/);
+  });
+
+  it("lets a fresh selected route country replace the previous dialog location", () => {
+    const firstContext = buildContext("What is cannabis law here?", "PE", undefined, [], "en");
+    rememberDialog(firstContext, "Peru was the previous topic.");
+
+    const nextContext = buildContext("объясни, что такое joint и почему это не значит legal", "MA", undefined, [], "ru");
+    const answer = generateAnswer(nextContext);
+
+    expect(nextContext.location.geoHint).toBe("MA");
+    expect(answer).toContain("Morocco");
+    expect(answer).not.toContain("Peru");
+    expect(answer).toMatch(/^Смотри/);
+    expect(answer).not.toContain("Смотри:\n\nСмотри");
+  });
+
+  it("uses the selected route country as primary on a fresh compare prompt", () => {
+    const firstContext = buildContext("What is cannabis law here?", "PE", undefined, [], "en");
+    rememberDialog(firstContext, "Peru was the previous topic.");
+
+    const compare = buildContext("Compare practical risk with Netherlands", "HR", undefined, [], "en");
+    const answer = generateAnswer(compare);
+
+    expect(compare.location.geoHint).toBe("HR");
+    expect(compare.location.name).toMatch(/Croatia/);
+    expect(compare.compare?.name).toMatch(/Netherlands/);
+    expect(answer).toContain("Croatia");
+    expect(answer).not.toContain("Peru");
   });
 
   it("generates a grounded dialogue answer without inventing a legal upgrade", () => {
@@ -125,10 +153,10 @@ describe("aiRuntime", () => {
     const compare = buildContext("Compare with Netherlands", "NO", undefined, [], "en");
     const messages = buildMessages({ query: "Compare with Netherlands", context: compare });
 
-    expect(messages[1]?.content).toContain("Location: Germany");
+    expect(messages[1]?.content).toContain("Location: Norway");
     expect(messages[2]?.content).toContain("Topic:");
     expect(messages.at(-1)?.content).toContain("Compare ONLY:");
-    expect(messages.at(-1)?.content).toContain("Germany");
+    expect(messages.at(-1)?.content).toContain("Norway");
     expect(messages.at(-1)?.content).toContain("Netherlands");
   });
 
@@ -369,9 +397,14 @@ describe("aiRuntime", () => {
 
   it("builds nearby truth context for near-me queries", () => {
     const context = buildContext("where can I smoke near me", "DE", { lat: 52.52, lng: 13.405 }, [], "en");
+    const answer = generateAnswer(context);
     expect(context.intent).toBe("nearby");
     expect(context.nearby?.results.length || 0).toBeGreaterThan(0);
     expect(context.nearby?.warning).toContain("Crossing borders");
+    expect(answer).toContain("Closest places where cannabis is possible:");
+    expect(answer).toMatch(/~\d+ km/);
+    expect(answer).toContain("Risk:");
+    expect(answer).toContain("⚠️ Crossing borders with cannabis is illegal in most countries.");
   });
 
   it("routes 'куда поехать рядом' into nearby intent", () => {
@@ -405,12 +438,139 @@ describe("aiRuntime", () => {
       "en"
     );
     expect(tolerated.intent).toBe("nearby");
-    expect(safer.intent).toBe("nearby");
+    expect(safer.intent).not.toBe("nearby");
     expect(generateAnswer(tolerated)).toContain("Crossing borders with cannabis is illegal in most countries.");
-    expect(generateAnswer(safer)).toContain("Crossing borders with cannabis is illegal in most countries.");
+    expect(generateAnswer(safer)).not.toContain("Crossing borders with cannabis is illegal in most countries.");
   });
 
-  it("does not rewrite nearby answers into generic legal prose on repeat", () => {
+  it("normalizes RU slang into nearby without changing engine contract", () => {
+    const context = buildContext("че как бро где можно покурить", "DE", { lat: 52.52, lng: 13.405 }, [], "ru");
+    const answer = generateAnswer(context);
+
+    expect(context.intent).toBe("nearby");
+    expect(context.tone).toBe("street");
+    expect(context.slangType).toBe("intent");
+    expect(answer).toContain("Смотри, по факту:");
+    expect(answer).toMatch(/~\d+ км/);
+    expect(answer).toContain("Risk:");
+    expect(answer).toContain("Crossing borders with cannabis is illegal in most countries.");
+  });
+
+  it("normalizes EN slang into nearby without LLM fallback semantics", () => {
+    const context = buildContext("yo bro where weed at", "DE", { lat: 52.52, lng: 13.405 }, [], "en");
+    const answer = generateAnswer(context);
+
+    expect(context.intent).toBe("nearby");
+    expect(context.tone).toBe("street");
+    expect(context.slangType).toBe("intent");
+    expect(answer).toContain("Got you.");
+    expect(answer).toMatch(/~\d+ km/);
+    expect(answer).toContain("Risk:");
+    expect(answer).toContain("Crossing borders with cannabis is illegal in most countries.");
+  });
+
+  it("answers pure slang greetings without breaking the dialogue", () => {
+    const context = buildContext("че как", "DE", undefined, [], "ru");
+    const answer = generateAnswer(context);
+
+    expect(context.intent).toBe("general");
+    expect(context.tone).toBe("street");
+    expect(context.slangType).toBe("greeting");
+    expect(answer).toBe("Все норм 🙂");
+    expect(answer).not.toContain("где рядом можно");
+    expect(answer).not.toContain("Closest places");
+    expect(answer.toLowerCase()).not.toContain("request failed");
+  });
+
+  it("classifies unknown short greetings automatically without dictionary entries", () => {
+    const context = buildContext("Wazzzzzzup", "DE", undefined, [], "en");
+    const answer = generateAnswer(context);
+
+    expect(context.intent).toBe("general");
+    expect(context.slangType).toBe("greeting");
+    expect(answer).toBe("Все норм 🙂");
+    expect(answer).not.toContain("где рядом можно");
+  });
+
+  it("hard-guards Russian greetings before any LLM path", async () => {
+    const response = await answerWithAssistant("Еу, как сам?", "DE", undefined, [], "ru");
+
+    expect(response.model).toBe("companion-engine");
+    expect(response.llm_connected).toBe(false);
+    expect(response.answer).toBe("Все норм 🙂");
+    expect(response.answer).not.toMatch(/wikipedia|страна|cannabis|legal/i);
+  });
+
+  it("does not force nearby for greetings, law questions, or explain prompts", () => {
+    const greeting = buildContext("че как", "HR", { lat: 45.815, lng: 15.9819 }, [], "ru");
+    const law = buildContext("что с каннабисом в Хорватии?", "HR", { lat: 45.815, lng: 15.9819 }, [], "ru");
+    const explain = buildContext("объясни, что такое джоинт", "HR", { lat: 45.815, lng: 15.9819 }, [], "ru");
+
+    expect(greeting.intent).not.toBe("nearby");
+    expect(law.intent).not.toBe("nearby");
+    expect(explain.intent).not.toBe("nearby");
+    expect(generateAnswer(greeting)).toBe("Все норм 🙂");
+    expect(generateAnswer(law)).not.toContain("Closest places");
+    expect(generateAnswer(explain)).not.toContain("Closest places");
+  });
+
+  it("explains joint slang deterministically without waiting for LLM", () => {
+    const answer = generateAnswer(buildContext("объясни, что такое джоинт простыми словами", "PE", undefined, [], "ru"));
+
+    expect(answer).toContain("джоинт/косяк");
+    expect(answer.toLowerCase()).toContain("culture word");
+    expect(answer.length).toBeGreaterThan(100);
+  });
+
+  it("routes tiny edible mistakes through deterministic small-amount risk", () => {
+    const answer = generateAnswer(buildContext("Can I carry one tiny edible by mistake?", "PE", undefined, [], "en"));
+
+    expect(answer).toContain("Peru");
+    expect(answer.toLowerCase()).toMatch(/tiny amount|serious situation|small amount/);
+    expect(answer.toLowerCase()).not.toContain("request failed");
+  });
+
+  it("keeps short follow-ups deterministic instead of leaking to LLM", async () => {
+    const first = buildContext("Can I fly with weed from here?", "IE", undefined, [], "en");
+    rememberDialog(first, generateAnswer(first));
+    const response = await answerWithAssistant("why not?", "IE", undefined, [], "en");
+
+    expect(response.model).toBe("companion-engine");
+    expect(response.llm_connected).toBe(false);
+    expect(response.answer.length).toBeGreaterThan(60);
+  });
+
+  it("routes real-life traveler risk through deterministic travel-risk", async () => {
+    const response = await answerWithAssistant("What would be the real-life risk for a traveler here?", "PE", undefined, [], "en");
+
+    expect(response.model).toBe("travel-risk-engine");
+    expect(response.llm_connected).toBe(false);
+    expect(response.answer).toContain("Peru");
+  });
+
+  it("does not misclassify nearest or closest nearby prompts as greetings", () => {
+    const nearest = buildContext("nearest tolerated place?", "HR", undefined, [], "en");
+    const closest = buildContext("closest safer option?", "IE", undefined, [], "en");
+
+    expect(nearest.intent).toBe("nearby");
+    expect(nearest.slangType).toBe("intent");
+    expect(generateAnswer(nearest)).toContain("Closest places where cannabis is possible");
+    expect(closest.intent).toBe("nearby");
+    expect(closest.slangType).toBe("intent");
+    expect(generateAnswer(closest)).toContain("Closest places where cannabis is possible");
+  });
+
+  it("keeps Iran visible in nearby output instead of collapsing to everything illegal", () => {
+    const context = buildContext("where can I smoke near me", "IR", undefined, [], "en");
+    const answer = generateAnswer(context);
+
+    expect(context.intent).toBe("nearby");
+    expect(answer).toContain("Iran");
+    expect(answer).toMatch(/Limited|Tolerated|Risk:/);
+    expect(answer.toLowerCase()).not.toContain("everything illegal");
+  });
+
+  it("does not reuse nearby for a non-near follow-up", () => {
     const first = buildContext("where can I smoke near me", "DE", { lat: 52.52, lng: 13.405 }, [], "en");
     const firstAnswer = generateAnswer(first);
     rememberDialog(first, firstAnswer);
@@ -418,13 +578,13 @@ describe("aiRuntime", () => {
     const repeated = buildContext("which option is safer?", "DE", { lat: 52.52, lng: 13.405 }, [], "en");
     const repeatedAnswer = generateAnswer(repeated);
 
-    expect(repeated.intent).toBe("nearby");
-    expect(repeatedAnswer).toContain("closest honest options");
-    expect(repeatedAnswer).toContain("Crossing borders with cannabis is illegal in most countries.");
+    expect(repeated.intent).not.toBe("nearby");
+    expect(repeatedAnswer).not.toContain("Closest places where cannabis is possible");
+    expect(repeatedAnswer).not.toContain("Crossing borders with cannabis is illegal in most countries.");
     expect(repeatedAnswer).not.toContain("Calm version:");
   });
 
-  it("uses nearby continuation for short follow-ups after a nearby answer", () => {
+  it("does not force nearby for short follow-ups after a nearby answer", () => {
     const first = buildContext("where can I smoke near me", "DE", { lat: 52.52, lng: 13.405 }, [], "en");
     const firstAnswer = generateAnswer(first);
     rememberDialog(first, firstAnswer);
@@ -432,8 +592,9 @@ describe("aiRuntime", () => {
     const followUp = buildContext("and?", "DE", { lat: 52.52, lng: 13.405 }, [], "en");
     const followUpAnswer = generateAnswer(followUp);
 
-    expect(followUpAnswer).toContain("closest honest options");
-    expect(followUpAnswer).toContain("Crossing borders with cannabis is illegal in most countries.");
+    expect(followUp.intent).not.toBe("nearby");
+    expect(followUpAnswer).not.toContain("Closest places where cannabis is possible");
+    expect(followUpAnswer).not.toContain("Crossing borders with cannabis is illegal in most countries.");
   });
 
   it("does not classify generic compare follow-ups as nearby intent", () => {

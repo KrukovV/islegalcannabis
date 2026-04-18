@@ -5,10 +5,13 @@ import { findNearbyTruth } from "@/lib/geo/nearbyTruth";
 import { deriveResultStatusFromCountryPageData } from "@/lib/resultStatus";
 import { buildMessages, type LlmMessage } from "./prompt";
 import type { AIContext, AIResponse, RagChunk } from "./types";
-import { detectIntent, getDialogState, isBasicLawQuery, isContinuationQuery, isCultureFollowupQuery, isGlobalCultureQuery, isMarketAccessQuery, isProductRiskQuery, isSmallAmountRiskQuery, isTraceRiskQuery, isTravelRiskQuery, rememberDialog } from "./dialog";
+import { detectIntent, getDialogState, isBasicLawQuery, isContinuationQuery, isCultureFollowupQuery, isGlobalCultureQuery, isMarketAccessQuery, isNearSearch, isProductRiskQuery, isSmallAmountRiskQuery, isTraceRiskQuery, isTravelRiskQuery, rememberDialog } from "./dialog";
 import { getTravelRiskBlock } from "./rag";
 import { retrieveMemory, saveMemory, scoreMemory } from "./memory";
 import { applyDialogStyle, fallbackHumanized } from "./dialogStyle";
+import { detectType } from "./slang";
+import { applyTone, buildIntro } from "./tone";
+import { buildReaction } from "./reaction";
 import {
   AIConnectionError,
   generateWithProvider,
@@ -132,21 +135,33 @@ function resolveLocationSelection(
   const lockedPage = history.lastLocation ? getCountryPageForHint(history.lastLocation) : null;
   const hintedPage = getCountryPageForHint(geoHint);
   const comparison = isComparisonQuery(query);
+  const hintChanged =
+    Boolean(hintedPage && lockedPage && hintedPage.geo_code !== lockedPage.geo_code);
+  const preferHint =
+    Boolean(hintedPage && (!lockedPage || hintChanged)) && !isContinuationQuery(query);
 
   if (mentioned.length) {
     if (comparison && (lockedPage || hintedPage)) {
-      const primaryPage = lockedPage || hintedPage;
+      const primaryPage = preferHint ? hintedPage : lockedPage || hintedPage;
       const comparePage = mentioned.find((page) => page.geo_code !== primaryPage?.geo_code) || null;
       return {
         primary: primaryPage,
         compare: comparePage,
-        source: lockedPage ? "user" as const : "geo" as const
+        source: preferHint ? "ui" as const : lockedPage ? "user" as const : "geo" as const
       };
     }
     return {
       primary: mentioned[0],
       compare: mentioned.find((page) => page.geo_code !== mentioned[0].geo_code) || null,
       source: "user" as const
+    };
+  }
+
+  if (preferHint) {
+    return {
+      primary: hintedPage,
+      compare: null,
+      source: "ui" as const
     };
   }
 
@@ -176,7 +191,7 @@ function detectLanguage(query: string, language: string | undefined) {
 }
 
 function isCasualQuery(query: string) {
-  return /^(how are you|how's it going|hows it going|what's up|whats up|как дела|как ты|ты как|ты здесь)\??$/i.test(
+  return /^(hello|how are you|how's it going|hows it going|what's up|whats up|че как|чё как|как дела|как ты|ты как|ты здесь)\??$/i.test(
     String(query || "").trim()
   );
 }
@@ -213,16 +228,7 @@ function getAirportSummary(query: string, context: ReturnType<typeof buildContex
 }
 
 function shouldUseNearbyTruth(query: string, context: AIContext) {
-  return Boolean(
-    context.nearby &&
-      (
-        context.intent === "nearby" ||
-        context.history.lastIntent === "nearby" ||
-        /near me|nearest|nearby|closest|distance|safer|which option|tolerated|around me|border|what about borders|risk on the way|in real life|ближайш|рядом|куда ближе|что ближе|какой вариант безопаснее|границ|риск/i.test(
-          query
-        )
-      )
-  );
+  return Boolean(context.nearby && isNearSearch(query));
 }
 
 export function buildContext(
@@ -235,7 +241,12 @@ export function buildContext(
 ): AIContext {
   const resolvedLanguage = detectLanguage(query, language);
   const history = getDialogState();
-  const detectedIntent = detectIntent(query);
+  const detectedSlang = detectType(query);
+  const slang = history.lastIntent && isContinuationQuery(query) && detectedSlang.type !== "intent"
+    ? { ...detectedSlang, type: "unknown" as const }
+    : detectedSlang;
+  const pipelineQuery = slang.normalized || query;
+  const detectedIntent = detectIntent(pipelineQuery);
   const locationSelection =
     detectedIntent === "nearby"
       ? {
@@ -243,19 +254,12 @@ export function buildContext(
           compare: null,
           source: history.lastLocation ? ((history.source || "ui") as "user" | "ui" | "geo") : ("geo" as const)
         }
-      : resolveLocationSelection(query, history, geoHint);
+      : resolveLocationSelection(pipelineQuery, history, geoHint);
   const countryPage = locationSelection.primary;
   const comparePage = locationSelection.compare;
   const effectiveGeoHint = countryPage?.iso2 || countryPage?.geo_code || geoHint;
   const social = getSocialReality(effectiveGeoHint || null);
-  const nearbyFollowUp =
-    history.lastIntent === "nearby" &&
-    (
-      isContinuationQuery(query) ||
-      /(nearest|near me|nearby|closest|distance|border|safer|tolerated|limited|which option|what about borders|risk on the way|in real life|distance|warning|поблизости|рядом|границ|риск|куда ближе|где ближе)/i.test(
-        query
-      )
-    );
+  const nearbyFollowUp = history.lastIntent === "nearby" && isNearSearch(pipelineQuery);
   const intent = nearbyFollowUp ? "nearby" : detectedIntent;
   const casual = isCasualQuery(query);
   const includeLegal = !casual && intent !== "culture";
@@ -290,7 +294,10 @@ export function buildContext(
 
   const assistantContext: AIContext = {
     query,
+    normalizedQuery: pipelineQuery,
     language: resolvedLanguage,
+    tone: slang.tone,
+    slangType: slang.type,
     location: {
       geoHint: effectiveGeoHint || null,
       name: countryPage?.name || null,
@@ -504,15 +511,8 @@ function composeCultureDetail(context: AIContext) {
   return `${chunk.title}: ${chunk.text}`;
 }
 
-function composeFollowUp(context: AIContext) {
-  if (context.language === "ru") {
-    if (context.intent === "airport") return "Показать, где самые строгие аэропорты?";
-    if (context.intent === "culture") return "Разобрать глубже?";
-    return "Хочешь сравнить с другой страной?";
-  }
-  if (context.intent === "airport") return "Want me to show the strictest airports too?";
-  if (context.intent === "culture") return "Want to go deeper?";
-  return "Want to compare it with another country?";
+function composeFollowUp() {
+  return null;
 }
 
 function normalizedWords(text: string) {
@@ -780,6 +780,14 @@ function generateCulture(context: AIContext) {
 
 function generateGlobalCulture(context: AIContext) {
   const query = String(context.query || "").toLowerCase();
+  if (/joint|джоинт|косяк/.test(query)) {
+    const place = context.location.name || context.location.geoHint || "this place";
+    return [
+      `${place}: a joint, or "джоинт/косяк" in casual Russian, means cannabis rolled for smoking, usually in paper like a cigarette.`,
+      "It is a culture word, not a safety word: saying joint, weed, косяк, or трава does not change the legal status of possession, buying, public use, or travel.",
+      "The practical reading is simple: understand the slang, but judge the risk by local law, enforcement, and whether borders, airports, or public places are involved."
+    ].join("\n\n");
+  }
   if (/which performers|performers should i know|reggae and cannabis-culture angle/.test(query)) {
     return [
       "For the reggae and cannabis-culture angle, the core names are Bob Marley, Peter Tosh, Bunny Wailer, Burning Spear, and Lee Scratch Perry.",
@@ -967,7 +975,7 @@ function generateMarketAccess(context: AIContext) {
 }
 
 function generateGeneral(context: AIContext) {
-  if (isCasualQuery(context.query)) {
+  if (isCasualQuery(context.normalizedQuery || context.query)) {
     return dedupeBlocks([
       composeCasualReply(context),
       composeFollowUp(context)
@@ -1020,39 +1028,43 @@ function generateComparison(context: AIContext) {
 }
 
 export function generateAnswer(context: AIContext): string {
-  const continuation = isContinuationQuery(context.query) && Boolean(context.history.lastIntent);
+  const query = context.normalizedQuery || context.query;
+  const continuation = isContinuationQuery(query) && Boolean(context.history.lastIntent);
+  if (context.slangType === "greeting" && context.intent === "general") {
+    return buildSlangGreetingAnswer(context);
+  }
   if (context.intent === "nearby") {
-    return applyDialogStyle(ensureNonEmptyAnswer(context, generateNearby(context)), context.intent, context.language);
+    return finalizeAnswer(context, generateNearby(context), context.intent);
   }
-  if (isGlobalCultureQuery(context.query)) {
-    return applyDialogStyle(ensureNonEmptyAnswer(context, generateGlobalCulture(context)), "culture", context.language);
+  if (isGlobalCultureQuery(query)) {
+    return finalizeAnswer(context, generateGlobalCulture(context), "culture");
   }
-  if (context.compare?.name && /compare|safer|why/i.test(context.query)) {
-    return applyDialogStyle(ensureNonEmptyAnswer(context, generateComparison(context)), context.intent, context.language);
+  if (context.compare?.name && /compare|safer|why/i.test(query)) {
+    return finalizeAnswer(context, generateComparison(context), context.intent);
   }
-  if (isMarketAccessQuery(context.query)) {
-    return applyDialogStyle(ensureNonEmptyAnswer(context, generateMarketAccess(context)), "buy", context.language);
+  if (isMarketAccessQuery(query)) {
+    return finalizeAnswer(context, generateMarketAccess(context), "buy");
   }
-  if (isBasicLawQuery(context.query)) {
-    return applyDialogStyle(ensureNonEmptyAnswer(context, generateLegal(context)), "legal", context.language);
+  if (isBasicLawQuery(query)) {
+    return finalizeAnswer(context, generateLegal(context), "legal");
   }
-  if (isTravelRiskQuery(context.query)) {
-    return applyDialogStyle(ensureNonEmptyAnswer(context, generateTravelRiskAnswer(context)), context.intent, context.language);
+  if (isTravelRiskQuery(query)) {
+    return finalizeAnswer(context, generateTravelRiskAnswer(context), context.intent);
   }
-  if (isTraceRiskQuery(context.query)) {
-    return applyDialogStyle(ensureNonEmptyAnswer(context, generateTraceRisk(context)), context.intent, context.language);
+  if (isTraceRiskQuery(query)) {
+    return finalizeAnswer(context, generateTraceRisk(context), context.intent);
   }
-  if (isSmallAmountRiskQuery(context.query)) {
-    return applyDialogStyle(ensureNonEmptyAnswer(context, generateSmallAmountRisk(context)), context.intent, context.language);
+  if (isSmallAmountRiskQuery(query)) {
+    return finalizeAnswer(context, generateSmallAmountRisk(context), context.intent);
   }
-  if (isProductRiskQuery(context.query)) {
-    return applyDialogStyle(ensureNonEmptyAnswer(context, generateProductRisk(context)), context.intent, context.language);
+  if (isProductRiskQuery(query)) {
+    return finalizeAnswer(context, generateProductRisk(context), context.intent);
   }
-  if (shouldUseCultureEngine(context, context.query)) {
-    return applyDialogStyle(ensureNonEmptyAnswer(context, generateCulture(context)), "culture", context.language);
+  if (shouldUseCultureEngine(context, query)) {
+    return finalizeAnswer(context, generateCulture(context), "culture");
   }
   if (continuation) {
-    return applyDialogStyle(ensureNonEmptyAnswer(context, continueLastTopic(context)), context.intent, context.language);
+    return finalizeAnswer(context, continueLastTopic(context), context.intent);
   }
   const answer =
     continuation
@@ -1065,13 +1077,29 @@ export function generateAnswer(context: AIContext): string {
           ? generateCulture(context)
           : generateGeneral(context);
   if (isRepeatAnswer(answer, context.history.lastAnswer)) {
-    return applyDialogStyle(
-      ensureNonEmptyAnswer(context, rewriteRepeatedAnswer(context, answer)),
-      context.intent,
-      context.language
-    );
+    return finalizeAnswer(context, rewriteRepeatedAnswer(context, answer), context.intent);
   }
-  return applyDialogStyle(ensureNonEmptyAnswer(context, answer), context.intent, context.language);
+  return finalizeAnswer(context, answer, context.intent);
+}
+
+function finalizeAnswer(context: AIContext, answer: string, intent?: string) {
+  return applyTone(
+    applyDialogStyle(ensureNonEmptyAnswer(context, answer), intent, context.language),
+    context.tone || "neutral",
+    context.slangType || "unknown",
+    context.language,
+    context.query
+  );
+}
+
+function buildSlangGreetingAnswer(context: AIContext) {
+  if (context.language === "en") return buildGreetingAnswer("en", context.query);
+  if (context.language === "ru") return buildGreetingAnswer("ru", context.query);
+  return buildIntro(context.tone || "casual", "greeting", context.language, context.query);
+}
+
+export function buildGreetingAnswer(_language?: string, input = "") {
+  return buildReaction(input, "greeting");
 }
 
 function generateNearby(context: AIContext) {
@@ -1080,29 +1108,56 @@ function generateNearby(context: AIContext) {
       ? "Рядом я пока не вижу честных nearby-вариантов по текущим данным. Это не значит, что вариантов нет, а значит, что текущий truth-layer их не подтверждает."
       : "I do not see any honest nearby options in the current data yet. That does not prove there are none, only that this truth layer does not confirm them.";
   }
-  const top = context.nearby.results.slice(0, 3);
+  const top = context.nearby.results.slice(0, 4);
   if (context.language === "ru") {
-    const intro = context.location.name
-      ? `Если смотреть от ${context.location.name}, ближе всего сейчас выглядят такие варианты:`
-      : "Если смотреть от твоей текущей точки, ближе всего сейчас выглядят такие варианты:";
-    const lines = top.map((item) => {
-      const access =
-        item.accessType === "legal" ? "легально" :
-        item.accessType === "mostly_allowed" ? "в основном разрешено" :
-        item.accessType === "limited" ? "ограничено" :
-        item.accessType === "tolerated" ? "терпимо на практике" :
-        "строго";
-      return `• ${item.country} — около ${Math.round(item.distanceKm)} км, ${access}. ${item.explanation}`;
-    });
-    return [intro, ...lines, context.nearby.warning].join("\n");
+    const lines = top.map((item, index) =>
+      [
+        `${index + 1}. ${item.country} — ~${Math.round(item.effectiveDistanceKm)} км`,
+        `   ${formatNearbyAccess(item.accessType, "ru")}`,
+        `   Risk: ${formatNearbyRisk(item.destinationRisk)}`
+      ].join("\n")
+    );
+    return [
+      "Ближайшие места, где каннабис возможен по текущим данным:",
+      "",
+      ...lines,
+      "",
+      `⚠️ ${context.nearby.warning}`
+    ].join("\n");
   }
-  const intro = context.location.name
-    ? `If we start from ${context.location.name}, the closest honest options right now look like this:`
-    : "If we start from your current point, the closest honest options right now look like this:";
-  const lines = top.map((item) =>
-    `• ${item.country} — about ${Math.round(item.distanceKm)} km away, ${item.accessType.replaceAll("_", " ")}. ${item.explanation}`
+  const lines = top.map((item, index) =>
+    [
+      `${index + 1}. ${item.country} — ~${Math.round(item.effectiveDistanceKm)} km`,
+      `   ${formatNearbyAccess(item.accessType, "en")}`,
+      `   Risk: ${formatNearbyRisk(item.destinationRisk)}`
+    ].join("\n")
   );
-  return [intro, ...lines, context.nearby.warning].join("\n");
+  return [
+    "Closest places where cannabis is possible:",
+    "",
+    ...lines,
+    "",
+    `⚠️ ${context.nearby.warning}`
+  ].join("\n");
+}
+
+function formatNearbyAccess(accessType: NonNullable<AIContext["nearby"]>["results"][number]["accessType"], language: string) {
+  if (language === "ru") {
+    if (accessType === "legal") return "Legal / allowed";
+    if (accessType === "mostly_allowed") return "Mostly allowed";
+    if (accessType === "limited") return "Limited";
+    if (accessType === "tolerated") return "Tolerated";
+    return "Strict";
+  }
+  if (accessType === "legal") return "Legal";
+  if (accessType === "mostly_allowed") return "Mostly allowed";
+  if (accessType === "limited") return "Limited";
+  if (accessType === "tolerated") return "Tolerated";
+  return "Strict";
+}
+
+function formatNearbyRisk(risk: NonNullable<AIContext["nearby"]>["results"][number]["destinationRisk"]) {
+  return risk.toUpperCase();
 }
 
 function injectDonation(answer: string) {
@@ -1133,6 +1188,17 @@ export async function answerWithAssistant(
   language: string | undefined,
   overrideModels?: string[]
 ): Promise<AIResponse> {
+  const hardType = detectType(query);
+  if (hardType.type === "greeting") {
+    const answer = buildGreetingAnswer(detectLanguage(query, language));
+    return {
+      answer,
+      sources: [],
+      safety_note: detectLanguage(query, language) === "ru" ? "Не юридическая консультация." : "Not legal advice.",
+      model: "companion-engine",
+      llm_connected: false
+    };
+  }
   const initialContext = buildContext(query, geoHint, coords, contextChunks, language);
   const memoryMatches = retrieveMemory(
     query,
@@ -1145,6 +1211,17 @@ export async function answerWithAssistant(
     score: item.score
   }));
   const context = buildContext(query, geoHint, coords, contextChunks, language, memoryMatches);
+  if (context.slangType === "greeting" && context.intent === "general") {
+    const answer = generateAnswer(context);
+    rememberDialog(context, answer);
+    return {
+      answer,
+      sources: context.sources,
+      safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
+      model: "companion-engine",
+      llm_connected: false
+    };
+  }
   if (isGlobalCultureQuery(query)) {
     const answer = generateAnswer(context);
     rememberDialog(context, answer);
@@ -1253,6 +1330,17 @@ export async function answerWithAssistant(
       sources: context.sources,
       safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
       model: "truth-engine",
+      llm_connected: false
+    };
+  }
+  if (isContinuationQuery(query) && context.history.lastIntent) {
+    const answer = generateAnswer(context);
+    rememberDialog(context, answer);
+    return {
+      answer,
+      sources: context.sources,
+      safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
+      model: "companion-engine",
       llm_connected: false
     };
   }

@@ -55,7 +55,10 @@ export type DialogState = {
 
 export type AIContext = {
   query: string;
+  normalizedQuery?: string;
   language: string;
+  tone?: "street" | "casual" | "neutral";
+  slangType?: "greeting" | "intent" | "unknown";
   location: {
     geoHint: string | null;
     name: string | null;

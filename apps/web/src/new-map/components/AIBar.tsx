@@ -129,6 +129,10 @@ function shouldPreferFinalAnswer(streamedText: string, finalText: string) {
   return final.length > streamed.length + 20;
 }
 
+function allowsShortAssistantText(text: string) {
+  return String(text || "").trim() === "Все норм 🙂";
+}
+
 export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Props) {
   const requestControllerRef = useRef<AbortController | null>(null);
   const resetRequestRef = useRef<Promise<void> | null>(null);
@@ -386,7 +390,7 @@ async function requestNonStreamAnswer(input: {
         const nextText = String(payload.text || "").trim();
         const keepCurrentText = currentText && isFallbackText(nextText);
         const displayText =
-          !payload.error && nextText && nextText.length < 40
+          !payload.error && nextText && nextText.length < 40 && !allowsShortAssistantText(nextText)
             ? (currentText.length >= 40 ? currentText : CLARIFY_QUESTION_MESSAGE)
             : nextText;
         return {
@@ -475,13 +479,25 @@ async function requestNonStreamAnswer(input: {
                   });
                 } else {
                   const finalAnswer = String(streamEvent.answer || streamedAnswer || "").trim();
-                  const preferredAnswer = shouldPreferFinalAnswer(streamedAnswer, finalAnswer)
+                  let preferredAnswer = shouldPreferFinalAnswer(streamedAnswer, finalAnswer)
                     ? finalAnswer
                     : (hasStreamStarted && streamedAnswer.trim() ? streamedAnswer.trim() : finalAnswer);
+                  let sources = Array.isArray(streamEvent.sources) ? streamEvent.sources : [];
+                  let safetyNote = streamEvent.safety_note || null;
+                  if (preferredAnswer.length < 40) {
+                    try {
+                      const payload = await requestNonStreamAnswer({ message: normalizedQuery, signal: controller.signal });
+                      preferredAnswer = String(payload.answer || preferredAnswer || "").trim();
+                      sources = Array.isArray(payload.sources) ? payload.sources : sources;
+                      safetyNote = payload.safety_note || safetyNote;
+                    } catch {
+                      // Keep the stream result; the final guard below will avoid an empty bubble.
+                    }
+                  }
                   finalizeAssistantMessage(assistantMessageId, {
                     text: preferredAnswer,
-                    sources: Array.isArray(streamEvent.sources) ? streamEvent.sources : [],
-                    safetyNote: streamEvent.safety_note || null,
+                    sources,
+                    safetyNote,
                     streaming: false
                   });
                 }
@@ -514,13 +530,25 @@ async function requestNonStreamAnswer(input: {
                 break;
               }
               const finalAnswer = String(streamEvent.answer || streamedAnswer || "").trim();
-              const preferredAnswer = shouldPreferFinalAnswer(streamedAnswer, finalAnswer)
+              let preferredAnswer = shouldPreferFinalAnswer(streamedAnswer, finalAnswer)
                 ? finalAnswer
                 : (hasStreamStarted && streamedAnswer.trim() ? streamedAnswer.trim() : finalAnswer);
+              let sources = Array.isArray(streamEvent.sources) ? streamEvent.sources : [];
+              let safetyNote = streamEvent.safety_note || null;
+              if (preferredAnswer.length < 40) {
+                try {
+                  const payload = await requestNonStreamAnswer({ message: normalizedQuery, signal: controller.signal });
+                  preferredAnswer = String(payload.answer || preferredAnswer || "").trim();
+                  sources = Array.isArray(payload.sources) ? payload.sources : sources;
+                  safetyNote = payload.safety_note || safetyNote;
+                } catch {
+                  // Keep the stream result; the final guard below will avoid an empty bubble.
+                }
+              }
               finalizeAssistantMessage(assistantMessageId, {
                 text: preferredAnswer,
-                sources: Array.isArray(streamEvent.sources) ? streamEvent.sources : [],
-                safetyNote: streamEvent.safety_note || null,
+                sources,
+                safetyNote,
                 streaming: false
               });
             }

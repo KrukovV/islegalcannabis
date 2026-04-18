@@ -1,6 +1,7 @@
 import { createRequestId, errorResponse, okResponse } from "@/lib/api/response";
-import { answerWithAssistant, buildContext, buildDeterministicRetryInstruction, generateAnswer, needsOutputRetry, normalizeAnswer } from "@/ai-assistant/aiRuntime";
-import { isBasicLawQuery, isCultureFollowupQuery, isGlobalCultureQuery, isProductRiskQuery, isSmallAmountRiskQuery, isTraceRiskQuery, isTravelRiskQuery, rememberDialog, resetDialogState } from "@/ai-assistant/dialog";
+import { answerWithAssistant, buildContext, buildDeterministicRetryInstruction, buildGreetingAnswer, generateAnswer, needsOutputRetry, normalizeAnswer } from "@/ai-assistant/aiRuntime";
+import { isBasicLawQuery, isContinuationQuery, isCultureFollowupQuery, isGlobalCultureQuery, isNearSearch, isProductRiskQuery, isSmallAmountRiskQuery, isTraceRiskQuery, isTravelRiskQuery, rememberDialog, resetDialogState } from "@/ai-assistant/dialog";
+import { detectType } from "@/ai-assistant/slang";
 import { buildMessages } from "@/ai-assistant/prompt";
 import { AIConnectionError, generateWithProvider, resolveAIProvider, verifyProviderConnection, warmProviderModel } from "@/ai-assistant/provider";
 import { loadWorkingModelsStore } from "@/ai-assistant/modelHealth";
@@ -61,16 +62,7 @@ function sanitizeModelOverride(value: string | null | undefined) {
 }
 
 function shouldUseNearbyTruth(message: string, context: ReturnType<typeof buildContext>) {
-  return Boolean(
-    context.nearby &&
-      (
-        context.intent === "nearby" ||
-        context.history.lastIntent === "nearby" ||
-        /near me|nearest|nearby|closest|distance|safer|which option|tolerated|around me|border|what about borders|risk on the way|in real life|ближайш|рядом|куда ближе|что ближе|какой вариант безопаснее|границ|риск/i.test(
-          message
-        )
-      )
-  );
+  return Boolean(context.nearby && isNearSearch(message));
 }
 
 function sanitizeCoordinate(value: unknown) {
@@ -103,6 +95,34 @@ async function streamOllamaResponse(
     score: item.score
   }));
   const context = buildContext(message, geoHint, coords, contextChunks, language, memoryMatches);
+  if (context.slangType === "greeting" && context.intent === "general") {
+    const answer = generateAnswer(context);
+    rememberDialog(context, answer);
+    const stream = new ReadableStream<Uint8Array>({
+      start(controller) {
+        controller.enqueue(streamEvent({ type: "meta", requestId, model: "companion-engine" }));
+        controller.enqueue(streamEvent({ type: "delta", text: answer }));
+        controller.enqueue(streamEvent({
+          type: "done",
+          ok: true,
+          answer,
+          sources: context.sources,
+          safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
+          llm_connected: false,
+          model: "companion-engine",
+          partial: false
+        }));
+        controller.close();
+      }
+    });
+    return new Response(stream, {
+      status: 200,
+      headers: {
+        "content-type": "application/x-ndjson; charset=utf-8",
+        "cache-control": "no-store"
+      }
+    });
+  }
   if (isGlobalCultureQuery(message)) {
     const answer = generateAnswer(context);
     rememberDialog(context, answer);
@@ -356,6 +376,34 @@ async function streamOllamaResponse(
       }
     });
   }
+  if (isContinuationQuery(message) && context.history.lastIntent) {
+    const answer = generateAnswer(context);
+    rememberDialog(context, answer);
+    const stream = new ReadableStream<Uint8Array>({
+      start(controller) {
+        controller.enqueue(streamEvent({ type: "meta", requestId, model: "companion-engine" }));
+        controller.enqueue(streamEvent({ type: "delta", text: answer }));
+        controller.enqueue(streamEvent({
+          type: "done",
+          ok: true,
+          answer,
+          sources: context.sources,
+          safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
+          llm_connected: false,
+          model: "companion-engine",
+          partial: false
+        }));
+        controller.close();
+      }
+    });
+    return new Response(stream, {
+      status: 200,
+      headers: {
+        "content-type": "application/x-ndjson; charset=utf-8",
+        "cache-control": "no-store"
+      }
+    });
+  }
   const messages = buildMessages({ query: message, context });
   const health = await verifyProviderConnection(modelOverride ? [modelOverride] : undefined);
   const model = health.model;
@@ -470,14 +518,53 @@ export async function POST(req: Request) {
     return errorResponse(requestId, 429, "RATE_LIMITED", "Rate limit exceeded.");
   }
 
+  const language = sanitizeLanguage(req.headers.get("accept-language"));
+  const wantsStream = req.headers.get("x-ai-stream") === "1";
+  if (detectType(message).type === "greeting") {
+    if (wantsReset) resetDialogState();
+    const greetingLanguage = /[А-Яа-яЁё]/.test(message) ? "ru" : language;
+    const answer = buildGreetingAnswer(greetingLanguage, message);
+    if (wantsStream) {
+      const stream = new ReadableStream<Uint8Array>({
+        start(controller) {
+          controller.enqueue(streamEvent({ type: "meta", requestId, model: "companion-engine" }));
+          controller.enqueue(streamEvent({ type: "delta", text: answer }));
+          controller.enqueue(streamEvent({
+            type: "done",
+            ok: true,
+            answer,
+            sources: [],
+            safety_note: greetingLanguage === "ru" ? "Не юридическая консультация." : "Not legal advice.",
+            llm_connected: false,
+            model: "companion-engine",
+            partial: false
+          }));
+          controller.close();
+        }
+      });
+      return new Response(stream, {
+        status: 200,
+        headers: {
+          "content-type": "application/x-ndjson; charset=utf-8",
+          "cache-control": "no-store"
+        }
+      });
+    }
+    return okResponse(requestId, {
+      answer,
+      sources: [],
+      safety_note: greetingLanguage === "ru" ? "Не юридическая консультация." : "Not legal advice.",
+      model: "companion-engine",
+      llm_connected: false
+    });
+  }
+
   const geoHint = sanitizeGeoHint(body.geo_hint);
   const coords = {
     lat: sanitizeCoordinate(body.lat),
     lng: sanitizeCoordinate(body.lng)
   };
   const modelOverride = sanitizeModelOverride(body.model);
-  const language = sanitizeLanguage(req.headers.get("accept-language"));
-  const wantsStream = req.headers.get("x-ai-stream") === "1";
   if (wantsStream && resolveAIProvider() === "ollama") {
     try {
       return await streamOllamaResponse(requestId, message, geoHint, coords, language, modelOverride);
