@@ -15,7 +15,7 @@ const NEW_MAP_CARD_INDEX_URL = `/api/new-map/card-index?v=${NEW_MAP_BUILD_VERSIO
 const YANDEX_METRIKA_ID = 108419114;
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://islegal.info"),
+  metadataBase: new URL("https://www.islegal.info"),
   title: {
     default: "Is cannabis legal?",
     template: "%s | islegal.info"

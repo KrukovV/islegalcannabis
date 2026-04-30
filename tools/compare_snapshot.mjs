@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 const snapshotPath = path.resolve(process.cwd(), "apps/web/src/data/legalSnapshot.json");
-const targetUrl = process.env.NEW_MAP_COMPARE_URL || "https://islegal.info/api/new-map/countries";
+const targetUrl = process.env.NEW_MAP_COMPARE_URL || "https://www.islegal.info/api/new-map/countries";
 
 const localSnapshot = JSON.parse(fs.readFileSync(snapshotPath, "utf8"));
 const response = await fetch(targetUrl, { cache: "no-store" });

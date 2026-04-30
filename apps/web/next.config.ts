@@ -12,10 +12,10 @@ const nextConfig: NextConfig = {
         has: [
           {
             type: "host",
-            value: "www.islegal.info"
+            value: "islegal.info"
           }
         ],
-        destination: "https://islegal.info/:path*",
+        destination: "https://www.islegal.info/:path*",
         permanent: true
       }
     ];

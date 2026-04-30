@@ -34,6 +34,15 @@ function humanizeStatus(value: string | null | undefined) {
 }
 
 function compactContext(context: AIContext) {
+  if (context.disableGeo && context.routerIntent === "CHAT") {
+    return null;
+  }
+  if (context.disableGeo && context.routerIntent === "UNKNOWN") {
+    return null;
+  }
+  if (context.disableGeo && context.routerIntent === "SLANG") {
+    return "Global topic: cannabis slang, culture, and history. Do not force a country or legal block unless the user explicitly asks for law.";
+  }
   if (isGlobalCultureQuery(context.query)) {
     return "Global topic: cannabis culture and history.";
   }
@@ -135,20 +144,35 @@ export function buildMessages(input: {
   query: string;
   context: AIContext;
 }): LlmMessage[] {
-  const messages = buildDialogMessages({
+  const baseMessages = buildDialogMessages({
     query: input.query,
     systemPrompt: AI_SYSTEM_PROMPT,
     context: input.context,
-    factLines: compactContext(input.context)
+    factLines: compactContext(input.context) || undefined
   }).filter((item) => item.content.trim());
+  const injectedHints: LlmMessage[] = [];
+  if (input.context.forceLanguage) {
+    injectedHints.push({
+      role: "system",
+      content: `Reply ONLY in ${input.context.language === "ru" ? "Russian" : "English"}. Use one language for the whole answer.`
+    });
+  }
+  if (input.context.routerHint) {
+    injectedHints.push({
+      role: "system",
+      content: input.context.routerHint
+    });
+  }
+  const messages = [...injectedHints, ...baseMessages];
   const size = messages.reduce((sum, item) => sum + item.content.length, 0);
   if (size <= 1200 || !input.context.memory.length) return messages;
-  return buildDialogMessages({
+  const compacted = buildDialogMessages({
     query: input.query,
     systemPrompt: AI_SYSTEM_PROMPT,
     context: { ...input.context, memory: [] },
-    factLines: compactContext({ ...input.context, memory: [] })
+    factLines: compactContext({ ...input.context, memory: [] }) || undefined
   }).filter((item) => item.content.trim());
+  return [...injectedHints, ...compacted];
 }
 
 export function buildPrompt(input: {

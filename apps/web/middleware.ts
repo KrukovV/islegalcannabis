@@ -9,9 +9,9 @@ function isLocalHost(hostname: string) {
 export function middleware(req: NextRequest) {
   const { pathname, hostname } = req.nextUrl;
 
-  if (hostname === "www.islegal.info") {
+  if (hostname === "islegal.info") {
     const nextUrl = req.nextUrl.clone();
-    nextUrl.hostname = "islegal.info";
+    nextUrl.hostname = "www.islegal.info";
     nextUrl.protocol = "https";
     nextUrl.port = "";
     return NextResponse.redirect(nextUrl, 301);

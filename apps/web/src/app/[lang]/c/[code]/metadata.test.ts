@@ -6,7 +6,7 @@ describe("/[lang]/c/[code] metadata", () => {
     const metadata = await generateMetadata({
       params: Promise.resolve({ lang: "es", code: "nld" })
     });
-    expect(metadata.title).toBe("¿Es legal el cannabis en Netherlands / Nederland?");
+    expect(metadata.title).toBe("¿Es legal el cannabis en Nederland?");
     expect(metadata.alternates?.canonical).toBe("/es/c/nld");
     expect(metadata.alternates?.languages).toEqual({
       en: "/c/nld",
@@ -15,7 +15,7 @@ describe("/[lang]/c/[code] metadata", () => {
       fr: "/fr/c/nld"
     });
     expect(metadata.openGraph && "url" in metadata.openGraph ? metadata.openGraph.url : null).toBe(
-      "https://islegal.info/es/c/nld"
+      "https://www.islegal.info/es/c/nld"
     );
   });
 
@@ -29,7 +29,7 @@ describe("/[lang]/c/[code] metadata", () => {
       en: "/c/tha"
     });
     expect(metadata.openGraph && "url" in metadata.openGraph ? metadata.openGraph.url : null).toBe(
-      "https://islegal.info/c/tha"
+      "https://www.islegal.info/c/tha"
     );
   });
 });

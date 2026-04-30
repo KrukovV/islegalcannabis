@@ -125,6 +125,7 @@ function shouldPreferFinalAnswer(streamedText: string, finalText: string) {
   const final = String(finalText || "").trim();
   if (!final) return false;
   if (!streamed) return true;
+  if (final.length >= 80 && streamed !== final) return true;
   if (streamed.length < 40 && final.length >= 40) return true;
   return final.length > streamed.length + 20;
 }
@@ -689,9 +690,11 @@ async function requestNonStreamAnswer(input: {
                   </div>
                   {message.role === "assistant" ? (
                     <>
-                      <div className={styles.aiAnswerMeta}>
-                        {(message.safetyNote || "Not legal advice.") + (activeGeo ? ` · GEO_HINT=${activeGeo.iso2}` : "")}
-                      </div>
+                      {message.safetyNote ? (
+                        <div className={styles.aiAnswerMeta}>
+                          {message.safetyNote}
+                        </div>
+                      ) : null}
                       {Array.isArray(message.sources) && message.sources.length > 0 ? (
                         <div className={styles.aiSources}>
                           {message.sources.slice(0, 6).map((source) => (

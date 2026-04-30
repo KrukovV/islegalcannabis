@@ -1,7 +1,7 @@
 # ========================================
 # CANONICAL HOST
 # ========================================
-Host: islegal.info
+Host: www.islegal.info
 
 # ========================================
 # CORE SEARCH ENGINES
@@ -74,4 +74,4 @@ Disallow: /*?*
 # ========================================
 # SITEMAP
 # ========================================
-Sitemap: https://islegal.info/sitemap.xml
+Sitemap: https://www.islegal.info/sitemap.xml

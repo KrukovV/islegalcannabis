@@ -20,7 +20,7 @@ export type AIIntent =
 export type AIResponse = {
   answer: string;
   sources: string[];
-  safety_note: string;
+  safety_note: string | null;
   model?: string;
   llm_connected?: boolean;
 };
@@ -57,6 +57,10 @@ export type AIContext = {
   query: string;
   normalizedQuery?: string;
   language: string;
+  forceLanguage?: boolean;
+  routerIntent?: "SLANG" | "LEGAL" | "GEO" | "CHAT" | "UNKNOWN";
+  routerHint?: string | null;
+  disableGeo?: boolean;
   tone?: "street" | "casual" | "neutral";
   slangType?: "greeting" | "intent" | "unknown";
   location: {

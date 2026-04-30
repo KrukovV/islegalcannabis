@@ -10,7 +10,7 @@ describe("/c/[code] metadata", () => {
     expect(metadata.alternates?.canonical).toBe("/c/us-ca");
     expect(metadata.alternates?.languages?.en).toBe("/c/us-ca");
     expect(metadata.openGraph && "url" in metadata.openGraph ? metadata.openGraph.url : null).toBe(
-      "https://islegal.info/c/us-ca"
+      "https://www.islegal.info/c/us-ca"
     );
   });
 });

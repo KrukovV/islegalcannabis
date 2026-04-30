@@ -3,7 +3,7 @@ import { getBuildStamp } from "@/lib/buildStamp";
 import { listCountryPageData } from "@/lib/countryPageStorage";
 import { listSeoTranslationEntries, getSeoLocaleHref } from "@/lib/seo/wikiLocaleContent";
 
-const BASE_URL = "https://islegal.info";
+const BASE_URL = "https://www.islegal.info";
 
 function toLastModified(value: string | null | undefined) {
   const fallback = new Date(getBuildStamp().buildTime);

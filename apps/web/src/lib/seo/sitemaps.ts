@@ -2,7 +2,7 @@ import { getBuildStamp } from "@/lib/buildStamp";
 import { getCountryPageData, listCountryPageData } from "@/lib/countryPageStorage";
 import { buildSeoLanguageAlternates, getSeoLocaleHref, listSeoTranslationEntries } from "@/lib/seo/wikiLocaleContent";
 
-export const SEO_BASE_URL = "https://islegal.info";
+export const SEO_BASE_URL = "https://www.islegal.info";
 
 export type SitemapEntry = {
   url: string;

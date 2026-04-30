@@ -36,7 +36,7 @@ function parseSeoCodeFromPath(pathname: string): string | null {
 function parseSeoCodeFromHref(href: string): string | null {
   if (!href) return null;
   try {
-    const url = new URL(href, typeof window !== "undefined" ? window.location.origin : "https://islegal.info");
+    const url = new URL(href, typeof window !== "undefined" ? window.location.origin : "https://www.islegal.info");
     return parseSeoCodeFromPath(url.pathname);
   } catch {
     return parseSeoCodeFromPath(href);

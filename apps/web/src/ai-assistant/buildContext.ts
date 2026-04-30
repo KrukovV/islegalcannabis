@@ -24,7 +24,7 @@ export function buildDialogMessages(input: {
   context: AIContext;
   factLines?: string;
 }): LlmMessage[] {
-  const globalCulture = isGlobalCultureQuery(input.query);
+  const globalCulture = Boolean(input.context.disableGeo && input.context.routerIntent === "SLANG") || isGlobalCultureQuery(input.query);
   const carryTurns = !globalCulture && isContinuationQuery(input.query);
   const location = globalCulture
     ? "global culture"

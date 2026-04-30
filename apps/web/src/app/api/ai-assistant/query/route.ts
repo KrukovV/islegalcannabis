@@ -1,7 +1,6 @@
 import { createRequestId, errorResponse, okResponse } from "@/lib/api/response";
-import { answerWithAssistant, buildContext, buildDeterministicRetryInstruction, buildGreetingAnswer, generateAnswer, needsOutputRetry, normalizeAnswer } from "@/ai-assistant/aiRuntime";
-import { isBasicLawQuery, isContinuationQuery, isCultureFollowupQuery, isGlobalCultureQuery, isNearSearch, isProductRiskQuery, isSmallAmountRiskQuery, isTraceRiskQuery, isTravelRiskQuery, rememberDialog, resetDialogState } from "@/ai-assistant/dialog";
-import { detectType } from "@/ai-assistant/slang";
+import { answerWithAssistant, buildContext, buildDeterministicRetryInstruction, generateAnswer, needsOutputRetry, normalizeAnswer } from "@/ai-assistant/aiRuntime";
+import { classifyIntent, getDialogState, isCultureFollowupQuery, isNearSearch, rememberDialog, resetDialogState } from "@/ai-assistant/dialog";
 import { buildMessages } from "@/ai-assistant/prompt";
 import { AIConnectionError, generateWithProvider, resolveAIProvider, verifyProviderConnection, warmProviderModel } from "@/ai-assistant/provider";
 import { loadWorkingModelsStore } from "@/ai-assistant/modelHealth";
@@ -74,6 +73,36 @@ function streamEvent(data: Record<string, unknown>) {
   return new TextEncoder().encode(`${JSON.stringify(data)}\n`);
 }
 
+function streamFinalResponse(
+  requestId: string,
+  result: Awaited<ReturnType<typeof answerWithAssistant>>
+) {
+  const stream = new ReadableStream<Uint8Array>({
+    start(controller) {
+      controller.enqueue(streamEvent({ type: "meta", requestId, model: result.model || "companion-engine" }));
+      controller.enqueue(streamEvent({ type: "delta", text: result.answer }));
+      controller.enqueue(streamEvent({
+        type: "done",
+        ok: true,
+        answer: result.answer,
+        sources: result.sources,
+        safety_note: result.safety_note,
+        llm_connected: result.llm_connected ?? false,
+        model: result.model || "companion-engine",
+        partial: false
+      }));
+      controller.close();
+    }
+  });
+  return new Response(stream, {
+    status: 200,
+    headers: {
+      "content-type": "application/x-ndjson; charset=utf-8",
+      "cache-control": "no-store"
+    }
+  });
+}
+
 async function streamOllamaResponse(
   requestId: string,
   message: string,
@@ -82,6 +111,13 @@ async function streamOllamaResponse(
   language: string,
   modelOverride?: string
 ) {
+  const routed = classifyIntent(message);
+  const history = getDialogState();
+  const cultureFollowUp = history.lastIntent === "culture" && isCultureFollowupQuery(message);
+  if (routed.intent === "SLANG" || routed.intent === "CHAT" || routed.intent === "UNKNOWN" || cultureFollowUp) {
+    const result = await answerWithAssistant(message, geoHint, coords, [], language, modelOverride ? [modelOverride] : undefined);
+    return streamFinalResponse(requestId, result);
+  }
   const contextChunks = retrieveTopChunks(message, geoHint, 5);
   const baseContext = buildContext(message, geoHint, coords, contextChunks, language);
   const memoryMatches = retrieveMemory(
@@ -95,258 +131,6 @@ async function streamOllamaResponse(
     score: item.score
   }));
   const context = buildContext(message, geoHint, coords, contextChunks, language, memoryMatches);
-  if (context.slangType === "greeting" && context.intent === "general") {
-    const answer = generateAnswer(context);
-    rememberDialog(context, answer);
-    const stream = new ReadableStream<Uint8Array>({
-      start(controller) {
-        controller.enqueue(streamEvent({ type: "meta", requestId, model: "companion-engine" }));
-        controller.enqueue(streamEvent({ type: "delta", text: answer }));
-        controller.enqueue(streamEvent({
-          type: "done",
-          ok: true,
-          answer,
-          sources: context.sources,
-          safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
-          llm_connected: false,
-          model: "companion-engine",
-          partial: false
-        }));
-        controller.close();
-      }
-    });
-    return new Response(stream, {
-      status: 200,
-      headers: {
-        "content-type": "application/x-ndjson; charset=utf-8",
-        "cache-control": "no-store"
-      }
-    });
-  }
-  if (isGlobalCultureQuery(message)) {
-    const answer = generateAnswer(context);
-    rememberDialog(context, answer);
-    const stream = new ReadableStream<Uint8Array>({
-      start(controller) {
-        controller.enqueue(streamEvent({ type: "meta", requestId, model: "culture-engine" }));
-        controller.enqueue(streamEvent({ type: "delta", text: answer }));
-        controller.enqueue(streamEvent({
-          type: "done",
-          ok: true,
-          answer,
-          sources: context.sources,
-          safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
-          llm_connected: false,
-          model: "culture-engine",
-          partial: false
-        }));
-        controller.close();
-      }
-    });
-    return new Response(stream, {
-      status: 200,
-      headers: {
-        "content-type": "application/x-ndjson; charset=utf-8",
-        "cache-control": "no-store"
-      }
-    });
-  }
-  if (context.compare?.name && /compare|safer|why/i.test(message)) {
-    const answer = generateAnswer(context);
-    rememberDialog(context, answer);
-    const stream = new ReadableStream<Uint8Array>({
-      start(controller) {
-        controller.enqueue(streamEvent({ type: "meta", requestId, model: "compare-engine" }));
-        controller.enqueue(streamEvent({ type: "delta", text: answer }));
-        controller.enqueue(streamEvent({
-          type: "done",
-          ok: true,
-          answer,
-          sources: context.sources,
-          safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
-          llm_connected: false,
-          model: "compare-engine",
-          partial: false
-        }));
-        controller.close();
-      }
-    });
-    return new Response(stream, {
-      status: 200,
-      headers: {
-        "content-type": "application/x-ndjson; charset=utf-8",
-        "cache-control": "no-store"
-      }
-    });
-  }
-  if (isBasicLawQuery(message)) {
-    const answer = generateAnswer(context);
-    rememberDialog(context, answer);
-    const stream = new ReadableStream<Uint8Array>({
-      start(controller) {
-        controller.enqueue(streamEvent({ type: "meta", requestId, model: "truth-engine" }));
-        controller.enqueue(streamEvent({ type: "delta", text: answer }));
-        controller.enqueue(streamEvent({
-          type: "done",
-          ok: true,
-          answer,
-          sources: context.sources,
-          safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
-          llm_connected: false,
-          model: "truth-engine",
-          partial: false
-        }));
-        controller.close();
-      }
-    });
-    return new Response(stream, {
-      status: 200,
-      headers: {
-        "content-type": "application/x-ndjson; charset=utf-8",
-        "cache-control": "no-store"
-      }
-    });
-  }
-  if (isTravelRiskQuery(message)) {
-    const answer = generateAnswer(context);
-    rememberDialog(context, answer);
-    const stream = new ReadableStream<Uint8Array>({
-      start(controller) {
-        controller.enqueue(streamEvent({ type: "meta", requestId, model: "travel-risk-engine" }));
-        controller.enqueue(streamEvent({ type: "delta", text: answer }));
-        controller.enqueue(streamEvent({
-          type: "done",
-          ok: true,
-          answer,
-          sources: context.sources,
-          safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
-          llm_connected: false,
-          model: "travel-risk-engine",
-          partial: false
-        }));
-        controller.close();
-      }
-    });
-    return new Response(stream, {
-      status: 200,
-      headers: {
-        "content-type": "application/x-ndjson; charset=utf-8",
-        "cache-control": "no-store"
-      }
-    });
-  }
-  if (isTraceRiskQuery(message)) {
-    const answer = generateAnswer(context);
-    rememberDialog(context, answer);
-    const stream = new ReadableStream<Uint8Array>({
-      start(controller) {
-        controller.enqueue(streamEvent({ type: "meta", requestId, model: "trace-risk-engine" }));
-        controller.enqueue(streamEvent({ type: "delta", text: answer }));
-        controller.enqueue(streamEvent({
-          type: "done",
-          ok: true,
-          answer,
-          sources: context.sources,
-          safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
-          llm_connected: false,
-          model: "trace-risk-engine",
-          partial: false
-        }));
-        controller.close();
-      }
-    });
-    return new Response(stream, {
-      status: 200,
-      headers: {
-        "content-type": "application/x-ndjson; charset=utf-8",
-        "cache-control": "no-store"
-      }
-    });
-  }
-  if (!context.compare?.name && isProductRiskQuery(message)) {
-    const answer = generateAnswer(context);
-    rememberDialog(context, answer);
-    const stream = new ReadableStream<Uint8Array>({
-      start(controller) {
-        controller.enqueue(streamEvent({ type: "meta", requestId, model: "product-risk-engine" }));
-        controller.enqueue(streamEvent({ type: "delta", text: answer }));
-        controller.enqueue(streamEvent({
-          type: "done",
-          ok: true,
-          answer,
-          sources: context.sources,
-          safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
-          llm_connected: false,
-          model: "product-risk-engine",
-          partial: false
-        }));
-        controller.close();
-      }
-    });
-    return new Response(stream, {
-      status: 200,
-      headers: {
-        "content-type": "application/x-ndjson; charset=utf-8",
-        "cache-control": "no-store"
-      }
-    });
-  }
-  if (context.intent === "culture" || context.history.lastIntent === "culture" || isCultureFollowupQuery(message)) {
-    const answer = generateAnswer(context);
-    rememberDialog(context, answer);
-    const stream = new ReadableStream<Uint8Array>({
-      start(controller) {
-        controller.enqueue(streamEvent({ type: "meta", requestId, model: "culture-engine" }));
-        controller.enqueue(streamEvent({ type: "delta", text: answer }));
-        controller.enqueue(streamEvent({
-          type: "done",
-          ok: true,
-          answer,
-          sources: context.sources,
-          safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
-          llm_connected: false,
-          model: "culture-engine",
-          partial: false
-        }));
-        controller.close();
-      }
-    });
-    return new Response(stream, {
-      status: 200,
-      headers: {
-        "content-type": "application/x-ndjson; charset=utf-8",
-        "cache-control": "no-store"
-      }
-    });
-  }
-  if (isSmallAmountRiskQuery(message)) {
-    const answer = generateAnswer(context);
-    rememberDialog(context, answer);
-    const stream = new ReadableStream<Uint8Array>({
-      start(controller) {
-        controller.enqueue(streamEvent({ type: "meta", requestId, model: "risk-engine" }));
-        controller.enqueue(streamEvent({ type: "delta", text: answer }));
-        controller.enqueue(streamEvent({
-          type: "done",
-          ok: true,
-          answer,
-          sources: context.sources,
-          safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
-          llm_connected: false,
-          model: "risk-engine",
-          partial: false
-        }));
-        controller.close();
-      }
-    });
-    return new Response(stream, {
-      status: 200,
-      headers: {
-        "content-type": "application/x-ndjson; charset=utf-8",
-        "cache-control": "no-store"
-      }
-    });
-  }
   if (shouldUseNearbyTruth(message, context)) {
     const nearbyContext = { ...context, intent: "nearby" as const };
     const answer = generateAnswer(nearbyContext);
@@ -363,34 +147,6 @@ async function streamOllamaResponse(
           safety_note: nearbyContext.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
           llm_connected: false,
           model: "truth-engine",
-          partial: false
-        }));
-        controller.close();
-      }
-    });
-    return new Response(stream, {
-      status: 200,
-      headers: {
-        "content-type": "application/x-ndjson; charset=utf-8",
-        "cache-control": "no-store"
-      }
-    });
-  }
-  if (isContinuationQuery(message) && context.history.lastIntent) {
-    const answer = generateAnswer(context);
-    rememberDialog(context, answer);
-    const stream = new ReadableStream<Uint8Array>({
-      start(controller) {
-        controller.enqueue(streamEvent({ type: "meta", requestId, model: "companion-engine" }));
-        controller.enqueue(streamEvent({ type: "delta", text: answer }));
-        controller.enqueue(streamEvent({
-          type: "done",
-          ok: true,
-          answer,
-          sources: context.sources,
-          safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
-          llm_connected: false,
-          model: "companion-engine",
           partial: false
         }));
         controller.close();
@@ -520,44 +276,6 @@ export async function POST(req: Request) {
 
   const language = sanitizeLanguage(req.headers.get("accept-language"));
   const wantsStream = req.headers.get("x-ai-stream") === "1";
-  if (detectType(message).type === "greeting") {
-    if (wantsReset) resetDialogState();
-    const greetingLanguage = /[А-Яа-яЁё]/.test(message) ? "ru" : language;
-    const answer = buildGreetingAnswer(greetingLanguage, message);
-    if (wantsStream) {
-      const stream = new ReadableStream<Uint8Array>({
-        start(controller) {
-          controller.enqueue(streamEvent({ type: "meta", requestId, model: "companion-engine" }));
-          controller.enqueue(streamEvent({ type: "delta", text: answer }));
-          controller.enqueue(streamEvent({
-            type: "done",
-            ok: true,
-            answer,
-            sources: [],
-            safety_note: greetingLanguage === "ru" ? "Не юридическая консультация." : "Not legal advice.",
-            llm_connected: false,
-            model: "companion-engine",
-            partial: false
-          }));
-          controller.close();
-        }
-      });
-      return new Response(stream, {
-        status: 200,
-        headers: {
-          "content-type": "application/x-ndjson; charset=utf-8",
-          "cache-control": "no-store"
-        }
-      });
-    }
-    return okResponse(requestId, {
-      answer,
-      sources: [],
-      safety_note: greetingLanguage === "ru" ? "Не юридическая консультация." : "Not legal advice.",
-      model: "companion-engine",
-      llm_connected: false
-    });
-  }
 
   const geoHint = sanitizeGeoHint(body.geo_hint);
   const coords = {

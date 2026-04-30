@@ -1,11 +1,10 @@
-import os from "node:os";
 import socialRealityData from "../../../../data/generated/socialReality.global.json";
 import { getCountryPageIndexByGeoCode, getCountryPageIndexByIso2 } from "@/lib/countryPageStorage";
 import { findNearbyTruth } from "@/lib/geo/nearbyTruth";
 import { deriveResultStatusFromCountryPageData } from "@/lib/resultStatus";
 import { buildMessages, type LlmMessage } from "./prompt";
 import type { AIContext, AIResponse, RagChunk } from "./types";
-import { detectIntent, getDialogState, isBasicLawQuery, isContinuationQuery, isCultureFollowupQuery, isGlobalCultureQuery, isMarketAccessQuery, isNearSearch, isProductRiskQuery, isSmallAmountRiskQuery, isTraceRiskQuery, isTravelRiskQuery, rememberDialog } from "./dialog";
+import { classifyIntent, detectIntent, getDialogState, isBasicLawQuery, isContinuationQuery, isCultureFollowupQuery, isGlobalCultureQuery, isMarketAccessQuery, isNearSearch, isProductRiskQuery, isSmallAmountRiskQuery, isTraceRiskQuery, isTravelRiskQuery, rememberDialog } from "./dialog";
 import { getTravelRiskBlock } from "./rag";
 import { retrieveMemory, saveMemory, scoreMemory } from "./memory";
 import { applyDialogStyle, fallbackHumanized } from "./dialogStyle";
@@ -20,9 +19,7 @@ import {
   warmProviderModel
 } from "./provider";
 
-const MAX_CPU_LOAD_RATIO = 0.9;
 const OLLAMA_COOLDOWN_MS = 60000;
-let donationShown = false;
 let ollamaInferenceRunning = false;
 let ollamaCooldownUntil = 0;
 let jurisdictionAliasCache: Array<{ alias: string; geo: string }> | null = null;
@@ -126,6 +123,47 @@ function isComparisonQuery(query: string) {
   return COMPARE_QUERY_RE.test(String(query || ""));
 }
 
+function isImplicitFollowUpQuery(query: string) {
+  return /^(and\b.*|where safer\??|which (?:one )?is safer\??|why\??|why not\??|risks?\??|risk\??)$/i.test(
+    String(query || "").trim()
+  );
+}
+
+function enrichContext(
+  query: string,
+  routed: ReturnType<typeof classifyIntent>,
+  hasFollowUp: boolean
+) {
+  const context = {
+    mode: "default",
+    hint: null as string | null,
+    disableGeo: false
+  };
+
+  if (routed.intent === "SLANG") {
+    context.mode = "culture";
+    context.hint = "User asks about cannabis slang or culture. Answer briefly, naturally, and do not add legal blocks unless the user explicitly asks about law.";
+    context.disableGeo = true;
+  } else if (routed.intent === "CHAT") {
+    context.mode = "chat";
+    context.hint = "Casual conversation. Keep it short, natural, and human.";
+    context.disableGeo = true;
+  } else if (routed.intent === "UNKNOWN") {
+    context.mode = "clarify";
+    context.hint = "User input is vague. Ask one short clarifying question.";
+    context.disableGeo = true;
+  } else if (routed.intent === "LEGAL") {
+    context.mode = "legal";
+    context.hint = "User asks about cannabis law. Use the provided legal facts, stay in the current place, and answer clearly without drifting to other countries.";
+  }
+
+  if (hasFollowUp) {
+    context.hint = context.hint ? `${context.hint} This is a follow-up. Stay in context.` : "This is a follow-up. Stay in context.";
+  }
+
+  return context;
+}
+
 function resolveLocationSelection(
   query: string,
   history: ReturnType<typeof getDialogState>,
@@ -137,8 +175,9 @@ function resolveLocationSelection(
   const comparison = isComparisonQuery(query);
   const hintChanged =
     Boolean(hintedPage && lockedPage && hintedPage.geo_code !== lockedPage.geo_code);
+  const implicitFollowUp = Boolean(lockedPage && !mentioned.length && isImplicitFollowUpQuery(query));
   const preferHint =
-    Boolean(hintedPage && (!lockedPage || hintChanged)) && !isContinuationQuery(query);
+    Boolean(hintedPage && (!lockedPage || hintChanged)) && !isContinuationQuery(query) && !implicitFollowUp;
 
   if (mentioned.length) {
     if (comparison && (lockedPage || hintedPage)) {
@@ -242,13 +281,44 @@ export function buildContext(
   const resolvedLanguage = detectLanguage(query, language);
   const history = getDialogState();
   const detectedSlang = detectType(query);
+  const routedIntent = classifyIntent(query);
+  const hasFollowUp =
+    Boolean(history.lastIntent) &&
+    (isContinuationQuery(query) || isCultureFollowupQuery(query) || isImplicitFollowUpQuery(query));
+  const carriedRouterIntent =
+    hasFollowUp && history.lastIntent
+      ? history.lastIntent === "culture"
+        ? "SLANG"
+        : history.lastIntent === "nearby"
+          ? "GEO"
+          : history.lastIntent === "legal" ||
+              history.lastIntent === "airport" ||
+              history.lastIntent === "tourists" ||
+              history.lastIntent === "medical" ||
+              history.lastIntent === "buy" ||
+              history.lastIntent === "possession"
+            ? "LEGAL"
+            : routedIntent.intent
+      : routedIntent.intent;
+  const routedForContext =
+    hasFollowUp
+      ? { ...routedIntent, intent: carriedRouterIntent }
+      : routedIntent;
+  const enriched = enrichContext(query, routedForContext, hasFollowUp);
   const slang = history.lastIntent && isContinuationQuery(query) && detectedSlang.type !== "intent"
     ? { ...detectedSlang, type: "unknown" as const }
     : detectedSlang;
   const pipelineQuery = slang.normalized || query;
   const detectedIntent = detectIntent(pipelineQuery);
+  const allowGeoContext = !enriched.disableGeo && (routedForContext.intent === "LEGAL" || routedForContext.intent === "GEO");
   const locationSelection =
-    detectedIntent === "nearby"
+    !allowGeoContext
+      ? {
+          primary: null,
+          compare: null,
+          source: null
+        }
+      : detectedIntent === "nearby"
       ? {
           primary: getCountryPageForHint(history.lastLocation || geoHint),
           compare: null,
@@ -260,9 +330,16 @@ export function buildContext(
   const effectiveGeoHint = countryPage?.iso2 || countryPage?.geo_code || geoHint;
   const social = getSocialReality(effectiveGeoHint || null);
   const nearbyFollowUp = history.lastIntent === "nearby" && isNearSearch(pipelineQuery);
-  const intent = nearbyFollowUp ? "nearby" : detectedIntent;
+  const intent =
+    nearbyFollowUp
+      ? "nearby"
+      : detectedIntent === "general" && routedForContext.intent === "LEGAL"
+        ? "legal"
+        : detectedIntent === "general" && routedForContext.intent === "SLANG"
+          ? "culture"
+          : detectedIntent;
   const casual = isCasualQuery(query);
-  const includeLegal = !casual && intent !== "culture";
+  const includeLegal = allowGeoContext && !casual && intent !== "culture";
   const includeCulture = intent === "culture" || /420|reggae|marley|music|culture|artist|song|movie/i.test(query);
   const culture = contextChunks
     .filter((chunk) => chunk.kind === "culture" && includeCulture)
@@ -296,6 +373,10 @@ export function buildContext(
     query,
     normalizedQuery: pipelineQuery,
     language: resolvedLanguage,
+    forceLanguage: true,
+    routerIntent: routedForContext.intent,
+    routerHint: enriched.hint,
+    disableGeo: enriched.disableGeo,
     tone: slang.tone,
     slangType: slang.type,
     location: {
@@ -541,7 +622,11 @@ function needsCultureRetry(context: AIContext, answer: string) {
   if (context.intent !== "culture") return false;
   const lower = String(answer || "").toLowerCase();
   if (isGlobalCultureQuery(context.query)) {
-    if (/420/.test(context.query) && !/420|april 20|april twentieth|waldos/.test(lower)) return true;
+    if (/420|4\s*20|20\s*апрел/i.test(context.query) && !/waldos|калифор|california|20 апреля|april 20|april twentieth/.test(lower)) return true;
+    if (/джоинт|\bjoint\b/i.test(context.query)) {
+      if (!/самокрут|косяк|rolled|roll|cannabis|марихуан|каннабис|weed|smoke/.test(lower)) return true;
+      if (/сотрудник|руководител|отдел|department|manager|workflow|document|contract|hr\b/.test(lower)) return true;
+    }
     if (/reggae|marley|rastafari/i.test(context.query) && !/reggae|bob marley|peter tosh|bunny wailer|rastafari/.test(lower)) return true;
     if (/airport|import|make love not war/i.test(context.query) && !/airport|import|border|customs|make love not war|anti-war|counterculture/.test(lower)) {
       return true;
@@ -562,6 +647,40 @@ function needsCompareRetry(context: AIContext, answer: string) {
 function needsTouristRetry(context: AIContext, answer: string) {
   if (context.intent !== "tourists" && !/tourist|tourists/i.test(context.query)) return false;
   return !/tourist|travel|visitor|airport|border/i.test(String(answer || "").toLowerCase());
+}
+
+function answerMentionsExpectedLocation(context: AIContext, answer: string) {
+  const lower = String(answer || "").toLowerCase();
+  const geo = String(context.location.geoHint || "").toUpperCase();
+  if (!geo) return false;
+  const aliasMatches = getJurisdictionAliases()
+    .filter((entry) => entry.geo === geo)
+    .map((entry) => entry.alias)
+    .filter(Boolean);
+  const explicitNames = String(context.location.name || "")
+    .split("/")
+    .map((item) => item.trim().toLowerCase())
+    .filter(Boolean);
+  for (const alias of [...aliasMatches, ...explicitNames]) {
+    if (alias && hasAlias(lower, alias)) return true;
+  }
+  return false;
+}
+
+function needsLegalRetry(context: AIContext, answer: string) {
+  const isLegalLikeIntent =
+    context.routerIntent === "LEGAL" ||
+    context.intent === "legal" ||
+    context.intent === "medical" ||
+    context.intent === "tourists" ||
+    context.intent === "airport" ||
+    context.intent === "buy" ||
+    context.intent === "possession";
+  if (!isLegalLikeIntent) return false;
+  return (
+    /\bcocaine\w*\b|\bheroin\w*\b|\bopioid\w*\b|кокаин\p{L}*|героин\p{L}*|опиоид\p{L}*/iu.test(String(answer || "")) ||
+    !answerMentionsExpectedLocation(context, answer)
+  );
 }
 
 function needsCompanionStyleRetry(answer: string) {
@@ -609,6 +728,7 @@ export function needsCompanionRetry(context: AIContext, answer: string) {
     needsCultureRetry(context, answer) ||
     needsCompareRetry(context, answer) ||
     needsTouristRetry(context, answer) ||
+    needsLegalRetry(context, answer) ||
     needsCompanionStyleRetry(answer) ||
     needsLocationRetry(context, answer)
   );
@@ -818,7 +938,7 @@ function generateGlobalCulture(context: AIContext) {
       "The safest reading is to enjoy the references as culture, while treating possession, buying, public use, and travel as separate legal-risk questions."
     ].join("\n\n");
   }
-  if (/420/.test(query)) {
+  if (/420|4\s*20|4:20/.test(query)) {
     if (/legal|law|here|change anything|change/.test(query)) {
       const place = context.location.name || context.location.geoHint || "this place";
       return [
@@ -828,7 +948,7 @@ function generateGlobalCulture(context: AIContext) {
       ].join("\n\n");
     }
     return [
-      "420 is cannabis slang, not a legal category.",
+      "420 is cannabis slang, not a legal category, and the common origin story points to California in 1971.",
       "The usual origin story points to a California high-school group called the Waldos, who used 4:20 as a meetup code.",
       "From there it spread into wider cannabis culture and turned April 20 into a symbolic day for gatherings, activism, and celebration."
     ].join("\n\n");
@@ -991,6 +1111,170 @@ function generateGeneral(context: AIContext) {
   ]).join("\n\n");
 }
 
+function cleanDirectAnswer(answer: string) {
+  const seen = new Set<string>();
+  return String(answer || "")
+    .split(/\n+/)
+    .map((line) => line.trim())
+    .filter((line) => {
+      if (!line) return false;
+      if (seen.has(line)) return false;
+      seen.add(line);
+      return true;
+    })
+    .slice(0, 6)
+    .join("\n");
+}
+
+function buildSlangCultureAnswer(query: string, language: string) {
+  const q = String(query || "").toLowerCase();
+  if (/420|4\s*20|4:20/.test(q)) {
+    return language === "ru"
+      ? cleanDirectAnswer([
+          "420 — это сленг из Калифорнии (1971).",
+          "Группа школьников Waldos встречалась в 4:20 после уроков и так зашифровала тему.",
+          "Позже это стало кодом для каннабиса и датой 20 апреля.",
+          "Это культурный термин, не legal-статус и не разрешение."
+        ].join("\n"))
+      : cleanDirectAnswer([
+          "420 is cannabis slang from California, usually traced to 1971.",
+          "A high-school group called the Waldos used 4:20 as an after-school meetup code.",
+          "It later became a cannabis-culture code, and April 20 became a symbolic date.",
+          "It is culture, not legal permission."
+        ].join("\n"));
+  }
+
+  if (/joint|джоинт|косяк/.test(q)) {
+    return language === "ru"
+      ? cleanDirectAnswer([
+          "Джоинт — это самокрутка с каннабисом, обычно в бумаге как сигарета.",
+          "«Косяк» — близкий разговорный русский вариант этого слова.",
+          "Это термин культуры и быта, а не юридический статус.",
+          "Если вопрос про закон — лучше отдельно назвать страну."
+        ].join("\n"))
+      : cleanDirectAnswer([
+          "A joint is cannabis rolled for smoking, usually in paper like a cigarette.",
+          "It is a culture/slang word, not a legal category.",
+          "The word itself says nothing about whether possession or use is allowed.",
+          "If you mean the law, name the country separately."
+        ].join("\n"));
+  }
+
+  if (/make love not war|хиппи|hippie/.test(q)) {
+    return language === "ru"
+      ? cleanDirectAnswer([
+          "Make Love, Not War — лозунг контркультуры 1960-х и протестов против войны во Вьетнаме.",
+          "Он про мир, близость и отказ от милитаризма.",
+          "С каннабисом связь культурная: хиппи-сцена делала марихуану заметной частью образа эпохи.",
+          "Но сам лозунг не про закон и не даёт разрешений."
+        ].join("\n"))
+      : cleanDirectAnswer([
+          "Make Love, Not War is a 1960s counterculture slogan tied to Vietnam War protest.",
+          "It means peace, intimacy, and rejection of militarized politics.",
+          "Its cannabis link is cultural: hippie scenes made marijuana highly visible in that era.",
+          "The slogan itself is not a legal rule."
+        ].join("\n"));
+  }
+
+  if (/movie|film|фильм|кино/.test(q)) {
+    return language === "ru"
+      ? cleanDirectAnswer([
+          "Если про каннабис/регги-уклон, смотри документалки и фильмы вокруг Bob Marley, Peter Tosh и Rastafari-сцены.",
+          "Из более широкой weed-culture линии подойдут комедии и контркультурные фильмы, но лучше не путать их с юридической реальностью.",
+          "Ключ: кино объясняет настроение и символы, а не правила страны."
+        ].join("\n"))
+      : cleanDirectAnswer([
+          "For a cannabis/reggae angle, start with documentaries and films around Bob Marley, Peter Tosh, and Rastafari culture.",
+          "For broader weed culture, counterculture comedies and social documentaries fit better than random crime films.",
+          "The key boundary: films explain mood and symbols, not local law."
+        ].join("\n"));
+  }
+
+  if (/music|музыка|исполнитель|artist|actor|актер|актёр|snoop|marley|peter tosh|bunny wailer/.test(q)) {
+    return language === "ru"
+      ? cleanDirectAnswer([
+          "В каннабис/регги-культуре базовые имена: Bob Marley, Peter Tosh, Bunny Wailer.",
+          "Snoop Dogg — уже шире, это cannabis celebrity culture через хип-хоп, не ядро регги.",
+          "Эти имена помогают понять стиль и символы, но не заменяют факты по закону."
+        ].join("\n"))
+      : cleanDirectAnswer([
+          "Core cannabis/reggae-culture names are Bob Marley, Peter Tosh, and Bunny Wailer.",
+          "Snoop Dogg belongs to broader cannabis celebrity culture through hip-hop, not the reggae core.",
+          "Those names explain style and symbols, but they do not replace legal facts."
+        ].join("\n"));
+  }
+
+  if (/reggae|регги|растафари|rastafari|марли|marley/.test(q)) {
+    return language === "ru"
+      ? cleanDirectAnswer([
+          "Регги и Rastafari связаны с каннабисом через культуру, символы и духовную практику.",
+          "Ключевые имена: Bob Marley, Peter Tosh, Bunny Wailer.",
+          "Это помогает понять язык и настроение сцены, но не меняет закон.",
+          "Юридический вопрос лучше задавать отдельно по стране."
+        ].join("\n"))
+      : cleanDirectAnswer([
+          "Reggae and Rastafari connect to cannabis through culture, symbols, and spiritual practice.",
+          "Core names are Bob Marley, Peter Tosh, and Bunny Wailer.",
+          "That explains the language and mood, but it does not change the law.",
+          "Ask separately by country if you mean legal status."
+        ].join("\n"));
+  }
+
+  return language === "ru"
+    ? "Уточни, ты про историю термина, культуру или закон?"
+    : "Clarify: do you mean the term history, culture, or the law?";
+}
+
+function buildChatAnswer(query: string, language: string) {
+  const q = String(query || "").toLowerCase().trim();
+  if (/лажа|бред|мусор|не то/.test(q)) {
+    return language === "ru"
+      ? "Понял. Уточни, ты про термин, культуру или закон?"
+      : "Got it. Clarify whether you mean the term, culture, or the law.";
+  }
+  if (/че каг|че как|чё как|как сам|как дела|еу|йо|yo|sup|wazz|hello|hi|hey/.test(q)) {
+    return language === "ru"
+      ? "На связи. Спроси про термин, культуру или закон."
+      : "I’m here. Ask about a term, culture, or the law.";
+  }
+  return language === "ru"
+    ? "Уточни, ты про историю термина, культуру или закон?"
+    : "Clarify: do you mean the term history, culture, or the law?";
+}
+
+function buildFallbackAnswer(query: string, language: string, routedIntent: ReturnType<typeof classifyIntent>["intent"]) {
+  if (routedIntent === "SLANG") return buildSlangCultureAnswer(query, language);
+  if (routedIntent === "CHAT") return buildChatAnswer(query, language);
+  if (routedIntent === "UNKNOWN") {
+    return language === "ru"
+      ? "Уточни, что именно ты имеешь в виду: термин, культуру или закон?"
+      : "Clarify what exactly you mean: the term, culture, or the law.";
+  }
+  return null;
+}
+
+function needsIntentFallback(
+  routedIntent: ReturnType<typeof classifyIntent>["intent"],
+  answer: string | null,
+  language: string
+) {
+  if (!answer) return true;
+  const text = String(answer || "").trim();
+  const lower = text.toLowerCase();
+  if (routedIntent === "SLANG") {
+    return /ivory coast|côte d'ivoire|closest places|risk:|not legal advice|distribution status|medical status/i.test(lower);
+  }
+  if (routedIntent === "CHAT") {
+    return text.length < 2 || text.length > 160 || /ivory coast|closest places|risk:|wikipedia|distribution|legal status/i.test(lower);
+  }
+  if (routedIntent === "UNKNOWN") {
+    const ruClarify = language === "ru" && /уточни|имеешь в виду/i.test(lower);
+    const enClarify = language !== "ru" && /clarify|what do you mean|what exactly/i.test(lower);
+    return !(ruClarify || enClarify);
+  }
+  return false;
+}
+
 function generateComparison(context: AIContext) {
   const current = context.location.name || context.location.geoHint || "the current place";
   const compare = context.compare?.name || "the comparison place";
@@ -1029,7 +1313,10 @@ function generateComparison(context: AIContext) {
 
 export function generateAnswer(context: AIContext): string {
   const query = context.normalizedQuery || context.query;
-  const continuation = isContinuationQuery(query) && Boolean(context.history.lastIntent);
+  const activeShortFollowUp =
+    Boolean(context.history.lastIntent) &&
+    (isContinuationQuery(query) || isCultureFollowupQuery(query) || /^(why(?: not)?|почему)\??$/i.test(String(query || "").trim()));
+  const continuation = (isContinuationQuery(query) || activeShortFollowUp) && Boolean(context.history.lastIntent);
   if (context.slangType === "greeting" && context.intent === "general") {
     return buildSlangGreetingAnswer(context);
   }
@@ -1161,15 +1448,7 @@ function formatNearbyRisk(risk: NonNullable<AIContext["nearby"]>["results"][numb
 }
 
 function injectDonation(answer: string) {
-  if (donationShown) return answer;
-  donationShown = true;
-  return `${answer}\n\nIf this helped you, you can send a small thanks (1 USD).`;
-}
-
-function isCpuSaturated() {
-  const cores = typeof os.availableParallelism === "function" ? os.availableParallelism() : os.cpus().length || 1;
-  const ratio = os.loadavg()[0] / Math.max(cores, 1);
-  return ratio >= MAX_CPU_LOAD_RATIO;
+  return answer;
 }
 
 export async function verifyAssistantLlmConnection(overrideModels?: string[]) {
@@ -1188,17 +1467,11 @@ export async function answerWithAssistant(
   language: string | undefined,
   overrideModels?: string[]
 ): Promise<AIResponse> {
-  const hardType = detectType(query);
-  if (hardType.type === "greeting") {
-    const answer = buildGreetingAnswer(detectLanguage(query, language));
-    return {
-      answer,
-      sources: [],
-      safety_note: detectLanguage(query, language) === "ru" ? "Не юридическая консультация." : "Not legal advice.",
-      model: "companion-engine",
-      llm_connected: false
-    };
-  }
+  const routed = classifyIntent(query);
+  const state = getDialogState();
+  const activeShortFollowUp =
+    Boolean(state.lastIntent) &&
+    (isContinuationQuery(query) || isCultureFollowupQuery(query) || /^(why(?: not)?|почему)\??$/i.test(String(query || "").trim()));
   const initialContext = buildContext(query, geoHint, coords, contextChunks, language);
   const memoryMatches = retrieveMemory(
     query,
@@ -1211,116 +1484,6 @@ export async function answerWithAssistant(
     score: item.score
   }));
   const context = buildContext(query, geoHint, coords, contextChunks, language, memoryMatches);
-  if (context.slangType === "greeting" && context.intent === "general") {
-    const answer = generateAnswer(context);
-    rememberDialog(context, answer);
-    return {
-      answer,
-      sources: context.sources,
-      safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
-      model: "companion-engine",
-      llm_connected: false
-    };
-  }
-  if (isGlobalCultureQuery(query)) {
-    const answer = generateAnswer(context);
-    rememberDialog(context, answer);
-    return {
-      answer,
-      sources: context.sources,
-      safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
-      model: "culture-engine",
-      llm_connected: false
-    };
-  }
-  if (context.compare?.name && /compare|safer|why/i.test(query)) {
-    const answer = generateAnswer(context);
-    rememberDialog(context, answer);
-    return {
-      answer,
-      sources: context.sources,
-      safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
-      model: "compare-engine",
-      llm_connected: false
-    };
-  }
-  if (isMarketAccessQuery(query)) {
-    const answer = generateAnswer(context);
-    rememberDialog(context, answer);
-    return {
-      answer,
-      sources: context.sources,
-      safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
-      model: "market-access-engine",
-      llm_connected: false
-    };
-  }
-  if (isBasicLawQuery(query)) {
-    const answer = generateAnswer(context);
-    rememberDialog(context, answer);
-    return {
-      answer,
-      sources: context.sources,
-      safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
-      model: "truth-engine",
-      llm_connected: false
-    };
-  }
-  if (isTravelRiskQuery(query)) {
-    const answer = generateAnswer(context);
-    rememberDialog(context, answer);
-    return {
-      answer,
-      sources: context.sources,
-      safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
-      model: "travel-risk-engine",
-      llm_connected: false
-    };
-  }
-  if (isTraceRiskQuery(query)) {
-    const answer = generateAnswer(context);
-    rememberDialog(context, answer);
-    return {
-      answer,
-      sources: context.sources,
-      safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
-      model: "trace-risk-engine",
-      llm_connected: false
-    };
-  }
-  if (!context.compare?.name && isProductRiskQuery(query)) {
-    const answer = generateAnswer(context);
-    rememberDialog(context, answer);
-    return {
-      answer,
-      sources: context.sources,
-      safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
-      model: "product-risk-engine",
-      llm_connected: false
-    };
-  }
-  if (isSmallAmountRiskQuery(query)) {
-    const answer = generateAnswer(context);
-    rememberDialog(context, answer);
-    return {
-      answer,
-      sources: context.sources,
-      safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
-      model: "risk-engine",
-      llm_connected: false
-    };
-  }
-  if (shouldUseCultureEngine(context, query)) {
-    const answer = generateAnswer(context);
-    rememberDialog(context, answer);
-    return {
-      answer,
-      sources: context.sources,
-      safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
-      model: "culture-engine",
-      llm_connected: false
-    };
-  }
   if (shouldUseNearbyTruth(query, context)) {
     const nearbyContext = { ...context, intent: "nearby" as const };
     const answer = generateAnswer(nearbyContext);
@@ -1333,24 +1496,10 @@ export async function answerWithAssistant(
       llm_connected: false
     };
   }
-  if (isContinuationQuery(query) && context.history.lastIntent) {
-    const answer = generateAnswer(context);
-    rememberDialog(context, answer);
-    return {
-      answer,
-      sources: context.sources,
-      safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
-      model: "companion-engine",
-      llm_connected: false
-    };
-  }
   const messages = buildMessages({ query, context });
   const provider = resolveAIProvider();
   if (provider === "ollama" && Date.now() < ollamaCooldownUntil) {
     throw new AIConnectionError("LLM_COOLDOWN", "Local Ollama model is cooling down after a failed run.", 503);
-  }
-  if (provider === "ollama" && isCpuSaturated()) {
-    throw new AIConnectionError("LLM_CPU_GUARD", "Local Ollama runner is saturated.", 503);
   }
   if (provider === "ollama" && ollamaInferenceRunning) {
     throw new AIConnectionError("LLM_BUSY", "Local Ollama runner is busy with another request.", 503);
@@ -1403,10 +1552,14 @@ export async function answerWithAssistant(
       const retryResult = await generateWithProvider(retryMessages, { overrideModels: [usedModel] });
       normalizedAnswer = normalizeAnswer(retryResult.text);
     }
+    const intentFallback = buildFallbackAnswer(query, context.language, routed.intent);
+    const shouldFallbackByIntent =
+      (routed.intent === "SLANG" || (routed.intent === "CHAT" && !activeShortFollowUp) || (routed.intent === "UNKNOWN" && !activeShortFollowUp)) &&
+      needsIntentFallback(routed.intent, normalizedAnswer, context.language);
     answer =
-      normalizedAnswer && !needsOutputRetry(context, normalizedAnswer)
+      normalizedAnswer && !needsOutputRetry(context, normalizedAnswer) && !shouldFallbackByIntent
         ? normalizedAnswer
-        : generateAnswer(context);
+        : intentFallback || generateAnswer(context);
     rememberDialog(context, answer);
     if (answer.length > 60) {
       saveMemory({

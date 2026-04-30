@@ -1,6 +1,608 @@
 {
   "items": [
     {
+      "id": "992719802c663253",
+      "query": "Why?",
+      "intent": "culture",
+      "location": "TH",
+      "answer": "TH stands for tetrahydrocannabinol, which is a primary active component of marijuana (cannabis). THC is known to produce psychoactive effects that influence the user's mental state, often leading to feelings of euphoria and altered perceptions. Here are some reasons why TH has become popular in certain cultures: 1. **Entertainment**: It provides a recreational experience through smoking or vaping. 2. **Cultural Significance**: In some societies, marijuana is viewed as an acceptable form of entertainment and cultural expression. 3. **Social Norms**: The prevalence of THC-containing products can influence the way society views such substances. TH's popularity varies across different cultures and countries due to historical, social, and economic factors.",
+      "score": 1,
+      "ts": 1776605172460,
+      "last_used": 1776605172460
+    },
+    {
+      "id": "bd5d0ba2a716ef0c",
+      "query": "Best weed movies?",
+      "intent": "culture",
+      "location": "TH",
+      "answer": "There are many great weed-themed movies out there! Some popular ones include \"Pineapple Express,\" which is a comedy about a man who wakes up with a pine tree on his face after smoking pot, and \"Easy Rider,\" a classic 1960s film that explores drug culture. Another favorite is \"The Replacements,\" a story about punk rockers trying to make it big while also dealing with the effects of using cannabis. These movies provide a glimpse into the world of marijuana use through fictional narratives, making them entertaining and informative for anyone interested in cannabis culture.",
+      "score": 1,
+      "ts": 1776605156198,
+      "last_used": 1776605156198
+    },
+    {
+      "id": "f1e1adb73e1e7e56",
+      "query": "Best weed movies?",
+      "intent": "culture",
+      "location": "TH",
+      "answer": "There are several great movies that explore themes of marijuana use. \"Get High on Prozac\" is a cult classic that satirizes how prescription drugs can be used as an excuse for recreational drug use. Another favorite is \"Reefer Madness,\" which purports to warn about the dangers of cannabis but actually contains misleading and exaggerated content. For a more contemporary take, \"The Wolf of Wall Street\" features Leonardo DiCaprio's character experimenting with marijuana in one scene. And if you're looking for something more experimental, check out \"Smoke World: The Movie,\" a documentary that provides an alternative perspective on the culture surrounding cannabis legalization.",
+      "score": 1,
+      "ts": 1776604805318,
+      "last_used": 1776605151351
+    },
+    {
+      "id": "f8dc861aaf5de33d",
+      "query": "и?",
+      "intent": "legal",
+      "location": "TH",
+      "answer": "Да, в Thailand / ประเทศไทย все права и законодательство относительно курения табака и использования смесей с травяным содержимым легальны (легално). Однако следует учитывать, что эти нормы могут периодически изменяться, поэтому рекомендуется обратиться в соответствующие структуры власти для получения актуальной информации.",
+      "score": 1,
+      "ts": 1776605150289,
+      "last_used": 1776605150289
+    },
+    {
+      "id": "0a76a3806db92f14",
+      "query": "легально ли здесь?",
+      "intent": "legal",
+      "location": "TH",
+      "answer": "Смотри, как есть:\n\nИнтересный момент: в Thailand / ประเทศไทย каннабис легален по текущим данным.\n\nЭто важно понимать: в данных есть prison exposure, так что это не выглядит как формальный запрет без последствий. При этом enforcement в notes выглядит слабее: есть сигналы про rare convictions или unenforced practice. Cannabis is legal in Thailand / ประเทศไทย. Medical cannabis is legal. Distribution is restricted. Prison exposure detected.\n\nНа земле это может ощущаться иначе: Thailand / ประเทศไทย remains формально запрещено in law, but small-scale enforcement is often low-priority. Это не разрешение, а просто social reality из текущих данных.\n\nЕсли смотреть именно на medical side: доступ там legal.",
+      "score": 1,
+      "ts": 1776603665505,
+      "last_used": 1776605145924
+    },
+    {
+      "id": "90aad41b48f460b6",
+      "query": "Best weed movies?",
+      "intent": "culture",
+      "location": "HR",
+      "answer": "The best weed-themed movies often explore themes of rebellion, coming-of-age, and the complexities of teenage life while simultaneously featuring cannabis as a central element. Some highly regarded films in this genre include: 1. \"Easy Rider\" (1969) - A classic movie that delves into the hippie culture of the 1960s through its portrayal of drug use. 2. \"The Doors\" (1985) - The story follows a high school student who becomes obsessed with the music and life of the iconic rock band, including their cannabis use. 3. \"American Hot Wax\" (1974) - This Australian film tells the tale of a young girl's journey through her family's marijuana growing operation. 4. \"The Trip\" (1968) - Directed by Peter Bogdanovich and starring Jack Nicholson, this movie is based on the true story of an LSD trip gone wrong. These films not only explore cannabis culture but also offer",
+      "score": 1,
+      "ts": 1776603599389,
+      "last_used": 1776605100573
+    },
+    {
+      "id": "9accb68c61633c75",
+      "query": "легально ли здесь?",
+      "intent": "legal",
+      "location": "HR",
+      "answer": "Если по факту: в Croatia / Hrvatska статус мягче полного запрета, но это не то же самое, что полноценный legal market.\n\nЭто важно понимать: в данных есть prison exposure, так что это не выглядит как формальный запрет без последствий. Cannabis is decriminalized in Croatia / Hrvatska. Medical cannabis is legal. Distribution is restricted. Prison exposure detected.\n\nНа земле это может ощущаться иначе: Croatia / Hrvatska remains legal in law. Это не разрешение, а просто social reality из текущих данных.\n\nЕсли смотреть именно на medical side: доступ там legal.",
+      "score": 1,
+      "ts": 1776603572273,
+      "last_used": 1776605086543
+    },
+    {
+      "id": "e68802f0c75376ee",
+      "query": "Why?",
+      "intent": "culture",
+      "location": "MX",
+      "answer": "MX is an abbreviation for \"marijuana,\" which stands for marijuana or cannabis in slang terms. It's commonly used to refer to cannabis, a psychoactive drug derived from the cannabis plant. This term has been widely adopted and understood across different countries where cannabis use exists legally or illegally. However, it’s important to note that the specific meaning may vary depending on regional laws and language preferences within those areas.",
+      "score": 1,
+      "ts": 1776605061403,
+      "last_used": 1776605061403
+    },
+    {
+      "id": "990b2f2a86e32dd7",
+      "query": "Best weed movies?",
+      "intent": "culture",
+      "location": "MX",
+      "answer": "For a cannabis/reggae angle, start with documentaries and films around Bob Marley, Peter Tosh, and Rastafari culture.\nFor broader weed culture, counterculture comedies and social documentaries fit better than random crime films.\nThe key boundary: films explain mood and symbols, not local law.",
+      "score": 1,
+      "ts": 1776603496726,
+      "last_used": 1776605033826
+    },
+    {
+      "id": "7a1d2ee2149b7d87",
+      "query": "и?",
+      "intent": "legal",
+      "location": "MX",
+      "answer": "Тут есть нюанс: 1. Действительно, в данных есть статус легальной cannabis in Mexico / México. 2. Это не значит полное разрешение, а просто формальное запрет на distribution и sale. 3. В данном случае это ощущается как \"легальность\", но фактически это социальный режим из текущих данных. 4. Для медицинского применения cannabis в墨西哥 / Мексика доступен. 5. Действующий рисковый сигнал указывает на слабое обеспечение в области контроля и исполнения закона. 6. В силу этого, если вы хотите использовать или продавать cannabis, вам нужно быть очень осторожным, так как ваши действия могут быть преследованы.",
+      "score": 1,
+      "ts": 1776605032650,
+      "last_used": 1776605032650
+    },
+    {
+      "id": "18a752c0cd8d2697",
+      "query": "легально ли здесь?",
+      "intent": "legal",
+      "location": "MX",
+      "answer": "Коротко и честно:\n\nТут есть нюанс: в Mexico / México статус мягче полного запрета, но это не то же самое, что полноценный legal market.\n\nТут есть нюанс: в данных есть arrest risk, даже если на практике всё иногда выглядит мягче. Cannabis is decriminalized in Mexico / México. Medical cannabis is legal. Distribution is формально запрещено.\n\nНа земле это может ощущаться иначе: Mexico / México remains decriminalized in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals. Это не разрешение, а просто social reality из текущих данных.\n\nЕсли смотреть именно на medical side: доступ там legal.",
+      "score": 1,
+      "ts": 1776602958806,
+      "last_used": 1776605023325
+    },
+    {
+      "id": "e8d14a402536dbf2",
+      "query": "Why?",
+      "intent": "culture",
+      "location": "FI",
+      "answer": "The term \"FI\" stands for \"Find It.\" It's a common slang phrase used to describe someone or something that is difficult to locate, often due to its position within an environment. In the context of cannabis culture and history, \"FI\" could refer to finding marijuana in places where it might be less expected or easily accessible. For example: - A user looking for a specific strain or type of bud. - Searching for dried cannabis leaves that have fallen from plants unexpectedly. - Attempting to locate hidden or secret stash locations. This phrase encapsulates the challenge and excitement associated with navigating unfamiliar environments in search of rare or sought-after cannabis. It highlights the unpredictability and intrigue of finding what might be considered a \"Find\" among everyday objects or spaces.",
+      "score": 1,
+      "ts": 1776605003770,
+      "last_used": 1776605003770
+    },
+    {
+      "id": "120a44ba3c54ab5f",
+      "query": "Best weed movies?",
+      "intent": "culture",
+      "location": "FI",
+      "answer": "Certainly! Here are a few highly acclaimed films that explore cannabis culture and history: 1. **\"Easy Rider\" (1962)** - This iconic movie features Dennis Hopper, who is often associated with cannabis smoking scenes. 2. **\"The Big Lebowski\" (1998)** - While not entirely about marijuana use, the movie’s protagonist, The Dude, engages in various cannabis-related activities and references throughout the film. 3. **\"Pulp Fiction\" (1994)** - This Quentin Tarantino masterpiece includes a scene where John Travolta's character uses marijuana to help solve a murder mystery. 4. **\"The Revenant\" (2015)** - Leonardo DiCaprio’s portrayal of Hugh Glass, who was left for dead by the fur traders and later consumed cannabis as part of his survival methods. 5. **\"Patriotism\" (1973)** - This science fiction film features a scene where a",
+      "score": 1,
+      "ts": 1776604985707,
+      "last_used": 1776604985707
+    },
+    {
+      "id": "7350aa7fe4e46304",
+      "query": "Best weed movies?",
+      "intent": "culture",
+      "location": "FI",
+      "answer": "\"Cannabis culture is quite diverse with various forms of artistic expression that often reflect themes related to its cultural significance. Here are a few notable examples: 1. **\"Paprika\" (2008)** - A film featuring Charlie Kaufman's directorial debut, it explores the intersection between mind-altering substances and reality through a protagonist who gains powers after taking cannabis. 2. **\"Alice in Wonderland\" (2010)** - This animated adaptation of Lewis Carroll’s classic novel includes a scene where characters smoke marijuana, adding to its fantastical setting while still incorporating familiar elements of the story's narrative. 3. **\"Pulp Fiction\" (1994)** - Quentin Tarantino’s iconic film features a scene in which the protagonist, Jules Winnfield, is shown using cannabis joints during a conversation with another character. 4. **\"Trainspotting\" (1986)** - A Scottish coming-of-age story that explores themes of addiction and",
+      "score": 1,
+      "ts": 1776603966481,
+      "last_used": 1776604975802
+    },
+    {
+      "id": "67b20e94c1555dff",
+      "query": "и?",
+      "intent": "legal",
+      "location": "FI",
+      "answer": "Вот простой ответ на ваши вопросы: 1. Легально ли здесь? Нет. 2. И? 3. Ситуация заключается в том, что каннабис официально запрещен как recreational и медицинский, но в действительности существует ограниченный доступ к ним. В отличие от некоторых стран, где есть полностью легальные магазины или онлайн-сервисы для покупки каннабиса, на территории Finland / Suomi все еще предполагается запрет. 4. Для медицинского использования каннабиса доступ ограничен - это косвенный доступ через разрешенные лаборатории и клиники. Это не экстракция или вакцинации, а просто проконсультирование врачами на основе сведений о пациенте. 5. Действующее рисковое сигнал: все же каннабис запрещ",
+      "score": 1,
+      "ts": 1776604974635,
+      "last_used": 1776604974635
+    },
+    {
+      "id": "825a7bb4bb23ed03",
+      "query": "легально ли здесь?",
+      "intent": "legal",
+      "location": "FI",
+      "answer": "Разберём спокойно:\n\nТут есть нюанс: в Finland / Suomi статус мягче полного запрета, но это не то же самое, что полноценный legal market.\n\nCannabis is формально запрещено in Finland / Suomi. Medical cannabis is limited. Distribution is формально запрещено.\n\nНа земле это может ощущаться иначе: Finland / Suomi remains формально запрещено in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals. Это не разрешение, а просто social reality из текущих данных.\n\nЕсли смотреть именно на medical side: доступ там limited.",
+      "score": 1,
+      "ts": 1776602883688,
+      "last_used": 1776604963627
+    },
+    {
+      "id": "fb482446550e0475",
+      "query": "What would be the real-life risk for a traveler here?",
+      "intent": "airport",
+      "location": "PE",
+      "answer": "Short and honest:\n\nInteresting angle: Peru / Piruw is softer than a full ban, but that is not the same as a fully legal market.\n\nBe especially careful with flights and borders: Airports and borders are high-control zones. Crossing borders with cannabis can lead to criminal charges.\n\nPrison exposure is present in the data, so this does not read like a paper-only ban. Cannabis is decriminalized in Peru / Piruw. Medical cannabis is legal. Distribution is formally illegal. Prison exposure detected.\n\nReality on the ground can feel different: Peru / Piruw remains decriminalized in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals. That is not permission, only the current social signal.\n\nWant me to show the strictest airports too?",
+      "score": 1,
+      "ts": 1776460901437,
+      "last_used": 1776604914401
+    },
+    {
+      "id": "a22a56691942690b",
+      "query": "why not?",
+      "intent": "legal",
+      "location": "IE",
+      "answer": "Let's break it down calmly:\n\nIf we go one layer deeper, the biggest risk still sits around flights and border control.\n\nReality on the ground can feel different: Ireland / Éire remains decriminalized in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals. That is not permission, only the current social signal.\n\nOn the medical side, access is legal in the current data.\n\nIf you want, we can compare this with another country or state.",
+      "score": 1,
+      "ts": 1776604914168,
+      "last_used": 1776604914168
+    },
+    {
+      "id": "f5c2d61b72f07971",
+      "query": "Еу, как сам?",
+      "intent": "general",
+      "location": "DE",
+      "answer": "Если по факту:\n\nЕсть ещё момент, который важно понимать:\n\nНа земле это может ощущаться иначе: Germany / Deutschland remains legal in law. Это не разрешение, а просто social reality из текущих данных.\n\nЕсли смотреть именно на medical side: доступ там legal.\n\nЕсли интересно, можно сравнить это с другой страной или штатом.\n\nПродолжим?",
+      "score": 1,
+      "ts": 1776459166481,
+      "last_used": 1776604895993
+    },
+    {
+      "id": "c7ead29607f716b8",
+      "query": "Why?",
+      "intent": "general",
+      "location": "TH",
+      "answer": "TH refers to Tetrahydrocannabinol, which is one of the main active compounds found in marijuana or hashish plants. It's responsible for most of their psychoactive effects. To clarify: - THC is not necessarily always present when cannabis is smoked. - The amount and type vary between strains. - Some users prefer low-THC varieties for medical reasons. - THC percentage can be indicated on packaging or through testing by a lab. Keep in mind, the percentages may change depending on growing conditions and harvesting methods.",
+      "score": 1,
+      "ts": 1776604817814,
+      "last_used": 1776604817814
+    },
+    {
+      "id": "3aae73e5d0ae39ac",
+      "query": "Why?",
+      "intent": "general",
+      "location": "TH",
+      "answer": "In Thailand, cannabis is legal for medical purposes with a prescription. It can also be used recreationally in limited quantities and contexts regulated by specific permits. However, it remains illegal to possess or cultivate cannabis without a valid permit or for recreational use. The government enforces strict laws on drug possession due to the potential health risks associated with its consumption.",
+      "score": 1,
+      "ts": 1776604264707,
+      "last_used": 1776604806410
+    },
+    {
+      "id": "7b13c745b3793925",
+      "query": "Best weed movies?",
+      "intent": "culture",
+      "location": "TH",
+      "answer": "There are several great weed-themed films across different genres that explore the culture and lifestyle of cannabis users. Here are a few notable ones: 1. **\"The Brothers Solomon\" (2016)** - This film explores marijuana use as part of African American culture, focusing on the experiences of three brothers growing up in Chicago. 2. **\"Get High or Die Trying\" (2013)** - Based on the true story of a man who was killed by police while smoking pot, this movie portrays drug culture and its challenges through the lens of one person's struggle. 3. **\"Get Rich or Die Tryin'\" (2007)** - This comedy-drama tells the story of a young rapper trying to make it in Hollywood despite being addicted to marijuana and crack cocaine. 4. **\"The Room\" (1999)** - While not strictly about cannabis, this movie features characters who use pot, making it an interesting contrast with other films focused on recreational",
+      "score": 1,
+      "ts": 1776603694965,
+      "last_used": 1776604799363
+    },
+    {
+      "id": "1c034ba3705e2c18",
+      "query": "и?",
+      "intent": "general",
+      "location": "TH",
+      "answer": "Смотри, как есть: Интересный момент: в данных есть prison exposure, так что это не разрешение без последствий. Это важно понимать: в данных есть prison exposure, так что это не выглядит как формальный запрет без последствий. При этом enforcement в notes выглядит слабее: есть сигналы про rare convictions или unenforced practice. Cannabis is legal in Thailand / ประเทศไทย. Medical cannabis is legal. Distribution is restricted. Prison exposure detected. На земле это может ощущаться иначе: Thailand / ประเทศไทย remains формально запрещено в законодательстве, но малый уровень непосредственной преследовательной политики часто приводит к тому, что реальный доступ есть. Это не разрешение, а просто социальная реальность из данных текущих. Если смотреть именно на medical side",
+      "score": 1,
+      "ts": 1776604798280,
+      "last_used": 1776604798280
+    },
+    {
+      "id": "d304c5573e341674",
+      "query": "и?",
+      "intent": "general",
+      "location": "TH",
+      "answer": "Смотри: Medical cannabis is legal in Thailand / ประเทศไทย. Distribution is restricted. There's a prison exposure, which can be interpreted as low enforcement or informal practice. The situation remains technically illegal but socially accepted. In terms of medical marijuana: it's legal, and distribution is limited. However, there's evidence of potential informal use due to prison exposure. This could mean that the law doesn't always follow the social reality in this country.",
+      "score": 1,
+      "ts": 1776604246704,
+      "last_used": 1776604787582
+    },
+    {
+      "id": "ab8d4448f6b4bad2",
+      "query": "Why?",
+      "intent": "general",
+      "location": "HR",
+      "answer": "If we keep it factual:\n\nHR: the extra point is that cannabis culture and cannabis legality move on different tracks.\n\nReggae, Rastafari language, 420 references, and weed films can make the topic feel familiar or even normalized, but they do not create legal permission.\n\nSo the smart reading is cultural curiosity on one side, and local law, public behavior, and travel risk on the other.",
+      "score": 1,
+      "ts": 1776604168019,
+      "last_used": 1776604723946
+    },
+    {
+      "id": "9c2b96ce9e7b1b15",
+      "query": "Why?",
+      "intent": "general",
+      "location": "MX",
+      "answer": "Cannabis slang is often associated with the term \"MX,\" which stands for \"marijuana.\" The letter X typically represents an additional consonant, such as a soft c or t sound in some dialects of English. For example, M-x-I (Marijuana) would be another way to abbreviate marijuana. This usage reflects how slang terms can vary based on regional accents and pronunciation variations within the language.",
+      "score": 1,
+      "ts": 1776604630680,
+      "last_used": 1776604630680
+    },
+    {
+      "id": "052c598af961f1c5",
+      "query": "Why?",
+      "intent": "general",
+      "location": "MX",
+      "answer": "Let's break it down calmly:\n\nMX: the extra point is that cannabis culture and cannabis legality move on different tracks.\n\nReggae, Rastafari language, 420 references, and weed films can make the topic feel familiar or even normalized, but they do not create legal permission.\n\nSo the smart reading is cultural curiosity on one side, and local law, public behavior, and travel risk on the other.",
+      "score": 1,
+      "ts": 1776603516589,
+      "last_used": 1776604622709
+    },
+    {
+      "id": "80dd61d08714fb0c",
+      "query": "и?",
+      "intent": "general",
+      "location": "MX",
+      "answer": "Коротко и честно: В Mexico / México легально медицинский кайф, но всё остальное запрещено. Все инциденты случаются с малым количеством продукта для личного потребления или в рамках врачебных назначений. Это не полноценное легализованное пространство, а скорее барьер из данных нарушителей. Так что, если спрашиваешь \"легально ли здесь? \", ответить можно: медицинский кайф легален, но всё остальное запрещено.",
+      "score": 1,
+      "ts": 1776604605993,
+      "last_used": 1776604605993
+    },
+    {
+      "id": "b58647c0c7d14bd4",
+      "query": "Что такое джоинт?",
+      "intent": "culture",
+      "location": "MX",
+      "answer": "Джоинт - это штрих на обрезке каннабиса, который используется для создания различных упаковок и наклейки. Он часто используемый в крафте и ароматизированных продуктах с конопляной массой. MX-10 или \"Мексиканский 10\" - это популярный способ мелко обрабатывать и обрезать каннабис, который был популярен во время вспышки в Мексике в 2018 году. Этот процесс обычно используется для создания наклейок, упаковок и других изделий с растительным маслом или другими добавками. Джоинт можно обрабатывать на специальных шлифмашинах для получения различных размеров и форматов. Он часто используются в крафте, особенно для создания нак",
+      "score": 1,
+      "ts": 1776603449329,
+      "last_used": 1776604565629
+    },
+    {
+      "id": "a937d223945eae03",
+      "query": "Why?",
+      "intent": "general",
+      "location": "FI",
+      "answer": "The question \"Why?\" in a Finnish context often means seeking an explanation or reason for something happening or being done. To provide a clear and concise response, let's break down the reasoning behind your query: 1. **Legal Fact**: The user mentioned that they are asking about cannabis law in Finland (FI). This implies they need information on the current legal status of marijuana consumption, cultivation, possession, etc., within the Finnish jurisdiction. 2. **Purpose Behind Query**: The use of \"why\" indicates a curiosity or necessity for understanding the reasons behind something specific related to this topic in Finland's legal framework. 3. **Contextual Implications**: It’s important to consider that any discussion about cannabis law and its application in different countries, especially within Finland, would involve complex issues surrounding medical use, recreational use, possession limits, enforcement measures, and even potential future legislative changes due to global trends or public opinion shifts. 4. **Navigating Responses**: When dealing with the intricacies of legal regulations",
+      "score": 1,
+      "ts": 1776603976536,
+      "last_used": 1776604483741
+    },
+    {
+      "id": "547675c76911232f",
+      "query": "и?",
+      "intent": "general",
+      "location": "FI",
+      "answer": "Вот ответ на ваш вопрос: Легально ли здесь? - Нет. И? Ситуация в Finland / Suomi следующая: 1. В законе запрещено всё, что касается cannabis: - Прямое использование - Действие - Передача 2. Рекреационный рынок ограничен и не формально регулируется. 3. Медикаментозная использует ограничения, но доступ ограничен. 4. Строгое запрещение на distribution (распределение). 5. В рискованности нет реального включения, а только низкий уровень контроля. На практике: - Лицензированный медсила - Минимальная привилегия для мелких пользователей - Некоторые \"внешние\" варианты посредствен",
+      "score": 1,
+      "ts": 1776604477984,
+      "last_used": 1776604477984
+    },
+    {
+      "id": "1ef1d0df7ba2a807",
+      "query": "и?",
+      "intent": "general",
+      "location": "FI",
+      "answer": "В Finland / Suomi законодательство прямо запрещает незаконное приобретение, хранение и использование конопли. Однако с точки зрения легальной торговли и использования на медицинском уровне есть ограничения. С точки зрения медицины: доступ к препаратам для лечения синдрома криптофосфатной недостаточности может быть ограниченным. Каннабис используется в некоторых случаях при лечении определенных заболеваний, но это не является полноценным медицинским продуктом. На практике, если вы попытаетесь найти легальную каннабис-торговлю или использовать коноплю по медицинским показаниям, вы столкнетесь с трудностями. Это может быть сложно незаметно обнаружить и не всегда удается.",
+      "score": 1,
+      "ts": 1776602899453,
+      "last_used": 1776604467598
+    },
+    {
+      "id": "407c14923704c8ba",
+      "query": "why not?",
+      "intent": "general",
+      "location": "IE",
+      "answer": "Here it is plainly:\n\nIf we go one layer deeper, the biggest risk still sits around flights and border control.\n\nReality on the ground can feel different: Ireland / Éire remains decriminalized in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals. That is not permission, only the current social signal.\n\nOn the medical side, access is legal in the current data.\n\nIf you want, we can compare this with another country or state.\n\nWant to keep going?",
+      "score": 1,
+      "ts": 1776460980609,
+      "last_used": 1776604335885
+    },
+    {
+      "id": "59ff0c4f899d5be5",
+      "query": "Why?",
+      "intent": "general",
+      "location": "TH",
+      "answer": "In Thailand (TH), cannabis use has been legal since 2019 under certain conditions. The law allows for possession of up to one kilogram of dried cannabis, which can be grown and sold legally. However, the cultivation must not exceed a limited number of plants per household. Additionally, possession is prohibited if it constitutes an interference with public health or safety. It's important to note that these laws are subject to change and may vary depending on regional regulations within Thailand. For up-to-date information, consulting official government sources or local authorities would be recommended.",
+      "score": 1,
+      "ts": 1776603700640,
+      "last_used": 1776604261091
+    },
+    {
+      "id": "f5316d00c363edef",
+      "query": "и?",
+      "intent": "general",
+      "location": "TH",
+      "answer": "Интересный момент: в Thailand / ประเทศไทย каннабис легален по текущим данным. Это важно понимать: - В данных есть prison exposure, что делает это не формальным запретом без последствий. - Enforcement в notes выглядит слабее: можно заметить редкие приговоры или отсутствие устоявшихся практик. Таким образом, медицинский каннабис legal в Thailand / ประเทศไทย, но распространение ограничено.",
+      "score": 1,
+      "ts": 1776603681405,
+      "last_used": 1776604241840
+    },
+    {
+      "id": "0e4b79566751a0e4",
+      "query": "Why?",
+      "intent": "general",
+      "location": "HR",
+      "answer": "Here it is plainly:\n\nCroatia / Hrvatska: the extra point is that cannabis culture and cannabis legality move on different tracks.\n\nReggae, Rastafari language, 420 references, and weed films can make the topic feel familiar or even normalized, but they do not create legal permission.\n\nSo the smart reading is cultural curiosity on one side, and local law, public behavior, and travel risk on the other.",
+      "score": 1,
+      "ts": 1776603027898,
+      "last_used": 1776604160738
+    },
+    {
+      "id": "da04078d3f3a429a",
+      "query": "Why?",
+      "intent": "general",
+      "location": "FI",
+      "answer": "The reasons behind cannabis laws in Finland can be attributed to a variety of legal, cultural, and historical factors. As of recent changes in Finnish law, possession and use of cannabis for personal consumption is now regulated under the \"Cannabis Regulation Act\" (Kanaarihallintatievento). This act allows individuals to possess up to 20 grams of marijuana without restrictions as long as they do not distribute it or sell it. However, it's important to note that this change was made in 2019 and does not apply retroactively. The legal context surrounding cannabis use in Finland has evolved significantly over the years. The country's approach is primarily based on a combination of public health concerns, drug policy principles, and international agreements related to human rights and legalization efforts. In terms of history, Finland has had varying attitudes towards recreational drugs throughout its political epochs. In earlier decades, there were debates about decriminalizing marijuana use. However, the current legal framework reflects a more",
+      "score": 1,
+      "ts": 1776603405667,
+      "last_used": 1776603967587
+    },
+    {
+      "id": "4506850e453574e2",
+      "query": "Best weed movies?",
+      "intent": "culture",
+      "location": "FI",
+      "answer": "Cannabis culture and history are fascinating topics! For a global perspective on marijuana-related films, \"Get High on Life\" is highly regarded for its satirical take on the pot lifestyle in the 1970s. Another notable one is \"Get Merry & Plant a Garden,\" which explores the intersection of cannabis cultivation with spirituality in the 2000s. Both movies offer insights into how society perceives and uses marijuana.",
+      "score": 1,
+      "ts": 1776603395773,
+      "last_used": 1776603950664
+    },
+    {
+      "id": "6040beaf99e97895",
+      "query": "Why?",
+      "intent": "general",
+      "location": "TH",
+      "answer": "Here it is plainly:\n\nThailand / ประเทศไทย: the extra point is that cannabis culture and cannabis legality move on different tracks.\n\nReggae, Rastafari language, 420 references, and weed films can make the topic feel familiar or even normalized, but they do not create legal permission.\n\nSo the smart reading is cultural curiosity on one side, and local law, public behavior, and travel risk on the other.",
+      "score": 1,
+      "ts": 1776603081444,
+      "last_used": 1776603696149
+    },
+    {
+      "id": "3282e719532c9e0e",
+      "query": "и?",
+      "intent": "general",
+      "location": "TH",
+      "answer": "Извините за путаницу, но я не могу предоставить конкретную информацию о легальности наркотиков в Тайланде / Thailand / ประเทศไทย. Это может быть связано с законодательством и контролем на местном уровне. Я рекомендую обращаться к официальным источникам или специалистам для получения актуальной информации. Спасибо за понимание!",
+      "score": 1,
+      "ts": 1776603057886,
+      "last_used": 1776603666580
+    },
+    {
+      "id": "75b0a4633ab7287f",
+      "query": "Why?",
+      "intent": "general",
+      "location": "MX",
+      "answer": "Short and honest:\n\nMexico / México: the extra point is that cannabis culture and cannabis legality move on different tracks.\n\nReggae, Rastafari language, 420 references, and weed films can make the topic feel familiar or even normalized, but they do not create legal permission.\n\nSo the smart reading is cultural curiosity on one side, and local law, public behavior, and travel risk on the other.",
+      "score": 1,
+      "ts": 1776602982260,
+      "last_used": 1776603497775
+    },
+    {
+      "id": "395bda2ee2922f2b",
+      "query": "Why?",
+      "intent": "general",
+      "location": "FI",
+      "answer": "In comparison to Finland/Suomi:\n- The Netherlands/Nederland has stricter regulations regarding cannabis use.\n- It tolerates recreational consumption but maintains more strict enforcement measures.\n\nThis results in higher safety standards due to better oversight and less casual distribution of cannabis within its population.\n\nKey differences:\n1. Enforcement signal: The Netherlands actively enforces laws, making it safer by reducing the risk of public disturbances or illegal activities associated with loose cannabis policies.\n2. Medical status: Both countries permit medical use; however, the Dutch system is more lenient in terms of enforcement and availability compared to Finland/Suomi.\n\nIn conclusion, while both countries regulate cannabis, the Netherlands demonstrates a higher level of safety by enforcing its laws more rigorously and limiting public access.",
+      "score": 1,
+      "used": 8,
+      "ts": 1776341738129,
+      "last_used": 1776603396843
+    },
+    {
+      "id": "fb7dd65323dfb6b1",
+      "query": "Best weed movies?",
+      "intent": "culture",
+      "location": "FI",
+      "answer": "There are many great weed-themed movies across different genres. Here are a few popular choices: 1. \"Easy Rider\" - A classic film that explores themes of freedom, drugs, and the American counterculture. 2. \"Pulp Fiction\" - Known for its complex characters and memorable lines about marijuana use. 3. \"The Usual Suspects\" - Although not primarily focused on weed culture, it features an interesting subplot involving a character who is obsessed with finding out how to smoke something without getting high. 4. \"Blade Runner 2049\" - This sci-fi film touches on themes of drug use and explores the future of humanity's relationship with technology and substances like drugs. 5. \"The Wolf of Wall Street\" - While not specifically about marijuana, it does have a subplot involving a character who starts using weed as part of their new lifestyle after being fired from his high-flying stock firm. 6. \"Boogie Down for Lucy\" - A more recent film",
+      "score": 1,
+      "ts": 1776602911569,
+      "last_used": 1776603386243
+    },
+    {
+      "id": "2766734ed01392ff",
+      "query": "Why?",
+      "intent": "general",
+      "location": "ZA",
+      "answer": "Short and honest:\n\nSouth Africa / Sewula Afrika: the extra point is that cannabis culture and cannabis legality move on different tracks.\n\nReggae, Rastafari language, 420 references, and weed films can make the topic feel familiar or even normalized, but they do not create legal permission.\n\nSo the smart reading is cultural curiosity on one side, and local law, public behavior, and travel risk on the other.",
+      "score": 1,
+      "ts": 1776601775729,
+      "last_used": 1776602140461
+    },
+    {
+      "id": "0dc73fb0dd056389",
+      "query": "легально ли здесь?",
+      "intent": "legal",
+      "location": "ZA",
+      "answer": "Смотри, как есть:\n\nТут есть нюанс: в South Africa / Sewula Afrika каннабис легален по текущим данным.\n\nЭто важно понимать: в данных есть prison exposure, так что это не выглядит как формальный запрет без последствий. При этом enforcement в notes выглядит слабее: есть сигналы про rare convictions или unenforced practice. Cannabis is legal in South Africa / Sewula Afrika. Medical cannabis is legal. Distribution is формально запрещено. Prison exposure detected.\n\nНа земле это может ощущаться иначе: South Africa / Sewula Afrika remains legal in law. Это не разрешение, а просто social reality из текущих данных.\n\nЕсли смотреть именно на medical side: доступ там legal.",
+      "score": 1,
+      "ts": 1776601742064,
+      "last_used": 1776602137460
+    },
+    {
+      "id": "ce9ff4909dc074b7",
+      "query": "Что такое джоинт?",
+      "intent": "culture",
+      "location": "ZA",
+      "answer": "Смотри:\n\nРазберём спокойно:\n\nZA: a joint, or \"джоинт/косяк\" in casual Russian, means cannabis rolled for smoking, usually in paper like a cigarette.\n\nIt is a culture word, not a safety word: saying joint, weed, косяк, or трава does not change the legal status of possession, buying, public use, or travel.\n\nThe practical reading is simple: understand the slang, but judge the risk by local law, enforcement, and whether borders, airports, or public places are involved.",
+      "score": 1,
+      "ts": 1776601718425,
+      "last_used": 1776602135200
+    },
+    {
+      "id": "404912b54d63edcc",
+      "query": "Why?",
+      "intent": "general",
+      "location": "JP",
+      "answer": "If we keep it factual:\n\nJapan / 日本: the extra point is that cannabis culture and cannabis legality move on different tracks.\n\nReggae, Rastafari language, 420 references, and weed films can make the topic feel familiar or even normalized, but they do not create legal permission.\n\nSo the smart reading is cultural curiosity on one side, and local law, public behavior, and travel risk on the other.",
+      "score": 1,
+      "ts": 1776601684285,
+      "last_used": 1776602113237
+    },
+    {
+      "id": "80c7dee57fb7a547",
+      "query": "легально ли здесь?",
+      "intent": "legal",
+      "location": "JP",
+      "answer": "Если по факту: в Japan / 日本 каннабис запрещён по текущему SSOT.\n\nЭто важно понимать: в данных есть prison exposure, так что это не выглядит как формальный запрет без последствий. При этом enforcement в notes выглядит слабее: есть сигналы про rare convictions или unenforced practice. Cannabis is формально запрещено in Japan / 日本. Medical cannabis is формально запрещено. Distribution is формально запрещено. Prison exposure detected.\n\nНа земле это может ощущаться иначе: Cannabis remains формально запрещено in Japan and social-reality signals stay weak compared with formal enforcement. Это не разрешение, а просто social reality из текущих данных.\n\nЕсли вопрос именно про medical access: по текущим данным он не открыт как обычный legal channel.",
+      "score": 1,
+      "ts": 1776601658630,
+      "last_used": 1776602109667
+    },
+    {
+      "id": "83f9e501564a1f86",
+      "query": "Что такое джоинт?",
+      "intent": "culture",
+      "location": "JP",
+      "answer": "Смотри, как есть:\n\nJP: a joint, or \"джоинт/косяк\" in casual Russian, means cannabis rolled for smoking, usually in paper like a cigarette.\n\nIt is a culture word, not a safety word: saying joint, weed, косяк, or трава does not change the legal status of possession, buying, public use, or travel.\n\nThe practical reading is simple: understand the slang, but judge the risk by local law, enforcement, and whether borders, airports, or public places are involved.",
+      "score": 1,
+      "ts": 1776601637135,
+      "last_used": 1776602107166
+    },
+    {
+      "id": "e137439a3f6f9f2e",
+      "query": "Why?",
+      "intent": "general",
+      "location": "BR",
+      "answer": "If we keep it factual:\n\nBrazil / Brasil: the extra point is that cannabis culture and cannabis legality move on different tracks.\n\nReggae, Rastafari language, 420 references, and weed films can make the topic feel familiar or even normalized, but they do not create legal permission.\n\nSo the smart reading is cultural curiosity on one side, and local law, public behavior, and travel risk on the other.",
+      "score": 1,
+      "ts": 1776601604235,
+      "last_used": 1776602083397
+    },
+    {
+      "id": "39ac730d7b3a5f85",
+      "query": "Best weed movies?",
+      "intent": "culture",
+      "location": "BR",
+      "answer": "Let's break it down calmly:\n\nIf we look at more than the law in that place:\n\nmovies: Cannabis-themed movies commonly cited in pop culture include Pineapple Express, How High, and Friday.\n\nReality on the ground can feel different: Brazil / Brasil remains decriminalized in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals. That is not permission, only the current social signal.",
+      "score": 1,
+      "ts": 1776601591474,
+      "last_used": 1776602082234
+    },
+    {
+      "id": "6b1d6c6b7cd560f5",
+      "query": "легально ли здесь?",
+      "intent": "legal",
+      "location": "BR",
+      "answer": "Коротко и честно:\n\nИнтересный момент: в Brazil / Brasil картина смешанная — это не полный ban, но и не чистый legal market.\n\nЭто важно понимать: в данных есть prison exposure, так что это не выглядит как формальный запрет без последствий. Cannabis is decriminalized in Brazil / Brasil. Medical cannabis is legal. Distribution is mixed. Prison exposure detected.\n\nНа земле это может ощущаться иначе: Brazil / Brasil remains decriminalized in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals. Это не разрешение, а просто social reality из текущих данных.\n\nЕсли смотреть именно на medical side: доступ там legal.",
+      "score": 1,
+      "ts": 1776601581909,
+      "last_used": 1776602079839
+    },
+    {
+      "id": "17c07f6e2325a230",
+      "query": "Что такое джоинт?",
+      "intent": "culture",
+      "location": "BR",
+      "answer": "Смотри:\n\nЕсли по факту:\n\nBR: a joint, or \"джоинт/косяк\" in casual Russian, means cannabis rolled for smoking, usually in paper like a cigarette.\n\nIt is a culture word, not a safety word: saying joint, weed, косяк, or трава does not change the legal status of possession, buying, public use, or travel.\n\nThe practical reading is simple: understand the slang, but judge the risk by local law, enforcement, and whether borders, airports, or public places are involved.",
+      "score": 1,
+      "ts": 1776601561391,
+      "last_used": 1776602062729
+    },
+    {
+      "id": "b4c505ae50daec4a",
+      "query": "Why?",
+      "intent": "general",
+      "location": "FR",
+      "answer": "The facts presented suggest that you are referring to a situation in France regarding drugs and drug use. Here's an explanation based on the information provided: 1. **Illegal**: This term indicates that substances or activities associated with those substances are not permitted, approved, or encouraged by authorities in France. 2. **Recreational status is illegal**: This suggests that recreational use of these substances (or for certain purposes) is banned under French law. 3. **Medical status is legal**: This implies that the medical treatment and administration of these substances (if they are prescribed or authorized by a doctor) are lawful in France. 4. **Distribution status is illegal**: This indicates that distributing, selling, or providing access to these substances without permission is prohibited in France. 5. **Risk signal is high_risk**: This suggests there is significant risk associated with the substances involved and their use could lead to serious consequences if not managed carefully. 6. **Enforcement signal is active**: This means that efforts are being",
+      "score": 1,
+      "ts": 1776602039122,
+      "last_used": 1776602039122
+    },
+    {
+      "id": "87b1a07904dfd39e",
+      "query": "Best weed movies?",
+      "intent": "culture",
+      "location": "FR",
+      "answer": "There are several excellent weed-themed films that have captured audiences with their unique takes on marijuana culture. Some notable ones include: 1. \"Pulp Fiction\" - While not explicitly about pot, the film's colorful characters and themes of interconnectedness make it a good choice for those interested in the cultural aspects of cannabis. 2. \"The Reindeer Hotel\" - This Norwegian film explores various facets of life, including drug culture, through its protagonist's journey from an asylum to a remote cabin in the mountains. 3. \"Easy Rider\" - A classic American road movie that delves into themes of freedom and rebellion, including substance abuse as part of their journey. 4. \"The Usual Suspects\" - This film features characters who are addicted to drugs and alcohol, providing a darkly humorous take on drug culture in London's underground club scene. 5. \"The Shining\" - Often cited for its use of marijuana imagery but also because the setting is clearly influenced by a character's heavy",
+      "score": 1,
+      "ts": 1776601525715,
+      "last_used": 1776602026265
+    },
+    {
+      "id": "9f8976fbbabbf4f5",
+      "query": "легально ли здесь?",
+      "intent": "legal",
+      "location": "FR",
+      "answer": "Коротко и честно:\n\nИнтересный момент: в France каннабис запрещён по текущему SSOT.\n\nЭто важно понимать: в данных есть prison exposure, так что это не выглядит как формальный запрет без последствий. Cannabis is формально запрещено in France. Medical cannabis is legal. Distribution is формально запрещено. Prison exposure detected.\n\nНа земле это может ощущаться иначе: France remains формально запрещено in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals. Это не разрешение, а просто social reality из текущих данных.\n\nЕсли смотреть именно на medical side: доступ там legal.",
+      "score": 1,
+      "ts": 1776601518125,
+      "last_used": 1776602023902
+    },
+    {
+      "id": "419d8a348938863c",
+      "query": "Что такое джоинт?",
+      "intent": "culture",
+      "location": "FR",
+      "answer": "Джоинт — это самокрутка с каннабисом, обычно в бумаге как сигарета.\n«Косяк» — близкий разговорный русский вариант этого слова.\nЭто термин культуры и быта, а не юридический статус.\nЕсли вопрос про закон — лучше отдельно назвать страну.",
+      "score": 1,
+      "ts": 1776602011998,
+      "last_used": 1776602011998
+    },
+    {
+      "id": "5322e8d9621925bf",
+      "query": "Что такое джоинт?",
+      "intent": "culture",
+      "location": "FR",
+      "answer": "Смотри:\n\nЕсли по факту:\n\nFR: a joint, or \"джоинт/косяк\" in casual Russian, means cannabis rolled for smoking, usually in paper like a cigarette.\n\nIt is a culture word, not a safety word: saying joint, weed, косяк, or трава does not change the legal status of possession, buying, public use, or travel.\n\nThe practical reading is simple: understand the slang, but judge the risk by local law, enforcement, and whether borders, airports, or public places are involved.",
+      "score": 1,
+      "ts": 1776601503281,
+      "last_used": 1776602004519
+    },
+    {
+      "id": "45588a55a1a0072f",
+      "query": "Why?",
+      "intent": "general",
+      "location": "BR",
+      "answer": "The Netherlands / Nederland offers a safer environment in terms of regulation compared to the mixed approach found in Brazil / Brasil. In the Netherlands, cannabis possession and use are regulated through strict laws and enforcement mechanisms that significantly reduce risks. The country has legalized both medical and recreational cannabis usage with detailed regulations designed to ensure safety. This includes clear rules on dosage, potency, and packaging, as well as a focus on medicinal benefits over recreational use. On the other hand, Brazil's legal status is characterized by its complexity: while some areas may allow for certain levels of cannabis possession or consumption in medical contexts, there are also regions where access to marijuana is illegal. The country has had inconsistent enforcement of laws and regulations, which means that users face higher risks due to unclear boundaries and varying degrees of compliance across different states. The Netherlands' comprehensive approach provides a safer environment by ensuring stricter controls over cannabis products, reducing the potential for accidental poisoning or harmful interactions with other substances commonly used with marijuana. The country's focus on medicinal",
+      "score": 1,
+      "used": 0,
+      "ts": 1776349606231,
+      "last_used": 1776601592873
+    },
+    {
+      "id": "4074465e6d9b1446",
+      "query": "Теперь мультиязычность пошла?",
+      "intent": "general",
+      "location": "CI",
+      "answer": "Если по факту:\n\nТут есть нюанс: в Ivory Coast / Côte d'Ivoire каннабис запрещён по текущему SSOT.\n\nCannabis is формально запрещено in Ivory Coast / Côte d'Ivoire. Medical cannabis is формально запрещено. Distribution is формально запрещено.\n\nНа земле это может ощущаться иначе: Ivory Coast / Côte d'Ivoire remains формально запрещено in law. Это не разрешение, а просто social reality из текущих данных.\n\nЕсли вопрос именно про medical access: по текущим данным он не открыт как обычный legal channel.",
+      "score": 1,
+      "ts": 1776543325392,
+      "last_used": 1776543325392
+    },
+    {
       "id": "9bf583d9a0bb17fe",
       "query": "что с каннабисом здесь простыми словами?",
       "intent": "general",
@@ -21,26 +623,6 @@
       "last_used": 1776508362657
     },
     {
-      "id": "fb482446550e0475",
-      "query": "What would be the real-life risk for a traveler here?",
-      "intent": "airport",
-      "location": "PE",
-      "answer": "Short and honest:\n\nInteresting angle: Peru / Piruw is softer than a full ban, but that is not the same as a fully legal market.\n\nBe especially careful with flights and borders: Airports and borders are high-control zones. Crossing borders with cannabis can lead to criminal charges.\n\nPrison exposure is present in the data, so this does not read like a paper-only ban. Cannabis is decriminalized in Peru / Piruw. Medical cannabis is legal. Distribution is formally illegal. Prison exposure detected.\n\nReality on the ground can feel different: Peru / Piruw remains decriminalized in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals. That is not permission, only the current social signal.\n\nWant me to show the strictest airports too?",
-      "score": 1,
-      "ts": 1776460901437,
-      "last_used": 1776509978591
-    },
-    {
-      "id": "407c14923704c8ba",
-      "query": "why not?",
-      "intent": "general",
-      "location": "IE",
-      "answer": "Here it is plainly:\n\nIf we go one layer deeper, the biggest risk still sits around flights and border control.\n\nReality on the ground can feel different: Ireland / Éire remains decriminalized in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals. That is not permission, only the current social signal.\n\nOn the medical side, access is legal in the current data.\n\nIf you want, we can compare this with another country or state.\n\nWant to keep going?",
-      "score": 1,
-      "ts": 1776460980609,
-      "last_used": 1776509978377
-    },
-    {
       "id": "292ba9b80870f6fe",
       "query": "Long practical question: if cannabis feels socially normal, what still matters legally?",
       "intent": "legal",
@@ -59,16 +641,6 @@
       "score": 1,
       "ts": 1776460492131,
       "last_used": 1776462308948
-    },
-    {
-      "id": "f5c2d61b72f07971",
-      "query": "Еу, как сам?",
-      "intent": "general",
-      "location": "DE",
-      "answer": "Если по факту:\n\nЕсть ещё момент, который важно понимать:\n\nНа земле это может ощущаться иначе: Germany / Deutschland remains legal in law. Это не разрешение, а просто social reality из текущих данных.\n\nЕсли смотреть именно на medical side: доступ там legal.\n\nЕсли интересно, можно сравнить это с другой страной или штатом.\n\nПродолжим?",
-      "score": 1,
-      "ts": 1776459166481,
-      "last_used": 1776459166481
     },
     {
       "id": "e8c8d05f4b72f795",
@@ -444,17 +1016,6 @@
       "last_used": 1776349688672
     },
     {
-      "id": "45588a55a1a0072f",
-      "query": "Why?",
-      "intent": "general",
-      "location": "BR",
-      "answer": "The Netherlands / Nederland offers a safer environment in terms of regulation compared to the mixed approach found in Brazil / Brasil. In the Netherlands, cannabis possession and use are regulated through strict laws and enforcement mechanisms that significantly reduce risks. The country has legalized both medical and recreational cannabis usage with detailed regulations designed to ensure safety. This includes clear rules on dosage, potency, and packaging, as well as a focus on medicinal benefits over recreational use. On the other hand, Brazil's legal status is characterized by its complexity: while some areas may allow for certain levels of cannabis possession or consumption in medical contexts, there are also regions where access to marijuana is illegal. The country has had inconsistent enforcement of laws and regulations, which means that users face higher risks due to unclear boundaries and varying degrees of compliance across different states. The Netherlands' comprehensive approach provides a safer environment by ensuring stricter controls over cannabis products, reducing the potential for accidental poisoning or harmful interactions with other substances commonly used with marijuana. The country's focus on medicinal",
-      "score": 1,
-      "used": 0,
-      "ts": 1776349606231,
-      "last_used": 1776349606231
-    },
-    {
       "id": "54628e6b8e7e8127",
       "query": "Why?",
       "intent": "general",
@@ -475,576 +1036,6 @@
       "used": 6,
       "ts": 1776342594715,
       "last_used": 1776349561876
-    },
-    {
-      "id": "8c2b832c3ca31af3",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "BR",
-      "answer": "In comparing Brazil with the Netherlands, both countries face unique challenges related to drug use and society's response. While Brazil has decriminalized recreational cannabis use, it is still considered a high-risk behavior due to its prevalence in urban areas. Medical cannabis is legal for adults over 18, but there are still instances of users facing harsh penalties for possession or using cannabis recreationally.\n\nNetherlands, on the other hand, manages the situation differently with strict regulations and laws that aim to reduce harm while maintaining some level of social acceptance. The country has a well-developed system tracking usage patterns, medical applications, and potential risks associated with drug use.\n\nIn terms of safety:\n- Brazil's approach may lead to higher rates of exposure in prison due to possession or criminal behavior related to cannabis.\n- Netherlands places greater emphasis on education programs within schools about cannabis use, aiming to decrease societal stigma around drug-related issues. The country has shown significant improvements in treating and educating users, which could contribute to a more open dialogue about the risks.\n\nBoth countries have their own challenges in enforcing regulations effectively and managing user populations properly. It's important to consider these factors when deciding whether either place is \"safer.\" In Brazil",
-      "score": 1,
-      "used": 9,
-      "ts": 1776340982433,
-      "last_used": 1776349561876
-    },
-    {
-      "id": "78f9d58b837ff7bf",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "BR",
-      "answer": "### Real Risks:\n\n**Brazil / Brasil:**\n1. **Legal Framework:** Although cannabis possession is now decriminalized, it still falls under the Controlled Substances Act (ECA). This makes it illegal to possess or cultivate marijuana, but not to consume it.\n2. **Health Risks:** Impurities and unregulated processing methods pose significant health risks for users who self-manage their consumption without professional oversight.\n3. **Legality vs. Enforcement:** The enforcement of marijuana laws is inconsistent across different regions in Brazil. Some areas have more lenient approaches, while others remain stricter with limited legal guidance on the subject.\n\n**Netherlands / Nederland:**\n1. **Legal Framework:** The Netherlands has a well-established framework for cannabis legalization and regulation, including specific laws governing its cultivation, possession, consumption, as well as medical use.\n2. **Health Risks:** There are fewer concerns related to impurities or unregulated processing compared to Brazil because the country's regulations aim to ensure higher quality control through certification.\n3. **Legality vs. Enforcement:** The Netherlands has a strong and comprehensive regulatory system that ensures the legality and safety of cannabis products on the market, making it safer",
-      "score": 1,
-      "used": 5,
-      "ts": 1776343952140,
-      "last_used": 1776349522815
-    },
-    {
-      "id": "ea567ddb54e5b8c0",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "BR",
-      "answer": "What specific risks does Brazil face in comparison to the Netherlands? The Netherlands has lower levels of crime compared to most other countries around the world.\nCan I ask more questions about either country's security situation?\nBrazil faces numerous challenges, including high homicide rates (15.4 per 100,000 inhabitants), poverty and unemployment issues, environmental concerns such as deforestation and urban sprawl, among others. The Netherlands, on the other hand, has low crime levels (3 crimes per 1,000 inhabitants) and a highly developed infrastructure with good public transportation systems.\nIn summary, while both countries are mixed in terms of their risk signals, Brazil faces challenges that can impact personal safety compared to the Netherlands where issues like crime are not significant. It's worth considering individual circumstances when deciding which country might be more suitable for your location or lifestyle preferences.",
-      "score": 1,
-      "used": 6,
-      "ts": 1776343202529,
-      "last_used": 1776349522815
-    },
-    {
-      "id": "eab4d44b0eb46cf7",
-      "query": "What are real risks?",
-      "intent": "legal",
-      "location": "BR",
-      "answer": "The information you've provided indicates that the current situation for cannabis possession and use in Brazil / Brasil is a mix of different factors: 1. **Decriminalization**: The law states that small amounts are not considered criminal, but this doesn't necessarily mean there's no risk or enforcement. 2. **Medical Legal Status**: Access to medical marijuana is legal in Brazil / Brasil. 3. **Distribution Status**: This part is mixed, which means it can vary depending on the region and circumstances. 4. **Risk Signal**: The risk signal suggests that while possession of small amounts may not lead to immediate prosecution, there are still risks involved due to the mix of active enforcement signals and other factors like potential prison exposure. 5. **Enforcement Signal**: There is an indication that this area has been monitored for law enforcement activities related to cannabis use or distribution. These mixed results suggest a complex situation where legal access does not necessarily translate into safe practices, as there may still be risks associated with possession in certain areas",
-      "score": 1,
-      "used": 0,
-      "ts": 1776349520390,
-      "last_used": 1776349520390
-    },
-    {
-      "id": "70b9ea5bf7b73ce2",
-      "query": "What are real risks?",
-      "intent": "legal",
-      "location": "BR",
-      "answer": "Thank you for providing those details about Brazil's cannabis regulations. The risks associated with using and distributing cannabis in Brazil can include legal penalties, health issues related to improper consumption methods or quality control, social stigma attached to drug use, as well as economic difficulties if dealing or producing drugs.\n\nGiven the high-risk signal indicating significant potential dangers, it would be advisable for individuals to exercise caution and consider the following:\n\n1. **Health Risks**: Ensure you are using cannabis from a reputable source that follows health standards. Improper consumption can lead to adverse effects on your health.\n2. **Legal Consequences**: If caught with more than what is considered a personal possession, there might be legal repercussions depending on local regulations and law enforcement efforts.\n3. **Economic Considerations**: The drug trade often involves significant economic risks, including illegal financing methods that could put you in financial trouble.\n\nRemember, while using cannabis for medical purposes under the supervision of healthcare professionals can be beneficial, always prioritize your safety and well-being by staying informed about local laws and regulations.",
-      "score": 1,
-      "used": 6,
-      "ts": 1776342532369,
-      "last_used": 1776349501121
-    },
-    {
-      "id": "dd645f0573fd98c5",
-      "query": "What are real risks?",
-      "intent": "legal",
-      "location": "BR",
-      "answer": "I'm sorry, but I don't see any recent questions that need answering in this conversation with respect to Brazil or decriminalization laws regarding cannabis.\n\nIs there anything specific you would like to discuss about Brazil's marijuana situation? This could include its legal framework for medical and recreational use of the substance.",
-      "score": 1,
-      "used": 7,
-      "ts": 1776341814454,
-      "last_used": 1776349501121
-    },
-    {
-      "id": "7afd7a19ff99600a",
-      "query": "What are real risks?",
-      "intent": "legal",
-      "location": "BR",
-      "answer": "Thank you for your response, I will make sure to keep it local or follow your instructions strictly.\n\nRecreational use is mostly uncontrolled but remains a crime in many states or municipalities. Distribution of cannabis products without proper permits can lead to fines and community service. \n\nFor medical use, patients are required to obtain a doctor's prescription, but the process can be bureaucratic and often results in long waiting times. The quality control of medical marijuana varies widely across regions.\n\nAs for risks:\n- Health-related: Potential health effects, though less severe than some other substances.\n- Legal risk: Facing penalties such as fines or even prison time due to unlicensed possession or distribution.\n- Social risk: Potential social repercussions including negative judgments from neighbors and community members.\n- Criminal risk: Increased likelihood of getting caught by authorities.\n\nKeep in mind that these risks can vary depending on the state, city, or even individual factors like drug tolerance levels. It is always best to consult with a professional before engaging with any substance for health or legal reasons.",
-      "score": 1,
-      "used": 9,
-      "ts": 1776340919164,
-      "last_used": 1776349501121
-    },
-    {
-      "id": "e1d7ff3c6c1674ac",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "BR",
-      "answer": "Short and honest:\n\nThere is another angle here that matters:\n\nReality on the ground can feel different: Brazil / Brasil remains decriminalized in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals. That is not permission, only the current social signal.\n\nOn the medical side, access is legal in the current data.\n\nIf you want, we can compare this with another country or state.\n\nWant to keep going?",
-      "score": 1,
-      "used": 0,
-      "ts": 1776349498773,
-      "last_used": 1776349498773
-    },
-    {
-      "id": "ad7235487c725d13",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "BR",
-      "answer": "Understood, I will focus on questions related to Brazil / Brasil for now. Please ask your next query about cannabis law or enforcement in Brazil if you have more information or need clarification regarding that topic.",
-      "score": 1,
-      "used": 13,
-      "ts": 1776340895696,
-      "last_used": 1776349459824
-    },
-    {
-      "id": "395bda2ee2922f2b",
-      "query": "Why?",
-      "intent": "general",
-      "location": "FI",
-      "answer": "In comparison to Finland/Suomi:\n- The Netherlands/Nederland has stricter regulations regarding cannabis use.\n- It tolerates recreational consumption but maintains more strict enforcement measures.\n\nThis results in higher safety standards due to better oversight and less casual distribution of cannabis within its population.\n\nKey differences:\n1. Enforcement signal: The Netherlands actively enforces laws, making it safer by reducing the risk of public disturbances or illegal activities associated with loose cannabis policies.\n2. Medical status: Both countries permit medical use; however, the Dutch system is more lenient in terms of enforcement and availability compared to Finland/Suomi.\n\nIn conclusion, while both countries regulate cannabis, the Netherlands demonstrates a higher level of safety by enforcing its laws more rigorously and limiting public access.",
-      "score": 1,
-      "used": 8,
-      "ts": 1776341738129,
-      "last_used": 1776349385965
-    },
-    {
-      "id": "d517e5324e2e0155",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "FI",
-      "answer": "Certainly, let's compare the legal statuses and public perception of cannabis use between Finland and the Netherlands: ### Finland / Suomi: - **Legal Status**: Decriminalized - Possession of up to 7 grams (about a teaspoon) can be considered a minor offense. - **Health Risks**: There are no restrictions on recreational marijuana use in Finland, but health concerns remain. Medical cannabis is available with prescription. - **Public Perception and Safety**: The general public perception of drug-related issues can influence reactions to these laws. Finnish enforcement remains strict due to other EU countries' legal status. ### Netherlands / Nederland: - **Legal Status**: Mixed - Some areas have decriminalized, but others remain fully illegal for personal use. - **Health Risks**: There are no restrictions on recreational marijuana use in the Netherlands, similar to Finland's situation. Public perception can influence reactions, and enforcement is strict within EU countries. ### Comparison: 1. **Legal Status**: - **Finland",
-      "score": 1,
-      "used": 0,
-      "ts": 1776349383646,
-      "last_used": 1776349383646
-    },
-    {
-      "id": "70d75828093ca5c2",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "FI",
-      "answer": "Finland/Suomi has decriminalized cannabis but treats it differently from most of Europe. It's illegal for recreational use but allows medical possession under specific conditions.\n\nIn comparison with the Netherlands/Nederland:\n\nThe Netherlands has a more liberal approach, allowing both medical and recreational use within its legal framework. The Netherlands actively enforces its laws, making it significantly safer in terms of enforcement compared to Finland/Suomi. \n\nKey differences:\n1. Medical status: Allowed but limited.\n2. Recreational status: Tolerated, though still restricted.\n\nNetherlands/Nederland's cannabis system:\n- Legalized medical use.\n- Cannabis possession allowed with restrictions and licensing.\n- Public consumption is heavily regulated and actively monitored by authorities to ensure compliance.\n\nIn conclusion, the Netherlands has a more open approach towards legalizing drug use within specific guidelines while Finland/Suomi maintains stricter control over its cannabis policies. The enforcement signals in both countries can be seen as important indicators of safety and regulation measures.",
-      "score": 1,
-      "used": 7,
-      "ts": 1776341713261,
-      "last_used": 1776349362942
-    },
-    {
-      "id": "808febc61a86ea7d",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "FI",
-      "answer": "Certainly, let's compare the real risks associated with cannabis use between Finland and the Netherlands. ### Finland / Suomi: - **Legal Status**: Decriminalized. - This means possession of up to 7 grams (about a teaspoon) of marijuana can be considered a minor offense, subject to fines or community service. However, this is not without risk because it remains illegal for personal use in most other EU countries and stricter enforcement occurs within the European Union. - **Health Risks**: While medical cannabis is available with prescription, there are no restrictions on its use for recreational purposes. There have been concerns about unknown health risks associated with marijuana. - Public perception can influence reactions to drug-related issues, including public safety. - **Enforcement and Security**: Enforcement of anti-drug laws remains strict in Finland. This includes regular searches by law enforcement to check compliance and ensure that no violations occur. ### Netherlands / Nederland: - **Legal Status**: Mixed; some areas have decriminalized",
-      "score": 1,
-      "used": 0,
-      "ts": 1776349360479,
-      "last_used": 1776349360479
-    },
-    {
-      "id": "d684333b72e4684b",
-      "query": "What are real risks?",
-      "intent": "legal",
-      "location": "FI",
-      "answer": "In Finland, as of now, cannabis use remains illegal for recreational purposes except under certain medical conditions where it is limited in scope.\n\nGiven that there's no active enforcement but a decriminalized legal status, the risks you mentioned might not materialize based on current laws. However, due to a lack of strict regulation and oversight, it would be prudent to stay aware of local community reactions or individual actions that could potentially lead to unintended consequences.\n\nIt’s important to note that despite the de facto absence of criminal penalties for personal cannabis use, public attitudes towards marijuana usage continue to be influenced by broader societal norms and regulations. Therefore, while the risk is reduced in terms of legal repercussions, it doesn't completely eliminate other real risks such as health concerns or social stigma.\n\nLet me know if you have any more questions or need further clarification!",
-      "score": 1,
-      "used": 7,
-      "ts": 1776342349013,
-      "last_used": 1776349316517
-    },
-    {
-      "id": "26f322ea1c76dfba",
-      "query": "What are real risks?",
-      "intent": "legal",
-      "location": "FI",
-      "answer": "The legal status of cannabis in Finland/Suomi includes that it is decriminalized for personal use, but possession of small quantities remains illegal. This means people aged 18 or older can consume cannabis recreationally without penalties, although they must have a medical prescription to obtain medical cannabis and cannot distribute the drug.\n\nThere are no real risks associated with using cannabis in Finland/Suomi under these circumstances. The term \"risk\" suggests a level of danger that is not applicable here since legal and medicinal usage does not involve substances classified as dangerous or harmful by health authorities.\n\nHowever, it's important to note that some individuals might still prefer the phrase \"real risks,\" which could include social or reputational concerns in certain contexts or places. Nevertheless, based on official records provided, there are no established real risks from using cannabis legally under Finland/Suomi’s current laws.\n\nThe enforcement signal indicates an active law-enforcement presence, suggesting that authorities might be vigilant, but the specific measures and locations where enforcement could occur would need to be determined by local jurisdictions or public information.",
-      "score": 1,
-      "used": 8,
-      "ts": 1776341650662,
-      "last_used": 1776349316517
-    },
-    {
-      "id": "e9cddd60ea152e48",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "FI",
-      "answer": "As Finland has a decriminalized cannabis law, it means that possession of up to 10 grams of cannabis for personal use is not considered illegal. However, cultivation for personal use remains legal but requires registration with local authorities.\n\nFor medical purposes, patients must obtain a prescription from a doctor and follow specific protocols. In terms of distribution, this is also banned in Finland as it is considered an illegal act to sell or distribute any form of cannabis products.\n\nThe fact that there are strict risk signals suggests a higher awareness of the potential health risks associated with cannabis use. This could involve increased scrutiny by law enforcement when dealing with individuals found with the drug, especially those who are suspected of distributing or possessing large amounts.\n\nEnforcement is active, meaning police and other authorities can target individuals caught in possession of small quantities for personal use without warrant. It's important to note that even though the cannabis market remains legal, any distribution activities would still fall under criminal penalties.\n\nIt’s worth mentioning that Finland has a zero-tolerance policy towards drug-related offenses, regardless of quantity or intent. This means that not only is possession illegal, but also dealing and driving under the influence are subject to heavy fines and potential imprisonment depending",
-      "score": 1,
-      "used": 6,
-      "ts": 1776342997119,
-      "last_used": 1776349294051
-    },
-    {
-      "id": "032b1db64328dbd3",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "FI",
-      "answer": "I apologize for misunderstanding your initial inquiry earlier. The cannabis law in Finland is characterized by a decriminalized status, meaning that using cannabis for personal use is legal but possession of small quantities remains illegal. There are no restrictions or limitations on recreational usage; it's widely accessible to those aged 18 or older.\n\nThe current enforcement signal indicates an active law enforcement presence, suggesting a high level of concern about cannabis-related activities in Finland. Despite the legal status, some regions may enforce stricter measures than others, so individuals should be aware of local regulations when purchasing or using cannabis.",
-      "score": 1,
-      "used": 10,
-      "ts": 1776341624621,
-      "last_used": 1776349294051
-    },
-    {
-      "id": "78a33b416fccdd31",
-      "query": "Why?",
-      "intent": "general",
-      "location": "IR",
-      "answer": "The enforcement of cannabis laws in Iran can be quite strict, given that possession or cultivation is illegal. There are specific circumstances under which some forms of medical use may be legally permitted, but it's important to understand these will require formal approval and authorization.\n\nThe risk signal being restricted indicates ongoing concerns about cannabis usage, possibly due to its illegality across the board in Iran unless specifically authorized for medicinal purposes.\n\nRegarding enforcement, given that possession is illegal, there would likely be varying degrees of scrutiny or outright prohibition based on individual circumstances. Whether this means police actively enforcing laws or maintaining a high level of vigilance and compliance isn't definitively known without more recent updates to local legislation or judicial decisions.\n\nAs Iran's cannabis law remains largely unchanged from previous information provided in the past, it suggests that enforcement may have been stringent historically but is likely under continued surveillance by authorities.",
-      "score": 1,
-      "used": 6,
-      "ts": 1776342277979,
-      "last_used": 1776349200169
-    },
-    {
-      "id": "814567165449c7a5",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "IR",
-      "answer": "Iran / ایران and Netherlands / Nederland are very different in terms of safety and legal regulations regarding cannabis use. In Iran, using or selling cannabis can be considered illegal due to strict enforcement of drug laws. Individuals caught violating these laws may face serious consequences such as fines and imprisonment. The risk for people who violate the law is high; however, this does not mean that everyone in Iran uses or sells cannabis. On the other hand, the Netherlands / Nederland has a more liberal stance on drugs compared to many countries around the world. While it's still illegal to use or distribute certain substances (including cannabis), the country has implemented policies aimed at reducing harm and promoting public health. This means that while using cannabis is technically against Dutch law, there are significant restrictions in place designed to minimize negative consequences. In summary: - Iran: Strict laws; high risk of legal consequences. - Netherlands: Mixed status; restricted but with policies for public health.",
-      "score": 1,
-      "used": 0,
-      "ts": 1776349197870,
-      "last_used": 1776349197870
-    },
-    {
-      "id": "330e9b2f5cc8d0aa",
-      "query": "What are real risks?",
-      "intent": "legal",
-      "location": "IR",
-      "answer": "I understand that you're asking about the enforcement of cannabis laws in Iran, which is indeed illegal according to your query. The term \"Risk signal\" mentioned earlier indicates a level of restriction on cannabis use, meaning there are guidelines or warnings associated with using marijuana but it's still unlawful.\n\nRegarding real risks, while I can't provide specific details about what these could be without being more definitive in my answer due to privacy concerns and the sensitivity of such information, one might expect that any illegal substance use carries inherent dangers related to its legal prohibition. This includes potential health effects, social consequences, and possible repercussions from authorities.\n\nHowever, it's worth noting that laws often evolve over time, and while they may be strict now, the situation could change or become more lenient in certain circumstances. If you're planning a trip or conducting research on cannabis policies in Iran, it would be advisable to check recent updates through official sources or legal experts familiar with Iranian regulations.\n\nPlease let me know if there are any specific aspects of this topic that you'd like further information about!",
-      "score": 1,
-      "used": 6,
-      "ts": 1776342863483,
-      "last_used": 1776349121549
-    },
-    {
-      "id": "de9409f207f44679",
-      "query": "What are real risks?",
-      "intent": "legal",
-      "location": "IR",
-      "answer": "You're right, I made a mistake in mentioning medical cannabis isn't legal as it's just about the current status of distribution being illegal. Let me correct that for you.\n\nRecreational use is strictly prohibited: It is considered illegal to possess, consume or distribute any form of cannabis regardless of how one might find recreational use.\nMedical use is also not allowed: It is banned to cultivate, produce, and distribute all types of medical marijuana. \n\nAs for the enforcement signal being active, that means the government is actively enforcing these laws against cultivation, production, importation, distribution, possession, and consumption.\n\nI've been corrected now. If you have any other questions about cannabis in Iran or related topics, feel free to ask!",
-      "score": 1,
-      "used": 8,
-      "ts": 1776341488896,
-      "last_used": 1776349121549
-    },
-    {
-      "id": "c47b956f77c35842",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "IR",
-      "answer": "Short and honest: Cannabis is formally illegal in Iran / ایران, but enforcement can be inconsistent. While it's not widely enforced in the open, certain activities related to cannabis are considered \"restricted\" or \"active.\" Reality on the ground can feel different: despite law enforcement being low-priority compared to other issues, small-scale distribution might still occur. This isn't legal permission, just a current social signal. The situation is complex and varies depending on specific circumstances within Iran / ایران.",
-      "score": 1,
-      "used": 0,
-      "ts": 1776349119286,
-      "last_used": 1776349119286
-    },
-    {
-      "id": "dfd8fd8b2b2badb0",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "IR",
-      "answer": "Certainly! The current cannabis laws in Iran prohibit its cultivation, production, importation, distribution, possession, and consumption for both recreational and medical purposes. Despite these prohibitions being enforced strictly by the government.\n\nIf you have more questions about cannabis in Iran or any other related topics, feel free to ask!",
-      "score": 1,
-      "used": 12,
-      "ts": 1776341467722,
-      "last_used": 1776349107858
-    },
-    {
-      "id": "deb4b18725e5a7ab",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "IR",
-      "answer": "You're correct about the cannabis laws in Iran, but it's important to note that discussions and questions should be relevant to Iran / ایران. Let me rephrase your questions or provide a brief overview of cannabis law enforcement practices in Iran without introducing any external countries:\n\nWhat is the current status of cannabis laws in Iran?\n\nIs there active enforcement of these laws?",
-      "score": 1,
-      "used": 13,
-      "ts": 1776340585361,
-      "last_used": 1776349107858
-    },
-    {
-      "id": "511e48f826fdf030",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "IR",
-      "answer": "Given the details provided, Iran's cannabis law is highly restrictive, with possession or cultivation being illegal, leading to potential enforcement issues without clear guidelines for exceptions. The active risk signal suggests that there are ongoing concerns about this substance, possibly due to its status as illegal under most circumstances in Iran.\n\nHowever, it’s important to note that specific changes or shifts in the legal landscape can occur anytime, so current information might not reflect immediate updates on cannabis laws. If you're looking for the latest and accurate information regarding cannabis law enforcement, it would be beneficial to check official government websites, medical authorities, or local police departments as they are responsible for enforcing such regulations.\n\nThe risk signal being active could also imply ongoing debates about legalizing cannabis for medical purposes under specific conditions only, but without more detailed information, this is speculative. Always ensure you consult with the appropriate authority before making any decisions related to substances classified as illegal in Iran.",
-      "score": 1,
-      "used": 7,
-      "ts": 1776342174619,
-      "last_used": 1776349107858
-    },
-    {
-      "id": "77e3e6cfc8042bbd",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "KH",
-      "answer": "Let's break it down calmly:\n\nFrom another angle, what matters is this:\n\nCalm version: cannabis is formally illegal in Cambodia / Kâmpŭchéa in the current SSOT.\n\nCannabis is formally illegal in Cambodia / Kâmpŭchéa. Medical cannabis is formally illegal. Distribution is formally illegal.\n\nReality on the ground can feel different: Cambodia / Kâmpŭchéa remains formally illegal in law, but small-scale enforcement is often low-priority. That is not permission, only the current social signal.\n\nOn the medical side, the current data does not show an open legal channel.\n\nWant to compare it with another country?",
-      "score": 1,
-      "used": 0,
-      "ts": 1776348862960,
-      "last_used": 1776348862960
-    },
-    {
-      "id": "e59122339b39021c",
-      "query": "What are real risks?",
-      "intent": "legal",
-      "location": "KH",
-      "answer": "Here it is plainly:\n\nInteresting angle: cannabis is formally illegal in Cambodia / Kâmpŭchéa in the current SSOT.\n\nCannabis is formally illegal in Cambodia / Kâmpŭchéa. Medical cannabis is formally illegal. Distribution is formally illegal.\n\nReality on the ground can feel different: Cambodia / Kâmpŭchéa remains formally illegal in law, but small-scale enforcement is often low-priority. That is not permission, only the current social signal.\n\nOn the medical side, the current data does not show an open legal channel.\n\nWant to compare it with another country?",
-      "score": 1,
-      "used": 0,
-      "ts": 1776348829823,
-      "last_used": 1776348829823
-    },
-    {
-      "id": "6749c9d27fc0c900",
-      "query": "Why?",
-      "intent": "general",
-      "location": "BR",
-      "answer": "Short and honest:\n\nThere is another angle here that matters:\n\nReality on the ground can feel different: Brazil / Brasil remains decriminalized in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals. That is not permission, only the current social signal.\n\nOn the medical side, access is legal in the current data.\n\nIf you want, we can compare this with another country or state.\n\nWant to keep going?",
-      "score": 1,
-      "used": 0,
-      "ts": 1776348716383,
-      "last_used": 1776348716383
-    },
-    {
-      "id": "37239e7e452eb091",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "BR",
-      "answer": "The risks associated with marijuana (cannabis) can be significant, even if it's not being fully prohibited in Brazil / Brasil. Here are some factors to consider: **Risks:** 1. **Health Risks**: Cannabis use has been linked to various health issues such as anxiety, depression, poor sleep quality, and memory problems. 2. **Legal Consequences**: Possession of small amounts can lead to fines or even imprisonment. 3. **Social Impacts**: The social stigma associated with marijuana use might affect individuals' personal relationships and employment opportunities. 4. **Substance Use Disorders**: Chronic cannabis users may develop dependence, leading to substance use disorders. **Safety:** 1. **Medical Benefits**: It has been used for medicinal purposes, including treating chronic pain, nausea caused by cancer treatments, and reducing seizures in epilepsy patients. 2. **Legal Protections**: The legal status indicates that it is not fully banned, which could provide some level of safety from severe consequences. 3",
-      "score": 1,
-      "used": 0,
-      "ts": 1776348690362,
-      "last_used": 1776348690362
-    },
-    {
-      "id": "0b447552369cb6b4",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "BR",
-      "answer": "If we keep it factual:\n\nFrom another angle, what matters is this:\n\nInteresting angle: Brazil / Brasil is mixed in the current SSOT, so parts of the picture are softer while other parts stay restricted.\n\nPrison exposure is present in the data, so this does not read like a paper-only ban. Cannabis is decriminalized in Brazil / Brasil. Medical cannabis is legal. Distribution is mixed. Prison exposure detected.\n\nReality on the ground can feel different: Brazil / Brasil remains decriminalized in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals. That is not permission, only the current social signal.\n\nOn the medical side, access is legal in the current data.\n\nWant to compare it with another country?",
-      "score": 1,
-      "used": 0,
-      "ts": 1776348667429,
-      "last_used": 1776348667429
-    },
-    {
-      "id": "2df98f42e3de2675",
-      "query": "What are real risks?",
-      "intent": "legal",
-      "location": "BR",
-      "answer": "Let's break it down calmly:\n\nFrom another angle, what matters is this:\n\nHere is the nuance: Brazil / Brasil is mixed in the current SSOT, so parts of the picture are softer while other parts stay restricted.\n\nPrison exposure is present in the data, so this does not read like a paper-only ban. Cannabis is decriminalized in Brazil / Brasil. Medical cannabis is legal. Distribution is mixed. Prison exposure detected.\n\nReality on the ground can feel different: Brazil / Brasil remains decriminalized in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals. That is not permission, only the current social signal.\n\nOn the medical side, access is legal in the current data.\n\nWant to compare it with another country?",
-      "score": 1,
-      "used": 0,
-      "ts": 1776348635599,
-      "last_used": 1776348635599
-    },
-    {
-      "id": "96f6f4cb61ec4b4d",
-      "query": "What are real risks?",
-      "intent": "legal",
-      "location": "FI",
-      "answer": "Yes, enforcement of the laws related to cannabis can vary depending on specific circumstances and local police practices. In many cases, law enforcement agencies may not prioritize monitoring or enforcing regulations regarding possession, consumption, or distribution of cannabis for personal use in Finland / Suomi. This could lead to a low level of compliance with these laws. Real risks associated with cannabis in Finland / Suomi include: - Possession offenses are relatively infrequent and often result in fines rather than prosecution. - Consumption is not illegal but may still be restricted by certain regulations, such as medical use. - Distribution remains illegal; even if there are no active raids or enforcement efforts, the law against distribution of cannabis is considered to remain a priority. The current status highlights that while possession offenses are less likely due to low enforcement, it does not mean they are completely ignored. In summary, while cannabis consumption and distribution remains illegal in Finland / Suomi, enforcement seems more focused on higher-level activities like production or trafficking rather than individual personal use",
-      "score": 1,
-      "used": 0,
-      "ts": 1776348478504,
-      "last_used": 1776348478504
-    },
-    {
-      "id": "4a419d53cf2a3f5a",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "KH",
-      "answer": "Let's break it down calmly:\n\nCalm version: cannabis is formally illegal in Cambodia / Kâmpŭchéa in the current SSOT.\n\nCannabis is formally illegal in Cambodia / Kâmpŭchéa. Medical cannabis is formally illegal. Distribution is formally illegal.\n\nReality on the ground can feel different: Cambodia / Kâmpŭchéa remains formally illegal in law, but small-scale enforcement is often low-priority. That is not permission, only the current social signal.\n\nOn the medical side, the current data does not show an open legal channel.\n\nWant to compare it with another country?",
-      "score": 1,
-      "used": 0,
-      "ts": 1776347978884,
-      "last_used": 1776347978884
-    },
-    {
-      "id": "3aeef97fcae89e8b",
-      "query": "What are real risks?",
-      "intent": "legal",
-      "location": "KH",
-      "answer": "The enforcement of the law on cannabis in Cambodia / Kâmpŭchéa is not actively enforced across all sectors, but it is not entirely non-existent either. While there are legal consequences for engaging with or consuming cannabis, these laws are often poorly understood and inconsistently applied. The risks associated with using cannabis can vary depending on individual circumstances. The general risk involves the potential health effects of regular use, which can include mental health issues such as anxiety and depression, impaired judgment, increased risk-taking behavior, social problems like poor relationships or involvement in crime, and physical harm from drug interactions or adverse reactions. Given that the law is not strictly enforced but also lacks medical cannabis programs or recognized dispensaries, there may be a lower risk of severe consequences for those who use cannabis. However, it's important to note that while the country officially bans cannabis, many individuals continue to consume it without facing significant legal penalties due to varying levels of awareness and enforcement. It's crucial to approach this issue with caution, as",
-      "score": 1,
-      "used": 0,
-      "ts": 1776347937980,
-      "last_used": 1776347937980
-    },
-    {
-      "id": "bf3d1f56a03bdfa6",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "KH",
-      "answer": "The current situation in Cambodia regarding cannabis: 1. Legal Status: Cannabis is officially illegal. 2. Enforcement Signal: While enforcement of the law appears to be low-priority, it is not actively enforced across all sectors. 3. Medical Marijuana: There are no known medical marijuana programs or dispensaries. 4. Distribution: The production and sale of cannabis for recreational use are strictly prohibited in Cambodia / Kâmpŭchéa. 5. Risk Signal: While the law does exist, there may be a low-risk signal due to limited enforcement and awareness. It's important to note that while the country is officially illegal on these points, many people still engage with or consume cannabis without facing severe consequences due to varying levels of understanding about its legality.",
-      "score": 1,
-      "used": 0,
-      "ts": 1776347915436,
-      "last_used": 1776347915436
-    },
-    {
-      "id": "55cd96083a39874b",
-      "query": "Why?",
-      "intent": "general",
-      "location": "FI",
-      "answer": "If we keep it factual:\n\nThere is another angle here that matters:\n\nReality on the ground can feel different: Finland / Suomi remains formally illegal in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals. That is not permission, only the current social signal.\n\nOn the medical side, access is limited in the current data.\n\nIf you want, we can compare this with another country or state.\n\nWant to keep going?",
-      "score": 1,
-      "used": 0,
-      "ts": 1776347671081,
-      "last_used": 1776347671081
-    },
-    {
-      "id": "85b41c9fb0cb0b38",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "FI",
-      "answer": "If we keep it factual:\n\nThere is another angle here that matters:\n\nReality on the ground can feel different: Finland / Suomi remains formally illegal in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals. That is not permission, only the current social signal.\n\nOn the medical side, access is limited in the current data.\n\nIf you want, we can compare this with another country or state.\n\nWant to keep going?",
-      "score": 1,
-      "used": 0,
-      "ts": 1776347626856,
-      "last_used": 1776347626856
-    },
-    {
-      "id": "4bb70a7c04b6eca0",
-      "query": "Compare with Netherlands",
-      "intent": "general",
-      "location": "FI",
-      "answer": "If we keep it factual:\n\nHere is the nuance: Finland / Suomi is softer than a full ban, but that is not the same as a fully legal market.\n\nCannabis is formally illegal in Finland / Suomi. Medical cannabis is limited. Distribution is formally illegal.\n\nReality on the ground can feel different: Finland / Suomi remains formally illegal in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals. That is not permission, only the current social signal.\n\nOn the medical side, access is limited in the current data.\n\nWant to compare it with another country?",
-      "score": 1,
-      "used": 0,
-      "ts": 1776347594306,
-      "last_used": 1776347594306
-    },
-    {
-      "id": "d5920b244f2df708",
-      "query": "What are real risks?",
-      "intent": "legal",
-      "location": "FI",
-      "answer": "The legal status of marijuana (cannabis) in Finland / Suomi can be summarized as follows: 1. **Decriminalized**: The use, distribution, possession, and production of marijuana are not officially criminalized. 2. **Illicit Nature**: However, the cultivation and sale of marijuana is considered illegal. 3. **Limited Medical Use**: While medical cannabis is legal in Finland / Suomi, access to it remains limited due to strict regulations and restrictions. **Risks Involved:** 1. **Legal Risks**: Engaging in the illegal activities related to marijuana (such as cultivation or distribution) can lead to significant legal consequences. 2. **Health Risks**: There is no guaranteed safety when using cannabis, including risks of addiction, negative health effects on the heart and lungs, mental health issues, and other potential risks associated with substance use. **Current Enforcement:** 1. **Active Compliance Efforts**: The police actively enforce laws against marijuana-related activities. 2. **",
-      "score": 1,
-      "used": 0,
-      "ts": 1776347561684,
-      "last_used": 1776347561684
-    },
-    {
-      "id": "7c7c6ef69fe25ef9",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "FI",
-      "answer": "If we keep it factual:\n\nThere is another angle here that matters:\n\nReality on the ground can feel different: Finland / Suomi remains formally illegal in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals. That is not permission, only the current social signal.\n\nOn the medical side, access is limited in the current data.\n\nIf you want, we can compare this with another country or state.\n\nWant to keep going?",
-      "score": 1,
-      "used": 0,
-      "ts": 1776347531752,
-      "last_used": 1776347531752
-    },
-    {
-      "id": "5109c1ba56109ee8",
-      "query": "Why?",
-      "intent": "general",
-      "location": "IR",
-      "answer": "Let's break it down calmly:\n\nThere is another angle here that matters:\n\nReality on the ground can feel different: Iran / ایران remains formally illegal in law, but small-scale enforcement is often low-priority. That is not permission, only the current social signal.\n\nOn the medical side, the current data does not show an open legal channel.\n\nIf you want, we can compare this with another country or state.\n\nWant to keep going?",
-      "score": 1,
-      "used": 0,
-      "ts": 1776347441231,
-      "last_used": 1776347441231
-    },
-    {
-      "id": "2eea8aa71f350f39",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "IR",
-      "answer": "Let's break it down calmly:\n\nThere is another angle here that matters:\n\nReality on the ground can feel different: Iran / ایران remains formally illegal in law, but small-scale enforcement is often low-priority. That is not permission, only the current social signal.\n\nOn the medical side, the current data does not show an open legal channel.\n\nIf you want, we can compare this with another country or state.\n\nWant to keep going?",
-      "score": 1,
-      "used": 0,
-      "ts": 1776347410351,
-      "last_used": 1776347410351
-    },
-    {
-      "id": "c90fb3b4a1513c35",
-      "query": "What are real risks?",
-      "intent": "legal",
-      "location": "IR",
-      "answer": "Short and honest:\n\nFrom another angle, what matters is this:\n\nInteresting angle: cannabis is formally illegal in Iran / ایران in the current SSOT.\n\nCannabis is formally illegal in Iran / ایران. Medical cannabis is formally illegal. Distribution is formally illegal.\n\nReality on the ground can feel different: Iran / ایران remains formally illegal in law, but small-scale enforcement is often low-priority. That is not permission, only the current social signal.\n\nOn the medical side, the current data does not show an open legal channel.\n\nWant to compare it with another country?",
-      "score": 1,
-      "used": 0,
-      "ts": 1776347367578,
-      "last_used": 1776347367578
-    },
-    {
-      "id": "c4da0008f809ebab",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "BR",
-      "answer": "In Brazil, the cannabis law and enforcement landscape are characterized by a complex mix of regulations that reflect both decriminalization for recreational use and legalization for medical purposes. Here’s an in-depth breakdown: **Recreational Status: Decriminalized (2017)** - **Decriminalization:** Since 2017, possession of up to 30 grams of cannabis has been decriminalized without significant legal consequences or criminal penalties. - **Possession Limits:** This means that individuals can legally possess small amounts of cannabis for personal use without facing severe legal repercussions. **Medical Status: Legal** - **Legalization:** Since 2013, medical marijuana is fully legalized in Brazil, allowing for access to medicinal cannabis under the supervision of a licensed physician. - **Prescription and Regulation:** Access to medical cannabis is regulated through prescription by certified physicians. It's important that patients follow prescribed dosages and use it as directed. **Distribution Status: Mixed** - **Availability:** The legal sale of cannabis has been largely limited, with some areas maintaining strict regulations on its distribution and use. - **Home Consumption:** There are exceptions where home consumption is allowed under specific circumstances and",
-      "score": 1,
-      "used": 0,
-      "ts": 1776346688223,
-      "last_used": 1776346688223
-    },
-    {
-      "id": "28369b3fb1ddca54",
-      "query": "What are real risks?",
-      "intent": "legal",
-      "location": "FI",
-      "answer": "Yes, the enforcement of drugs in Finland/Suomi is active due to the legal status of marijuana and hashish being decriminalized but not fully legalized or regulated. This means that while these substances are not prohibited entirely, they remain illegal under the Finnish legal framework. The risks associated with drug use can be substantial. Legal highs and new psychoactive substances (NPS) pose significant health risks due to their unpredictable effects and potential for overdose. The risk of addiction is also a concern, as tolerance can develop quickly, leading to increased dosage needs over time. Additionally, there are legal risks related to the distribution and possession of drugs beyond the decriminalized status. In Finland/Suomi, drug use often involves dealing with the black market or unregulated sources, which exposes users to additional dangers such as violence, theft, and health risks from contaminated substances. Public awareness campaigns and education play a role in mitigating some of these risks through prevention strategies, but they are not sufficient without stricter legal controls on drugs.",
-      "score": 1,
-      "used": 0,
-      "ts": 1776346423957,
-      "last_used": 1776346423957
-    },
-    {
-      "id": "739d261601fe1a9e",
-      "query": "What are real risks?",
-      "intent": "legal",
-      "location": "KH",
-      "answer": "In Cambodia, the enforcement of laws against cannabis use and possession remains a significant issue that continues to be monitored closely by law-enforcement agencies. The current status indicates that cannabis is fully illegal in the country, meaning it's not permitted for recreational or medicinal use. The risk signal indicating \"restricted\" suggests that while there are efforts being made to enforce these laws, they may face challenges due to various factors such as public awareness and cultural attitudes towards drug use. Enforcement signals show that active measures are taken to ensure compliance with the prohibition of cannabis. It's important to note that enforcement in Cambodia can vary depending on the specific circumstances and locations within the country. Despite being illegal, cannabis remains a widespread issue across many parts of the world where it is still tolerated or consumed.",
-      "score": 1,
-      "used": 0,
-      "ts": 1776345817344,
-      "last_used": 1776345817344
-    },
-    {
-      "id": "8ede851ad22bb90d",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "KH",
-      "answer": "The cannabis law in Cambodia, also known as Kampuchea, remains fully illegal according to the current legal framework established by the Cambodian government. This means that recreational use of cannabis is strictly prohibited and punishable under local laws. Additionally, there are no medical or industrial uses permitted for cannabis products within the country's jurisdiction. The distribution channels for cannabis in Cambodia also remain restricted due to its illegal status, with enforcement efforts being actively maintained across the nation.",
-      "score": 1,
-      "used": 0,
-      "ts": 1776345787492,
-      "last_used": 1776345787492
-    },
-    {
-      "id": "85287120a67ec037",
-      "query": "What are real risks?",
-      "intent": "legal",
-      "location": "FI",
-      "answer": "Yes, it is enforced. In Finland, while the possession of small quantities of cannabis is treated as an administrative offense and not a criminal violation due to being decriminalized, the distribution of cannabis products remains illegal, which implies that enforcement efforts are ongoing despite the de facto legal status. The active implementation of laws suggests that there is a comprehensive approach aimed at enforcing prohibitions against recreational cannabis use and possession.",
-      "score": 1,
-      "used": 0,
-      "ts": 1776345451818,
-      "last_used": 1776345451818
-    },
-    {
-      "id": "d2bcd6885c6cd255",
-      "query": "What are real risks?",
-      "intent": "legal",
-      "location": "KH",
-      "answer": "Given the information you provided, there seems to be a mix-up in some of the statements related to medical cannabis status in your location. It's important that all laws are clearly defined for accurate interpretation. Cambodia has a specific legal framework where certain aspects such as distribution may be regulated more strictly than others.\n\nThe active enforcement signal indicates that while there isn't strict enforcement, it could potentially occur under certain circumstances or when needed. This means if someone breaks the law deliberately and severely enough, authorities could indeed enforce their prohibitions against cannabis in this area.",
-      "score": 1,
-      "used": 0,
-      "ts": 1776344061888,
-      "last_used": 1776344061888
-    },
-    {
-      "id": "44cb2df050448e1c",
-      "query": "Is it enforced?",
-      "intent": "general",
-      "location": "KH",
-      "answer": "The current cannabis law in Cambodia is illegal, both for recreational use and medical purposes. It is also prohibited by regulations that restrict its distribution, sale, cultivation, possession, and consumption. Despite this prohibition, there are no clear enforcement mechanisms to verify compliance or actively enforce these laws on the ground.\n\nThis situation reflects a broader policy approach towards drugs where even those with legitimate medical needs for cannabis often find themselves subject to stringent legal prohibitions. The active enforcement signal suggests that while not strictly enforced in everyday situations, it still exists and can potentially be invoked if necessary.",
-      "score": 1,
-      "used": 0,
-      "ts": 1776344041440,
-      "last_used": 1776344041440
-    },
-    {
-      "id": "e741b9b57ae5445a",
-      "query": "что с каннабисом здесь простыми словами?",
-      "intent": "general",
-      "location": "AT",
-      "answer": "Смотри:\n\nРазберём спокойно:\n\nТут есть нюанс: в Austria / Österreich статус мягче полного запрета, но это не то же самое, что полноценный legal market.\n\nЭто важно понимать: в данных есть prison exposure, так что это не выглядит как формальный запрет без последствий. Cannabis is decriminalized in Austria / Österreich. Medical cannabis is limited. Distribution is формально запрещено. Prison exposure detected.\n\nНа земле это может ощущаться иначе: Austria / Österreich remains decriminalized in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals. Это не разрешение, а просто social reality из текущих данных.\n\nЕсли смотреть именно на medical side: доступ там limited.",
-      "score": 0.6,
-      "ts": 1776508317232,
-      "last_used": 1776508332132
-    },
-    {
-      "id": "0289f21a718a6cd0",
-      "query": "Long practical question: if cannabis feels socially normal, what still matters legally?",
-      "intent": "legal",
-      "location": "IE",
-      "answer": "Here’s the useful version:\n\nIf we keep it factual:\n\nInteresting angle: cannabis is formally illegal in Ireland / Éire in the current SSOT.\n\nPrison exposure is present in the data, so this does not read like a paper-only ban. Cannabis is formally illegal in Ireland / Éire. Medical cannabis is legal. Distribution is formally illegal. Prison exposure detected.\n\nReality on the ground can feel different: Ireland / Éire remains decriminalized in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals. That is not permission, only the current social signal.\n\nOn the medical side, access is legal in the current data.\n\nWant to compare it with another country?",
-      "score": 0.6,
-      "ts": 1776462474964,
-      "last_used": 1776462747446
     }
   ]
 }

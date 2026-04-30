@@ -47,7 +47,10 @@ export async function generateMetadata({
     openGraph: {
       title: heading,
       description: localizedSummary,
-      url: locale === "en" ? `https://islegal.info/c/${data.code}` : `https://islegal.info/${requestedLocale}/c/${data.code}`,
+      url:
+        locale === "en"
+          ? `https://www.islegal.info/c/${data.code}`
+          : `https://www.islegal.info/${requestedLocale}/c/${data.code}`,
       type: "article"
     }
   };

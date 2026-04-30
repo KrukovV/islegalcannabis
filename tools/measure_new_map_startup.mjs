@@ -10,7 +10,7 @@ const playwright = require(require.resolve("playwright", {
 
 const reportsDir = path.join(repoRoot, "Reports");
 const localUrl = process.env.NEW_MAP_LOCAL_URL || "http://127.0.0.1:4010/new-map";
-const prodUrl = process.env.NEW_MAP_PROD_URL || "https://islegal.info/new-map";
+const prodUrl = process.env.NEW_MAP_PROD_URL || "https://www.islegal.info/new-map";
 
 async function measure(browserName, url, label) {
   const browser = await playwright[browserName].launch({ headless: true });

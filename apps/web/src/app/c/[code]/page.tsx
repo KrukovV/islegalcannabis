@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: { params: Promise<{ code: str
     openGraph: {
       title: heading,
       description: data.notes_normalized,
-      url: `https://islegal.info/c/${data.code}`,
+      url: `https://www.islegal.info/c/${data.code}`,
       type: "article"
     }
   };
