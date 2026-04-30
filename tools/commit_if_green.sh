@@ -287,6 +287,17 @@ check_git_dir_writable() {
   return 0
 }
 
+remote_tag_exists() {
+  local remote_name="$1"
+  local tag_name="$2"
+  local remote_refs=""
+  remote_refs=$(git ls-remote --tags "${remote_name}" "refs/tags/${tag_name}" "refs/tags/${tag_name}^{}" 2>/dev/null || true)
+  if [ -z "${remote_refs}" ]; then
+    return 1
+  fi
+  printf "%s\n" "${remote_refs}" | grep -q -F "refs/tags/${tag_name}"
+}
+
 append_ci_final() {
   local line="$1"
   if [ -n "${line}" ] && [ -f Reports/ci-final.txt ]; then
@@ -575,7 +586,7 @@ fi
 append_ci_final "HEAD_PUSHED=1"
 echo "HEAD_PUSHED=1"
 
-if ! git ls-remote --tags origin | grep -q "refs/tags/${tag}"; then
+if ! remote_tag_exists origin "${tag}"; then
   echo "TAG_NOT_PUSHED=1 Not committing."
   append_ci_final "TAG_NOT_PUSHED=1"
   report_git_clean
@@ -585,7 +596,7 @@ append_ci_final "TAG_PUSHED name=${tag}"
 echo "TAG_PUSHED=1 name=${tag}"
 
 if [ -n "${prod_tag:-}" ]; then
-  if ! git ls-remote --tags origin | grep -q "refs/tags/${prod_tag}"; then
+  if ! remote_tag_exists origin "${prod_tag}"; then
     echo "TAG_NOT_PUSHED=1 Not committing."
     append_ci_final "TAG_NOT_PUSHED=1"
     report_git_clean
