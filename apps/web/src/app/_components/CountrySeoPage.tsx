@@ -26,6 +26,22 @@ export function ensureCountryPageHash(data: CountryPageData) {
   console.warn(message);
 }
 
+export function sanitizeEvidenceQuoteText(input: string) {
+  return String(input || "")
+    .replace(/style\s*=\s*"(?:[^"\\]|\\.)*"\s*\|/gi, " ")
+    .replace(/style\s*=\s*'(?:[^'\\]|\\.)*'\s*\|/gi, " ")
+    .replace(/\{\{[^}]+\}\}/g, " ")
+    .replace(/<ref[^>]*>[\s\S]*?<\/ref>/gi, " ")
+    .replace(/<ref[^/>]*\/>/gi, " ")
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<\/?[^>]+>/g, " ")
+    .replace(/\[\[[^\]|]+\|([^\]]+)\]\]/g, "$1")
+    .replace(/\[\[([^\]]+)\]\]/g, "$1")
+    .replace(/(^|\s)\|\s*/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 export default function CountrySeoPage({
   data,
   locale,
@@ -99,7 +115,8 @@ export default function CountrySeoPage({
                 : "Source quotes"
   };
 
-  const cleanQuoteText = String(
+  const cleanQuoteText = sanitizeEvidenceQuoteText(
+    String(
     [
       data.notes_raw || "",
       data.notes_normalized || "",
@@ -109,14 +126,8 @@ export default function CountrySeoPage({
     ]
       .filter(Boolean)
       .join(" ")
-  )
-    .replace(/\{\{[^}]+\}\}/g, " ")
-    .replace(/<ref[^>]*>[\s\S]*?<\/ref>/gi, " ")
-    .replace(/<ref[^/>]*\/>/gi, " ")
-    .replace(/\[\[[^\]|]+\|([^\]]+)\]\]/g, "$1")
-    .replace(/\[\[([^\]]+)\]\]/g, "$1")
-    .replace(/\s+/g, " ")
-    .trim();
+    )
+  );
 
   const evidenceQuotes = cleanQuoteText
     .split(/(?<=[.!?])\s+/)
