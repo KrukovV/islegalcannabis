@@ -42,6 +42,14 @@ export function sanitizeEvidenceQuoteText(input: string) {
     .trim();
 }
 
+export function getSafeSeoCountryData(data: CountryPageData): CountryPageData {
+  return {
+    ...data,
+    notes_raw: sanitizeEvidenceQuoteText(data.notes_raw),
+    notes_normalized: sanitizeEvidenceQuoteText(data.notes_normalized)
+  };
+}
+
 export default function CountrySeoPage({
   data,
   locale,
@@ -61,6 +69,7 @@ export default function CountrySeoPage({
   const intro = seo.intro(data);
   const card = deriveCountryCardEntryFromCountryPageData(data);
   const localizedPanel = localizePanel(card, data, locale);
+  const safeSeoCountryData = getSafeSeoCountryData(data);
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -151,7 +160,7 @@ export default function CountrySeoPage({
         visibleStamp={visibleStamp}
         runtimeIdentity={runtimeIdentity}
         initialGeoCode={data.geo_code}
-        seoCountryData={data}
+        seoCountryData={safeSeoCountryData}
         seoCountryIndex={seoCountryIndex}
         locale={locale}
       />
