@@ -13,6 +13,7 @@ const NEW_MAP_COUNTRIES_URL = "/api/new-map/countries";
 const NEW_MAP_BUILD_VERSION = encodeURIComponent(getBuildStamp().buildId);
 const NEW_MAP_CARD_INDEX_URL = `/api/new-map/card-index?v=${NEW_MAP_BUILD_VERSION}`;
 const YANDEX_METRIKA_ID = 108419114;
+const MS_VALIDATE_CONTENT = "8160A885E417B2396DD1C0633F13C70F";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.islegal.info"),
@@ -91,6 +92,7 @@ export default async function RootLayout({
   return (
     <html lang={documentLang} suppressHydrationWarning>
       <head>
+        <meta name="msvalidate.01" content={MS_VALIDATE_CONTENT} />
         <script dangerouslySetInnerHTML={{ __html: NEW_MAP_PREFETCH_SCRIPT }} />
         <Script id="yandex-metrika" strategy="beforeInteractive">
           {`
