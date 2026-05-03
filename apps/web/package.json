@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "npm run web:dev",
+    "dev": "bash ../../tools/ui/ui_dev_ssot.sh",
     "web:dev": "next dev -p 3000 -H 127.0.0.1",
     "build": "next build",
     "start": "next start",

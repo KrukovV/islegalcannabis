@@ -20,7 +20,7 @@
     "where": "node -e \"console.log('WHERE_OK=1')\"",
     "guard:ssr": "bash tools/guard-ssr.sh",
     "audit": "bash tools/tree-audit.sh",
-    "web:dev": "bash Tools/ui_dev_guard.sh",
+    "web:dev": "bash tools/ui_dev_guard.sh",
     "web:build": "npm -w apps/web run build",
     "build": "npm run web:build",
     "dev": "npm run web:dev",
