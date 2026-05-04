@@ -70,14 +70,12 @@ Allow: /sitemap-countries.xml
 Allow: /sitemap-states.xml
 Allow: /sitemap-i18n.xml
 Allow: /api/sitemap
-Disallow: /api/
 Disallow: /_next/
 Disallow: /admin/
 Disallow: /private/
 Disallow: /tmp/
 Disallow: /build/
 Disallow: /draft/
-Disallow: /*?*
 
 # ========================================
 # SITEMAP

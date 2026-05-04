@@ -37,11 +37,17 @@ export function middleware(req: NextRequest) {
   const requestHeaders = new Headers(req.headers);
   requestHeaders.set("x-route-locale", resolveSeoRouteLocale(pathname));
 
-  return NextResponse.next({
+  const response = NextResponse.next({
     request: {
       headers: requestHeaders
     }
   });
+
+  if (pathname.startsWith("/sitemap") || pathname === "/api/sitemap") {
+    response.headers.set("cache-control", "no-store");
+  }
+
+  return response;
 }
 
 export const config = {
