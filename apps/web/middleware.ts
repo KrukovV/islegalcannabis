@@ -48,6 +48,12 @@ export const config = {
   matcher: [
     "/((?!api|_next/static|_next/image|.*\\.[^/]+$).*)",
     "/robots.txt",
-    "/sitemap.xml"
+    "/sitemap.xml",
+    "/sitemap-main.xml",
+    "/sitemap-index.xml",
+    "/sitemap-countries.xml",
+    "/sitemap-states.xml",
+    "/sitemap-i18n.xml",
+    "/api/sitemap"
   ],
 };
