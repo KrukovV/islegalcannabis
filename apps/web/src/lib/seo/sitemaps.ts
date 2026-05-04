@@ -53,6 +53,15 @@ export function buildMainSitemapEntries(): SitemapEntry[] {
   ];
 }
 
+export function buildPrimarySitemapEntries(): SitemapEntry[] {
+  return [
+    ...buildMainSitemapEntries(),
+    ...buildCountrySitemapEntries(),
+    ...buildStateSitemapEntries(),
+    ...buildI18nSitemapEntries()
+  ];
+}
+
 export function buildCountrySitemapEntries(): SitemapEntry[] {
   return listCountryPageData()
     .filter((entry) => entry.node_type === "country")

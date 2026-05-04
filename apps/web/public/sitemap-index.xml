@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
-    <loc>https://www.islegal.info/sitemap.xml</loc>
-  </sitemap>
-  <sitemap>
     <loc>https://www.islegal.info/sitemap-main.xml</loc>
   </sitemap>
   <sitemap>
-    <loc>https://www.islegal.info/api/sitemap</loc>
+    <loc>https://www.islegal.info/sitemap-countries.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.islegal.info/sitemap-states.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.islegal.info/sitemap-i18n.xml</loc>
   </sitemap>
 </sitemapindex>

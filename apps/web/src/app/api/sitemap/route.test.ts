@@ -11,6 +11,8 @@ describe("api sitemap route", () => {
     const body = await response.text();
     expect(body).toContain("<urlset");
     expect(body).toContain("<loc>https://www.islegal.info/</loc>");
+    expect(body).toContain("<loc>https://www.islegal.info/c/nld</loc>");
+    expect(body).toContain("<loc>https://www.islegal.info/c/us-ca</loc>");
     expect(body).not.toContain("https://islegal.info/");
   });
 });
