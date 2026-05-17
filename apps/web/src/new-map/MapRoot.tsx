@@ -142,14 +142,15 @@ export default function MapRoot({
   const lastAppliedRouteGeoRef = useRef<string | null>(null);
   const seoCountryCode = activeRouteSeoData?.code || null;
   const seoRouteGeoCode = String(activeRouteSeoData?.geo_code || "").trim().toUpperCase() || null;
+  const shouldLockDocumentScroll = !seoCountryData;
 
   useEffect(() => {
-    if (typeof document === "undefined") return;
+    if (typeof document === "undefined" || !shouldLockDocumentScroll) return;
     document.body.dataset.newMapRoute = "1";
     return () => {
       delete document.body.dataset.newMapRoute;
     };
-  }, []);
+  }, [shouldLockDocumentScroll]);
 
   useEffect(() => {
     const syncViewportMetrics = () => {

@@ -62,3 +62,45 @@ test("mobile popup route keeps horizontal overflow disabled after viewport chang
   await page.waitForTimeout(200);
   await assertNoHorizontalOverflow(page);
 });
+
+test("mobile country route keeps document scroll usable after hash navigation", async ({ page }) => {
+  await page.goto("/c/chn#law-distribution", { waitUntil: "domcontentloaded" });
+  await waitForMapReady(page);
+
+  const scrollState = await page.evaluate(async () => {
+    const settle = () => new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
+    window.scrollTo(0, 0);
+    await settle();
+    const before = window.scrollY;
+    window.scrollBy(0, 480);
+    await settle();
+    const afterDown = window.scrollY;
+    window.scrollBy(0, -240);
+    await settle();
+    return {
+      before,
+      afterDown,
+      afterUp: window.scrollY,
+      bodyRouteLock: document.body.dataset.newMapRoute || "",
+      bodyOverflow: getComputedStyle(document.body).overflow,
+      scrollHeight: document.documentElement.scrollHeight,
+      innerHeight: window.innerHeight
+    };
+  });
+
+  expect(scrollState.bodyRouteLock).toBe("");
+  expect(scrollState.bodyOverflow).not.toBe("hidden");
+  expect(scrollState.scrollHeight).toBeGreaterThan(scrollState.innerHeight + 200);
+  expect(scrollState.afterDown).toBeGreaterThan(scrollState.before + 100);
+  expect(scrollState.afterUp).toBeLessThan(scrollState.afterDown);
+  await assertNoHorizontalOverflow(page);
+});
+
+test("runtime country source excludes Antarctica fill artifact", async ({ page }) => {
+  const response = await page.request.get("/api/new-map/countries");
+  expect(response.ok()).toBeTruthy();
+  const payload = (await response.json()) as {
+    features?: Array<{ properties?: { geo?: string } }>;
+  };
+  expect(payload.features?.some((feature) => feature.properties?.geo === "AQ")).toBe(false);
+});

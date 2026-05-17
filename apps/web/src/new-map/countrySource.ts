@@ -15,8 +15,6 @@ import {
   resolveLegalHoverOpacity
 } from "./legalStyle";
 
-const ANTARCTICA_FILL_COLOR = "#c5ccd3";
-const ANTARCTICA_HOVER_COLOR = "#d4dae0";
 const MAP_COORDINATE_PRECISION = 1000;
 
 function isPolygonGeometry(geometry: Geometry | null | undefined): geometry is Polygon | MultiPolygon {
@@ -48,6 +46,7 @@ export function buildCountrySourceSnapshot(): LegalCountryCollection {
     .filter((feature): feature is Feature<Polygon | MultiPolygon> => isPolygonGeometry(feature.geometry))
     .flatMap((feature) => {
       const geo = String(feature.properties?.geo || "").trim().toUpperCase();
+      if (geo === "AQ") return [];
       const countryPageData = countryPageByIso2.get(geo);
       if (!countryPageData) {
         missingGeos.push(geo);
@@ -55,8 +54,8 @@ export function buildCountrySourceSnapshot(): LegalCountryCollection {
       }
       const resultStatus = deriveResultStatusFromCountryPageData(countryPageData);
       const mapCategory = deriveMapCategoryFromCountryPageData(countryPageData);
-      const baseColor = geo === "AQ" ? ANTARCTICA_FILL_COLOR : resolveLegalFillColor(mapCategory);
-      const hoverColor = geo === "AQ" ? ANTARCTICA_HOVER_COLOR : resolveLegalHoverColor(mapCategory);
+      const baseColor = resolveLegalFillColor(mapCategory);
+      const hoverColor = resolveLegalHoverColor(mapCategory);
       const nextProperties: LegalCountryFeatureProperties = {
         geo,
         displayName: String(feature.properties?.displayName || feature.properties?.name || geo),
@@ -65,8 +64,7 @@ export function buildCountrySourceSnapshot(): LegalCountryCollection {
           status: resultStatus,
           color: baseColor
         },
-        mapCategory: (geo === "AQ" && !feature.properties?.mapCategory ? "UNKNOWN" : mapCategory) as
-          "LEGAL_OR_DECRIM" | "LIMITED_OR_MEDICAL" | "ILLEGAL" | "UNKNOWN",
+        mapCategory: mapCategory as "LEGAL_OR_DECRIM" | "LIMITED_OR_MEDICAL" | "ILLEGAL" | "UNKNOWN",
         baseColor,
         hoverColor
       };
