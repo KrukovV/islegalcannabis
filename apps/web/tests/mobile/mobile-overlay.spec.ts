@@ -70,7 +70,23 @@ test("mobile country popup avoids AI collisions and survives rotate", async ({ p
   await saveMobileScreenshot(page, testInfo, "popup-portrait");
 
   await page.setViewportSize({ width: 844, height: 390 });
-  await page.waitForTimeout(300);
+  await page.waitForFunction(() => {
+    const popup = document.querySelector('[data-testid="new-map-country-popup"]');
+    const dock = document.querySelector('[data-testid="new-map-ai-dock"]');
+    if (!(popup instanceof HTMLElement) || !(dock instanceof HTMLElement)) return false;
+    const popupRect = popup.getBoundingClientRect();
+    const dockRect = dock.getBoundingClientRect();
+    const viewport = window.visualViewport;
+    const viewportHeight = viewport?.height ?? window.innerHeight;
+    const viewportWidth = viewport?.width ?? window.innerWidth;
+    const popupInsideViewport =
+      popupRect.top >= 0 &&
+      popupRect.left >= 0 &&
+      popupRect.right <= viewportWidth &&
+      popupRect.bottom <= viewportHeight;
+    const separated = popupRect.bottom <= dockRect.top || dockRect.bottom <= popupRect.top;
+    return popupInsideViewport && separated;
+  }, undefined, { timeout: 2000 });
 
   const popupAfterRotate = await getViewportBox(page, '[data-testid="new-map-country-popup"]');
   const aiDockAfterRotate = await getViewportBox(page, '[data-testid="new-map-ai-dock"]');

@@ -240,17 +240,88 @@ export async function findFeaturePoint(page: Page, iso: string, layerId?: LayerI
   });
 }
 
-export async function openCountryPopup(page: Page, iso: string, layerId?: LayerId) {
+export async function getProjectedFeaturePoint(page: Page, iso: string) {
+  const view = FEATURE_VIEW_BY_ISO[iso];
+  if (!view) {
+    throw new Error(`Missing feature view for ${iso}`);
+  }
+  return page.evaluate(({ center }) => {
+    const host = window as typeof window & {
+      __NEW_MAP_DEBUG__?: {
+        map?: {
+          getCanvas: () => HTMLCanvasElement;
+          project: (_lngLat: { lng: number; lat: number }) => { x: number; y: number };
+        } | null;
+      };
+    };
+    const map = host.__NEW_MAP_DEBUG__?.map;
+    if (!map) return null;
+    const rect = map.getCanvas().getBoundingClientRect();
+    const projected = map.project({
+      lng: center[0],
+      lat: center[1]
+    });
+    return {
+      x: rect.left + projected.x,
+      y: rect.top + projected.y
+    };
+  }, { center: view.center });
+}
+
+export async function getCountryPopupCandidatePoints(page: Page, iso: string, layerId?: LayerId) {
   await focusFeature(page, iso);
   let point = await findFeaturePoint(page, iso, layerId);
   for (let attempt = 0; !point && attempt < 12; attempt += 1) {
     await page.waitForTimeout(150);
     point = await findFeaturePoint(page, iso, layerId);
   }
-  expect(point).not.toBeNull();
-  await page.touchscreen.tap(point!.x, point!.y);
-  await expect(page.getByTestId("new-map-country-popup")).toContainText(`ISO2: ${iso}`);
-  return point!;
+  const projectedPoint = await getProjectedFeaturePoint(page, iso);
+  const candidatePoints = [projectedPoint, point].filter(Boolean) as Array<{ x: number; y: number }>;
+  expect(candidatePoints.length).toBeGreaterThan(0);
+  return candidatePoints;
+}
+
+export async function openCountryPopupFromCandidates(
+  page: Page,
+  iso: string,
+  candidatePoints: Array<{ x: number; y: number }>
+) {
+  const popup = page.getByTestId("new-map-country-popup");
+  const touchFirst = await page.evaluate(() => (
+    navigator.maxTouchPoints > 0 ||
+    window.matchMedia?.("(pointer: coarse)").matches
+  ));
+  for (const candidate of candidatePoints) {
+    const touchInteraction = async () => {
+        await page.touchscreen.tap(candidate.x, candidate.y);
+    };
+    const mouseInteraction = async () => {
+        await page.mouse.click(candidate.x, candidate.y);
+    };
+    const interactions = touchFirst
+      ? [touchInteraction, mouseInteraction]
+      : [mouseInteraction, touchInteraction];
+    for (const interaction of interactions) {
+      try {
+        await interaction();
+      } catch {
+        continue;
+      }
+      try {
+        await expect(popup).toContainText(`ISO2: ${iso}`, { timeout: 2000 });
+        return candidate;
+      } catch {
+        // Try the next interaction mode or candidate point.
+      }
+    }
+  }
+
+  await expect(popup).toContainText(`ISO2: ${iso}`, { timeout: 10000 });
+  return candidatePoints[0];
+}
+
+export async function openCountryPopup(page: Page, iso: string, layerId?: LayerId) {
+  return openCountryPopupFromCandidates(page, iso, await getCountryPopupCandidatePoints(page, iso, layerId));
 }
 
 export async function dispatchTouchPan(

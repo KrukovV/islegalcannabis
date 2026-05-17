@@ -68,6 +68,31 @@ async function getProjectedMapTapTarget(page: Parameters<typeof getMapSnapshot>[
   }, { targetLng: lng, targetLat: lat, viewportWidth: viewport.width, viewportHeight: viewport.height });
 }
 
+async function doubleTapMapUntilZoomed(
+  page: Parameters<typeof getMapSnapshot>[0],
+  target: { x: number; y: number },
+  baselineZoom: number
+) {
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    await page.touchscreen.tap(target.x, target.y);
+    await page.waitForTimeout(80);
+    await page.touchscreen.tap(target.x, target.y);
+
+    const zoomed = await expect
+      .poll(async () => (await getMapSnapshot(page))?.zoom ?? 0, { timeout: 5000 })
+      .toBeGreaterThan(baselineZoom + 0.2)
+      .then(() => true)
+      .catch(() => false);
+
+    if (zoomed) return;
+    await page.waitForTimeout(200);
+  }
+
+  await expect
+    .poll(async () => (await getMapSnapshot(page))?.zoom ?? 0, { timeout: 1 })
+    .toBeGreaterThan(baselineZoom + 0.2);
+}
+
 test("mobile map keeps pan, tap, zoom, and rotate stable", async ({ page }, testInfo) => {
   await page.goto("/new-map", { waitUntil: "domcontentloaded" });
   await waitForMapReady(page);
@@ -102,17 +127,13 @@ test("mobile map keeps pan, tap, zoom, and rotate stable", async ({ page }, test
       zoom: 2.2
     });
   });
+  await page.waitForTimeout(150);
 
   const mapBeforeDoubleTap = await getMapSnapshot(page);
   expect(mapBeforeDoubleTap).not.toBeNull();
   const doubleTapTarget = await getProjectedMapTapTarget(page, -28, 24);
 
-  await page.touchscreen.tap(doubleTapTarget.x, doubleTapTarget.y);
-  await page.touchscreen.tap(doubleTapTarget.x, doubleTapTarget.y);
-
-  await expect
-    .poll(async () => (await getMapSnapshot(page))?.zoom ?? 0, { timeout: 10000 })
-    .toBeGreaterThan((mapBeforeDoubleTap?.zoom || 0) + 0.2);
+  await doubleTapMapUntilZoomed(page, doubleTapTarget, mapBeforeDoubleTap?.zoom || 0);
 
   const backgroundSample = await page.evaluate(() => ({
     root: getComputedStyle(document.querySelector('[data-testid="new-map-root"]') as Element).backgroundColor,

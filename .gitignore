@@ -31,6 +31,7 @@ Reports/
 apps/web/test-results/
 apps/web/playwright-report/
 QA/mobile/
+QA/perf/
 apps/web/QA/
 test-results/
 playwright-report/

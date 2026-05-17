@@ -738,8 +738,9 @@
   position: fixed;
   z-index: 33;
   width: min(420px, calc(100vw - var(--new-map-safe-left) - var(--new-map-safe-right) - 32px));
-  max-height: calc(var(--app-viewport-height) - var(--new-map-bottom-safe) - var(--new-map-panel-top-margin));
+  max-height: calc(var(--new-map-visible-height, var(--app-viewport-height)) - var(--new-map-bottom-safe) - var(--new-map-panel-top-margin));
   overflow-y: auto;
+  overscroll-behavior: contain;
   border-radius: 18px;
   border: 1px solid rgba(103, 120, 133, 0.2);
   background: rgba(255, 255, 255, 0.96);
@@ -983,5 +984,18 @@
 
   :global(.new-map-country-popup-shell) :global(.maplibregl-popup-content) {
     max-width: calc(100vw - var(--new-map-safe-left) - var(--new-map-safe-right) - 24px);
+  }
+
+  .viewportPopupPanel {
+    max-height: calc(var(--new-map-visible-height, var(--app-viewport-height)) - var(--new-map-bottom-safe) - var(--new-map-safe-top) - 24px);
+    border-radius: 14px;
+    padding: 14px;
+  }
+}
+
+@media (max-width: 380px) {
+  .seoOverlayPanel {
+    bottom: calc(var(--new-map-bottom-safe) + 12px);
+    max-height: calc(var(--app-viewport-height) - var(--new-map-bottom-safe) - var(--new-map-safe-top) - 36px);
   }
 }

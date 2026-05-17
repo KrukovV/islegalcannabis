@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import styles from "../MapRoot.module.css";
 import type { GeoStatus, IpStatus } from "../hooks/useGeoStatus";
 
@@ -227,7 +227,7 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
     }
   }, [messages]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const dockNode = dockRef.current;
     const rootNode = dockNode?.closest('[data-testid="new-map-root"]') as HTMLElement | null;
     if (!dockNode || !rootNode) return;
@@ -246,7 +246,7 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
       window.removeEventListener("resize", updateDockHeight);
       rootNode.style.removeProperty("--new-map-dock-height");
     };
-  }, []);
+  }, [isOpen, messages.length]);
 
   useEffect(() => {
     const lastMessage = messages[messages.length - 1];

@@ -366,6 +366,7 @@ export function createMap(
   let firstStyleDataMarked = false;
   let firstBasemapReadyMarked = false;
   let firstCountriesReadyMarked = false;
+  let firstLabelsVisibleMarked = false;
   let firstIdleMarked = false;
   let firstVisualReadyMarked = false;
   let resolveReady = () => {};
@@ -650,8 +651,13 @@ export function createMap(
   });
 
   map.on("idle", () => {
+    if (!firstLabelsVisibleMarked && firstBasemapReadyMarked) {
+      firstLabelsVisibleMarked = true;
+      markNewMapTrace("NM_T6_LABELS_VISIBLE");
+    }
     if (!firstIdleMarked) {
       firstIdleMarked = true;
+      markNewMapTrace("NM_T7_IDLE_COMPLETE");
       markNewMapTrace("NM_T8_IDLE_FIRST");
     }
     finalizeFirstVisualReady();

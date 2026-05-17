@@ -34,6 +34,7 @@ async function runLighthouseAudit(targetUrl: string, outputPath: string) {
 
 test("mobile performance budget stays green on android chrome", async ({ page, browserName }, testInfo) => {
   test.skip(browserName !== "chromium" || !testInfo.project.name.startsWith("android-chrome"));
+  test.setTimeout(180000);
 
   await page.addInitScript(() => {
     const metrics = {

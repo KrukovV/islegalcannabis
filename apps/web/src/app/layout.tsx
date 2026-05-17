@@ -70,7 +70,7 @@ const NEW_MAP_PREFETCH_SCRIPT = `
   trace.marks.NM_T0_ROUTE_START = trace.marks.NM_T0_ROUTE_START || performance.now();
   if (window.__NEW_MAP_PREFETCH__) return;
   const loadJson = (url) =>
-    fetch(url, { cache: "no-store", credentials: "same-origin" })
+    fetch(url, { cache: "force-cache", credentials: "same-origin" })
       .then((response) => (response.ok ? response.json() : null))
       .catch(() => null);
   window.__NEW_MAP_PREFETCH__ = {

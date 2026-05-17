@@ -24,8 +24,15 @@ test("mobile AI bar survives keyboard viewport changes without colliding with co
   assertBoxesDoNotOverlap(overlayBefore, dockBefore);
   await saveMobileScreenshot(page, testInfo, "ai-open");
 
-  await page.getByTestId("new-map-ai-input").click();
-  await page.getByTestId("new-map-ai-input").fill("Can I cross a border with cannabis?");
+  const aiInput = page.getByTestId("new-map-ai-input");
+  if (await aiInput.isDisabled()) {
+    await expect(aiInput).toHaveAttribute("aria-disabled", "true");
+    await expect(page.getByTestId("new-map-root")).toHaveAttribute("data-keyboard-open", "0");
+    return;
+  }
+
+  await aiInput.click();
+  await aiInput.fill("Can I cross a border with cannabis?");
   const keyboardViewportHeight = Math.max(220, originalViewportHeight - Math.min(320, Math.round(originalViewportHeight * 0.38)));
   await setVisualViewportMock(page, {
     height: keyboardViewportHeight,

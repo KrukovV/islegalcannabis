@@ -2,12 +2,12 @@
 
 import dynamic from "next/dynamic";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import maplibregl, { type StyleSpecification } from "maplibre-gl";
+import type maplibregl from "maplibre-gl";
+import type { StyleSpecification } from "maplibre-gl";
 import type { RuntimeIdentity } from "@/lib/runtimeIdentity";
 import type { CountryPageData } from "@/lib/countryPageStorage";
 import { deriveCountryCardEntryFromCountryPageData } from "@/lib/countryCardEntry";
 import type { SeoLocale } from "@/lib/seo/i18n";
-import { createMap } from "./createMap";
 import type { CountryCardEntry, LegalCountryCollection } from "./map.types";
 import styles from "./MapRoot.module.css";
 import { NEW_MAP_WATER_COLOR } from "./mapPalette";
@@ -118,6 +118,9 @@ export default function MapRoot({
 }: Props) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
+  const maplibreRuntimeRef = useRef<{
+    Marker: typeof maplibregl.Marker;
+  } | null>(null);
   const locationMarkerRef = useRef<maplibregl.Marker | null>(null);
   const infoMarkerRef = useRef<maplibregl.Marker | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -283,6 +286,7 @@ export default function MapRoot({
 
   const applyGeoToMap = useCallback((geo: ActiveGeo, options?: { recenter?: boolean }) => {
     const map = mapRef.current;
+    const maplibreRuntime = maplibreRuntimeRef.current;
     if (!map) return;
     if (typeof geo?.lng !== "number" || typeof geo?.lat !== "number") {
       locationMarkerRef.current?.remove();
@@ -297,7 +301,8 @@ export default function MapRoot({
     markerElement.setAttribute("data-user-marker-position", `${geo.lng},${geo.lat}`);
 
     if (!locationMarkerRef.current) {
-      locationMarkerRef.current = new maplibregl.Marker({
+      if (!maplibreRuntime) return;
+      locationMarkerRef.current = new maplibreRuntime.Marker({
         element: markerElement,
         anchor: "bottom"
       })
@@ -330,6 +335,7 @@ export default function MapRoot({
 
   useEffect(() => {
     const map = mapRef.current;
+    const maplibreRuntime = maplibreRuntimeRef.current;
     const markerEntry = seoMarkerEntry;
     if (!mapReady || !map || !markerEntry?.coordinates) {
       infoMarkerRef.current?.remove();
@@ -357,7 +363,8 @@ export default function MapRoot({
     };
 
     if (!infoMarkerRef.current) {
-      infoMarkerRef.current = new maplibregl.Marker({
+      if (!maplibreRuntime) return;
+      infoMarkerRef.current = new maplibreRuntime.Marker({
         element: button,
         anchor: "bottom"
       })
@@ -530,7 +537,7 @@ export default function MapRoot({
     const prefetched = getNewMapPrefetchCache();
     const loadCardIndex = () =>
       fetch("/api/new-map/card-index", {
-        cache: "no-store",
+        cache: "force-cache",
         credentials: "same-origin"
       }).then((response) => {
         if (!response.ok) {
@@ -566,10 +573,15 @@ export default function MapRoot({
     async function mount() {
       if (!containerRef.current) return;
       try {
+        const [{ default: maplibreglModule }, { createMap }] = await Promise.all([
+          import("maplibre-gl"),
+          import("./createMap")
+        ]);
+        maplibreRuntimeRef.current = { Marker: maplibreglModule.Marker };
         const prefetched = getNewMapPrefetchCache();
         const loadCountries = () =>
           fetch(countriesUrl, {
-            cache: "no-store",
+            cache: "force-cache",
             credentials: "same-origin"
           }).then((response) => {
             if (!response.ok) {
@@ -579,7 +591,7 @@ export default function MapRoot({
           });
         const loadStyle = () =>
           fetch("/api/new-map/basemap-style?v=20260331-host-header-same-origin", {
-            cache: "no-store",
+            cache: "force-cache",
             credentials: "same-origin"
           }).then((response) => {
             if (!response.ok) {
@@ -645,6 +657,7 @@ export default function MapRoot({
           locationMarkerRef.current = null;
           infoMarkerRef.current?.remove();
           infoMarkerRef.current = null;
+          maplibreRuntimeRef.current = null;
           mapRef.current = null;
           setMapReady(false);
           setVisualReady(false);

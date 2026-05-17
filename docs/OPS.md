@@ -16,7 +16,10 @@
 
 ## Post-Deploy Mobile Smoke
 
+- Run `npm -w apps/web run mobile:qa:prod` against live `https://www.islegal.info` after deploy. This must test the live CDN/TLS/runtime path and the required prod device matrix: `iphone-12-mini-webkit`, `iphone-15-pro-max-webkit`, `pixel-8-chrome`, and `galaxy-fold-closed-chrome`.
+- Run `npm -w apps/web run perf:prod` against the same live URL to capture desktop/mobile load-time artifacts in `QA/perf/`.
 - Verify on real iPhone Safari and Android Chrome: `/new-map`, country tap, AI open, keyboard open/close, rotate, and overlay stability.
+- Safari/WebKit is mandatory. Do not treat Chrome-only verification as production complete.
 - Re-run Lighthouse mobile against production and confirm there is no overlay collision, white flash, z-index drift, or layout jump.
 
 ## Rollback

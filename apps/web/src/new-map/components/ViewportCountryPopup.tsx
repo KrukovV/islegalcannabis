@@ -37,6 +37,7 @@ export default function ViewportCountryPopup({
     const panelNode = panelRef.current;
     const rootNode = document.querySelector('[data-testid="new-map-root"]') as HTMLElement | null;
     let frameId = 0;
+    let settleTimeout = 0;
 
     const readRootLength = (name: string, fallback: number) => {
       const scope = rootNode || document.documentElement;
@@ -45,7 +46,7 @@ export default function ViewportCountryPopup({
       return Number.isFinite(parsed) ? parsed : fallback;
     };
 
-    const updatePosition = () => {
+    const applyPosition = () => {
       const rect = panelNode.getBoundingClientRect();
       const GAP = 18;
       const viewport = readVisualViewportSnapshot();
@@ -60,11 +61,17 @@ export default function ViewportCountryPopup({
       const viewportHeight = viewport.height || window.innerHeight;
       const viewportLeft = viewport.offsetLeft || 0;
       const viewportTop = viewport.offsetTop || 0;
+      const dockNode = document.querySelector('[data-testid="new-map-ai-dock"]') as HTMLElement | null;
+      const dockTop = dockNode?.getBoundingClientRect().top;
+      const viewportBottom = viewportTop + viewportHeight;
+      const bottomLimit = Number.isFinite(dockTop)
+        ? Math.min(viewportBottom - safeBottom, (dockTop as number) - 12)
+        : viewportBottom - safeBottom;
       const panelWidth = rect.width || 420;
       const panelHeight = rect.height || 300;
       const maxLeft = viewportLeft + viewportWidth - safeSide - panelWidth;
-      const availableHeight = Math.max(120, viewportHeight - safeTop - safeBottom);
-      const maxTop = viewportTop + viewportHeight - safeBottom - Math.min(panelHeight, availableHeight);
+      const availableHeight = Math.max(120, bottomLimit - viewportTop - safeTop);
+      const maxTop = bottomLimit - Math.min(panelHeight, availableHeight);
       const preferRight = anchor.x < viewportLeft + viewportWidth * 0.5;
       const unclampedLeft = preferRight ? anchor.x + GAP : anchor.x - panelWidth - GAP;
       const left = Math.min(
@@ -76,25 +83,34 @@ export default function ViewportCountryPopup({
         panelHeight >= availableHeight
           ? viewportTop + safeTop
           : Math.min(Math.max(viewportTop + safeTop, unclampedTop), Math.max(viewportTop + safeTop, maxTop));
-      window.cancelAnimationFrame(frameId);
-      frameId = window.requestAnimationFrame(() => {
-        setPosition({
-          left,
-          top,
-          placement: preferRight ? "right" : "left"
-        });
+      setPosition({
+        left,
+        top,
+        placement: preferRight ? "right" : "left"
       });
     };
 
-    updatePosition();
-    const resizeObserver = typeof ResizeObserver === "function" ? new ResizeObserver(updatePosition) : null;
+    const schedulePosition = () => {
+      window.cancelAnimationFrame(frameId);
+      window.clearTimeout(settleTimeout);
+      frameId = window.requestAnimationFrame(() => {
+        applyPosition();
+        frameId = window.requestAnimationFrame(applyPosition);
+      });
+      // VisualViewport and CSS custom properties can settle one tick later on rotate.
+      settleTimeout = window.setTimeout(applyPosition, 120);
+    };
+
+    schedulePosition();
+    const resizeObserver = typeof ResizeObserver === "function" ? new ResizeObserver(schedulePosition) : null;
     resizeObserver?.observe(panelNode);
-    const unsubscribeViewport = subscribeToVisualViewportChanges(updatePosition);
+    const unsubscribeViewport = subscribeToVisualViewportChanges(schedulePosition);
 
     return () => {
       resizeObserver?.disconnect();
       unsubscribeViewport();
       window.cancelAnimationFrame(frameId);
+      window.clearTimeout(settleTimeout);
     };
   }, [anchor, entry.geo]);
 

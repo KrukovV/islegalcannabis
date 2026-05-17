@@ -1,6 +1,9 @@
 import { defineConfig } from "@playwright/test";
 
-const baseURL = process.env.PLAYWRIGHT_BASE_URL || "http://127.0.0.1:3000";
+const BASE_URL =
+  process.env.PW_BASE_URL ||
+  process.env.PLAYWRIGHT_BASE_URL ||
+  "http://127.0.0.1:3000";
 
 type MobileProjectScope = "exclude-performance" | "performance-only";
 
@@ -18,7 +21,7 @@ function mobileProject(
       ? { testMatch: /mobile-performance\.spec\.ts/ }
       : { testIgnore: /mobile-performance\.spec\.ts/ }),
     use: {
-      baseURL,
+      baseURL: BASE_URL,
       browserName,
       viewport,
       screen: viewport,
@@ -49,7 +52,7 @@ export default defineConfig({
     ["json", { outputFile: "../../Reports/playwright-mobile.json" }]
   ],
   use: {
-    baseURL,
+    baseURL: BASE_URL,
     headless: true,
     trace: "retain-on-failure",
     screenshot: "only-on-failure",

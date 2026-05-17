@@ -23,7 +23,7 @@ function isPolygonGeometry(geometry: Geometry | null | undefined): geometry is P
 }
 
 export function buildCountrySourceSnapshot(): LegalCountryCollection {
-  const snapshot = buildGeoJson("countries") as FeatureCollection;
+  const snapshot = buildGeoJson("countries", { countryResolution: "50m" }) as FeatureCollection;
   const countryPageByIso2 = getCountryPageIndexByIso2();
   const missingGeos: string[] = [];
   const features = snapshot.features
