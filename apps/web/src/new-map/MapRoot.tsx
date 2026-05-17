@@ -722,6 +722,12 @@ export default function MapRoot({
           onOpenDetails={handleOpenDetails}
         />
       ) : null}
+      {!mapReady && !error ? (
+        <div className={styles.bootCard} data-testid="new-map-boot-card" aria-live="polite">
+          <strong>Loading cannabis map</strong>
+          <span>Preparing runtime layers…</span>
+        </div>
+      ) : null}
       <div
         ref={containerRef}
         className={`${styles.mapSurface} ${visualReady ? styles.mapSurfaceReady : ""}`.trim()}

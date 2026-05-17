@@ -64,6 +64,36 @@
   pointer-events: none;
 }
 
+.bootCard {
+  position: absolute;
+  z-index: 29;
+  left: 50%;
+  top: calc(var(--new-map-safe-top) + 24px);
+  transform: translateX(-50%);
+  width: min(360px, calc(100vw - var(--new-map-safe-left) - var(--new-map-safe-right) - 32px));
+  display: grid;
+  gap: 4px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(103, 120, 133, 0.18);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 12px 30px rgba(40, 55, 70, 0.12);
+  color: #283746;
+  text-align: center;
+  pointer-events: none;
+}
+
+.bootCard strong {
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.bootCard span {
+  font-size: 0.84rem;
+  line-height: 1.35;
+  color: #607282;
+}
+
 .card,
 .errorBox {
   background: rgba(255, 255, 255, 0.9);
