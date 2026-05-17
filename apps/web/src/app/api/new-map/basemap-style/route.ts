@@ -1,5 +1,5 @@
 import { getPublicOrigin } from "../_lib/publicOrigin";
-import { NEW_MAP_WATER_COLOR } from "@/new-map/mapPalette";
+import { NEW_MAP_LAND_COLOR, NEW_MAP_WATER_COLOR } from "@/new-map/mapPalette";
 
 const UPSTREAM_STYLE_URL = "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json";
 const SUBTLE_BOUNDARY = "rgba(198, 208, 215, 0.18)";
@@ -41,7 +41,7 @@ export async function GET(request: Request) {
       if (layer.type === "background") {
         layer.paint = {
           ...layer.paint,
-          "background-color": NEW_MAP_WATER_COLOR
+          "background-color": NEW_MAP_LAND_COLOR
         };
         continue;
       }
