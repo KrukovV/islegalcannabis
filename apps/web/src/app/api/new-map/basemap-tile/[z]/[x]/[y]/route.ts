@@ -1,5 +1,7 @@
 const SHARDS = ["a", "b", "c", "d"] as const;
 const EMPTY_TILE_BYTES = new Uint8Array();
+const BASEMAP_TILE_CACHE_CONTROL = "public, max-age=3600, s-maxage=604800, stale-while-revalidate=2592000";
+const EMPTY_TILE_CACHE_CONTROL = "public, max-age=60, s-maxage=300, stale-while-revalidate=600";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -18,7 +20,18 @@ function buildUpstreamTileUrl(z: string, x: string, y: string) {
 function buildTileHeaders() {
   return {
     "content-type": "application/x-protobuf",
-    "cache-control": "no-store, no-cache, must-revalidate"
+    "cache-control": BASEMAP_TILE_CACHE_CONTROL,
+    "cdn-cache-control": BASEMAP_TILE_CACHE_CONTROL,
+    "vercel-cdn-cache-control": BASEMAP_TILE_CACHE_CONTROL
+  };
+}
+
+function buildEmptyTileHeaders() {
+  return {
+    "content-type": "application/x-protobuf",
+    "cache-control": EMPTY_TILE_CACHE_CONTROL,
+    "cdn-cache-control": EMPTY_TILE_CACHE_CONTROL,
+    "vercel-cdn-cache-control": EMPTY_TILE_CACHE_CONTROL
   };
 }
 
@@ -36,7 +49,7 @@ export async function GET(_request: Request, context: { params: Promise<{ z: str
   } catch {
     return new Response(EMPTY_TILE_BYTES, {
       status: 200,
-      headers: buildTileHeaders()
+      headers: buildEmptyTileHeaders()
     });
   }
 
@@ -50,7 +63,7 @@ export async function GET(_request: Request, context: { params: Promise<{ z: str
   if (!response.ok) {
     return new Response(EMPTY_TILE_BYTES, {
       status: 200,
-      headers: buildTileHeaders()
+      headers: buildEmptyTileHeaders()
     });
   }
 

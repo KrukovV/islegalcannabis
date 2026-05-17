@@ -111,6 +111,18 @@ export async function waitForMapReady(page: Page) {
     { timeout: 20000 }
   );
   await page.waitForSelector(".maplibregl-canvas", { state: "visible", timeout: 10000 });
+  await page.waitForFunction(
+    () => {
+      const host = window as typeof window & {
+        __NEW_MAP_DEBUG__?: {
+          map?: unknown;
+        };
+      };
+      return Boolean(host.__NEW_MAP_DEBUG__?.map);
+    },
+    undefined,
+    { timeout: 20000 }
+  );
 }
 
 export async function assertNoHorizontalOverflow(page: Page) {
@@ -230,7 +242,11 @@ export async function findFeaturePoint(page: Page, iso: string, layerId?: LayerI
 
 export async function openCountryPopup(page: Page, iso: string, layerId?: LayerId) {
   await focusFeature(page, iso);
-  const point = await findFeaturePoint(page, iso, layerId);
+  let point = await findFeaturePoint(page, iso, layerId);
+  for (let attempt = 0; !point && attempt < 12; attempt += 1) {
+    await page.waitForTimeout(150);
+    point = await findFeaturePoint(page, iso, layerId);
+  }
   expect(point).not.toBeNull();
   await page.touchscreen.tap(point!.x, point!.y);
   await expect(page.getByTestId("new-map-country-popup")).toContainText(`ISO2: ${iso}`);

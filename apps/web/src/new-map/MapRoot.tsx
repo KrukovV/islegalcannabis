@@ -601,6 +601,7 @@ export default function MapRoot({
           }
         });
         mapRef.current = runtime.map;
+        setDebugState({ mounted: true, countriesUrl, map: runtime.map, selectedId: null });
         void countriesPromise.then((countries) => {
           if (cancelled) return;
           for (const feature of countries.features) {
@@ -630,7 +631,6 @@ export default function MapRoot({
           onHoverChange: (geo) => setHoveredGeo(geo)
         });
         const unbindAsciiTriggers = bindAsciiMapTriggers(runtime.map);
-        setDebugState({ mounted: true, countriesUrl, map: runtime.map, selectedId: null });
         await countriesPromise;
         if (cancelled) {
           unbindAsciiTriggers();
