@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import styles from "../MapRoot.module.css";
 import type { GeoStatus, IpStatus } from "../hooks/useGeoStatus";
@@ -135,9 +136,12 @@ function allowsShortAssistantText(text: string) {
 }
 
 export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Props) {
+  const pathname = usePathname();
+  const showIpHint = pathname !== "/new-map";
+  const dockRef = useRef<HTMLDivElement | null>(null);
+  const answerCardRef = useRef<HTMLDivElement | null>(null);
   const requestControllerRef = useRef<AbortController | null>(null);
   const resetRequestRef = useRef<Promise<void> | null>(null);
-  const messageRowRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const lastScrolledTargetRef = useRef<string | null>(null);
   const streamBufferRef = useRef("");
   const streamMessageIdRef = useRef<string | null>(null);
@@ -224,22 +228,37 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
   }, [messages]);
 
   useEffect(() => {
+    const dockNode = dockRef.current;
+    const rootNode = dockNode?.closest('[data-testid="new-map-root"]') as HTMLElement | null;
+    if (!dockNode || !rootNode) return;
+
+    const updateDockHeight = () => {
+      rootNode.style.setProperty("--new-map-dock-height", `${Math.ceil(dockNode.getBoundingClientRect().height)}px`);
+    };
+
+    updateDockHeight();
+    const observer = typeof ResizeObserver === "function" ? new ResizeObserver(updateDockHeight) : null;
+    observer?.observe(dockNode);
+    window.addEventListener("resize", updateDockHeight);
+
+    return () => {
+      observer?.disconnect();
+      window.removeEventListener("resize", updateDockHeight);
+      rootNode.style.removeProperty("--new-map-dock-height");
+    };
+  }, []);
+
+  useEffect(() => {
     const lastMessage = messages[messages.length - 1];
     if (!lastMessage) return;
-    const targetMessage =
-      lastMessage.role === "assistant" && !String(lastMessage.text || "").trim() && messages.length > 1
-        ? messages[messages.length - 2]
-        : lastMessage;
-    if (!targetMessage?.id) return;
-    const targetNode = messageRowRefs.current[targetMessage.id];
-    if (!targetNode) return;
-    const behavior = lastScrolledTargetRef.current === targetMessage.id ? "auto" : "smooth";
-    lastScrolledTargetRef.current = targetMessage.id;
+    const answerCardNode = answerCardRef.current;
+    if (!answerCardNode) return;
+    const behavior = lastScrolledTargetRef.current === lastMessage.id ? "auto" : "smooth";
+    lastScrolledTargetRef.current = lastMessage.id;
     window.requestAnimationFrame(() => {
-      targetNode.scrollIntoView({
-        behavior,
-        block: "start",
-        inline: "nearest"
+      answerCardNode.scrollTo({
+        top: answerCardNode.scrollHeight,
+        behavior
       });
     });
   }, [messages]);
@@ -641,7 +660,7 @@ async function requestNonStreamAnswer(input: {
 
   if (!isOpen) {
     return (
-      <div className={styles.aiDock} data-testid="new-map-ai-dock">
+      <div ref={dockRef} className={styles.aiDock} data-testid="new-map-ai-dock">
         <button
           type="button"
           className={styles.aiCollapsedButton}
@@ -656,9 +675,9 @@ async function requestNonStreamAnswer(input: {
   }
 
   return (
-    <div className={styles.aiDock} data-testid="new-map-ai-dock">
+    <div ref={dockRef} className={styles.aiDock} data-testid="new-map-ai-dock">
       {messages.length > 0 ? (
-        <div className={styles.aiAnswerCard} data-testid="new-map-ai-answer">
+        <div ref={answerCardRef} className={styles.aiAnswerCard} data-testid="new-map-ai-answer">
           <div className={styles.aiAnswerHeader}>
             <div className={styles.aiAnswerTitle}>Dialog</div>
             <button
@@ -674,9 +693,6 @@ async function requestNonStreamAnswer(input: {
             {messages.map((message) => (
               <div
                 key={message.id}
-                ref={(node) => {
-                  messageRowRefs.current[message.id] = node;
-                }}
                 className={`${styles.aiMessageRow} ${message.role === "user" ? styles.aiMessageRowUser : styles.aiMessageRowAssistant}`}
                 data-ai-message={message.role}
                 data-streaming={message.streaming ? "true" : "false"}
@@ -712,11 +728,12 @@ async function requestNonStreamAnswer(input: {
           </div>
         </div>
       ) : null}
-      <form className={styles.aiBar} onSubmit={onSubmit}>
+      <form className={styles.aiBar} data-testid="new-map-ai-form" onSubmit={onSubmit}>
         <button type="button" className={styles.aiAction} aria-label="More actions">
           +
         </button>
         <input
+          data-testid="new-map-ai-input"
           data-ai-input="1"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
@@ -725,6 +742,7 @@ async function requestNonStreamAnswer(input: {
           maxLength={500}
           autoComplete="off"
           spellCheck={false}
+          enterKeyHint="send"
           readOnly={aiInputLocked}
           disabled={aiInputLocked}
           aria-disabled={aiInputLocked}
@@ -742,13 +760,14 @@ async function requestNonStreamAnswer(input: {
         <button
           type="submit"
           className={styles.aiSubmit}
+          data-testid="new-map-ai-submit"
           aria-label="Submit AI query"
           disabled={aiInputLocked || !normalizedQuery || loading}
         >
           {loading ? "…" : "→"}
         </button>
       </form>
-      {ipStatus.message ? (
+      {showIpHint && ipStatus.message ? (
         <div className={styles.aiGeoHint} data-testid="new-map-ai-geo-hint">
           {ipStatus.message}
         </div>
@@ -757,6 +776,7 @@ async function requestNonStreamAnswer(input: {
         <button
           type="button"
           className={styles.aiClearGhost}
+          data-testid="new-map-ai-clear"
           onClick={handleClear}
           aria-label="Clear AI chat"
         >

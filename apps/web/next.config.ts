@@ -1,9 +1,30 @@
 import type { NextConfig } from "next";
 import path from "node:path";
 
+const DEPLOY_TRACE_EXCLUDES = [
+  "../../Artifacts/**/*",
+  "../../Reports/**/*",
+  "../../QA/**/*",
+  "../../tmp/**/*",
+  "../../.checkpoints/**/*",
+  "../../QUARANTINE/**/*",
+  "../../data/source_snapshots/**/*",
+  "../../data/legal_raw/**/*",
+  "../../data/baselines/ssot_prev_snapshot.json",
+  "./Artifacts/**/*",
+  "./Reports/**/*",
+  "./QA/**/*",
+  "./test-results/**/*",
+  "./playwright-report/**/*"
+];
+
 const nextConfig: NextConfig = {
   experimental: {
     externalDir: true
+  },
+  outputFileTracingRoot: path.resolve(__dirname, "../.."),
+  outputFileTracingExcludes: {
+    "/*": DEPLOY_TRACE_EXCLUDES
   },
   async redirects() {
     return [

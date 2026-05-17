@@ -1,0 +1,13 @@
+Artifacts
+Reports
+QA
+.checkpoints
+QUARANTINE
+tmp
+data/source_snapshots
+data/legal_raw
+apps/web/Artifacts
+apps/web/Reports
+apps/web/QA
+apps/web/test-results
+apps/web/playwright-report

@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef } from "react";
+import { usePathname } from "next/navigation";
 import type { CountryCardEntry } from "./map.types";
 import AIBar from "./components/AIBar";
 import { useGeoStatus } from "./hooks/useGeoStatus";
@@ -32,6 +33,8 @@ export default function MapGeoDock({
   applyGeoToMap,
   centerMapToGeo
 }: Props) {
+  const pathname = usePathname();
+  const skipIpBootstrap = pathname === "/new-map";
   const lastAutoCenterKeyRef = useRef<string | null>(null);
   const ipBootstrapStartedRef = useRef(false);
   const gpsCenterPendingRef = useRef(false);
@@ -72,10 +75,11 @@ export default function MapGeoDock({
   }, [currentGeo?.source]);
 
   useEffect(() => {
+    if (skipIpBootstrap) return;
     if (!geoReady || !mapReady || currentGeo?.source === "gps" || ipBootstrapStartedRef.current) return;
     ipBootstrapStartedRef.current = true;
     void refreshIpGeo();
-  }, [currentGeo?.source, geoReady, mapReady, refreshIpGeo]);
+  }, [currentGeo?.source, geoReady, mapReady, refreshIpGeo, skipIpBootstrap]);
 
   useEffect(() => {
     if (!mapReady) return;

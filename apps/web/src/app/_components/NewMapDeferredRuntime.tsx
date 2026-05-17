@@ -14,9 +14,29 @@ export default function NewMapDeferredRuntime() {
 
   useEffect(() => {
     if (!isNewMapRoute || hasFirstVisualReady()) return;
-    return onFirstVisualReady(() => {
-      setReady(true);
+    let timeoutId = 0;
+    let idleId = 0;
+    const unsubscribe = onFirstVisualReady(() => {
+      if (typeof window === "undefined") {
+        setReady(true);
+        return;
+      }
+      const schedule = () => setReady(true);
+      if (typeof window.requestIdleCallback === "function") {
+        idleId = window.requestIdleCallback(schedule, { timeout: 2500 });
+      } else {
+        timeoutId = window.setTimeout(schedule, 1200);
+      }
     });
+    return () => {
+      unsubscribe();
+      if (idleId && typeof window.cancelIdleCallback === "function") {
+        window.cancelIdleCallback(idleId);
+      }
+      if (timeoutId) {
+        window.clearTimeout(timeoutId);
+      }
+    };
   }, [isNewMapRoute]);
 
   if (!ready) return null;

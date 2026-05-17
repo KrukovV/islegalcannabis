@@ -53,6 +53,8 @@ fi
 WIKI_GATE_OK_LINE=$(grep -E '^WIKI_GATE_OK=1' "${CI_FINAL}" | tail -n 1 || true)
 POST_CHECKS_OK_LINE=$(grep -E '^POST_CHECKS_OK=1' "${CI_FINAL}" | tail -n 1 || true)
 HUB_STAGE_OK_LINE=$(grep -E '^HUB_STAGE_REPORT_OK=1' "${CI_FINAL}" | tail -n 1 || true)
+MOBILE_QA_OK_LINE=$(grep -E '^MOBILE_QA_OK=1' "${CI_FINAL}" | tail -n 1 || true)
+PASS_CYCLE_OK_LINE=$(grep -E '^PASS_CYCLE_EXIT rc=0 status=PASS' "${CI_FINAL}" | tail -n 1 || true)
 SMOKE_STATUS_OK_LINE=$(grep -E '^SMOKE_STATUS=PASS' "${CI_FINAL}" | tail -n 1 || true)
 NET_TRUTH_OK_LINE=$(grep -E '^NET_TRUTH_OK=' "${CI_FINAL}" | tail -n 1 || true)
 OFFICIAL_DOMAINS_GUARD_LINE=$(grep -E '^OFFICIAL_DOMAINS_GUARD=' "${CI_FINAL}" | tail -n 1 || true)
@@ -68,6 +70,14 @@ if [ -z "${POST_CHECKS_OK_LINE}" ]; then
 fi
 if [ -z "${HUB_STAGE_OK_LINE}" ]; then
   echo "COMMIT_BLOCKED reason=HUB_STAGE_REPORT_MISSING"
+  exit 1
+fi
+if [ -z "${MOBILE_QA_OK_LINE}" ]; then
+  echo "COMMIT_BLOCKED reason=MOBILE_QA_MISSING"
+  exit 1
+fi
+if [ -z "${PASS_CYCLE_OK_LINE}" ]; then
+  echo "COMMIT_BLOCKED reason=PASS_CYCLE_EXIT_MISSING"
   exit 1
 fi
 if [ -z "${SMOKE_STATUS_OK_LINE}" ]; then
