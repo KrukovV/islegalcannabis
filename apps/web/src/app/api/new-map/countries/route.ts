@@ -14,7 +14,7 @@ export async function GET() {
   console.warn(
     `NEW_MAP_COUNTRIES_SNAPSHOT features=${snapshot.features.length} statuses=${snapshot.features
       .slice(0, 5)
-      .map((feature) => `${feature.properties.geo}:${feature.properties.result.status}`)
+      .map((feature) => `${feature.properties.geo}:${feature.properties.status || feature.properties.result?.status}`)
       .join(",")}`
   );
   return NextResponse.json(snapshot, {

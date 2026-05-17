@@ -17,9 +17,27 @@ import {
 
 const ANTARCTICA_FILL_COLOR = "#c5ccd3";
 const ANTARCTICA_HOVER_COLOR = "#d4dae0";
+const MAP_COORDINATE_PRECISION = 1000;
 
 function isPolygonGeometry(geometry: Geometry | null | undefined): geometry is Polygon | MultiPolygon {
   return geometry?.type === "Polygon" || geometry?.type === "MultiPolygon";
+}
+
+function roundCoordinate(value: number) {
+  return Math.round(value * MAP_COORDINATE_PRECISION) / MAP_COORDINATE_PRECISION;
+}
+
+function roundCoordinates(value: unknown): unknown {
+  if (typeof value === "number") return roundCoordinate(value);
+  if (!Array.isArray(value)) return value;
+  return value.map(roundCoordinates);
+}
+
+function compactGeometry<T extends Polygon | MultiPolygon>(geometry: T): T {
+  return {
+    ...geometry,
+    coordinates: roundCoordinates(geometry.coordinates) as T["coordinates"]
+  };
 }
 
 export function buildCountrySourceSnapshot(): LegalCountryCollection {
@@ -50,18 +68,11 @@ export function buildCountrySourceSnapshot(): LegalCountryCollection {
         mapCategory: (geo === "AQ" && !feature.properties?.mapCategory ? "UNKNOWN" : mapCategory) as
           "LEGAL_OR_DECRIM" | "LIMITED_OR_MEDICAL" | "ILLEGAL" | "UNKNOWN",
         baseColor,
-        hoverColor,
-        fillOpacity: geo === "AQ" ? 1 : resolveLegalFillOpacity(mapCategory),
-        hoverOpacity: geo === "AQ" ? 1 : resolveLegalHoverOpacity(mapCategory),
-        labelAnchorLng: Number.isFinite(Number(feature.properties?.labelAnchorLng))
-          ? Number(feature.properties?.labelAnchorLng)
-          : null,
-        labelAnchorLat: Number.isFinite(Number(feature.properties?.labelAnchorLat))
-          ? Number(feature.properties?.labelAnchorLat)
-          : null
+        hoverColor
       };
       return [{
         ...feature,
+        geometry: compactGeometry(feature.geometry),
         properties: nextProperties
       }];
     });
@@ -117,7 +128,7 @@ export function buildUsStateSourceSnapshot(): LegalCountryCollection {
       return {
         type: "Feature" as const,
         id: geo,
-        geometry: feature.geometry,
+        geometry: compactGeometry(feature.geometry),
         properties: {
           geo,
           displayName,

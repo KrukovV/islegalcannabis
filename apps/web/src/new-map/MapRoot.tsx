@@ -617,7 +617,7 @@ export default function MapRoot({
         void countriesPromise.then((countries) => {
           if (cancelled) return;
           for (const feature of countries.features) {
-            const status = feature.properties?.result?.status;
+            const status = feature.properties?.status || feature.properties?.result?.status;
             if (!status) {
               throw new Error(`MAP_WITHOUT_STATUS: ${String(feature.properties?.geo || "UNKNOWN")}`);
             }
@@ -625,7 +625,7 @@ export default function MapRoot({
           console.warn(
             `MAP_RENDER_STATUS sample=${countries.features
               .slice(0, 5)
-              .map((feature) => `${feature.properties.geo}:${feature.properties.result.status}:${feature.properties.baseColor}:${feature.properties.hoverColor}`)
+              .map((feature) => `${feature.properties.geo}:${feature.properties.status || feature.properties.result?.status}:${feature.properties.baseColor}:${feature.properties.hoverColor}`)
               .join(",")}`
           );
           runtime.setData(countries);
