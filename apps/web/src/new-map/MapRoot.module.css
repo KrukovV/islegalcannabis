@@ -634,10 +634,16 @@
   gap: 12px;
 }
 
+.countryPopupHeader > :first-child {
+  min-width: 0;
+}
+
 .countryPopupTitle {
   font-size: 1rem;
   font-weight: 700;
+  line-height: 1.2;
   margin-bottom: 4px;
+  overflow-wrap: break-word;
 }
 
 .countryPopupBadge {
@@ -711,22 +717,28 @@
 
 .countryPopupReasonLink {
   color: #1f4761;
-  text-decoration: none;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
 }
 
 .countryPopupReasonLink:hover {
-  text-decoration: underline;
+  text-decoration-style: solid;
 }
 
 .countryPopupSourceLink {
   margin-left: 8px;
   color: #607382;
-  text-decoration: none;
   font-size: 0.8rem;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
 }
 
 .countryPopupSourceLink:hover {
-  text-decoration: underline;
+  color: #33485b;
 }
 
 .countryPopupFooter {
@@ -764,6 +776,10 @@
   gap: 12px;
 }
 
+.viewportPopupHeader > :first-child {
+  min-width: 0;
+}
+
 .viewportPopupHeaderControls {
   display: flex;
   align-items: center;
@@ -774,7 +790,9 @@
 .viewportPopupTitle {
   font-size: 1rem;
   font-weight: 700;
+  line-height: 1.2;
   margin-bottom: 4px;
+  overflow-wrap: break-word;
 }
 
 .viewportPopupMeta {
@@ -861,20 +879,34 @@
 
 .viewportPopupReasonLink {
   color: #1f4761;
-  text-decoration: none;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
 }
 
 .viewportPopupReasonLink:hover,
-.viewportPopupSourceLink:hover,
 .viewportPopupCta:hover {
-  text-decoration: underline;
+  text-decoration-style: solid;
 }
 
-.viewportPopupSourceLink {
-  margin-left: 8px;
+.viewportPopupSourceLink,
+.viewportPopupSourceInlineLink {
   color: #607382;
-  text-decoration: none;
   font-size: 0.8rem;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.viewportPopupSourceInlineLink {
+  margin-left: 8px;
+}
+
+.viewportPopupSourceLink:hover,
+.viewportPopupSourceInlineLink:hover {
+  color: #33485b;
 }
 
 .viewportPopupFooter {
@@ -886,17 +918,23 @@
 .viewportPopupCta {
   color: #1f4761;
   font-weight: 700;
-  text-decoration: none;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
 }
 
 .countryPopupCta {
   color: #1f4761;
   font-weight: 700;
-  text-decoration: none;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
 }
 
 .countryPopupCta:hover {
-  text-decoration: underline;
+  text-decoration-style: solid;
 }
 
 .countryPopupFootnote {

@@ -12,6 +12,8 @@ export const NEW_MAP_US_STATES_FILL_LAYER_ID = "us-states-fill";
 export const NEW_MAP_US_STATES_LINE_LAYER_ID = "us-states-line";
 const NEW_MAP_SUPPLEMENTAL_SEA_SOURCE_ID = "new-map-supplemental-seas";
 const NEW_MAP_SUPPLEMENTAL_SEA_LAYER_ID = "new-map-supplemental-seas";
+const NEW_MAP_ANTARCTICA_MASK_SOURCE_ID = "new-map-antarctica-mask";
+const NEW_MAP_ANTARCTICA_MASK_LAYER_ID = "new-map-antarctica-mask";
 const BASEMAP_STYLE_URL = "/api/new-map/basemap-style?v=20260331-host-header-same-origin";
 
 const DEFAULT_CENTER: [number, number] = [25, 50];
@@ -189,6 +191,40 @@ function addSupplementalSeaLayer(map: maplibregl.Map) {
     },
     "place_country_1"
   );
+}
+
+function addAntarcticaMaskLayer(map: maplibregl.Map) {
+  if (map.getLayer(NEW_MAP_ANTARCTICA_MASK_LAYER_ID)) return;
+  map.addSource(NEW_MAP_ANTARCTICA_MASK_SOURCE_ID, {
+    type: "geojson",
+    data: {
+      type: "FeatureCollection",
+      features: [-360, 0, 360].map((offset) => ({
+        type: "Feature" as const,
+        properties: { kind: "south-polar-mask" },
+        geometry: {
+          type: "Polygon" as const,
+          coordinates: [[
+            [-180 + offset, -85],
+            [180 + offset, -85],
+            [180 + offset, -60],
+            [-180 + offset, -60],
+            [-180 + offset, -85]
+          ]]
+        }
+      }))
+    }
+  });
+  map.addLayer({
+    id: NEW_MAP_ANTARCTICA_MASK_LAYER_ID,
+    type: "fill",
+    source: NEW_MAP_ANTARCTICA_MASK_SOURCE_ID,
+    paint: {
+      "fill-color": NEW_MAP_WATER_COLOR,
+      "fill-opacity": 1,
+      "fill-antialias": false
+    }
+  });
 }
 
 function findLabelGroups(map: maplibregl.Map) {
@@ -671,6 +707,7 @@ export function createMap(
     tuneNativeBasemapLayers(map);
     addSupplementalSeaLayer(map);
     installCountryLayers();
+    addAntarcticaMaskLayer(map);
     mapLoaded = true;
     applyData();
   };
@@ -716,10 +753,12 @@ export function createMap(
       map.off("moveend", ensureFlatCamera);
       if (map.getLayer(NEW_MAP_US_STATES_LINE_LAYER_ID)) map.removeLayer(NEW_MAP_US_STATES_LINE_LAYER_ID);
       if (map.getLayer(NEW_MAP_US_STATES_FILL_LAYER_ID)) map.removeLayer(NEW_MAP_US_STATES_FILL_LAYER_ID);
+      if (map.getLayer(NEW_MAP_ANTARCTICA_MASK_LAYER_ID)) map.removeLayer(NEW_MAP_ANTARCTICA_MASK_LAYER_ID);
       if (map.getLayer(NEW_MAP_SUPPLEMENTAL_SEA_LAYER_ID)) map.removeLayer(NEW_MAP_SUPPLEMENTAL_SEA_LAYER_ID);
       if (map.getLayer(NEW_MAP_ADMIN_LAYER_ID)) map.removeLayer(NEW_MAP_ADMIN_LAYER_ID);
       if (map.getLayer(NEW_MAP_FILL_LAYER_ID)) map.removeLayer(NEW_MAP_FILL_LAYER_ID);
       if (map.getSource(NEW_MAP_US_STATES_SOURCE_ID)) map.removeSource(NEW_MAP_US_STATES_SOURCE_ID);
+      if (map.getSource(NEW_MAP_ANTARCTICA_MASK_SOURCE_ID)) map.removeSource(NEW_MAP_ANTARCTICA_MASK_SOURCE_ID);
       if (map.getSource(NEW_MAP_SUPPLEMENTAL_SEA_SOURCE_ID)) map.removeSource(NEW_MAP_SUPPLEMENTAL_SEA_SOURCE_ID);
       if (map.getSource(NEW_MAP_SOURCE_ID)) map.removeSource(NEW_MAP_SOURCE_ID);
       map.remove();

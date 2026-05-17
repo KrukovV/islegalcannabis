@@ -106,11 +106,33 @@
 
 .relatedList a {
   color: #1d5966;
-  text-decoration: none;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
 }
 
 .relatedList a:hover {
-  text-decoration: underline;
+  text-decoration-style: solid;
+}
+
+.article a {
+  color: #1d5966;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.article a[href^="/"],
+.article a[href^="#"],
+.article a[href^="https://islegal.info"],
+.article a[href^="https://www.islegal.info"] {
+  text-decoration-style: dotted;
+}
+
+.article a:hover {
+  text-decoration-thickness: 2px;
 }
 
 @media (max-width: 720px) {

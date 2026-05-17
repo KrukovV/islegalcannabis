@@ -133,7 +133,7 @@ export default function ViewportCountryPopup({
               </Link>
               {item.sourceUrl && item.sourceUrl !== item.href ? (
                 <a
-                  className={styles.viewportPopupSourceLink}
+                  className={styles.viewportPopupSourceInlineLink}
                   href={item.sourceUrl}
                   target="_blank"
                   rel="noreferrer"

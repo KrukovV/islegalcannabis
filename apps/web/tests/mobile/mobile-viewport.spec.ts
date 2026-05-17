@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test, type TestInfo } from "@playwright/test";
 import {
   assertNoHorizontalOverflow,
   getViewportBox,
@@ -6,6 +6,13 @@ import {
   readViewportMeta,
   waitForMapReady
 } from "./mobileTestUtils";
+
+const LINK_STYLE_PROJECTS = new Set(["iphone-se-webkit", "iphone-12-mini-webkit"]);
+const TABLET_ARTIFACT_PROJECTS = new Set(["iphone-12-mini-webkit"]);
+
+function skipUnlessProject(testInfo: TestInfo, projects: Set<string>) {
+  test.skip(!projects.has(testInfo.project.name), "targeted regression coverage only");
+}
 
 test("mobile viewport contract exposes safe-area, touch-action, and 44px targets", async ({ page }) => {
   await page.goto("/c/usa", { waitUntil: "domcontentloaded" });
@@ -103,4 +110,105 @@ test("runtime country source excludes Antarctica fill artifact", async ({ page }
     features?: Array<{ properties?: { geo?: string } }>;
   };
   expect(payload.features?.some((feature) => feature.properties?.geo === "AQ")).toBe(false);
+});
+
+test("country content links use dotted internal and solid external underlines", async ({ page }, testInfo) => {
+  skipUnlessProject(testInfo, LINK_STYLE_PROJECTS);
+  await page.goto("/c/mng#law-status-explanation", { waitUntil: "domcontentloaded" });
+  await waitForMapReady(page);
+
+  const linkStyles = await page.evaluate(() => {
+    const readLinkStyle = (selector: string) => {
+      const node = document.querySelector(selector) as HTMLAnchorElement | null;
+      if (!node) return null;
+      const style = getComputedStyle(node);
+      return {
+        href: node.getAttribute("href") || "",
+        text: node.textContent?.trim() || "",
+        line: style.textDecorationLine,
+        style: style.textDecorationStyle
+      };
+    };
+    return {
+      internal: readLinkStyle('article a[href^="/c/"]'),
+      external: readLinkStyle('article a[target="_blank"][href^="http"]')
+    };
+  });
+
+  expect(linkStyles.internal?.line).toContain("underline");
+  expect(linkStyles.internal?.style).toBe("dotted");
+  expect(linkStyles.external?.line).toContain("underline");
+  expect(linkStyles.external?.style).toBe("solid");
+  await assertNoHorizontalOverflow(page);
+});
+
+test("mobile popup links use dotted internal and solid external underlines", async ({ page }, testInfo) => {
+  skipUnlessProject(testInfo, LINK_STYLE_PROJECTS);
+  await page.goto("/new-map", { waitUntil: "domcontentloaded" });
+  await waitForMapReady(page);
+  await openCountryPopup(page, "FR");
+
+  const linkStyles = await page.evaluate(() => {
+    const popup = document.querySelector('[data-testid="new-map-country-popup"]');
+    const readLinkStyle = (node: Element | null) => {
+      if (!node) return null;
+      const style = getComputedStyle(node);
+      return {
+        href: node.getAttribute("href") || "",
+        text: node.textContent?.trim() || "",
+        line: style.textDecorationLine,
+        style: style.textDecorationStyle,
+        marginLeft: style.marginLeft
+      };
+    };
+    return {
+      internal: readLinkStyle(popup?.querySelector('a[href^="/c/"]') || null),
+      external: readLinkStyle(popup?.querySelector('a[target="_blank"][href^="http"]') || null)
+    };
+  });
+
+  expect(linkStyles.internal?.line).toContain("underline");
+  expect(linkStyles.internal?.style).toBe("dotted");
+  expect(linkStyles.external?.line).toContain("underline");
+  expect(linkStyles.external?.style).toBe("solid");
+  await assertNoHorizontalOverflow(page);
+});
+
+test("tablet map masks Antarctica basemap artifact", async ({ page }, testInfo) => {
+  skipUnlessProject(testInfo, TABLET_ARTIFACT_PROJECTS);
+  await page.setViewportSize({ width: 1024, height: 1366 });
+  await page.goto("/", { waitUntil: "domcontentloaded" });
+  await waitForMapReady(page);
+  await page.waitForTimeout(250);
+
+  const maskState = await page.evaluate(() => {
+    const host = window as typeof window & {
+      __NEW_MAP_DEBUG__?: {
+        map?: {
+          getCanvas: () => HTMLCanvasElement;
+          getLayer: (_id: string) => unknown;
+          queryRenderedFeatures: (
+            _point: [number, number]
+          ) => Array<{ layer?: { id?: string }; properties?: Record<string, unknown> }>;
+        } | null;
+      };
+    };
+    const map = host.__NEW_MAP_DEBUG__?.map;
+    if (!map) return null;
+    const rect = map.getCanvas().getBoundingClientRect();
+    const point: [number, number] = [Math.round(rect.width * 0.5), Math.round(rect.height * 0.92)];
+    const features = map.queryRenderedFeatures(point);
+    return {
+      hasMaskLayer: Boolean(map.getLayer("new-map-antarctica-mask")),
+      topLayer: features[0]?.layer?.id || "",
+      labels: features
+        .map((feature) => String(feature.properties?.name_en || feature.properties?.name || ""))
+        .filter(Boolean)
+    };
+  });
+
+  expect(maskState?.hasMaskLayer).toBe(true);
+  expect(maskState?.topLayer).toBe("new-map-antarctica-mask");
+  expect(maskState?.labels.some((label) => /antarctica/i.test(label))).toBe(false);
+  await assertNoHorizontalOverflow(page);
 });
