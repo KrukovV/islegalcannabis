@@ -5,11 +5,12 @@ import {
   openCountryPopup,
   readViewportMeta,
   saveMobileScreenshot,
-  waitForMapReady
+  waitForMapReady,
+  writeMobileJson
 } from "./mobileTestUtils";
 
 const LINK_STYLE_PROJECTS = new Set(["iphone-se-webkit", "iphone-12-mini-webkit"]);
-const TABLET_ARTIFACT_PROJECTS = new Set(["iphone-12-mini-webkit"]);
+const IPAD_PRO_ARTIFACT_PROJECTS = new Set(["ipad-pro-chrome"]);
 
 function skipUnlessProject(testInfo: TestInfo, projects: Set<string>) {
   test.skip(!projects.has(testInfo.project.name), "targeted regression coverage only");
@@ -175,25 +176,58 @@ test("mobile popup links use dotted internal and solid external underlines", asy
   await assertNoHorizontalOverflow(page);
 });
 
-test("tablet map keeps Antarctica visible without app geometry overlays", async ({ page }, testInfo) => {
-  skipUnlessProject(testInfo, TABLET_ARTIFACT_PROJECTS);
-  await page.setViewportSize({ width: 1024, height: 1366 });
-  await page.goto("/", { waitUntil: "domcontentloaded" });
+test("ipad pro map keeps Antarctica visible without legal-fill or water artifacts", async ({ page }, testInfo) => {
+  skipUnlessProject(testInfo, IPAD_PRO_ARTIFACT_PROJECTS);
+  await page.goto("/c/bra", { waitUntil: "domcontentloaded" });
   await waitForMapReady(page);
-  await page.waitForTimeout(250);
+  await page.evaluate(() => {
+    const host = window as typeof window & {
+      __NEW_MAP_DEBUG__?: {
+        map?: {
+          jumpTo: (_options: { center: [number, number]; zoom: number; bearing: number; pitch: number }) => void;
+        } | null;
+      };
+    };
+    host.__NEW_MAP_DEBUG__?.map?.jumpTo({ center: [-42, 0], zoom: 1.35, bearing: 0, pitch: 0 });
+  });
+  await page.waitForFunction(
+    () => {
+      const host = window as typeof window & {
+        __NEW_MAP_DEBUG__?: {
+          map?: {
+            getCanvas: () => HTMLCanvasElement;
+            getLayer: (_id: string) => unknown;
+            queryRenderedFeatures: (_point: [number, number], _options?: { layers?: string[] }) => unknown[];
+          } | null;
+        };
+      };
+      const map = host.__NEW_MAP_DEBUG__?.map;
+      if (!map?.getLayer("new-map-antarctica-land")) return false;
+      const rect = map.getCanvas().getBoundingClientRect();
+      const point: [number, number] = [Math.round(rect.width * 0.5), Math.round(rect.height * 0.86)];
+      return map.queryRenderedFeatures(point, { layers: ["new-map-antarctica-land"] }).length > 0;
+    },
+    undefined,
+    { timeout: 10000 }
+  );
+  await page.waitForTimeout(300);
 
   const antarcticaState = await page.evaluate(() => {
     const host = window as typeof window & {
       __NEW_MAP_DEBUG__?: {
         map?: {
           getCanvas: () => HTMLCanvasElement;
+          getCenter: () => { lng: number; lat: number };
           getLayer: (_id: string) => unknown;
+          getZoom: () => number;
+          getStyle: () => { layers?: Array<{ id?: string }> };
           getPaintProperty: (_layerId: string, _paintName: string) => unknown;
           querySourceFeatures: (
             _sourceId: string
           ) => Array<{ properties?: Record<string, unknown> }>;
           queryRenderedFeatures: (
-            _point: [number, number]
+            _point: [number, number],
+            _options?: { layers?: string[] }
           ) => Array<{ layer?: { id?: string }; properties?: Record<string, unknown> }>;
           unproject: (_point: [number, number]) => { lat: number; lng: number };
         } | null;
@@ -202,25 +236,69 @@ test("tablet map keeps Antarctica visible without app geometry overlays", async 
     const map = host.__NEW_MAP_DEBUG__?.map;
     if (!map) return null;
     const rect = map.getCanvas().getBoundingClientRect();
-    const point: [number, number] = [Math.round(rect.width * 0.5), Math.round(rect.height * 0.92)];
-    const features = map.queryRenderedFeatures(point);
+    const samplePoints = [0.74, 0.8, 0.86, 0.9, 0.94].flatMap((yRatio) =>
+      [0.08, 0.18, 0.28, 0.38, 0.48, 0.58, 0.68, 0.78].map((xRatio) => ({
+        id: `${xRatio}:${yRatio}`,
+        xRatio,
+        yRatio,
+        point: [Math.round(rect.width * xRatio), Math.round(rect.height * yRatio)] as [number, number]
+      }))
+    );
+    const layerOrder = (map.getStyle().layers || []).map((layer) => layer.id || "");
     const sourceFeatures = map.querySourceFeatures("legal-countries");
-    const bottomLngLat = map.unproject(point);
+    const center = map.getCenter();
+    const samples = samplePoints.map(({ id, xRatio, yRatio, point }) => {
+      const layers = map.queryRenderedFeatures(point).map((feature) => feature.layer?.id || "").filter(Boolean);
+      const antarcticaLandFeatures = map.queryRenderedFeatures(point, { layers: ["new-map-antarctica-land"] });
+      const legalFillFeatures = map.queryRenderedFeatures(point, { layers: ["legal-fill"] });
+      return {
+        id,
+        xRatio,
+        yRatio,
+        point,
+        lngLat: map.unproject(point),
+        layers,
+        hasAntarcticaLand: antarcticaLandFeatures.length > 0,
+        hasLegalFill: legalFillFeatures.length > 0
+      };
+    });
+    const southSamples = samples.filter((sample) => sample.lngLat.lat < -60);
+    const southLandSamples = southSamples.filter((sample) => sample.hasAntarcticaLand);
+    const lowerSouthLandSamples = southLandSamples.filter((sample) => sample.yRatio >= 0.86);
     return {
       hasAppMaskLayer: Boolean(map.getLayer("new-map-antarctica-mask")),
+      hasAntarcticaLandLayer: Boolean(map.getLayer("new-map-antarctica-land")),
       hasAqLegalFill: sourceFeatures.some((feature) => feature.properties?.geo === "AQ"),
-      bottomLat: bottomLngLat.lat,
+      viewport: { width: window.innerWidth, height: window.innerHeight, dpr: window.devicePixelRatio },
+      center: { lng: center.lng, lat: center.lat },
+      zoom: map.getZoom(),
       backgroundColor: map.getPaintProperty("background", "background-color"),
       waterColor: map.getPaintProperty("water", "fill-color"),
-      renderedLayers: features.map((feature) => feature.layer?.id || "").filter(Boolean)
+      layerOrder: {
+        waterShadow: layerOrder.indexOf("water_shadow"),
+        water: layerOrder.indexOf("water"),
+        legalFill: layerOrder.indexOf("legal-fill"),
+        antarcticaLand: layerOrder.indexOf("new-map-antarctica-land")
+      },
+      southSamples,
+      southLandSampleCount: southLandSamples.length,
+      lowerSouthLandSampleCount: lowerSouthLandSamples.length
     };
   });
 
+  await writeMobileJson(testInfo, "ipad-pro-antarctica-state", antarcticaState);
+  await saveMobileScreenshot(page, testInfo, "ipad-pro-c-bra-antarctica-overview");
   expect(antarcticaState?.hasAppMaskLayer).toBe(false);
+  expect(antarcticaState?.hasAntarcticaLandLayer).toBe(true);
   expect(antarcticaState?.hasAqLegalFill).toBe(false);
-  expect(antarcticaState?.bottomLat).toBeLessThan(-60);
+  expect(antarcticaState?.viewport).toEqual({ width: 1024, height: 1366, dpr: 2 });
   expect(antarcticaState?.backgroundColor).not.toBe(antarcticaState?.waterColor);
-  expect(antarcticaState?.renderedLayers).not.toContain("legal-fill");
-  await saveMobileScreenshot(page, testInfo, "ipad-pro-antarctica-visible");
+  expect(antarcticaState?.layerOrder.antarcticaLand).toBeGreaterThan(antarcticaState?.layerOrder.water || -1);
+  expect(antarcticaState?.layerOrder.antarcticaLand).toBeGreaterThan(antarcticaState?.layerOrder.waterShadow || -1);
+  expect(antarcticaState?.layerOrder.legalFill).toBeLessThan(antarcticaState?.layerOrder.antarcticaLand || 0);
+  expect(antarcticaState?.southSamples.length).toBeGreaterThanOrEqual(3);
+  expect(antarcticaState?.southSamples.every((sample) => sample.hasLegalFill === false)).toBe(true);
+  expect(antarcticaState?.southLandSampleCount).toBeGreaterThanOrEqual(12);
+  expect(antarcticaState?.lowerSouthLandSampleCount).toBeGreaterThanOrEqual(8);
   await assertNoHorizontalOverflow(page);
 });

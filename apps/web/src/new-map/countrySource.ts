@@ -85,6 +85,38 @@ export function buildCountrySourceSnapshot(): LegalCountryCollection {
   };
 }
 
+export function buildAntarcticaLandSourceSnapshot(): FeatureCollection<Polygon | MultiPolygon, { geo: "AQ"; kind: "antarctica-land" }> {
+  const snapshot = buildGeoJson("countries", { countryResolution: "50m" }) as FeatureCollection;
+  const feature = snapshot.features.find((candidate) => {
+    const props = candidate.properties || {};
+    return (
+      String(props.geo || props.ISO_A2 || props.iso_a2 || props.POSTAL || "").trim().toUpperCase() === "AQ" ||
+      String(props.ADMIN || props.NAME || props.name || "").trim().toLowerCase() === "antarctica"
+    );
+  });
+
+  if (!isPolygonGeometry(feature?.geometry)) {
+    return {
+      type: "FeatureCollection",
+      features: []
+    };
+  }
+
+  return {
+    type: "FeatureCollection",
+    features: [
+      {
+        type: "Feature",
+        geometry: compactGeometry(feature.geometry),
+        properties: {
+          geo: "AQ",
+          kind: "antarctica-land"
+        }
+      }
+    ]
+  };
+}
+
 export function buildAdminBoundarySnapshot(): AdminBoundaryCollection {
   const geojson = buildGeoJson("states") as FeatureCollection;
   const features = geojson.features

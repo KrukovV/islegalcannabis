@@ -5,7 +5,7 @@ const BASE_URL =
   process.env.PLAYWRIGHT_BASE_URL ||
   "http://127.0.0.1:3000";
 
-type MobileProjectScope = "exclude-performance" | "performance-only";
+type MobileProjectScope = "exclude-performance" | "performance-only" | "viewport-only";
 
 function mobileProject(
   name: string,
@@ -19,7 +19,9 @@ function mobileProject(
     name,
     ...(scope === "performance-only"
       ? { testMatch: /mobile-performance\.spec\.ts/ }
-      : { testIgnore: /mobile-performance\.spec\.ts/ }),
+      : scope === "viewport-only"
+        ? { testMatch: /mobile-viewport\.spec\.ts/ }
+        : { testIgnore: /mobile-performance\.spec\.ts/ }),
     use: {
       baseURL: BASE_URL,
       browserName,
@@ -108,6 +110,14 @@ export default defineConfig({
       { width: 768, height: 1024 },
       "Mozilla/5.0 (iPad; CPU OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1",
       2
+    ),
+    mobileProject(
+      "ipad-pro-chrome",
+      "chromium",
+      { width: 1024, height: 1366 },
+      "Mozilla/5.0 (iPad; CPU OS 17_0 like Mac OS X) AppleWebKit/537.36 (KHTML, like Gecko) CriOS/136.0.0.0 Mobile/15E148 Safari/604.1",
+      2,
+      "viewport-only"
     ),
     mobileProject(
       "iphone-landscape-webkit",
