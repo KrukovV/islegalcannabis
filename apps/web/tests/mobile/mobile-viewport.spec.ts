@@ -229,6 +229,7 @@ test("ipad pro map keeps Antarctica visible without legal-fill or water artifact
             _point: [number, number],
             _options?: { layers?: string[] }
           ) => Array<{ layer?: { id?: string }; properties?: Record<string, unknown> }>;
+          project: (_lngLat: [number, number]) => { x: number; y: number };
           unproject: (_point: [number, number]) => { lat: number; lng: number };
         } | null;
       };
@@ -262,9 +263,37 @@ test("ipad pro map keeps Antarctica visible without legal-fill or water artifact
         hasLegalFill: legalFillFeatures.length > 0
       };
     });
+    const antarcticaLandCoordinates = [
+      [-155, -78],
+      [-128, -78],
+      [-101, -78],
+      [-74, -78],
+      [-128, -80.7],
+      [-101, -80.7],
+      [-74, -80.7],
+      [-47, -80.7]
+    ] as const;
+    const antarcticaLandChecks = antarcticaLandCoordinates.map(([lng, lat]) => {
+      const projected = map.project([lng, lat]);
+      const point: [number, number] = [Math.round(projected.x), Math.round(projected.y)];
+      const inViewport = point[0] >= 0 && point[0] <= rect.width && point[1] >= 0 && point[1] <= rect.height;
+      const antarcticaLandFeatures = inViewport
+        ? map.queryRenderedFeatures(point, { layers: ["new-map-antarctica-land"] })
+        : [];
+      const legalFillFeatures = inViewport ? map.queryRenderedFeatures(point, { layers: ["legal-fill"] }) : [];
+      return {
+        lng,
+        lat,
+        point,
+        inViewport,
+        hasAntarcticaLand: antarcticaLandFeatures.length > 0,
+        hasLegalFill: legalFillFeatures.length > 0
+      };
+    });
     const southSamples = samples.filter((sample) => sample.lngLat.lat < -60);
     const southLandSamples = southSamples.filter((sample) => sample.hasAntarcticaLand);
     const lowerSouthLandSamples = southLandSamples.filter((sample) => sample.yRatio >= 0.86);
+    const visibleAntarcticaLandChecks = antarcticaLandChecks.filter((sample) => sample.inViewport);
     return {
       hasAppMaskLayer: Boolean(map.getLayer("new-map-antarctica-mask")),
       hasAntarcticaLandLayer: Boolean(map.getLayer("new-map-antarctica-land")),
@@ -280,6 +309,9 @@ test("ipad pro map keeps Antarctica visible without legal-fill or water artifact
         legalFill: layerOrder.indexOf("legal-fill"),
         antarcticaLand: layerOrder.indexOf("new-map-antarctica-land")
       },
+      antarcticaLandChecks,
+      visibleAntarcticaLandCheckCount: visibleAntarcticaLandChecks.length,
+      visibleAntarcticaLandHitCount: visibleAntarcticaLandChecks.filter((sample) => sample.hasAntarcticaLand).length,
       southSamples,
       southLandSampleCount: southLandSamples.length,
       lowerSouthLandSampleCount: lowerSouthLandSamples.length
@@ -298,7 +330,9 @@ test("ipad pro map keeps Antarctica visible without legal-fill or water artifact
   expect(antarcticaState?.layerOrder.legalFill).toBeLessThan(antarcticaState?.layerOrder.antarcticaLand || 0);
   expect(antarcticaState?.southSamples.length).toBeGreaterThanOrEqual(3);
   expect(antarcticaState?.southSamples.every((sample) => sample.hasLegalFill === false)).toBe(true);
-  expect(antarcticaState?.southLandSampleCount).toBeGreaterThanOrEqual(12);
+  expect(antarcticaState?.visibleAntarcticaLandCheckCount).toBe(8);
+  expect(antarcticaState?.visibleAntarcticaLandHitCount).toBe(8);
+  expect(antarcticaState?.antarcticaLandChecks.every((sample) => sample.hasLegalFill === false)).toBe(true);
   expect(antarcticaState?.lowerSouthLandSampleCount).toBeGreaterThanOrEqual(8);
   await assertNoHorizontalOverflow(page);
 });
