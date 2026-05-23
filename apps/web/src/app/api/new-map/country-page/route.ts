@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import { getCountryPageData } from "@/lib/countryPageStorage";
 
-const COUNTRY_PAGE_CACHE_CONTROL = "public, max-age=300, s-maxage=86400, stale-while-revalidate=604800";
-
 export const dynamic = "force-dynamic";
 
 export async function GET(request: Request) {
@@ -19,9 +17,7 @@ export async function GET(request: Request) {
 
   return NextResponse.json(data, {
     headers: {
-      "cache-control": COUNTRY_PAGE_CACHE_CONTROL,
-      "cdn-cache-control": COUNTRY_PAGE_CACHE_CONTROL,
-      "vercel-cdn-cache-control": COUNTRY_PAGE_CACHE_CONTROL
+      "Cache-Control": "no-store"
     }
   });
 }

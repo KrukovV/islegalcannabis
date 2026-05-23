@@ -9,13 +9,13 @@ export type LegalCountryFeatureProperties = {
     status: ResultStatus;
     color: string;
   };
-  mapCategory?: "LEGAL_OR_DECRIM" | "LIMITED_OR_MEDICAL" | "ILLEGAL" | "UNKNOWN";
+  mapCategory: "LEGAL_OR_DECRIM" | "LIMITED_OR_MEDICAL" | "ILLEGAL" | "UNKNOWN";
   baseColor: string;
   hoverColor: string;
-  fillOpacity?: number;
-  hoverOpacity?: number;
-  labelAnchorLng?: number | null;
-  labelAnchorLat?: number | null;
+  fillOpacity: number;
+  hoverOpacity: number;
+  labelAnchorLng: number | null;
+  labelAnchorLat: number | null;
 };
 
 export type LegalCountryFeature = Feature<Polygon | MultiPolygon, LegalCountryFeatureProperties> & {

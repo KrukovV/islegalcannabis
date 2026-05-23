@@ -12,13 +12,6 @@ const DEFAULT_ENDPOINT = "/api/analytics";
 let initialized = false;
 let endpoint = DEFAULT_ENDPOINT;
 
-function analyticsEnabled() {
-  if (typeof window === "undefined") return false;
-  const host = String(window.location.hostname || "").trim().toLowerCase();
-  if (window.navigator.webdriver) return false;
-  return host !== "127.0.0.1" && host !== "localhost" && host !== "::1";
-}
-
 function resolveEndpoint(): string {
   const fromEnv =
     process.env.NEXT_PUBLIC_ANALYTICS_ENDPOINT ||
@@ -32,11 +25,6 @@ export function initAnalytics() {
   if (initialized || typeof window === "undefined") {
     return;
   }
-  if (!analyticsEnabled()) {
-    initialized = true;
-    endpoint = "";
-    return;
-  }
   endpoint = resolveEndpoint();
   initialized = true;
 }
@@ -47,9 +35,6 @@ export async function trackEvent(event: AnalyticsEvent, payload?: Record<string,
   }
   if (!initialized) {
     initAnalytics();
-  }
-  if (!endpoint || !analyticsEnabled()) {
-    return;
   }
   try {
     await fetch(endpoint, {
@@ -62,3 +47,4 @@ export async function trackEvent(event: AnalyticsEvent, payload?: Record<string,
     // analytics is best-effort and must never break render flow
   }
 }
+

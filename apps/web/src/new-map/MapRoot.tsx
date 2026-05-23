@@ -2,17 +2,16 @@
 
 import dynamic from "next/dynamic";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import type maplibregl from "maplibre-gl";
-import type { StyleSpecification } from "maplibre-gl";
+import maplibregl, { type StyleSpecification } from "maplibre-gl";
 import type { RuntimeIdentity } from "@/lib/runtimeIdentity";
 import type { CountryPageData } from "@/lib/countryPageStorage";
 import { deriveCountryCardEntryFromCountryPageData } from "@/lib/countryCardEntry";
 import type { SeoLocale } from "@/lib/seo/i18n";
+import { createMap } from "./createMap";
 import type { CountryCardEntry, LegalCountryCollection } from "./map.types";
 import styles from "./MapRoot.module.css";
 import { NEW_MAP_WATER_COLOR } from "./mapPalette";
 import { hasFirstVisualReady, onFirstVisualReady, resetFirstVisualReady } from "./startupTrace";
-import { readVisualViewportKeyboardOffset, readVisualViewportSnapshot, subscribeToVisualViewportChanges } from "./viewportMetrics";
 import AsciiOverlay from "./ascii/AsciiOverlay";
 import UnifiedSeoStatusPanel from "./components/UnifiedSeoStatusPanel";
 import ViewportCountryPopup from "./components/ViewportCountryPopup";
@@ -118,16 +117,11 @@ export default function MapRoot({
 }: Props) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
-  const maplibreRuntimeRef = useRef<{
-    Marker: typeof maplibregl.Marker;
-  } | null>(null);
   const locationMarkerRef = useRef<maplibregl.Marker | null>(null);
   const infoMarkerRef = useRef<maplibregl.Marker | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [mapReady, setMapReady] = useState(false);
   const [visualReady, setVisualReady] = useState(false);
-  const [keyboardOffset, setKeyboardOffset] = useState(0);
-  const [visibleViewportHeight, setVisibleViewportHeight] = useState<number | null>(null);
   const [selectedGeo, setSelectedGeo] = useState<SelectedGeo>(
     initialGeoCode ? String(initialGeoCode).trim().toUpperCase() : null
   );
@@ -142,25 +136,6 @@ export default function MapRoot({
   const lastAppliedRouteGeoRef = useRef<string | null>(null);
   const seoCountryCode = activeRouteSeoData?.code || null;
   const seoRouteGeoCode = String(activeRouteSeoData?.geo_code || "").trim().toUpperCase() || null;
-  const shouldLockDocumentScroll = !seoCountryData;
-
-  useEffect(() => {
-    if (typeof document === "undefined" || !shouldLockDocumentScroll) return;
-    document.body.dataset.newMapRoute = "1";
-    return () => {
-      delete document.body.dataset.newMapRoute;
-    };
-  }, [shouldLockDocumentScroll]);
-
-  useEffect(() => {
-    const syncViewportMetrics = () => {
-      const snapshot = readVisualViewportSnapshot();
-      setKeyboardOffset(readVisualViewportKeyboardOffset());
-      setVisibleViewportHeight(snapshot.height > 0 ? Math.round(snapshot.height) : null);
-    };
-    syncViewportMetrics();
-    return subscribeToVisualViewportChanges(syncViewportMetrics);
-  }, []);
 
   useEffect(() => {
     if (!seoCountryData) return;
@@ -287,7 +262,6 @@ export default function MapRoot({
 
   const applyGeoToMap = useCallback((geo: ActiveGeo, options?: { recenter?: boolean }) => {
     const map = mapRef.current;
-    const maplibreRuntime = maplibreRuntimeRef.current;
     if (!map) return;
     if (typeof geo?.lng !== "number" || typeof geo?.lat !== "number") {
       locationMarkerRef.current?.remove();
@@ -302,8 +276,7 @@ export default function MapRoot({
     markerElement.setAttribute("data-user-marker-position", `${geo.lng},${geo.lat}`);
 
     if (!locationMarkerRef.current) {
-      if (!maplibreRuntime) return;
-      locationMarkerRef.current = new maplibreRuntime.Marker({
+      locationMarkerRef.current = new maplibregl.Marker({
         element: markerElement,
         anchor: "bottom"
       })
@@ -336,7 +309,6 @@ export default function MapRoot({
 
   useEffect(() => {
     const map = mapRef.current;
-    const maplibreRuntime = maplibreRuntimeRef.current;
     const markerEntry = seoMarkerEntry;
     if (!mapReady || !map || !markerEntry?.coordinates) {
       infoMarkerRef.current?.remove();
@@ -364,8 +336,7 @@ export default function MapRoot({
     };
 
     if (!infoMarkerRef.current) {
-      if (!maplibreRuntime) return;
-      infoMarkerRef.current = new maplibreRuntime.Marker({
+      infoMarkerRef.current = new maplibregl.Marker({
         element: button,
         anchor: "bottom"
       })
@@ -445,31 +416,6 @@ export default function MapRoot({
   }, [selectedGeoEntry?.geo, selectedGeoEntry?.coordinates, selectedGeoEntry?.coordinates?.lat, selectedGeoEntry?.coordinates?.lng]);
 
   useEffect(() => {
-    const map = mapRef.current;
-    const container = containerRef.current;
-    if (!mapReady || !map || !container) return;
-
-    let frameId = 0;
-    const scheduleResize = () => {
-      window.cancelAnimationFrame(frameId);
-      frameId = window.requestAnimationFrame(() => {
-        map.resize();
-      });
-    };
-
-    scheduleResize();
-    const observer = typeof ResizeObserver === "function" ? new ResizeObserver(scheduleResize) : null;
-    observer?.observe(container);
-    const unsubscribeViewport = subscribeToVisualViewportChanges(scheduleResize);
-
-    return () => {
-      observer?.disconnect();
-      unsubscribeViewport();
-      window.cancelAnimationFrame(frameId);
-    };
-  }, [keyboardOffset, mapReady]);
-
-  useEffect(() => {
     if (!initialGeoCode) {
       lastAppliedRouteGeoRef.current = null;
       return;
@@ -538,7 +484,7 @@ export default function MapRoot({
     const prefetched = getNewMapPrefetchCache();
     const loadCardIndex = () =>
       fetch("/api/new-map/card-index", {
-        cache: "force-cache",
+        cache: "no-store",
         credentials: "same-origin"
       }).then((response) => {
         if (!response.ok) {
@@ -574,15 +520,10 @@ export default function MapRoot({
     async function mount() {
       if (!containerRef.current) return;
       try {
-        const [{ default: maplibreglModule }, { createMap }] = await Promise.all([
-          import("maplibre-gl"),
-          import("./createMap")
-        ]);
-        maplibreRuntimeRef.current = { Marker: maplibreglModule.Marker };
         const prefetched = getNewMapPrefetchCache();
         const loadCountries = () =>
           fetch(countriesUrl, {
-            cache: "force-cache",
+            cache: "no-store",
             credentials: "same-origin"
           }).then((response) => {
             if (!response.ok) {
@@ -592,7 +533,7 @@ export default function MapRoot({
           });
         const loadStyle = () =>
           fetch("/api/new-map/basemap-style?v=20260331-host-header-same-origin", {
-            cache: "force-cache",
+            cache: "no-store",
             credentials: "same-origin"
           }).then((response) => {
             if (!response.ok) {
@@ -614,11 +555,10 @@ export default function MapRoot({
           }
         });
         mapRef.current = runtime.map;
-        setDebugState({ mounted: true, countriesUrl, map: runtime.map, selectedId: null });
         void countriesPromise.then((countries) => {
           if (cancelled) return;
           for (const feature of countries.features) {
-            const status = feature.properties?.status || feature.properties?.result?.status;
+            const status = feature.properties?.result?.status;
             if (!status) {
               throw new Error(`MAP_WITHOUT_STATUS: ${String(feature.properties?.geo || "UNKNOWN")}`);
             }
@@ -626,7 +566,7 @@ export default function MapRoot({
           console.warn(
             `MAP_RENDER_STATUS sample=${countries.features
               .slice(0, 5)
-              .map((feature) => `${feature.properties.geo}:${feature.properties.status || feature.properties.result?.status}:${feature.properties.baseColor}:${feature.properties.hoverColor}`)
+              .map((feature) => `${feature.properties.geo}:${feature.properties.result.status}:${feature.properties.baseColor}:${feature.properties.hoverColor}`)
               .join(",")}`
           );
           runtime.setData(countries);
@@ -644,6 +584,7 @@ export default function MapRoot({
           onHoverChange: (geo) => setHoveredGeo(geo)
         });
         const unbindAsciiTriggers = bindAsciiMapTriggers(runtime.map);
+        setDebugState({ mounted: true, countriesUrl, map: runtime.map, selectedId: null });
         await countriesPromise;
         if (cancelled) {
           unbindAsciiTriggers();
@@ -658,7 +599,6 @@ export default function MapRoot({
           locationMarkerRef.current = null;
           infoMarkerRef.current?.remove();
           infoMarkerRef.current = null;
-          maplibreRuntimeRef.current = null;
           mapRef.current = null;
           setMapReady(false);
           setVisualReady(false);
@@ -683,13 +623,7 @@ export default function MapRoot({
     <section
       className={styles.root}
       data-testid="new-map-root"
-      data-keyboard-open={keyboardOffset > 0 ? "1" : "0"}
-      data-keyboard-offset={String(keyboardOffset)}
-      style={{
-        ["--new-map-water-color" as string]: NEW_MAP_WATER_COLOR,
-        ["--new-map-keyboard-offset" as string]: `${keyboardOffset}px`,
-        ["--new-map-visible-height" as string]: visibleViewportHeight ? `${visibleViewportHeight}px` : undefined
-      }}
+      style={{ ["--new-map-water-color" as string]: NEW_MAP_WATER_COLOR }}
     >
       <div
         data-testid="runtime-stamp"
@@ -735,12 +669,6 @@ export default function MapRoot({
           onClose={handleCountryPopupClose}
           onOpenDetails={handleOpenDetails}
         />
-      ) : null}
-      {!mapReady && !error ? (
-        <div className={styles.bootCard} data-testid="new-map-boot-card" aria-live="polite">
-          <strong>Loading cannabis map</strong>
-          <span>Preparing runtime layers…</span>
-        </div>
       ) : null}
       <div
         ref={containerRef}

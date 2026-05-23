@@ -6,7 +6,6 @@ module.exports = [
     ignores: [
       "**/node_modules/**",
       "**/.next/**",
-      ".vercel/**",
       "**/build/**",
       "Reports/**",
       "QUARANTINE/**",

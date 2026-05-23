@@ -15,38 +15,21 @@ import {
   resolveLegalHoverOpacity
 } from "./legalStyle";
 
-const MAP_COORDINATE_PRECISION = 1000;
+const ANTARCTICA_FILL_COLOR = "#c5ccd3";
+const ANTARCTICA_HOVER_COLOR = "#d4dae0";
 
 function isPolygonGeometry(geometry: Geometry | null | undefined): geometry is Polygon | MultiPolygon {
   return geometry?.type === "Polygon" || geometry?.type === "MultiPolygon";
 }
 
-function roundCoordinate(value: number) {
-  return Math.round(value * MAP_COORDINATE_PRECISION) / MAP_COORDINATE_PRECISION;
-}
-
-function roundCoordinates(value: unknown): unknown {
-  if (typeof value === "number") return roundCoordinate(value);
-  if (!Array.isArray(value)) return value;
-  return value.map(roundCoordinates);
-}
-
-function compactGeometry<T extends Polygon | MultiPolygon>(geometry: T): T {
-  return {
-    ...geometry,
-    coordinates: roundCoordinates(geometry.coordinates) as T["coordinates"]
-  };
-}
-
 export function buildCountrySourceSnapshot(): LegalCountryCollection {
-  const snapshot = buildGeoJson("countries", { countryResolution: "50m" }) as FeatureCollection;
+  const snapshot = buildGeoJson("countries") as FeatureCollection;
   const countryPageByIso2 = getCountryPageIndexByIso2();
   const missingGeos: string[] = [];
   const features = snapshot.features
     .filter((feature): feature is Feature<Polygon | MultiPolygon> => isPolygonGeometry(feature.geometry))
     .flatMap((feature) => {
       const geo = String(feature.properties?.geo || "").trim().toUpperCase();
-      if (geo === "AQ") return [];
       const countryPageData = countryPageByIso2.get(geo);
       if (!countryPageData) {
         missingGeos.push(geo);
@@ -54,8 +37,8 @@ export function buildCountrySourceSnapshot(): LegalCountryCollection {
       }
       const resultStatus = deriveResultStatusFromCountryPageData(countryPageData);
       const mapCategory = deriveMapCategoryFromCountryPageData(countryPageData);
-      const baseColor = resolveLegalFillColor(mapCategory);
-      const hoverColor = resolveLegalHoverColor(mapCategory);
+      const baseColor = geo === "AQ" ? ANTARCTICA_FILL_COLOR : resolveLegalFillColor(mapCategory);
+      const hoverColor = geo === "AQ" ? ANTARCTICA_HOVER_COLOR : resolveLegalHoverColor(mapCategory);
       const nextProperties: LegalCountryFeatureProperties = {
         geo,
         displayName: String(feature.properties?.displayName || feature.properties?.name || geo),
@@ -64,13 +47,21 @@ export function buildCountrySourceSnapshot(): LegalCountryCollection {
           status: resultStatus,
           color: baseColor
         },
-        mapCategory: mapCategory as "LEGAL_OR_DECRIM" | "LIMITED_OR_MEDICAL" | "ILLEGAL" | "UNKNOWN",
+        mapCategory: (geo === "AQ" && !feature.properties?.mapCategory ? "UNKNOWN" : mapCategory) as
+          "LEGAL_OR_DECRIM" | "LIMITED_OR_MEDICAL" | "ILLEGAL" | "UNKNOWN",
         baseColor,
-        hoverColor
+        hoverColor,
+        fillOpacity: geo === "AQ" ? 1 : resolveLegalFillOpacity(mapCategory),
+        hoverOpacity: geo === "AQ" ? 1 : resolveLegalHoverOpacity(mapCategory),
+        labelAnchorLng: Number.isFinite(Number(feature.properties?.labelAnchorLng))
+          ? Number(feature.properties?.labelAnchorLng)
+          : null,
+        labelAnchorLat: Number.isFinite(Number(feature.properties?.labelAnchorLat))
+          ? Number(feature.properties?.labelAnchorLat)
+          : null
       };
       return [{
         ...feature,
-        geometry: compactGeometry(feature.geometry),
         properties: nextProperties
       }];
     });
@@ -82,38 +73,6 @@ export function buildCountrySourceSnapshot(): LegalCountryCollection {
   return {
     ...snapshot,
     features
-  };
-}
-
-export function buildAntarcticaLandSourceSnapshot(): FeatureCollection<Polygon | MultiPolygon, { geo: "AQ"; kind: "antarctica-land" }> {
-  const snapshot = buildGeoJson("countries", { countryResolution: "50m" }) as FeatureCollection;
-  const feature = snapshot.features.find((candidate) => {
-    const props = candidate.properties || {};
-    return (
-      String(props.geo || props.ISO_A2 || props.iso_a2 || props.POSTAL || "").trim().toUpperCase() === "AQ" ||
-      String(props.ADMIN || props.NAME || props.name || "").trim().toLowerCase() === "antarctica"
-    );
-  });
-
-  if (!isPolygonGeometry(feature?.geometry)) {
-    return {
-      type: "FeatureCollection",
-      features: []
-    };
-  }
-
-  return {
-    type: "FeatureCollection",
-    features: [
-      {
-        type: "Feature",
-        geometry: compactGeometry(feature.geometry),
-        properties: {
-          geo: "AQ",
-          kind: "antarctica-land"
-        }
-      }
-    ]
   };
 }
 
@@ -158,7 +117,7 @@ export function buildUsStateSourceSnapshot(): LegalCountryCollection {
       return {
         type: "Feature" as const,
         id: geo,
-        geometry: compactGeometry(feature.geometry),
+        geometry: feature.geometry,
         properties: {
           geo,
           displayName,

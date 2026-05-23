@@ -1,9 +1,8 @@
 import { getPublicOrigin } from "../_lib/publicOrigin";
-import { NEW_MAP_LAND_COLOR, NEW_MAP_WATER_COLOR } from "@/new-map/mapPalette";
+import { NEW_MAP_WATER_COLOR } from "@/new-map/mapPalette";
 
 const UPSTREAM_STYLE_URL = "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json";
 const SUBTLE_BOUNDARY = "rgba(198, 208, 215, 0.18)";
-const BASEMAP_STYLE_CACHE_CONTROL = "public, max-age=300, s-maxage=86400, stale-while-revalidate=604800";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -13,9 +12,7 @@ export async function GET(request: Request) {
     headers: {
       accept: "application/json"
     },
-    next: {
-      revalidate: 86400
-    }
+    cache: "no-store"
   });
 
   if (!response.ok) {
@@ -41,7 +38,7 @@ export async function GET(request: Request) {
       if (layer.type === "background") {
         layer.paint = {
           ...layer.paint,
-          "background-color": NEW_MAP_LAND_COLOR
+          "background-color": NEW_MAP_WATER_COLOR
         };
         continue;
       }
@@ -80,9 +77,7 @@ export async function GET(request: Request) {
 
   return Response.json(style, {
     headers: {
-      "cache-control": BASEMAP_STYLE_CACHE_CONTROL,
-      "cdn-cache-control": BASEMAP_STYLE_CACHE_CONTROL,
-      "vercel-cdn-cache-control": BASEMAP_STYLE_CACHE_CONTROL
+      "cache-control": "no-store, no-cache, must-revalidate"
     }
   });
 }

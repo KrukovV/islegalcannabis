@@ -8,14 +8,6 @@ import { getGeoContext } from "./geo-store";
 
 const ASCII_START_DELAY_MS = process.env.NODE_ENV === "production" ? 60_000 : 5_000;
 
-function shouldAutoStartAscii() {
-  if (typeof window === "undefined") return false;
-  if (window.navigator.webdriver) return false;
-  if (window.matchMedia?.("(pointer: coarse)").matches) return false;
-  if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return false;
-  return true;
-}
-
 export default function AsciiOverlay() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
@@ -23,7 +15,6 @@ export default function AsciiOverlay() {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const engine = new AsciiEngine(canvas, ASCII_SCENARIOS, getGeoContext);
-    const allowAutoStart = shouldAutoStartAscii();
     canvas.dataset.asciiState = "waiting";
     let startTimer = 0;
     let readyPoll = 0;
@@ -39,14 +30,6 @@ export default function AsciiOverlay() {
         canvas.dataset.asciiState = "running";
       }, ASCII_START_DELAY_MS);
     };
-
-    if (!allowAutoStart) {
-      canvas.dataset.asciiState = "disabled";
-      return () => {
-        engine.stop();
-        canvas.dataset.asciiState = "stopped";
-      };
-    }
 
     const pollUntilReady = () => {
       const surface = document.querySelector('[data-testid="new-map-surface"]');

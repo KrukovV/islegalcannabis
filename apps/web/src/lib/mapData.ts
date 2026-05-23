@@ -613,19 +613,16 @@ export function buildSSOTStatusIndex(regions: RegionEntry[]) {
   return index;
 }
 
-export function buildGeoJson(type: string, options?: { countryResolution?: "10m" | "50m" }) {
+export function buildGeoJson(type: string) {
   const regions = buildRegions();
   const lookup = new Map(regions.map((entry) => [entry.geo, entry]));
   const isState = type === "states";
   const centroids = !isState ? loadCentroids(resolveDataPath("data", "centroids", "adm0.json")) : {};
   const wikiClaims = !isState ? loadWikiClaimsMap() : {};
   const wikiLegalityTableByIso = !isState ? loadWikiLegalityTableByIso() : {};
-  const countryResolution = options?.countryResolution === "50m" ? "50m" : "10m";
   const fileName = isState
     ? "ne_50m_admin_1_states_provinces.geojson"
-    : countryResolution === "50m"
-      ? "ne_50m_admin_0_countries.geojson"
-      : "ne_10m_admin_0_countries.geojson";
+    : "ne_10m_admin_0_countries.geojson";
   const geojson = loadGeoJsonFile(fileName);
   if (!geojson) {
     return {

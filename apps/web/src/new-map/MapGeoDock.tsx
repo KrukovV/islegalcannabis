@@ -1,12 +1,10 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { useCallback, useEffect, useMemo, useRef } from "react";
-import { usePathname } from "next/navigation";
 import type { CountryCardEntry } from "./map.types";
+import AIBar from "./components/AIBar";
 import { useGeoStatus } from "./hooks/useGeoStatus";
 import { markNewMapTrace } from "./startupTrace";
-import styles from "./MapRoot.module.css";
 
 type ActiveGeo = {
   country: string;
@@ -25,45 +23,6 @@ type Props = {
   centerMapToGeo: (_geo: ActiveGeo) => void;
 };
 
-const AIBar = dynamic(() => import("./components/AIBar"), {
-  loading: () => (
-    <div className={styles.aiDock} data-testid="new-map-ai-dock">
-      <form className={styles.aiBar} data-testid="new-map-ai-form">
-        <button type="button" className={styles.aiAction} aria-label="More actions">
-          +
-        </button>
-        <input
-          data-testid="new-map-ai-input"
-          data-ai-input="1"
-          className={styles.aiInput}
-          placeholder="Ask about cannabis laws..."
-          readOnly
-          disabled
-          aria-disabled="true"
-        />
-        <button
-          type="button"
-          className={`${styles.aiGps} ${styles.aiGpsButton}`}
-          aria-label="GPS unknown"
-          disabled
-        >
-          <span className={`${styles.aiGpsDot} ${styles.aiGpsDotUnknown}`} />
-          <span>GPS</span>
-        </button>
-        <button
-          type="submit"
-          className={styles.aiSubmit}
-          data-testid="new-map-ai-submit"
-          aria-label="Submit AI query"
-          disabled
-        >
-          →
-        </button>
-      </form>
-    </div>
-  )
-});
-
 export default function MapGeoDock({
   mapReady,
   cardIndex,
@@ -73,8 +32,6 @@ export default function MapGeoDock({
   applyGeoToMap,
   centerMapToGeo
 }: Props) {
-  const pathname = usePathname();
-  const skipIpBootstrap = pathname === "/new-map";
   const lastAutoCenterKeyRef = useRef<string | null>(null);
   const ipBootstrapStartedRef = useRef(false);
   const gpsCenterPendingRef = useRef(false);
@@ -115,11 +72,10 @@ export default function MapGeoDock({
   }, [currentGeo?.source]);
 
   useEffect(() => {
-    if (skipIpBootstrap) return;
     if (!geoReady || !mapReady || currentGeo?.source === "gps" || ipBootstrapStartedRef.current) return;
     ipBootstrapStartedRef.current = true;
     void refreshIpGeo();
-  }, [currentGeo?.source, geoReady, mapReady, refreshIpGeo, skipIpBootstrap]);
+  }, [currentGeo?.source, geoReady, mapReady, refreshIpGeo]);
 
   useEffect(() => {
     if (!mapReady) return;

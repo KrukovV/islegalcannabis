@@ -1,7 +1,7 @@
 import maplibregl, { type StyleSpecification } from "maplibre-gl";
 import type { LegalCountryCollection, NewMapBootResult } from "./map.types";
 import { emitFirstVisualReady, markNewMapTrace } from "./startupTrace";
-import { NEW_MAP_LAND_COLOR, NEW_MAP_WATER_COLOR } from "./mapPalette";
+import { NEW_MAP_WATER_COLOR } from "./mapPalette";
 export const NEW_MAP_ADMIN_SOURCE_ID = "admin-boundaries";
 export const NEW_MAP_ADMIN_LAYER_ID = "admin-boundary-line";
 
@@ -12,8 +12,6 @@ export const NEW_MAP_US_STATES_FILL_LAYER_ID = "us-states-fill";
 export const NEW_MAP_US_STATES_LINE_LAYER_ID = "us-states-line";
 const NEW_MAP_SUPPLEMENTAL_SEA_SOURCE_ID = "new-map-supplemental-seas";
 const NEW_MAP_SUPPLEMENTAL_SEA_LAYER_ID = "new-map-supplemental-seas";
-const NEW_MAP_ANTARCTICA_LAND_SOURCE_ID = "new-map-antarctica-land";
-const NEW_MAP_ANTARCTICA_LAND_LAYER_ID = "new-map-antarctica-land";
 const BASEMAP_STYLE_URL = "/api/new-map/basemap-style?v=20260331-host-header-same-origin";
 
 const DEFAULT_CENTER: [number, number] = [25, 50];
@@ -193,29 +191,6 @@ function addSupplementalSeaLayer(map: maplibregl.Map) {
   );
 }
 
-function addAntarcticaLandLayer(map: maplibregl.Map) {
-  if (map.getLayer(NEW_MAP_ANTARCTICA_LAND_LAYER_ID)) return;
-  if (!map.getSource(NEW_MAP_ANTARCTICA_LAND_SOURCE_ID)) {
-    map.addSource(NEW_MAP_ANTARCTICA_LAND_SOURCE_ID, {
-      type: "geojson",
-      data: "/api/new-map/antarctica-land"
-    });
-  }
-  map.addLayer(
-    {
-      id: NEW_MAP_ANTARCTICA_LAND_LAYER_ID,
-      type: "fill",
-      source: NEW_MAP_ANTARCTICA_LAND_SOURCE_ID,
-      paint: {
-        "fill-color": NEW_MAP_LAND_COLOR,
-        "fill-opacity": 1,
-        "fill-antialias": false
-      }
-    },
-    findFirstSymbolLayerId(map)
-  );
-}
-
 function findLabelGroups(map: maplibregl.Map) {
   const layers = map.getStyle().layers || [];
   return {
@@ -391,7 +366,6 @@ export function createMap(
   let firstStyleDataMarked = false;
   let firstBasemapReadyMarked = false;
   let firstCountriesReadyMarked = false;
-  let firstLabelsVisibleMarked = false;
   let firstIdleMarked = false;
   let firstVisualReadyMarked = false;
   let resolveReady = () => {};
@@ -611,7 +585,6 @@ export function createMap(
     }, NEW_MAP_ADMIN_LAYER_ID);
 
     moveNativeWaterLayersAboveCountries(map);
-    addAntarcticaLandLayer(map);
 
     const labelGroups = findLabelGroups(map);
     if (host.__NEW_MAP_DEBUG__) {
@@ -677,13 +650,8 @@ export function createMap(
   });
 
   map.on("idle", () => {
-    if (!firstLabelsVisibleMarked && firstBasemapReadyMarked) {
-      firstLabelsVisibleMarked = true;
-      markNewMapTrace("NM_T6_LABELS_VISIBLE");
-    }
     if (!firstIdleMarked) {
       firstIdleMarked = true;
-      markNewMapTrace("NM_T7_IDLE_COMPLETE");
       markNewMapTrace("NM_T8_IDLE_FIRST");
     }
     finalizeFirstVisualReady();
@@ -742,12 +710,10 @@ export function createMap(
       map.off("moveend", ensureFlatCamera);
       if (map.getLayer(NEW_MAP_US_STATES_LINE_LAYER_ID)) map.removeLayer(NEW_MAP_US_STATES_LINE_LAYER_ID);
       if (map.getLayer(NEW_MAP_US_STATES_FILL_LAYER_ID)) map.removeLayer(NEW_MAP_US_STATES_FILL_LAYER_ID);
-      if (map.getLayer(NEW_MAP_ANTARCTICA_LAND_LAYER_ID)) map.removeLayer(NEW_MAP_ANTARCTICA_LAND_LAYER_ID);
       if (map.getLayer(NEW_MAP_SUPPLEMENTAL_SEA_LAYER_ID)) map.removeLayer(NEW_MAP_SUPPLEMENTAL_SEA_LAYER_ID);
       if (map.getLayer(NEW_MAP_ADMIN_LAYER_ID)) map.removeLayer(NEW_MAP_ADMIN_LAYER_ID);
       if (map.getLayer(NEW_MAP_FILL_LAYER_ID)) map.removeLayer(NEW_MAP_FILL_LAYER_ID);
       if (map.getSource(NEW_MAP_US_STATES_SOURCE_ID)) map.removeSource(NEW_MAP_US_STATES_SOURCE_ID);
-      if (map.getSource(NEW_MAP_ANTARCTICA_LAND_SOURCE_ID)) map.removeSource(NEW_MAP_ANTARCTICA_LAND_SOURCE_ID);
       if (map.getSource(NEW_MAP_SUPPLEMENTAL_SEA_SOURCE_ID)) map.removeSource(NEW_MAP_SUPPLEMENTAL_SEA_SOURCE_ID);
       if (map.getSource(NEW_MAP_SOURCE_ID)) map.removeSource(NEW_MAP_SOURCE_ID);
       map.remove();
