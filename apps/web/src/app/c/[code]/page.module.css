@@ -106,30 +106,11 @@
 
 .relatedList a {
   color: #1d5966;
-  text-decoration-line: underline;
-  text-decoration-style: dotted;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.16em;
+  text-decoration: none;
 }
 
-.factsList a {
-  color: #1d5966;
-  text-decoration-line: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.16em;
-}
-
-.factsList a:not([target]) {
-  text-decoration-style: dotted;
-}
-
-.factsList a[target="_blank"] {
-  text-decoration-style: solid;
-}
-
-.relatedList a:hover,
-.factsList a:hover {
-  text-decoration-thickness: 1.5px;
+.relatedList a:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 720px) {

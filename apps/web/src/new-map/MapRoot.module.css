@@ -1,24 +1,11 @@
 .root {
   --new-map-chatbar-height: 72px;
-  --new-map-chatbar-gap: 20px;
-  --new-map-safe-top: var(--app-safe-top, 0px);
-  --new-map-safe-right: var(--app-safe-right, 0px);
-  --new-map-safe-bottom: var(--app-safe-bottom, 0px);
-  --new-map-safe-left: var(--app-safe-left, 0px);
-  --new-map-keyboard-offset: 0px;
-  --new-map-visible-height: var(--app-viewport-height);
-  --new-map-dock-height: 184px;
-  --new-map-dock-clearance: 12px;
-  --new-map-dock-bottom: calc(var(--new-map-safe-bottom) + var(--new-map-keyboard-offset) + var(--new-map-chatbar-gap));
-  --new-map-bottom-safe: calc(var(--new-map-dock-height) + var(--new-map-dock-bottom) + var(--new-map-dock-clearance));
-  --new-map-panel-top-margin: calc(var(--new-map-safe-top) + 20px);
+  --new-map-chatbar-footprint: 132px;
+  --new-map-bottom-safe: calc(var(--new-map-chatbar-footprint) + 20px);
+  --new-map-panel-top-margin: 20px;
   position: relative;
   width: 100vw;
   height: 100vh;
-  height: var(--app-viewport-height);
-  min-height: 100vh;
-  min-height: var(--app-viewport-height);
-  overscroll-behavior: none;
   overflow: hidden;
   background: var(--new-map-water-color, #d4dadc);
 }
@@ -28,15 +15,6 @@
   inset: 0;
   background: var(--new-map-water-color, #d4dadc);
   visibility: hidden;
-  touch-action: none;
-  overscroll-behavior: none;
-}
-
-.mapSurface :global(.maplibregl-map),
-.mapSurface :global(.maplibregl-canvas-container),
-.mapSurface :global(.maplibregl-canvas) {
-  background: var(--new-map-water-color, #d4dadc);
-  touch-action: none;
 }
 
 .mapSurfaceReady {
@@ -58,11 +36,11 @@
 .overlay {
   position: absolute;
   z-index: 30;
-  left: calc(var(--new-map-safe-left) + 20px);
-  top: var(--new-map-panel-top-margin);
+  left: 20px;
+  top: 20px;
   display: grid;
   gap: 14px;
-  max-width: min(420px, calc(100vw - var(--new-map-safe-left) - var(--new-map-safe-right) - 40px));
+  max-width: min(420px, calc(100vw - 40px));
   pointer-events: none;
 }
 
@@ -118,9 +96,9 @@
 .errorBox {
   position: absolute;
   z-index: 31;
-  right: calc(var(--new-map-safe-right) + 20px);
-  bottom: var(--new-map-dock-bottom);
-  max-width: min(420px, calc(100vw - var(--new-map-safe-left) - var(--new-map-safe-right) - 40px));
+  right: 20px;
+  bottom: 20px;
+  max-width: min(420px, calc(100vw - 40px));
   color: #8d1f1f;
 }
 
@@ -128,12 +106,11 @@
   position: absolute;
   z-index: 31;
   top: var(--new-map-panel-top-margin);
-  right: calc(var(--new-map-safe-right) + 20px);
+  right: 20px;
   bottom: var(--new-map-bottom-safe);
-  width: min(420px, calc(100vw - var(--new-map-safe-left) - var(--new-map-safe-right) - 40px));
-  max-height: calc(var(--new-map-visible-height) - var(--new-map-bottom-safe) - var(--new-map-panel-top-margin));
+  width: min(420px, calc(100vw - 40px));
+  max-height: calc(100vh - var(--new-map-bottom-safe) - var(--new-map-panel-top-margin));
   overflow-y: auto;
-  overscroll-behavior: contain;
   background: rgba(255, 255, 255, 0.94);
   border: 1px solid rgba(103, 120, 133, 0.2);
   border-radius: 18px;
@@ -242,10 +219,8 @@
 }
 
 .seoPanelClose {
-  width: 44px;
-  height: 44px;
-  min-width: 44px;
-  min-height: 44px;
+  width: 34px;
+  height: 34px;
   border: 0;
   border-radius: 999px;
   background: rgba(86, 110, 128, 0.12);
@@ -300,29 +275,19 @@
 
 .seoPanelList a {
   color: #1d5966;
-  text-decoration-line: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.16em;
-}
-
-.seoPanelList a:not([target]) {
-  text-decoration-style: dotted;
-}
-
-.seoPanelList a[target="_blank"] {
-  text-decoration-style: solid;
+  text-decoration: none;
 }
 
 .seoPanelList a:hover {
-  text-decoration-thickness: 1.5px;
+  text-decoration: underline;
 }
 
 .aiDock {
   position: absolute;
   z-index: 32;
   left: 50%;
-  bottom: var(--new-map-dock-bottom);
-  width: min(720px, calc(100vw - var(--new-map-safe-left) - var(--new-map-safe-right) - 40px));
+  bottom: 20px;
+  width: min(720px, 90vw);
   transform: translateX(-50%);
   display: grid;
   gap: 12px;
@@ -343,10 +308,8 @@
 
 .aiAction,
 .aiSubmit {
-  width: 44px;
-  height: 44px;
-  min-width: 44px;
-  min-height: 44px;
+  width: 40px;
+  height: 40px;
   border: 0;
   border-radius: 999px;
   background: rgba(86, 110, 128, 0.12);
@@ -378,7 +341,6 @@
 .aiInput {
   flex: 1;
   min-width: 0;
-  min-height: 44px;
   border: 0;
   outline: 0;
   background: transparent;
@@ -443,10 +405,6 @@
   padding: 16px 18px 8px;
 }
 
-.root[data-keyboard-open="1"] .aiAnswerCard {
-  display: none;
-}
-
 .aiAnswerHeader {
   display: flex;
   align-items: center;
@@ -464,8 +422,8 @@
 }
 
 .aiAnswerClose {
-  width: 44px;
-  height: 44px;
+  width: 34px;
+  height: 34px;
   border: 0;
   border-radius: 999px;
   background: rgba(86, 110, 128, 0.12);
@@ -684,28 +642,22 @@
 
 .countryPopupReasonLink {
   color: #1f4761;
-  text-decoration-line: underline;
-  text-decoration-style: dotted;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.16em;
+  text-decoration: none;
 }
 
 .countryPopupReasonLink:hover {
-  text-decoration-thickness: 1.5px;
+  text-decoration: underline;
 }
 
 .countryPopupSourceLink {
   margin-left: 8px;
   color: #607382;
-  text-decoration-line: underline;
-  text-decoration-style: solid;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.16em;
+  text-decoration: none;
   font-size: 0.8rem;
 }
 
 .countryPopupSourceLink:hover {
-  text-decoration-thickness: 1.5px;
+  text-decoration: underline;
 }
 
 .countryPopupFooter {
@@ -716,11 +668,9 @@
 .viewportPopupPanel {
   position: fixed;
   z-index: 33;
-  width: min(420px, calc(100vw - var(--new-map-safe-left) - var(--new-map-safe-right) - 32px));
-  max-height: calc(var(--new-map-visible-height) - var(--new-map-bottom-safe) - var(--new-map-panel-top-margin));
+  width: min(420px, calc(100vw - 32px));
+  max-height: calc(100vh - var(--new-map-bottom-safe) - var(--new-map-panel-top-margin));
   overflow-y: auto;
-  overscroll-behavior: contain;
-  -webkit-overflow-scrolling: touch;
   border-radius: 18px;
   border: 1px solid rgba(103, 120, 133, 0.2);
   background: rgba(255, 255, 255, 0.96);
@@ -792,8 +742,8 @@
 }
 
 .viewportPopupClose {
-  width: 44px;
-  height: 44px;
+  width: 32px;
+  height: 32px;
   border: 0;
   border-radius: 999px;
   background: rgba(86, 110, 128, 0.12);
@@ -841,35 +791,19 @@
 
 .viewportPopupReasonLink {
   color: #1f4761;
-  text-decoration-line: underline;
-  text-decoration-style: dotted;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.16em;
+  text-decoration: none;
 }
 
 .viewportPopupReasonLink:hover,
 .viewportPopupSourceLink:hover,
-.viewportPopupSourceInlineLink:hover,
 .viewportPopupCta:hover {
-  text-decoration-thickness: 1.5px;
+  text-decoration: underline;
 }
 
 .viewportPopupSourceLink {
-  color: #607382;
-  text-decoration-line: underline;
-  text-decoration-style: solid;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.16em;
-  font-size: 0.8rem;
-}
-
-.viewportPopupSourceInlineLink {
   margin-left: 8px;
   color: #607382;
-  text-decoration-line: underline;
-  text-decoration-style: solid;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.16em;
+  text-decoration: none;
   font-size: 0.8rem;
 }
 
@@ -882,23 +816,17 @@
 .viewportPopupCta {
   color: #1f4761;
   font-weight: 700;
-  text-decoration-line: underline;
-  text-decoration-style: dotted;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.16em;
+  text-decoration: none;
 }
 
 .countryPopupCta {
   color: #1f4761;
   font-weight: 700;
-  text-decoration-line: underline;
-  text-decoration-style: dotted;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.16em;
+  text-decoration: none;
 }
 
 .countryPopupCta:hover {
-  text-decoration-thickness: 1.5px;
+  text-decoration: underline;
 }
 
 .countryPopupFootnote {
@@ -931,8 +859,8 @@
 }
 
 .infoMarker {
-  width: 44px;
-  height: 44px;
+  width: 30px;
+  height: 30px;
   border: 0;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.96);
@@ -960,9 +888,9 @@
 
 @media (max-width: 720px) {
   .overlay {
-    left: calc(var(--new-map-safe-left) + 12px);
-    top: calc(var(--new-map-safe-top) + 12px);
-    max-width: calc(100vw - var(--new-map-safe-left) - var(--new-map-safe-right) - 24px);
+    left: 12px;
+    top: 12px;
+    max-width: calc(100vw - 24px);
   }
 
   .card,
@@ -972,17 +900,17 @@
   }
 
   .seoOverlayPanel {
-    top: calc(var(--new-map-safe-top) + 12px);
-    right: calc(var(--new-map-safe-right) + 12px);
-    width: min(420px, calc(100vw - var(--new-map-safe-left) - var(--new-map-safe-right) - 24px));
-    max-height: min(calc(var(--new-map-visible-height) - var(--new-map-bottom-safe) - 24px), 760px);
+    top: 12px;
+    right: 12px;
+    width: min(420px, calc(100vw - 24px));
+    max-height: min(72vh, 760px);
     border-radius: 14px;
     padding: 14px;
   }
 
   .aiDock {
-    bottom: var(--new-map-dock-bottom);
-    width: calc(100vw - var(--new-map-safe-left) - var(--new-map-safe-right) - 24px);
+    bottom: 56px;
+    width: calc(100vw - 24px);
   }
 
   :global(.new-map-country-popup-shell) :global(.maplibregl-popup-content) {

@@ -238,18 +238,7 @@ write_git_bundle() {
 set -euo pipefail
 cd "$(pwd)"
 git apply --binary "${patch_path}"
-git add -- \
-  tools \
-  data/wiki \
-  data/ssot_snapshots \
-  cache \
-  README.md \
-  CONTINUITY.md \
-  .gitignore \
-  apps/web/package.json \
-  apps/web/playwright.mobile.config.ts \
-  apps/web/src \
-  apps/web/tests
+git add -- tools data/wiki README.md CONTINUITY.md .gitignore
 git commit -m "${COMMIT_SUBJECT:-chore: apply git bundle}"
 git tag -a -f good/now -m "green: $(date -u +%FT%TZ)"
 git push origin HEAD
@@ -458,18 +447,7 @@ if [ "${DRY_RUN}" = "1" ]; then
   exit 0
 fi
 
-git add -- \
-  tools \
-  data/wiki \
-  data/ssot_snapshots \
-  cache \
-  README.md \
-  CONTINUITY.md \
-  .gitignore \
-  apps/web/package.json \
-  apps/web/playwright.mobile.config.ts \
-  apps/web/src \
-  apps/web/tests
+git add -- tools data/wiki README.md CONTINUITY.md .gitignore
 
 if [ -z "$(git status --porcelain)" ]; then
   echo "NO_CHANGES"
@@ -477,9 +455,9 @@ else
   subject="${COMMIT_SUBJECT:-chore(prod): green run}"
   body="${COMMIT_BODY:-}"
   if [ -n "${body}" ]; then
-    git commit -m "${subject}" -m "${body}"
+    git commit -am "${subject}" -m "${body}"
   else
-    git commit -m "${subject}"
+    git commit -am "${subject}"
   fi
 fi
 if [ -n "$(git status --porcelain)" ]; then
