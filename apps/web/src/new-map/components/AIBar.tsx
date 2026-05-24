@@ -137,6 +137,7 @@ function allowsShortAssistantText(text: string) {
 export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Props) {
   const requestControllerRef = useRef<AbortController | null>(null);
   const resetRequestRef = useRef<Promise<void> | null>(null);
+  const answerCardRef = useRef<HTMLDivElement | null>(null);
   const messageRowRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const lastScrolledTargetRef = useRef<string | null>(null);
   const streamBufferRef = useRef("");
@@ -236,10 +237,11 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
     const behavior = lastScrolledTargetRef.current === targetMessage.id ? "auto" : "smooth";
     lastScrolledTargetRef.current = targetMessage.id;
     window.requestAnimationFrame(() => {
-      targetNode.scrollIntoView({
-        behavior,
-        block: "start",
-        inline: "nearest"
+      const scroller = answerCardRef.current;
+      if (!scroller || !scroller.contains(targetNode)) return;
+      scroller.scrollTo({
+        top: Math.max(0, targetNode.offsetTop - scroller.offsetTop - 8),
+        behavior
       });
     });
   }, [messages]);
@@ -658,7 +660,7 @@ async function requestNonStreamAnswer(input: {
   return (
     <div className={styles.aiDock} data-testid="new-map-ai-dock">
       {messages.length > 0 ? (
-        <div className={styles.aiAnswerCard} data-testid="new-map-ai-answer">
+        <div ref={answerCardRef} className={styles.aiAnswerCard} data-testid="new-map-ai-answer">
           <div className={styles.aiAnswerHeader}>
             <div className={styles.aiAnswerTitle}>Dialog</div>
             <button
@@ -718,6 +720,7 @@ async function requestNonStreamAnswer(input: {
         </button>
         <input
           data-ai-input="1"
+          data-testid="new-map-ai-input"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           className={styles.aiInput}
@@ -742,6 +745,7 @@ async function requestNonStreamAnswer(input: {
         <button
           type="submit"
           className={styles.aiSubmit}
+          data-testid="new-map-ai-submit"
           aria-label="Submit AI query"
           disabled={aiInputLocked || !normalizedQuery || loading}
         >

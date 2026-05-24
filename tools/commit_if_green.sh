@@ -458,7 +458,18 @@ if [ "${DRY_RUN}" = "1" ]; then
   exit 0
 fi
 
-git add -- tools data/wiki README.md CONTINUITY.md .gitignore
+git add -- \
+  tools \
+  data/wiki \
+  data/ssot_snapshots \
+  cache \
+  README.md \
+  CONTINUITY.md \
+  .gitignore \
+  apps/web/package.json \
+  apps/web/playwright.mobile.config.ts \
+  apps/web/src \
+  apps/web/tests
 
 if [ -z "$(git status --porcelain)" ]; then
   echo "NO_CHANGES"
