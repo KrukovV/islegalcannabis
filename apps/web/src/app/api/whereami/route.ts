@@ -1,4 +1,4 @@
-import { resolveIpToJurisdiction } from "@/lib/geo/ip";
+import { resolveRequestIpToJurisdiction } from "@/lib/geo/ip";
 import { buildLocationResolution } from "@/lib/geo/locationResolution";
 import { createRequestId, okResponse } from "@/lib/api/response";
 import fs from "node:fs";
@@ -28,12 +28,8 @@ function appendSsotLine(line: string) {
 
 export async function GET(req: Request) {
   const requestId = createRequestId(req);
-  const forwardedFor = req.headers.get("x-forwarded-for");
-  const realIp = req.headers.get("x-real-ip");
-  const rawIp = forwardedFor ?? realIp ?? "";
-  const ip = rawIp.split(",")[0]?.trim() || null;
 
-  const result = resolveIpToJurisdiction(ip);
+  const result = await resolveRequestIpToJurisdiction(req.headers);
   const resolution = buildLocationResolution("ip", result.region);
   appendSsotLine(
     `GEO_RESOLVE ok=1 source=IP permission=unsupported iso=${result.country} geo=${result.country}${result.region ? `-${result.region}` : ""} reason=OK`

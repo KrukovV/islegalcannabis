@@ -1,6 +1,7 @@
 import Script from "next/script";
 import NewMapClientEntry from "@/app/new-map/NewMapClientEntry";
 import { getNewMapRuntimeIdentity } from "@/app/new-map/runtimeConfig";
+import { getBuildStamp } from "@/lib/buildStamp";
 import { buildSeoCountryIndex, computeCountryHashes, stripCountryPageHashes, type CountryPageData } from "@/lib/countryPageStorage";
 import { deriveCountryCardEntryFromCountryPageData } from "@/lib/countryCardEntry";
 import { formatVisibleRuntimeStamp } from "@/lib/runtimeIdentity";
@@ -63,6 +64,7 @@ export default function CountrySeoPage({
   const seo = getSeoText(locale);
   const runtimeIdentity = getNewMapRuntimeIdentity();
   const visibleStamp = formatVisibleRuntimeStamp(runtimeIdentity);
+  const countriesUrl = `/api/new-map/countries?v=${encodeURIComponent(getBuildStamp().buildId)}`;
   const seoCountryIndex = buildSeoCountryIndex(data.code);
   const intentSections = buildCountryIntentSections(data, { query, locale });
   const heading = getCountrySeoTitle(data, locale);
@@ -156,7 +158,7 @@ export default function CountrySeoPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <NewMapClientEntry
-        countriesUrl="/api/new-map/countries"
+        countriesUrl={countriesUrl}
         visibleStamp={visibleStamp}
         runtimeIdentity={runtimeIdentity}
         initialGeoCode={data.geo_code}

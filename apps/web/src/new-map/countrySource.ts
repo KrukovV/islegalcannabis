@@ -7,7 +7,7 @@ import {
   getCountryPageIndexByIso2
 } from "@/lib/countryPageStorage";
 import { deriveResultStatusFromCountryPageData } from "@/lib/resultStatus";
-import type { AdminBoundaryCollection, LegalCountryCollection, LegalCountryFeatureProperties } from "./map.types";
+import type { AdminBoundaryCollection, CountryCardEntry, LegalCountryCollection, LegalCountryFeatureProperties } from "./map.types";
 import {
   resolveLegalFillColor,
   resolveLegalFillOpacity,
@@ -18,11 +18,17 @@ import {
 const ANTARCTICA_FILL_COLOR = "#c5ccd3";
 const ANTARCTICA_HOVER_COLOR = "#d4dae0";
 
+let countrySourceCache: LegalCountryCollection | null = null;
+let adminBoundaryCache: AdminBoundaryCollection | null = null;
+let usStateSourceCache: LegalCountryCollection | null = null;
+let cardIndexCache: Record<string, CountryCardEntry> | null = null;
+
 function isPolygonGeometry(geometry: Geometry | null | undefined): geometry is Polygon | MultiPolygon {
   return geometry?.type === "Polygon" || geometry?.type === "MultiPolygon";
 }
 
 export function buildCountrySourceSnapshot(): LegalCountryCollection {
+  if (countrySourceCache) return countrySourceCache;
   const snapshot = buildGeoJson("countries") as FeatureCollection;
   const countryPageByIso2 = getCountryPageIndexByIso2();
   const missingGeos: string[] = [];
@@ -70,13 +76,15 @@ export function buildCountrySourceSnapshot(): LegalCountryCollection {
     console.warn(`NEW_MAP_FILTERED_MISSING_STATUS count=${missingGeos.length} geos=${missingGeos.join(",")}`);
   }
 
-  return {
+  countrySourceCache = {
     ...snapshot,
     features
   };
+  return countrySourceCache;
 }
 
 export function buildAdminBoundarySnapshot(): AdminBoundaryCollection {
+  if (adminBoundaryCache) return adminBoundaryCache;
   const geojson = buildGeoJson("states") as FeatureCollection;
   const features = geojson.features
     .filter((feature): feature is Feature<Polygon | MultiPolygon> => isPolygonGeometry(feature.geometry))
@@ -90,13 +98,15 @@ export function buildAdminBoundarySnapshot(): AdminBoundaryCollection {
       }
     }))
     .filter((feature) => Boolean(feature.properties.geo));
-  return {
+  adminBoundaryCache = {
     type: "FeatureCollection",
     features
   };
+  return adminBoundaryCache;
 }
 
 export function buildUsStateSourceSnapshot(): LegalCountryCollection {
+  if (usStateSourceCache) return usStateSourceCache;
   const geojson = buildGeoJson("states") as FeatureCollection;
   const statePageByGeo = getCountryPageIndexByGeoCode();
   const features = geojson.features
@@ -138,14 +148,17 @@ export function buildUsStateSourceSnapshot(): LegalCountryCollection {
     })
     .filter((feature): feature is NonNullable<typeof feature> => Boolean(feature));
 
-  return {
+  usStateSourceCache = {
     type: "FeatureCollection",
     features
   };
+  return usStateSourceCache;
 }
 
 export function buildCardIndexSnapshot() {
+  if (cardIndexCache) return cardIndexCache;
   const entries = Object.values(buildCountryCardIndexFromStorage());
 
-  return Object.fromEntries(entries.map((entry) => [entry.geo, entry]));
+  cardIndexCache = Object.fromEntries(entries.map((entry) => [entry.geo, entry]));
+  return cardIndexCache;
 }

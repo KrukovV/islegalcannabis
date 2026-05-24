@@ -8,25 +8,27 @@ export const runtime = "nodejs";
 let isoNameMap: Map<string, string> | null = null;
 let stateNameMap: Map<string, string> | null = null;
 
-function resolveDataPath(...parts: string[]) {
-  const roots = [
-    process.cwd(),
-    path.resolve(process.cwd(), ".."),
-    path.resolve(process.cwd(), "..", "..")
-  ];
-  for (const root of roots) {
-    const candidate = path.join(root, ...parts);
-    if (fs.existsSync(candidate)) return candidate;
+function resolveDataRoot() {
+  const workspaceData = path.resolve(process.cwd(), "..", "..", "data");
+  if (fs.existsSync(path.join(workspaceData, "iso3166", "iso3166-1.json"))) {
+    return workspaceData;
   }
-  return path.join(process.cwd(), ...parts);
+  const repoData = path.resolve(process.cwd(), "data");
+  if (fs.existsSync(path.join(repoData, "iso3166", "iso3166-1.json"))) {
+    return repoData;
+  }
+  return workspaceData;
 }
+
+const DATA_ROOT = resolveDataRoot();
+const ISO3166_PATH = path.join(DATA_ROOT, "iso3166", "iso3166-1.json");
+const US_STATE_CENTROIDS_PATH = path.join(DATA_ROOT, "geo", "us_state_centroids.json");
 
 function loadIsoNameMap() {
   if (isoNameMap) return isoNameMap;
-  const isoPath = resolveDataPath("data", "iso3166", "iso3166-1.json");
   const map = new Map<string, string>();
-  if (fs.existsSync(isoPath)) {
-    const payload = JSON.parse(fs.readFileSync(isoPath, "utf8"));
+  if (fs.existsSync(ISO3166_PATH)) {
+    const payload = JSON.parse(fs.readFileSync(ISO3166_PATH, "utf8"));
     const entries = Array.isArray(payload?.entries) ? payload.entries : [];
     for (const entry of entries) {
       const alpha2 = entry?.alpha2 || entry?.id;
@@ -60,9 +62,8 @@ function splitId(id: string) {
 function loadStateNameMap() {
   if (stateNameMap) return stateNameMap;
   const map = new Map<string, string>();
-  const statePath = resolveDataPath("data", "geo", "us_state_centroids.json");
-  if (fs.existsSync(statePath)) {
-    const payload = JSON.parse(fs.readFileSync(statePath, "utf8"));
+  if (fs.existsSync(US_STATE_CENTROIDS_PATH)) {
+    const payload = JSON.parse(fs.readFileSync(US_STATE_CENTROIDS_PATH, "utf8"));
     const items = payload?.items ?? {};
     Object.entries(items).forEach(([key, value]) => {
       const name = (value as { name?: string })?.name;

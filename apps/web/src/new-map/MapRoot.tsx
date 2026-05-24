@@ -78,6 +78,25 @@ function getNewMapPrefetchCache(): NewMapPrefetchCache | null {
   return host.__NEW_MAP_PREFETCH__ || null;
 }
 
+async function fetchJsonWithRetry<T>(url: string, init: RequestInit, errorPrefix: string): Promise<T> {
+  let lastError: unknown = null;
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    try {
+      const response = await fetch(url, init);
+      if (!response.ok) {
+        throw new Error(`${errorPrefix}:${response.status}`);
+      }
+      return (await response.json()) as T;
+    } catch (error) {
+      lastError = error;
+      if (attempt === 0) {
+        await new Promise((resolve) => window.setTimeout(resolve, 350));
+      }
+    }
+  }
+  throw lastError instanceof Error ? lastError : new Error(errorPrefix);
+}
+
 function setDebugState(partial: Partial<NewMapDebug>) {
   const host = globalThis as typeof globalThis & {
     __NEW_MAP_DEBUG__?: NewMapDebug;
@@ -484,7 +503,6 @@ export default function MapRoot({
     const prefetched = getNewMapPrefetchCache();
     const loadCardIndex = () =>
       fetch("/api/new-map/card-index", {
-        cache: "no-store",
         credentials: "same-origin"
       }).then((response) => {
         if (!response.ok) {
@@ -522,25 +540,13 @@ export default function MapRoot({
       try {
         const prefetched = getNewMapPrefetchCache();
         const loadCountries = () =>
-          fetch(countriesUrl, {
-            cache: "no-store",
+          fetchJsonWithRetry<LegalCountryCollection>(countriesUrl, {
             credentials: "same-origin"
-          }).then((response) => {
-            if (!response.ok) {
-              throw new Error(`countries_fetch_failed:${response.status}`);
-            }
-            return response.json() as Promise<LegalCountryCollection>;
-          });
+          }, "countries_fetch_failed");
         const loadStyle = () =>
-          fetch("/api/new-map/basemap-style?v=20260331-host-header-same-origin", {
-            cache: "no-store",
+          fetchJsonWithRetry<StyleSpecification>("/api/new-map/basemap-style?v=20260331-host-header-same-origin", {
             credentials: "same-origin"
-          }).then((response) => {
-            if (!response.ok) {
-              throw new Error(`basemap_style_fetch_failed:${response.status}`);
-            }
-            return response.json() as Promise<StyleSpecification>;
-          });
+          }, "basemap_style_fetch_failed");
         const countriesPromise = prefetched?.countries
           ? prefetched.countries.then((value) => value || loadCountries())
           : loadCountries();
@@ -555,7 +561,7 @@ export default function MapRoot({
           }
         });
         mapRef.current = runtime.map;
-        void countriesPromise.then((countries) => {
+        const countriesDataPromise = countriesPromise.then((countries) => {
           if (cancelled) return;
           for (const feature of countries.features) {
             const status = feature.properties?.result?.status;
@@ -570,6 +576,7 @@ export default function MapRoot({
               .join(",")}`
           );
           runtime.setData(countries);
+          return countries;
         });
         await runtime.ready;
         if (cancelled) {
@@ -585,7 +592,7 @@ export default function MapRoot({
         });
         const unbindAsciiTriggers = bindAsciiMapTriggers(runtime.map);
         setDebugState({ mounted: true, countriesUrl, map: runtime.map, selectedId: null });
-        await countriesPromise;
+        await countriesDataPromise;
         if (cancelled) {
           unbindAsciiTriggers();
           hover.destroy();

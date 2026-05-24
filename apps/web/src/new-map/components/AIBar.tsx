@@ -193,7 +193,12 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
   useEffect(() => {
     if (warmStartedRef.current) return;
     warmStartedRef.current = true;
-    const keepUnlockedOnLocalhost = !shouldLockAiInputByDefault();
+    const lockByDefault = shouldLockAiInputByDefault();
+    if (lockByDefault) {
+      setAiInputLocked(true);
+      return;
+    }
+    const keepUnlockedOnLocalhost = true;
     const model =
       typeof window !== "undefined"
         ? window.localStorage.getItem(MODEL_OVERRIDE_STORAGE_KEY) || ""

@@ -1,5 +1,6 @@
 const SHARDS = ["a", "b", "c", "d"] as const;
 const EMPTY_TILE_BYTES = new Uint8Array();
+const TILE_CACHE = "public, max-age=0, s-maxage=86400, stale-while-revalidate=604800";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -18,7 +19,7 @@ function buildUpstreamTileUrl(z: string, x: string, y: string) {
 function buildTileHeaders() {
   return {
     "content-type": "application/x-protobuf",
-    "cache-control": "no-store, no-cache, must-revalidate"
+    "cache-control": TILE_CACHE
   };
 }
 
@@ -31,7 +32,7 @@ export async function GET(_request: Request, context: { params: Promise<{ z: str
       headers: {
         accept: "application/x-protobuf"
       },
-      cache: "no-store"
+      next: { revalidate: 86400 }
     });
   } catch {
     return new Response(EMPTY_TILE_BYTES, {

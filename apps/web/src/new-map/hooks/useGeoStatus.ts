@@ -24,10 +24,6 @@ export type CurrentGeo = {
 const GEO_STORAGE_KEY = "geo";
 let geoCache: CurrentGeo = null;
 
-type IpGeoPayload = {
-  iso?: string;
-};
-
 type ReverseGeoPayload = {
   iso?: string;
 };
@@ -150,35 +146,10 @@ export function useGeoStatus() {
         message: `IP: ${country} (approximate)`
       });
     } catch {
-      try {
-        const fallbackResponse = await fetch("/api/geo/loc", { cache: "no-store" });
-        if (!fallbackResponse.ok) throw new Error("ip_loc_fallback_failed");
-        const fallbackPayload = (await fallbackResponse.json()) as { data?: IpGeoPayload } | IpGeoPayload;
-        const iso = String(unwrapIsoPayload(fallbackPayload) || "").trim().toUpperCase();
-        if (!iso || iso === "UNKNOWN") {
-          throw new Error("ip_unknown");
-        }
-        setGeo((prev) => {
-          if (prev?.source === "gps") return prev;
-          return {
-            iso2: iso,
-            lat: prev?.lat,
-            lng: prev?.lng,
-            source: "ip"
-          };
-        });
-        setIpStatus({
-          status: "resolved",
-          country: iso,
-          iso2: iso,
-          message: `IP: ${iso} (approximate)`
-        });
-      } catch {
-        setIpStatus({
-          status: "unknown",
-          message: ""
-        });
-      }
+      setIpStatus({
+        status: "unknown",
+        message: ""
+      });
     }
   }, [currentGeo?.source, setGeo]);
   const requestGeo = useCallback(async () => {

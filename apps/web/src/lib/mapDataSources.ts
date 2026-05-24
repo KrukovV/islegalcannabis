@@ -110,17 +110,46 @@ let OFFICIAL_OWNERSHIP_DATASET_CACHE: OfficialLinkOwnershipDataset | null = null
 
 const GEOJSON_FILE_CACHE = new Map<string, GeoJsonPayload | null>();
 
-export function resolveDataPath(...parts: string[]) {
-  const roots = [
-    process.cwd(),
-    path.resolve(process.cwd(), ".."),
-    path.resolve(process.cwd(), "..", "..")
-  ];
-  for (const root of roots) {
-    const candidate = path.join(root, ...parts);
-    if (fs.existsSync(candidate)) return candidate;
+function resolveDataRoot() {
+  const workspaceData = path.resolve(process.cwd(), "..", "..", "data");
+  if (fs.existsSync(path.join(workspaceData, "legal_ssot", "legal_ssot.json"))) {
+    return workspaceData;
   }
-  return path.join(process.cwd(), ...parts);
+  const repoData = path.resolve(process.cwd(), "data");
+  if (fs.existsSync(path.join(repoData, "legal_ssot", "legal_ssot.json"))) {
+    return repoData;
+  }
+  return workspaceData;
+}
+
+const DATA_ROOT = resolveDataRoot();
+const REPO_ROOT = path.dirname(DATA_ROOT);
+
+const DATA_FILE_PATHS: Record<string, string> = {
+  "data/centroids/adm0.json": path.join(DATA_ROOT, "centroids", "adm0.json"),
+  "data/centroids/us_adm1.json": path.join(DATA_ROOT, "centroids", "us_adm1.json"),
+  "data/legal_ssot/legal_ssot.json": path.join(DATA_ROOT, "legal_ssot", "legal_ssot.json"),
+  "data/wiki/wiki_claims_map.json": path.join(DATA_ROOT, "wiki", "wiki_claims_map.json"),
+  "data/wiki/ssot_legality_table.json": path.join(DATA_ROOT, "wiki", "ssot_legality_table.json"),
+  "data/ssot/us_states_wiki.json": path.join(DATA_ROOT, "ssot", "us_states_wiki.json"),
+  "data/ssot/us_states.json": path.join(DATA_ROOT, "ssot", "us_states.json"),
+  "data/wiki/cache/legality_us_states.json": path.join(DATA_ROOT, "wiki", "cache", "legality_us_states.json"),
+  "data/retailers/retailers.json": path.join(DATA_ROOT, "retailers", "retailers.json"),
+};
+
+const GEOJSON_FILE_PATHS: Record<string, string> = {
+  "ne_10m_admin_0_countries.geojson": path.join(DATA_ROOT, "geojson", "ne_10m_admin_0_countries.geojson"),
+  "ne_50m_admin_0_countries.geojson": path.join(DATA_ROOT, "geojson", "ne_50m_admin_0_countries.geojson"),
+  "ne_50m_admin_1_states_provinces.geojson": path.join(DATA_ROOT, "geojson", "ne_50m_admin_1_states_provinces.geojson"),
+};
+
+export function resolveDataPath(...parts: string[]) {
+  const key = parts.join("/");
+  const file = DATA_FILE_PATHS[key];
+  if (!file) {
+    throw new Error(`Unsupported data path: ${key}`);
+  }
+  return file;
 }
 
 function normalizeUsStateLookupName(value: string | null | undefined) {
@@ -224,7 +253,11 @@ export function loadGeoJsonFile(name: string) {
   if (GEOJSON_FILE_CACHE.has(name)) {
     return GEOJSON_FILE_CACHE.get(name) || null;
   }
-  const file = resolveDataPath("data", "geojson", name);
+  const file = GEOJSON_FILE_PATHS[name];
+  if (!file) {
+    GEOJSON_FILE_CACHE.set(name, null);
+    return null;
+  }
   if (!fs.existsSync(file)) return null;
   const payload = JSON.parse(fs.readFileSync(file, "utf8"));
   if (payload?.type !== "FeatureCollection" || !Array.isArray(payload?.features)) return null;
@@ -239,20 +272,7 @@ export function loadOfficialOwnershipIndex() {
     OFFICIAL_OWNERSHIP_INDEX_CACHE = buildOfficialLinkOwnershipIndex(OFFICIAL_OWNERSHIP_DATASET_CACHE);
     return OFFICIAL_OWNERSHIP_INDEX_CACHE;
   }
-  const roots = [
-    process.cwd(),
-    path.resolve(process.cwd(), ".."),
-    path.resolve(process.cwd(), "..", "..")
-  ];
-  for (const root of roots) {
-    const candidate = path.join(root, "data", "ssot", "official_link_ownership.json");
-    if (fs.existsSync(candidate)) {
-      OFFICIAL_OWNERSHIP_DATASET_CACHE = readOfficialLinkOwnership(root);
-      OFFICIAL_OWNERSHIP_INDEX_CACHE = buildOfficialLinkOwnershipIndex(OFFICIAL_OWNERSHIP_DATASET_CACHE);
-      return OFFICIAL_OWNERSHIP_INDEX_CACHE;
-    }
-  }
-  OFFICIAL_OWNERSHIP_DATASET_CACHE = readOfficialLinkOwnership(process.cwd());
+  OFFICIAL_OWNERSHIP_DATASET_CACHE = readOfficialLinkOwnership(REPO_ROOT);
   OFFICIAL_OWNERSHIP_INDEX_CACHE = buildOfficialLinkOwnershipIndex(OFFICIAL_OWNERSHIP_DATASET_CACHE);
   return OFFICIAL_OWNERSHIP_INDEX_CACHE;
 }
@@ -260,7 +280,7 @@ export function loadOfficialOwnershipIndex() {
 export function loadOfficialOwnershipDataset() {
   if (OFFICIAL_OWNERSHIP_DATASET_CACHE) return OFFICIAL_OWNERSHIP_DATASET_CACHE;
   loadOfficialOwnershipIndex();
-  return OFFICIAL_OWNERSHIP_DATASET_CACHE || readOfficialLinkOwnership(process.cwd());
+  return OFFICIAL_OWNERSHIP_DATASET_CACHE || readOfficialLinkOwnership(REPO_ROOT);
 }
 
 export function isoFromCountryProps(props: Record<string, unknown>) {

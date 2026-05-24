@@ -1,6 +1,7 @@
 import { getPublicOrigin } from "../_lib/publicOrigin";
 
 const UPSTREAM_TILEJSON_URL = "https://tiles.basemaps.cartocdn.com/vector/carto.streets/v1/tiles.json";
+const STATIC_MAP_CACHE = "public, max-age=0, s-maxage=86400, stale-while-revalidate=604800";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -10,7 +11,7 @@ export async function GET(request: Request) {
     headers: {
       accept: "application/json"
     },
-    cache: "no-store"
+    next: { revalidate: 86400 }
   });
 
   if (!response.ok) {
@@ -23,7 +24,7 @@ export async function GET(request: Request) {
 
   return Response.json(tilejson, {
     headers: {
-      "cache-control": "no-store, no-cache, must-revalidate"
+      "cache-control": STATIC_MAP_CACHE
     }
   });
 }
