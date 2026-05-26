@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import NewMapClientEntry from "./NewMapClientEntry";
 import { formatVisibleRuntimeStamp } from "@/lib/runtimeIdentity";
-import { getBuildStamp } from "@/lib/buildStamp";
+import { getStaticCountriesAsset } from "@/new-map/staticCountries";
 import { getNewMapRuntimeIdentity } from "./runtimeConfig";
 
 export const dynamic = "force-dynamic";
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function NewMapPage() {
   const runtimeIdentity = getNewMapRuntimeIdentity();
   const visibleStamp = formatVisibleRuntimeStamp(runtimeIdentity);
-  const countriesUrl = `/api/new-map/countries?v=${encodeURIComponent(getBuildStamp().buildId)}`;
+  const countriesUrl = getStaticCountriesAsset().url;
   return (
     <NewMapClientEntry
       countriesUrl={countriesUrl}

@@ -86,3 +86,10 @@ launchctl load ~/Library/LaunchAgents/com.islegalcannabis.wiki-claims.plist
 - Open the official sources from the law JSON.
 - Manually update the law JSON fields and `updated_at` if the law changed.
 - Set `status` back to `known` and refresh `verified_at`.
+
+## Map cold-start perf checks
+- Local: run production-local and `node tools/measure_new_map_startup.mjs` with `NEW_MAP_LOCAL_URL` when using a non-default port.
+- Prod: set `VERCEL_AUTOMATION_BYPASS_SECRET` in the shell and run the same tool against `https://www.islegal.info/new-map`.
+- Required evidence: JSON timing report, screenshot, countries transfer/decoded size, `NM_T7_FIRST_FILL_RENDERED`, and rendered country feature count.
+- Treat `/api/new-map/countries` as compatibility only; the runtime URL should be `/static/countries/countries.<hash>.json`.
+- Cleanup policy: `QA/`, `Reports/`, `Artifacts/`, `QUARANTINE/`, Playwright traces, and `~/islegalcannabis_archive/` are rebuildable operational artifacts and must not be deployed or committed.

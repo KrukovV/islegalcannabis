@@ -3,10 +3,10 @@ import { NEW_MAP_WATER_COLOR } from "@/new-map/mapPalette";
 
 const UPSTREAM_STYLE_URL = "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json";
 const SUBTLE_BOUNDARY = "rgba(198, 208, 215, 0.18)";
-const STATIC_MAP_CACHE = "public, max-age=0, s-maxage=86400, stale-while-revalidate=604800";
+const STATIC_MAP_CACHE = "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800";
 
 export const dynamic = "force-dynamic";
-export const revalidate = 0;
+export const revalidate = 86400;
 
 export async function GET(request: Request) {
   const response = await fetch(UPSTREAM_STYLE_URL, {
@@ -78,7 +78,7 @@ export async function GET(request: Request) {
 
   return Response.json(style, {
     headers: {
-      "cache-control": STATIC_MAP_CACHE
+      "Cache-Control": STATIC_MAP_CACHE
     }
   });
 }

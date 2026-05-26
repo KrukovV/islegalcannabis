@@ -7,10 +7,11 @@ import "./globals.css";
 import ServiceWorkerGuard from "@/plugins/serviceWorkerGuard";
 import { getBuildStamp } from "@/lib/buildStamp";
 import { NEW_MAP_WATER_COLOR } from "@/new-map/mapPalette";
+import { getStaticCountriesAsset } from "@/new-map/staticCountries";
 
 const NEW_MAP_BUILD_VERSION = encodeURIComponent(getBuildStamp().buildId);
 const NEW_MAP_STYLE_URL = "/api/new-map/basemap-style?v=20260331-host-header-same-origin";
-const NEW_MAP_COUNTRIES_URL = `/api/new-map/countries?v=${NEW_MAP_BUILD_VERSION}`;
+const NEW_MAP_COUNTRIES_URL = getStaticCountriesAsset().url;
 const NEW_MAP_CARD_INDEX_URL = `/api/new-map/card-index?v=${NEW_MAP_BUILD_VERSION}`;
 const YANDEX_METRIKA_ID = 108419114;
 const MS_VALIDATE_CONTENT = "8160A885E417B2396DD1C0633F13C70F";

@@ -11,9 +11,10 @@ test("/c/us-ca starts as a state node with state marker and open panel", async (
   await waitForMap(page, "/c/us-ca");
 
   await expect(page.getByTestId("new-map-seo-overlay")).toBeVisible();
-  await expect(page.getByTestId("new-map-seo-overlay").getByRole("heading", { level: 1 })).toHaveText(
-    "Is cannabis legal in California?"
+  await expect(page.getByTestId("new-map-seo-overlay").getByRole("heading", { level: 2 })).toHaveText(
+    "Legal or partly allowed in California"
   );
+  await expect(page.locator("article").getByRole("heading", { level: 1 })).toHaveText("Is cannabis legal in California?");
   await expect(page.locator('button[aria-label^="Open info for "]')).toHaveCount(1);
   await expect(page.locator('button[aria-label="Open info for California"]')).toHaveCount(1);
 
@@ -34,9 +35,10 @@ test("/c/us-ca starts as a state node with state marker and open panel", async (
 test("/c/usa keeps exactly one country marker for the route geo", async ({ page }) => {
   await waitForMap(page, "/c/usa");
 
-  await expect(page.getByTestId("new-map-seo-overlay").getByRole("heading", { level: 1 })).toHaveText(
-    "Is cannabis legal in United States?"
+  await expect(page.getByTestId("new-map-seo-overlay").getByRole("heading", { level: 2 })).toHaveText(
+    "Legal or partly allowed in United States"
   );
+  await expect(page.locator("article").getByRole("heading", { level: 1 })).toHaveText("Is cannabis legal in United States?");
   await expect(page.locator('button[aria-label^="Open info for "]')).toHaveCount(1);
   await expect(page.locator('button[aria-label="Open info for United States"]')).toHaveCount(1);
   await expect(page.locator('button[aria-label="Open info for California"]')).toHaveCount(0);

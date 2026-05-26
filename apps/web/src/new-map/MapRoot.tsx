@@ -11,7 +11,7 @@ import { createMap } from "./createMap";
 import type { CountryCardEntry, LegalCountryCollection } from "./map.types";
 import styles from "./MapRoot.module.css";
 import { NEW_MAP_WATER_COLOR } from "./mapPalette";
-import { hasFirstVisualReady, onFirstVisualReady, resetFirstVisualReady } from "./startupTrace";
+import { hasFirstVisualReady, onFirstVisualReady, resetFirstVisualReady, setNewMapMetric } from "./startupTrace";
 import AsciiOverlay from "./ascii/AsciiOverlay";
 import UnifiedSeoStatusPanel from "./components/UnifiedSeoStatusPanel";
 import ViewportCountryPopup from "./components/ViewportCountryPopup";
@@ -95,6 +95,24 @@ async function fetchJsonWithRetry<T>(url: string, init: RequestInit, errorPrefix
     }
   }
   throw lastError instanceof Error ? lastError : new Error(errorPrefix);
+}
+
+function markCountriesCacheState(countriesUrl: string) {
+  if (typeof performance === "undefined") return;
+  const entries = performance.getEntriesByType("resource") as PerformanceResourceTiming[];
+  const match = entries
+    .filter((entry) => entry.name.endsWith(countriesUrl) || entry.name.includes("/static/countries/countries."))
+    .at(-1);
+  if (!match) return;
+  const transferSize = Math.round(match.transferSize || 0);
+  const decodedBodySize = Math.round(match.decodedBodySize || 0);
+  setNewMapMetric("NM_COUNTRIES_TRANSFER_SIZE", transferSize);
+  setNewMapMetric("NM_COUNTRIES_DECODED_BODY_SIZE", decodedBodySize);
+  if (transferSize === 0 && decodedBodySize > 0) {
+    window.console.debug(`[new-map-trace] NM_COUNTRIES_CACHE_HIT=1 transfer=${transferSize} decoded=${decodedBodySize}`);
+    return;
+  }
+  window.console.debug(`[new-map-trace] NM_COUNTRIES_CACHE_MISS=1 transfer=${transferSize} decoded=${decodedBodySize}`);
 }
 
 function setDebugState(partial: Partial<NewMapDebug>) {
@@ -563,6 +581,7 @@ export default function MapRoot({
         mapRef.current = runtime.map;
         const countriesDataPromise = countriesPromise.then((countries) => {
           if (cancelled) return;
+          markCountriesCacheState(countriesUrl);
           for (const feature of countries.features) {
             const status = feature.properties?.result?.status;
             if (!status) {

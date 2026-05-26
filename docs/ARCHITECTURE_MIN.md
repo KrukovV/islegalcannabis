@@ -70,3 +70,4 @@
 - “Shrink” of official/wiki/notes is forbidden without explicit ALLOW flag and reason.
 - Metrics are honest: FAIL is always FAIL; no pseudo-success.
 - Code changes and `data/wiki/**` must never be staged or committed together.
+- New map cold-start optimization is CDN/static-payload work only: no second map runtime, no alternate mobile frontend, no palette drift, no layer removal, no popup logic fork.

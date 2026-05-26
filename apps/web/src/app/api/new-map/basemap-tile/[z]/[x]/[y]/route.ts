@@ -1,9 +1,8 @@
 const SHARDS = ["a", "b", "c", "d"] as const;
 const EMPTY_TILE_BYTES = new Uint8Array();
-const TILE_CACHE = "public, max-age=0, s-maxage=86400, stale-while-revalidate=604800";
+const TILE_CACHE = "public, max-age=86400, s-maxage=86400, stale-while-revalidate=604800";
 
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
+export const revalidate = 86400;
 
 function pickShard(x: number, y: number) {
   return SHARDS[Math.abs(x + y) % SHARDS.length];
@@ -19,7 +18,7 @@ function buildUpstreamTileUrl(z: string, x: string, y: string) {
 function buildTileHeaders() {
   return {
     "content-type": "application/x-protobuf",
-    "cache-control": TILE_CACHE
+    "Cache-Control": TILE_CACHE
   };
 }
 

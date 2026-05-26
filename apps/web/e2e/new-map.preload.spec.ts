@@ -5,7 +5,7 @@ test("new-map requests style and countries early without duplicates", async ({ p
   const start = Date.now();
   page.on("request", (request) => {
     const url = request.url();
-    if (url.includes("/api/new-map/basemap-style") || url.includes("/api/new-map/countries")) {
+    if (url.includes("/api/new-map/basemap-style") || url.includes("/static/countries/countries.")) {
       tracked.push({ url, delta: Date.now() - start });
     }
   });
@@ -13,7 +13,7 @@ test("new-map requests style and countries early without duplicates", async ({ p
   await page.goto("/new-map", { waitUntil: "domcontentloaded" });
   await page.waitForTimeout(1200);
 
-  const countries = tracked.filter((entry) => entry.url.includes("/api/new-map/countries"));
+  const countries = tracked.filter((entry) => entry.url.includes("/static/countries/countries."));
   const style = tracked.filter((entry) => entry.url.includes("/api/new-map/basemap-style"));
 
   expect(countries).toHaveLength(1);

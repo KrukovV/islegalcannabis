@@ -11,16 +11,44 @@ const playwright = require(require.resolve("playwright", {
 const reportsDir = path.join(repoRoot, "Reports");
 const localUrl = process.env.NEW_MAP_LOCAL_URL || "http://127.0.0.1:4010/new-map";
 const prodUrl = process.env.NEW_MAP_PROD_URL || "https://www.islegal.info/new-map";
+const vercelBypass = process.env.VERCEL_AUTOMATION_BYPASS_SECRET || "";
+
+function isTrackedMapResource(reqUrl) {
+  return (
+    reqUrl.includes("/api/new-map/basemap-style") ||
+    reqUrl.includes("/api/new-map/card-index") ||
+    reqUrl.includes("/api/new-map/countries") ||
+    reqUrl.includes("/static/countries/countries.")
+  );
+}
+
+function withProdBypass(url) {
+  if (!vercelBypass || !url.includes("islegal.info")) return url;
+  const nextUrl = new URL(url);
+  nextUrl.searchParams.set("x-vercel-protection-bypass", vercelBypass);
+  nextUrl.searchParams.set("x-vercel-set-bypass-cookie", "samesitenone");
+  return nextUrl.toString();
+}
 
 async function measure(browserName, url, label) {
-  const browser = await playwright[browserName].launch({ headless: true });
-  const page = await browser.newPage();
+  const browser = await playwright[browserName].launch({
+    headless: true,
+    args: browserName === "chromium"
+      ? ["--use-angle=swiftshader", "--use-gl=angle", "--enable-unsafe-swiftshader"]
+      : undefined
+  });
+  const context = await browser.newContext({
+    extraHTTPHeaders: vercelBypass && url.includes("islegal.info")
+      ? { "x-vercel-protection-bypass": vercelBypass }
+      : undefined
+  });
+  const page = await context.newPage();
   const requests = [];
   const responses = [];
 
   page.on("request", (request) => {
     const reqUrl = request.url();
-    if (!reqUrl.includes("/api/new-map/basemap-style") && !reqUrl.includes("/api/new-map/countries")) return;
+    if (!isTrackedMapResource(reqUrl)) return;
     requests.push({
       url: reqUrl,
       ts: Date.now(),
@@ -30,7 +58,7 @@ async function measure(browserName, url, label) {
 
   page.on("response", async (response) => {
     const reqUrl = response.url();
-    if (!reqUrl.includes("/api/new-map/basemap-style") && !reqUrl.includes("/api/new-map/countries")) return;
+    if (!isTrackedMapResource(reqUrl)) return;
     const headers = await response.allHeaders();
     responses.push({
       url: reqUrl,
@@ -45,18 +73,39 @@ async function measure(browserName, url, label) {
   });
 
   const start = Date.now();
-  await page.goto(url, { waitUntil: "domcontentloaded" });
-  await page.waitForSelector(".maplibregl-canvas", { timeout: 10000 });
-  await page.waitForTimeout(1200);
+  await page.goto(withProdBypass(url), { waitUntil: "domcontentloaded" });
+  await page.waitForSelector('[data-testid="new-map-surface"][data-map-ready="1"]', { state: "attached", timeout: 30000 });
+  await page.waitForSelector(".maplibregl-canvas", { state: "attached", timeout: 10000 });
+  await page.waitForFunction(() => {
+    const trace = window.__NEW_MAP_TRACE__ || {};
+    const map = window.__NEW_MAP_DEBUG__?.map;
+    if (typeof trace.marks?.NM_T7_FIRST_FILL_RENDERED !== "number" || !map) return false;
+    return map.queryRenderedFeatures(undefined, { layers: ["legal-fill"] }).length > 100;
+  }, { timeout: 60000 });
 
   const trace = await page.evaluate(() => {
     const host = window;
+    const countriesEntry = performance
+      .getEntriesByType("resource")
+      .filter((entry) => entry.name.includes("/static/countries/countries."))
+      .at(-1);
     return {
       href: window.location.href,
       trace: host.__NEW_MAP_TRACE__ || null,
       firstVisualReady: Boolean(host.__NEW_MAP_FIRST_VISUAL_READY__),
+      countriesResource: countriesEntry ? {
+        url: countriesEntry.name,
+        transferSize: Math.round(countriesEntry.transferSize || 0),
+        decodedBodySize: Math.round(countriesEntry.decodedBodySize || 0),
+        duration: Math.round(countriesEntry.duration || 0)
+      } : null,
+      renderedCountries: host.__NEW_MAP_DEBUG__?.map?.queryRenderedFeatures(undefined, { layers: ["legal-fill"] }).length || 0,
       badge: document.querySelector("[data-testid='runtime-parity-badge']")?.getAttribute("data-runtime-actual") || null
     };
+  });
+  await page.screenshot({
+    path: path.join(reportsDir, `new-map-startup.${label}.${browserName}.png`),
+    fullPage: false
   });
 
   const firstRequestTs = requests.length ? Math.min(...requests.map((r) => r.ts)) : null;
@@ -81,9 +130,13 @@ async function measure(browserName, url, label) {
     })),
     startupTrace: trace
   };
+  if (vercelBypass && output.startupTrace?.href) {
+    output.startupTrace.href = output.startupTrace.href.replace(vercelBypass, "[redacted]");
+  }
 
   const filePath = path.join(reportsDir, `new-map-startup.${label}.${browserName}.json`);
   await fs.writeFile(filePath, JSON.stringify(output, null, 2));
+  await context.close();
   await browser.close();
   return output;
 }

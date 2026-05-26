@@ -1,13 +1,13 @@
 import Script from "next/script";
 import NewMapClientEntry from "@/app/new-map/NewMapClientEntry";
 import { getNewMapRuntimeIdentity } from "@/app/new-map/runtimeConfig";
-import { getBuildStamp } from "@/lib/buildStamp";
 import { buildSeoCountryIndex, computeCountryHashes, stripCountryPageHashes, type CountryPageData } from "@/lib/countryPageStorage";
 import { deriveCountryCardEntryFromCountryPageData } from "@/lib/countryCardEntry";
 import { formatVisibleRuntimeStamp } from "@/lib/runtimeIdentity";
 import { buildCountryIntentSections } from "@/lib/seo/countryIntentContent";
 import { getLocalizedCountryName, getSeoText, type SeoLocale } from "@/lib/seo/i18n";
 import { localizePanel } from "@/lib/seo/panelLocale";
+import { getStaticCountriesAsset } from "@/new-map/staticCountries";
 import styles from "@/app/c/[code]/page.module.css";
 
 export function getCountrySeoTitle(data: CountryPageData, locale: SeoLocale) {
@@ -64,7 +64,7 @@ export default function CountrySeoPage({
   const seo = getSeoText(locale);
   const runtimeIdentity = getNewMapRuntimeIdentity();
   const visibleStamp = formatVisibleRuntimeStamp(runtimeIdentity);
-  const countriesUrl = `/api/new-map/countries?v=${encodeURIComponent(getBuildStamp().buildId)}`;
+  const countriesUrl = getStaticCountriesAsset().url;
   const seoCountryIndex = buildSeoCountryIndex(data.code);
   const intentSections = buildCountryIntentSections(data, { query, locale });
   const heading = getCountrySeoTitle(data, locale);

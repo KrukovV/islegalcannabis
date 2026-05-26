@@ -193,7 +193,7 @@ test("new-map popup closes from close button", async ({ page }) => {
   await waitForFeature(page, "FR", "legal-fill");
 
   await assertPopupIso(page, "FR");
-  await page.locator(".new-map-country-popup-shell .maplibregl-popup-close-button").click({ force: true });
+  await page.getByRole("button", { name: "Close France panel" }).click();
   await expect(page.locator('[data-testid="new-map-country-popup"]')).toBeHidden();
 });
 

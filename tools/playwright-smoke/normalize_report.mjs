@@ -13,9 +13,15 @@ function collectTests(suites = [], acc = []) {
         for (const testRun of testRuns) {
           const results = Array.isArray(testRun.results) ? testRun.results : [];
           const result = results[results.length - 1];
+          const status =
+            result?.status === "passed"
+              ? "pass"
+              : result?.status === "skipped" || testRun.status === "skipped"
+                ? "skipped"
+                : "fail";
           acc.push({
             name: spec.title || testRun.projectName || "unnamed",
-            status: result?.status === "passed" ? "pass" : "fail",
+            status,
             duration_ms: typeof result?.duration === "number" ? result.duration : 0
           });
         }
@@ -29,12 +35,14 @@ function collectTests(suites = [], acc = []) {
 const raw = JSON.parse(fs.readFileSync(inputPath, "utf8"));
 const tests = collectTests(raw.suites);
 const passed = tests.filter((test) => test.status === "pass").length;
-const failed = tests.length - passed;
+const skipped = tests.filter((test) => test.status === "skipped").length;
+const failed = tests.length - passed - skipped;
 
 const report = {
   total: tests.length,
   passed,
   failed,
+  skipped,
   tests
 };
 
