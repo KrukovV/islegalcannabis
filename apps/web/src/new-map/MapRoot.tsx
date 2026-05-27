@@ -12,6 +12,11 @@ import type { CountryCardEntry, LegalCountryCollection } from "./map.types";
 import styles from "./MapRoot.module.css";
 import { NEW_MAP_WATER_COLOR } from "./mapPalette";
 import { hasFirstVisualReady, onFirstVisualReady, resetFirstVisualReady, setNewMapMetric } from "./startupTrace";
+import {
+  readVisualViewportKeyboardOffset,
+  readVisualViewportSnapshot,
+  subscribeToVisualViewportChanges
+} from "./viewportMetrics";
 import AsciiOverlay from "./ascii/AsciiOverlay";
 import UnifiedSeoStatusPanel from "./components/UnifiedSeoStatusPanel";
 import ViewportCountryPopup from "./components/ViewportCountryPopup";
@@ -159,6 +164,9 @@ export default function MapRoot({
   const [error, setError] = useState<string | null>(null);
   const [mapReady, setMapReady] = useState(false);
   const [visualReady, setVisualReady] = useState(false);
+  const [keyboardOffset, setKeyboardOffset] = useState(0);
+  const [visibleViewportHeight, setVisibleViewportHeight] = useState<number | null>(null);
+  const [dockHeight, setDockHeight] = useState(72);
   const [selectedGeo, setSelectedGeo] = useState<SelectedGeo>(
     initialGeoCode ? String(initialGeoCode).trim().toUpperCase() : null
   );
@@ -173,6 +181,66 @@ export default function MapRoot({
   const lastAppliedRouteGeoRef = useRef<string | null>(null);
   const seoCountryCode = activeRouteSeoData?.code || null;
   const seoRouteGeoCode = String(activeRouteSeoData?.geo_code || "").trim().toUpperCase() || null;
+  const shouldLockDocumentScroll = !seoCountryData;
+
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    if (shouldLockDocumentScroll) {
+      document.body.dataset.newMapRoute = "1";
+    } else {
+      delete document.body.dataset.newMapRoute;
+    }
+    return () => {
+      if (document.body.dataset.newMapRoute === "1") {
+        delete document.body.dataset.newMapRoute;
+      }
+    };
+  }, [shouldLockDocumentScroll]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const syncViewportMetrics = () => {
+      setKeyboardOffset(readVisualViewportKeyboardOffset());
+      const snapshot = readVisualViewportSnapshot();
+      setVisibleViewportHeight(Math.round(snapshot.height || window.innerHeight));
+    };
+    syncViewportMetrics();
+    return subscribeToVisualViewportChanges(syncViewportMetrics);
+  }, []);
+
+  useEffect(() => {
+    if (typeof document === "undefined" || typeof window === "undefined") return;
+    let frameId = 0;
+    const resizeObserver = typeof ResizeObserver === "function" ? new ResizeObserver(() => scheduleMeasure()) : null;
+
+    const measure = () => {
+      const dockNode = document.querySelector('[data-testid="new-map-ai-dock"]') as HTMLElement | null;
+      resizeObserver?.disconnect();
+      if (dockNode) {
+        resizeObserver?.observe(dockNode);
+      }
+      const nextHeight = dockNode ? Math.max(72, Math.ceil(dockNode.getBoundingClientRect().height)) : 72;
+      setDockHeight((current) => (Math.abs(current - nextHeight) > 1 ? nextHeight : current));
+    };
+
+    const scheduleMeasure = () => {
+      window.cancelAnimationFrame(frameId);
+      frameId = window.requestAnimationFrame(measure);
+    };
+
+    const mutationObserver = typeof MutationObserver === "function" ? new MutationObserver(scheduleMeasure) : null;
+    mutationObserver?.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+    scheduleMeasure();
+
+    return () => {
+      mutationObserver?.disconnect();
+      resizeObserver?.disconnect();
+      window.cancelAnimationFrame(frameId);
+    };
+  }, []);
 
   useEffect(() => {
     if (!seoCountryData) return;
@@ -453,6 +521,25 @@ export default function MapRoot({
   }, [selectedGeoEntry?.geo, selectedGeoEntry?.coordinates, selectedGeoEntry?.coordinates?.lat, selectedGeoEntry?.coordinates?.lng]);
 
   useEffect(() => {
+    const map = mapRef.current;
+    const container = containerRef.current;
+    if (!map || !container) return;
+    let frameId = 0;
+    const scheduleResize = () => {
+      window.cancelAnimationFrame(frameId);
+      frameId = window.requestAnimationFrame(() => map.resize());
+    };
+    const resizeObserver = typeof ResizeObserver === "function" ? new ResizeObserver(scheduleResize) : null;
+    resizeObserver?.observe(container);
+    const unsubscribeViewport = subscribeToVisualViewportChanges(scheduleResize);
+    return () => {
+      resizeObserver?.disconnect();
+      unsubscribeViewport();
+      window.cancelAnimationFrame(frameId);
+    };
+  }, [mapReady]);
+
+  useEffect(() => {
     if (!initialGeoCode) {
       lastAppliedRouteGeoRef.current = null;
       return;
@@ -649,7 +736,14 @@ export default function MapRoot({
     <section
       className={styles.root}
       data-testid="new-map-root"
-      style={{ ["--new-map-water-color" as string]: NEW_MAP_WATER_COLOR }}
+      data-keyboard-open={keyboardOffset > 24 ? "1" : "0"}
+      data-keyboard-offset={keyboardOffset}
+      style={{
+        ["--new-map-water-color" as string]: NEW_MAP_WATER_COLOR,
+        ["--new-map-keyboard-offset" as string]: `${keyboardOffset}px`,
+        ["--new-map-visible-height" as string]: visibleViewportHeight ? `${visibleViewportHeight}px` : undefined,
+        ["--new-map-dock-height" as string]: `${dockHeight}px`
+      }}
     >
       <div
         data-testid="runtime-stamp"

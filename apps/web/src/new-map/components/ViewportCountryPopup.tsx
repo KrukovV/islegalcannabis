@@ -8,6 +8,7 @@ import { localizePanelFromEntry } from "@/lib/seo/panelLocale";
 import { formatDistributionDetail, formatMedicalDetail, formatRecreationalDetail } from "../statusPresentation";
 import type { CountryCardEntry } from "../map.types";
 import styles from "../MapRoot.module.css";
+import { readVisualViewportSnapshot, subscribeToVisualViewportChanges } from "../viewportMetrics";
 
 export default function ViewportCountryPopup({
   entry,
@@ -34,34 +35,61 @@ export default function ViewportCountryPopup({
   useLayoutEffect(() => {
     if (!anchor || !panelRef.current || typeof window === "undefined") return;
     const panel = panelRef.current;
-    const rect = panel.getBoundingClientRect();
-    const SAFE_TOP = 20;
-    const SAFE_BOTTOM = 172;
-    const SAFE_SIDE = 16;
+    let frameId = 0;
     const GAP = 18;
-    const viewportWidth = window.innerWidth;
-    const viewportHeight = window.innerHeight;
-    const panelWidth = rect.width || 420;
-    const panelHeight = rect.height || 300;
-    const preferRight = anchor.x < viewportWidth * 0.5;
-    const unclampedLeft = preferRight ? anchor.x + GAP : anchor.x - panelWidth - GAP;
-    const left = Math.min(
-      Math.max(SAFE_SIDE, unclampedLeft),
-      viewportWidth - SAFE_SIDE - panelWidth
-    );
-    const unclampedTop = anchor.y - panelHeight * 0.35;
-    const top = Math.min(
-      Math.max(SAFE_TOP, unclampedTop),
-      viewportHeight - SAFE_BOTTOM - panelHeight
-    );
-    const frameId = window.requestAnimationFrame(() => {
+
+    const parseCssPx = (value: string | null, fallback: number) => {
+      const parsed = Number.parseFloat(value || "");
+      return Number.isFinite(parsed) ? parsed : fallback;
+    };
+
+    const updatePosition = () => {
+      const rect = panel.getBoundingClientRect();
+      const root = document.querySelector('[data-testid="new-map-root"]');
+      const rootStyle = root ? window.getComputedStyle(root) : null;
+      const viewport = readVisualViewportSnapshot();
+      const safeTop = Math.max(12, parseCssPx(rootStyle?.getPropertyValue("--new-map-safe-top") || null, 0));
+      const safeLeft = Math.max(12, parseCssPx(rootStyle?.getPropertyValue("--new-map-safe-left") || null, 0));
+      const safeRight = Math.max(12, parseCssPx(rootStyle?.getPropertyValue("--new-map-safe-right") || null, 0));
+      const safeBottom = Math.max(12, parseCssPx(rootStyle?.getPropertyValue("--new-map-bottom-safe") || null, 172));
+      const dockNode = document.querySelector('[data-testid="new-map-ai-dock"]') as HTMLElement | null;
+      const dockTop = dockNode?.getBoundingClientRect().top || (viewport.height + viewport.offsetTop - safeBottom);
+      const viewportWidth = viewport.width || window.innerWidth;
+      const viewportHeight = viewport.height || window.innerHeight;
+      const viewportLeft = viewport.offsetLeft || 0;
+      const viewportTop = viewport.offsetTop || 0;
+      const panelWidth = rect.width || 420;
+      const panelHeight = rect.height || 300;
+      const preferRight = anchor.x < (viewportLeft + viewportWidth * 0.5);
+      const unclampedLeft = preferRight ? anchor.x + GAP : anchor.x - panelWidth - GAP;
+      const minLeft = viewportLeft + safeLeft;
+      const maxLeft = viewportLeft + viewportWidth - safeRight - panelWidth;
+      const left = Math.min(Math.max(minLeft, unclampedLeft), Math.max(minLeft, maxLeft));
+      const topLimit = viewportTop + safeTop;
+      const bottomLimit = Math.min(viewportTop + viewportHeight - safeBottom, dockTop - 16);
+      const unclampedTop = anchor.y - panelHeight * 0.35;
+      const top = Math.min(Math.max(topLimit, unclampedTop), Math.max(topLimit, bottomLimit - panelHeight));
       setPosition({
         left,
         top,
         placement: preferRight ? "right" : "left"
       });
-    });
-    return () => window.cancelAnimationFrame(frameId);
+    };
+
+    const schedulePosition = () => {
+      window.cancelAnimationFrame(frameId);
+      frameId = window.requestAnimationFrame(updatePosition);
+    };
+
+    const resizeObserver = typeof ResizeObserver === "function" ? new ResizeObserver(schedulePosition) : null;
+    resizeObserver?.observe(panel);
+    const unsubscribeViewport = subscribeToVisualViewportChanges(schedulePosition);
+    schedulePosition();
+    return () => {
+      resizeObserver?.disconnect();
+      unsubscribeViewport();
+      window.cancelAnimationFrame(frameId);
+    };
   }, [anchor, entry.geo]);
 
   const renderList = (
@@ -111,7 +139,7 @@ export default function ViewportCountryPopup({
     >
       <div className={styles.viewportPopupHeader}>
         <div>
-        <div className={styles.viewportPopupTitle}>{entry.displayName}</div>
+          <div className={styles.viewportPopupTitle}>{entry.displayName}</div>
           <div className={styles.viewportPopupMeta}>ISO2: {entry.iso2 || "Unknown"}</div>
         </div>
         <div className={styles.viewportPopupHeaderControls}>
@@ -149,7 +177,7 @@ export default function ViewportCountryPopup({
           <ul className={styles.viewportPopupList}>
             {entry.sources.map((source) => (
               <li key={source.id} className={styles.viewportPopupPlainItem}>
-                <a className={styles.viewportPopupSourceLink} href={source.url} target="_blank" rel="noreferrer">
+                <a className={styles.viewportPopupSourceInlineLink} href={source.url} target="_blank" rel="noreferrer">
                   {source.title}
                 </a>
               </li>

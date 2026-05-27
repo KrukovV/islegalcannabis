@@ -1,12 +1,25 @@
 .root {
   --new-map-chatbar-height: 72px;
+  --new-map-chatbar-gap: 20px;
   --new-map-chatbar-footprint: 132px;
-  --new-map-bottom-safe: calc(var(--new-map-chatbar-footprint) + 20px);
+  --new-map-keyboard-offset: 0px;
+  --new-map-visible-height: var(--app-viewport-height, 100vh);
+  --new-map-dock-height: var(--new-map-chatbar-height);
+  --new-map-safe-top: var(--app-safe-top, env(safe-area-inset-top, 0px));
+  --new-map-safe-right: var(--app-safe-right, env(safe-area-inset-right, 0px));
+  --new-map-safe-bottom: var(--app-safe-bottom, env(safe-area-inset-bottom, 0px));
+  --new-map-safe-left: var(--app-safe-left, env(safe-area-inset-left, 0px));
+  --new-map-dock-bottom: calc(max(20px, var(--new-map-safe-bottom)) + var(--new-map-keyboard-offset));
+  --new-map-bottom-safe: calc(var(--new-map-dock-height) + var(--new-map-dock-bottom) + var(--new-map-chatbar-gap));
   --new-map-panel-top-margin: 20px;
   position: relative;
   width: 100vw;
   height: 100vh;
+  height: var(--app-viewport-height, 100dvh);
+  min-height: 100vh;
+  min-height: var(--app-viewport-height, 100dvh);
   overflow: hidden;
+  overscroll-behavior: none;
   background: var(--new-map-water-color, #d4dadc);
 }
 
@@ -14,11 +27,24 @@
   position: absolute;
   inset: 0;
   background: var(--new-map-water-color, #d4dadc);
-  visibility: hidden;
+  visibility: visible;
+  touch-action: none;
+  overscroll-behavior: none;
 }
 
 .mapSurfaceReady {
   visibility: visible;
+}
+
+.mapSurface :global(.maplibregl-map),
+.mapSurface :global(.maplibregl-canvas-container),
+.mapSurface :global(.maplibregl-canvas) {
+  background: var(--new-map-water-color, #d4dadc);
+}
+
+.mapSurface :global(.maplibregl-canvas-container),
+.mapSurface :global(.maplibregl-canvas) {
+  touch-action: none;
 }
 
 .asciiCanvas {
@@ -36,11 +62,11 @@
 .overlay {
   position: absolute;
   z-index: 30;
-  left: 20px;
-  top: 20px;
+  left: max(20px, var(--new-map-safe-left));
+  top: max(20px, var(--new-map-safe-top));
   display: grid;
   gap: 14px;
-  max-width: min(420px, calc(100vw - 40px));
+  max-width: min(420px, calc(100vw - max(20px, var(--new-map-safe-left)) - max(20px, var(--new-map-safe-right))));
   pointer-events: none;
 }
 
@@ -96,21 +122,23 @@
 .errorBox {
   position: absolute;
   z-index: 31;
-  right: 20px;
-  bottom: 20px;
-  max-width: min(420px, calc(100vw - 40px));
+  right: max(20px, var(--new-map-safe-right));
+  bottom: max(20px, var(--new-map-safe-bottom));
+  max-width: min(420px, calc(100vw - max(20px, var(--new-map-safe-left)) - max(20px, var(--new-map-safe-right))));
   color: #8d1f1f;
 }
 
 .seoOverlayPanel {
   position: absolute;
   z-index: 31;
-  top: var(--new-map-panel-top-margin);
-  right: 20px;
+  top: calc(var(--new-map-panel-top-margin) + var(--new-map-safe-top));
+  right: max(20px, var(--new-map-safe-right));
   bottom: var(--new-map-bottom-safe);
-  width: min(420px, calc(100vw - 40px));
-  max-height: calc(100vh - var(--new-map-bottom-safe) - var(--new-map-panel-top-margin));
+  width: min(420px, calc(100vw - max(20px, var(--new-map-safe-left)) - max(20px, var(--new-map-safe-right))));
+  max-height: calc(var(--new-map-visible-height) - var(--new-map-bottom-safe) - var(--new-map-panel-top-margin) - var(--new-map-safe-top));
   overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   background: rgba(255, 255, 255, 0.94);
   border: 1px solid rgba(103, 120, 133, 0.2);
   border-radius: 18px;
@@ -219,8 +247,8 @@
 }
 
 .seoPanelClose {
-  width: 34px;
-  height: 34px;
+  width: 44px;
+  height: 44px;
   border: 0;
   border-radius: 999px;
   background: rgba(86, 110, 128, 0.12);
@@ -275,19 +303,29 @@
 
 .seoPanelList a {
   color: #1d5966;
-  text-decoration: none;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.seoPanelList a:not([target="_blank"]) {
+  text-decoration-style: dotted;
+}
+
+.seoPanelList a[target="_blank"] {
+  text-decoration-style: solid;
 }
 
 .seoPanelList a:hover {
-  text-decoration: underline;
+  text-decoration-thickness: 2px;
 }
 
 .aiDock {
   position: absolute;
   z-index: 32;
   left: 50%;
-  bottom: 20px;
-  width: min(720px, 90vw);
+  bottom: var(--new-map-dock-bottom);
+  width: min(720px, calc(100vw - max(24px, var(--new-map-safe-left)) - max(24px, var(--new-map-safe-right))));
   transform: translateX(-50%);
   display: grid;
   gap: 12px;
@@ -308,8 +346,8 @@
 
 .aiAction,
 .aiSubmit {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border: 0;
   border-radius: 999px;
   background: rgba(86, 110, 128, 0.12);
@@ -341,6 +379,7 @@
 .aiInput {
   flex: 1;
   min-width: 0;
+  min-height: 44px;
   border: 0;
   outline: 0;
   background: transparent;
@@ -395,8 +434,10 @@
 }
 
 .aiAnswerCard {
-  max-height: 40vh;
+  max-height: min(40vh, calc(var(--new-map-visible-height) - var(--new-map-bottom-safe) - 32px - var(--new-map-safe-top)));
   overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   border-radius: 22px;
   border: 1px solid rgba(103, 120, 133, 0.22);
   background: rgba(255, 255, 255, 0.9);
@@ -422,8 +463,8 @@
 }
 
 .aiAnswerClose {
-  width: 34px;
-  height: 34px;
+  width: 44px;
+  height: 44px;
   border: 0;
   border-radius: 999px;
   background: rgba(86, 110, 128, 0.12);
@@ -515,6 +556,7 @@
 }
 
 .aiClearGhost {
+  min-height: 44px;
   justify-self: center;
   border: 0;
   background: transparent;
@@ -524,6 +566,10 @@
   cursor: pointer;
 }
 
+.root[data-keyboard-open="1"] .aiAnswerCard {
+  display: none;
+}
+
 :global(.new-map-country-popup-shell) :global(.maplibregl-popup-content) {
   border-radius: 18px;
   border: 1px solid rgba(103, 120, 133, 0.2);
@@ -531,9 +577,11 @@
   box-shadow: 0 12px 30px rgba(40, 55, 70, 0.12);
   padding: 16px 18px;
   color: #283746;
-  max-width: min(320px, calc(100vw - 40px));
-  max-height: calc(100vh - var(--new-map-bottom-safe) - 32px);
+  max-width: min(320px, calc(100vw - max(20px, var(--new-map-safe-left)) - max(20px, var(--new-map-safe-right))));
+  max-height: calc(var(--new-map-visible-height) - var(--new-map-bottom-safe) - 32px - var(--new-map-safe-top));
   overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 :global(.new-map-country-popup-shell) :global(.maplibregl-popup-tip) {
@@ -642,22 +690,28 @@
 
 .countryPopupReasonLink {
   color: #1f4761;
-  text-decoration: none;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
 }
 
 .countryPopupReasonLink:hover {
-  text-decoration: underline;
+  text-decoration-thickness: 2px;
 }
 
 .countryPopupSourceLink {
   margin-left: 8px;
   color: #607382;
-  text-decoration: none;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
   font-size: 0.8rem;
 }
 
 .countryPopupSourceLink:hover {
-  text-decoration: underline;
+  text-decoration-thickness: 2px;
 }
 
 .countryPopupFooter {
@@ -668,9 +722,11 @@
 .viewportPopupPanel {
   position: fixed;
   z-index: 33;
-  width: min(420px, calc(100vw - 32px));
-  max-height: calc(100vh - var(--new-map-bottom-safe) - var(--new-map-panel-top-margin));
+  width: min(420px, calc(100vw - max(16px, var(--new-map-safe-left)) - max(16px, var(--new-map-safe-right))));
+  max-height: calc(var(--new-map-visible-height) - var(--new-map-bottom-safe) - var(--new-map-panel-top-margin) - var(--new-map-safe-top));
   overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   border-radius: 18px;
   border: 1px solid rgba(103, 120, 133, 0.2);
   background: rgba(255, 255, 255, 0.96);
@@ -742,8 +798,8 @@
 }
 
 .viewportPopupClose {
-  width: 32px;
-  height: 32px;
+  width: 44px;
+  height: 44px;
   border: 0;
   border-radius: 999px;
   background: rgba(86, 110, 128, 0.12);
@@ -791,20 +847,35 @@
 
 .viewportPopupReasonLink {
   color: #1f4761;
-  text-decoration: none;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
 }
 
 .viewportPopupReasonLink:hover,
 .viewportPopupSourceLink:hover,
+.viewportPopupSourceInlineLink:hover,
 .viewportPopupCta:hover {
-  text-decoration: underline;
+  text-decoration-thickness: 2px;
 }
 
 .viewportPopupSourceLink {
   margin-left: 8px;
   color: #607382;
-  text-decoration: none;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
   font-size: 0.8rem;
+}
+
+.viewportPopupSourceInlineLink {
+  color: #607382;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
 }
 
 .viewportPopupFooter {
@@ -816,17 +887,23 @@
 .viewportPopupCta {
   color: #1f4761;
   font-weight: 700;
-  text-decoration: none;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
 }
 
 .countryPopupCta {
   color: #1f4761;
   font-weight: 700;
-  text-decoration: none;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
 }
 
 .countryPopupCta:hover {
-  text-decoration: underline;
+  text-decoration-thickness: 2px;
 }
 
 .countryPopupFootnote {
@@ -859,8 +936,8 @@
 }
 
 .infoMarker {
-  width: 30px;
-  height: 30px;
+  width: 44px;
+  height: 44px;
   border: 0;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.96);
@@ -888,9 +965,9 @@
 
 @media (max-width: 720px) {
   .overlay {
-    left: 12px;
-    top: 12px;
-    max-width: calc(100vw - 24px);
+    left: max(12px, var(--new-map-safe-left));
+    top: max(12px, var(--new-map-safe-top));
+    max-width: calc(100vw - max(12px, var(--new-map-safe-left)) - max(12px, var(--new-map-safe-right)));
   }
 
   .card,
@@ -900,20 +977,20 @@
   }
 
   .seoOverlayPanel {
-    top: 12px;
-    right: 12px;
-    width: min(420px, calc(100vw - 24px));
-    max-height: min(72vh, 760px);
+    top: max(12px, var(--new-map-safe-top));
+    right: max(12px, var(--new-map-safe-right));
+    left: max(12px, var(--new-map-safe-left));
+    width: auto;
+    max-height: calc(var(--new-map-visible-height) - var(--new-map-bottom-safe) - max(12px, var(--new-map-safe-top)));
     border-radius: 14px;
     padding: 14px;
   }
 
   .aiDock {
-    bottom: 56px;
-    width: calc(100vw - 24px);
+    width: calc(100vw - max(12px, var(--new-map-safe-left)) - max(12px, var(--new-map-safe-right)));
   }
 
   :global(.new-map-country-popup-shell) :global(.maplibregl-popup-content) {
-    max-width: calc(100vw - 24px);
+    max-width: calc(100vw - max(12px, var(--new-map-safe-left)) - max(12px, var(--new-map-safe-right)));
   }
 }
