@@ -28,6 +28,7 @@ type SelectedGeoCallback = (_geo: { iso2: string; country: string; lng: number; 
 type CreateMapOptions = {
   style?: StyleSpecification | string | null;
   stylePromise?: Promise<StyleSpecification>;
+  countriesUrl?: string;
   onSelectGeo?: (_geo: string | null) => void;
 };
 
@@ -356,7 +357,7 @@ export function createMap(
   container: HTMLElement,
   options?: CreateMapOptions
 ): NewMapBootResult {
-  let countries: LegalCountryCollection = { type: "FeatureCollection", features: [] };
+  let countries: LegalCountryCollection | null = null;
   let mapLoaded = false;
   let bootstrapped = false;
   let styleApplied = !options?.stylePromise;
@@ -417,7 +418,7 @@ export function createMap(
   };
 
   const applyData = () => {
-    if (!mapLoaded) return;
+    if (!mapLoaded || !countries) return;
     const countriesSource = map.getSource(NEW_MAP_SOURCE_ID) as maplibregl.GeoJSONSource | undefined;
     countriesSource?.setData(countries);
   };
@@ -439,7 +440,7 @@ export function createMap(
     const beforeId = findFirstSymbolLayerId(map);
     map.addSource(NEW_MAP_SOURCE_ID, {
       type: "geojson",
-      data: countries,
+      data: options?.countriesUrl || countries || { type: "FeatureCollection", features: [] },
       promoteId: "geo"
     });
 
