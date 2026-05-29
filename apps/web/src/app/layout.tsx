@@ -5,14 +5,11 @@ import { Analytics } from "@vercel/analytics/next";
 import NewMapDeferredRuntime from "./_components/NewMapDeferredRuntime";
 import "./globals.css";
 import ServiceWorkerGuard from "@/plugins/serviceWorkerGuard";
-import { getBuildStamp } from "@/lib/buildStamp";
 import { NEW_MAP_WATER_COLOR } from "@/new-map/mapPalette";
 import { getStaticCountriesAsset } from "@/new-map/staticCountries";
 
-const NEW_MAP_BUILD_VERSION = encodeURIComponent(getBuildStamp().buildId);
 const NEW_MAP_STYLE_URL = "/api/new-map/basemap-style?v=20260331-host-header-same-origin";
 const NEW_MAP_COUNTRIES_URL = getStaticCountriesAsset().url;
-const NEW_MAP_CARD_INDEX_URL = `/api/new-map/card-index?v=${NEW_MAP_BUILD_VERSION}`;
 const YANDEX_METRIKA_ID = 108419114;
 const MS_VALIDATE_CONTENT = "8160A885E417B2396DD1C0633F13C70F";
 
@@ -76,13 +73,11 @@ const NEW_MAP_PREFETCH_SCRIPT = `
       .catch(() => null);
   window.__NEW_MAP_PREFETCH__ = {
     style: loadJson("${NEW_MAP_STYLE_URL}"),
-    countries: loadJson("${NEW_MAP_COUNTRIES_URL}"),
-    cardIndex: loadJson("${NEW_MAP_CARD_INDEX_URL}")
+    countries: loadJson("${NEW_MAP_COUNTRIES_URL}")
   };
   Promise.allSettled([
     window.__NEW_MAP_PREFETCH__.style,
-    window.__NEW_MAP_PREFETCH__.countries,
-    window.__NEW_MAP_PREFETCH__.cardIndex
+    window.__NEW_MAP_PREFETCH__.countries
   ]).then(() => {
     trace.marks.NM_T1_HEAD_PREFETCH_READY = trace.marks.NM_T1_HEAD_PREFETCH_READY || performance.now();
   });
@@ -101,7 +96,7 @@ export default async function RootLayout({
       <head>
         <meta name="msvalidate.01" content={MS_VALIDATE_CONTENT} />
         <script dangerouslySetInnerHTML={{ __html: NEW_MAP_PREFETCH_SCRIPT }} />
-        <Script id="yandex-metrika" strategy="beforeInteractive">
+        <Script id="yandex-metrika" strategy="lazyOnload">
           {`
             (function(m,e,t,r,i,k,a){
                 m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
