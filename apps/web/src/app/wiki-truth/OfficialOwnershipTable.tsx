@@ -98,6 +98,7 @@ export default function OfficialOwnershipTable({ view }: { view: OfficialOwnersh
             value={search}
             onChange={(event) => setSearch(event.target.value)}
             placeholder="domain, ISO, country"
+            className="ym-disable-keys"
             data-testid="official-ownership-search"
           />
         </label>

@@ -93,3 +93,11 @@ launchctl load ~/Library/LaunchAgents/com.islegalcannabis.wiki-claims.plist
 - Required evidence: JSON timing report, screenshot, countries transfer/decoded size, `NM_T7_FIRST_FILL_RENDERED`, and rendered country feature count.
 - Treat `/api/new-map/countries` as compatibility only; the runtime URL should be `/static/countries/countries.<hash>.json`.
 - Cleanup policy: `QA/`, `Reports/`, `Artifacts/`, `QUARANTINE/`, Playwright traces, and `~/islegalcannabis_archive/` are rebuildable operational artifacts and must not be deployed or committed.
+
+## Webvisor and PageSpeed checks
+- Webvisor is production-required. Do not turn it off as a performance workaround.
+- Local proof must show zero Yandex/Metrika/Webvisor network resources before `NM_T7_FIRST_FILL_RENDERED`, then successful counter loading after the deferred window or user interaction.
+- Text inputs that can contain user text must carry `ym-disable-keys` unless product/privacy explicitly allows `ym-record-keys`.
+- If PageSpeed reports `mc.yandex.com/solid.ws` errors, verify Yandex network reachability, counter settings, and any CSP allowlist before changing product runtime.
+- If a CSP is added, keep Yandex Metrika/Webvisor domains allowed for scripts, images, frames, and websocket/connect traffic according to the official Yandex Metrika CSP guidance.
+- Segment Webvisor review by device, geo, source, and goals. It is not a replacement for aggregate Metrika reports.

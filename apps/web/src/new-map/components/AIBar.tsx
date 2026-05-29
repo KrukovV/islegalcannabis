@@ -726,7 +726,7 @@ async function requestNonStreamAnswer(input: {
           data-testid="new-map-ai-input"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
-          className={styles.aiInput}
+          className={`${styles.aiInput} ym-disable-keys`}
           placeholder={placeholder}
           maxLength={500}
           autoComplete="off"

@@ -19,6 +19,13 @@ Every API response includes `meta.requestId`, `meta.appVersion`, `meta.apiVersio
 - Runtime payload slimming may remove map-unused properties and reduce coordinate precision, but must preserve `geo`, `displayName`, `result.status`, `result.color`, `baseColor`, `hoverColor`, geometry, popup selection, and visual palette.
 - Map startup diagnostics must expose countries transfer/decoded size and cache hit/miss signals so local/prod cold-start performance is measurable.
 
+## Analytics and Webvisor contract
+- Yandex Metrika/Webvisor stays enabled for production analytics; do not disable `webvisor` to hide PageSpeed or console problems.
+- The external Metrika tag must not block first usable map. It may load only after `NM_T7_FIRST_FILL_RENDERED`, page load fallback, or explicit user input.
+- Webvisor must not mutate map runtime, layers, palette, popup routing, geolocation precedence, or AI input lock state.
+- Text inputs default to `ym-disable-keys`; use `ym-record-keys` only after an explicit product/privacy decision.
+- Production diagnostics must distinguish third-party network availability (`mc.yandex.*` / Webvisor websocket) from product runtime regressions.
+
 ## Review status fields (SSOT)
 - review_status/review_confidence/review_sources are canonical for the review pipeline.
 - status/confidence/sources are legacy and only used as fallback when review_status is missing and status is provisional.

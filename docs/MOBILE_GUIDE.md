@@ -20,3 +20,5 @@
 - Slow-network checks must confirm: map canvas visible, pan/zoom usable, AI dock visible, countries fill rendered, and country popup opens.
 - Production Playwright runs against Vercel must use the automation bypass cookie/header only as test infrastructure; the bypass secret must stay out of committed configs and docs.
 - Do not change the map palette, layer order, popup routing, or MapLibre instance count when optimizing payload/cache.
+- Webvisor/Metrika must not load before first usable map on mobile; verify this with resource timings, not only PageSpeed.
+- Mobile text inputs must keep `ym-disable-keys`; Webvisor mobile analysis should be segmented by device, source, geo, and goals.

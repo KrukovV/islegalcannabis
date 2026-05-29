@@ -12,6 +12,7 @@ const NEW_MAP_STYLE_URL = "/api/new-map/basemap-style?v=20260331-host-header-sam
 const NEW_MAP_COUNTRIES_URL = getStaticCountriesAsset().url;
 const YANDEX_METRIKA_ID = 108419114;
 const MS_VALIDATE_CONTENT = "8160A885E417B2396DD1C0633F13C70F";
+const NEW_MAP_FIRST_VISUAL_EVENT = "new-map:first-visual-ready";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.islegal.info"),
@@ -95,26 +96,77 @@ export default async function RootLayout({
     <html lang={documentLang} suppressHydrationWarning>
       <head>
         <meta name="msvalidate.01" content={MS_VALIDATE_CONTENT} />
+        <link rel="preconnect" href="https://tiles.basemaps.cartocdn.com" />
+        <link rel="dns-prefetch" href="https://tiles.basemaps.cartocdn.com" />
+        <link rel="preconnect" href="https://mc.yandex.ru" />
+        <link rel="dns-prefetch" href="https://mc.yandex.ru" />
+        <link rel="preconnect" href="https://mc.yandex.com" />
+        <link rel="dns-prefetch" href="https://mc.yandex.com" />
         <script dangerouslySetInnerHTML={{ __html: NEW_MAP_PREFETCH_SCRIPT }} />
-        <Script id="yandex-metrika" strategy="lazyOnload">
+        <Script id="yandex-metrika" strategy="afterInteractive">
           {`
-            (function(m,e,t,r,i,k,a){
-                m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-                m[i].l=1*new Date();
-                for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-                k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-            })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=${YANDEX_METRIKA_ID}', 'ym');
+            (function(w,d){
+              if (w.__ISLEGAL_METRIKA_BOOTSTRAPPED__) return;
+              w.__ISLEGAL_METRIKA_BOOTSTRAPPED__ = true;
+              var counterId = ${YANDEX_METRIKA_ID};
+              var scriptUrl = "https://mc.yandex.ru/metrika/tag.js?id=" + counterId;
+              var startTimer = 0;
+              var started = false;
 
-            ym(${YANDEX_METRIKA_ID}, 'init', {
-              ssr: true,
-              webvisor: true,
-              clickmap: true,
-              ecommerce: "dataLayer",
-              referrer: document.referrer,
-              url: location.href,
-              accurateTrackBounce: true,
-              trackLinks: true
-            });
+              function loadCounter() {
+                if (started) return;
+                started = true;
+                w.dataLayer = w.dataLayer || [];
+                (function(m,e,t,r,i,k,a){
+                  m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+                  m[i].l=1*new Date();
+                  for (var j = 0; j < d.scripts.length; j++) {
+                    if (d.scripts[j].src === r) return;
+                  }
+                  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a);
+                })(w,d,"script",scriptUrl,"ym");
+
+                w.ym(counterId, "init", {
+                  ssr: true,
+                  webvisor: true,
+                  clickmap: true,
+                  ecommerce: "dataLayer",
+                  referrer: d.referrer,
+                  url: location.href,
+                  accurateTrackBounce: true,
+                  trackLinks: true
+                });
+              }
+
+              function schedule(delay) {
+                if (started) return;
+                w.clearTimeout(startTimer);
+                startTimer = w.setTimeout(function() {
+                  if ("requestIdleCallback" in w) {
+                    w.requestIdleCallback(loadCounter, { timeout: 2500 });
+                  } else {
+                    loadCounter();
+                  }
+                }, delay);
+              }
+
+              w.addEventListener("${NEW_MAP_FIRST_VISUAL_EVENT}", function() {
+                schedule(6500);
+              }, { once: true });
+              w.addEventListener("load", function() {
+                schedule(10000);
+              }, { once: true });
+              ["pointerdown", "keydown"].forEach(function(type) {
+                w.addEventListener(type, function() {
+                  schedule(1200);
+                }, { once: true, passive: true });
+              });
+              if (w.__NEW_MAP_TRACE__ && w.__NEW_MAP_TRACE__.marks && w.__NEW_MAP_TRACE__.marks.NM_T7_FIRST_FILL_RENDERED) {
+                schedule(6500);
+              } else if (d.readyState === "complete") {
+                schedule(10000);
+              }
+            })(window, document);
           `}
         </Script>
       </head>
