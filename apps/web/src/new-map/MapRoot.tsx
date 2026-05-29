@@ -8,7 +8,7 @@ import type { CountryPageData } from "@/lib/countryPageStorage";
 import { deriveCountryCardEntryFromCountryPageData } from "@/lib/countryCardEntry";
 import type { SeoLocale } from "@/lib/seo/i18n";
 import { createMap } from "./createMap";
-import type { CountryCardEntry } from "./map.types";
+import type { CountryCardEntry, LegalCountryCollection } from "./map.types";
 import styles from "./MapRoot.module.css";
 import { NEW_MAP_WATER_COLOR } from "./mapPalette";
 import { hasFirstVisualReady, onFirstVisualReady, resetFirstVisualReady, setNewMapMetric } from "./startupTrace";
@@ -68,6 +68,7 @@ type ActiveGeo = {
 
 type NewMapPrefetchCache = {
   style?: Promise<StyleSpecification | null> | null;
+  countries?: Promise<LegalCountryCollection | null> | null;
   cardIndex?: Promise<Record<string, CountryCardEntry> | null> | null;
 };
 
@@ -643,15 +644,21 @@ export default function MapRoot({
       if (!containerRef.current) return;
       try {
         const prefetched = getNewMapPrefetchCache();
+        const loadCountries = () =>
+          fetchJsonWithRetry<LegalCountryCollection>(countriesUrl, {
+            credentials: "same-origin"
+          }, "countries_fetch_failed");
         const loadStyle = () =>
           fetchJsonWithRetry<StyleSpecification>("/api/new-map/basemap-style?v=20260331-host-header-same-origin", {
             credentials: "same-origin"
           }, "basemap_style_fetch_failed");
+        const countriesPromise = prefetched?.countries
+          ? prefetched.countries.then((value) => value || loadCountries())
+          : loadCountries();
         const stylePromise = prefetched?.style
           ? prefetched.style.then((value) => value || loadStyle())
           : loadStyle();
         const runtime = createMap(containerRef.current, {
-          countriesUrl,
           stylePromise,
           onSelectGeo: (geo) => {
             setSelectedGeo(geo);
@@ -659,8 +666,25 @@ export default function MapRoot({
           }
         });
         mapRef.current = runtime.map;
+        const countriesDataPromise = countriesPromise.then((countries) => {
+          if (cancelled) return;
+          markCountriesCacheState(countriesUrl);
+          for (const feature of countries.features) {
+            const status = feature.properties?.result?.status;
+            if (!status) {
+              throw new Error(`MAP_WITHOUT_STATUS: ${String(feature.properties?.geo || "UNKNOWN")}`);
+            }
+          }
+          console.warn(
+            `MAP_RENDER_STATUS sample=${countries.features
+              .slice(0, 5)
+              .map((feature) => `${feature.properties.geo}:${feature.properties.result.status}:${feature.properties.baseColor}:${feature.properties.hoverColor}`)
+              .join(",")}`
+          );
+          runtime.setData(countries);
+          return countries;
+        });
         await runtime.ready;
-        markCountriesCacheState(countriesUrl);
         if (cancelled) {
           runtime.destroy();
           return;
@@ -674,6 +698,7 @@ export default function MapRoot({
         });
         const unbindAsciiTriggers = bindAsciiMapTriggers(runtime.map);
         setDebugState({ mounted: true, countriesUrl, map: runtime.map, selectedId: null });
+        await countriesDataPromise;
         if (cancelled) {
           unbindAsciiTriggers();
           hover.destroy();

@@ -9,12 +9,6 @@ type NewMapTrace = {
   metrics?: Record<string, number>;
 };
 
-type CountriesResponse = {
-  url: string;
-  bytes: number;
-  status: number;
-};
-
 async function waitForFullMap(page: import("playwright/test").Page) {
   await page.waitForSelector('[data-testid="new-map-ai-dock"]', { state: "visible" });
   await page.waitForFunction(() => {
@@ -76,23 +70,10 @@ async function openPopup(page: import("playwright/test").Page) {
 test("mobile cold start uses cached static countries payload and keeps map interactive", async ({ page }) => {
   fs.mkdirSync(QA_DIR, { recursive: true });
   await page.setViewportSize({ width: 390, height: 844 });
-  const countriesResponses: CountriesResponse[] = [];
-  page.on("response", (response) => {
-    const url = response.url();
-    if (!url.includes("/static/countries/countries.")) return;
-    countriesResponses.push({
-      url,
-      bytes: Number(response.headers()["x-new-map-countries-bytes"] || 0),
-      status: response.status()
-    });
-  });
 
   await page.goto("/new-map", { waitUntil: "domcontentloaded" });
   await waitForFullMap(page);
   const cold = await collectStartupState(page);
-  const coldCountriesResponse = countriesResponses.at(-1);
-  cold.countriesUrl ||= coldCountriesResponse?.url || null;
-  cold.countriesDecodedBodySize ||= coldCountriesResponse?.bytes || 0;
   await page.screenshot({ path: path.join(QA_DIR, "webkit-cold-full-map.png"), fullPage: false });
 
   await openPopup(page);
@@ -101,9 +82,6 @@ test("mobile cold start uses cached static countries payload and keeps map inter
   await page.reload({ waitUntil: "domcontentloaded" });
   await waitForFullMap(page);
   const warm = await collectStartupState(page);
-  const warmCountriesResponse = countriesResponses.at(-1);
-  warm.countriesUrl ||= warmCountriesResponse?.url || null;
-  warm.countriesDecodedBodySize ||= warmCountriesResponse?.bytes || 0;
   await page.screenshot({ path: path.join(QA_DIR, "webkit-warm-full-map.png"), fullPage: false });
 
   fs.writeFileSync(path.join(QA_DIR, "summary.json"), JSON.stringify({ cold, warm }, null, 2));
