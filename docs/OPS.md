@@ -96,7 +96,7 @@ launchctl load ~/Library/LaunchAgents/com.islegalcannabis.wiki-claims.plist
 
 ## Webvisor and PageSpeed checks
 - Webvisor is production-required. Do not turn it off as a performance workaround.
-- Local proof must show zero Yandex/Metrika/Webvisor network resources before `NM_T7_FIRST_FILL_RENDERED`, then successful counter loading after the deferred window or user interaction.
+- Local proof must show zero Yandex/Metrika/Webvisor network resources before `NM_T7_FIRST_FILL_RENDERED` and through a short passive window, then successful counter loading after user interaction or the late idle fallback.
 - Text inputs that can contain user text must carry `ym-disable-keys` unless product/privacy explicitly allows `ym-record-keys`.
 - If PageSpeed reports `mc.yandex.com/solid.ws` errors, verify Yandex network reachability, counter settings, and any CSP allowlist before changing product runtime.
 - If a CSP is added, keep Yandex Metrika/Webvisor domains allowed for scripts, images, frames, and websocket/connect traffic according to the official Yandex Metrika CSP guidance.

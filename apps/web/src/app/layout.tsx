@@ -13,6 +13,8 @@ const NEW_MAP_COUNTRIES_URL = getStaticCountriesAsset().url;
 const YANDEX_METRIKA_ID = 108419114;
 const MS_VALIDATE_CONTENT = "8160A885E417B2396DD1C0633F13C70F";
 const NEW_MAP_FIRST_VISUAL_EVENT = "new-map:first-visual-ready";
+const YANDEX_METRIKA_INTERACTION_DELAY_MS = 1200;
+const YANDEX_METRIKA_IDLE_FALLBACK_MS = 60000;
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.islegal.info"),
@@ -98,10 +100,6 @@ export default async function RootLayout({
         <meta name="msvalidate.01" content={MS_VALIDATE_CONTENT} />
         <link rel="preconnect" href="https://tiles.basemaps.cartocdn.com" />
         <link rel="dns-prefetch" href="https://tiles.basemaps.cartocdn.com" />
-        <link rel="preconnect" href="https://mc.yandex.ru" />
-        <link rel="dns-prefetch" href="https://mc.yandex.ru" />
-        <link rel="preconnect" href="https://mc.yandex.com" />
-        <link rel="dns-prefetch" href="https://mc.yandex.com" />
         <script dangerouslySetInnerHTML={{ __html: NEW_MAP_PREFETCH_SCRIPT }} />
         <Script id="yandex-metrika" strategy="afterInteractive">
           {`
@@ -151,20 +149,20 @@ export default async function RootLayout({
               }
 
               w.addEventListener("${NEW_MAP_FIRST_VISUAL_EVENT}", function() {
-                schedule(6500);
+                w.__ISLEGAL_MAP_FIRST_VISUAL_READY__ = true;
               }, { once: true });
               w.addEventListener("load", function() {
-                schedule(10000);
+                schedule(${YANDEX_METRIKA_IDLE_FALLBACK_MS});
               }, { once: true });
-              ["pointerdown", "keydown"].forEach(function(type) {
+              ["pointerdown", "keydown", "touchstart", "wheel", "scroll"].forEach(function(type) {
                 w.addEventListener(type, function() {
-                  schedule(1200);
+                  schedule(${YANDEX_METRIKA_INTERACTION_DELAY_MS});
                 }, { once: true, passive: true });
               });
               if (w.__NEW_MAP_TRACE__ && w.__NEW_MAP_TRACE__.marks && w.__NEW_MAP_TRACE__.marks.NM_T7_FIRST_FILL_RENDERED) {
-                schedule(6500);
+                w.__ISLEGAL_MAP_FIRST_VISUAL_READY__ = true;
               } else if (d.readyState === "complete") {
-                schedule(10000);
+                schedule(${YANDEX_METRIKA_IDLE_FALLBACK_MS});
               }
             })(window, document);
           `}

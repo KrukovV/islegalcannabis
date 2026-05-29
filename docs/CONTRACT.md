@@ -21,7 +21,7 @@ Every API response includes `meta.requestId`, `meta.appVersion`, `meta.apiVersio
 
 ## Analytics and Webvisor contract
 - Yandex Metrika/Webvisor stays enabled for production analytics; do not disable `webvisor` to hide PageSpeed or console problems.
-- The external Metrika tag must not block first usable map. It may load only after `NM_T7_FIRST_FILL_RENDERED`, page load fallback, or explicit user input.
+- The external Metrika tag must not block first usable map. `NM_T7_FIRST_FILL_RENDERED` may mark map readiness, but Metrika loads only after explicit user input or a late idle fallback after `load`.
 - Webvisor must not mutate map runtime, layers, palette, popup routing, geolocation precedence, or AI input lock state.
 - Text inputs default to `ym-disable-keys`; use `ym-record-keys` only after an explicit product/privacy decision.
 - Production diagnostics must distinguish third-party network availability (`mc.yandex.*` / Webvisor websocket) from product runtime regressions.
