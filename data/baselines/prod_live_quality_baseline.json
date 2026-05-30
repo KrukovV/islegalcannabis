@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "target_url": "https://www.islegal.info/new-map",
+  "required_methods": [
+    "method1_extra_http_headers",
+    "method2_api_cookie_seed"
+  ],
+  "required_title": "Is cannabis legal?",
+  "require_no_access_block": true,
+  "require_new_map_root": true,
+  "require_map_surface": true,
+  "require_map_ready": true,
+  "require_canvas": true,
+  "min_screenshot_bytes": 10000,
+  "max_elapsed_ms": 90000,
+  "max_map_ready_ms": 60000,
+  "method_overrides": {
+    "method2_api_cookie_seed": {
+      "seed_status_min": 200,
+      "seed_status_max": 399
+    }
+  }
+}

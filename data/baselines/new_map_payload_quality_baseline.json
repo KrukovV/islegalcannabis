@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "target_url": "https://www.islegal.info/new-map",
+  "browser": "chromium",
+  "require_bypass_secret": true,
+  "require_no_access_block": true,
+  "min_rendered_countries": 100,
+  "min_screenshot_bytes": 10000,
+  "require_countries_encoding": [
+    "br",
+    "gzip"
+  ],
+  "max_total_transfer_kib": 2500,
+  "max_first_party_transfer_kib": 2500,
+  "max_countries_transfer_kib": 1600,
+  "max_card_index_transfer_kib": 80,
+  "max_us_states_transfer_kib": 1,
+  "max_long_task_count": 20,
+  "max_long_task_total_ms": 20000,
+  "max_long_task_max_ms": 15000,
+  "max_first_fill_ms": 22000
+}

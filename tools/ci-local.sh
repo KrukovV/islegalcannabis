@@ -153,6 +153,8 @@ node tools/laws/validate_sources.mjs || { CI_LOCAL_REASON="VALIDATE_LAWS_SOURCES
 npm run coverage || { CI_LOCAL_REASON="COVERAGE_FAIL"; CI_LOCAL_STEP="coverage"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 node tools/ledger/compact.test.mjs || { CI_LOCAL_REASON="LEDGER_COMPACT_TEST_FAIL"; CI_LOCAL_STEP="ledger_compact_test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 node tools/ledger/compact.mjs --dry-run || { CI_LOCAL_REASON="LEDGER_COMPACT_FAIL"; CI_LOCAL_STEP="ledger_compact"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
+node tools/vercel_bypass.test.mjs || { CI_LOCAL_REASON="VERCEL_BYPASS_TEST_FAIL"; CI_LOCAL_STEP="vercel_bypass_test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
+node tools/prod_live_quality_gate.test.mjs || { CI_LOCAL_REASON="PROD_LIVE_GATE_TEST_FAIL"; CI_LOCAL_STEP="prod_live_gate_test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 node tools/ingest/run_ingest.test.mjs || { CI_LOCAL_REASON="INGEST_TEST_FAIL"; CI_LOCAL_STEP="ingest_test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 node tools/guards/run_all.test.mjs || { CI_LOCAL_REASON="GUARDS_TEST_FAIL"; CI_LOCAL_STEP="guards_test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 node tools/laws/validate_sources.test.mjs || { CI_LOCAL_REASON="LAW_SOURCES_TEST_FAIL"; CI_LOCAL_STEP="law_sources_test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }

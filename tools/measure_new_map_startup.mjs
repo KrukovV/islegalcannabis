@@ -1,6 +1,10 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { createRequire } from "node:module";
+import {
+  buildVercelBypassSeedRequest,
+  redactVercelBypassSecret
+} from "./vercel_bypass.mjs";
 
 const repoRoot = process.cwd();
 const require = createRequire(import.meta.url);
@@ -12,6 +16,7 @@ const reportsDir = path.join(repoRoot, "Reports");
 const localUrl = process.env.NEW_MAP_LOCAL_URL || "http://127.0.0.1:4010/new-map";
 const prodUrl = process.env.NEW_MAP_PROD_URL || "https://www.islegal.info/new-map";
 const vercelBypass = process.env.VERCEL_AUTOMATION_BYPASS_SECRET || "";
+const vercelBypassCookieMode = process.env.VERCEL_BYPASS_COOKIE_MODE || "samesitenone";
 
 function isTrackedMapResource(reqUrl) {
   return (
@@ -22,14 +27,6 @@ function isTrackedMapResource(reqUrl) {
   );
 }
 
-function withProdBypass(url) {
-  if (!vercelBypass || !url.includes("islegal.info")) return url;
-  const nextUrl = new URL(url);
-  nextUrl.searchParams.set("x-vercel-protection-bypass", vercelBypass);
-  nextUrl.searchParams.set("x-vercel-set-bypass-cookie", "samesitenone");
-  return nextUrl.toString();
-}
-
 async function measure(browserName, url, label) {
   const browser = await playwright[browserName].launch({
     headless: true,
@@ -37,11 +34,18 @@ async function measure(browserName, url, label) {
       ? ["--use-angle=swiftshader", "--use-gl=angle", "--enable-unsafe-swiftshader"]
       : undefined
   });
-  const context = await browser.newContext({
-    extraHTTPHeaders: vercelBypass && url.includes("islegal.info")
-      ? { "x-vercel-protection-bypass": vercelBypass }
-      : undefined
+  const context = await browser.newContext();
+  const bypassSeed = buildVercelBypassSeedRequest(url, vercelBypass, {
+    cookieMode: vercelBypassCookieMode
   });
+  let bypassSeedStatus = null;
+  if (bypassSeed.enabled) {
+    const seedResponse = await context.request.get(bypassSeed.url, {
+      headers: bypassSeed.headers,
+      maxRedirects: 5
+    });
+    bypassSeedStatus = seedResponse.status();
+  }
   const page = await context.newPage();
   const requests = [];
   const responses = [];
@@ -73,7 +77,7 @@ async function measure(browserName, url, label) {
   });
 
   const start = Date.now();
-  await page.goto(withProdBypass(url), { waitUntil: "domcontentloaded" });
+  await page.goto(bypassSeed.url, { waitUntil: "domcontentloaded" });
   await page.waitForSelector('[data-testid="new-map-surface"][data-map-ready="1"]', { state: "attached", timeout: 30000 });
   await page.waitForSelector(".maplibregl-canvas", { state: "attached", timeout: 10000 });
   await page.waitForFunction(() => {
@@ -118,7 +122,13 @@ async function measure(browserName, url, label) {
   const output = {
     label,
     browser: browserName,
-    url,
+    url: redactVercelBypassSecret(bypassSeed.url, vercelBypass),
+    bypassSeed: {
+      enabled: bypassSeed.enabled,
+      status: bypassSeedStatus,
+      cookieMode: bypassSeed.cookieMode,
+      headerNames: Object.keys(bypassSeed.headers)
+    },
     metrics,
     requests: requests.map((entry) => ({
       ...entry,
@@ -131,7 +141,7 @@ async function measure(browserName, url, label) {
     startupTrace: trace
   };
   if (vercelBypass && output.startupTrace?.href) {
-    output.startupTrace.href = output.startupTrace.href.replace(vercelBypass, "[redacted]");
+    output.startupTrace.href = redactVercelBypassSecret(output.startupTrace.href, vercelBypass);
   }
 
   const filePath = path.join(reportsDir, `new-map-startup.${label}.${browserName}.json`);

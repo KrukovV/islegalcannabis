@@ -1,19 +1,24 @@
 import { createHash } from "node:crypto";
+import { brotliCompressSync, constants as zlibConstants, gzipSync } from "node:zlib";
 import type { Feature, MultiPolygon, Polygon, Position } from "geojson";
 import { buildCountrySourceSnapshot } from "./countrySource";
 import type { LegalCountryCollection, LegalCountryFeatureProperties } from "./map.types";
 
-const COORDINATE_PRECISION = 5;
+const COORDINATE_PRECISION = 4;
 const COORDINATE_FACTOR = 10 ** COORDINATE_PRECISION;
-const SIMPLIFY_TOLERANCE_DEGREES = 0.01;
+const SIMPLIFY_TOLERANCE_DEGREES = 0.02;
 const SIMPLIFY_TOLERANCE_SQ = SIMPLIFY_TOLERANCE_DEGREES * SIMPLIFY_TOLERANCE_DEGREES;
-const COUNTRIES_CACHE_CONTROL = "public, max-age=31536000, immutable";
+const COUNTRIES_CACHE_CONTROL = "public, max-age=31536000, s-maxage=31536000, immutable";
 
 export type StaticCountriesAsset = {
   hash: string;
   url: string;
   json: string;
+  brotli: Uint8Array;
+  gzip: Uint8Array;
   byteLength: number;
+  brotliByteLength: number;
+  gzipByteLength: number;
   cacheControl: string;
 };
 
@@ -150,12 +155,22 @@ export function buildStaticCountrySourceSnapshot(): LegalCountryCollection {
 export function getStaticCountriesAsset(): StaticCountriesAsset {
   if (assetCache) return assetCache;
   const json = JSON.stringify(buildStaticCountrySourceSnapshot());
+  const brotli = brotliCompressSync(json, {
+    params: {
+      [zlibConstants.BROTLI_PARAM_QUALITY]: 11
+    }
+  });
+  const gzip = gzipSync(json);
   const hash = createHash("sha256").update(json).digest("hex").slice(0, 12);
   assetCache = {
     hash,
     url: `/static/countries/countries.${hash}.json`,
     json,
+    brotli,
+    gzip,
     byteLength: Buffer.byteLength(json),
+    brotliByteLength: brotli.byteLength,
+    gzipByteLength: gzip.byteLength,
     cacheControl: COUNTRIES_CACHE_CONTROL
   };
   return assetCache;

@@ -1,5 +1,52 @@
 # OPS
 
+## Canonical Verification
+
+Run one command for CI, checkpoint, and final report generation:
+
+```bash
+bash tools/pass_cycle.sh
+```
+
+`pass_cycle` includes mandatory live production `/new-map` gates for access/render and payload/long-task quality. Set `VERCEL_AUTOMATION_BYPASS_SECRET` in the shell before final handoff; missing secret, Vercel access-block pages, missing screenshots, missing map readiness, excessive payload, or degraded live timings fail the run.
+
+Before handoff, verify `Reports/ci-final.txt` contains:
+
+```text
+PROD_LIVE_OK=1
+PROD_PAYLOAD_OK=1
+POST_CHECKS_OK=1
+HUB_STAGE_REPORT_OK=1
+```
+
+Lint is mandatory before Smoke/UI; any lint error fails the run.
+
+## UI Singleton
+
+Only one Next.js dev server instance is allowed. Use:
+
+```bash
+npm run web:dev
+```
+
+If an existing dev server is detected at `http://127.0.0.1:3000/wiki-truth`, or `.next/dev/lock` exists while a dev process may be alive, the guard prints:
+
+```text
+UI_ALREADY_RUNNING url=http://127.0.0.1:3000/wiki-truth
+```
+
+Do not kill user processes, delete `.next/dev/lock`, or switch to another port automatically.
+
+## Network Truth Policy
+
+DNS is diagnostic only. Online state derives solely from HTTP/API/CONNECT/FALLBACK truth probes.
+
+- Cache may permit degraded continuation, but cache never sets `ONLINE=1`.
+- `OFFLINE_REASON` values are truth-probe reasons such as `TLS`, `HTTP_STATUS`, `TIMEOUT`, `CONN_REFUSED`, or `NO_ROUTE`.
+- DNS diagnostics use explicit diagnostic reasons and never drive branching.
+- Single-probe-per-run data is run-scoped under `Artifacts/net_probe/<RUN_ID>.json`.
+- Keep `EGRESS_TRUTH`, `NET_DIAG`, pass_cycle, quality gate, and hub stage report consistent for the same `RUN_ID`.
+
 ## 12h Refresh Schedule
 
 ### macOS launchd
@@ -88,32 +135,94 @@ launchctl load ~/Library/LaunchAgents/com.islegalcannabis.wiki-claims.plist
 - Set `status` back to `known` and refresh `verified_at`.
 
 ## Map cold-start perf checks
-- Local: run production-local and `node tools/measure_new_map_startup.mjs` with `NEW_MAP_LOCAL_URL` when using a non-default port.
-- Prod: set `VERCEL_AUTOMATION_BYPASS_SECRET` in the shell and run the same tool against `https://www.islegal.info/new-map`.
-- Required evidence: JSON timing report, screenshot, countries transfer/decoded size, `NM_T7_FIRST_FILL_RENDERED`, and rendered country feature count.
+- Local payload run: build, start production-local on a free port, then run `NEW_MAP_PERF_URL=http://127.0.0.1:<port>/new-map NEW_MAP_PERF_LABEL=local-prod-after node tools/measure_new_map_payload.mjs`.
+- Prod payload run: set `VERCEL_AUTOMATION_BYPASS_SECRET` in the shell and run `node tools/prod_new_map_payload_gate.mjs`.
+- Required evidence: JSON timing report, screenshot, countries transfer/decoded size, optional `card-index`/`us-states` transfer, long-task count/total/max, `NM_T7_FIRST_FILL_RENDERED`, and rendered country feature count.
+- Official optimization references for this gate are Chrome Lighthouse total byte weight and web.dev long-task guidance: `https://developer.chrome.com/docs/lighthouse/performance/total-byte-weight` and `https://web.dev/articles/optimize-long-tasks`.
 - Treat `/api/new-map/countries` as compatibility only; the runtime URL should be `/static/countries/countries.<hash>.json`.
+- Root `/new-map` cold start must not eagerly request `/api/new-map/card-index` or `/api/new-map/us-states`; the local e2e guard is `e2e/new-map.preload.spec.ts`.
 - Cleanup policy: `QA/`, `Reports/`, `Artifacts/`, `QUARANTINE/`, Playwright traces, and `~/islegalcannabis_archive/` are rebuildable operational artifacts and must not be deployed or committed.
 
 ## Vercel automation bypass for production QA
 - Keep the bypass token only in local shell, CI secrets, or Vercel project settings. Do not commit the token to config, docs, reports, screenshots, or test fixtures.
-- For Playwright or measurement scripts, seed the bypass cookie on the first document navigation by adding both query params:
+- For live Playwright verification, test the support-provided methods first and in order. Do not substitute internet-sourced variants until these two methods have been run against prod and recorded.
+- In this repo, `x-vercel-set-bypass-cookie` is treated as header-only for tests because Vercel support confirmed URL query seeding can be ignored by Bot Protection even though public docs mention query support.
 
 ```bash
 export VERCEL_AUTOMATION_BYPASS_SECRET="<secret from Vercel Deployment Protection>"
 ```
 
+### Method 1: global Playwright HTTP header
+
+Run the support-provided global-header method first. This intentionally attaches the protection bypass header at the browser context level:
+
 ```ts
-const url = new URL("https://www.islegal.info/new-map");
-url.searchParams.set("x-vercel-protection-bypass", process.env.VERCEL_AUTOMATION_BYPASS_SECRET!);
-url.searchParams.set("x-vercel-set-bypass-cookie", "samesitenone");
-await page.goto(url.toString(), { waitUntil: "domcontentloaded" });
+const context = await browser.newContext({
+  extraHTTPHeaders: {
+    "x-vercel-protection-bypass": process.env.VERCEL_AUTOMATION_BYPASS_SECRET!,
+  },
+});
+
+const page = await context.newPage();
+await page.goto("https://www.islegal.info/new-map", { waitUntil: "domcontentloaded" });
 ```
 
-- Also send the header only to first-party Vercel requests. Do not set it as a global browser header when the page loads third-party map/font/tile resources, because that can trigger third-party CORS preflights.
+### Method 2: API-context cookie seed
+
+Run the support-provided cookie seed method second. This sends both headers through the Playwright API context, then navigates without putting bypass params in the URL:
 
 ```ts
 const context = await browser.newContext();
-await context.route("https://www.islegal.info/**", async (route) => {
+await context.request.get("https://www.islegal.info/new-map", {
+  headers: {
+    "x-vercel-protection-bypass": process.env.VERCEL_AUTOMATION_BYPASS_SECRET!,
+    "x-vercel-set-bypass-cookie": "samesitenone",
+  },
+  maxRedirects: 5,
+});
+
+const page = await context.newPage();
+await page.goto("https://www.islegal.info/new-map", { waitUntil: "domcontentloaded" });
+```
+
+- Use `x-vercel-set-bypass-cookie=samesitenone` for this project's Playwright cookie seed flow. If a future direct same-site run intentionally uses `true`, document the evidence before changing the default.
+- Do not put either `x-vercel-protection-bypass` or `x-vercel-set-bypass-cookie` in the URL for Playwright runs. Query params can leak into traces/screenshots and have produced Vercel Security Checkpoint failures for this project.
+- After Method 1 and Method 2 are tested, prefer the Method 2 first-party cookie seed for map/perf runs because it avoids attaching the bypass header to third-party map/font/tile/Yandex resources.
+- If a specific first-party subrequest still returns the Vercel checkpoint after the cookie has been seeded, scope the bypass header to that exact first-party route. Do not attach it to third-party map/font/tile/Yandex resources.
+
+### Live prod access probe
+
+Use the live probe to run baseline, Method 1, and Method 2 in that order. It reads the secret only from `VERCEL_AUTOMATION_BYPASS_SECRET`, writes sanitized output to `Reports/vercel-bypass-live/last_run.json`, and screenshots each method without writing the token.
+
+```bash
+VERCEL_AUTOMATION_BYPASS_SECRET="$VERCEL_AUTOMATION_BYPASS_SECRET" \
+node tools/vercel_bypass_live_probe.mjs
+```
+
+The access error is gone only when the relevant method reports `ok=1`, `access_block=0`, title `Is cannabis legal?`, and the real app DOM/screenshot instead of a Vercel Security Checkpoint page.
+
+### Mandatory pass_cycle prod gates
+
+Final `bash tools/pass_cycle.sh` runs `tools/prod_live_quality_gate.mjs` and `tools/prod_new_map_payload_gate.mjs` as mandatory tail gates. The access/render gate executes the live probe first, then enforces `data/baselines/prod_live_quality_baseline.json`; the payload gate enforces `data/baselines/new_map_payload_quality_baseline.json`.
+
+Required evidence:
+
+- `Reports/vercel-bypass-live/last_run.json`
+- `Reports/vercel-bypass-live/method1_extra_http_headers.png`
+- `Reports/vercel-bypass-live/method2_api_cookie_seed.png`
+- `Reports/prod-live-gate/latest.json`
+- `PROD_LIVE_METHOD` lines in `Reports/ci-final.txt` with `elapsed_ms`, `map_ready_ms`, `screenshot_bytes`, and screenshot path.
+- `Reports/new-map-payload/prod-gate-*.chromium.json`
+- `Reports/new-map-payload/prod-gate-*.chromium.png`
+- `PROD_PAYLOAD_METRIC` line in `Reports/ci-final.txt` with transfer, long-task, first-fill, rendered-country, and screenshot metrics.
+
+The gate fails on `missing_secret`, access-block text, wrong title, missing `/new-map` root/surface/readiness/canvas, missing or undersized screenshots, Method 2 seed status outside 2xx/3xx, `elapsed_ms > 90000`, or `map_ready_ms > 60000`.
+
+The payload gate fails on missing secret, access-block text, rendered countries below baseline, screenshot below baseline, missing `br`/`gzip` countries encoding, total transfer above `2500 KiB`, countries transfer above `1600 KiB`, first-screen US-state payload above `1 KiB`, long-task count/total/max above baseline, or first-fill above baseline.
+
+```ts
+const context = await browser.newContext();
+await context.route("https://www.islegal.info/api/build-meta", async (route) => {
   await route.continue({
     headers: {
       ...route.request().headers(),
@@ -123,16 +232,17 @@ await context.route("https://www.islegal.info/**", async (route) => {
 });
 ```
 
-- For this repo, the canonical production startup command is:
+- For this repo, the canonical production startup command is header-cookie seeding through `tools/measure_new_map_startup.mjs`:
 
 ```bash
 VERCEL_AUTOMATION_BYPASS_SECRET="$VERCEL_AUTOMATION_BYPASS_SECRET" \
+VERCEL_BYPASS_COOKIE_MODE="samesitenone" \
 NEW_MAP_PROD_URL="https://www.islegal.info/new-map" \
 node tools/measure_new_map_startup.mjs
 ```
 
 - Use `workers: 1` or an equivalent single-worker run for live Vercel QA. Add small pauses between repeated prod runs if Vercel/CDN rate limits or bot checks appear.
-- If headless Chromium still lands on the Vercel checkpoint while direct HTTP with the same token returns real app HTML, rerun production QA in headed Playwright mode and keep the first-party scoped header above. Record this as a test-infrastructure constraint, not as product runtime evidence.
+- If headless Chromium still lands on the Vercel checkpoint while the header-cookie seed request returns real app HTML, rerun production QA in headed Playwright mode and keep the first-party scoped header above. Record this as a test-infrastructure constraint, not as product runtime evidence.
 - A successful bypass must load the real app HTML with title `Is cannabis legal?`, not a Vercel Security Checkpoint page. If Lighthouse CLI still lands on `chrome-error://chromewebdata/` or a checkpoint interstitial, mark that Lighthouse run `UNCONFIRMED` and use Playwright/PageSpeed UI evidence instead.
 - Sanitize artifacts after every run: replace the token in JSON/HTML/trace output with `<BYPASS_SECRET>` before committing or sharing.
 

@@ -16,6 +16,12 @@ const BASEMAP_STYLE_URL = "/api/new-map/basemap-style?v=20260331-host-header-sam
 
 const DEFAULT_CENTER: [number, number] = [25, 50];
 const DEFAULT_ZOOM = 1.55;
+const US_STATES_DATA_URL = "/api/new-map/us-states";
+const US_STATES_LOAD_ZOOM = 4.35;
+const EMPTY_FEATURE_COLLECTION: LegalCountryCollection = {
+  type: "FeatureCollection",
+  features: []
+};
 const FLAT_CAMERA = {
   center: DEFAULT_CENTER,
   zoom: DEFAULT_ZOOM,
@@ -368,6 +374,7 @@ export function createMap(
   let firstCountriesReadyMarked = false;
   let firstIdleMarked = false;
   let firstVisualReadyMarked = false;
+  let usStatesRequested = false;
   let resolveReady = () => {};
   const ready = new Promise<void>((resolve) => {
     resolveReady = resolve;
@@ -483,7 +490,7 @@ export function createMap(
 
     map.addSource(NEW_MAP_US_STATES_SOURCE_ID, {
       type: "geojson",
-      data: "/api/new-map/us-states",
+      data: EMPTY_FEATURE_COLLECTION,
       promoteId: "geo"
     });
 
@@ -606,6 +613,19 @@ export function createMap(
       cursorHandlersBound = true;
     }
   };
+  const loadUsStates = () => {
+    if (usStatesRequested) return;
+    const source = map.getSource(NEW_MAP_US_STATES_SOURCE_ID) as maplibregl.GeoJSONSource | undefined;
+    if (!source) return;
+    usStatesRequested = true;
+    markNewMapTrace("NM_US_STATES_REQUESTED");
+    source.setData(US_STATES_DATA_URL);
+  };
+  const loadUsStatesWhenZoomed = () => {
+    if (map.getZoom() >= US_STATES_LOAD_ZOOM) {
+      loadUsStates();
+    }
+  };
   map.on("click", (event) => {
     const feature = getUsStateFeatureAtPoint(map, event.point) || getCountryFeatureAtPoint(map, event.point);
     if (!feature) return;
@@ -664,7 +684,12 @@ export function createMap(
     map.jumpTo(FLAT_CAMERA);
     tuneNativeBasemapLayers(map);
     addSupplementalSeaLayer(map);
+    const shouldReloadUsStates = usStatesRequested;
     installCountryLayers();
+    if (shouldReloadUsStates || map.getZoom() >= US_STATES_LOAD_ZOOM) {
+      usStatesRequested = false;
+      loadUsStates();
+    }
     mapLoaded = true;
     applyData();
   };
@@ -674,6 +699,7 @@ export function createMap(
     queueMicrotask(onStyleReady);
   }
   map.on("moveend", ensureFlatCamera);
+  map.on("zoomend", loadUsStatesWhenZoomed);
 
   if (options?.stylePromise) {
     void options.stylePromise
@@ -703,11 +729,13 @@ export function createMap(
       bootstrapped = false;
       map.setStyle(nextStyle);
     },
+    loadUsStates,
     destroy: () => {
       destroyed = true;
       map.getCanvas().style.cursor = "";
       map.off("style.load", onStyleReady);
       map.off("moveend", ensureFlatCamera);
+      map.off("zoomend", loadUsStatesWhenZoomed);
       if (map.getLayer(NEW_MAP_US_STATES_LINE_LAYER_ID)) map.removeLayer(NEW_MAP_US_STATES_LINE_LAYER_ID);
       if (map.getLayer(NEW_MAP_US_STATES_FILL_LAYER_ID)) map.removeLayer(NEW_MAP_US_STATES_FILL_LAYER_ID);
       if (map.getLayer(NEW_MAP_SUPPLEMENTAL_SEA_LAYER_ID)) map.removeLayer(NEW_MAP_SUPPLEMENTAL_SEA_LAYER_ID);

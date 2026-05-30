@@ -8,7 +8,7 @@ import type { CountryPageData } from "@/lib/countryPageStorage";
 import { deriveCountryCardEntryFromCountryPageData } from "@/lib/countryCardEntry";
 import type { SeoLocale } from "@/lib/seo/i18n";
 import { createMap } from "./createMap";
-import type { CountryCardEntry, LegalCountryCollection } from "./map.types";
+import type { CountryCardEntry, LegalCountryCollection, NewMapBootResult } from "./map.types";
 import styles from "./MapRoot.module.css";
 import { NEW_MAP_WATER_COLOR } from "./mapPalette";
 import { hasFirstVisualReady, onFirstVisualReady, resetFirstVisualReady, setNewMapMetric } from "./startupTrace";
@@ -159,6 +159,7 @@ export default function MapRoot({
 }: Props) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
+  const runtimeRef = useRef<NewMapBootResult | null>(null);
   const locationMarkerRef = useRef<maplibregl.Marker | null>(null);
   const infoMarkerRef = useRef<maplibregl.Marker | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -175,6 +176,7 @@ export default function MapRoot({
   const [cardIndex, setCardIndex] = useState<Record<string, CountryCardEntry>>({});
   const [popupAnchor, setPopupAnchor] = useState<{ x: number; y: number } | null>(null);
   const [activeRouteSeoData, setActiveRouteSeoData] = useState<CountryPageData | null>(seoCountryData);
+  const cardIndexRequestedRef = useRef(false);
   const selectedFeatureStateRef = useRef<{ source: "legal-countries" | "us-states"; id: string } | null>(null);
   const seoDataByCodeRef = useRef<Record<string, CountryPageData>>({});
   const showDebugOverlay = runtimeIdentity.runtimeMode !== "production";
@@ -353,6 +355,32 @@ export default function MapRoot({
     setSelectedGeo(null);
   }, []);
 
+  const loadCardIndex = useCallback(async () => {
+    if (cardIndexRequestedRef.current) return null;
+    cardIndexRequestedRef.current = true;
+    const prefetched = getNewMapPrefetchCache();
+    const requestCardIndex = () =>
+      fetch("/api/new-map/card-index", {
+        credentials: "same-origin"
+      }).then((response) => {
+        if (!response.ok) {
+          throw new Error(`card_index_fetch_failed:${response.status}`);
+        }
+        return response.json() as Promise<Record<string, CountryCardEntry>>;
+      });
+    try {
+      const nextCardIndex = prefetched?.cardIndex
+        ? await prefetched.cardIndex.then((value) => value || requestCardIndex())
+        : await requestCardIndex();
+      setCardIndex(nextCardIndex || {});
+      return nextCardIndex || {};
+    } catch {
+      cardIndexRequestedRef.current = false;
+      setCardIndex({});
+      return null;
+    }
+  }, []);
+
   const handleOpenDetails = useCallback(
     async (entry: CountryCardEntry) => {
       const code = parseSeoCodeFromHref(entry.pageHref);
@@ -477,6 +505,9 @@ export default function MapRoot({
       source: (nextGeo.startsWith("US-") ? "us-states" : "legal-countries") as "legal-countries" | "us-states",
       id: nextGeo
     };
+    if (nextState.source === "us-states") {
+      runtimeRef.current?.loadUsStates();
+    }
     const current = selectedFeatureStateRef.current;
     if (current && (current.source !== nextState.source || current.id !== nextState.id)) {
       safeSetFeatureState(map, current, { selected: false });
@@ -604,37 +635,14 @@ export default function MapRoot({
   }, [activateSeoRoute]);
 
   useEffect(() => {
-    let cancelled = false;
-    const prefetched = getNewMapPrefetchCache();
-    const loadCardIndex = () =>
-      fetch("/api/new-map/card-index", {
-        credentials: "same-origin"
-      }).then((response) => {
-        if (!response.ok) {
-          throw new Error(`card_index_fetch_failed:${response.status}`);
-        }
-        return response.json() as Promise<Record<string, CountryCardEntry>>;
-      });
-    const cardIndexPromise = prefetched?.cardIndex
-      ? prefetched.cardIndex.then((value) => value || loadCardIndex())
-      : loadCardIndex();
+    if (!initialGeoCode && !seoCountryData) return;
+    void loadCardIndex();
+  }, [initialGeoCode, loadCardIndex, seoCountryData]);
 
-    void cardIndexPromise
-      .then((nextCardIndex) => {
-        if (!cancelled && nextCardIndex) {
-          setCardIndex(nextCardIndex);
-        }
-      })
-      .catch(() => {
-        if (!cancelled) {
-          setCardIndex({});
-        }
-      });
-
-    return () => {
-      cancelled = true;
-    };
-  }, []);
+  useEffect(() => {
+    if (!selectedGeo || cardIndex[selectedGeo]) return;
+    void loadCardIndex();
+  }, [cardIndex, loadCardIndex, selectedGeo]);
 
   useEffect(() => {
     let cancelled = false;
@@ -666,6 +674,7 @@ export default function MapRoot({
           }
         });
         mapRef.current = runtime.map;
+        runtimeRef.current = runtime;
         const countriesDataPromise = countriesPromise.then((countries) => {
           if (cancelled) return;
           markCountriesCacheState(countriesUrl);
@@ -687,6 +696,7 @@ export default function MapRoot({
         await runtime.ready;
         if (cancelled) {
           runtime.destroy();
+          runtimeRef.current = null;
           return;
         }
         setVisualReady(true);
@@ -703,6 +713,7 @@ export default function MapRoot({
           unbindAsciiTriggers();
           hover.destroy();
           runtime.destroy();
+          runtimeRef.current = null;
           return;
         }
         cleanup = () => {
@@ -713,6 +724,7 @@ export default function MapRoot({
           infoMarkerRef.current?.remove();
           infoMarkerRef.current = null;
           mapRef.current = null;
+          runtimeRef.current = null;
           setMapReady(false);
           setVisualReady(false);
           runtime.destroy();

@@ -43,3 +43,5 @@ Statuses: pending | in_progress | done
 - [done] Notes spotlight tool + notes non-destructive policy + parser/DB protections
 - [done] Update AGENTS.md and ci-local diagnostics discipline
 - [done] Simplify map/wiki runtime with shared prepared payloads, perf/log guards, and experimental country vector-tile benchmark path
+- [done] Refresh project spec/docs for `/new-map`, `/wiki-truth`, SSOT diff, network truth, UI singleton, storage hygiene, and Status Engine Audit v1
+- [done] Add `/new-map` payload/long-task reduction, local/prod measurement reports, and mandatory prod payload gate in `pass_cycle`

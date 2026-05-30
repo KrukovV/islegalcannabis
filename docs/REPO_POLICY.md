@@ -11,6 +11,26 @@
 
 ## Артефакты сборки
 - node_modules, .next, dist, build и прочие артефакты не коммитим.
+- `.codex/**` считается disposable derived layer и не является продуктовым SSOT.
 
 ## Данные законов
 - data/laws содержит только JSON и источники (url) в полях sources.
+
+## Storage Hygiene
+- `QUARANTINE` должен содержать ровно один PASS snapshot.
+- `Reports` хранит только операционные логи текущих проверок, не историю.
+- Архивы и исторические снимки хранятся вне репозитория: `~/islegalcannabis_archive/` или явно заданный внешний путь.
+- CI обязан падать при disk bloat по guard-лимитам `tools/pass_cycle.sh`.
+
+## Git / CI
+- Основная проверка перед handoff или commit: `bash tools/pass_cycle.sh`.
+- Финальный `pass_cycle` обязан включать live production `/new-map` gates: Vercel bypass Method 1/2, payload/long-task measurement, PNG-скрины, `elapsed_ms`/`map_ready_ms`/transfer metrics, и деградационные baselines `data/baselines/prod_live_quality_baseline.json` + `data/baselines/new_map_payload_quality_baseline.json`.
+- Прямой `git push` допускается только через `Tools/commit_if_green.sh`.
+- Коммиты, которые включают `data/laws/**`, проходят через `tools/commit_if_green.sh`.
+- Запрещены destructive reset/clean/filter-repo и silent CI fallback.
+
+## Network Truth
+- DNS — только диагностика.
+- Онлайн-статус вычисляется только HTTP/API/CONNECT/FALLBACK truth-probes.
+- Cache может разрешить degraded continue, но не выставляет `ONLINE=1`.
+- Сетевые изменения обязаны сохранять `EGRESS_TRUTH` и `NET_DIAG` контракты.

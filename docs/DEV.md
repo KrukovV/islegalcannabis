@@ -16,15 +16,24 @@
 - dev: `npm run web:dev`
 - build: `npm run web:build`
 - validate:laws: `npm run validate:laws`
+- full pass cycle: `bash tools/pass_cycle.sh`
 
 ## How to verify
-- UI: `/check?country=US&region=CA`, `/check?country=DE`
+- UI: `/new-map`, `/c/can`, `/wiki-truth`, `/changes`, `/check?country=US&region=CA`, `/check?country=DE`
 - API: `/api/check?country=US&region=CA`, `/api/check?country=DE`
-- CI: `bash tools/ci-local.sh`
-- Contract smoke: `node tools/smoke/run_jurisdiction_contract.mjs --baseUrl http://127.0.0.1:3000`
+- CI: `bash tools/pass_cycle.sh`
+- Contract smoke: use pass_cycle unless a narrower task explicitly names a smoke script.
+- Final handoff CI requires `VERCEL_AUTOMATION_BYPASS_SECRET` in env because `pass_cycle` runs mandatory live production `/new-map` gates with Method 1/2 screenshots, payload/long-task metrics, and timing thresholds.
+
+## Dev Server Singleton
+- Start UI through `npm run web:dev`.
+- If a server is already reachable at `http://127.0.0.1:3000/wiki-truth`, or `.next/dev/lock` exists while a dev process may be alive, do not start another Next.js server.
+- Expected guarded output when UI is already running: `UI_ALREADY_RUNNING url=http://127.0.0.1:3000/wiki-truth`.
+- Do not kill user-started UI processes, delete `.next/dev/lock`, or auto-switch to another port.
 
 ## Перед каждым коммитом
-- Запускать: `bash tools/ci-local.sh`.
+- Запускать: `bash tools/pass_cycle.sh`.
+- Проверить `Reports/ci-final.txt`: `PROD_LIVE_OK=1`, `PROD_PAYLOAD_OK=1`, `POST_CHECKS_OK=1` и `HUB_STAGE_REPORT_OK=1`.
 
 ## Как добавить новую юрисдикцию и SEO-страницу
 1) Добавьте JSON в `data/laws/**` по текущей схеме (смотрите существующие файлы).
@@ -43,6 +52,13 @@
 
 ### Очистка и восстановление
 Если dev-сервер или сборка ведут себя нестабильно:
-1) Удалите артефакты: `rm -rf node_modules apps/web/.next`.
-2) Переустановите зависимости: `npm install`.
-3) Повторите команду (lint/test/build).
+1) Сначала остановите dev-сервер вручную в том терминале, где он был запущен.
+2) Не удаляйте `.next/dev/lock`, пока может быть жив dev-процесс.
+3) После остановки процесса переустановите зависимости при необходимости: `npm install`.
+4) Повторите узкую команду, затем полный цикл: `bash tools/pass_cycle.sh`.
+
+## Network Truth
+- DNS используется только как диагностика.
+- Онлайн-решение дают только HTTP/API/CONNECT/FALLBACK truth-probes.
+- Cache может разрешить `DEGRADED_CACHE`, но не выставляет `ONLINE=1`.
+- При изменении сетевой логики сохраняйте согласованность `EGRESS_TRUTH`, `NET_DIAG`, `pass_cycle`, quality gate и hub stage report.

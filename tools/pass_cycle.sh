@@ -143,6 +143,8 @@ fi
 SUMMARY_FILE="${CHECKPOINT_DIR}/ci-summary.txt"
 CI_LOG="${CHECKPOINT_DIR}/ci-local.log"
 CHECKPOINT_LOG="${CHECKPOINT_DIR}/save_patch_checkpoint.log"
+PROD_LIVE_GATE_LOG="${CHECKPOINT_DIR}/prod-live-gate.log"
+PROD_PAYLOAD_GATE_LOG="${CHECKPOINT_DIR}/prod-payload-gate.log"
 STDOUT_FILE="${CHECKPOINT_DIR}/ci-final.txt"
 REPORTS_FINAL="${ROOT}/Reports/ci-final.txt"
 STEP_LOG="${CHECKPOINT_DIR}/ci-steps.log"
@@ -185,7 +187,7 @@ emit_final_output() {
       print;
       next;
     }
-    /^(CI_STATUS=|FAIL_REASON=|POST_CHECKS_OK=|HUB_STAGE_REPORT_OK=|PASS_CYCLE_EXIT )/ {
+    /^(CI_STATUS=|FAIL_REASON=|PROD_LIVE_|PROD_PAYLOAD_|POST_CHECKS_OK=|HUB_STAGE_REPORT_OK=|PASS_CYCLE_EXIT )/ {
       print;
     }
   ' "${file}" >&${OUTPUT_FD}
@@ -328,11 +330,55 @@ bar_line() {
 }
 
 run_mandatory_tail() {
+  local prod_rc=0
+  local prod_reason="OK"
+  local prod_output=""
+  local payload_rc=0
+  local payload_reason="OK"
+  local payload_output=""
   local post_rc=0
   local hub_rc=0
   local post_reason="OK"
   local hub_reason="OK"
   set +e
+  prod_output=$(${NODE_BIN} "${ROOT}/tools/prod_live_quality_gate.mjs" 2>&1)
+  prod_rc=$?
+  printf "%s\n" "${prod_output}" > "${PROD_LIVE_GATE_LOG}"
+  if [ "${prod_rc}" -ne 0 ]; then
+    prod_reason="RC_${prod_rc}"
+    if printf "%s\n" "${prod_output}" | grep -q "SECRET_MISSING"; then
+      prod_reason="SECRET_MISSING"
+    elif printf "%s\n" "${prod_output}" | grep -q "PROD_LIVE_DEGRADATION=FAIL"; then
+      prod_reason="DEGRADATION"
+    fi
+  fi
+  if [ -n "${prod_output}" ]; then
+    printf "%s\n" "${prod_output}" >> "${STDOUT_FILE}"
+    printf "%s\n" "${prod_output}" >> "${RUN_REPORT_FILE}"
+    printf "%s\n" "${prod_output}" >> "${REPORTS_FINAL}"
+    if [ "${CI_WRITE_ROOT}" = "1" ]; then
+      printf "%s\n" "${prod_output}" >> "${ROOT}/ci-final.txt"
+    fi
+  fi
+  payload_output=$(${NODE_BIN} "${ROOT}/tools/prod_new_map_payload_gate.mjs" 2>&1)
+  payload_rc=$?
+  printf "%s\n" "${payload_output}" > "${PROD_PAYLOAD_GATE_LOG}"
+  if [ "${payload_rc}" -ne 0 ]; then
+    payload_reason="RC_${payload_rc}"
+    if printf "%s\n" "${payload_output}" | grep -q "SECRET_MISSING"; then
+      payload_reason="SECRET_MISSING"
+    elif printf "%s\n" "${payload_output}" | grep -q "PROD_PAYLOAD_DEGRADATION=FAIL"; then
+      payload_reason="DEGRADATION"
+    fi
+  fi
+  if [ -n "${payload_output}" ]; then
+    printf "%s\n" "${payload_output}" >> "${STDOUT_FILE}"
+    printf "%s\n" "${payload_output}" >> "${RUN_REPORT_FILE}"
+    printf "%s\n" "${payload_output}" >> "${REPORTS_FINAL}"
+    if [ "${CI_WRITE_ROOT}" = "1" ]; then
+      printf "%s\n" "${payload_output}" >> "${ROOT}/ci-final.txt"
+    fi
+  fi
   if [ -x "${ROOT}/tools/post_checks.sh" ]; then
     bash "${ROOT}/tools/post_checks.sh"
     post_rc=$?
@@ -371,6 +417,14 @@ run_mandatory_tail() {
   set -e
 
   MANDATORY_TAIL_FAIL_REASON="OK"
+  if [ "${prod_rc}" -ne 0 ]; then
+    MANDATORY_TAIL_FAIL_REASON="PROD_LIVE_GATE_FAIL_${prod_reason}"
+    return "${prod_rc}"
+  fi
+  if [ "${payload_rc}" -ne 0 ]; then
+    MANDATORY_TAIL_FAIL_REASON="PROD_PAYLOAD_GATE_FAIL_${payload_reason}"
+    return "${payload_rc}"
+  fi
   if [ "${post_rc}" -ne 0 ]; then
     MANDATORY_TAIL_FAIL_REASON="POST_CHECKS_FAIL"
     return "${post_rc}"

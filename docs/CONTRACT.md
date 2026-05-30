@@ -3,7 +3,15 @@
 VERSION: SemVer from root `VERSION`.
 API_CONTRACT_VERSION: date or semver string in `packages/shared/src/api/contract.ts`.
 DATA_SCHEMA_VERSION: integer in `packages/shared/src/data/schema.ts` and `schema_version` in data files.
-Every API response includes `meta.requestId`, `meta.appVersion`, `meta.apiVersion`, `meta.dataSchemaVersion`.
+Standard app API responses built with `apps/web/src/lib/api/response.ts` include `meta.requestId`, `meta.appVersion`, `meta.apiVersion`, and `meta.dataSchemaVersion`. Redirect/static/audit-cache endpoints may use their own documented response shape.
+
+## Runtime surfaces
+- `/` is the product map entry and re-exports `/new-map`.
+- `/new-map` is the canonical MapLibre runtime.
+- `/c/[code]` and `/[lang]/c/[code]` are country-panel routes over the same map runtime.
+- `/wiki-truth` is the audit surface for wiki/ISO/SSOT/official-source truth.
+- `/trust-view` must stay a stable localhost route resolving to the `/wiki-truth` audit UI.
+- `/changes` and `/api/ssot/changes` read from the SSOT diff cache/registry; they must not rebuild alternate truth in UI code.
 
 ## UI output (SSOT)
 - Must show: jurisdiction, status badge (level+label), facts (4–6), key risks, sources + updated_at, requestId, location method + confidence.
@@ -15,9 +23,12 @@ Every API response includes `meta.requestId`, `meta.appVersion`, `meta.apiVersio
 - Runtime countries data is served from `/static/countries/countries.<content-hash>.json`.
 - The hash is content-derived and deterministic; changing map truth or geometry changes the URL.
 - The static countries asset must send `Cache-Control: public, max-age=31536000, immutable`.
+- The static countries route must negotiate `br`/`gzip` by `Accept-Encoding`, emit `Vary: Accept-Encoding`, and expose encoded/raw byte headers for measurement.
 - `/api/new-map/countries` remains a compatibility endpoint and must point to the same static asset, not rebuild a second payload truth.
 - Runtime payload slimming may remove map-unused properties and reduce coordinate precision, but must preserve `geo`, `displayName`, `result.status`, `result.color`, `baseColor`, `hoverColor`, geometry, popup selection, and visual palette.
-- Map startup diagnostics must expose countries transfer/decoded size and cache hit/miss signals so local/prod cold-start performance is measurable.
+- Root `/new-map` cold start must not eagerly request optional country card index or US-state payloads. Card index may load for SEO/selected geo flows; US states may load after US-state selection or zoom threshold.
+- Static countries budget: raw <= 2.5 MB, gzip <= 900 KiB, brotli <= 600 KiB. Local/prod measurements use `tools/measure_new_map_payload.mjs`.
+- Map startup diagnostics must expose countries transfer/decoded size, optional payload transfer, long tasks, `NM_T7_FIRST_FILL_RENDERED`, screenshot path, and cache hit/miss signals so local/prod cold-start performance is measurable.
 
 ## Analytics and Webvisor contract
 - Yandex Metrika/Webvisor stays enabled for production analytics; do not disable `webvisor` to hide PageSpeed or console problems.
@@ -26,9 +37,59 @@ Every API response includes `meta.requestId`, `meta.appVersion`, `meta.apiVersio
 - Text inputs default to `ym-disable-keys`; use `ym-record-keys` only after an explicit product/privacy decision.
 - Production diagnostics must distinguish third-party network availability (`mc.yandex.*` / Webvisor websocket) from product runtime regressions.
 
+## Wiki Truth Audit contract
+- `/wiki-truth` renders a prebuilt audit model; counters, universe classification, normalization, alias resolution, and garbage filtering do not belong in `page.tsx`.
+- Audit universes stay explicit and separate: `WIKI_COUNTRIES`, `ISO_COUNTRIES`, `REF_SSOT`, `US_STATES`, and territories/diagnostics.
+- Universe totals must not be presented as if they must match.
+- Contract floors: wiki rows about `202`, ISO countries `249`, SSOT geo `300`, protected raw official registry `414`, and official geo coverage as the count of valid wiki country rows with at least one ownership-matched official source.
+- Parser leftovers, empty/invalid ISO rows, and synthetic placeholders must not appear in main audit rows; diagnostics only.
+- Expected wiki pages must come from `apps/web/src/lib/wikiTruthNormalization.ts`. ISO fallback slugs and pseudo URLs like `/wiki/BQ` or `/wiki/land` are forbidden.
+- `Official registry` and `Official geo coverage` are separate summary cards. Registry size belongs only to the protected raw registry universe; geo coverage must use ownership-matched links.
+- Protected registry source: `data/official/official_domains.ssot.json`.
+- Official geo ownership source: `data/ssot/official_link_ownership.json`.
+
+## SSOT snapshot and diff contract
+- Snapshot files live in `data/ssot_snapshots/`; latest snapshots must have `row_count=300`.
+- Each snapshot row contains `geo`, `rec_status`, `med_status`, `notes_hash`, `official_sources`, and `wiki_page_url`.
+- Snapshot retention is capped at `50`.
+- Diff registry lives in `data/ssot_diffs.json`; pending confirmation cache lives in `cache/ssot_diff_pending.json`; offline UI cache lives in `cache/ssot_diff_cache.json`.
+- Confirmed diffs are append-only. Historical diff entries must never be silently deleted or rewritten away.
+- False-positive noise is forbidden: a change is promoted from pending to confirmed only after it persists across two consecutive refresh cycles.
+
 ## Review status fields (SSOT)
 - review_status/review_confidence/review_sources are canonical for the review pipeline.
 - status/confidence/sources are legacy and only used as fallback when review_status is missing and status is provisional.
+
+## Status Engine Audit contract
+- Status Engine Audit v1 is review-only and cannot mutate SSOT, `/api/check`, map payloads, or map colors automatically.
+- The first local wave reviews the first 30 alphabetic `WIKI_COUNTRIES` plus Iran as a named control.
+- Source pages are `Cannabis in <Country>` articles, not generic country pages.
+- Output must separate law-facing `legalStatus` from enforcement/practice `realityStatus`.
+- `RED` requires all hard criteria: recreational illegal, no medical access, no decriminalization or weak enforcement, active/strict enforcement, and no legal or industrial channel.
+- Every result must include score lines and `status_explanation`; unexplained color changes are forbidden.
+- Current first-wave result: 31 reviewed, 19 aligned, 12 color-review candidates (`AL`, `DZ`, `AO`, `AM`, `AZ`, `BD`, `BY`, `BJ`, `BW`, `BI`, `KH`, `IR`), and 27 `STATUS_REVIEW_REQUIRED`.
+
+## Location precedence contract
+- Manual, GPS, and IP location signals resolve in fixed order: `manual > gps > ip`.
+- Tests must keep this order stable in `apps/web/src/lib/location/locationContext.ts`.
+
+## Network truth and CI contract
+- `bash tools/pass_cycle.sh` is the single command for CI, checkpoint, and ledger verification.
+- Lint runs before Smoke/UI and any lint error fails the run.
+- Final `pass_cycle` must run live production `/new-map` access/render checks for the support-provided Vercel bypass Method 1 and Method 2, write PNG screenshots and timing measurements, and compare them against `data/baselines/prod_live_quality_baseline.json`.
+- Final `pass_cycle` must also run the live production `/new-map` payload/long-task gate, write a PNG screenshot and JSON report under `Reports/new-map-payload/`, and compare total transfer, countries transfer, optional first-screen payloads, rendered countries, long tasks, and first-fill timing against `data/baselines/new_map_payload_quality_baseline.json`.
+- Missing `VERCEL_AUTOMATION_BYPASS_SECRET`, Vercel Security Checkpoint text, wrong title, missing map root/surface/readiness/canvas, missing/undersized screenshots, Method 2 seed status outside 2xx/3xx, or threshold degradation must fail final `pass_cycle`.
+- DNS is diagnostic only. `ONLINE` is true only when at least one HTTP/API/CONNECT/FALLBACK truth probe succeeds.
+- Cache may permit `DEGRADED_CACHE`, but cache never sets `ONLINE=1`.
+- `NET_PROBE_CACHE_PATH` must be run-scoped under `Artifacts/net_probe/<RUN_ID>.json`.
+- `EGRESS_TRUTH`, `NET_DIAG`, pass_cycle, quality gate, and hub stage report must agree for the same `RUN_ID`.
+- Before a final handoff, `Reports/ci-final.txt` must contain `PROD_LIVE_OK=1`, `PROD_PAYLOAD_OK=1`, `POST_CHECKS_OK=1`, and `HUB_STAGE_REPORT_OK=1`.
+
+## Storage hygiene contract
+- `QUARANTINE` contains exactly one PASS snapshot; historical archives live outside the repo.
+- `Reports` contains operational logs only.
+- Archives live under `~/islegalcannabis_archive/` unless an explicit external path is provided.
+- `.codex/**` is a disposable derived layer and must not be treated as product SSOT.
 
 Example (ok response):
 ```json

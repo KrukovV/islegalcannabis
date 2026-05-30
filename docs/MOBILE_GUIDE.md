@@ -18,7 +18,7 @@
 - Mobile QA must verify first usable map, not only HTML load.
 - The countries layer is loaded from the versioned immutable URL `/static/countries/countries.<hash>.json`.
 - Slow-network checks must confirm: map canvas visible, pan/zoom usable, AI dock visible, countries fill rendered, and country popup opens.
-- Production Playwright runs against Vercel must use the automation bypass cookie/header only as test infrastructure; the bypass secret must stay out of committed configs and docs. See `docs/OPS.md` for the exact query-param plus header flow.
+- Production Playwright runs against Vercel must use the automation bypass cookie/header only as test infrastructure; the bypass secret must stay out of committed configs and docs. See `docs/OPS.md` for the header-cookie seed flow.
 - Do not change the map palette, layer order, popup routing, or MapLibre instance count when optimizing payload/cache.
 - Webvisor/Metrika must not load before first usable map on mobile or during a short passive window; verify this with resource timings, not only PageSpeed.
 - Mobile text inputs must keep `ym-disable-keys`; Webvisor mobile analysis should be segmented by device, source, geo, and goals.

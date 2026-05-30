@@ -12,7 +12,7 @@
   - Computing legality status/official badges/notes merge.
   - Writing SSOT files or mutating pipeline outputs.
 
-2) `apps/api` (HTTP)
+2) `apps/web/src/app/api` (HTTP)
 - Allowed:
   - Thin route handlers and DTO validation.
   - Call `core/ssot` for data read/compute.
@@ -54,6 +54,20 @@
   - Read-only for `apps/*` and `core/*`.
   - Writers only in `tools/pipelines`.
 
+- `data/ssot/official_link_ownership.json` (official ownership SSOT)
+  - Canonical mapping from official links to `owner_scope` and `owner_geos`.
+  - Required for official geo coverage, map coverage, badges, and `/wiki-truth` counters.
+  - Raw registry membership alone is not country-level coverage.
+
+- `data/ssot_snapshots/*.json` (SSOT snapshots)
+  - Canonical refresh snapshots for diffing.
+  - `row_count` must stay `300`.
+  - Snapshot retention is capped at `50`.
+
+- `data/ssot_diffs.json` and `cache/ssot_diff_*.json` (diff SSOT/cache)
+  - Confirmed diffs are append-only.
+  - Pending changes are promoted only after two consecutive refresh cycles.
+
 - `Reports/ci-final.txt` (run SSOT)
   - Canonical pipeline run facts and decisions.
   - Quality/commit decisions must read this file only.
@@ -72,3 +86,10 @@
 - Code changes and `data/wiki/**` must never be staged or committed together.
 - New map cold-start optimization is CDN/static-payload work only: no second map runtime, no alternate mobile frontend, no palette drift, no layer removal, no popup logic fork.
 - Analytics/Webvisor work must not block first map frame, fork map logic, change geolocation precedence, capture user text by default, or disable required production Webvisor.
+- `/wiki-truth` must render a prebuilt audit model; UI code must not compute counters, universes, alias resolution, official ownership, or parser cleanup.
+- Audit universes are separate: wiki rows, ISO countries, SSOT geo, protected official registry, official geo coverage, US states, and territory diagnostics.
+- `/trust-view` must resolve to `/wiki-truth`.
+- `/changes` and `/api/ssot/changes` must read the SSOT diff cache/registry, not compute alternate truth in UI.
+- Status Engine Audit v1 is review-only and must not mutate SSOT, API status, map payloads, or map colors.
+- Location precedence is fixed: `manual > gps > ip`.
+- Storage hygiene is enforced: `QUARANTINE` exactly one PASS snapshot, `Reports` operational only, historical archives outside the repo.
