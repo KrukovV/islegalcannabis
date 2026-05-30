@@ -207,7 +207,7 @@ function findLabelGroups(map: maplibregl.Map) {
       .filter((layer) => layer.type === "symbol" && /(country|admin_0|place_country)/i.test(layer.id))
       .map((layer) => layer.id),
     city: layers
-      .filter((layer) => layer.type === "symbol" && /(place_city|place_town|place_villages|place_hamlet)/.test(layer.id))
+      .filter((layer) => layer.type === "symbol" && /(place_city|place_town|place_villages|place_hamlet|place_suburbs?)/i.test(layer.id))
       .map((layer) => layer.id),
     roads: layers.filter((layer) => layer.type === "symbol" && /roadname_/.test(layer.id)).map((layer) => layer.id)
   };

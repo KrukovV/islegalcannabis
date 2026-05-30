@@ -29,6 +29,7 @@ Standard app API responses built with `apps/web/src/lib/api/response.ts` include
 - Root `/new-map` cold start must not eagerly request optional country card index or US-state payloads. Card index may load for SEO/selected geo flows; US states may load after US-state selection or zoom threshold.
 - Static countries budget: raw <= 2.5 MB, gzip <= 900 KiB, brotli <= 600 KiB. Local/prod measurements use `tools/measure_new_map_payload.mjs`.
 - Map startup diagnostics must expose countries transfer/decoded size, optional payload transfer, long tasks, `NM_T7_FIRST_FILL_RENDERED`, screenshot path, and cache hit/miss signals so local/prod cold-start performance is measurable.
+- `/new-map` JS diagnostics must expose first-party script transfer, estimated unused JS, legacy-polyfill signals, initial/city PNG screenshots, and city-label latency after zoom. Local/prod measurements use `tools/measure_new_map_js_city_perf.mjs`; final prod gating uses `data/baselines/new_map_js_city_quality_baseline.json`.
 
 ## Analytics and Webvisor contract
 - Yandex Metrika/Webvisor stays enabled for production analytics; do not disable `webvisor` to hide PageSpeed or console problems.
@@ -78,12 +79,13 @@ Standard app API responses built with `apps/web/src/lib/api/response.ts` include
 - Lint runs before Smoke/UI and any lint error fails the run.
 - Final `pass_cycle` must run live production `/new-map` access/render checks for the support-provided Vercel bypass Method 1 and Method 2, write PNG screenshots and timing measurements, and compare them against `data/baselines/prod_live_quality_baseline.json`.
 - Final `pass_cycle` must also run the live production `/new-map` payload/long-task gate, write a PNG screenshot and JSON report under `Reports/new-map-payload/`, and compare total transfer, countries transfer, optional first-screen payloads, rendered countries, long tasks, and first-fill timing against `data/baselines/new_map_payload_quality_baseline.json`.
-- Missing `VERCEL_AUTOMATION_BYPASS_SECRET`, Vercel Security Checkpoint text, wrong title, missing map root/surface/readiness/canvas, missing/undersized screenshots, Method 2 seed status outside 2xx/3xx, or threshold degradation must fail final `pass_cycle`.
+- Final `pass_cycle` must also run the live production `/new-map` JS/city-label gate, write initial and city zoom PNG screenshots plus JSON under `Reports/new-map-js-city/`, and compare JS transfer, estimated unused JS, legacy-polyfill signals, rendered countries, and city-label latency against `data/baselines/new_map_js_city_quality_baseline.json`.
+- Missing `VERCEL_AUTOMATION_BYPASS_SECRET`, Vercel Security Checkpoint text, wrong title, missing map root/surface/readiness/canvas, missing/undersized screenshots, Method 2 seed status outside 2xx/3xx, city-label timeout, or threshold degradation must fail final `pass_cycle`.
 - DNS is diagnostic only. `ONLINE` is true only when at least one HTTP/API/CONNECT/FALLBACK truth probe succeeds.
 - Cache may permit `DEGRADED_CACHE`, but cache never sets `ONLINE=1`.
 - `NET_PROBE_CACHE_PATH` must be run-scoped under `Artifacts/net_probe/<RUN_ID>.json`.
 - `EGRESS_TRUTH`, `NET_DIAG`, pass_cycle, quality gate, and hub stage report must agree for the same `RUN_ID`.
-- Before a final handoff, `Reports/ci-final.txt` must contain `PROD_LIVE_OK=1`, `PROD_PAYLOAD_OK=1`, `POST_CHECKS_OK=1`, and `HUB_STAGE_REPORT_OK=1`.
+- Before a final handoff, `Reports/ci-final.txt` must contain `PROD_LIVE_OK=1`, `PROD_PAYLOAD_OK=1`, `PROD_JS_CITY_OK=1`, `POST_CHECKS_OK=1`, and `HUB_STAGE_REPORT_OK=1`.
 
 ## Storage hygiene contract
 - `QUARANTINE` contains exactly one PASS snapshot; historical archives live outside the repo.

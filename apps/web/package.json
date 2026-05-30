@@ -2,6 +2,16 @@
   "name": "islegalcannabis",
   "version": "0.1.0",
   "private": true,
+  "browserslist": {
+    "production": [
+      "baseline widely available"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "scripts": {
     "dev": "bash ../../tools/ui/ui_dev_ssot.sh",
     "web:dev": "next dev -p 3000 -H 127.0.0.1",

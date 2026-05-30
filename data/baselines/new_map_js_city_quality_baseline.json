@@ -1,0 +1,17 @@
+{
+  "target_url": "https://www.islegal.info/new-map",
+  "browser": "chromium",
+  "require_bypass_secret": true,
+  "require_no_access_block": true,
+  "min_rendered_countries": 120,
+  "min_initial_screenshot_bytes": 30000,
+  "min_city_screenshot_bytes": 30000,
+  "min_city_labels": 3,
+  "max_city_label_ms": 3500,
+  "max_first_party_script_kib": 650,
+  "max_unused_estimated_transfer_kib": 80,
+  "max_unused_source_kib": 120,
+  "max_legacy_transfer_kib": 360,
+  "max_legacy_signal_count": 5,
+  "notes": "Baseline seeded from live prod measurement prod-js-city-before-v2 on 2026-05-30: first-party script 601.9 KiB, estimated unused transfer 9.8 KiB, unused source 48.2 KiB, legacy transfer 341.3 KiB, city labels 9 in 1794 ms."
+}

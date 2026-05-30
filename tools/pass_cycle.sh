@@ -145,6 +145,7 @@ CI_LOG="${CHECKPOINT_DIR}/ci-local.log"
 CHECKPOINT_LOG="${CHECKPOINT_DIR}/save_patch_checkpoint.log"
 PROD_LIVE_GATE_LOG="${CHECKPOINT_DIR}/prod-live-gate.log"
 PROD_PAYLOAD_GATE_LOG="${CHECKPOINT_DIR}/prod-payload-gate.log"
+PROD_JS_CITY_GATE_LOG="${CHECKPOINT_DIR}/prod-js-city-gate.log"
 STDOUT_FILE="${CHECKPOINT_DIR}/ci-final.txt"
 REPORTS_FINAL="${ROOT}/Reports/ci-final.txt"
 STEP_LOG="${CHECKPOINT_DIR}/ci-steps.log"
@@ -336,6 +337,9 @@ run_mandatory_tail() {
   local payload_rc=0
   local payload_reason="OK"
   local payload_output=""
+  local js_city_rc=0
+  local js_city_reason="OK"
+  local js_city_output=""
   local post_rc=0
   local hub_rc=0
   local post_reason="OK"
@@ -377,6 +381,25 @@ run_mandatory_tail() {
     printf "%s\n" "${payload_output}" >> "${REPORTS_FINAL}"
     if [ "${CI_WRITE_ROOT}" = "1" ]; then
       printf "%s\n" "${payload_output}" >> "${ROOT}/ci-final.txt"
+    fi
+  fi
+  js_city_output=$(${NODE_BIN} "${ROOT}/tools/prod_new_map_js_city_gate.mjs" 2>&1)
+  js_city_rc=$?
+  printf "%s\n" "${js_city_output}" > "${PROD_JS_CITY_GATE_LOG}"
+  if [ "${js_city_rc}" -ne 0 ]; then
+    js_city_reason="RC_${js_city_rc}"
+    if printf "%s\n" "${js_city_output}" | grep -q "SECRET_MISSING"; then
+      js_city_reason="SECRET_MISSING"
+    elif printf "%s\n" "${js_city_output}" | grep -q "PROD_JS_CITY_DEGRADATION=FAIL"; then
+      js_city_reason="DEGRADATION"
+    fi
+  fi
+  if [ -n "${js_city_output}" ]; then
+    printf "%s\n" "${js_city_output}" >> "${STDOUT_FILE}"
+    printf "%s\n" "${js_city_output}" >> "${RUN_REPORT_FILE}"
+    printf "%s\n" "${js_city_output}" >> "${REPORTS_FINAL}"
+    if [ "${CI_WRITE_ROOT}" = "1" ]; then
+      printf "%s\n" "${js_city_output}" >> "${ROOT}/ci-final.txt"
     fi
   fi
   if [ -x "${ROOT}/tools/post_checks.sh" ]; then
@@ -424,6 +447,10 @@ run_mandatory_tail() {
   if [ "${payload_rc}" -ne 0 ]; then
     MANDATORY_TAIL_FAIL_REASON="PROD_PAYLOAD_GATE_FAIL_${payload_reason}"
     return "${payload_rc}"
+  fi
+  if [ "${js_city_rc}" -ne 0 ]; then
+    MANDATORY_TAIL_FAIL_REASON="PROD_JS_CITY_GATE_FAIL_${js_city_reason}"
+    return "${js_city_rc}"
   fi
   if [ "${post_rc}" -ne 0 ]; then
     MANDATORY_TAIL_FAIL_REASON="POST_CHECKS_FAIL"

@@ -23,7 +23,10 @@ export default function RuntimeMiddleware() {
           ? "dark"
           : "light"
         : mode;
-    const query = Object.fromEntries(new URLSearchParams(window.location.search).entries());
+    const query: Record<string, string> = {};
+    new URLSearchParams(window.location.search).forEach((value, key) => {
+      query[key] = value;
+    });
     const storage = {
       premium: window.localStorage.getItem("premium"),
       trip_mode: window.localStorage.getItem("trip_mode"),
