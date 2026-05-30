@@ -55,8 +55,10 @@ function checkMax(failures, name, actual, maxValue) {
 export function evaluateProdJsCityReport(report, baseline) {
   const failures = [];
   const initial = report.initial_js || {};
+  const country = report.country_zoom || {};
   const city = report.city_zoom || {};
   const initialScreenshotBytes = fileBytes(report, "initial");
+  const countryScreenshotBytes = fileBytes(report, "country");
   const cityScreenshotBytes = fileBytes(report, "city");
 
   if (baseline.require_no_access_block && report.access_block) {
@@ -68,16 +70,26 @@ export function evaluateProdJsCityReport(report, baseline) {
   if (baseline.min_initial_screenshot_bytes && initialScreenshotBytes < Number(baseline.min_initial_screenshot_bytes)) {
     failures.push(`INITIAL_SCREENSHOT_BYTES_LT_${baseline.min_initial_screenshot_bytes}_actual_${initialScreenshotBytes}`);
   }
+  if (baseline.min_country_screenshot_bytes && countryScreenshotBytes < Number(baseline.min_country_screenshot_bytes)) {
+    failures.push(`COUNTRY_SCREENSHOT_BYTES_LT_${baseline.min_country_screenshot_bytes}_actual_${countryScreenshotBytes}`);
+  }
   if (baseline.min_city_screenshot_bytes && cityScreenshotBytes < Number(baseline.min_city_screenshot_bytes)) {
     failures.push(`CITY_SCREENSHOT_BYTES_LT_${baseline.min_city_screenshot_bytes}_actual_${cityScreenshotBytes}`);
   }
+  if (baseline.min_country_labels && safeNumber(country.label_count) < Number(baseline.min_country_labels)) {
+    failures.push(`COUNTRY_LABELS_LT_${baseline.min_country_labels}_actual_${country.label_count || 0}`);
+  }
   if (baseline.min_city_labels && safeNumber(city.label_count) < Number(baseline.min_city_labels)) {
     failures.push(`CITY_LABELS_LT_${baseline.min_city_labels}_actual_${city.label_count || 0}`);
+  }
+  if (country.ok === false) {
+    failures.push(`COUNTRY_LABEL_REASON_${String(country.reason || "UNKNOWN")}`);
   }
   if (city.ok === false) {
     failures.push(`CITY_LABEL_REASON_${String(city.reason || "UNKNOWN")}`);
   }
 
+  checkMax(failures, "COUNTRY_LABEL_MS", country.elapsed_ms || 0, baseline.max_country_label_ms);
   checkMax(failures, "CITY_LABEL_MS", city.elapsed_ms || 0, baseline.max_city_label_ms);
   checkMaxKib(failures, "FIRST_PARTY_SCRIPT", initial.first_party_script_transfer_bytes || 0, baseline.max_first_party_script_kib);
   checkMaxKib(
@@ -99,6 +111,7 @@ export function evaluateProdJsCityReport(report, baseline) {
     ok: failures.length === 0,
     failures,
     initialScreenshotBytes,
+    countryScreenshotBytes,
     cityScreenshotBytes
   };
 }
@@ -186,6 +199,7 @@ async function runMeasurement({ baseline, baselinePath }) {
 
 function printResult({ ok, reason, report, evaluation, baselinePath, measure }) {
   const initial = report?.initial_js || {};
+  const country = report?.country_zoom || {};
   const city = report?.city_zoom || {};
   const screenshots = report?.screenshots || {};
   const reportRel = measure?.reportPath ? rel(measure.reportPath) : "-";
@@ -209,6 +223,11 @@ function printResult({ ok, reason, report, evaluation, baselinePath, measure }) 
     `unused_pct=${initial.first_party_chunk_unused_pct ?? "-"}`,
     `legacy_kib=${kib(initial.legacy_transfer_bytes)}`,
     `legacy_signals=${initial.legacy_signal_count ?? "-"}`,
+    `country_label_ms=${country.elapsed_ms ?? "-"}`,
+    `country_labels=${country.label_count ?? "-"}`,
+    `country_reason=${country.reason || "-"}`,
+    `country_tile_kib=${kib(country.tile_transfer_bytes || 0)}`,
+    `country_tiles=${country.tile_count || 0}`,
     `city_label_ms=${city.elapsed_ms ?? "-"}`,
     `city_labels=${city.label_count ?? "-"}`,
     `city_reason=${city.reason || "-"}`,
@@ -216,8 +235,10 @@ function printResult({ ok, reason, report, evaluation, baselinePath, measure }) 
     `city_tiles=${city.tile_count || 0}`,
     `rendered_countries=${report?.rendered_countries ?? "-"}`,
     `initial_screenshot_bytes=${evaluation?.initialScreenshotBytes || 0}`,
+    `country_screenshot_bytes=${evaluation?.countryScreenshotBytes || 0}`,
     `city_screenshot_bytes=${evaluation?.cityScreenshotBytes || 0}`,
     `initial_screenshot=${screenshots.initial || "-"}`,
+    `country_screenshot=${screenshots.country || "-"}`,
     `city_screenshot=${screenshots.city || "-"}`
   ].join(" "));
 
@@ -227,6 +248,7 @@ function printResult({ ok, reason, report, evaluation, baselinePath, measure }) 
     `failures=${failures.length}`
   ].join(" "));
   console.log(`PROD_JS_CITY_SCREENSHOT_INITIAL=${screenshots.initial || "-"}`);
+  console.log(`PROD_JS_CITY_SCREENSHOT_COUNTRY=${screenshots.country || "-"}`);
   console.log(`PROD_JS_CITY_SCREENSHOT_CITY=${screenshots.city || "-"}`);
   console.log(`PROD_JS_CITY_REPORT=${reportRel}`);
 }
@@ -243,6 +265,7 @@ async function main() {
       evaluation: {
         failures: [measure.reason || `RC_${measure.rc}`],
         initialScreenshotBytes: 0,
+        countryScreenshotBytes: 0,
         cityScreenshotBytes: 0
       },
       baselinePath,

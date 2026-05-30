@@ -203,7 +203,7 @@ The access error is gone only when the relevant method reports `ok=1`, `access_b
 
 ### Mandatory pass_cycle prod gates
 
-Final `bash tools/pass_cycle.sh` runs `tools/prod_live_quality_gate.mjs` and `tools/prod_new_map_payload_gate.mjs` as mandatory tail gates. The access/render gate executes the live probe first, then enforces `data/baselines/prod_live_quality_baseline.json`; the payload gate enforces `data/baselines/new_map_payload_quality_baseline.json`.
+Final `bash tools/pass_cycle.sh` runs `tools/prod_live_quality_gate.mjs`, `tools/prod_new_map_payload_gate.mjs`, and `tools/prod_new_map_js_city_gate.mjs` as mandatory tail gates. The access/render gate executes the live probe first, then enforces `data/baselines/prod_live_quality_baseline.json`; the payload gate enforces `data/baselines/new_map_payload_quality_baseline.json`; the JS label gate enforces country/city ZoomIn label latency and JS/legacy budgets from `data/baselines/new_map_js_city_quality_baseline.json`.
 
 Required evidence:
 
@@ -215,10 +215,17 @@ Required evidence:
 - `Reports/new-map-payload/prod-gate-*.chromium.json`
 - `Reports/new-map-payload/prod-gate-*.chromium.png`
 - `PROD_PAYLOAD_METRIC` line in `Reports/ci-final.txt` with transfer, long-task, first-fill, rendered-country, and screenshot metrics.
+- `Reports/new-map-js-city/prod-js-city-gate-*.chromium.json`
+- `Reports/new-map-js-city/prod-js-city-gate-*.initial.chromium.png`
+- `Reports/new-map-js-city/prod-js-city-gate-*.country.chromium.png`
+- `Reports/new-map-js-city/prod-js-city-gate-*.city.chromium.png`
+- `PROD_JS_CITY_METRIC` line in `Reports/ci-final.txt` with JS transfer, estimated unused JS, legacy-polyfill signals, country-label timing, city-label timing, and screenshot paths.
 
 The gate fails on `missing_secret`, access-block text, wrong title, missing `/new-map` root/surface/readiness/canvas, missing or undersized screenshots, Method 2 seed status outside 2xx/3xx, `elapsed_ms > 90000`, or `map_ready_ms > 60000`.
 
 The payload gate fails on missing secret, access-block text, rendered countries below baseline, screenshot below baseline, missing `br`/`gzip` countries encoding, total transfer above `2500 KiB`, countries transfer above `1600 KiB`, first-screen US-state payload above `1 KiB`, long-task count/total/max above baseline, or first-fill above baseline.
+
+Production browser source maps are enabled through `productionBrowserSourceMaps: true` in `apps/web/next.config.ts`. `tools/source_maps_build.test.mjs` runs after `next build` and fails CI if large client chunks do not have `.js.map` files and `sourceMappingURL` comments.
 
 ```ts
 const context = await browser.newContext();

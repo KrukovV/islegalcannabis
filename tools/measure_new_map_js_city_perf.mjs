@@ -28,6 +28,11 @@ const cityLat = Number(process.env.NEW_MAP_CITY_LAT || 48.8566);
 const cityTargetZoom = Number(process.env.NEW_MAP_CITY_ZOOM || 8.2);
 const cityMinLabels = Number(process.env.NEW_MAP_CITY_MIN_LABELS || 3);
 const cityTimeoutMs = Number(process.env.NEW_MAP_CITY_TIMEOUT_MS || 15000);
+const countryLng = Number(process.env.NEW_MAP_COUNTRY_LNG || 10);
+const countryLat = Number(process.env.NEW_MAP_COUNTRY_LAT || 50);
+const countryTargetZoom = Number(process.env.NEW_MAP_COUNTRY_ZOOM || 3.4);
+const countryMinLabels = Number(process.env.NEW_MAP_COUNTRY_MIN_LABELS || 3);
+const countryTimeoutMs = Number(process.env.NEW_MAP_COUNTRY_TIMEOUT_MS || 15000);
 
 function kib(bytes) {
   return Math.round((Number(bytes || 0) / 1024) * 10) / 10;
@@ -281,6 +286,8 @@ function summarizeResources(resources, pageOrigin) {
 function buildDelta(current, previous) {
   const curInitial = current.initial_js || {};
   const prevInitial = previous.initial_js || {};
+  const curCountry = current.country_zoom || {};
+  const prevCountry = previous.country_zoom || {};
   const curCity = current.city_zoom || {};
   const prevCity = previous.city_zoom || {};
   const curSummary = current.resources || {};
@@ -293,6 +300,9 @@ function buildDelta(current, previous) {
       (curInitial.first_party_chunk_unused_source_bytes || 0) - (prevInitial.first_party_chunk_unused_source_bytes || 0),
     legacy_transfer_bytes: (curInitial.legacy_transfer_bytes || 0) - (prevInitial.legacy_transfer_bytes || 0),
     legacy_signal_count: (curInitial.legacy_signal_count || 0) - (prevInitial.legacy_signal_count || 0),
+    country_label_ms: (curCountry.elapsed_ms || 0) - (prevCountry.elapsed_ms || 0),
+    country_tile_transfer_bytes:
+      (curCountry.tile_transfer_bytes || 0) - (prevCountry.tile_transfer_bytes || 0),
     city_label_ms: (curCity.elapsed_ms || 0) - (prevCity.elapsed_ms || 0),
     city_tile_transfer_bytes:
       (curCity.tile_transfer_bytes || 0) - (prevCity.tile_transfer_bytes || 0),
@@ -300,8 +310,8 @@ function buildDelta(current, previous) {
   };
 }
 
-async function measureCityZoom(page) {
-  return page.evaluate(({ lng, lat, zoom, minLabels, timeoutMs }) => {
+async function measureLabelZoom(page, options) {
+  return page.evaluate(({ kind, lng, lat, zoom, minLabels, timeoutMs, layerPattern }) => {
     const host = window;
     const map = host.__NEW_MAP_DEBUG__?.map;
     if (!map) {
@@ -316,11 +326,12 @@ async function measureCityZoom(page) {
         layers: []
       };
     }
+    const pattern = new RegExp(layerPattern, "i");
     const styleLayers = (map.getStyle()?.layers || [])
-      .filter((layer) => layer.type === "symbol" && /(place_city|place_town|place_villages|place_hamlet|place_suburbs?)/i.test(layer.id))
+      .filter((layer) => layer.type === "symbol" && pattern.test(layer.id))
       .map((layer) => layer.id);
-    const rawLayers = host.__NEW_MAP_DEBUG__?.labelGroups?.city?.length
-      ? host.__NEW_MAP_DEBUG__.labelGroups.city
+    const rawLayers = host.__NEW_MAP_DEBUG__?.labelGroups?.[kind]?.length
+      ? host.__NEW_MAP_DEBUG__.labelGroups[kind]
       : styleLayers;
     const layers = rawLayers.filter((layerId) => Boolean(map.getLayer(layerId)));
     const start = performance.now();
@@ -404,15 +415,33 @@ async function measureCityZoom(page) {
       map.on("render", tick);
       map.on("idle", tick);
       timeout = window.setTimeout(() => finish("TIMEOUT"), timeoutMs);
-      map.jumpTo({ center: [lng, lat], zoom });
-      requestAnimationFrame(tick);
-    });
-  }, {
+    map.jumpTo({ center: [lng, lat], zoom });
+    requestAnimationFrame(tick);
+  });
+  }, options);
+}
+
+async function measureCountryZoom(page) {
+  return measureLabelZoom(page, {
+    kind: "country",
+    lng: countryLng,
+    lat: countryLat,
+    zoom: countryTargetZoom,
+    minLabels: countryMinLabels,
+    timeoutMs: countryTimeoutMs,
+    layerPattern: "(country|admin_0|place_country)"
+  });
+}
+
+async function measureCityZoom(page) {
+  return measureLabelZoom(page, {
+    kind: "city",
     lng: cityLng,
     lat: cityLat,
     zoom: cityTargetZoom,
     minLabels: cityMinLabels,
-    timeoutMs: cityTimeoutMs
+    timeoutMs: cityTimeoutMs,
+    layerPattern: "(place_city|place_town|place_villages|place_hamlet|place_suburbs?)"
   });
 }
 
@@ -430,10 +459,12 @@ let bypassSeedStatus = null;
 let bypassSeed;
 let initialMeasured;
 let initialJs;
+let countryZoom;
 let cityZoom;
 let finalMeasured;
 let cityJs;
 const initialScreenshot = path.join(reportsDir, `${label}.initial.${browserName}.png`);
+const countryScreenshot = path.join(reportsDir, `${label}.country.${browserName}.png`);
 const cityScreenshot = path.join(reportsDir, `${label}.city.${browserName}.png`);
 
 try {
@@ -501,6 +532,10 @@ try {
   await page.screenshot({ path: initialScreenshot, fullPage: false });
 
   await client.send("Profiler.startPreciseCoverage", { callCount: true, detailed: true });
+  countryZoom = await measureCountryZoom(page);
+  await page.waitForTimeout(300);
+  await page.screenshot({ path: countryScreenshot, fullPage: false });
+
   cityZoom = await measureCityZoom(page);
   await page.waitForTimeout(500);
   await page.screenshot({ path: cityScreenshot, fullPage: false });
@@ -549,9 +584,11 @@ const payload = {
   resources,
   initial_js: initialJs,
   city_js: cityJs,
+  country_zoom: countryZoom,
   city_zoom: cityZoom,
   screenshots: {
     initial: path.relative(repoRoot, initialScreenshot),
+    country: path.relative(repoRoot, countryScreenshot),
     city: path.relative(repoRoot, cityScreenshot)
   }
 };
@@ -576,6 +613,10 @@ console.log([
   `unused_pct=${initialJs.first_party_chunk_unused_pct}`,
   `legacy_kib=${kib(initialJs.legacy_transfer_bytes)}`,
   `legacy_signals=${initialJs.legacy_signal_count}`,
+  `country_label_ms=${countryZoom.elapsed_ms ?? "-"}`,
+  `country_labels=${countryZoom.label_count ?? 0}`,
+  `country_tile_kib=${kib(countryZoom.tile_transfer_bytes || 0)}`,
+  `country_tiles=${countryZoom.tile_count || 0}`,
   `city_label_ms=${cityZoom.elapsed_ms ?? "-"}`,
   `city_labels=${cityZoom.label_count ?? 0}`,
   `city_tile_kib=${kib(cityZoom.tile_transfer_bytes || 0)}`,
@@ -594,6 +635,8 @@ if (delta) {
     `unused_source_kib=${kib(delta.first_party_unused_source_bytes)}`,
     `legacy_kib=${kib(delta.legacy_transfer_bytes)}`,
     `legacy_signals=${delta.legacy_signal_count}`,
+    `country_label_ms=${delta.country_label_ms}`,
+    `country_tile_kib=${kib(delta.country_tile_transfer_bytes)}`,
     `city_label_ms=${delta.city_label_ms}`,
     `city_tile_kib=${kib(delta.city_tile_transfer_bytes)}`,
     `total_kib=${kib(delta.total_transfer_bytes)}`

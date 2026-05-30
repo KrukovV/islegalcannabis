@@ -5,7 +5,9 @@ import { evaluateProdJsCityReport } from "./prod_new_map_js_city_gate.mjs";
 const baseline = {
   require_no_access_block: true,
   min_rendered_countries: 120,
+  min_country_labels: 3,
   min_city_labels: 3,
+  max_country_label_ms: 3500,
   max_city_label_ms: 3500,
   max_first_party_script_kib: 650,
   max_unused_estimated_transfer_kib: 80,
@@ -24,6 +26,11 @@ test("prod JS/city gate accepts current-quality report", () => {
       first_party_chunk_unused_source_bytes: 48 * 1024,
       legacy_transfer_bytes: 335 * 1024,
       legacy_signal_count: 5
+    },
+    country_zoom: {
+      ok: true,
+      elapsed_ms: 700,
+      label_count: 5
     },
     city_zoom: {
       ok: true,
@@ -47,6 +54,12 @@ test("prod JS/city gate rejects access, city, JS, and legacy regressions", () =>
       legacy_transfer_bytes: 410 * 1024,
       legacy_signal_count: 7
     },
+    country_zoom: {
+      ok: false,
+      reason: "TIMEOUT",
+      elapsed_ms: 5000,
+      label_count: 0
+    },
     city_zoom: {
       ok: false,
       reason: "TIMEOUT",
@@ -58,6 +71,9 @@ test("prod JS/city gate rejects access, city, JS, and legacy regressions", () =>
   assert.equal(result.ok, false);
   assert.ok(result.failures.includes("ACCESS_BLOCK"));
   assert.ok(result.failures.some((item) => item.startsWith("RENDERED_COUNTRIES_LT_")));
+  assert.ok(result.failures.includes("COUNTRY_LABEL_REASON_TIMEOUT"));
+  assert.ok(result.failures.some((item) => item.startsWith("COUNTRY_LABELS_LT_")));
+  assert.ok(result.failures.some((item) => item.startsWith("COUNTRY_LABEL_MS_GT_")));
   assert.ok(result.failures.includes("CITY_LABEL_REASON_TIMEOUT"));
   assert.ok(result.failures.some((item) => item.startsWith("CITY_LABELS_LT_")));
   assert.ok(result.failures.some((item) => item.startsWith("FIRST_PARTY_SCRIPT_KIB_GT_")));

@@ -130,6 +130,7 @@ fi
 npm run lint || { CI_LOCAL_REASON="LINT_FAIL"; CI_LOCAL_STEP="lint"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 npm test || { CI_LOCAL_REASON="TEST_FAIL"; CI_LOCAL_STEP="test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 npm run web:build || { CI_LOCAL_REASON="WEB_BUILD_FAIL"; CI_LOCAL_STEP="web_build"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
+node tools/source_maps_build.test.mjs || { CI_LOCAL_REASON="SOURCE_MAPS_BUILD_TEST_FAIL"; CI_LOCAL_STEP="source_maps_build_test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 SSOT_METRICS_OUTPUT=$(node tools/ssot/ssot_metrics.js 2>&1) || {
   CI_LOCAL_REASON="SSOT_METRICS_FAIL"
   CI_LOCAL_STEP="ssot_metrics"
