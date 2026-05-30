@@ -3,6 +3,7 @@
 VERSION: SemVer from root `VERSION`.
 API_CONTRACT_VERSION: date or semver string in `packages/shared/src/api/contract.ts`.
 DATA_SCHEMA_VERSION: integer in `packages/shared/src/data/schema.ts` and `schema_version` in data files.
+STABILITY_TAG_VERSION: annotated Git tag series documented in `docs/VERSIONING.md`, starting at `0.0.1` and increasing monotonically for green production baselines.
 Standard app API responses built with `apps/web/src/lib/api/response.ts` include `meta.requestId`, `meta.appVersion`, `meta.apiVersion`, and `meta.dataSchemaVersion`. Redirect/static/audit-cache endpoints may use their own documented response shape.
 
 ## Runtime surfaces

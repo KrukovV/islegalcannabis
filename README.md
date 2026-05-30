@@ -78,6 +78,8 @@ POST_CHECKS_OK=1
 HUB_STAGE_REPORT_OK=1
 ```
 
+Stable production baselines are tagged with annotated monotonic stability tags. The first tag is `0.0.1`; the next tags must be `0.0.2`, `0.0.3`, and onward under [docs/VERSIONING.md](docs/VERSIONING.md).
+
 ### Validate Law Data
 
 ```bash
