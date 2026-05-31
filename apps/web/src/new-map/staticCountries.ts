@@ -6,7 +6,7 @@ import type { LegalCountryCollection, LegalCountryFeatureProperties } from "./ma
 
 const COORDINATE_PRECISION = 4;
 const COORDINATE_FACTOR = 10 ** COORDINATE_PRECISION;
-const SIMPLIFY_TOLERANCE_DEGREES = 0.02;
+const SIMPLIFY_TOLERANCE_DEGREES = 0.03;
 const SIMPLIFY_TOLERANCE_SQ = SIMPLIFY_TOLERANCE_DEGREES * SIMPLIFY_TOLERANCE_DEGREES;
 const COUNTRIES_CACHE_CONTROL = "public, max-age=31536000, s-maxage=31536000, immutable";
 

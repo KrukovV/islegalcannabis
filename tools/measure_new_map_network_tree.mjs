@@ -62,6 +62,9 @@ const context = await browser.newContext({
 let page;
 try {
   page = await context.newPage();
+  await page.addInitScript(() => {
+    performance.setResourceTimingBufferSize?.(1000);
+  });
   const started = Date.now();
   await page.goto(url, { waitUntil: "domcontentloaded", timeout: 60000 });
   await page.waitForSelector('[data-testid="new-map-surface"]', { state: "attached", timeout: 60000 });
