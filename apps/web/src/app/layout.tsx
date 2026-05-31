@@ -16,6 +16,13 @@ const NEW_MAP_FIRST_VISUAL_EVENT = "new-map:first-visual-ready";
 const YANDEX_METRIKA_INTERACTION_DELAY_MS = 1200;
 const YANDEX_METRIKA_IDLE_FALLBACK_MS = 60000;
 
+function isLocalHost(host: string) {
+  const normalized = host.startsWith("[")
+    ? host.slice(1, host.indexOf("]")).toLowerCase()
+    : (host.split(":")[0]?.toLowerCase() || "");
+  return normalized === "127.0.0.1" || normalized === "localhost" || normalized === "::1";
+}
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.islegal.info"),
   title: {
@@ -94,6 +101,7 @@ export default async function RootLayout({
 }>) {
   const routeHeaders = await headers();
   const documentLang = routeHeaders.get("x-route-locale") || "en";
+  const showVercelAnalytics = !isLocalHost(routeHeaders.get("host") || "");
   return (
     <html lang={documentLang} suppressHydrationWarning>
       <head>
@@ -180,7 +188,7 @@ export default async function RootLayout({
         <ServiceWorkerGuard />
         <NewMapDeferredRuntime />
         {children}
-        <Analytics />
+        {showVercelAnalytics ? <Analytics /> : null}
       </body>
     </html>
   );

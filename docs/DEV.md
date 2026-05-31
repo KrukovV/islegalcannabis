@@ -23,7 +23,7 @@
 - API: `/api/check?country=US&region=CA`, `/api/check?country=DE`
 - CI: `bash tools/pass_cycle.sh`
 - Contract smoke: use pass_cycle unless a narrower task explicitly names a smoke script.
-- Final handoff CI requires `VERCEL_AUTOMATION_BYPASS_SECRET` in env because `pass_cycle` runs mandatory live production `/new-map` gates with Method 1/2 screenshots, payload/long-task metrics, country/city ZoomIn label timing, and JS/source-map thresholds.
+- Final handoff CI requires `VERCEL_AUTOMATION_BYPASS_SECRET` in env because `pass_cycle` runs mandatory live production `/new-map` gates with Method 1/2 screenshots, payload/long-task metrics, country/city ZoomIn label timing, stale-GPS refresh/hover/ZoomIn/ZoomOut checks, and JS/source-map thresholds.
 
 ## Dev Server Singleton
 - Start UI through `npm run web:dev`.
@@ -33,7 +33,7 @@
 
 ## Перед каждым коммитом
 - Запускать: `bash tools/pass_cycle.sh`.
-- Проверить `Reports/ci-final.txt`: `PROD_LIVE_OK=1`, `PROD_PAYLOAD_OK=1`, `POST_CHECKS_OK=1` и `HUB_STAGE_REPORT_OK=1`.
+- Проверить `Reports/ci-final.txt`: `PROD_LIVE_OK=1`, `PROD_PAYLOAD_OK=1`, `PROD_JS_CITY_OK=1`, `PROD_GPS_OK=1`, `POST_CHECKS_OK=1` и `HUB_STAGE_REPORT_OK=1`.
 
 ## Как добавить новую юрисдикцию и SEO-страницу
 1) Добавьте JSON в `data/laws/**` по текущей схеме (смотрите существующие файлы).

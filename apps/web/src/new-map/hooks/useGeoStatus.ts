@@ -46,6 +46,16 @@ function isFiniteNumber(value: unknown): value is number {
   return typeof value === "number" && Number.isFinite(value);
 }
 
+function isSameGpsPoint(prev: CurrentGeo, lat: number, lng: number) {
+  return (
+    prev?.source === "gps" &&
+    isFiniteNumber(prev.lat) &&
+    isFiniteNumber(prev.lng) &&
+    Math.abs(prev.lat - lat) < 0.0001 &&
+    Math.abs(prev.lng - lng) < 0.0001
+  );
+}
+
 function loadGeoFromStorage() {
   if (typeof window === "undefined") return geoCache;
   try {
@@ -164,7 +174,7 @@ export function useGeoStatus() {
         const lat = position.coords.latitude;
         const lng = position.coords.longitude;
         setGeo((prev) => ({
-          iso2: prev?.source === "gps" ? prev.iso2 : undefined,
+          iso2: isSameGpsPoint(prev, lat, lng) ? prev?.iso2 : undefined,
           lat,
           lng,
           source: "gps"

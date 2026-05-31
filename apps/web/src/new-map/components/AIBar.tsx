@@ -71,6 +71,9 @@ const MODEL_OVERRIDE_STORAGE_KEY = "ai_model_override";
 
 function shouldLockAiInputByDefault() {
   if (typeof window === "undefined") return true;
+  if (process.env.NODE_ENV === "production" && process.env.NEXT_PUBLIC_AI_ENABLE_PROD !== "1") {
+    return true;
+  }
   const host = window.location.hostname;
   const isLocalHost =
     host === "127.0.0.1" ||

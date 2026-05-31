@@ -203,7 +203,7 @@ The access error is gone only when the relevant method reports `ok=1`, `access_b
 
 ### Mandatory pass_cycle prod gates
 
-Final `bash tools/pass_cycle.sh` runs `tools/prod_live_quality_gate.mjs`, `tools/prod_new_map_payload_gate.mjs`, and `tools/prod_new_map_js_city_gate.mjs` as mandatory tail gates. The access/render gate executes the live probe first, then enforces `data/baselines/prod_live_quality_baseline.json`; the payload gate enforces `data/baselines/new_map_payload_quality_baseline.json`; the JS label gate enforces country/city ZoomIn label latency and JS/legacy budgets from `data/baselines/new_map_js_city_quality_baseline.json`.
+Final `bash tools/pass_cycle.sh` runs `tools/prod_live_quality_gate.mjs`, `tools/prod_new_map_payload_gate.mjs`, `tools/prod_new_map_js_city_gate.mjs`, and `tools/measure_new_map_gps_flow.mjs` as mandatory tail gates. The access/render gate executes the live probe first, then enforces `data/baselines/prod_live_quality_baseline.json`; the payload gate enforces `data/baselines/new_map_payload_quality_baseline.json`; the JS label gate enforces country/city ZoomIn label latency and JS/legacy budgets from `data/baselines/new_map_js_city_quality_baseline.json`; the GPS gate seeds a stale saved GPS point, then requires fresh GPS marker/center/persistence, desktop hover, ZoomIn city/village labels, ZoomOut country rendering, screenshots, and zero page errors.
 
 Required evidence:
 
@@ -220,12 +220,20 @@ Required evidence:
 - `Reports/new-map-js-city/prod-js-city-gate-*.country.chromium.png`
 - `Reports/new-map-js-city/prod-js-city-gate-*.city.chromium.png`
 - `PROD_JS_CITY_METRIC` line in `Reports/ci-final.txt` with JS transfer, estimated unused JS, legacy-polyfill signals, country-label timing, city-label timing, and screenshot paths.
+- `Reports/new-map-gps/prod-gps-gate-*.chromium.json`
+- `Reports/new-map-gps/prod-gps-gate-*.after-gps.chromium.png`
+- `Reports/new-map-gps/prod-gps-gate-*.after-recenter.chromium.png`
+- `Reports/new-map-gps/prod-gps-gate-*.hover.chromium.png`
+- `Reports/new-map-gps/prod-gps-gate-*.zoom-in.chromium.png`
+- `Reports/new-map-gps/prod-gps-gate-*.zoom-out.chromium.png`
+- `PROD_GPS_METRIC` line in `Reports/ci-final.txt` with stale-GPS refresh, GPS marker/center/recenter/persistence timings, hover result, ZoomIn city/village labels, ZoomOut rendered countries, and screenshot paths.
 
 The gate fails on `missing_secret`, access-block text, wrong title, missing `/new-map` root/surface/readiness/canvas, missing or undersized screenshots, Method 2 seed status outside 2xx/3xx, `elapsed_ms > 90000`, or `map_ready_ms > 60000`.
 
 The payload gate fails on missing secret, access-block text, rendered countries below baseline, screenshot below baseline, missing `br`/`gzip` countries encoding, total transfer above `2500 KiB`, countries transfer above `1600 KiB`, first-screen US-state payload above `1 KiB`, long-task count/total/max above baseline, or first-fill above baseline.
 
 Production browser source maps are enabled through `productionBrowserSourceMaps: true` in `apps/web/next.config.ts`. `tools/source_maps_build.test.mjs` runs after `next build` and fails CI if large client chunks do not have `.js.map` files and `sourceMappingURL` comments.
+Production browser targets are modern Baseline. Next's module polyfill bundle is aliased to an empty module in `apps/web/next.config.ts`; `tools/measure_new_map_js_city_perf.mjs` detects only real polyfill-module patterns, not normal modern API calls such as `Object.hasOwn(...)`.
 
 ```ts
 const context = await browser.newContext();

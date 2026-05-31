@@ -9,7 +9,7 @@ Stability tags are annotated Git tags in `MAJOR.MINOR.PATCH` form, starting with
 
 ## Tag Rules
 
-- A stability tag may be created only after `bash tools/pass_cycle.sh` passes and `Reports/ci-final.txt` contains `POST_CHECKS_OK=1`, `HUB_STAGE_REPORT_OK=1`, `PROD_LIVE_OK=1`, `PROD_PAYLOAD_OK=1`, and `PROD_JS_CITY_OK=1`.
+- A stability tag may be created only after `bash tools/pass_cycle.sh` passes and `Reports/ci-final.txt` contains `POST_CHECKS_OK=1`, `HUB_STAGE_REPORT_OK=1`, `PROD_LIVE_OK=1`, `PROD_PAYLOAD_OK=1`, `PROD_JS_CITY_OK=1`, and `PROD_GPS_OK=1`.
 - Use `Tools/commit_if_green.sh --tag <version>` for commit and push; do not push stability tags by hand.
 - Do not reuse a pushed stability tag. If a tagged baseline needs correction, create the next patch tag.
 - Keep stability tags monotonic on `main`: `0.0.1 < 0.0.2 < 0.0.3`.

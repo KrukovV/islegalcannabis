@@ -29,6 +29,13 @@ const maxCenterDistance = Number(process.env.NEW_MAP_GPS_MAX_CENTER_DISTANCE || 
 const minCityLabels = Number(process.env.NEW_MAP_GPS_MIN_CITY_LABELS || 3);
 const minZoomOutCountries = Number(process.env.NEW_MAP_GPS_MIN_ZOOM_OUT_COUNTRIES || 100);
 const maxConsoleErrors = Number(process.env.NEW_MAP_GPS_MAX_CONSOLE_ERRORS || 1);
+const staleGpsSeedEnabled = process.env.NEW_MAP_GPS_SEED_STALE === "1" || gateMode;
+const staleGpsSeed = {
+  lat: Number(process.env.NEW_MAP_GPS_STALE_LAT || 48.8566),
+  lng: Number(process.env.NEW_MAP_GPS_STALE_LNG || 2.3522),
+  source: "gps",
+  iso2: String(process.env.NEW_MAP_GPS_STALE_ISO || "FR").toUpperCase()
+};
 
 function now() {
   return Date.now();
@@ -92,6 +99,10 @@ function distanceDegrees(state) {
   const lngDelta = Math.abs(state.lng - longitude);
   const latDelta = Math.abs(state.lat - latitude);
   return Math.round(Math.sqrt((lngDelta * lngDelta) + (latDelta * latDelta)) * 10000) / 10000;
+}
+
+function markerMatches(state, lng, lat) {
+  return state?.marker === `${lng},${lat}`;
 }
 
 async function countLabels(page, pattern) {
@@ -192,6 +203,13 @@ async function run() {
   await context.grantPermissions(["geolocation"], { origin: parsed.origin }).catch(() => undefined);
 
   const page = await context.newPage();
+  if (staleGpsSeedEnabled) {
+    await page.addInitScript((savedGeo) => {
+      if (window.sessionStorage.getItem("new-map-gps-stale-seeded") === "1") return;
+      window.localStorage.setItem("geo", JSON.stringify(savedGeo));
+      window.sessionStorage.setItem("new-map-gps-stale-seeded", "1");
+    }, staleGpsSeed);
+  }
   const consoleErrors = [];
   const pageErrors = [];
   const requests = [];
@@ -342,6 +360,12 @@ async function run() {
     zoom_in_city_labels: marks.zoom_in?.city_labels ?? null,
     zoom_out_city_labels: marks.zoom_out?.city_labels ?? null,
     zoom_out_rendered_countries: marks.zoom_out?.rendered_countries ?? null,
+    stale_saved_gps_loaded: staleGpsSeedEnabled
+      ? (markerMatches(marks.initial, staleGpsSeed.lng, staleGpsSeed.lat) ? 1 : 0)
+      : null,
+    stale_saved_gps_refreshed: staleGpsSeedEnabled
+      ? (markerMatches(marks.after_gps, longitude, latitude) && marks.after_gps?.storage?.iso2 !== staleGpsSeed.iso2 ? 1 : 0)
+      : null,
     console_errors: consoleErrors.length,
     page_errors: pageErrors.length
   };
@@ -361,6 +385,10 @@ async function run() {
     pushIf(gateFailures, marks.hover?.hoveredId === "FR" && marks.hover?.cursor === "pointer", "HOVER_BAD");
     pushIf(gateFailures, metric.zoom_in_city_labels !== null && metric.zoom_in_city_labels >= minCityLabels, "ZOOM_IN_CITY_LABELS_LOW");
     pushIf(gateFailures, metric.zoom_out_rendered_countries !== null && metric.zoom_out_rendered_countries >= minZoomOutCountries, "ZOOM_OUT_COUNTRIES_LOW");
+    if (staleGpsSeedEnabled) {
+      pushIf(gateFailures, metric.stale_saved_gps_loaded === 1, "STALE_GPS_SEED_NOT_LOADED");
+      pushIf(gateFailures, metric.stale_saved_gps_refreshed === 1, "STALE_GPS_NOT_REFRESHED");
+    }
     pushIf(gateFailures, metric.console_errors <= maxConsoleErrors, "CONSOLE_ERRORS");
     pushIf(gateFailures, metric.page_errors === 0, "PAGE_ERRORS");
   }
@@ -391,6 +419,10 @@ async function run() {
       }
     },
     seed,
+    saved_geo_seed: {
+      enabled: staleGpsSeedEnabled,
+      value: staleGpsSeed
+    },
     marks,
     requests: requests.slice(-120),
     console_errors: consoleErrors,
@@ -437,6 +469,8 @@ async function run() {
         `hover_cursor=${marks.hover?.cursor || "NA"}`,
         `zoom_in_city_labels=${metric.zoom_in_city_labels ?? "NA"}`,
         `zoom_out_rendered_countries=${metric.zoom_out_rendered_countries ?? "NA"}`,
+        `stale_saved_gps_loaded=${metric.stale_saved_gps_loaded ?? "NA"}`,
+        `stale_saved_gps_refreshed=${metric.stale_saved_gps_refreshed ?? "NA"}`,
         `console_errors=${metric.console_errors}`,
         `page_errors=${metric.page_errors}`
       ].join(" ")

@@ -106,13 +106,13 @@ function mergeRanges(ranges) {
 function detectLegacySignals(source) {
   const text = String(source || "");
   const signals = [
-    ["array_at_polyfill", /Array\.prototype\.at\s*\|\||"at",\s*function\(/],
-    ["array_flat_polyfill", /Array\.prototype\.flat\s*\|\||"flat",\s*function\(/],
-    ["array_flat_map_polyfill", /Array\.prototype\.flatMap\s*\|\||"flatMap",\s*function\(/],
-    ["object_from_entries_polyfill", /Object\.fromEntries\s*\|\||"fromEntries",\s*function\(/],
-    ["object_has_own_polyfill", /Object\.hasOwn\s*\|\||"hasOwn",\s*function\(/],
-    ["string_trim_end_polyfill", /String\.prototype\.trimEnd\s*\|\||"trimEnd",\s*function\(/],
-    ["string_trim_start_polyfill", /String\.prototype\.trimStart\s*\|\||"trimStart",\s*function\(/]
+    ["array_at_polyfill", /Array\.prototype\.at\s*\|\|\s*\(/],
+    ["array_flat_polyfill", /Array\.prototype\.flat\s*\|\|\s*\(/],
+    ["array_flat_map_polyfill", /Array\.prototype\.flatMap\s*=\s*function\(/],
+    ["object_from_entries_polyfill", /Object\.fromEntries\s*\|\|\s*\(/],
+    ["object_has_own_polyfill", /Object\.hasOwn\s*\|\|\s*\(/],
+    ["string_trim_end_polyfill", /"trimEnd"\s+in\s+String\.prototype\s*\|\|/],
+    ["string_trim_start_polyfill", /"trimStart"\s+in\s+String\.prototype\s*\|\|/]
   ];
   return signals.filter(([, re]) => re.test(text)).map(([name]) => name);
 }

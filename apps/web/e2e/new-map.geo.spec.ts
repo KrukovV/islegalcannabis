@@ -94,3 +94,48 @@ test("new-map GPS click places marker, persists location, and recenters on repea
   await page.getByRole("button", { name: /GPS/i }).click();
   await waitForGpsCenter(page);
 });
+
+test("new-map GPS click refreshes stale saved GPS instead of only recentering it", async ({ page, context }) => {
+  await context.setGeolocation(GPS_POINT);
+  await context.grantPermissions(["geolocation"]);
+  await page.addInitScript(() => {
+    window.localStorage.setItem("geo", JSON.stringify({
+      lat: 48.8566,
+      lng: 2.3522,
+      source: "gps",
+      iso2: "FR"
+    }));
+  });
+  await page.route("**/api/geo/resolve", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        data: {
+          source: "BROWSER",
+          permission: "granted",
+          iso: "CZ",
+          region: null,
+          provider: "test",
+          confidence: "HIGH"
+        }
+      })
+    });
+  });
+
+  await page.goto("/new-map", { waitUntil: "domcontentloaded" });
+  await waitForMapReady(page);
+  await page.waitForFunction(() => document.querySelector('[data-user-marker="1"]')?.getAttribute("data-user-marker-position") === "2.3522,48.8566", { timeout: 5000 });
+
+  await page.getByRole("button", { name: /GPS/i }).click();
+  await page.waitForFunction(() => document.querySelector('[data-user-marker="1"]')?.getAttribute("data-user-marker-position") === "14.4378,50.0755", { timeout: 10000 });
+  await waitForGpsCenter(page);
+
+  const storedAfterRefresh = await page.evaluate(() => JSON.parse(window.localStorage.getItem("geo") || "null"));
+  expect(storedAfterRefresh).toMatchObject({
+    lat: GPS_POINT.latitude,
+    lng: GPS_POINT.longitude,
+    source: "gps",
+    iso2: "CZ"
+  });
+});
