@@ -9,6 +9,7 @@ import { SEO_MAP } from "@/lib/seo/seoMap.generated";
 import { getSeoEntryBySlug, parseJurisdictionKey } from "@/lib/seo/seoMap";
 import { buildFaqJsonLd, buildWeedSeo, buildBreadcrumbs } from "@/lib/seo/seoContent";
 import { buildExtrasCards } from "@/lib/extras";
+import { buildCannabisProfileCard } from "@/lib/cannabisProfile";
 
 export const dynamic = "force-static";
 
@@ -61,6 +62,13 @@ export default function SeoResultPage({
 
   const seo = buildWeedSeo(profile);
   const extrasCards = buildExtrasCards(profile, 3);
+  const cannabisProfile = buildCannabisProfileCard(country);
+  const cannabisProfileSections = [
+    { id: "history", heading: "History", items: cannabisProfile?.history || [] },
+    { id: "local-names", heading: "Local names", items: cannabisProfile?.localNames || [] },
+    { id: "culture", heading: "Culture", items: cannabisProfile?.culture || [] },
+    { id: "enforcement-reality", heading: "Enforcement reality", items: cannabisProfile?.enforcementReality || [] }
+  ].filter((section) => section.items.length > 0);
   const faqJsonLd = buildFaqJsonLd({
     title: `Is weed legal in ${entry.displayName}?`,
     status: seo.status.label,
@@ -119,6 +127,21 @@ export default function SeoResultPage({
               ))}
             </ul>
           </div>
+          {cannabisProfileSections.length > 0 ? (
+            <div className={styles.section} data-testid="cannabis-profile">
+              <h2>Cannabis profile</h2>
+              {cannabisProfileSections.map((section) => (
+                <div key={section.id}>
+                  <h3>{section.heading}</h3>
+                  <ul className={styles.bullets}>
+                    {section.items.slice(0, section.id === "local-names" ? 12 : 3).map((item) => (
+                      <li key={`${section.id}-${item}`}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          ) : null}
           {extrasCards.length > 0 ? (
             <div className={styles.section} data-testid="seo-extras">
               <h2>Key extras</h2>

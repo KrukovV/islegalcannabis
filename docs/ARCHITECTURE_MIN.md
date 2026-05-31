@@ -90,6 +90,6 @@
 - Audit universes are separate: wiki rows, ISO countries, SSOT geo, protected official registry, official geo coverage, US states, and territory diagnostics.
 - `/trust-view` must resolve to `/wiki-truth`.
 - `/changes` and `/api/ssot/changes` must read the SSOT diff cache/registry, not compute alternate truth in UI.
-- Status Engine Audit v1 is review-only and must not mutate SSOT, API status, map payloads, or map colors.
+- Status Engine Audit v3 is review-only, emits only `GREEN`/`YELLOW`/`RED`, keeps Cannabis Profile data separate from color, and must not mutate SSOT, API status, map payloads, or map colors.
 - Location precedence is fixed: `manual > gps > ip`.
 - Storage hygiene is enforced: `QUARANTINE` exactly one PASS snapshot, `Reports` operational only, historical archives outside the repo.

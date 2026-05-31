@@ -7,14 +7,15 @@
 - Keep `/`, `/new-map`, and `/c/[code]` on one MapLibre runtime and one static countries payload.
 - Keep `/wiki-truth`, `/trust-view`, `/changes`, and `/api/ssot/changes` stable over prebuilt SSOT/audit models.
 - Keep network truth, UI singleton, and storage hygiene gates green in `bash tools/pass_cycle.sh`.
-- Use Status Engine Audit v1 as a review-only queue before any SSOT or map-color changes.
+- Use Status Engine Audit v3 as a review-only queue before any SSOT or map-color changes.
 
 ## Review Queue
 
-Status Engine Audit v1 first-wave color-review candidates:
+Status Engine Audit v3 first-wave controls and review state:
 
 ```text
-AL, DZ, AO, AM, AZ, BD, BY, BJ, BW, BI, KH, IR
+AL=GREEN, IR=YELLOW, KH=YELLOW, BY=RED, BD=RED, AM=RED
+REVIEW_ROWS=5
 ```
 
 Any follow-up status change requires official/source review, SSOT update, map/API parity checks, SSOT diff validation, and a green pass cycle.

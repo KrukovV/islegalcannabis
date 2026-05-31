@@ -8,7 +8,7 @@ The current product entrypoint is `/new-map`; `/` re-exports it, and `/c/[code]`
 
 Truth/audit work is centered on `/wiki-truth`, `/trust-view`, `/changes`, `/api/ssot/changes`, SSOT snapshots, and official link ownership. CI and checkpointing are standardized through `bash tools/pass_cycle.sh`.
 
-Status Engine Audit v1 is present as a review-only evaluator. First-wave output reviewed 31 countries, found 19 currently aligned, 12 color-review candidates, and 27 `STATUS_REVIEW_REQUIRED`; it does not change SSOT or map colors.
+Status Engine Audit v3 is present as a review-only evaluator. The current rerun reviews the same 31 first-wave rows, emits exactly `GREEN`/`YELLOW`/`RED`, and keeps Cannabis Profile data in a separate non-color layer for popup, SEO, and AI surfaces.
 
 ## Runtime Surfaces
 
@@ -39,8 +39,10 @@ Status Engine Audit v1 is present as a review-only evaluator. First-wave output 
 | `apps/web/src/lib/officialSources` | Official registry/ownership readers and views | Registry and geo coverage stay separate |
 | `apps/web/src/lib/ssotDiff` | Snapshot/diff read/build logic | Drives `/changes` and API |
 | `apps/web/src/lib/location` | Location precedence and client context | `manual > gps > ip` |
-| `apps/web/src/lib/statusEngineV1.ts` | Review-only status evaluator | No SSOT mutation |
-| `apps/web/scripts/status-engine-audit-v1.ts` | Status Engine Audit report generator | Outputs to `Reports/status-engine/` |
+| `apps/web/src/lib/statusEngineV3.ts` | Three-color review-only status evaluator | No SSOT mutation |
+| `apps/web/src/lib/cannabisProfile.ts` | Cannabis Profile reader | Profile data never affects color |
+| `apps/web/scripts/status-engine-audit-v3.ts` | Status Engine Audit report generator | Outputs to `Reports/status-engine/` and `data/cannabis_profiles/` |
+| `data/cannabis_profiles` | Generated first-wave Cannabis Profile data | Local names/history/culture/profile notes |
 | `data/official/official_domains.ssot.json` | Protected raw official registry | Non-shrinking registry floor |
 | `data/ssot/official_link_ownership.json` | Official ownership mapping | Required for official geo coverage |
 | `data/ssot_snapshots` | SSOT diff snapshots | `row_count=300`, retention max `50` |
@@ -64,26 +66,31 @@ Status Engine Audit v1 is present as a review-only evaluator. First-wave output 
 - UI singleton: do not start another Next.js dev server if one is already running or may be locked.
 - Storage hygiene: `QUARANTINE` exactly one PASS snapshot; archives outside repo.
 
-## Status Engine Audit v1
+## Status Engine Audit v3
 
 Scope:
 
-- First 30 alphabetic `WIKI_COUNTRIES`.
-- Iran as a named control row.
+- Same first-wave rows from `Reports/status-engine/status_engine_audit_v1.json`.
+- First 30 alphabetic `WIKI_COUNTRIES` plus the previously recorded Iran control row.
 - Source pages: `Cannabis in <Country>`.
-- Output separates `legalStatus` and `realityStatus`.
+- Output colors: `GREEN`, `YELLOW`, `RED`.
+- Cannabis Profile is a separate non-color layer.
 
 Current report facts:
 
 - Reviewed: `31`
-- Aligned: `19`
-- Color-review candidates: `AL`, `DZ`, `AO`, `AM`, `AZ`, `BD`, `BY`, `BJ`, `BW`, `BI`, `KH`, `IR`
-- `STATUS_REVIEW_REQUIRED`: `27`
+- NEW_COLOR counts: `GREEN=2`, `YELLOW=13`, `RED=16`
+- Color changes vs OLD_COLOR: `10`
+- Review rows: `5`
+- Previous `STATUS_REVIEW_REQUIRED` baseline: `27`
+- Required controls: `AL=GREEN`, `IR=YELLOW`, `KH=YELLOW`, `BY=RED`, `BD=RED`, `AM=RED`
 
 Artifacts:
 
-- `Reports/status-engine/status_engine_audit_v1.json`
-- `Reports/status-engine/status_engine_audit_v1.md`
+- `Reports/status-engine/status_engine_audit_v3.json`
+- `Reports/status-engine/status_engine_audit_v3.md`
+- `data/cannabis_profiles/first_wave_profiles.json`
+- `data/cannabis_profiles/local_names.dictionary.json`
 - `docs/STATUS_ENGINE_AUDIT.md`
 
 ## Verification Commands
@@ -97,6 +104,7 @@ bash tools/pass_cycle.sh
 
 # focused Status Engine Audit checks
 npm -w apps/web exec -- vitest run src/lib/statusEngineV1.test.ts
+npm -w apps/web exec -- vitest run src/lib/statusEngineV3.test.ts src/lib/cannabisProfile.test.ts
 npm -w apps/web run status:engine:audit
 
 # app build/lint

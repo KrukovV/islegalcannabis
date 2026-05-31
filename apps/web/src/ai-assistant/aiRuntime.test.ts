@@ -16,6 +16,13 @@ describe("aiRuntime", () => {
     expect(context.airports.summary).toBeTruthy();
   });
 
+  it("adds Cannabis Profile context for supported country pages", () => {
+    const context = buildContext("What is the cannabis situation in Cambodia?", "KH", undefined, [], "en");
+
+    expect(context.cannabisProfile?.localNames).toContain("happy pizza");
+    expect(context.cannabisProfile?.enforcementReality.join(" ")).toMatch(/opportunistically|unenforced/i);
+  });
+
   it("prefers an explicitly mentioned jurisdiction over ambient geo hint", () => {
     const context = buildContext("Germany cannabis?", "NO", undefined, [], "en");
     expect(context.location.geoHint).toBe("DE");

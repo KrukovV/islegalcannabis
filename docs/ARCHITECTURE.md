@@ -53,9 +53,9 @@ Confirmed diffs are append-only. A pending change becomes confirmed only after i
 
 ## Status Engine Audit
 
-Status Engine Audit v1 is a review-only evaluator over existing country truth. It separates legal status from enforcement/practical reality and must not mutate SSOT or map colors automatically.
+Status Engine Audit v3 is a review-only evaluator over existing country truth. It emits only `GREEN`, `YELLOW`, and `RED`, keeps color logic in Layer A `STATUS_ENGINE`, and keeps history/culture/local names/products in Layer B `CANNABIS_PROFILE`.
 
-Current first-wave evidence is in `Reports/status-engine/` and documented in `docs/STATUS_ENGINE_AUDIT.md`: 31 countries reviewed, 19 aligned, 12 color-review candidates, and 27 `STATUS_REVIEW_REQUIRED`.
+Current first-wave evidence is in `Reports/status-engine/` and documented in `docs/STATUS_ENGINE_AUDIT.md`: 31 rows reviewed, `GREEN=2`, `YELLOW=13`, `RED=16`, and 5 review rows. Cannabis Profile JSON is generated under `data/cannabis_profiles/`.
 
 ## Network Truth
 

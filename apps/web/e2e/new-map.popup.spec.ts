@@ -173,6 +173,27 @@ async function clickFeature(page: Page, iso: string, layerId: LayerId) {
   }, { ...point!, targetLayerId: layerId });
 }
 
+async function hoverFeature(page: Page, iso: string, layerId: LayerId) {
+  const point = await findFeaturePoint(page, iso, layerId);
+  expect(point).not.toBeNull();
+  if (!point) throw new Error(`NO_FEATURE_POINT:${iso}:${layerId}`);
+  const canvasOffset = await page.evaluate(() => {
+    const host = window as typeof window & {
+      __NEW_MAP_DEBUG__?: {
+        map?: {
+          getCanvas: () => HTMLCanvasElement;
+        } | null;
+      };
+    };
+    const rect = host.__NEW_MAP_DEBUG__?.map?.getCanvas().getBoundingClientRect();
+    return {
+      left: rect?.left || 0,
+      top: rect?.top || 0
+    };
+  });
+  await page.mouse.move(canvasOffset.left + point.x, canvasOffset.top + point.y);
+}
+
 async function assertPopupIso(page: Page, iso: string, layerId: LayerId = "legal-fill") {
   await focusFeature(page, iso);
   await clickFeature(page, iso, layerId);
@@ -206,6 +227,44 @@ test("new-map popup works across mainland and island countries", async ({ page }
     await waitForFeature(page, iso, "legal-fill");
     await assertPopupIso(page, iso);
   }
+});
+
+test("new-map desktop hover updates country feature-state", async ({ page }) => {
+  await page.goto("/new-map", { waitUntil: "domcontentloaded" });
+  await page.waitForFunction(() => document.querySelector('[data-testid="new-map-surface"]')?.getAttribute("data-map-ready") === "1", { timeout: 20000 });
+  await focusFeature(page, "FR");
+  await waitForFeature(page, "FR", "legal-fill");
+
+  const beforeSwitchCount = await page.evaluate(() => {
+    const host = window as typeof window & {
+      __NEW_MAP_DEBUG__?: {
+        hoverSwitchCount?: number;
+      };
+    };
+    return host.__NEW_MAP_DEBUG__?.hoverSwitchCount || 0;
+  });
+  await hoverFeature(page, "FR", "legal-fill");
+  await page.waitForFunction(() => window.__NEW_MAP_DEBUG__?.hoveredId === "FR", { timeout: 5000 });
+  const hoverState = await page.evaluate(() => {
+    const host = window as typeof window & {
+      __NEW_MAP_DEBUG__?: {
+        hoveredId?: string | null;
+        hoverSwitchCount?: number;
+        map?: {
+          getCanvas: () => HTMLCanvasElement;
+        } | null;
+      };
+    };
+    return {
+      hoveredId: host.__NEW_MAP_DEBUG__?.hoveredId || null,
+      hoverSwitchCount: host.__NEW_MAP_DEBUG__?.hoverSwitchCount || 0,
+      cursor: host.__NEW_MAP_DEBUG__?.map?.getCanvas().style.cursor || ""
+    };
+  });
+
+  expect(hoverState.hoveredId).toBe("FR");
+  expect(hoverState.hoverSwitchCount).toBeGreaterThan(beforeSwitchCount);
+  expect(hoverState.cursor).toBe("pointer");
 });
 
 test.skip("new-map usa states appear on zoom and popup works for California", async ({ page }) => {

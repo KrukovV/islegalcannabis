@@ -125,6 +125,22 @@ export default function ViewportCountryPopup({
       </section>
     );
   };
+  const renderProfileSection = (title: string, items: string[] | undefined, limit = 2) => {
+    const visible = (items || []).slice(0, limit);
+    if (!visible.length) return null;
+    return (
+      <section className={styles.viewportPopupSection}>
+        <div className={styles.viewportPopupSectionTitle}>{title}</div>
+        <ul className={styles.viewportPopupList}>
+          {visible.map((item) => (
+            <li key={`${title}-${item}`} className={styles.viewportPopupPlainItem}>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </section>
+    );
+  };
 
   return (
     <aside
@@ -170,6 +186,11 @@ export default function ViewportCountryPopup({
           <li className={styles.viewportPopupPlainItem}>{seo.distribution}: {formatDistributionDetail(entry)}</li>
         </ul>
       </section>
+
+      {renderProfileSection("History", entry.cannabisProfile?.history)}
+      {renderProfileSection("Local Names", entry.cannabisProfile?.localNames, 6)}
+      {renderProfileSection("Culture", entry.cannabisProfile?.culture)}
+      {renderProfileSection("Enforcement Reality", entry.cannabisProfile?.enforcementReality)}
 
       {entry.sources.length > 0 ? (
         <section className={styles.viewportPopupSection}>

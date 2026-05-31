@@ -1,6 +1,36 @@
 {
   "items": [
     {
+      "id": "fb482446550e0475",
+      "query": "What would be the real-life risk for a traveler here?",
+      "intent": "airport",
+      "location": "PE",
+      "answer": "Short and honest:\n\nInteresting angle: Peru / Piruw is softer than a full ban, but that is not the same as a fully legal market.\n\nBe especially careful with flights and borders: Airports and borders are high-control zones. Crossing borders with cannabis can lead to criminal charges.\n\nPrison exposure is present in the data, so this does not read like a paper-only ban. Cannabis is decriminalized in Peru / Piruw. Medical cannabis is legal. Distribution is formally illegal. Prison exposure detected.\n\nReality on the ground can feel different: Peru / Piruw remains decriminalized in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals. That is not permission, only the current social signal.\n\nWant me to show the strictest airports too?",
+      "score": 1,
+      "ts": 1776460901437,
+      "last_used": 1780181534715
+    },
+    {
+      "id": "a22a56691942690b",
+      "query": "why not?",
+      "intent": "legal",
+      "location": "IE",
+      "answer": "Let's break it down calmly:\n\nIf we go one layer deeper, the biggest risk still sits around flights and border control.\n\nReality on the ground can feel different: Ireland / Éire remains decriminalized in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals. That is not permission, only the current social signal.\n\nOn the medical side, access is legal in the current data.\n\nIf you want, we can compare this with another country or state.",
+      "score": 1,
+      "ts": 1776604914168,
+      "last_used": 1780181529740
+    },
+    {
+      "id": "f5c2d61b72f07971",
+      "query": "Еу, как сам?",
+      "intent": "general",
+      "location": "DE",
+      "answer": "Если по факту:\n\nЕсть ещё момент, который важно понимать:\n\nНа земле это может ощущаться иначе: Germany / Deutschland remains legal in law. Это не разрешение, а просто social reality из текущих данных.\n\nЕсли смотреть именно на medical side: доступ там legal.\n\nЕсли интересно, можно сравнить это с другой страной или штатом.\n\nПродолжим?",
+      "score": 1,
+      "ts": 1776459166481,
+      "last_used": 1780181526834
+    },
+    {
       "id": "992719802c663253",
       "query": "Why?",
       "intent": "culture",
@@ -159,36 +189,6 @@
       "score": 1,
       "ts": 1776602883688,
       "last_used": 1776604963627
-    },
-    {
-      "id": "fb482446550e0475",
-      "query": "What would be the real-life risk for a traveler here?",
-      "intent": "airport",
-      "location": "PE",
-      "answer": "Short and honest:\n\nInteresting angle: Peru / Piruw is softer than a full ban, but that is not the same as a fully legal market.\n\nBe especially careful with flights and borders: Airports and borders are high-control zones. Crossing borders with cannabis can lead to criminal charges.\n\nPrison exposure is present in the data, so this does not read like a paper-only ban. Cannabis is decriminalized in Peru / Piruw. Medical cannabis is legal. Distribution is formally illegal. Prison exposure detected.\n\nReality on the ground can feel different: Peru / Piruw remains decriminalized in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals. That is not permission, only the current social signal.\n\nWant me to show the strictest airports too?",
-      "score": 1,
-      "ts": 1776460901437,
-      "last_used": 1776604914401
-    },
-    {
-      "id": "a22a56691942690b",
-      "query": "why not?",
-      "intent": "legal",
-      "location": "IE",
-      "answer": "Let's break it down calmly:\n\nIf we go one layer deeper, the biggest risk still sits around flights and border control.\n\nReality on the ground can feel different: Ireland / Éire remains decriminalized in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals. That is not permission, only the current social signal.\n\nOn the medical side, access is legal in the current data.\n\nIf you want, we can compare this with another country or state.",
-      "score": 1,
-      "ts": 1776604914168,
-      "last_used": 1776604914168
-    },
-    {
-      "id": "f5c2d61b72f07971",
-      "query": "Еу, как сам?",
-      "intent": "general",
-      "location": "DE",
-      "answer": "Если по факту:\n\nЕсть ещё момент, который важно понимать:\n\nНа земле это может ощущаться иначе: Germany / Deutschland remains legal in law. Это не разрешение, а просто social reality из текущих данных.\n\nЕсли смотреть именно на medical side: доступ там legal.\n\nЕсли интересно, можно сравнить это с другой страной или штатом.\n\nПродолжим?",
-      "score": 1,
-      "ts": 1776459166481,
-      "last_used": 1776604895993
     },
     {
       "id": "c7ead29607f716b8",

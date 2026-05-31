@@ -5,6 +5,7 @@ import {
   statusToColor
 } from "@/lib/resultStatus";
 import type { CountryPageData } from "@/lib/countryPageStorage";
+import { buildCannabisProfileCard } from "@/lib/cannabisProfile";
 import { assertCannabisWikiSource, isCannabisWikiSource } from "@/lib/wiki/cannabisSource";
 
 function includesFold(text: string, probe: string) {
@@ -193,6 +194,7 @@ export function deriveCountryCardEntryFromCountryPageData(data: CountryPageData)
     normalizedDistributionStatus: data.legal_model.distribution.status,
     distributionFlags: data.legal_model.distribution.flags,
     statusFlags: data.legal_model.distribution.flags,
+    cannabisProfile: buildCannabisProfileCard(data.geo_code),
     notes: data.notes_normalized || data.notes_raw,
     panel: {
       levelTitle:

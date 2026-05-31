@@ -19,7 +19,7 @@
     "start": "next start",
     "lint": "eslint . --max-warnings=0",
     "test": "vitest run",
-    "status:engine:audit": "npm exec -- tsx scripts/status-engine-audit-v1.ts",
+    "status:engine:audit": "npm exec -- tsx scripts/status-engine-audit-v3.ts",
     "ui:e2e": "npx -y playwright test e2e/favicon.spec.ts e2e/map-render.spec.ts e2e/new-map.geo-perf.spec.ts e2e/new-map.geo.spec.ts e2e/new-map.popup.spec.ts e2e/new-map.preload.spec.ts e2e/mobile-cold-start.spec.ts e2e/us-state-route.spec.ts",
     "pw:ui": "npx -y playwright test --ui",
     "pw:headed": "npx -y playwright test --headed",
@@ -29,9 +29,7 @@
   },
   "dependencies": {
     "@islegal/shared": "file:../../packages/shared",
-    "@types/leaflet": "^1.9.21",
     "@vercel/analytics": "^2.0.1",
-    "leaflet": "^1.9.4",
     "maplibre-gl": "^5.21.1",
     "next": "16.0.10",
     "react": "19.2.1",

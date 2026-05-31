@@ -18,8 +18,6 @@ import {
   subscribeToVisualViewportChanges
 } from "./viewportMetrics";
 import AsciiOverlay from "./ascii/AsciiOverlay";
-import UnifiedSeoStatusPanel from "./components/UnifiedSeoStatusPanel";
-import ViewportCountryPopup from "./components/ViewportCountryPopup";
 
 type Props = {
   countriesUrl: string;
@@ -74,6 +72,8 @@ type NewMapPrefetchCache = {
 
 const RuntimeParityBadge = dynamic(() => import("@/app/_components/RuntimeParityBadge"), { ssr: false });
 const MapGeoDock = dynamic(() => import("./MapGeoDock"), { ssr: false });
+const UnifiedSeoStatusPanel = dynamic(() => import("./components/UnifiedSeoStatusPanel"), { ssr: false });
+const ViewportCountryPopup = dynamic(() => import("./components/ViewportCountryPopup"), { ssr: false });
 
 function getNewMapPrefetchCache(): NewMapPrefetchCache | null {
   if (typeof window === "undefined") return null;
@@ -778,7 +778,7 @@ export default function MapRoot({
           <div className={styles.card}>
             <div className={styles.eyebrow}>New Map Skeleton</div>
             <h2>MapLibre render + feature-state hover</h2>
-            <p>MapLibre owns render. Leaflet is reduced to pointer-stream glue only. Truth colors still come from the current SSOT snapshot.</p>
+            <p>MapLibre owns render. Pointer-stream glue uses native browser events. Truth colors still come from the current SSOT snapshot.</p>
           </div>
           <div className={styles.card}>
             <div className={styles.cardHeader}>

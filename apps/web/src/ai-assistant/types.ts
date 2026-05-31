@@ -101,6 +101,19 @@ export type AIContext = {
     text: string;
     source: string;
   }>;
+  cannabisProfile: {
+    history: string[];
+    localNames: string[];
+    culture: string[];
+    enforcementReality: string[];
+    products: string[];
+    traditionalUse: string[];
+    cannabisFoods: string[];
+    slang: string[];
+    cultivation: string[];
+    market: string[];
+    source: string;
+  } | null;
   compare: {
     geoHint: string | null;
     name: string | null;

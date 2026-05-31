@@ -63,13 +63,18 @@ Standard app API responses built with `apps/web/src/lib/api/response.ts` include
 - status/confidence/sources are legacy and only used as fallback when review_status is missing and status is provisional.
 
 ## Status Engine Audit contract
-- Status Engine Audit v1 is review-only and cannot mutate SSOT, `/api/check`, map payloads, or map colors automatically.
-- The first local wave reviews the first 30 alphabetic `WIKI_COUNTRIES` plus Iran as a named control.
+- Status Engine Audit v3 is review-only and cannot mutate SSOT, `/api/check`, map payloads, or map colors automatically.
+- The current wave reuses the same rows from `Reports/status-engine/status_engine_audit_v1.json`: first 30 alphabetic `WIKI_COUNTRIES` plus the previously recorded Iran control row (`31` rows total).
 - Source pages are `Cannabis in <Country>` articles, not generic country pages.
-- Output must separate law-facing `legalStatus` from enforcement/practice `realityStatus`.
-- `RED` requires all hard criteria: recreational illegal, no medical access, no decriminalization or weak enforcement, active/strict enforcement, and no legal or industrial channel.
-- Every result must include score lines and `status_explanation`; unexplained color changes are forbidden.
-- Current first-wave result: 31 reviewed, 19 aligned, 12 color-review candidates (`AL`, `DZ`, `AO`, `AM`, `AZ`, `BD`, `BY`, `BJ`, `BW`, `BI`, `KH`, `IR`), and 27 `STATUS_REVIEW_REQUIRED`.
+- Output colors are exactly `GREEN`, `YELLOW`, and `RED`.
+- Layer A `STATUS_ENGINE` affects color and may use only medical legal, recreational legal, decriminalization, tolerated possession, weak enforcement, rarely enforced, legal industrial cannabis, and active prison/criminal exposure.
+- Layer B `CANNABIS_PROFILE` never affects color and stores history, culture, local names, slang, products, traditional use, cannabis foods, cultivation, market notes, and enforcement notes.
+- `RED` requires all hard criteria: medical illegal, recreational illegal, no decriminalization, no weak-enforcement signal, and active prison/criminal exposure.
+- `YELLOW` is triggered by medical legal, weak enforcement, rarely enforced, tolerated possession, or decriminalization, even when recreational use is illegal.
+- `GREEN` requires recreational legal or medical legal + industrial legal + stable cannabis ecosystem.
+- Enforcement override phrases such as `often not strictly enforced`, `enforced opportunistically`, and `police do not harass users` prohibit `RED`.
+- Current v3 first-wave result: 31 reviewed, `GREEN=2`, `YELLOW=13`, `RED=16`, 10 color changes vs `OLD_COLOR`, and 5 review rows.
+- Cannabis Profile artifacts live in `data/cannabis_profiles/first_wave_profiles.json` and `data/cannabis_profiles/local_names.dictionary.json`.
 
 ## Location precedence contract
 - Manual, GPS, and IP location signals resolve in fixed order: `manual > gps > ip`.

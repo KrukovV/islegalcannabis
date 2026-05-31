@@ -71,6 +71,13 @@ export default function CountrySeoPage({
   const intro = seo.intro(data);
   const card = deriveCountryCardEntryFromCountryPageData(data);
   const localizedPanel = localizePanel(card, data, locale);
+  const cannabisProfile = card.cannabisProfile;
+  const cannabisProfileSections = [
+    { id: "cannabis-profile-history", heading: "History", items: cannabisProfile?.history || [] },
+    { id: "cannabis-profile-local-names", heading: "Local Names", items: cannabisProfile?.localNames || [] },
+    { id: "cannabis-profile-culture", heading: "Culture", items: cannabisProfile?.culture || [] },
+    { id: "cannabis-profile-enforcement", heading: "Enforcement Reality", items: cannabisProfile?.enforcementReality || [] }
+  ].filter((section) => section.items.length > 0);
   const safeSeoCountryData = getSafeSeoCountryData(data);
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -281,6 +288,21 @@ export default function CountrySeoPage({
             <p>{section.body}</p>
           </section>
         ))}
+        {cannabisProfileSections.length > 0 ? (
+          <section id="cannabis-profile" className={styles.section}>
+            <h2>Cannabis profile</h2>
+            {cannabisProfileSections.map((section) => (
+              <div key={section.id} id={section.id}>
+                <h3 className={styles.subheading}>{section.heading}</h3>
+                <ul className={styles.factsList}>
+                  {section.items.slice(0, section.heading === "Local Names" ? 12 : 3).map((item) => (
+                    <li key={`${section.id}-${item}`}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </section>
+        ) : null}
         <section id="law-facts" className={styles.section}>
           <h2>{seo.keyFacts}</h2>
           <ul className={styles.factsList}>

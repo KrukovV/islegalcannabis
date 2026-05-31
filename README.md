@@ -11,7 +11,7 @@ The current primary runtime is the MapLibre `/new-map` experience. The root rout
 - `/wiki-truth` renders a prebuilt audit model. Counters, universe classification, alias resolution, and garbage filtering stay outside `page.tsx`.
 - Official registry and official geo coverage are separate universes.
 - SSOT snapshots stay at `row_count=300`; confirmed diffs are append-only and require two consecutive refresh cycles.
-- Status Engine Audit v1 is review-only. It can flag color-review candidates, but it must not mutate SSOT or map colors.
+- Status Engine Audit v3 is review-only, emits only `GREEN`/`YELLOW`/`RED`, and stores Cannabis Profile data separately from color decisions.
 
 See [docs/CONTRACT.md](docs/CONTRACT.md), [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md), and [docs/STATUS_ENGINE_AUDIT.md](docs/STATUS_ENGINE_AUDIT.md).
 
@@ -124,14 +124,14 @@ Cron example (every 4 hours):
 
 ## Status Engine Audit
 
-Status Engine Audit v1 is a review layer over existing country truth. The first local wave reviewed 31 countries, found 19 currently aligned, 12 color-review candidates, and 27 `STATUS_REVIEW_REQUIRED` rows. These are review findings, not automatic map-color changes.
+Status Engine Audit v3 is a review layer over existing country truth. The current wave reuses the previous first-wave rows: 31 countries, 3 colors only (`GREEN`, `YELLOW`, `RED`), 10 color changes vs `OLD_COLOR`, and 5 review rows versus the previous 27-row review baseline. Cannabis Profile data is stored separately and does not affect color.
 
 ```bash
 npm -w apps/web run status:engine:audit
-npm -w apps/web exec -- vitest run src/lib/statusEngineV1.test.ts
+npm -w apps/web exec -- vitest run src/lib/statusEngineV1.test.ts src/lib/statusEngineV3.test.ts src/lib/cannabisProfile.test.ts
 ```
 
-Reports are written to `Reports/status-engine/`.
+Reports are written to `Reports/status-engine/`. Cannabis Profile data is written to `data/cannabis_profiles/`.
 
 ## Adding a New Jurisdiction
 

@@ -52,6 +52,18 @@ export type CountryCardEntry = {
   normalizedDistributionStatus: string;
   distributionFlags: string[];
   statusFlags: string[];
+  cannabisProfile?: {
+    history: string[];
+    localNames: string[];
+    culture: string[];
+    enforcementReality: string[];
+    products: string[];
+    traditionalUse: string[];
+    cannabisFoods: string[];
+    slang: string[];
+    cultivation: string[];
+    market: string[];
+  } | null;
   notes: string;
   panel: {
     levelTitle: string;

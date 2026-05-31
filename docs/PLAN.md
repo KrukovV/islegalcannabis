@@ -46,3 +46,4 @@ Statuses: pending | in_progress | done
 - [done] Refresh project spec/docs for `/new-map`, `/wiki-truth`, SSOT diff, network truth, UI singleton, storage hygiene, and Status Engine Audit v1
 - [done] Add `/new-map` payload/long-task reduction, local/prod measurement reports, and mandatory prod payload gate in `pass_cycle`
 - [done] Add `/new-map` JS unused/legacy and city-label zoom measurement with mandatory prod screenshot gate in `pass_cycle`
+- [done] Add STATUS ENGINE v3 three-color rerun and separate Cannabis Profile/local-names layer for the same first-wave countries

@@ -13,6 +13,7 @@ export const NEW_MAP_US_STATES_LINE_LAYER_ID = "us-states-line";
 const NEW_MAP_SUPPLEMENTAL_SEA_SOURCE_ID = "new-map-supplemental-seas";
 const NEW_MAP_SUPPLEMENTAL_SEA_LAYER_ID = "new-map-supplemental-seas";
 const BASEMAP_STYLE_URL = "/api/new-map/basemap-style?v=20260331-host-header-same-origin";
+const MAPLIBRE_WORKER_URL = "/api/new-map/maplibre-worker?v=5.21.1";
 
 const DEFAULT_CENTER: [number, number] = [25, 50];
 const DEFAULT_ZOOM = 1.55;
@@ -29,6 +30,7 @@ const FLAT_CAMERA = {
   pitch: 0
 } as const;
 const CAMERA_EPSILON = 0.001;
+let workerUrlConfigured = false;
 
 type SelectedGeoCallback = (_geo: { iso2: string; country: string; lng: number; lat: number } | null) => void;
 type CreateMapOptions = {
@@ -53,6 +55,12 @@ const EMPTY_STYLE: StyleSpecification = {
 
 function getCountryFeatureAtPoint(map: maplibregl.Map, point: { x: number; y: number }) {
   return map.queryRenderedFeatures([point.x, point.y], { layers: [NEW_MAP_FILL_LAYER_ID] })[0] ?? null;
+}
+
+function configureMapLibreWorkerUrl() {
+  if (workerUrlConfigured || typeof window === "undefined") return;
+  maplibregl.setWorkerUrl(MAPLIBRE_WORKER_URL);
+  workerUrlConfigured = true;
 }
 
 function getUsStateFeatureAtPoint(map: maplibregl.Map, point: { x: number; y: number }) {
@@ -383,6 +391,7 @@ export function createMap(
     __NEW_MAP_DEBUG__?: Record<string, unknown>;
     __MAP_SELECTED_GEO__?: SelectedGeoCallback;
   };
+  configureMapLibreWorkerUrl();
   markNewMapTrace("NM_T2_MAP_CONSTRUCTOR_START");
   const map = new maplibregl.Map({
     container,
@@ -423,15 +432,28 @@ export function createMap(
     }
   };
 
+  const markCountriesReady = () => {
+    if (firstCountriesReadyMarked) return;
+    firstCountriesReadyMarked = true;
+    markNewMapTrace("NM_T4_COUNTRIES_READY");
+    markNewMapTrace("NM_T6_COUNTRIES_SOURCE_READY");
+  };
+
   const applyData = () => {
     if (!mapLoaded) return;
     const countriesSource = map.getSource(NEW_MAP_SOURCE_ID) as maplibregl.GeoJSONSource | undefined;
-    countriesSource?.setData(countries);
+    if (!countriesSource) return;
+    countriesSource.setData(countries);
+    if (countries.features.length > 0) {
+      markCountriesReady();
+      finalizeFirstVisualReady();
+    }
   };
 
   const finalizeFirstVisualReady = () => {
     if (destroyed || readyResolved || !mapLoaded) return;
-    if (!firstBasemapReadyMarked || !firstCountriesReadyMarked) return;
+    const styleReadyForInteraction = firstBasemapReadyMarked || firstStyleDataMarked;
+    if (!styleReadyForInteraction || !firstCountriesReadyMarked) return;
     if (!firstVisualReadyMarked) {
       firstVisualReadyMarked = true;
       emitFirstVisualReady();
@@ -663,9 +685,7 @@ export function createMap(
       markNewMapTrace("NM_T5_SOURCEDATA_BASEMAP_READY");
     }
     if (!firstCountriesReadyMarked && event.sourceId === NEW_MAP_SOURCE_ID && event.isSourceLoaded) {
-      firstCountriesReadyMarked = true;
-      markNewMapTrace("NM_T4_COUNTRIES_READY");
-      markNewMapTrace("NM_T6_COUNTRIES_SOURCE_READY");
+      markCountriesReady();
     }
   });
 

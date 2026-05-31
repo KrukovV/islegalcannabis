@@ -33,6 +33,19 @@ function humanizeStatus(value: string | null | undefined) {
   return value ? String(value).toLowerCase() : "unknown";
 }
 
+function compactCannabisProfile(context: AIContext) {
+  const profile = context.cannabisProfile;
+  if (!profile) return null;
+  const parts = [
+    profile.localNames.length ? `local names: ${profile.localNames.slice(0, 8).join(", ")}` : null,
+    profile.history.length ? `history: ${compactText(profile.history.join(" "), 180)}` : null,
+    profile.culture.length ? `culture: ${compactText(profile.culture.join(" "), 180)}` : null,
+    profile.cannabisFoods.length ? `foods: ${compactText(profile.cannabisFoods.join(" "), 160)}` : null,
+    profile.enforcementReality.length ? `enforcement reality: ${compactText(profile.enforcementReality.join(" "), 180)}` : null
+  ].filter(Boolean);
+  return parts.length ? parts.join("; ") : null;
+}
+
 function compactContext(context: AIContext) {
   if (context.disableGeo && context.routerIntent === "CHAT") {
     return null;
@@ -79,8 +92,10 @@ function compactContext(context: AIContext) {
   if (context.intent === "culture") {
     const knowledge = getTopicFacts(context.query, 3);
     const memory = context.memory[0]?.answer;
+    const cannabisProfile = compactCannabisProfile(context);
     const learnedContext = [
       knowledge.length ? `Relevant: ${knowledge.map((fact) => compactText(fact, 120)).filter(Boolean).join(" ")}` : null,
+      cannabisProfile ? `Cannabis profile: ${cannabisProfile}.` : null,
       memory ? `Similar past style: ${compactText(memory, 200)}.` : null
     ].filter(Boolean).join("\n");
     return [
@@ -97,6 +112,7 @@ function compactContext(context: AIContext) {
     ? compactText(context.notes || context.culture[0]?.text || context.social?.summary || "", 120)
     : null;
   const compareNotes = compactText(context.compare?.notes || "", 90);
+  const cannabisProfile = compactCannabisProfile(context);
   const travelNote =
     context.intent === "airport" || context.intent === "tourists"
       ? compactText(context.airports?.summary || "", 140)
@@ -110,6 +126,7 @@ function compactContext(context: AIContext) {
     context.legal ? `Risk signal is ${humanizeStatus(context.legal.finalRisk)}.` : null,
     context.enforcement?.level ? `Enforcement signal is ${humanizeStatus(context.enforcement.level)}.` : null,
     notesLine ? `Current note: ${notesLine}.` : null,
+    cannabisProfile ? `Cannabis profile: ${cannabisProfile}.` : null,
     travelNote ? `Travel note: ${travelNote}.` : null,
     context.compare?.name ? `Comparison place: ${context.compare.name}.` : null,
     context.compare?.recreational || context.compare?.medical || context.compare?.finalRisk

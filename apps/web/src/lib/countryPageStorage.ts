@@ -2,6 +2,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import type { CountryCardEntry } from "@/new-map/map.types";
+import { buildCannabisProfileCard } from "@/lib/cannabisProfile";
 import { assertCannabisWikiSource, isCannabisWikiSource } from "@/lib/wiki/cannabisSource";
 import {
   deriveMapCategoryFromCountryPageDataSignals,
@@ -656,6 +657,7 @@ export function deriveCountryCardEntryFromCountryPageData(data: CountryPageData)
     normalizedDistributionStatus: data.legal_model.distribution.status,
     distributionFlags: data.legal_model.distribution.flags,
     statusFlags: data.legal_model.distribution.flags,
+    cannabisProfile: buildCannabisProfileCard(data.geo_code),
     notes: data.notes_normalized || data.notes_raw,
     panel: {
       levelTitle:

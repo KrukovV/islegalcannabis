@@ -1,49 +1,99 @@
 # Status Engine Audit
 
-Status Engine Audit v1 is a review layer over the existing country SSOT. It does not create a second country database and must not mutate map colors automatically.
+Status Engine Audit v3 is a review layer over the same first-wave country set. It does not mutate country SSOT rows by itself.
 
 ## Scope
-- First wave: first 30 alphabetic `WIKI_COUNTRIES` plus named control countries requested by QA.
-- Source page: `Cannabis in <Country>`, not the generic country page.
-- Runtime route checked conceptually through the existing `/c/<code>` country route and current SSOT-derived map category.
 
-## First-Wave Result Snapshot
-- Generated report: `Reports/status-engine/status_engine_audit_v1.md`
+- Same existing first-wave rows from `Reports/status-engine/status_engine_audit_v1.json`.
+- That file contains the first 30 alphabetic `WIKI_COUNTRIES` plus the previously recorded Iran control row, so the current rerun reviews `31` rows.
+- Source pages are `Cannabis in <Country>` articles, not generic country pages.
+- New countries are not analyzed by v3 until the wave scope is explicitly expanded.
+
+## Model Contract
+
+Layer A: `STATUS_ENGINE`
+
+- Affects color.
+- Output colors are exactly `GREEN`, `YELLOW`, and `RED`.
+- Allowed color inputs: medical legal, recreational legal, decriminalization, tolerated possession, weak enforcement, rarely enforced, legal industrial cannabis, and active prison/criminal exposure.
+
+Layer B: `CANNABIS_PROFILE`
+
+- Does not affect color.
+- Stores history, culture, local names, slang, products, traditional use, cannabis foods, cultivation, market notes, and enforcement notes.
+- Rendered in country popup, SEO pages, and AI assistant context.
+
+Profile-only data such as trafficking, export, organized crime, market size, historical cultivation, traditional usage, local slang, product names, tourism, and culture must not change color.
+
+## Color Rules
+
+- `GREEN`: recreational legal, or medical legal + industrial legal + stable cannabis ecosystem.
+- `YELLOW`: medical legal, weak enforcement, rarely enforced, tolerated possession, or decriminalization.
+- `RED`: medical illegal + recreational illegal + no decriminalization + no weak-enforcement signal + active prison/criminal exposure.
+- Enforcement override phrases such as `often not enforced`, `often not strictly enforced`, `rarely enforced`, `opportunistically enforced`, `enforced opportunistically`, and `police do not harass users` prohibit `RED`.
+
+## v3 Result Snapshot
+
+- Generated JSON: `Reports/status-engine/status_engine_audit_v3.json`
+- Generated markdown: `Reports/status-engine/status_engine_audit_v3.md`
+- Reviewed: `31`
+- `NEW_COLOR` counts: `GREEN=2`, `YELLOW=13`, `RED=16`
+- Color changed vs `OLD_COLOR`: `10`
+- Review rows: `5`
+- Previous `STATUS_REVIEW_REQUIRED` baseline: `27`
+- Cannabis Profile rows: `31`
+- Local name dictionary entries: `9`
+
+Required controls:
+
+- Albania (`AL`) -> `GREEN`
+- Iran (`IR`) -> `YELLOW`
+- Cambodia (`KH`) -> `YELLOW`
+- Belarus (`BY`) -> `RED`
+- Bangladesh (`BD`) -> `RED`
+- Armenia (`AM`) -> `RED`
+
+## Cannabis Profile Artifacts
+
+- Profiles: `data/cannabis_profiles/first_wave_profiles.json`
+- Local names dictionary: `data/cannabis_profiles/local_names.dictionary.json`
+
+Required local names currently preserved:
+
+- `dawamesc`
+- `kif`
+- `hachich`
+- `tekrouri`
+- `diamba`
+- `liamba`
+- `happy pizza`
+- `dagga`
+- `chanvre à fumer`
+
+## Commands
+
+```bash
+npm -w apps/web run status:engine:audit
+npm -w apps/web exec -- vitest run src/lib/statusEngineV1.test.ts src/lib/statusEngineV3.test.ts src/lib/cannabisProfile.test.ts src/new-map/components/viewport-country-popup-render.test.ts src/ai-assistant/aiRuntime.test.ts
+```
+
+## Review Output Contract
+
+If v3 cannot decide cleanly, the report must include:
+
+- Country
+- Conflicting facts
+- Why evaluator cannot decide
+- What signal is missing
+
+Manual country edits are forbidden in this workflow. Only the general evaluator and profile extraction model may change.
+
+## Historical v1 Baseline
+
+v1 report facts remain as baseline only:
+
 - Reviewed: `31`
 - Currently aligned with evaluator: `19`
 - Needs color review: `12`
 - `STATUS_REVIEW_REQUIRED`: `27`
-
-Color-review countries: `AL`, `DZ`, `AO`, `AM`, `AZ`, `BD`, `BY`, `BJ`, `BW`, `BI`, `KH`, `IR`.
-
-`STATUS_REVIEW_REQUIRED` countries: `AF`, `AL`, `DZ`, `AD`, `AO`, `AR`, `AM`, `AU`, `AT`, `AZ`, `BS`, `BD`, `BB`, `BY`, `BE`, `BZ`, `BJ`, `BT`, `BO`, `BA`, `BW`, `BR`, `BN`, `BF`, `BI`, `KH`, `IR`.
-
-These counts are audit facts for the generated report only. They are not SSOT changes and do not change `/api/check`, `/new-map`, or `/c/<code>` colors.
-
-## Evaluator Contract
-- No country-specific branches are allowed.
-- Inputs come from existing country data: recreational law, medical law, distribution, notes-derived signals, penalties, and wiki article facts.
-- Output has two layers:
-  - `legalStatus`: law-facing recreational, medical, and distribution status.
-  - `realityStatus`: enforcement, practical access, reform momentum, and social-practice evidence.
-- Output color is limited to `DARK_GREEN`, `LIGHT_GREEN`, `YELLOW`, `ORANGE`, `RED`, or `UNKNOWN`.
-- `RED` requires all hard criteria: recreational illegal, no medical access, no decriminalization or weak enforcement, active/strict enforcement, and no legal or industrial channel.
-- Every result must include score lines and `status_explanation`; unexplained color changes are forbidden.
-
-## Commands
-```bash
-npm -w apps/web run status:engine:audit
-npm -w apps/web exec -- vitest run src/lib/statusEngineV1.test.ts
-```
-
-## Artifacts
-- JSON: `Reports/status-engine/status_engine_audit_v1.json`
-- Markdown: `Reports/status-engine/status_engine_audit_v1.md`
-
-`STATUS_REVIEW_REQUIRED` means a country needs human review before any SSOT/map color change. It is not an automatic mutation queue.
-
-## Guardrails for Follow-Up Reviews
-- Review official/legal sources before changing SSOT.
-- Keep law-facing status and practical/enforcement reality as separate fields in review notes.
-- If SSOT changes are made later, they must pass `/api/check`, map truth, `/wiki-truth`, SSOT diff, and `bash tools/pass_cycle.sh`.
-- Albania (`AL`) and Iran (`IR`) are useful control rows: Albania shows medical/industrial legality plus enforcement conflict; Iran shows weak-enforcement/reality signals separated from legal severity.
+- Color-review countries: `AL`, `DZ`, `AO`, `AM`, `AZ`, `BD`, `BY`, `BJ`, `BW`, `BI`, `KH`, `IR`

@@ -1,0 +1,78 @@
+{
+  "generated_at": "2026-05-30T22:59:15.939Z",
+  "source_report": "Reports/status-engine/status_engine_audit_v3.json",
+  "entries": [
+    {
+      "geo": "AO",
+      "country": "Angola",
+      "term": "diamba",
+      "kind": "local_cannabis_name",
+      "source": "user_requirement_seed",
+      "evidence": "User-required local cannabis name for Angola profile extraction."
+    },
+    {
+      "geo": "AO",
+      "country": "Angola",
+      "term": "liamba",
+      "kind": "local_cannabis_name",
+      "source": "user_requirement_seed",
+      "evidence": "User-required local cannabis name for Angola profile extraction."
+    },
+    {
+      "geo": "BW",
+      "country": "Botswana",
+      "term": "dagga",
+      "kind": "local_cannabis_name",
+      "source": "user_requirement_seed",
+      "evidence": "Country data names cannabis as dagga."
+    },
+    {
+      "geo": "DZ",
+      "country": "Algeria / الجزائر",
+      "term": "chanvre à fumer",
+      "kind": "product_name",
+      "source": "user_requirement_seed",
+      "evidence": "User-required French cannabis smoking-product phrase."
+    },
+    {
+      "geo": "DZ",
+      "country": "Algeria / الجزائر",
+      "term": "dawamesc",
+      "kind": "traditional_name",
+      "source": "user_requirement_seed",
+      "evidence": "User-required historical/traditional cannabis product name."
+    },
+    {
+      "geo": "DZ",
+      "country": "Algeria / الجزائر",
+      "term": "hachich",
+      "kind": "local_hash_name",
+      "source": "user_requirement_seed",
+      "evidence": "Wiki fact names hachich in Algerian cannabis context."
+    },
+    {
+      "geo": "DZ",
+      "country": "Algeria / الجزائر",
+      "term": "kif",
+      "kind": "local_cannabis_name",
+      "source": "user_requirement_seed",
+      "evidence": "Wiki fact names kif in Algerian cannabis context."
+    },
+    {
+      "geo": "DZ",
+      "country": "Algeria / الجزائر",
+      "term": "tekrouri",
+      "kind": "local_hash_name",
+      "source": "user_requirement_seed",
+      "evidence": "Wiki fact names tekrouri in Algerian cannabis context."
+    },
+    {
+      "geo": "KH",
+      "country": "Cambodia / Kâmpŭchéa",
+      "term": "happy pizza",
+      "kind": "cannabis_food",
+      "source": "user_requirement_seed",
+      "evidence": "Wiki fact names happy pizza as cannabis-infused food."
+    }
+  ]
+}

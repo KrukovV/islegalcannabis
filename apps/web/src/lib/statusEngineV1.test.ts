@@ -2,101 +2,93 @@ import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 
-import { evaluateStatusEngineV1 } from "./statusEngineV1";
+import { STATUS_ENGINE_COLOR_VALUES, evaluateStatusEngineV1 } from "./statusEngineV1";
 
-describe("statusEngineV1", () => {
-  it("returns RED only for strict prohibition without access or mitigation", () => {
+describe("statusEngineV3 compatibility export", () => {
+  it("keeps the evaluator to exactly GREEN, YELLOW, RED", () => {
+    expect(STATUS_ENGINE_COLOR_VALUES).toEqual(["GREEN", "YELLOW", "RED"]);
+  });
+
+  it("returns RED only when prohibition has no mitigation and active criminal exposure exists", () => {
     const result = evaluateStatusEngineV1({
       recreationalStatus: "ILLEGAL",
       medicalStatus: "ILLEGAL",
       distributionStatus: "ILLEGAL",
-      enforcementLevel: "STRICT",
       penalties: {
         prison: true,
-        trafficking: { severe: true }
+        possession: { prison: true, arrest: false, fine: false, severe: true }
       }
     });
 
     expect(result.color).toBe("RED");
     expect(result.redCriteria).toEqual({
       recreationalIllegal: true,
-      noMedicalAccess: true,
+      medicalIllegal: true,
       noDecriminalization: true,
-      activeOrStrictEnforcement: true,
-      noLegalChannel: true
+      noWeakEnforcementSignal: true,
+      prisonCriminalExposureActive: true
     });
   });
 
-  it("separates medical and industrial legality from recreational prohibition", () => {
-    const result = evaluateStatusEngineV1({
-      recreationalStatus: "ILLEGAL",
-      medicalStatus: "LEGAL",
-      distributionStatus: "REGULATED",
-      enforcementLevel: "RARE",
-      facts: {
-        industrialLegal: true
-      }
-    });
-
-    expect(result.color).toBe("LIGHT_GREEN");
-    expect(result.legalStatus.recreational).toBe("ILLEGAL");
-    expect(result.legalStatus.medical).toBe("LEGAL");
-    expect(result.realityStatus.enforcement).toBe("WEAK");
-    expect(result.status_explanation).toContain("Medical legal (+3)");
-    expect(result.status_explanation).toContain("Industrial hemp or industrial cannabis channel exists (+1)");
-  });
-
-  it("does not score weak enforcement the same as aggressive enforcement", () => {
+  it("makes Albania-style medical plus industrial ecosystem GREEN without country branches", () => {
     const result = evaluateStatusEngineV1({
       recreationalStatus: "ILLEGAL",
       medicalStatus: "ILLEGAL",
       distributionStatus: "ILLEGAL",
-      enforcementLevel: "UNENFORCED",
-      facts: {
-        reformMomentum: true,
-        socialUseEvidence: true
-      }
+      statusText: "Cannabis is legal for medical and industrial purposes in this jurisdiction."
+    });
+
+    expect(result.color).toBe("GREEN");
+    expect(result.greenSignals).toContain("medical legal + industrial legal + stable cannabis ecosystem");
+  });
+
+  it("keeps Iran-style often-not-enforced prohibition out of RED", () => {
+    const result = evaluateStatusEngineV1({
+      recreationalStatus: "ILLEGAL",
+      medicalStatus: "ILLEGAL",
+      distributionStatus: "ILLEGAL",
+      penalties: { prison: true },
+      statusText: "Cannabis is illegal, but the law is often not strictly enforced."
     });
 
     expect(result.color).toBe("YELLOW");
-    expect(result.realityStatus.enforcement).toBe("WEAK");
-    expect(result.redCriteria.activeOrStrictEnforcement).toBe(false);
+    expect(result.facts.enforcementOverridePhrases).toContain("often not strictly enforced");
   });
 
-  it("keeps illegal-but-softened cases out of RED without pretending they are legal", () => {
+  it("keeps Cambodia-style opportunistic enforcement out of RED", () => {
     const result = evaluateStatusEngineV1({
       recreationalStatus: "ILLEGAL",
       medicalStatus: "ILLEGAL",
       distributionStatus: "ILLEGAL",
-      penalties: { fine: true },
-      facts: {
-        reformMomentum: true
-      }
+      statusText: "This prohibition is enforced opportunistically. Police do not harass users."
     });
 
-    expect(result.color).toBe("ORANGE");
-    expect(result.legalStatus.recreational).toBe("ILLEGAL");
-    expect(result.realityStatus.access).toBe("NONE");
+    expect(result.color).toBe("YELLOW");
+    expect(result.yellowSignals).toContain("weak enforcement");
   });
 
-  it("keeps recreational legality as the only DARK_GREEN path", () => {
+  it("does not let Cannabis Profile signals affect color", () => {
     const result = evaluateStatusEngineV1({
-      recreationalStatus: "LEGAL",
-      medicalStatus: "LEGAL",
-      distributionStatus: "LEGAL"
+      recreationalStatus: "ILLEGAL",
+      medicalStatus: "ILLEGAL",
+      distributionStatus: "ILLEGAL",
+      penalties: { prison: true },
+      profileSignals: [
+        { kind: "history", text: "Historically cultivated for centuries." },
+        { kind: "local_name", text: "Local name: kif." },
+        { kind: "market", text: "Large market reports exist." }
+      ]
     });
 
-    expect(result.color).toBe("DARK_GREEN");
-    expect(result.scoreLines[0]).toMatchObject({
-      factor: "LAW_RECREATIONAL",
-      score: 6
-    });
+    expect(result.color).toBe("RED");
+    expect(result.decisionLines.filter((line) => line.layer === "CANNABIS_PROFILE")).toHaveLength(3);
+    expect(result.decisionLines.every((line) => line.layer === "STATUS_ENGINE" || !line.usedForColor)).toBe(true);
   });
 
   it("contains no country-specific branches in the evaluator source", () => {
-    const source = fs.readFileSync(path.join(process.cwd(), "src/lib/statusEngineV1.ts"), "utf8");
+    const source = fs.readFileSync(path.join(process.cwd(), "src/lib/statusEngineV3.ts"), "utf8");
 
-    expect(source).not.toMatch(/\b(Albania|Iran|Netherlands|Thailand)\b/);
+    expect(source).not.toMatch(/\b(Albania|Iran|Cambodia|Belarus|Bangladesh|Armenia)\b/);
     expect(source).not.toMatch(/country\s*={2,3}|iso2\s*={2,3}|geo\s*={2,3}/);
   });
 });

@@ -1,4 +1,5 @@
 import socialRealityData from "../../../../data/generated/socialReality.global.json";
+import { buildCannabisProfileAiContext } from "@/lib/cannabisProfile";
 import { getCountryPageIndexByGeoCode, getCountryPageIndexByIso2 } from "@/lib/countryPageStorage";
 import { findNearbyTruth } from "@/lib/geo/nearbyTruth";
 import { deriveResultStatusFromCountryPageData } from "@/lib/resultStatus";
@@ -329,6 +330,7 @@ export function buildContext(
   const comparePage = locationSelection.compare;
   const effectiveGeoHint = countryPage?.iso2 || countryPage?.geo_code || geoHint;
   const social = getSocialReality(effectiveGeoHint || null);
+  const cannabisProfile = enriched.disableGeo ? null : buildCannabisProfileAiContext(effectiveGeoHint || null);
   const nearbyFollowUp = history.lastIntent === "nearby" && isNearSearch(pipelineQuery);
   const intent =
     nearbyFollowUp
@@ -432,6 +434,7 @@ export function buildContext(
           summary: null
         },
         culture,
+        cannabisProfile,
         compare: comparePage
           ? {
               geoHint: comparePage.geo_code || null,
@@ -449,6 +452,7 @@ export function buildContext(
       })
     },
     culture,
+    cannabisProfile,
     compare: comparePage
       ? {
           geoHint: comparePage.geo_code || null,
@@ -485,8 +489,9 @@ export function buildContext(
       new Set([
         ...(includeLegal ? countryPage?.legal_model.signals?.sources?.map((item) => item.url || item.title) || [] : []),
         ...(comparePage?.legal_model.signals?.sources?.map((item) => item.url || item.title) || []),
-        ...(contextChunks.map((chunk) => chunk.source) || [])
-      ].filter(Boolean))
+        ...(contextChunks.map((chunk) => chunk.source) || []),
+        cannabisProfile?.source
+      ].filter((item): item is string => Boolean(item)))
     )
   };
 
@@ -590,6 +595,18 @@ function composeCultureDetail(context: AIContext) {
     return `${chunk.title}: ${chunk.text}`;
   }
   return `${chunk.title}: ${chunk.text}`;
+}
+
+function composeCannabisProfileDetail(context: AIContext) {
+  const profile = context.cannabisProfile;
+  if (!profile) return null;
+  const parts = [
+    profile.localNames.length ? `local names: ${profile.localNames.slice(0, 6).join(", ")}` : null,
+    profile.cannabisFoods.length ? `foods: ${profile.cannabisFoods.slice(0, 2).join(" ")}` : null,
+    profile.culture.length ? `culture: ${profile.culture.slice(0, 1).join(" ")}` : null,
+    profile.enforcementReality.length ? `enforcement reality: ${profile.enforcementReality.slice(0, 1).join(" ")}` : null
+  ].filter(Boolean);
+  return parts.length ? `Cannabis profile: ${parts.join("; ")}.` : null;
 }
 
 function composeFollowUp() {
@@ -892,6 +909,7 @@ function generateCulture(context: AIContext) {
     context.language === "ru"
       ? `Если смотреть не только на закон, а на ощущение на месте в ${context.location.name || "этой стране"}:`
       : `If we look at more than the law in ${context.location.name || "that place"}:`,
+    composeCannabisProfileDetail(context),
     composeCultureDetail(context),
     composeSocialDetail(context),
     composeFollowUp()

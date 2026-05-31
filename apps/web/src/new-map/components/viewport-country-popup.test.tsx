@@ -10,6 +10,7 @@ describe("ViewportCountryPopup", () => {
     const html = renderToStaticMarkup(
       createElement(ViewportCountryPopup, {
         entry,
+        locale: "en",
         anchor: { x: 100, y: 100 },
         onClose: () => {}
       })
@@ -25,6 +26,7 @@ describe("ViewportCountryPopup", () => {
     const html = renderToStaticMarkup(
       createElement(ViewportCountryPopup, {
         entry,
+        locale: "en",
         anchor: { x: 100, y: 100 },
         onClose: () => {}
       })
@@ -33,5 +35,21 @@ describe("ViewportCountryPopup", () => {
     expect(html).toContain("Details →");
     expect(html).toContain('href="/c/us-ca"');
     expect(html).not.toContain("Legal source →");
+  });
+
+  it("renders compact Cannabis Profile sections when available", () => {
+    const entry = deriveCountryCardEntryFromCountryPageData(getCountryPageData("khm")!);
+    const html = renderToStaticMarkup(
+      createElement(ViewportCountryPopup, {
+        entry,
+        locale: "en",
+        anchor: { x: 100, y: 100 },
+        onClose: () => {}
+      })
+    );
+
+    expect(html).toContain("Local Names");
+    expect(html).toContain("happy pizza");
+    expect(html).toContain("Enforcement Reality");
   });
 });
