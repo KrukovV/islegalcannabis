@@ -499,7 +499,13 @@ try {
 
   await page.goto(bypassSeed.url, { waitUntil: "domcontentloaded", timeout: 60000 });
   await page.waitForSelector('[data-testid="new-map-surface"][data-map-ready="1"]', { timeout: 45000 });
-  await page.waitForSelector(".maplibregl-canvas", { timeout: 15000 });
+  await page.waitForSelector(".maplibregl-canvas", { state: "attached", timeout: 15000 });
+  await page.waitForFunction(() => {
+    const canvas = document.querySelector(".maplibregl-canvas");
+    if (!(canvas instanceof HTMLCanvasElement)) return false;
+    const rect = canvas.getBoundingClientRect();
+    return rect.width > 0 && rect.height > 0;
+  }, { timeout: 15000 });
   await page.waitForFunction(() => {
     const map = window.__NEW_MAP_DEBUG__?.map;
     return Boolean(map && map.queryRenderedFeatures(undefined, { layers: ["legal-fill"] }).length > 100);
