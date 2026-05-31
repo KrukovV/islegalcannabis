@@ -20,6 +20,15 @@ const latitude = Number(process.env.NEW_MAP_GPS_LAT || 50.0755);
 const longitude = Number(process.env.NEW_MAP_GPS_LNG || 14.4378);
 const timeoutMs = Number(process.env.NEW_MAP_GPS_TIMEOUT_MS || 60000);
 const comparePath = process.env.NEW_MAP_GPS_COMPARE || "";
+const gateMode = process.env.NEW_MAP_GPS_GATE === "1";
+const maxMarkerMs = Number(process.env.NEW_MAP_GPS_MAX_MARKER_MS || 2500);
+const maxCenterMs = Number(process.env.NEW_MAP_GPS_MAX_CENTER_MS || 2500);
+const maxRecenterMs = Number(process.env.NEW_MAP_GPS_MAX_RECENTER_MS || 1000);
+const maxPersistedMs = Number(process.env.NEW_MAP_GPS_MAX_PERSISTED_MS || 5000);
+const maxCenterDistance = Number(process.env.NEW_MAP_GPS_MAX_CENTER_DISTANCE || 0.01);
+const minCityLabels = Number(process.env.NEW_MAP_GPS_MIN_CITY_LABELS || 3);
+const minZoomOutCountries = Number(process.env.NEW_MAP_GPS_MIN_ZOOM_OUT_COUNTRIES || 100);
+const maxConsoleErrors = Number(process.env.NEW_MAP_GPS_MAX_CONSOLE_ERRORS || 1);
 
 function now() {
   return Date.now();
@@ -40,6 +49,10 @@ function compactError(error) {
 function delta(after, before) {
   if (typeof after !== "number" || typeof before !== "number") return null;
   return Math.round(after - before);
+}
+
+function pushIf(failures, condition, reason) {
+  if (!condition) failures.push(reason);
 }
 
 async function waitFor(page, fn, timeout = timeoutMs) {
@@ -332,6 +345,25 @@ async function run() {
     console_errors: consoleErrors.length,
     page_errors: pageErrors.length
   };
+  const gateFailures = [];
+  const finalStorage = marks.after_reload?.storage || marks.after_recenter?.storage || null;
+  if (gateMode) {
+    pushIf(gateFailures, ok, "FLOW_FAILED");
+    pushIf(gateFailures, metric.gps_marker_latency_ms !== null && metric.gps_marker_latency_ms <= maxMarkerMs, "GPS_MARKER_SLOW");
+    pushIf(gateFailures, metric.gps_center_latency_ms !== null && metric.gps_center_latency_ms <= maxCenterMs, "GPS_CENTER_SLOW");
+    pushIf(gateFailures, metric.gps_recenter_latency_ms !== null && metric.gps_recenter_latency_ms <= maxRecenterMs, "GPS_RECENTER_SLOW");
+    pushIf(gateFailures, metric.persisted_marker_latency_ms !== null && metric.persisted_marker_latency_ms <= maxPersistedMs, "GPS_PERSIST_SLOW");
+    pushIf(gateFailures, metric.gps_center_distance_deg !== null && metric.gps_center_distance_deg <= maxCenterDistance, "GPS_CENTER_OFF");
+    pushIf(gateFailures, metric.gps_recenter_distance_deg !== null && metric.gps_recenter_distance_deg <= maxCenterDistance, "GPS_RECENTER_OFF");
+    pushIf(gateFailures, metric.persisted_center_distance_deg !== null && metric.persisted_center_distance_deg <= maxCenterDistance, "GPS_PERSIST_CENTER_OFF");
+    pushIf(gateFailures, finalStorage?.source === "gps", "GPS_STORAGE_SOURCE_BAD");
+    pushIf(gateFailures, finalStorage?.iso2 === "CZ", "GPS_STORAGE_ISO_BAD");
+    pushIf(gateFailures, marks.hover?.hoveredId === "FR" && marks.hover?.cursor === "pointer", "HOVER_BAD");
+    pushIf(gateFailures, metric.zoom_in_city_labels !== null && metric.zoom_in_city_labels >= minCityLabels, "ZOOM_IN_CITY_LABELS_LOW");
+    pushIf(gateFailures, metric.zoom_out_rendered_countries !== null && metric.zoom_out_rendered_countries >= minZoomOutCountries, "ZOOM_OUT_COUNTRIES_LOW");
+    pushIf(gateFailures, metric.console_errors <= maxConsoleErrors, "CONSOLE_ERRORS");
+    pushIf(gateFailures, metric.page_errors === 0, "PAGE_ERRORS");
+  }
 
   const payload = {
     generated_at: new Date().toISOString(),
@@ -343,6 +375,21 @@ async function run() {
     ok,
     failures,
     metric,
+    gate: {
+      enabled: gateMode,
+      ok: gateFailures.length === 0,
+      failures: gateFailures,
+      thresholds: {
+        max_marker_ms: maxMarkerMs,
+        max_center_ms: maxCenterMs,
+        max_recenter_ms: maxRecenterMs,
+        max_persisted_ms: maxPersistedMs,
+        max_center_distance: maxCenterDistance,
+        min_city_labels: minCityLabels,
+        min_zoom_out_countries: minZoomOutCountries,
+        max_console_errors: maxConsoleErrors
+      }
+    },
     seed,
     marks,
     requests: requests.slice(-120),
@@ -371,8 +418,61 @@ async function run() {
   console.log(
     `NEW_MAP_GPS_FLOW ok=${payload.ok ? 1 : 0} label=${label} marker_ms=${metric.gps_marker_latency_ms ?? "NA"} center_ms=${metric.gps_center_latency_ms ?? "NA"} recenter_ms=${metric.gps_recenter_latency_ms ?? "NA"} persisted_ms=${metric.persisted_marker_latency_ms ?? "NA"} city_labels=${metric.zoom_in_city_labels ?? "NA"} report=${rel(outPath)}`
   );
+  if (gateMode) {
+    const reason = gateFailures.length ? gateFailures.join(",") : "OK";
+    console.log(`PROD_GPS_OK=${gateFailures.length ? 0 : 1} reason=${reason} target=${sanitize(url)} browser=${browserName} report=${rel(outPath)}`);
+    console.log(
+      [
+        "PROD_GPS_METRIC",
+        `gps_marker_ms=${metric.gps_marker_latency_ms ?? "NA"}`,
+        `gps_center_ms=${metric.gps_center_latency_ms ?? "NA"}`,
+        `gps_recenter_ms=${metric.gps_recenter_latency_ms ?? "NA"}`,
+        `persisted_marker_ms=${metric.persisted_marker_latency_ms ?? "NA"}`,
+        `gps_center_distance=${metric.gps_center_distance_deg ?? "NA"}`,
+        `gps_recenter_distance=${metric.gps_recenter_distance_deg ?? "NA"}`,
+        `persisted_center_distance=${metric.persisted_center_distance_deg ?? "NA"}`,
+        `storage_iso=${finalStorage?.iso2 || "NA"}`,
+        `storage_source=${finalStorage?.source || "NA"}`,
+        `hovered=${marks.hover?.hoveredId || "NA"}`,
+        `hover_cursor=${marks.hover?.cursor || "NA"}`,
+        `zoom_in_city_labels=${metric.zoom_in_city_labels ?? "NA"}`,
+        `zoom_out_rendered_countries=${metric.zoom_out_rendered_countries ?? "NA"}`,
+        `console_errors=${metric.console_errors}`,
+        `page_errors=${metric.page_errors}`
+      ].join(" ")
+    );
+    if (payload.delta_vs_compare) {
+      console.log(
+        [
+          "PROD_GPS_DELTA",
+          `gps_marker_ms=${payload.delta_vs_compare.gps_marker_latency_ms ?? "NA"}`,
+          `gps_center_ms=${payload.delta_vs_compare.gps_center_latency_ms ?? "NA"}`,
+          `gps_recenter_ms=${payload.delta_vs_compare.gps_recenter_latency_ms ?? "NA"}`,
+          `persisted_marker_ms=${payload.delta_vs_compare.persisted_marker_latency_ms ?? "NA"}`,
+          `zoom_in_city_labels=${payload.delta_vs_compare.zoom_in_city_labels ?? "NA"}`,
+          `zoom_out_rendered_countries=${payload.delta_vs_compare.zoom_out_rendered_countries ?? "NA"}`,
+          `console_errors=${payload.delta_vs_compare.console_errors ?? "NA"}`,
+          `page_errors=${payload.delta_vs_compare.page_errors ?? "NA"}`
+        ].join(" ")
+      );
+    }
+    console.log(
+      [
+        "PROD_GPS_SCREENSHOTS",
+        `gps=${marks.after_gps_screenshot?.path || "NA"}`,
+        `recenter=${marks.after_recenter_screenshot?.path || "NA"}`,
+        `hover=${marks.hover_screenshot?.path || "NA"}`,
+        `zoom_in=${marks.zoom_in?.screenshot?.path || "NA"}`,
+        `zoom_out=${marks.zoom_out?.screenshot?.path || "NA"}`
+      ].join(" ")
+    );
+    console.log(`PROD_GPS_REPORT=${rel(outPath)}`);
+  }
   if (!payload.ok) {
     console.log(`NEW_MAP_GPS_FLOW_FAIL failures=${failures.join(" | ") || "unknown"}`);
+    process.exitCode = 1;
+  }
+  if (gateMode && gateFailures.length) {
     process.exitCode = 1;
   }
 }

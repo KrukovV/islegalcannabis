@@ -146,6 +146,7 @@ CHECKPOINT_LOG="${CHECKPOINT_DIR}/save_patch_checkpoint.log"
 PROD_LIVE_GATE_LOG="${CHECKPOINT_DIR}/prod-live-gate.log"
 PROD_PAYLOAD_GATE_LOG="${CHECKPOINT_DIR}/prod-payload-gate.log"
 PROD_JS_CITY_GATE_LOG="${CHECKPOINT_DIR}/prod-js-city-gate.log"
+PROD_GPS_GATE_LOG="${CHECKPOINT_DIR}/prod-gps-gate.log"
 STDOUT_FILE="${CHECKPOINT_DIR}/ci-final.txt"
 REPORTS_FINAL="${ROOT}/Reports/ci-final.txt"
 STEP_LOG="${CHECKPOINT_DIR}/ci-steps.log"
@@ -188,7 +189,7 @@ emit_final_output() {
       print;
       next;
     }
-    /^(CI_STATUS=|FAIL_REASON=|PROD_LIVE_|PROD_PAYLOAD_|POST_CHECKS_OK=|HUB_STAGE_REPORT_OK=|PASS_CYCLE_EXIT )/ {
+    /^(CI_STATUS=|FAIL_REASON=|PROD_LIVE_|PROD_PAYLOAD_|PROD_JS_CITY_|PROD_GPS_|POST_CHECKS_OK=|HUB_STAGE_REPORT_OK=|PASS_CYCLE_EXIT )/ {
       print;
     }
   ' "${file}" >&${OUTPUT_FD}
@@ -340,6 +341,9 @@ run_mandatory_tail() {
   local js_city_rc=0
   local js_city_reason="OK"
   local js_city_output=""
+  local gps_rc=0
+  local gps_reason="OK"
+  local gps_output=""
   local post_rc=0
   local hub_rc=0
   local post_reason="OK"
@@ -402,6 +406,25 @@ run_mandatory_tail() {
       printf "%s\n" "${js_city_output}" >> "${ROOT}/ci-final.txt"
     fi
   fi
+  gps_output=$(NEW_MAP_GPS_GATE=1 NEW_MAP_GPS_LABEL="prod-gps-gate-${RUN_ID}" ${NODE_BIN} "${ROOT}/tools/measure_new_map_gps_flow.mjs" 2>&1)
+  gps_rc=$?
+  printf "%s\n" "${gps_output}" > "${PROD_GPS_GATE_LOG}"
+  if [ "${gps_rc}" -ne 0 ]; then
+    gps_reason="RC_${gps_rc}"
+    if printf "%s\n" "${gps_output}" | grep -q "SECRET_MISSING"; then
+      gps_reason="SECRET_MISSING"
+    elif printf "%s\n" "${gps_output}" | grep -q "PROD_GPS_OK=0"; then
+      gps_reason="DEGRADATION"
+    fi
+  fi
+  if [ -n "${gps_output}" ]; then
+    printf "%s\n" "${gps_output}" >> "${STDOUT_FILE}"
+    printf "%s\n" "${gps_output}" >> "${RUN_REPORT_FILE}"
+    printf "%s\n" "${gps_output}" >> "${REPORTS_FINAL}"
+    if [ "${CI_WRITE_ROOT}" = "1" ]; then
+      printf "%s\n" "${gps_output}" >> "${ROOT}/ci-final.txt"
+    fi
+  fi
   if [ -x "${ROOT}/tools/post_checks.sh" ]; then
     bash "${ROOT}/tools/post_checks.sh"
     post_rc=$?
@@ -451,6 +474,10 @@ run_mandatory_tail() {
   if [ "${js_city_rc}" -ne 0 ]; then
     MANDATORY_TAIL_FAIL_REASON="PROD_JS_CITY_GATE_FAIL_${js_city_reason}"
     return "${js_city_rc}"
+  fi
+  if [ "${gps_rc}" -ne 0 ]; then
+    MANDATORY_TAIL_FAIL_REASON="PROD_GPS_GATE_FAIL_${gps_reason}"
+    return "${gps_rc}"
   fi
   if [ "${post_rc}" -ne 0 ]; then
     MANDATORY_TAIL_FAIL_REASON="POST_CHECKS_FAIL"
