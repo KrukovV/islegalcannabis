@@ -1,14 +1,12 @@
-import { getPublicOrigin } from "../_lib/publicOrigin";
 import { NEW_MAP_WATER_COLOR } from "@/new-map/mapPalette";
 
 const UPSTREAM_STYLE_URL = "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json";
 const SUBTLE_BOUNDARY = "rgba(198, 208, 215, 0.18)";
 const STATIC_MAP_CACHE = "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800";
 
-export const dynamic = "force-dynamic";
 export const revalidate = 86400;
 
-export async function GET(request: Request) {
+export async function GET() {
   const response = await fetch(UPSTREAM_STYLE_URL, {
     headers: {
       accept: "application/json"
@@ -21,7 +19,6 @@ export async function GET(request: Request) {
   }
 
   const style = await response.json();
-  const origin = getPublicOrigin(request);
   if (style && typeof style === "object" && Array.isArray(style.layers)) {
     delete (style as Record<string, unknown>).light;
     delete (style as Record<string, unknown>).fog;
@@ -72,7 +69,7 @@ export async function GET(request: Request) {
   if (sources && typeof sources === "object" && sources.carto && typeof sources.carto === "object") {
     sources.carto = {
       ...sources.carto,
-      url: `${origin}/api/new-map/basemap-source`
+      url: "/api/new-map/basemap-source"
     };
   }
 

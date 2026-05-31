@@ -37,13 +37,15 @@ async function waitForAppEvidence(page, startedAt) {
     root: false,
     mapSurface: false,
     mapReady: false,
-    canvas: false
+    canvas: false,
+    countriesPainted: false
   };
   const timings = {
     root_ms: null,
     map_surface_ms: null,
     map_ready_ms: null,
-    canvas_ms: null
+    canvas_ms: null,
+    countries_painted_ms: null
   };
   const mark = (key) => {
     timings[key] = Date.now() - startedAt;
@@ -58,11 +60,21 @@ async function waitForAppEvidence(page, startedAt) {
   }).then(() => mark("map_surface_ms")).catch(() => false));
   waits.mapReady = Boolean(await page.waitForFunction(() => {
     return document.querySelector('[data-testid="new-map-surface"]')?.getAttribute("data-map-ready") === "1";
-  }, { timeout: 30000 }).then(() => mark("map_ready_ms")).catch(() => false));
+  }, undefined, { timeout: 30000 }).then(() => mark("map_ready_ms")).catch(() => false));
   waits.canvas = Boolean(await page.waitForSelector(".maplibregl-canvas", {
     timeout: 30000
   }).then(() => mark("canvas_ms")).catch(() => false));
-  await page.waitForTimeout(500);
+  waits.countriesPainted = Boolean(await page.waitForFunction(() => {
+    const host = window;
+    const map = host.__NEW_MAP_DEBUG__?.map;
+    if (!map || typeof map.queryRenderedFeatures !== "function") return false;
+    try {
+      return map.queryRenderedFeatures({ layers: ["legal-fill"] }).length > 0;
+    } catch {
+      return false;
+    }
+  }, undefined, { timeout: 15000 }).then(() => mark("countries_painted_ms")).catch(() => false));
+  await page.waitForTimeout(waits.countriesPainted ? 250 : 750);
 
   return { waits, timings };
 }

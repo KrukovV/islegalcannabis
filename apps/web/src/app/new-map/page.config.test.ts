@@ -16,4 +16,25 @@ describe("new-map route config", () => {
     expect(source).not.toContain("export const NEW_MAP_RUNTIME_IDENTITY");
     expect(source).not.toContain("export const NEW_MAP_VISIBLE_STAMP");
   });
+
+  it("keeps early new-map JSON fetches without stale Carto preconnect hints", () => {
+    const filePath = path.join(process.cwd(), "src", "app", "layout.tsx");
+    const source = fs.readFileSync(filePath, "utf8");
+    expect(source).toContain('style: loadJson("${NEW_MAP_STYLE_URL}")');
+    expect(source).toContain('countries: loadJson("${NEW_MAP_COUNTRIES_URL}")');
+    expect(source).not.toContain('rel="preconnect" href="https://tiles.basemaps.cartocdn.com"');
+    expect(source).not.toContain('rel="dns-prefetch" href="https://tiles.basemaps.cartocdn.com"');
+  });
+
+  it("keeps basemap metadata cacheable and same-origin relative", () => {
+    const stylePath = path.join(process.cwd(), "src", "app", "api", "new-map", "basemap-style", "route.ts");
+    const sourcePath = path.join(process.cwd(), "src", "app", "api", "new-map", "basemap-source", "route.ts");
+    const styleSource = fs.readFileSync(stylePath, "utf8");
+    const tilejsonSource = fs.readFileSync(sourcePath, "utf8");
+
+    expect(styleSource).toContain('url: "/api/new-map/basemap-source"');
+    expect(tilejsonSource).toContain('tilejson.tiles = ["/api/new-map/basemap-tile/{z}/{x}/{y}"];');
+    expect(styleSource).not.toContain('dynamic = "force-dynamic"');
+    expect(tilejsonSource).not.toContain('dynamic = "force-dynamic"');
+  });
 });
