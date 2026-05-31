@@ -164,7 +164,7 @@ export function useGeoStatus() {
         const lat = position.coords.latitude;
         const lng = position.coords.longitude;
         setGeo((prev) => ({
-          iso2: prev?.iso2,
+          iso2: prev?.source === "gps" ? prev.iso2 : undefined,
           lat,
           lng,
           source: "gps"

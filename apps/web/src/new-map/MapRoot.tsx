@@ -404,8 +404,11 @@ export default function MapRoot({
 
     const markerElement = locationMarkerRef.current?.getElement() || document.createElement("div");
     markerElement.className = styles.locationMarker;
-    markerElement.setAttribute("aria-hidden", "true");
+    markerElement.setAttribute("role", "img");
+    markerElement.setAttribute("aria-label", "Where I am");
+    markerElement.setAttribute("title", "Where I am");
     markerElement.setAttribute("data-user-marker", "1");
+    markerElement.setAttribute("data-user-marker-label", "Where I am");
     markerElement.setAttribute("data-user-marker-position", `${geo.lng},${geo.lat}`);
 
     if (!locationMarkerRef.current) {
@@ -425,19 +428,6 @@ export default function MapRoot({
         zoom: Math.max(map.getZoom(), 3.2)
       });
     }
-  }, []);
-
-  const centerMapToGeo = useCallback((geo: ActiveGeo) => {
-    const map = mapRef.current;
-    if (!map) return;
-    if (typeof geo?.lng !== "number" || typeof geo?.lat !== "number") return;
-    const targetZoom = String(geo?.iso2 || "").toUpperCase().startsWith("US-") ? 4.8 : 3.2;
-    map.easeTo({
-      center: [geo.lng, geo.lat],
-      zoom: Math.max(map.getZoom(), targetZoom),
-      duration: 700,
-      essential: true
-    });
   }, []);
 
   useEffect(() => {
@@ -825,7 +815,6 @@ export default function MapRoot({
         }
         clearSelectedGeo={() => setSelectedGeo(null)}
         applyGeoToMap={applyGeoToMap}
-        centerMapToGeo={centerMapToGeo}
       />
       {error ? (
         <div className={styles.errorBox} data-testid="new-map-error">
