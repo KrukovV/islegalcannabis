@@ -674,6 +674,12 @@ export default function MapRoot({
               throw new Error(`MAP_WITHOUT_STATUS: ${String(feature.properties?.geo || "UNKNOWN")}`);
             }
           }
+          console.warn(
+            `MAP_RENDER_STATUS sample=${countries.features
+              .slice(0, 5)
+              .map((feature) => `${feature.properties.geo}:${feature.properties.result.status}:${feature.properties.baseColor}:${feature.properties.hoverColor}`)
+              .join(",")}`
+          );
           runtime.setData(countries);
           return countries;
         });

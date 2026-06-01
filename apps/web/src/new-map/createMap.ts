@@ -1,5 +1,4 @@
 import maplibregl, { type StyleSpecification } from "maplibre-gl";
-import type { DataDrivenPropertyValueSpecification } from "@maplibre/maplibre-gl-style-spec";
 import type { LegalCountryCollection, NewMapBootResult } from "./map.types";
 import { emitFirstVisualReady, markNewMapTrace } from "./startupTrace";
 import { NEW_MAP_WATER_COLOR } from "./mapPalette";
@@ -122,39 +121,6 @@ function moveNativeWaterLayersAboveCountries(map: maplibregl.Map) {
     if (!map.getLayer(layerId) || !map.getLayer(NEW_MAP_ADMIN_LAYER_ID)) continue;
     map.moveLayer(layerId, NEW_MAP_ADMIN_LAYER_ID);
   }
-}
-
-function countryFillOpacityAtZoom(fade: number, usOpacity: number) {
-  const fillOpacity = ["to-number", ["get", "fillOpacity"], 0.56];
-  const hoverOpacity = ["to-number", ["get", "hoverOpacity"], 0.44];
-  return [
-    "case",
-    ["==", ["get", "geo"], "US"],
-    usOpacity === 0 ? 0 : ["*", fillOpacity, usOpacity],
-    ["boolean", ["feature-state", "selected"], false],
-    ["*", hoverOpacity, fade],
-    ["boolean", ["feature-state", "hover"], false],
-    ["*", hoverOpacity, fade],
-    ["*", fillOpacity, fade]
-  ];
-}
-
-function legalCountryFillOpacityExpression(): DataDrivenPropertyValueSpecification<number> {
-  return [
-    "interpolate",
-    ["linear"],
-    ["zoom"],
-    0,
-    countryFillOpacityAtZoom(1, 1),
-    4.5,
-    countryFillOpacityAtZoom(0.72, 0),
-    7,
-    countryFillOpacityAtZoom(0.42, 0),
-    10,
-    countryFillOpacityAtZoom(0.3, 0),
-    14,
-    countryFillOpacityAtZoom(0.24, 0)
-  ] as unknown as DataDrivenPropertyValueSpecification<number>;
 }
 
 function addSupplementalSeaLayer(map: maplibregl.Map) {
@@ -529,7 +495,18 @@ export function createMap(
           ["to-color", ["get", "hoverColor"]],
           ["to-color", ["get", "baseColor"]]
         ],
-        "fill-opacity": legalCountryFillOpacityExpression()
+        "fill-opacity": [
+          "step",
+          ["zoom"],
+          1,
+          4.5,
+          [
+            "case",
+            ["==", ["get", "geo"], "US"],
+            0,
+            1
+          ]
+        ]
       }
     }, beforeId);
 

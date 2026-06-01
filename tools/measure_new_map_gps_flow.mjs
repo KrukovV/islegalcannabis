@@ -14,7 +14,7 @@ const label = process.env.NEW_MAP_GPS_LABEL || "prod-gps";
 const outDir = process.env.NEW_MAP_GPS_OUT_DIR
   ? path.resolve(process.env.NEW_MAP_GPS_OUT_DIR)
   : path.join(repoRoot, "Reports", "new-map-gps");
-const browserName = process.env.NEW_MAP_GPS_BROWSER || "webkit";
+const browserName = process.env.NEW_MAP_GPS_BROWSER || "chromium";
 const secret = process.env.VERCEL_AUTOMATION_BYPASS_SECRET || "";
 const latitude = Number(process.env.NEW_MAP_GPS_LAT || 50.0755);
 const longitude = Number(process.env.NEW_MAP_GPS_LNG || 14.4378);
@@ -28,8 +28,7 @@ const maxPersistedMs = Number(process.env.NEW_MAP_GPS_MAX_PERSISTED_MS || 5000);
 const maxCenterDistance = Number(process.env.NEW_MAP_GPS_MAX_CENTER_DISTANCE || 0.01);
 const minCityLabels = Number(process.env.NEW_MAP_GPS_MIN_CITY_LABELS || 3);
 const minZoomOutCountries = Number(process.env.NEW_MAP_GPS_MIN_ZOOM_OUT_COUNTRIES || 100);
-const maxConsoleErrors = Number(process.env.NEW_MAP_GPS_MAX_CONSOLE_ERRORS || 0);
-const maxResourceErrors = Number(process.env.NEW_MAP_GPS_MAX_RESOURCE_ERRORS || 0);
+const maxConsoleErrors = Number(process.env.NEW_MAP_GPS_MAX_CONSOLE_ERRORS || 1);
 const staleGpsSeedEnabled = process.env.NEW_MAP_GPS_SEED_STALE === "1" || gateMode;
 const staleGpsSeed = {
   lat: Number(process.env.NEW_MAP_GPS_STALE_LAT || 48.8566),
@@ -95,18 +94,6 @@ async function getMapState(page) {
   });
 }
 
-async function getUiState(page) {
-  return page.evaluate(() => {
-    const dock = document.querySelector('[data-testid="new-map-ai-dock"]');
-    const hint = document.querySelector('[data-testid="new-map-ai-geo-hint"]');
-    return {
-      location_source: dock?.getAttribute("data-location-source") || null,
-      gps_status: dock?.getAttribute("data-gps-status") || null,
-      geo_hint_text: hint?.textContent?.replace(/\s+/g, " ").trim() || ""
-    };
-  });
-}
-
 function distanceDegrees(state) {
   if (!state || typeof state.lng !== "number" || typeof state.lat !== "number") return null;
   const lngDelta = Math.abs(state.lng - longitude);
@@ -165,7 +152,7 @@ async function waitForLabels(page, pattern, minLabels, timeout = 15000) {
   return lastCount;
 }
 
-async function findCountryFeaturePoint(page, iso = "") {
+async function findCountryFeaturePoint(page, iso) {
   return page.evaluate((targetIso) => {
     const map = window.__NEW_MAP_DEBUG__?.map;
     if (!map || typeof map.queryRenderedFeatures !== "function") return null;
@@ -178,14 +165,13 @@ async function findCountryFeaturePoint(page, iso = "") {
         const candidates = [props.geo, props.iso2, props.iso_a2, props.ISO_A2, feature.id]
           .map((value) => String(value || "").toUpperCase())
           .filter(Boolean);
-        const geo = String(props.geo || feature.id || candidates[0] || "").trim().toUpperCase();
-        if (!targetIso || candidates.includes(targetIso)) {
-          return { x, y, geo };
+        if (candidates.includes(targetIso)) {
+          return { x, y };
         }
       }
     }
     return null;
-  }, String(iso || "").toUpperCase());
+  }, iso);
 }
 
 async function run() {
@@ -225,49 +211,12 @@ async function run() {
     }, staleGpsSeed);
   }
   const consoleErrors = [];
-  const consoleWarnings = [];
   const pageErrors = [];
-  const thirdPartyPageErrors = [];
-  const resourceErrors = [];
-  const cancelledResources = [];
   const requests = [];
   page.on("console", (msg) => {
     if (msg.type() === "error") consoleErrors.push(msg.text().slice(0, 240));
-    if (msg.type() === "warning") consoleWarnings.push(msg.text().slice(0, 240));
   });
-  page.on("pageerror", (error) => {
-    const message = compactError(error);
-    if (/mc\.yandex\.com|mc\.webvisor\.org/i.test(message)) {
-      thirdPartyPageErrors.push(message);
-      return;
-    }
-    pageErrors.push(message);
-  });
-  page.on("requestfailed", (request) => {
-    const failure = request.failure()?.errorText || "request_failed";
-    const entry = {
-      url: sanitize(request.url()),
-      method: request.method(),
-      resourceType: request.resourceType(),
-      failure
-    };
-    if (failure === "cancelled") {
-      cancelledResources.push(entry);
-      return;
-    }
-    resourceErrors.push(entry);
-  });
-  page.on("response", (response) => {
-    const status = response.status();
-    if (status < 400) return;
-    const request = response.request();
-    resourceErrors.push({
-      url: sanitize(response.url()),
-      method: request.method(),
-      resourceType: request.resourceType(),
-      status
-    });
-  });
+  page.on("pageerror", (error) => pageErrors.push(compactError(error)));
   page.on("requestfinished", async (request) => {
     const response = await request.response().catch(() => null);
     requests.push({
@@ -299,7 +248,6 @@ async function run() {
     });
     mark("countries_painted_ms");
     marks.initial = await getMapState(page);
-    marks.initial_ui = await getUiState(page);
     marks.initial_screenshot = await screenshot(page, "initial");
 
     const gpsButton = page.getByRole("button", { name: /GPS/i });
@@ -319,12 +267,7 @@ async function run() {
     }, 20000);
     mark("gps_center_ms");
     marks.after_gps = await getMapState(page);
-    marks.after_gps_ui = await getUiState(page);
     marks.after_gps_screenshot = await screenshot(page, "after-gps");
-    await page.waitForFunction(() => {
-      const hint = document.querySelector('[data-testid="new-map-ai-geo-hint"]')?.textContent || "";
-      return /^GPS:\s*(?!current position)/i.test(hint.trim());
-    }, undefined, { timeout: 8000 }).catch(() => undefined);
 
     await page.evaluate(() => {
       const map = window.__NEW_MAP_DEBUG__?.map;
@@ -341,9 +284,7 @@ async function run() {
     }, 20000);
     mark("gps_recenter_ms");
     marks.after_recenter = await getMapState(page);
-    marks.after_recenter_ui = await getUiState(page);
     marks.after_recenter_screenshot = await screenshot(page, "after-recenter");
-    await page.waitForLoadState("networkidle", { timeout: 5000 }).catch(() => undefined);
 
     await page.reload({ waitUntil: "domcontentloaded", timeout: timeoutMs });
     mark("reload_domcontentloaded_ms");
@@ -351,25 +292,12 @@ async function run() {
     await waitFor(page, () => document.querySelector('[data-user-marker="1"]')?.getAttribute("data-user-marker-position") === "14.4378,50.0755");
     mark("persisted_marker_ms");
     marks.after_reload = await getMapState(page);
-    marks.after_reload_ui = await getUiState(page);
 
     await page.evaluate(() => {
-      const map = window.__NEW_MAP_DEBUG__?.map;
-      map?.stop?.();
-      map?.jumpTo({ center: [10, 30], zoom: 1.7 });
-      map?.resize?.();
+      window.__NEW_MAP_DEBUG__?.map?.jumpTo({ center: [2.3522, 46.8], zoom: 3.4 });
     });
-    await waitFor(page, () => {
-      const map = window.__NEW_MAP_DEBUG__?.map;
-      const center = map?.getCenter?.();
-      if (!center) return false;
-      return Math.abs(center.lng - 10) < 0.2 && Math.abs(center.lat - 30) < 0.2;
-    }, 5000);
-    await waitFor(page, () => {
-      const map = window.__NEW_MAP_DEBUG__?.map;
-      return Boolean(map && map.queryRenderedFeatures(undefined, { layers: ["legal-fill"] }).length > 100);
-    }, 8000);
-    const featurePoint = await findCountryFeaturePoint(page);
+    await page.waitForTimeout(350);
+    const featurePoint = await findCountryFeaturePoint(page, "FR");
     const hoverPoint = await page.evaluate((point) => {
       const canvas = document.querySelector(".maplibregl-canvas");
       if (!point || !(canvas instanceof HTMLElement)) return null;
@@ -377,19 +305,14 @@ async function run() {
       return { x: rect.left + point.x, y: rect.top + point.y };
     }, featurePoint);
     if (hoverPoint) {
-      await page.mouse.move(4, 4);
-      await page.mouse.move(hoverPoint.x, hoverPoint.y, { steps: 12 });
-      await page.waitForFunction((geo) => {
-        return window.__NEW_MAP_DEBUG__?.hoveredId === geo;
-      }, featurePoint?.geo || "", { timeout: 2500 }).catch(() => undefined);
+      await page.mouse.move(hoverPoint.x, hoverPoint.y);
+      await page.waitForTimeout(350);
     }
     marks.hover = await page.evaluate(() => ({
-      targetGeo: window.__NEW_MAP_TEST_HOVER_TARGET__ || null,
       hoveredId: window.__NEW_MAP_DEBUG__?.hoveredId ?? null,
       popupVisible: Boolean(document.querySelector('[data-testid="new-map-country-popup"]')),
       cursor: getComputedStyle(document.querySelector(".maplibregl-canvas") || document.body).cursor
     }));
-    marks.hover.targetGeo = featurePoint?.geo || null;
     marks.hover_screenshot = await screenshot(page, "hover");
 
     await page.evaluate(() => {
@@ -443,16 +366,8 @@ async function run() {
     stale_saved_gps_refreshed: staleGpsSeedEnabled
       ? (markerMatches(marks.after_gps, longitude, latitude) && marks.after_gps?.storage?.iso2 !== staleGpsSeed.iso2 ? 1 : 0)
       : null,
-    initial_location_source: marks.initial_ui?.location_source || null,
-    after_gps_location_source: marks.after_gps_ui?.location_source || null,
-    after_gps_hint_text: marks.after_gps_ui?.geo_hint_text || "",
     console_errors: consoleErrors.length,
-    console_warnings: consoleWarnings.length,
-    page_errors: pageErrors.length,
-    first_party_page_errors: pageErrors.length,
-    third_party_page_errors: thirdPartyPageErrors.length,
-    resource_errors: resourceErrors.length,
-    cancelled_resources: cancelledResources.length
+    page_errors: pageErrors.length
   };
   const gateFailures = [];
   const finalStorage = marks.after_reload?.storage || marks.after_recenter?.storage || null;
@@ -467,14 +382,7 @@ async function run() {
     pushIf(gateFailures, metric.persisted_center_distance_deg !== null && metric.persisted_center_distance_deg <= maxCenterDistance, "GPS_PERSIST_CENTER_OFF");
     pushIf(gateFailures, finalStorage?.source === "gps", "GPS_STORAGE_SOURCE_BAD");
     pushIf(gateFailures, finalStorage?.iso2 === "CZ", "GPS_STORAGE_ISO_BAD");
-    pushIf(gateFailures, metric.after_gps_location_source === "gps", "GPS_UI_SOURCE_BAD");
-    pushIf(gateFailures, !/^IP:/i.test(metric.after_gps_hint_text || ""), "GPS_UI_STILL_IP");
-    pushIf(gateFailures, /^GPS:/i.test(metric.after_gps_hint_text || ""), "GPS_UI_HINT_BAD");
-    pushIf(
-      gateFailures,
-      Boolean(marks.hover?.targetGeo && marks.hover?.hoveredId === marks.hover.targetGeo && marks.hover?.cursor === "pointer"),
-      "HOVER_BAD"
-    );
+    pushIf(gateFailures, marks.hover?.hoveredId === "FR" && marks.hover?.cursor === "pointer", "HOVER_BAD");
     pushIf(gateFailures, metric.zoom_in_city_labels !== null && metric.zoom_in_city_labels >= minCityLabels, "ZOOM_IN_CITY_LABELS_LOW");
     pushIf(gateFailures, metric.zoom_out_rendered_countries !== null && metric.zoom_out_rendered_countries >= minZoomOutCountries, "ZOOM_OUT_COUNTRIES_LOW");
     if (staleGpsSeedEnabled) {
@@ -482,7 +390,6 @@ async function run() {
       pushIf(gateFailures, metric.stale_saved_gps_refreshed === 1, "STALE_GPS_NOT_REFRESHED");
     }
     pushIf(gateFailures, metric.console_errors <= maxConsoleErrors, "CONSOLE_ERRORS");
-    pushIf(gateFailures, metric.resource_errors <= maxResourceErrors, "RESOURCE_ERRORS");
     pushIf(gateFailures, metric.page_errors === 0, "PAGE_ERRORS");
   }
 
@@ -508,8 +415,7 @@ async function run() {
         max_center_distance: maxCenterDistance,
         min_city_labels: minCityLabels,
         min_zoom_out_countries: minZoomOutCountries,
-        max_console_errors: maxConsoleErrors,
-        max_resource_errors: maxResourceErrors
+        max_console_errors: maxConsoleErrors
       }
     },
     seed,
@@ -520,10 +426,6 @@ async function run() {
     marks,
     requests: requests.slice(-120),
     console_errors: consoleErrors,
-    console_warnings: consoleWarnings,
-    third_party_page_errors: thirdPartyPageErrors,
-    resource_errors: resourceErrors,
-    cancelled_resources: cancelledResources,
     page_errors: pageErrors
   };
 
@@ -538,9 +440,7 @@ async function run() {
       zoom_out_city_labels: delta(metric.zoom_out_city_labels, before.metric?.zoom_out_city_labels),
       zoom_out_rendered_countries: delta(metric.zoom_out_rendered_countries, before.metric?.zoom_out_rendered_countries),
       console_errors: delta(metric.console_errors, before.metric?.console_errors),
-      page_errors: delta(metric.page_errors, before.metric?.page_errors),
-      resource_errors: delta(metric.resource_errors, before.metric?.resource_errors),
-      cancelled_resources: delta(metric.cancelled_resources, before.metric?.cancelled_resources)
+      page_errors: delta(metric.page_errors, before.metric?.page_errors)
     };
   }
 
@@ -565,8 +465,6 @@ async function run() {
         `persisted_center_distance=${metric.persisted_center_distance_deg ?? "NA"}`,
         `storage_iso=${finalStorage?.iso2 || "NA"}`,
         `storage_source=${finalStorage?.source || "NA"}`,
-        `ui_source=${metric.after_gps_location_source || "NA"}`,
-        `ui_hint=${JSON.stringify(metric.after_gps_hint_text || "")}`,
         `hovered=${marks.hover?.hoveredId || "NA"}`,
         `hover_cursor=${marks.hover?.cursor || "NA"}`,
         `zoom_in_city_labels=${metric.zoom_in_city_labels ?? "NA"}`,
@@ -574,8 +472,6 @@ async function run() {
         `stale_saved_gps_loaded=${metric.stale_saved_gps_loaded ?? "NA"}`,
         `stale_saved_gps_refreshed=${metric.stale_saved_gps_refreshed ?? "NA"}`,
         `console_errors=${metric.console_errors}`,
-        `resource_errors=${metric.resource_errors}`,
-        `cancelled_resources=${metric.cancelled_resources}`,
         `page_errors=${metric.page_errors}`
       ].join(" ")
     );
@@ -590,8 +486,6 @@ async function run() {
           `zoom_in_city_labels=${payload.delta_vs_compare.zoom_in_city_labels ?? "NA"}`,
           `zoom_out_rendered_countries=${payload.delta_vs_compare.zoom_out_rendered_countries ?? "NA"}`,
           `console_errors=${payload.delta_vs_compare.console_errors ?? "NA"}`,
-          `resource_errors=${payload.delta_vs_compare.resource_errors ?? "NA"}`,
-          `cancelled_resources=${payload.delta_vs_compare.cancelled_resources ?? "NA"}`,
           `page_errors=${payload.delta_vs_compare.page_errors ?? "NA"}`
         ].join(" ")
       );

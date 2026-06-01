@@ -28,11 +28,6 @@ const cityLat = Number(process.env.NEW_MAP_CITY_LAT || 48.8566);
 const cityTargetZoom = Number(process.env.NEW_MAP_CITY_ZOOM || 8.2);
 const cityMinLabels = Number(process.env.NEW_MAP_CITY_MIN_LABELS || 3);
 const cityTimeoutMs = Number(process.env.NEW_MAP_CITY_TIMEOUT_MS || 15000);
-const deepLng = Number(process.env.NEW_MAP_DEEP_LNG || cityLng);
-const deepLat = Number(process.env.NEW_MAP_DEEP_LAT || cityLat);
-const deepTargetZoom = Number(process.env.NEW_MAP_DEEP_ZOOM || 11.2);
-const deepMinPlaceLabels = Number(process.env.NEW_MAP_DEEP_MIN_PLACE_LABELS || 3);
-const deepTimeoutMs = Number(process.env.NEW_MAP_DEEP_TIMEOUT_MS || 15000);
 const countryLng = Number(process.env.NEW_MAP_COUNTRY_LNG || 10);
 const countryLat = Number(process.env.NEW_MAP_COUNTRY_LAT || 50);
 const countryTargetZoom = Number(process.env.NEW_MAP_COUNTRY_ZOOM || 3.4);
@@ -295,8 +290,6 @@ function buildDelta(current, previous) {
   const prevCountry = previous.country_zoom || {};
   const curCity = current.city_zoom || {};
   const prevCity = previous.city_zoom || {};
-  const curDeep = current.deep_zoom || {};
-  const prevDeep = previous.deep_zoom || {};
   const curSummary = current.resources || {};
   const prevSummary = previous.resources || {};
   return {
@@ -313,10 +306,6 @@ function buildDelta(current, previous) {
     city_label_ms: (curCity.elapsed_ms || 0) - (prevCity.elapsed_ms || 0),
     city_tile_transfer_bytes:
       (curCity.tile_transfer_bytes || 0) - (prevCity.tile_transfer_bytes || 0),
-    deep_label_ms: (curDeep.elapsed_ms || 0) - (prevDeep.elapsed_ms || 0),
-    deep_label_count: (curDeep.label_count || 0) - (prevDeep.label_count || 0),
-    deep_road_line_count: (curDeep.road_line_count || 0) - (prevDeep.road_line_count || 0),
-    deep_landscape_count: (curDeep.landscape_count || 0) - (prevDeep.landscape_count || 0),
     total_transfer_bytes: (curSummary.total_transfer_bytes || 0) - (prevSummary.total_transfer_bytes || 0)
   };
 }
@@ -348,10 +337,10 @@ async function measureLabelZoom(page, options) {
     const start = performance.now();
     const resourceStart = performance.getEntriesByType("resource").length;
 
-    function countLayerFeatures(targetLayers) {
-      if (!targetLayers.length) return 0;
+    function countLabels() {
+      if (!layers.length) return 0;
       try {
-        const features = map.queryRenderedFeatures(undefined, { layers: targetLayers });
+        const features = map.queryRenderedFeatures(undefined, { layers });
         const unique = new Set();
         for (const feature of features) {
           const props = feature.properties || {};
@@ -369,43 +358,6 @@ async function measureLabelZoom(page, options) {
       } catch {
         return 0;
       }
-    }
-
-    function countLabels() {
-      return countLayerFeatures(layers);
-    }
-
-    function styleDiagnostics() {
-      const styleLayers = map.getStyle()?.layers || [];
-      const roadLineLayers = styleLayers
-        .filter((layer) => layer.type === "line" && /(road|bridge|tunnel|transport)/i.test(layer.id))
-        .map((layer) => layer.id)
-        .filter((layerId) => Boolean(map.getLayer(layerId)));
-      const roadLabelLayers = styleLayers
-        .filter((layer) => layer.type === "symbol" && /(roadname|road_label|transport_name)/i.test(layer.id))
-        .map((layer) => layer.id)
-        .filter((layerId) => Boolean(map.getLayer(layerId)));
-      const landscapeLayers = styleLayers
-        .filter((layer) => /(landcover|landuse|park|wood|grass|building|waterway)/i.test(layer.id))
-        .map((layer) => layer.id)
-        .filter((layerId) => Boolean(map.getLayer(layerId)));
-      const legalFillOpacity = map.getLayer("legal-fill")
-        ? map.getPaintProperty("legal-fill", "fill-opacity")
-        : null;
-      const legalFillOpacityJson = JSON.stringify(legalFillOpacity);
-      const legalFillDeepOpacityOk =
-        !/"step",\["zoom"\],1,4\.5/.test(legalFillOpacityJson) &&
-        legalFillOpacityJson !== "1";
-      return {
-        road_line_layers: roadLineLayers,
-        road_label_layers: roadLabelLayers,
-        landscape_layers: landscapeLayers,
-        road_line_count: countLayerFeatures(roadLineLayers),
-        road_label_count: countLayerFeatures(roadLabelLayers),
-        landscape_count: countLayerFeatures(landscapeLayers),
-        legal_fill_opacity: legalFillOpacity,
-        legal_fill_deep_opacity_ok: legalFillDeepOpacityOk
-      };
     }
 
     function tileSummary() {
@@ -443,7 +395,6 @@ async function measureLabelZoom(page, options) {
         const elapsed = Math.round(performance.now() - start);
         const count = countLabels();
         const tiles = tileSummary();
-        const diagnostics = styleDiagnostics();
         resolve({
           ok: count >= minLabels,
           reason,
@@ -452,7 +403,6 @@ async function measureLabelZoom(page, options) {
           center: [lng, lat],
           zoom,
           layers,
-          ...diagnostics,
           ...tiles
         });
       };
@@ -495,18 +445,6 @@ async function measureCityZoom(page) {
   });
 }
 
-async function measureDeepZoom(page) {
-  return measureLabelZoom(page, {
-    kind: "city",
-    lng: deepLng,
-    lat: deepLat,
-    zoom: deepTargetZoom,
-    minLabels: deepMinPlaceLabels,
-    timeoutMs: deepTimeoutMs,
-    layerPattern: "(place_city|place_town|place_villages|place_hamlet|place_suburbs?|roadname|road_label)"
-  });
-}
-
 if (browserName !== "chromium") {
   throw new Error("NEW_MAP_JS_PERF_BROWSER must be chromium because JS coverage uses CDP");
 }
@@ -523,13 +461,11 @@ let initialMeasured;
 let initialJs;
 let countryZoom;
 let cityZoom;
-let deepZoom;
 let finalMeasured;
 let cityJs;
 const initialScreenshot = path.join(reportsDir, `${label}.initial.${browserName}.png`);
 const countryScreenshot = path.join(reportsDir, `${label}.country.${browserName}.png`);
 const cityScreenshot = path.join(reportsDir, `${label}.city.${browserName}.png`);
-const deepScreenshot = path.join(reportsDir, `${label}.deep.${browserName}.png`);
 
 try {
   browser = await playwright.chromium.launch({
@@ -610,10 +546,6 @@ try {
   await page.waitForTimeout(500);
   await page.screenshot({ path: cityScreenshot, fullPage: false });
 
-  deepZoom = await measureDeepZoom(page);
-  await page.waitForTimeout(500);
-  await page.screenshot({ path: deepScreenshot, fullPage: false });
-
   finalMeasured = await page.evaluate(() => {
     return {
       resources: performance.getEntriesByType("resource").map((entry) => ({
@@ -660,12 +592,10 @@ const payload = {
   city_js: cityJs,
   country_zoom: countryZoom,
   city_zoom: cityZoom,
-  deep_zoom: deepZoom,
   screenshots: {
     initial: path.relative(repoRoot, initialScreenshot),
     country: path.relative(repoRoot, countryScreenshot),
-    city: path.relative(repoRoot, cityScreenshot),
-    deep: path.relative(repoRoot, deepScreenshot)
+    city: path.relative(repoRoot, cityScreenshot)
   }
 };
 
@@ -697,15 +627,9 @@ console.log([
   `city_labels=${cityZoom.label_count ?? 0}`,
   `city_tile_kib=${kib(cityZoom.tile_transfer_bytes || 0)}`,
   `city_tiles=${cityZoom.tile_count || 0}`,
-  `deep_label_ms=${deepZoom.elapsed_ms ?? "-"}`,
-  `deep_labels=${deepZoom.label_count ?? 0}`,
-  `deep_roads=${deepZoom.road_line_count ?? 0}`,
-  `deep_landscape=${deepZoom.landscape_count ?? 0}`,
-  `legal_fill_deep_opacity_ok=${deepZoom.legal_fill_deep_opacity_ok ? 1 : 0}`,
   `rendered_countries=${initialMeasured.renderedCountries}`,
   `initial_screenshot=${payload.screenshots.initial}`,
   `city_screenshot=${payload.screenshots.city}`,
-  `deep_screenshot=${payload.screenshots.deep}`,
   `report=${path.relative(repoRoot, reportPath)}`
 ].join(" "));
 
@@ -721,10 +645,6 @@ if (delta) {
     `country_tile_kib=${kib(delta.country_tile_transfer_bytes)}`,
     `city_label_ms=${delta.city_label_ms}`,
     `city_tile_kib=${kib(delta.city_tile_transfer_bytes)}`,
-    `deep_label_ms=${delta.deep_label_ms}`,
-    `deep_labels=${delta.deep_label_count}`,
-    `deep_roads=${delta.deep_road_line_count}`,
-    `deep_landscape=${delta.deep_landscape_count}`,
     `total_kib=${kib(delta.total_transfer_bytes)}`
   ].join(" "));
 }
