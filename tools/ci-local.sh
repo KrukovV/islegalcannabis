@@ -137,8 +137,14 @@ SSOT_METRICS_OUTPUT=$(node tools/ssot/ssot_metrics.js 2>&1) || {
   CI_LOCAL_CMD="${last_cmd}"
   print_fail "${CI_LOCAL_REASON}"
 }
-WIKI_ROWS_TOTAL_LINE=$(printf "%s\n" "${SSOT_METRICS_OUTPUT}" | grep -E "^WIKI_ROWS_TOTAL=" | tail -n 1 || true)
-if [ "${WIKI_ROWS_TOTAL_LINE#WIKI_ROWS_TOTAL=}" != "300" ]; then
+WIKI_SET_TOTAL_LINE=$(printf "%s\n" "${SSOT_METRICS_OUTPUT}" | grep -E "^WIKI_SET_TOTAL=" | tail -n 1 || true)
+if [ -n "${WIKI_SET_TOTAL_LINE}" ]; then
+  WIKI_TOTAL_VALUE="${WIKI_SET_TOTAL_LINE#WIKI_SET_TOTAL=}"
+else
+  WIKI_ROWS_TOTAL_LINE=$(printf "%s\n" "${SSOT_METRICS_OUTPUT}" | grep -E "^WIKI_ROWS_TOTAL=" | tail -n 1 || true)
+  WIKI_TOTAL_VALUE="${WIKI_ROWS_TOTAL_LINE#WIKI_ROWS_TOTAL=}"
+fi
+if [ "${WIKI_TOTAL_VALUE}" != "300" ]; then
   echo "${SSOT_METRICS_OUTPUT}"
   CI_LOCAL_REASON="CI_FAIL_WIKI_INCOMPLETE"
   CI_LOCAL_STEP="ssot_metrics"

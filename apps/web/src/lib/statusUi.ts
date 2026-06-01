@@ -1,3 +1,5 @@
+import type { ResultStatusLevel } from "@islegal/shared";
+
 import { STATUS_MAP } from "@/config/theme";
 import { buildStatusContract, resolveColorKeyFromContract } from "@/lib/statusPairMatrix";
 
@@ -73,7 +75,7 @@ export function statusVerdict(
 export function statusColorKey(
   truthLevel: TruthLevel,
   effectiveStatus: string | null | undefined
-): "green" | "yellow" | "red" | "gray" {
+): ResultStatusLevel {
   if (!canAssert(truthLevel)) {
     return STATUS_MAP.Unknown.colorKey;
   }
@@ -88,7 +90,7 @@ export function statusColorKeyFromContract(input: {
   finalMedStatus?: string | null;
   evidenceDelta?: string | null;
   evidenceDeltaApproved?: boolean;
-}): "green" | "yellow" | "red" | "gray" {
+}): ResultStatusLevel {
   const contract = buildStatusContract(input);
   return resolveColorKeyFromContract(contract);
 }

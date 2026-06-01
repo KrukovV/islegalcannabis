@@ -1,5 +1,7 @@
+import type { ResultStatusLevel } from "@islegal/shared";
+
 export type ColorMode = "light" | "dark" | "system";
-export type ColorKey = "green" | "yellow" | "red" | "gray";
+export type ColorKey = ResultStatusLevel;
 export type ThemeStatus = "Legal" | "Decrim" | "Illegal" | "Unenforced" | "Limited" | "Unknown";
 
 export type StatusThemeToken = {

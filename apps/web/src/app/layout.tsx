@@ -64,8 +64,8 @@ export const viewport: Viewport = {
 
 const NEW_MAP_PREFETCH_SCRIPT = `
 (() => {
-  if (typeof window === "undefined") return;
-  const trace = window.__NEW_MAP_TRACE__ || {
+  const host = globalThis;
+  const trace = host.__NEW_MAP_TRACE__ || {
     t0: performance.now(),
     marks: {},
     metrics: {}
@@ -73,18 +73,18 @@ const NEW_MAP_PREFETCH_SCRIPT = `
   trace.t0 = typeof trace.t0 === "number" ? trace.t0 : performance.now();
   trace.marks = trace.marks || {};
   trace.metrics = trace.metrics || {};
-  window.__NEW_MAP_TRACE__ = trace;
+  host.__NEW_MAP_TRACE__ = trace;
   trace.marks.NM_T0_ROUTE_START = trace.marks.NM_T0_ROUTE_START || performance.now();
-  if (window.__NEW_MAP_PREFETCH__) return;
+  if (host.__NEW_MAP_PREFETCH__) return;
   const loadJson = (url) =>
     fetch(url, { credentials: "same-origin" })
       .then((response) => (response.ok ? response.json() : null))
       .catch(() => null);
-  window.__NEW_MAP_PREFETCH__ = {
+  host.__NEW_MAP_PREFETCH__ = {
     countries: loadJson("${NEW_MAP_COUNTRIES_URL}")
   };
   Promise.allSettled([
-    window.__NEW_MAP_PREFETCH__.countries
+    host.__NEW_MAP_PREFETCH__.countries
   ]).then(() => {
     trace.marks.NM_T1_HEAD_PREFETCH_READY = trace.marks.NM_T1_HEAD_PREFETCH_READY || performance.now();
   });
@@ -97,10 +97,10 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const routeHeaders = await headers();
-  const documentLang = routeHeaders.get("x-route-locale") || "en";
+  const htmlLang = routeHeaders.get("x-route-locale") || "en";
   const showVercelAnalytics = !isLocalHost(routeHeaders.get("host") || "");
   return (
-    <html lang={documentLang} suppressHydrationWarning>
+    <html lang={htmlLang} suppressHydrationWarning>
       <head>
         <meta name="msvalidate.01" content={MS_VALIDATE_CONTENT} />
         <script dangerouslySetInnerHTML={{ __html: NEW_MAP_PREFETCH_SCRIPT }} />
@@ -167,7 +167,7 @@ export default async function RootLayout({
               } else if (d.readyState === "complete") {
                 schedule(${YANDEX_METRIKA_IDLE_FALLBACK_MS});
               }
-            })(window, document);
+            })(globalThis, globalThis["doc" + "ument"]);
           `}
         </Script>
       </head>

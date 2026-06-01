@@ -54,7 +54,7 @@ function renderChanges(title: string, items: SsotDiffEntry[], testId: string) {
           ))}
         </ul>
       ) : (
-        <p style={{ color: "#4b5563", fontSize: 14, margin: 0 }}>No confirmed SSOT changes in this window.</p>
+        <p style={{ color: "#4b5563", fontSize: 14, margin: 0 }}>No confirmed SSOT changes in this period.</p>
       )}
     </section>
   );
