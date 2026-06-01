@@ -6,7 +6,7 @@ import type { GeoStatus, IpStatus } from "../hooks/useGeoStatus";
 
 type ActiveGeo = {
   country: string;
-  iso2: string;
+  iso2?: string;
   lat?: number;
   lng?: number;
 } | null;
@@ -168,6 +168,12 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
         ? styles.aiGpsDotResolving
         : styles.aiGpsDotUnknown;
   const gpsClickable = geoStatus.status !== "resolving";
+  const locationSource =
+    geoStatus.status === "resolved" && typeof activeGeo?.lat === "number" && typeof activeGeo?.lng === "number"
+      ? "gps"
+      : ipStatus.status === "resolved"
+        ? "ip"
+        : "none";
 
   useEffect(() => {
     try {
@@ -649,7 +655,12 @@ async function requestNonStreamAnswer(input: {
 
   if (!isOpen) {
     return (
-      <div className={styles.aiDock} data-testid="new-map-ai-dock">
+      <div
+        className={styles.aiDock}
+        data-testid="new-map-ai-dock"
+        data-location-source={locationSource}
+        data-gps-status={geoStatus.status}
+      >
         <button
           type="button"
           className={styles.aiCollapsedButton}
@@ -664,7 +675,12 @@ async function requestNonStreamAnswer(input: {
   }
 
   return (
-    <div className={styles.aiDock} data-testid="new-map-ai-dock">
+    <div
+      className={styles.aiDock}
+      data-testid="new-map-ai-dock"
+      data-location-source={locationSource}
+      data-gps-status={geoStatus.status}
+    >
       {messages.length > 0 ? (
         <div ref={answerCardRef} className={styles.aiAnswerCard} data-testid="new-map-ai-answer">
           <div className={styles.aiAnswerHeader}>

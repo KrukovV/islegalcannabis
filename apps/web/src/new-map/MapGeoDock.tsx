@@ -97,7 +97,7 @@ export default function MapGeoDock({
   return (
     <AIBar
       activeGeo={
-        activeGeo?.iso2
+        activeGeo
           ? {
               country: activeGeo.country,
               iso2: activeGeo.iso2,

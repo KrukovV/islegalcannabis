@@ -75,6 +75,7 @@ export function attachHoverController(map: MapLibreMap, options: HoverController
     hoveredSource = nextSource;
     debug.hoveredId = hoveredId;
     debug.hoverSwitchCount += 1;
+    map.getCanvas().style.cursor = hoveredId ? "pointer" : "";
     options.onHoverChange?.(hoveredId);
     if (hoveredId) {
       map.setFeatureState({ source: hoveredSource, id: hoveredId }, { hover: true });

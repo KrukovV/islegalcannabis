@@ -94,6 +94,42 @@ function persistGeo(next: CurrentGeo) {
   }
 }
 
+function readPosition(options: PositionOptions) {
+  return new Promise<GeolocationPosition>((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(resolve, reject, options);
+  });
+}
+
+async function acquireBrowserPosition() {
+  try {
+    return await readPosition({
+      enableHighAccuracy: false,
+      timeout: 15_000,
+      maximumAge: 60_000
+    });
+  } catch (firstError) {
+    try {
+      return await readPosition({
+        enableHighAccuracy: true,
+        timeout: 25_000,
+        maximumAge: 0
+      });
+    } catch (secondError) {
+      throw secondError || firstError;
+    }
+  }
+}
+
+function logGeoFailure(error: unknown) {
+  if (typeof window === "undefined") return;
+  const payload = error && typeof error === "object"
+    ? error as { code?: unknown; message?: unknown }
+    : {};
+  window.console.warn(
+    `[new-map-geo] GPS_FAILED code=${String(payload.code ?? "unknown")} message=${String(payload.message ?? "unknown").replace(/\s+/g, " ").slice(0, 160)}`
+  );
+}
+
 export function useGeoStatus() {
   const [geoStatus, setGeoStatus] = useState<GeoStatus>({ status: "unknown" });
   const [currentGeo, setCurrentGeo] = useState<CurrentGeo>(null);
@@ -169,57 +205,63 @@ export function useGeoStatus() {
     }
 
     setGeoStatus({ status: "resolving" });
-    navigator.geolocation.getCurrentPosition(
-      async (position) => {
-        const lat = position.coords.latitude;
-        const lng = position.coords.longitude;
+    try {
+      const position = await acquireBrowserPosition();
+      const lat = position.coords.latitude;
+      const lng = position.coords.longitude;
+      setGeo((prev) => ({
+        iso2: isSameGpsPoint(prev, lat, lng) ? prev?.iso2 : undefined,
+        lat,
+        lng,
+        source: "gps"
+      }));
+      setGeoStatus({ status: "resolved" });
+      setIpStatus({
+        status: "resolved",
+        country: "Current position",
+        iso2: "",
+        message: "GPS: current position"
+      });
+      try {
+        const response = await fetch("/api/geo/resolve", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json"
+          },
+          body: JSON.stringify({
+            lat,
+            lon: lng,
+            accuracy: position.coords.accuracy,
+            permission: "granted"
+          })
+        });
+        const payload = (await response.json()) as { data?: ReverseGeoPayload } | ReverseGeoPayload;
+        if (!response.ok) {
+          return;
+        }
+        const iso = String(unwrapIsoPayload(payload) || "").trim().toUpperCase();
+        if (!iso) {
+          return;
+        }
         setGeo((prev) => ({
-          iso2: isSameGpsPoint(prev, lat, lng) ? prev?.iso2 : undefined,
-          lat,
-          lng,
+          iso2: iso,
+          lat: prev?.lat ?? lat,
+          lng: prev?.lng ?? lng,
           source: "gps"
         }));
-        setGeoStatus({ status: "resolved" });
-        try {
-          const response = await fetch("/api/geo/resolve", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json"
-            },
-            body: JSON.stringify({
-              lat,
-              lon: lng,
-              accuracy: position.coords.accuracy,
-              permission: "granted"
-            })
-          });
-          const payload = (await response.json()) as { data?: ReverseGeoPayload } | ReverseGeoPayload;
-          if (!response.ok) {
-            return;
-          }
-          const iso = String(unwrapIsoPayload(payload) || "").trim().toUpperCase();
-          if (!iso) {
-            return;
-          }
-          setGeo((prev) => ({
-            iso2: iso,
-            lat: prev?.lat ?? lat,
-            lng: prev?.lng ?? lng,
-            source: "gps"
-          }));
-        } catch {
-          // Keep the GPS location owner and marker even if reverse-geocode fails.
-        }
-      },
-      () => {
-        setGeoStatus({ status: "unknown" });
-      },
-      {
-        enableHighAccuracy: true,
-        timeout: 10_000,
-        maximumAge: 0
+        setIpStatus({
+          status: "resolved",
+          country: iso,
+          iso2: iso,
+          message: `GPS: ${iso}`
+        });
+      } catch {
+        // Keep the GPS owner and marker even if reverse-geocode fails.
       }
-    );
+    } catch (error) {
+      logGeoFailure(error);
+      setGeoStatus({ status: "unknown" });
+    }
   }, [setGeo]);
 
   return { geoStatus, retry: requestGeo, currentGeo, refreshIpGeo, ipStatus, geoReady };

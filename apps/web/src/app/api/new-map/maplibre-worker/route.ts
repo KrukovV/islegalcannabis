@@ -29,8 +29,12 @@ async function readFirstExistingWorkerSource() {
   throw new Error("MAPLIBRE_WORKER_NOT_FOUND");
 }
 
+function stripSourceMapHint(source: string) {
+  return source.replace(/\n?\/\/# sourceMappingURL=maplibre-gl-csp-worker\.js\.map\s*$/u, "\n");
+}
+
 export async function GET() {
-  const workerSource = await readWorkerSource();
+  const workerSource = stripSourceMapHint(await readWorkerSource());
   return new Response(workerSource, {
     headers: {
       "Cache-Control": WORKER_CACHE,
