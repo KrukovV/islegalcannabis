@@ -283,46 +283,61 @@ async function main() {
   const options = parseArgs(process.argv.slice(2));
   await fs.mkdir(options.outDir, { recursive: true });
 
-  if (options.runProbe) {
+  const maxAttempts = options.runProbe
+    ? Math.max(1, Number(process.env.PROD_LIVE_GATE_ATTEMPTS || 2))
+    : 1;
+  const retryDelayMs = Number(process.env.PROD_LIVE_GATE_RETRY_DELAY_MS || 45000);
+  let payload;
+
+  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    if (options.runProbe) {
     const probe = await runLiveProbe(options.outDir);
     if (probe.rc !== 0) {
-      const payload = {
+      payload = {
         generated_at: new Date().toISOString(),
         ok: false,
         reason: probe.reason || `RC_${probe.rc}`,
         failures: [probe.reason || `RC_${probe.rc}`],
         report: rel(path.join(options.outDir, "latest.json")),
         source_report: rel(options.reportPath),
+        attempts: attempt,
         methods: []
       };
       await fs.writeFile(path.join(options.outDir, "latest.json"), JSON.stringify(payload, null, 2) + "\n", "utf8");
       printEvaluation({ payload, baselinePath: options.baselinePath });
       process.exit(probe.rc || 1);
     }
-  }
+    }
 
-  const report = await readJson(options.reportPath);
-  const baseline = await readJson(options.baselinePath);
-  const evaluation = await evaluateProdLiveReport({ report, baseline, root: repoRoot });
-  const payload = {
-    generated_at: new Date().toISOString(),
-    run_id: process.env.RUN_ID || null,
-    ok: evaluation.ok,
-    failures: evaluation.failures,
-    target_url: report.target_url || baseline.target_url || "",
-    browser: report.browser || "",
-    source_report: rel(options.reportPath),
-    baseline: rel(options.baselinePath),
-    report: rel(path.join(options.outDir, "latest.json")),
-    methods: evaluation.methods
-  };
+    const report = await readJson(options.reportPath);
+    const baseline = await readJson(options.baselinePath);
+    const evaluation = await evaluateProdLiveReport({ report, baseline, root: repoRoot });
+    payload = {
+      generated_at: new Date().toISOString(),
+      run_id: process.env.RUN_ID || null,
+      ok: evaluation.ok,
+      failures: evaluation.failures,
+      attempts: attempt,
+      target_url: report.target_url || baseline.target_url || "",
+      browser: report.browser || "",
+      source_report: rel(options.reportPath),
+      baseline: rel(options.baselinePath),
+      report: rel(path.join(options.outDir, "latest.json")),
+      methods: evaluation.methods
+    };
+
+    const accessBlocked = payload.failures.some((failure) => /ACCESS_BLOCK|SEED_STATUS_HIGH:403/.test(failure));
+    if (payload.ok || !accessBlocked || attempt >= maxAttempts) break;
+    await fs.writeFile(path.join(options.outDir, `attempt-${attempt}.json`), JSON.stringify(payload, null, 2) + "\n", "utf8");
+    await new Promise((resolve) => setTimeout(resolve, retryDelayMs * attempt));
+  }
 
   if (options.writeLatest) {
     await fs.writeFile(path.join(options.outDir, "latest.json"), JSON.stringify(payload, null, 2) + "\n", "utf8");
   }
 
   printEvaluation({ payload, baselinePath: options.baselinePath });
-  process.exit(evaluation.ok ? 0 : 1);
+  process.exit(payload.ok ? 0 : 1);
 }
 
 if (process.argv[1] && fsSync.realpathSync(process.argv[1]) === fsSync.realpathSync(scriptPath)) {

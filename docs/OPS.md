@@ -152,14 +152,15 @@ launchctl load ~/Library/LaunchAgents/com.islegalcannabis.wiki-claims.plist
 export VERCEL_AUTOMATION_BYPASS_SECRET="<secret from Vercel Deployment Protection>"
 ```
 
-### Method 1: global Playwright HTTP header
+### Method 1: global Playwright HTTP headers
 
-Run the support-provided global-header method first. This intentionally attaches the protection bypass header at the browser context level:
+Run the support-provided global-header method first. In live production checks this project sends both Vercel bypass headers at the browser context level; a protection-only header has produced intermittent `Vercel Security Checkpoint` failures in cold Playwright runs.
 
 ```ts
 const context = await browser.newContext({
   extraHTTPHeaders: {
     "x-vercel-protection-bypass": process.env.VERCEL_AUTOMATION_BYPASS_SECRET!,
+    "x-vercel-set-bypass-cookie": "samesitenone",
   },
 });
 
@@ -192,7 +193,7 @@ await page.goto("https://www.islegal.info/new-map", { waitUntil: "domcontentload
 
 ### Live prod access probe
 
-Use the live probe to run baseline, Method 1, and Method 2 in that order. It reads the secret only from `VERCEL_AUTOMATION_BYPASS_SECRET`, writes sanitized output to `Reports/vercel-bypass-live/last_run.json`, and screenshots each method without writing the token.
+Use the live probe to run Method 1 and Method 2 in that order. It reads the secret only from `VERCEL_AUTOMATION_BYPASS_SECRET`, writes sanitized output to `Reports/vercel-bypass-live/last_run.json`, and screenshots each method without writing the token. The no-bypass baseline is diagnostic only and runs only without a secret or when `VERCEL_BYPASS_INCLUDE_BASELINE=1`; it must not run before the required bypass methods in final gates.
 
 ```bash
 VERCEL_AUTOMATION_BYPASS_SECRET="$VERCEL_AUTOMATION_BYPASS_SECRET" \

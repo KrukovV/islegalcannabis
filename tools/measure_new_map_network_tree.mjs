@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { createRequire } from "node:module";
+import { buildVercelBypassHeaders } from "./vercel_bypass.mjs";
 
 const repoRoot = process.cwd();
 const require = createRequire(import.meta.url);
@@ -55,7 +56,7 @@ const browser = await playwright[browserName].launch({
 const context = await browser.newContext({
   viewport: { width: 1366, height: 768 },
   extraHTTPHeaders: vercelBypass
-    ? { "x-vercel-protection-bypass": vercelBypass }
+    ? buildVercelBypassHeaders(vercelBypass, "samesitenone")
     : undefined
 });
 

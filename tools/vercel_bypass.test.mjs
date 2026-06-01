@@ -82,6 +82,11 @@ test("live probe keeps the user-provided test order", () => {
 
   const method1Index = liveProbe.indexOf("method1_extra_http_headers");
   const method2Index = liveProbe.indexOf("method2_api_cookie_seed");
+  const methodOrderIndex = liveProbe.indexOf("method_order");
+  const baselineIndex = liveProbe.indexOf("baseline_no_bypass", methodOrderIndex);
   assert.ok(method1Index > 0, "method 1 must be present");
   assert.ok(method2Index > method1Index, "method 2 must run after method 1");
+  assert.ok(baselineIndex > method2Index, "baseline must stay diagnostic after bypass methods");
+  assert.match(liveProbe, /VERCEL_BYPASS_INCLUDE_BASELINE/);
+  assert.match(liveProbe, /extraHTTPHeaders: buildVercelBypassHeaders\(secret, "samesitenone"\)/);
 });

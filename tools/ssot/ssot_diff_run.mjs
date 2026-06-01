@@ -2,6 +2,7 @@
 import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
+import { execSync } from "node:child_process";
 
 const ROOT = process.cwd();
 const SNAPSHOT_DIR = path.join(ROOT, "data", "ssot_snapshots");
@@ -123,9 +124,25 @@ function pruneSnapshots() {
   const files = fs.existsSync(SNAPSHOT_DIR)
     ? fs.readdirSync(SNAPSHOT_DIR).filter((name) => /^snapshot_\d{4}_\d{2}_\d{2}_\d{2}\.json$/.test(name)).sort()
     : [];
-  const removable = files.slice(0, Math.max(0, files.length - KEEP_LAST));
+  const tracked = new Set(
+    execSync("git ls-files -- data/ssot_snapshots", {
+      cwd: ROOT,
+      encoding: "utf8"
+    })
+      .split(/\r?\n/)
+      .filter(Boolean)
+      .map((filePath) => path.basename(filePath))
+  );
+  const overflow = Math.max(0, files.length - KEEP_LAST);
+  const removable = files
+    .filter((name) => !tracked.has(name))
+    .slice(0, overflow);
   for (const name of removable) fs.unlinkSync(path.join(SNAPSHOT_DIR, name));
-  return files.length - removable.length;
+  const remaining = files.length - removable.length;
+  if (remaining > KEEP_LAST) {
+    throw new Error(`SSOT_SNAPSHOT_RETENTION_OVERFLOW=${remaining - KEEP_LAST}`);
+  }
+  return remaining;
 }
 
 function timestampName(nowIso) {

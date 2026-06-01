@@ -19,6 +19,7 @@ const secret = process.env.VERCEL_AUTOMATION_BYPASS_SECRET || "";
 const reportsDir = path.join(repoRoot, "Reports", "vercel-bypass-live");
 const browserName = process.env.VERCEL_BYPASS_BROWSER || "chromium";
 const appReadyTimeoutMs = Number(process.env.VERCEL_BYPASS_APP_READY_TIMEOUT_MS || 25000);
+const includeBaseline = process.env.VERCEL_BYPASS_INCLUDE_BASELINE === "1";
 
 function sanitize(value) {
   return redactVercelBypassSecret(value, secret);
@@ -145,9 +146,7 @@ async function runBaseline(browser) {
 
 async function runGlobalHeaders(browser) {
   const context = await browser.newContext({
-    extraHTTPHeaders: {
-      [VERCEL_BYPASS_HEADER]: secret
-    }
+    extraHTTPHeaders: buildVercelBypassHeaders(secret, "samesitenone")
   });
   const page = await context.newPage();
   const startedAt = Date.now();
@@ -156,7 +155,7 @@ async function runGlobalHeaders(browser) {
   await context.close();
   return {
     ...result,
-    request_header_names: [VERCEL_BYPASS_HEADER]
+    request_header_names: [VERCEL_BYPASS_HEADER, VERCEL_SET_BYPASS_COOKIE_HEADER]
   };
 }
 
@@ -200,12 +199,15 @@ const browser = await playwright[browserName].launch({
 const results = [];
 let missingSecret = false;
 try {
-  results.push(await runBaseline(browser));
   if (!secret) {
     missingSecret = true;
+    results.push(await runBaseline(browser));
   } else {
     results.push(await runGlobalHeaders(browser));
     results.push(await runApiCookieSeed(browser));
+    if (includeBaseline) {
+      results.push(await runBaseline(browser));
+    }
   }
 } finally {
   await browser.close();
@@ -217,9 +219,9 @@ const payload = {
   browser: browserName,
   missing_secret: missingSecret,
   method_order: [
-    "baseline_no_bypass",
     "method1_extra_http_headers",
-    "method2_api_cookie_seed"
+    "method2_api_cookie_seed",
+    "baseline_no_bypass"
   ],
   results
 };
