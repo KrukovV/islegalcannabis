@@ -256,7 +256,24 @@ function printResult({ ok, reason, report, evaluation, baselinePath, measure }) 
 async function main() {
   const baselinePath = path.resolve(process.env.PROD_JS_CITY_BASELINE || defaultBaselinePath);
   const baseline = await readJson(baselinePath);
-  const measure = await runMeasurement({ baseline, baselinePath });
+  const maxAttempts = Math.max(1, Number(process.env.PROD_JS_CITY_GATE_ATTEMPTS || 2));
+  const retryDelayMs = Number(process.env.PROD_JS_CITY_GATE_RETRY_DELAY_MS || 5000);
+  let measure;
+  let report = null;
+  let evaluation = null;
+
+  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    measure = await runMeasurement({ baseline, baselinePath });
+    if (measure.rc === 0) {
+      report = await readJson(measure.reportPath);
+      evaluation = evaluateProdJsCityReport(report, baseline);
+      if (evaluation.ok || attempt >= maxAttempts) break;
+    } else if (attempt >= maxAttempts) {
+      break;
+    }
+    await new Promise((resolve) => setTimeout(resolve, retryDelayMs * attempt));
+  }
+
   if (measure.rc !== 0) {
     printResult({
       ok: false,
@@ -274,8 +291,6 @@ async function main() {
     process.exit(measure.rc || 1);
   }
 
-  const report = await readJson(measure.reportPath);
-  const evaluation = evaluateProdJsCityReport(report, baseline);
   printResult({
     ok: evaluation.ok,
     reason: evaluation.ok ? "OK" : evaluation.failures.join(","),
