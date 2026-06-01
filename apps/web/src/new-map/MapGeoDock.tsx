@@ -52,6 +52,7 @@ export default function MapGeoDock({
     clearSelectedGeo();
     if (currentGeo?.source === "gps" && currentGeoView) {
       applyGeoToMap(currentGeoView, { recenter: true });
+      return;
     }
     retry();
   }, [applyGeoToMap, clearSelectedGeo, currentGeo?.source, currentGeoView, retry]);
@@ -97,7 +98,7 @@ export default function MapGeoDock({
   return (
     <AIBar
       activeGeo={
-        activeGeo?.iso2
+        activeGeo
           ? {
               country: activeGeo.country,
               iso2: activeGeo.iso2,

@@ -95,17 +95,51 @@ test("new-map GPS click places marker, persists location, and recenters on repea
   await waitForGpsCenter(page);
 });
 
-test("new-map GPS click refreshes stale saved GPS instead of only recentering it", async ({ page, context }) => {
-  await context.setGeolocation(GPS_POINT);
-  await context.grantPermissions(["geolocation"]);
-  await page.addInitScript(() => {
-    window.localStorage.setItem("geo", JSON.stringify({
-      lat: 48.8566,
-      lng: 2.3522,
-      source: "gps",
-      iso2: "FR"
-    }));
-  });
+test("new-map GPS first click retries precise browser position after cached failure", async ({ page, context }) => {
+  await context.addInitScript((point) => {
+    window.localStorage.clear();
+    const calls: Array<{ enableHighAccuracy?: boolean; timeout?: number; maximumAge?: number }> = [];
+    const host = window as typeof window & {
+      __GPS_TEST_CALLS__?: typeof calls;
+    };
+    Object.defineProperty(window.navigator, "geolocation", {
+      configurable: true,
+      value: {
+        getCurrentPosition(
+          success: PositionCallback,
+          error: PositionErrorCallback,
+          options?: PositionOptions
+        ) {
+          calls.push({
+            enableHighAccuracy: options?.enableHighAccuracy,
+            timeout: options?.timeout,
+            maximumAge: options?.maximumAge
+          });
+          if (calls.length === 1) {
+            error({ code: 3, message: "cached_timeout", PERMISSION_DENIED: 1, POSITION_UNAVAILABLE: 2, TIMEOUT: 3 });
+            return;
+          }
+          success({
+            coords: {
+              latitude: point.latitude,
+              longitude: point.longitude,
+              accuracy: 12,
+              altitude: null,
+              altitudeAccuracy: null,
+              heading: null,
+              speed: null
+            },
+            timestamp: Date.now()
+          });
+        },
+        watchPosition() {
+          return 1;
+        },
+        clearWatch() {}
+      }
+    });
+    host.__GPS_TEST_CALLS__ = calls;
+  }, GPS_POINT);
   await page.route("**/api/geo/resolve", async (route) => {
     await route.fulfill({
       status: 200,
@@ -125,11 +159,71 @@ test("new-map GPS click refreshes stale saved GPS instead of only recentering it
 
   await page.goto("/new-map", { waitUntil: "domcontentloaded" });
   await waitForMapReady(page);
-  await page.waitForFunction(() => document.querySelector('[data-user-marker="1"]')?.getAttribute("data-user-marker-position") === "2.3522,48.8566", { timeout: 5000 });
 
   await page.getByRole("button", { name: /GPS/i }).click();
   await page.waitForFunction(() => document.querySelector('[data-user-marker="1"]')?.getAttribute("data-user-marker-position") === "14.4378,50.0755", { timeout: 10000 });
   await waitForGpsCenter(page);
+
+  const calls = await page.evaluate(() => {
+    const host = window as typeof window & {
+      __GPS_TEST_CALLS__?: Array<{ enableHighAccuracy?: boolean; timeout?: number; maximumAge?: number }>;
+    };
+    return host.__GPS_TEST_CALLS__;
+  });
+  expect(calls).toEqual([
+    { enableHighAccuracy: false, timeout: 15000, maximumAge: 60000 },
+    { enableHighAccuracy: true, timeout: 25000, maximumAge: 0 }
+  ]);
+});
+
+test("new-map repeat green GPS click only recenters the stored GPS point", async ({ page }) => {
+  await page.addInitScript(() => {
+    window.localStorage.setItem("geo", JSON.stringify({
+      lat: 50.0755,
+      lng: 14.4378,
+      source: "gps",
+      iso2: "CZ"
+    }));
+    Object.defineProperty(window.navigator, "geolocation", {
+      configurable: true,
+      value: {
+        getCurrentPosition() {
+          const host = window as typeof window & {
+            __GPS_TEST_REFRESH_ATTEMPTS__?: number;
+          };
+          host.__GPS_TEST_REFRESH_ATTEMPTS__ = (host.__GPS_TEST_REFRESH_ATTEMPTS__ || 0) + 1;
+        },
+        watchPosition() {
+          return 1;
+        },
+        clearWatch() {}
+      }
+    });
+    const host = window as typeof window & {
+      __GPS_TEST_REFRESH_ATTEMPTS__?: number;
+    };
+    host.__GPS_TEST_REFRESH_ATTEMPTS__ = 0;
+  });
+
+  await page.goto("/new-map", { waitUntil: "domcontentloaded" });
+  await waitForMapReady(page);
+  await page.waitForFunction(() => document.querySelector('[data-user-marker="1"]')?.getAttribute("data-user-marker-position") === "14.4378,50.0755", { timeout: 5000 });
+
+  await page.evaluate(() => {
+    window.__NEW_MAP_DEBUG__?.map?.jumpTo({ center: [-80, 30], zoom: 2.1 });
+  });
+  await page.getByRole("button", { name: /GPS/i }).click();
+  await waitForGpsCenter(page);
+
+  const refreshAttempts = await page.evaluate(() => {
+    const host = window as typeof window & {
+      __GPS_TEST_REFRESH_ATTEMPTS__?: number;
+    };
+    return host.__GPS_TEST_REFRESH_ATTEMPTS__;
+  });
+  expect(refreshAttempts).toBe(0);
+  const dockSource = await page.locator('[data-testid="new-map-ai-dock"]').getAttribute("data-location-source");
+  expect(dockSource).toBe("gps");
 
   const storedAfterRefresh = await page.evaluate(() => JSON.parse(window.localStorage.getItem("geo") || "null"));
   expect(storedAfterRefresh).toMatchObject({

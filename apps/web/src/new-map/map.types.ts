@@ -80,7 +80,6 @@ export type NewMapBootResult = {
   map: import("maplibre-gl").Map;
   ready: Promise<void>;
   setData: (_countries: LegalCountryCollection) => void;
-  setStyle: (_style: import("maplibre-gl").StyleSpecification) => void;
   loadUsStates: () => void;
   destroy: () => void;
 };

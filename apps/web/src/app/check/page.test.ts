@@ -20,7 +20,7 @@ describe("/check query mode", () => {
     expect(html).toContain('data-testid="verify-links"');
     expect(html).toContain('data-testid="verify-sources"');
     expect(html).toContain('data-testid="verify-facts"');
-    expect(html).toContain("medical");
+    expect(html).toContain("Medical");
     expect(html).toContain('data-testid="legal-status"');
     expect(html).toContain("Wikipedia: Legality of cannabis");
   });

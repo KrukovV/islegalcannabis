@@ -3,10 +3,20 @@ import { NEW_MAP_WATER_COLOR } from "@/new-map/mapPalette";
 const UPSTREAM_STYLE_URL = "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json";
 const SUBTLE_BOUNDARY = "rgba(198, 208, 215, 0.18)";
 const STATIC_MAP_CACHE = "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800";
+const SAME_ORIGIN_GLYPHS_PATH = "/api/new-map/basemap-glyph/{fontstack}/{range}.pbf";
+const SAME_ORIGIN_SPRITE_PATH = "/api/new-map/basemap-sprite/sprite";
 
 export const revalidate = 86400;
+export const dynamic = "force-dynamic";
 
-export async function GET() {
+function requestOrigin(request: Request) {
+  const fallback = new URL(request.url);
+  const host = request.headers.get("x-forwarded-host") || request.headers.get("host") || fallback.host;
+  const protocol = request.headers.get("x-forwarded-proto") || fallback.protocol.replace(/:$/u, "");
+  return `${protocol}://${host}`;
+}
+
+export async function GET(request: Request) {
   const response = await fetch(UPSTREAM_STYLE_URL, {
     headers: {
       accept: "application/json"
@@ -72,10 +82,17 @@ export async function GET() {
       url: "/api/new-map/basemap-source"
     };
   }
+  if (style && typeof style === "object") {
+    const origin = requestOrigin(request);
+    style.glyphs = `${origin}${SAME_ORIGIN_GLYPHS_PATH}`;
+    style.sprite = `${origin}${SAME_ORIGIN_SPRITE_PATH}`;
+  }
 
   return Response.json(style, {
     headers: {
-      "Cache-Control": STATIC_MAP_CACHE
+      "Access-Control-Allow-Origin": "*",
+      "Cache-Control": STATIC_MAP_CACHE,
+      "Vary": "Host"
     }
   });
 }

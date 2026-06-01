@@ -21,7 +21,8 @@ async function readFirstExistingWorkerSource() {
   ];
   for (const candidate of candidates) {
     try {
-      return await readFile(candidate, "utf8");
+      const source = await readFile(candidate, "utf8");
+      return source.replace(/\n?\/\/# sourceMappingURL=.*?\.map\s*$/u, "\n");
     } catch {
       continue;
     }
@@ -33,6 +34,7 @@ export async function GET() {
   const workerSource = await readWorkerSource();
   return new Response(workerSource, {
     headers: {
+      "Access-Control-Allow-Origin": "*",
       "Cache-Control": WORKER_CACHE,
       "Content-Type": "application/javascript; charset=utf-8"
     }

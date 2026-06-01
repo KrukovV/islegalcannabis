@@ -1,7 +1,6 @@
 import maplibregl, { type StyleSpecification } from "maplibre-gl";
 import type { LegalCountryCollection, NewMapBootResult } from "./map.types";
 import { emitFirstVisualReady, markNewMapTrace } from "./startupTrace";
-import { NEW_MAP_WATER_COLOR } from "./mapPalette";
 export const NEW_MAP_ADMIN_SOURCE_ID = "admin-boundaries";
 export const NEW_MAP_ADMIN_LAYER_ID = "admin-boundary-line";
 
@@ -12,7 +11,7 @@ export const NEW_MAP_US_STATES_FILL_LAYER_ID = "us-states-fill";
 export const NEW_MAP_US_STATES_LINE_LAYER_ID = "us-states-line";
 const NEW_MAP_SUPPLEMENTAL_SEA_SOURCE_ID = "new-map-supplemental-seas";
 const NEW_MAP_SUPPLEMENTAL_SEA_LAYER_ID = "new-map-supplemental-seas";
-const BASEMAP_STYLE_URL = "/api/new-map/basemap-style?v=20260331-host-header-same-origin";
+const BASEMAP_STYLE_URL = "/api/new-map/basemap-style?v=20260601-glyph-sprite-origin-2";
 const MAPLIBRE_WORKER_URL = "/api/new-map/maplibre-worker?v=5.21.1";
 
 const DEFAULT_CENTER: [number, number] = [25, 50];
@@ -35,22 +34,7 @@ let workerUrlConfigured = false;
 type SelectedGeoCallback = (_geo: { iso2: string; country: string; lng: number; lat: number } | null) => void;
 type CreateMapOptions = {
   style?: StyleSpecification | string | null;
-  stylePromise?: Promise<StyleSpecification>;
   onSelectGeo?: (_geo: string | null) => void;
-};
-
-const EMPTY_STYLE: StyleSpecification = {
-  version: 8,
-  sources: {},
-  layers: [
-    {
-      id: "background",
-      type: "background",
-      paint: {
-        "background-color": NEW_MAP_WATER_COLOR
-      }
-    }
-  ]
 };
 
 function getCountryFeatureAtPoint(map: maplibregl.Map, point: { x: number; y: number }) {
@@ -373,7 +357,6 @@ export function createMap(
   let countries: LegalCountryCollection = { type: "FeatureCollection", features: [] };
   let mapLoaded = false;
   let bootstrapped = false;
-  let styleApplied = !options?.stylePromise;
   let readyResolved = false;
   let cursorHandlersBound = false;
   let destroyed = false;
@@ -395,7 +378,7 @@ export function createMap(
   markNewMapTrace("NM_T2_MAP_CONSTRUCTOR_START");
   const map = new maplibregl.Map({
     container,
-    style: styleApplied ? (options?.style || BASEMAP_STYLE_URL) : EMPTY_STYLE,
+    style: options?.style || BASEMAP_STYLE_URL,
     center: DEFAULT_CENTER,
     zoom: DEFAULT_ZOOM,
     bearing: 0,
@@ -698,7 +681,6 @@ export function createMap(
   });
 
   const onStyleReady = () => {
-    if (!styleApplied) return;
     if (bootstrapped) return;
     bootstrapped = true;
     map.jumpTo(FLAT_CAMERA);
@@ -715,27 +697,11 @@ export function createMap(
   };
 
   map.on("style.load", onStyleReady);
-  if (styleApplied && (map.loaded() || map.isStyleLoaded())) {
+  if (map.loaded() || map.isStyleLoaded()) {
     queueMicrotask(onStyleReady);
   }
   map.on("moveend", ensureFlatCamera);
   map.on("zoomend", loadUsStatesWhenZoomed);
-
-  if (options?.stylePromise) {
-    void options.stylePromise
-      .then((style) => {
-        if (destroyed) return;
-        styleApplied = true;
-        bootstrapped = false;
-        map.setStyle(style);
-      })
-      .catch(() => {
-        if (destroyed) return;
-        styleApplied = true;
-        bootstrapped = false;
-        map.setStyle(BASEMAP_STYLE_URL);
-      });
-  }
 
   return {
     map,
@@ -743,11 +709,6 @@ export function createMap(
     setData: (nextCountries) => {
       countries = nextCountries;
       applyData();
-    },
-    setStyle: (nextStyle) => {
-      styleApplied = true;
-      bootstrapped = false;
-      map.setStyle(nextStyle);
     },
     loadUsStates,
     destroy: () => {

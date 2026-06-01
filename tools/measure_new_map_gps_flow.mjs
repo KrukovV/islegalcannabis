@@ -14,7 +14,7 @@ const label = process.env.NEW_MAP_GPS_LABEL || "prod-gps";
 const outDir = process.env.NEW_MAP_GPS_OUT_DIR
   ? path.resolve(process.env.NEW_MAP_GPS_OUT_DIR)
   : path.join(repoRoot, "Reports", "new-map-gps");
-const browserName = process.env.NEW_MAP_GPS_BROWSER || "chromium";
+const browserName = process.env.NEW_MAP_GPS_BROWSER || "webkit";
 const secret = process.env.VERCEL_AUTOMATION_BYPASS_SECRET || "";
 const latitude = Number(process.env.NEW_MAP_GPS_LAT || 50.0755);
 const longitude = Number(process.env.NEW_MAP_GPS_LNG || 14.4378);
@@ -29,7 +29,7 @@ const maxCenterDistance = Number(process.env.NEW_MAP_GPS_MAX_CENTER_DISTANCE || 
 const minCityLabels = Number(process.env.NEW_MAP_GPS_MIN_CITY_LABELS || 3);
 const minZoomOutCountries = Number(process.env.NEW_MAP_GPS_MIN_ZOOM_OUT_COUNTRIES || 100);
 const maxConsoleErrors = Number(process.env.NEW_MAP_GPS_MAX_CONSOLE_ERRORS || 1);
-const staleGpsSeedEnabled = process.env.NEW_MAP_GPS_SEED_STALE === "1" || gateMode;
+const staleGpsSeedEnabled = process.env.NEW_MAP_GPS_SEED_STALE === "1";
 const staleGpsSeed = {
   lat: Number(process.env.NEW_MAP_GPS_STALE_LAT || 48.8566),
   lng: Number(process.env.NEW_MAP_GPS_STALE_LNG || 2.3522),
@@ -62,6 +62,19 @@ function pushIf(failures, condition, reason) {
   if (!condition) failures.push(reason);
 }
 
+function isSourceMapError(item) {
+  return item.status === 404 && /\.map(?:[?#]|$)/i.test(item.url || "");
+}
+
+function isMapResourceError(item) {
+  if (!item) return false;
+  const status = Number(item.status || 0);
+  if (status < 400 && !(status === 0 && item.phase === "requestfailed" && item.failure !== "cancelled")) return false;
+  const target = String(item.url || "");
+  if (/\/api\/ai-assistant\/query/i.test(target)) return false;
+  return /\/api\/new-map\/|tiles(?:-[a-d])?\.basemaps\.cartocdn\.com|basemaps\.cartocdn\.com|maplibre|\.mvt(?:[?#]|$)|\.pbf(?:[?#]|$)|sprite(?:@2x)?\.(?:json|png)(?:[?#]|$)/i.test(target);
+}
+
 async function waitFor(page, fn, timeout = timeoutMs) {
   return page.waitForFunction(fn, undefined, { timeout });
 }
@@ -90,6 +103,17 @@ async function getMapState(page) {
           return null;
         }
       })()
+    };
+  });
+}
+
+async function getDockState(page) {
+  return page.evaluate(() => {
+    const dock = document.querySelector('[data-testid="new-map-ai-dock"]');
+    return {
+      locationSource: dock?.getAttribute("data-location-source") || null,
+      gpsStatus: dock?.getAttribute("data-gps-status") || null,
+      hint: document.querySelector('[data-testid="new-map-ai-geo-hint"]')?.textContent?.trim() || null
     };
   });
 }
@@ -141,15 +165,31 @@ async function countRenderedCountries(page) {
   });
 }
 
-async function waitForLabels(page, pattern, minLabels, timeout = 15000) {
+async function measureLabels(page, pattern, minLabels, timeout = 15000, settleMs = 3500) {
   const startedAt = Date.now();
-  let lastCount = await countLabels(page, pattern);
+  let firstMs = null;
+  let maxCount = await countLabels(page, pattern);
+  let finalCount = maxCount;
   while (Date.now() - startedAt < timeout) {
-    if (lastCount >= minLabels) return lastCount;
+    finalCount = await countLabels(page, pattern);
+    maxCount = Math.max(maxCount, finalCount);
+    if (firstMs === null && finalCount >= minLabels) {
+      firstMs = Date.now() - startedAt;
+      const settleUntil = Date.now() + settleMs;
+      while (Date.now() < settleUntil) {
+        await page.waitForTimeout(250);
+        finalCount = await countLabels(page, pattern);
+        maxCount = Math.max(maxCount, finalCount);
+      }
+      break;
+    }
     await page.waitForTimeout(250);
-    lastCount = await countLabels(page, pattern);
   }
-  return lastCount;
+  return {
+    first_ms: firstMs,
+    final_count: finalCount,
+    max_count: maxCount
+  };
 }
 
 async function findCountryFeaturePoint(page, iso) {
@@ -211,12 +251,35 @@ async function run() {
     }, staleGpsSeed);
   }
   const consoleErrors = [];
+  const consoleWarnings = [];
   const pageErrors = [];
+  const resourceErrors = [];
   const requests = [];
   page.on("console", (msg) => {
-    if (msg.type() === "error") consoleErrors.push(msg.text().slice(0, 240));
+    const text = msg.text().slice(0, 240);
+    if (msg.type() === "error") consoleErrors.push(text);
+    if (msg.type() === "warning") consoleWarnings.push(text);
   });
   page.on("pageerror", (error) => pageErrors.push(compactError(error)));
+  page.on("requestfailed", (request) => {
+    resourceErrors.push({
+      phase: "requestfailed",
+      url: sanitize(request.url()),
+      status: 0,
+      resourceType: request.resourceType(),
+      failure: request.failure()?.errorText || ""
+    });
+  });
+  page.on("response", (response) => {
+    if (response.status() < 400) return;
+    const request = response.request();
+    resourceErrors.push({
+      phase: "response",
+      url: sanitize(response.url()),
+      status: response.status(),
+      resourceType: request.resourceType()
+    });
+  });
   page.on("requestfinished", async (request) => {
     const response = await request.response().catch(() => null);
     requests.push({
@@ -267,6 +330,7 @@ async function run() {
     }, 20000);
     mark("gps_center_ms");
     marks.after_gps = await getMapState(page);
+    marks.after_gps_ui = await getDockState(page);
     marks.after_gps_screenshot = await screenshot(page, "after-gps");
 
     await page.evaluate(() => {
@@ -284,6 +348,7 @@ async function run() {
     }, 20000);
     mark("gps_recenter_ms");
     marks.after_recenter = await getMapState(page);
+    marks.after_recenter_ui = await getDockState(page);
     marks.after_recenter_screenshot = await screenshot(page, "after-recenter");
 
     await page.reload({ waitUntil: "domcontentloaded", timeout: timeoutMs });
@@ -319,11 +384,13 @@ async function run() {
       const map = window.__NEW_MAP_DEBUG__?.map;
       map?.jumpTo?.({ center: [14.4378, 50.0755], zoom: 8.2 });
     });
-    const zoomInCityLabels = await waitForLabels(page, "place_city|place_town|place_villages|place_hamlet|place_suburbs?", 3);
+    const zoomInCityLabels = await measureLabels(page, "place_city|place_town|place_villages|place_hamlet|place_suburbs?", 3);
     marks.zoom_in = {
       state: await getMapState(page),
       country_labels: await countLabels(page, "country|admin_0|place_country"),
-      city_labels: zoomInCityLabels,
+      city_labels: zoomInCityLabels.max_count,
+      city_label_final_count: zoomInCityLabels.final_count,
+      city_label_first_ms: zoomInCityLabels.first_ms,
       rendered_countries: await countRenderedCountries(page),
       screenshot: await screenshot(page, "zoom-in")
     };
@@ -332,10 +399,12 @@ async function run() {
       const map = window.__NEW_MAP_DEBUG__?.map;
       map?.jumpTo?.({ center: [10, 30], zoom: 1.7 });
     });
-    const zoomOutCountryLabels = await waitForLabels(page, "country|admin_0|place_country", 2, 8000);
+    const zoomOutCountryLabels = await measureLabels(page, "country|admin_0|place_country", 2, 8000, 1500);
     marks.zoom_out = {
       state: await getMapState(page),
-      country_labels: zoomOutCountryLabels,
+      country_labels: zoomOutCountryLabels.max_count,
+      country_label_final_count: zoomOutCountryLabels.final_count,
+      country_label_first_ms: zoomOutCountryLabels.first_ms,
       city_labels: await countLabels(page, "place_city|place_town|place_villages|place_hamlet|place_suburbs?"),
       rendered_countries: await countRenderedCountries(page),
       screenshot: await screenshot(page, "zoom-out")
@@ -358,7 +427,9 @@ async function run() {
     gps_recenter_distance_deg: distanceDegrees(marks.after_recenter),
     persisted_center_distance_deg: distanceDegrees(marks.after_reload),
     zoom_in_city_labels: marks.zoom_in?.city_labels ?? null,
+    zoom_in_city_label_first_ms: marks.zoom_in?.city_label_first_ms ?? null,
     zoom_out_city_labels: marks.zoom_out?.city_labels ?? null,
+    zoom_out_country_label_first_ms: marks.zoom_out?.country_label_first_ms ?? null,
     zoom_out_rendered_countries: marks.zoom_out?.rendered_countries ?? null,
     stale_saved_gps_loaded: staleGpsSeedEnabled
       ? (markerMatches(marks.initial, staleGpsSeed.lng, staleGpsSeed.lat) ? 1 : 0)
@@ -367,6 +438,12 @@ async function run() {
       ? (markerMatches(marks.after_gps, longitude, latitude) && marks.after_gps?.storage?.iso2 !== staleGpsSeed.iso2 ? 1 : 0)
       : null,
     console_errors: consoleErrors.length,
+    console_warnings: consoleWarnings.length,
+    style_diff_warnings: consoleWarnings.filter((item) => /Style is not done loading|Unable to perform style diff/i.test(item)).length,
+    glyph_warnings: consoleWarnings.filter((item) => /Unable to load glyph range/i.test(item)).length,
+    resource_errors: resourceErrors.length,
+    map_resource_errors: resourceErrors.filter(isMapResourceError).length,
+    source_map_errors: resourceErrors.filter(isSourceMapError).length,
     page_errors: pageErrors.length
   };
   const gateFailures = [];
@@ -382,6 +459,7 @@ async function run() {
     pushIf(gateFailures, metric.persisted_center_distance_deg !== null && metric.persisted_center_distance_deg <= maxCenterDistance, "GPS_PERSIST_CENTER_OFF");
     pushIf(gateFailures, finalStorage?.source === "gps", "GPS_STORAGE_SOURCE_BAD");
     pushIf(gateFailures, finalStorage?.iso2 === "CZ", "GPS_STORAGE_ISO_BAD");
+    pushIf(gateFailures, marks.after_gps_ui?.locationSource === "gps", "GPS_UI_SOURCE_BAD");
     pushIf(gateFailures, marks.hover?.hoveredId === "FR" && marks.hover?.cursor === "pointer", "HOVER_BAD");
     pushIf(gateFailures, metric.zoom_in_city_labels !== null && metric.zoom_in_city_labels >= minCityLabels, "ZOOM_IN_CITY_LABELS_LOW");
     pushIf(gateFailures, metric.zoom_out_rendered_countries !== null && metric.zoom_out_rendered_countries >= minZoomOutCountries, "ZOOM_OUT_COUNTRIES_LOW");
@@ -390,6 +468,10 @@ async function run() {
       pushIf(gateFailures, metric.stale_saved_gps_refreshed === 1, "STALE_GPS_NOT_REFRESHED");
     }
     pushIf(gateFailures, metric.console_errors <= maxConsoleErrors, "CONSOLE_ERRORS");
+    pushIf(gateFailures, metric.style_diff_warnings === 0, "STYLE_DIFF_WARNINGS");
+    pushIf(gateFailures, metric.glyph_warnings === 0, "GLYPH_WARNINGS");
+    pushIf(gateFailures, metric.map_resource_errors === 0, "MAP_RESOURCE_ERRORS");
+    pushIf(gateFailures, metric.source_map_errors === 0, "SOURCE_MAP_ERRORS");
     pushIf(gateFailures, metric.page_errors === 0, "PAGE_ERRORS");
   }
 
@@ -426,6 +508,8 @@ async function run() {
     marks,
     requests: requests.slice(-120),
     console_errors: consoleErrors,
+    console_warnings: consoleWarnings,
+    resource_errors: resourceErrors,
     page_errors: pageErrors
   };
 
@@ -437,9 +521,15 @@ async function run() {
       gps_recenter_latency_ms: delta(metric.gps_recenter_latency_ms, before.metric?.gps_recenter_latency_ms),
       persisted_marker_latency_ms: delta(metric.persisted_marker_latency_ms, before.metric?.persisted_marker_latency_ms),
       zoom_in_city_labels: delta(metric.zoom_in_city_labels, before.metric?.zoom_in_city_labels),
+      zoom_in_city_label_first_ms: delta(metric.zoom_in_city_label_first_ms, before.metric?.zoom_in_city_label_first_ms),
       zoom_out_city_labels: delta(metric.zoom_out_city_labels, before.metric?.zoom_out_city_labels),
+      zoom_out_country_label_first_ms: delta(metric.zoom_out_country_label_first_ms, before.metric?.zoom_out_country_label_first_ms),
       zoom_out_rendered_countries: delta(metric.zoom_out_rendered_countries, before.metric?.zoom_out_rendered_countries),
       console_errors: delta(metric.console_errors, before.metric?.console_errors),
+      style_diff_warnings: delta(metric.style_diff_warnings, before.metric?.style_diff_warnings),
+      glyph_warnings: delta(metric.glyph_warnings, before.metric?.glyph_warnings),
+      map_resource_errors: delta(metric.map_resource_errors, before.metric?.map_resource_errors),
+      source_map_errors: delta(metric.source_map_errors, before.metric?.source_map_errors),
       page_errors: delta(metric.page_errors, before.metric?.page_errors)
     };
   }
@@ -465,13 +555,19 @@ async function run() {
         `persisted_center_distance=${metric.persisted_center_distance_deg ?? "NA"}`,
         `storage_iso=${finalStorage?.iso2 || "NA"}`,
         `storage_source=${finalStorage?.source || "NA"}`,
+        `gps_ui_source=${marks.after_gps_ui?.locationSource || "NA"}`,
         `hovered=${marks.hover?.hoveredId || "NA"}`,
         `hover_cursor=${marks.hover?.cursor || "NA"}`,
         `zoom_in_city_labels=${metric.zoom_in_city_labels ?? "NA"}`,
+        `zoom_in_city_label_first_ms=${metric.zoom_in_city_label_first_ms ?? "NA"}`,
         `zoom_out_rendered_countries=${metric.zoom_out_rendered_countries ?? "NA"}`,
         `stale_saved_gps_loaded=${metric.stale_saved_gps_loaded ?? "NA"}`,
         `stale_saved_gps_refreshed=${metric.stale_saved_gps_refreshed ?? "NA"}`,
         `console_errors=${metric.console_errors}`,
+        `style_diff_warnings=${metric.style_diff_warnings}`,
+        `glyph_warnings=${metric.glyph_warnings}`,
+        `map_resource_errors=${metric.map_resource_errors}`,
+        `source_map_errors=${metric.source_map_errors}`,
         `page_errors=${metric.page_errors}`
       ].join(" ")
     );
@@ -484,8 +580,13 @@ async function run() {
           `gps_recenter_ms=${payload.delta_vs_compare.gps_recenter_latency_ms ?? "NA"}`,
           `persisted_marker_ms=${payload.delta_vs_compare.persisted_marker_latency_ms ?? "NA"}`,
           `zoom_in_city_labels=${payload.delta_vs_compare.zoom_in_city_labels ?? "NA"}`,
+          `zoom_in_city_label_first_ms=${payload.delta_vs_compare.zoom_in_city_label_first_ms ?? "NA"}`,
           `zoom_out_rendered_countries=${payload.delta_vs_compare.zoom_out_rendered_countries ?? "NA"}`,
           `console_errors=${payload.delta_vs_compare.console_errors ?? "NA"}`,
+          `style_diff_warnings=${payload.delta_vs_compare.style_diff_warnings ?? "NA"}`,
+          `glyph_warnings=${payload.delta_vs_compare.glyph_warnings ?? "NA"}`,
+          `map_resource_errors=${payload.delta_vs_compare.map_resource_errors ?? "NA"}`,
+          `source_map_errors=${payload.delta_vs_compare.source_map_errors ?? "NA"}`,
           `page_errors=${payload.delta_vs_compare.page_errors ?? "NA"}`
         ].join(" ")
       );

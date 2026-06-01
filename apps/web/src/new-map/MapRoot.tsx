@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import maplibregl, { type StyleSpecification } from "maplibre-gl";
+import maplibregl from "maplibre-gl";
 import type { RuntimeIdentity } from "@/lib/runtimeIdentity";
 import type { CountryPageData } from "@/lib/countryPageStorage";
 import { deriveCountryCardEntryFromCountryPageData } from "@/lib/countryCardEntry";
@@ -65,7 +65,6 @@ type ActiveGeo = {
 } | null;
 
 type NewMapPrefetchCache = {
-  style?: Promise<StyleSpecification | null> | null;
   countries?: Promise<LegalCountryCollection | null> | null;
   cardIndex?: Promise<Record<string, CountryCardEntry> | null> | null;
 };
@@ -646,18 +645,10 @@ export default function MapRoot({
           fetchJsonWithRetry<LegalCountryCollection>(countriesUrl, {
             credentials: "same-origin"
           }, "countries_fetch_failed");
-        const loadStyle = () =>
-          fetchJsonWithRetry<StyleSpecification>("/api/new-map/basemap-style?v=20260331-host-header-same-origin", {
-            credentials: "same-origin"
-          }, "basemap_style_fetch_failed");
         const countriesPromise = prefetched?.countries
           ? prefetched.countries.then((value) => value || loadCountries())
           : loadCountries();
-        const stylePromise = prefetched?.style
-          ? prefetched.style.then((value) => value || loadStyle())
-          : loadStyle();
         const runtime = createMap(containerRef.current, {
-          stylePromise,
           onSelectGeo: (geo) => {
             setSelectedGeo(geo);
             setDebugState({ selectedId: geo });

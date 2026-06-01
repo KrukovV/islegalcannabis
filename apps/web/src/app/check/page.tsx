@@ -138,6 +138,19 @@ export default async function CheckPage({
     : 0;
   const verifyLinks = Array.isArray(json.verify_links) ? json.verify_links : [];
   const wikiLinks = Array.isArray(json.wiki_links) ? json.wiki_links : [];
+  const ssotChanged = Boolean(json.viewModel?.meta?.ssotChanged ?? json.meta?.ssotChanged);
+  const wikiClaimUrl =
+    typeof json.wiki_claim?.wiki_row_url === "string"
+      ? json.wiki_claim.wiki_row_url
+      : typeof entry.wikiPage === "string"
+        ? entry.wikiPage
+        : null;
+  const wikiVerifyLinks =
+    wikiLinks.length > 0
+      ? wikiLinks
+      : wikiClaimUrl
+        ? [{ title: "Wikipedia: Legality of cannabis", url: wikiClaimUrl }]
+        : [];
   const explain = explainSSOT({
     truthLevel,
     officialLinksCount: officialCount,
@@ -277,9 +290,14 @@ export default async function CheckPage({
                 ))}
               </ul>
             ) : null}
-            {wikiLinks.length > 0 ? (
+            {ssotChanged ? (
+              <div className={styles.metaLabel} data-testid="ssot-changed">
+                Sources changed recently — please verify.
+              </div>
+            ) : null}
+            {wikiVerifyLinks.length > 0 ? (
               <ul className={styles.sources} data-testid="verify-sources">
-                {wikiLinks.map((link: { title?: string; url?: string }) => (
+                {wikiVerifyLinks.map((link: { title?: string; url?: string }) => (
                   <li key={link.url ?? link.title}>
                     {link.url ? (
                       <a href={link.url} target="_blank" rel="noreferrer">

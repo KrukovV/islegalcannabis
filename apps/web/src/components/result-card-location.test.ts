@@ -23,8 +23,48 @@ const profile: JurisdictionLawProfile = {
   updated_at: "2024-01-01",
   verified_at: "2025-01-06",
   confidence: "medium",
-  status: "known"
+  status: "known",
+  legal_ssot: {
+    result_status: "LEGAL",
+    recreational: "legal",
+    medical: "legal",
+    distribution: "regulated",
+    penalties: {
+      prison: false,
+      arrest: false,
+      fine: false,
+      severity_score: 0
+    },
+    enforcement_level: "unenforced",
+    sources: [{ title: "Example", url: "https://example.com" }]
+  }
 };
+
+function withLegalSsot(
+  source: JurisdictionLawProfile,
+  resultStatus: NonNullable<JurisdictionLawProfile["legal_ssot"]>["result_status"]
+): JurisdictionLawProfile {
+  const recreational = resultStatus === "ILLEGAL" ? "illegal" : "legal";
+  const medical = resultStatus === "ILLEGAL" ? "illegal" : "legal";
+  return {
+    ...source,
+    legal_ssot: {
+      recreational,
+      medical,
+      distribution: resultStatus === "ILLEGAL" ? "illegal" : "regulated",
+      penalties: {
+        prison: resultStatus === "ILLEGAL",
+        arrest: false,
+        fine: resultStatus === "ILLEGAL",
+        severity_score: resultStatus === "ILLEGAL" ? 3 : 0
+      },
+      enforcement_level: resultStatus === "ILLEGAL" ? "active" : "unenforced",
+      sources: source.sources,
+      ...source.legal_ssot,
+      result_status: resultStatus
+    }
+  };
+}
 
 describe("ResultCard location rendering", () => {
   it("renders IP detected with approximate hint", () => {
@@ -74,8 +114,9 @@ describe("ResultCard location rendering", () => {
     const redProfile = getLawProfile({ country: "US", region: "TX" });
     expect(redProfile).not.toBeNull();
     if (!redProfile) return;
+    const ssotProfile = withLegalSsot(redProfile, "ILLEGAL");
     const viewModel = buildResultViewModel({
-      profile: redProfile,
+      profile: ssotProfile,
       title: "Texas",
       nearestLegal: {
         title: "Colorado, US",
@@ -86,7 +127,7 @@ describe("ResultCard location rendering", () => {
     });
     const html = renderToStaticMarkup(
       createElement(ResultCard, {
-        profile: redProfile,
+        profile: ssotProfile,
         title: "Texas",
         isPaidUser: false,
         viewModel
@@ -101,8 +142,9 @@ describe("ResultCard location rendering", () => {
     const redProfile = getLawProfile({ country: "US", region: "TX" });
     expect(redProfile).not.toBeNull();
     if (!redProfile) return;
+    const ssotProfile = withLegalSsot(redProfile, "ILLEGAL");
     const viewModel = buildResultViewModel({
-      profile: redProfile,
+      profile: ssotProfile,
       title: "Texas",
       nearestLegal: {
         title: "Colorado, US",
@@ -113,7 +155,7 @@ describe("ResultCard location rendering", () => {
     });
     const html = renderToStaticMarkup(
       createElement(ResultCard, {
-        profile: redProfile,
+        profile: ssotProfile,
         title: "Texas",
         isPaidUser: true,
         viewModel
@@ -126,7 +168,7 @@ describe("ResultCard location rendering", () => {
     const baseProfile = getLawProfile({ country: "DE" });
     expect(baseProfile).not.toBeNull();
     if (!baseProfile) return;
-    const unknownProfile = { ...baseProfile, status: "unknown" as const };
+    const unknownProfile = withLegalSsot({ ...baseProfile, status: "unknown" as const }, "UNKNOWN");
     const html = renderToStaticMarkup(
       createElement(ResultCard, {
         profile: unknownProfile,
@@ -135,17 +177,17 @@ describe("ResultCard location rendering", () => {
       })
     );
     expect(html).not.toContain("Nearest place where status is green/yellow");
-    expect(html).toContain("Data not available");
+    expect(html).toContain("No reliable data");
   });
 
   it("renders provisional banner when status is provisional", () => {
     const baseProfile = getLawProfile({ country: "DE" });
     expect(baseProfile).not.toBeNull();
     if (!baseProfile) return;
-    const provisionalProfile = {
+    const provisionalProfile = withLegalSsot({
       ...baseProfile,
       status: "provisional" as const
-    };
+    }, "LEGAL");
     const html = renderToStaticMarkup(
       createElement(ResultCard, {
         profile: provisionalProfile,

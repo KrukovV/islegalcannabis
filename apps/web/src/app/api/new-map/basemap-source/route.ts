@@ -20,6 +20,7 @@ export async function GET() {
 
   return Response.json(tilejson, {
     headers: {
+      "Access-Control-Allow-Origin": "*",
       "Cache-Control": STATIC_MAP_CACHE
     }
   });

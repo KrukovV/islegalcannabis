@@ -17,6 +17,7 @@ function buildUpstreamTileUrl(z: string, x: string, y: string) {
 
 function buildTileHeaders() {
   return {
+    "Access-Control-Allow-Origin": "*",
     "content-type": "application/x-protobuf",
     "Cache-Control": TILE_CACHE
   };
