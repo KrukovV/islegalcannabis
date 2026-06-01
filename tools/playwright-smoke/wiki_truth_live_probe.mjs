@@ -9,9 +9,9 @@ const BASE_URL = "http://127.0.0.1:3000";
 const browserName = process.env.BROWSER || "webkit";
 const headless = !["0", "false", "no"].includes(String(process.env.HEADLESS ?? "1").toLowerCase());
 const screenshotBeforePath =
-  process.env.SCREENSHOT_BEFORE_PATH || path.join(ROOT, "Artifacts", `${browserName}-wiki-truth-before.png`);
+  process.env.SCREENSHOT_BEFORE_PATH || path.join(ROOT, "Artifacts", `${browserName}-wiki-truth-before.jpg`);
 const screenshotAfterPath =
-  process.env.SCREENSHOT_AFTER_PATH || path.join(ROOT, "Artifacts", `${browserName}-wiki-truth-after.png`);
+  process.env.SCREENSHOT_AFTER_PATH || path.join(ROOT, "Artifacts", `${browserName}-wiki-truth-after.jpg`);
 const jsonPath = process.env.JSON_PATH || path.join(ROOT, "Artifacts", `${browserName}-wiki-truth.json`);
 
 async function safeScreenshot(page, screenshotPath) {
@@ -19,7 +19,7 @@ async function safeScreenshot(page, screenshotPath) {
     return "skipped:chromium-headless-screenshot-disabled";
   }
   try {
-    await page.screenshot({ path: screenshotPath, fullPage: true });
+    await page.screenshot({ path: screenshotPath, type: "jpeg", quality: 70, fullPage: false });
     return null;
   } catch (error) {
     return error instanceof Error ? error.message : String(error || "unknown_screenshot_error");

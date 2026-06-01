@@ -18,7 +18,7 @@ const targetUrl = process.env.VERCEL_BYPASS_LIVE_URL || "https://www.islegal.inf
 const secret = process.env.VERCEL_AUTOMATION_BYPASS_SECRET || "";
 const reportsDir = path.join(repoRoot, "Reports", "vercel-bypass-live");
 const browserName = process.env.VERCEL_BYPASS_BROWSER || "chromium";
-const appReadyTimeoutMs = Number(process.env.VERCEL_BYPASS_APP_READY_TIMEOUT_MS || 60000);
+const appReadyTimeoutMs = Number(process.env.VERCEL_BYPASS_APP_READY_TIMEOUT_MS || 25000);
 
 function sanitize(value) {
   return redactVercelBypassSecret(value, secret);
@@ -52,29 +52,41 @@ async function waitForAppEvidence(page, startedAt) {
     return true;
   };
 
-  waits.root = Boolean(await page.waitForSelector('[data-testid="new-map-root"]', {
-    timeout: appReadyTimeoutMs
-  }).then(() => mark("root_ms")).catch(() => false));
-  waits.mapSurface = Boolean(await page.waitForSelector('[data-testid="new-map-surface"]', {
-    timeout: 15000
-  }).then(() => mark("map_surface_ms")).catch(() => false));
-  waits.mapReady = Boolean(await page.waitForFunction(() => {
-    return document.querySelector('[data-testid="new-map-surface"]')?.getAttribute("data-map-ready") === "1";
-  }, undefined, { timeout: 30000 }).then(() => mark("map_ready_ms")).catch(() => false));
-  waits.canvas = Boolean(await page.waitForSelector(".maplibregl-canvas", {
-    timeout: 30000
-  }).then(() => mark("canvas_ms")).catch(() => false));
-  waits.countriesPainted = Boolean(await page.waitForFunction(() => {
-    const host = window;
-    const map = host.__NEW_MAP_DEBUG__?.map;
-    if (!map || typeof map.queryRenderedFeatures !== "function") return false;
-    try {
-      return map.queryRenderedFeatures({ layers: ["legal-fill"] }).length > 0;
-    } catch {
-      return false;
-    }
-  }, undefined, { timeout: 15000 }).then(() => mark("countries_painted_ms")).catch(() => false));
-  await page.waitForTimeout(waits.countriesPainted ? 250 : 750);
+  await Promise.all([
+    page.waitForSelector('[data-testid="new-map-root"]', {
+      timeout: appReadyTimeoutMs
+    }).then(() => {
+      waits.root = mark("root_ms");
+    }).catch(() => undefined),
+    page.waitForSelector('[data-testid="new-map-surface"]', {
+      timeout: 15000
+    }).then(() => {
+      waits.mapSurface = mark("map_surface_ms");
+    }).catch(() => undefined),
+    page.waitForFunction(() => {
+      return document.querySelector('[data-testid="new-map-surface"]')?.getAttribute("data-map-ready") === "1";
+    }, undefined, { timeout: 15000 }).then(() => {
+      waits.mapReady = mark("map_ready_ms");
+    }).catch(() => undefined),
+    page.waitForSelector(".maplibregl-canvas", {
+      timeout: 15000
+    }).then(() => {
+      waits.canvas = mark("canvas_ms");
+    }).catch(() => undefined),
+    page.waitForFunction(() => {
+      const host = window;
+      const map = host.__NEW_MAP_DEBUG__?.map;
+      if (!map || typeof map.queryRenderedFeatures !== "function") return false;
+      try {
+        return map.queryRenderedFeatures({ layers: ["legal-fill"] }).length > 0;
+      } catch {
+        return false;
+      }
+    }, undefined, { timeout: 5000 }).then(() => {
+      waits.countriesPainted = mark("countries_painted_ms");
+    }).catch(() => undefined)
+  ]);
+  await page.waitForTimeout(waits.countriesPainted ? 250 : 500).catch(() => undefined);
 
   return { waits, timings };
 }
