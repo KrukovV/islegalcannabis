@@ -1,14 +1,14 @@
 {
   "items": [
     {
-      "id": "fb482446550e0475",
-      "query": "What would be the real-life risk for a traveler here?",
-      "intent": "airport",
-      "location": "PE",
-      "answer": "Short and honest:\n\nInteresting angle: Peru / Piruw is softer than a full ban, but that is not the same as a fully legal market.\n\nBe especially careful with flights and borders: Airports and borders are high-control zones. Crossing borders with cannabis can lead to criminal charges.\n\nPrison exposure is present in the data, so this does not read like a paper-only ban. Cannabis is decriminalized in Peru / Piruw. Medical cannabis is legal. Distribution is formally illegal. Prison exposure detected.\n\nReality on the ground can feel different: Peru / Piruw remains decriminalized in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals. That is not permission, only the current social signal.\n\nWant me to show the strictest airports too?",
+      "id": "59458b275e50321c",
+      "query": "why not?",
+      "intent": "legal",
+      "location": "IE",
+      "answer": "The reason why cannabis in Ireland / Éire is considered illegal lies in its complex history, cultural context, and current legislative framework. The country's legal stance on marijuana has evolved over time, reflecting broader national policies that govern drug regulation. Despite being a medical substance with recognized therapeutic benefits, the recreational use of cannabis remains illegal due to concerns about public health impacts and potential for addiction. Enforcement efforts are ongoing but have not been fully successful in eradicating the practice entirely, leading to its status as high-risk material despite legal availability.",
       "score": 1,
-      "ts": 1776460901437,
-      "last_used": 1780181534715
+      "ts": 1780356216143,
+      "last_used": 1780356216143
     },
     {
       "id": "a22a56691942690b",
@@ -18,7 +18,7 @@
       "answer": "Let's break it down calmly:\n\nIf we go one layer deeper, the biggest risk still sits around flights and border control.\n\nReality on the ground can feel different: Ireland / Éire remains decriminalized in law, but small-scale enforcement is often low-priority. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals. That is not permission, only the current social signal.\n\nOn the medical side, access is legal in the current data.\n\nIf you want, we can compare this with another country or state.",
       "score": 1,
       "ts": 1776604914168,
-      "last_used": 1780181529740
+      "last_used": 1780356210629
     },
     {
       "id": "f5c2d61b72f07971",
@@ -28,7 +28,17 @@
       "answer": "Если по факту:\n\nЕсть ещё момент, который важно понимать:\n\nНа земле это может ощущаться иначе: Germany / Deutschland remains legal in law. Это не разрешение, а просто social reality из текущих данных.\n\nЕсли смотреть именно на medical side: доступ там legal.\n\nЕсли интересно, можно сравнить это с другой страной или штатом.\n\nПродолжим?",
       "score": 1,
       "ts": 1776459166481,
-      "last_used": 1780181526834
+      "last_used": 1780356204676
+    },
+    {
+      "id": "fb482446550e0475",
+      "query": "What would be the real-life risk for a traveler here?",
+      "intent": "airport",
+      "location": "PE",
+      "answer": "Short and honest:\n\nInteresting angle: Peru / Piruw is softer than a full ban, but that is not the same as a fully legal market.\n\nBe especially careful with flights and borders: Airports and borders are high-control zones. Crossing borders with cannabis can lead to criminal charges.\n\nPrison exposure is present in the data, so this does not read like a paper-only ban. Cannabis is decriminalized in Peru / Piruw. Medical cannabis is legal. Distribution is formally illegal. Prison exposure detected.\n\nReality on the ground can feel different: Peru / Piruw remains decriminalized in law. Small-amount possession is frequently handled with fines, warnings, or non-prosecution signals. That is not permission, only the current social signal.\n\nWant me to show the strictest airports too?",
+      "score": 1,
+      "ts": 1776460901437,
+      "last_used": 1780356216146
     },
     {
       "id": "992719802c663253",
@@ -1025,17 +1035,6 @@
       "used": 8,
       "ts": 1776341887018,
       "last_used": 1776349585096
-    },
-    {
-      "id": "287ced8d2e48faa1",
-      "query": "Which is safer?",
-      "intent": "general",
-      "location": "BR",
-      "answer": "The high-risk signal in Brazil's cannabis regulations indicates significant potential risks, including legal penalties for possession or distribution exceeding personal use limits. This can lead to various consequences such as fines, imprisonment, or even confiscation of drugs.\n\nIn comparison:\n- **Safety Signal**: The active enforcement rule suggests that there is a robust system in place to ensure compliance with the law and address violations effectively.\n  \nConsidering these factors, using cannabis responsibly under medical guidance while adhering strictly to the regulations can be considered safer than engaging in illegal drug trade or distribution. It's crucial for individuals who are considering recreational use to understand all potential risks before making any decisions about their consumption.\n\nIt is important to note that the legal status of marijuana varies widely around the world, and Brazil’s position falls under a category where it remains decriminalized despite being one of the first countries in Latin America to legalize medical cannabis. This mixed stance makes it essential for users to thoroughly research all aspects before starting any journey with recreational cannabis.",
-      "score": 1,
-      "used": 6,
-      "ts": 1776342594715,
-      "last_used": 1776349561876
     }
   ]
 }

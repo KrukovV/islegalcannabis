@@ -55,7 +55,7 @@ if (nextLines.length > 0) {
   fail("stdout must not include Next lines.");
 }
 
-if (lines[0]?.startsWith("🌿") || lines[0]?.startsWith("⚠️")) {
+if (/\bCI PASS(?:_DEGRADED)?\b/u.test(lines[0] ?? "") || lines[0]?.startsWith("🌿") || lines[0]?.startsWith("⚠️")) {
   const hasMvpMarker = lines.some((line) => line.startsWith("CI_RESULT "));
   if (hasMvpMarker) {
     if (lines.length < 8 || lines.length > 60) {

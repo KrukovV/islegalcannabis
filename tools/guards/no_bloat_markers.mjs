@@ -43,7 +43,8 @@ if (lines.length < 3 || lines.length > 200) {
 
 const first = lines[0] ?? "";
 const hasMvpMarker = lines.some((line) => line.startsWith("CI_RESULT "));
-if (first.startsWith("🌿") || first.startsWith("⚠️")) {
+const isPassHeadline = /\bCI PASS(?:_DEGRADED)?\b/u.test(first) || first.startsWith("🌿") || first.startsWith("⚠️");
+if (isPassHeadline) {
   if (hasMvpMarker) {
     if (lines.length < 8 || lines.length > 60) {
       fail("PASS summary (MVP) must be 8-60 lines.");
@@ -52,8 +53,14 @@ if (first.startsWith("🌿") || first.startsWith("⚠️")) {
     fail("PASS summary must be 28-200 lines.");
   }
 } else if (first.startsWith("❌")) {
-  if (lines.length < 3 || lines.length > 4) {
-    fail("FAIL summary must be 3-4 lines.");
+  if (lines.length < 3 || lines.length > 120) {
+    fail("FAIL summary must be 3-120 lines.");
+  }
+  if (/\bCI PASS(?:_DEGRADED)?\b/u.test(text)) {
+    fail("FAIL summary must not contain CI PASS markers.");
+  }
+  if (/^CI_RESULT\b.*\bstatus=PASS\b/mu.test(text)) {
+    fail("FAIL summary must not contain PASS CI_RESULT markers.");
   }
 } else {
   fail("summary must start with 🌿, ⚠️, or ❌.");

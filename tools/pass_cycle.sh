@@ -335,6 +335,7 @@ run_mandatory_tail() {
   local prod_rc=0
   local prod_reason="OK"
   local prod_output=""
+  local prod_log_output=""
   local payload_rc=0
   local payload_reason="OK"
   local payload_output=""
@@ -351,7 +352,7 @@ run_mandatory_tail() {
   set +e
   prod_output=$(${NODE_BIN} "${ROOT}/tools/prod_live_quality_gate.mjs" 2>&1)
   prod_rc=$?
-  printf "%s\n" "${prod_output}" > "${PROD_LIVE_GATE_LOG}"
+  prod_log_output="${prod_output}"
   if [ "${prod_rc}" -ne 0 ]; then
     prod_reason="RC_${prod_rc}"
     if printf "%s\n" "${prod_output}" | grep -q "SECRET_MISSING"; then
@@ -360,6 +361,27 @@ run_mandatory_tail() {
       prod_reason="DEGRADATION"
     fi
   fi
+  if [ "${prod_rc}" -ne 0 ] && printf "%s\n" "${prod_output}" | grep -Eq "ACCESS_BLOCK|SEED_STATUS_HIGH:403"; then
+    prod_retry_delay_ms="${PROD_LIVE_RETRY_DELAY_MS:-45000}"
+    prod_retry_delay_s=$(( (prod_retry_delay_ms + 999) / 1000 ))
+    sleep "${prod_retry_delay_s}"
+    prod_retry_output=$(${NODE_BIN} "${ROOT}/tools/prod_live_quality_gate.mjs" 2>&1)
+    prod_retry_rc=$?
+    prod_retry_line="PROD_LIVE_RETRY attempt=2 reason=ACCESS_BLOCK delay_ms=${prod_retry_delay_ms}"
+    prod_log_output="${prod_output}"$'\n'"${prod_retry_line}"$'\n'"${prod_retry_output}"
+    prod_output="${prod_retry_line}"$'\n'"${prod_retry_output}"
+    prod_rc="${prod_retry_rc}"
+    prod_reason="OK"
+    if [ "${prod_rc}" -ne 0 ]; then
+      prod_reason="RC_${prod_rc}"
+      if printf "%s\n" "${prod_output}" | grep -q "SECRET_MISSING"; then
+        prod_reason="SECRET_MISSING"
+      elif printf "%s\n" "${prod_output}" | grep -q "PROD_LIVE_DEGRADATION=FAIL"; then
+        prod_reason="DEGRADATION"
+      fi
+    fi
+  fi
+  printf "%s\n" "${prod_log_output}" > "${PROD_LIVE_GATE_LOG}"
   if [ -n "${prod_output}" ]; then
     printf "%s\n" "${prod_output}" >> "${STDOUT_FILE}"
     printf "%s\n" "${prod_output}" >> "${RUN_REPORT_FILE}"
@@ -408,7 +430,20 @@ run_mandatory_tail() {
   fi
   gps_output=$(NEW_MAP_GPS_GATE=1 NEW_MAP_GPS_LABEL="prod-gps-gate-${RUN_ID}" ${NODE_BIN} "${ROOT}/tools/measure_new_map_gps_flow.mjs" 2>&1)
   gps_rc=$?
-  printf "%s\n" "${gps_output}" > "${PROD_GPS_GATE_LOG}"
+  gps_log_output="${gps_output}"
+  if [ "${gps_rc}" -ne 0 ] && printf "%s\n" "${gps_output}" | grep -q "PROD_GPS_OK=0 reason=PAGE_ERRORS"; then
+    gps_first_report=$(printf "%s\n" "${gps_output}" | sed -n 's/^PROD_GPS_REPORT=//p' | tail -n 1)
+    gps_retry_delay_ms="${PROD_GPS_RETRY_DELAY_MS:-45000}"
+    gps_retry_delay_s=$(( (gps_retry_delay_ms + 999) / 1000 ))
+    sleep "${gps_retry_delay_s}"
+    gps_retry_output=$(NEW_MAP_GPS_GATE=1 NEW_MAP_GPS_LABEL="prod-gps-gate-${RUN_ID}-retry2" ${NODE_BIN} "${ROOT}/tools/measure_new_map_gps_flow.mjs" 2>&1)
+    gps_retry_rc=$?
+    gps_retry_line="PROD_GPS_RETRY attempt=2 reason=PAGE_ERRORS delay_ms=${gps_retry_delay_ms} previous_report=${gps_first_report:-NA}"
+    gps_log_output="${gps_output}"$'\n'"${gps_retry_line}"$'\n'"${gps_retry_output}"
+    gps_output="${gps_retry_line}"$'\n'"${gps_retry_output}"
+    gps_rc="${gps_retry_rc}"
+  fi
+  printf "%s\n" "${gps_log_output}" > "${PROD_GPS_GATE_LOG}"
   if [ "${gps_rc}" -ne 0 ]; then
     gps_reason="RC_${gps_rc}"
     if printf "%s\n" "${gps_output}" | grep -q "SECRET_MISSING"; then
@@ -1210,6 +1245,17 @@ OFFLINE_REASON="NONE"
 FETCH_DIAG_LINE=""
 PIPELINE_NET_MODE="-"
 WIKI_REFRESH_MODE="-"
+
+CURRENT_STEP="json_skip_worktree_guard"
+CURRENT_CMD="git ls-files -v -- '*.json'"
+JSON_SKIP_WORKTREE_FILES=$(git ls-files -v -- '*.json' | awk '$1 == "S" { print substr($0, 3) }' | head -20 || true)
+if [ -n "${JSON_SKIP_WORKTREE_FILES}" ]; then
+  echo "JSON_SKIP_WORKTREE_GUARD=FAIL"
+  printf "JSON_SKIP_WORKTREE_FILES_BEGIN\n%s\nJSON_SKIP_WORKTREE_FILES_END\n" "${JSON_SKIP_WORKTREE_FILES}" >> "${STEP_LOG}"
+  FAIL_EXTRA_LINES="JSON_SKIP_WORKTREE_GUARD=FAIL"$'\n'"JSON_SKIP_WORKTREE_FILES=$(printf "%s" "${JSON_SKIP_WORKTREE_FILES}" | paste -sd, -)"
+  fail_with_reason "JSON_SKIP_WORKTREE"
+fi
+echo "JSON_SKIP_WORKTREE_GUARD=PASS"
 
 source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/pass_cycle.net_health.sh"
 ssot_ok_value() {
@@ -3132,6 +3178,13 @@ fi
 if [ "${STAGE_DONE}" -le 0 ] || [ "${STAGE_LAST}" = "-" ]; then
   fail_with_reason "INFOGRAPH_NO_SSOT_STAGE"
 fi
+if [ "${SUMMARY_MODE}" = "MVP" ]; then
+  COMPACTED_SUMMARY=$(printf "%s\n" "${SUMMARY_LINES[@]}" | ${NODE_BIN} tools/guards/compact_ci_summary.mjs --max-lines 48)
+  SUMMARY_LINES=()
+  while IFS= read -r line; do
+    [ -n "${line}" ] && SUMMARY_LINES+=("${line}")
+  done <<< "${COMPACTED_SUMMARY}"
+fi
 printf "%s\n" "${SUMMARY_LINES[@]}" > "${STDOUT_FILE}"
 
 if [ ! -s "${STDOUT_FILE}" ]; then
@@ -3371,6 +3424,9 @@ append_ci_line "SMOKE_STATUS=PASS"
 append_ci_line "SMOKE_TOTAL=${SMOKE_TOTAL}"
 append_ci_line "SMOKE_PASSED=${SMOKE_OK}"
 append_ci_line "SMOKE_FAILED=${SMOKE_FAIL}"
+if [ "${SUMMARY_MODE}" = "MVP" ]; then
+  ${NODE_BIN} tools/guards/compact_ci_summary.mjs --file "${STDOUT_FILE}" --max-lines 60
+fi
 
 POST_LATEST=$(cat "${LATEST_FILE}" 2>/dev/null || true)
 PRE_LATEST="${PRE_LATEST}" MID_LATEST="${LATEST_CHECKPOINT}" POST_LATEST="${POST_LATEST}" \
@@ -3404,6 +3460,12 @@ if [ "${STATUS}" -eq 0 ] && [ -n "${ALLOWLIST:-}" ]; then
   fi
 fi
 set -e
+if [ "${STATUS}" -ne 0 ]; then
+  FAIL_STEP="summary_guards"
+  FAIL_CMD="${NODE_BIN} tools/guards/summary_format.mjs --status=${CI_STATUS} --mode=${SUMMARY_MODE} --file ${STDOUT_FILE}"
+  FAIL_RC="${STATUS}"
+  fail_with_reason "SUMMARY_GUARD_FAIL"
+fi
 
 AUTO_COMMIT_AFTER_SYNC="${AUTO_COMMIT_AFTER_SYNC:-0}"
 if [ "${AUTO_COMMIT_AFTER_SYNC}" = "1" ] && [ "${GIT_AUTOCOMMIT:-0}" = "1" ]; then
@@ -3442,10 +3504,42 @@ if ! run_mandatory_tail; then
   tail_rc=$?
   CI_STATUS="FAIL"
   CI_RC="${tail_rc}"
+  final_status_files=(--file "${STDOUT_FILE}" --file "${RUN_REPORT_FILE}" --file "${REPORTS_FINAL}")
+  if [ "${CI_WRITE_ROOT}" = "1" ]; then
+    final_status_files+=(--file "${ROOT}/ci-final.txt")
+  fi
+  "${NODE_BIN}" tools/guards/final_ci_status.mjs \
+    --status FAIL \
+    --reason "${MANDATORY_TAIL_FAIL_REASON:-MANDATORY_TAIL_FAIL}" \
+    "${final_status_files[@]}"
   append_ci_line "CI_STATUS=FAIL"
   append_ci_line "PIPELINE_RC=${CI_RC}"
   append_ci_line "FAIL_REASON=${MANDATORY_TAIL_FAIL_REASON:-MANDATORY_TAIL_FAIL}"
   append_ci_line "CI_RESULT status=FAIL quality=BAD reason=${MANDATORY_TAIL_FAIL_REASON:-MANDATORY_TAIL_FAIL} online=${ONLINE_SIGNAL:-1} skipped=-"
+fi
+if [ "${SUMMARY_MODE}" = "MVP" ] && [ "${CI_STATUS}" = "PASS" ]; then
+  ${NODE_BIN} tools/guards/compact_ci_summary.mjs --file "${STDOUT_FILE}" --max-lines 60
+fi
+set +e
+FINAL_SUMMARY_STATUS=0
+if [ "${CI_STATUS}" = "PASS" ] || [ "${CI_STATUS}" = "PASS_DEGRADED" ]; then
+  ${NODE_BIN} tools/guards/summary_format.mjs --status="${CI_STATUS}" --mode="${SUMMARY_MODE}" --file "${STDOUT_FILE}" || FINAL_SUMMARY_STATUS=$?
+fi
+if [ "${FINAL_SUMMARY_STATUS}" -eq 0 ]; then
+  ${NODE_BIN} tools/guards/no_bloat_markers.mjs --file "${STDOUT_FILE}" || FINAL_SUMMARY_STATUS=$?
+fi
+if [ "${FINAL_SUMMARY_STATUS}" -eq 0 ]; then
+  ${NODE_BIN} tools/guards/stdout_contract.mjs --file "${STDOUT_FILE}" || FINAL_SUMMARY_STATUS=$?
+fi
+if [ "${FINAL_SUMMARY_STATUS}" -eq 0 ]; then
+  ${NODE_BIN} tools/guards/next_line.mjs --file "${STDOUT_FILE}" || FINAL_SUMMARY_STATUS=$?
+fi
+set -e
+if [ "${FINAL_SUMMARY_STATUS}" -ne 0 ]; then
+  FAIL_STEP="final_summary_guard"
+  FAIL_CMD="${NODE_BIN} tools/guards/no_bloat_markers.mjs --file ${STDOUT_FILE}"
+  FAIL_RC="${FINAL_SUMMARY_STATUS}"
+  fail_with_reason "FINAL_SUMMARY_GUARD_FAIL"
 fi
 emit_final_output "${STDOUT_FILE}"
 ${NODE_BIN} tools/update_continuity_status.mjs || true

@@ -194,7 +194,22 @@ export async function evaluateProdLiveReport({
   };
 }
 
-async function runLiveProbe(outDir) {
+function killChildGroup(child, signal) {
+  if (!child?.pid) return;
+  try {
+    process.kill(-child.pid, signal);
+    return;
+  } catch {
+    // Fall back for platforms/processes where a process group is unavailable.
+  }
+  try {
+    child.kill(signal);
+  } catch {
+    // The process may already be gone.
+  }
+}
+
+export async function runLiveProbe(outDir) {
   const secret = process.env.VERCEL_AUTOMATION_BYPASS_SECRET || "";
   if (!secret) {
     return {
@@ -206,9 +221,11 @@ async function runLiveProbe(outDir) {
   }
 
   await fs.mkdir(outDir, { recursive: true });
-  const child = spawn(process.execPath, ["tools/vercel_bypass_live_probe.mjs"], {
+  const probeScript = process.env.PROD_LIVE_PROBE_SCRIPT || "tools/vercel_bypass_live_probe.mjs";
+  const child = spawn(process.execPath, [probeScript], {
     cwd: repoRoot,
     env: process.env,
+    detached: true,
     stdio: ["ignore", "pipe", "pipe"]
   });
   let stdout = "";
@@ -221,14 +238,32 @@ async function runLiveProbe(outDir) {
   });
 
   const timeoutMs = Number(process.env.PROD_LIVE_GATE_TIMEOUT_MS || 180000);
+  const killAfterMs = Number(process.env.PROD_LIVE_GATE_KILL_AFTER_MS || 10000);
   const result = await new Promise((resolve) => {
+    let settled = false;
+    let timedOut = false;
+    let killTimer = null;
+    const settle = (value) => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      if (killTimer) clearTimeout(killTimer);
+      resolve(value);
+    };
     const timer = setTimeout(() => {
-      child.kill("SIGTERM");
-      resolve({ rc: 124, reason: "TIMEOUT" });
+      timedOut = true;
+      killChildGroup(child, "SIGTERM");
+      killTimer = setTimeout(() => {
+        killChildGroup(child, "SIGKILL");
+        settle({ rc: 124, reason: "TIMEOUT" });
+      }, killAfterMs);
     }, timeoutMs);
     child.on("close", (code) => {
-      clearTimeout(timer);
-      resolve({ rc: code ?? 1, reason: code === 0 ? "OK" : `RC_${code ?? 1}` });
+      if (timedOut) {
+        settle({ rc: 124, reason: "TIMEOUT" });
+        return;
+      }
+      settle({ rc: code ?? 1, reason: code === 0 ? "OK" : `RC_${code ?? 1}` });
     });
   });
 

@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { evaluateProdLiveReport } from "./prod_live_quality_gate.mjs";
+import { evaluateProdLiveReport, runLiveProbe } from "./prod_live_quality_gate.mjs";
 
 const ROOT = process.cwd();
 
@@ -140,4 +140,39 @@ test("prod live gate fails on degraded timing and undersized screenshot", async 
   assert.match(evaluation.failures.join("\n"), /SCREENSHOT_TOO_SMALL/);
   assert.match(evaluation.failures.join("\n"), /ELAPSED_MS_DEGRADED/);
   assert.match(evaluation.failures.join("\n"), /MAP_READY_MS_DEGRADED/);
+});
+
+test("prod live probe timeout is bounded even when the probe ignores shutdown", async () => {
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "ilc-prod-live-timeout-"));
+  const script = path.join(tmp, "hang.mjs");
+  fs.writeFileSync(
+    script,
+    "setInterval(() => {}, 1000);\nprocess.on('SIGTERM', () => {});\n",
+    "utf8"
+  );
+
+  const previousScript = process.env.PROD_LIVE_PROBE_SCRIPT;
+  const previousSecret = process.env.VERCEL_AUTOMATION_BYPASS_SECRET;
+  const previousTimeout = process.env.PROD_LIVE_GATE_TIMEOUT_MS;
+  const previousKillAfter = process.env.PROD_LIVE_GATE_KILL_AFTER_MS;
+  process.env.PROD_LIVE_PROBE_SCRIPT = script;
+  process.env.VERCEL_AUTOMATION_BYPASS_SECRET = "test-secret";
+  process.env.PROD_LIVE_GATE_TIMEOUT_MS = "100";
+  process.env.PROD_LIVE_GATE_KILL_AFTER_MS = "50";
+  try {
+    const started = Date.now();
+    const result = await runLiveProbe(tmp);
+    assert.equal(result.rc, 124);
+    assert.equal(result.reason, "TIMEOUT");
+    assert.ok(Date.now() - started < 2000);
+  } finally {
+    if (previousScript === undefined) delete process.env.PROD_LIVE_PROBE_SCRIPT;
+    else process.env.PROD_LIVE_PROBE_SCRIPT = previousScript;
+    if (previousSecret === undefined) delete process.env.VERCEL_AUTOMATION_BYPASS_SECRET;
+    else process.env.VERCEL_AUTOMATION_BYPASS_SECRET = previousSecret;
+    if (previousTimeout === undefined) delete process.env.PROD_LIVE_GATE_TIMEOUT_MS;
+    else process.env.PROD_LIVE_GATE_TIMEOUT_MS = previousTimeout;
+    if (previousKillAfter === undefined) delete process.env.PROD_LIVE_GATE_KILL_AFTER_MS;
+    else process.env.PROD_LIVE_GATE_KILL_AFTER_MS = previousKillAfter;
+  }
 });

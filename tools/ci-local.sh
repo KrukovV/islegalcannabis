@@ -165,6 +165,9 @@ node tools/prod_live_quality_gate.test.mjs || { CI_LOCAL_REASON="PROD_LIVE_GATE_
 node tools/prod_new_map_js_city_gate.test.mjs || { CI_LOCAL_REASON="PROD_JS_CITY_GATE_TEST_FAIL"; CI_LOCAL_STEP="prod_js_city_gate_test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 node tools/ingest/run_ingest.test.mjs || { CI_LOCAL_REASON="INGEST_TEST_FAIL"; CI_LOCAL_STEP="ingest_test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 node tools/guards/run_all.test.mjs || { CI_LOCAL_REASON="GUARDS_TEST_FAIL"; CI_LOCAL_STEP="guards_test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
+node tools/guards/compact_ci_summary.test.mjs || { CI_LOCAL_REASON="COMPACT_CI_SUMMARY_TEST_FAIL"; CI_LOCAL_STEP="compact_ci_summary_test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
+node tools/guards/final_ci_status.test.mjs || { CI_LOCAL_REASON="FINAL_CI_STATUS_TEST_FAIL"; CI_LOCAL_STEP="final_ci_status_test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
+node tools/guards/no_bloat_markers.test.mjs || { CI_LOCAL_REASON="NO_BLOAT_MARKERS_TEST_FAIL"; CI_LOCAL_STEP="no_bloat_markers_test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 node tools/laws/validate_sources.test.mjs || { CI_LOCAL_REASON="LAW_SOURCES_TEST_FAIL"; CI_LOCAL_STEP="law_sources_test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 node tools/next/next_step.test.mjs || { CI_LOCAL_REASON="NEXT_STEP_TEST_FAIL"; CI_LOCAL_STEP="next_step_test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 node tools/promotion/promote_next.test.mjs || { CI_LOCAL_REASON="PROMOTE_NEXT_TEST_FAIL"; CI_LOCAL_STEP="promote_next_test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
@@ -173,6 +176,7 @@ node tools/promotion/review_apply_batch.test.mjs || { CI_LOCAL_REASON="REVIEW_AP
 node tools/promotion/auto_apply_verified.test.mjs || { CI_LOCAL_REASON="AUTO_APPLY_VERIFIED_TEST_FAIL"; CI_LOCAL_STEP="auto_apply_verified_test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 node tools/ssot/extract_cannabis_facts.test.mjs || { CI_LOCAL_REASON="SSOT_FACTS_TEST_FAIL"; CI_LOCAL_STEP="ssot_facts_test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 node tools/ssot/auto_learn_offline.test.mjs || { CI_LOCAL_REASON="AUTO_LEARN_OFFLINE_TEST_FAIL"; CI_LOCAL_STEP="auto_learn_offline_test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
+node tools/sync/wiki_sync_all.test.mjs || { CI_LOCAL_REASON="WIKI_SYNC_ALL_TEST_FAIL"; CI_LOCAL_STEP="wiki_sync_all_test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 node tools/auto_learn/run_auto_learn.test.mjs || { CI_LOCAL_REASON="AUTO_LEARN_TEST_FAIL"; CI_LOCAL_STEP="auto_learn_test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 node tools/auto_facts/extract_from_snapshot.test.mjs || { CI_LOCAL_REASON="AUTO_FACTS_EXTRACT_TEST_FAIL"; CI_LOCAL_STEP="auto_facts_extract_test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }
 node tools/auto_facts/run_auto_facts.test.mjs || { CI_LOCAL_REASON="AUTO_FACTS_TEST_FAIL"; CI_LOCAL_STEP="auto_facts_test"; CI_LOCAL_CMD="${last_cmd}"; print_fail "${CI_LOCAL_REASON}"; }

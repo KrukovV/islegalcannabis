@@ -727,6 +727,11 @@ CI_LOCAL_SOFT_FAIL=0
 CI_LOCAL_SOFT_REASON=""
 if [ -f "${CI_LOG}" ]; then
   CI_LOCAL_RESULT_LINE=$(grep -E "^CI_LOCAL_RESULT " "${CI_LOG}" | tail -n 1 || echo "${CI_LOCAL_RESULT_LINE}")
+  CI_LOCAL_RESULT_RC=$(printf "%s\n" "${CI_LOCAL_RESULT_LINE}" | sed -n 's/.* rc=\([0-9][0-9]*\).*/\1/p')
+  if [ -n "${CI_LOCAL_RESULT_RC}" ]; then
+    CI_LOCAL_RC="${CI_LOCAL_RESULT_RC}"
+    CI_LOCAL_STEP_LINE="STEP_END name=ci_local rc=${CI_LOCAL_RC}"
+  fi
   CI_LOCAL_SKIP_LINE=$(grep -E "^CI_LOCAL_SKIP " "${CI_LOG}" | tail -n 1 || true)
   CI_LOCAL_REASON_LINE=$(grep -E "^CI_LOCAL_REASON=" "${CI_LOG}" | tail -n 1 || true)
   CI_LOCAL_SUBSTEP_LINE=$(grep -E "^CI_LOCAL_SUBSTEP=" "${CI_LOG}" | tail -n 1 || true)
@@ -765,7 +770,7 @@ if [ "${CI_LOCAL_RC}" -ne 0 ]; then
     REASON_LINE=$(sed -n '2p' "${SUMMARY_FILE}" | sed 's/^Reason: //')
   fi
   if [ -z "${REASON_LINE:-}" ]; then
-    LOG_REASON=$(grep -E "ERROR:" "${CI_LOG}" | tail -n 1 | sed 's/^ERROR: //')
+    LOG_REASON=$(grep -E "ERROR:" "${CI_LOG}" | tail -n 1 | sed 's/^ERROR: //' || true)
     REASON_LINE="${LOG_REASON:-ci-local failed}"
   fi
   FAIL_STEP="ci_local"

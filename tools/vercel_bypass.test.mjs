@@ -90,3 +90,10 @@ test("live probe keeps the user-provided test order", () => {
   assert.match(liveProbe, /VERCEL_BYPASS_INCLUDE_BASELINE/);
   assert.match(liveProbe, /extraHTTPHeaders: buildVercelBypassHeaders\(secret, "samesitenone"\)/);
 });
+
+test("prod GPS probe applies bypass headers to browser and worker requests", () => {
+  const gpsProbe = fs.readFileSync(path.join(ROOT, "tools", "measure_new_map_gps_flow.mjs"), "utf8");
+
+  assert.match(gpsProbe, /extraHTTPHeaders: buildVercelBypassHeaders\(secret, "samesitenone"\)/);
+  assert.match(gpsProbe, /headers: buildVercelBypassHeaders\(secret, "samesitenone"\)/);
+});

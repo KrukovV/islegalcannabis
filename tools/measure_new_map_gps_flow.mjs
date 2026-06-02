@@ -236,7 +236,10 @@ async function run() {
   const parsed = new URL(url);
   const contextOptions = {
     geolocation: { latitude, longitude },
-    permissions: ["geolocation"]
+    permissions: ["geolocation"],
+    ...(secret
+      ? { extraHTTPHeaders: buildVercelBypassHeaders(secret, "samesitenone") }
+      : {})
   };
   const context = await browser.newContext(contextOptions);
   const seed = { enabled: false, status: null, cookie_names: [] };
