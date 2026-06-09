@@ -1517,13 +1517,25 @@ export async function answerWithAssistant(
       llm_connected: false
     };
   }
+  const buildUnavailableResponse = () => {
+    const intentFallback = buildFallbackAnswer(query, context.language, routed.intent);
+    const answer = intentFallback || generateAnswer(context);
+    rememberDialog(context, answer);
+    return {
+      answer: injectDonation(answer),
+      sources: context.sources,
+      safety_note: context.language === "ru" ? "Не юридическая консультация." : "Not legal advice.",
+      model: "truth-engine",
+      llm_connected: false
+    };
+  };
   const messages = buildMessages({ query, context });
   const provider = resolveAIProvider();
   if (provider === "ollama" && Date.now() < ollamaCooldownUntil) {
-    throw new AIConnectionError("LLM_COOLDOWN", "Local Ollama model is cooling down after a failed run.", 503);
+    return buildUnavailableResponse();
   }
   if (provider === "ollama" && ollamaInferenceRunning) {
-    throw new AIConnectionError("LLM_BUSY", "Local Ollama runner is busy with another request.", 503);
+    return buildUnavailableResponse();
   }
   if (provider === "ollama") {
     ollamaInferenceRunning = true;
@@ -1598,6 +1610,14 @@ export async function answerWithAssistant(
       model: usedModel,
       llm_connected: true
     };
+  } catch (error) {
+    if (!(error instanceof AIConnectionError)) {
+      throw error;
+    }
+    if (provider === "ollama") {
+      ollamaCooldownUntil = Date.now() + OLLAMA_COOLDOWN_MS;
+    }
+    return buildUnavailableResponse();
   } finally {
     if (provider === "ollama") {
       ollamaInferenceRunning = false;

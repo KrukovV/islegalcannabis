@@ -1,5 +1,5 @@
 Goal: Execute FINAL PROD GATE for Status Engine v9 with local UI, map screenshots, popup audits, deploy decision, and production audit.
-State: checkpoint=.checkpoints/20260609-201009.patch; CI=PASS; Smoke=PASS
-Done: Preserved Cannabis Knowledge Layer; v9 SSOT/governance reports regenerated for 300 jurisdictions; STATUS_REVIEW_REQUIRED=0; control country audit PASS; state review PASS; Bangladesh, Texas, and five state data issues corrected through reviewed data; production popup evaluator leaks removed; duplicate popup summary/key issues fixed; point fallback layer added for SSOT-only territories; focused storage/map/popup/static tests PASS; full truth suite PASS; eslint PASS; us_states provenance/sha corrected; map screenshots regenerated for six regions plus USA states.
-Now: Deploy path is being checked after local final prod gate approval.
+State: checkpoint=.checkpoints/20260609-203015.patch; CI=PASS; Smoke=PASS
+Done: Preserved Cannabis Knowledge Layer; v9 SSOT/governance reports regenerated for 300 jurisdictions; STATUS_REVIEW_REQUIRED=0; control country audit PASS; state review PASS; Bangladesh, Texas, and five state data issues corrected through reviewed data; production popup evaluator leaks removed; duplicate popup summary/key issues fixed; point fallback layer added for SSOT-only territories; AI assistant now degrades to truth-engine fallback when Ollama is unavailable and tests no longer mutate tracked memory; focused storage/map/popup/static tests PASS; full truth suite PASS; eslint PASS; us_states provenance/sha corrected; map screenshots regenerated for six regions plus USA states.
+Now: Production audit requires Vercel automation bypass or manual checkpoint-cleared browser access.
 Open questions: UNCONFIRMED none.

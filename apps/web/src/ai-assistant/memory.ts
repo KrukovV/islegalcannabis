@@ -24,6 +24,12 @@ function getMemoryFile() {
   return process.env.AI_MEMORY_FILE || DEFAULT_MEMORY_FILE;
 }
 
+function shouldPersistMemory() {
+  if (process.env.AI_MEMORY_FILE) return true;
+  if (process.env.VITEST || process.env.NODE_ENV === "test") return false;
+  return true;
+}
+
 function ensureStoreDir(file: string) {
   fs.mkdirSync(path.dirname(file), { recursive: true });
 }
@@ -66,6 +72,7 @@ function loadStore(): MemoryStore {
 
 function saveStore(store: MemoryStore) {
   const file = getMemoryFile();
+  if (!shouldPersistMemory()) return;
   ensureStoreDir(file);
   fs.writeFileSync(file, JSON.stringify(store, null, 2));
 }
@@ -124,9 +131,11 @@ export function getMemory(query: string, intent: string, location?: string) {
     .filter((entry) => entry.queryScore > 0 || normalizeText(entry.item.query).includes(normalizedQuery))
     .sort((left, right) => right.item.score + right.queryScore - (left.item.score + left.queryScore) || right.item.last_used - left.item.last_used)[0]?.item;
   if (!match) return null;
-  const now = Date.now();
-  match.last_used = now;
-  saveStore(store);
+  if (shouldPersistMemory()) {
+    const now = Date.now();
+    match.last_used = now;
+    saveStore(store);
+  }
   return match;
 }
 
