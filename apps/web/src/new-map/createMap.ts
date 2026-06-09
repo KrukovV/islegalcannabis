@@ -39,6 +39,8 @@ type CreateMapOptions = {
   style?: StyleSpecification | string | null;
   onSelectGeo?: (_geo: string | null) => void;
 };
+type SymbolLayerSpecification = Extract<NonNullable<StyleSpecification["layers"]>[number], { type: "symbol" }>;
+type SymbolTextFieldSpecification = NonNullable<SymbolLayerSpecification["layout"]>["text-field"];
 
 function getCountryFeatureAtPoint(map: maplibregl.Map, point: { x: number; y: number }) {
   return (
@@ -81,6 +83,10 @@ function buildCountryTextField() {
       { "font-scale": 0.82 }
     ]
   ];
+}
+
+function buildTerritoryFallbackTextField(): SymbolTextFieldSpecification {
+  return ["coalesce", ["get", "pointFallbackLabel"], buildCountryTextField()] as unknown as SymbolTextFieldSpecification;
 }
 
 function findFirstSymbolLayerId(map: maplibregl.Map) {
@@ -690,7 +696,7 @@ export function createMap(
         ["==", ["get", "pointFallbackVisibility"], "hidden"]
       ],
       layout: {
-        "text-field": ["coalesce", ["get", "pointFallbackLabel"], buildCountryTextField()],
+        "text-field": buildTerritoryFallbackTextField(),
         "symbol-placement": "point",
         "text-size": [
           "interpolate",
