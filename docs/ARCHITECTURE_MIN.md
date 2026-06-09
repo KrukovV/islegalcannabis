@@ -85,6 +85,7 @@
 - Metrics are honest: FAIL is always FAIL; no pseudo-success.
 - Code changes and `data/wiki/**` must never be staged or committed together.
 - New map cold-start optimization is CDN/static-payload work only: no second map runtime, no alternate mobile frontend, no palette drift, no layer removal, no popup logic fork.
+- Parent-covered territories without standalone map polygons remain first-class jurisdictions: hidden fallback dots need labels, hitboxes, and card-index entries, and clicks must resolve to the territory geo instead of the parent polygon.
 - Analytics/Webvisor work must not block first map frame, fork map logic, change geolocation precedence, capture user text by default, or disable required production Webvisor.
 - `/wiki-truth` must render a prebuilt audit model; UI code must not compute counters, universes, alias resolution, official ownership, or parser cleanup.
 - Audit universes are separate: wiki rows, ISO countries, SSOT geo, protected official registry, official geo coverage, US states, and territory diagnostics.

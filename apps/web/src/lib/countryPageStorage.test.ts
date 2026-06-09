@@ -8,7 +8,7 @@ import {
   getCountryPageData,
   listCountryPageCodes
 } from "@/lib/countryPageStorage";
-import { buildCountrySourceSnapshot, buildUsStateSourceSnapshot } from "@/new-map/countrySource";
+import { buildCardIndexSnapshot, buildCountrySourceSnapshot, buildUsStateSourceSnapshot } from "@/new-map/countrySource";
 import {
   deriveResultStatusFromCountryPageData,
   REFERENCE_MAP_CATEGORY_COLORS,
@@ -68,6 +68,21 @@ describe("countryPageStorage", () => {
     expect(cardIndex.NL?.panel.why.length).toBeGreaterThan(0);
     expect(graph.nodes.find((node) => node.code === "nld")?.seo_cluster).toBe("EU");
     expect(graph.edges.some((edge) => edge.from === "nld" && edge.type === "LEGAL_SIMILARITY")).toBe(true);
+  });
+
+  it("adds hidden parent-covered territories to the runtime card index", () => {
+    const cardIndex = buildCardIndexSnapshot();
+    const frenchGuiana = cardIndex.GF;
+
+    expect(frenchGuiana?.displayName).toBe("French Guiana");
+    expect(frenchGuiana?.iso2).toBe("GF");
+    expect(frenchGuiana?.pageHref).toBe("/new-map?geo=GF");
+    expect(frenchGuiana?.detailsHref).toBeNull();
+    expect(frenchGuiana?.coordinates?.lat).toEqual(expect.any(Number));
+    expect(frenchGuiana?.coordinates?.lng).toEqual(expect.any(Number));
+    expect(frenchGuiana?.panel.why[0]?.text).toBe(
+      "Cannabis remains restricted, but enforcement is limited or access is partially allowed."
+    );
   });
 
   it("builds human-readable popup panel data for disputed map colors", () => {

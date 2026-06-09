@@ -1058,6 +1058,10 @@ export function buildGeoJson(type: string) {
         !isState && PARENT_POLYGON_COVERED_POINT_FALLBACK_GEOS.has(entry.geo)
           ? "hidden"
           : "visible";
+      const pointFallbackLabel =
+        !isState && pointFallbackVisibility === "hidden"
+          ? getDisplayName(entry.geo, "en") || entry.name || entry.geo
+          : undefined;
       return {
         type: "Feature",
         geometry: {
@@ -1066,7 +1070,8 @@ export function buildGeoJson(type: string) {
         },
         properties: {
           ...makeProperties(entry),
-          pointFallbackVisibility
+          pointFallbackVisibility,
+          ...(pointFallbackLabel ? { pointFallbackLabel } : {})
         }
       } as GeoJsonFeature;
     }) as GeoJsonFeature[];

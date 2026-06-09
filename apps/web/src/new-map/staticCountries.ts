@@ -146,7 +146,8 @@ function slimFeature(
       mapCategory: feature.properties.mapCategory,
       baseColor: feature.properties.baseColor,
       hoverColor: feature.properties.hoverColor,
-      pointFallbackVisibility: feature.properties.pointFallbackVisibility
+      pointFallbackVisibility: feature.properties.pointFallbackVisibility,
+      pointFallbackLabel: feature.properties.pointFallbackLabel
     }
   };
 }

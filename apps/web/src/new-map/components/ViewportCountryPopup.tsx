@@ -144,6 +144,7 @@ export default function ViewportCountryPopup({
     ...(entry.cannabisProfile?.market || []),
     ...(entry.cannabisProfile?.notes || [])
   ];
+  const hasDetailsCta = Boolean(entry.detailsHref || /^\/c\//i.test(entry.pageHref));
 
   return (
     <aside
@@ -204,19 +205,21 @@ export default function ViewportCountryPopup({
         </section>
       ) : null}
 
-      <div className={styles.viewportPopupFooter}>
-        <a
-          className={styles.viewportPopupCta}
-          href={entry.pageHref}
-          onClick={(event) => {
-            if (!onOpenDetails) return;
-            event.preventDefault();
-            onOpenDetails(entry);
-          }}
-        >
-          {panel?.labels.details || "Details →"}
-        </a>
-      </div>
+      {hasDetailsCta ? (
+        <div className={styles.viewportPopupFooter}>
+          <a
+            className={styles.viewportPopupCta}
+            href={entry.pageHref}
+            onClick={(event) => {
+              if (!onOpenDetails) return;
+              event.preventDefault();
+              onOpenDetails(entry);
+            }}
+          >
+            {panel?.labels.details || "Details →"}
+          </a>
+        </div>
+      ) : null}
     </aside>
   );
 }

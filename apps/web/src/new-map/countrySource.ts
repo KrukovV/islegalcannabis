@@ -11,6 +11,7 @@ import {
   resolveLegalHoverColor,
   resolveLegalHoverOpacity
 } from "./legalStyle";
+import { getHumanStatusHeadline, getHumanStatusLevel, getHumanStatusSummary } from "@/lib/statusHumanText";
 
 const ANTARCTICA_FILL_COLOR = "#c5ccd3";
 const ANTARCTICA_HOVER_COLOR = "#d4dae0";
@@ -34,6 +35,78 @@ function isRenderableCountryGeometry(geometry: Geometry | null | undefined): geo
 
 function isPolygonGeometry(geometry: Geometry | null | undefined): geometry is Polygon | MultiPolygon {
   return geometry?.type === "Polygon" || geometry?.type === "MultiPolygon";
+}
+
+function buildHiddenTerritoryCardEntry(
+  feature: Feature<Polygon | MultiPolygon | Point, LegalCountryFeatureProperties>
+): CountryCardEntry | null {
+  const geo = String(feature.properties?.geo || "").trim().toUpperCase();
+  if (!geo || feature.geometry.type !== "Point") return null;
+  if (feature.properties?.pointFallbackVisibility !== "hidden") return null;
+
+  const displayName = String(feature.properties?.displayName || geo).trim() || geo;
+  const pointFallbackLabel = String(feature.properties?.pointFallbackLabel || "").trim();
+  const popupDisplayName = pointFallbackLabel || displayName;
+  const mapCategory = String(feature.properties?.mapCategory || "UNKNOWN") as CountryCardEntry["mapCategory"];
+  const rawCoordinates = Array.isArray(feature.geometry.coordinates)
+    ? {
+        lng: Number(feature.geometry.coordinates[0]),
+        lat: Number(feature.geometry.coordinates[1])
+      }
+    : null;
+  const coordinates =
+    rawCoordinates && Number.isFinite(rawCoordinates.lat) && Number.isFinite(rawCoordinates.lng)
+      ? rawCoordinates
+      : null;
+
+  return {
+    geo,
+    code: geo.toLowerCase(),
+    pageHref: `/new-map?geo=${encodeURIComponent(geo)}`,
+    detailsHref: null,
+    displayName: popupDisplayName,
+    iso2: geo,
+    type: "country",
+    result: {
+      status: resultStatusFromMapCategory(mapCategory as SnapshotMapCategory),
+      color: String(
+        feature.properties?.result?.color ||
+          feature.properties?.baseColor ||
+          resolveLegalFillColor(mapCategory as SnapshotMapCategory)
+      )
+    },
+    mapCategory,
+    mapReason: getHumanStatusSummary(mapCategory),
+    normalizedStatusSummary: popupDisplayName,
+    recreationalSummary: getHumanStatusHeadline(mapCategory),
+    medicalSummary: getHumanStatusSummary(mapCategory),
+    distributionSummary: "Fallback territory marker",
+    normalizedRecreationalStatus: "Unknown",
+    normalizedRecreationalEnforcement: "Unknown",
+    normalizedRecreationalScope: "Unknown",
+    normalizedMedicalStatus: "Unknown",
+    normalizedMedicalScope: "Unknown",
+    normalizedDistributionStatus: "unknown",
+    distributionFlags: [],
+    statusFlags: [],
+    cannabisProfile: null,
+    notes: popupDisplayName,
+    panel: {
+      levelTitle: getHumanStatusLevel(mapCategory),
+      summary: getHumanStatusHeadline(mapCategory),
+      critical: [],
+      info: [],
+      why: [
+        {
+          id: `why-${geo.toLowerCase()}`,
+          text: getHumanStatusSummary(mapCategory),
+          href: `/new-map?geo=${encodeURIComponent(geo)}`
+        }
+      ]
+    },
+    sources: [],
+    ...(coordinates ? { coordinates } : {})
+  };
 }
 
 export function buildCountrySourceSnapshot(): LegalCountryCollection {
@@ -68,6 +141,10 @@ export function buildCountrySourceSnapshot(): LegalCountryCollection {
             : feature.properties?.pointFallbackVisibility === "visible"
               ? "visible"
               : undefined,
+        pointFallbackLabel:
+          typeof feature.properties?.pointFallbackLabel === "string" && feature.properties.pointFallbackLabel.trim()
+            ? feature.properties.pointFallbackLabel.trim()
+            : undefined,
         labelAnchorLng: Number.isFinite(Number(feature.properties?.labelAnchorLng))
           ? Number(feature.properties?.labelAnchorLng)
           : null,
@@ -164,7 +241,17 @@ export function buildUsStateSourceSnapshot(): LegalCountryCollection {
 export function buildCardIndexSnapshot() {
   if (cardIndexCache) return cardIndexCache;
   const entries = Object.values(buildCountryCardIndexFromStorage());
+  const nextEntries = [...entries];
+  const existingGeos = new Set(entries.map((entry) => entry.geo));
+  for (const feature of buildCountrySourceSnapshot().features) {
+    const geo = String(feature.properties?.geo || "").trim().toUpperCase();
+    if (!geo || existingGeos.has(geo)) continue;
+    const fallbackEntry = buildHiddenTerritoryCardEntry(feature as Feature<Polygon | MultiPolygon | Point, LegalCountryFeatureProperties>);
+    if (!fallbackEntry) continue;
+    nextEntries.push(fallbackEntry);
+    existingGeos.add(geo);
+  }
 
-  cardIndexCache = Object.fromEntries(entries.map((entry) => [entry.geo, entry]));
+  cardIndexCache = Object.fromEntries(nextEntries.map((entry) => [entry.geo, entry]));
   return cardIndexCache;
 }

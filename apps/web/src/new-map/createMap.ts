@@ -7,6 +7,8 @@ export const NEW_MAP_ADMIN_LAYER_ID = "admin-boundary-line";
 export const NEW_MAP_SOURCE_ID = "legal-countries";
 export const NEW_MAP_FILL_LAYER_ID = "legal-fill";
 export const NEW_MAP_POINT_LAYER_ID = "legal-point";
+export const NEW_MAP_TERRITORY_HITBOX_LAYER_ID = "legal-territory-hitbox";
+export const NEW_MAP_TERRITORY_LABEL_LAYER_ID = "legal-territory-label";
 export const NEW_MAP_US_STATES_SOURCE_ID = "us-states";
 export const NEW_MAP_US_STATES_FILL_LAYER_ID = "us-states-fill";
 export const NEW_MAP_US_STATES_LINE_LAYER_ID = "us-states-line";
@@ -39,7 +41,11 @@ type CreateMapOptions = {
 };
 
 function getCountryFeatureAtPoint(map: maplibregl.Map, point: { x: number; y: number }) {
-  return map.queryRenderedFeatures([point.x, point.y], { layers: [NEW_MAP_POINT_LAYER_ID, NEW_MAP_FILL_LAYER_ID] })[0] ?? null;
+  return (
+    map.queryRenderedFeatures([point.x, point.y], {
+      layers: [NEW_MAP_TERRITORY_HITBOX_LAYER_ID, NEW_MAP_POINT_LAYER_ID, NEW_MAP_FILL_LAYER_ID]
+    })[0] ?? null
+  );
 }
 
 function configureMapLibreWorkerUrl() {
@@ -540,6 +546,35 @@ export function createMap(
       }
     }, beforeId);
 
+    map.addLayer({
+      id: NEW_MAP_TERRITORY_HITBOX_LAYER_ID,
+      type: "circle",
+      source: NEW_MAP_SOURCE_ID,
+      maxzoom: 24,
+      filter: [
+        "all",
+        ["==", ["geometry-type"], "Point"],
+        ["==", ["get", "pointFallbackVisibility"], "hidden"]
+      ],
+      paint: {
+        "circle-color": "rgba(0,0,0,0)",
+        "circle-radius": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          1.5,
+          16,
+          4,
+          22,
+          7,
+          28
+        ],
+        "circle-opacity": 0,
+        "circle-stroke-opacity": 0,
+        "circle-stroke-width": 0
+      }
+    }, beforeId);
+
     map.addSource(NEW_MAP_US_STATES_SOURCE_ID, {
       type: "geojson",
       data: EMPTY_FEATURE_COLLECTION,
@@ -643,6 +678,62 @@ export function createMap(
       }
     }, NEW_MAP_ADMIN_LAYER_ID);
 
+    map.addLayer({
+      id: NEW_MAP_TERRITORY_LABEL_LAYER_ID,
+      type: "symbol",
+      source: NEW_MAP_SOURCE_ID,
+      minzoom: 2.1,
+      maxzoom: 24,
+      filter: [
+        "all",
+        ["==", ["geometry-type"], "Point"],
+        ["==", ["get", "pointFallbackVisibility"], "hidden"]
+      ],
+      layout: {
+        "text-field": ["coalesce", ["get", "pointFallbackLabel"], buildCountryTextField()],
+        "symbol-placement": "point",
+        "text-size": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          2,
+          10,
+          4,
+          13,
+          6,
+          14.5
+        ],
+        "text-font": [
+          "Montserrat SemiBold",
+          "Open Sans Semibold",
+          "Noto Sans Regular",
+          "HanWangHeiLight Regular",
+          "NanumBarunGothic Regular"
+        ],
+        "text-line-height": 1.04,
+        "text-max-width": 8,
+        "text-allow-overlap": true,
+        "text-ignore-placement": true,
+        "text-anchor": "center",
+        "text-padding": 1.5
+      },
+      paint: {
+        "text-color": "#3a3a3a",
+        "text-halo-color": "rgba(255,255,255,0.95)",
+        "text-halo-width": 1.45,
+        "text-halo-blur": 0,
+        "text-opacity": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          2.1,
+          0.86,
+          2.6,
+          1
+        ]
+      }
+    });
+
     moveNativeWaterLayersAboveCountries(map);
 
     const labelGroups = findLabelGroups(map);
@@ -654,6 +745,24 @@ export function createMap(
         map.getCanvas().style.cursor = "pointer";
       });
       map.on("mouseleave", NEW_MAP_FILL_LAYER_ID, () => {
+        map.getCanvas().style.cursor = "";
+      });
+      map.on("mouseenter", NEW_MAP_POINT_LAYER_ID, () => {
+        map.getCanvas().style.cursor = "pointer";
+      });
+      map.on("mouseleave", NEW_MAP_POINT_LAYER_ID, () => {
+        map.getCanvas().style.cursor = "";
+      });
+      map.on("mouseenter", NEW_MAP_TERRITORY_HITBOX_LAYER_ID, () => {
+        map.getCanvas().style.cursor = "pointer";
+      });
+      map.on("mouseleave", NEW_MAP_TERRITORY_HITBOX_LAYER_ID, () => {
+        map.getCanvas().style.cursor = "";
+      });
+      map.on("mouseenter", NEW_MAP_TERRITORY_LABEL_LAYER_ID, () => {
+        map.getCanvas().style.cursor = "pointer";
+      });
+      map.on("mouseleave", NEW_MAP_TERRITORY_LABEL_LAYER_ID, () => {
         map.getCanvas().style.cursor = "";
       });
       map.on("mouseenter", NEW_MAP_US_STATES_FILL_LAYER_ID, () => {
