@@ -500,7 +500,11 @@ export function createMap(
       type: "circle",
       source: NEW_MAP_SOURCE_ID,
       maxzoom: 24,
-      filter: ["==", ["geometry-type"], "Point"],
+      filter: [
+        "all",
+        ["==", ["geometry-type"], "Point"],
+        ["!=", ["get", "pointFallbackVisibility"], "hidden"]
+      ],
       paint: {
         "circle-color": [
           "case",

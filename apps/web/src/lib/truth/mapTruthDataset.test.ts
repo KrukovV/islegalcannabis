@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, test } from "vitest";
 import { buildGeoJson, buildRegions } from "@/lib/mapData";
+import { buildCountrySourceSnapshot } from "@/new-map/countrySource";
 import { buildMapTruthDataset, resolveMapPaintStatus } from "@/lib/truth/mapTruthDataset";
 
 function resolveRepoPath(...parts: string[]) {
@@ -110,6 +111,21 @@ describe("mapTruthDataset", () => {
       expect(dataset.statusIndex[geo]).toBeTruthy();
       expect(["LEGAL_OR_DECRIM", "LIMITED_OR_MEDICAL", "ILLEGAL"]).toContain(dataset.statusIndex[geo]?.mapPaintStatus);
       expect(geojsonData.features.find((feature) => String(feature.properties?.geo || "") === geo)).toBeTruthy();
+    }
+  });
+
+  test("hides point fallback dots for French overseas departments already covered by the France polygon", () => {
+    const geojsonData = buildGeoJson("countries");
+    const snapshot = buildCountrySourceSnapshot();
+
+    for (const geo of ["GF", "GP", "MQ", "RE", "YT"]) {
+      const sourceFeature = geojsonData.features.find((feature) => String(feature.properties?.geo || "") === geo);
+      const clientFeature = snapshot.features.find((feature) => String(feature.properties?.geo || "") === geo);
+
+      expect(sourceFeature?.geometry.type).toBe("Point");
+      expect(sourceFeature?.properties?.pointFallbackVisibility).toBe("hidden");
+      expect(clientFeature?.geometry.type).toBe("Point");
+      expect(clientFeature?.properties?.pointFallbackVisibility).toBe("hidden");
     }
   });
 

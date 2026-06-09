@@ -62,6 +62,12 @@ export function buildCountrySourceSnapshot(): LegalCountryCollection {
         hoverColor,
         fillOpacity: geo === "AQ" ? 1 : resolveLegalFillOpacity(mapCategory),
         hoverOpacity: geo === "AQ" ? 1 : resolveLegalHoverOpacity(mapCategory),
+        pointFallbackVisibility:
+          feature.properties?.pointFallbackVisibility === "hidden"
+            ? "hidden"
+            : feature.properties?.pointFallbackVisibility === "visible"
+              ? "visible"
+              : undefined,
         labelAnchorLng: Number.isFinite(Number(feature.properties?.labelAnchorLng))
           ? Number(feature.properties?.labelAnchorLng)
           : null,

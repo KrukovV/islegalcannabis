@@ -146,6 +146,7 @@ let REGIONS_CACHE: RegionEntry[] | null = null;
 let SNAPSHOT_META_CACHE: { finalSnapshotId: string; builtAt: string; datasetHash: string } | null = null;
 let SNAPSHOT_CACHE_SOURCE_BUILT_AT: string | null = null;
 const MAP_RENDER_FALLBACK_GEOS = new Set(["EH"]);
+const PARENT_POLYGON_COVERED_POINT_FALLBACK_GEOS = new Set(["GF", "GP", "MQ", "RE", "YT"]);
 
 function compactSnapshotBuiltAt(value: string) {
   return String(value || "").replace(/[-:TZ.]/g, "").slice(0, 14) || "snapshot";
@@ -1053,13 +1054,20 @@ export function buildGeoJson(type: string) {
     .filter((entry) => !existing.has(entry.geo))
     .map((entry) => {
       const coords = entry.coordinates || { lat: 0, lng: 0 };
+      const pointFallbackVisibility =
+        !isState && PARENT_POLYGON_COVERED_POINT_FALLBACK_GEOS.has(entry.geo)
+          ? "hidden"
+          : "visible";
       return {
         type: "Feature",
         geometry: {
           type: "Point",
           coordinates: [coords.lng, coords.lat]
         },
-        properties: makeProperties(entry)
+        properties: {
+          ...makeProperties(entry),
+          pointFallbackVisibility
+        }
       } as GeoJsonFeature;
     }) as GeoJsonFeature[];
   return {

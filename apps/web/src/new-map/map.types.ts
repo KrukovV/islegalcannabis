@@ -16,6 +16,7 @@ export type LegalCountryFeatureProperties = {
   hoverOpacity?: number;
   labelAnchorLng?: number | null;
   labelAnchorLat?: number | null;
+  pointFallbackVisibility?: "hidden" | "visible";
 };
 
 export type LegalCountryFeature = Feature<Polygon | MultiPolygon | Point, LegalCountryFeatureProperties> & {
