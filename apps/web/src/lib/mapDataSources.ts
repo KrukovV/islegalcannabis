@@ -51,6 +51,29 @@ type WikiClaimsEntry = {
   fetched_at?: string | null;
 };
 
+export type StatusReviewOverrideEntry = {
+  name?: string;
+  recreational?: "LEGAL" | "ILLEGAL" | null;
+  medical?: "REGULATED" | "LIMITED" | "NONE" | null;
+  enforcement?: "SOFT" | "STRICT" | null;
+  wikiRecStatus?: string | null;
+  wikiMedStatus?: string | null;
+  notes?: string | null;
+  sources?: string[];
+  reason?: string;
+};
+
+type StatusEngineV9SsotEntry = {
+  id?: string;
+  name?: string;
+  recreational?: "LEGAL" | "ILLEGAL" | null;
+  medical?: "REGULATED" | "LIMITED" | "NONE" | null;
+  enforcement?: "SOFT" | "STRICT" | null;
+  color?: "GREEN" | "YELLOW" | "RED";
+  reviewRequired?: boolean;
+  sourceUrl?: string | null;
+};
+
 type WikiLegalityTableEntry = {
   country?: string;
   iso2?: string;
@@ -131,6 +154,8 @@ const DATA_FILE_PATHS: Record<string, string> = {
   "data/legal_ssot/legal_ssot.json": path.join(DATA_ROOT, "legal_ssot", "legal_ssot.json"),
   "data/wiki/wiki_claims_map.json": path.join(DATA_ROOT, "wiki", "wiki_claims_map.json"),
   "data/wiki/ssot_legality_table.json": path.join(DATA_ROOT, "wiki", "ssot_legality_table.json"),
+  "data/status-engine/manual_review_overrides.json": path.join(DATA_ROOT, "status-engine", "manual_review_overrides.json"),
+  "data/status-engine/status_ssot_v9.json": path.join(DATA_ROOT, "status-engine", "status_ssot_v9.json"),
   "data/ssot/us_states_wiki.json": path.join(DATA_ROOT, "ssot", "us_states_wiki.json"),
   "data/ssot/us_states.json": path.join(DATA_ROOT, "ssot", "us_states.json"),
   "data/wiki/cache/legality_us_states.json": path.join(DATA_ROOT, "wiki", "cache", "legality_us_states.json"),
@@ -178,6 +203,25 @@ export function loadWikiClaimsMap(): Record<string, WikiClaimsEntry> {
   if (!fs.existsSync(file)) return {};
   const payload = JSON.parse(fs.readFileSync(file, "utf8"));
   return payload?.items || {};
+}
+
+export function loadStatusReviewOverrides(): Record<string, StatusReviewOverrideEntry> {
+  const file = resolveDataPath("data", "status-engine", "manual_review_overrides.json");
+  if (!fs.existsSync(file)) return {};
+  const payload = JSON.parse(fs.readFileSync(file, "utf8"));
+  return payload?.entries || {};
+}
+
+export function loadStatusEngineV9Ssot(): Record<string, StatusEngineV9SsotEntry> {
+  const file = resolveDataPath("data", "status-engine", "status_ssot_v9.json");
+  if (!fs.existsSync(file)) return {};
+  const payload = JSON.parse(fs.readFileSync(file, "utf8"));
+  const entries = Array.isArray(payload?.entries) ? payload.entries : [];
+  return entries.reduce((acc: Record<string, StatusEngineV9SsotEntry>, row: StatusEngineV9SsotEntry) => {
+    const geo = String(row?.id || "").toUpperCase();
+    if (geo) acc[geo] = row;
+    return acc;
+  }, {});
 }
 
 export function loadWikiLegalityTableByIso(): Record<string, WikiLegalityTableEntry> {

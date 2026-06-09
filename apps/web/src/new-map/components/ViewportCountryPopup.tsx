@@ -3,9 +3,7 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
 import type { SeoLocale } from "@/lib/seo/i18n";
-import { getSeoText } from "@/lib/seo/i18n";
 import { localizePanelFromEntry } from "@/lib/seo/panelLocale";
-import { formatDistributionDetail, formatMedicalDetail, formatRecreationalDetail } from "../statusPresentation";
 import type { CountryCardEntry } from "../map.types";
 import styles from "../MapRoot.module.css";
 import { readVisualViewportSnapshot, subscribeToVisualViewportChanges } from "../viewportMetrics";
@@ -29,7 +27,6 @@ export default function ViewportCountryPopup({
     top: 16,
     placement: "right"
   });
-  const seo = getSeoText(locale);
   const panel = localizePanelFromEntry(entry, locale);
 
   useLayoutEffect(() => {
@@ -94,15 +91,12 @@ export default function ViewportCountryPopup({
 
   const renderList = (
     title: string,
-    icon: string,
     items: Array<{ id: string; text: string; href: string; sourceUrl?: string }>
   ) => {
     if (!items.length) return null;
     return (
       <section className={styles.viewportPopupSection}>
-        <div className={styles.viewportPopupSectionTitle}>
-          {icon} {title}
-        </div>
+        <div className={styles.viewportPopupSectionTitle}>{title}</div>
         <ul className={styles.viewportPopupList}>
           {items.map((item) => (
             <li key={item.id} className={styles.viewportPopupListItem}>
@@ -132,8 +126,8 @@ export default function ViewportCountryPopup({
       <section className={styles.viewportPopupSection}>
         <div className={styles.viewportPopupSectionTitle}>{title}</div>
         <ul className={styles.viewportPopupList}>
-          {visible.map((item) => (
-            <li key={`${title}-${item}`} className={styles.viewportPopupPlainItem}>
+          {visible.map((item, index) => (
+            <li key={`${title}-${index}-${item}`} className={styles.viewportPopupPlainItem}>
               {item}
             </li>
           ))}
@@ -141,6 +135,15 @@ export default function ViewportCountryPopup({
       </section>
     );
   };
+  const cannabisProfileItems = [
+    ...(entry.cannabisProfile?.products || []),
+    ...(entry.cannabisProfile?.traditionalUse || []),
+    ...(entry.cannabisProfile?.cannabisFoods || []),
+    ...(entry.cannabisProfile?.slang || []),
+    ...(entry.cannabisProfile?.cultivation || []),
+    ...(entry.cannabisProfile?.market || []),
+    ...(entry.cannabisProfile?.notes || [])
+  ];
 
   return (
     <aside
@@ -173,24 +176,18 @@ export default function ViewportCountryPopup({
         </div>
       </div>
 
-      <p className={styles.viewportPopupSummary}>{panel.summary}</p>
-      {renderList(panel?.labels.hardRestrictions || "Hard restrictions", "❗", panel?.critical || entry.panel.critical)}
-      {renderList(panel?.labels.moreContext || "More context", "ℹ️", panel?.info || entry.panel.info)}
-      {renderList(panel?.labels.whyThisColor || "Why this color", "→", panel?.why || entry.panel.why)}
-
       <section className={styles.viewportPopupSection}>
-        <div className={styles.viewportPopupSectionTitle}>{panel?.labels.lawSnapshot || "Law snapshot"}</div>
+        <div className={styles.viewportPopupSectionTitle}>Status</div>
         <ul className={styles.viewportPopupList}>
-          <li className={styles.viewportPopupPlainItem}>{seo.recreational}: {formatRecreationalDetail(entry)}</li>
-          <li className={styles.viewportPopupPlainItem}>{seo.medical}: {formatMedicalDetail(entry)}</li>
-          <li className={styles.viewportPopupPlainItem}>{seo.distribution}: {formatDistributionDetail(entry)}</li>
+          <li className={styles.viewportPopupPlainItem}>{panel.summary}</li>
         </ul>
       </section>
-
-      {renderProfileSection("History", entry.cannabisProfile?.history)}
-      {renderProfileSection("Local Names", entry.cannabisProfile?.localNames, 6)}
-      {renderProfileSection("Culture", entry.cannabisProfile?.culture)}
+      {renderList(panel?.labels.whyThisColor || "Why this color", panel?.why || entry.panel.why)}
       {renderProfileSection("Enforcement Reality", entry.cannabisProfile?.enforcementReality)}
+      {renderProfileSection("History", entry.cannabisProfile?.history)}
+      {renderProfileSection("Culture", entry.cannabisProfile?.culture)}
+      {renderProfileSection("Local Names", entry.cannabisProfile?.localNames, 6)}
+      {renderProfileSection("Cannabis Profile", cannabisProfileItems, 4)}
 
       {entry.sources.length > 0 ? (
         <section className={styles.viewportPopupSection}>

@@ -1,12 +1,9 @@
-import type { Feature, FeatureCollection, Geometry, MultiPolygon, Polygon } from "geojson";
+import type { Feature, FeatureCollection, Geometry, MultiPolygon, Point, Polygon } from "geojson";
 import { buildGeoJson } from "@/lib/mapData";
 import {
   buildCountryCardIndexFromStorage,
-  deriveMapCategoryFromCountryPageData,
   getCountryPageIndexByGeoCode,
-  getCountryPageIndexByIso2
 } from "@/lib/countryPageStorage";
-import { deriveResultStatusFromCountryPageData } from "@/lib/resultStatus";
 import type { AdminBoundaryCollection, CountryCardEntry, LegalCountryCollection, LegalCountryFeatureProperties } from "./map.types";
 import {
   resolveLegalFillColor,
@@ -18,10 +15,22 @@ import {
 const ANTARCTICA_FILL_COLOR = "#c5ccd3";
 const ANTARCTICA_HOVER_COLOR = "#d4dae0";
 
+type SnapshotMapCategory = "LEGAL_OR_DECRIM" | "LIMITED_OR_MEDICAL" | "ILLEGAL" | "UNKNOWN";
+
+function resultStatusFromMapCategory(mapCategory: SnapshotMapCategory) {
+  if (mapCategory === "LEGAL_OR_DECRIM") return "LEGAL" as const;
+  if (mapCategory === "UNKNOWN") return "UNKNOWN" as const;
+  return "ILLEGAL" as const;
+}
+
 let countrySourceCache: LegalCountryCollection | null = null;
 let adminBoundaryCache: AdminBoundaryCollection | null = null;
 let usStateSourceCache: LegalCountryCollection | null = null;
 let cardIndexCache: Record<string, CountryCardEntry> | null = null;
+
+function isRenderableCountryGeometry(geometry: Geometry | null | undefined): geometry is Polygon | MultiPolygon | Point {
+  return geometry?.type === "Polygon" || geometry?.type === "MultiPolygon" || geometry?.type === "Point";
+}
 
 function isPolygonGeometry(geometry: Geometry | null | undefined): geometry is Polygon | MultiPolygon {
   return geometry?.type === "Polygon" || geometry?.type === "MultiPolygon";
@@ -30,19 +39,13 @@ function isPolygonGeometry(geometry: Geometry | null | undefined): geometry is P
 export function buildCountrySourceSnapshot(): LegalCountryCollection {
   if (countrySourceCache) return countrySourceCache;
   const snapshot = buildGeoJson("countries") as FeatureCollection;
-  const countryPageByIso2 = getCountryPageIndexByIso2();
-  const missingGeos: string[] = [];
   const features = snapshot.features
-    .filter((feature): feature is Feature<Polygon | MultiPolygon> => isPolygonGeometry(feature.geometry))
-    .flatMap((feature) => {
+    .filter((feature): feature is Feature<Polygon | MultiPolygon | Point> => isRenderableCountryGeometry(feature.geometry))
+    .map((feature) => {
       const geo = String(feature.properties?.geo || "").trim().toUpperCase();
-      const countryPageData = countryPageByIso2.get(geo);
-      if (!countryPageData) {
-        missingGeos.push(geo);
-        return [];
-      }
-      const resultStatus = deriveResultStatusFromCountryPageData(countryPageData);
-      const mapCategory = deriveMapCategoryFromCountryPageData(countryPageData);
+      const mapCategory = String(feature.properties?.mapCategory || "UNKNOWN") as
+        SnapshotMapCategory;
+      const resultStatus = resultStatusFromMapCategory(mapCategory);
       const baseColor = geo === "AQ" ? ANTARCTICA_FILL_COLOR : resolveLegalFillColor(mapCategory);
       const hoverColor = geo === "AQ" ? ANTARCTICA_HOVER_COLOR : resolveLegalHoverColor(mapCategory);
       const nextProperties: LegalCountryFeatureProperties = {
@@ -66,15 +69,11 @@ export function buildCountrySourceSnapshot(): LegalCountryCollection {
           ? Number(feature.properties?.labelAnchorLat)
           : null
       };
-      return [{
+      return {
         ...feature,
         properties: nextProperties
-      }];
+      };
     });
-
-  if (missingGeos.length) {
-    console.warn(`NEW_MAP_FILTERED_MISSING_STATUS count=${missingGeos.length} geos=${missingGeos.join(",")}`);
-  }
 
   countrySourceCache = {
     ...snapshot,
@@ -118,8 +117,9 @@ export function buildUsStateSourceSnapshot(): LegalCountryCollection {
       if (!statePageData) {
         throw new Error(`MAP_WITHOUT_STATUS: ${geo}`);
       }
-      const resultStatus = deriveResultStatusFromCountryPageData(statePageData);
-      const stateCategory = deriveMapCategoryFromCountryPageData(statePageData);
+      const stateCategory = String(feature.properties?.mapCategory || "UNKNOWN") as
+        SnapshotMapCategory;
+      const resultStatus = resultStatusFromMapCategory(stateCategory);
       const baseColor = resolveLegalFillColor(stateCategory);
       const displayName = statePageData?.name || String(feature.properties?.displayName || feature.properties?.name || geo);
       const labelAnchorLng = Number(feature.properties?.labelAnchorLng);

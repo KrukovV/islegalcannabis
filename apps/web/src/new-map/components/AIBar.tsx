@@ -176,13 +176,13 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
         : "none";
 
   useEffect(() => {
+    let cancelled = false;
     try {
       const raw = window.localStorage.getItem(CHAT_STORAGE_KEY);
       if (!raw) return;
       const parsed = JSON.parse(raw) as ChatMessage[];
       if (!Array.isArray(parsed)) return;
-      setMessages(
-        parsed
+      const restoredMessages = parsed
           .filter((item) => item && (item.role === "user" || item.role === "assistant"))
           .slice(-24)
           .map((item) => ({
@@ -193,11 +193,16 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
             safetyNote: item.safetyNote || null,
             error: Boolean(item.error),
             streaming: false
-          }))
-      );
+          }));
+      queueMicrotask(() => {
+        if (!cancelled) setMessages(restoredMessages);
+      });
     } catch {
       window.localStorage.removeItem(CHAT_STORAGE_KEY);
     }
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   useEffect(() => {
@@ -205,7 +210,7 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
     warmStartedRef.current = true;
     const lockByDefault = shouldLockAiInputByDefault();
     if (lockByDefault) {
-      setAiInputLocked(true);
+      queueMicrotask(() => setAiInputLocked(true));
       return;
     }
     const keepUnlockedOnLocalhost = true;

@@ -1,74 +1,211 @@
 {
-  "generated_at": "2026-05-30T22:59:15.939Z",
-  "source_report": "Reports/status-engine/status_engine_audit_v3.json",
+  "generated_at": "2026-06-08T19:09:35.568Z",
+  "source_report": "Reports/knowledge-harvester/first_wave_validation.json",
   "scope": [
+    "AW",
     "AF",
-    "AL",
-    "DZ",
-    "AD",
     "AO",
-    "AG",
+    "AI",
+    "AX",
+    "AL",
+    "AD",
+    "AE",
     "AR",
     "AM",
+    "AS",
+    "AQ",
+    "TF",
+    "AG",
     "AU",
     "AT",
     "AZ",
-    "BS",
-    "BH",
-    "BD",
-    "BB",
-    "BY",
-    "BE",
-    "BZ",
-    "BJ",
-    "BM",
-    "BT",
-    "BO",
-    "BA",
-    "BW",
-    "BR",
-    "BN",
-    "BG",
-    "BF",
     "BI",
-    "KH",
-    "IR"
+    "BE",
+    "BJ",
+    "BF",
+    "BD",
+    "BG",
+    "BH",
+    "BS",
+    "BA",
+    "BL",
+    "BY",
+    "BZ",
+    "BM"
   ],
   "profiles": [
+    {
+      "geo": "AD",
+      "country": "Andorra",
+      "wiki_title": "Cannabis in Andorra",
+      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Andorra",
+      "revision_id": "1344092570",
+      "source_type": "missing_wikipedia_article",
+      "sections": {
+        "history": [],
+        "local_names": [],
+        "products": [],
+        "traditional_use": [],
+        "cannabis_foods": [],
+        "slang": [],
+        "cultivation": [],
+        "market": [],
+        "enforcement_notes": [
+          "The trafficking of cannabis can be punished by up to two years in prison and fines totally double the value of the drug.",
+          "Individual use of cannabis or similar in a public space may be punished by arrest, or by fines up to 600 euros.."
+        ],
+        "culture": [],
+        "notes": [
+          "Cannabis in Andorra is illegal.",
+          "The trafficking of cannabis can be punished by up to two years in prison and fines totally double the value of the drug.",
+          "Individual use of cannabis or similar in a public space may be punished by arrest, or by fines up to 600 euros.."
+        ]
+      },
+      "local_names": []
+    },
+    {
+      "geo": "AE",
+      "country": "United Arab Emirates / الإمارات",
+      "wiki_title": "Cannabis in the United Arab Emirates",
+      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_the_United_Arab_Emirates",
+      "revision_id": "1357634565",
+      "source_type": "missing_wikipedia_article",
+      "sections": {
+        "history": [
+          "In 2022, the criminal penalties for drug-related crimes was reduced, with a possibility of no punishment for first-time offenders."
+        ],
+        "local_names": [],
+        "products": [],
+        "traditional_use": [],
+        "cannabis_foods": [],
+        "slang": [],
+        "cultivation": [],
+        "market": [],
+        "enforcement_notes": [
+          "Trafficking has a minimum five year sentence.",
+          "The United Arab Emirates prohibits the trafficking and sale of drugs, including cannabis, with drug use punishable of up to four years in prison.",
+          "In 2022, the criminal penalties for drug-related crimes was reduced, with a possibility of no punishment for first-time offenders."
+        ],
+        "culture": [],
+        "notes": [
+          "Cannabis in the United Arab Emirates is illegal.",
+          "The United Arab Emirates prohibits the trafficking and sale of drugs, including cannabis, with drug use punishable of up to four years in prison.",
+          "The UAE is not a significant cannabis producer or consumer, but is a major transshipment point for cannabis from Pakistan and Afghanistan, due to its free ports and heterogeneous population.."
+        ]
+      },
+      "local_names": []
+    },
     {
       "geo": "AF",
       "country": "Afghanistan / افغانستان",
       "wiki_title": "Cannabis in Afghanistan",
       "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Afghanistan",
+      "revision_id": "1266883542",
+      "source_type": "missing_wikipedia_article",
       "sections": {
         "history": [
+          ", 2010]], 2011]] eradicating cannabis in Kandahar in 2011]] Cannabis is illegal in Afghanistan.",
+          "It has been cultivated for centuries, and experienced relatively little interference until the 1970s, where after it became an issue both in international politics and in the finance of the series of wars which occurred in Afghanistan for forty years.",
+          "In 2010, the United Nations reported that Afghanistan was the world's top cannabis producer..",
+          "Baba Ku is a legendary folkloric character from Balkh in Afghanistan, a Sufi adherent who legendarily introduced hashish to Afghanistan..",
           "Hashish had been made nominally illegal in 1957, allegedly mostly as a concession to US pressure, but persisted as a common drug in the country.",
+          "In 1972 Afghan authorities confiscated large amounts of refined heroin and hashish intended for export, revealing the increasingly international scope of drug production in the country.",
+          "US pressure on Kabul hashish syndicates in 1971 further increased the tension around the issue.",
+          "Royal prohibition.",
+          "In 1973, King Zahir Shah outlawed opium poppy and cannabis production, this time followed by genuine commitment to eradication, backed by $47 million in funding from the United States government.",
+          "Zahir Shah was deposed by his cousin Mohammed Daoud Khan that fall, who ended the monarchy and established himself as President, but the momentum of the hashish trade had been interrupted, and Western smugglers re-routed to Pakistani sources, so the 1973 harvest was minimal, as were harvests for several years following..",
           "Kabul merchant Hyatullah Tohki transported hashish with his brother Amanullah, who worked at the American embassy in Kabul.",
           "Zahir Shah was deposed by his cousin Mohammed Daoud Khan that fall, who ended the monarchy and established himself as President, but the momentum of the hashish trade had been interrupted, and Western smugglers re-routed to Pakistani sou..."
         ],
-        "local_names": [],
-        "products": [
-          "Hashish had been made nominally illegal in 1957, allegedly mostly as a concession to US pressure, but persisted as a common drug in the country.",
-          "Kabul merchant Hyatullah Tohki transported hashish with his brother Amanullah, who worked at the American embassy in Kabul.",
-          "Zahir Shah was deposed by his cousin Mohammed Daoud Khan that fall, who ended the monarchy and established himself as President, but the momentum of the hashish trade had been interrupted, and Western smugglers re-routed to Pakistani sou...",
-          "In 1972 Afghan authorities confiscated large amounts of refined heroin and hashish intended for export, revealing the increasingly international scope of drug production in the country."
+        "local_names": [
+          "hashish"
         ],
+        "products": [
+          "Baba Ku is a legendary folkloric character from Balkh in Afghanistan, a Sufi adherent who legendarily introduced hashish to Afghanistan..",
+          "Hashish had been made nominally illegal in 1957, allegedly mostly as a concession to US pressure, but persisted as a common drug in the country.",
+          "In 1972 Afghan authorities confiscated large amounts of refined heroin and hashish intended for export, revealing the increasingly international scope of drug production in the country.",
+          "US pressure on Kabul hashish syndicates in 1971 further increased the tension around the issue.",
+          "Kabul merchant Hyatullah Tohki transported hashish with his brother Amanullah, who worked at the American embassy in Kabul..",
+          "Zahir Shah was deposed by his cousin Mohammed Daoud Khan that fall, who ended the monarchy and established himself as President, but the momentum of the hashish trade had been interrupted, and Western smugglers re-routed to Pakistani sources, so the 1973 harvest was minimal, as were harvests for several years following..",
+          "hashish",
+          "Zahir Shah was deposed by his cousin Mohammed Daoud Khan that fall, who ended the monarchy and established himself as President, but the momentum of the hashish trade had been interrupted, and Western smugglers re-routed to Pakistani sou..."
+        ],
+        "traditional_use": [
+          "While traditional cultivation and largely local consumption of cannabis was common in Afghanistan, the development of the Hippie Trail in the 1970s brought an influx of young tourists with an appetite for cannabis to Afghanistan."
+        ],
+        "cannabis_foods": [],
+        "slang": [],
+        "cultivation": [],
+        "market": [],
+        "enforcement_notes": [],
+        "culture": [
+          "While traditional cultivation and largely local consumption of cannabis was common in Afghanistan, the development of the Hippie Trail in the 1970s brought an influx of young tourists with an appetite for cannabis to Afghanistan.",
+          "Hashish had been made nominally illegal in 1957, allegedly mostly as a concession to US pressure, but persisted as a common drug in the country.",
+          "However, increased production and sale to Western tourists raised the issue to the level of a social problem for the Afghan government."
+        ],
+        "notes": [
+          ", 2010]], 2011]] eradicating cannabis in Kandahar in 2011]] Cannabis is illegal in Afghanistan.",
+          "In 2010, the United Nations reported that Afghanistan was the world's top cannabis producer..",
+          "Cannabis indica is native to Afghanistan.",
+          "With Cannabis sativa also originating in Central Asia, it is likely that all existing cannabis strains originated from Afghanistan..",
+          "Baba Ku is a legendary folkloric character from Balkh in Afghanistan, a Sufi adherent who legendarily introduced hashish to Afghanistan..",
+          "While traditional cultivation and largely local consumption of cannabis was common in Afghanistan, the development of the Hippie Trail in the 1970s brought an influx of young tourists with an appetite for cannabis to Afghanistan.",
+          "Hashish had been made nominally illegal in 1957, allegedly mostly as a concession to US pressure, but persisted as a common drug in the country.",
+          "In 1972 Afghan authorities confiscated large amounts of refined heroin and hashish intended for export, revealing the increasingly international scope of drug production in the country."
+        ]
+      },
+      "local_names": [
+        {
+          "geo": "AF",
+          "country": "Afghanistan / افغانستان",
+          "term": "hashish",
+          "kind": "local_hash_name",
+          "source": "wiki_fact",
+          "evidence": "Baba Ku is a legendary folkloric character from Balkh in Afghanistan, a Sufi adherent who legendarily introduced hashish to Afghanistan.."
+        }
+      ]
+    },
+    {
+      "geo": "AG",
+      "country": "Antigua and Barbuda",
+      "wiki_title": "Antigua and Barbuda",
+      "wiki_url": "https://en.wikipedia.org/wiki/Antigua_and_Barbuda",
+      "revision_id": "1357685979",
+      "source_type": "missing_wikipedia_article",
+      "sections": {
+        "history": [],
+        "local_names": [],
+        "products": [],
         "traditional_use": [],
         "cannabis_foods": [],
         "slang": [],
-        "cultivation": [
-          "Kabul merchant Hyatullah Tohki transported hashish with his brother Amanullah, who worked at the American embassy in Kabul.",
-          "In 1972 Afghan authorities confiscated large amounts of refined heroin and hashish intended for export, revealing the increasingly international scope of drug production in the country.",
-          "That summer Afghan troops aggressively tackled production, destroying farms and arresting or killing cannabis farmers."
-        ],
-        "market": [
-          "Zahir Shah was deposed by his cousin Mohammed Daoud Khan that fall, who ended the monarchy and established himself as President, but the momentum of the hashish trade had been interrupted, and Western smugglers re-routed to Pakistani sou...",
-          "In 1972 Afghan authorities confiscated large amounts of refined heroin and hashish intended for export, revealing the increasingly international scope of drug production in the country."
-        ],
+        "cultivation": [],
+        "market": [],
         "enforcement_notes": [],
-        "culture": [
-          "Hashish had been made nominally illegal in 1957, allegedly mostly as a concession to US pressure, but persisted as a common drug in the country."
-        ]
+        "culture": [],
+        "notes": []
+      },
+      "local_names": []
+    },
+    {
+      "geo": "AI",
+      "country": "Anguilla",
+      "wiki_title": "Anguilla",
+      "wiki_url": "https://en.wikipedia.org/wiki/Anguilla",
+      "revision_id": "1357291279",
+      "source_type": "missing_wikipedia_article",
+      "sections": {
+        "history": [],
+        "local_names": [],
+        "products": [],
+        "traditional_use": [],
+        "cannabis_foods": [],
+        "slang": [],
+        "cultivation": [],
+        "market": [],
+        "enforcement_notes": [],
+        "culture": [],
+        "notes": []
       },
       "local_names": []
     },
@@ -77,25 +214,29 @@
       "country": "Albania / Shqipëria",
       "wiki_title": "Cannabis in Albania",
       "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Albania",
+      "revision_id": "1330886385",
+      "source_type": "missing_wikipedia_article",
       "sections": {
         "history": [
+          "In 2012, Albania seized 21.2 metric tons of cannabis, nearly twice the amount seized in 2011.",
+          "Albania made global headlines and \"placed itself on the cannabis map\" in 2013 when the Albanian State Police (ASP) tried to shut down production in Lazarat, one of the heaviest producing towns in the mountainous southern regions that are said to be the \"heartland\" of Albanian cannabis production.",
           "Cannabis is legal for medical and industrial purposes in Albania."
         ],
-        "local_names": [],
-        "products": [],
+        "local_names": [
+          "hashish"
+        ],
+        "products": [
+          "Albanian cannabis production is sufficient to meet local demand and also export to other areas, though the country continues to import some hashish through Turkey.",
+          "A 2009 report, however, noticed a reduction in the significance of Albanian cannabis exports, and that seizures of Albanian herbal cannabis had \"become very rare in the last five years.\" More recently, although still undoubtedly a net exporter, Albanians have begun importing herbal cannabis as well, with an apparent preference for the hashish varieties of the Maghreb.",
+          "hashish"
+        ],
         "traditional_use": [],
         "cannabis_foods": [],
         "slang": [],
-        "cultivation": [
-          "In the early days of cannabis production in Albania, trafficking was done by Greek youths who carried bags of cannabis over the mountains across the border, in which Albanian law enforcement found it difficult to control the trade.",
-          "Total production, meanwhile, in Albania, was estimated by Italian financial police to be around 900 tonnes, worth about 4.5 billion euros.",
-          "Albania made global headlines and \"placed itself on the cannabis map\" in 2013 when the Albanian State Police (ASP) tried to shut down production in Lazarat, one of the heaviest producing towns in the mountainous southern regions that are..."
-        ],
-        "market": [
-          "In the early days of cannabis production in Albania, trafficking was done by Greek youths who carried bags of cannabis over the mountains across the border, in which Albanian law enforcement found it difficult to control the trade.",
-          "Due to its aspirations to join the European Union, Albania is under pressure to present a decisive national anti-drug strategy, and in recent years has escalated police crackdown against the cannabis trade, with mixed results, and coordi..."
-        ],
+        "cultivation": [],
+        "market": [],
         "enforcement_notes": [
+          "Drug trafficking first became a major concern in Albania in the 1990s; in that same period cannabis cultivation which had initially been concentrated in the south became more widespread.",
           "Total production, meanwhile, in Albania, was estimated by Italian financial police to be around 900 tonnes, worth about 4.5 billion euros.",
           "Albania made global headlines and \"placed itself on the cannabis map\" in 2013 when the Albanian State Police (ASP) tried to shut down production in Lazarat, one of the heaviest producing towns in the mountainous southern regions that are...",
           "In the early days of cannabis production in Albania, trafficking was done by Greek youths who carried bags of cannabis over the mountains across the border, in which Albanian law enforcement found it difficult to control the trade.",
@@ -103,7 +244,1011 @@
         ],
         "culture": [
           "The new industry took hold quickly despite attempts to curtail it, and it has been reported that in 1995 gunfights between farmers and police were common."
+        ],
+        "notes": [
+          ", a town in Albania which gained reputation as the \"cannabis capital\" of the country]] Cannabis is legal for medical and industrial purposes in Albania..",
+          "Drug trafficking first became a major concern in Albania in the 1990s; in that same period cannabis cultivation which had initially been concentrated in the south became more widespread.",
+          "Albanian cannabis production is sufficient to meet local demand and also export to other areas, though the country continues to import some hashish through Turkey.",
+          "In the mid-2000s, 77% of the cannabis in Italy originated in Albania.",
+          "A 2009 report, however, noticed a reduction in the significance of Albanian cannabis exports, and that seizures of Albanian herbal cannabis had \"become very rare in the last five years.\" More recently, although still undoubtedly a net exporter, Albanians have begun importing herbal cannabis as well, with an apparent preference for the hashish varieties of the Maghreb.",
+          "In 2012, Albania seized 21.2 metric tons of cannabis, nearly twice the amount seized in 2011.",
+          "Albania made global headlines and \"placed itself on the cannabis map\" in 2013 when the Albanian State Police (ASP) tried to shut down production in Lazarat, one of the heaviest producing towns in the mountainous southern regions that are said to be the \"heartland\" of Albanian cannabis production.",
+          "Lazarat's villages, 90% of whom are thought to be involved in the cannabis trade in some way, mounted an armed resistance against the ASP with even a \"70-year old grandmother\" involved in the fighting."
         ]
+      },
+      "local_names": [
+        {
+          "geo": "AL",
+          "country": "Albania / Shqipëria",
+          "term": "hashish",
+          "kind": "local_hash_name",
+          "source": "wiki_fact",
+          "evidence": "Albanian cannabis production is sufficient to meet local demand and also export to other areas, though the country continues to import some hashish through Turkey."
+        }
+      ]
+    },
+    {
+      "geo": "AM",
+      "country": "Armenia / Հայաստան",
+      "wiki_title": "Cannabis in Armenia",
+      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Armenia",
+      "revision_id": null,
+      "source_type": "missing_wikipedia_article",
+      "sections": {
+        "history": [],
+        "local_names": [],
+        "products": [
+          "The Minister of the Economy, Vahan Kerobyan, noted that the authorities, including law enforcement, would maintain control and oversight of the process of hemp production, to ensure that Armenian drug legislation is not breached.",
+          "In February 2021, the Government of Armenia announced plans to allow cultivation of industrial hemp as a part of an economic programme to boost the economy."
+        ],
+        "traditional_use": [],
+        "cannabis_foods": [],
+        "slang": [],
+        "cultivation": [],
+        "market": [],
+        "enforcement_notes": [
+          "While prior cannabis use has been decriminalized as of 2009, those caught possessing are subject to heavy fines and an average jail sentence of two months.",
+          "The Minister of the Economy, Vahan Kerobyan, noted that the authorities, including law enforcement, would maintain control and oversight of the process of hemp production, to ensure that Armenian drug legislation is not breached."
+        ],
+        "culture": [
+          "Cannabis in Armenia is illegal for all uses.",
+          "Consumption is more prevalent among men in Armenia."
+        ],
+        "notes": []
+      },
+      "local_names": []
+    },
+    {
+      "geo": "AO",
+      "country": "Angola",
+      "wiki_title": "Cannabis in Angola",
+      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Angola",
+      "revision_id": "1358295846",
+      "source_type": "missing_wikipedia_article",
+      "sections": {
+        "history": [
+          "British explorer David Livingstone wrote in 1858: \"The Portuguese in Angola have such a belief in its deleterious effects that the use of it by a slave is considered a crime.\" Cannabis is the most common illicit drug in Angola, and is grown in almost every province of the country.."
+        ],
+        "local_names": [
+          "diamba",
+          "liamba"
+        ],
+        "products": [
+          "The drug is locally referred to as diamba or liamba."
+        ],
+        "traditional_use": [],
+        "cannabis_foods": [],
+        "slang": [],
+        "cultivation": [],
+        "market": [],
+        "enforcement_notes": [],
+        "culture": [
+          "British explorer David Livingstone wrote in 1858: \"The Portuguese in Angola have such a belief in its deleterious effects that the use of it by a slave is considered a crime.\" Cannabis is the most common illicit drug in Angola, and is grown in almost every province of the country..",
+          "British explorer David Livingstone wrote in 1858: \"The Portuguese in Angola have such a belief in its deleterious effects that the use of it by a slave is considered a crime.\" Cannabis is the most common illicit drug in Angola, and is gr..."
+        ],
+        "notes": [
+          "Cannabis is illegal in Angola.",
+          "The drug is locally referred to as diamba or liamba.",
+          "British explorer David Livingstone wrote in 1858: \"The Portuguese in Angola have such a belief in its deleterious effects that the use of it by a slave is considered a crime.\" Cannabis is the most common illicit drug in Angola, and is grown in almost every province of the country.."
+        ]
+      },
+      "local_names": [
+        {
+          "geo": "AO",
+          "country": "Angola",
+          "term": "diamba",
+          "kind": "local_cannabis_name",
+          "source": "user_requirement_seed",
+          "evidence": "Required local cannabis name for Angola knowledge extraction."
+        },
+        {
+          "geo": "AO",
+          "country": "Angola",
+          "term": "liamba",
+          "kind": "local_cannabis_name",
+          "source": "user_requirement_seed",
+          "evidence": "Required local cannabis name for Angola knowledge extraction."
+        }
+      ]
+    },
+    {
+      "geo": "AQ",
+      "country": "Antarctica",
+      "wiki_title": "Cannabis in Antarctica",
+      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Antarctica",
+      "revision_id": null,
+      "source_type": "missing_wikipedia_article",
+      "sections": {
+        "history": [],
+        "local_names": [],
+        "products": [],
+        "traditional_use": [],
+        "cannabis_foods": [],
+        "slang": [],
+        "cultivation": [],
+        "market": [],
+        "enforcement_notes": [],
+        "culture": [],
+        "notes": []
+      },
+      "local_names": []
+    },
+    {
+      "geo": "AR",
+      "country": "Argentina",
+      "wiki_title": "Cannabis in Argentina",
+      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Argentina",
+      "revision_id": "1318344655",
+      "source_type": "missing_wikipedia_article",
+      "sections": {
+        "history": [
+          "Medical cannabis was legalized in 2017."
+        ],
+        "local_names": [],
+        "products": [
+          "On March 29, 2017, the Argentine senate approved the medical use of CBD cannabis oil, and was promulgated on September 22, 2017."
+        ],
+        "traditional_use": [
+          "However, in a 2021 survey, nearly five of six Argentinian cannabis users said their use was more recreational than medicinal."
+        ],
+        "cannabis_foods": [],
+        "slang": [],
+        "cultivation": [],
+        "market": [],
+        "enforcement_notes": [
+          "Cultivation, trafficking, supply, and related activities outside the regulated medical cannabis system attract more severe penalties. and in Santa Fe since November 30, 2016.",
+          "Possession without medical authorization is punishable by a prison sentence of between one month and six years, despite the 2009 Fallo Arriola Supreme Court ruling that enforcement of the law is unconstitutional."
+        ],
+        "culture": [],
+        "notes": [
+          "]] Cannabis in Argentina is regulated by the Penal Code of Argentina, which prohibits its possession, cultivation, and supply, except for authorized medical purposes.",
+          "Official statistics estimate that cannabis is used by 7.8% of Argentina's population.",
+          "Medical cannabis was legalized in 2017.",
+          "Regulations have evolved over time, and authorized patients may possess and cultivate cannabis, and there is a licensing system for the supply of medical cannabis.",
+          "However, in a 2021 survey, nearly five of six Argentinian cannabis users said their use was more recreational than medicinal.",
+          "Cultivation, trafficking, supply, and related activities outside the regulated medical cannabis system attract more severe penalties. and in Santa Fe since November 30, 2016.",
+          "On March 29, 2017, the Argentine senate approved the medical use of CBD cannabis oil, and was promulgated on September 22, 2017.",
+          "In August 2023, the regulatory agency responsible for licensing the production and trade of cannabis derivatives was formally launched.."
+        ]
+      },
+      "local_names": []
+    },
+    {
+      "geo": "AS",
+      "country": "American Samoa / Sāmoa Amelika",
+      "wiki_title": "American Samoa",
+      "wiki_url": "https://en.wikipedia.org/wiki/American_Samoa",
+      "revision_id": null,
+      "source_type": "missing_wikipedia_article",
+      "sections": {
+        "history": [],
+        "local_names": [],
+        "products": [],
+        "traditional_use": [],
+        "cannabis_foods": [],
+        "slang": [],
+        "cultivation": [],
+        "market": [],
+        "enforcement_notes": [],
+        "culture": [],
+        "notes": []
+      },
+      "local_names": []
+    },
+    {
+      "geo": "AT",
+      "country": "Austria / Österreich",
+      "wiki_title": "Cannabis in Austria",
+      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Austria",
+      "revision_id": "1340611478",
+      "source_type": "missing_wikipedia_article",
+      "sections": {
+        "history": [
+          "Possession of small amounts for personal use was decriminalized in 2016.",
+          "In 2016, the possession of small amounts of THC containing substances for personal consumption was slightly decriminalized to the degree that such cases will not be pursued if the possessor has not been implicated in any drug related offenses within the last five years.",
+          "In 2022, the German government announced plans to legalize the regulated purchase and the recreational use of cannabis."
+        ],
+        "local_names": [],
+        "products": [
+          "The sale of cannabis seeds and plants is legal..",
+          "Cannabis cultivation is controlled by the Austrian Agency for Health and Food Safety (Österreichische Agentur für Gesundheit und Ernährungssicherheit, AGES).."
+        ],
+        "traditional_use": [
+          "In 2016, the possession of small amounts of THC containing substances for personal consumption was slightly decriminalized to the degree that such cases will not be pursued if the possessor has not been implicated in any drug related offenses within the last five years.",
+          "Cannabis cultivation is controlled by the Austrian Agency for Health and Food Safety (Österreichische Agentur für Gesundheit und Ernährungssicherheit, AGES)."
+        ],
+        "cannabis_foods": [],
+        "slang": [],
+        "cultivation": [],
+        "market": [],
+        "enforcement_notes": [
+          "Possession of small amounts for personal use was decriminalized in 2016.",
+          "In 2016, the possession of small amounts of THC containing substances for personal consumption was slightly decriminalized to the degree that such cases will not be pursued if the possessor has not been implicated in any drug related offenses within the last five years."
+        ],
+        "culture": [
+          "Due to the common open border between Germany and Austria (32% of Austria’s entire border), and their close economic and cultural ties, a public discussion has been sparked in Austria regarding legalization..",
+          "Cannabis cultivation is controlled by the Austrian Agency for Health and Food Safety (Österreichische Agentur für Gesundheit und Ernährungssicherheit, AGES).",
+          "In 2016, the possession of small amounts of THC containing substances for personal consumption was slightly decriminalized to the degree that such cases will not be pursued if the possessor has not been implicated in any drug related off..."
+        ],
+        "notes": [
+          "Cannabis in Austria is legal for scientific and limited medical usage, but illegal for recreational usage.",
+          "The sale of cannabis seeds and plants is legal..",
+          "On 9 July 2008, the Austrian Parliament approved cannabis cultivation for scientific and medical uses.",
+          "Cannabis cultivation is controlled by the Austrian Agency for Health and Food Safety (Österreichische Agentur für Gesundheit und Ernährungssicherheit, AGES)..",
+          "The purchase, importation, exportation, transportation, or cultivation of cannabis is a punishable offense in Austria.",
+          "In 2016, the possession of small amounts of THC containing substances for personal consumption was slightly decriminalized to the degree that such cases will not be pursued if the possessor has not been implicated in any drug related offenses within the last five years.",
+          "Both Δ 9 -THC and pharmaceutical preparations containing Δ 9 -THC are listed in annex IV of the Austrian Narcotics Decree (Suchtgiftverordnung).",
+          "In 2022, the German government announced plans to legalize the regulated purchase and the recreational use of cannabis."
+        ]
+      },
+      "local_names": []
+    },
+    {
+      "geo": "AU",
+      "country": "Australia",
+      "wiki_title": "Cannabis in Australia",
+      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Australia",
+      "revision_id": "1358441733",
+      "source_type": "missing_wikipedia_article",
+      "sections": {
+        "history": [
+          "In 2022–23, 41% of Australians over the age of fourteen years had used cannabis in their lifetime and 11.5% had used cannabis in the last 12 months.",
+          "On 25 September 2019, the Australian Capital Territory passed a bill allowing for possession and growth of small amounts of cannabis for personal use as of 31 January 2020, although the laws conflict with federal laws that prohibit recreational use of cannabis and the supply of cannabis and cannabis seeds are not allowed under the changes.",
+          "According to polling by the National Drug Strategy Household Survey (NDSHS) in 2019, more Australians now support legalisation of cannabis than remain opposed.",
+          "In 2019, the survey reported that 41% of Australians supported the legalisation of cannabis, 37% remained opposed, and 22% were undecided.",
+          "In 2019 this rose to 78%, before rising again to 80% in 2022–2023.",
+          "For 150 years, early governments in Australia actively supported the growing of hemp with gifts of land and other grants, and the consumption of cannabis in Australia in the 19th century was believed to be widespread.",
+          "This prohibition model was applied with little research into cannabis use in Australia.",
+          "The Australian Capital Territory was the first jurisdiction to outlaw cannabis in 1926, followed by Victoria (1927), South Australia (1934), New South Wales (1935), Queensland (1937), Western Australia (1950), and Tasmania (1959).",
+          "In 1938, the newspaper Smith's Weekly ran a Reefer Madness-style shock campaign, carrying a headline reading, \"New Drug that Maddens Victims\".",
+          "This campaign introduced the word \"marijuana\" to Australia.",
+          "Two common names for cannabis in Aboriginal English and in Indigenous Australian languages are gunja and yarndi.",
+          "In 1989, the Parliamentary Joint Committee on the National Crime Authority released a report titled Drugs, Crime, and Society, which stated that, \"If the aim of the policy (of prohibition) was to reduce the use of prohibited substances, ..."
+        ],
+        "local_names": [
+          "bowls",
+          "cone",
+          "hash",
+          "hashish"
+        ],
+        "products": [
+          "On 12 November 2017, Food Standards Australia New Zealand (FSANZ) made low-THC hemp food legal for human consumption in Australia.",
+          "On 25 September 2019, the Australian Capital Territory passed a bill allowing for possession and growth of small amounts of cannabis for personal use as of 31 January 2020, although the laws conflict with federal laws that prohibit recreational use of cannabis and the supply of cannabis and cannabis seeds are not allowed under the changes.",
+          "The first record of common hemp seeds brought to Australia was with the First Fleet at the request of Sir Joseph Banks, who marked the cargo \"for commerce\" in the hope that hemp would be produced commercially in the new colony.",
+          "For 150 years, early governments in Australia actively supported the growing of hemp with gifts of land and other grants, and the consumption of cannabis in Australia in the 19th century was believed to be widespread.",
+          "In 1998, Victoria became the first Australian State to pass legislation allowing for the commercial production of industrial hemp, under license, followed by Queensland, also under license in the same year.",
+          "The Drugs Misuse Act 1986 and the Drugs Misuse Regulation 1987 regulate the commercial production of industrial hemp in Queensland..",
+          "The Australian Capital Territory government passed the Hemp Fibre Industry Facilitation Act and the Western Australian government passed the Industrial Hemp Act in 2004 allowing for the commercial production of industrial hemp under license.",
+          "The Hemp Industry Act 2008, allowed for the commercial production of industrial hemp in NSW, under license.",
+          "In 2010, in the media details, a hemp grower on the Northern Beaches of Sydney who has legally grown 500 hemp plants in his backyard.",
+          "The Sydney Morning Herald describes cultivator Richard Friar as a hemp evangelist—a firm believer in the world-changing potential of cannabis, which can be used in everything from food to fabrics and building materials.",
+          "Two common names for cannabis in Aboriginal English and in Indigenous Australian languages are gunja and yarndi.",
+          "In 1964, with the discovery of hundreds of acres of wild hemp growing in the Hunter Valley in NSW, authorities responded with a massive eradication campaign."
+        ],
+        "traditional_use": [
+          "Cannabis is a plant used in Australia for recreational, medicinal and industrial purposes.",
+          "On 24 February 2016, Australia legalised growing of cannabis for medicinal and scientific purposes at the federal level.",
+          "On 12 November 2017, Food Standards Australia New Zealand (FSANZ) made low-THC hemp food legal for human consumption in Australia.",
+          "For 150 years, early governments in Australia actively supported the growing of hemp with gifts of land and other grants, and the consumption of cannabis in Australia in the 19th century was believed to be widespread.",
+          "He said that cannabis use was widespread and that \"tens of thousands of parents whose sons and daughters smoke marijuana\" would not want their children to carry \"the stigma of being a jailed, convicted criminal\".",
+          "AusCann was the first company in Australia to be granted a license to grow and export medicinal cannabis.",
+          "On 17 October 2015, the Federal Government announced that it would legalise the commercial growing of cannabis for medicinal and scientific purposes.",
+          "On 24 February 2016, the Australian parliament made amendments to the Narcotic Drugs Act that legalised the commercial growing of cannabis for medicinal and scientific purposes.",
+          "On the same day the Food Standards Australia New Zealand (FSANZ) made Hemp seeds legal for human consumption in Australia.",
+          "Copeland from the NCPIC and others, cannabis in Australia is commonly smoked as a cluster (or \"cone\", similar to \"bowls\" as known in the United States) of the flowering heads (buds) or resin glands (also known as Hashish) of the female plant."
+        ],
+        "cannabis_foods": [],
+        "slang": [],
+        "cultivation": [],
+        "market": [],
+        "enforcement_notes": [
+          "Right-wing Australian politicians like Queensland premier Joh Bjelke-Petersen and NSW premier Robert Askin supported Nixon's war on drugs in America, calling for a crackdown on Australian youth culture.",
+          "In the late 1960s, organised drug trafficking developed in Sydney with the arrival of US servicemen on leave from the Vietnam War, and the local drug markets expanded to meet their requirements.",
+          "The Joint Committee upon Drugs of the NSW Parliament recommended the removal of jail sentences for personal use of cannabis, and NSW Premier Neville Wran outlined a plan to remove jail sentences for people convicted and for possessing cannabis for personal use.",
+          "Trafficking in cannabis would carry severe penalties.",
+          "In 1990, the commonwealth government ratified the United Nations Convention on Illicit Trafficking in Narcotics and Psychotropic Substances via the Crimes (Traffic in Narcotic Drugs and Psychotropic Substances) Act 1990.",
+          "Under the act a simple cannabis offence results in a fine which if paid within 60 days, means that no conviction will be recorded.",
+          "In 1994, the Australian National Task Force on Cannabis formed under the Ministerial Council on Drug Strategy, recommended the government develop a national cannabis policy imposing civil penalties for personal use.",
+          "The task force stated \"There should be a major emphasis on law enforcement\" and that \"Law enforcement should be underpinned by clear and unequivocal opposition to all forms of illicit drug use\".",
+          "In his Second Reading Speech on the act, the Northern Territory Attorney-General, Steve Hatton stated \"the personal possession of even the smallest amount of cannabis will remain an offence under Northern Territory law, and police will retain the discretion to prosecute the possession of cannabis through the courts.",
+          "However, the government is prepared to face the reality that the possession and use of cannabis is widespread in the community, regardless of the penalties that have been imposed in relation to its use...",
+          "When police tried to arrest revellers who were openly smoking marijuana, the crowd of 6,000 rioted.",
+          "The Joint Committee upon Drugs of the NSW Parliament recommended the removal of jail sentences for personal use of cannabis, and NSW Premier Neville Wran outlined a plan to remove jail sentences for people convicted and for possessing ca..."
+        ],
+        "culture": [
+          "Two common names for cannabis in Aboriginal English and in Indigenous Australian languages are gunja and yarndi..",
+          "The first record of common hemp seeds brought to Australia was with the First Fleet at the request of Sir Joseph Banks, who marked the cargo \"for commerce\" in the hope that hemp would be produced commercially in the new colony.",
+          "Right-wing Australian politicians like Queensland premier Joh Bjelke-Petersen and NSW premier Robert Askin supported Nixon's war on drugs in America, calling for a crackdown on Australian youth culture.",
+          "On 31 May 2019, the Victorian legislative council instructed the Legal and Social Issues Committee to open an inquiry into the use of cannabis to examine access to and use of cannabis in Victoria, such as ways to prevent children and young people accessing and using cannabis, prevent criminal activity relating to the illegal cannabis trade in Victoria and protecting public health and public safety in relation to t...",
+          "In the early 2000s patterns of use are similar to those throughout the developed world with heaviest use occurring in the early 20s, followed by a steady decline into the 30s, with ninety percent of experimental or social recreational users of cannabis not going on to use the substance daily or for a prolonged period; most discontinued its use by their late 20s..",
+          "Cannabis continues to be the world's most widely used illicit drug, with an estimated annual prevalence of 3.9% of the adult population aged 15–64 years, or the equivalent of 192 million people having used cannabis at least once in 2018.",
+          "Historical and social factors have contributed to the widespread use of tobacco and alcohol among Indigenous communities and according to Perkins, Clough and others, the use of illicit drugs (cannabis in particular) is higher among Aboriginal and Torres Strait Islander peoples than among the non-Indigenous population of Australia.",
+          "Spooner and Hetherington confirm that many of the social determinants of harmful substance abuse are disproportionately present in Aboriginal and Torres Strait Islander communities.",
+          "Their popular usage as opposed to naturally-grown cannabis was attributed to the fact that users could obtain a \"legal high\", as the compounds in synthetic cannabis were not yet listed as illegal on the Australian Standard for the Uniform Scheduling of Medicines and Poisons [SUSMP] – the governing body of drug listing in Australia.",
+          "The prevalence of cannabis in Australia indicates that the plant is widely available.",
+          "On 12 November 2017, Food Standards Australia New Zealand (FSANZ) made low-THC hemp food legal for human consumption in Australia.",
+          "For 150 years, early governments in Australia actively supported the growing of hemp with gifts of land and other grants, and the consumption of cannabis in Australia in the 19th century was believed to be widespread."
+        ],
+        "notes": [
+          "Cannabis is a plant used in Australia for recreational, medicinal and industrial purposes.",
+          "Australia has one of the highest cannabis prevalence rates in the world.",
+          "In 2022–23, 41% of Australians over the age of fourteen years had used cannabis in their lifetime and 11.5% had used cannabis in the last 12 months.",
+          "On 24 February 2016, Australia legalised growing of cannabis for medicinal and scientific purposes at the federal level.",
+          "On 12 November 2017, Food Standards Australia New Zealand (FSANZ) made low-THC hemp food legal for human consumption in Australia.",
+          "On 25 September 2019, the Australian Capital Territory passed a bill allowing for possession and growth of small amounts of cannabis for personal use as of 31 January 2020, although the laws conflict with federal laws that prohibit recreational use of cannabis and the supply of cannabis and cannabis seeds are not allowed under the changes.",
+          "Attitudes towards legalising recreational cannabis in Australia have shifted over the last decade.",
+          "According to polling by the National Drug Strategy Household Survey (NDSHS) in 2019, more Australians now support legalisation of cannabis than remain opposed."
+        ]
+      },
+      "local_names": [
+        {
+          "geo": "AU",
+          "country": "Australia",
+          "term": "bowls",
+          "kind": "local_cannabis_name",
+          "source": "wiki_fact",
+          "evidence": "Copeland from the NCPIC and others, cannabis in Australia is commonly smoked as a cluster (or \"cone\", similar to \"bowls\" as known in the United States) of the flowering heads (buds) or resin glands (also known as Hashish) of the female plant."
+        },
+        {
+          "geo": "AU",
+          "country": "Australia",
+          "term": "cone",
+          "kind": "local_cannabis_name",
+          "source": "wiki_fact",
+          "evidence": "National Drug and Alcohol Research Centre, University of New South Wales. {{ISBN|1-877018-13-9}}</ref> cannabis in Australia is commonly smoked as a cluster (or \"cone\", similar to \"[[Bowl (smoking)|bowls]]\" as known in the United States) of the flowering heads (buds) or [[resin]] [[Gland (botany)|glands]] (also known as [[Hashish]]) of the female plant."
+        },
+        {
+          "geo": "AU",
+          "country": "Australia",
+          "term": "hash",
+          "kind": "local_hash_name",
+          "source": "wiki_fact",
+          "evidence": "Adults in the [[Northern Territory]] under the [https://legislation.nt.gov.au/en/Legislation/MISUSE-OF-DRUGS-ACT-1990 Misuse of Drugs Act 1990] persons found in possession of up to 50 g of cannabis, one gram of hash oil, 10 g of hash or cannabis seed/s, or two non-hydroponic plants can be fined A$200 with 28 days to expiate at an officers discretion or face a penalty of a fine of up to 50 penalty units or A$7.750..."
+        },
+        {
+          "geo": "AU",
+          "country": "Australia",
+          "term": "hashish",
+          "kind": "local_hash_name",
+          "source": "wiki_fact",
+          "evidence": "National Drug and Alcohol Research Centre, University of New South Wales. {{ISBN|1-877018-13-9}}</ref> cannabis in Australia is commonly smoked as a cluster (or \"cone\", similar to \"[[Bowl (smoking)|bowls]]\" as known in the United States) of the flowering heads (buds) or [[resin]] [[Gland (botany)|glands]] (also known as [[Hashish]]) of the female plant."
+        }
+      ]
+    },
+    {
+      "geo": "AW",
+      "country": "Aruba",
+      "wiki_title": "Aruba",
+      "wiki_url": "https://en.wikipedia.org/wiki/Aruba",
+      "revision_id": "1356876384",
+      "source_type": "missing_wikipedia_article",
+      "sections": {
+        "history": [],
+        "local_names": [],
+        "products": [],
+        "traditional_use": [],
+        "cannabis_foods": [],
+        "slang": [],
+        "cultivation": [],
+        "market": [],
+        "enforcement_notes": [],
+        "culture": [],
+        "notes": []
+      },
+      "local_names": []
+    },
+    {
+      "geo": "AX",
+      "country": "Åland Islands / Åland",
+      "wiki_title": "Åland Islands",
+      "wiki_url": "https://en.wikipedia.org/wiki/%C3%85land_Islands",
+      "revision_id": "1063936172",
+      "source_type": "missing_wikipedia_article",
+      "sections": {
+        "history": [],
+        "local_names": [],
+        "products": [],
+        "traditional_use": [],
+        "cannabis_foods": [],
+        "slang": [],
+        "cultivation": [],
+        "market": [],
+        "enforcement_notes": [],
+        "culture": [],
+        "notes": []
+      },
+      "local_names": []
+    },
+    {
+      "geo": "AZ",
+      "country": "Azerbaijan / Azərbaycan",
+      "wiki_title": "Cannabis in Azerbaijan",
+      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Azerbaijan",
+      "revision_id": null,
+      "source_type": "missing_wikipedia_article",
+      "sections": {
+        "history": [
+          "Cannabis in Azerbaijan is illegal but is cultivated illicitly, and has a long history as a medical remedy in the nation."
+        ],
+        "local_names": [],
+        "products": [],
+        "traditional_use": [],
+        "cannabis_foods": [],
+        "slang": [],
+        "cultivation": [],
+        "market": [],
+        "enforcement_notes": [],
+        "culture": [],
+        "notes": []
+      },
+      "local_names": []
+    },
+    {
+      "geo": "BA",
+      "country": "Bosnia and Herzegovina / Bosna i Hercegovina",
+      "wiki_title": "Bosnia and Herzegovina",
+      "wiki_url": "https://en.wikipedia.org/wiki/Bosnia_and_Herzegovina",
+      "revision_id": "1357387790",
+      "source_type": "missing_wikipedia_article",
+      "sections": {
+        "history": [],
+        "local_names": [],
+        "products": [],
+        "traditional_use": [],
+        "cannabis_foods": [],
+        "slang": [],
+        "cultivation": [],
+        "market": [],
+        "enforcement_notes": [],
+        "culture": [],
+        "notes": []
+      },
+      "local_names": []
+    },
+    {
+      "geo": "BB",
+      "country": "Barbados",
+      "wiki_title": "Cannabis in Barbados",
+      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Barbados",
+      "revision_id": null,
+      "source_type": "wikipedia",
+      "sections": {
+        "history": [],
+        "local_names": [],
+        "products": [
+          "A second bill that was passed, the Sacramental Cannabis Bill, allows the spiritual use of cannabis by registered Rastafarians.",
+          "Marijuana cultivation is prohibited, and the offender was sentenced to 5 years in jail."
+        ],
+        "traditional_use": [
+          "Medical use of cannabis was legalized in November 2019 through the Medicinal Cannabis Industry Bill.",
+          "In June 2025, the first and only Medicinal Cannabis dispensary, Island Therapeutics Inc."
+        ],
+        "cannabis_foods": [],
+        "slang": [],
+        "cultivation": [],
+        "market": [],
+        "enforcement_notes": [
+          "A second bill that was passed, the Sacramental Cannabis Bill, allows the spiritual use of cannabis by registered Rastafarians.",
+          "This fine must be paid within 30 days.",
+          "Marijuana cultivation is prohibited, and the offender was sentenced to 5 years in jail."
+        ],
+        "culture": [],
+        "notes": []
+      },
+      "local_names": []
+    },
+    {
+      "geo": "BD",
+      "country": "Bangladesh / বাংলাদেশ",
+      "wiki_title": "Cannabis in Bangladesh",
+      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Bangladesh",
+      "revision_id": null,
+      "source_type": "missing_wikipedia_article",
+      "sections": {
+        "history": [
+          "The cultivation, transport, sale, purchase, and possession of all forms of cannabis has been illegal in Bangladesh since the late 1989, but enforcement efforts are lax and the drug continues to be popular there.",
+          "Since 2017, enforcement has become harsh on marijuana laws and the government has been cracking down on cannabis."
+        ],
+        "local_names": [],
+        "products": [
+          "Since 2017, enforcement has become harsh on marijuana laws and the government has been cracking down on cannabis.",
+          "During the festival period marijuana consumption is tolerated by authorities."
+        ],
+        "traditional_use": [],
+        "cannabis_foods": [],
+        "slang": [],
+        "cultivation": [],
+        "market": [],
+        "enforcement_notes": [
+          "The cultivation, transport, sale, purchase, and possession of all forms of cannabis has been illegal in Bangladesh since the late 1989, but enforcement efforts are lax and the drug continues to be popular there.",
+          "Since 2017, enforcement has become harsh on marijuana laws and the government has been cracking down on cannabis.",
+          "Today in Dhaka cannabis can be found through local dealers in underground operations evading law enforcement but if caught, the police can be bribed."
+        ],
+        "culture": [
+          "The cultivation, transport, sale, purchase, and possession of all forms of cannabis has been illegal in Bangladesh since the late 1989, but enforcement efforts are lax and the drug continues to be popular there.",
+          "The Act gives the courts discretionary power to impose the death sentence for possession of cannabis over two kilograms.",
+          "During the festival period marijuana consumption is tolerated by authorities."
+        ],
+        "notes": []
+      },
+      "local_names": []
+    },
+    {
+      "geo": "BE",
+      "country": "Belgium / Belgien",
+      "wiki_title": "Cannabis in Belgium",
+      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Belgium",
+      "revision_id": null,
+      "source_type": "missing_wikipedia_article",
+      "sections": {
+        "history": [
+          "In June 2015, Maggie De Block signed a royal decree legalising certain uses of medical cannabis, which as of 2015 only include Sativex oral spray for multiple sclerosis.",
+          "The concept of aggravating circumstances was introduced, allowing for prosecutors to distinguish in their convictions between drug-related crimes that were considered victimless (such as personal use in private property) and those that w..."
+        ],
+        "local_names": [],
+        "products": [
+          "The marked increase has been attributed to the higher concentration of cannabis-selling shops and the rise of online based delivery services which have greatly increased the accessibility to cannabis in Belgium, particularly in the Bruss...",
+          "Since 2015, pharmacists and general practitioners in Belgium have been legally allowed to distribute “prepackaged” cannabis-based medicines, such as Sativex®, as well as cannabidiol (“CBD”) powder."
+        ],
+        "traditional_use": [
+          "While the cultivation of cannabis remains a legal grey-area under Belgian law, individuals requiring medicinal cannabis are technically able to cultivate their own personal growth as long as they follow the restrictions outlined by the l...",
+          "Currently, most of the cannabis cultivated in Belgium is exported to the Netherlands, and once there it can be sold commercially, consumed in coffee shops, or exported further onwards to third destinations, particularly the United Kingdo..."
+        ],
+        "cannabis_foods": [],
+        "slang": [],
+        "cultivation": [],
+        "market": [],
+        "enforcement_notes": [
+          "While the small scale cultivation of cannabis for personal use is tolerated within Belgium, large-scale production, especially that which could be intended for distribution, is prohibited and can result in intervention by law enforcement...",
+          "The rise in cannabis cultivation on a national scale has led to an increase in the number of cannabis cultivation facilities dismantled by Belgian law enforcement, increasing from 35 in 2003, to 1212 in 2013.",
+          "The members of Trekt Uw Plant cultivated and harvested cannabis formally as a club for the first time in 2010, and has continued to do so ever since without any interference from law-enforcement authorities.",
+          "The possession First offence possession of cannabis for personal use is punishable only by a fine of up to 200 EUR, assuming there are no other aggravating circumstances present, making it legally distinguished from other illicit substan..."
+        ],
+        "culture": [
+          "Despite significant legal rework of cannabis-related laws since 2010, certain elements of the consumption and cultivation of cannabis are considered to exist within a “legal grey area” of Belgian law.",
+          "The legal effort to restrict cultivation and growth has gradually subsided, resulting in an increase of the growth and consumption of cannabis and cannabis-related products.",
+          "Cannabis is one of the most popular controlled substances for cultivation and consumption within the country of Belgium.",
+          "Following global trends, cannabis consumption rates in Belgium have been steadily increasing across the country since the 20th century, and cannabis cultivation continues to expand rapidly on a national scale."
+        ],
+        "notes": []
+      },
+      "local_names": []
+    },
+    {
+      "geo": "BF",
+      "country": "Burkina Faso",
+      "wiki_title": "Cannabis in Burkina Faso",
+      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Burkina_Faso",
+      "revision_id": null,
+      "source_type": "missing_wikipedia_article",
+      "sections": {
+        "history": [],
+        "local_names": [],
+        "products": [],
+        "traditional_use": [],
+        "cannabis_foods": [],
+        "slang": [],
+        "cultivation": [],
+        "market": [],
+        "enforcement_notes": [],
+        "culture": [],
+        "notes": []
+      },
+      "local_names": []
+    },
+    {
+      "geo": "BG",
+      "country": "Bulgaria / България",
+      "wiki_title": "Cannabis in Bulgaria",
+      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Bulgaria",
+      "revision_id": null,
+      "source_type": "missing_wikipedia_article",
+      "sections": {
+        "history": [],
+        "local_names": [],
+        "products": [],
+        "traditional_use": [],
+        "cannabis_foods": [],
+        "slang": [],
+        "cultivation": [],
+        "market": [],
+        "enforcement_notes": [
+          "It is classified as a class A (high-risk) drug, together with heroin, cocaine, amphetamines and MDMA.",
+          "Since 2006, after the last amendment of the Penal Code, the penalty for possession is 1 to 6 years in prison and a fine between 1,000 and 5,000 euros.",
+          "Many offenders have been prosecuted and effectively put in jail for possession of a single puff of a joint.",
+          "In these cases, the maximum fine to be determined together with the prison time is 50,000 euros."
+        ],
+        "culture": [],
+        "notes": []
+      },
+      "local_names": []
+    },
+    {
+      "geo": "BH",
+      "country": "Bahrain / البحرين",
+      "wiki_title": "Cannabis in Bahrain",
+      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Bahrain",
+      "revision_id": "1358097264",
+      "source_type": "missing_wikipedia_article",
+      "sections": {
+        "history": [],
+        "local_names": [],
+        "products": [
+          "Additionally, the production, sale and possession of any form of medicinal marijuana products is also criminalized, with heavy penalties."
+        ],
+        "traditional_use": [
+          "Additionally, the production, sale and possession of any form of medicinal marijuana products is also criminalized, with heavy penalties."
+        ],
+        "cannabis_foods": [],
+        "slang": [],
+        "cultivation": [],
+        "market": [],
+        "enforcement_notes": [
+          "He was convicted of possessing and growing cannabis, though not of trafficking it since no evidence of sale was found, and sentenced to 12 months in jail and fined BD1,000."
+        ],
+        "culture": [],
+        "notes": []
+      },
+      "local_names": []
+    },
+    {
+      "geo": "BI",
+      "country": "Burundi / Uburundi",
+      "wiki_title": "Cannabis in Burundi",
+      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Burundi",
+      "revision_id": null,
+      "source_type": "missing_wikipedia_article",
+      "sections": {
+        "history": [
+          "Cannabis in Burundi is illegal."
+        ],
+        "local_names": [],
+        "products": [],
+        "traditional_use": [],
+        "cannabis_foods": [],
+        "slang": [],
+        "cultivation": [],
+        "market": [],
+        "enforcement_notes": [
+          "Cannabis in Burundi is illegal."
+        ],
+        "culture": [],
+        "notes": []
+      },
+      "local_names": []
+    },
+    {
+      "geo": "BJ",
+      "country": "Benin / Bénin",
+      "wiki_title": "Cannabis in Benin",
+      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Benin",
+      "revision_id": null,
+      "source_type": "missing_wikipedia_article",
+      "sections": {
+        "history": [],
+        "local_names": [],
+        "products": [],
+        "traditional_use": [],
+        "cannabis_foods": [],
+        "slang": [],
+        "cultivation": [],
+        "market": [],
+        "enforcement_notes": [
+          "Porto-Novo emerged as a particular transit point, given its proximity to Nigeria which allowed collaboration with Yoruba smugglers."
+        ],
+        "culture": [],
+        "notes": []
+      },
+      "local_names": []
+    },
+    {
+      "geo": "BL",
+      "country": "Saint Barthélemy",
+      "wiki_title": "St. Barthélemy",
+      "wiki_url": "https://en.wikipedia.org/wiki/St._Barth%C3%A9lemy",
+      "revision_id": "163578920",
+      "source_type": "missing_wikipedia_article",
+      "sections": {
+        "history": [],
+        "local_names": [],
+        "products": [],
+        "traditional_use": [],
+        "cannabis_foods": [],
+        "slang": [],
+        "cultivation": [],
+        "market": [],
+        "enforcement_notes": [],
+        "culture": [],
+        "notes": []
+      },
+      "local_names": []
+    },
+    {
+      "geo": "BM",
+      "country": "Bermuda",
+      "wiki_title": "Cannabis in Bermuda",
+      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Bermuda",
+      "revision_id": null,
+      "source_type": "missing_wikipedia_article",
+      "sections": {
+        "history": [
+          "In 2017, Bermuda introduced the Decriminalization of Cannabis Amendment Act, which decriminalized simple possession of up to 7 grams (¼ oz) of cannabis."
+        ],
+        "local_names": [],
+        "products": [],
+        "traditional_use": [
+          "Following public consultation of the bill that indicated that the territory should more broadly legalise and regulate cannabis, for medicinal and personal use, the Bermudian government revised the bill and opened submissions from the pub...",
+          "Despite these reforms, legal medicinal cannabis was until recently impossible to obtain due to self-imposed restrictions with the United Nations.",
+          "However, an importation limit of just 1 gram (1/28 oz) per year resulted in patients turning to the black market to purchase medicinal cannabis products."
+        ],
+        "cannabis_foods": [],
+        "slang": [],
+        "cultivation": [],
+        "market": [],
+        "enforcement_notes": [],
+        "culture": [],
+        "notes": []
+      },
+      "local_names": []
+    },
+    {
+      "geo": "BN",
+      "country": "Brunei / Negara Brunei Darussalam",
+      "wiki_title": "Cannabis in Brunei",
+      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Brunei",
+      "revision_id": null,
+      "source_type": "wikipedia",
+      "sections": {
+        "history": [],
+        "local_names": [],
+        "products": [],
+        "traditional_use": [],
+        "cannabis_foods": [],
+        "slang": [],
+        "cultivation": [],
+        "market": [],
+        "enforcement_notes": [
+          "Possession and use of cannabis and its resin is strictly prohibited in Brunei, both obtaining maximum sentences of 10 years and/or a USD$20,000 fine.",
+          "Possession of a pipe or any other equipment used to smoke cannabis is illegal and is punishable by a maximum sentence of 3 years in prison, and a USD$10,000 fine.",
+          "Withholding from providing a urine sample to law enforcement can be charged a fine of USD$5,000."
+        ],
+        "culture": [
+          "Following the pillars of the Malay Islamic Monarchy (MIB), Brunei has aligned the country's legislation and beliefs in accordance with its Malaysian culture, Islam, and the sultanate.",
+          "Both defendants were charged and pled guilty for the consumption of cannabis and methylamphetamine."
+        ],
+        "notes": []
+      },
+      "local_names": []
+    },
+    {
+      "geo": "BO",
+      "country": "Bolivia / Wuliwya",
+      "wiki_title": "Cannabis in Bolivia",
+      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Bolivia",
+      "revision_id": null,
+      "source_type": "wikipedia",
+      "sections": {
+        "history": [],
+        "local_names": [],
+        "products": [],
+        "traditional_use": [],
+        "cannabis_foods": [],
+        "slang": [],
+        "cultivation": [],
+        "market": [],
+        "enforcement_notes": [
+          "Bolivian law treats cannabis equally to cocaine, with possession of one gram punishable by 10–25 years in prison."
+        ],
+        "culture": [
+          "Cannabis in Bolivia is illegal, but cultivated illicitly, mostly for domestic consumption."
+        ],
+        "notes": []
+      },
+      "local_names": []
+    },
+    {
+      "geo": "BR",
+      "country": "Brazil / Brasil",
+      "wiki_title": "Cannabis in Brazil",
+      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Brazil",
+      "revision_id": null,
+      "source_type": "wikipedia",
+      "sections": {
+        "history": [],
+        "local_names": [],
+        "products": [
+          "Their intent may have been to cultivate hemp fiber, but the slaves the Portuguese trafficked from Africa were familiar with cannabis and used it psychoactively, leading the Municipal Council of Rio de Janeiro in 1830 to prohibit bringing...",
+          "In March 2020, the State of Pernambuco issued the first national license for the homemade planting of marijuana for medicinal purposes."
+        ],
+        "traditional_use": [
+          "In March 2020, the State of Pernambuco issued the first national license for the homemade planting of marijuana for medicinal purposes."
+        ],
+        "cannabis_foods": [],
+        "slang": [],
+        "cultivation": [],
+        "market": [],
+        "enforcement_notes": [
+          "In March 2020, the State of Pernambuco issued the first national license for the homemade planting of marijuana for medicinal purposes.",
+          "Selling, transportation, and trafficking of drugs are considered criminal acts and are punished with 5 to 15 years in prison and a significant fine.",
+          "11343/2006) was ruled unconstitutional, converting penalties of prosecution and prison into an administrative offense."
+        ],
+        "culture": [],
+        "notes": []
+      },
+      "local_names": []
+    },
+    {
+      "geo": "BS",
+      "country": "Bahamas",
+      "wiki_title": "Cannabis in the Bahamas",
+      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Bahamas",
+      "revision_id": "1319277687",
+      "source_type": "missing_wikipedia_article",
+      "sections": {
+        "history": [
+          "On February 27, 1929, the government passed the Dangerous Drugs Act which dealt with drug offences in the Bahamas, including cannabis.",
+          "In 1962, Act 26 amended the Act, providing a new definition of Indian hemp which, \"includes all parts of the plant Cannabis Sativa whether growing or not from which the resin has not been extracted; the resin extracted from any part of such plant; and every compound, manufacture, salt derivative, mixture or preparation of such plant or resin\".",
+          "Section 29(6) of the Dangerous Drugs Act deals with simple possession of cannabis::Where any drug to which this Act applies is, without the proper authority, found in the possession of any person or stored or kept in a place other than a place prescribed for the storage or keeping of such drug, such person, or the occupier or owner of such place or the owner of or other person responsible for the keeping of such d...",
+          "If a person is found with two or more packets containing cannabis, they will be presumed to be possessing that drug with the intent to supply it to others, unless they can prove the contrary under Section 22(3) of the Act."
+        ],
+        "local_names": [],
+        "products": [
+          "In 1962, Act 26 amended the Act, providing a new definition of Indian hemp which, \"includes all parts of the plant Cannabis Sativa whether growing or not from which the resin has not been extracted; the resin extracted from any part of such plant; and every compound, manufacture, salt derivative, mixture or preparation of such plant or resin\".",
+          "In 1962, Act 26 amended the Act, providing a new definition of Indian hemp which, \"includes all parts of the plant Cannabis Sativa whether growing or not from which the resin has not been extracted; the resin extracted from any part of s...",
+          "In 2023, the Dangerous Drugs Act was amended to remove the definition of \"Indian Hemp\" as well as any reference to \"Indian Hemp\"."
+        ],
+        "traditional_use": [
+          "Cannabis in the Bahamas is illegal recreationally, but legal for medical and religious use..",
+          "In 1962, Act 26 amended the Act, providing a new definition of Indian hemp which, \"includes all parts of the plant Cannabis Sativa whether growing or not from which the resin has not been extracted; the resin extracted from any part of such plant; and every compound, manufacture, salt derivative, mixture or preparation of such plant or resin\".",
+          "In the same year, the Cannabis Bill was enacted, which sets the framework for the regulation of growth, sale, consumption, and possession.",
+          "The bill states that cannabis may be used legally for medicinal and religious purposes.."
+        ],
+        "cannabis_foods": [],
+        "slang": [],
+        "cultivation": [],
+        "market": [],
+        "enforcement_notes": [
+          "Historically the Bahamas was a drug trafficking country, but not a drug producing one, until a 1991 seizure of 40,000 cannabis seedlings and 1,000 adult plants on Andros Island called that assumption into question..",
+          "Anyone convicted on information to possessing cannabis with the intent to supply it to a child or young person, is liable: on conviction on information: a fine of $750,000.00 or imprisonment for 40 years, or both, pursuant to Section 22(..."
+        ],
+        "culture": [
+          "Cannabis in the Bahamas is illegal recreationally, but legal for medical and religious use..",
+          "The bill states that cannabis may be used legally for medicinal and religious purposes..",
+          "In the same year, the Cannabis Bill was enacted, which sets the framework for the regulation of growth, sale, consumption, and possession."
+        ],
+        "notes": [
+          "Cannabis in the Bahamas is illegal recreationally, but legal for medical and religious use..",
+          "On February 27, 1929, the government passed the Dangerous Drugs Act which dealt with drug offences in the Bahamas, including cannabis.",
+          "In 1962, Act 26 amended the Act, providing a new definition of Indian hemp which, \"includes all parts of the plant Cannabis Sativa whether growing or not from which the resin has not been extracted; the resin extracted from any part of such plant; and every compound, manufacture, salt derivative, mixture or preparation of such plant or resin\".",
+          "In the same year, the Cannabis Bill was enacted, which sets the framework for the regulation of growth, sale, consumption, and possession.",
+          "The bill states that cannabis may be used legally for medicinal and religious purposes..",
+          "Section 29(6) of the Dangerous Drugs Act deals with simple possession of cannabis::Where any drug to which this Act applies is, without the proper authority, found in the possession of any person or stored or kept in a place other than a place prescribed for the storage or keeping of such drug, such person, or the occupier or owner of such place or the owner of or other person responsible for the keeping of such d...",
+          "If a person is found with two or more packets containing cannabis, they will be presumed to be possessing that drug with the intent to supply it to others, unless they can prove the contrary under Section 22(3) of the Act.",
+          "As recently as 2010 the country was noted as a midpoint for Jamaican cannabis being smuggled to the United States."
+        ]
+      },
+      "local_names": []
+    },
+    {
+      "geo": "BT",
+      "country": "Bhutan / འབྲུག་ཡུལ་",
+      "wiki_title": "Cannabis in Bhutan",
+      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Bhutan",
+      "revision_id": null,
+      "source_type": "wikipedia",
+      "sections": {
+        "history": [
+          "Cannabis in Bhutan is illegal, but grows prolifically in the country and has multiple traditional uses, such as feeding pigs and producing textiles.",
+          "In 2010 the Bhutanese government seized 4 kg of cannabis; in 2011 this increased to 75 kg.",
+          "The International Narcotics Control Board noted in 2002 that Bhutan had no history of cannabis abuse, but the government had recently raised concerns about drug abuse, particularly by the young, and taken an interest in eradicating wild ..."
+        ],
+        "local_names": [],
+        "products": [],
+        "traditional_use": [
+          "Cannabis in Bhutan is illegal, but grows prolifically in the country and has multiple traditional uses, such as feeding pigs and producing textiles.",
+          "In 2010 the Bhutanese government seized 4 kg of cannabis; in 2011 this increased to 75 kg."
+        ],
+        "cannabis_foods": [],
+        "slang": [],
+        "cultivation": [],
+        "market": [],
+        "enforcement_notes": [],
+        "culture": [
+          "Cannabis in Bhutan is illegal, but grows prolifically in the country and has multiple traditional uses, such as feeding pigs and producing textiles.",
+          "In 2010 the Bhutanese government seized 4 kg of cannabis; in 2011 this increased to 75 kg."
+        ],
+        "notes": []
+      },
+      "local_names": []
+    },
+    {
+      "geo": "BW",
+      "country": "Botswana",
+      "wiki_title": "Cannabis in Botswana",
+      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Botswana",
+      "revision_id": null,
+      "source_type": "wikipedia",
+      "sections": {
+        "history": [],
+        "local_names": [
+          "dagga"
+        ],
+        "products": [],
+        "traditional_use": [],
+        "cannabis_foods": [],
+        "slang": [],
+        "cultivation": [],
+        "market": [],
+        "enforcement_notes": [],
+        "culture": [],
+        "notes": []
+      },
+      "local_names": [
+        {
+          "geo": "BW",
+          "country": "Botswana",
+          "term": "dagga",
+          "kind": "local_cannabis_name",
+          "source": "user_requirement_seed",
+          "evidence": "Country data names cannabis as dagga."
+        }
+      ]
+    },
+    {
+      "geo": "BY",
+      "country": "Belarus / Белару́сь",
+      "wiki_title": "Cannabis in Belarus",
+      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Belarus",
+      "revision_id": "1347250251",
+      "source_type": "missing_wikipedia_article",
+      "sections": {
+        "history": [
+          "Though production and use of cannabis was already illegal, on 31 December 2016 Belarus also banned the cultivation of cannabis.."
+        ],
+        "local_names": [],
+        "products": [],
+        "traditional_use": [],
+        "cannabis_foods": [],
+        "slang": [],
+        "cultivation": [],
+        "market": [],
+        "enforcement_notes": [],
+        "culture": [],
+        "notes": [
+          "Cannabis in Belarus is illegal..",
+          "A 1996 report noted that cultivation of cannabis was present in Belarus, fueling usage in the country; the same report noted that personal possession of cannabis was not at that time illegal.",
+          "Though production and use of cannabis was already illegal, on 31 December 2016 Belarus also banned the cultivation of cannabis.."
+        ]
+      },
+      "local_names": []
+    },
+    {
+      "geo": "BZ",
+      "country": "Belize / Belice",
+      "wiki_title": "Cannabis in Belize",
+      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Belize",
+      "revision_id": null,
+      "source_type": "missing_wikipedia_article",
+      "sections": {
+        "history": [
+          "Possession or use of 10 grams or less on private premises was decriminalized in November 2017."
+        ],
+        "local_names": [],
+        "products": [
+          "The time has come for us to decriminalize marijuana smoking and prepare the necessary research to move to legalizing marijuana for medicinal purposes and in small quantities.\" In a 2017 op-ed, former Senator Lisa Shoman stated, \"There is..."
+        ],
+        "traditional_use": [
+          "The time has come for us to decriminalize marijuana smoking and prepare the necessary research to move to legalizing marijuana for medicinal purposes and in small quantities.\" In a 2017 op-ed, former Senator Lisa Shoman stated, \"There is..."
+        ],
+        "cannabis_foods": [],
+        "slang": [],
+        "cultivation": [],
+        "market": [],
+        "enforcement_notes": [],
+        "culture": [
+          "The use of cannabis in Belize is common and largely tolerated; however, possession can result in fines or imprisonment."
+        ],
+        "notes": []
       },
       "local_names": []
     },
@@ -112,6 +1257,8 @@
       "country": "Algeria / الجزائر",
       "wiki_title": "Cannabis in Algeria",
       "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Algeria",
+      "revision_id": null,
+      "source_type": "wikipedia",
       "sections": {
         "history": [
           "07-228 15 Rajab 1428 (July 30, 2007), cultivation, commerce, and possession are forbidden, except for medical purposes, subject to prior authorization by the Minister of Health."
@@ -134,13 +1281,8 @@
           "In 1854, John Morell wrote of his travels in Algeria: In Algeria they apply the names of kif, of hachich, and sometimes of tekrouri, to the extremity of the stem of the hemp, including the leaves, the flowers, and the seed, sometimes smo..."
         ],
         "cannabis_foods": [],
-        "slang": [
-          "kif"
-        ],
-        "cultivation": [
-          "Unlike neighboring Morocco, which legalized medical cannabis in 2021, Algeria continues to ban all cannabis-related products, including CBD and industrial hemp.",
-          "In 1854, John Morell wrote of his travels in Algeria: In Algeria they apply the names of kif, of hachich, and sometimes of tekrouri, to the extremity of the stem of the hemp, including the leaves, the flowers, and the seed, sometimes smo..."
-        ],
+        "slang": [],
+        "cultivation": [],
         "market": [],
         "enforcement_notes": [
           "04-18 13 Dhou El Kaada 1425 (25 December 2004), and enforcement decree No.",
@@ -148,7 +1290,8 @@
         ],
         "culture": [
           "Cannabis in Algeria is mostly illegal, although widely consumed."
-        ]
+        ],
+        "notes": []
       },
       "local_names": [
         {
@@ -194,736 +1337,30 @@
       ]
     },
     {
-      "geo": "AD",
-      "country": "Andorra",
-      "wiki_title": "Cannabis in Andorra",
-      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Andorra",
-      "sections": {
-        "history": [],
-        "local_names": [],
-        "products": [],
-        "traditional_use": [],
-        "cannabis_foods": [],
-        "slang": [],
-        "cultivation": [],
-        "market": [],
-        "enforcement_notes": [
-          "The trafficking of cannabis can be punished by up to two years in prison and fines totally double the value of the drug.",
-          "Individual use of cannabis or similar in a public space may be punished by arrest, or by fines up to 600 euros."
-        ],
-        "culture": []
-      },
-      "local_names": []
-    },
-    {
-      "geo": "AO",
-      "country": "Angola",
-      "wiki_title": "Cannabis in Angola",
-      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Angola",
-      "sections": {
-        "history": [],
-        "local_names": [
-          "diamba",
-          "liamba"
-        ],
-        "products": [],
-        "traditional_use": [],
-        "cannabis_foods": [],
-        "slang": [
-          "diamba",
-          "liamba"
-        ],
-        "cultivation": [
-          "British explorer David Livingstone wrote in 1858: \"The Portuguese in Angola have such a belief in its deleterious effects that the use of it by a slave is considered a crime.\" Cannabis is the most common illicit drug in Angola, and is gr..."
-        ],
-        "market": [],
-        "enforcement_notes": [],
-        "culture": [
-          "British explorer David Livingstone wrote in 1858: \"The Portuguese in Angola have such a belief in its deleterious effects that the use of it by a slave is considered a crime.\" Cannabis is the most common illicit drug in Angola, and is gr..."
-        ]
-      },
-      "local_names": [
-        {
-          "geo": "AO",
-          "country": "Angola",
-          "term": "diamba",
-          "kind": "local_cannabis_name",
-          "source": "user_requirement_seed",
-          "evidence": "User-required local cannabis name for Angola profile extraction."
-        },
-        {
-          "geo": "AO",
-          "country": "Angola",
-          "term": "liamba",
-          "kind": "local_cannabis_name",
-          "source": "user_requirement_seed",
-          "evidence": "User-required local cannabis name for Angola profile extraction."
-        }
-      ]
-    },
-    {
-      "geo": "AG",
-      "country": "Antigua and Barbuda",
-      "wiki_title": "Cannabis in Antigua and Barbuda",
-      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Antigua_and_Barbuda",
-      "sections": {
-        "history": [],
-        "local_names": [],
-        "products": [],
-        "traditional_use": [],
-        "cannabis_foods": [],
-        "slang": [],
-        "cultivation": [],
-        "market": [
-          "The islands are not a major producer of cannabis, and instead import the drug from Jamaica and Saint Vincent and the Grenadines."
-        ],
-        "enforcement_notes": [],
-        "culture": []
-      },
-      "local_names": []
-    },
-    {
-      "geo": "AR",
-      "country": "Argentina",
-      "wiki_title": "Cannabis in Argentina",
-      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Argentina",
-      "sections": {
-        "history": [],
-        "local_names": [],
-        "products": [
-          "On March 29, 2017, the Argentine senate approved the medical use of CBD cannabis oil, and was promulgated on September 22, 2017."
-        ],
-        "traditional_use": [
-          "However, in a 2021 survey, nearly five of six Argentinian cannabis users said their use was more recreational than medicinal."
-        ],
-        "cannabis_foods": [],
-        "slang": [],
-        "cultivation": [],
-        "market": [],
-        "enforcement_notes": [
-          "Possession without medical authorization is punishable by a prison sentence of between one month and six years, despite the 2009 Fallo Arriola Supreme Court ruling that enforcement of the law is unconstitutional."
-        ],
-        "culture": []
-      },
-      "local_names": []
-    },
-    {
-      "geo": "AM",
-      "country": "Armenia / Հայաստան",
-      "wiki_title": "Cannabis in Armenia",
-      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Armenia",
-      "sections": {
-        "history": [],
-        "local_names": [],
-        "products": [
-          "The Minister of the Economy, Vahan Kerobyan, noted that the authorities, including law enforcement, would maintain control and oversight of the process of hemp production, to ensure that Armenian drug legislation is not breached.",
-          "In February 2021, the Government of Armenia announced plans to allow cultivation of industrial hemp as a part of an economic programme to boost the economy."
-        ],
-        "traditional_use": [],
-        "cannabis_foods": [],
-        "slang": [],
-        "cultivation": [
-          "The Minister of the Economy, Vahan Kerobyan, noted that the authorities, including law enforcement, would maintain control and oversight of the process of hemp production, to ensure that Armenian drug legislation is not breached.",
-          "In February 2021, the Government of Armenia announced plans to allow cultivation of industrial hemp as a part of an economic programme to boost the economy."
-        ],
-        "market": [],
-        "enforcement_notes": [
-          "While prior cannabis use has been decriminalized as of 2009, those caught possessing are subject to heavy fines and an average jail sentence of two months.",
-          "The Minister of the Economy, Vahan Kerobyan, noted that the authorities, including law enforcement, would maintain control and oversight of the process of hemp production, to ensure that Armenian drug legislation is not breached."
-        ],
-        "culture": [
-          "Cannabis in Armenia is illegal for all uses.",
-          "Consumption is more prevalent among men in Armenia."
-        ]
-      },
-      "local_names": []
-    },
-    {
-      "geo": "AU",
-      "country": "Australia",
-      "wiki_title": "Cannabis in Australia",
-      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Australia",
+      "geo": "IR",
+      "country": "Iran / ایران",
+      "wiki_title": "Cannabis in Iran",
+      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Iran",
+      "revision_id": null,
+      "source_type": "wikipedia",
       "sections": {
         "history": [
-          "Two common names for cannabis in Aboriginal English and in Indigenous Australian languages are gunja and yarndi.",
-          "In 1989, the Parliamentary Joint Committee on the National Crime Authority released a report titled Drugs, Crime, and Society, which stated that, \"If the aim of the policy (of prohibition) was to reduce the use of prohibited substances, ..."
+          "In 1989 the Iranian government enacted a law providing the death penalty for possession of hashish in excess of five kilograms."
         ],
         "local_names": [],
         "products": [
-          "On 12 November 2017, Food Standards Australia New Zealand (FSANZ) made low-THC hemp food legal for human consumption in Australia.",
-          "Two common names for cannabis in Aboriginal English and in Indigenous Australian languages are gunja and yarndi.",
-          "For 150 years, early governments in Australia actively supported the growing of hemp with gifts of land and other grants, and the consumption of cannabis in Australia in the 19th century was believed to be widespread.",
-          "In 1964, with the discovery of hundreds of acres of wild hemp growing in the Hunter Valley in NSW, authorities responded with a massive eradication campaign."
-        ],
-        "traditional_use": [
-          "On 24 February 2016, Australia legalised growing of cannabis for medicinal and scientific purposes at the federal level.",
-          "On 12 November 2017, Food Standards Australia New Zealand (FSANZ) made low-THC hemp food legal for human consumption in Australia.",
-          "Cannabis is a plant used in Australia for recreational, medicinal and industrial purposes."
-        ],
-        "cannabis_foods": [
-          "On 12 November 2017, Food Standards Australia New Zealand (FSANZ) made low-THC hemp food legal for human consumption in Australia."
-        ],
-        "slang": [],
-        "cultivation": [
-          "On 12 November 2017, Food Standards Australia New Zealand (FSANZ) made low-THC hemp food legal for human consumption in Australia.",
-          "Two common names for cannabis in Aboriginal English and in Indigenous Australian languages are gunja and yarndi.",
-          "For 150 years, early governments in Australia actively supported the growing of hemp with gifts of land and other grants, and the consumption of cannabis in Australia in the 19th century was believed to be widespread."
-        ],
-        "market": [
-          "AusCann was the first company in Australia to be granted a license to grow and export medicinal cannabis."
-        ],
-        "enforcement_notes": [
-          "When police tried to arrest revellers who were openly smoking marijuana, the crowd of 6,000 rioted.",
-          "The Joint Committee upon Drugs of the NSW Parliament recommended the removal of jail sentences for personal use of cannabis, and NSW Premier Neville Wran outlined a plan to remove jail sentences for people convicted and for possessing ca...",
-          "The disappearance of local political and community leader Donald Mackay in Griffith, NSW, in July 1977 placed the issue of the nexus between illicit drug production, organised crime and police corruption before the public; this was due t...",
-          "In August 1976, NSW Police conducted a predawn raid on the Tuntable Falls Co-operative, located just south of Nimbin; a few weeks later, the Cedar Bay commune, located in far northern Queensland, was raided by Queensland Police."
-        ],
-        "culture": [
-          "On 12 November 2017, Food Standards Australia New Zealand (FSANZ) made low-THC hemp food legal for human consumption in Australia.",
-          "Two common names for cannabis in Aboriginal English and in Indigenous Australian languages are gunja and yarndi.",
-          "For 150 years, early governments in Australia actively supported the growing of hemp with gifts of land and other grants, and the consumption of cannabis in Australia in the 19th century was believed to be widespread.",
-          "Until the late 19th century, \"Cigares De Joy\" (cannabis cigarettes) were widely available; these claimed to \"give immediate relief in cases of asthma, cough, bronchitis, hay-fever, influenza shortness of breath\"."
-        ]
-      },
-      "local_names": []
-    },
-    {
-      "geo": "AT",
-      "country": "Austria / Österreich",
-      "wiki_title": "Cannabis in Austria",
-      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Austria",
-      "sections": {
-        "history": [],
-        "local_names": [],
-        "products": [],
-        "traditional_use": [
-          "Cannabis cultivation is controlled by the Austrian Agency for Health and Food Safety (Österreichische Agentur für Gesundheit und Ernährungssicherheit, AGES)."
-        ],
-        "cannabis_foods": [
-          "Cannabis cultivation is controlled by the Austrian Agency for Health and Food Safety (Österreichische Agentur für Gesundheit und Ernährungssicherheit, AGES)."
-        ],
-        "slang": [],
-        "cultivation": [],
-        "market": [],
-        "enforcement_notes": [],
-        "culture": [
-          "Cannabis cultivation is controlled by the Austrian Agency for Health and Food Safety (Österreichische Agentur für Gesundheit und Ernährungssicherheit, AGES).",
-          "In 2016, the possession of small amounts of THC containing substances for personal consumption was slightly decriminalized to the degree that such cases will not be pursued if the possessor has not been implicated in any drug related off...",
-          "Due to the common open border between Germany and Austria (32% of Austria’s entire border), and their close economic and cultural ties, a public discussion has been sparked in Austria regarding legalization."
-        ]
-      },
-      "local_names": []
-    },
-    {
-      "geo": "AZ",
-      "country": "Azerbaijan / Azərbaycan",
-      "wiki_title": "Cannabis in Azerbaijan",
-      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Azerbaijan",
-      "sections": {
-        "history": [
-          "Cannabis in Azerbaijan is illegal but is cultivated illicitly, and has a long history as a medical remedy in the nation."
-        ],
-        "local_names": [],
-        "products": [],
-        "traditional_use": [],
-        "cannabis_foods": [],
-        "slang": [],
-        "cultivation": [],
-        "market": [],
-        "enforcement_notes": [],
-        "culture": []
-      },
-      "local_names": []
-    },
-    {
-      "geo": "BS",
-      "country": "Bahamas",
-      "wiki_title": "Cannabis in the Bahamas",
-      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_the_Bahamas",
-      "sections": {
-        "history": [],
-        "local_names": [],
-        "products": [
-          "In 1962, Act 26 amended the Act, providing a new definition of Indian hemp which, \"includes all parts of the plant Cannabis Sativa whether growing or not from which the resin has not been extracted; the resin extracted from any part of s...",
-          "In 2023, the Dangerous Drugs Act was amended to remove the definition of \"Indian Hemp\" as well as any reference to \"Indian Hemp\"."
-        ],
-        "traditional_use": [
-          "The bill states that cannabis may be used legally for medicinal and religious purposes."
-        ],
-        "cannabis_foods": [],
-        "slang": [],
-        "cultivation": [
-          "In 1962, Act 26 amended the Act, providing a new definition of Indian hemp which, \"includes all parts of the plant Cannabis Sativa whether growing or not from which the resin has not been extracted; the resin extracted from any part of s...",
-          "In 2023, the Dangerous Drugs Act was amended to remove the definition of \"Indian Hemp\" as well as any reference to \"Indian Hemp\"."
-        ],
-        "market": [],
-        "enforcement_notes": [
-          "Anyone convicted on information to possessing cannabis with the intent to supply it to a child or young person, is liable: on conviction on information: a fine of $750,000.00 or imprisonment for 40 years, or both, pursuant to Section 22(..."
-        ],
-        "culture": [
-          "In the same year, the Cannabis Bill was enacted, which sets the framework for the regulation of growth, sale, consumption, and possession."
-        ]
-      },
-      "local_names": []
-    },
-    {
-      "geo": "BH",
-      "country": "Bahrain / البحرين",
-      "wiki_title": "Cannabis in Bahrain",
-      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Bahrain",
-      "sections": {
-        "history": [],
-        "local_names": [],
-        "products": [
-          "Additionally, the production, sale and possession of any form of medicinal marijuana products is also criminalized, with heavy penalties."
-        ],
-        "traditional_use": [
-          "Additionally, the production, sale and possession of any form of medicinal marijuana products is also criminalized, with heavy penalties."
-        ],
-        "cannabis_foods": [],
-        "slang": [],
-        "cultivation": [
-          "Additionally, the production, sale and possession of any form of medicinal marijuana products is also criminalized, with heavy penalties."
-        ],
-        "market": [],
-        "enforcement_notes": [
-          "He was convicted of possessing and growing cannabis, though not of trafficking it since no evidence of sale was found, and sentenced to 12 months in jail and fined BD1,000."
-        ],
-        "culture": []
-      },
-      "local_names": []
-    },
-    {
-      "geo": "BD",
-      "country": "Bangladesh / বাংলাদেশ",
-      "wiki_title": "Cannabis in Bangladesh",
-      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Bangladesh",
-      "sections": {
-        "history": [
-          "The cultivation, transport, sale, purchase, and possession of all forms of cannabis has been illegal in Bangladesh since the late 1989, but enforcement efforts are lax and the drug continues to be popular there.",
-          "Since 2017, enforcement has become harsh on marijuana laws and the government has been cracking down on cannabis."
-        ],
-        "local_names": [],
-        "products": [
-          "Since 2017, enforcement has become harsh on marijuana laws and the government has been cracking down on cannabis.",
-          "During the festival period marijuana consumption is tolerated by authorities."
+          "In 1989 the Iranian government enacted a law providing the death penalty for possession of hashish in excess of five kilograms."
         ],
         "traditional_use": [],
         "cannabis_foods": [],
         "slang": [],
-        "cultivation": [
-          "Reliable figures for the total area of cannabis production in Bangladesh are not available, but cultivation in the Chittagong Hill Tract region is reportedly on the increase."
-        ],
-        "market": [
-          "Today in Dhaka cannabis can be found through local dealers in underground operations evading law enforcement but if caught, the police can be bribed."
-        ],
-        "enforcement_notes": [
-          "The cultivation, transport, sale, purchase, and possession of all forms of cannabis has been illegal in Bangladesh since the late 1989, but enforcement efforts are lax and the drug continues to be popular there.",
-          "Since 2017, enforcement has become harsh on marijuana laws and the government has been cracking down on cannabis.",
-          "Today in Dhaka cannabis can be found through local dealers in underground operations evading law enforcement but if caught, the police can be bribed."
-        ],
-        "culture": [
-          "The cultivation, transport, sale, purchase, and possession of all forms of cannabis has been illegal in Bangladesh since the late 1989, but enforcement efforts are lax and the drug continues to be popular there.",
-          "The Act gives the courts discretionary power to impose the death sentence for possession of cannabis over two kilograms.",
-          "During the festival period marijuana consumption is tolerated by authorities."
-        ]
-      },
-      "local_names": []
-    },
-    {
-      "geo": "BB",
-      "country": "Barbados",
-      "wiki_title": "Cannabis in Barbados",
-      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Barbados",
-      "sections": {
-        "history": [],
-        "local_names": [],
-        "products": [
-          "A second bill that was passed, the Sacramental Cannabis Bill, allows the spiritual use of cannabis by registered Rastafarians.",
-          "Marijuana cultivation is prohibited, and the offender was sentenced to 5 years in jail."
-        ],
-        "traditional_use": [
-          "Medical use of cannabis was legalized in November 2019 through the Medicinal Cannabis Industry Bill.",
-          "In June 2025, the first and only Medicinal Cannabis dispensary, Island Therapeutics Inc."
-        ],
-        "cannabis_foods": [],
-        "slang": [],
         "cultivation": [],
         "market": [],
         "enforcement_notes": [
-          "A second bill that was passed, the Sacramental Cannabis Bill, allows the spiritual use of cannabis by registered Rastafarians.",
-          "This fine must be paid within 30 days.",
-          "Marijuana cultivation is prohibited, and the offender was sentenced to 5 years in jail."
+          "Cannabis is illegal in Iran, but the law is often not strictly enforced."
         ],
-        "culture": []
-      },
-      "local_names": []
-    },
-    {
-      "geo": "BY",
-      "country": "Belarus / Белару́сь",
-      "wiki_title": "Cannabis in Belarus",
-      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Belarus",
-      "sections": {
-        "history": [],
-        "local_names": [],
-        "products": [],
-        "traditional_use": [],
-        "cannabis_foods": [],
-        "slang": [],
-        "cultivation": [
-          "Though production and use of cannabis was already illegal, on 31 December 2016 Belarus also banned the cultivation of cannabis."
-        ],
-        "market": [],
-        "enforcement_notes": [],
-        "culture": []
-      },
-      "local_names": []
-    },
-    {
-      "geo": "BE",
-      "country": "Belgium / Belgien",
-      "wiki_title": "Cannabis in Belgium",
-      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Belgium",
-      "sections": {
-        "history": [
-          "In June 2015, Maggie De Block signed a royal decree legalising certain uses of medical cannabis, which as of 2015 only include Sativex oral spray for multiple sclerosis.",
-          "The concept of aggravating circumstances was introduced, allowing for prosecutors to distinguish in their convictions between drug-related crimes that were considered victimless (such as personal use in private property) and those that w..."
-        ],
-        "local_names": [],
-        "products": [
-          "The marked increase has been attributed to the higher concentration of cannabis-selling shops and the rise of online based delivery services which have greatly increased the accessibility to cannabis in Belgium, particularly in the Bruss...",
-          "Since 2015, pharmacists and general practitioners in Belgium have been legally allowed to distribute “prepackaged” cannabis-based medicines, such as Sativex®, as well as cannabidiol (“CBD”) powder."
-        ],
-        "traditional_use": [
-          "While the cultivation of cannabis remains a legal grey-area under Belgian law, individuals requiring medicinal cannabis are technically able to cultivate their own personal growth as long as they follow the restrictions outlined by the l...",
-          "Currently, most of the cannabis cultivated in Belgium is exported to the Netherlands, and once there it can be sold commercially, consumed in coffee shops, or exported further onwards to third destinations, particularly the United Kingdo..."
-        ],
-        "cannabis_foods": [],
-        "slang": [],
-        "cultivation": [
-          "While the small scale cultivation of cannabis for personal use is tolerated within Belgium, large-scale production, especially that which could be intended for distribution, is prohibited and can result in intervention by law enforcement...",
-          "The number of cannabis plants grown within Belgium increased by 440% in seven years, from 73,344 in 2006 to 396,758 in 2013."
-        ],
-        "market": [],
-        "enforcement_notes": [
-          "While the small scale cultivation of cannabis for personal use is tolerated within Belgium, large-scale production, especially that which could be intended for distribution, is prohibited and can result in intervention by law enforcement...",
-          "The rise in cannabis cultivation on a national scale has led to an increase in the number of cannabis cultivation facilities dismantled by Belgian law enforcement, increasing from 35 in 2003, to 1212 in 2013.",
-          "The members of Trekt Uw Plant cultivated and harvested cannabis formally as a club for the first time in 2010, and has continued to do so ever since without any interference from law-enforcement authorities.",
-          "The possession First offence possession of cannabis for personal use is punishable only by a fine of up to 200 EUR, assuming there are no other aggravating circumstances present, making it legally distinguished from other illicit substan..."
-        ],
-        "culture": [
-          "Despite significant legal rework of cannabis-related laws since 2010, certain elements of the consumption and cultivation of cannabis are considered to exist within a “legal grey area” of Belgian law.",
-          "The legal effort to restrict cultivation and growth has gradually subsided, resulting in an increase of the growth and consumption of cannabis and cannabis-related products.",
-          "Cannabis is one of the most popular controlled substances for cultivation and consumption within the country of Belgium.",
-          "Following global trends, cannabis consumption rates in Belgium have been steadily increasing across the country since the 20th century, and cannabis cultivation continues to expand rapidly on a national scale."
-        ]
-      },
-      "local_names": []
-    },
-    {
-      "geo": "BZ",
-      "country": "Belize / Belice",
-      "wiki_title": "Cannabis in Belize",
-      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Belize",
-      "sections": {
-        "history": [
-          "Possession or use of 10 grams or less on private premises was decriminalized in November 2017."
-        ],
-        "local_names": [],
-        "products": [
-          "The time has come for us to decriminalize marijuana smoking and prepare the necessary research to move to legalizing marijuana for medicinal purposes and in small quantities.\" In a 2017 op-ed, former Senator Lisa Shoman stated, \"There is..."
-        ],
-        "traditional_use": [
-          "The time has come for us to decriminalize marijuana smoking and prepare the necessary research to move to legalizing marijuana for medicinal purposes and in small quantities.\" In a 2017 op-ed, former Senator Lisa Shoman stated, \"There is..."
-        ],
-        "cannabis_foods": [],
-        "slang": [],
-        "cultivation": [
-          "Since the mid-1980s, Belize's production has dropped dramatically due to eradication efforts by the Belizean government, supported by the United States."
-        ],
-        "market": [],
-        "enforcement_notes": [],
-        "culture": [
-          "The use of cannabis in Belize is common and largely tolerated; however, possession can result in fines or imprisonment."
-        ]
-      },
-      "local_names": []
-    },
-    {
-      "geo": "BJ",
-      "country": "Benin / Bénin",
-      "wiki_title": "Cannabis in Benin",
-      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Benin",
-      "sections": {
-        "history": [],
-        "local_names": [],
-        "products": [],
-        "traditional_use": [],
-        "cannabis_foods": [],
-        "slang": [],
-        "cultivation": [],
-        "market": [],
-        "enforcement_notes": [
-          "Porto-Novo emerged as a particular transit point, given its proximity to Nigeria which allowed collaboration with Yoruba smugglers."
-        ],
-        "culture": []
-      },
-      "local_names": []
-    },
-    {
-      "geo": "BM",
-      "country": "Bermuda",
-      "wiki_title": "Cannabis in Bermuda",
-      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Bermuda",
-      "sections": {
-        "history": [
-          "In 2017, Bermuda introduced the Decriminalization of Cannabis Amendment Act, which decriminalized simple possession of up to 7 grams (¼ oz) of cannabis."
-        ],
-        "local_names": [],
-        "products": [],
-        "traditional_use": [
-          "Following public consultation of the bill that indicated that the territory should more broadly legalise and regulate cannabis, for medicinal and personal use, the Bermudian government revised the bill and opened submissions from the pub...",
-          "Despite these reforms, legal medicinal cannabis was until recently impossible to obtain due to self-imposed restrictions with the United Nations.",
-          "However, an importation limit of just 1 gram (1/28 oz) per year resulted in patients turning to the black market to purchase medicinal cannabis products."
-        ],
-        "cannabis_foods": [],
-        "slang": [],
-        "cultivation": [],
-        "market": [
-          "However, an importation limit of just 1 gram (1/28 oz) per year resulted in patients turning to the black market to purchase medicinal cannabis products.",
-          "It would create the Medicinal Cannabis Authority, which would be tasked with regulating cultivation, import, export, manufacturing, research and development, and transport."
-        ],
-        "enforcement_notes": [],
-        "culture": []
-      },
-      "local_names": []
-    },
-    {
-      "geo": "BT",
-      "country": "Bhutan / འབྲུག་ཡུལ་",
-      "wiki_title": "Cannabis in Bhutan",
-      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Bhutan",
-      "sections": {
-        "history": [
-          "Cannabis in Bhutan is illegal, but grows prolifically in the country and has multiple traditional uses, such as feeding pigs and producing textiles.",
-          "In 2010 the Bhutanese government seized 4 kg of cannabis; in 2011 this increased to 75 kg.",
-          "The International Narcotics Control Board noted in 2002 that Bhutan had no history of cannabis abuse, but the government had recently raised concerns about drug abuse, particularly by the young, and taken an interest in eradicating wild ..."
-        ],
-        "local_names": [],
-        "products": [],
-        "traditional_use": [
-          "Cannabis in Bhutan is illegal, but grows prolifically in the country and has multiple traditional uses, such as feeding pigs and producing textiles.",
-          "In 2010 the Bhutanese government seized 4 kg of cannabis; in 2011 this increased to 75 kg."
-        ],
-        "cannabis_foods": [],
-        "slang": [],
-        "cultivation": [],
-        "market": [],
-        "enforcement_notes": [],
-        "culture": [
-          "Cannabis in Bhutan is illegal, but grows prolifically in the country and has multiple traditional uses, such as feeding pigs and producing textiles.",
-          "In 2010 the Bhutanese government seized 4 kg of cannabis; in 2011 this increased to 75 kg."
-        ]
-      },
-      "local_names": []
-    },
-    {
-      "geo": "BO",
-      "country": "Bolivia / Wuliwya",
-      "wiki_title": "Cannabis in Bolivia",
-      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Bolivia",
-      "sections": {
-        "history": [],
-        "local_names": [],
-        "products": [],
-        "traditional_use": [],
-        "cannabis_foods": [],
-        "slang": [],
-        "cultivation": [],
-        "market": [],
-        "enforcement_notes": [
-          "Bolivian law treats cannabis equally to cocaine, with possession of one gram punishable by 10–25 years in prison."
-        ],
-        "culture": [
-          "Cannabis in Bolivia is illegal, but cultivated illicitly, mostly for domestic consumption."
-        ]
-      },
-      "local_names": []
-    },
-    {
-      "geo": "BA",
-      "country": "Bosnia and Herzegovina / Bosna i Hercegovina",
-      "wiki_title": "Cannabis in Bosnia and Herzegovina",
-      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Bosnia_and_Herzegovina",
-      "sections": {
-        "history": [],
-        "local_names": [],
-        "products": [],
-        "traditional_use": [],
-        "cannabis_foods": [],
-        "slang": [],
-        "cultivation": [],
-        "market": [],
-        "enforcement_notes": [],
-        "culture": []
-      },
-      "local_names": []
-    },
-    {
-      "geo": "BW",
-      "country": "Botswana",
-      "wiki_title": "Cannabis in Botswana",
-      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Botswana",
-      "sections": {
-        "history": [],
-        "local_names": [
-          "dagga"
-        ],
-        "products": [],
-        "traditional_use": [],
-        "cannabis_foods": [],
-        "slang": [
-          "dagga"
-        ],
-        "cultivation": [],
-        "market": [],
-        "enforcement_notes": [],
-        "culture": []
-      },
-      "local_names": [
-        {
-          "geo": "BW",
-          "country": "Botswana",
-          "term": "dagga",
-          "kind": "local_cannabis_name",
-          "source": "user_requirement_seed",
-          "evidence": "Country data names cannabis as dagga."
-        }
-      ]
-    },
-    {
-      "geo": "BR",
-      "country": "Brazil / Brasil",
-      "wiki_title": "Cannabis in Brazil",
-      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Brazil",
-      "sections": {
-        "history": [],
-        "local_names": [],
-        "products": [
-          "Their intent may have been to cultivate hemp fiber, but the slaves the Portuguese trafficked from Africa were familiar with cannabis and used it psychoactively, leading the Municipal Council of Rio de Janeiro in 1830 to prohibit bringing...",
-          "In March 2020, the State of Pernambuco issued the first national license for the homemade planting of marijuana for medicinal purposes."
-        ],
-        "traditional_use": [
-          "In March 2020, the State of Pernambuco issued the first national license for the homemade planting of marijuana for medicinal purposes."
-        ],
-        "cannabis_foods": [],
-        "slang": [],
-        "cultivation": [
-          "Their intent may have been to cultivate hemp fiber, but the slaves the Portuguese trafficked from Africa were familiar with cannabis and used it psychoactively, leading the Municipal Council of Rio de Janeiro in 1830 to prohibit bringing..."
-        ],
-        "market": [],
-        "enforcement_notes": [
-          "In March 2020, the State of Pernambuco issued the first national license for the homemade planting of marijuana for medicinal purposes.",
-          "Selling, transportation, and trafficking of drugs are considered criminal acts and are punished with 5 to 15 years in prison and a significant fine.",
-          "11343/2006) was ruled unconstitutional, converting penalties of prosecution and prison into an administrative offense."
-        ],
-        "culture": []
-      },
-      "local_names": []
-    },
-    {
-      "geo": "BN",
-      "country": "Brunei / Negara Brunei Darussalam",
-      "wiki_title": "Cannabis in Brunei",
-      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Brunei",
-      "sections": {
-        "history": [],
-        "local_names": [],
-        "products": [],
-        "traditional_use": [],
-        "cannabis_foods": [],
-        "slang": [],
-        "cultivation": [],
-        "market": [],
-        "enforcement_notes": [
-          "Possession and use of cannabis and its resin is strictly prohibited in Brunei, both obtaining maximum sentences of 10 years and/or a USD$20,000 fine.",
-          "Possession of a pipe or any other equipment used to smoke cannabis is illegal and is punishable by a maximum sentence of 3 years in prison, and a USD$10,000 fine.",
-          "Withholding from providing a urine sample to law enforcement can be charged a fine of USD$5,000."
-        ],
-        "culture": [
-          "Following the pillars of the Malay Islamic Monarchy (MIB), Brunei has aligned the country's legislation and beliefs in accordance with its Malaysian culture, Islam, and the sultanate.",
-          "Both defendants were charged and pled guilty for the consumption of cannabis and methylamphetamine."
-        ]
-      },
-      "local_names": []
-    },
-    {
-      "geo": "BG",
-      "country": "Bulgaria / България",
-      "wiki_title": "Cannabis in Bulgaria",
-      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Bulgaria",
-      "sections": {
-        "history": [],
-        "local_names": [],
-        "products": [],
-        "traditional_use": [],
-        "cannabis_foods": [],
-        "slang": [],
-        "cultivation": [],
-        "market": [],
-        "enforcement_notes": [
-          "It is classified as a class A (high-risk) drug, together with heroin, cocaine, amphetamines and MDMA.",
-          "Since 2006, after the last amendment of the Penal Code, the penalty for possession is 1 to 6 years in prison and a fine between 1,000 and 5,000 euros.",
-          "Many offenders have been prosecuted and effectively put in jail for possession of a single puff of a joint.",
-          "In these cases, the maximum fine to be determined together with the prison time is 50,000 euros."
-        ],
-        "culture": []
-      },
-      "local_names": []
-    },
-    {
-      "geo": "BF",
-      "country": "Burkina Faso",
-      "wiki_title": "Cannabis in Burkina Faso",
-      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Burkina_Faso",
-      "sections": {
-        "history": [],
-        "local_names": [],
-        "products": [],
-        "traditional_use": [],
-        "cannabis_foods": [],
-        "slang": [],
-        "cultivation": [
-          "However, cannabis rates among adolescents are low, as most cannabis grown in Burkina Faso is exported to countries where cannibis cultivation is hindered by climate or legality.",
-          "Most cannabis grown in Burkina Faso is grown for sale to users in other nearby countries in the Sahel region, a region with environments unable to grow cananbis."
-        ],
-        "market": [],
-        "enforcement_notes": [],
-        "culture": []
-      },
-      "local_names": []
-    },
-    {
-      "geo": "BI",
-      "country": "Burundi / Uburundi",
-      "wiki_title": "Cannabis in Burundi",
-      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Burundi",
-      "sections": {
-        "history": [
-          "Cannabis in Burundi is illegal."
-        ],
-        "local_names": [],
-        "products": [],
-        "traditional_use": [],
-        "cannabis_foods": [],
-        "slang": [],
-        "cultivation": [],
-        "market": [],
-        "enforcement_notes": [
-          "Cannabis in Burundi is illegal."
-        ],
-        "culture": []
+        "culture": [],
+        "notes": []
       },
       "local_names": []
     },
@@ -932,6 +1369,8 @@
       "country": "Cambodia / Kâmpŭchéa",
       "wiki_title": "Cannabis in Cambodia",
       "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Cambodia",
+      "revision_id": null,
+      "source_type": "wikipedia",
       "sections": {
         "history": [
           "Many \"Happy\" restaurants located in Phnom Penh, Siem Reap and Sihanoukville publicly offer food cooked with marijuana, or as a side garnish.",
@@ -949,22 +1388,10 @@
           "Many \"Happy\" restaurants located in Phnom Penh, Siem Reap and Sihanoukville publicly offer food cooked with marijuana, or as a side garnish.",
           "Cannabis has been traditionally grown in Cambodia and is a common ingredient in food."
         ],
-        "cannabis_foods": [
-          "Many \"Happy\" restaurants located in Phnom Penh, Siem Reap and Sihanoukville publicly offer food cooked with marijuana, or as a side garnish.",
-          "Cannabis has been traditionally grown in Cambodia and is a common ingredient in food.",
-          "As of 2009, the UNODC stated that cannabis production cultivation had \"ceased to be a major concern\" in Cambodia.",
-          "happy pizza"
-        ],
+        "cannabis_foods": [],
         "slang": [],
-        "cultivation": [
-          "Cannabis has been traditionally grown in Cambodia and is a common ingredient in food.",
-          "As of 2009, the UNODC stated that cannabis production cultivation had \"ceased to be a major concern\" in Cambodia."
-        ],
-        "market": [
-          "Many \"Happy\" restaurants located in Phnom Penh, Siem Reap and Sihanoukville publicly offer food cooked with marijuana, or as a side garnish.",
-          "By 1961 in compliance with the Single Convention on Narcotics treaty it was technically made illegal but the law was unenforced, and marijuana was openly sold.",
-          "As of 2009, the UNODC stated that cannabis production cultivation had \"ceased to be a major concern\" in Cambodia."
-        ],
+        "cultivation": [],
+        "market": [],
         "enforcement_notes": [
           "This prohibition is enforced opportunistically.",
           "By 1961 in compliance with the Single Convention on Narcotics treaty it was technically made illegal but the law was unenforced, and marijuana was openly sold.",
@@ -974,7 +1401,8 @@
           "Many \"Happy\" restaurants located in Phnom Penh, Siem Reap and Sihanoukville publicly offer food cooked with marijuana, or as a side garnish.",
           "Cannabis has been traditionally grown in Cambodia and is a common ingredient in food.",
           "As of 2009, the UNODC stated that cannabis production cultivation had \"ceased to be a major concern\" in Cambodia."
-        ]
+        ],
+        "notes": []
       },
       "local_names": [
         {
@@ -988,27 +1416,24 @@
       ]
     },
     {
-      "geo": "IR",
-      "country": "Iran / ایران",
-      "wiki_title": "Cannabis in Iran",
-      "wiki_url": "https://en.wikipedia.org/wiki/Cannabis_in_Iran",
+      "geo": "TF",
+      "country": "French Southern and Antarctic Lands / Terres australes et antarctiques françaises",
+      "wiki_title": "French Southern Territories",
+      "wiki_url": "https://en.wikipedia.org/wiki/French_Southern_Territories",
+      "revision_id": "90464390",
+      "source_type": "missing_wikipedia_article",
       "sections": {
-        "history": [
-          "In 1989 the Iranian government enacted a law providing the death penalty for possession of hashish in excess of five kilograms."
-        ],
+        "history": [],
         "local_names": [],
-        "products": [
-          "In 1989 the Iranian government enacted a law providing the death penalty for possession of hashish in excess of five kilograms."
-        ],
+        "products": [],
         "traditional_use": [],
         "cannabis_foods": [],
         "slang": [],
         "cultivation": [],
         "market": [],
-        "enforcement_notes": [
-          "Cannabis is illegal in Iran, but the law is often not strictly enforced."
-        ],
-        "culture": []
+        "enforcement_notes": [],
+        "culture": [],
+        "notes": []
       },
       "local_names": []
     }

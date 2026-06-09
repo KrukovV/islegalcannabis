@@ -1,6 +1,6 @@
 import { createHash } from "node:crypto";
 import { brotliCompressSync, constants as zlibConstants, gzipSync } from "node:zlib";
-import type { Feature, MultiPolygon, Polygon, Position } from "geojson";
+import type { Feature, MultiPolygon, Point, Polygon, Position } from "geojson";
 import { buildCountrySourceSnapshot } from "./countrySource";
 import type { LegalCountryCollection, LegalCountryFeatureProperties } from "./map.types";
 
@@ -112,7 +112,13 @@ function simplifyMultiPolygonCoordinates(coordinates: MultiPolygon["coordinates"
   return coordinates.map((polygon) => simplifyPolygonCoordinates(polygon));
 }
 
-function simplifyGeometry(geometry: Polygon | MultiPolygon): Polygon | MultiPolygon {
+function simplifyGeometry(geometry: Polygon | MultiPolygon | Point): Polygon | MultiPolygon | Point {
+  if (geometry.type === "Point") {
+    return {
+      type: "Point",
+      coordinates: roundPosition(geometry.coordinates)
+    };
+  }
   if (geometry.type === "Polygon") {
     return {
       type: "Polygon",
@@ -126,8 +132,8 @@ function simplifyGeometry(geometry: Polygon | MultiPolygon): Polygon | MultiPoly
 }
 
 function slimFeature(
-  feature: Feature<Polygon | MultiPolygon, LegalCountryFeatureProperties>
-): Feature<Polygon | MultiPolygon, LegalCountryFeatureProperties> {
+  feature: Feature<Polygon | MultiPolygon | Point, LegalCountryFeatureProperties>
+): Feature<Polygon | MultiPolygon | Point, LegalCountryFeatureProperties> {
   return {
     type: "Feature",
     id: feature.id,

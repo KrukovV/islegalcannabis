@@ -2,6 +2,7 @@ import type { Map as MapLibreMap, MapMouseEvent } from "maplibre-gl";
 import { attachLeafletPointerOverlay } from "./leaflet/InteractionOverlay";
 import {
   NEW_MAP_FILL_LAYER_ID,
+  NEW_MAP_POINT_LAYER_ID,
   NEW_MAP_SOURCE_ID,
   NEW_MAP_US_STATES_FILL_LAYER_ID,
   NEW_MAP_US_STATES_SOURCE_ID
@@ -39,7 +40,7 @@ function ensureDebugState(): HoverDebugState {
 
 function getGeoIdAtPoint(map: MapLibreMap, point: { x: number; y: number }) {
   const features = map.queryRenderedFeatures([point.x, point.y], {
-    layers: [NEW_MAP_US_STATES_FILL_LAYER_ID, NEW_MAP_FILL_LAYER_ID]
+    layers: [NEW_MAP_US_STATES_FILL_LAYER_ID, NEW_MAP_POINT_LAYER_ID, NEW_MAP_FILL_LAYER_ID]
   });
   const feature = features.find((item) => String(item.properties?.geo || item.id || "").trim());
   if (!feature) return null;
@@ -105,11 +106,14 @@ export function attachHoverController(map: MapLibreMap, options: HoverController
   };
 
   map.on("mousemove", NEW_MAP_FILL_LAYER_ID, onLayerMove);
+  map.on("mousemove", NEW_MAP_POINT_LAYER_ID, onLayerMove);
   map.on("mousemove", NEW_MAP_US_STATES_FILL_LAYER_ID, onLayerMove);
   map.on("mousemove", onMapMove);
   map.on("mouseleave", NEW_MAP_FILL_LAYER_ID, onLeave);
+  map.on("mouseleave", NEW_MAP_POINT_LAYER_ID, onLeave);
   map.on("mouseleave", NEW_MAP_US_STATES_FILL_LAYER_ID, onLeave);
   map.on("click", NEW_MAP_FILL_LAYER_ID, onClick);
+  map.on("click", NEW_MAP_POINT_LAYER_ID, onClick);
   map.on("click", NEW_MAP_US_STATES_FILL_LAYER_ID, onClick);
 
   const overlayCleanup = attachLeafletPointerOverlay(map.getCanvas(), {
@@ -132,11 +136,14 @@ export function attachHoverController(map: MapLibreMap, options: HoverController
     destroy: () => {
       overlayCleanup();
       map.off("mousemove", NEW_MAP_FILL_LAYER_ID, onLayerMove);
+      map.off("mousemove", NEW_MAP_POINT_LAYER_ID, onLayerMove);
       map.off("mousemove", NEW_MAP_US_STATES_FILL_LAYER_ID, onLayerMove);
       map.off("mousemove", onMapMove);
       map.off("mouseleave", NEW_MAP_FILL_LAYER_ID, onLeave);
+      map.off("mouseleave", NEW_MAP_POINT_LAYER_ID, onLeave);
       map.off("mouseleave", NEW_MAP_US_STATES_FILL_LAYER_ID, onLeave);
       map.off("click", NEW_MAP_FILL_LAYER_ID, onClick);
+      map.off("click", NEW_MAP_POINT_LAYER_ID, onClick);
       map.off("click", NEW_MAP_US_STATES_FILL_LAYER_ID, onClick);
       setHoveredId(null);
       setSelectedId(null);

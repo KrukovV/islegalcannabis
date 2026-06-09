@@ -10,7 +10,9 @@ import {
 describe("statusPairMatrix", () => {
   test("maps final status pair to one map category", () => {
     expect(resolveMapCategoryFromPair("Legal", "Illegal")).toBe("LEGAL_OR_DECRIM");
-    expect(resolveMapCategoryFromPair("Illegal", "Legal")).toBe("LIMITED_OR_MEDICAL");
+    expect(resolveMapCategoryFromPair("Decriminalized", "Illegal")).toBe("LIMITED_OR_MEDICAL");
+    expect(resolveMapCategoryFromPair("Illegal", "Legal")).toBe("LEGAL_OR_DECRIM");
+    expect(resolveMapCategoryFromPair("Illegal", "Limited")).toBe("LIMITED_OR_MEDICAL");
     expect(resolveMapCategoryFromPair("Illegal", "Illegal")).toBe("ILLEGAL");
     expect(resolveMapCategoryFromPair("Unknown", "Unknown")).toBe("UNKNOWN");
   });
@@ -53,7 +55,7 @@ describe("statusPairMatrix", () => {
     expect(contract.ruleId).toBe("REC_IMPLIES_MED_FLOOR");
   });
 
-  test("canonicalizes decriminalized recreational status to medical floor", () => {
+  test("keeps decriminalized recreational status yellow in v9 fallback", () => {
     const contract = buildStatusContract({
       wikiRecStatus: "decrim",
       wikiMedStatus: "illegal",
@@ -62,8 +64,9 @@ describe("statusPairMatrix", () => {
     });
 
     expect(contract.finalRecStatus).toBe("Decrim");
-    expect(contract.finalMedStatus).toBe("Limited");
-    expect(contract.ruleId).toBe("REC_IMPLIES_MED_FLOOR");
+    expect(contract.finalMedStatus).toBe("Illegal");
+    expect(contract.mapCategory).toBe("LIMITED_OR_MEDICAL");
+    expect(contract.ruleId).toBe("DIRECT_FINAL_PAIR");
   });
 
   test("resolves popup contract from primary and fallback sources without local derives", () => {
@@ -74,6 +77,6 @@ describe("statusPairMatrix", () => {
 
     expect(contract.finalRecStatus).toBe("Illegal");
     expect(contract.finalMedStatus).toBe("Legal");
-    expect(contract.mapCategory).toBe("LIMITED_OR_MEDICAL");
+    expect(contract.mapCategory).toBe("LEGAL_OR_DECRIM");
   });
 });

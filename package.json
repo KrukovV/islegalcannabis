@@ -49,6 +49,8 @@
     "wiki:ingest": "node tools/wiki/wiki_ingest.mjs",
     "wiki:refresh": "node tools/wiki/wiki_refresh.mjs --all",
     "wiki:official_eval": "node tools/wiki/wiki_official_eval.mjs",
+    "knowledge:harvest": "node tools/knowledge/harvest_cannabis_knowledge.mjs --limit=30",
+    "status:recolor": "node tools/status-engine/recolor_wave_1.mjs",
     "ai:evaluate-models": "node --experimental-strip-types tools/ai/evaluateModels.ts",
     "allowlist:merge": "node tools/sources/merge_official_allowlist.mjs",
     "ci": "bash tools/ci-local.sh",

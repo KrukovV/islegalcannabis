@@ -130,6 +130,8 @@ function firstResolvedStatus(values: Array<string | null | undefined>) {
 }
 
 export function resolveMapPaintStatus(row: {
+  finalMapCategory?: string | null;
+  mapCategory?: string | null;
   finalRecStatus?: string | null;
   finalMedStatus?: string | null;
   recEffective?: string | null;
@@ -137,6 +139,10 @@ export function resolveMapPaintStatus(row: {
   recWiki?: string | null;
   medWiki?: string | null;
 }): MapPaintStatus {
+  const direct = String(row.finalMapCategory || row.mapCategory || "").trim().toUpperCase();
+  if (direct === "LEGAL_OR_DECRIM" || direct === "LIMITED_OR_MEDICAL" || direct === "ILLEGAL" || direct === "UNKNOWN") {
+    return direct as MapPaintStatus;
+  }
   const contract = buildStatusContract({
     wikiRecStatus: firstResolvedStatus([row.recWiki]),
     wikiMedStatus: firstResolvedStatus([row.medWiki]),
@@ -164,7 +170,7 @@ function buildStatusEntry(row: RegionEntry): MapTruthStatusEntry {
     wikiMedStatus: contract.wikiMedStatus,
     finalRecStatus: contract.finalRecStatus,
     finalMedStatus: contract.finalMedStatus,
-    finalMapCategory: contract.finalMapCategory as MapPaintStatus,
+    finalMapCategory: (row.finalMapCategory || contract.finalMapCategory) as MapPaintStatus,
     recEffective: contract.finalRecStatus,
     medEffective: contract.finalMedStatus,
     truthLevel: String(row.truthLevel || "UNKNOWN") as TruthLevel,

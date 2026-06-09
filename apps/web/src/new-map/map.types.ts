@@ -18,11 +18,11 @@ export type LegalCountryFeatureProperties = {
   labelAnchorLat?: number | null;
 };
 
-export type LegalCountryFeature = Feature<Polygon | MultiPolygon, LegalCountryFeatureProperties> & {
+export type LegalCountryFeature = Feature<Polygon | MultiPolygon | Point, LegalCountryFeatureProperties> & {
   id: string;
 };
 
-export type LegalCountryCollection = FeatureCollection<Polygon | MultiPolygon, LegalCountryFeatureProperties>;
+export type LegalCountryCollection = FeatureCollection<Polygon | MultiPolygon | Point, LegalCountryFeatureProperties>;
 export type AdminBoundaryCollection = FeatureCollection<Polygon | MultiPolygon, { geo: string; displayName: string }>;
 export type LabelPointCollection = FeatureCollection<Point, { geo: string; label: string; kind: "country" | "marine" }>;
 
@@ -59,6 +59,7 @@ export type CountryCardEntry = {
     enforcementReality: string[];
     products: string[];
     traditionalUse: string[];
+    notes: string[];
     cannabisFoods: string[];
     slang: string[];
     cultivation: string[];

@@ -55,6 +55,12 @@ type NewMapDebug = {
   lastPointerLng?: number | null;
 };
 
+type NewMapQaController = {
+  jumpTo: (_lng: number, _lat: number, _zoom: number) => Promise<void>;
+  getCamera: () => { lng: number; lat: number; zoom: number };
+  getCanvasBox: () => { width: number; height: number };
+};
+
 type SelectedGeo = string | null;
 
 type ActiveGeo = {
@@ -129,6 +135,50 @@ function setDebugState(partial: Partial<NewMapDebug>) {
   };
   Object.assign(current, partial);
   host.__NEW_MAP_DEBUG__ = current;
+}
+
+function isNewMapQaEnabled() {
+  if (typeof window === "undefined") return false;
+  return new URLSearchParams(window.location.search).get("qa") === "1";
+}
+
+function installNewMapQaHook(map: maplibregl.Map) {
+  if (!isNewMapQaEnabled()) return () => {};
+  const host = window as typeof window & {
+    __NEW_MAP_QA__?: NewMapQaController;
+  };
+  host.__NEW_MAP_QA__ = {
+    jumpTo: (lng: number, lat: number, zoom: number) =>
+      new Promise<void>((resolve) => {
+        let settled = false;
+        let timeoutId = 0;
+        const finish = () => {
+          if (settled) return;
+          settled = true;
+          window.clearTimeout(timeoutId);
+          resolve();
+        };
+        timeoutId = window.setTimeout(finish, 1200);
+        map.once("idle", finish);
+        map.jumpTo({
+          center: [lng, lat],
+          zoom,
+          pitch: 0,
+          bearing: 0
+        });
+      }),
+    getCamera: () => {
+      const center = map.getCenter();
+      return { lng: center.lng, lat: center.lat, zoom: map.getZoom() };
+    },
+    getCanvasBox: () => {
+      const rect = map.getCanvas().getBoundingClientRect();
+      return { width: Math.round(rect.width), height: Math.round(rect.height) };
+    }
+  };
+  return () => {
+    if (host.__NEW_MAP_QA__) delete host.__NEW_MAP_QA__;
+  };
 }
 
 function safeSetFeatureState(
@@ -245,9 +295,15 @@ export default function MapRoot({
 
   useEffect(() => {
     if (!seoCountryData) return;
+    let cancelled = false;
     seoDataByCodeRef.current[seoCountryData.code.toLowerCase()] = seoCountryData;
     seoDataByCodeRef.current[String(seoCountryData.geo_code || "").trim().toUpperCase()] = seoCountryData;
-    setActiveRouteSeoData(seoCountryData);
+    queueMicrotask(() => {
+      if (!cancelled) setActiveRouteSeoData(seoCountryData);
+    });
+    return () => {
+      cancelled = true;
+    };
   }, [seoCountryData]);
   const activeSeoData = useMemo(() => {
     if (!activeRouteSeoData) return null;
@@ -577,33 +633,60 @@ export default function MapRoot({
     const target = entry || seoEntry;
     if (!target) return;
     lastAppliedRouteGeoRef.current = initialGeoCode;
-    setSelectedGeo(initialGeoCode);
-    setSeoPanelOpen(true);
+    let cancelled = false;
+    queueMicrotask(() => {
+      if (cancelled || lastAppliedRouteGeoRef.current !== initialGeoCode) return;
+      setSelectedGeo(initialGeoCode);
+      setSeoPanelOpen(true);
+    });
     const map = mapRef.current;
     const lat = target.coordinates?.lat;
     const lng = target.coordinates?.lng;
-    if (!map || typeof lat !== "number" || typeof lng !== "number") return;
+    if (!map || typeof lat !== "number" || typeof lng !== "number") {
+      return () => {
+        cancelled = true;
+      };
+    }
     const targetZoom = String(target.iso2 || "").toUpperCase().startsWith("US-") ? 4.8 : 3.2;
     map.jumpTo({
       center: [lng, lat],
       zoom: Math.max(map.getZoom(), targetZoom)
     });
+    return () => {
+      cancelled = true;
+    };
   }, [activeSeoData, cardIndex, initialGeoCode, mapReady]);
 
   useEffect(() => {
+    let cancelled = false;
     resetFirstVisualReady();
-    setVisualReady(false);
     if (hasFirstVisualReady()) {
-      setVisualReady(true);
-      return;
+      queueMicrotask(() => {
+        if (!cancelled) setVisualReady(true);
+      });
+      return () => {
+        cancelled = true;
+      };
     }
-    return onFirstVisualReady(() => setVisualReady(true));
+    queueMicrotask(() => {
+      if (!cancelled) setVisualReady(false);
+    });
+    const unsubscribe = onFirstVisualReady(() => setVisualReady(true));
+    return () => {
+      cancelled = true;
+      unsubscribe();
+    };
   }, [countriesUrl]);
 
   useEffect(() => {
-    if (seoCountryData) {
-      setSeoPanelOpen(true);
-    }
+    if (!seoCountryData) return;
+    let cancelled = false;
+    queueMicrotask(() => {
+      if (!cancelled) setSeoPanelOpen(true);
+    });
+    return () => {
+      cancelled = true;
+    };
   }, [seoCountryCode, seoCountryData, seoCountryIndex]);
 
   useEffect(() => {
@@ -625,12 +708,24 @@ export default function MapRoot({
 
   useEffect(() => {
     if (!initialGeoCode && !seoCountryData) return;
-    void loadCardIndex();
+    let cancelled = false;
+    queueMicrotask(() => {
+      if (!cancelled) void loadCardIndex();
+    });
+    return () => {
+      cancelled = true;
+    };
   }, [initialGeoCode, loadCardIndex, seoCountryData]);
 
   useEffect(() => {
     if (!selectedGeo || cardIndex[selectedGeo]) return;
-    void loadCardIndex();
+    let cancelled = false;
+    queueMicrotask(() => {
+      if (!cancelled) void loadCardIndex();
+    });
+    return () => {
+      cancelled = true;
+    };
   }, [cardIndex, loadCardIndex, selectedGeo]);
 
   useEffect(() => {
@@ -688,9 +783,11 @@ export default function MapRoot({
           onHoverChange: (geo) => setHoveredGeo(geo)
         });
         const unbindAsciiTriggers = bindAsciiMapTriggers(runtime.map);
-        setDebugState({ mounted: true, countriesUrl, map: runtime.map, selectedId: null });
+        const uninstallQaHook = installNewMapQaHook(runtime.map);
+        setDebugState({ mounted: true, countriesUrl, map: isNewMapQaEnabled() ? runtime.map : null, selectedId: null });
         await countriesDataPromise;
         if (cancelled) {
+          uninstallQaHook();
           unbindAsciiTriggers();
           hover.destroy();
           runtime.destroy();
@@ -698,6 +795,7 @@ export default function MapRoot({
           return;
         }
         cleanup = () => {
+          uninstallQaHook();
           unbindAsciiTriggers();
           hover.destroy();
           locationMarkerRef.current?.remove();

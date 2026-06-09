@@ -56,7 +56,7 @@ export function normalizeMapCategory(value) {
 export function canonicalizeStatusPair(recValue, medValue) {
   const rec = normalizeStatus(recValue);
   const med = normalizeStatus(medValue);
-  if ((rec === "Legal" || rec === "Decrim") && med !== "Legal" && med !== "Limited") {
+  if (rec === "Legal" && med !== "Legal" && med !== "Limited") {
     return {
       finalRecStatus: rec,
       finalMedStatus: "Limited",
@@ -73,7 +73,8 @@ export function canonicalizeStatusPair(recValue, medValue) {
 export function isSupportedStatusPair(recValue, medValue) {
   const { finalRecStatus: rec, finalMedStatus: med } = canonicalizeStatusPair(recValue, medValue);
   if (rec === "Unknown") return true;
-  if (rec === "Legal" || rec === "Decrim") return med === "Legal" || med === "Limited";
+  if (rec === "Legal") return med === "Legal" || med === "Limited";
+  if (rec === "Decrim") return true;
   if (rec === "Limited" || rec === "Unenforced") return true;
   if (rec === "Illegal") return true;
   return false;
@@ -88,9 +89,11 @@ export function explainUnsupportedStatusPair(recValue, medValue) {
 
 export function resolveMapCategoryFromPair(recValue, medValue) {
   const { finalRecStatus: rec, finalMedStatus: med } = canonicalizeStatusPair(recValue, medValue);
-  if (rec === "Legal" || rec === "Decrim") return "LEGAL_OR_DECRIM";
+  if (rec === "Legal") return "LEGAL_OR_DECRIM";
+  if (rec === "Decrim") return "LIMITED_OR_MEDICAL";
   if (rec === "Limited" || rec === "Unenforced") return "LIMITED_OR_MEDICAL";
-  if (med === "Legal" || med === "Limited" || med === "Unenforced") return "LIMITED_OR_MEDICAL";
+  if (med === "Legal") return "LEGAL_OR_DECRIM";
+  if (med === "Limited" || med === "Unenforced") return "LIMITED_OR_MEDICAL";
   if (rec === "Illegal" || med === "Illegal") return "ILLEGAL";
   return "UNKNOWN";
 }

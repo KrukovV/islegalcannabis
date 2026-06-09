@@ -1,4 +1,4 @@
-import firstWaveProfiles from "../../../../data/cannabis_profiles/first_wave_profiles.json";
+import knowledgeDb from "../../../../data/cannabis_profiles/knowledge_db.json";
 import localNamesDictionary from "../../../../data/cannabis_profiles/local_names.dictionary.json";
 
 export type CannabisProfileLocalName = {
@@ -21,6 +21,7 @@ export type CannabisProfileSections = {
   market: string[];
   enforcement_notes: string[];
   culture: string[];
+  notes?: string[];
 };
 
 export type CannabisProfile = {
@@ -39,6 +40,7 @@ export type CannabisProfileCard = {
   enforcementReality: string[];
   products: string[];
   traditionalUse: string[];
+  notes: string[];
   cannabisFoods: string[];
   slang: string[];
   cultivation: string[];
@@ -53,11 +55,65 @@ type ProfilesPayload = {
   profiles: CannabisProfile[];
 };
 
+type KnowledgeRecord = {
+  geo: string;
+  country: string;
+  wikiTitle: string;
+  wikiUrl: string;
+  revisionId?: string | null;
+  sourceType?: string;
+  history?: string[];
+  culture?: string[];
+  localNames?: Array<CannabisProfileLocalName | string>;
+  products?: string[];
+  traditionalUse?: string[];
+  enforcementReality?: string[];
+  notes?: string[];
+};
+
+type KnowledgePayload = {
+  entries?: KnowledgeRecord[];
+};
+
 type LocalNamesPayload = {
   entries: CannabisProfileLocalName[];
 };
 
-const profiles = (firstWaveProfiles as ProfilesPayload).profiles || [];
+function profileFromKnowledgeRecord(record: KnowledgeRecord): CannabisProfile {
+  const localNames = (record.localNames || []).filter(
+    (item): item is CannabisProfileLocalName => Boolean(item) && typeof item === "object"
+  );
+  return {
+    geo: record.geo,
+    country: record.country,
+    wiki_title: record.wikiTitle,
+    wiki_url: record.wikiUrl,
+    sections: {
+      history: record.history || [],
+      local_names: (record.localNames || [])
+        .map((item) => (typeof item === "string" ? item : item.term))
+        .filter(Boolean),
+      products: record.products || [],
+      traditional_use: record.traditionalUse || [],
+      cannabis_foods: [
+        ...(record.products || []).filter((item) => /\b(food|pizza|edible|dish|ingredient)\b/i.test(item)),
+        ...localNames.filter((entry) => entry.kind === "cannabis_food").map((entry) => entry.term)
+      ],
+      slang: localNames
+        .filter((entry) => entry.kind === "local_cannabis_name" || entry.kind === "slang_name")
+        .map((entry) => entry.term),
+      cultivation: [],
+      market: [],
+      enforcement_notes: record.enforcementReality || [],
+      culture: record.culture || [],
+      notes: record.notes || []
+    },
+    local_names: localNames
+  };
+}
+
+const profiles = ((knowledgeDb as KnowledgePayload).entries || []).map(profileFromKnowledgeRecord) ||
+  ((knowledgeDb as unknown as ProfilesPayload).profiles || []);
 const dictionaryEntries = (localNamesDictionary as LocalNamesPayload).entries || [];
 const profilesByGeo = new Map(profiles.map((profile) => [profile.geo.toUpperCase(), profile] as const));
 
@@ -94,6 +150,7 @@ export function buildCannabisProfileCard(geo: string | null | undefined, itemLim
     enforcementReality: cleanItems(profile.sections.enforcement_notes, itemLimit),
     products: cleanItems(profile.sections.products, itemLimit),
     traditionalUse: cleanItems(profile.sections.traditional_use, itemLimit),
+    notes: cleanItems(profile.sections.notes, itemLimit),
     cannabisFoods: cleanItems(profile.sections.cannabis_foods, itemLimit),
     slang: cleanItems(profile.sections.slang, 8),
     cultivation: cleanItems(profile.sections.cultivation, itemLimit),

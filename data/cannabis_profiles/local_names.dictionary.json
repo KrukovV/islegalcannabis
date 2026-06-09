@@ -1,14 +1,30 @@
 {
-  "generated_at": "2026-05-30T22:59:15.939Z",
-  "source_report": "Reports/status-engine/status_engine_audit_v3.json",
+  "generated_at": "2026-06-08T19:09:35.568Z",
+  "source_report": "Reports/knowledge-harvester/first_wave_validation.json",
   "entries": [
+    {
+      "geo": "AF",
+      "country": "Afghanistan / افغانستان",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "Baba Ku is a legendary folkloric character from Balkh in Afghanistan, a Sufi adherent who legendarily introduced hashish to Afghanistan.."
+    },
+    {
+      "geo": "AL",
+      "country": "Albania / Shqipëria",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "Albanian cannabis production is sufficient to meet local demand and also export to other areas, though the country continues to import some hashish through Turkey."
+    },
     {
       "geo": "AO",
       "country": "Angola",
       "term": "diamba",
       "kind": "local_cannabis_name",
       "source": "user_requirement_seed",
-      "evidence": "User-required local cannabis name for Angola profile extraction."
+      "evidence": "Required local cannabis name for Angola knowledge extraction."
     },
     {
       "geo": "AO",
@@ -16,7 +32,39 @@
       "term": "liamba",
       "kind": "local_cannabis_name",
       "source": "user_requirement_seed",
-      "evidence": "User-required local cannabis name for Angola profile extraction."
+      "evidence": "Required local cannabis name for Angola knowledge extraction."
+    },
+    {
+      "geo": "AU",
+      "country": "Australia",
+      "term": "bowls",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "Copeland from the NCPIC and others, cannabis in Australia is commonly smoked as a cluster (or \"cone\", similar to \"bowls\" as known in the United States) of the flowering heads (buds) or resin glands (also known as Hashish) of the female plant."
+    },
+    {
+      "geo": "AU",
+      "country": "Australia",
+      "term": "cone",
+      "kind": "local_cannabis_name",
+      "source": "wiki_fact",
+      "evidence": "National Drug and Alcohol Research Centre, University of New South Wales. {{ISBN|1-877018-13-9}}</ref> cannabis in Australia is commonly smoked as a cluster (or \"cone\", similar to \"[[Bowl (smoking)|bowls]]\" as known in the United States) of the flowering heads (buds) or [[resin]] [[Gland (botany)|glands]] (also known as [[Hashish]]) of the female plant."
+    },
+    {
+      "geo": "AU",
+      "country": "Australia",
+      "term": "hash",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "Adults in the [[Northern Territory]] under the [https://legislation.nt.gov.au/en/Legislation/MISUSE-OF-DRUGS-ACT-1990 Misuse of Drugs Act 1990] persons found in possession of up to 50 g of cannabis, one gram of hash oil, 10 g of hash or cannabis seed/s, or two non-hydroponic plants can be fined A$200 with 28 days to expiate at an officers discretion or face a penalty of a fine of up to 50 penalty units or A$7.750..."
+    },
+    {
+      "geo": "AU",
+      "country": "Australia",
+      "term": "hashish",
+      "kind": "local_hash_name",
+      "source": "wiki_fact",
+      "evidence": "National Drug and Alcohol Research Centre, University of New South Wales. {{ISBN|1-877018-13-9}}</ref> cannabis in Australia is commonly smoked as a cluster (or \"cone\", similar to \"[[Bowl (smoking)|bowls]]\" as known in the United States) of the flowering heads (buds) or [[resin]] [[Gland (botany)|glands]] (also known as [[Hashish]]) of the female plant."
     },
     {
       "geo": "BW",

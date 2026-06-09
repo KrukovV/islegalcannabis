@@ -108,6 +108,7 @@ export type AIContext = {
     enforcementReality: string[];
     products: string[];
     traditionalUse: string[];
+    notes: string[];
     cannabisFoods: string[];
     slang: string[];
     cultivation: string[];

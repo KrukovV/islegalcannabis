@@ -66,6 +66,8 @@ export default function SeoResultPage({
   const cannabisProfileSections = [
     { id: "history", heading: "History", items: cannabisProfile?.history || [] },
     { id: "local-names", heading: "Local names", items: cannabisProfile?.localNames || [] },
+    { id: "products", heading: "Products", items: cannabisProfile?.products || [] },
+    { id: "traditional-use", heading: "Traditional use", items: cannabisProfile?.traditionalUse || [] },
     { id: "culture", heading: "Culture", items: cannabisProfile?.culture || [] },
     { id: "enforcement-reality", heading: "Enforcement reality", items: cannabisProfile?.enforcementReality || [] }
   ].filter((section) => section.items.length > 0);

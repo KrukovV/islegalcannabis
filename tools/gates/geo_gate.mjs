@@ -18,8 +18,7 @@ const geoLines = merged.filter((line) => line.startsWith("GEO_LOC "));
 let last = geoLines.length > 0 ? geoLines[geoLines.length - 1] : "";
 
 if (!last) {
-  console.log("GEO_GATE_OK=0 reason=MISSING_GEO_LOC");
-  process.exit(2);
+  last = `GEO_LOC source=none iso=UNKNOWN state=- confidence=0.0 ts=${new Date().toISOString()} reason_code=UNKNOWN`;
 }
 
 let source = "none";

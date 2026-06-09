@@ -56,9 +56,10 @@ describe("UnifiedSeoStatusPanel", () => {
     expect(html).toContain("Restricted in California");
     expect(html).toContain("Legal source →");
     expect(html).toContain("Cannabis_in_California");
-    expect(html).toContain("Recreational:");
-    expect(html).toContain("Medical:");
-    expect(html).toContain("Distribution:");
+    expect(html).toContain("Cannabis remains restricted");
+    expect(html).not.toContain("Recreational:");
+    expect(html).not.toContain("Medical:");
+    expect(html).not.toContain("Distribution:");
   });
 
   it("keeps Georgia country and Georgia state source titles distinct in the SEO panel", () => {

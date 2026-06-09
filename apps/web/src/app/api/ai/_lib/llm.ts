@@ -11,9 +11,19 @@ function buildFallbackAnswer(context: AiGeoContext | null) {
     return "Unknown. The current SSOT context does not identify a country or region for this question.";
   }
   const notes = context.notes || "Unknown.";
+  const knowledge = context.knowledge
+    ? [
+        context.knowledge.localNames.length ? `Local names: ${context.knowledge.localNames.slice(0, 6).join(", ")}.` : null,
+        context.knowledge.products.length ? `Products: ${context.knowledge.products.slice(0, 2).join(" ")}` : null,
+        context.knowledge.enforcementReality.length
+          ? `Enforcement reality: ${context.knowledge.enforcementReality.slice(0, 1).join(" ")}`
+          : null
+      ].filter(Boolean).join(" ")
+    : "";
   return [
     `${context.displayName}: recreational status is ${context.legalStatus}; medical status is ${context.medicalStatus}.`,
-    `Notes: ${notes}`
+    `Notes: ${notes}`,
+    knowledge
   ].join(" ");
 }
 

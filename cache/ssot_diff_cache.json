@@ -1,6 +1,2936 @@
 {
-  "generated_at": "2026-06-02T11:15:35.470Z",
-  "last_24h": [],
-  "last_7d": [],
+  "generated_at": "2026-06-09T17:10:36.419Z",
+  "last_24h": [
+    {
+      "geo": "BD",
+      "type": "NOTES_UPDATE",
+      "old_value": "083775dab0e1",
+      "new_value": "2dea7929a3b5",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "BD|NOTES_UPDATE|083775dab0e1|2dea7929a3b5"
+    },
+    {
+      "geo": "BD",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://archive.thedailystar.net/law/2010/03/04/advocate.htm",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "BD|OFFICIAL_SOURCE_ADDED|-|https://archive.thedailystar.net/law/2010/03/04/advocate.htm"
+    },
+    {
+      "geo": "BD",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://books.google.com/books?id=fSZwglgRnHsC&pg=PA138",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "BD|OFFICIAL_SOURCE_ADDED|-|https://books.google.com/books?id=fSZwglgRnHsC&pg=PA138"
+    },
+    {
+      "geo": "BD",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://dhakainsider.com/bangladesh-news/drug-abuse-where-is-the-way-of-remedy-part-ii-some-dangerous-silent-killers/",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "BD|OFFICIAL_SOURCE_ADDED|-|https://dhakainsider.com/bangladesh-news/drug-abuse-where-is-the-way-of-remedy-part-ii-some-dangerous-silent-killers/"
+    },
+    {
+      "geo": "BD",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://web.archive.org/web/20161115140731/http://dhakainsider.com/bangladesh-news/drug-abuse-where-is-the-way-of-remedy-part-ii-some-dangerous-silent-killers/",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "BD|OFFICIAL_SOURCE_ADDED|-|https://web.archive.org/web/20161115140731/http://dhakainsider.com/bangladesh-news/drug-abuse-where-is-the-way-of-remedy-part-ii-some-dangerous-silent-killers/"
+    },
+    {
+      "geo": "BD",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://web.archive.org/web/20161116015226/http://archive.thedailystar.net/law/2010/03/04/advocate.htm",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "BD|OFFICIAL_SOURCE_ADDED|-|https://web.archive.org/web/20161116015226/http://archive.thedailystar.net/law/2010/03/04/advocate.htm"
+    },
+    {
+      "geo": "BD",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://web.archive.org/web/20170925095855/http://www.marijuanatravels.com/cities/bgd/dhaka",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "BD|OFFICIAL_SOURCE_ADDED|-|https://web.archive.org/web/20170925095855/http://www.marijuanatravels.com/cities/bgd/dhaka"
+    },
+    {
+      "geo": "BD",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://web.archive.org/web/20201031050839/https://www.unodc.org/res/cld/document/the-narcotic-control-act-1990_html/The_Narcotic_Drugs_and_Psychotropic_Substances_Control_Act_1990.pdf",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "BD|OFFICIAL_SOURCE_ADDED|-|https://web.archive.org/web/20201031050839/https://www.unodc.org/res/cld/document/the-narcotic-control-act-1990_html/The_Narcotic_Drugs_and_Psychotropic_Substances_Control_Act_1990.pdf"
+    },
+    {
+      "geo": "BD",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.marijuanatravels.com/cities/bgd/dhaka",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "BD|OFFICIAL_SOURCE_ADDED|-|https://www.marijuanatravels.com/cities/bgd/dhaka"
+    },
+    {
+      "geo": "BD",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.theguardian.com/theguardian/2010/jun/23/archive-martial-law-coup-bangladesh",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "BD|OFFICIAL_SOURCE_ADDED|-|https://www.theguardian.com/theguardian/2010/jun/23/archive-martial-law-coup-bangladesh"
+    },
+    {
+      "geo": "BD",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.unodc.org/pdf/india/publications/south_Asia_Regional_Profile_Sept_2005/08_bangladesh.pdf",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "BD|OFFICIAL_SOURCE_ADDED|-|https://www.unodc.org/pdf/india/publications/south_Asia_Regional_Profile_Sept_2005/08_bangladesh.pdf"
+    },
+    {
+      "geo": "BD",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.unodc.org/res/cld/document/the-narcotic-control-act-1990_html/The_Narcotic_Drugs_and_Psychotropic_Substances_Control_Act_1990.pdf",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "BD|OFFICIAL_SOURCE_ADDED|-|https://www.unodc.org/res/cld/document/the-narcotic-control-act-1990_html/The_Narcotic_Drugs_and_Psychotropic_Substances_Control_Act_1990.pdf"
+    },
+    {
+      "geo": "BD",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://bdlaws.minlaw.gov.bd/act-details-1276.html",
+      "new_value": null,
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "BD|OFFICIAL_SOURCE_REMOVED|https://bdlaws.minlaw.gov.bd/act-details-1276.html|-"
+    },
+    {
+      "geo": "BD",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.refworld.org/legal/legislation/natlegbod/2018/en/148280",
+      "new_value": null,
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "BD|OFFICIAL_SOURCE_REMOVED|https://www.refworld.org/legal/legislation/natlegbod/2018/en/148280|-"
+    },
+    {
+      "geo": "BD",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Legal",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "BD|STATUS_CHANGE|Illegal|Legal"
+    },
+    {
+      "geo": "US-KS",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Limited",
+      "new_value": "Illegal",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-KS|MED_STATUS_CHANGE|Limited|Illegal"
+    },
+    {
+      "geo": "US-KS",
+      "type": "NOTES_UPDATE",
+      "old_value": "1229abfcdaa9",
+      "new_value": "e359f7e28999",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-KS|NOTES_UPDATE|1229abfcdaa9|e359f7e28999"
+    },
+    {
+      "geo": "US-KS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://en.wikipedia.org/wiki/Kansas",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-KS|OFFICIAL_SOURCE_ADDED|-|https://en.wikipedia.org/wiki/Kansas"
+    },
+    {
+      "geo": "US-KS",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.kslegislature.gov/li_2020/b2019_20/statute/065_000_0000_chapter/065_062_0000_article/065_062_0035_section/065_062_0035_k/",
+      "new_value": null,
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-KS|OFFICIAL_SOURCE_REMOVED|https://www.kslegislature.gov/li_2020/b2019_20/statute/065_000_0000_chapter/065_062_0000_article/065_062_0035_section/065_062_0035_k/|-"
+    },
+    {
+      "geo": "US-KS",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.ncsl.org/health/state-medical-cannabis-laws",
+      "new_value": null,
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-KS|OFFICIAL_SOURCE_REMOVED|https://www.ncsl.org/health/state-medical-cannabis-laws|-"
+    },
+    {
+      "geo": "US-KS",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Legal",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-KS|STATUS_CHANGE|Illegal|Legal"
+    },
+    {
+      "geo": "US-NE",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Legal",
+      "new_value": "Illegal",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-NE|MED_STATUS_CHANGE|Legal|Illegal"
+    },
+    {
+      "geo": "US-NE",
+      "type": "NOTES_UPDATE",
+      "old_value": "1f5df5a26597",
+      "new_value": "65546694a0ef",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-NE|NOTES_UPDATE|1f5df5a26597|65546694a0ef"
+    },
+    {
+      "geo": "US-NE",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://en.wikipedia.org/wiki/Nebraska",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-NE|OFFICIAL_SOURCE_ADDED|-|https://en.wikipedia.org/wiki/Nebraska"
+    },
+    {
+      "geo": "US-NE",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://lcc.nebraska.gov/medical-cannabis/medical-cannabis-commission-how-apply",
+      "new_value": null,
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-NE|OFFICIAL_SOURCE_REMOVED|https://lcc.nebraska.gov/medical-cannabis/medical-cannabis-commission-how-apply|-"
+    },
+    {
+      "geo": "US-NE",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://nebraskalegislature.gov/laws/statutes.php?statute=71-24%2C106",
+      "new_value": null,
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-NE|OFFICIAL_SOURCE_REMOVED|https://nebraskalegislature.gov/laws/statutes.php?statute=71-24%2C106|-"
+    },
+    {
+      "geo": "US-NE",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Legal",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-NE|STATUS_CHANGE|Illegal|Legal"
+    },
+    {
+      "geo": "US-TX",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Limited",
+      "new_value": "Illegal",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-TX|MED_STATUS_CHANGE|Limited|Illegal"
+    },
+    {
+      "geo": "US-TX",
+      "type": "NOTES_UPDATE",
+      "old_value": "4e0ec5d786a2",
+      "new_value": "93c08fb47cdc",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-TX|NOTES_UPDATE|4e0ec5d786a2|93c08fb47cdc"
+    },
+    {
+      "geo": "US-TX",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://en.wikipedia.org/wiki/Texas",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-TX|OFFICIAL_SOURCE_ADDED|-|https://en.wikipedia.org/wiki/Texas"
+    },
+    {
+      "geo": "US-TX",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.dps.texas.gov/section/compassionate-use-program",
+      "new_value": null,
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-TX|OFFICIAL_SOURCE_REMOVED|https://www.dps.texas.gov/section/compassionate-use-program|-"
+    },
+    {
+      "geo": "US-TX",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Legal",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-TX|STATUS_CHANGE|Illegal|Legal"
+    },
+    {
+      "geo": "US-UT",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Legal",
+      "new_value": "Illegal",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-UT|MED_STATUS_CHANGE|Legal|Illegal"
+    },
+    {
+      "geo": "US-UT",
+      "type": "NOTES_UPDATE",
+      "old_value": "5c789cd26805",
+      "new_value": "459f9987b617",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-UT|NOTES_UPDATE|5c789cd26805|459f9987b617"
+    },
+    {
+      "geo": "US-UT",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://en.wikipedia.org/wiki/Utah",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-UT|OFFICIAL_SOURCE_ADDED|-|https://en.wikipedia.org/wiki/Utah"
+    },
+    {
+      "geo": "US-UT",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://ag.utah.gov/specialized-products/medical-cannabis/",
+      "new_value": null,
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-UT|OFFICIAL_SOURCE_REMOVED|https://ag.utah.gov/specialized-products/medical-cannabis/|-"
+    },
+    {
+      "geo": "US-UT",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://medicalcannabis.utah.gov/resources/utah-medical-cannabis-law/",
+      "new_value": null,
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-UT|OFFICIAL_SOURCE_REMOVED|https://medicalcannabis.utah.gov/resources/utah-medical-cannabis-law/|-"
+    },
+    {
+      "geo": "US-UT",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Legal",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-UT|STATUS_CHANGE|Illegal|Legal"
+    },
+    {
+      "geo": "US-WI",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Limited",
+      "new_value": "Illegal",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-WI|MED_STATUS_CHANGE|Limited|Illegal"
+    },
+    {
+      "geo": "US-WI",
+      "type": "NOTES_UPDATE",
+      "old_value": "556f60ee85a0",
+      "new_value": "65546694a0ef",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-WI|NOTES_UPDATE|556f60ee85a0|65546694a0ef"
+    },
+    {
+      "geo": "US-WI",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://en.wikipedia.org/wiki/Wisconsin",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-WI|OFFICIAL_SOURCE_ADDED|-|https://en.wikipedia.org/wiki/Wisconsin"
+    },
+    {
+      "geo": "US-WI",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://docs.legis.wisconsin.gov/2013/related/acts/267",
+      "new_value": null,
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-WI|OFFICIAL_SOURCE_REMOVED|https://docs.legis.wisconsin.gov/2013/related/acts/267|-"
+    },
+    {
+      "geo": "US-WI",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.ncsl.org/health/state-medical-cannabis-laws",
+      "new_value": null,
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-WI|OFFICIAL_SOURCE_REMOVED|https://www.ncsl.org/health/state-medical-cannabis-laws|-"
+    },
+    {
+      "geo": "US-WI",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Legal",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-WI|STATUS_CHANGE|Illegal|Legal"
+    },
+    {
+      "geo": "US-WY",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Limited",
+      "new_value": "Illegal",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-WY|MED_STATUS_CHANGE|Limited|Illegal"
+    },
+    {
+      "geo": "US-WY",
+      "type": "NOTES_UPDATE",
+      "old_value": "a946a7834f3a",
+      "new_value": "65546694a0ef",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-WY|NOTES_UPDATE|a946a7834f3a|65546694a0ef"
+    },
+    {
+      "geo": "US-WY",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://en.wikipedia.org/wiki/Wyoming",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-WY|OFFICIAL_SOURCE_ADDED|-|https://en.wikipedia.org/wiki/Wyoming"
+    },
+    {
+      "geo": "US-WY",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.ncsl.org/health/state-medical-cannabis-laws",
+      "new_value": null,
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-WY|OFFICIAL_SOURCE_REMOVED|https://www.ncsl.org/health/state-medical-cannabis-laws|-"
+    },
+    {
+      "geo": "US-WY",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.wyoleg.gov/2015/Introduced/HB0032.pdf",
+      "new_value": null,
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-WY|OFFICIAL_SOURCE_REMOVED|https://www.wyoleg.gov/2015/Introduced/HB0032.pdf|-"
+    },
+    {
+      "geo": "US-WY",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Legal",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-WY|STATUS_CHANGE|Illegal|Legal"
+    },
+    {
+      "geo": "AL",
+      "type": "NOTES_UPDATE",
+      "old_value": "06831da589fa",
+      "new_value": "a85473d1e490",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "AL|NOTES_UPDATE|06831da589fa|a85473d1e490"
+    },
+    {
+      "geo": "AL",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://albaniandailynews.com/news/albania-to-legalize-cannabis-after-citizens-support",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "AL|OFFICIAL_SOURCE_ADDED|-|https://albaniandailynews.com/news/albania-to-legalize-cannabis-after-citizens-support"
+    },
+    {
+      "geo": "AL",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://archive.org/details/worlddrugreport20000unse",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "AL|OFFICIAL_SOURCE_ADDED|-|https://archive.org/details/worlddrugreport20000unse"
+    },
+    {
+      "geo": "AL",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://archive.org/details/worlddrugreport20000unse/page/96",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "AL|OFFICIAL_SOURCE_ADDED|-|https://archive.org/details/worlddrugreport20000unse/page/96"
+    },
+    {
+      "geo": "AL",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://books.google.com/books?id=-XtKAAAAQBAJ&pg=PA553",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "AL|OFFICIAL_SOURCE_ADDED|-|https://books.google.com/books?id=-XtKAAAAQBAJ&pg=PA553"
+    },
+    {
+      "geo": "AL",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://books.google.com/books?id=Lk8wDdoxTZsC&pg=PA2095",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "AL|OFFICIAL_SOURCE_ADDED|-|https://books.google.com/books?id=Lk8wDdoxTZsC&pg=PA2095"
+    },
+    {
+      "geo": "AL",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://sensiseeds.com/en/blog/cannabis-in-albania/",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "AL|OFFICIAL_SOURCE_ADDED|-|https://sensiseeds.com/en/blog/cannabis-in-albania/"
+    },
+    {
+      "geo": "AL",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.balkaninsight.com/en/article/report-cannabis-growth-mounts-in-albania",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "AL|OFFICIAL_SOURCE_ADDED|-|https://www.balkaninsight.com/en/article/report-cannabis-growth-mounts-in-albania"
+    },
+    {
+      "geo": "AL",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.nacc.gov.al/wp-content/uploads/2024/10/Law-no.-61-2023-On-the-control-of-the-cultivation-and-processing-of-the-cannabis-plant-and-the-production-of-its-by-products-for-medical-and-industrial-purposes.pdf",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "AL|OFFICIAL_SOURCE_REMOVED|https://www.nacc.gov.al/wp-content/uploads/2024/10/Law-no.-61-2023-On-the-control-of-the-cultivation-and-processing-of-the-cannabis-plant-and-the-production-of-its-by-products-for-medical-and-industrial-purposes.pdf|-"
+    },
+    {
+      "geo": "BQ",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Limited",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "BQ|MED_STATUS_CHANGE|Limited|Unknown"
+    },
+    {
+      "geo": "BQ",
+      "type": "NOTES_UPDATE",
+      "old_value": "7f37e7c6b288",
+      "new_value": "e3b0c44298fc",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "BQ|NOTES_UPDATE|7f37e7c6b288|e3b0c44298fc"
+    },
+    {
+      "geo": "BQ",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://english.belastingdienst-cn.nl/latest/news/2026/februari/11/customs-caribbean-netherlands-supervision-results-2025",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "BQ|OFFICIAL_SOURCE_REMOVED|https://english.belastingdienst-cn.nl/latest/news/2026/februari/11/customs-caribbean-netherlands-supervision-results-2025|-"
+    },
+    {
+      "geo": "BQ",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://wetten.overheid.nl/BWBR0028519/2025-04-01/0",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "BQ|OFFICIAL_SOURCE_REMOVED|https://wetten.overheid.nl/BWBR0028519/2025-04-01/0|-"
+    },
+    {
+      "geo": "BQ",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "BQ|STATUS_CHANGE|Illegal|Unknown"
+    },
+    {
+      "geo": "BV",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Limited",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "BV|MED_STATUS_CHANGE|Limited|Unknown"
+    },
+    {
+      "geo": "BV",
+      "type": "NOTES_UPDATE",
+      "old_value": "981ba49071dc",
+      "new_value": "e3b0c44298fc",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "BV|NOTES_UPDATE|981ba49071dc|e3b0c44298fc"
+    },
+    {
+      "geo": "BV",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://lovdata.no/LTI/lov/2005-05-20-28",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "BV|OFFICIAL_SOURCE_REMOVED|https://lovdata.no/LTI/lov/2005-05-20-28|-"
+    },
+    {
+      "geo": "BV",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.dmp.no/en/special-permit-named-patient/for-physicians-and-dentists/medicinal-products-frequently-inquired-about-for-special-permit-named-patient/procedure-for-treatment-with-cannabis-within-current-regulations",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "BV|OFFICIAL_SOURCE_REMOVED|https://www.dmp.no/en/special-permit-named-patient/for-physicians-and-dentists/medicinal-products-frequently-inquired-about-for-special-permit-named-patient/procedure-for-treatment-with-cannabis-within-current-regulations|-"
+    },
+    {
+      "geo": "BV",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "BV|STATUS_CHANGE|Illegal|Unknown"
+    },
+    {
+      "geo": "CC",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Legal",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "CC|MED_STATUS_CHANGE|Legal|Unknown"
+    },
+    {
+      "geo": "CC",
+      "type": "NOTES_UPDATE",
+      "old_value": "f9dcd0b3d98b",
+      "new_value": "e3b0c44298fc",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "CC|NOTES_UPDATE|f9dcd0b3d98b|e3b0c44298fc"
+    },
+    {
+      "geo": "CC",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://lawzana.com/cannabis-lawyers/cocos-keeling-islands",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "CC|OFFICIAL_SOURCE_REMOVED|https://lawzana.com/cannabis-lawyers/cocos-keeling-islands|-"
+    },
+    {
+      "geo": "CC",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.health.wa.gov.au/sitecore/content/Healthy-WA/Articles/A_E/Cannabis",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "CC|OFFICIAL_SOURCE_REMOVED|https://www.health.wa.gov.au/sitecore/content/Healthy-WA/Articles/A_E/Cannabis|-"
+    },
+    {
+      "geo": "CC",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.healthdirect.gov.au/medicinal-cannabis",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "CC|OFFICIAL_SOURCE_REMOVED|https://www.healthdirect.gov.au/medicinal-cannabis|-"
+    },
+    {
+      "geo": "CC",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "CC|STATUS_CHANGE|Illegal|Unknown"
+    },
+    {
+      "geo": "CX",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Legal",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "CX|MED_STATUS_CHANGE|Legal|Unknown"
+    },
+    {
+      "geo": "CX",
+      "type": "NOTES_UPDATE",
+      "old_value": "9354f8c17970",
+      "new_value": "e3b0c44298fc",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "CX|NOTES_UPDATE|9354f8c17970|e3b0c44298fc"
+    },
+    {
+      "geo": "CX",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.health.wa.gov.au/sitecore/content/Healthy-WA/Articles/A_E/Cannabis",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "CX|OFFICIAL_SOURCE_REMOVED|https://www.health.wa.gov.au/sitecore/content/Healthy-WA/Articles/A_E/Cannabis|-"
+    },
+    {
+      "geo": "CX",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.healthdirect.gov.au/medicinal-cannabis",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "CX|OFFICIAL_SOURCE_REMOVED|https://www.healthdirect.gov.au/medicinal-cannabis|-"
+    },
+    {
+      "geo": "CX",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.tga.gov.au/products/unapproved-therapeutic-goods/medicinal-cannabis",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "CX|OFFICIAL_SOURCE_REMOVED|https://www.tga.gov.au/products/unapproved-therapeutic-goods/medicinal-cannabis|-"
+    },
+    {
+      "geo": "CX",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "CX|STATUS_CHANGE|Illegal|Unknown"
+    },
+    {
+      "geo": "GF",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Limited",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "GF|MED_STATUS_CHANGE|Limited|Unknown"
+    },
+    {
+      "geo": "GF",
+      "type": "NOTES_UPDATE",
+      "old_value": "23e70aa8e290",
+      "new_value": "e3b0c44298fc",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "GF|NOTES_UPDATE|23e70aa8e290|e3b0c44298fc"
+    },
+    {
+      "geo": "GF",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.service-public.gouv.fr/particuliers/actualites/A16479?lang=en",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "GF|OFFICIAL_SOURCE_REMOVED|https://www.service-public.gouv.fr/particuliers/actualites/A16479?lang=en|-"
+    },
+    {
+      "geo": "GF",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.service-public.gouv.fr/particuliers/vosdroits/F35817?lang=en",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "GF|OFFICIAL_SOURCE_REMOVED|https://www.service-public.gouv.fr/particuliers/vosdroits/F35817?lang=en|-"
+    },
+    {
+      "geo": "GF",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "GF|STATUS_CHANGE|Illegal|Unknown"
+    },
+    {
+      "geo": "GP",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Limited",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "GP|MED_STATUS_CHANGE|Limited|Unknown"
+    },
+    {
+      "geo": "GP",
+      "type": "NOTES_UPDATE",
+      "old_value": "6218349a67d6",
+      "new_value": "e3b0c44298fc",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "GP|NOTES_UPDATE|6218349a67d6|e3b0c44298fc"
+    },
+    {
+      "geo": "GP",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.service-public.gouv.fr/particuliers/actualites/A16479?lang=en",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "GP|OFFICIAL_SOURCE_REMOVED|https://www.service-public.gouv.fr/particuliers/actualites/A16479?lang=en|-"
+    },
+    {
+      "geo": "GP",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.service-public.gouv.fr/particuliers/vosdroits/F35817?lang=en",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "GP|OFFICIAL_SOURCE_REMOVED|https://www.service-public.gouv.fr/particuliers/vosdroits/F35817?lang=en|-"
+    },
+    {
+      "geo": "GP",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "GP|STATUS_CHANGE|Illegal|Unknown"
+    },
+    {
+      "geo": "LS",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Limited",
+      "new_value": "Illegal",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|MED_STATUS_CHANGE|Limited|Illegal"
+    },
+    {
+      "geo": "LS",
+      "type": "NOTES_UPDATE",
+      "old_value": "f10dad943caf",
+      "new_value": "d17fa476e739",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|NOTES_UPDATE|f10dad943caf|d17fa476e739"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://books.google.com/books?id=2uK6bR9byVIC&pg=PA113",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://books.google.com/books?id=2uK6bR9byVIC&pg=PA113"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://books.google.com/books?id=dOVBAQAAIAAJ",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://books.google.com/books?id=dOVBAQAAIAAJ"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://books.google.com/books?id=qGjTNqElWJoC&pg=PA38",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://books.google.com/books?id=qGjTNqElWJoC&pg=PA38"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://books.google.com/books?id=tfljDAAAQBAJ&pg=PA408",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://books.google.com/books?id=tfljDAAAQBAJ&pg=PA408"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://books.google.com/books?id=x2kcBQAAQBAJ&pg=PA246",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://books.google.com/books?id=x2kcBQAAQBAJ&pg=PA246"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://journals.openedition.org/echogeo/17612",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://journals.openedition.org/echogeo/17612"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://journals.uair.arizona.edu/index.php/JPE/article/download/21691/21243",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://journals.uair.arizona.edu/index.php/JPE/article/download/21691/21243"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://mjbizdaily.com/lesotho-attracts-another-major-medical-cannabis-investment/",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://mjbizdaily.com/lesotho-attracts-another-major-medical-cannabis-investment/"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://sensiseeds.com/en/blog/cannabis-lesotho-en/",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://sensiseeds.com/en/blog/cannabis-lesotho-en/"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://unesdoc.unesco.org/images/0011/001159/115920Eo.pdf",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://unesdoc.unesco.org/images/0011/001159/115920Eo.pdf"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.businesswire.com/news/home/20190617005892/en/Halo-Labs-Expand-Globally-Acquire-Bophelo-Bioscience",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://www.businesswire.com/news/home/20190617005892/en/Halo-Labs-Expand-Globally-Acquire-Bophelo-Bioscience"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.fieldsofgreenforall.org.za/wp-content/uploads/2021/04/Fields-of-Green-for-ALL-Cannabis-in-South-Africa-Full-Spectrum-Manifesto-for-Policy-Reform.pdf",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://www.fieldsofgreenforall.org.za/wp-content/uploads/2021/04/Fields-of-Green-for-ALL-Cannabis-in-South-Africa-Full-Spectrum-Manifesto-for-Policy-Reform.pdf"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.marijuana.com/news/2018/02/two-companies-awarded-cultivation-licenses-in-lesotho/",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://www.marijuana.com/news/2018/02/two-companies-awarded-cultivation-licenses-in-lesotho/"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.newswire.ca/news-releases/aphria-forms-landmark-venture-with-south-african-company-verve-group-of-companies-683849711.html",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://www.newswire.ca/news-releases/aphria-forms-landmark-venture-with-south-african-company-verve-group-of-companies-683849711.html"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.newswire.ca/news-releases/canopy-growth-corporation-announces-entry-into-the-african-market-with-acquisition-of-daddy-cann-lesotho-684037281.html",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://www.newswire.ca/news-releases/canopy-growth-corporation-announces-entry-into-the-african-market-with-acquisition-of-daddy-cann-lesotho-684037281.html"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.okayafrica.com/lesotho-granted-first-legal-marijuana-license-africa/",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://www.okayafrica.com/lesotho-granted-first-legal-marijuana-license-africa/"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.tandfonline.com/doi/full/10.1080/13562576.2016.1138674",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://www.tandfonline.com/doi/full/10.1080/13562576.2016.1138674"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.wegrowls.com/about-wegrow-medical-cannabis-production/",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://www.wegrowls.com/about-wegrow-medical-cannabis-production/"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.youtube.com/live/5osUBZZrBc4?t=144s",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://www.youtube.com/live/5osUBZZrBc4?t=144s"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://en.wikipedia.org/wiki/Cannabis_in_Lesotho",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_REMOVED|https://en.wikipedia.org/wiki/Cannabis_in_Lesotho|-"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.gov.ls/uncategorized/pm-launches-cannabis-cultivator/",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_REMOVED|https://www.gov.ls/uncategorized/pm-launches-cannabis-cultivator/|-"
+    },
+    {
+      "geo": "LS",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Legal",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|STATUS_CHANGE|Illegal|Legal"
+    },
+    {
+      "geo": "MH",
+      "type": "NOTES_UPDATE",
+      "old_value": "8cc5c2d1349c",
+      "new_value": "cab0bf8829c4",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "MH|NOTES_UPDATE|8cc5c2d1349c|cab0bf8829c4"
+    },
+    {
+      "geo": "MH",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://en.wikipedia.org/wiki/Cannabis_in_the_Marshall_Islands",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "MH|OFFICIAL_SOURCE_REMOVED|https://en.wikipedia.org/wiki/Cannabis_in_the_Marshall_Islands|-"
+    },
+    {
+      "geo": "MQ",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Limited",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "MQ|MED_STATUS_CHANGE|Limited|Unknown"
+    },
+    {
+      "geo": "MQ",
+      "type": "NOTES_UPDATE",
+      "old_value": "6caa87da372c",
+      "new_value": "e3b0c44298fc",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "MQ|NOTES_UPDATE|6caa87da372c|e3b0c44298fc"
+    },
+    {
+      "geo": "MQ",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.service-public.gouv.fr/particuliers/actualites/A16479?lang=en",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "MQ|OFFICIAL_SOURCE_REMOVED|https://www.service-public.gouv.fr/particuliers/actualites/A16479?lang=en|-"
+    },
+    {
+      "geo": "MQ",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.service-public.gouv.fr/particuliers/vosdroits/F35817?lang=en",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "MQ|OFFICIAL_SOURCE_REMOVED|https://www.service-public.gouv.fr/particuliers/vosdroits/F35817?lang=en|-"
+    },
+    {
+      "geo": "MQ",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "MQ|STATUS_CHANGE|Illegal|Unknown"
+    },
+    {
+      "geo": "PH",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Limited",
+      "new_value": "Legal",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "PH|MED_STATUS_CHANGE|Limited|Legal"
+    },
+    {
+      "geo": "PH",
+      "type": "NOTES_UPDATE",
+      "old_value": "cb157b196d9f",
+      "new_value": "f293f47ad399",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "PH|NOTES_UPDATE|cb157b196d9f|f293f47ad399"
+    },
+    {
+      "geo": "PH",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://cnnphilippines.com/news/2016/06/26/congressman-albano-refile-medical-marijuana-bill-17th-congress.html",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "PH|OFFICIAL_SOURCE_ADDED|-|https://cnnphilippines.com/news/2016/06/26/congressman-albano-refile-medical-marijuana-bill-17th-congress.html"
+    },
+    {
+      "geo": "PH",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://lifestyle.inquirer.net/212685/are-you-ready-to-try-medical-marijuana/",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "PH|OFFICIAL_SOURCE_ADDED|-|https://lifestyle.inquirer.net/212685/are-you-ready-to-try-medical-marijuana/"
+    },
+    {
+      "geo": "PH",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://newsinfo.inquirer.net/795216/experts-study-medical-pot-use",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "PH|OFFICIAL_SOURCE_ADDED|-|https://newsinfo.inquirer.net/795216/experts-study-medical-pot-use"
+    },
+    {
+      "geo": "PH",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://web.archive.org/web/20170415201519/http://cnnphilippines.com/news/2016/06/26/congressman-albano-refile-medical-marijuana-bill-17th-congress.html",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "PH|OFFICIAL_SOURCE_ADDED|-|https://web.archive.org/web/20170415201519/http://cnnphilippines.com/news/2016/06/26/congressman-albano-refile-medical-marijuana-bill-17th-congress.html"
+    },
+    {
+      "geo": "PH",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.congress.gov.ph/press/details.php?pressid=9655",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "PH|OFFICIAL_SOURCE_ADDED|-|https://www.congress.gov.ph/press/details.php?pressid=9655"
+    },
+    {
+      "geo": "PH",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.lawphil.net/statutes/repacts/ra1972/ra_6425_1972.html",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "PH|OFFICIAL_SOURCE_ADDED|-|https://www.lawphil.net/statutes/repacts/ra1972/ra_6425_1972.html"
+    },
+    {
+      "geo": "PH",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.natureworldnews.com/articles/22841/20160524/presumptive-president-of-the-philippines-duterte-says-yes-to-medical-marijuana.htm",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "PH|OFFICIAL_SOURCE_ADDED|-|https://www.natureworldnews.com/articles/22841/20160524/presumptive-president-of-the-philippines-duterte-says-yes-to-medical-marijuana.htm"
+    },
+    {
+      "geo": "PH",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.philstar.com/headlines/2022/12/07/2229211/medical-marijuana-access-rules-philippines-not-compassionate-advocates-say",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "PH|OFFICIAL_SOURCE_ADDED|-|https://www.philstar.com/headlines/2022/12/07/2229211/medical-marijuana-access-rules-philippines-not-compassionate-advocates-say"
+    },
+    {
+      "geo": "PH",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.pna.gov.ph/articles/1190702",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "PH|OFFICIAL_SOURCE_ADDED|-|https://www.pna.gov.ph/articles/1190702"
+    },
+    {
+      "geo": "PH",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.rappler.com/nation/59118-compassionate-use-medical-cannabis-bill",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "PH|OFFICIAL_SOURCE_ADDED|-|https://www.rappler.com/nation/59118-compassionate-use-medical-cannabis-bill"
+    },
+    {
+      "geo": "PH",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.fda.gov.ph/fda-advisory-no-2020-2013-pilot-implementation-of-food-and-drug-administration-fda-eservices-portal-system-for-compassionate-special-permit-csp-application-for-drug-products/",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "PH|OFFICIAL_SOURCE_REMOVED|https://www.fda.gov.ph/fda-advisory-no-2020-2013-pilot-implementation-of-food-and-drug-administration-fda-eservices-portal-system-for-compassionate-special-permit-csp-application-for-drug-products/|-"
+    },
+    {
+      "geo": "RE",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Limited",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "RE|MED_STATUS_CHANGE|Limited|Unknown"
+    },
+    {
+      "geo": "RE",
+      "type": "NOTES_UPDATE",
+      "old_value": "bcfbc036dc7d",
+      "new_value": "e3b0c44298fc",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "RE|NOTES_UPDATE|bcfbc036dc7d|e3b0c44298fc"
+    },
+    {
+      "geo": "RE",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.service-public.gouv.fr/particuliers/actualites/A16479?lang=en",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "RE|OFFICIAL_SOURCE_REMOVED|https://www.service-public.gouv.fr/particuliers/actualites/A16479?lang=en|-"
+    },
+    {
+      "geo": "RE",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.service-public.gouv.fr/particuliers/vosdroits/F35817?lang=en",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "RE|OFFICIAL_SOURCE_REMOVED|https://www.service-public.gouv.fr/particuliers/vosdroits/F35817?lang=en|-"
+    },
+    {
+      "geo": "RE",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "RE|STATUS_CHANGE|Illegal|Unknown"
+    },
+    {
+      "geo": "SJ",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Limited",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "SJ|MED_STATUS_CHANGE|Limited|Unknown"
+    },
+    {
+      "geo": "SJ",
+      "type": "NOTES_UPDATE",
+      "old_value": "828eb61cef28",
+      "new_value": "e3b0c44298fc",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "SJ|NOTES_UPDATE|828eb61cef28|e3b0c44298fc"
+    },
+    {
+      "geo": "SJ",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://lovdata.no/lov/1925-07-17-11",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "SJ|OFFICIAL_SOURCE_REMOVED|https://lovdata.no/lov/1925-07-17-11|-"
+    },
+    {
+      "geo": "SJ",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://lovdata.no/LTI/lov/2005-05-20-28",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "SJ|OFFICIAL_SOURCE_REMOVED|https://lovdata.no/LTI/lov/2005-05-20-28|-"
+    },
+    {
+      "geo": "SJ",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.dmp.no/en/special-permit-named-patient/for-physicians-and-dentists/medicinal-products-frequently-inquired-about-for-special-permit-named-patient/procedure-for-treatment-with-cannabis-within-current-regulations",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "SJ|OFFICIAL_SOURCE_REMOVED|https://www.dmp.no/en/special-permit-named-patient/for-physicians-and-dentists/medicinal-products-frequently-inquired-about-for-special-permit-named-patient/procedure-for-treatment-with-cannabis-within-current-regulations|-"
+    },
+    {
+      "geo": "SJ",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "SJ|STATUS_CHANGE|Illegal|Unknown"
+    },
+    {
+      "geo": "TK",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Limited",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "TK|MED_STATUS_CHANGE|Limited|Unknown"
+    },
+    {
+      "geo": "TK",
+      "type": "NOTES_UPDATE",
+      "old_value": "c9ff630a405b",
+      "new_value": "e3b0c44298fc",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "TK|NOTES_UPDATE|c9ff630a405b|e3b0c44298fc"
+    },
+    {
+      "geo": "TK",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.legislation.govt.nz/regulation/public/1991/0004/1.0/DLM145075.html",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "TK|OFFICIAL_SOURCE_REMOVED|https://www.legislation.govt.nz/regulation/public/1991/0004/1.0/DLM145075.html|-"
+    },
+    {
+      "geo": "TK",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.legislation.govt.nz/regulation/public/1991/0004/1.0/whole.html",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "TK|OFFICIAL_SOURCE_REMOVED|https://www.legislation.govt.nz/regulation/public/1991/0004/1.0/whole.html|-"
+    },
+    {
+      "geo": "TK",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "TK|STATUS_CHANGE|Illegal|Unknown"
+    },
+    {
+      "geo": "WS",
+      "type": "NOTES_UPDATE",
+      "old_value": "8bc4654b2bac",
+      "new_value": "ef65a1669951",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "WS|NOTES_UPDATE|8bc4654b2bac|ef65a1669951"
+    },
+    {
+      "geo": "WS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.paclii.org/ws/legis/consol_act/na1967114/",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "WS|OFFICIAL_SOURCE_ADDED|-|https://www.paclii.org/ws/legis/consol_act/na1967114/"
+    },
+    {
+      "geo": "WS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.samoalawreform.gov.ws/wp-content/uploads/2018/12/Drugs-Final-Report-English.pdf",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "WS|OFFICIAL_SOURCE_ADDED|-|https://www.samoalawreform.gov.ws/wp-content/uploads/2018/12/Drugs-Final-Report-English.pdf"
+    },
+    {
+      "geo": "WS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.samoaobserver.ws/category/samoa/15561",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "WS|OFFICIAL_SOURCE_ADDED|-|https://www.samoaobserver.ws/category/samoa/15561"
+    },
+    {
+      "geo": "WS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.samoaobserver.ws/category/samoa/16795",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "WS|OFFICIAL_SOURCE_ADDED|-|https://www.samoaobserver.ws/category/samoa/16795"
+    },
+    {
+      "geo": "WS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.samoaobserver.ws/category/samoa/26454",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "WS|OFFICIAL_SOURCE_ADDED|-|https://www.samoaobserver.ws/category/samoa/26454"
+    },
+    {
+      "geo": "WS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.samoaobserver.ws/category/samoa/40985",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "WS|OFFICIAL_SOURCE_ADDED|-|https://www.samoaobserver.ws/category/samoa/40985"
+    },
+    {
+      "geo": "WS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.samoaobserver.ws/category/samoa/7402",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "WS|OFFICIAL_SOURCE_ADDED|-|https://www.samoaobserver.ws/category/samoa/7402"
+    },
+    {
+      "geo": "WS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.samoaobserver.ws/category/samoa/9001",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "WS|OFFICIAL_SOURCE_ADDED|-|https://www.samoaobserver.ws/category/samoa/9001"
+    },
+    {
+      "geo": "WS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.talanei.com/2019/04/25/samoa-says-no-to-proposal-for-medicinal-marijuana/",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "WS|OFFICIAL_SOURCE_ADDED|-|https://www.talanei.com/2019/04/25/samoa-says-no-to-proposal-for-medicinal-marijuana/"
+    },
+    {
+      "geo": "WS",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://en.wikipedia.org/wiki/Cannabis_in_Samoa",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "WS|OFFICIAL_SOURCE_REMOVED|https://en.wikipedia.org/wiki/Cannabis_in_Samoa|-"
+    },
+    {
+      "geo": "WS",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.paclii.org/ws/legis/consol_act_2019/na1967114.pdf",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "WS|OFFICIAL_SOURCE_REMOVED|https://www.paclii.org/ws/legis/consol_act_2019/na1967114.pdf|-"
+    },
+    {
+      "geo": "WS",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.samoalawreform.gov.ws/wp-content/uploads/2023/10/Final-Report-Eng-21.pdf",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "WS|OFFICIAL_SOURCE_REMOVED|https://www.samoalawreform.gov.ws/wp-content/uploads/2023/10/Final-Report-Eng-21.pdf|-"
+    },
+    {
+      "geo": "XK",
+      "type": "NOTES_UPDATE",
+      "old_value": "64903be7f8e8",
+      "new_value": "222608d30d80",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "XK|NOTES_UPDATE|64903be7f8e8|222608d30d80"
+    },
+    {
+      "geo": "XK",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://books.google.com/books?id=6Y8bAQAAMAAJ",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "XK|OFFICIAL_SOURCE_ADDED|-|https://books.google.com/books?id=6Y8bAQAAMAAJ"
+    },
+    {
+      "geo": "XK",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://iscannabislegalyet.com/kosovo",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "XK|OFFICIAL_SOURCE_ADDED|-|https://iscannabislegalyet.com/kosovo"
+    },
+    {
+      "geo": "XK",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://kosovotwopointzero.com/en/kosovo-should-consider-legalizing-cannabis/",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "XK|OFFICIAL_SOURCE_ADDED|-|https://kosovotwopointzero.com/en/kosovo-should-consider-legalizing-cannabis/"
+    },
+    {
+      "geo": "XK",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://leph2019edinburgh.com/wp-content/uploads/2019/11/ko_drug-situation.pdf",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "XK|OFFICIAL_SOURCE_ADDED|-|https://leph2019edinburgh.com/wp-content/uploads/2019/11/ko_drug-situation.pdf"
+    },
+    {
+      "geo": "XK",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://treaties.un.org/pages/ViewDetails.aspx?src=TREATY&mtdsg_no=VI-6-a&chapter=6&clang=_en",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "XK|OFFICIAL_SOURCE_ADDED|-|https://treaties.un.org/pages/ViewDetails.aspx?src=TREATY&mtdsg_no=VI-6-a&chapter=6&clang=_en"
+    },
+    {
+      "geo": "XK",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://web.archive.org/web/20131203022545/http://www.iksweb.org/Photos/Publikimet/Images/Imazhi_%C3%A7on_pesh%C3%AB!/enIMIDZ_english.pdf",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "XK|OFFICIAL_SOURCE_ADDED|-|https://web.archive.org/web/20131203022545/http://www.iksweb.org/Photos/Publikimet/Images/Imazhi_%C3%A7on_pesh%C3%AB!/enIMIDZ_english.pdf"
+    },
+    {
+      "geo": "XK",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://web.archive.org/web/20160316190931/http://www.emcdda.europa.eu/publications/country-overviews/xk",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "XK|OFFICIAL_SOURCE_ADDED|-|https://web.archive.org/web/20160316190931/http://www.emcdda.europa.eu/publications/country-overviews/xk"
+    },
+    {
+      "geo": "XK",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.cannaconnection.com/blog/14798-legal-status-kosovo",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "XK|OFFICIAL_SOURCE_ADDED|-|https://www.cannaconnection.com/blog/14798-legal-status-kosovo"
+    },
+    {
+      "geo": "XK",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.emcdda.europa.eu/publications/country-overviews/xk",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "XK|OFFICIAL_SOURCE_ADDED|-|https://www.emcdda.europa.eu/publications/country-overviews/xk"
+    },
+    {
+      "geo": "XK",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.iksweb.org/Photos/Publikimet/Images/Imazhi_%C3%A7on_pesh%C3%AB!/enIMIDZ_english.pdf",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "XK|OFFICIAL_SOURCE_ADDED|-|https://www.iksweb.org/Photos/Publikimet/Images/Imazhi_%C3%A7on_pesh%C3%AB!/enIMIDZ_english.pdf"
+    },
+    {
+      "geo": "XK",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.unodc.org/documents/data-and-analysis/Balkan_study.pdf",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "XK|OFFICIAL_SOURCE_ADDED|-|https://www.unodc.org/documents/data-and-analysis/Balkan_study.pdf"
+    },
+    {
+      "geo": "XK",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://en.wikipedia.org/wiki/Cannabis_in_Kosovo",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "XK|OFFICIAL_SOURCE_REMOVED|https://en.wikipedia.org/wiki/Cannabis_in_Kosovo|-"
+    },
+    {
+      "geo": "XK",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.euda.europa.eu/system/files/media/publications/documents/11653/Kosovo-country-overview%20-2013.pdf",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "XK|OFFICIAL_SOURCE_REMOVED|https://www.euda.europa.eu/system/files/media/publications/documents/11653/Kosovo-country-overview%20-2013.pdf|-"
+    },
+    {
+      "geo": "YT",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Limited",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "YT|MED_STATUS_CHANGE|Limited|Unknown"
+    },
+    {
+      "geo": "YT",
+      "type": "NOTES_UPDATE",
+      "old_value": "78037240f64f",
+      "new_value": "e3b0c44298fc",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "YT|NOTES_UPDATE|78037240f64f|e3b0c44298fc"
+    },
+    {
+      "geo": "YT",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.service-public.gouv.fr/particuliers/actualites/A16479?lang=en",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "YT|OFFICIAL_SOURCE_REMOVED|https://www.service-public.gouv.fr/particuliers/actualites/A16479?lang=en|-"
+    },
+    {
+      "geo": "YT",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.service-public.gouv.fr/particuliers/vosdroits/F35817?lang=en",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "YT|OFFICIAL_SOURCE_REMOVED|https://www.service-public.gouv.fr/particuliers/vosdroits/F35817?lang=en|-"
+    },
+    {
+      "geo": "YT",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "YT|STATUS_CHANGE|Illegal|Unknown"
+    }
+  ],
+  "last_7d": [
+    {
+      "geo": "BD",
+      "type": "NOTES_UPDATE",
+      "old_value": "083775dab0e1",
+      "new_value": "2dea7929a3b5",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "BD|NOTES_UPDATE|083775dab0e1|2dea7929a3b5"
+    },
+    {
+      "geo": "BD",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://archive.thedailystar.net/law/2010/03/04/advocate.htm",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "BD|OFFICIAL_SOURCE_ADDED|-|https://archive.thedailystar.net/law/2010/03/04/advocate.htm"
+    },
+    {
+      "geo": "BD",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://books.google.com/books?id=fSZwglgRnHsC&pg=PA138",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "BD|OFFICIAL_SOURCE_ADDED|-|https://books.google.com/books?id=fSZwglgRnHsC&pg=PA138"
+    },
+    {
+      "geo": "BD",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://dhakainsider.com/bangladesh-news/drug-abuse-where-is-the-way-of-remedy-part-ii-some-dangerous-silent-killers/",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "BD|OFFICIAL_SOURCE_ADDED|-|https://dhakainsider.com/bangladesh-news/drug-abuse-where-is-the-way-of-remedy-part-ii-some-dangerous-silent-killers/"
+    },
+    {
+      "geo": "BD",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://web.archive.org/web/20161115140731/http://dhakainsider.com/bangladesh-news/drug-abuse-where-is-the-way-of-remedy-part-ii-some-dangerous-silent-killers/",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "BD|OFFICIAL_SOURCE_ADDED|-|https://web.archive.org/web/20161115140731/http://dhakainsider.com/bangladesh-news/drug-abuse-where-is-the-way-of-remedy-part-ii-some-dangerous-silent-killers/"
+    },
+    {
+      "geo": "BD",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://web.archive.org/web/20161116015226/http://archive.thedailystar.net/law/2010/03/04/advocate.htm",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "BD|OFFICIAL_SOURCE_ADDED|-|https://web.archive.org/web/20161116015226/http://archive.thedailystar.net/law/2010/03/04/advocate.htm"
+    },
+    {
+      "geo": "BD",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://web.archive.org/web/20170925095855/http://www.marijuanatravels.com/cities/bgd/dhaka",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "BD|OFFICIAL_SOURCE_ADDED|-|https://web.archive.org/web/20170925095855/http://www.marijuanatravels.com/cities/bgd/dhaka"
+    },
+    {
+      "geo": "BD",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://web.archive.org/web/20201031050839/https://www.unodc.org/res/cld/document/the-narcotic-control-act-1990_html/The_Narcotic_Drugs_and_Psychotropic_Substances_Control_Act_1990.pdf",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "BD|OFFICIAL_SOURCE_ADDED|-|https://web.archive.org/web/20201031050839/https://www.unodc.org/res/cld/document/the-narcotic-control-act-1990_html/The_Narcotic_Drugs_and_Psychotropic_Substances_Control_Act_1990.pdf"
+    },
+    {
+      "geo": "BD",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.marijuanatravels.com/cities/bgd/dhaka",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "BD|OFFICIAL_SOURCE_ADDED|-|https://www.marijuanatravels.com/cities/bgd/dhaka"
+    },
+    {
+      "geo": "BD",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.theguardian.com/theguardian/2010/jun/23/archive-martial-law-coup-bangladesh",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "BD|OFFICIAL_SOURCE_ADDED|-|https://www.theguardian.com/theguardian/2010/jun/23/archive-martial-law-coup-bangladesh"
+    },
+    {
+      "geo": "BD",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.unodc.org/pdf/india/publications/south_Asia_Regional_Profile_Sept_2005/08_bangladesh.pdf",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "BD|OFFICIAL_SOURCE_ADDED|-|https://www.unodc.org/pdf/india/publications/south_Asia_Regional_Profile_Sept_2005/08_bangladesh.pdf"
+    },
+    {
+      "geo": "BD",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.unodc.org/res/cld/document/the-narcotic-control-act-1990_html/The_Narcotic_Drugs_and_Psychotropic_Substances_Control_Act_1990.pdf",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "BD|OFFICIAL_SOURCE_ADDED|-|https://www.unodc.org/res/cld/document/the-narcotic-control-act-1990_html/The_Narcotic_Drugs_and_Psychotropic_Substances_Control_Act_1990.pdf"
+    },
+    {
+      "geo": "BD",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://bdlaws.minlaw.gov.bd/act-details-1276.html",
+      "new_value": null,
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "BD|OFFICIAL_SOURCE_REMOVED|https://bdlaws.minlaw.gov.bd/act-details-1276.html|-"
+    },
+    {
+      "geo": "BD",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.refworld.org/legal/legislation/natlegbod/2018/en/148280",
+      "new_value": null,
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "BD|OFFICIAL_SOURCE_REMOVED|https://www.refworld.org/legal/legislation/natlegbod/2018/en/148280|-"
+    },
+    {
+      "geo": "BD",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Legal",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "BD|STATUS_CHANGE|Illegal|Legal"
+    },
+    {
+      "geo": "US-KS",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Limited",
+      "new_value": "Illegal",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-KS|MED_STATUS_CHANGE|Limited|Illegal"
+    },
+    {
+      "geo": "US-KS",
+      "type": "NOTES_UPDATE",
+      "old_value": "1229abfcdaa9",
+      "new_value": "e359f7e28999",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-KS|NOTES_UPDATE|1229abfcdaa9|e359f7e28999"
+    },
+    {
+      "geo": "US-KS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://en.wikipedia.org/wiki/Kansas",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-KS|OFFICIAL_SOURCE_ADDED|-|https://en.wikipedia.org/wiki/Kansas"
+    },
+    {
+      "geo": "US-KS",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.kslegislature.gov/li_2020/b2019_20/statute/065_000_0000_chapter/065_062_0000_article/065_062_0035_section/065_062_0035_k/",
+      "new_value": null,
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-KS|OFFICIAL_SOURCE_REMOVED|https://www.kslegislature.gov/li_2020/b2019_20/statute/065_000_0000_chapter/065_062_0000_article/065_062_0035_section/065_062_0035_k/|-"
+    },
+    {
+      "geo": "US-KS",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.ncsl.org/health/state-medical-cannabis-laws",
+      "new_value": null,
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-KS|OFFICIAL_SOURCE_REMOVED|https://www.ncsl.org/health/state-medical-cannabis-laws|-"
+    },
+    {
+      "geo": "US-KS",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Legal",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-KS|STATUS_CHANGE|Illegal|Legal"
+    },
+    {
+      "geo": "US-NE",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Legal",
+      "new_value": "Illegal",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-NE|MED_STATUS_CHANGE|Legal|Illegal"
+    },
+    {
+      "geo": "US-NE",
+      "type": "NOTES_UPDATE",
+      "old_value": "1f5df5a26597",
+      "new_value": "65546694a0ef",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-NE|NOTES_UPDATE|1f5df5a26597|65546694a0ef"
+    },
+    {
+      "geo": "US-NE",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://en.wikipedia.org/wiki/Nebraska",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-NE|OFFICIAL_SOURCE_ADDED|-|https://en.wikipedia.org/wiki/Nebraska"
+    },
+    {
+      "geo": "US-NE",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://lcc.nebraska.gov/medical-cannabis/medical-cannabis-commission-how-apply",
+      "new_value": null,
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-NE|OFFICIAL_SOURCE_REMOVED|https://lcc.nebraska.gov/medical-cannabis/medical-cannabis-commission-how-apply|-"
+    },
+    {
+      "geo": "US-NE",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://nebraskalegislature.gov/laws/statutes.php?statute=71-24%2C106",
+      "new_value": null,
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-NE|OFFICIAL_SOURCE_REMOVED|https://nebraskalegislature.gov/laws/statutes.php?statute=71-24%2C106|-"
+    },
+    {
+      "geo": "US-NE",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Legal",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-NE|STATUS_CHANGE|Illegal|Legal"
+    },
+    {
+      "geo": "US-TX",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Limited",
+      "new_value": "Illegal",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-TX|MED_STATUS_CHANGE|Limited|Illegal"
+    },
+    {
+      "geo": "US-TX",
+      "type": "NOTES_UPDATE",
+      "old_value": "4e0ec5d786a2",
+      "new_value": "93c08fb47cdc",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-TX|NOTES_UPDATE|4e0ec5d786a2|93c08fb47cdc"
+    },
+    {
+      "geo": "US-TX",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://en.wikipedia.org/wiki/Texas",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-TX|OFFICIAL_SOURCE_ADDED|-|https://en.wikipedia.org/wiki/Texas"
+    },
+    {
+      "geo": "US-TX",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.dps.texas.gov/section/compassionate-use-program",
+      "new_value": null,
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-TX|OFFICIAL_SOURCE_REMOVED|https://www.dps.texas.gov/section/compassionate-use-program|-"
+    },
+    {
+      "geo": "US-TX",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Legal",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-TX|STATUS_CHANGE|Illegal|Legal"
+    },
+    {
+      "geo": "US-UT",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Legal",
+      "new_value": "Illegal",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-UT|MED_STATUS_CHANGE|Legal|Illegal"
+    },
+    {
+      "geo": "US-UT",
+      "type": "NOTES_UPDATE",
+      "old_value": "5c789cd26805",
+      "new_value": "459f9987b617",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-UT|NOTES_UPDATE|5c789cd26805|459f9987b617"
+    },
+    {
+      "geo": "US-UT",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://en.wikipedia.org/wiki/Utah",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-UT|OFFICIAL_SOURCE_ADDED|-|https://en.wikipedia.org/wiki/Utah"
+    },
+    {
+      "geo": "US-UT",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://ag.utah.gov/specialized-products/medical-cannabis/",
+      "new_value": null,
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-UT|OFFICIAL_SOURCE_REMOVED|https://ag.utah.gov/specialized-products/medical-cannabis/|-"
+    },
+    {
+      "geo": "US-UT",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://medicalcannabis.utah.gov/resources/utah-medical-cannabis-law/",
+      "new_value": null,
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-UT|OFFICIAL_SOURCE_REMOVED|https://medicalcannabis.utah.gov/resources/utah-medical-cannabis-law/|-"
+    },
+    {
+      "geo": "US-UT",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Legal",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-UT|STATUS_CHANGE|Illegal|Legal"
+    },
+    {
+      "geo": "US-WI",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Limited",
+      "new_value": "Illegal",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-WI|MED_STATUS_CHANGE|Limited|Illegal"
+    },
+    {
+      "geo": "US-WI",
+      "type": "NOTES_UPDATE",
+      "old_value": "556f60ee85a0",
+      "new_value": "65546694a0ef",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-WI|NOTES_UPDATE|556f60ee85a0|65546694a0ef"
+    },
+    {
+      "geo": "US-WI",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://en.wikipedia.org/wiki/Wisconsin",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-WI|OFFICIAL_SOURCE_ADDED|-|https://en.wikipedia.org/wiki/Wisconsin"
+    },
+    {
+      "geo": "US-WI",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://docs.legis.wisconsin.gov/2013/related/acts/267",
+      "new_value": null,
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-WI|OFFICIAL_SOURCE_REMOVED|https://docs.legis.wisconsin.gov/2013/related/acts/267|-"
+    },
+    {
+      "geo": "US-WI",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.ncsl.org/health/state-medical-cannabis-laws",
+      "new_value": null,
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-WI|OFFICIAL_SOURCE_REMOVED|https://www.ncsl.org/health/state-medical-cannabis-laws|-"
+    },
+    {
+      "geo": "US-WI",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Legal",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-WI|STATUS_CHANGE|Illegal|Legal"
+    },
+    {
+      "geo": "US-WY",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Limited",
+      "new_value": "Illegal",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-WY|MED_STATUS_CHANGE|Limited|Illegal"
+    },
+    {
+      "geo": "US-WY",
+      "type": "NOTES_UPDATE",
+      "old_value": "a946a7834f3a",
+      "new_value": "65546694a0ef",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-WY|NOTES_UPDATE|a946a7834f3a|65546694a0ef"
+    },
+    {
+      "geo": "US-WY",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://en.wikipedia.org/wiki/Wyoming",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-WY|OFFICIAL_SOURCE_ADDED|-|https://en.wikipedia.org/wiki/Wyoming"
+    },
+    {
+      "geo": "US-WY",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.ncsl.org/health/state-medical-cannabis-laws",
+      "new_value": null,
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-WY|OFFICIAL_SOURCE_REMOVED|https://www.ncsl.org/health/state-medical-cannabis-laws|-"
+    },
+    {
+      "geo": "US-WY",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.wyoleg.gov/2015/Introduced/HB0032.pdf",
+      "new_value": null,
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-WY|OFFICIAL_SOURCE_REMOVED|https://www.wyoleg.gov/2015/Introduced/HB0032.pdf|-"
+    },
+    {
+      "geo": "US-WY",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Legal",
+      "ts": "2026-06-09T16:41:50.704Z",
+      "change_key": "US-WY|STATUS_CHANGE|Illegal|Legal"
+    },
+    {
+      "geo": "AL",
+      "type": "NOTES_UPDATE",
+      "old_value": "06831da589fa",
+      "new_value": "a85473d1e490",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "AL|NOTES_UPDATE|06831da589fa|a85473d1e490"
+    },
+    {
+      "geo": "AL",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://albaniandailynews.com/news/albania-to-legalize-cannabis-after-citizens-support",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "AL|OFFICIAL_SOURCE_ADDED|-|https://albaniandailynews.com/news/albania-to-legalize-cannabis-after-citizens-support"
+    },
+    {
+      "geo": "AL",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://archive.org/details/worlddrugreport20000unse",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "AL|OFFICIAL_SOURCE_ADDED|-|https://archive.org/details/worlddrugreport20000unse"
+    },
+    {
+      "geo": "AL",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://archive.org/details/worlddrugreport20000unse/page/96",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "AL|OFFICIAL_SOURCE_ADDED|-|https://archive.org/details/worlddrugreport20000unse/page/96"
+    },
+    {
+      "geo": "AL",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://books.google.com/books?id=-XtKAAAAQBAJ&pg=PA553",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "AL|OFFICIAL_SOURCE_ADDED|-|https://books.google.com/books?id=-XtKAAAAQBAJ&pg=PA553"
+    },
+    {
+      "geo": "AL",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://books.google.com/books?id=Lk8wDdoxTZsC&pg=PA2095",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "AL|OFFICIAL_SOURCE_ADDED|-|https://books.google.com/books?id=Lk8wDdoxTZsC&pg=PA2095"
+    },
+    {
+      "geo": "AL",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://sensiseeds.com/en/blog/cannabis-in-albania/",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "AL|OFFICIAL_SOURCE_ADDED|-|https://sensiseeds.com/en/blog/cannabis-in-albania/"
+    },
+    {
+      "geo": "AL",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.balkaninsight.com/en/article/report-cannabis-growth-mounts-in-albania",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "AL|OFFICIAL_SOURCE_ADDED|-|https://www.balkaninsight.com/en/article/report-cannabis-growth-mounts-in-albania"
+    },
+    {
+      "geo": "AL",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.nacc.gov.al/wp-content/uploads/2024/10/Law-no.-61-2023-On-the-control-of-the-cultivation-and-processing-of-the-cannabis-plant-and-the-production-of-its-by-products-for-medical-and-industrial-purposes.pdf",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "AL|OFFICIAL_SOURCE_REMOVED|https://www.nacc.gov.al/wp-content/uploads/2024/10/Law-no.-61-2023-On-the-control-of-the-cultivation-and-processing-of-the-cannabis-plant-and-the-production-of-its-by-products-for-medical-and-industrial-purposes.pdf|-"
+    },
+    {
+      "geo": "BQ",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Limited",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "BQ|MED_STATUS_CHANGE|Limited|Unknown"
+    },
+    {
+      "geo": "BQ",
+      "type": "NOTES_UPDATE",
+      "old_value": "7f37e7c6b288",
+      "new_value": "e3b0c44298fc",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "BQ|NOTES_UPDATE|7f37e7c6b288|e3b0c44298fc"
+    },
+    {
+      "geo": "BQ",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://english.belastingdienst-cn.nl/latest/news/2026/februari/11/customs-caribbean-netherlands-supervision-results-2025",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "BQ|OFFICIAL_SOURCE_REMOVED|https://english.belastingdienst-cn.nl/latest/news/2026/februari/11/customs-caribbean-netherlands-supervision-results-2025|-"
+    },
+    {
+      "geo": "BQ",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://wetten.overheid.nl/BWBR0028519/2025-04-01/0",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "BQ|OFFICIAL_SOURCE_REMOVED|https://wetten.overheid.nl/BWBR0028519/2025-04-01/0|-"
+    },
+    {
+      "geo": "BQ",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "BQ|STATUS_CHANGE|Illegal|Unknown"
+    },
+    {
+      "geo": "BV",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Limited",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "BV|MED_STATUS_CHANGE|Limited|Unknown"
+    },
+    {
+      "geo": "BV",
+      "type": "NOTES_UPDATE",
+      "old_value": "981ba49071dc",
+      "new_value": "e3b0c44298fc",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "BV|NOTES_UPDATE|981ba49071dc|e3b0c44298fc"
+    },
+    {
+      "geo": "BV",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://lovdata.no/LTI/lov/2005-05-20-28",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "BV|OFFICIAL_SOURCE_REMOVED|https://lovdata.no/LTI/lov/2005-05-20-28|-"
+    },
+    {
+      "geo": "BV",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.dmp.no/en/special-permit-named-patient/for-physicians-and-dentists/medicinal-products-frequently-inquired-about-for-special-permit-named-patient/procedure-for-treatment-with-cannabis-within-current-regulations",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "BV|OFFICIAL_SOURCE_REMOVED|https://www.dmp.no/en/special-permit-named-patient/for-physicians-and-dentists/medicinal-products-frequently-inquired-about-for-special-permit-named-patient/procedure-for-treatment-with-cannabis-within-current-regulations|-"
+    },
+    {
+      "geo": "BV",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "BV|STATUS_CHANGE|Illegal|Unknown"
+    },
+    {
+      "geo": "CC",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Legal",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "CC|MED_STATUS_CHANGE|Legal|Unknown"
+    },
+    {
+      "geo": "CC",
+      "type": "NOTES_UPDATE",
+      "old_value": "f9dcd0b3d98b",
+      "new_value": "e3b0c44298fc",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "CC|NOTES_UPDATE|f9dcd0b3d98b|e3b0c44298fc"
+    },
+    {
+      "geo": "CC",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://lawzana.com/cannabis-lawyers/cocos-keeling-islands",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "CC|OFFICIAL_SOURCE_REMOVED|https://lawzana.com/cannabis-lawyers/cocos-keeling-islands|-"
+    },
+    {
+      "geo": "CC",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.health.wa.gov.au/sitecore/content/Healthy-WA/Articles/A_E/Cannabis",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "CC|OFFICIAL_SOURCE_REMOVED|https://www.health.wa.gov.au/sitecore/content/Healthy-WA/Articles/A_E/Cannabis|-"
+    },
+    {
+      "geo": "CC",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.healthdirect.gov.au/medicinal-cannabis",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "CC|OFFICIAL_SOURCE_REMOVED|https://www.healthdirect.gov.au/medicinal-cannabis|-"
+    },
+    {
+      "geo": "CC",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "CC|STATUS_CHANGE|Illegal|Unknown"
+    },
+    {
+      "geo": "CX",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Legal",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "CX|MED_STATUS_CHANGE|Legal|Unknown"
+    },
+    {
+      "geo": "CX",
+      "type": "NOTES_UPDATE",
+      "old_value": "9354f8c17970",
+      "new_value": "e3b0c44298fc",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "CX|NOTES_UPDATE|9354f8c17970|e3b0c44298fc"
+    },
+    {
+      "geo": "CX",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.health.wa.gov.au/sitecore/content/Healthy-WA/Articles/A_E/Cannabis",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "CX|OFFICIAL_SOURCE_REMOVED|https://www.health.wa.gov.au/sitecore/content/Healthy-WA/Articles/A_E/Cannabis|-"
+    },
+    {
+      "geo": "CX",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.healthdirect.gov.au/medicinal-cannabis",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "CX|OFFICIAL_SOURCE_REMOVED|https://www.healthdirect.gov.au/medicinal-cannabis|-"
+    },
+    {
+      "geo": "CX",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.tga.gov.au/products/unapproved-therapeutic-goods/medicinal-cannabis",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "CX|OFFICIAL_SOURCE_REMOVED|https://www.tga.gov.au/products/unapproved-therapeutic-goods/medicinal-cannabis|-"
+    },
+    {
+      "geo": "CX",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "CX|STATUS_CHANGE|Illegal|Unknown"
+    },
+    {
+      "geo": "GF",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Limited",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "GF|MED_STATUS_CHANGE|Limited|Unknown"
+    },
+    {
+      "geo": "GF",
+      "type": "NOTES_UPDATE",
+      "old_value": "23e70aa8e290",
+      "new_value": "e3b0c44298fc",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "GF|NOTES_UPDATE|23e70aa8e290|e3b0c44298fc"
+    },
+    {
+      "geo": "GF",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.service-public.gouv.fr/particuliers/actualites/A16479?lang=en",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "GF|OFFICIAL_SOURCE_REMOVED|https://www.service-public.gouv.fr/particuliers/actualites/A16479?lang=en|-"
+    },
+    {
+      "geo": "GF",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.service-public.gouv.fr/particuliers/vosdroits/F35817?lang=en",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "GF|OFFICIAL_SOURCE_REMOVED|https://www.service-public.gouv.fr/particuliers/vosdroits/F35817?lang=en|-"
+    },
+    {
+      "geo": "GF",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "GF|STATUS_CHANGE|Illegal|Unknown"
+    },
+    {
+      "geo": "GP",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Limited",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "GP|MED_STATUS_CHANGE|Limited|Unknown"
+    },
+    {
+      "geo": "GP",
+      "type": "NOTES_UPDATE",
+      "old_value": "6218349a67d6",
+      "new_value": "e3b0c44298fc",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "GP|NOTES_UPDATE|6218349a67d6|e3b0c44298fc"
+    },
+    {
+      "geo": "GP",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.service-public.gouv.fr/particuliers/actualites/A16479?lang=en",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "GP|OFFICIAL_SOURCE_REMOVED|https://www.service-public.gouv.fr/particuliers/actualites/A16479?lang=en|-"
+    },
+    {
+      "geo": "GP",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.service-public.gouv.fr/particuliers/vosdroits/F35817?lang=en",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "GP|OFFICIAL_SOURCE_REMOVED|https://www.service-public.gouv.fr/particuliers/vosdroits/F35817?lang=en|-"
+    },
+    {
+      "geo": "GP",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "GP|STATUS_CHANGE|Illegal|Unknown"
+    },
+    {
+      "geo": "LS",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Limited",
+      "new_value": "Illegal",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|MED_STATUS_CHANGE|Limited|Illegal"
+    },
+    {
+      "geo": "LS",
+      "type": "NOTES_UPDATE",
+      "old_value": "f10dad943caf",
+      "new_value": "d17fa476e739",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|NOTES_UPDATE|f10dad943caf|d17fa476e739"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://books.google.com/books?id=2uK6bR9byVIC&pg=PA113",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://books.google.com/books?id=2uK6bR9byVIC&pg=PA113"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://books.google.com/books?id=dOVBAQAAIAAJ",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://books.google.com/books?id=dOVBAQAAIAAJ"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://books.google.com/books?id=qGjTNqElWJoC&pg=PA38",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://books.google.com/books?id=qGjTNqElWJoC&pg=PA38"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://books.google.com/books?id=tfljDAAAQBAJ&pg=PA408",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://books.google.com/books?id=tfljDAAAQBAJ&pg=PA408"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://books.google.com/books?id=x2kcBQAAQBAJ&pg=PA246",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://books.google.com/books?id=x2kcBQAAQBAJ&pg=PA246"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://journals.openedition.org/echogeo/17612",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://journals.openedition.org/echogeo/17612"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://journals.uair.arizona.edu/index.php/JPE/article/download/21691/21243",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://journals.uair.arizona.edu/index.php/JPE/article/download/21691/21243"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://mjbizdaily.com/lesotho-attracts-another-major-medical-cannabis-investment/",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://mjbizdaily.com/lesotho-attracts-another-major-medical-cannabis-investment/"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://sensiseeds.com/en/blog/cannabis-lesotho-en/",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://sensiseeds.com/en/blog/cannabis-lesotho-en/"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://unesdoc.unesco.org/images/0011/001159/115920Eo.pdf",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://unesdoc.unesco.org/images/0011/001159/115920Eo.pdf"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.businesswire.com/news/home/20190617005892/en/Halo-Labs-Expand-Globally-Acquire-Bophelo-Bioscience",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://www.businesswire.com/news/home/20190617005892/en/Halo-Labs-Expand-Globally-Acquire-Bophelo-Bioscience"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.fieldsofgreenforall.org.za/wp-content/uploads/2021/04/Fields-of-Green-for-ALL-Cannabis-in-South-Africa-Full-Spectrum-Manifesto-for-Policy-Reform.pdf",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://www.fieldsofgreenforall.org.za/wp-content/uploads/2021/04/Fields-of-Green-for-ALL-Cannabis-in-South-Africa-Full-Spectrum-Manifesto-for-Policy-Reform.pdf"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.marijuana.com/news/2018/02/two-companies-awarded-cultivation-licenses-in-lesotho/",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://www.marijuana.com/news/2018/02/two-companies-awarded-cultivation-licenses-in-lesotho/"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.newswire.ca/news-releases/aphria-forms-landmark-venture-with-south-african-company-verve-group-of-companies-683849711.html",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://www.newswire.ca/news-releases/aphria-forms-landmark-venture-with-south-african-company-verve-group-of-companies-683849711.html"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.newswire.ca/news-releases/canopy-growth-corporation-announces-entry-into-the-african-market-with-acquisition-of-daddy-cann-lesotho-684037281.html",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://www.newswire.ca/news-releases/canopy-growth-corporation-announces-entry-into-the-african-market-with-acquisition-of-daddy-cann-lesotho-684037281.html"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.okayafrica.com/lesotho-granted-first-legal-marijuana-license-africa/",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://www.okayafrica.com/lesotho-granted-first-legal-marijuana-license-africa/"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.tandfonline.com/doi/full/10.1080/13562576.2016.1138674",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://www.tandfonline.com/doi/full/10.1080/13562576.2016.1138674"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.wegrowls.com/about-wegrow-medical-cannabis-production/",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://www.wegrowls.com/about-wegrow-medical-cannabis-production/"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.youtube.com/live/5osUBZZrBc4?t=144s",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_ADDED|-|https://www.youtube.com/live/5osUBZZrBc4?t=144s"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://en.wikipedia.org/wiki/Cannabis_in_Lesotho",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_REMOVED|https://en.wikipedia.org/wiki/Cannabis_in_Lesotho|-"
+    },
+    {
+      "geo": "LS",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.gov.ls/uncategorized/pm-launches-cannabis-cultivator/",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|OFFICIAL_SOURCE_REMOVED|https://www.gov.ls/uncategorized/pm-launches-cannabis-cultivator/|-"
+    },
+    {
+      "geo": "LS",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Legal",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "LS|STATUS_CHANGE|Illegal|Legal"
+    },
+    {
+      "geo": "MH",
+      "type": "NOTES_UPDATE",
+      "old_value": "8cc5c2d1349c",
+      "new_value": "cab0bf8829c4",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "MH|NOTES_UPDATE|8cc5c2d1349c|cab0bf8829c4"
+    },
+    {
+      "geo": "MH",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://en.wikipedia.org/wiki/Cannabis_in_the_Marshall_Islands",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "MH|OFFICIAL_SOURCE_REMOVED|https://en.wikipedia.org/wiki/Cannabis_in_the_Marshall_Islands|-"
+    },
+    {
+      "geo": "MQ",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Limited",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "MQ|MED_STATUS_CHANGE|Limited|Unknown"
+    },
+    {
+      "geo": "MQ",
+      "type": "NOTES_UPDATE",
+      "old_value": "6caa87da372c",
+      "new_value": "e3b0c44298fc",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "MQ|NOTES_UPDATE|6caa87da372c|e3b0c44298fc"
+    },
+    {
+      "geo": "MQ",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.service-public.gouv.fr/particuliers/actualites/A16479?lang=en",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "MQ|OFFICIAL_SOURCE_REMOVED|https://www.service-public.gouv.fr/particuliers/actualites/A16479?lang=en|-"
+    },
+    {
+      "geo": "MQ",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.service-public.gouv.fr/particuliers/vosdroits/F35817?lang=en",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "MQ|OFFICIAL_SOURCE_REMOVED|https://www.service-public.gouv.fr/particuliers/vosdroits/F35817?lang=en|-"
+    },
+    {
+      "geo": "MQ",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "MQ|STATUS_CHANGE|Illegal|Unknown"
+    },
+    {
+      "geo": "PH",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Limited",
+      "new_value": "Legal",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "PH|MED_STATUS_CHANGE|Limited|Legal"
+    },
+    {
+      "geo": "PH",
+      "type": "NOTES_UPDATE",
+      "old_value": "cb157b196d9f",
+      "new_value": "f293f47ad399",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "PH|NOTES_UPDATE|cb157b196d9f|f293f47ad399"
+    },
+    {
+      "geo": "PH",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://cnnphilippines.com/news/2016/06/26/congressman-albano-refile-medical-marijuana-bill-17th-congress.html",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "PH|OFFICIAL_SOURCE_ADDED|-|https://cnnphilippines.com/news/2016/06/26/congressman-albano-refile-medical-marijuana-bill-17th-congress.html"
+    },
+    {
+      "geo": "PH",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://lifestyle.inquirer.net/212685/are-you-ready-to-try-medical-marijuana/",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "PH|OFFICIAL_SOURCE_ADDED|-|https://lifestyle.inquirer.net/212685/are-you-ready-to-try-medical-marijuana/"
+    },
+    {
+      "geo": "PH",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://newsinfo.inquirer.net/795216/experts-study-medical-pot-use",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "PH|OFFICIAL_SOURCE_ADDED|-|https://newsinfo.inquirer.net/795216/experts-study-medical-pot-use"
+    },
+    {
+      "geo": "PH",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://web.archive.org/web/20170415201519/http://cnnphilippines.com/news/2016/06/26/congressman-albano-refile-medical-marijuana-bill-17th-congress.html",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "PH|OFFICIAL_SOURCE_ADDED|-|https://web.archive.org/web/20170415201519/http://cnnphilippines.com/news/2016/06/26/congressman-albano-refile-medical-marijuana-bill-17th-congress.html"
+    },
+    {
+      "geo": "PH",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.congress.gov.ph/press/details.php?pressid=9655",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "PH|OFFICIAL_SOURCE_ADDED|-|https://www.congress.gov.ph/press/details.php?pressid=9655"
+    },
+    {
+      "geo": "PH",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.lawphil.net/statutes/repacts/ra1972/ra_6425_1972.html",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "PH|OFFICIAL_SOURCE_ADDED|-|https://www.lawphil.net/statutes/repacts/ra1972/ra_6425_1972.html"
+    },
+    {
+      "geo": "PH",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.natureworldnews.com/articles/22841/20160524/presumptive-president-of-the-philippines-duterte-says-yes-to-medical-marijuana.htm",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "PH|OFFICIAL_SOURCE_ADDED|-|https://www.natureworldnews.com/articles/22841/20160524/presumptive-president-of-the-philippines-duterte-says-yes-to-medical-marijuana.htm"
+    },
+    {
+      "geo": "PH",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.philstar.com/headlines/2022/12/07/2229211/medical-marijuana-access-rules-philippines-not-compassionate-advocates-say",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "PH|OFFICIAL_SOURCE_ADDED|-|https://www.philstar.com/headlines/2022/12/07/2229211/medical-marijuana-access-rules-philippines-not-compassionate-advocates-say"
+    },
+    {
+      "geo": "PH",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.pna.gov.ph/articles/1190702",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "PH|OFFICIAL_SOURCE_ADDED|-|https://www.pna.gov.ph/articles/1190702"
+    },
+    {
+      "geo": "PH",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.rappler.com/nation/59118-compassionate-use-medical-cannabis-bill",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "PH|OFFICIAL_SOURCE_ADDED|-|https://www.rappler.com/nation/59118-compassionate-use-medical-cannabis-bill"
+    },
+    {
+      "geo": "PH",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.fda.gov.ph/fda-advisory-no-2020-2013-pilot-implementation-of-food-and-drug-administration-fda-eservices-portal-system-for-compassionate-special-permit-csp-application-for-drug-products/",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "PH|OFFICIAL_SOURCE_REMOVED|https://www.fda.gov.ph/fda-advisory-no-2020-2013-pilot-implementation-of-food-and-drug-administration-fda-eservices-portal-system-for-compassionate-special-permit-csp-application-for-drug-products/|-"
+    },
+    {
+      "geo": "RE",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Limited",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "RE|MED_STATUS_CHANGE|Limited|Unknown"
+    },
+    {
+      "geo": "RE",
+      "type": "NOTES_UPDATE",
+      "old_value": "bcfbc036dc7d",
+      "new_value": "e3b0c44298fc",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "RE|NOTES_UPDATE|bcfbc036dc7d|e3b0c44298fc"
+    },
+    {
+      "geo": "RE",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.service-public.gouv.fr/particuliers/actualites/A16479?lang=en",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "RE|OFFICIAL_SOURCE_REMOVED|https://www.service-public.gouv.fr/particuliers/actualites/A16479?lang=en|-"
+    },
+    {
+      "geo": "RE",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.service-public.gouv.fr/particuliers/vosdroits/F35817?lang=en",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "RE|OFFICIAL_SOURCE_REMOVED|https://www.service-public.gouv.fr/particuliers/vosdroits/F35817?lang=en|-"
+    },
+    {
+      "geo": "RE",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "RE|STATUS_CHANGE|Illegal|Unknown"
+    },
+    {
+      "geo": "SJ",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Limited",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "SJ|MED_STATUS_CHANGE|Limited|Unknown"
+    },
+    {
+      "geo": "SJ",
+      "type": "NOTES_UPDATE",
+      "old_value": "828eb61cef28",
+      "new_value": "e3b0c44298fc",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "SJ|NOTES_UPDATE|828eb61cef28|e3b0c44298fc"
+    },
+    {
+      "geo": "SJ",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://lovdata.no/lov/1925-07-17-11",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "SJ|OFFICIAL_SOURCE_REMOVED|https://lovdata.no/lov/1925-07-17-11|-"
+    },
+    {
+      "geo": "SJ",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://lovdata.no/LTI/lov/2005-05-20-28",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "SJ|OFFICIAL_SOURCE_REMOVED|https://lovdata.no/LTI/lov/2005-05-20-28|-"
+    },
+    {
+      "geo": "SJ",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.dmp.no/en/special-permit-named-patient/for-physicians-and-dentists/medicinal-products-frequently-inquired-about-for-special-permit-named-patient/procedure-for-treatment-with-cannabis-within-current-regulations",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "SJ|OFFICIAL_SOURCE_REMOVED|https://www.dmp.no/en/special-permit-named-patient/for-physicians-and-dentists/medicinal-products-frequently-inquired-about-for-special-permit-named-patient/procedure-for-treatment-with-cannabis-within-current-regulations|-"
+    },
+    {
+      "geo": "SJ",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "SJ|STATUS_CHANGE|Illegal|Unknown"
+    },
+    {
+      "geo": "TK",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Limited",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "TK|MED_STATUS_CHANGE|Limited|Unknown"
+    },
+    {
+      "geo": "TK",
+      "type": "NOTES_UPDATE",
+      "old_value": "c9ff630a405b",
+      "new_value": "e3b0c44298fc",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "TK|NOTES_UPDATE|c9ff630a405b|e3b0c44298fc"
+    },
+    {
+      "geo": "TK",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.legislation.govt.nz/regulation/public/1991/0004/1.0/DLM145075.html",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "TK|OFFICIAL_SOURCE_REMOVED|https://www.legislation.govt.nz/regulation/public/1991/0004/1.0/DLM145075.html|-"
+    },
+    {
+      "geo": "TK",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.legislation.govt.nz/regulation/public/1991/0004/1.0/whole.html",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "TK|OFFICIAL_SOURCE_REMOVED|https://www.legislation.govt.nz/regulation/public/1991/0004/1.0/whole.html|-"
+    },
+    {
+      "geo": "TK",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "TK|STATUS_CHANGE|Illegal|Unknown"
+    },
+    {
+      "geo": "WS",
+      "type": "NOTES_UPDATE",
+      "old_value": "8bc4654b2bac",
+      "new_value": "ef65a1669951",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "WS|NOTES_UPDATE|8bc4654b2bac|ef65a1669951"
+    },
+    {
+      "geo": "WS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.paclii.org/ws/legis/consol_act/na1967114/",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "WS|OFFICIAL_SOURCE_ADDED|-|https://www.paclii.org/ws/legis/consol_act/na1967114/"
+    },
+    {
+      "geo": "WS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.samoalawreform.gov.ws/wp-content/uploads/2018/12/Drugs-Final-Report-English.pdf",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "WS|OFFICIAL_SOURCE_ADDED|-|https://www.samoalawreform.gov.ws/wp-content/uploads/2018/12/Drugs-Final-Report-English.pdf"
+    },
+    {
+      "geo": "WS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.samoaobserver.ws/category/samoa/15561",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "WS|OFFICIAL_SOURCE_ADDED|-|https://www.samoaobserver.ws/category/samoa/15561"
+    },
+    {
+      "geo": "WS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.samoaobserver.ws/category/samoa/16795",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "WS|OFFICIAL_SOURCE_ADDED|-|https://www.samoaobserver.ws/category/samoa/16795"
+    },
+    {
+      "geo": "WS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.samoaobserver.ws/category/samoa/26454",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "WS|OFFICIAL_SOURCE_ADDED|-|https://www.samoaobserver.ws/category/samoa/26454"
+    },
+    {
+      "geo": "WS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.samoaobserver.ws/category/samoa/40985",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "WS|OFFICIAL_SOURCE_ADDED|-|https://www.samoaobserver.ws/category/samoa/40985"
+    },
+    {
+      "geo": "WS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.samoaobserver.ws/category/samoa/7402",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "WS|OFFICIAL_SOURCE_ADDED|-|https://www.samoaobserver.ws/category/samoa/7402"
+    },
+    {
+      "geo": "WS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.samoaobserver.ws/category/samoa/9001",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "WS|OFFICIAL_SOURCE_ADDED|-|https://www.samoaobserver.ws/category/samoa/9001"
+    },
+    {
+      "geo": "WS",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.talanei.com/2019/04/25/samoa-says-no-to-proposal-for-medicinal-marijuana/",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "WS|OFFICIAL_SOURCE_ADDED|-|https://www.talanei.com/2019/04/25/samoa-says-no-to-proposal-for-medicinal-marijuana/"
+    },
+    {
+      "geo": "WS",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://en.wikipedia.org/wiki/Cannabis_in_Samoa",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "WS|OFFICIAL_SOURCE_REMOVED|https://en.wikipedia.org/wiki/Cannabis_in_Samoa|-"
+    },
+    {
+      "geo": "WS",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.paclii.org/ws/legis/consol_act_2019/na1967114.pdf",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "WS|OFFICIAL_SOURCE_REMOVED|https://www.paclii.org/ws/legis/consol_act_2019/na1967114.pdf|-"
+    },
+    {
+      "geo": "WS",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.samoalawreform.gov.ws/wp-content/uploads/2023/10/Final-Report-Eng-21.pdf",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "WS|OFFICIAL_SOURCE_REMOVED|https://www.samoalawreform.gov.ws/wp-content/uploads/2023/10/Final-Report-Eng-21.pdf|-"
+    },
+    {
+      "geo": "XK",
+      "type": "NOTES_UPDATE",
+      "old_value": "64903be7f8e8",
+      "new_value": "222608d30d80",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "XK|NOTES_UPDATE|64903be7f8e8|222608d30d80"
+    },
+    {
+      "geo": "XK",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://books.google.com/books?id=6Y8bAQAAMAAJ",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "XK|OFFICIAL_SOURCE_ADDED|-|https://books.google.com/books?id=6Y8bAQAAMAAJ"
+    },
+    {
+      "geo": "XK",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://iscannabislegalyet.com/kosovo",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "XK|OFFICIAL_SOURCE_ADDED|-|https://iscannabislegalyet.com/kosovo"
+    },
+    {
+      "geo": "XK",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://kosovotwopointzero.com/en/kosovo-should-consider-legalizing-cannabis/",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "XK|OFFICIAL_SOURCE_ADDED|-|https://kosovotwopointzero.com/en/kosovo-should-consider-legalizing-cannabis/"
+    },
+    {
+      "geo": "XK",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://leph2019edinburgh.com/wp-content/uploads/2019/11/ko_drug-situation.pdf",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "XK|OFFICIAL_SOURCE_ADDED|-|https://leph2019edinburgh.com/wp-content/uploads/2019/11/ko_drug-situation.pdf"
+    },
+    {
+      "geo": "XK",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://treaties.un.org/pages/ViewDetails.aspx?src=TREATY&mtdsg_no=VI-6-a&chapter=6&clang=_en",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "XK|OFFICIAL_SOURCE_ADDED|-|https://treaties.un.org/pages/ViewDetails.aspx?src=TREATY&mtdsg_no=VI-6-a&chapter=6&clang=_en"
+    },
+    {
+      "geo": "XK",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://web.archive.org/web/20131203022545/http://www.iksweb.org/Photos/Publikimet/Images/Imazhi_%C3%A7on_pesh%C3%AB!/enIMIDZ_english.pdf",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "XK|OFFICIAL_SOURCE_ADDED|-|https://web.archive.org/web/20131203022545/http://www.iksweb.org/Photos/Publikimet/Images/Imazhi_%C3%A7on_pesh%C3%AB!/enIMIDZ_english.pdf"
+    },
+    {
+      "geo": "XK",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://web.archive.org/web/20160316190931/http://www.emcdda.europa.eu/publications/country-overviews/xk",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "XK|OFFICIAL_SOURCE_ADDED|-|https://web.archive.org/web/20160316190931/http://www.emcdda.europa.eu/publications/country-overviews/xk"
+    },
+    {
+      "geo": "XK",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.cannaconnection.com/blog/14798-legal-status-kosovo",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "XK|OFFICIAL_SOURCE_ADDED|-|https://www.cannaconnection.com/blog/14798-legal-status-kosovo"
+    },
+    {
+      "geo": "XK",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.emcdda.europa.eu/publications/country-overviews/xk",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "XK|OFFICIAL_SOURCE_ADDED|-|https://www.emcdda.europa.eu/publications/country-overviews/xk"
+    },
+    {
+      "geo": "XK",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.iksweb.org/Photos/Publikimet/Images/Imazhi_%C3%A7on_pesh%C3%AB!/enIMIDZ_english.pdf",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "XK|OFFICIAL_SOURCE_ADDED|-|https://www.iksweb.org/Photos/Publikimet/Images/Imazhi_%C3%A7on_pesh%C3%AB!/enIMIDZ_english.pdf"
+    },
+    {
+      "geo": "XK",
+      "type": "OFFICIAL_SOURCE_ADDED",
+      "old_value": null,
+      "new_value": "https://www.unodc.org/documents/data-and-analysis/Balkan_study.pdf",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "XK|OFFICIAL_SOURCE_ADDED|-|https://www.unodc.org/documents/data-and-analysis/Balkan_study.pdf"
+    },
+    {
+      "geo": "XK",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://en.wikipedia.org/wiki/Cannabis_in_Kosovo",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "XK|OFFICIAL_SOURCE_REMOVED|https://en.wikipedia.org/wiki/Cannabis_in_Kosovo|-"
+    },
+    {
+      "geo": "XK",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.euda.europa.eu/system/files/media/publications/documents/11653/Kosovo-country-overview%20-2013.pdf",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "XK|OFFICIAL_SOURCE_REMOVED|https://www.euda.europa.eu/system/files/media/publications/documents/11653/Kosovo-country-overview%20-2013.pdf|-"
+    },
+    {
+      "geo": "YT",
+      "type": "MED_STATUS_CHANGE",
+      "old_value": "Limited",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "YT|MED_STATUS_CHANGE|Limited|Unknown"
+    },
+    {
+      "geo": "YT",
+      "type": "NOTES_UPDATE",
+      "old_value": "78037240f64f",
+      "new_value": "e3b0c44298fc",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "YT|NOTES_UPDATE|78037240f64f|e3b0c44298fc"
+    },
+    {
+      "geo": "YT",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.service-public.gouv.fr/particuliers/actualites/A16479?lang=en",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "YT|OFFICIAL_SOURCE_REMOVED|https://www.service-public.gouv.fr/particuliers/actualites/A16479?lang=en|-"
+    },
+    {
+      "geo": "YT",
+      "type": "OFFICIAL_SOURCE_REMOVED",
+      "old_value": "https://www.service-public.gouv.fr/particuliers/vosdroits/F35817?lang=en",
+      "new_value": null,
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "YT|OFFICIAL_SOURCE_REMOVED|https://www.service-public.gouv.fr/particuliers/vosdroits/F35817?lang=en|-"
+    },
+    {
+      "geo": "YT",
+      "type": "STATUS_CHANGE",
+      "old_value": "Illegal",
+      "new_value": "Unknown",
+      "ts": "2026-06-09T16:07:58.699Z",
+      "change_key": "YT|STATUS_CHANGE|Illegal|Unknown"
+    }
+  ],
   "pending": []
 }

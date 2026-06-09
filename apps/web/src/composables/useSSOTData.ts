@@ -74,18 +74,29 @@ export function useSSOTData() {
   }, []);
 
   useEffect(() => {
+    let cancelled = false;
     const cached = readCache();
     if (cached?.data) {
-      setData(cached.data);
-      setFromCache(true);
-      setLoading(false);
       const age = Date.now() - cached.savedAt;
-      if (age > REVALIDATE_MS) {
-        void fetchFresh();
-      }
-      return;
+      queueMicrotask(() => {
+        if (cancelled) return;
+        setData(cached.data);
+        setFromCache(true);
+        setLoading(false);
+        if (age > REVALIDATE_MS) {
+          void fetchFresh();
+        }
+      });
+      return () => {
+        cancelled = true;
+      };
     }
-    void fetchFresh();
+    queueMicrotask(() => {
+      if (!cancelled) void fetchFresh();
+    });
+    return () => {
+      cancelled = true;
+    };
   }, [fetchFresh]);
 
   return useMemo(
@@ -93,4 +104,3 @@ export function useSSOTData() {
     [data, loading, error, fromCache]
   );
 }
-

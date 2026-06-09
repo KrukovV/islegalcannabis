@@ -150,11 +150,13 @@
       "notes": null
     },
     "BD": {
-      "status_recreational": "legal",
-      "status_medical": "legal",
-      "official_sources": [],
+      "status_recreational": "illegal",
+      "status_medical": "illegal",
+      "official_sources": [
+        "https://bdlaws.minlaw.gov.bd/act-details-1276.html"
+      ],
       "wiki_url": "https://en.wikipedia.org/wiki/Legality_of_cannabis",
-      "notes": null
+      "notes": "Cannabis prohibited; strict criminal penalties remain in force."
     },
     "BB": {
       "status_recreational": "legal",

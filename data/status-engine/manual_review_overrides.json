@@ -1,0 +1,350 @@
+{
+  "generated_at": "2026-06-09T00:00:00.000Z",
+  "model": "STATUS_ENGINE_V9_MANUAL_REVIEW_OVERRIDES",
+  "entries": {
+    "AL": {
+      "name": "Albania",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "wikiRecStatus": "Illegal",
+      "wikiMedStatus": "Legal",
+      "notes": "Recreational cannabis remains prohibited, but law is often unenforced for cultivation in legacy notes; Albania adopted Law No. 61/2023 for controlled cultivation and processing of cannabis for medical and industrial purposes.",
+      "sources": [
+        "https://www.nacc.gov.al/wp-content/uploads/2024/10/Law-no.-61-2023-On-the-control-of-the-cultivation-and-processing-of-the-cannabis-plant-and-the-production-of-its-by-products-for-medical-and-industrial-purposes.pdf",
+        "https://apnews.com/article/albania-legalize-medical-cannabis-trafficking-drugs-81c423f05a08537f606fb4dc535f8bfa"
+      ],
+      "reason": "Medical/industrial cannabis is regulated by Law No. 61/2023; recreational trafficking/cultivation remains prohibited, with weak enforcement signals in legacy cultivation notes."
+    },
+    "BQ": {
+      "name": "Caribbean Netherlands",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "wikiRecStatus": "Illegal",
+      "wikiMedStatus": "Limited",
+      "notes": "The Caribbean Netherlands is under the separate Opiumwet 1960 BES: cannabis cultivation and possession are prohibited, with narrow lawful medical/professional possession exceptions for legally obtained medicines.",
+      "sources": [
+        "https://wetten.overheid.nl/BWBR0028519/2025-04-01/0",
+        "https://english.belastingdienst-cn.nl/latest/news/2026/februari/11/customs-caribbean-netherlands-supervision-results-2025"
+      ],
+      "reason": "BES law is strict and separate from the European Netherlands tolerance model; only narrow medical/professional exceptions are supported."
+    },
+    "BV": {
+      "name": "Bouvet Island",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "wikiRecStatus": "Illegal",
+      "wikiMedStatus": "Limited",
+      "notes": "Bouvet Island is a Norwegian dependency; Norwegian criminal law applies to Norwegian jurisdiction areas and Norway allows cannabis medicines only through approved products or named-patient/special-permit pathways.",
+      "sources": [
+        "https://lovdata.no/LTI/lov/2005-05-20-28",
+        "https://www.dmp.no/en/special-permit-named-patient/for-physicians-and-dentists/medicinal-products-frequently-inquired-about-for-special-permit-named-patient/procedure-for-treatment-with-cannabis-within-current-regulations"
+      ],
+      "reason": "Apply Norway-derived status: recreational illegal, medical access limited to regulated/special-permit pathways."
+    },
+    "CC": {
+      "name": "Cocos (Keeling) Islands",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "wikiRecStatus": "Illegal",
+      "wikiMedStatus": "Legal",
+      "notes": "Western Australian-style drug prohibitions apply in the Cocos (Keeling) Islands, while Australian medicinal cannabis is lawful through prescription/TGA pathways.",
+      "sources": [
+        "https://lawzana.com/cannabis-lawyers/cocos-keeling-islands",
+        "https://www.healthdirect.gov.au/medicinal-cannabis",
+        "https://www.health.wa.gov.au/sitecore/content/Healthy-WA/Articles/A_E/Cannabis"
+      ],
+      "reason": "Recreational use is illegal; medicinal cannabis follows Australia's regulated prescription framework."
+    },
+    "CX": {
+      "name": "Christmas Island",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "wikiRecStatus": "Illegal",
+      "wikiMedStatus": "Legal",
+      "notes": "Christmas Island follows Australian external-territory/Western Australian drug-law settings: recreational use is prohibited, while medicinal cannabis is legal through Australian prescription/TGA pathways.",
+      "sources": [
+        "https://www.healthdirect.gov.au/medicinal-cannabis",
+        "https://www.health.wa.gov.au/sitecore/content/Healthy-WA/Articles/A_E/Cannabis",
+        "https://www.tga.gov.au/products/unapproved-therapeutic-goods/medicinal-cannabis"
+      ],
+      "reason": "Recreational use is illegal; medicinal cannabis follows Australia's regulated prescription framework."
+    },
+    "GF": {
+      "name": "French Guiana",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "wikiRecStatus": "Illegal",
+      "wikiMedStatus": "Limited",
+      "notes": "French Guiana follows French law: recreational cannabis is prohibited; medical cannabis has only a controlled/transition access framework for eligible patients.",
+      "sources": [
+        "https://www.service-public.gouv.fr/particuliers/vosdroits/F35817?lang=en",
+        "https://www.service-public.gouv.fr/particuliers/actualites/A16479?lang=en"
+      ],
+      "reason": "French overseas department status inherits France's illegal recreational and limited medical framework."
+    },
+    "GP": {
+      "name": "Guadeloupe",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "wikiRecStatus": "Illegal",
+      "wikiMedStatus": "Limited",
+      "notes": "Guadeloupe follows French law: recreational cannabis is prohibited; medical cannabis has only a controlled/transition access framework for eligible patients.",
+      "sources": [
+        "https://www.service-public.gouv.fr/particuliers/vosdroits/F35817?lang=en",
+        "https://www.service-public.gouv.fr/particuliers/actualites/A16479?lang=en"
+      ],
+      "reason": "French overseas department status inherits France's illegal recreational and limited medical framework."
+    },
+    "LS": {
+      "name": "Lesotho",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "wikiRecStatus": "Illegal",
+      "wikiMedStatus": "Limited",
+      "notes": "Recreational use and unlicensed cultivation remain prohibited; Lesotho licenses medical-grade cannabis cultivation/processing/export under a controlled industry model.",
+      "sources": [
+        "https://www.gov.ls/uncategorized/pm-launches-cannabis-cultivator/",
+        "https://en.wikipedia.org/wiki/Cannabis_in_Lesotho"
+      ],
+      "reason": "The lawful signal is licensed medical/scientific/export cultivation, not general adult use; strict prohibition remains outside licenses."
+    },
+    "MH": {
+      "name": "Marshall Islands",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "wikiRecStatus": "Illegal",
+      "wikiMedStatus": "Illegal",
+      "notes": "Cannabis possession is prohibited under the Narcotic Drugs (Prohibition and Control) Act 1987; a prescription exception exists in statute, but no medicinal cannabis availability/program is confirmed on the islands.",
+      "sources": [
+        "https://rmiparliament.org/cms/images/LEGISLATION/PRINCIPAL/1987/1987-0011/NarcoticDrugsProhibitionandControlAct1987_1.pdf",
+        "https://en.wikipedia.org/wiki/Cannabis_in_the_Marshall_Islands"
+      ],
+      "reason": "The statutory prescription language does not establish available medical cannabis access; possession penalties make enforcement strict."
+    },
+    "MQ": {
+      "name": "Martinique",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "wikiRecStatus": "Illegal",
+      "wikiMedStatus": "Limited",
+      "notes": "Martinique follows French law: recreational cannabis is prohibited; medical cannabis has only a controlled/transition access framework for eligible patients.",
+      "sources": [
+        "https://www.service-public.gouv.fr/particuliers/vosdroits/F35817?lang=en",
+        "https://www.service-public.gouv.fr/particuliers/actualites/A16479?lang=en"
+      ],
+      "reason": "French overseas department status inherits France's illegal recreational and limited medical framework."
+    },
+    "PH": {
+      "name": "Philippines",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "wikiRecStatus": "Illegal",
+      "wikiMedStatus": "Limited",
+      "notes": "Recreational cannabis, cultivation and sale remain prohibited under the Dangerous Drugs Act; medical access is limited to FDA compassionate special permits for serious or terminal illness/unregistered drug products.",
+      "sources": [
+        "https://pdea.gov.ph/images/Laws/RA9165.pdf",
+        "https://www.fda.gov.ph/fda-advisory-no-2020-2013-pilot-implementation-of-food-and-drug-administration-fda-eservices-portal-system-for-compassionate-special-permit-csp-application-for-drug-products/",
+        "https://www.philstar.com/headlines/2018/12/18/1878036/fact-check-medical-marijuana-already-allowed-philippines"
+      ],
+      "reason": "Strict general prohibition remains; the verified medical signal is a narrow compassionate special-permit path."
+    },
+    "RE": {
+      "name": "Reunion",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "wikiRecStatus": "Illegal",
+      "wikiMedStatus": "Limited",
+      "notes": "Reunion follows French law: recreational cannabis is prohibited; medical cannabis has only a controlled/transition access framework for eligible patients.",
+      "sources": [
+        "https://www.service-public.gouv.fr/particuliers/vosdroits/F35817?lang=en",
+        "https://www.service-public.gouv.fr/particuliers/actualites/A16479?lang=en"
+      ],
+      "reason": "French overseas department status inherits France's illegal recreational and limited medical framework."
+    },
+    "SJ": {
+      "name": "Svalbard and Jan Mayen",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "wikiRecStatus": "Illegal",
+      "wikiMedStatus": "Limited",
+      "notes": "Norwegian criminal law applies on Svalbard, and Norwegian criminal legislation also covers Jan Mayen; Norway permits cannabis medicines only through approved products or named-patient/special-permit pathways.",
+      "sources": [
+        "https://lovdata.no/lov/1925-07-17-11",
+        "https://lovdata.no/LTI/lov/2005-05-20-28",
+        "https://www.dmp.no/en/special-permit-named-patient/for-physicians-and-dentists/medicinal-products-frequently-inquired-about-for-special-permit-named-patient/procedure-for-treatment-with-cannabis-within-current-regulations"
+      ],
+      "reason": "Apply Norway-derived status: recreational illegal, medical access limited to regulated/special-permit pathways."
+    },
+    "TK": {
+      "name": "Tokelau",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "wikiRecStatus": "Illegal",
+      "wikiMedStatus": "Limited",
+      "notes": "Tokelau Customs Regulations define cannabis plant material as a prohibited plant; import is an offence, with a narrow exception for products lawfully supplied or prescribed outside Tokelau for medical use.",
+      "sources": [
+        "https://www.legislation.govt.nz/regulation/public/1991/0004/1.0/DLM145075.html",
+        "https://www.legislation.govt.nz/regulation/public/1991/0004/1.0/whole.html"
+      ],
+      "reason": "General cannabis import/use is prohibited; medical status is limited to narrow prescribed-import exceptions."
+    },
+    "WS": {
+      "name": "Samoa",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "wikiRecStatus": "Illegal",
+      "wikiMedStatus": "Illegal",
+      "notes": "Cannabis is prohibited under Samoa's narcotics framework; reform reports discussed medicinal cannabis, but the known medicinal cultivation proposal was rejected and no medical cannabis program is confirmed.",
+      "sources": [
+        "https://www.paclii.org/ws/legis/consol_act_2019/na1967114.pdf",
+        "https://www.samoalawreform.gov.ws/wp-content/uploads/2023/10/Final-Report-Eng-21.pdf",
+        "https://en.wikipedia.org/wiki/Cannabis_in_Samoa"
+      ],
+      "reason": "The reform discussion is not enacted medical access; prohibition and penalties keep the status red."
+    },
+    "XK": {
+      "name": "Kosovo",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "wikiRecStatus": "Illegal",
+      "wikiMedStatus": "Illegal",
+      "notes": "Kosovo treats use, possession, production and trafficking of illicit drugs as criminal offences; no public medical cannabis framework is confirmed.",
+      "sources": [
+        "https://www.euda.europa.eu/system/files/media/publications/documents/11653/Kosovo-country-overview%20-2013.pdf",
+        "https://en.wikipedia.org/wiki/Cannabis_in_Kosovo"
+      ],
+      "reason": "Missing enforcement is resolved by criminal-code penalty/enforcement sources; no medical framework is confirmed."
+    },
+    "YT": {
+      "name": "Mayotte",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "wikiRecStatus": "Illegal",
+      "wikiMedStatus": "Limited",
+      "notes": "Mayotte follows French law: recreational cannabis is prohibited; medical cannabis has only a controlled/transition access framework for eligible patients.",
+      "sources": [
+        "https://www.service-public.gouv.fr/particuliers/vosdroits/F35817?lang=en",
+        "https://www.service-public.gouv.fr/particuliers/actualites/A16479?lang=en"
+      ],
+      "reason": "French overseas department status inherits France's illegal recreational and limited medical framework."
+    },
+    "BD": {
+      "name": "Bangladesh",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "wikiRecStatus": "Illegal",
+      "wikiMedStatus": "Illegal",
+      "notes": "Cannabis cultivation, transport, sale, purchase and possession remain prohibited under Bangladesh narcotics law; later enforcement notes report harsher cannabis enforcement since 2017 and criminal penalties remain in force.",
+      "sources": [
+        "https://bdlaws.minlaw.gov.bd/act-details-1276.html",
+        "https://www.refworld.org/legal/legislation/natlegbod/2018/en/148280",
+        "https://en.wikipedia.org/wiki/Cannabis_in_Bangladesh"
+      ],
+      "reason": "Control audit requires RED: medical access is not confirmed and strict criminal penalties override older lax-enforcement notes."
+    },
+    "US-UT": {
+      "name": "Utah",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "wikiRecStatus": "Illegal",
+      "wikiMedStatus": "Legal",
+      "notes": "Recreational cannabis remains illegal; Utah maintains a state medical cannabis code, patient card system, pharmacy rules and production establishment framework. Criminal penalties remain outside the medical program.",
+      "sources": [
+        "https://medicalcannabis.utah.gov/resources/utah-medical-cannabis-law/",
+        "https://ag.utah.gov/specialized-products/medical-cannabis/",
+        "https://www.ncsl.org/health/state-medical-cannabis-laws"
+      ],
+      "reason": "Utah has a regulated medical cannabis framework; RED/limited medical data was stale."
+    },
+    "US-NE": {
+      "name": "Nebraska",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "wikiRecStatus": "Illegal",
+      "wikiMedStatus": "Legal",
+      "notes": "Recreational cannabis remains illegal; Nebraska enacted the Medical Cannabis Patient Protection Act and Medical Cannabis Regulation Act after 2024 initiatives, with the Regulation Act operative April 8, 2026. Criminal penalties remain outside the medical framework.",
+      "sources": [
+        "https://nebraskalegislature.gov/laws/statutes.php?statute=71-24%2C106",
+        "https://lcc.nebraska.gov/medical-cannabis/medical-cannabis-commission-how-apply",
+        "https://www.ncsl.org/health/state-medical-cannabis-laws"
+      ],
+      "reason": "Nebraska now has statutory medical cannabis protection/regulation; RED/limited medical data was stale."
+    },
+    "US-KS": {
+      "name": "Kansas",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "wikiRecStatus": "Illegal",
+      "wikiMedStatus": "Limited",
+      "notes": "Recreational cannabis remains illegal; Kansas has no comprehensive medical cannabis program, but Claire and Lola's Law provides a narrow cannabidiol treatment preparation defense with THC limits. Criminal penalties remain outside that narrow exception.",
+      "sources": [
+        "https://www.kslegislature.gov/li_2020/b2019_20/statute/065_000_0000_chapter/065_062_0000_article/065_062_0035_section/065_062_0035_k/",
+        "https://kslegislature.gov/li_2020/b2019_20/measures/documents/summary_sb_28_2019.pdf",
+        "https://www.ncsl.org/health/state-medical-cannabis-laws"
+      ],
+      "reason": "Kansas is not regulated medical, but narrow low-THC cannabidiol access makes medical LIMITED rather than NONE."
+    },
+    "US-WI": {
+      "name": "Wisconsin",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "wikiRecStatus": "Illegal",
+      "wikiMedStatus": "Limited",
+      "notes": "Recreational cannabis remains illegal; Wisconsin does not have a comprehensive medical cannabis program, but state law recognizes a narrow non-psychoactive cannabidiol exception. Criminal penalties remain outside that narrow exception.",
+      "sources": [
+        "https://docs.legis.wisconsin.gov/2013/related/acts/267",
+        "https://datcp.wi.gov/Documents/VEBCannabis.pdf",
+        "https://www.ncsl.org/health/state-medical-cannabis-laws"
+      ],
+      "reason": "Wisconsin has only a narrow cannabidiol exception, so medical is LIMITED and enforcement remains strict."
+    },
+    "US-WY": {
+      "name": "Wyoming",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "wikiRecStatus": "Illegal",
+      "wikiMedStatus": "Limited",
+      "notes": "Recreational cannabis remains illegal; Wyoming does not have a comprehensive medical cannabis program, but HB 32 created supervised medical use of hemp extracts for intractable epilepsy. Criminal penalties remain outside that narrow exception.",
+      "sources": [
+        "https://www.wyoleg.gov/2015/Introduced/HB0032.pdf",
+        "https://www.wyoleg.gov/2026/Introduced/HB0166.pdf",
+        "https://www.ncsl.org/health/state-medical-cannabis-laws"
+      ],
+      "reason": "Wyoming has only narrow hemp-extract access, so medical is LIMITED and enforcement remains strict."
+    }
+  },
+  "governance": {
+    "source_priority": [
+      "official_government",
+      "legal_database",
+      "wikipedia_cannabis_country",
+      "auxiliary"
+    ],
+    "status_engine_touched_by_collection": false,
+    "map_color_requires_review": true,
+    "review_file": "Reports/status-engine/status-governance-review.md"
+  }
+}

@@ -1,0 +1,3011 @@
+{
+  "generated_at": "2026-06-09T16:37:42.346Z",
+  "model": "STATUS_ENGINE_V9",
+  "allowed_fields": [
+    "recreational",
+    "medical",
+    "enforcement"
+  ],
+  "entries": [
+    {
+      "id": "AD",
+      "name": "Andorra",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Andorra"
+    },
+    {
+      "id": "AE",
+      "name": "United Arab Emirates / الإمارات",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_the_United_Arab_Emirates"
+    },
+    {
+      "id": "AF",
+      "name": "Afghanistan / افغانستان",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Afghanistan"
+    },
+    {
+      "id": "AG",
+      "name": "Antigua and Barbuda",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "SOFT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Antigua_and_Barbuda"
+    },
+    {
+      "id": "AI",
+      "name": "Anguilla",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Anguilla"
+    },
+    {
+      "id": "AL",
+      "name": "Albania / Shqipëria",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://www.nacc.gov.al/wp-content/uploads/2024/10/Law-no.-61-2023-On-the-control-of-the-cultivation-and-processing-of-the-cannabis-plant-and-the-production-of-its-by-products-for-medical-and-industrial-purposes.pdf"
+    },
+    {
+      "id": "AM",
+      "name": "Armenia / Հայաստան",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Armenia"
+    },
+    {
+      "id": "AO",
+      "name": "Angola",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Angola"
+    },
+    {
+      "id": "AQ",
+      "name": "Antarctica",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Antarctica"
+    },
+    {
+      "id": "AR",
+      "name": "Argentina",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Argentina"
+    },
+    {
+      "id": "AS",
+      "name": "American Samoa / Sāmoa Amelika",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/American_Samoa"
+    },
+    {
+      "id": "AT",
+      "name": "Austria / Österreich",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "SOFT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Austria"
+    },
+    {
+      "id": "AU",
+      "name": "Australia",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Australia"
+    },
+    {
+      "id": "AW",
+      "name": "Aruba",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Aruba"
+    },
+    {
+      "id": "AX",
+      "name": "Åland Islands / Åland",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/%C3%85land_Islands"
+    },
+    {
+      "id": "AZ",
+      "name": "Azerbaijan / Azərbaycan",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Azerbaijan"
+    },
+    {
+      "id": "BA",
+      "name": "Bosnia and Herzegovina / Bosna i Hercegovina",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Bosnia_and_Herzegovina"
+    },
+    {
+      "id": "BB",
+      "name": "Barbados",
+      "recreational": "LEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Barbados"
+    },
+    {
+      "id": "BD",
+      "name": "Bangladesh / বাংলাদেশ",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://bdlaws.minlaw.gov.bd/act-details-1276.html"
+    },
+    {
+      "id": "BE",
+      "name": "Belgium / Belgien",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "SOFT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Belgium"
+    },
+    {
+      "id": "BF",
+      "name": "Burkina Faso",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Burkina_Faso"
+    },
+    {
+      "id": "BG",
+      "name": "Bulgaria / България",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Bulgaria"
+    },
+    {
+      "id": "BH",
+      "name": "Bahrain / البحرين",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Bahrain"
+    },
+    {
+      "id": "BI",
+      "name": "Burundi / Uburundi",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "SOFT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Burundi"
+    },
+    {
+      "id": "BJ",
+      "name": "Benin / Bénin",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Benin"
+    },
+    {
+      "id": "BL",
+      "name": "Saint Barthélemy",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/St._Barth%C3%A9lemy"
+    },
+    {
+      "id": "BM",
+      "name": "Bermuda",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Bermuda"
+    },
+    {
+      "id": "BN",
+      "name": "Brunei / Negara Brunei Darussalam",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Brunei"
+    },
+    {
+      "id": "BO",
+      "name": "Bolivia / Wuliwya",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Bolivia"
+    },
+    {
+      "id": "BQ",
+      "name": "Caribbean Netherlands",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://wetten.overheid.nl/BWBR0028519/2025-04-01/0"
+    },
+    {
+      "id": "BR",
+      "name": "Brazil / Brasil",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Brazil"
+    },
+    {
+      "id": "BS",
+      "name": "Bahamas",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_the_Bahamas"
+    },
+    {
+      "id": "BT",
+      "name": "Bhutan / འབྲུག་ཡུལ་",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Bhutan"
+    },
+    {
+      "id": "BV",
+      "name": "Bouvet Island",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://lovdata.no/LTI/lov/2005-05-20-28"
+    },
+    {
+      "id": "BW",
+      "name": "Botswana",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Botswana"
+    },
+    {
+      "id": "BY",
+      "name": "Belarus / Белару́сь",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Belarus"
+    },
+    {
+      "id": "BZ",
+      "name": "Belize / Belice",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "SOFT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Belize"
+    },
+    {
+      "id": "CA",
+      "name": "Canada",
+      "recreational": "LEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Canada"
+    },
+    {
+      "id": "CC",
+      "name": "Cocos (Keeling) Islands",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://lawzana.com/cannabis-lawyers/cocos-keeling-islands"
+    },
+    {
+      "id": "CD",
+      "name": "DR Congo / RD Congo",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_the_Democratic_Republic_of_the_Congo"
+    },
+    {
+      "id": "CF",
+      "name": "Central African Republic / République centrafricaine",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_the_Central_African_Republic"
+    },
+    {
+      "id": "CG",
+      "name": "Congo / République du Congo",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_the_Republic_of_the_Congo"
+    },
+    {
+      "id": "CH",
+      "name": "Switzerland / Suisse",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Switzerland"
+    },
+    {
+      "id": "CI",
+      "name": "Ivory Coast / Côte d'Ivoire",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Ivory_Coast"
+    },
+    {
+      "id": "CK",
+      "name": "Cook Islands / Kūki 'Āirani",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_the_Cook_Islands"
+    },
+    {
+      "id": "CL",
+      "name": "Chile",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Chile"
+    },
+    {
+      "id": "CM",
+      "name": "Cameroon / Cameroun",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Cameroon"
+    },
+    {
+      "id": "CN",
+      "name": "China / 中国",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_China"
+    },
+    {
+      "id": "CO",
+      "name": "Colombia",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Colombia"
+    },
+    {
+      "id": "CR",
+      "name": "Costa Rica",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Costa_Rica"
+    },
+    {
+      "id": "CU",
+      "name": "Cuba",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Cuba"
+    },
+    {
+      "id": "CV",
+      "name": "Cape Verde / Cabo Verde",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Cape_Verde"
+    },
+    {
+      "id": "CW",
+      "name": "Curaçao / Pais Kòrsou",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cura%C3%A7ao"
+    },
+    {
+      "id": "CX",
+      "name": "Christmas Island",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://www.healthdirect.gov.au/medicinal-cannabis"
+    },
+    {
+      "id": "CY",
+      "name": "Cyprus / Κύπρος",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Cyprus"
+    },
+    {
+      "id": "CZ",
+      "name": "Czechia / Česko",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_the_Czech_Republic"
+    },
+    {
+      "id": "DE",
+      "name": "Germany / Deutschland",
+      "recreational": "LEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Germany"
+    },
+    {
+      "id": "DJ",
+      "name": "Djibouti / جيبوتي",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Djibouti"
+    },
+    {
+      "id": "DK",
+      "name": "Denmark / Danmark",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Denmark"
+    },
+    {
+      "id": "DM",
+      "name": "Dominica",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "SOFT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Dominica"
+    },
+    {
+      "id": "DO",
+      "name": "Dominican Republic / República Dominicana",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_the_Dominican_Republic"
+    },
+    {
+      "id": "DZ",
+      "name": "Algeria / الجزائر",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "SOFT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Algeria"
+    },
+    {
+      "id": "EC",
+      "name": "Ecuador",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Ecuador"
+    },
+    {
+      "id": "EE",
+      "name": "Estonia / Eesti",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Estonia"
+    },
+    {
+      "id": "EG",
+      "name": "Egypt / مصر",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "SOFT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Egypt"
+    },
+    {
+      "id": "EH",
+      "name": "Western Sahara / الصحراء الغربية",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Western_Sahara"
+    },
+    {
+      "id": "ER",
+      "name": "Eritrea / إريتريا",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Eritrea"
+    },
+    {
+      "id": "ES",
+      "name": "Spain / España",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Spain"
+    },
+    {
+      "id": "ET",
+      "name": "Ethiopia / ኢትዮጵያ",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Ethiopia"
+    },
+    {
+      "id": "FI",
+      "name": "Finland / Suomi",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Finland"
+    },
+    {
+      "id": "FJ",
+      "name": "Fiji / Viti",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Fiji"
+    },
+    {
+      "id": "FK",
+      "name": "Falkland Islands",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Falkland_Islands"
+    },
+    {
+      "id": "FM",
+      "name": "Micronesia",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Micronesia"
+    },
+    {
+      "id": "FO",
+      "name": "Faroe Islands / Færøerne",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Faroe_Islands"
+    },
+    {
+      "id": "FR",
+      "name": "France",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_France"
+    },
+    {
+      "id": "GA",
+      "name": "Gabon",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Gabon"
+    },
+    {
+      "id": "GB",
+      "name": "United Kingdom",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_the_United_Kingdom"
+    },
+    {
+      "id": "GD",
+      "name": "Grenada",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Grenada"
+    },
+    {
+      "id": "GE",
+      "name": "Georgia / საქართველო",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "SOFT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Georgia_(country)"
+    },
+    {
+      "id": "GF",
+      "name": "French Guiana",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://www.service-public.gouv.fr/particuliers/vosdroits/F35817?lang=en"
+    },
+    {
+      "id": "GG",
+      "name": "Guernsey / Guernesey",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Guernsey"
+    },
+    {
+      "id": "GH",
+      "name": "Ghana",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Ghana"
+    },
+    {
+      "id": "GI",
+      "name": "Gibraltar",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Gibraltar"
+    },
+    {
+      "id": "GL",
+      "name": "Greenland / Kalaallit Nunaat",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Greenland"
+    },
+    {
+      "id": "GM",
+      "name": "Gambia",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_the_Gambia"
+    },
+    {
+      "id": "GN",
+      "name": "Guinea / Guinée",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Guinea"
+    },
+    {
+      "id": "GP",
+      "name": "Guadeloupe",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://www.service-public.gouv.fr/particuliers/vosdroits/F35817?lang=en"
+    },
+    {
+      "id": "GQ",
+      "name": "Equatorial Guinea / Guinée équatoriale",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Equatorial_Guinea"
+    },
+    {
+      "id": "GR",
+      "name": "Greece / Ελλάδα",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Greece"
+    },
+    {
+      "id": "GS",
+      "name": "South Georgia",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/South_Georgia_%26_South_Sandwich_Islands"
+    },
+    {
+      "id": "GT",
+      "name": "Guatemala",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Guatemala"
+    },
+    {
+      "id": "GU",
+      "name": "Guam / Guåhån",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Guam"
+    },
+    {
+      "id": "GW",
+      "name": "Guinea-Bissau / Guiné-Bissau",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Guinea-Bissau"
+    },
+    {
+      "id": "GY",
+      "name": "Guyana",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Guyana"
+    },
+    {
+      "id": "HK",
+      "name": "Hong Kong / 香港",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Hong_Kong"
+    },
+    {
+      "id": "HM",
+      "name": "Heard Island and McDonald Islands",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Heard_%26_McDonald_Islands"
+    },
+    {
+      "id": "HN",
+      "name": "Honduras",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Honduras"
+    },
+    {
+      "id": "HR",
+      "name": "Croatia / Hrvatska",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Croatia"
+    },
+    {
+      "id": "HT",
+      "name": "Haiti / Haïti",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Haiti"
+    },
+    {
+      "id": "HU",
+      "name": "Hungary / Magyarország",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "SOFT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Hungary"
+    },
+    {
+      "id": "ID",
+      "name": "Indonesia",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Indonesia"
+    },
+    {
+      "id": "IE",
+      "name": "Ireland / Éire",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Ireland"
+    },
+    {
+      "id": "IL",
+      "name": "Israel / إسرائيل",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Israel"
+    },
+    {
+      "id": "IM",
+      "name": "Isle of Man / Mannin",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Isle_of_Man"
+    },
+    {
+      "id": "IN",
+      "name": "India / भारत",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_India"
+    },
+    {
+      "id": "IO",
+      "name": "British Indian Ocean Territory",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/British_Indian_Ocean_Territory"
+    },
+    {
+      "id": "IQ",
+      "name": "Iraq / العراق",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Iraq"
+    },
+    {
+      "id": "IR",
+      "name": "Iran / ایران",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "SOFT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Iran"
+    },
+    {
+      "id": "IS",
+      "name": "Iceland / Ísland",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Iceland"
+    },
+    {
+      "id": "IT",
+      "name": "Italy / Italia",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Italy"
+    },
+    {
+      "id": "JE",
+      "name": "Jersey / Jèrri",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Jersey"
+    },
+    {
+      "id": "JM",
+      "name": "Jamaica",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Jamaica"
+    },
+    {
+      "id": "JO",
+      "name": "Jordan / الأردن",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Jordan"
+    },
+    {
+      "id": "JP",
+      "name": "Japan / 日本",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "SOFT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Japan"
+    },
+    {
+      "id": "KE",
+      "name": "Kenya",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Kenya"
+    },
+    {
+      "id": "KG",
+      "name": "Kyrgyzstan / Кыргызстан",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Kyrgyzstan"
+    },
+    {
+      "id": "KH",
+      "name": "Cambodia / Kâmpŭchéa",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "SOFT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Cambodia"
+    },
+    {
+      "id": "KI",
+      "name": "Kiribati",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Kiribati"
+    },
+    {
+      "id": "KM",
+      "name": "Comoros / جزر القمر",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Comoros"
+    },
+    {
+      "id": "KN",
+      "name": "Saint Kitts and Nevis",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "SOFT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Saint_Kitts_and_Nevis"
+    },
+    {
+      "id": "KP",
+      "name": "North Korea / 조선",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_North_Korea"
+    },
+    {
+      "id": "KR",
+      "name": "South Korea / 한국",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_South_Korea"
+    },
+    {
+      "id": "KW",
+      "name": "Kuwait / الكويت",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Kuwait"
+    },
+    {
+      "id": "KY",
+      "name": "Cayman Islands",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cayman_Islands"
+    },
+    {
+      "id": "KZ",
+      "name": "Kazakhstan / Қазақстан",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Kazakhstan"
+    },
+    {
+      "id": "LA",
+      "name": "Laos / ສປປລາວ",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Laos"
+    },
+    {
+      "id": "LB",
+      "name": "Lebanon / لبنان",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Lebanon"
+    },
+    {
+      "id": "LC",
+      "name": "Saint Lucia",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "SOFT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Saint_Lucia"
+    },
+    {
+      "id": "LI",
+      "name": "Liechtenstein",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Liechtenstein"
+    },
+    {
+      "id": "LK",
+      "name": "Sri Lanka / ශ්‍රී ලංකාව",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Sri_Lanka"
+    },
+    {
+      "id": "LR",
+      "name": "Liberia",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Liberia"
+    },
+    {
+      "id": "LS",
+      "name": "Lesotho",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://www.gov.ls/uncategorized/pm-launches-cannabis-cultivator/"
+    },
+    {
+      "id": "LT",
+      "name": "Lithuania / Lietuva",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Lithuania"
+    },
+    {
+      "id": "LU",
+      "name": "Luxembourg / Luxemburg",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Luxembourg"
+    },
+    {
+      "id": "LV",
+      "name": "Latvia / Latvija",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Latvia"
+    },
+    {
+      "id": "LY",
+      "name": "Libya / ليبيا",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Libya"
+    },
+    {
+      "id": "MA",
+      "name": "Morocco / المغرب",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Morocco"
+    },
+    {
+      "id": "MC",
+      "name": "Monaco",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Monaco"
+    },
+    {
+      "id": "MD",
+      "name": "Moldova",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Moldova"
+    },
+    {
+      "id": "ME",
+      "name": "Montenegro / Црна Гора",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Montenegro"
+    },
+    {
+      "id": "MF",
+      "name": "Saint Martin",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/St._Martin"
+    },
+    {
+      "id": "MG",
+      "name": "Madagascar / Madagasikara",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Madagascar"
+    },
+    {
+      "id": "MH",
+      "name": "Marshall Islands / M̧ajeļ",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://rmiparliament.org/cms/images/LEGISLATION/PRINCIPAL/1987/1987-0011/NarcoticDrugsProhibitionandControlAct1987_1.pdf"
+    },
+    {
+      "id": "MK",
+      "name": "North Macedonia / Македонија",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_North_Macedonia"
+    },
+    {
+      "id": "ML",
+      "name": "Mali",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Mali"
+    },
+    {
+      "id": "MM",
+      "name": "Myanmar / မြန်မာ",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Myanmar"
+    },
+    {
+      "id": "MN",
+      "name": "Mongolia / Монгол улс",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Mongolia"
+    },
+    {
+      "id": "MO",
+      "name": "Macau / 澳门",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Macau"
+    },
+    {
+      "id": "MP",
+      "name": "Northern Mariana Islands / Na Islas Mariånas",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Northern_Mariana_Islands"
+    },
+    {
+      "id": "MQ",
+      "name": "Martinique",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://www.service-public.gouv.fr/particuliers/vosdroits/F35817?lang=en"
+    },
+    {
+      "id": "MR",
+      "name": "Mauritania / موريتانيا",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Mauritania"
+    },
+    {
+      "id": "MS",
+      "name": "Montserrat",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Montserrat"
+    },
+    {
+      "id": "MT",
+      "name": "Malta",
+      "recreational": "LEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Malta"
+    },
+    {
+      "id": "MU",
+      "name": "Mauritius / Maurice",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "SOFT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Mauritius"
+    },
+    {
+      "id": "MV",
+      "name": "Maldives / ދިވެހިރާއްޖޭގެ",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_the_Maldives"
+    },
+    {
+      "id": "MW",
+      "name": "Malawi / Malaŵi",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Malawi"
+    },
+    {
+      "id": "MX",
+      "name": "Mexico / México",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Mexico"
+    },
+    {
+      "id": "MY",
+      "name": "Malaysia / مليسيا",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "SOFT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Malaysia"
+    },
+    {
+      "id": "MZ",
+      "name": "Mozambique / Moçambique",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Mozambique"
+    },
+    {
+      "id": "NA",
+      "name": "Namibia / Namibië",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Namibia"
+    },
+    {
+      "id": "NC",
+      "name": "New Caledonia / Nouvelle-Calédonie",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/New_Caledonia"
+    },
+    {
+      "id": "NE",
+      "name": "Niger",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Niger"
+    },
+    {
+      "id": "NF",
+      "name": "Norfolk Island / Norf'k Ailen",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Norfolk_Island"
+    },
+    {
+      "id": "NG",
+      "name": "Nigeria",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Nigeria"
+    },
+    {
+      "id": "NI",
+      "name": "Nicaragua",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Nicaragua"
+    },
+    {
+      "id": "NL",
+      "name": "Netherlands / Nederland",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_the_Netherlands"
+    },
+    {
+      "id": "NO",
+      "name": "Norway / Noreg",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Norway"
+    },
+    {
+      "id": "NP",
+      "name": "Nepal / नेपाल",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Nepal"
+    },
+    {
+      "id": "NR",
+      "name": "Nauru",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Nauru"
+    },
+    {
+      "id": "NU",
+      "name": "Niue / Niuē",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Niue"
+    },
+    {
+      "id": "NZ",
+      "name": "New Zealand / Aotearoa",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/New_Zealand"
+    },
+    {
+      "id": "OM",
+      "name": "Oman / عمان",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Oman"
+    },
+    {
+      "id": "PA",
+      "name": "Panama / Panamá",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Panama"
+    },
+    {
+      "id": "PE",
+      "name": "Peru / Piruw",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Peru"
+    },
+    {
+      "id": "PF",
+      "name": "French Polynesia / Polynésie française",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/French_Polynesia"
+    },
+    {
+      "id": "PG",
+      "name": "Papua New Guinea / Papua Niu Gini",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Papua_New_Guinea"
+    },
+    {
+      "id": "PH",
+      "name": "Philippines / Pilipinas",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://pdea.gov.ph/images/Laws/RA9165.pdf"
+    },
+    {
+      "id": "PK",
+      "name": "Pakistan / پاكستان",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Pakistan"
+    },
+    {
+      "id": "PL",
+      "name": "Poland / Polska",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Poland"
+    },
+    {
+      "id": "PM",
+      "name": "Saint Pierre and Miquelon / Saint-Pierre-et-Miquelon",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/St._Pierre_%26_Miquelon"
+    },
+    {
+      "id": "PN",
+      "name": "Pitcairn Islands",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Pitcairn_Islands"
+    },
+    {
+      "id": "PR",
+      "name": "Puerto Rico",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Puerto_Rico"
+    },
+    {
+      "id": "PS",
+      "name": "Palestine / فلسطين",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Palestinian_Territories"
+    },
+    {
+      "id": "PT",
+      "name": "Portugal",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Portugal"
+    },
+    {
+      "id": "PW",
+      "name": "Palau / Belau",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Palau"
+    },
+    {
+      "id": "PY",
+      "name": "Paraguay / Paraguái",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "SOFT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Paraguay"
+    },
+    {
+      "id": "QA",
+      "name": "Qatar / قطر",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Qatar"
+    },
+    {
+      "id": "RE",
+      "name": "Réunion",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://www.service-public.gouv.fr/particuliers/vosdroits/F35817?lang=en"
+    },
+    {
+      "id": "RO",
+      "name": "Romania / România",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Romania"
+    },
+    {
+      "id": "RS",
+      "name": "Serbia / Србија",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Serbia"
+    },
+    {
+      "id": "RU",
+      "name": "Russia / Россия",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Russia"
+    },
+    {
+      "id": "RW",
+      "name": "Rwanda",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Rwanda"
+    },
+    {
+      "id": "SA",
+      "name": "Saudi Arabia / السعودية",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "SOFT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Saudi_Arabia"
+    },
+    {
+      "id": "SB",
+      "name": "Solomon Islands",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_the_Solomon_Islands"
+    },
+    {
+      "id": "SC",
+      "name": "Seychelles / Sesel",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Seychelles"
+    },
+    {
+      "id": "SD",
+      "name": "Sudan / السودان",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Sudan"
+    },
+    {
+      "id": "SE",
+      "name": "Sweden / Sverige",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Sweden"
+    },
+    {
+      "id": "SG",
+      "name": "Singapore / Singapura",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "SOFT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Singapore"
+    },
+    {
+      "id": "SH",
+      "name": "Saint Helena, Ascension and Tristan da Cunha",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/St._Helena"
+    },
+    {
+      "id": "SI",
+      "name": "Slovenia / Slovenija",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Slovenia"
+    },
+    {
+      "id": "SJ",
+      "name": "Svalbard and Jan Mayen",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://lovdata.no/lov/1925-07-17-11"
+    },
+    {
+      "id": "SK",
+      "name": "Slovakia / Slovensko",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Slovakia"
+    },
+    {
+      "id": "SL",
+      "name": "Sierra Leone",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Sierra_Leone"
+    },
+    {
+      "id": "SM",
+      "name": "San Marino",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_San_Marino"
+    },
+    {
+      "id": "SN",
+      "name": "Senegal / Sénégal",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Senegal"
+    },
+    {
+      "id": "SO",
+      "name": "Somalia / الصومال",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Somalia"
+    },
+    {
+      "id": "SR",
+      "name": "Suriname",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Suriname"
+    },
+    {
+      "id": "SS",
+      "name": "South Sudan",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_South_Sudan"
+    },
+    {
+      "id": "ST",
+      "name": "São Tomé and Príncipe / São Tomé e Príncipe",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_S%C3%A3o_Tom%C3%A9_and_Principe"
+    },
+    {
+      "id": "SV",
+      "name": "El Salvador",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_El_Salvador"
+    },
+    {
+      "id": "SX",
+      "name": "Sint Maarten / Saint-Martin",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Sint_Maarten"
+    },
+    {
+      "id": "SY",
+      "name": "Syria / سوريا",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Syria"
+    },
+    {
+      "id": "SZ",
+      "name": "Eswatini",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Eswatini"
+    },
+    {
+      "id": "TC",
+      "name": "Turks and Caicos Islands",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Turks_%26_Caicos_Islands"
+    },
+    {
+      "id": "TD",
+      "name": "Chad / تشاد",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Chad"
+    },
+    {
+      "id": "TF",
+      "name": "French Southern and Antarctic Lands / Terres australes et antarctiques françaises",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/French_Southern_Territories"
+    },
+    {
+      "id": "TG",
+      "name": "Togo",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Togo"
+    },
+    {
+      "id": "TH",
+      "name": "Thailand / ประเทศไทย",
+      "recreational": "LEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Thailand"
+    },
+    {
+      "id": "TJ",
+      "name": "Tajikistan / Таджикистан",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Tajikistan"
+    },
+    {
+      "id": "TK",
+      "name": "Tokelau",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://www.legislation.govt.nz/regulation/public/1991/0004/1.0/DLM145075.html"
+    },
+    {
+      "id": "TL",
+      "name": "Timor-Leste / Timór-Leste",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Timor-Leste"
+    },
+    {
+      "id": "TM",
+      "name": "Turkmenistan / Туркмения",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Turkmenistan"
+    },
+    {
+      "id": "TN",
+      "name": "Tunisia / تونس",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Tunisia"
+    },
+    {
+      "id": "TO",
+      "name": "Tonga",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Tonga"
+    },
+    {
+      "id": "TR",
+      "name": "Türkiye",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Turkey"
+    },
+    {
+      "id": "TT",
+      "name": "Trinidad and Tobago",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "SOFT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Trinidad_and_Tobago"
+    },
+    {
+      "id": "TV",
+      "name": "Tuvalu",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Tuvalu"
+    },
+    {
+      "id": "TW",
+      "name": "Taiwan / 台灣",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Taiwan"
+    },
+    {
+      "id": "TZ",
+      "name": "Tanzania",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Tanzania"
+    },
+    {
+      "id": "UA",
+      "name": "Ukraine / Україна",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Ukraine"
+    },
+    {
+      "id": "UG",
+      "name": "Uganda",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Uganda"
+    },
+    {
+      "id": "UM",
+      "name": "United States Minor Outlying Islands",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/U.S._Outlying_Islands"
+    },
+    {
+      "id": "US",
+      "name": "United States",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "SOFT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_the_United_States"
+    },
+    {
+      "id": "US-AK",
+      "name": "Alaska",
+      "recreational": "LEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Alaska"
+    },
+    {
+      "id": "US-AL",
+      "name": "Alabama",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Alabama"
+    },
+    {
+      "id": "US-AR",
+      "name": "Arkansas",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Arkansas"
+    },
+    {
+      "id": "US-AZ",
+      "name": "Arizona",
+      "recreational": "LEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Arizona"
+    },
+    {
+      "id": "US-CA",
+      "name": "California",
+      "recreational": "LEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_California"
+    },
+    {
+      "id": "US-CO",
+      "name": "Colorado",
+      "recreational": "LEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Colorado"
+    },
+    {
+      "id": "US-CT",
+      "name": "Connecticut",
+      "recreational": "LEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Connecticut"
+    },
+    {
+      "id": "US-DE",
+      "name": "Delaware",
+      "recreational": "LEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Delaware"
+    },
+    {
+      "id": "US-FL",
+      "name": "Florida",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Florida"
+    },
+    {
+      "id": "US-GA",
+      "name": "Georgia",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Georgia_(U.S._state)"
+    },
+    {
+      "id": "US-HI",
+      "name": "Hawaii",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "SOFT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Hawaii"
+    },
+    {
+      "id": "US-IA",
+      "name": "Iowa",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Iowa"
+    },
+    {
+      "id": "US-ID",
+      "name": "Idaho",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Idaho"
+    },
+    {
+      "id": "US-IL",
+      "name": "Illinois",
+      "recreational": "LEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Illinois"
+    },
+    {
+      "id": "US-IN",
+      "name": "Indiana",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Indiana"
+    },
+    {
+      "id": "US-KS",
+      "name": "Kansas",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://www.kslegislature.gov/li_2020/b2019_20/statute/065_000_0000_chapter/065_062_0000_article/065_062_0035_section/065_062_0035_k/"
+    },
+    {
+      "id": "US-KY",
+      "name": "Kentucky",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Kentucky"
+    },
+    {
+      "id": "US-LA",
+      "name": "Louisiana",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Louisiana"
+    },
+    {
+      "id": "US-MA",
+      "name": "Massachusetts",
+      "recreational": "LEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Massachusetts"
+    },
+    {
+      "id": "US-MD",
+      "name": "Maryland",
+      "recreational": "LEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Maryland"
+    },
+    {
+      "id": "US-ME",
+      "name": "Maine",
+      "recreational": "LEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Maine"
+    },
+    {
+      "id": "US-MI",
+      "name": "Michigan",
+      "recreational": "LEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Michigan"
+    },
+    {
+      "id": "US-MN",
+      "name": "Minnesota",
+      "recreational": "LEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Minnesota"
+    },
+    {
+      "id": "US-MO",
+      "name": "Missouri",
+      "recreational": "LEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Missouri"
+    },
+    {
+      "id": "US-MS",
+      "name": "Mississippi",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "SOFT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Mississippi"
+    },
+    {
+      "id": "US-MT",
+      "name": "Montana",
+      "recreational": "LEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Montana"
+    },
+    {
+      "id": "US-NC",
+      "name": "North Carolina",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "SOFT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_North_Carolina"
+    },
+    {
+      "id": "US-ND",
+      "name": "North Dakota",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_North_Dakota"
+    },
+    {
+      "id": "US-NE",
+      "name": "Nebraska",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://nebraskalegislature.gov/laws/statutes.php?statute=71-24%2C106"
+    },
+    {
+      "id": "US-NH",
+      "name": "New Hampshire",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "SOFT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_New_Hampshire"
+    },
+    {
+      "id": "US-NJ",
+      "name": "New Jersey",
+      "recreational": "LEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_New_Jersey"
+    },
+    {
+      "id": "US-NM",
+      "name": "New Mexico",
+      "recreational": "LEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_New_Mexico"
+    },
+    {
+      "id": "US-NV",
+      "name": "Nevada",
+      "recreational": "LEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Nevada"
+    },
+    {
+      "id": "US-NY",
+      "name": "New York",
+      "recreational": "LEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_New_York"
+    },
+    {
+      "id": "US-OH",
+      "name": "Ohio",
+      "recreational": "LEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Ohio"
+    },
+    {
+      "id": "US-OK",
+      "name": "Oklahoma",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Oklahoma"
+    },
+    {
+      "id": "US-OR",
+      "name": "Oregon",
+      "recreational": "LEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Oregon"
+    },
+    {
+      "id": "US-PA",
+      "name": "Pennsylvania",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Pennsylvania"
+    },
+    {
+      "id": "US-RI",
+      "name": "Rhode Island",
+      "recreational": "LEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Rhode_Island"
+    },
+    {
+      "id": "US-SC",
+      "name": "South Carolina",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_South_Carolina"
+    },
+    {
+      "id": "US-SD",
+      "name": "South Dakota",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_South_Dakota"
+    },
+    {
+      "id": "US-TN",
+      "name": "Tennessee",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Tennessee"
+    },
+    {
+      "id": "US-TX",
+      "name": "Texas",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Texas"
+    },
+    {
+      "id": "US-UT",
+      "name": "Utah",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://medicalcannabis.utah.gov/resources/utah-medical-cannabis-law/"
+    },
+    {
+      "id": "US-VA",
+      "name": "Virginia",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Virginia"
+    },
+    {
+      "id": "US-VT",
+      "name": "Vermont",
+      "recreational": "LEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Vermont"
+    },
+    {
+      "id": "US-WA",
+      "name": "Washington",
+      "recreational": "LEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Washington_(state)"
+    },
+    {
+      "id": "US-WI",
+      "name": "Wisconsin",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://docs.legis.wisconsin.gov/2013/related/acts/267"
+    },
+    {
+      "id": "US-WV",
+      "name": "West Virginia",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_West_Virginia"
+    },
+    {
+      "id": "US-WY",
+      "name": "Wyoming",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://www.wyoleg.gov/2015/Introduced/HB0032.pdf"
+    },
+    {
+      "id": "UY",
+      "name": "Uruguay",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Uruguay"
+    },
+    {
+      "id": "UZ",
+      "name": "Uzbekistan / Узбекистан",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Uzbekistan"
+    },
+    {
+      "id": "VA",
+      "name": "Vatican City / Vaticano",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Vatican_City"
+    },
+    {
+      "id": "VC",
+      "name": "Saint Vincent and the Grenadines",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Saint_Vincent_and_the_Grenadines"
+    },
+    {
+      "id": "VE",
+      "name": "Venezuela",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Venezuela"
+    },
+    {
+      "id": "VG",
+      "name": "British Virgin Islands",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/British_Virgin_Islands"
+    },
+    {
+      "id": "VI",
+      "name": "United States Virgin Islands",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/U.S._Virgin_Islands"
+    },
+    {
+      "id": "VN",
+      "name": "Vietnam / Việt Nam",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Vietnam"
+    },
+    {
+      "id": "VU",
+      "name": "Vanuatu",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Vanuatu"
+    },
+    {
+      "id": "WF",
+      "name": "Wallis and Futuna / Wallis et Futuna",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Wallis_%26_Futuna"
+    },
+    {
+      "id": "WS",
+      "name": "Samoa / Sāmoa",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://www.paclii.org/ws/legis/consol_act_2019/na1967114.pdf"
+    },
+    {
+      "id": "XK",
+      "name": "Kosovo",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://www.euda.europa.eu/system/files/media/publications/documents/11653/Kosovo-country-overview%20-2013.pdf"
+    },
+    {
+      "id": "YE",
+      "name": "Yemen / اليمن",
+      "recreational": "ILLEGAL",
+      "medical": "NONE",
+      "enforcement": "STRICT",
+      "color": "RED",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Yemen"
+    },
+    {
+      "id": "YT",
+      "name": "Mayotte",
+      "recreational": "ILLEGAL",
+      "medical": "LIMITED",
+      "enforcement": "STRICT",
+      "color": "YELLOW",
+      "reviewRequired": false,
+      "sourceUrl": "https://www.service-public.gouv.fr/particuliers/vosdroits/F35817?lang=en"
+    },
+    {
+      "id": "ZA",
+      "name": "South Africa / Sewula Afrika",
+      "recreational": "LEGAL",
+      "medical": "REGULATED",
+      "enforcement": "SOFT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_South_Africa"
+    },
+    {
+      "id": "ZM",
+      "name": "Zambia",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Zambia"
+    },
+    {
+      "id": "ZW",
+      "name": "Zimbabwe",
+      "recreational": "ILLEGAL",
+      "medical": "REGULATED",
+      "enforcement": "STRICT",
+      "color": "GREEN",
+      "reviewRequired": false,
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cannabis_in_Zimbabwe"
+    }
+  ]
+}

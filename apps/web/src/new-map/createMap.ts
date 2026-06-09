@@ -6,6 +6,7 @@ export const NEW_MAP_ADMIN_LAYER_ID = "admin-boundary-line";
 
 export const NEW_MAP_SOURCE_ID = "legal-countries";
 export const NEW_MAP_FILL_LAYER_ID = "legal-fill";
+export const NEW_MAP_POINT_LAYER_ID = "legal-point";
 export const NEW_MAP_US_STATES_SOURCE_ID = "us-states";
 export const NEW_MAP_US_STATES_FILL_LAYER_ID = "us-states-fill";
 export const NEW_MAP_US_STATES_LINE_LAYER_ID = "us-states-line";
@@ -38,7 +39,7 @@ type CreateMapOptions = {
 };
 
 function getCountryFeatureAtPoint(map: maplibregl.Map, point: { x: number; y: number }) {
-  return map.queryRenderedFeatures([point.x, point.y], { layers: [NEW_MAP_FILL_LAYER_ID] })[0] ?? null;
+  return map.queryRenderedFeatures([point.x, point.y], { layers: [NEW_MAP_POINT_LAYER_ID, NEW_MAP_FILL_LAYER_ID] })[0] ?? null;
 }
 
 function configureMapLibreWorkerUrl() {
@@ -460,6 +461,7 @@ export function createMap(
       type: "fill",
       source: NEW_MAP_SOURCE_ID,
       maxzoom: 24,
+      filter: ["match", ["geometry-type"], ["Polygon", "MultiPolygon"], true, false],
       paint: {
         "fill-color": [
           "case",
@@ -490,6 +492,47 @@ export function createMap(
             1
           ]
         ]
+      }
+    }, beforeId);
+
+    map.addLayer({
+      id: NEW_MAP_POINT_LAYER_ID,
+      type: "circle",
+      source: NEW_MAP_SOURCE_ID,
+      maxzoom: 24,
+      filter: ["==", ["geometry-type"], "Point"],
+      paint: {
+        "circle-color": [
+          "case",
+          ["boolean", ["feature-state", "selected"], false],
+          ["to-color", ["get", "hoverColor"]],
+          ["boolean", ["feature-state", "hover"], false],
+          ["to-color", ["get", "hoverColor"]],
+          ["to-color", ["get", "baseColor"]]
+        ],
+        "circle-radius": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          1.5,
+          4,
+          4,
+          5.5,
+          7,
+          8
+        ],
+        "circle-stroke-color": "rgba(59, 67, 77, 0.72)",
+        "circle-stroke-width": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          1.5,
+          0.7,
+          6,
+          1.2
+        ],
+        "circle-opacity": ["coalesce", ["get", "fillOpacity"], 0.82],
+        "circle-stroke-opacity": 0.72
       }
     }, beforeId);
 

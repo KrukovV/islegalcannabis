@@ -13,11 +13,11 @@
       "scope": "PERSONAL_USE"
     },
     "medical": {
-      "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
       "enforcement": "STRICT",
-      "scope": "NONE",
-      "override_reason": null
+      "scope": "MEDICAL_ONLY",
+      "override_reason": "STATUS_GOVERNANCE_REVIEW_NE_MEDICAL"
     },
     "distribution": {
       "status": "restricted",
@@ -36,9 +36,12 @@
     "enforcement_flags": [
       "fine_based"
     ],
-    "applied_rules": []
+    "applied_rules": [],
+    "signals": {
+      "enforcement_level": "active"
+    }
   },
-  "notes_normalized": "Cannabis is decriminalized in Nebraska in limited state-level practice, but it is not fully legal under state law. Medical cannabis is not broadly legal in Nebraska. Cannabis remains federally illegal in United States.",
+  "notes_normalized": "Cannabis possession is decriminalized in Nebraska in limited state-level practice; medical cannabis is now covered by the Nebraska Medical Cannabis Patient Protection Act and Medical Cannabis Regulation Act.",
   "notes_raw": "style=\"background:#80CE69; color:#000000; text-align:center;\" | {{Hs|2}} <span style=\"font-size:25px;\">●</span>",
   "facts": {
     "possession_limit": null,
@@ -157,16 +160,16 @@
         "weight": "low"
       },
       {
-        "id": "wiki-us-ne",
-        "url": "https://en.wikipedia.org/wiki/Nebraska",
-        "title": "Wikipedia: Nebraska",
+        "id": "ne-medical-cannabis-regulation-act",
+        "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=71-24%2C106",
+        "title": "Nebraska Medical Cannabis Regulation Act",
         "type": "external",
         "weight": "low"
       },
       {
-        "id": "wiki-truth-us-ne",
-        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
-        "title": "Wikipedia: Legality of cannabis by U.S. jurisdiction",
+        "id": "ne-medical-cannabis-commission",
+        "url": "https://lcc.nebraska.gov/medical-cannabis/medical-cannabis-commission-how-apply",
+        "title": "Nebraska Medical Cannabis Commission",
         "type": "external",
         "weight": "low"
       }
@@ -174,9 +177,9 @@
   },
   "hashes": {
     "code": "us-ne",
-    "content_hash": "101b361dd831dbc9815ce7dc61a2b6011832f9acbcf482787312d995c84312a8",
-    "notes_hash": "d0c19108d6c45d44410238ec02862f7fbab0f5317193966cfdf2f0531eb4e444",
-    "model_hash": "bea49d72b97a36a5391e642bcc2aa0eed2cf21b66af5874381c0347e5cdf404a"
+    "content_hash": "e2e8ad4d75616171d3ee1bfd67aa19c6ac9957ada4ad46f955cc57413a74f790",
+    "notes_hash": "5660d13f0630475ea81ad42f88edf4c74e0dd3234b37afdc232200574f7623a3",
+    "model_hash": "96ba930ea163b333bded4c9b420bdcf1d437c1284333349d8cca2bfce9965587"
   },
   "updated_at": "2026-04-10"
 }

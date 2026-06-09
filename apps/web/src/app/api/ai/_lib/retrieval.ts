@@ -1,4 +1,5 @@
 import { buildRegions } from "@/lib/mapData";
+import { buildCannabisProfileAiContext } from "@/lib/cannabisProfile";
 import { getCountryMetaByIso2 } from "@/lib/countryNames";
 
 type GeoHint = {
@@ -18,6 +19,16 @@ export type AiGeoContext = {
   legalStatus: string;
   medicalStatus: string;
   notes: string;
+  knowledge: {
+    history: string[];
+    culture: string[];
+    localNames: string[];
+    products: string[];
+    traditionalUse: string[];
+    enforcementReality: string[];
+    notes: string[];
+    source: string;
+  } | null;
   officialSources: string[];
   wikiPageUrl: string | null;
 };
@@ -71,6 +82,7 @@ function resolveFromHint(regions: RegionRow[], geo?: GeoHint | null) {
 function toContext(entry: RegionRow): AiGeoContext {
   const countryGeo = entry.type === "state" ? entry.geo.slice(0, 2) : entry.geo;
   const countryMeta = getCountryMetaByIso2(countryGeo);
+  const knowledge = buildCannabisProfileAiContext(entry.type === "state" ? countryGeo : entry.geo);
   return {
     geo: entry.geo,
     country: countryMeta?.englishName || countryMeta?.commonName || countryGeo,
@@ -87,6 +99,7 @@ function toContext(entry: RegionRow): AiGeoContext {
       entry.notesOur ||
       ""
     ).trim(),
+    knowledge,
     officialSources: Array.isArray(entry.officialSources) ? entry.officialSources.filter(Boolean) : [],
     wikiPageUrl: entry.wikiPageUrl || null
   };

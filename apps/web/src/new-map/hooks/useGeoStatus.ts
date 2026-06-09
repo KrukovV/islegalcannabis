@@ -149,22 +149,29 @@ export function useGeoStatus() {
   }, []);
 
   useEffect(() => {
+    let cancelled = false;
     const restored = loadGeoFromStorage();
-    if (restored) {
-      setCurrentGeo(restored);
-      if (restored.source === "gps") {
-        setGeoStatus({ status: "resolved" });
+    queueMicrotask(() => {
+      if (cancelled) return;
+      if (restored) {
+        setCurrentGeo(restored);
+        if (restored.source === "gps") {
+          setGeoStatus({ status: "resolved" });
+        }
+        if (restored.source === "ip") {
+          setIpStatus({
+            status: "resolved",
+            country: restored.iso2 || "Saved location",
+            iso2: restored.iso2 || "",
+            message: restored.iso2 ? `IP: ${restored.iso2} (approximate)` : "IP: saved approximate location"
+          });
+        }
       }
-      if (restored.source === "ip") {
-        setIpStatus({
-          status: "resolved",
-          country: restored.iso2 || "Saved location",
-          iso2: restored.iso2 || "",
-          message: restored.iso2 ? `IP: ${restored.iso2} (approximate)` : "IP: saved approximate location"
-        });
-      }
-    }
-    setGeoReady(true);
+      setGeoReady(true);
+    });
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   const refreshIpGeo = useCallback(async () => {

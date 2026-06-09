@@ -1,9 +1,5 @@
-Goal: Stabilize production map startup: GPS first click, basemap labels/landscape loading, zoom-in/zoom-out labels, without regressing colors/IP/manual hover.
-State: checkpoint=.checkpoints/20260602-141520.patch; CI=PASS; Smoke=11/0; POST_CHECKS_OK=1; HUB_STAGE_REPORT_OK=1; Reports=8.7MB
-Done: Analyzed videos 4-7. Root cause: map booted with empty style then setStyle, causing Safari style-diff rebuilds and intermittent missing basemap labels/landscape; worker source-map 404 also surfaced as console noise.
-Done: Final CI output hardened: FAIL cannot contain green PASS markers or raw PASS CI_RESULT; MVP/final summaries are compact and keep required proof lines.
-Done: Prod live access-block retry is bounded; live probe timeout now kills the process group and returns TIMEOUT instead of hanging.
-Done: Old prod screenshots archived outside repo at ~/islegalcannabis_archive/reports_screenshots_20260602-111412; JSON and working data were not removed.
-Done: Prod gates PASS: live=OK, payload total=1182.7KiB script=444.2KiB first_fill=822ms, js_city country=1660ms city=487ms legacy=0, GPS marker=7ms center=10ms recenter=1ms zoom_in_city_labels=42 zoom_out_countries=216.
-Now: Commit and tag the green state through Tools/commit_if_green.sh.
+Goal: Execute FINAL PROD GATE for Status Engine v9 with local UI, map screenshots, popup audits, deploy decision, and production audit.
+State: checkpoint=.checkpoints/20260609-201009.patch; CI=PASS; Smoke=PASS
+Done: Preserved Cannabis Knowledge Layer; v9 SSOT/governance reports regenerated for 300 jurisdictions; STATUS_REVIEW_REQUIRED=0; control country audit PASS; state review PASS; Bangladesh, Texas, and five state data issues corrected through reviewed data; production popup evaluator leaks removed; duplicate popup summary/key issues fixed; point fallback layer added for SSOT-only territories; focused storage/map/popup/static tests PASS; full truth suite PASS; eslint PASS; us_states provenance/sha corrected; map screenshots regenerated for six regions plus USA states.
+Now: Deploy path is being checked after local final prod gate approval.
 Open questions: UNCONFIRMED none.

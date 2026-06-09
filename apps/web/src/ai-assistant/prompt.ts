@@ -40,8 +40,11 @@ function compactCannabisProfile(context: AIContext) {
     profile.localNames.length ? `local names: ${profile.localNames.slice(0, 8).join(", ")}` : null,
     profile.history.length ? `history: ${compactText(profile.history.join(" "), 180)}` : null,
     profile.culture.length ? `culture: ${compactText(profile.culture.join(" "), 180)}` : null,
+    profile.products.length ? `products: ${compactText(profile.products.join(" "), 160)}` : null,
+    profile.traditionalUse.length ? `traditional use: ${compactText(profile.traditionalUse.join(" "), 160)}` : null,
     profile.cannabisFoods.length ? `foods: ${compactText(profile.cannabisFoods.join(" "), 160)}` : null,
-    profile.enforcementReality.length ? `enforcement reality: ${compactText(profile.enforcementReality.join(" "), 180)}` : null
+    profile.enforcementReality.length ? `enforcement reality: ${compactText(profile.enforcementReality.join(" "), 180)}` : null,
+    profile.notes.length ? `notes: ${compactText(profile.notes.join(" "), 160)}` : null
   ].filter(Boolean);
   return parts.length ? parts.join("; ") : null;
 }

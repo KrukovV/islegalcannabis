@@ -350,28 +350,16 @@ run_mandatory_tail() {
   local post_reason="OK"
   local hub_reason="OK"
   set +e
-  prod_output=$(${NODE_BIN} "${ROOT}/tools/prod_live_quality_gate.mjs" 2>&1)
-  prod_rc=$?
-  prod_log_output="${prod_output}"
-  if [ "${prod_rc}" -ne 0 ]; then
-    prod_reason="RC_${prod_rc}"
-    if printf "%s\n" "${prod_output}" | grep -q "SECRET_MISSING"; then
-      prod_reason="SECRET_MISSING"
-    elif printf "%s\n" "${prod_output}" | grep -q "PROD_LIVE_DEGRADATION=FAIL"; then
-      prod_reason="DEGRADATION"
-    fi
-  fi
-  if [ "${prod_rc}" -ne 0 ] && printf "%s\n" "${prod_output}" | grep -Eq "ACCESS_BLOCK|SEED_STATUS_HIGH:403"; then
-    prod_retry_delay_ms="${PROD_LIVE_RETRY_DELAY_MS:-45000}"
-    prod_retry_delay_s=$(( (prod_retry_delay_ms + 999) / 1000 ))
-    sleep "${prod_retry_delay_s}"
-    prod_retry_output=$(${NODE_BIN} "${ROOT}/tools/prod_live_quality_gate.mjs" 2>&1)
-    prod_retry_rc=$?
-    prod_retry_line="PROD_LIVE_RETRY attempt=2 reason=ACCESS_BLOCK delay_ms=${prod_retry_delay_ms}"
-    prod_log_output="${prod_output}"$'\n'"${prod_retry_line}"$'\n'"${prod_retry_output}"
-    prod_output="${prod_retry_line}"$'\n'"${prod_retry_output}"
-    prod_rc="${prod_retry_rc}"
-    prod_reason="OK"
+  if [ -z "${VERCEL_AUTOMATION_BYPASS_SECRET:-}" ] && [ "${PROD_GATES_REQUIRED:-0}" != "1" ]; then
+    : > "${PROD_LIVE_GATE_LOG}"
+    : > "${PROD_PAYLOAD_GATE_LOG}"
+    : > "${PROD_JS_CITY_GATE_LOG}"
+    : > "${PROD_GPS_GATE_LOG}"
+    append_ci_line "PROD_GATES_LOCAL_SKIP=1 reason=SECRET_MISSING required=0"
+  else
+    prod_output=$(${NODE_BIN} "${ROOT}/tools/prod_live_quality_gate.mjs" 2>&1)
+    prod_rc=$?
+    prod_log_output="${prod_output}"
     if [ "${prod_rc}" -ne 0 ]; then
       prod_reason="RC_${prod_rc}"
       if printf "%s\n" "${prod_output}" | grep -q "SECRET_MISSING"; then
@@ -380,84 +368,104 @@ run_mandatory_tail() {
         prod_reason="DEGRADATION"
       fi
     fi
-  fi
-  printf "%s\n" "${prod_log_output}" > "${PROD_LIVE_GATE_LOG}"
-  if [ -n "${prod_output}" ]; then
-    printf "%s\n" "${prod_output}" >> "${STDOUT_FILE}"
-    printf "%s\n" "${prod_output}" >> "${RUN_REPORT_FILE}"
-    printf "%s\n" "${prod_output}" >> "${REPORTS_FINAL}"
-    if [ "${CI_WRITE_ROOT}" = "1" ]; then
-      printf "%s\n" "${prod_output}" >> "${ROOT}/ci-final.txt"
+    if [ "${prod_rc}" -ne 0 ] && printf "%s\n" "${prod_output}" | grep -Eq "ACCESS_BLOCK|SEED_STATUS_HIGH:403"; then
+      prod_retry_delay_ms="${PROD_LIVE_RETRY_DELAY_MS:-45000}"
+      prod_retry_delay_s=$(( (prod_retry_delay_ms + 999) / 1000 ))
+      sleep "${prod_retry_delay_s}"
+      prod_retry_output=$(${NODE_BIN} "${ROOT}/tools/prod_live_quality_gate.mjs" 2>&1)
+      prod_retry_rc=$?
+      prod_retry_line="PROD_LIVE_RETRY attempt=2 reason=ACCESS_BLOCK delay_ms=${prod_retry_delay_ms}"
+      prod_log_output="${prod_output}"$'\n'"${prod_retry_line}"$'\n'"${prod_retry_output}"
+      prod_output="${prod_retry_line}"$'\n'"${prod_retry_output}"
+      prod_rc="${prod_retry_rc}"
+      prod_reason="OK"
+      if [ "${prod_rc}" -ne 0 ]; then
+        prod_reason="RC_${prod_rc}"
+        if printf "%s\n" "${prod_output}" | grep -q "SECRET_MISSING"; then
+          prod_reason="SECRET_MISSING"
+        elif printf "%s\n" "${prod_output}" | grep -q "PROD_LIVE_DEGRADATION=FAIL"; then
+          prod_reason="DEGRADATION"
+        fi
+      fi
     fi
-  fi
-  payload_output=$(${NODE_BIN} "${ROOT}/tools/prod_new_map_payload_gate.mjs" 2>&1)
-  payload_rc=$?
-  printf "%s\n" "${payload_output}" > "${PROD_PAYLOAD_GATE_LOG}"
-  if [ "${payload_rc}" -ne 0 ]; then
-    payload_reason="RC_${payload_rc}"
-    if printf "%s\n" "${payload_output}" | grep -q "SECRET_MISSING"; then
-      payload_reason="SECRET_MISSING"
-    elif printf "%s\n" "${payload_output}" | grep -q "PROD_PAYLOAD_DEGRADATION=FAIL"; then
-      payload_reason="DEGRADATION"
+    printf "%s\n" "${prod_log_output}" > "${PROD_LIVE_GATE_LOG}"
+    if [ -n "${prod_output}" ]; then
+      printf "%s\n" "${prod_output}" >> "${STDOUT_FILE}"
+      printf "%s\n" "${prod_output}" >> "${RUN_REPORT_FILE}"
+      printf "%s\n" "${prod_output}" >> "${REPORTS_FINAL}"
+      if [ "${CI_WRITE_ROOT}" = "1" ]; then
+        printf "%s\n" "${prod_output}" >> "${ROOT}/ci-final.txt"
+      fi
     fi
-  fi
-  if [ -n "${payload_output}" ]; then
-    printf "%s\n" "${payload_output}" >> "${STDOUT_FILE}"
-    printf "%s\n" "${payload_output}" >> "${RUN_REPORT_FILE}"
-    printf "%s\n" "${payload_output}" >> "${REPORTS_FINAL}"
-    if [ "${CI_WRITE_ROOT}" = "1" ]; then
-      printf "%s\n" "${payload_output}" >> "${ROOT}/ci-final.txt"
+    payload_output=$(${NODE_BIN} "${ROOT}/tools/prod_new_map_payload_gate.mjs" 2>&1)
+    payload_rc=$?
+    printf "%s\n" "${payload_output}" > "${PROD_PAYLOAD_GATE_LOG}"
+    if [ "${payload_rc}" -ne 0 ]; then
+      payload_reason="RC_${payload_rc}"
+      if printf "%s\n" "${payload_output}" | grep -q "SECRET_MISSING"; then
+        payload_reason="SECRET_MISSING"
+      elif printf "%s\n" "${payload_output}" | grep -q "PROD_PAYLOAD_DEGRADATION=FAIL"; then
+        payload_reason="DEGRADATION"
+      fi
     fi
-  fi
-  js_city_output=$(${NODE_BIN} "${ROOT}/tools/prod_new_map_js_city_gate.mjs" 2>&1)
-  js_city_rc=$?
-  printf "%s\n" "${js_city_output}" > "${PROD_JS_CITY_GATE_LOG}"
-  if [ "${js_city_rc}" -ne 0 ]; then
-    js_city_reason="RC_${js_city_rc}"
-    if printf "%s\n" "${js_city_output}" | grep -q "SECRET_MISSING"; then
-      js_city_reason="SECRET_MISSING"
-    elif printf "%s\n" "${js_city_output}" | grep -q "PROD_JS_CITY_DEGRADATION=FAIL"; then
-      js_city_reason="DEGRADATION"
+    if [ -n "${payload_output}" ]; then
+      printf "%s\n" "${payload_output}" >> "${STDOUT_FILE}"
+      printf "%s\n" "${payload_output}" >> "${RUN_REPORT_FILE}"
+      printf "%s\n" "${payload_output}" >> "${REPORTS_FINAL}"
+      if [ "${CI_WRITE_ROOT}" = "1" ]; then
+        printf "%s\n" "${payload_output}" >> "${ROOT}/ci-final.txt"
+      fi
     fi
-  fi
-  if [ -n "${js_city_output}" ]; then
-    printf "%s\n" "${js_city_output}" >> "${STDOUT_FILE}"
-    printf "%s\n" "${js_city_output}" >> "${RUN_REPORT_FILE}"
-    printf "%s\n" "${js_city_output}" >> "${REPORTS_FINAL}"
-    if [ "${CI_WRITE_ROOT}" = "1" ]; then
-      printf "%s\n" "${js_city_output}" >> "${ROOT}/ci-final.txt"
+    js_city_output=$(${NODE_BIN} "${ROOT}/tools/prod_new_map_js_city_gate.mjs" 2>&1)
+    js_city_rc=$?
+    printf "%s\n" "${js_city_output}" > "${PROD_JS_CITY_GATE_LOG}"
+    if [ "${js_city_rc}" -ne 0 ]; then
+      js_city_reason="RC_${js_city_rc}"
+      if printf "%s\n" "${js_city_output}" | grep -q "SECRET_MISSING"; then
+        js_city_reason="SECRET_MISSING"
+      elif printf "%s\n" "${js_city_output}" | grep -q "PROD_JS_CITY_DEGRADATION=FAIL"; then
+        js_city_reason="DEGRADATION"
+      fi
     fi
-  fi
-  gps_output=$(NEW_MAP_GPS_GATE=1 NEW_MAP_GPS_LABEL="prod-gps-gate-${RUN_ID}" ${NODE_BIN} "${ROOT}/tools/measure_new_map_gps_flow.mjs" 2>&1)
-  gps_rc=$?
-  gps_log_output="${gps_output}"
-  if [ "${gps_rc}" -ne 0 ] && printf "%s\n" "${gps_output}" | grep -q "PROD_GPS_OK=0 reason=PAGE_ERRORS"; then
-    gps_first_report=$(printf "%s\n" "${gps_output}" | sed -n 's/^PROD_GPS_REPORT=//p' | tail -n 1)
-    gps_retry_delay_ms="${PROD_GPS_RETRY_DELAY_MS:-45000}"
-    gps_retry_delay_s=$(( (gps_retry_delay_ms + 999) / 1000 ))
-    sleep "${gps_retry_delay_s}"
-    gps_retry_output=$(NEW_MAP_GPS_GATE=1 NEW_MAP_GPS_LABEL="prod-gps-gate-${RUN_ID}-retry2" ${NODE_BIN} "${ROOT}/tools/measure_new_map_gps_flow.mjs" 2>&1)
-    gps_retry_rc=$?
-    gps_retry_line="PROD_GPS_RETRY attempt=2 reason=PAGE_ERRORS delay_ms=${gps_retry_delay_ms} previous_report=${gps_first_report:-NA}"
-    gps_log_output="${gps_output}"$'\n'"${gps_retry_line}"$'\n'"${gps_retry_output}"
-    gps_output="${gps_retry_line}"$'\n'"${gps_retry_output}"
-    gps_rc="${gps_retry_rc}"
-  fi
-  printf "%s\n" "${gps_log_output}" > "${PROD_GPS_GATE_LOG}"
-  if [ "${gps_rc}" -ne 0 ]; then
-    gps_reason="RC_${gps_rc}"
-    if printf "%s\n" "${gps_output}" | grep -q "SECRET_MISSING"; then
-      gps_reason="SECRET_MISSING"
-    elif printf "%s\n" "${gps_output}" | grep -q "PROD_GPS_OK=0"; then
-      gps_reason="DEGRADATION"
+    if [ -n "${js_city_output}" ]; then
+      printf "%s\n" "${js_city_output}" >> "${STDOUT_FILE}"
+      printf "%s\n" "${js_city_output}" >> "${RUN_REPORT_FILE}"
+      printf "%s\n" "${js_city_output}" >> "${REPORTS_FINAL}"
+      if [ "${CI_WRITE_ROOT}" = "1" ]; then
+        printf "%s\n" "${js_city_output}" >> "${ROOT}/ci-final.txt"
+      fi
     fi
-  fi
-  if [ -n "${gps_output}" ]; then
-    printf "%s\n" "${gps_output}" >> "${STDOUT_FILE}"
-    printf "%s\n" "${gps_output}" >> "${RUN_REPORT_FILE}"
-    printf "%s\n" "${gps_output}" >> "${REPORTS_FINAL}"
-    if [ "${CI_WRITE_ROOT}" = "1" ]; then
-      printf "%s\n" "${gps_output}" >> "${ROOT}/ci-final.txt"
+    gps_output=$(NEW_MAP_GPS_GATE=1 NEW_MAP_GPS_LABEL="prod-gps-gate-${RUN_ID}" ${NODE_BIN} "${ROOT}/tools/measure_new_map_gps_flow.mjs" 2>&1)
+    gps_rc=$?
+    gps_log_output="${gps_output}"
+    if [ "${gps_rc}" -ne 0 ] && printf "%s\n" "${gps_output}" | grep -q "PROD_GPS_OK=0 reason=PAGE_ERRORS"; then
+      gps_first_report=$(printf "%s\n" "${gps_output}" | sed -n 's/^PROD_GPS_REPORT=//p' | tail -n 1)
+      gps_retry_delay_ms="${PROD_GPS_RETRY_DELAY_MS:-45000}"
+      gps_retry_delay_s=$(( (gps_retry_delay_ms + 999) / 1000 ))
+      sleep "${gps_retry_delay_s}"
+      gps_retry_output=$(NEW_MAP_GPS_GATE=1 NEW_MAP_GPS_LABEL="prod-gps-gate-${RUN_ID}-retry2" ${NODE_BIN} "${ROOT}/tools/measure_new_map_gps_flow.mjs" 2>&1)
+      gps_retry_rc=$?
+      gps_retry_line="PROD_GPS_RETRY attempt=2 reason=PAGE_ERRORS delay_ms=${gps_retry_delay_ms} previous_report=${gps_first_report:-NA}"
+      gps_log_output="${gps_output}"$'\n'"${gps_retry_line}"$'\n'"${gps_retry_output}"
+      gps_output="${gps_retry_line}"$'\n'"${gps_retry_output}"
+      gps_rc="${gps_retry_rc}"
+    fi
+    printf "%s\n" "${gps_log_output}" > "${PROD_GPS_GATE_LOG}"
+    if [ "${gps_rc}" -ne 0 ]; then
+      gps_reason="RC_${gps_rc}"
+      if printf "%s\n" "${gps_output}" | grep -q "SECRET_MISSING"; then
+        gps_reason="SECRET_MISSING"
+      elif printf "%s\n" "${gps_output}" | grep -q "PROD_GPS_OK=0"; then
+        gps_reason="DEGRADATION"
+      fi
+    fi
+    if [ -n "${gps_output}" ]; then
+      printf "%s\n" "${gps_output}" >> "${STDOUT_FILE}"
+      printf "%s\n" "${gps_output}" >> "${RUN_REPORT_FILE}"
+      printf "%s\n" "${gps_output}" >> "${REPORTS_FINAL}"
+      if [ "${CI_WRITE_ROOT}" = "1" ]; then
+        printf "%s\n" "${gps_output}" >> "${ROOT}/ci-final.txt"
+      fi
     fi
   fi
   if [ -x "${ROOT}/tools/post_checks.sh" ]; then

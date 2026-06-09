@@ -7,8 +7,10 @@ import { assertCannabisWikiSource, isCannabisWikiSource } from "@/lib/wiki/canna
 import {
   deriveMapCategoryFromCountryPageDataSignals,
   deriveResultStatusFromCountryPageData,
-  statusToColor
+  mapCategoryToColor
 } from "@/lib/resultStatus";
+import { getHumanStatusHeadline, getHumanStatusSummary } from "@/lib/statusHumanText";
+import { applyStatusReviewOverrideToCountryPageData } from "@/lib/statusReviewOverrides";
 
 type CountryLegalStatus = "LEGAL" | "ILLEGAL" | "DECRIMINALIZED" | "TOLERATED" | "UNKNOWN";
 type CountryMedicalStatus = "LEGAL" | "LIMITED" | "ILLEGAL" | "UNKNOWN";
@@ -484,79 +486,27 @@ function summarizeDistributionModel(data: CountryPageData) {
 }
 
 export function deriveMapCategoryFromCountryPageData(data: CountryPageData) {
-  return deriveMapCategoryFromCountryPageDataSignals(data, deriveResultStatusFromCountryPageData(data));
+  const effectiveData = applyStatusReviewOverrideToCountryPageData(data);
+  return deriveMapCategoryFromCountryPageDataSignals(
+    effectiveData,
+    deriveResultStatusFromCountryPageData(effectiveData)
+  );
 }
 
-function buildMapColorReason(data: CountryPageData) {
-  const resultStatus = deriveResultStatusFromCountryPageData(data);
-  const mapCategory = deriveMapCategoryFromCountryPageDataSignals(data, resultStatus);
-  const reasonText = [data.notes_raw, data.notes_normalized, data.facts.penalty]
-    .filter(Boolean)
-    .join(" ")
-    .toLowerCase();
-  if (mapCategory === "LIMITED_OR_MEDICAL" && resultStatus === "ILLEGAL") {
-    if (data.legal_model.medical.status === "LEGAL" || data.legal_model.medical.status === "LIMITED") {
-      return "Yellow because recreational law remains illegal, but medical access exists.";
-    }
-    if (
-      data.legal_model.signals?.enforcement_level === "rare" ||
-      data.legal_model.signals?.enforcement_level === "unenforced" ||
-      includesFold(reasonText, "rarely prosecuted") ||
-      includesFold(reasonText, "rarely enforced") ||
-      includesFold(reasonText, "not enforced") ||
-      includesFold(reasonText, "lax") ||
-      includesFold(reasonText, "enforced opportunistically") ||
-      includesFold(reasonText, "small amounts")
-    ) {
-      return "Yellow because formal illegality is softened by weak or uneven enforcement.";
-    }
-    if (
-      includesFold(reasonText, "tolerated") ||
-      includesFold(reasonText, "coffee shop") ||
-      includesFold(reasonText, "publicly offer") ||
-      includesFold(reasonText, "happy restaurants") ||
-      includesFold(reasonText, "government-owned shops sell cannabis")
-    ) {
-      return "Yellow because formal illegality is softened by tolerated or semi-open local practice.";
-    }
-    return "Yellow because recreational law remains illegal, but source notes show softer real-world conditions than a full red classification.";
-  }
-  if (mapCategory === "LEGAL_OR_DECRIM" && resultStatus === "DECRIM") {
-    return "Green because personal-use law is decriminalized and current access is partially allowed in practice.";
-  }
-  if (mapCategory === "LEGAL_OR_DECRIM" && resultStatus === "MIXED") {
-    if (
-      data.legal_model.recreational.status === "DECRIMINALIZED" ||
-      includesFold(reasonText, "decriminalized")
-    ) {
-      return "Green because personal use is decriminalized and current access is partially allowed in practice.";
-    }
-    if (
-      includesFold(reasonText, "tolerated") ||
-      includesFold(reasonText, "coffee shop") ||
-      includesFold(reasonText, "coffeeshop")
-    ) {
-      return "Green because formal illegality is softened by tolerated local practice.";
-    }
-    if (
-      includesFold(reasonText, "licensed") ||
-      includesFold(reasonText, "dispensary") ||
-      includesFold(reasonText, "government-owned shops sell cannabis") ||
-      includesFold(reasonText, "bhang") ||
-      includesFold(reasonText, "social club") ||
-      includesFold(reasonText, "allowed to grow")
-    ) {
-      return "Green because formal illegality is offset by limited legal or semi-open access in practice.";
-    }
-    return "Green because the final status is mixed: formal illegality is offset by decriminalized, tolerated, or limited-access practice.";
-  }
-  return null;
+function buildMapColorReason(mapCategory: CountryCardEntry["mapCategory"]) {
+  return getHumanStatusSummary(mapCategory);
+}
+
+function resultStatusFromMapCategory(mapCategory: CountryCardEntry["mapCategory"]) {
+  if (mapCategory === "LEGAL_OR_DECRIM") return "LEGAL" as const;
+  if (mapCategory === "UNKNOWN") return "UNKNOWN" as const;
+  return "ILLEGAL" as const;
 }
 
 export function deriveCountryCardEntryFromCountryPageData(data: CountryPageData): CountryCardEntry {
-  const resultStatus = deriveResultStatusFromCountryPageData(data);
-  const mapCategory = deriveMapCategoryFromCountryPageDataSignals(data, resultStatus);
-  const mapReason = buildMapColorReason(data);
+  data = applyStatusReviewOverrideToCountryPageData(data);
+  const mapCategory = deriveMapCategoryFromCountryPageDataSignals(data);
+  const mapReason = buildMapColorReason(mapCategory);
   const pageHref = `/c/${data.code}`;
   const legalSourceUrl = isCannabisWikiSource(data.sources.legal) ? assertCannabisWikiSource(data.sources.legal) : null;
   const sources = (data.sources.citations || []).slice(0, 3).map((source) => ({
@@ -614,21 +564,14 @@ export function deriveCountryCardEntryFromCountryPageData(data: CountryPageData)
     info.push(buildReason("weak-enforcement", "Enforcement is often weak in practice.", "#law-risk", reasonSourceUrl));
   }
 
-  const summary =
-    mapCategory === "ILLEGAL"
-      ? "Illegal under current law."
-      : mapCategory === "LIMITED_OR_MEDICAL"
-        ? "Restricted, but limited lawful access exists."
-        : resultStatus === "LEGAL"
-          ? "Lawful access is confirmed."
-          : "Decriminalized or partly allowed in practice.";
+  const summary = getHumanStatusHeadline(mapCategory);
 
   if (mapCategory === "ILLEGAL") {
-    why.push(buildReason("why-red", "Red because hard restrictions remain and no lawful access is confirmed.", "#law-status-explanation", reasonSourceUrl));
+    why.push(buildReason("why-red", getHumanStatusSummary(mapCategory), "#law-status-explanation", reasonSourceUrl));
   } else if (mapCategory === "LIMITED_OR_MEDICAL") {
-    why.push(buildReason("why-yellow", mapReason || "Yellow because restrictions remain, but there is limited lawful access.", "#law-status-explanation", reasonSourceUrl));
+    why.push(buildReason("why-yellow", getHumanStatusSummary(mapCategory), "#law-status-explanation", reasonSourceUrl));
   } else {
-    why.push(buildReason("why-green", mapReason || "Green because current access is legal, decriminalized, or tolerated.", "#law-status-explanation", reasonSourceUrl));
+    why.push(buildReason("why-green", getHumanStatusSummary(mapCategory), "#law-status-explanation", reasonSourceUrl));
   }
 
   return {
@@ -640,8 +583,8 @@ export function deriveCountryCardEntryFromCountryPageData(data: CountryPageData)
     iso2: data.node_type === "state" ? data.geo_code : data.iso2,
     type: data.node_type,
     result: {
-      status: resultStatus,
-      color: statusToColor(resultStatus)
+      status: resultStatusFromMapCategory(mapCategory),
+      color: mapCategoryToColor(mapCategory)
     },
     mapCategory,
     mapReason,
@@ -662,10 +605,10 @@ export function deriveCountryCardEntryFromCountryPageData(data: CountryPageData)
     panel: {
       levelTitle:
         mapCategory === "ILLEGAL"
-          ? "Illegal"
+          ? "RED"
           : mapCategory === "LIMITED_OR_MEDICAL"
-            ? "Restricted"
-            : "Legal or partly allowed",
+            ? "YELLOW"
+            : "GREEN",
       summary,
       critical: critical.slice(0, 5),
       info: info.slice(0, 5),

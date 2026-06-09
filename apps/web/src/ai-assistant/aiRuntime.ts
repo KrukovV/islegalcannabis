@@ -602,9 +602,12 @@ function composeCannabisProfileDetail(context: AIContext) {
   if (!profile) return null;
   const parts = [
     profile.localNames.length ? `local names: ${profile.localNames.slice(0, 6).join(", ")}` : null,
+    profile.products.length ? `products: ${profile.products.slice(0, 2).join(" ")}` : null,
+    profile.traditionalUse.length ? `traditional use: ${profile.traditionalUse.slice(0, 1).join(" ")}` : null,
     profile.cannabisFoods.length ? `foods: ${profile.cannabisFoods.slice(0, 2).join(" ")}` : null,
     profile.culture.length ? `culture: ${profile.culture.slice(0, 1).join(" ")}` : null,
-    profile.enforcementReality.length ? `enforcement reality: ${profile.enforcementReality.slice(0, 1).join(" ")}` : null
+    profile.enforcementReality.length ? `enforcement reality: ${profile.enforcementReality.slice(0, 1).join(" ")}` : null,
+    profile.notes.length ? `notes: ${profile.notes.slice(0, 1).join(" ")}` : null
   ].filter(Boolean);
   return parts.length ? `Cannabis profile: ${parts.join("; ")}.` : null;
 }

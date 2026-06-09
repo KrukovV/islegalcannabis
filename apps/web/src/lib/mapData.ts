@@ -10,6 +10,7 @@ import {
 } from "./mapStatusProjection";
 import { buildStatusContract } from "./statusPairMatrix";
 import { buildStatusSnapshotMeta } from "./statusDomainModel";
+import { evaluateStatusEngineV9, type StatusEngineV9Result } from "./statusEngineV9";
 import { buildSSOTStatusModel, type SSOTStatusModel } from "./mapDataStatusModel";
 import { findRepoRoot, readLatestSnapshot } from "./ssotDiff/ssotSnapshotStore";
 import {
@@ -23,6 +24,8 @@ import {
   loadOfficialOwnershipIndex,
   loadOfficialOwnershipDataset,
   loadRetailers,
+  loadStatusEngineV9Ssot,
+  loadStatusReviewOverrides,
   loadUsStatesSsot,
   loadUsStateWikiTableIndex,
   loadWikiClaimsMap,
@@ -97,6 +100,13 @@ type RegionEntry = {
   truthLevel?: string;
   truthReasonCodes?: string[];
   truthSources?: { wiki?: string | null; official?: string[]; our_rules?: string[] };
+  statusEngineColor?: StatusEngineV9Result["color"];
+  statusEngineRule?: StatusEngineV9Result["triggeredRule"];
+  statusEngineReason?: string[];
+  statusEngineRecreational?: StatusEngineV9Result["recreational"];
+  statusEngineMedical?: StatusEngineV9Result["medical"];
+  statusEngineEnforcement?: StatusEngineV9Result["enforcement"];
+  statusReviewRequired?: boolean;
   coordinates?: { lat: number; lng: number };
   updatedAt?: string | null;
   name?: string;
@@ -124,6 +134,14 @@ type Retailer = {
   updatedAt?: string;
   geo?: string;
 };
+
+type StatusEngineV9SsotEntry = {
+  name?: string;
+  recreational?: StatusEngineV9Result["recreational"];
+  medical?: StatusEngineV9Result["medical"];
+  enforcement?: StatusEngineV9Result["enforcement"];
+  sourceUrl?: string | null;
+};
 let REGIONS_CACHE: RegionEntry[] | null = null;
 let SNAPSHOT_META_CACHE: { finalSnapshotId: string; builtAt: string; datasetHash: string } | null = null;
 let SNAPSHOT_CACHE_SOURCE_BUILT_AT: string | null = null;
@@ -140,6 +158,87 @@ function resolveLatestSnapshotBuiltAt() {
   } catch {
     return null;
   }
+}
+
+function mapRecPairToStatusEngine(value: string | null | undefined) {
+  const normalized = String(value || "").trim().toLowerCase();
+  if (normalized === "legal") return "LEGAL" as const;
+  if (normalized === "unknown" || !normalized) return null;
+  return "ILLEGAL" as const;
+}
+
+function mapMedPairToStatusEngine(value: string | null | undefined) {
+  const normalized = String(value || "").trim().toLowerCase();
+  if (normalized === "legal") return "REGULATED" as const;
+  if (normalized === "limited" || normalized === "unenforced") return "LIMITED" as const;
+  if (normalized === "illegal") return "NONE" as const;
+  return null;
+}
+
+function mapStatusEngineRecToPair(value: string | null | undefined) {
+  return value === "LEGAL" ? "Legal" : value === "ILLEGAL" ? "Illegal" : "Unknown";
+}
+
+function mapStatusEngineMedToPair(value: string | null | undefined) {
+  if (value === "REGULATED") return "Legal";
+  if (value === "LIMITED") return "Limited";
+  if (value === "NONE") return "Illegal";
+  return "Unknown";
+}
+
+function deriveStatusEngineFromNormalizedPair(params: {
+  recStatus?: string | null;
+  medStatus?: string | null;
+  recEnforcement?: string | null;
+  notes?: string | null;
+}): StatusEngineV9Result {
+  const recreational = mapRecPairToStatusEngine(params.recStatus);
+  const medical = mapMedPairToStatusEngine(params.medStatus);
+  const enforcementText = `${params.recEnforcement || ""} ${params.recStatus || ""} ${params.notes || ""}`.toLowerCase();
+  const soft =
+    recreational === "LEGAL" ||
+    /\b(unenforced|not enforced|rarely enforced|rarely prosecuted|decrim|decriminal|tolerated|opportunistically enforced|publicly offer|lax)\b/i.test(enforcementText);
+  const strict =
+    /\b(strict|illegal enforced|zero tolerance|death penalty|capital punishment|imprisonment| jail)\b/i.test(enforcementText);
+  const enforcement = soft ? "SOFT" : strict ? "STRICT" : null;
+  return evaluateStatusEngineV9({
+    recreational,
+    medical,
+    enforcement,
+    reason: [
+      ...(recreational ? [`recreational=${recreational}`] : []),
+      ...(medical ? [`medical=${medical}`] : []),
+      ...(enforcement ? [`enforcement=${enforcement}`] : [])
+    ],
+    missingSignal: [
+      ...(recreational ? [] : ["recreational"]),
+      ...(medical ? [] : ["medical"]),
+      ...(enforcement ? [] : ["enforcement"])
+    ],
+    conflictingFacts: [],
+    triggeredSignals: soft ? ["SOFT_ENFORCEMENT_SIGNAL"] : strict ? ["STRICT_ENFORCEMENT_SIGNAL"] : [],
+    sourceUrl: null,
+    confidence: recreational && medical && enforcement ? "MEDIUM" : "LOW"
+  });
+}
+
+function deriveStatusEngineFromSsotEntry(entry: StatusEngineV9SsotEntry | null | undefined) {
+  if (!entry?.recreational || !entry?.medical || !entry?.enforcement) return null;
+  return evaluateStatusEngineV9({
+    recreational: entry.recreational,
+    medical: entry.medical,
+    enforcement: entry.enforcement,
+    reason: [
+      `status_ssot_v9.recreational=${entry.recreational}`,
+      `status_ssot_v9.medical=${entry.medical}`,
+      `status_ssot_v9.enforcement=${entry.enforcement}`
+    ],
+    missingSignal: [],
+    conflictingFacts: [],
+    triggeredSignals: ["STATUS_ENGINE_V9_SSOT"],
+    sourceUrl: entry.sourceUrl || null,
+    confidence: "HIGH"
+  });
 }
 
 function invalidateSnapshotCachesIfStale() {
@@ -198,6 +297,12 @@ function buildMapRenderFallbackEntry(params: {
     finalRecStatus: recWiki,
     finalMedStatus: medWiki
   });
+  const statusEngine = deriveStatusEngineFromNormalizedPair({
+    recStatus: contract.finalRecStatus,
+    medStatus: contract.finalMedStatus,
+    recEnforcement: normalizedWiki.recreational.enforcement,
+    notes: params.wiki?.notes ?? params.wiki?.notes_text ?? null
+  });
   const officialSources = Array.isArray(params.officialSources) ? params.officialSources.filter(Boolean) : [];
   const hasKnownWikiStatus = contract.wikiRecStatus !== "Unknown" || contract.wikiMedStatus !== "Unknown";
   const truthLevel =
@@ -227,8 +332,8 @@ function buildMapRenderFallbackEntry(params: {
     effectiveMed: contract.finalMedStatus,
     finalRecStatus: contract.finalRecStatus,
     finalMedStatus: contract.finalMedStatus,
-    finalMapCategory: contract.finalMapCategory as MapCategory,
-    mapCategory: contract.mapCategory as MapCategory,
+    finalMapCategory: statusEngine.mapCategory as MapCategory,
+    mapCategory: statusEngine.mapCategory as MapCategory,
     notesOur: null,
     notesWiki: params.wiki?.notes ?? params.wiki?.notes_text ?? null,
     normalizedStatusSummary: normalizedWiki.summary,
@@ -246,6 +351,13 @@ function buildMapRenderFallbackEntry(params: {
     truthLevel,
     truthReasonCodes: [reasonCode],
     truthSources: { wiki: wikiPageUrl, official: [], our_rules: [reasonCode] },
+    statusEngineColor: statusEngine.color,
+    statusEngineRule: statusEngine.triggeredRule,
+    statusEngineReason: statusEngine.reason,
+    statusEngineRecreational: statusEngine.recreational,
+    statusEngineMedical: statusEngine.medical,
+    statusEngineEnforcement: statusEngine.enforcement,
+    statusReviewRequired: statusEngine.reviewRequired,
     coordinates:
       Number.isFinite(centroidLat) && Number.isFinite(centroidLng)
         ? { lat: centroidLat, lng: centroidLng }
@@ -261,6 +373,8 @@ export function buildRegions() {
   const entries = loadLegalSsot();
   const wikiClaims = loadWikiClaimsMap();
   const wikiLegalityTableByIso = loadWikiLegalityTableByIso();
+  const statusEngineSsot = loadStatusEngineV9Ssot();
+  const statusReviewOverrides = loadStatusReviewOverrides();
   const officialOwnershipIndex = loadOfficialOwnershipIndex();
   const officialOwnershipDataset = loadOfficialOwnershipDataset();
   const centroids = loadCentroids(resolveDataPath("data", "centroids", "adm0.json"));
@@ -270,11 +384,20 @@ export function buildRegions() {
     const centroid = centroids[geo] || null;
     const wiki = wikiClaims[geo] || {};
     const wikiTruthRow = wikiLegalityTableByIso[geo] || null;
+    const statusReviewOverride = statusReviewOverrides[geo] || null;
+    const notesForStatus =
+      statusReviewOverride?.notes ??
+      wikiTruthRow?.wiki_notes_hint ??
+      wiki?.notes ??
+      wiki?.notes_text ??
+      entry?.notes ??
+      entry?.extracted_facts?.notes ??
+      null;
     const normalizedWiki = normalizeCannabisStatusRecord({
       country: geo,
-      recreational: wikiTruthRow?.rec_status ?? wiki?.wiki_rec ?? wiki?.recreational_status,
-      medical: wikiTruthRow?.med_status ?? wiki?.wiki_med ?? wiki?.medical_status,
-      notes: wikiTruthRow?.wiki_notes_hint ?? wiki?.notes ?? wiki?.notes_text ?? null
+      recreational: statusReviewOverride?.wikiRecStatus ?? wikiTruthRow?.rec_status ?? wiki?.wiki_rec ?? wiki?.recreational_status,
+      medical: statusReviewOverride?.wikiMedStatus ?? wikiTruthRow?.med_status ?? wiki?.wiki_med ?? wiki?.medical_status,
+      notes: notesForStatus
     });
     const recWiki = normalizedWiki.effective_pair.recreational;
     const medWiki = normalizedWiki.effective_pair.medical;
@@ -308,16 +431,25 @@ export function buildRegions() {
     });
     const finalRecStatus = contract.finalRecStatus;
     const finalMedStatus = contract.finalMedStatus;
+    const statusEngine =
+      deriveStatusEngineFromSsotEntry(statusEngineSsot[geo]) ||
+      deriveStatusEngineFromNormalizedPair({
+        recStatus: finalRecStatus,
+        medStatus: finalMedStatus,
+        recEnforcement: normalizedWiki.recreational.enforcement,
+        notes: notesForStatus
+      });
     const notesExplainability = buildNotesExplainability({
       notesOur: entry?.notes || entry?.extracted_facts?.notes || null,
-      notesWiki: wikiTruthRow?.wiki_notes_hint ?? wiki?.notes ?? wiki?.notes_text ?? null,
+      notesWiki: notesForStatus,
       finalRecStatus,
       finalMedStatus,
       evidenceDeltaApproved: false
     });
-    const wikiSources = [entry?.wiki_url, ...(entry?.official_sources || [])].filter(
+    const wikiSources = [entry?.wiki_url, ...(entry?.official_sources || []), ...(statusReviewOverride?.sources || [])].filter(
       (value): value is string => Boolean(value)
     );
+    const wikiPageUrl = wiki?.wiki_row_url || entry?.wiki_url || statusReviewOverride?.sources?.[0] || null;
     regions.push({
       geo,
       type: "country",
@@ -336,10 +468,10 @@ export function buildRegions() {
       effectiveMed: contract.finalMedStatus,
       finalRecStatus,
       finalMedStatus,
-      finalMapCategory: contract.finalMapCategory as MapCategory,
-      mapCategory: contract.mapCategory as MapCategory,
+      finalMapCategory: statusEngine.mapCategory as MapCategory,
+      mapCategory: statusEngine.mapCategory as MapCategory,
       notesOur: entry?.notes || entry?.extracted_facts?.notes || null,
-      notesWiki: wikiTruthRow?.wiki_notes_hint ?? wiki?.notes ?? wiki?.notes_text ?? null,
+      notesWiki: notesForStatus,
       normalizedStatusSummary: normalizedWiki.summary,
       recreationalSummary: normalizedWiki.recreational_summary,
       medicalSummary: normalizedWiki.medical_summary,
@@ -357,12 +489,19 @@ export function buildRegions() {
       evidenceSourceType: notesExplainability.evidenceSourceType,
       triggerPhraseExcerpt: notesExplainability.triggerPhraseExcerpt,
       doesChangeFinalStatus: notesExplainability.doesChangeFinalStatus,
-      wikiPageUrl: wiki?.wiki_row_url || entry?.wiki_url || null,
+      wikiPageUrl,
       officialSources: filteredOfficialSources,
       wikiSources,
       truthLevel: truth.truthLevel,
       truthReasonCodes: truth.truthReasonCodes,
       truthSources: truth.truthSources,
+      statusEngineColor: statusEngine.color,
+      statusEngineRule: statusEngine.triggeredRule,
+      statusEngineReason: statusEngine.reason,
+      statusEngineRecreational: statusEngine.recreational,
+      statusEngineMedical: statusEngine.medical,
+      statusEngineEnforcement: statusEngine.enforcement,
+      statusReviewRequired: statusEngine.reviewRequired,
       coordinates: centroid
         ? { lat: centroid.lat, lng: centroid.lon }
         : (() => {
@@ -406,6 +545,75 @@ export function buildRegions() {
       }
     }
     regions.push(fallbackEntry);
+    existingCountryGeos.add(geo);
+  });
+
+  Object.entries(statusEngineSsot).forEach(([geo, ssotEntry]) => {
+    if (!/^[A-Z]{2}$/.test(geo) || existingCountryGeos.has(geo)) return;
+    const statusEngine = deriveStatusEngineFromSsotEntry(ssotEntry);
+    if (!statusEngine) return;
+    const statusReviewOverride = statusReviewOverrides[geo] || null;
+    const recStatus = mapStatusEngineRecToPair(ssotEntry.recreational);
+    const medStatus = mapStatusEngineMedToPair(ssotEntry.medical);
+    const normalized = normalizeCannabisStatusRecord({
+      country: geo,
+      recreational: recStatus,
+      medical: medStatus,
+      notes: statusReviewOverride?.notes || null
+    });
+    const meta = getCountryMetaByIso2(geo);
+    const centroid = centroids[geo] || null;
+    const lat = Number(centroid?.lat ?? meta?.latlng?.[0]);
+    const lng = Number(centroid?.lon ?? meta?.latlng?.[1]);
+    const sourceUrl = ssotEntry.sourceUrl || statusReviewOverride?.sources?.[0] || null;
+    regions.push({
+      geo,
+      type: "country",
+      legalStatusGlobal: recStatus,
+      medicalStatusGlobal: medStatus,
+      recOur: undefined,
+      medOur: undefined,
+      recWiki: recStatus,
+      medWiki: medStatus,
+      wikiRecStatus: recStatus,
+      wikiMedStatus: medStatus,
+      officialOverrideRec: null,
+      officialOverrideMed: null,
+      hasOfficialOverride: false,
+      effectiveRec: recStatus,
+      effectiveMed: medStatus,
+      finalRecStatus: recStatus,
+      finalMedStatus: medStatus,
+      finalMapCategory: statusEngine.mapCategory as MapCategory,
+      mapCategory: statusEngine.mapCategory as MapCategory,
+      notesOur: null,
+      notesWiki: statusReviewOverride?.notes || null,
+      normalizedStatusSummary: normalized.summary,
+      recreationalSummary: normalized.recreational_summary,
+      medicalSummary: normalized.medical_summary,
+      statusFlags: normalized.notes.parsed_flags,
+      normalizedRecreationalStatus: normalized.recreational.normalized_status,
+      normalizedRecreationalEnforcement: normalized.recreational.enforcement,
+      normalizedRecreationalScope: normalized.recreational.scope,
+      normalizedMedicalStatus: normalized.medical.normalized_status,
+      normalizedMedicalScope: normalized.medical.scope,
+      wikiPageUrl: sourceUrl,
+      officialSources: [],
+      wikiSources: [sourceUrl, ...(statusReviewOverride?.sources || [])].filter((value): value is string => Boolean(value)),
+      truthLevel: "UNKNOWN",
+      truthReasonCodes: ["STATUS_ENGINE_V9_SSOT_POINT_FALLBACK"],
+      truthSources: { wiki: sourceUrl, official: [], our_rules: ["STATUS_ENGINE_V9_SSOT_POINT_FALLBACK"] },
+      statusEngineColor: statusEngine.color,
+      statusEngineRule: statusEngine.triggeredRule,
+      statusEngineReason: statusEngine.reason,
+      statusEngineRecreational: statusEngine.recreational,
+      statusEngineMedical: statusEngine.medical,
+      statusEngineEnforcement: statusEngine.enforcement,
+      statusReviewRequired: statusEngine.reviewRequired,
+      coordinates: Number.isFinite(lat) && Number.isFinite(lng) ? { lat, lng } : undefined,
+      updatedAt: null,
+      name: getDisplayName(geo, "en") || ssotEntry.name || geo
+    });
     existingCountryGeos.add(geo);
   });
 
@@ -455,15 +663,28 @@ export function buildRegions() {
     const geo = `US-${region}`;
     const centroid = stateCentroids[geo] || null;
     const wiki = wikiClaims[geo] || {};
+    const statusReviewOverride = statusReviewOverrides[geo] || null;
+    const notesForStatus =
+      statusReviewOverride?.notes ??
+      wiki?.notes ??
+      wiki?.notes_text ??
+      entry?.notes ??
+      null;
     const wikiTableRow = stateWikiTableIndex.get(geo);
     const wikiTableOverride = deriveUsStateStatusOverrideFromWikiTable({
       recreational_raw: wikiTableRow?.recreational_raw ?? undefined
     });
     const recWiki = mapLegalStatus(
-      wiki?.wiki_rec ?? wiki?.recreational_status ?? (entry as { recreational?: string }).recreational
+      statusReviewOverride?.wikiRecStatus ??
+      wiki?.wiki_rec ??
+      wiki?.recreational_status ??
+      (entry as { recreational?: string }).recreational
     );
     const medWiki = mapMedicalStatus(
-      wiki?.wiki_med ?? wiki?.medical_status ?? (entry as { medical?: string }).medical
+      statusReviewOverride?.wikiMedStatus ??
+      wiki?.wiki_med ??
+      wiki?.medical_status ??
+      (entry as { medical?: string }).medical
     );
     const officialOverrideRec = entry?.official_override_rec
       ? mapLegalStatus(entry?.official_override_rec)
@@ -477,13 +698,19 @@ export function buildRegions() {
     const hasOfficialOverride = Boolean(officialOverrideRec || officialOverrideMed);
     const effectiveRec = hasOfficialOverride && officialOverrideRec
       ? officialOverrideRec
-      : (wikiTableOverride?.rec || recWiki);
+      : statusReviewOverride?.wikiRecStatus
+        ? recWiki
+        : (wikiTableOverride?.rec || recWiki);
     const effectiveMed = hasOfficialOverride && officialOverrideMed
       ? officialOverrideMed
-      : (wikiTableOverride?.med || medWiki);
+      : statusReviewOverride?.wikiMedStatus
+        ? medWiki
+        : (wikiTableOverride?.med || medWiki);
+    const reviewedRec = statusReviewOverride ? recWiki : (wikiTableOverride?.rec || recWiki);
+    const reviewedMed = statusReviewOverride ? medWiki : (wikiTableOverride?.med || medWiki);
     const truth = computeTruthLevel({
-      recWiki: wikiTableOverride?.rec || recWiki,
-      medWiki: wikiTableOverride?.med || medWiki,
+      recWiki: reviewedRec,
+      medWiki: reviewedMed,
       officialOverrideRec,
       officialOverrideMed,
       officialSources: filteredStateOfficialSources,
@@ -492,23 +719,41 @@ export function buildRegions() {
       rawOurMed: null
     });
     if (
+      !statusReviewOverride &&
       wikiTableOverride &&
       (wikiTableOverride.rec !== recWiki || wikiTableOverride.med !== medWiki) &&
       !truth.truthReasonCodes.includes("WIKI_STATE_TABLE_COLOR_RULE")
     ) {
       truth.truthReasonCodes.push("WIKI_STATE_TABLE_COLOR_RULE");
     }
+    if (statusReviewOverride && !truth.truthReasonCodes.includes("STATUS_REVIEW_OVERRIDE")) {
+      truth.truthReasonCodes.push("STATUS_REVIEW_OVERRIDE");
+    }
     const contract = buildStatusContract({
-      wikiRecStatus: wikiTableOverride?.rec || recWiki,
-      wikiMedStatus: wikiTableOverride?.med || medWiki,
+      wikiRecStatus: reviewedRec,
+      wikiMedStatus: reviewedMed,
       finalRecStatus: effectiveRec,
       finalMedStatus: effectiveMed
     });
     const finalRecStatus = contract.finalRecStatus;
     const finalMedStatus = contract.finalMedStatus;
+    const normalizedStateStatus = normalizeCannabisStatusRecord({
+      country: geo,
+      recreational: reviewedRec,
+      medical: reviewedMed,
+      notes: notesForStatus
+    });
+    const statusEngine =
+      deriveStatusEngineFromSsotEntry(statusEngineSsot[geo]) ||
+      deriveStatusEngineFromNormalizedPair({
+        recStatus: finalRecStatus,
+        medStatus: finalMedStatus,
+        recEnforcement: normalizedStateStatus.recreational.enforcement,
+        notes: notesForStatus
+      });
     const notesExplainability = buildNotesExplainability({
       notesOur: entry?.notes || null,
-      notesWiki: wiki?.notes ?? wiki?.notes_text ?? null,
+      notesWiki: notesForStatus,
       finalRecStatus,
       finalMedStatus,
       evidenceDeltaApproved: false
@@ -531,10 +776,10 @@ export function buildRegions() {
       effectiveMed: contract.finalMedStatus,
       finalRecStatus,
       finalMedStatus,
-      finalMapCategory: contract.finalMapCategory as MapCategory,
-      mapCategory: contract.mapCategory as MapCategory,
+      finalMapCategory: statusEngine.mapCategory as MapCategory,
+      mapCategory: statusEngine.mapCategory as MapCategory,
       notesOur: entry?.notes || null,
-      notesWiki: wiki?.notes ?? wiki?.notes_text ?? null,
+      notesWiki: notesForStatus,
       notesInterpretationSummary: notesExplainability.notesInterpretationSummary,
       notesTriggerPhrases: notesExplainability.notesTriggerPhrases,
       evidenceDelta: notesExplainability.evidenceDelta,
@@ -545,14 +790,24 @@ export function buildRegions() {
       doesChangeFinalStatus: notesExplainability.doesChangeFinalStatus,
       wikiPageUrl: wiki?.wiki_row_url || (entry as { wiki_row_url?: string | null }).wiki_row_url || null,
       officialSources: filteredStateOfficialSources,
-      wikiSources: Array.isArray(entry?.sources)
+      wikiSources: [
+        ...(Array.isArray(entry?.sources)
         ? entry.sources
             .map((item: { url?: string }) => item?.url)
             .filter((url): url is string => Boolean(url))
-        : [],
+        : []),
+        ...(statusReviewOverride?.sources || [])
+      ],
       truthLevel: truth.truthLevel,
       truthReasonCodes: truth.truthReasonCodes,
       truthSources: truth.truthSources,
+      statusEngineColor: statusEngine.color,
+      statusEngineRule: statusEngine.triggeredRule,
+      statusEngineReason: statusEngine.reason,
+      statusEngineRecreational: statusEngine.recreational,
+      statusEngineMedical: statusEngine.medical,
+      statusEngineEnforcement: statusEngine.enforcement,
+      statusReviewRequired: statusEngine.reviewRequired,
       coordinates: centroid ? { lat: centroid.lat, lng: centroid.lon } : undefined,
       updatedAt: entry?.updated_at || entry?.verified_at || null,
       name: centroid?.name

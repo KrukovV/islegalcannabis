@@ -17,6 +17,7 @@ describe("ViewportCountryPopup render contract", () => {
       })
     );
 
+    expect(html).toContain("Status");
     expect(html).toContain("Local Names");
     expect(html).toContain("happy pizza");
     expect(html).toContain("Enforcement Reality");

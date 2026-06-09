@@ -75,6 +75,8 @@ export default function CountrySeoPage({
   const cannabisProfileSections = [
     { id: "cannabis-profile-history", heading: "History", items: cannabisProfile?.history || [] },
     { id: "cannabis-profile-local-names", heading: "Local Names", items: cannabisProfile?.localNames || [] },
+    { id: "cannabis-profile-products", heading: "Products", items: cannabisProfile?.products || [] },
+    { id: "cannabis-profile-traditional-use", heading: "Traditional Use", items: cannabisProfile?.traditionalUse || [] },
     { id: "cannabis-profile-culture", heading: "Culture", items: cannabisProfile?.culture || [] },
     { id: "cannabis-profile-enforcement", heading: "Enforcement Reality", items: cannabisProfile?.enforcementReality || [] }
   ].filter((section) => section.items.length > 0);

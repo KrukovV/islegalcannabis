@@ -7,7 +7,6 @@ import { buildCountryIntentSections } from "@/lib/seo/countryIntentContent";
 import type { SeoLocale } from "@/lib/seo/i18n";
 import { getSeoText } from "@/lib/seo/i18n";
 import { localizePanel } from "@/lib/seo/panelLocale";
-import { formatDistributionDetail, formatMedicalDetail, formatRecreationalDetail } from "../statusPresentation";
 import styles from "../MapRoot.module.css";
 
 export default function UnifiedSeoStatusPanel({
@@ -104,23 +103,7 @@ export default function UnifiedSeoStatusPanel({
           </>
         ) : null}
         <h3 className={styles.seoPanelSubheading}>{panel.labels.lawSnapshot}</h3>
-        <ul className={styles.seoPanelList}>
-          <li>
-            <Link href={`/c/${data.code}#law-recreational`}>
-              {seo.recreational}: {formatRecreationalDetail(card)}
-            </Link>
-          </li>
-          <li>
-            <Link href={`/c/${data.code}#law-medical`}>
-              {seo.medical}: {formatMedicalDetail(card)}
-            </Link>
-          </li>
-          <li>
-            <Link href={`/c/${data.code}#law-distribution`}>
-              {seo.distribution}: {formatDistributionDetail(card)}
-            </Link>
-          </li>
-        </ul>
+        <p className={styles.seoPanelIntro}>{panel.summary}</p>
         <p className={styles.seoPanelIntro}>{seo.intro(data)}</p>
       </section>
 

@@ -26,7 +26,7 @@ const LABELS: Record<SeoLocale, PanelLabels> = {
     titleIn: (level, name) => `${level} in ${name}`,
     hardRestrictions: "Hard restrictions",
     moreContext: "More context",
-    whyThisColor: "Why this color",
+    whyThisColor: "Why This Color",
     lawSnapshot: "Law snapshot",
     intent: "Intent",
     related: "Related",

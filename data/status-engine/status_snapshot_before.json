@@ -1,0 +1,1805 @@
+{
+  "generated_at": "2026-06-09T16:37:42.346Z",
+  "entries": [
+    {
+      "id": "AD",
+      "name": "Andorra",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "AE",
+      "name": "United Arab Emirates / الإمارات",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "AF",
+      "name": "Afghanistan / افغانستان",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "AG",
+      "name": "Antigua and Barbuda",
+      "oldStatus": "DECRIMINALIZED/LIMITED",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "AI",
+      "name": "Anguilla",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "AL",
+      "name": "Albania / Shqipëria",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "AM",
+      "name": "Armenia / Հայաստան",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "AO",
+      "name": "Angola",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "AQ",
+      "name": "Antarctica",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "AR",
+      "name": "Argentina",
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "AS",
+      "name": "American Samoa / Sāmoa Amelika",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "AT",
+      "name": "Austria / Österreich",
+      "oldStatus": "DECRIMINALIZED/LIMITED",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "AU",
+      "name": "Australia",
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "AW",
+      "name": "Aruba",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "AX",
+      "name": "Åland Islands / Åland",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "AZ",
+      "name": "Azerbaijan / Azərbaycan",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "BA",
+      "name": "Bosnia and Herzegovina / Bosna i Hercegovina",
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "BB",
+      "name": "Barbados",
+      "oldStatus": "LEGAL/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "BD",
+      "name": "Bangladesh / বাংলাদেশ",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "BE",
+      "name": "Belgium / Belgien",
+      "oldStatus": "DECRIMINALIZED/LIMITED",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "BF",
+      "name": "Burkina Faso",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "BG",
+      "name": "Bulgaria / България",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "BH",
+      "name": "Bahrain / البحرين",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "BI",
+      "name": "Burundi / Uburundi",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "BJ",
+      "name": "Benin / Bénin",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "BL",
+      "name": "Saint Barthélemy",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "BM",
+      "name": "Bermuda",
+      "oldStatus": "DECRIMINALIZED/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "BN",
+      "name": "Brunei / Negara Brunei Darussalam",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "BO",
+      "name": "Bolivia / Wuliwya",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "BQ",
+      "name": "Caribbean Netherlands",
+      "oldStatus": "Unknown/Unknown",
+      "oldColor": "UNKNOWN"
+    },
+    {
+      "id": "BR",
+      "name": "Brazil / Brasil",
+      "oldStatus": "DECRIMINALIZED/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "BS",
+      "name": "Bahamas",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "BT",
+      "name": "Bhutan / འབྲུག་ཡུལ་",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "BV",
+      "name": "Bouvet Island",
+      "oldStatus": "Unknown/Unknown",
+      "oldColor": "UNKNOWN"
+    },
+    {
+      "id": "BW",
+      "name": "Botswana",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "BY",
+      "name": "Belarus / Белару́сь",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "BZ",
+      "name": "Belize / Belice",
+      "oldStatus": "DECRIMINALIZED/LIMITED",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "CA",
+      "name": "Canada",
+      "oldStatus": "LEGAL/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "CC",
+      "name": "Cocos (Keeling) Islands",
+      "oldStatus": "Unknown/Unknown",
+      "oldColor": "UNKNOWN"
+    },
+    {
+      "id": "CD",
+      "name": "DR Congo / RD Congo",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "CF",
+      "name": "Central African Republic / République centrafricaine",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "CG",
+      "name": "Congo / République du Congo",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "CH",
+      "name": "Switzerland / Suisse",
+      "oldStatus": "DECRIMINALIZED/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "CI",
+      "name": "Ivory Coast / Côte d'Ivoire",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "CK",
+      "name": "Cook Islands / Kūki 'Āirani",
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "CL",
+      "name": "Chile",
+      "oldStatus": "DECRIMINALIZED/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "CM",
+      "name": "Cameroon / Cameroun",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "CN",
+      "name": "China / 中国",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "CO",
+      "name": "Colombia",
+      "oldStatus": "DECRIMINALIZED/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "CR",
+      "name": "Costa Rica",
+      "oldStatus": "DECRIMINALIZED/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "CU",
+      "name": "Cuba",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "CV",
+      "name": "Cape Verde / Cabo Verde",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "CW",
+      "name": "Curaçao / Pais Kòrsou",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "CX",
+      "name": "Christmas Island",
+      "oldStatus": "Unknown/Unknown",
+      "oldColor": "UNKNOWN"
+    },
+    {
+      "id": "CY",
+      "name": "Cyprus / Κύπρος",
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "CZ",
+      "name": "Czechia / Česko",
+      "oldStatus": "DECRIMINALIZED/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "DE",
+      "name": "Germany / Deutschland",
+      "oldStatus": "LEGAL/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "DJ",
+      "name": "Djibouti / جيبوتي",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "DK",
+      "name": "Denmark / Danmark",
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "DM",
+      "name": "Dominica",
+      "oldStatus": "DECRIMINALIZED/LIMITED",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "DO",
+      "name": "Dominican Republic / República Dominicana",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "DZ",
+      "name": "Algeria / الجزائر",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "EC",
+      "name": "Ecuador",
+      "oldStatus": "DECRIMINALIZED/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "EE",
+      "name": "Estonia / Eesti",
+      "oldStatus": "DECRIMINALIZED/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "EG",
+      "name": "Egypt / مصر",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "EH",
+      "name": "Western Sahara / الصحراء الغربية",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "ER",
+      "name": "Eritrea / إريتريا",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "ES",
+      "name": "Spain / España",
+      "oldStatus": "DECRIMINALIZED/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "ET",
+      "name": "Ethiopia / ኢትዮጵያ",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "FI",
+      "name": "Finland / Suomi",
+      "oldStatus": "ILLEGAL/LIMITED",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "FJ",
+      "name": "Fiji / Viti",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "FK",
+      "name": "Falkland Islands",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "FM",
+      "name": "Micronesia",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "FO",
+      "name": "Faroe Islands / Færøerne",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "FR",
+      "name": "France",
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "GA",
+      "name": "Gabon",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "GB",
+      "name": "United Kingdom",
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "GD",
+      "name": "Grenada",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "GE",
+      "name": "Georgia / საქართველო",
+      "oldStatus": "DECRIMINALIZED/LIMITED",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "GF",
+      "name": "French Guiana",
+      "oldStatus": "Unknown/Unknown",
+      "oldColor": "UNKNOWN"
+    },
+    {
+      "id": "GG",
+      "name": "Guernsey / Guernesey",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "GH",
+      "name": "Ghana",
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "GI",
+      "name": "Gibraltar",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "GL",
+      "name": "Greenland / Kalaallit Nunaat",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "GM",
+      "name": "Gambia",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "GN",
+      "name": "Guinea / Guinée",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "GP",
+      "name": "Guadeloupe",
+      "oldStatus": "Unknown/Unknown",
+      "oldColor": "UNKNOWN"
+    },
+    {
+      "id": "GQ",
+      "name": "Equatorial Guinea / Guinée équatoriale",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "GR",
+      "name": "Greece / Ελλάδα",
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "GS",
+      "name": "South Georgia",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "GT",
+      "name": "Guatemala",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "GU",
+      "name": "Guam / Guåhån",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "GW",
+      "name": "Guinea-Bissau / Guiné-Bissau",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "GY",
+      "name": "Guyana",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "HK",
+      "name": "Hong Kong / 香港",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "HM",
+      "name": "Heard Island and McDonald Islands",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "HN",
+      "name": "Honduras",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "HR",
+      "name": "Croatia / Hrvatska",
+      "oldStatus": "DECRIMINALIZED/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "HT",
+      "name": "Haiti / Haïti",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "HU",
+      "name": "Hungary / Magyarország",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "ID",
+      "name": "Indonesia",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "IE",
+      "name": "Ireland / Éire",
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "IL",
+      "name": "Israel / إسرائيل",
+      "oldStatus": "DECRIMINALIZED/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "IM",
+      "name": "Isle of Man / Mannin",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "IN",
+      "name": "India / भारत",
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "IO",
+      "name": "British Indian Ocean Territory",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "IQ",
+      "name": "Iraq / العراق",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "IR",
+      "name": "Iran / ایران",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "IS",
+      "name": "Iceland / Ísland",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "IT",
+      "name": "Italy / Italia",
+      "oldStatus": "DECRIMINALIZED/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "JE",
+      "name": "Jersey / Jèrri",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "JM",
+      "name": "Jamaica",
+      "oldStatus": "DECRIMINALIZED/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "JO",
+      "name": "Jordan / الأردن",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "JP",
+      "name": "Japan / 日本",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "KE",
+      "name": "Kenya",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "KG",
+      "name": "Kyrgyzstan / Кыргызстан",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "KH",
+      "name": "Cambodia / Kâmpŭchéa",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "KI",
+      "name": "Kiribati",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "KM",
+      "name": "Comoros / جزر القمر",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "KN",
+      "name": "Saint Kitts and Nevis",
+      "oldStatus": "DECRIMINALIZED/LIMITED",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "KP",
+      "name": "North Korea / 조선",
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "KR",
+      "name": "South Korea / 한국",
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "KW",
+      "name": "Kuwait / الكويت",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "KY",
+      "name": "Cayman Islands",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "KZ",
+      "name": "Kazakhstan / Қазақстан",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "LA",
+      "name": "Laos / ສປປລາວ",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "LB",
+      "name": "Lebanon / لبنان",
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "LC",
+      "name": "Saint Lucia",
+      "oldStatus": "DECRIMINALIZED/LIMITED",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "LI",
+      "name": "Liechtenstein",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "LK",
+      "name": "Sri Lanka / ශ්‍රී ලංකාව",
+      "oldStatus": "DECRIMINALIZED/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "LR",
+      "name": "Liberia",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "LS",
+      "name": "Lesotho",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "LT",
+      "name": "Lithuania / Lietuva",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "LU",
+      "name": "Luxembourg / Luxemburg",
+      "oldStatus": "DECRIMINALIZED/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "LV",
+      "name": "Latvia / Latvija",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "LY",
+      "name": "Libya / ليبيا",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "MA",
+      "name": "Morocco / المغرب",
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "MC",
+      "name": "Monaco",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "MD",
+      "name": "Moldova",
+      "oldStatus": "DECRIMINALIZED/LIMITED",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "ME",
+      "name": "Montenegro / Црна Гора",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "MF",
+      "name": "Saint Martin",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "MG",
+      "name": "Madagascar / Madagasikara",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "MH",
+      "name": "Marshall Islands / M̧ajeļ",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "MK",
+      "name": "North Macedonia / Македонија",
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "ML",
+      "name": "Mali",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "MM",
+      "name": "Myanmar / မြန်မာ",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "MN",
+      "name": "Mongolia / Монгол улс",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "MO",
+      "name": "Macau / 澳门",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "MP",
+      "name": "Northern Mariana Islands / Na Islas Mariånas",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "MQ",
+      "name": "Martinique",
+      "oldStatus": "Unknown/Unknown",
+      "oldColor": "UNKNOWN"
+    },
+    {
+      "id": "MR",
+      "name": "Mauritania / موريتانيا",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "MS",
+      "name": "Montserrat",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "MT",
+      "name": "Malta",
+      "oldStatus": "LEGAL/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "MU",
+      "name": "Mauritius / Maurice",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "MV",
+      "name": "Maldives / ދިވެހިރާއްޖޭގެ",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "MW",
+      "name": "Malawi / Malaŵi",
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "MX",
+      "name": "Mexico / México",
+      "oldStatus": "DECRIMINALIZED/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "MY",
+      "name": "Malaysia / مليسيا",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "MZ",
+      "name": "Mozambique / Moçambique",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "NA",
+      "name": "Namibia / Namibië",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "NC",
+      "name": "New Caledonia / Nouvelle-Calédonie",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "NE",
+      "name": "Niger",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "NF",
+      "name": "Norfolk Island / Norf'k Ailen",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "NG",
+      "name": "Nigeria",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "NI",
+      "name": "Nicaragua",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "NL",
+      "name": "Netherlands / Nederland",
+      "oldStatus": "TOLERATED/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "NO",
+      "name": "Norway / Noreg",
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "NP",
+      "name": "Nepal / नेपाल",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "NR",
+      "name": "Nauru",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "NU",
+      "name": "Niue / Niuē",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "NZ",
+      "name": "New Zealand / Aotearoa",
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "OM",
+      "name": "Oman / عمان",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "PA",
+      "name": "Panama / Panamá",
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "PE",
+      "name": "Peru / Piruw",
+      "oldStatus": "DECRIMINALIZED/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "PF",
+      "name": "French Polynesia / Polynésie française",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "PG",
+      "name": "Papua New Guinea / Papua Niu Gini",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "PH",
+      "name": "Philippines / Pilipinas",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "PK",
+      "name": "Pakistan / پاكستان",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "PL",
+      "name": "Poland / Polska",
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "PM",
+      "name": "Saint Pierre and Miquelon / Saint-Pierre-et-Miquelon",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "PN",
+      "name": "Pitcairn Islands",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "PR",
+      "name": "Puerto Rico",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "PS",
+      "name": "Palestine / فلسطين",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "PT",
+      "name": "Portugal",
+      "oldStatus": "DECRIMINALIZED/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "PW",
+      "name": "Palau / Belau",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "PY",
+      "name": "Paraguay / Paraguái",
+      "oldStatus": "DECRIMINALIZED/LIMITED",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "QA",
+      "name": "Qatar / قطر",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "RE",
+      "name": "Réunion",
+      "oldStatus": "Unknown/Unknown",
+      "oldColor": "UNKNOWN"
+    },
+    {
+      "id": "RO",
+      "name": "Romania / România",
+      "oldStatus": "ILLEGAL/LIMITED",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "RS",
+      "name": "Serbia / Србија",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "RU",
+      "name": "Russia / Россия",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "RW",
+      "name": "Rwanda",
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "SA",
+      "name": "Saudi Arabia / السعودية",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "SB",
+      "name": "Solomon Islands",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "SC",
+      "name": "Seychelles / Sesel",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "SD",
+      "name": "Sudan / السودان",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "SE",
+      "name": "Sweden / Sverige",
+      "oldStatus": "ILLEGAL/LIMITED",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "SG",
+      "name": "Singapore / Singapura",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "SH",
+      "name": "Saint Helena, Ascension and Tristan da Cunha",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "SI",
+      "name": "Slovenia / Slovenija",
+      "oldStatus": "DECRIMINALIZED/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "SJ",
+      "name": "Svalbard and Jan Mayen",
+      "oldStatus": "Unknown/Unknown",
+      "oldColor": "UNKNOWN"
+    },
+    {
+      "id": "SK",
+      "name": "Slovakia / Slovensko",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "SL",
+      "name": "Sierra Leone",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "SM",
+      "name": "San Marino",
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "SN",
+      "name": "Senegal / Sénégal",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "SO",
+      "name": "Somalia / الصومال",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "SR",
+      "name": "Suriname",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "SS",
+      "name": "South Sudan",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "ST",
+      "name": "São Tomé and Príncipe / São Tomé e Príncipe",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "SV",
+      "name": "El Salvador",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "SX",
+      "name": "Sint Maarten / Saint-Martin",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "SY",
+      "name": "Syria / سوريا",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "SZ",
+      "name": "Eswatini",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "TC",
+      "name": "Turks and Caicos Islands",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "TD",
+      "name": "Chad / تشاد",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "TF",
+      "name": "French Southern and Antarctic Lands / Terres australes et antarctiques françaises",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "TG",
+      "name": "Togo",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "TH",
+      "name": "Thailand / ประเทศไทย",
+      "oldStatus": "LEGAL/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "TJ",
+      "name": "Tajikistan / Таджикистан",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "TK",
+      "name": "Tokelau",
+      "oldStatus": "Unknown/Unknown",
+      "oldColor": "UNKNOWN"
+    },
+    {
+      "id": "TL",
+      "name": "Timor-Leste / Timór-Leste",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "TM",
+      "name": "Turkmenistan / Туркмения",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "TN",
+      "name": "Tunisia / تونس",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "TO",
+      "name": "Tonga",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "TR",
+      "name": "Türkiye",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "TT",
+      "name": "Trinidad and Tobago",
+      "oldStatus": "DECRIMINALIZED/LIMITED",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "TV",
+      "name": "Tuvalu",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "TW",
+      "name": "Taiwan / 台灣",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "TZ",
+      "name": "Tanzania",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "UA",
+      "name": "Ukraine / Україна",
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "UG",
+      "name": "Uganda",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "UM",
+      "name": "United States Minor Outlying Islands",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "US",
+      "name": "United States",
+      "oldStatus": "DECRIMINALIZED/LIMITED",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "US-AK",
+      "name": "Alaska",
+      "oldStatus": "LEGAL/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "US-AL",
+      "name": "Alabama",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "US-AR",
+      "name": "Arkansas",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "US-AZ",
+      "name": "Arizona",
+      "oldStatus": "LEGAL/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "US-CA",
+      "name": "California",
+      "oldStatus": "LEGAL/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "US-CO",
+      "name": "Colorado",
+      "oldStatus": "LEGAL/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "US-CT",
+      "name": "Connecticut",
+      "oldStatus": "LEGAL/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "US-DE",
+      "name": "Delaware",
+      "oldStatus": "LEGAL/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "US-FL",
+      "name": "Florida",
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "US-GA",
+      "name": "Georgia",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "US-HI",
+      "name": "Hawaii",
+      "oldStatus": "DECRIMINALIZED/ILLEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "US-IA",
+      "name": "Iowa",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "US-ID",
+      "name": "Idaho",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "US-IL",
+      "name": "Illinois",
+      "oldStatus": "LEGAL/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "US-IN",
+      "name": "Indiana",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "US-KS",
+      "name": "Kansas",
+      "oldStatus": "ILLEGAL/LIMITED",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "US-KY",
+      "name": "Kentucky",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "US-LA",
+      "name": "Louisiana",
+      "oldStatus": "DECRIMINALIZED/ILLEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "US-MA",
+      "name": "Massachusetts",
+      "oldStatus": "LEGAL/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "US-MD",
+      "name": "Maryland",
+      "oldStatus": "LEGAL/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "US-ME",
+      "name": "Maine",
+      "oldStatus": "LEGAL/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "US-MI",
+      "name": "Michigan",
+      "oldStatus": "LEGAL/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "US-MN",
+      "name": "Minnesota",
+      "oldStatus": "LEGAL/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "US-MO",
+      "name": "Missouri",
+      "oldStatus": "LEGAL/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "US-MS",
+      "name": "Mississippi",
+      "oldStatus": "DECRIMINALIZED/ILLEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "US-MT",
+      "name": "Montana",
+      "oldStatus": "LEGAL/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "US-NC",
+      "name": "North Carolina",
+      "oldStatus": "DECRIMINALIZED/ILLEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "US-ND",
+      "name": "North Dakota",
+      "oldStatus": "DECRIMINALIZED/ILLEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "US-NE",
+      "name": "Nebraska",
+      "oldStatus": "DECRIMINALIZED/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "US-NH",
+      "name": "New Hampshire",
+      "oldStatus": "DECRIMINALIZED/ILLEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "US-NJ",
+      "name": "New Jersey",
+      "oldStatus": "LEGAL/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "US-NM",
+      "name": "New Mexico",
+      "oldStatus": "LEGAL/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "US-NV",
+      "name": "Nevada",
+      "oldStatus": "LEGAL/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "US-NY",
+      "name": "New York",
+      "oldStatus": "LEGAL/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "US-OH",
+      "name": "Ohio",
+      "oldStatus": "LEGAL/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "US-OK",
+      "name": "Oklahoma",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "US-OR",
+      "name": "Oregon",
+      "oldStatus": "LEGAL/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "US-PA",
+      "name": "Pennsylvania",
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "US-RI",
+      "name": "Rhode Island",
+      "oldStatus": "LEGAL/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "US-SC",
+      "name": "South Carolina",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "US-SD",
+      "name": "South Dakota",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "US-TN",
+      "name": "Tennessee",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "US-TX",
+      "name": "Texas",
+      "oldStatus": "ILLEGAL/LIMITED",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "US-UT",
+      "name": "Utah",
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "US-VA",
+      "name": "Virginia",
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "US-VT",
+      "name": "Vermont",
+      "oldStatus": "LEGAL/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "US-WA",
+      "name": "Washington",
+      "oldStatus": "LEGAL/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "US-WI",
+      "name": "Wisconsin",
+      "oldStatus": "ILLEGAL/LIMITED",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "US-WV",
+      "name": "West Virginia",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "US-WY",
+      "name": "Wyoming",
+      "oldStatus": "ILLEGAL/LIMITED",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "UY",
+      "name": "Uruguay",
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "UZ",
+      "name": "Uzbekistan / Узбекистан",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "VA",
+      "name": "Vatican City / Vaticano",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "VC",
+      "name": "Saint Vincent and the Grenadines",
+      "oldStatus": "DECRIMINALIZED/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "VE",
+      "name": "Venezuela",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "VG",
+      "name": "British Virgin Islands",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "VI",
+      "name": "United States Virgin Islands",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "VN",
+      "name": "Vietnam / Việt Nam",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "VU",
+      "name": "Vanuatu",
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "WF",
+      "name": "Wallis and Futuna / Wallis et Futuna",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "WS",
+      "name": "Samoa / Sāmoa",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "XK",
+      "name": "Kosovo",
+      "oldStatus": "Illegal/Illegal",
+      "oldColor": "RED"
+    },
+    {
+      "id": "YE",
+      "name": "Yemen / اليمن",
+      "oldStatus": "ILLEGAL/ILLEGAL",
+      "oldColor": "RED"
+    },
+    {
+      "id": "YT",
+      "name": "Mayotte",
+      "oldStatus": "Unknown/Unknown",
+      "oldColor": "UNKNOWN"
+    },
+    {
+      "id": "ZA",
+      "name": "South Africa / Sewula Afrika",
+      "oldStatus": "LEGAL/LEGAL",
+      "oldColor": "GREEN"
+    },
+    {
+      "id": "ZM",
+      "name": "Zambia",
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
+    },
+    {
+      "id": "ZW",
+      "name": "Zimbabwe",
+      "oldStatus": "ILLEGAL/LEGAL",
+      "oldColor": "YELLOW"
+    }
+  ]
+}

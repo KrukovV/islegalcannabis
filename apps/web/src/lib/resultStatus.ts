@@ -1,4 +1,5 @@
 import type { CountryPageData } from "@/lib/countryPageStorage";
+import { deriveStatusEngineV9FromCountryPageData } from "@/lib/statusEngineV9";
 
 export const RESULT_STATUS_VALUES = [
   "LEGAL",
@@ -283,9 +284,7 @@ function deriveUsaStatus(data: CountryPageData): ResultStatus {
 
 export function deriveResultStatusFromCountryPageData(data: CountryPageData): ResultStatus {
   const usaStatus = deriveUsaStatus(data);
-  if (usaStatus !== "UNKNOWN") {
-    return usaStatus;
-  }
+  if (usaStatus !== "UNKNOWN") return usaStatus;
   const recreational = normalizeInputStatus(data.legal_model.recreational.status || "");
   const base = getBaseStatus(recreational);
   const flags = extractStatusFlags(data);
@@ -293,22 +292,6 @@ export function deriveResultStatusFromCountryPageData(data: CountryPageData): Re
 }
 
 export function deriveMapCategoryFromCountryPageDataSignals(data: CountryPageData, status?: ResultStatus): MapCategory {
-  const finalStatus = status || deriveResultStatusFromCountryPageData(data);
-  if (finalStatus === "LEGAL" || finalStatus === "MIXED" || finalStatus === "DECRIM") return "LEGAL_OR_DECRIM";
-  if (finalStatus === "UNKNOWN") return "UNKNOWN";
-  const flags = extractStatusFlags(data);
-  if (flags.hasMedicalAccess) {
-    return "LIMITED_OR_MEDICAL";
-  }
-  if (
-    flags.hasWeakEnforcement &&
-    flags.personalUseOnly &&
-    !flags.hasPrison &&
-    !flags.hasLongPrison &&
-    !flags.hasDeathPenalty &&
-    !flags.isStrictlyEnforced
-  ) {
-    return "LIMITED_OR_MEDICAL";
-  }
-  return "ILLEGAL";
+  void status;
+  return deriveStatusEngineV9FromCountryPageData(data).mapCategory;
 }

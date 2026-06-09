@@ -1387,6 +1387,7 @@ if [ "${AUTO_FACTS:-0}" = "1" ]; then
   if [ -n "${AUTO_FACTS_PIPELINE:-}" ]; then
     AUTO_FACTS_RUN_ARGS+=(--pipeline "${AUTO_FACTS_PIPELINE}")
   fi
+  AUTO_FACTS_RUN_ARGS_TEXT="${AUTO_FACTS_RUN_ARGS[*]-}"
   if [ -n "${TARGET_ISO:-}" ]; then
     AUTO_FACTS_ISO=$(printf "%s" "${TARGET_ISO}" | tr '[:lower:]' '[:upper:]')
     FETCH_NETWORK="${FETCH_NETWORK}" ${NODE_BIN} tools/auto_facts/run_auto_facts.mjs \
@@ -1402,10 +1403,10 @@ if [ "${AUTO_FACTS:-0}" = "1" ]; then
     AUTO_FACTS_URL="${AUTO_FACTS_REST%%|*}"
     AUTO_FACTS_SNAPSHOT_COUNT="${AUTO_FACTS_REST#*|}"
     if [ "${AUTO_FACTS_SNAPSHOT_COUNT:-0}" -gt 0 ] || [ "${FETCH_NETWORK:-0}" != "0" ]; then
-      run_step "auto_facts" 180 "FETCH_NETWORK=${FETCH_NETWORK} ${NODE_BIN} tools/auto_facts/run_auto_facts.mjs ${AUTO_FACTS_RUN_ARGS[*]} >>\"${PRE_LOG}\" 2>&1" || true
+      run_step "auto_facts" 180 "FETCH_NETWORK=${FETCH_NETWORK} ${NODE_BIN} tools/auto_facts/run_auto_facts.mjs ${AUTO_FACTS_RUN_ARGS_TEXT} >>\"${PRE_LOG}\" 2>&1" || true
       AUTO_FACTS_RAN=1
     elif [ -n "${AUTO_FACTS_ISO}" ] && [ -n "${AUTO_FACTS_SNAPSHOT}" ] && [ -n "${AUTO_FACTS_URL}" ]; then
-      run_step "auto_facts" 180 "${NODE_BIN} tools/auto_facts/run_auto_facts.mjs --iso2 \"${AUTO_FACTS_ISO}\" --snapshot \"${AUTO_FACTS_SNAPSHOT}\" --url \"${AUTO_FACTS_URL}\" ${AUTO_FACTS_RUN_ARGS[*]} >>\"${PRE_LOG}\" 2>&1" || true
+      run_step "auto_facts" 180 "${NODE_BIN} tools/auto_facts/run_auto_facts.mjs --iso2 \"${AUTO_FACTS_ISO}\" --snapshot \"${AUTO_FACTS_SNAPSHOT}\" --url \"${AUTO_FACTS_URL}\" ${AUTO_FACTS_RUN_ARGS_TEXT} >>\"${PRE_LOG}\" 2>&1" || true
       AUTO_FACTS_RAN=1
     else
       ROOT_DIR="${ROOT}" RUN_ID="${RUN_ID}" AUTO_FACTS_ISO="${AUTO_FACTS_ISO:-n/a}" ${NODE_BIN} -e 'const fs=require("fs");const path=require("path");const root=process.env.ROOT_DIR;const iso2=String(process.env.AUTO_FACTS_ISO||"n/a");const payload={run_id:String(process.env.RUN_ID||""),run_at:new Date().toISOString(),iso2,extracted:0,confidence:"low",evidence_count:0,evidence_ok:0,law_pages:0,machine_verified_delta:0,candidate_facts_delta:0,mv_before:0,mv_after:0,mv_added:0,mv_removed:0,mv_wrote:false,mv_write_reason:"EMPTY_WRITE_GUARD",reason:"NO_LAW_PAGE",items:[]};const out=path.join(root,"Reports","auto_facts","last_run.json");fs.mkdirSync(path.dirname(out),{recursive:true});fs.writeFileSync(out,JSON.stringify(payload,null,2)+"\n");'

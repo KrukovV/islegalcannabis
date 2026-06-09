@@ -13,11 +13,11 @@
       "scope": "NONE"
     },
     "medical": {
-      "raw_status": "ILLEGAL",
-      "status": "ILLEGAL",
+      "raw_status": "LEGAL",
+      "status": "LEGAL",
       "enforcement": "STRICT",
-      "scope": "NONE",
-      "override_reason": null
+      "scope": "MEDICAL_ONLY",
+      "override_reason": "STATUS_GOVERNANCE_REVIEW_UT_MEDICAL"
     },
     "distribution": {
       "status": "illegal",
@@ -34,9 +34,12 @@
       "modifiers": []
     },
     "enforcement_flags": [],
-    "applied_rules": []
+    "applied_rules": [],
+    "signals": {
+      "enforcement_level": "active"
+    }
   },
-  "notes_normalized": "Cannabis is illegal in Utah under state law for recreational use, and medical cannabis is not broadly legal. Cannabis remains federally illegal in United States.",
+  "notes_normalized": "Cannabis is illegal in Utah for recreational use, while medical cannabis is regulated through Utah medical cannabis law, patient cards, pharmacies and production rules.",
   "notes_raw": "style=\"background:#80CE69;\" | {{Hs|3}}",
   "facts": {
     "possession_limit": null,
@@ -155,16 +158,16 @@
         "weight": "low"
       },
       {
-        "id": "wiki-us-ut",
-        "url": "https://en.wikipedia.org/wiki/Utah",
-        "title": "Wikipedia: Utah",
+        "id": "ut-medical-cannabis-law",
+        "url": "https://medicalcannabis.utah.gov/resources/utah-medical-cannabis-law/",
+        "title": "Utah medical cannabis law",
         "type": "external",
         "weight": "low"
       },
       {
-        "id": "wiki-truth-us-ut",
-        "url": "https://en.wikipedia.org/wiki/Legality_of_cannabis_by_U.S._jurisdiction",
-        "title": "Wikipedia: Legality of cannabis by U.S. jurisdiction",
+        "id": "ut-ag-medical-cannabis",
+        "url": "https://ag.utah.gov/specialized-products/medical-cannabis/",
+        "title": "Utah Department of Agriculture and Food: Medical Cannabis",
         "type": "external",
         "weight": "low"
       }
@@ -172,9 +175,9 @@
   },
   "hashes": {
     "code": "us-ut",
-    "content_hash": "d6f4d7656ad9635bf214f9b74dd1487234fa3322e646ed29696985b7b9f82c7d",
-    "notes_hash": "b451b47dfa24b16c2bcb911ccc7ecc1b067be999b4147404508488abedad2362",
-    "model_hash": "95401a32c6c07cfc925e16179745f75ddbcdb9660b68e7c3571f4551b82a66f4"
+    "content_hash": "70564af105bf3c677db2d134c8655f5b0463ff15e3de87ac1b5d63d412c022eb",
+    "notes_hash": "f71728b2d579573d459c06b6fc0b181a1b640421415c63cc08d254013cf5e42f",
+    "model_hash": "ab4e8804bf36ff49e9e8bb512ca76308de297bdb140d6647cda7d3ca5e96cad5"
   },
   "updated_at": "2026-04-10"
 }

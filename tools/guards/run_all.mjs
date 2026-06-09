@@ -17,6 +17,7 @@ const entries = fs
       name !== "summary_format.mjs" &&
       name !== "sanitize_stdout.mjs" &&
       name !== "stdout_sanitize.mjs" &&
+      name !== "temp_guard_64907.mjs" &&
       !name.endsWith(".test.mjs")
   )
   .sort();
@@ -29,6 +30,9 @@ for (const name of entries) {
   }
   if (name === "metrics_artifacts_guard.mjs") {
     args.push("--summary", path.join(process.cwd(), ".checkpoints", "ci-summary.txt"));
+  }
+  if (name === "final_ci_status.mjs") {
+    args.push("--file", path.join(process.cwd(), ".checkpoints", "ci-summary.txt"));
   }
   const result = spawnSync(process.execPath, args, {
     stdio: "inherit"

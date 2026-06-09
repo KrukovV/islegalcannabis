@@ -19,6 +19,7 @@ if (process.cwd() !== ROOT) {
   process.chdir(ROOT);
 }
 const API_BASE = "https://en.wikipedia.org/w/api.php";
+const API_USER_AGENT = process.env.WIKI_API_USER_AGENT || "islegalcannabis-knowledge-harvester/1.0 (local project audit; https://github.com/)";
 const PAGE_TITLE = "Legality_of_cannabis";
 const PING_URL = "https://en.wikipedia.org/w/api.php?action=query&meta=siteinfo&format=json";
 const PING_TIMEOUT_MS = Number(process.env.WIKI_PING_TIMEOUT_MS || 4000);
@@ -81,7 +82,7 @@ function normalizeFetchError(error) {
 
 function fetchJsonViaCurl(url) {
   try {
-    const output = execFileSync("curl", ["-sS", "--max-time", "20", url], {
+    const output = execFileSync("curl", ["-sS", "--max-time", "20", "-A", API_USER_AGENT, "-H", `Api-User-Agent: ${API_USER_AGENT}`, url], {
       encoding: "utf8",
       stdio: ["ignore", "pipe", "pipe"]
     });
@@ -94,7 +95,13 @@ function fetchJsonViaCurl(url) {
 async function fetchJson(url) {
   let res;
   try {
-    res = await fetch(url, { method: "GET" });
+    res = await fetch(url, {
+      method: "GET",
+      headers: {
+        "user-agent": API_USER_AGENT,
+        "api-user-agent": API_USER_AGENT
+      }
+    });
   } catch (error) {
     const curlResult = fetchJsonViaCurl(url);
     if (curlResult.ok) {

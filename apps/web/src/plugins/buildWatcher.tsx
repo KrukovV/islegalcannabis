@@ -155,6 +155,7 @@ export default function BuildWatcher() {
     if (typeof window === "undefined") {
       return;
     }
+    let cancelled = false;
     const pendingStamp = window.sessionStorage.getItem(PENDING_BUILD_KEY);
     const currentStamp = stampToKey(getClientRuntimeStamp());
     if (pendingStamp && pendingStamp === currentStamp) {
@@ -162,13 +163,18 @@ export default function BuildWatcher() {
       window.sessionStorage.removeItem(PENDING_RELOAD_COUNT_KEY);
       const url = new URL(window.location.href);
       if (url.searchParams.has(REFRESH_PARAM)) {
-        url.searchParams.delete(REFRESH_PARAM);
-        window.history.replaceState(null, "", url.toString());
+          url.searchParams.delete(REFRESH_PARAM);
+          window.history.replaceState(null, "", url.toString());
       }
-      setNextRuntimeStamp(null);
-      setDismissed(false);
-      setRefreshing(false);
-      return;
+      queueMicrotask(() => {
+        if (cancelled) return;
+        setNextRuntimeStamp(null);
+        setDismissed(false);
+        setRefreshing(false);
+      });
+      return () => {
+        cancelled = true;
+      };
     }
     if (pendingStamp && pendingStamp !== currentStamp) {
       const attempts = Number(window.sessionStorage.getItem(PENDING_RELOAD_COUNT_KEY) || "0");
@@ -187,9 +193,12 @@ export default function BuildWatcher() {
         .finally(() => {
           window.sessionStorage.removeItem(PENDING_BUILD_KEY);
           window.sessionStorage.removeItem(PENDING_RELOAD_COUNT_KEY);
+          if (!cancelled) setRefreshing(false);
         });
-      setRefreshing(false);
     }
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   const handleApplyUpdate = useCallback(async () => {
