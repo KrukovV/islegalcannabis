@@ -42,12 +42,17 @@ type CreateMapOptions = {
 type SymbolLayerSpecification = Extract<NonNullable<StyleSpecification["layers"]>[number], { type: "symbol" }>;
 type SymbolTextFieldSpecification = NonNullable<SymbolLayerSpecification["layout"]>["text-field"];
 
-function getCountryFeatureAtPoint(map: maplibregl.Map, point: { x: number; y: number }) {
-  return (
-    map.queryRenderedFeatures([point.x, point.y], {
-      layers: [NEW_MAP_TERRITORY_HITBOX_LAYER_ID, NEW_MAP_POINT_LAYER_ID, NEW_MAP_FILL_LAYER_ID]
-    })[0] ?? null
-  );
+export function getCountryFeatureAtPoint(map: maplibregl.Map, point: { x: number; y: number }) {
+  for (const layerId of [
+    NEW_MAP_TERRITORY_LABEL_LAYER_ID,
+    NEW_MAP_TERRITORY_HITBOX_LAYER_ID,
+    NEW_MAP_POINT_LAYER_ID,
+    NEW_MAP_FILL_LAYER_ID
+  ]) {
+    const feature = map.queryRenderedFeatures([point.x, point.y], { layers: [layerId] })[0] ?? null;
+    if (feature) return feature;
+  }
+  return null;
 }
 
 function configureMapLibreWorkerUrl() {
