@@ -152,6 +152,15 @@ launchctl load ~/Library/LaunchAgents/com.islegalcannabis.wiki-claims.plist
 export VERCEL_AUTOMATION_BYPASS_SECRET="<secret from Vercel Deployment Protection>"
 ```
 
+### Canonical production QA sequence
+
+- Start with one direct production access check. If `/new-map` returns real app HTML and the browser sees title `Is cannabis legal?`, record the run as direct access and do not add the bypass header for that run.
+- If a Vercel Security Checkpoint, Code 21 page, or browser verification page appears, stop manual reloads. Run the live probe below with `VERCEL_AUTOMATION_BYPASS_SECRET` and use the recorded Method 1/Method 2 evidence.
+- For country/state popup audits, prefer Method 2 after the access probe: seed the `__vercel_bypass` cookie once in one Playwright browser context, then reuse that same context for every inspected country, state, popup, and screenshot in the audit.
+- Do not create a fresh context, fresh browser, or full page reload loop per jurisdiction. A checkpoint is a gate failure or test-infrastructure blocker, not a target for rapid retry.
+- Poll deploy readiness through `/api/build-meta` with bounded attempts and at least a small pause between attempts. Do not run tight loops against Vercel while waiting for a new commit to land.
+- Use one worker for live Vercel QA unless a gate script already serializes the run. Production evidence must be low-rate and reproducible.
+
 ### Method 1: global Playwright HTTP headers
 
 Run the support-provided global-header method first. In live production checks this project sends both Vercel bypass headers at the browser context level; a protection-only header has produced intermittent `Vercel Security Checkpoint` failures in cold Playwright runs.
@@ -188,7 +197,7 @@ await page.goto("https://www.islegal.info/new-map", { waitUntil: "domcontentload
 
 - Use `x-vercel-set-bypass-cookie=samesitenone` for this project's Playwright cookie seed flow. If a future direct same-site run intentionally uses `true`, document the evidence before changing the default.
 - Do not put either `x-vercel-protection-bypass` or `x-vercel-set-bypass-cookie` in the URL for Playwright runs. Query params can leak into traces/screenshots and have produced Vercel Security Checkpoint failures for this project.
-- After Method 1 and Method 2 are tested, prefer the Method 2 first-party cookie seed for map/perf runs because it avoids attaching the bypass header to third-party map/font/tile/Yandex resources.
+- After Method 1 and Method 2 are tested, prefer the Method 2 first-party cookie seed for map/perf/scenario runs because it avoids attaching the bypass header to third-party map/font/tile/Yandex resources.
 - If a specific first-party subrequest still returns the Vercel checkpoint after the cookie has been seeded, scope the bypass header to that exact first-party route. Do not attach it to third-party map/font/tile/Yandex resources.
 
 ### Live prod access probe

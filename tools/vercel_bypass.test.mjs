@@ -67,6 +67,10 @@ test("runbook and measurement script do not seed the bypass cookie through URL q
   assert.match(ops, /Method 1/);
   assert.match(ops, /Method 2/);
   assert.match(ops, /x-vercel-set-bypass-cookie/);
+  assert.match(ops, /Canonical production QA sequence/);
+  assert.match(ops, /reuse that same context/);
+  assert.match(ops, /not a target for rapid retry/);
+  assert.match(ops, /bounded attempts/);
   assert.doesNotMatch(ops, /query-cookie flow/);
   assert.doesNotMatch(mobile, /query-param plus header flow/);
   assert.doesNotMatch(measure, /searchParams\.set\(["']x-vercel-set-bypass-cookie/);
@@ -96,4 +100,17 @@ test("prod GPS probe applies bypass headers to browser and worker requests", () 
 
   assert.match(gpsProbe, /extraHTTPHeaders: buildVercelBypassHeaders\(secret, "samesitenone"\)/);
   assert.match(gpsProbe, /headers: buildVercelBypassHeaders\(secret, "samesitenone"\)/);
+});
+
+test("docs require single-context low-rate production audits", () => {
+  const contract = fs.readFileSync(path.join(ROOT, "docs", "CONTRACT.md"), "utf8");
+  const dev = fs.readFileSync(path.join(ROOT, "docs", "DEV.md"), "utf8");
+
+  assert.match(contract, /seed `__vercel_bypass` once/);
+  assert.match(contract, /reuse that context/);
+  assert.match(contract, /bounded `\/api\/build-meta` attempts/);
+  assert.match(contract, /tight reload loop/);
+  assert.match(dev, /Vercel production bypass quick run/);
+  assert.match(dev, /reuse the same Playwright browser context/);
+  assert.match(dev, /header-only cookie seeding/);
 });
