@@ -2,7 +2,6 @@
   "version": 1,
   "target_url": "https://www.islegal.info/new-map",
   "required_methods": [
-    "method1_extra_http_headers",
     "method2_api_cookie_seed"
   ],
   "required_title": "Is cannabis legal?",

@@ -98,10 +98,7 @@ export async function evaluateProdLiveReport({
   root = repoRoot
 }) {
   const failures = [];
-  const requiredMethods = baseline.required_methods || [
-    "method1_extra_http_headers",
-    "method2_api_cookie_seed"
-  ];
+  const requiredMethods = baseline.required_methods || ["method2_api_cookie_seed"];
   const results = resultByMethod(report);
   const methods = [];
 
@@ -153,6 +150,11 @@ export async function evaluateProdLiveReport({
     const seedStatusMin = numberOrNull(thresholdFor(baseline, method, "seed_status_min"));
     const seedStatusMax = numberOrNull(thresholdFor(baseline, method, "seed_status_max"));
     const seedStatus = numberOrNull(result.seed_status);
+    const cookieSeeded = result.cookie_seeded === true;
+    const cookieDetected = result.cookie_detected === true;
+    const bypassCookiePresent =
+      method !== "method2_api_cookie_seed" ||
+      (cookieSeeded && cookieDetected);
     if (seedStatusMin !== null || seedStatusMax !== null) {
       if (seedStatus === null) {
         methodFailures.push("SEED_STATUS_MISSING");
@@ -161,7 +163,6 @@ export async function evaluateProdLiveReport({
         if (seedStatusMax !== null && seedStatus > seedStatusMax) methodFailures.push(`SEED_STATUS_HIGH:${seedStatus}`);
       }
     }
-
     if (methodFailures.length > 0) {
       failures.push(...methodFailures.map((failure) => `${method}:${failure}`));
     }
@@ -183,7 +184,17 @@ export async function evaluateProdLiveReport({
       root_ms: rootMs,
       map_ready_ms: mapReadyMs,
       canvas_ms: canvasMs,
-      seed_status: seedStatus
+      seed_status: seedStatus,
+      bypass_cookie_present: bypassCookiePresent,
+      cookie_seeded: cookieSeeded,
+      cookie_detected: cookieDetected,
+      cookie_name: result.cookie_name || "",
+      cookie_count: numberOrNull(result.cookie_count) ?? 0,
+      challenge_detected: Boolean(result.challenge_detected),
+      seed_cookie_observed: result.seed_cookie_observed ?? null,
+      seed_mitigated: result.seed_mitigated || "",
+      navigation_status: numberOrNull(result.navigation?.status),
+      navigation_mitigated: result.navigation?.mitigated || ""
     });
   }
 
@@ -296,6 +307,12 @@ function printEvaluation({ payload, baselinePath }) {
       `method=${method.method}`,
       `ok=${bool01(method.ok)}`,
       `access_block=${bool01(method.access_block)}`,
+      `bypass_cookie_present=${bool01(method.bypass_cookie_present)}`,
+      `cookie_seeded=${bool01(method.cookie_seeded)}`,
+      `cookie_detected=${bool01(method.cookie_detected)}`,
+      `cookie_count=${method.cookie_count ?? 0}`,
+      `cookie_name=${JSON.stringify(method.cookie_name || "")}`,
+      `challenge_detected=${bool01(method.challenge_detected)}`,
       `ready=${bool01(method.ready)}`,
       `canvas=${bool01(method.canvas)}`,
       `elapsed_ms=${method.elapsed_ms ?? "-"}`,
@@ -304,6 +321,8 @@ function printEvaluation({ payload, baselinePath }) {
       `screenshot=${method.screenshot}`
     ].join(" "));
   }
+  const cookieMethod = payload.methods.find((method) => method.method === "method2_api_cookie_seed");
+  console.log(`BYPASS_COOKIE_PRESENT=${bool01(cookieMethod?.bypass_cookie_present)}`);
 
   console.log([
     `PROD_LIVE_DEGRADATION=${payload.ok ? "PASS" : "FAIL"}`,
@@ -318,10 +337,7 @@ async function main() {
   const options = parseArgs(process.argv.slice(2));
   await fs.mkdir(options.outDir, { recursive: true });
 
-  const maxAttempts = options.runProbe
-    ? Math.max(1, Number(process.env.PROD_LIVE_GATE_ATTEMPTS || 2))
-    : 1;
-  const retryDelayMs = Number(process.env.PROD_LIVE_GATE_RETRY_DELAY_MS || 45000);
+  const maxAttempts = 1;
   let payload;
 
   for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
@@ -361,10 +377,7 @@ async function main() {
       methods: evaluation.methods
     };
 
-    const accessBlocked = payload.failures.some((failure) => /ACCESS_BLOCK|SEED_STATUS_HIGH:403/.test(failure));
-    if (payload.ok || !accessBlocked || attempt >= maxAttempts) break;
-    await fs.writeFile(path.join(options.outDir, `attempt-${attempt}.json`), JSON.stringify(payload, null, 2) + "\n", "utf8");
-    await new Promise((resolve) => setTimeout(resolve, retryDelayMs * attempt));
+    break;
   }
 
   if (options.writeLatest) {

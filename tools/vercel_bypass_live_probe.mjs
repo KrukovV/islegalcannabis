@@ -4,7 +4,9 @@ import { createRequire } from "node:module";
 import {
   VERCEL_BYPASS_HEADER,
   VERCEL_SET_BYPASS_COOKIE_HEADER,
+  buildVercelBypassCookieSeedUrl,
   buildVercelBypassHeaders,
+  diffVercelBypassCookies,
   redactVercelBypassSecret
 } from "./vercel_bypass.mjs";
 
@@ -19,7 +21,6 @@ const secret = process.env.VERCEL_AUTOMATION_BYPASS_SECRET || "";
 const reportsDir = path.join(repoRoot, "Reports", "vercel-bypass-live");
 const browserName = process.env.VERCEL_BYPASS_BROWSER || "chromium";
 const appReadyTimeoutMs = Number(process.env.VERCEL_BYPASS_APP_READY_TIMEOUT_MS || 25000);
-const includeBaseline = process.env.VERCEL_BYPASS_INCLUDE_BASELINE === "1";
 
 function sanitize(value) {
   return redactVercelBypassSecret(value, secret);
@@ -92,8 +93,32 @@ async function waitForAppEvidence(page, startedAt) {
   return { waits, timings };
 }
 
-async function inspectPage(page, methodName, startedAt) {
+async function responseEvidence(response) {
+  if (!response) {
+    return {
+      status: null,
+      mitigated: "",
+      vercel_id: "",
+      location: "",
+      set_cookie_names: []
+    };
+  }
+  const headers = await response.headersArray().catch(() => []);
+  return {
+    status: response.status(),
+    mitigated: headers.find((header) => header.name.toLowerCase() === "x-vercel-mitigated")?.value || "",
+    vercel_id: headers.find((header) => header.name.toLowerCase() === "x-vercel-id")?.value || "",
+    location: headers.find((header) => header.name.toLowerCase() === "location")?.value || "",
+    set_cookie_names: headers
+      .filter((header) => header.name.toLowerCase() === "set-cookie")
+      .map((header) => cookieNameFromSetCookie(header.value))
+      .filter(Boolean)
+  };
+}
+
+async function inspectPage(page, methodName, startedAt, navigationResponse) {
   const evidence = await waitForAppEvidence(page, startedAt);
+  const navigation = await responseEvidence(navigationResponse);
   const { waits, timings } = evidence;
   const title = await page.title().catch(() => "");
   const bodyText = await page.locator("body").innerText({ timeout: 5000 }).catch(() => "");
@@ -130,60 +155,64 @@ async function inspectPage(page, methodName, startedAt) {
     screenshot: path.relative(repoRoot, screenshotPath),
     screenshot_bytes: screenshotBytes,
     elapsed_ms: elapsedMs,
-    body_sample: bodyText.slice(0, 240)
-  };
-}
-
-async function runBaseline(browser) {
-  const context = await browser.newContext();
-  const page = await context.newPage();
-  const startedAt = Date.now();
-  await page.goto(targetUrl, { waitUntil: "domcontentloaded", timeout: 45000 });
-  const result = await inspectPage(page, "baseline_no_bypass", startedAt);
-  await context.close();
-  return result;
-}
-
-async function runGlobalHeaders(browser) {
-  const context = await browser.newContext({
-    extraHTTPHeaders: buildVercelBypassHeaders(secret, "samesitenone")
-  });
-  const page = await context.newPage();
-  const startedAt = Date.now();
-  await page.goto(targetUrl, { waitUntil: "domcontentloaded", timeout: 45000 });
-  const result = await inspectPage(page, "method1_extra_http_headers", startedAt);
-  await context.close();
-  return {
-    ...result,
-    request_header_names: [VERCEL_BYPASS_HEADER, VERCEL_SET_BYPASS_COOKIE_HEADER]
+    body_sample: bodyText.slice(0, 240),
+    navigation
   };
 }
 
 async function runApiCookieSeed(browser) {
-  const context = await browser.newContext();
+  const context = await browser.newContext({
+    extraHTTPHeaders: buildVercelBypassHeaders(secret, "true")
+  });
   const seedStartedAt = Date.now();
-  const seedResponse = await context.request.get(targetUrl, {
-    headers: buildVercelBypassHeaders(secret, "samesitenone"),
-    maxRedirects: 5,
+  const seedUrl = buildVercelBypassCookieSeedUrl(targetUrl);
+  const cookiesBefore = await context.cookies();
+  const seedResponse = await context.request.get(seedUrl, {
+    headers: buildVercelBypassHeaders(secret, "true"),
+    maxRedirects: 0,
     timeout: 45000
   });
   const seedHeaders = await seedResponse.headersArray();
+  const seedBody = await seedResponse.text().catch(() => "");
   const seedSetCookieNames = seedHeaders
     .filter((header) => header.name.toLowerCase() === "set-cookie")
     .map((header) => cookieNameFromSetCookie(header.value))
     .filter(Boolean);
-  const cookies = await context.cookies(targetUrl);
+  const cookiesAfter = await context.cookies();
+  const seededCookies = diffVercelBypassCookies(cookiesBefore, cookiesAfter);
+  const cookieNames = seededCookies.map((cookie) => cookie.name).filter(Boolean);
+  const seedStatus = seedResponse.status();
+  const cookieSeeded = seedStatus >= 200 && seedStatus < 400;
+  const cookieDetected = seededCookies.length > 0;
+  const seedChallengeDetected =
+    hasAccessBlock(seedBody) ||
+    seedResponse.headers()["x-vercel-mitigated"] === "challenge";
+  const seedEvidence = {
+    seed_url: seedUrl,
+    seed_status: seedStatus,
+    seed_header_names: [VERCEL_BYPASS_HEADER, VERCEL_SET_BYPASS_COOKIE_HEADER],
+    seed_set_cookie_names: seedSetCookieNames,
+    seed_mitigated: seedResponse.headers()["x-vercel-mitigated"] || "",
+    seed_vercel_id: seedResponse.headers()["x-vercel-id"] || "",
+    seed_cookie_observed: cookieDetected,
+    cookie_seeded: cookieSeeded,
+    cookie_detected: cookieDetected,
+    cookie_count: seededCookies.length,
+    cookie_name: cookieNames[0] || "",
+    cookie_names: cookieNames,
+    challenge_detected: seedChallengeDetected,
+    seed_body_sample: seedBody.slice(0, 240)
+  };
+
   const page = await context.newPage();
-  await page.goto(targetUrl, { waitUntil: "domcontentloaded", timeout: 45000 });
-  const result = await inspectPage(page, "method2_api_cookie_seed", seedStartedAt);
+  const navigationResponse = await page.goto(targetUrl, { waitUntil: "domcontentloaded", timeout: 45000 });
+  const result = await inspectPage(page, "method2_api_cookie_seed", seedStartedAt, navigationResponse);
   await context.close();
   return {
     ...result,
-    seed_status: seedResponse.status(),
-    seed_header_names: [VERCEL_BYPASS_HEADER, VERCEL_SET_BYPASS_COOKIE_HEADER],
-    seed_set_cookie_names: seedSetCookieNames,
-    has_vdpl_cookie: cookies.some((cookie) => cookie.name === "__vdpl"),
-    cookie_names: cookies.map((cookie) => cookie.name)
+    ...seedEvidence,
+    challenge_detected: seedChallengeDetected || result.has_access_block,
+    access_mode: cookieDetected ? "seed_cookie" : "header_bypass_cookie_diagnostic"
   };
 }
 
@@ -201,13 +230,8 @@ let missingSecret = false;
 try {
   if (!secret) {
     missingSecret = true;
-    results.push(await runBaseline(browser));
   } else {
-    results.push(await runGlobalHeaders(browser));
     results.push(await runApiCookieSeed(browser));
-    if (includeBaseline) {
-      results.push(await runBaseline(browser));
-    }
   }
 } finally {
   await browser.close();
@@ -218,11 +242,7 @@ const payload = {
   target_url: targetUrl,
   browser: browserName,
   missing_secret: missingSecret,
-  method_order: [
-    "method1_extra_http_headers",
-    "method2_api_cookie_seed",
-    "baseline_no_bypass"
-  ],
+  method_order: ["method2_api_cookie_seed"],
   results
 };
 
@@ -241,11 +261,23 @@ for (const result of results) {
       `root=${result.has_new_map_root ? 1 : 0}`,
       `ready=${result.has_map_ready ? 1 : 0}`,
       `canvas=${result.has_canvas ? 1 : 0}`,
+      `nav_status=${result.navigation?.status ?? "-"}`,
+      `nav_mitigated=${result.navigation?.mitigated || "-"}`,
+      `cookie_seeded=${result.cookie_seeded === undefined ? "-" : result.cookie_seeded ? 1 : 0}`,
+      `cookie_detected=${result.cookie_detected === undefined ? "-" : result.cookie_detected ? 1 : 0}`,
+      `cookie_count=${result.cookie_count ?? "-"}`,
+      `cookie_name=${JSON.stringify(result.cookie_name || "")}`,
+      `challenge_detected=${result.challenge_detected ? 1 : 0}`,
       `elapsed_ms=${result.elapsed_ms}`,
       `map_ready_ms=${result.metrics?.map_ready_ms ?? "-"}`,
       `screenshot=${result.screenshot}`
     ].join(" ")
   );
+}
+const cookieSeedResult = results.find((result) => result.method === "method2_api_cookie_seed");
+if (cookieSeedResult) {
+  const bypassCookiePresent = cookieSeedResult.cookie_seeded === true && cookieSeedResult.cookie_detected === true;
+  console.log(`BYPASS_COOKIE_PRESENT=${bypassCookiePresent ? 1 : 0}`);
 }
 if (missingSecret) {
   console.log("LIVE_BYPASS_SECRET_MISSING=1");

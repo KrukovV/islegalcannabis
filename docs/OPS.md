@@ -145,7 +145,7 @@ launchctl load ~/Library/LaunchAgents/com.islegalcannabis.wiki-claims.plist
 
 ## Vercel automation bypass for production QA
 - Keep the bypass token only in local shell, CI secrets, or Vercel project settings. Do not commit the token to config, docs, reports, screenshots, or test fixtures.
-- For live Playwright verification, test the support-provided methods first and in order. Do not substitute internet-sourced variants until these two methods have been run against prod and recorded.
+- Production Playwright verification uses the official HTTP header seed flow for diagnostics. Global per-request bypass headers and no-bypass baselines are not part of the final production audit.
 - In this repo, `x-vercel-set-bypass-cookie` is treated as header-only for tests because Vercel support confirmed URL query seeding can be ignored by Bot Protection even though public docs mention query support.
 
 ```bash
@@ -154,55 +154,53 @@ export VERCEL_AUTOMATION_BYPASS_SECRET="<secret from Vercel Deployment Protectio
 
 ### Canonical production QA sequence
 
-- Start with one direct production access check. If `/new-map` returns real app HTML and the browser sees title `Is cannabis legal?`, record the run as direct access and do not add the bypass header for that run.
-- If a Vercel Security Checkpoint, Code 21 page, or browser verification page appears, stop manual reloads. Run the live probe below with `VERCEL_AUTOMATION_BYPASS_SECRET` and use the recorded Method 1/Method 2 evidence.
-- For country/state popup audits, prefer Method 2 after the access probe: seed the `__vercel_bypass` cookie once in one Playwright browser context, then reuse that same context for every inspected country, state, popup, and screenshot in the audit.
+- Direct production access is diagnostic only. Every production audit starts with a root diagnostic seed and then navigates only after the app is reachable.
+- If a Vercel Security Checkpoint, Code 21 page, or browser verification page appears, stop manual reloads and preserve the recorded seed/navigation evidence.
+- Before every production audit, run one Method 2 root seed request against `/` for diagnostics, then create the page and reuse that same Playwright browser context for every inspected country, state, popup, and screenshot. `BYPASS_COOKIE_PRESENT` stays diagnostic only.
 - Do not create a fresh context, fresh browser, or full page reload loop per jurisdiction. A checkpoint is a gate failure or test-infrastructure blocker, not a target for rapid retry.
 - Poll deploy readiness through `/api/build-meta` with bounded attempts and at least a small pause between attempts. Do not run tight loops against Vercel while waiting for a new commit to land.
 - Use one worker for live Vercel QA unless a gate script already serializes the run. Production evidence must be low-rate and reproducible.
 
-### Method 1: global Playwright HTTP headers
-
-Run the support-provided global-header method first. In live production checks this project sends both Vercel bypass headers at the browser context level; a protection-only header has produced intermittent `Vercel Security Checkpoint` failures in cold Playwright runs.
-
-```ts
-const context = await browser.newContext({
-  extraHTTPHeaders: {
-    "x-vercel-protection-bypass": process.env.VERCEL_AUTOMATION_BYPASS_SECRET!,
-    "x-vercel-set-bypass-cookie": "samesitenone",
-  },
-});
-
-const page = await context.newPage();
-await page.goto("https://www.islegal.info/new-map", { waitUntil: "domcontentloaded" });
-```
-
 ### Method 2: API-context cookie seed
 
-Run the support-provided cookie seed method second. This sends both headers through the Playwright API context, then navigates without putting bypass params in the URL:
+Run the support-provided cookie seed method second. This sends both headers to the origin root through the Playwright browser context request API, records cookie evidence when present, then creates the page:
 
 ```ts
 const context = await browser.newContext();
-await context.request.get("https://www.islegal.info/new-map", {
+await context.request.get("https://www.islegal.info/", {
   headers: {
     "x-vercel-protection-bypass": process.env.VERCEL_AUTOMATION_BYPASS_SECRET!,
-    "x-vercel-set-bypass-cookie": "samesitenone",
+    "x-vercel-set-bypass-cookie": "true",
   },
-  maxRedirects: 5,
+  maxRedirects: 0,
 });
 
 const page = await context.newPage();
 await page.goto("https://www.islegal.info/new-map", { waitUntil: "domcontentloaded" });
 ```
 
-- Use `x-vercel-set-bypass-cookie=samesitenone` for this project's Playwright cookie seed flow. If a future direct same-site run intentionally uses `true`, document the evidence before changing the default.
+- Direct same-site production audits use `x-vercel-set-bypass-cookie=true`. Use `samesitenone` only for an explicitly documented embedded/non-direct context such as an iframe.
+- Repeatability audits must also create the browser context with both headers through `buildVercelBypassHeaders(secret, "true")`. Setting only `x-vercel-protection-bypass` in `extraHTTPHeaders` is incomplete and regressed the 3/3 screenshot flow.
+- Do not follow redirects on the seed request. Vercel documents the bypass-cookie as a redirect `Set-Cookie`; the audit should capture that first response and record whether the cookie landed in the same browser context.
 - Do not put either `x-vercel-protection-bypass` or `x-vercel-set-bypass-cookie` in the URL for Playwright runs. Query params can leak into traces/screenshots and have produced Vercel Security Checkpoint failures for this project.
-- After Method 1 and Method 2 are tested, prefer the Method 2 first-party cookie seed for map/perf/scenario runs because it avoids attaching the bypass header to third-party map/font/tile/Yandex resources.
+- Use the Method 2 first-party cookie seed for production audit runs because it avoids attaching the bypass header to page, map, font, tile, or analytics requests; cookie absence alone does not invalidate a repeatable screenshot run.
 - If a specific first-party subrequest still returns the Vercel checkpoint after the cookie has been seeded, scope the bypass header to that exact first-party route. Do not attach it to third-party map/font/tile/Yandex resources.
+- After base 3/3 succeeds, continue country click, popup, and AI screenshots in the third successful context. Do not create a fourth context solely for full-UI capture.
+
+### Interpreting bypass evidence
+
+- `ok=1` proves that the browser rendered the real app. It does not by itself prove that Vercel accepted the supplied bypass secret; a browser can also satisfy a Security Checkpoint normally.
+- Method 2 proves cookie seeding only when `seed_cookie_observed=1`, `cookie_detected=1`, and `BYPASS_COOKIE_PRESENT=1`. The cookie fields remain diagnostic; screenshot capture is not blocked solely because the cookie did not land, and the audit does not fail on cookie absence alone.
+- `x-vercel-mitigated: challenge` or a `403` on a request carrying the bypass header means the bypass did not suppress that request's challenge. Treat this as rejected/stale/wrong-project secret or an active attack mitigation until Vercel settings/logs prove otherwise.
+- Regenerating or deleting a bypass secret invalidates the previous value. Vercel requires a redeploy after the selected system bypass secret changes.
+- A valid automation bypass skips normal Deployment Protection, system mitigations, and bot challenges. It cannot override active DDoS blocks, attack rate limits, or security challenges triggered during an attack.
+- Browser UI proof and raw HTTP bypass proof are separate. The production UI audit may proceed in one browser context after the real app is visible, but the bypass report must preserve any raw HTTP/challenge discrepancy.
+- Do not run invalid-secret controls or multi-client raw HTTP matrices during a final production gate. Repeated challenged requests can move the same source into a Vercel challenge window and make a previously successful Chromium context receive `403` on Method 1, Method 2, and the direct baseline.
+- Observed on 2026-06-10: both Chromium methods first rendered the real app; Method 2 reported `seed_cookie_observed=0`; after six sequential raw HTTP requests returned `403` with `x-vercel-mitigated: challenge`, a later bounded Chromium probe also returned the same challenge for both methods and baseline. Treat this transition as Vercel challenge-state evidence, not cookie expiration.
 
 ### Live prod access probe
 
-Use the live probe to run Method 1 and Method 2 in that order. It reads the secret only from `VERCEL_AUTOMATION_BYPASS_SECRET`, writes sanitized output to `Reports/vercel-bypass-live/last_run.json`, and screenshots each method without writing the token. The no-bypass baseline is diagnostic only and runs only without a secret or when `VERCEL_BYPASS_INCLUDE_BASELINE=1`; it must not run before the required bypass methods in final gates.
+Use the live probe to run one Method 2 root seed request, record cookie diagnostics, and then navigate the browser audit. It reads the secret only from `VERCEL_AUTOMATION_BYPASS_SECRET`, writes sanitized output to `Reports/vercel-bypass-live/last_run.json`, and screenshots the successful audit without writing the token.
 
 ```bash
 VERCEL_AUTOMATION_BYPASS_SECRET="$VERCEL_AUTOMATION_BYPASS_SECRET" \
@@ -211,14 +209,17 @@ node tools/vercel_bypass_live_probe.mjs
 
 The access error is gone only when the relevant method reports `ok=1`, `access_block=0`, title `Is cannabis legal?`, and the real app DOM/screenshot instead of a Vercel Security Checkpoint page.
 
+### Direct public diagnostic audit
+
+`node tools/status-engine/final_prod_gate_audit.mjs --mode=production-direct --target=https://www.islegal.info` is diagnostic only. It sends no bypass seed/header and can be used when production is already publicly reachable, but it must not set `DEPLOY_APPROVED=1` or replace the production screenshot audit. If it reaches the app, it runs the same real browser click sample as the strict production audit and writes `Reports/status-engine/production-direct-audit.md`; if Vercel returns Code 21, stop instead of retrying.
+
 ### Mandatory pass_cycle prod gates
 
-Final `bash tools/pass_cycle.sh` runs `tools/prod_live_quality_gate.mjs`, `tools/prod_new_map_payload_gate.mjs`, `tools/prod_new_map_js_city_gate.mjs`, and `tools/measure_new_map_gps_flow.mjs` as mandatory tail gates. The access/render gate executes the live probe first, then enforces `data/baselines/prod_live_quality_baseline.json`; the payload gate enforces `data/baselines/new_map_payload_quality_baseline.json`; the JS label gate enforces country/city ZoomIn label latency and JS/legacy budgets from `data/baselines/new_map_js_city_quality_baseline.json`; the GPS gate seeds a stale saved GPS point, then requires fresh GPS marker/center/persistence, desktop hover, ZoomIn city/village labels, ZoomOut country rendering, screenshots, and zero page errors.
+Final `bash tools/pass_cycle.sh` runs `tools/prod_live_quality_gate.mjs`, `tools/prod_new_map_payload_gate.mjs`, `tools/prod_new_map_js_city_gate.mjs`, and `tools/measure_new_map_gps_flow.mjs` as mandatory tail gates. The access/render gate executes the one-request root diagnostic seed first, then enforces `data/baselines/prod_live_quality_baseline.json`; the payload gate enforces `data/baselines/new_map_payload_quality_baseline.json`; the JS label gate enforces country/city ZoomIn label latency and JS/legacy budgets from `data/baselines/new_map_js_city_quality_baseline.json`; the GPS gate seeds a stale saved GPS point, then requires fresh GPS marker/center/persistence, desktop hover, ZoomIn city/village labels, ZoomOut country rendering, screenshots, and zero page errors.
 
 Required evidence:
 
 - `Reports/vercel-bypass-live/last_run.json`
-- `Reports/vercel-bypass-live/method1_extra_http_headers.png`
 - `Reports/vercel-bypass-live/method2_api_cookie_seed.png`
 - `Reports/prod-live-gate/latest.json`
 - `PROD_LIVE_METHOD` lines in `Reports/ci-final.txt` with `elapsed_ms`, `map_ready_ms`, `screenshot_bytes`, and screenshot path.

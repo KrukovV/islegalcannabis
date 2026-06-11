@@ -53,6 +53,21 @@ type NewMapDebug = {
   map?: import("maplibre-gl").Map | null;
   labelGroups?: Record<string, string[]>;
   lastPointerLng?: number | null;
+  popupTrace?: PopupPipelineTrace;
+};
+
+type PopupPipelineTrace = {
+  COUNTRY_ID?: string | null;
+  DEBUG_ID?: string | null;
+  GEO_ID?: string | null;
+  FEATURE_ID?: string | null;
+  CARD_INDEX_KEY?: string | null;
+  CARD_INDEX_HIT?: boolean;
+  POPUP_DATA_FOUND?: boolean;
+  POPUP_RENDERED?: boolean;
+  CLICK_RECEIVED?: boolean;
+  CLICK_LAYER?: string | null;
+  SELECTED_DISPLAY_NAME?: string | null;
 };
 
 type NewMapQaController = {
@@ -135,6 +150,19 @@ function setDebugState(partial: Partial<NewMapDebug>) {
   };
   Object.assign(current, partial);
   host.__NEW_MAP_DEBUG__ = current;
+}
+
+function updatePopupTrace(partial: PopupPipelineTrace) {
+  const host = globalThis as typeof globalThis & {
+    __NEW_MAP_DEBUG__?: NewMapDebug;
+  };
+  const current = host.__NEW_MAP_DEBUG__?.popupTrace || {};
+  setDebugState({
+    popupTrace: {
+      ...current,
+      ...partial
+    }
+  });
 }
 
 function isNewMapQaEnabled() {
@@ -345,6 +373,30 @@ export default function MapRoot({
       lng: selectedGeoEntry.coordinates?.lng
     };
   }, [selectedGeoEntry]);
+
+  useEffect(() => {
+    if (!popupGeoCode) {
+      updatePopupTrace({
+        CARD_INDEX_KEY: null,
+        CARD_INDEX_HIT: false,
+        POPUP_DATA_FOUND: false,
+        POPUP_RENDERED: false
+      });
+      return;
+    }
+    updatePopupTrace({
+      CARD_INDEX_KEY: popupGeoCode,
+      CARD_INDEX_HIT: Boolean(cardIndex[popupGeoCode]),
+      POPUP_DATA_FOUND: Boolean(selectedGeoEntry)
+    });
+  }, [cardIndex, popupGeoCode, selectedGeoEntry]);
+
+  useEffect(() => {
+    if (!popupGeoCode) return;
+    updatePopupTrace({
+      POPUP_RENDERED: Boolean(selectedGeoEntry && popupAnchor)
+    });
+  }, [popupAnchor, popupGeoCode, selectedGeoEntry]);
 
   const handleSeoMarkerToggle = useCallback(() => {
     if (!seoMarkerEntry) return;

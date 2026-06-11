@@ -26,6 +26,39 @@ export function stripVercelBypassQuery(input) {
   return url.toString();
 }
 
+export function buildVercelBypassCookieSeedUrl(input) {
+  const url = new URL(stripVercelBypassQuery(input));
+  url.pathname = "/";
+  url.search = "";
+  url.hash = "";
+  return url.toString();
+}
+
+export function cookieIdentity(cookie) {
+  return [
+    String(cookie?.name || ""),
+    String(cookie?.domain || ""),
+    String(cookie?.path || ""),
+    String(cookie?.value || "")
+  ].join("\u0000");
+}
+
+export function diffBrowserCookies(before = [], after = []) {
+  const beforeKeys = new Set(before.map((cookie) => cookieIdentity(cookie)));
+  return after.filter((cookie) => !beforeKeys.has(cookieIdentity(cookie)));
+}
+
+export function isVercelBypassCookie(cookie) {
+  const name = String(cookie?.name || "").trim().toLowerCase();
+  if (!name) return false;
+  if (name === "__vercel_bypass" || name === "_vercel_jwt") return true;
+  return name.includes("vercel") && /(bypass|protection|jwt|auth)/.test(name);
+}
+
+export function diffVercelBypassCookies(before = [], after = []) {
+  return diffBrowserCookies(before, after).filter((cookie) => isVercelBypassCookie(cookie));
+}
+
 export function buildVercelBypassHeaders(secret, cookieMode = "samesitenone") {
   const token = String(secret || "").trim();
   if (!token) return {};

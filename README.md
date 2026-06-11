@@ -5,7 +5,7 @@ The current primary runtime is the MapLibre `/new-map` experience. The root rout
 ## Current Project Contracts
 
 - `bash tools/pass_cycle.sh` is the single CI/checkpoint/ledger command.
-- Final `pass_cycle` includes mandatory live production `/new-map` Method 1/2 Vercel bypass checks, production payload/long-task checks, JS country/city-label zoom checks, and production browser source-map build checks, with PNG screenshots, timing measurements, and degradation thresholds from `data/baselines/prod_live_quality_baseline.json`, `data/baselines/new_map_payload_quality_baseline.json`, and `data/baselines/new_map_js_city_quality_baseline.json`.
+- Final `pass_cycle` includes the mandatory one-request root cookie-seed production `/new-map` gate, production payload/long-task checks, JS country/city-label zoom checks, and production browser source-map build checks, with PNG screenshots, timing measurements, and degradation thresholds from `data/baselines/prod_live_quality_baseline.json`, `data/baselines/new_map_payload_quality_baseline.json`, and `data/baselines/new_map_js_city_quality_baseline.json`.
 - Lint is mandatory before smoke/UI checks; lint failures fail the run.
 - DNS is diagnostic only. Online state comes only from HTTP/API/CONNECT/FALLBACK truth probes.
 - `/wiki-truth` renders a prebuilt audit model. Counters, universe classification, alias resolution, and garbage filtering stay outside `page.tsx`.

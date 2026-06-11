@@ -23,11 +23,11 @@
 - API: `/api/check?country=US&region=CA`, `/api/check?country=DE`
 - CI: `bash tools/pass_cycle.sh`
 - Contract smoke: use pass_cycle unless a narrower task explicitly names a smoke script.
-- Final handoff CI requires `VERCEL_AUTOMATION_BYPASS_SECRET` in env because `pass_cycle` runs mandatory live production `/new-map` gates with Method 1/2 screenshots, payload/long-task metrics, country/city ZoomIn label timing, stale-GPS refresh/hover/ZoomIn/ZoomOut checks, and JS/source-map thresholds.
+- Final handoff CI requires `VERCEL_AUTOMATION_BYPASS_SECRET` in env because `pass_cycle` runs the live `/new-map` render gate, payload/long-task metrics, country/city ZoomIn label timing, stale-GPS refresh/hover/ZoomIn/ZoomOut checks, and JS/source-map thresholds. Cookie evidence stays diagnostic.
 
 ## Vercel production bypass quick run
 - Keep the bypass secret only in the shell/CI secret named `VERCEL_AUTOMATION_BYPASS_SECRET`; never write the secret into docs, configs, reports, screenshots, or URLs.
-- First try direct production access once. If `/new-map` loads the real app with title `Is cannabis legal?`, record that direct access was used and do not add bypass headers for that run.
+- Production audit starts with a root diagnostic seed request and then proceeds to browser navigation. Direct access is diagnostic only.
 - If Vercel shows a Security Checkpoint or Code 21, stop reloads and run:
 
 ```bash
@@ -35,8 +35,9 @@ VERCEL_AUTOMATION_BYPASS_SECRET="$VERCEL_AUTOMATION_BYPASS_SECRET" \
 node tools/vercel_bypass_live_probe.mjs
 ```
 
-- For manual or scripted country/state popup audits, use the Method 2 cookie seed from `docs/OPS.md`: seed `__vercel_bypass` once, then reuse the same Playwright browser context for every inspected jurisdiction and screenshot.
-- Do not put `x-vercel-protection-bypass` or `x-vercel-set-bypass-cookie` in query params. The supported project flow is header-only cookie seeding with `x-vercel-set-bypass-cookie: samesitenone`.
+- For manual or scripted country/state popup audits, use the Method 2 root `/` seed from `docs/OPS.md` for diagnostics, then reuse the same Playwright browser context for every inspected jurisdiction and screenshot. Cookie evidence stays diagnostic.
+- Do not put `x-vercel-protection-bypass` or `x-vercel-set-bypass-cookie` in query params. Direct production audits use header-only root seeding with `x-vercel-set-bypass-cookie: true`; `samesitenone` is only for explicitly documented embedded/non-direct contexts.
+- Read `seed_cookie_observed`, `cookie_detected`, `cookie_name`, and `cookie_count` in `Reports/vercel-bypass-live/last_run.json`. Missing cookie evidence is recorded, not treated as a standalone screenshot gate.
 
 ## Dev Server Singleton
 - Start UI through `npm run web:dev`.

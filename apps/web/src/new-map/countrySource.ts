@@ -37,23 +37,31 @@ function isPolygonGeometry(geometry: Geometry | null | undefined): geometry is P
   return geometry?.type === "Polygon" || geometry?.type === "MultiPolygon";
 }
 
-function buildHiddenTerritoryCardEntry(
+function buildMapFeatureFallbackCardEntry(
   feature: Feature<Polygon | MultiPolygon | Point, LegalCountryFeatureProperties>
 ): CountryCardEntry | null {
   const geo = String(feature.properties?.geo || "").trim().toUpperCase();
-  if (!geo || feature.geometry.type !== "Point") return null;
-  if (feature.properties?.pointFallbackVisibility !== "hidden") return null;
+  if (!geo) return null;
 
   const displayName = String(feature.properties?.displayName || geo).trim() || geo;
   const pointFallbackLabel = String(feature.properties?.pointFallbackLabel || "").trim();
   const popupDisplayName = pointFallbackLabel || displayName;
   const mapCategory = String(feature.properties?.mapCategory || "UNKNOWN") as CountryCardEntry["mapCategory"];
-  const rawCoordinates = Array.isArray(feature.geometry.coordinates)
-    ? {
-        lng: Number(feature.geometry.coordinates[0]),
-        lat: Number(feature.geometry.coordinates[1])
-      }
-    : null;
+  const labelCoordinates = {
+    lng: Number(feature.properties?.labelAnchorLng),
+    lat: Number(feature.properties?.labelAnchorLat)
+  };
+  const pointCoordinates =
+    feature.geometry.type === "Point" && Array.isArray(feature.geometry.coordinates)
+      ? {
+          lng: Number(feature.geometry.coordinates[0]),
+          lat: Number(feature.geometry.coordinates[1])
+        }
+      : null;
+  const rawCoordinates =
+    Number.isFinite(labelCoordinates.lat) && Number.isFinite(labelCoordinates.lng)
+      ? labelCoordinates
+      : pointCoordinates;
   const coordinates =
     rawCoordinates && Number.isFinite(rawCoordinates.lat) && Number.isFinite(rawCoordinates.lng)
       ? rawCoordinates
@@ -246,7 +254,7 @@ export function buildCardIndexSnapshot() {
   for (const feature of buildCountrySourceSnapshot().features) {
     const geo = String(feature.properties?.geo || "").trim().toUpperCase();
     if (!geo || existingGeos.has(geo)) continue;
-    const fallbackEntry = buildHiddenTerritoryCardEntry(feature as Feature<Polygon | MultiPolygon | Point, LegalCountryFeatureProperties>);
+    const fallbackEntry = buildMapFeatureFallbackCardEntry(feature as Feature<Polygon | MultiPolygon | Point, LegalCountryFeatureProperties>);
     if (!fallbackEntry) continue;
     nextEntries.push(fallbackEntry);
     existingGeos.add(geo);

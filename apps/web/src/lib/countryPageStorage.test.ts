@@ -85,6 +85,47 @@ describe("countryPageStorage", () => {
     );
   });
 
+  it("keeps every runtime map feature backed by a popup-ready card entry", () => {
+    const cardIndex = buildCardIndexSnapshot();
+    const features = [...buildCountrySourceSnapshot().features, ...buildUsStateSourceSnapshot().features];
+    const missing = features
+      .map((feature) => String(feature.properties?.geo || "").trim().toUpperCase())
+      .filter(Boolean)
+      .filter((geo) => !cardIndex[geo]);
+    const invalidPopupModels = Object.entries(cardIndex)
+      .filter(([, entry]) => {
+        const coords = entry.coordinates;
+        return !entry.displayName ||
+          !entry.panel?.why?.length ||
+          !entry.result?.color ||
+          !coords ||
+          typeof coords.lat !== "number" ||
+          typeof coords.lng !== "number";
+      })
+      .map(([geo]) => geo);
+
+    expect(missing).toEqual([]);
+    expect(invalidPopupModels).toEqual([]);
+  });
+
+  it("covers special territory popup matrix entries with real runtime card models", () => {
+    const cardIndex = buildCardIndexSnapshot();
+    const features = [...buildCountrySourceSnapshot().features, ...buildUsStateSourceSnapshot().features];
+    const matrix = ["XK", "GF", "GL", "PR", "HK", "MO", "PS", "TW", "EH", "NC", "FO", "GP", "MQ", "RE", "GI"] as const;
+
+    for (const geo of matrix) {
+      const feature = features.find((item) => String(item.properties?.geo || "").toUpperCase() === geo);
+      const entry = cardIndex[geo];
+      expect(feature, `${geo} feature`).toBeTruthy();
+      expect(entry, `${geo} card`).toBeTruthy();
+      expect(entry?.geo).toBe(geo);
+      expect(entry?.displayName).toBeTruthy();
+      expect(entry?.panel.why.length).toBeGreaterThan(0);
+      expect(entry?.coordinates?.lat).toEqual(expect.any(Number));
+      expect(entry?.coordinates?.lng).toEqual(expect.any(Number));
+    }
+  });
+
   it("builds human-readable popup panel data for disputed map colors", () => {
     const cambodia = deriveCountryCardEntryFromCountryPageData(getCountryPageData("khm")!);
     const india = deriveCountryCardEntryFromCountryPageData(getCountryPageData("ind")!);

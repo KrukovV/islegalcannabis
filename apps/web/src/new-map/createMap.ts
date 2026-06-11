@@ -817,6 +817,25 @@ export function createMap(
       ""
     ).trim().toUpperCase();
     if (!country || !iso2) return;
+    const featureId = String(feature.id || feature.properties?.geo || iso2 || "").trim() || null;
+    const layerId = String((feature as { layer?: { id?: string } }).layer?.id || "").trim() || null;
+    host.__NEW_MAP_DEBUG__ = {
+      ...(host.__NEW_MAP_DEBUG__ || {}),
+      popupTrace: {
+        ...((host.__NEW_MAP_DEBUG__?.popupTrace as Record<string, unknown> | undefined) || {}),
+        COUNTRY_ID: country,
+        DEBUG_ID: iso2,
+        GEO_ID: iso2,
+        FEATURE_ID: featureId,
+        CLICK_LAYER: layerId,
+        CLICK_RECEIVED: true,
+        CARD_INDEX_KEY: iso2,
+        CARD_INDEX_HIT: undefined,
+        POPUP_DATA_FOUND: undefined,
+        POPUP_RENDERED: false,
+        SELECTED_DISPLAY_NAME: country
+      }
+    };
     options?.onSelectGeo?.(iso2);
     host.__MAP_SELECTED_GEO__?.({ iso2, country, lng: event.lngLat.lng, lat: event.lngLat.lat });
   });

@@ -3,6 +3,11 @@ import fs from "node:fs";
 import path from "node:path";
 import { chromium } from "playwright";
 import { acquireProjectProcessSlot } from "../runtime/processSlots.mjs";
+import {
+  buildVercelBypassCookieSeedUrl,
+  buildVercelBypassHeaders,
+  diffVercelBypassCookies
+} from "../vercel_bypass.mjs";
 
 const ROOT = process.cwd();
 const REPORT_DIR = path.join(ROOT, "Reports", "status-engine");
@@ -30,7 +35,7 @@ const CONTROL_COUNTRIES = [
 ];
 
 const CONTROL_STATES = ["US-CA", "US-CO", "US-WY", "US-NE", "US-KS", "US-WI", "US-UT", "US-IN"];
-const PRODUCTION_SAMPLE = ["AL", "IR", "KH", "BY", "AU", "US-CA", "US-WY", "US-UT"];
+const PRODUCTION_SAMPLE = ["AL", "IR", "KH", "BY", "AU", "GF", "XK", "US-CA", "US-WY", "US-UT"];
 const IDAHO = "US-ID";
 const USA_VISUAL_STATES = ["US-CA", "US-WY", "US-NE", "US-KS", "US-UT"];
 const REQUIRED_LOCAL_NAMES = ["kif", "hachich", "tekrouri", "dawamesc", "diamba", "liamba", "dagga", "happy pizza"];
@@ -46,6 +51,8 @@ const CAMERA_OVERRIDES = {
   KH: { lng: 104.9, lat: 12.6, zoom: 5.5 },
   IR: { lng: 53.6, lat: 32.4, zoom: 4.1 },
   DZ: { lng: 2.6, lat: 28.0, zoom: 3.9 },
+  GF: { lng: -53.1, lat: 3.9, zoom: 5.2 },
+  XK: { lng: 20.9, lat: 42.6, zoom: 7.0 },
   "US-CA": { lng: -119.5, lat: 37.25, zoom: 5.4 },
   "US-CO": { lng: -105.6, lat: 39.0, zoom: 5.6 },
   "US-WY": { lng: -107.5, lat: 43.0, zoom: 5.7 },
@@ -140,6 +147,63 @@ function countOccurrences(text, needle) {
     index += needle.length;
   }
   return count;
+}
+
+function hasVercelAccessBlock(text) {
+  return /Security Checkpoint|Could not verify your browser|Code 21|Failed to verify your browser/i.test(text || "");
+}
+
+async function seedVercelBypassCookie(context, target, secret) {
+  const bypassSecretPresent = Boolean(secret);
+  const seedUrl = buildVercelBypassCookieSeedUrl(target);
+  if (!bypassSecretPresent) {
+    return {
+      bypassSecretPresent,
+      seedUrl,
+      seedStatus: null,
+      seedMitigated: "",
+      seedVercelId: "",
+      cookieSeeded: false,
+      cookieDetected: false,
+      cookieName: "",
+      cookieNames: [],
+      cookieCount: 0,
+      challengeDetected: false,
+      bypassCookiePresent: false
+    };
+  }
+
+  const cookiesBefore = await context.cookies();
+  const response = await context.request.get(seedUrl, {
+    headers: buildVercelBypassHeaders(secret, "true"),
+    maxRedirects: 0,
+    timeout: 45000
+  });
+  const seedBody = await response.text().catch(() => "");
+  const cookiesAfter = await context.cookies();
+  const seededCookies = diffVercelBypassCookies(cookiesBefore, cookiesAfter);
+  const cookieNames = seededCookies.map((cookie) => cookie.name).filter(Boolean);
+  const seedStatus = response.status();
+  const cookieSeeded = seedStatus >= 200 && seedStatus < 400;
+  const cookieDetected = seededCookies.length > 0;
+  const challengeDetected =
+    hasVercelAccessBlock(seedBody) ||
+    response.headers()["x-vercel-mitigated"] === "challenge";
+
+  return {
+    bypassSecretPresent,
+    seedUrl,
+    seedStatus,
+    seedMitigated: response.headers()["x-vercel-mitigated"] || "",
+    seedVercelId: response.headers()["x-vercel-id"] || "",
+    cookieSeeded,
+    cookieDetected,
+    cookieName: cookieNames[0] || "",
+    cookieNames,
+    cookieCount: seededCookies.length,
+    challengeDetected,
+    bypassCookiePresent: cookieSeeded && cookieDetected
+  };
 }
 
 function profileList(entry, key) {
@@ -288,18 +352,10 @@ async function waitForFeaturePoint(page, geo, layerIds, entry) {
 }
 
 async function clickFeature(page, point) {
-  await page.evaluate(({ x, y, layerId }) => {
-    const map = window.__NEW_MAP_DEBUG__?.map;
-    if (!map) throw new Error("NO_MAP_DEBUG_HANDLE");
-    const features = map.queryRenderedFeatures([x, y], { layers: [layerId] });
-    const lngLat = map.unproject([x, y]);
-    map.fire("click", {
-      point: { x, y },
-      lngLat,
-      features,
-      originalEvent: { type: "click" }
-    });
-  }, point);
+  const canvas = page.locator(".maplibregl-canvas");
+  const box = await canvas.boundingBox();
+  if (!box) throw new Error("NO_MAP_CANVAS_BOUNDS");
+  await page.mouse.click(box.x + point.x, box.y + point.y);
 }
 
 async function readPopup(page, geo) {
@@ -352,9 +408,29 @@ async function auditJurisdiction(page, cardIndex, statusIndex, geo) {
   const entry = cardIndex[geo];
   const expectedColor = status?.color || "UNCONFIRMED";
   const expectedCategory = colorToCategory(expectedColor);
-  const layerIds = geo.startsWith("US-") ? ["us-states-fill"] : ["legal-fill", "legal-point"];
-  if (!status) throw new Error(`MISSING_STATUS_SSOT:${geo}`);
-  if (!entry) throw new Error(`MISSING_CARD_INDEX:${geo}`);
+  const layerIds = geo.startsWith("US-")
+    ? ["us-states-fill"]
+    : ["legal-territory-label", "legal-territory-hitbox", "legal-point", "legal-fill"];
+  if (!status) {
+    return {
+      geo,
+      name: geo,
+      expectedColor,
+      source: "",
+      pass: false,
+      failure: "MISSING_STATUS_SSOT"
+    };
+  }
+  if (!entry) {
+    return {
+      geo,
+      name: status.name,
+      expectedColor,
+      source: status.sourceUrl || "",
+      pass: false,
+      failure: "MISSING_CARD_INDEX"
+    };
+  }
 
   await jumpToGeo(page, geo, entry);
   const point = await waitForFeaturePoint(page, geo, layerIds, entry);
@@ -536,12 +612,38 @@ function renderControlReport(title, rows) {
 }
 
 function renderProductionReport(results) {
+  const auditResult = results.auditResult || (results.pass ? "PASS" : results.blocked ? "BLOCKED" : "FAIL");
+  const title = results.reportTitle || "Production Audit";
+  const flagPrefix = results.flagPrefix || "PRODUCTION_AUDIT";
+  const blockedLines = results.blocked
+    ? [
+        "## Blocked",
+        "",
+        `Reason: ${results.blockReason || "UNKNOWN"}`,
+        `Response status: ${results.responseStatus ?? results.seedStatus ?? ""}`,
+        `Title: ${results.title || ""}`,
+        `Screenshot: ${results.screenshot || ""}`,
+        ""
+      ]
+    : [];
   return [
-    "# Production Audit",
+    `# ${title}`,
     "",
     `Generated: ${new Date().toISOString()}`,
     `Target: ${results.target}`,
     "",
+    "## Bypass Evidence",
+    "",
+    `bypass_secret_present: ${results.bypassSecretPresent ? 1 : 0}`,
+    `cookie_seeded: ${results.cookieSeeded ? 1 : 0}`,
+    `cookie_detected: ${results.cookieDetected ? 1 : 0}`,
+    `cookie_name: ${results.cookieName || ""}`,
+    `cookie_count: ${results.cookieCount ?? 0}`,
+    `challenge_detected: ${results.challengeDetected ? 1 : 0}`,
+    `nav_status: ${results.navStatus ?? ""}`,
+    `audit_result: ${auditResult}`,
+    "",
+    ...blockedLines,
     markdownTable(
       ["Geo", "Name", "Expected Color", "Current Color", "Popup", "Debug Leaks", "Result"],
       results.rows.map((row) => [
@@ -555,7 +657,9 @@ function renderProductionReport(results) {
       ])
     ),
     "",
-    `PRODUCTION_AUDIT_PASS=${results.pass ? 1 : 0}`,
+    `${flagPrefix}_PASS=${results.pass ? 1 : 0}`,
+    `${flagPrefix}_BLOCKED=${results.blocked ? 1 : 0}`,
+    `BYPASS_COOKIE_PRESENT=${results.bypassCookiePresent ? 1 : 0}`,
     ""
   ].join("\n");
 }
@@ -693,32 +797,157 @@ async function runLocalAudit(target) {
   }
 }
 
+async function runProductionBrowserClickAudit({
+  target,
+  context,
+  statusIndex,
+  bypassEvidence,
+  reportBase,
+  screenshotName,
+  reportTitle,
+  flagPrefix
+}) {
+  const page = await context.newPage();
+  const response = await page.goto(`${target}/new-map?qa=1`, { waitUntil: "domcontentloaded" });
+  try {
+    await waitForMapReady(page);
+  } catch (error) {
+    const title = await page.title().catch(() => "");
+    const bodyText = await page.locator("body").innerText({ timeout: 5000 }).catch(() => "");
+    const screenshot = path.join(MAP_AUDIT_DIR, screenshotName);
+    await page.screenshot({ path: screenshot, fullPage: false }).catch(() => undefined);
+    const accessBlocked = hasVercelAccessBlock(`${title}\n${bodyText}`);
+    const results = {
+      target,
+      generated_at: new Date().toISOString(),
+      reportTitle,
+      flagPrefix,
+      rows: [],
+      pass: false,
+      blocked: true,
+      blockReason: accessBlocked ? "VERCEL_SECURITY_CHECKPOINT" : `MAP_READY_TIMEOUT:${error.message || error.name || "UNKNOWN"}`,
+      responseStatus: response?.status() ?? null,
+      navStatus: response?.status() ?? null,
+      title,
+      hasAccessBlock: accessBlocked,
+      auditResult: "BLOCKED",
+      screenshot: path.relative(ROOT, screenshot),
+      bodySample: bodyText.slice(0, 240),
+      ...bypassEvidence,
+      challengeDetected: bypassEvidence.challengeDetected || accessBlocked
+    };
+    writeJson(path.join(REPORT_DIR, `${reportBase}.json`), results);
+    writeFile(path.join(REPORT_DIR, `${reportBase}.md`), renderProductionReport(results));
+    return results;
+  }
+
+  const cardIndex = await page.evaluate(async () => {
+    const response = await fetch("/api/new-map/card-index", { cache: "no-store" });
+    if (!response.ok) throw new Error(`CARD_INDEX_FETCH_FAILED:${response.status}`);
+    return response.json();
+  });
+  const rows = [];
+  for (const geo of PRODUCTION_SAMPLE) {
+    rows.push(await auditJurisdiction(page, cardIndex, statusIndex, geo));
+  }
+  const pass = rows.every((row) => row.pass);
+  const results = {
+    target,
+    generated_at: new Date().toISOString(),
+    reportTitle,
+    flagPrefix,
+    rows,
+    pass,
+    blocked: false,
+    navStatus: response?.status() ?? null,
+    auditResult: pass ? "PASS" : "FAIL",
+    ...bypassEvidence,
+    challengeDetected: bypassEvidence.challengeDetected
+  };
+  writeJson(path.join(REPORT_DIR, `${reportBase}.json`), results);
+  writeFile(path.join(REPORT_DIR, `${reportBase}.md`), renderProductionReport(results));
+  return results;
+}
+
 async function runProductionAudit(target) {
   const statusData = readJson(STATUS_SSOT_PATH);
   const statusIndex = new Map((statusData.entries || []).map((entry) => [entry.id, entry]));
-  const cardIndex = await fetchJson(`${target}/api/new-map/card-index`);
+  const secret = process.env.VERCEL_AUTOMATION_BYPASS_SECRET || "";
   const slot = await acquireProjectProcessSlot("playwright:status-engine-production-audit");
   let browser = null;
   let context = null;
   try {
     browser = await chromium.launch({ headless: true });
-    context = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
-    const page = await context.newPage();
-    await page.goto(`${target}/new-map?qa=1`, { waitUntil: "domcontentloaded" });
-    await waitForMapReady(page);
-    const rows = [];
-    for (const geo of PRODUCTION_SAMPLE) {
-      rows.push(await auditJurisdiction(page, cardIndex, statusIndex, geo));
-    }
-    const results = {
+    context = await browser.newContext({
+      viewport: { width: 1440, height: 900 },
+      deviceScaleFactor: 1,
+      extraHTTPHeaders: secret ? buildVercelBypassHeaders(secret, "true") : {}
+    });
+    const bypassEvidence = await seedVercelBypassCookie(context, target, secret);
+    const results = await runProductionBrowserClickAudit({
       target,
-      generated_at: new Date().toISOString(),
-      rows,
-      pass: rows.every((row) => row.pass)
-    };
-    writeJson(path.join(REPORT_DIR, "production-audit.json"), results);
-    writeFile(path.join(REPORT_DIR, "production-audit.md"), renderProductionReport(results));
+      context,
+      statusIndex,
+      bypassEvidence,
+      reportBase: "production-audit",
+      screenshotName: "production-blocked.png",
+      reportTitle: "Production Audit",
+      flagPrefix: "PRODUCTION_AUDIT"
+    });
     console.log(`PRODUCTION_AUDIT=${passFail(results.pass)}`);
+    console.log(`PRODUCTION_AUDIT_BLOCKED=${results.blocked ? 1 : 0}`);
+    console.log(`BYPASS_COOKIE_PRESENT=${bypassEvidence.bypassCookiePresent ? 1 : 0}`);
+    if (!results.pass) {
+      if (results.blocked) console.log(`BLOCK_REASON=${results.blockReason}`);
+      process.exitCode = 1;
+    }
+  } finally {
+    if (context) await context.close().catch(() => {});
+    if (browser) await browser.close().catch(() => {});
+    slot.release();
+  }
+}
+
+async function runProductionDirectAudit(target) {
+  const statusData = readJson(STATUS_SSOT_PATH);
+  const statusIndex = new Map((statusData.entries || []).map((entry) => [entry.id, entry]));
+  const slot = await acquireProjectProcessSlot("playwright:status-engine-production-direct-audit");
+  let browser = null;
+  let context = null;
+  try {
+    browser = await chromium.launch({ headless: true });
+    context = await browser.newContext({
+      viewport: { width: 1440, height: 900 },
+      deviceScaleFactor: 1
+    });
+    const results = await runProductionBrowserClickAudit({
+      target,
+      context,
+      statusIndex,
+      bypassEvidence: {
+        bypassSecretPresent: Boolean(process.env.VERCEL_AUTOMATION_BYPASS_SECRET || ""),
+        seedUrl: "",
+        seedStatus: null,
+        seedMitigated: "",
+        seedVercelId: "",
+        cookieSeeded: false,
+        cookieDetected: false,
+        cookieName: "",
+        cookieNames: [],
+        cookieCount: 0,
+        challengeDetected: false,
+        bypassCookiePresent: false,
+        accessMode: "direct_public_no_bypass_seed"
+      },
+      reportBase: "production-direct-audit",
+      screenshotName: "production-direct-blocked.png",
+      reportTitle: "Production Direct Public Audit",
+      flagPrefix: "PRODUCTION_DIRECT_AUDIT"
+    });
+    console.log(`PRODUCTION_DIRECT_AUDIT=${passFail(results.pass)}`);
+    console.log(`PRODUCTION_DIRECT_AUDIT_BLOCKED=${results.blocked ? 1 : 0}`);
+    console.log("BYPASS_COOKIE_PRESENT=0");
+    if (results.blocked) console.log(`BLOCK_REASON=${results.blockReason}`);
     if (!results.pass) process.exitCode = 1;
   } finally {
     if (context) await context.close().catch(() => {});
@@ -731,6 +960,10 @@ async function main() {
   const { mode, target } = parseArgs();
   if (mode === "production") {
     await runProductionAudit(target);
+    return;
+  }
+  if (mode === "production-direct") {
+    await runProductionDirectAudit(target);
     return;
   }
   await runLocalAudit(target);

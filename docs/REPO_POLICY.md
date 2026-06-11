@@ -24,7 +24,7 @@
 
 ## Git / CI
 - Основная проверка перед handoff или commit: `bash tools/pass_cycle.sh`.
-- Финальный `pass_cycle` обязан включать live production `/new-map` gates: Vercel bypass Method 1/2, payload/long-task measurement, PNG-скрины, `elapsed_ms`/`map_ready_ms`/transfer metrics, и деградационные baselines `data/baselines/prod_live_quality_baseline.json` + `data/baselines/new_map_payload_quality_baseline.json`.
+- Финальный `pass_cycle` обязан включать live production `/new-map` gates: один Vercel root seed request для диагностики, PNG-скрины, `elapsed_ms`/`map_ready_ms`/transfer metrics, и деградационные baselines `data/baselines/prod_live_quality_baseline.json` + `data/baselines/new_map_payload_quality_baseline.json`. Cookie evidence is diagnostic only.
 - Прямой `git push` допускается только через `Tools/commit_if_green.sh`.
 - Коммиты, которые включают `data/laws/**`, проходят через `tools/commit_if_green.sh`.
 - Запрещены destructive reset/clean/filter-repo и silent CI fallback.

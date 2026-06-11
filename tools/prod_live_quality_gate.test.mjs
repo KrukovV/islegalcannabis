@@ -17,7 +17,7 @@ function makePngLikeFile(dir, name, bytes = 12000) {
 
 function baseline(overrides = {}) {
   return {
-    required_methods: ["method1_extra_http_headers", "method2_api_cookie_seed"],
+    required_methods: ["method2_api_cookie_seed"],
     required_title: "Is cannabis legal?",
     require_no_access_block: true,
     require_new_map_root: true,
@@ -61,34 +61,41 @@ function goodResult(method, screenshot, overrides = {}) {
   };
 }
 
-test("prod live gate accepts both support-provided bypass methods with screenshots and timings", async () => {
+function goodCookieSeedResult(screenshot, overrides = {}) {
+  return goodResult("method2_api_cookie_seed", screenshot, {
+    seed_status: 200,
+    cookie_seeded: true,
+    cookie_detected: true,
+    cookie_name: "__vercel_bypass",
+    cookie_count: 1,
+    seed_cookie_observed: true,
+    ...overrides
+  });
+}
+
+test("prod live gate accepts the official cookie seed flow with screenshot and timings", async () => {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "ilc-prod-live-gate-ok-"));
-  const method1Shot = makePngLikeFile(tmp, "method1.png");
   const method2Shot = makePngLikeFile(tmp, "method2.png");
   const report = {
     missing_secret: false,
-    results: [
-      goodResult("method1_extra_http_headers", method1Shot),
-      goodResult("method2_api_cookie_seed", method2Shot, { seed_status: 200 })
-    ]
+    results: [goodCookieSeedResult(method2Shot)]
   };
 
   const evaluation = await evaluateProdLiveReport({ report, baseline: baseline(), root: ROOT });
 
   assert.equal(evaluation.ok, true);
   assert.equal(evaluation.failures.length, 0);
-  assert.equal(evaluation.methods.length, 2);
+  assert.equal(evaluation.methods.length, 1);
   assert.equal(evaluation.methods.every((method) => method.screenshot_exists), true);
 });
 
 test("prod live gate fails on Vercel access block and missing map readiness", async () => {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "ilc-prod-live-gate-block-"));
-  const method1Shot = makePngLikeFile(tmp, "method1.png");
   const method2Shot = makePngLikeFile(tmp, "method2.png");
   const report = {
     missing_secret: false,
     results: [
-      goodResult("method1_extra_http_headers", method1Shot, {
+      goodCookieSeedResult(method2Shot, {
         ok: false,
         title: "Vercel Security Checkpoint",
         has_access_block: true,
@@ -101,26 +108,24 @@ test("prod live gate fails on Vercel access block and missing map readiness", as
           canvas_ms: null,
           screenshot_bytes: 12000
         }
-      }),
-      goodResult("method2_api_cookie_seed", method2Shot, { seed_status: 200 })
+      })
     ]
   };
 
   const evaluation = await evaluateProdLiveReport({ report, baseline: baseline(), root: ROOT });
 
   assert.equal(evaluation.ok, false);
-  assert.match(evaluation.failures.join("\n"), /method1_extra_http_headers:ACCESS_BLOCK/);
-  assert.match(evaluation.failures.join("\n"), /method1_extra_http_headers:NO_MAP_READY/);
+  assert.match(evaluation.failures.join("\n"), /method2_api_cookie_seed:ACCESS_BLOCK/);
+  assert.match(evaluation.failures.join("\n"), /method2_api_cookie_seed:NO_MAP_READY/);
 });
 
 test("prod live gate fails on degraded timing and undersized screenshot", async () => {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "ilc-prod-live-gate-degraded-"));
-  const method1Shot = makePngLikeFile(tmp, "method1.png", 512);
-  const method2Shot = makePngLikeFile(tmp, "method2.png");
+  const method2Shot = makePngLikeFile(tmp, "method2.png", 512);
   const report = {
     missing_secret: false,
     results: [
-      goodResult("method1_extra_http_headers", method1Shot, {
+      goodCookieSeedResult(method2Shot, {
         metrics: {
           elapsed_ms: 95000,
           root_ms: 2000,
@@ -129,8 +134,7 @@ test("prod live gate fails on degraded timing and undersized screenshot", async 
           canvas_ms: 2600,
           screenshot_bytes: 512
         }
-      }),
-      goodResult("method2_api_cookie_seed", method2Shot, { seed_status: 200 })
+      })
     ]
   };
 
@@ -140,6 +144,28 @@ test("prod live gate fails on degraded timing and undersized screenshot", async 
   assert.match(evaluation.failures.join("\n"), /SCREENSHOT_TOO_SMALL/);
   assert.match(evaluation.failures.join("\n"), /ELAPSED_MS_DEGRADED/);
   assert.match(evaluation.failures.join("\n"), /MAP_READY_MS_DEGRADED/);
+});
+
+test("prod live gate treats missing bypass cookie as diagnostic only", async () => {
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "ilc-prod-live-gate-cookie-diagnostic-"));
+  const method2Shot = makePngLikeFile(tmp, "method2.png");
+  const report = {
+    missing_secret: false,
+    results: [
+      goodCookieSeedResult(method2Shot, {
+        cookie_detected: false,
+        cookie_name: "",
+        cookie_count: 0,
+        seed_cookie_observed: false
+      })
+    ]
+  };
+
+  const evaluation = await evaluateProdLiveReport({ report, baseline: baseline(), root: ROOT });
+
+  assert.equal(evaluation.ok, true);
+  assert.doesNotMatch(evaluation.failures.join("\n"), /method2_api_cookie_seed:BYPASS_COOKIE_PRESENT/);
+  assert.equal(evaluation.methods.find((method) => method.method === "method2_api_cookie_seed")?.bypass_cookie_present, false);
 });
 
 test("prod live probe timeout is bounded even when the probe ignores shutdown", async () => {
