@@ -34,6 +34,7 @@ The official Vercel automation bypass is documented at:
 - Startup performance tuning that contributes to first-byte stability is part of the contract:
   - `rel="preconnect"` for `https://basemaps.cartocdn.com` and `https://tiles.basemaps.cartocdn.com` in `apps/web/src/app/layout.tsx`.
   - `rel="preload"` + `as="fetch"` for `/static/countries/countries.<hash>.json` in `apps/web/src/app/layout.tsx`.
+  - countries payload JSON is fetched from `MapRoot` during mount, without head-inline prefetch scripts.
 - The shared helper path is single-source: `tools/lib/vercel-bypass.mjs` + `tools/vercel_bypass_live_probe.mjs` + `tools/vercel_bypass.test.mjs`.
 
 ## Stability Evidence Baseline (Local + Production Controls)
@@ -124,6 +125,7 @@ Map runtime optional features are now loaded lazily to reduce first-load JS cost
 - `MapRoot` itself is loaded from `apps/web/src/app/new-map/NewMapClientEntry.tsx` using `next/dynamic` (`ssr: false`).
 - Non-essential map overlays and dock components are loaded lazily (`AsciiOverlay`, `ViewportCountryPopup`, `MapGeoDock`).
 - `/new-map-card-index.json` is the primary card-index path; API card-index fetch remains fallback-only.
+- Runtime data payload is intentionally fetched in `MapRoot.mount` instead of pre-fetched via root inline script.
 - `tools/measure_new_map_payload.mjs` and `tools/measure_new_map_js_city_perf.mjs` now wait on verified map readiness via `data-map-ready`, canvas attach, and rendered legal-fill features.
 
 Measured comparison (local `/new-map` probe, same browser/runtime, one change set):

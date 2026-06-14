@@ -92,22 +92,10 @@ type ActiveGeo = {
   lng?: number;
 } | null;
 
-type NewMapPrefetchCache = {
-  countries?: Promise<LegalCountryCollection | null> | null;
-};
-
 const RuntimeParityBadge = dynamic(() => import("@/app/_components/RuntimeParityBadge"), { ssr: false });
 const UnifiedSeoStatusPanel = dynamic(() => import("./components/UnifiedSeoStatusPanel"), { ssr: false });
 const CARD_INDEX_STATIC_URL = "/new-map-card-index.json";
 const CARD_INDEX_API_URL = "/api/new-map/card-index";
-
-function getNewMapPrefetchCache(): NewMapPrefetchCache | null {
-  if (typeof window === "undefined") return null;
-  const host = window as typeof window & {
-    __NEW_MAP_PREFETCH__?: NewMapPrefetchCache;
-  };
-  return host.__NEW_MAP_PREFETCH__ || null;
-}
 
 async function fetchJsonWithRetry<T>(url: string, init: RequestInit, errorPrefix: string): Promise<T> {
   let lastError: unknown = null;
@@ -853,14 +841,11 @@ export default function MapRoot({
       try {
         const mapRuntimeModule = (await import("./mapRuntime")) as NewMapRuntimeModule;
         mapRuntimeModuleRef.current = mapRuntimeModule;
-        const prefetched = getNewMapPrefetchCache();
         const loadCountries = () =>
           fetchJsonWithRetry<LegalCountryCollection>(countriesUrl, {
             credentials: "same-origin"
           }, "countries_fetch_failed");
-        const countriesPromise = prefetched?.countries
-          ? prefetched.countries.then((value) => value || loadCountries())
-          : loadCountries();
+        const countriesPromise = loadCountries();
         const runtime = mapRuntimeModule.createMap(containerRef.current, {
           onSelectGeo: (geo) => {
             setSelectedGeo(geo);

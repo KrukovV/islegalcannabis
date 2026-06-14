@@ -28,8 +28,9 @@ describe("new-map route config", () => {
   it("keeps early new-map JSON fetches and explicit critical perf hints", () => {
     const filePath = path.join(process.cwd(), "src", "app", "layout.tsx");
     const source = fs.readFileSync(filePath, "utf8");
-    expect(source).toContain('countries: loadJson("${NEW_MAP_COUNTRIES_URL}")');
-    expect(source).not.toContain('style: loadJson("${NEW_MAP_STYLE_URL}")');
+    expect(source).not.toContain("NEW_MAP_PREFETCH_SCRIPT");
+    expect(source).not.toContain("host.__NEW_MAP_PREFETCH__");
+    expect(source).not.toContain("<script dangerouslySetInnerHTML");
     expect(source).toContain('rel="preconnect"');
     expect(source).toContain('href="https://basemaps.cartocdn.com"');
     expect(source).toContain('href="https://tiles.basemaps.cartocdn.com"');

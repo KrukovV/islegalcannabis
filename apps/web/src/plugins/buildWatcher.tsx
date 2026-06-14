@@ -88,16 +88,6 @@ function getClientRuntimeStamp(): RuntimeStamp {
   };
 }
 
-function resetClientRuntimePrefetch() {
-  if (typeof window === "undefined") {
-    return;
-  }
-  const host = window as typeof window & {
-    __NEW_MAP_PREFETCH__?: unknown;
-  };
-  delete host.__NEW_MAP_PREFETCH__;
-}
-
 function buildRefreshUrl(expectedStamp: string) {
   if (typeof window === "undefined") {
     return "/";
@@ -180,7 +170,6 @@ export default function BuildWatcher() {
       const attempts = Number(window.sessionStorage.getItem(PENDING_RELOAD_COUNT_KEY) || "0");
       if (attempts < MAX_PENDING_RELOADS) {
         window.sessionStorage.setItem(PENDING_RELOAD_COUNT_KEY, String(attempts + 1));
-        resetClientRuntimePrefetch();
         window.location.replace(buildRefreshUrl(pendingStamp));
         return;
       }
@@ -213,7 +202,6 @@ export default function BuildWatcher() {
         window.sessionStorage.setItem(PENDING_RELOAD_COUNT_KEY, "0");
         setNextRuntimeStamp(null);
         setDismissed(false);
-        resetClientRuntimePrefetch();
         window.location.replace(buildRefreshUrl(nextRuntimeStamp));
         return;
       }
