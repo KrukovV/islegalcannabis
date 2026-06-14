@@ -103,6 +103,22 @@ export default async function RootLayout({
     <html lang={htmlLang} suppressHydrationWarning>
       <head>
         <meta name="msvalidate.01" content={MS_VALIDATE_CONTENT} />
+        <link
+          rel="preconnect"
+          href="https://basemaps.cartocdn.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preconnect"
+          href="https://tiles.basemaps.cartocdn.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href={NEW_MAP_COUNTRIES_URL}
+          as="fetch"
+          crossOrigin="anonymous"
+        />
         <script dangerouslySetInnerHTML={{ __html: NEW_MAP_PREFETCH_SCRIPT }} />
         <Script id="yandex-metrika" strategy="afterInteractive">
           {`

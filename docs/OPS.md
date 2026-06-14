@@ -144,6 +144,9 @@ launchctl load ~/Library/LaunchAgents/com.islegalcannabis.wiki-claims.plist
 - Prod payload run: set `VERCEL_AUTOMATION_BYPASS_SECRET` in the shell and run `node tools/prod_new_map_payload_gate.mjs`.
 - Required evidence: JSON timing report, screenshot, countries transfer/decoded size, optional `card-index`/`us-states` transfer, long-task count/total/max, `NM_T7_FIRST_FILL_RENDERED`, and rendered country feature count.
 - Official optimization references for this gate are Chrome Lighthouse total byte weight and web.dev long-task guidance: `https://developer.chrome.com/docs/lighthouse/performance/total-byte-weight` and `https://web.dev/articles/optimize-long-tasks`.
+- `Network dependency tree` and `uses rel=preconnect` guidance for critical first render is addressed in `app/layout.tsx`:
+  - preconnect to `https://basemaps.cartocdn.com` and `https://tiles.basemaps.cartocdn.com`;
+  - preload `/static/countries/countries.<hash>.json` as a fetch resource with `crossorigin="anonymous"`.
 - Treat `/api/new-map/countries` as compatibility only; the runtime URL should be `/static/countries/countries.<hash>.json`.
 - Root `/new-map` cold start must not eagerly request `/api/new-map/card-index` or `/api/new-map/us-states`; the local e2e guard is `e2e/new-map.preload.spec.ts`.
 - Cleanup policy: `QA/`, `Reports/`, `Artifacts/`, `QUARANTINE/`, Playwright traces, and `~/islegalcannabis_archive/` are rebuildable operational artifacts and must not be deployed or committed.

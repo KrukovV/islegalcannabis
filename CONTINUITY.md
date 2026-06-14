@@ -1,5 +1,5 @@
-Goal: Implement and stabilize production-safe New Map unused JS reduction while preserving Vercel bypass repeatability.
-State: checkpoint=.checkpoints/20260614-235256.patch; CI=PASS; Smoke=PASS
-Done: implemented lazy entry loading and component-level JS deferral (`dynamic` imports), moved card-index to static-first `/new-map-card-index.json` with API fallback, updated map-ready measurements and bypass helper reuse, and documented the optimization in `docs/VERCEL_BYPASS.md` with measured deltas. Current local/proof checks PASS: `npm run lint`, `npm -w apps/web exec -- vitest run src/new-map/MapRoot.selection.test.ts`, `node --check tools/measure_new_map_payload.mjs`, `node --check tools/measure_new_map_js_city_perf.mjs`, `node --test tools/vercel_bypass.test.mjs`, `node --test tools/prod_live_quality_gate.test.mjs`, `node --test tools/ocean_background_pixel_analyzer.test.mjs`, `git diff --check`.
-Now: run one final `bash tools/pass_cycle.sh`; if green, use `Tools/commit_if_green.sh --message ... --tag stability/0.0.7` and push.
-Open questions: Production re-measurement against live is UNCONFIRMED due current network timeout to https://www.islegal.info/new-map from this environment; latest accepted metric deltas are from existing artifact runs.
+Goal: finalize production bypass stability spec/docs and produce a stability tag for current by-pass + perf baseline.
+State: checkpoint=.checkpoints/20260615-001347.patch; CI=PASS; Smoke=PASS
+Done: `apps/web/src/app/layout.tsx` includes preconnect/preload; `apps/web/src/app/new-map/page.config.test.ts` and `tools/vercel_bypass.test.mjs` contract tests pass; `docs/OPS.md` + `docs/VERCEL_BYPASS.md` updated; local payload/network/JS/perf artifacts re-measured.
+Now: perform `tools/commit_if_green.sh` with `stability/0.0.9` tag and push.
+Open questions: Production stability proofs under live challenge windows still remain OPEN; one prod smoke cycle was executed as local/manual skip due production gate instability.

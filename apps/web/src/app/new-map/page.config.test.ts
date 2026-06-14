@@ -25,12 +25,16 @@ describe("new-map route config", () => {
     expect(source).not.toContain("export const NEW_MAP_VISIBLE_STAMP");
   });
 
-  it("keeps early new-map JSON fetches without stale Carto preconnect hints", () => {
+  it("keeps early new-map JSON fetches and explicit critical perf hints", () => {
     const filePath = path.join(process.cwd(), "src", "app", "layout.tsx");
     const source = fs.readFileSync(filePath, "utf8");
     expect(source).toContain('countries: loadJson("${NEW_MAP_COUNTRIES_URL}")');
     expect(source).not.toContain('style: loadJson("${NEW_MAP_STYLE_URL}")');
-    expect(source).not.toContain('rel="preconnect" href="https://tiles.basemaps.cartocdn.com"');
+    expect(source).toContain('rel="preconnect"');
+    expect(source).toContain('href="https://basemaps.cartocdn.com"');
+    expect(source).toContain('href="https://tiles.basemaps.cartocdn.com"');
+    expect(source).toContain('rel="preload"');
+    expect(source).toContain('as="fetch"');
     expect(source).not.toContain('rel="dns-prefetch" href="https://tiles.basemaps.cartocdn.com"');
   });
 

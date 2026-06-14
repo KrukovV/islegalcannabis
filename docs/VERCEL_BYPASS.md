@@ -31,6 +31,21 @@ The official Vercel automation bypass is documented at:
 - The app-ready timeout is aligned with the production baseline: `VERCEL_BYPASS_APP_READY_TIMEOUT_MS=65000` by default, while `data/baselines/prod_live_quality_baseline.json` allows `max_map_ready_ms=60000`.
 - Vercel challenge responses are recorded as blockers, not treated with tight retry loops.
 - Heavy screenshot matrices are archived outside the repo under `~/islegalcannabis_archive/`.
+- Startup performance tuning that contributes to first-byte stability is part of the contract:
+  - `rel="preconnect"` for `https://basemaps.cartocdn.com` and `https://tiles.basemaps.cartocdn.com` in `apps/web/src/app/layout.tsx`.
+  - `rel="preload"` + `as="fetch"` for `/static/countries/countries.<hash>.json` in `apps/web/src/app/layout.tsx`.
+- The shared helper path is single-source: `tools/lib/vercel-bypass.mjs` + `tools/vercel_bypass_live_probe.mjs` + `tools/vercel_bypass.test.mjs`.
+
+## Stability Evidence Baseline (Local + Production Controls)
+
+- Single-context flow: one `BrowserContext`, one warmed bypass seed, one page family, one challenge handling policy.
+- Static-first card-index flow verified by runner tests and production campaign scripts.
+- Local startup proof (most recent):
+  - `NEW_MAP_PAYLOAD`: total 2121.7 KiB, first-party 2121.7 KiB, scripts 1213.6 KiB, estimated unused script transfer 0.1 KiB.
+  - `NEW_MAP_JS_CITY`: first-party script 1213.6 KiB, estimated unused source 0.7 KiB, legacy signals 0, `legacy_transfer_bytes=0`.
+  - `NETWORK_TREE`: baseline critical path in same process around ~3.9s after map bootstrap changes with two preconnects active.
+- Production stability remains evidence-driven and bounded by challenge policy: each prod hypothesis uses exactly one seed attempt + one low-rate run, with explicit stop on challenge.
+- Secret handling remains bounded to environment variables; no bypass secret is ever committed or placed in reports/URLs.
 
 ## Runtime Flow
 
