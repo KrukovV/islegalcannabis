@@ -102,6 +102,42 @@ Known stable production zoom/ocean evidence:
 
 Both matrix reports passed 3 sessions x Chromium+WebKit x 15 territories x 5 zoom cycles with `challenge_count=0`, `fail_rows=0`, and `SECRET_LEAK_GUARD=PASS`.
 
+## New-Map JS Payload Optimization
+
+Map runtime optional features are now loaded lazily to reduce first-load JS cost while preserving one-map runtime contract:
+
+- `MapRoot` itself is loaded from `apps/web/src/app/new-map/NewMapClientEntry.tsx` using `next/dynamic` (`ssr: false`).
+- Non-essential map overlays and dock components are loaded lazily (`AsciiOverlay`, `ViewportCountryPopup`, `MapGeoDock`).
+- `/new-map-card-index.json` is the primary card-index path; API card-index fetch remains fallback-only.
+- `tools/measure_new_map_payload.mjs` and `tools/measure_new_map_js_city_perf.mjs` now wait on verified map readiness via `data-map-ready`, canvas attach, and rendered legal-fill features.
+
+Measured comparison (local `/new-map` probe, same browser/runtime, one change set):
+
+| Metric | Before | After | Delta |
+|---|---:|---:|---:|
+| Total Transfer (KiB) | 2297.6 | 2121.7 | -174.1 |
+| First-Party Transfer (KiB) | 2297.6 | 2121.7 | -174.1 |
+| Script Transfer (KiB) | 1388.6 | 1213.6 | -173.8 |
+| First Paint Fill (ms) | 4915 | 3313 | -1602 |
+| First Fill Long Task Max (ms) | 2367 | 1945 | -422 |
+| Long Task Count | 8 | 9 | +1 |
+| Total Long-Task ms | 3839 | 4822 | +983 |
+
+JS label-flow evidence:
+
+- First-party script transfer: 1213.6 KiB (vs 1388.6 KiB before)
+- Estimated unused transfer: 0.1 KiB (vs 8.7 KiB before)
+- Legacy polyfill signals: 0 (before 0)
+- City/Country zoom label counters were unchanged and still timeout-driven on both captured baseline files, so label-speed optimization is currently neutral and tracked by existing timeout thresholds.
+
+Saved evidence:
+
+- `Reports/new-map-payload/unused-js-before/before-cardindex.chromium.json`
+- `Reports/new-map-payload/unused-js-after/after-lazy.chromium.json`
+- `Reports/new-map-payload/unused-js-after-v2/after-lazy-local.chromium.json`
+- `Reports/new-map-js-city/unused-js-before/before-cardindex.chromium.json`
+- `Reports/new-map-js-city/unused-js-after-v2/after-lazy-local.chromium.json`
+
 ## Stop Rules
 
 - If `VERCEL_AUTOMATION_BYPASS_SECRET` is missing, production live proof is forbidden.

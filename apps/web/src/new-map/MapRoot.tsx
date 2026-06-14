@@ -7,7 +7,6 @@ import type { RuntimeIdentity } from "@/lib/runtimeIdentity";
 import type { CountryPageData } from "@/lib/countryPageStorage";
 import { deriveCountryCardEntryFromCountryPageData } from "@/lib/countryCardEntry";
 import type { SeoLocale } from "@/lib/seo/i18n";
-import staticCardIndex from "../../public/new-map-card-index.json";
 import { createMap } from "./createMap";
 import type { CountryCardEntry, LegalCountryCollection, NewMapBootResult } from "./map.types";
 import styles from "./MapRoot.module.css";
@@ -18,11 +17,11 @@ import {
   readVisualViewportSnapshot,
   subscribeToVisualViewportChanges
 } from "./viewportMetrics";
-import AsciiOverlay from "./ascii/AsciiOverlay";
-import { bindAsciiMapTriggers } from "./ascii/ascii-triggers";
 import { attachHoverController } from "./hoverController";
-import MapGeoDock from "./MapGeoDock";
-import ViewportCountryPopup from "./components/ViewportCountryPopup";
+
+const AsciiOverlay = dynamic(() => import("./ascii/AsciiOverlay"), { ssr: false });
+const MapGeoDock = dynamic(() => import("./MapGeoDock"), { ssr: false });
+const ViewportCountryPopup = dynamic(() => import("./components/ViewportCountryPopup"), { ssr: false });
 
 type Props = {
   countriesUrl: string;
@@ -94,12 +93,12 @@ type ActiveGeo = {
 
 type NewMapPrefetchCache = {
   countries?: Promise<LegalCountryCollection | null> | null;
-  cardIndex?: Promise<Record<string, CountryCardEntry> | null> | null;
 };
 
 const RuntimeParityBadge = dynamic(() => import("@/app/_components/RuntimeParityBadge"), { ssr: false });
 const UnifiedSeoStatusPanel = dynamic(() => import("./components/UnifiedSeoStatusPanel"), { ssr: false });
-const EMBEDDED_CARD_INDEX = staticCardIndex as Record<string, CountryCardEntry>;
+const CARD_INDEX_STATIC_URL = "/new-map-card-index.json";
+const CARD_INDEX_API_URL = "/api/new-map/card-index";
 
 function getNewMapPrefetchCache(): NewMapPrefetchCache | null {
   if (typeof window === "undefined") return null;
@@ -126,6 +125,14 @@ async function fetchJsonWithRetry<T>(url: string, init: RequestInit, errorPrefix
     }
   }
   throw lastError instanceof Error ? lastError : new Error(errorPrefix);
+}
+
+function isCardIndexPayload(payload: unknown): payload is Record<string, CountryCardEntry> {
+  return Boolean(payload) && typeof payload === "object" && !Array.isArray(payload);
+}
+
+async function requestCardIndex(url: string): Promise<Record<string, CountryCardEntry>> {
+  return fetchJsonWithRetry<Record<string, CountryCardEntry>>(url, { credentials: "same-origin" }, `card_index_request_failed:${url}`);
 }
 
 function markCountriesCacheState(countriesUrl: string) {
@@ -174,6 +181,10 @@ function updatePopupTrace(partial: PopupPipelineTrace) {
 function isNewMapQaEnabled() {
   if (typeof window === "undefined") return false;
   return new URLSearchParams(window.location.search).get("qa") === "1";
+}
+
+function shouldEnableAsciiOverlay(runtimeIdentity: RuntimeIdentity) {
+  return runtimeIdentity.runtimeMode !== "production";
 }
 
 function installNewMapQaHook(map: maplibregl.Map) {
@@ -284,7 +295,7 @@ export default function MapRoot({
   );
   const [hoveredGeo, setHoveredGeo] = useState<SelectedGeo>(null);
   const [seoPanelOpen, setSeoPanelOpen] = useState(Boolean(initialGeoCode));
-  const [cardIndex, setCardIndex] = useState<Record<string, CountryCardEntry>>(() => EMBEDDED_CARD_INDEX);
+  const [cardIndex, setCardIndex] = useState<Record<string, CountryCardEntry>>({});
   const [popupAnchor, setPopupAnchor] = useState<{ x: number; y: number } | null>(null);
   const [activeRouteSeoData, setActiveRouteSeoData] = useState<CountryPageData | null>(seoCountryData);
   const cardIndexRequestedRef = useRef(false);
@@ -507,8 +518,28 @@ export default function MapRoot({
   const loadCardIndex = useCallback(async () => {
     if (cardIndexRequestedRef.current) return null;
     cardIndexRequestedRef.current = true;
-    setCardIndex(EMBEDDED_CARD_INDEX);
-    return EMBEDDED_CARD_INDEX;
+    try {
+      const staticIndex = await requestCardIndex(CARD_INDEX_STATIC_URL);
+      if (isCardIndexPayload(staticIndex)) {
+        setCardIndex(staticIndex);
+        return staticIndex;
+      }
+    } catch (staticError) {
+      window.console.debug(`[new-map-trace] CARD_INDEX_STATIC_FETCH_FAIL ${staticError instanceof Error ? staticError.message : "unknown"}`);
+    }
+    try {
+      const apiIndex = await requestCardIndex(CARD_INDEX_API_URL);
+      if (isCardIndexPayload(apiIndex)) {
+        setCardIndex(apiIndex);
+        return apiIndex;
+      }
+      throw new Error("card_index_api_invalid_payload");
+    } catch (apiError) {
+      const message = apiError instanceof Error ? apiError.message : "card_index_load_failed";
+      window.console.error(`[new-map-trace] CARD_INDEX_LOAD_FAIL ${message}`);
+      setError(message);
+      return null;
+    }
   }, []);
 
   const handleOpenDetails = useCallback(
@@ -806,6 +837,8 @@ export default function MapRoot({
   useEffect(() => {
     let cancelled = false;
     let cleanup = () => {};
+    let unbindAsciiTriggers = () => {};
+    const isAsciiOverlayEnabled = shouldEnableAsciiOverlay(runtimeIdentity);
 
     async function mount() {
       if (!containerRef.current) return;
@@ -856,7 +889,10 @@ export default function MapRoot({
           onHoverChange: (geo) => setHoveredGeo(geo),
           onSelectChange: (geo) => setSelectedGeo(geo)
         });
-        const unbindAsciiTriggers = bindAsciiMapTriggers(runtime.map);
+        if (isAsciiOverlayEnabled) {
+          const { bindAsciiMapTriggers } = await import("./ascii/ascii-triggers");
+          unbindAsciiTriggers = bindAsciiMapTriggers(runtime.map);
+        }
         const uninstallQaHook = installNewMapQaHook(runtime.map);
         setDebugState({ mounted: true, countriesUrl, map: isNewMapQaEnabled() ? runtime.map : null, selectedId: null });
         await countriesDataPromise;
@@ -961,24 +997,26 @@ export default function MapRoot({
         data-testid="new-map-surface"
         data-map-ready={mapReady ? "1" : "0"}
       />
-      <AsciiOverlay />
-      <MapGeoDock
-        mapReady={mapReady}
-        cardIndex={cardIndex}
-        selectedGeo={selectedGeoView}
-        routeGeo={
-          seoMarkerEntry
-            ? {
-                country: seoMarkerEntry.name,
-                iso2: seoMarkerEntry.code || undefined,
-                lat: seoMarkerEntry.coordinates?.lat,
-                lng: seoMarkerEntry.coordinates?.lng
+      {shouldEnableAsciiOverlay(runtimeIdentity) ? <AsciiOverlay /> : null}
+      {mapReady ? (
+        <MapGeoDock
+          mapReady={mapReady}
+          cardIndex={cardIndex}
+          selectedGeo={selectedGeoView}
+          routeGeo={
+            seoMarkerEntry
+              ? {
+                  country: seoMarkerEntry.name,
+                  iso2: seoMarkerEntry.code || undefined,
+                  lat: seoMarkerEntry.coordinates?.lat,
+                  lng: seoMarkerEntry.coordinates?.lng
               }
-            : null
-        }
-        clearSelectedGeo={() => setSelectedGeo(null)}
-        applyGeoToMap={applyGeoToMap}
-      />
+              : null
+          }
+          clearSelectedGeo={() => setSelectedGeo(null)}
+          applyGeoToMap={applyGeoToMap}
+        />
+      ) : null}
       {error ? (
         <div className={styles.errorBox} data-testid="new-map-error">
           {error}

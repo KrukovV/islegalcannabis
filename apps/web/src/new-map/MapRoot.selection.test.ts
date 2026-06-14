@@ -14,39 +14,41 @@ describe("MapRoot map selection wiring", () => {
     expect(attachBlock).toContain("setSelectedGeo(geo)");
   });
 
-  test("keeps card index in bundled product state instead of production fetch path", () => {
+  test("uses static-first card-index fetch with API fallback", () => {
     const source = readFileSync(fileURLToPath(new URL("./MapRoot.tsx", import.meta.url)), "utf8");
 
-    expect(source).toContain('import staticCardIndex from "../../public/new-map-card-index.json"');
-    expect(source).toContain("const EMBEDDED_CARD_INDEX = staticCardIndex as Record<string, CountryCardEntry>");
-    expect(source).toContain("useState<Record<string, CountryCardEntry>>(() => EMBEDDED_CARD_INDEX)");
+    expect(source).toContain('const CARD_INDEX_STATIC_URL = "/new-map-card-index.json"');
+    expect(source).toContain('const CARD_INDEX_API_URL = "/api/new-map/card-index"');
+    expect(source).toContain("requestCardIndex");
+    expect(source).toContain("setCardIndex(staticIndex)");
+    expect(source).toContain("setCardIndex(apiIndex)");
     expect(source).toContain("__NEW_MAP_CARD_INDEX__");
-    expect(source).not.toContain('CARD_INDEX_STATIC_URL = "/new-map-card-index.json"');
-    expect(source).not.toContain('CARD_INDEX_API_URL = "/api/new-map/card-index"');
-    expect(source).not.toContain("requestCardIndexFrom(CARD_INDEX_STATIC_URL)");
+    expect(source).toMatch(/staticIndex\)\)\s*{/);
+    expect(source).toMatch(/apiIndex\)\)\s*{/);
   });
 
-  test("keeps the country popup in the main map bundle instead of a challenged lazy chunk", () => {
+  test("loads country popup lazily when needed", () => {
     const source = readFileSync(fileURLToPath(new URL("./MapRoot.tsx", import.meta.url)), "utf8");
 
-    expect(source).toContain('import ViewportCountryPopup from "./components/ViewportCountryPopup"');
-    expect(source).not.toContain('dynamic(() => import("./components/ViewportCountryPopup")');
+    expect(source).toContain('const ViewportCountryPopup = dynamic(() => import("./components/ViewportCountryPopup"), { ssr: false });');
+    expect(source).toContain('selectedGeoEntry && popupAnchor');
   });
 
-  test("keeps the geo dock in the main map bundle instead of a challenged lazy chunk", () => {
+  test("defers AI dock until map is ready", () => {
     const source = readFileSync(fileURLToPath(new URL("./MapRoot.tsx", import.meta.url)), "utf8");
 
-    expect(source).toContain('import MapGeoDock from "./MapGeoDock"');
-    expect(source).not.toContain('dynamic(() => import("./MapGeoDock")');
+    expect(source).toContain('const MapGeoDock = dynamic(() => import("./MapGeoDock"), { ssr: false });');
+    expect(source).toContain('{mapReady ? (');
   });
 
-  test("keeps map interaction wiring out of challenged post-ready lazy chunks", () => {
+  test("keeps map interaction wiring in the main runtime path and loads ASCII runtime lazily", () => {
     const source = readFileSync(fileURLToPath(new URL("./MapRoot.tsx", import.meta.url)), "utf8");
 
     expect(source).toContain('import { attachHoverController } from "./hoverController"');
-    expect(source).toContain('import { bindAsciiMapTriggers } from "./ascii/ascii-triggers"');
-    expect(source).not.toContain('await import("./hoverController")');
-    expect(source).not.toContain('await import("./ascii/ascii-triggers")');
+    expect(source).toContain('await import("./ascii/ascii-triggers")');
+    expect(source).toContain('function shouldEnableAsciiOverlay');
+    expect(source).toContain('shouldEnableAsciiOverlay(runtimeIdentity)');
+    expect(source).not.toContain('import { bindAsciiMapTriggers } from "./ascii/ascii-triggers"');
   });
 
   test("does not reset disabled production AI on every popup geo change", () => {

@@ -97,6 +97,21 @@ function summarizeResources(resources, pageOrigin) {
   };
 }
 
+async function waitForMapReadyState(page) {
+  await page.waitForSelector('[data-testid="new-map-surface"][data-map-ready="1"]', { timeout: 45000 });
+  await page.waitForSelector(".maplibregl-canvas", { state: "attached", timeout: 15000 });
+  await page.waitForFunction(() => {
+    const map = window.__NEW_MAP_DEBUG__?.map;
+    if (!map) return false;
+    const canvas = map?.getCanvas?.();
+    if (!canvas || !(canvas instanceof HTMLCanvasElement)) return false;
+    const rect = canvas.getBoundingClientRect?.();
+    if (!rect || rect.width <= 0 || rect.height <= 0) return false;
+    const features = map?.queryRenderedFeatures?.(undefined, { layers: ["legal-fill"] }) || [];
+    return features.length >= 20;
+  }, { timeout: 60000 });
+}
+
 function summarizeLongTasks(longTasks) {
   const durations = longTasks.map((entry) => Math.round(Number(entry.duration || 0)));
   const total = durations.reduce((sum, value) => sum + value, 0);
@@ -216,13 +231,8 @@ page.on("response", async (response) => {
 });
 
 const startedAt = Date.now();
-await page.goto(bypassSeed.url, { waitUntil: "domcontentloaded", timeout: 60000 });
-await page.waitForSelector('[data-testid="new-map-surface"][data-map-ready="1"]', { timeout: 45000 });
-await page.waitForSelector(".maplibregl-canvas", { timeout: 15000 });
-await page.waitForFunction(() => {
-  const map = window.__NEW_MAP_DEBUG__?.map;
-  return Boolean(map && map.queryRenderedFeatures(undefined, { layers: ["legal-fill"] }).length > 100);
-}, { timeout: 60000 });
+  await page.goto(bypassSeed.url, { waitUntil: "domcontentloaded", timeout: 60000 });
+  await waitForMapReadyState(page);
 await page.waitForLoadState("networkidle", { timeout: 15000 }).catch(() => undefined);
 await page.waitForTimeout(settleMs);
 

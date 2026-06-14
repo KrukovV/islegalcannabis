@@ -1,9 +1,9 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import type { RuntimeIdentity } from "@/lib/runtimeIdentity";
 import type { CountryPageData } from "@/lib/countryPageStorage";
 import type { SeoLocale } from "@/lib/seo/i18n";
-import MapRoot from "@/new-map/MapRoot";
 
 type Props = {
   countriesUrl: string;
@@ -14,6 +14,8 @@ type Props = {
   seoCountryIndex?: Record<string, CountryPageData>;
   locale?: SeoLocale;
 };
+
+const MapRoot = dynamic(() => import("@/new-map/MapRoot"), { ssr: false });
 
 export default function NewMapClientEntry(props: Props) {
   const runtimeKey = [
