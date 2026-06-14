@@ -1,5 +1,5 @@
 Goal: Implement and stabilize production-safe New Map unused JS reduction while preserving Vercel bypass repeatability.
-State: checkpoint=.checkpoints/20260614-234815.patch; CI=PASS; Smoke=PASS
+State: checkpoint=.checkpoints/20260614-235020.patch; CI=PASS; Smoke=PASS
 Done: implemented lazy entry loading and component-level JS deferral (`dynamic` imports), moved card-index to static-first `/new-map-card-index.json` with API fallback, updated map-ready measurements and bypass helper reuse, and documented the optimization in `docs/VERCEL_BYPASS.md` with measured deltas. Current local/proof checks PASS: `npm run lint`, `npm -w apps/web exec -- vitest run src/new-map/MapRoot.selection.test.ts`, `node --check tools/measure_new_map_payload.mjs`, `node --check tools/measure_new_map_js_city_perf.mjs`, `node --test tools/vercel_bypass.test.mjs`, `node --test tools/prod_live_quality_gate.test.mjs`, `node --test tools/ocean_background_pixel_analyzer.test.mjs`, `git diff --check`.
 Now: run one final `bash tools/pass_cycle.sh`; if green, use `Tools/commit_if_green.sh --message ... --tag stability/0.0.7` and push.
 Open questions: Production re-measurement against live is UNCONFIRMED due current network timeout to https://www.islegal.info/new-map from this environment; latest accepted metric deltas are from existing artifact runs.
