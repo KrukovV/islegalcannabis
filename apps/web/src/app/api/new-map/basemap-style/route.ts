@@ -1,6 +1,7 @@
-import { NEW_MAP_WATER_COLOR } from "@/new-map/mapPalette";
+import { NEW_MAP_OCEAN_BACKGROUND, NEW_MAP_WATER_COLOR } from "@/new-map/mapPalette";
 
 const UPSTREAM_STYLE_URL = "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json";
+const OCEAN_BACKGROUND_LAYER_ID = "islegal-ocean-background";
 const SUBTLE_BOUNDARY = "rgba(198, 208, 215, 0.18)";
 const STATIC_MAP_CACHE = "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800";
 const SAME_ORIGIN_GLYPHS_PATH = "/api/new-map/basemap-glyph/{fontstack}/{range}.pbf";
@@ -34,7 +35,18 @@ export async function GET(request: Request) {
     delete (style as Record<string, unknown>).fog;
     delete (style as Record<string, unknown>).sky;
     delete (style as Record<string, unknown>).terrain;
-    for (const layer of style.layers as Array<{ id?: string; type?: string; paint?: Record<string, unknown> }>) {
+    const layers = style.layers as Array<{ id?: string; type?: string; paint?: Record<string, unknown>; "source-layer"?: string }>;
+    if (!layers.some((layer) => layer.id === OCEAN_BACKGROUND_LAYER_ID)) {
+      layers.unshift({
+        id: OCEAN_BACKGROUND_LAYER_ID,
+        type: "background",
+        paint: {
+          "background-color": NEW_MAP_OCEAN_BACKGROUND,
+          "background-opacity": 1
+        }
+      });
+    }
+    for (const layer of layers) {
       if (layer.paint && typeof layer.paint === "object") {
         for (const key of Object.keys(layer.paint)) {
           if (/color-adjust/i.test(key)) {
@@ -46,14 +58,21 @@ export async function GET(request: Request) {
       if (layer.type === "background") {
         layer.paint = {
           ...layer.paint,
-          "background-color": NEW_MAP_WATER_COLOR
+          "background-color": NEW_MAP_OCEAN_BACKGROUND,
+          "background-opacity": 1
         };
         continue;
       }
-      if (layer.id === "water" && layer.type === "fill") {
+      const id = String(layer.id || "").toLowerCase();
+      const sourceLayer = String(layer["source-layer"] || "").toLowerCase();
+      const oceanFillLayer =
+        layer.type === "fill" &&
+        (id === "water" || id.includes("water") || id.includes("ocean") || id.includes("sea") || sourceLayer.includes("water") || sourceLayer.includes("ocean"));
+      if (oceanFillLayer) {
         layer.paint = {
           ...layer.paint,
           "fill-color": NEW_MAP_WATER_COLOR,
+          "fill-opacity": 1,
           "fill-antialias": false
         };
         continue;

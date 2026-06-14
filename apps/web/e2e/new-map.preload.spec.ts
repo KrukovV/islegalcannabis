@@ -1,11 +1,13 @@
 import { expect, test } from "playwright/test";
 
-test("new-map requests style and countries early without duplicates", async ({ page }) => {
+const CARTO_STYLE_URL = "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json";
+
+test("new-map requests upstream style and countries early without duplicates", async ({ page }) => {
   const tracked: Array<{ url: string; delta: number }> = [];
   const start = Date.now();
   page.on("request", (request) => {
     const url = request.url();
-    if (url.includes("/api/new-map/basemap-style") || url.includes("/static/countries/countries.")) {
+    if (url === CARTO_STYLE_URL || url.includes("/static/countries/countries.")) {
       tracked.push({ url, delta: Date.now() - start });
     }
   });
@@ -14,7 +16,7 @@ test("new-map requests style and countries early without duplicates", async ({ p
   await page.waitForTimeout(1200);
 
   const countries = tracked.filter((entry) => entry.url.includes("/static/countries/countries."));
-  const style = tracked.filter((entry) => entry.url.includes("/api/new-map/basemap-style"));
+  const style = tracked.filter((entry) => entry.url === CARTO_STYLE_URL);
 
   expect(countries).toHaveLength(1);
   expect(style).toHaveLength(1);

@@ -45,6 +45,20 @@ function summarize(entries, pattern) {
     }));
 }
 
+function isBasemapStyle(entryName) {
+  return (
+    entryName.includes("/api/new-map/basemap-style") ||
+    entryName.includes("basemaps.cartocdn.com/gl/positron-gl-style/style.json")
+  );
+}
+
+function isBasemapSource(entryName) {
+  return (
+    entryName.includes("/api/new-map/basemap-source") ||
+    entryName.includes("tiles.basemaps.cartocdn.com/vector/carto.streets/v1/tiles.json")
+  );
+}
+
 await fs.mkdir(reportsDir, { recursive: true });
 
 const browser = await playwright[browserName].launch({
@@ -88,10 +102,16 @@ try {
       decodedBodySize: Math.round(entry.decodedBodySize || 0)
     }));
     const nav = performance.getEntriesByType("navigation")[0];
+    const isStyle = (name) =>
+      name.includes("/api/new-map/basemap-style") ||
+      name.includes("basemaps.cartocdn.com/gl/positron-gl-style/style.json");
+    const isSource = (name) =>
+      name.includes("/api/new-map/basemap-source") ||
+      name.includes("tiles.basemaps.cartocdn.com/vector/carto.streets/v1/tiles.json");
     const critical = resources.filter((entry) =>
       (entry.initiatorType === "link" && entry.name.endsWith(".css") && entry.startTime < 1000) ||
-      entry.name.includes("/api/new-map/basemap-style") ||
-      entry.name.includes("/api/new-map/basemap-source") ||
+      isStyle(entry.name) ||
+      isSource(entry.name) ||
       entry.name.includes("/static/countries/countries.")
     );
     const preconnects = [...document.querySelectorAll('link[rel="preconnect"],link[rel="dns-prefetch"]')]
@@ -116,8 +136,8 @@ try {
       total_transfer_kib: Math.round((resources.reduce((sum, entry) => sum + Number(entry.transferSize || 0), 0) / 1024) * 10) / 10,
       tracked: {
         css: resources.filter((entry) => entry.name.includes("/_next/static/chunks/") && entry.name.endsWith(".css")),
-        basemap_style: resources.filter((entry) => entry.name.includes("/api/new-map/basemap-style")),
-        basemap_source: resources.filter((entry) => entry.name.includes("/api/new-map/basemap-source")),
+        basemap_style: resources.filter((entry) => isStyle(entry.name)),
+        basemap_source: resources.filter((entry) => isSource(entry.name)),
         countries: resources.filter((entry) => entry.name.includes("/static/countries/countries."))
       }
     };
@@ -140,8 +160,24 @@ try {
         transfer_kib: kib(entry.transferSize),
         decoded_kib: kib(entry.decodedBodySize)
       })),
-      basemap_style: summarize(data.tracked.basemap_style, "/api/new-map/basemap-style"),
-      basemap_source: summarize(data.tracked.basemap_source, "/api/new-map/basemap-source"),
+      basemap_style: data.tracked.basemap_style.map((entry) => ({
+        url: safeUrlName(entry.name),
+        initiatorType: entry.initiatorType,
+        start_ms: entry.startTime,
+        response_end_ms: entry.responseEnd,
+        duration_ms: entry.duration,
+        transfer_kib: kib(entry.transferSize),
+        decoded_kib: kib(entry.decodedBodySize)
+      })),
+      basemap_source: data.tracked.basemap_source.map((entry) => ({
+        url: safeUrlName(entry.name),
+        initiatorType: entry.initiatorType,
+        start_ms: entry.startTime,
+        response_end_ms: entry.responseEnd,
+        duration_ms: entry.duration,
+        transfer_kib: kib(entry.transferSize),
+        decoded_kib: kib(entry.decodedBodySize)
+      })),
       countries: summarize(data.tracked.countries, "/static/countries/countries.")
     }
   };

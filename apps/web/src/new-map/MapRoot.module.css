@@ -1,4 +1,5 @@
 .root {
+  --new-map-ocean-background: var(--new-map-water-color, #d7dcdc);
   --new-map-chatbar-height: 72px;
   --new-map-chatbar-gap: 20px;
   --new-map-chatbar-footprint: 132px;
@@ -20,13 +21,13 @@
   min-height: var(--app-viewport-height, 100dvh);
   overflow: hidden;
   overscroll-behavior: none;
-  background: var(--new-map-water-color, #d4dadc);
+  background: var(--new-map-ocean-background);
 }
 
 .mapSurface {
   position: absolute;
   inset: 0;
-  background: var(--new-map-water-color, #d4dadc);
+  background: var(--new-map-ocean-background);
   visibility: visible;
   touch-action: none;
   overscroll-behavior: none;
@@ -38,8 +39,9 @@
 
 .mapSurface :global(.maplibregl-map),
 .mapSurface :global(.maplibregl-canvas-container),
+.mapSurface :global(.maplibregl-control-container),
 .mapSurface :global(.maplibregl-canvas) {
-  background: var(--new-map-water-color, #d4dadc);
+  background: var(--new-map-ocean-background);
 }
 
 .mapSurface :global(.maplibregl-canvas-container),

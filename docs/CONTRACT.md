@@ -85,21 +85,20 @@ Standard app API responses built with `apps/web/src/lib/api/response.ts` include
 
 ## Network truth and CI contract
 - `bash tools/pass_cycle.sh` is the single command for CI, checkpoint, and ledger verification.
+- Protected Vercel production QA bypass is specified in `docs/VERCEL_BYPASS.md`.
 - Lint runs before Smoke/UI and any lint error fails the run.
 - Final `pass_cycle` must run the one-request Vercel root diagnostic access/render check for production `/new-map`, write a PNG screenshot and timing measurements, and compare them against `data/baselines/prod_live_quality_baseline.json`.
 - Scenario-level production UI audits must reuse one browser context for all audited countries, states, popups, and screenshots. Root seed requests remain diagnostic, but `BYPASS_COOKIE_PRESENT` is not a mandatory gate for screenshot capture.
 - Production evidence must distinguish browser app access from bypass diagnostics. `ok=1` proves the real app rendered; cookie observations such as `seed_cookie_observed=1` and `cookie_detected=1` are recorded for forensics only and do not block screenshot capture by themselves.
 - Production QA must be low-rate: deploy polling uses bounded `/api/build-meta` attempts, live audits run serially, and a Vercel Security Checkpoint is recorded as failure/blocker evidence instead of being retried in a tight reload loop.
-- Final `pass_cycle` must also run the live production `/new-map` payload/long-task gate, write a PNG screenshot and JSON report under `Reports/new-map-payload/`, and compare total transfer, countries transfer, optional first-screen payloads, rendered countries, long tasks, and first-fill timing against `data/baselines/new_map_payload_quality_baseline.json`.
-- Final `pass_cycle` must also run the live production `/new-map` JS country/city-label gate, write initial, country zoom, and city zoom PNG screenshots plus JSON under `Reports/new-map-js-city/`, and compare JS transfer, estimated unused JS, legacy-polyfill signals, rendered countries, country-label latency, and city-label latency against `data/baselines/new_map_js_city_quality_baseline.json`.
-- Final `pass_cycle` must also run the live production `/new-map` GPS/hover/zoom gate, write after-GPS, recenter, hover, ZoomIn, and ZoomOut PNG screenshots plus JSON under `Reports/new-map-gps/`, and require stale saved GPS to refresh to a fresh browser GPS position.
+- Extended live production `/new-map` payload/long-task, JS country/city-label, and GPS/hover/zoom gates are opt-in through `PROD_EXTENDED_TAIL_GATES=1`. The default `pass_cycle` must not spend extra Vercel attempts after the live proof gate has rendered production successfully.
 - Production browser source maps must remain enabled in Next.js; CI verifies that `next build` emits `.js.map` files for large client chunks referenced by `sourceMappingURL`.
-- Missing `VERCEL_AUTOMATION_BYPASS_SECRET`, Vercel Security Checkpoint text, wrong title, missing map root/surface/readiness/canvas, missing/undersized screenshots, Method 2 seed status outside 2xx/3xx, country/city-label timeout, stale GPS not refreshed, hover/ZoomIn/ZoomOut timeout, missing production source maps, or threshold degradation must fail final `pass_cycle`.
+- Missing `VERCEL_AUTOMATION_BYPASS_SECRET`, Vercel Security Checkpoint text, wrong title, missing map root/surface/readiness/canvas, missing/undersized screenshots, Method 2 seed status outside 2xx/3xx, missing production source maps, or live-threshold degradation must fail final `pass_cycle`. Extended gate failures fail only when `PROD_EXTENDED_TAIL_GATES=1`.
 - DNS is diagnostic only. `ONLINE` is true only when at least one HTTP/API/CONNECT/FALLBACK truth probe succeeds.
 - Cache may permit `DEGRADED_CACHE`, but cache never sets `ONLINE=1`.
 - `NET_PROBE_CACHE_PATH` must be run-scoped under `Artifacts/net_probe/<RUN_ID>.json`.
 - `EGRESS_TRUTH`, `NET_DIAG`, pass_cycle, quality gate, and hub stage report must agree for the same `RUN_ID`.
-- Before a final handoff, `Reports/ci-final.txt` must contain `PROD_LIVE_OK=1`, `PROD_PAYLOAD_OK=1`, `PROD_JS_CITY_OK=1`, `PROD_GPS_OK=1`, `POST_CHECKS_OK=1`, and `HUB_STAGE_REPORT_OK=1`.
+- Before a final handoff, `Reports/ci-final.txt` must contain `PROD_LIVE_OK=1`, `POST_CHECKS_OK=1`, and `HUB_STAGE_REPORT_OK=1`. Extended gates must be represented either by their `*_OK=1` lines when explicitly enabled or by `PROD_EXTENDED_TAIL_SKIPPED=1 reason=PROD_BUDGET_DEFAULT`.
 
 ## Storage hygiene contract
 - `QUARANTINE` contains exactly one PASS snapshot; historical archives live outside the repo.

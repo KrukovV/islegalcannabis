@@ -44,10 +44,12 @@ Statuses: pending | in_progress | done
 - [done] Update AGENTS.md and ci-local diagnostics discipline
 - [done] Simplify map/wiki runtime with shared prepared payloads, perf/log guards, and experimental country vector-tile benchmark path
 - [done] Refresh project spec/docs for `/new-map`, `/wiki-truth`, SSOT diff, network truth, UI singleton, storage hygiene, and Status Engine Audit v1
-- [done] Add `/new-map` payload/long-task reduction, local/prod measurement reports, and mandatory prod payload gate in `pass_cycle`
-- [done] Add `/new-map` JS unused/legacy and city-label zoom measurement with mandatory prod screenshot gate in `pass_cycle`
+- [done] Add `/new-map` payload/long-task reduction and local/prod measurement reports; production payload gate is now opt-in through `PROD_EXTENDED_TAIL_GATES=1`
+- [done] Add `/new-map` JS unused/legacy and city-label zoom measurement; production JS label gate is now opt-in through `PROD_EXTENDED_TAIL_GATES=1`
 - [done] Add STATUS ENGINE v3 three-color rerun and separate Cannabis Profile/local-names layer for the same first-wave countries
-- [done] Add stale-GPS refresh, desktop hover, ZoomIn city/village, ZoomOut country, and legacy-polyfill hardening to local/prod `/new-map` gates
+- [done] Add stale-GPS refresh, desktop hover, ZoomIn city/village, ZoomOut country, and legacy-polyfill hardening; production GPS gate is now opt-in through `PROD_EXTENDED_TAIL_GATES=1`
 - [done] Prove production-audit regression root cause from last known working state without changing product behavior
 - [done] Capture HTTP-first prod audit restore evidence for current Vercel bypass secret without product or infrastructure changes
-- [in_progress] Restore repeatable production screenshots with cookie as diagnostic only and produce repeatability report
+- [done] Stabilize Vercel production QA on one context-request cookie warmup flow, static-first card index, `/new-map?qa=1` live proof, stop-on-challenge, and archived zoom/ocean repeatability matrices
+- [done] Retire js_repl recovery, mark `JS_REPL_STATUS=REMOVED_UPSTREAM`, and keep persistent Playwright runner as the primary production audit path
+- [done] Audit current Codex browser stack (`app-server`, `browser_use`, `in_app_browser`) and write `SKILL_DEPENDS_ON_REMOVED_FEATURE`

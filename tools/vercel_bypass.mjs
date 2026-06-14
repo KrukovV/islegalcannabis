@@ -92,3 +92,19 @@ export function redactVercelBypassSecret(value, secret) {
   if (!token) return value;
   return String(value).split(token).join("[redacted]");
 }
+
+export function sanitizeVercelEvidenceHeaders(headers = {}, secret = "") {
+  const result = {};
+  for (const [name, value] of Object.entries(headers || {})) {
+    const normalizedName = String(name).toLowerCase();
+    if (normalizedName === "x-vercel-challenge-token") {
+      result[name] = "[redacted]";
+      continue;
+    }
+    result[name] = redactVercelBypassSecret(
+      Array.isArray(value) ? value.map((item) => String(item)).join(", ") : String(value ?? ""),
+      secret
+    );
+  }
+  return result;
+}

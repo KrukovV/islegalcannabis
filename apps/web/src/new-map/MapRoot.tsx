@@ -7,6 +7,7 @@ import type { RuntimeIdentity } from "@/lib/runtimeIdentity";
 import type { CountryPageData } from "@/lib/countryPageStorage";
 import { deriveCountryCardEntryFromCountryPageData } from "@/lib/countryCardEntry";
 import type { SeoLocale } from "@/lib/seo/i18n";
+import staticCardIndex from "../../public/new-map-card-index.json";
 import { createMap } from "./createMap";
 import type { CountryCardEntry, LegalCountryCollection, NewMapBootResult } from "./map.types";
 import styles from "./MapRoot.module.css";
@@ -18,6 +19,10 @@ import {
   subscribeToVisualViewportChanges
 } from "./viewportMetrics";
 import AsciiOverlay from "./ascii/AsciiOverlay";
+import { bindAsciiMapTriggers } from "./ascii/ascii-triggers";
+import { attachHoverController } from "./hoverController";
+import MapGeoDock from "./MapGeoDock";
+import ViewportCountryPopup from "./components/ViewportCountryPopup";
 
 type Props = {
   countriesUrl: string;
@@ -74,6 +79,8 @@ type NewMapQaController = {
   jumpTo: (_lng: number, _lat: number, _zoom: number) => Promise<void>;
   getCamera: () => { lng: number; lat: number; zoom: number };
   getCanvasBox: () => { width: number; height: number };
+  getRenderedLabelStats: () => { country: number; city: number; landscape: number };
+  waitForIdle: () => Promise<void>;
 };
 
 type SelectedGeo = string | null;
@@ -91,9 +98,8 @@ type NewMapPrefetchCache = {
 };
 
 const RuntimeParityBadge = dynamic(() => import("@/app/_components/RuntimeParityBadge"), { ssr: false });
-const MapGeoDock = dynamic(() => import("./MapGeoDock"), { ssr: false });
 const UnifiedSeoStatusPanel = dynamic(() => import("./components/UnifiedSeoStatusPanel"), { ssr: false });
-const ViewportCountryPopup = dynamic(() => import("./components/ViewportCountryPopup"), { ssr: false });
+const EMBEDDED_CARD_INDEX = staticCardIndex as Record<string, CountryCardEntry>;
 
 function getNewMapPrefetchCache(): NewMapPrefetchCache | null {
   if (typeof window === "undefined") return null;
@@ -202,7 +208,35 @@ function installNewMapQaHook(map: maplibregl.Map) {
     getCanvasBox: () => {
       const rect = map.getCanvas().getBoundingClientRect();
       return { width: Math.round(rect.width), height: Math.round(rect.height) };
-    }
+    },
+    getRenderedLabelStats: () => {
+      const symbolLayerIds = (map.getStyle().layers || [])
+        .filter((layer) => layer.type === "symbol")
+        .map((layer) => layer.id);
+      const features = symbolLayerIds.length
+        ? map.queryRenderedFeatures(undefined, { layers: symbolLayerIds })
+        : [];
+      const countByLayer = (pattern: RegExp) =>
+        features.filter((feature) => pattern.test(String((feature as { layer?: { id?: string } }).layer?.id || ""))).length;
+      return {
+        country: countByLayer(/country|admin_0|place_country|legal-territory-label/i),
+        city: countByLayer(/place_city|place_town|place_villages|place_hamlet|place_suburbs?/i),
+        landscape: countByLayer(/natural|landscape|mountain|water|marine|ocean|sea|park|poi/i)
+      };
+    },
+    waitForIdle: () =>
+      new Promise<void>((resolve) => {
+        let settled = false;
+        let timeoutId = 0;
+        const finish = () => {
+          if (settled) return;
+          settled = true;
+          window.clearTimeout(timeoutId);
+          resolve();
+        };
+        timeoutId = window.setTimeout(finish, 3000);
+        map.once("idle", finish);
+      })
   };
   return () => {
     if (host.__NEW_MAP_QA__) delete host.__NEW_MAP_QA__;
@@ -250,7 +284,7 @@ export default function MapRoot({
   );
   const [hoveredGeo, setHoveredGeo] = useState<SelectedGeo>(null);
   const [seoPanelOpen, setSeoPanelOpen] = useState(Boolean(initialGeoCode));
-  const [cardIndex, setCardIndex] = useState<Record<string, CountryCardEntry>>({});
+  const [cardIndex, setCardIndex] = useState<Record<string, CountryCardEntry>>(() => EMBEDDED_CARD_INDEX);
   const [popupAnchor, setPopupAnchor] = useState<{ x: number; y: number } | null>(null);
   const [activeRouteSeoData, setActiveRouteSeoData] = useState<CountryPageData | null>(seoCountryData);
   const cardIndexRequestedRef = useRef(false);
@@ -261,6 +295,14 @@ export default function MapRoot({
   const seoCountryCode = activeRouteSeoData?.code || null;
   const seoRouteGeoCode = String(activeRouteSeoData?.geo_code || "").trim().toUpperCase() || null;
   const shouldLockDocumentScroll = !seoCountryData;
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const host = window as typeof window & {
+      __NEW_MAP_CARD_INDEX__?: Record<string, CountryCardEntry>;
+    };
+    host.__NEW_MAP_CARD_INDEX__ = cardIndex;
+  }, [cardIndex]);
 
   useEffect(() => {
     if (typeof document === "undefined") return;
@@ -465,27 +507,8 @@ export default function MapRoot({
   const loadCardIndex = useCallback(async () => {
     if (cardIndexRequestedRef.current) return null;
     cardIndexRequestedRef.current = true;
-    const prefetched = getNewMapPrefetchCache();
-    const requestCardIndex = () =>
-      fetch("/api/new-map/card-index", {
-        credentials: "same-origin"
-      }).then((response) => {
-        if (!response.ok) {
-          throw new Error(`card_index_fetch_failed:${response.status}`);
-        }
-        return response.json() as Promise<Record<string, CountryCardEntry>>;
-      });
-    try {
-      const nextCardIndex = prefetched?.cardIndex
-        ? await prefetched.cardIndex.then((value) => value || requestCardIndex())
-        : await requestCardIndex();
-      setCardIndex(nextCardIndex || {});
-      return nextCardIndex || {};
-    } catch {
-      cardIndexRequestedRef.current = false;
-      setCardIndex({});
-      return null;
-    }
+    setCardIndex(EMBEDDED_CARD_INDEX);
+    return EMBEDDED_CARD_INDEX;
   }, []);
 
   const handleOpenDetails = useCallback(
@@ -829,10 +852,9 @@ export default function MapRoot({
         }
         setVisualReady(true);
         setMapReady(true);
-        const { attachHoverController } = await import("./hoverController");
-        const { bindAsciiMapTriggers } = await import("./ascii/ascii-triggers");
         const hover = attachHoverController(runtime.map, {
-          onHoverChange: (geo) => setHoveredGeo(geo)
+          onHoverChange: (geo) => setHoveredGeo(geo),
+          onSelectChange: (geo) => setSelectedGeo(geo)
         });
         const unbindAsciiTriggers = bindAsciiMapTriggers(runtime.map);
         const uninstallQaHook = installNewMapQaHook(runtime.map);

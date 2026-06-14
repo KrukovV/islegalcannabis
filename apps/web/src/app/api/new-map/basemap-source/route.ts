@@ -16,7 +16,6 @@ export async function GET() {
   }
 
   const tilejson = await response.json();
-  tilejson.tiles = ["/api/new-map/basemap-tile/{z}/{x}/{y}"];
 
   return Response.json(tilejson, {
     headers: {

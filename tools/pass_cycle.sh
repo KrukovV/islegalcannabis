@@ -349,15 +349,26 @@ run_mandatory_tail() {
   local hub_rc=0
   local post_reason="OK"
   local hub_reason="OK"
+  local audit_map_url="${PROD_AUDIT_MAP_URL:-https://www.islegal.info/new-map?qa=1}"
+  local live_probe_url="${VERCEL_BYPASS_LIVE_URL:-${audit_map_url}}"
+  local payload_url="${PROD_PAYLOAD_URL:-${audit_map_url}}"
+  local js_city_url="${PROD_JS_CITY_URL:-${audit_map_url}}"
+  local gps_url="${NEW_MAP_GPS_URL:-${audit_map_url}}"
   set +e
-  if [ -z "${VERCEL_AUTOMATION_BYPASS_SECRET:-}" ] && [ "${PROD_GATES_REQUIRED:-0}" != "1" ]; then
+  if [ -n "${MANDATORY_TAIL_SKIP_PROD_REASON:-}" ]; then
+    : > "${PROD_LIVE_GATE_LOG}"
+    : > "${PROD_PAYLOAD_GATE_LOG}"
+    : > "${PROD_JS_CITY_GATE_LOG}"
+    : > "${PROD_GPS_GATE_LOG}"
+    append_ci_line "PROD_TAIL_SKIPPED=1 reason=LOCAL_PIPELINE_FAIL_${MANDATORY_TAIL_SKIP_PROD_REASON}"
+  elif [ -z "${VERCEL_AUTOMATION_BYPASS_SECRET:-}" ] && [ "${PROD_GATES_REQUIRED:-0}" != "1" ]; then
     : > "${PROD_LIVE_GATE_LOG}"
     : > "${PROD_PAYLOAD_GATE_LOG}"
     : > "${PROD_JS_CITY_GATE_LOG}"
     : > "${PROD_GPS_GATE_LOG}"
     append_ci_line "PROD_GATES_LOCAL_SKIP=1 reason=SECRET_MISSING required=0"
   else
-    prod_output=$(${NODE_BIN} "${ROOT}/tools/prod_live_quality_gate.mjs" 2>&1)
+    prod_output=$(VERCEL_BYPASS_LIVE_URL="${live_probe_url}" ${NODE_BIN} "${ROOT}/tools/prod_live_quality_gate.mjs" 2>&1)
     prod_rc=$?
     prod_log_output="${prod_output}"
     if [ "${prod_rc}" -ne 0 ]; then
@@ -372,7 +383,7 @@ run_mandatory_tail() {
       prod_retry_delay_ms="${PROD_LIVE_RETRY_DELAY_MS:-45000}"
       prod_retry_delay_s=$(( (prod_retry_delay_ms + 999) / 1000 ))
       sleep "${prod_retry_delay_s}"
-      prod_retry_output=$(${NODE_BIN} "${ROOT}/tools/prod_live_quality_gate.mjs" 2>&1)
+      prod_retry_output=$(VERCEL_BYPASS_LIVE_URL="${live_probe_url}" ${NODE_BIN} "${ROOT}/tools/prod_live_quality_gate.mjs" 2>&1)
       prod_retry_rc=$?
       prod_retry_line="PROD_LIVE_RETRY attempt=2 reason=ACCESS_BLOCK delay_ms=${prod_retry_delay_ms}"
       prod_log_output="${prod_output}"$'\n'"${prod_retry_line}"$'\n'"${prod_retry_output}"
@@ -397,7 +408,15 @@ run_mandatory_tail() {
         printf "%s\n" "${prod_output}" >> "${ROOT}/ci-final.txt"
       fi
     fi
-    payload_output=$(${NODE_BIN} "${ROOT}/tools/prod_new_map_payload_gate.mjs" 2>&1)
+    if [ "${prod_rc}" -ne 0 ]; then
+      append_ci_line "PROD_TAIL_SKIPPED=1 reason=PROD_LIVE_GATE_FAIL_${prod_reason}"
+    elif [ "${PROD_EXTENDED_TAIL_GATES:-0}" != "1" ]; then
+      : > "${PROD_PAYLOAD_GATE_LOG}"
+      : > "${PROD_JS_CITY_GATE_LOG}"
+      : > "${PROD_GPS_GATE_LOG}"
+      append_ci_line "PROD_EXTENDED_TAIL_SKIPPED=1 reason=PROD_BUDGET_DEFAULT opt_in=PROD_EXTENDED_TAIL_GATES"
+    else
+    payload_output=$(PROD_PAYLOAD_URL="${payload_url}" ${NODE_BIN} "${ROOT}/tools/prod_new_map_payload_gate.mjs" 2>&1)
     payload_rc=$?
     printf "%s\n" "${payload_output}" > "${PROD_PAYLOAD_GATE_LOG}"
     if [ "${payload_rc}" -ne 0 ]; then
@@ -416,7 +435,7 @@ run_mandatory_tail() {
         printf "%s\n" "${payload_output}" >> "${ROOT}/ci-final.txt"
       fi
     fi
-    js_city_output=$(${NODE_BIN} "${ROOT}/tools/prod_new_map_js_city_gate.mjs" 2>&1)
+    js_city_output=$(PROD_JS_CITY_URL="${js_city_url}" ${NODE_BIN} "${ROOT}/tools/prod_new_map_js_city_gate.mjs" 2>&1)
     js_city_rc=$?
     printf "%s\n" "${js_city_output}" > "${PROD_JS_CITY_GATE_LOG}"
     if [ "${js_city_rc}" -ne 0 ]; then
@@ -435,7 +454,7 @@ run_mandatory_tail() {
         printf "%s\n" "${js_city_output}" >> "${ROOT}/ci-final.txt"
       fi
     fi
-    gps_output=$(NEW_MAP_GPS_GATE=1 NEW_MAP_GPS_LABEL="prod-gps-gate-${RUN_ID}" ${NODE_BIN} "${ROOT}/tools/measure_new_map_gps_flow.mjs" 2>&1)
+    gps_output=$(NEW_MAP_GPS_URL="${gps_url}" NEW_MAP_GPS_GATE=1 NEW_MAP_GPS_LABEL="prod-gps-gate-${RUN_ID}" ${NODE_BIN} "${ROOT}/tools/measure_new_map_gps_flow.mjs" 2>&1)
     gps_rc=$?
     gps_log_output="${gps_output}"
     if [ "${gps_rc}" -ne 0 ] && printf "%s\n" "${gps_output}" | grep -q "PROD_GPS_OK=0 reason=PAGE_ERRORS"; then
@@ -443,7 +462,7 @@ run_mandatory_tail() {
       gps_retry_delay_ms="${PROD_GPS_RETRY_DELAY_MS:-45000}"
       gps_retry_delay_s=$(( (gps_retry_delay_ms + 999) / 1000 ))
       sleep "${gps_retry_delay_s}"
-      gps_retry_output=$(NEW_MAP_GPS_GATE=1 NEW_MAP_GPS_LABEL="prod-gps-gate-${RUN_ID}-retry2" ${NODE_BIN} "${ROOT}/tools/measure_new_map_gps_flow.mjs" 2>&1)
+      gps_retry_output=$(NEW_MAP_GPS_URL="${gps_url}" NEW_MAP_GPS_GATE=1 NEW_MAP_GPS_LABEL="prod-gps-gate-${RUN_ID}-retry2" ${NODE_BIN} "${ROOT}/tools/measure_new_map_gps_flow.mjs" 2>&1)
       gps_retry_rc=$?
       gps_retry_line="PROD_GPS_RETRY attempt=2 reason=PAGE_ERRORS delay_ms=${gps_retry_delay_ms} previous_report=${gps_first_report:-NA}"
       gps_log_output="${gps_output}"$'\n'"${gps_retry_line}"$'\n'"${gps_retry_output}"
@@ -466,6 +485,7 @@ run_mandatory_tail() {
       if [ "${CI_WRITE_ROOT}" = "1" ]; then
         printf "%s\n" "${gps_output}" >> "${ROOT}/ci-final.txt"
       fi
+    fi
     fi
   fi
   if [ -x "${ROOT}/tools/post_checks.sh" ]; then
@@ -698,7 +718,10 @@ fail_with_reason() {
     fi
   fi
   quarantine_fail_artifacts "${reason_clean}"
+  local previous_tail_skip_reason="${MANDATORY_TAIL_SKIP_PROD_REASON:-}"
+  MANDATORY_TAIL_SKIP_PROD_REASON="${reason_clean}"
   run_mandatory_tail || true
+  MANDATORY_TAIL_SKIP_PROD_REASON="${previous_tail_skip_reason}"
   ${NODE_BIN} tools/update_continuity_status.mjs || true
   emit_final_output "${STDOUT_FILE}"
   exit "${status:-1}"

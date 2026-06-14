@@ -2,6 +2,8 @@
 
 :root {
   --background: #d4dadc;
+  --new-map-ocean-background: #d7dcdc;
+  --new-map-water-color: var(--new-map-ocean-background);
   --foreground: #171717;
   --app-safe-top: env(safe-area-inset-top, 0px);
   --app-safe-right: env(safe-area-inset-right, 0px);
@@ -14,6 +16,8 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #d4dadc;
+    --new-map-ocean-background: #d7dcdc;
+    --new-map-water-color: var(--new-map-ocean-background);
     --foreground: #ededed;
   }
 }

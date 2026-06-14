@@ -100,7 +100,7 @@ export default function ViewportCountryPopup({
         <ul className={styles.viewportPopupList}>
           {items.map((item) => (
             <li key={item.id} className={styles.viewportPopupListItem}>
-              <Link href={item.href} className={styles.viewportPopupReasonLink}>
+              <Link href={item.href} prefetch={false} className={styles.viewportPopupReasonLink}>
                 <strong>{item.text}</strong>
               </Link>
               {item.sourceUrl && item.sourceUrl !== item.href ? (

@@ -5,7 +5,7 @@ The current primary runtime is the MapLibre `/new-map` experience. The root rout
 ## Current Project Contracts
 
 - `bash tools/pass_cycle.sh` is the single CI/checkpoint/ledger command.
-- Final `pass_cycle` includes the mandatory one-request root cookie-seed production `/new-map` gate, production payload/long-task checks, JS country/city-label zoom checks, and production browser source-map build checks, with PNG screenshots, timing measurements, and degradation thresholds from `data/baselines/prod_live_quality_baseline.json`, `data/baselines/new_map_payload_quality_baseline.json`, and `data/baselines/new_map_js_city_quality_baseline.json`.
+- Final `pass_cycle` includes the mandatory one-request root cookie-seed production `/new-map?qa=1` live gate, PNG screenshot evidence, timing measurements, and source-map build checks. Extended production payload/js/gps gates are opt-in with `PROD_EXTENDED_TAIL_GATES=1` to preserve the Vercel attempt budget after live proof.
 - Lint is mandatory before smoke/UI checks; lint failures fail the run.
 - DNS is diagnostic only. Online state comes only from HTTP/API/CONNECT/FALLBACK truth probes.
 - `/wiki-truth` renders a prebuilt audit model. Counters, universe classification, alias resolution, and garbage filtering stay outside `page.tsx`.
@@ -66,18 +66,17 @@ Use the pass cycle as the project-level verification command:
 bash tools/pass_cycle.sh
 ```
 
-For final handoff, `VERCEL_AUTOMATION_BYPASS_SECRET` must be present in the shell so the production live gate can run against `https://www.islegal.info/new-map`.
+For final handoff, `VERCEL_AUTOMATION_BYPASS_SECRET` must be present in the shell so the production live gate can seed `https://www.islegal.info/` and render `https://www.islegal.info/new-map?qa=1`.
 
 The final report must contain:
 
 ```text
 PROD_LIVE_OK=1
-PROD_PAYLOAD_OK=1
-PROD_JS_CITY_OK=1
-PROD_GPS_OK=1
 POST_CHECKS_OK=1
 HUB_STAGE_REPORT_OK=1
 ```
+
+When the extended production tail is not intentionally enabled, the report must also contain `PROD_EXTENDED_TAIL_SKIPPED=1 reason=PROD_BUDGET_DEFAULT`.
 
 Stable production baselines are tagged with annotated monotonic stability tags. The first tag is `0.0.1`; the next tags must be `0.0.2`, `0.0.3`, and onward under [docs/VERSIONING.md](docs/VERSIONING.md).
 
@@ -149,4 +148,4 @@ Reports are written to `Reports/status-engine/`. Cannabis Profile data is writte
 
 ## Production QA
 
-Production QA against protected Vercel deployments uses the scoped bypass flow documented in [docs/OPS.md](docs/OPS.md). Bypass secrets must stay in local shell, CI secrets, or Vercel settings and must never be committed.
+Production QA against protected Vercel deployments uses the scoped cookie warmup flow documented in [docs/VERCEL_BYPASS.md](docs/VERCEL_BYPASS.md) and [docs/OPS.md](docs/OPS.md). Bypass secrets must stay in local shell, CI secrets, or Vercel settings and must never be committed.

@@ -264,7 +264,7 @@ function summarizeResources(resources, pageOrigin) {
       return false;
     }
   });
-  const basemapTiles = resources.filter((entry) => entry.name.includes("/api/new-map/basemap-tile/"));
+  const basemapTiles = resources.filter((entry) => /\/api\/new-map\/basemap-tile\/|tiles-[a-d]\.basemaps\.cartocdn\.com\/vectortiles\//.test(entry.name));
   return {
     total_transfer_bytes: sum(resources, "transferSize"),
     first_party_transfer_bytes: sum(firstParty, "transferSize"),
@@ -363,7 +363,7 @@ async function measureLabelZoom(page, options) {
 
     function tileSummary() {
       const resources = performance.getEntriesByType("resource").slice(resourceStart).filter((entry) => {
-        return String(entry.name || "").includes("/api/new-map/basemap-tile/");
+        return /\/api\/new-map\/basemap-tile\/|tiles-[a-d]\.basemaps\.cartocdn\.com\/vectortiles\//.test(String(entry.name || ""));
       });
       return {
         tile_count: resources.length,

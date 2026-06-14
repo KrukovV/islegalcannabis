@@ -1,15 +1,22 @@
 #!/usr/bin/env node
+import crypto from "node:crypto";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { chromium } from "playwright";
 import { acquireProjectProcessSlot } from "./runtime/processSlots.mjs";
+import { resolveBrowserExecutionPath, reuseMetrics } from "./runtime/prodBrowserTransport.mjs";
 import {
   buildVercelBypassCookieSeedUrl,
-  buildVercelBypassHeaders,
   diffVercelBypassCookies,
-  redactVercelBypassSecret
+  redactVercelBypassSecret,
+  sanitizeVercelEvidenceHeaders
 } from "./vercel_bypass.mjs";
+import {
+  buildVercelBypassHeaders,
+  installVercelChallengeRecorder,
+  warmVercelBypass
+} from "./lib/vercel-bypass.mjs";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const reportRoot = path.join(repoRoot, "Reports", "ProdAudit");
@@ -20,9 +27,10 @@ const runCount = Math.max(1, Number(process.env.PROD_REPEATABILITY_RUNS || 3));
 const countryGeo = String(process.env.PROD_REPEATABILITY_COUNTRY_GEO || "AL").toUpperCase();
 const runId = process.env.PROD_REPEATABILITY_RUN_ID || new Date().toISOString().replace(/[-:]/g, "").replace(/\..+$/, "");
 const batchDir = path.join(repeatabilityRoot, runId);
+const repeatabilityArtifactDir = path.join(repoRoot, "artifacts", "prod-repeatability", runId);
 const runDelayMs = Math.max(0, Number(process.env.PROD_REPEATABILITY_RUN_DELAY_MS || 15000));
 const seedDiagnosticEnabled = process.env.PROD_REPEATABILITY_SEED_DIAGNOSTIC === "1";
-const headerMode = String(process.env.PROD_REPEATABILITY_HEADER_MODE || "global").toLowerCase();
+const headerMode = String(process.env.PROD_REPEATABILITY_HEADER_MODE || "cookie_warmup").toLowerCase();
 const fullUiOnly = process.env.PROD_REPEATABILITY_FULL_UI_ONLY === "1";
 const baseBatchId = String(process.env.PROD_REPEATABILITY_BASE_BATCH || "");
 const minHomeScreenshotBytes = Number(process.env.PROD_REPEATABILITY_MIN_HOME_BYTES || 5000);
@@ -70,17 +78,21 @@ async function responseEvidence(response) {
   const headersObject = typeof response.headers === "function"
     ? response.headers()
     : {};
+  const sanitizedHeadersObject = sanitizeVercelEvidenceHeaders(headersObject, secret);
   return {
     status: response.status(),
-    location: headersObject.location || "",
-    x_vercel_mitigated: headersObject["x-vercel-mitigated"] || "",
-    x_vercel_id: headersObject["x-vercel-id"] || "",
+    location: sanitizedHeadersObject.location || "",
+    x_vercel_mitigated: sanitizedHeadersObject["x-vercel-mitigated"] || "",
+    x_vercel_id: sanitizedHeadersObject["x-vercel-id"] || "",
     set_cookie_names: headersArray
       .filter((header) => header.name.toLowerCase() === "set-cookie")
       .map((header) => cookieNameFromSetCookie(header.value))
       .filter(Boolean),
-    headers_array: headersArray,
-    headers_object: headersObject
+    headers_array: headersArray.map((header) => ({
+      name: header.name,
+      value: sanitizeVercelEvidenceHeaders({ [header.name]: header.value }, secret)[header.name]
+    })),
+    headers_object: sanitizedHeadersObject
   };
 }
 
@@ -147,7 +159,7 @@ async function seedDiagnostic(context, url) {
   const seedUrl = buildVercelBypassCookieSeedUrl(url);
   const before = await context.cookies(url).catch(() => []);
   const response = await context.request.get(seedUrl, {
-    headers: buildVercelBypassHeaders(secret, "true"),
+    headers: buildVercelBypassHeaders({ secret }),
     maxRedirects: 0,
     timeout: 45000
   });
@@ -176,6 +188,25 @@ async function seedDiagnostic(context, url) {
   };
 }
 
+function seedFromWarmup(warmup) {
+  return {
+    ...warmup,
+    skipped: false,
+    reason: "",
+    cookie_seeded: Number(warmup.warmup_status || 0) >= 200 && Number(warmup.warmup_status || 0) < 400,
+    cookie_detected: Boolean(warmup.cookie_observed),
+    cookie_count: (warmup.bypass_cookies || []).length,
+    cookie_name: (warmup.bypass_cookies || [])[0] || "",
+    cookie_names: warmup.bypass_cookies || [],
+    seed_cookie_observed: Boolean(warmup.cookie_observed),
+    seed_status: warmup.warmup_status,
+    seed_mitigated: warmup.response?.x_vercel_mitigated || "",
+    seed_vercel_id: warmup.response?.x_vercel_id || "",
+    seed_set_cookie_names: [],
+    response: warmup.response || null
+  };
+}
+
 function chooseCountry(cardIndex) {
   const fallbacks = [countryGeo, "AL", "XK", "DE", "CA", "FR"];
   for (const geo of fallbacks) {
@@ -193,14 +224,17 @@ function chooseCountry(cardIndex) {
 
 async function readRuntimeCardIndex(page) {
   return await page.evaluate(async () => {
-    const response = await fetch("/api/new-map/card-index", {
-      cache: "no-store",
-      credentials: "same-origin"
-    });
-    if (!response.ok) {
-      throw new Error(`CARD_INDEX_FETCH_FAILED:${response.status}`);
+    const endpoints = [
+      { url: "/new-map-card-index.json", init: { credentials: "same-origin" } },
+      { url: "/api/new-map/card-index", init: { cache: "no-store", credentials: "same-origin" } }
+    ];
+    let lastStatus = "";
+    for (const endpoint of endpoints) {
+      const response = await fetch(endpoint.url, endpoint.init);
+      lastStatus = `${endpoint.url}:${response.status}`;
+      if (response.ok) return response.json();
     }
-    return response.json();
+    throw new Error(`CARD_INDEX_FETCH_FAILED:${lastStatus}`);
   });
 }
 
@@ -509,6 +543,24 @@ function skippedSeedDiagnostic() {
   };
 }
 
+async function sha256File(filePath) {
+  const data = await fs.readFile(filePath).catch(() => null);
+  if (!data) return "";
+  return `sha256:${crypto.createHash("sha256").update(data).digest("hex")}`;
+}
+
+async function screenshotHashesForRuns(runs = [], fullUi = null) {
+  const hashes = {};
+  for (const run of runs) {
+    if (run.home?.screenshot) hashes[`${run.run_id}:home`] = await sha256File(path.join(repoRoot, run.home.screenshot));
+    if (run.new_map?.screenshot) hashes[`${run.run_id}:new_map`] = await sha256File(path.join(repoRoot, run.new_map.screenshot));
+  }
+  for (const [key, relativePath] of Object.entries(fullUi?.screenshots || {})) {
+    if (relativePath) hashes[`full_ui:${key}`] = await sha256File(path.join(repoRoot, relativePath));
+  }
+  return hashes;
+}
+
 function isFirstPartyUrl(input) {
   try {
     return new URL(input).origin === new URL(target).origin;
@@ -523,7 +575,7 @@ async function createAuditContext(browser) {
     deviceScaleFactor: 1
   };
   if (secret && headerMode === "global") {
-    contextOptions.extraHTTPHeaders = buildVercelBypassHeaders(secret, "true");
+    contextOptions.extraHTTPHeaders = buildVercelBypassHeaders({ secret });
   }
   const context = await browser.newContext(contextOptions);
   if (secret && headerMode === "document") {
@@ -533,7 +585,7 @@ async function createAuditContext(browser) {
         await route.continue({
           headers: {
             ...request.headers(),
-            ...buildVercelBypassHeaders(secret, "true")
+            ...buildVercelBypassHeaders({ secret })
           }
         });
         return;
@@ -583,6 +635,7 @@ function renderReport(summary) {
     `Target: ${summary.target}`,
     `Batch: ${summary.batch_id}`,
     `Base batch: ${summary.base_batch_id || summary.batch_id}`,
+    `JS_REPL_STATUS=${summary.JS_REPL_STATUS}`,
     "",
     "## Outcome",
     "",
@@ -726,7 +779,10 @@ async function loadBatchHistory(currentSummary) {
 }
 
 async function runRepeatabilityBatch() {
+  if (!secret) throw new Error("VERCEL_SECRET_MISSING");
   await ensureDir(batchDir);
+  await ensureDir(repeatabilityArtifactDir);
+  const browserTransport = await resolveBrowserExecutionPath({ repoRoot });
   const slot = await acquireProjectProcessSlot("playwright:prod-screenshot-repeatability");
   const browser = await chromium.launch({ headless: true });
   const runs = fullUiOnly ? await readBatchRuns(baseBatchId) : [];
@@ -742,6 +798,10 @@ async function runRepeatabilityBatch() {
       const context = await createAuditContext(browser);
       try {
         const page = await context.newPage();
+        const recorder = installVercelChallengeRecorder(page, { baseUrl: target, secret });
+        const seed = headerMode === "cookie_warmup"
+          ? seedFromWarmup(await warmVercelBypass(context, target, { secret }))
+          : skippedSeedDiagnostic();
         fullUi = await captureFullUi(page, batchDir).catch((error) => ({
           pass: false,
           country_geo: "",
@@ -752,6 +812,11 @@ async function runRepeatabilityBatch() {
           screenshots: {},
           reason: `FULL_UI_ERROR:${error.message || error.name || "UNKNOWN"}`
         }));
+        fullUi = {
+          ...fullUi,
+          seed,
+          network: recorder.summary()
+        };
       } finally {
         await context.close().catch(() => {});
       }
@@ -763,19 +828,31 @@ async function runRepeatabilityBatch() {
       await ensureDir(runDir);
       const context = await createAuditContext(browser);
       try {
-        const seed = seedDiagnosticEnabled ? await seedDiagnostic(context, target) : skippedSeedDiagnostic();
         const page = await context.newPage();
+        const recorder = installVercelChallengeRecorder(page, { baseUrl: target, secret });
+        const seed = headerMode === "cookie_warmup"
+          ? seedFromWarmup(await warmVercelBypass(context, target, { secret }))
+          : seedDiagnosticEnabled
+            ? await seedDiagnostic(context, target)
+            : skippedSeedDiagnostic();
         const home = await captureRoute(page, target, path.join(runDir, "screenshot-home.png"), { minBytes: minHomeScreenshotBytes });
         const newMap = await captureRoute(page, `${target}/new-map?qa=1`, path.join(runDir, "screenshot-new-map.png"), { minBytes: minMapScreenshotBytes });
+        const network = recorder.summary();
         const cookiesAfter = await context.cookies(target).catch(() => []);
         const responsePayload = {
           run_id: runLabel,
           target,
           batch_id: runId,
           cookie_diagnostic_only: true,
-          access_mode: seedDiagnosticEnabled ? `header_${headerMode}_with_seed_diagnostic` : `header_${headerMode}_known_good_flow`,
+          access_mode: headerMode === "cookie_warmup"
+            ? "context_request_cookie_warmup"
+            : seedDiagnosticEnabled
+              ? `header_${headerMode}_with_seed_diagnostic`
+              : `header_${headerMode}_known_good_flow`,
           header_mode: headerMode,
+          bypass: headerMode === "cookie_warmup" ? seed : null,
           seed,
+          network,
           cookies_after_navigation: cookiesAfter.map((cookie) => cookie.name).filter(Boolean),
           bypass_cookie_present_after_navigation: cookiesAfter.some((cookie) =>
             ["__vercel_bypass", "_vercel_jwt"].includes(cookie.name) ||
@@ -796,7 +873,7 @@ async function runRepeatabilityBatch() {
         };
         const headersPayload = {
           run_id: runLabel,
-          access_mode: seedDiagnosticEnabled ? `header_${headerMode}_with_seed_diagnostic` : `header_${headerMode}_known_good_flow`,
+          access_mode: responsePayload.access_mode,
           header_mode: headerMode,
           seed: {
             response: seed.response,
@@ -810,7 +887,8 @@ async function runRepeatabilityBatch() {
           },
           new_map: {
             response: newMap.response
-          }
+          },
+          network
         };
         await fs.writeFile(path.join(runDir, "response.json"), `${JSON.stringify(responsePayload, null, 2)}\n`, "utf8");
         await fs.writeFile(path.join(runDir, "headers.json"), `${JSON.stringify(headersPayload, null, 2)}\n`, "utf8");
@@ -852,6 +930,14 @@ async function runRepeatabilityBatch() {
       fullUi?.new_map?.challenge_detected ||
       /VERCEL_SECURITY_CHECKPOINT|Security Checkpoint/i.test(`${fullUi?.reason || ""}`)
     );
+    const metrics = reuseMetrics({
+      browserReused: runs.length > 1,
+      contextReused: false,
+      sessionReused: false,
+      operationCount: runs.length,
+      successCount,
+      challengeCount
+    });
 
     const summary = {
       generated_at: new Date().toISOString(),
@@ -863,6 +949,10 @@ async function runRepeatabilityBatch() {
       secret_source: secret ? "process_env:VERCEL_AUTOMATION_BYPASS_SECRET" : "missing",
       run_count: runs.length,
       run_delay_ms: runDelayMs,
+      browser_transport: browserTransport,
+      JS_REPL_STATUS: browserTransport.JS_REPL_STATUS,
+      browser_execution_path: browserTransport.selected_path,
+      ...metrics,
       seed_diagnostic_enabled: seedDiagnosticEnabled,
       header_mode: headerMode,
       success_count: successCount,
@@ -879,10 +969,33 @@ async function runRepeatabilityBatch() {
     await fs.writeFile(path.join(batchDir, "summary.json"), `${JSON.stringify(summary, null, 2)}\n`, "utf8");
     await fs.writeFile(path.join(reportRoot, "repeatability.md"), `${renderReport(summary)}\n`, "utf8");
     await fs.writeFile(path.join(repeatabilityRoot, "latest.json"), `${JSON.stringify(summary, null, 2)}\n`, "utf8");
+    await fs.writeFile(
+      path.join(repeatabilityArtifactDir, "prod_screenshot_repeatability.json"),
+      `${JSON.stringify({
+        ...summary,
+        measurements: {
+          warmup_ms: runs.map((run) => run.seed?.warmup_ms ?? null),
+          navigation_ms: runs.map((run) => ({
+            run_id: run.run_id,
+            home_ms: run.home?.elapsed_ms ?? null,
+            new_map_ms: run.new_map?.elapsed_ms ?? null
+          })),
+          challenge_count: summary.challenge_count,
+          api_fallback_count: 0,
+          screenshot_hashes: await screenshotHashesForRuns(runs, fullUi)
+        }
+      }, null, 2)}\n`,
+      "utf8"
+    );
 
     console.log(`RUN_ID=${runId}`);
+    console.log(`BROWSER_EXECUTION_PATH=${browserTransport.selected_path}`);
+    console.log(`JS_REPL_STATUS=${browserTransport.JS_REPL_STATUS}`);
+    console.log(`JS_REPL_BROWSER_MODE=${browserTransport.JS_REPL_BROWSER_MODE}`);
     console.log(`SUCCESS_COUNT=${successCount}`);
     console.log(`CHALLENGE_COUNT=${challengeCount}`);
+    console.log(`SUCCESS_RATE=${summary.SUCCESS_RATE}`);
+    console.log(`CHALLENGE_RATE=${summary.CHALLENGE_RATE}`);
     console.log(`REPEATABLE_PROD_SCREENSHOTS=${summary.repeatable_prod_screenshots ? "YES" : "NO"}`);
     console.log(`REPEATABILITY_REPORT=${path.join("Reports", "ProdAudit", "repeatability.md")}`);
   } finally {

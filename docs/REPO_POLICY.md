@@ -24,7 +24,7 @@
 
 ## Git / CI
 - Основная проверка перед handoff или commit: `bash tools/pass_cycle.sh`.
-- Финальный `pass_cycle` обязан включать live production `/new-map` gates: один Vercel root seed request для диагностики, PNG-скрины, `elapsed_ms`/`map_ready_ms`/transfer metrics, и деградационные baselines `data/baselines/prod_live_quality_baseline.json` + `data/baselines/new_map_payload_quality_baseline.json`. Cookie evidence is diagnostic only.
+- Финальный `pass_cycle` обязан включать live production `/new-map?qa=1` gate: один Vercel root seed request, PNG-скрин, `elapsed_ms`/`map_ready_ms`, и baseline `data/baselines/prod_live_quality_baseline.json`. Cookie evidence is diagnostic only. Extended payload/js/gps production gates are opt-in with `PROD_EXTENDED_TAIL_GATES=1`.
 - Прямой `git push` допускается только через `Tools/commit_if_green.sh`.
 - Коммиты, которые включают `data/laws/**`, проходят через `tools/commit_if_green.sh`.
 - Запрещены destructive reset/clean/filter-repo и silent CI fallback.
