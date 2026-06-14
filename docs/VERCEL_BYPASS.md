@@ -138,6 +138,24 @@ Measured comparison (local `/new-map` probe, same browser/runtime, one change se
 | Long Task Count | 8 | 9 | +1 |
 | Total Long-Task ms | 3839 | 4822 | +983 |
 
+## Latest verification cycle (2026-06-15)
+
+- `bash tools/pass_cycle.sh` with `VERCEL_AUTOMATION_BYPASS_SECRET` passed:
+  - `PROD_LIVE_OK=1`
+  - `PROD_LIVE_METHOD` completed in `14811 ms`
+  - `PROD_LIVE_SCREENSHOT=Reports/vercel-bypass-live/method2_api_cookie_seed.png`
+  - `PROD_EXTENDED_TAIL_SKIPPED=1 reason=PROD_BUDGET_DEFAULT`
+- Local before/after delta (latest stable local probe set):
+  - total transfer: `2,350,959 -> 2,172,662 (-178,297 bytes, -174.1 KiB)`
+  - first-party transfer: `2,350,959 -> 2,172,662 (-174.1 KiB)`
+  - script transfer: `1,420,761 -> 1,242,760 (-178,001 bytes, -173.8 KiB)`
+  - `NM_T7_FIRST_FILL_RENDERED`: `4,915 -> 3,631 (-1,284 ms)`
+  - long tasks: `count 8 -> 10`, `total 3,839 -> 4,262`, `max 2,367 -> 1,854`
+- JS unused-byte delta:
+  - `first_party_chunk_unused_source_bytes: 52,565 -> 743`
+  - `first_party_estimated_unused_transfer_bytes: 8,919 -> 111`
+  - `first_party_chunk_unused_pct: 0.6 -> 0`
+
 JS label-flow evidence:
 
 - First-party script transfer: 1213.6 KiB (vs 1388.6 KiB before)

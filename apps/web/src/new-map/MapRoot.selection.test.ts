@@ -5,7 +5,7 @@ import { describe, expect, test } from "vitest";
 describe("MapRoot map selection wiring", () => {
   test("routes hover-controller click selection into popup state", () => {
     const source = readFileSync(fileURLToPath(new URL("./MapRoot.tsx", import.meta.url)), "utf8");
-    const start = source.indexOf("attachHoverController(runtime.map");
+    const start = source.indexOf("mapRuntimeModule.attachHoverController(runtime.map");
     const end = source.indexOf("});", start);
     const attachBlock = source.slice(start, end);
 
@@ -44,7 +44,8 @@ describe("MapRoot map selection wiring", () => {
   test("keeps map interaction wiring in the main runtime path and loads ASCII runtime lazily", () => {
     const source = readFileSync(fileURLToPath(new URL("./MapRoot.tsx", import.meta.url)), "utf8");
 
-    expect(source).toContain('import { attachHoverController } from "./hoverController"');
+    expect(source).toContain('const mapRuntimeModule = (await import("./mapRuntime"))');
+    expect(source).toContain("mapRuntimeModule.attachHoverController");
     expect(source).toContain('await import("./ascii/ascii-triggers")');
     expect(source).toContain('function shouldEnableAsciiOverlay');
     expect(source).toContain('shouldEnableAsciiOverlay(runtimeIdentity)');

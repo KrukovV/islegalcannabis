@@ -94,6 +94,10 @@ Standard app API responses built with `apps/web/src/lib/api/response.ts` include
 - Extended live production `/new-map` payload/long-task, JS country/city-label, and GPS/hover/zoom gates are opt-in through `PROD_EXTENDED_TAIL_GATES=1`. The default `pass_cycle` must not spend extra Vercel attempts after the live proof gate has rendered production successfully.
 - Production browser source maps must remain enabled in Next.js; CI verifies that `next build` emits `.js.map` files for large client chunks referenced by `sourceMappingURL`.
 - Missing `VERCEL_AUTOMATION_BYPASS_SECRET`, Vercel Security Checkpoint text, wrong title, missing map root/surface/readiness/canvas, missing/undersized screenshots, Method 2 seed status outside 2xx/3xx, missing production source maps, or live-threshold degradation must fail final `pass_cycle`. Extended gate failures fail only when `PROD_EXTENDED_TAIL_GATES=1`.
+- Regression/degradation checks must compare payload/JS artifacts against stable baseline:
+  - `Reports/new-map-payload/unused-js-before/before-cardindex.chromium.json` vs `Reports/new-map-payload/unused-js-after-v2/after-lazy-local.chromium.json`
+  - `Reports/new-map-js-city/unused-js-before/before-cardindex.chromium.json` vs `Reports/new-map-js-city/unused-js-after-v2/after-lazy-local.chromium.json`
+  - Acceptable regressions are only documented in `docs/VERCEL_BYPASS.md` and baseline configuration; otherwise production gates remain conservative.
 - DNS is diagnostic only. `ONLINE` is true only when at least one HTTP/API/CONNECT/FALLBACK truth probe succeeds.
 - Cache may permit `DEGRADED_CACHE`, but cache never sets `ONLINE=1`.
 - `NET_PROBE_CACHE_PATH` must be run-scoped under `Artifacts/net_probe/<RUN_ID>.json`.

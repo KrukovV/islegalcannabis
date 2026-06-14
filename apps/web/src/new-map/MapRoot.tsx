@@ -2,12 +2,10 @@
 
 import dynamic from "next/dynamic";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import maplibregl from "maplibre-gl";
 import type { RuntimeIdentity } from "@/lib/runtimeIdentity";
 import type { CountryPageData } from "@/lib/countryPageStorage";
 import { deriveCountryCardEntryFromCountryPageData } from "@/lib/countryCardEntry";
 import type { SeoLocale } from "@/lib/seo/i18n";
-import { createMap } from "./createMap";
 import type { CountryCardEntry, LegalCountryCollection, NewMapBootResult } from "./map.types";
 import styles from "./MapRoot.module.css";
 import { NEW_MAP_WATER_COLOR } from "./mapPalette";
@@ -17,7 +15,10 @@ import {
   readVisualViewportSnapshot,
   subscribeToVisualViewportChanges
 } from "./viewportMetrics";
-import { attachHoverController } from "./hoverController";
+import type { NewMapRuntimeModule } from "./mapRuntime";
+
+type MaplibreMap = import("maplibre-gl").Map;
+type MaplibreMarker = import("maplibre-gl").Marker;
 
 const AsciiOverlay = dynamic(() => import("./ascii/AsciiOverlay"), { ssr: false });
 const MapGeoDock = dynamic(() => import("./MapGeoDock"), { ssr: false });
@@ -54,7 +55,7 @@ type NewMapDebug = {
   mounted: boolean;
   selectedId?: string | null;
   countriesUrl: string;
-  map?: import("maplibre-gl").Map | null;
+  map?: MaplibreMap | null;
   labelGroups?: Record<string, string[]>;
   lastPointerLng?: number | null;
   popupTrace?: PopupPipelineTrace;
@@ -187,7 +188,7 @@ function shouldEnableAsciiOverlay(runtimeIdentity: RuntimeIdentity) {
   return runtimeIdentity.runtimeMode !== "production";
 }
 
-function installNewMapQaHook(map: maplibregl.Map) {
+function installNewMapQaHook(map: MaplibreMap) {
   if (!isNewMapQaEnabled()) return () => {};
   const host = window as typeof window & {
     __NEW_MAP_QA__?: NewMapQaController;
@@ -255,7 +256,7 @@ function installNewMapQaHook(map: maplibregl.Map) {
 }
 
 function safeSetFeatureState(
-  map: maplibregl.Map | null,
+  map: MaplibreMap | null,
   target: { source: "legal-countries" | "us-states"; id: string },
   state: { selected: boolean }
 ) {
@@ -280,10 +281,11 @@ export default function MapRoot({
   locale = "en"
 }: Props) {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const mapRef = useRef<maplibregl.Map | null>(null);
+  const mapRef = useRef<MaplibreMap | null>(null);
   const runtimeRef = useRef<NewMapBootResult | null>(null);
-  const locationMarkerRef = useRef<maplibregl.Marker | null>(null);
-  const infoMarkerRef = useRef<maplibregl.Marker | null>(null);
+  const mapRuntimeModuleRef = useRef<NewMapRuntimeModule | null>(null);
+  const locationMarkerRef = useRef<MaplibreMarker | null>(null);
+  const infoMarkerRef = useRef<MaplibreMarker | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [mapReady, setMapReady] = useState(false);
   const [visualReady, setVisualReady] = useState(false);
@@ -572,8 +574,11 @@ export default function MapRoot({
     markerElement.setAttribute("data-user-marker-label", "Where I am");
     markerElement.setAttribute("data-user-marker-position", `${geo.lng},${geo.lat}`);
 
+    const mapRuntimeModule = mapRuntimeModuleRef.current;
+    if (!mapRuntimeModule) return;
+
     if (!locationMarkerRef.current) {
-      locationMarkerRef.current = new maplibregl.Marker({
+      locationMarkerRef.current = new mapRuntimeModule.maplibreRuntime.Marker({
         element: markerElement,
         anchor: "bottom"
       })
@@ -619,8 +624,11 @@ export default function MapRoot({
       handleSeoMarkerToggle();
     };
 
+    const mapRuntimeModule = mapRuntimeModuleRef.current;
+    if (!mapRuntimeModule) return;
+
     if (!infoMarkerRef.current) {
-      infoMarkerRef.current = new maplibregl.Marker({
+      infoMarkerRef.current = new mapRuntimeModule.maplibreRuntime.Marker({
         element: button,
         anchor: "bottom"
       })
@@ -843,6 +851,8 @@ export default function MapRoot({
     async function mount() {
       if (!containerRef.current) return;
       try {
+        const mapRuntimeModule = (await import("./mapRuntime")) as NewMapRuntimeModule;
+        mapRuntimeModuleRef.current = mapRuntimeModule;
         const prefetched = getNewMapPrefetchCache();
         const loadCountries = () =>
           fetchJsonWithRetry<LegalCountryCollection>(countriesUrl, {
@@ -851,7 +861,7 @@ export default function MapRoot({
         const countriesPromise = prefetched?.countries
           ? prefetched.countries.then((value) => value || loadCountries())
           : loadCountries();
-        const runtime = createMap(containerRef.current, {
+        const runtime = mapRuntimeModule.createMap(containerRef.current, {
           onSelectGeo: (geo) => {
             setSelectedGeo(geo);
             setDebugState({ selectedId: geo });
@@ -885,7 +895,7 @@ export default function MapRoot({
         }
         setVisualReady(true);
         setMapReady(true);
-        const hover = attachHoverController(runtime.map, {
+        const hover = mapRuntimeModule.attachHoverController(runtime.map, {
           onHoverChange: (geo) => setHoveredGeo(geo),
           onSelectChange: (geo) => setSelectedGeo(geo)
         });
@@ -897,6 +907,7 @@ export default function MapRoot({
         setDebugState({ mounted: true, countriesUrl, map: isNewMapQaEnabled() ? runtime.map : null, selectedId: null });
         await countriesDataPromise;
         if (cancelled) {
+          mapRuntimeModuleRef.current = null;
           uninstallQaHook();
           unbindAsciiTriggers();
           hover.destroy();
@@ -905,6 +916,7 @@ export default function MapRoot({
           return;
         }
         cleanup = () => {
+          mapRuntimeModuleRef.current = null;
           uninstallQaHook();
           unbindAsciiTriggers();
           hover.destroy();
