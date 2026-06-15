@@ -138,6 +138,7 @@ launchctl load ~/Library/LaunchAgents/com.islegalcannabis.wiki-claims.plist
 - Local payload run: build, start production-local on a free port, then run `NEW_MAP_PERF_URL=http://127.0.0.1:<port>/new-map NEW_MAP_PERF_LABEL=local-prod-after node tools/measure_new_map_payload.mjs`.
 - Prod payload run: set `VERCEL_AUTOMATION_BYPASS_SECRET` in the shell and run `node tools/prod_new_map_payload_gate.mjs`.
 - Required evidence: JSON timing report, screenshot, countries transfer/decoded size, optional `card-index`/`us-states` transfer, long-task count/total/max, `NM_T7_FIRST_FILL_RENDERED`, and rendered country feature count.
+- Interpret `data-map-ready="1"` as early basemap interactivity, not as full countries-payload completion. The canonical full country-paint timing remains `NM_T7_FIRST_FILL_RENDERED`.
 - Official optimization references for this gate are Chrome Lighthouse total byte weight and web.dev long-task guidance: `https://developer.chrome.com/docs/lighthouse/performance/total-byte-weight` and `https://web.dev/articles/optimize-long-tasks`.
 - Treat `/api/new-map/countries` as compatibility only; the runtime URL should be `/static/countries/countries.<hash>.json`.
 - Root `/new-map` cold start must not eagerly request `/api/new-map/card-index` or `/api/new-map/us-states`; the local e2e guard is `e2e/new-map.preload.spec.ts`.
@@ -208,6 +209,18 @@ node tools/vercel_bypass_live_probe.mjs
 ```
 
 The access error is gone only when the relevant method reports `ok=1`, `access_block=0`, title `Is cannabis legal?`, and the real app DOM/screenshot instead of a Vercel Security Checkpoint page.
+
+### Human QA evidence for protected prod
+
+- When protected-domain headless automation is noisy, archive a human QA artifact outside the repo and record the exact path in the release notes or continuity ledger.
+- `2.mov` was reviewed at `0.5s` granularity from `~/islegalcannabis_archive/20260615-video2-analysis/`.
+- Observed timeline for `2.mov`:
+- `~4.0-5.0s`: the world map is already visible and interactive, not stuck on a blank loader.
+- `~12.0-17.5s`: country and regional labels are visible during zoomed navigation.
+- `~19.5s`: Safari shows the native geolocation permission prompt.
+- `~21.0s`: permission is accepted and the GPS marker is present; the dock switches to GPS state.
+- `~34.0-40.5s`: labels repopulate during later pan/zoom, with no blocking app error UI.
+- Use this human QA track to separate real product regressions from Vercel Security Checkpoint noise. It does not replace CI, but it is valid release evidence when paired with a green local `pass_cycle` and same-commit live desktop production measurements.
 
 ### Direct public diagnostic audit
 

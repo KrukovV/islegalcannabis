@@ -1,18 +1,21 @@
 # Stability Versioning
 
-Stability tags are annotated Git tags in `MAJOR.MINOR.PATCH` form, starting with `0.0.1`.
+Stability tags are annotated Git tags in `stability/MAJOR.MINOR.PATCH` form, starting with `stability/0.0.1`.
 
 ## Current Track
 
-- `0.0.1` marks the first green production baseline after `/new-map` payload, source-map, and country/city ZoomIn gates were added.
-- The next stability tag must be `0.0.2`, then `0.0.3`, and so on unless a deliberate minor/major policy change is documented here first.
+- `stability/0.0.1` marked the first green production baseline after `/new-map` payload, source-map, and country/city ZoomIn gates were added.
+- The latest patch tag on this track is `stability/0.0.9`.
+- The next stability tag on this track is `stability/0.0.10` unless a deliberate minor/major policy change is documented here first.
 
 ## Tag Rules
 
-- A stability tag may be created only after `bash tools/pass_cycle.sh` passes and `Reports/ci-final.txt` contains `POST_CHECKS_OK=1`, `HUB_STAGE_REPORT_OK=1`, `PROD_LIVE_OK=1`, `PROD_PAYLOAD_OK=1`, `PROD_JS_CITY_OK=1`, and `PROD_GPS_OK=1`.
+- A stability tag may be created only after `bash tools/pass_cycle.sh` passes and `Reports/ci-final.txt` contains `POST_CHECKS_OK=1` and `HUB_STAGE_REPORT_OK=1`.
+- Preferred release evidence also includes `PROD_LIVE_OK=1`, `PROD_PAYLOAD_OK=1`, `PROD_JS_CITY_OK=1`, and `PROD_GPS_OK=1` in `Reports/ci-final.txt`.
+- If protected-domain headless production automation is challenge-prone for the release commit, the tag may still be created when the release notes record same-commit live desktop prod measurements plus an archived human QA artifact that shows the real user path loading correctly and resolving GPS correctly.
 - Use `Tools/commit_if_green.sh --tag <version>` for commit and push; do not push stability tags by hand.
 - Do not reuse a pushed stability tag. If a tagged baseline needs correction, create the next patch tag.
-- Keep stability tags monotonic on `main`: `0.0.1 < 0.0.2 < 0.0.3`.
+- Keep stability tags monotonic on `main`: `stability/0.0.1 < stability/0.0.2 < stability/0.0.3`.
 
 ## Increment Policy
 

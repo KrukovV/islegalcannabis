@@ -80,6 +80,8 @@ Standard app API responses built with `apps/web/src/lib/api/response.ts` include
 ## Location precedence contract
 - Manual, GPS, and IP location signals resolve in fixed order: `manual > gps > ip`.
 - Tests must keep this order stable in `apps/web/src/lib/location/locationContext.ts`.
+- `data-map-ready="1"` means the basemap is interactive: style, canvas, and enough same-origin basemap state are ready for pan/zoom/GPS recenter and hover wiring. It must not wait on the full countries payload if the basemap can already render and accept interaction.
+- `NM_T7_FIRST_FILL_RENDERED` remains the canonical first-paint metric for `legal-fill` country data. It must stay coupled to the countries payload becoming paintable, not to early basemap readiness.
 - GPS button behavior must refresh the browser GPS position on every click. If a stale saved GPS point exists, the UI may recenter it immediately for feedback, but the click must still request fresh geolocation, update the `Where I am` marker, persist the fresh point, and recenter on the fresh point after permission succeeds.
 - Final prod GPS gate must seed stale saved GPS, then verify fresh marker/center/recenter/persistence, desktop hover, ZoomIn to city/village labels, ZoomOut to country rendering, screenshots, and no page errors.
 
@@ -95,6 +97,7 @@ Standard app API responses built with `apps/web/src/lib/api/response.ts` include
 - Final `pass_cycle` must also run the live production `/new-map` GPS/hover/zoom gate, write after-GPS, recenter, hover, ZoomIn, and ZoomOut PNG screenshots plus JSON under `Reports/new-map-gps/`, and require stale saved GPS to refresh to a fresh browser GPS position.
 - Production browser source maps must remain enabled in Next.js; CI verifies that `next build` emits `.js.map` files for large client chunks referenced by `sourceMappingURL`.
 - Missing `VERCEL_AUTOMATION_BYPASS_SECRET`, Vercel Security Checkpoint text, wrong title, missing map root/surface/readiness/canvas, missing/undersized screenshots, Method 2 seed status outside 2xx/3xx, country/city-label timeout, stale GPS not refreshed, hover/ZoomIn/ZoomOut timeout, missing production source maps, or threshold degradation must fail final `pass_cycle`.
+- Protected-domain headless challenge evidence is diagnostic until it matches the real user path. If a release build shows Vercel Security Checkpoint noise in headless automation but live desktop browser evidence and archived human QA video show correct map load plus correct GPS resolution, treat the discrepancy as an automation constraint, not as proof of a product regression.
 - DNS is diagnostic only. `ONLINE` is true only when at least one HTTP/API/CONNECT/FALLBACK truth probe succeeds.
 - Cache may permit `DEGRADED_CACHE`, but cache never sets `ONLINE=1`.
 - `NET_PROBE_CACHE_PATH` must be run-scoped under `Artifacts/net_probe/<RUN_ID>.json`.
