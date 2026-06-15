@@ -26,7 +26,7 @@ test("new-map restored gps marker survives reload", async ({ page }) => {
     }));
   });
 
-  await page.goto("/new-map", { waitUntil: "domcontentloaded" });
+  await page.goto("/new-map?qa=1", { waitUntil: "domcontentloaded" });
   await page.waitForFunction(() => document.querySelector('[data-user-marker="1"]')?.getAttribute("data-user-marker-position") === "14.4378,50.0755", { timeout: 5000 });
   await page.reload({ waitUntil: "domcontentloaded" });
   await page.waitForFunction(() => document.querySelector('[data-user-marker="1"]')?.getAttribute("data-user-marker-position") === "14.4378,50.0755", { timeout: 5000 });
@@ -65,7 +65,7 @@ test("new-map GPS click places marker, persists location, and recenters on repea
     });
   });
 
-  await page.goto("/new-map", { waitUntil: "domcontentloaded" });
+  await page.goto("/new-map?qa=1", { waitUntil: "domcontentloaded" });
   await waitForMapReady(page);
 
   await page.evaluate(() => {
@@ -157,7 +157,7 @@ test("new-map GPS first click retries precise browser position after cached fail
     });
   });
 
-  await page.goto("/new-map", { waitUntil: "domcontentloaded" });
+  await page.goto("/new-map?qa=1", { waitUntil: "domcontentloaded" });
   await waitForMapReady(page);
 
   await page.getByRole("button", { name: /GPS/i }).click();
@@ -205,7 +205,7 @@ test("new-map repeat green GPS click only recenters the stored GPS point", async
     host.__GPS_TEST_REFRESH_ATTEMPTS__ = 0;
   });
 
-  await page.goto("/new-map", { waitUntil: "domcontentloaded" });
+  await page.goto("/new-map?qa=1", { waitUntil: "domcontentloaded" });
   await waitForMapReady(page);
   await page.waitForFunction(() => document.querySelector('[data-user-marker="1"]')?.getAttribute("data-user-marker-position") === "14.4378,50.0755", { timeout: 5000 });
 

@@ -554,13 +554,21 @@ export default function MapRoot({
     }
 
     const markerElement = locationMarkerRef.current?.getElement() || document.createElement("div");
-    markerElement.className = styles.locationMarker;
+    markerElement.classList.add(styles.locationMarker);
     markerElement.setAttribute("role", "img");
     markerElement.setAttribute("aria-label", "Where I am");
     markerElement.setAttribute("title", "Where I am");
     markerElement.setAttribute("data-user-marker", "1");
     markerElement.setAttribute("data-user-marker-label", "Where I am");
     markerElement.setAttribute("data-user-marker-position", `${geo.lng},${geo.lat}`);
+    let markerPin = markerElement.querySelector('[data-user-marker-pin="1"]') as HTMLDivElement | null;
+    if (!markerPin) {
+      markerElement.replaceChildren();
+      markerPin = document.createElement("div");
+      markerPin.setAttribute("data-user-marker-pin", "1");
+      markerElement.appendChild(markerPin);
+    }
+    markerPin.className = styles.locationMarkerPin;
 
     const mapRuntimeModule = mapRuntimeModuleRef.current;
     if (!mapRuntimeModule) return;

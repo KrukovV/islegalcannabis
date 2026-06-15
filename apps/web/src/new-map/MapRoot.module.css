@@ -915,17 +915,25 @@
 }
 
 .locationMarker {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 22px;
   height: 22px;
+  pointer-events: none;
+}
+
+.locationMarkerPin {
+  position: absolute;
+  inset: 0;
   border-radius: 50% 50% 50% 0;
   transform: rotate(-45deg);
   background: #5fb8df;
   border: 2px solid rgba(255, 255, 255, 0.96);
   box-shadow: 0 8px 18px rgba(27, 70, 95, 0.28);
-  pointer-events: none;
 }
 
-.locationMarker::after {
+.locationMarkerPin::after {
   content: "";
   position: absolute;
   left: 50%;

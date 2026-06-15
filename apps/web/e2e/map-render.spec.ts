@@ -23,6 +23,7 @@ test("new-map render and restored gps marker are visible", async ({ page }) => {
 
   const markerPosition = await page.locator('[data-user-marker="1"]').getAttribute("data-user-marker-position");
   expect(markerPosition).toBe("14.4378,50.0755");
+  await expect(page.locator('[data-user-marker-pin="1"]')).toHaveCSS("transform", /matrix/);
 
   const placement = await page.evaluate(() => {
     const marker = document.querySelector('[data-user-marker="1"]');
