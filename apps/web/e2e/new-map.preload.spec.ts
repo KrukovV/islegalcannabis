@@ -1,5 +1,7 @@
 import { expect, test } from "playwright/test";
 
+const QA_ROUTE = "/new-map?qa=1";
+
 test("new-map requests style and countries early without duplicates", async ({ page }) => {
   const tracked: Array<{ url: string; delta: number }> = [];
   const start = Date.now();
@@ -10,7 +12,7 @@ test("new-map requests style and countries early without duplicates", async ({ p
     }
   });
 
-  await page.goto("/new-map", { waitUntil: "domcontentloaded" });
+  await page.goto(QA_ROUTE, { waitUntil: "domcontentloaded" });
   await page.waitForTimeout(1200);
 
   const countries = tracked.filter((entry) => entry.url.includes("/static/countries/countries."));
@@ -35,7 +37,7 @@ test("new-map keeps optional cold-start payloads lazy", async ({ page }) => {
     }
   });
 
-  await page.goto("/new-map", { waitUntil: "domcontentloaded" });
+  await page.goto(QA_ROUTE, { waitUntil: "domcontentloaded" });
   await page.waitForFunction(() => {
     return document.querySelector('[data-testid="new-map-surface"]')?.getAttribute("data-map-ready") === "1";
   }, { timeout: 20000 });

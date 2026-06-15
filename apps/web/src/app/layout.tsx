@@ -7,6 +7,7 @@ import "./globals.css";
 import ServiceWorkerGuard from "@/plugins/serviceWorkerGuard";
 import { NEW_MAP_WATER_COLOR } from "@/new-map/mapPalette";
 import { getStaticCountriesAsset } from "@/new-map/staticCountries";
+import { NEW_MAP_BASEMAP_STYLE_URL } from "@/new-map/runtimeUrls";
 
 const NEW_MAP_COUNTRIES_URL = getStaticCountriesAsset().url;
 const YANDEX_METRIKA_ID = 108419114;
@@ -81,10 +82,12 @@ const NEW_MAP_PREFETCH_SCRIPT = `
       .then((response) => (response.ok ? response.json() : null))
       .catch(() => null);
   host.__NEW_MAP_PREFETCH__ = {
-    countries: loadJson("${NEW_MAP_COUNTRIES_URL}")
+    countries: loadJson("${NEW_MAP_COUNTRIES_URL}"),
+    style: loadJson("${NEW_MAP_BASEMAP_STYLE_URL}")
   };
   Promise.allSettled([
-    host.__NEW_MAP_PREFETCH__.countries
+    host.__NEW_MAP_PREFETCH__.countries,
+    host.__NEW_MAP_PREFETCH__.style
   ]).then(() => {
     trace.marks.NM_T1_HEAD_PREFETCH_READY = trace.marks.NM_T1_HEAD_PREFETCH_READY || performance.now();
   });

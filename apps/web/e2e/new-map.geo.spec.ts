@@ -1,6 +1,7 @@
 import { expect, test } from "playwright/test";
 
 const GPS_POINT = { latitude: 50.0755, longitude: 14.4378 };
+const QA_ROUTE = "/new-map?qa=1";
 
 async function waitForMapReady(page: import("playwright/test").Page) {
   await page.waitForSelector('[data-testid="new-map-root"]', { timeout: 5000, state: "attached" });
@@ -26,7 +27,7 @@ test("new-map restored gps marker survives reload", async ({ page }) => {
     }));
   });
 
-  await page.goto("/new-map", { waitUntil: "domcontentloaded" });
+  await page.goto(QA_ROUTE, { waitUntil: "domcontentloaded" });
   await page.waitForFunction(() => document.querySelector('[data-user-marker="1"]')?.getAttribute("data-user-marker-position") === "14.4378,50.0755", { timeout: 5000 });
   await page.reload({ waitUntil: "domcontentloaded" });
   await page.waitForFunction(() => document.querySelector('[data-user-marker="1"]')?.getAttribute("data-user-marker-position") === "14.4378,50.0755", { timeout: 5000 });
@@ -65,7 +66,7 @@ test("new-map GPS click places marker, persists location, and recenters on repea
     });
   });
 
-  await page.goto("/new-map", { waitUntil: "domcontentloaded" });
+  await page.goto(QA_ROUTE, { waitUntil: "domcontentloaded" });
   await waitForMapReady(page);
 
   await page.evaluate(() => {
@@ -157,7 +158,7 @@ test("new-map GPS first click retries precise browser position after cached fail
     });
   });
 
-  await page.goto("/new-map", { waitUntil: "domcontentloaded" });
+  await page.goto(QA_ROUTE, { waitUntil: "domcontentloaded" });
   await waitForMapReady(page);
 
   await page.getByRole("button", { name: /GPS/i }).click();
@@ -176,7 +177,7 @@ test("new-map GPS first click retries precise browser position after cached fail
   ]);
 });
 
-test("new-map repeat green GPS click only recenters the stored GPS point", async ({ page }) => {
+test("new-map repeat green GPS click recenters immediately and still refreshes browser GPS", async ({ page }) => {
   await page.addInitScript(() => {
     window.localStorage.setItem("geo", JSON.stringify({
       lat: 50.0755,
@@ -187,11 +188,23 @@ test("new-map repeat green GPS click only recenters the stored GPS point", async
     Object.defineProperty(window.navigator, "geolocation", {
       configurable: true,
       value: {
-        getCurrentPosition() {
+        getCurrentPosition(success: PositionCallback) {
           const host = window as typeof window & {
             __GPS_TEST_REFRESH_ATTEMPTS__?: number;
           };
           host.__GPS_TEST_REFRESH_ATTEMPTS__ = (host.__GPS_TEST_REFRESH_ATTEMPTS__ || 0) + 1;
+          success({
+            coords: {
+              latitude: 50.0755,
+              longitude: 14.4378,
+              accuracy: 12,
+              altitude: null,
+              altitudeAccuracy: null,
+              heading: null,
+              speed: null
+            },
+            timestamp: Date.now()
+          });
         },
         watchPosition() {
           return 1;
@@ -205,7 +218,7 @@ test("new-map repeat green GPS click only recenters the stored GPS point", async
     host.__GPS_TEST_REFRESH_ATTEMPTS__ = 0;
   });
 
-  await page.goto("/new-map", { waitUntil: "domcontentloaded" });
+  await page.goto(QA_ROUTE, { waitUntil: "domcontentloaded" });
   await waitForMapReady(page);
   await page.waitForFunction(() => document.querySelector('[data-user-marker="1"]')?.getAttribute("data-user-marker-position") === "14.4378,50.0755", { timeout: 5000 });
 
@@ -221,7 +234,7 @@ test("new-map repeat green GPS click only recenters the stored GPS point", async
     };
     return host.__GPS_TEST_REFRESH_ATTEMPTS__;
   });
-  expect(refreshAttempts).toBe(0);
+  expect(refreshAttempts).toBe(1);
   const dockSource = await page.locator('[data-testid="new-map-ai-dock"]').getAttribute("data-location-source");
   expect(dockSource).toBe("gps");
 

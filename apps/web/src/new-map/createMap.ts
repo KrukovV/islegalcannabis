@@ -1,6 +1,7 @@
 import maplibregl, { type StyleSpecification } from "maplibre-gl";
 import type { LegalCountryCollection, NewMapBootResult } from "./map.types";
 import { emitFirstVisualReady, markNewMapTrace } from "./startupTrace";
+import { NEW_MAP_BASEMAP_STYLE_URL, NEW_MAP_MAPLIBRE_WORKER_URL } from "./runtimeUrls";
 export const NEW_MAP_ADMIN_SOURCE_ID = "admin-boundaries";
 export const NEW_MAP_ADMIN_LAYER_ID = "admin-boundary-line";
 
@@ -14,9 +15,6 @@ export const NEW_MAP_US_STATES_FILL_LAYER_ID = "us-states-fill";
 export const NEW_MAP_US_STATES_LINE_LAYER_ID = "us-states-line";
 const NEW_MAP_SUPPLEMENTAL_SEA_SOURCE_ID = "new-map-supplemental-seas";
 const NEW_MAP_SUPPLEMENTAL_SEA_LAYER_ID = "new-map-supplemental-seas";
-const BASEMAP_STYLE_URL = "/api/new-map/basemap-style?v=20260601-glyph-sprite-origin-2";
-const MAPLIBRE_WORKER_URL = "/api/new-map/maplibre-worker?v=5.21.1";
-
 const DEFAULT_CENTER: [number, number] = [25, 50];
 const DEFAULT_ZOOM = 1.55;
 const US_STATES_DATA_URL = "/api/new-map/us-states";
@@ -57,7 +55,7 @@ export function getCountryFeatureAtPoint(map: maplibregl.Map, point: { x: number
 
 function configureMapLibreWorkerUrl() {
   if (workerUrlConfigured || typeof window === "undefined") return;
-  maplibregl.setWorkerUrl(MAPLIBRE_WORKER_URL);
+  maplibregl.setWorkerUrl(NEW_MAP_MAPLIBRE_WORKER_URL);
   workerUrlConfigured = true;
 }
 
@@ -396,7 +394,7 @@ export function createMap(
   markNewMapTrace("NM_T2_MAP_CONSTRUCTOR_START");
   const map = new maplibregl.Map({
     container,
-    style: options?.style || BASEMAP_STYLE_URL,
+    style: options?.style || NEW_MAP_BASEMAP_STYLE_URL,
     center: DEFAULT_CENTER,
     zoom: DEFAULT_ZOOM,
     bearing: 0,

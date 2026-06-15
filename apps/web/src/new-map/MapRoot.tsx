@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import maplibregl from "maplibre-gl";
+import maplibregl, { type StyleSpecification } from "maplibre-gl";
 import type { RuntimeIdentity } from "@/lib/runtimeIdentity";
 import type { CountryPageData } from "@/lib/countryPageStorage";
 import { deriveCountryCardEntryFromCountryPageData } from "@/lib/countryCardEntry";
@@ -11,6 +11,7 @@ import { createMap } from "./createMap";
 import type { CountryCardEntry, LegalCountryCollection, NewMapBootResult } from "./map.types";
 import styles from "./MapRoot.module.css";
 import { NEW_MAP_WATER_COLOR } from "./mapPalette";
+import { NEW_MAP_BASEMAP_STYLE_URL } from "./runtimeUrls";
 import { hasFirstVisualReady, onFirstVisualReady, resetFirstVisualReady, setNewMapMetric } from "./startupTrace";
 import {
   readVisualViewportKeyboardOffset,
@@ -87,6 +88,7 @@ type ActiveGeo = {
 
 type NewMapPrefetchCache = {
   countries?: Promise<LegalCountryCollection | null> | null;
+  style?: Promise<StyleSpecification | null> | null;
   cardIndex?: Promise<Record<string, CountryCardEntry> | null> | null;
 };
 
@@ -792,10 +794,18 @@ export default function MapRoot({
           fetchJsonWithRetry<LegalCountryCollection>(countriesUrl, {
             credentials: "same-origin"
           }, "countries_fetch_failed");
+        const loadStyle = () =>
+          fetchJsonWithRetry<StyleSpecification>(NEW_MAP_BASEMAP_STYLE_URL, {
+            credentials: "same-origin"
+          }, "basemap_style_fetch_failed");
         const countriesPromise = prefetched?.countries
           ? prefetched.countries.then((value) => value || loadCountries())
           : loadCountries();
+        const style = await (prefetched?.style
+          ? prefetched.style.then((value) => value || loadStyle())
+          : loadStyle()).catch(() => null);
         const runtime = createMap(containerRef.current, {
+          style,
           onSelectGeo: (geo) => {
             setSelectedGeo(geo);
             setDebugState({ selectedId: geo });

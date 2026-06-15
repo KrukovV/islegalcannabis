@@ -1,6 +1,7 @@
 import { NEW_MAP_WATER_COLOR } from "@/new-map/mapPalette";
 
 const UPSTREAM_STYLE_URL = "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json";
+const UPSTREAM_TILEJSON_URL = "https://tiles.basemaps.cartocdn.com/vector/carto.streets/v1/tiles.json";
 const SUBTLE_BOUNDARY = "rgba(198, 208, 215, 0.18)";
 const STATIC_MAP_CACHE = "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800";
 const SAME_ORIGIN_GLYPHS_PATH = "/api/new-map/basemap-glyph/{fontstack}/{range}.pbf";
@@ -17,18 +18,32 @@ function requestOrigin(request: Request) {
 }
 
 export async function GET(request: Request) {
-  const response = await fetch(UPSTREAM_STYLE_URL, {
-    headers: {
-      accept: "application/json"
-    },
-    next: { revalidate: 86400 }
-  });
+  const [styleResponse, tilejsonResponse] = await Promise.all([
+    fetch(UPSTREAM_STYLE_URL, {
+      headers: {
+        accept: "application/json"
+      },
+      next: { revalidate: 86400 }
+    }),
+    fetch(UPSTREAM_TILEJSON_URL, {
+      headers: {
+        accept: "application/json"
+      },
+      next: { revalidate: 86400 }
+    })
+  ]);
 
-  if (!response.ok) {
-    return new Response(`basemap_style_fetch_failed:${response.status}`, { status: 502 });
+  if (!styleResponse.ok) {
+    return new Response(`basemap_style_fetch_failed:${styleResponse.status}`, { status: 502 });
+  }
+  if (!tilejsonResponse.ok) {
+    return new Response(`basemap_source_fetch_failed:${tilejsonResponse.status}`, { status: 502 });
   }
 
-  const style = await response.json();
+  const [style, tilejson] = await Promise.all([
+    styleResponse.json(),
+    tilejsonResponse.json()
+  ]);
   if (style && typeof style === "object" && Array.isArray(style.layers)) {
     delete (style as Record<string, unknown>).light;
     delete (style as Record<string, unknown>).fog;
@@ -77,10 +92,17 @@ export async function GET(request: Request) {
   }
   const sources = style && typeof style === "object" ? style.sources : null;
   if (sources && typeof sources === "object" && sources.carto && typeof sources.carto === "object") {
+    const tilejsonSource = tilejson && typeof tilejson === "object" ? tilejson as Record<string, unknown> : {};
     sources.carto = {
       ...sources.carto,
-      url: "/api/new-map/basemap-source"
+      ...(typeof tilejsonSource.attribution === "string" ? { attribution: tilejsonSource.attribution } : {}),
+      ...(Array.isArray(tilejsonSource.bounds) ? { bounds: tilejsonSource.bounds } : {}),
+      ...(typeof tilejsonSource.minzoom === "number" ? { minzoom: tilejsonSource.minzoom } : {}),
+      ...(typeof tilejsonSource.maxzoom === "number" ? { maxzoom: tilejsonSource.maxzoom } : {}),
+      ...(typeof tilejsonSource.scheme === "string" ? { scheme: tilejsonSource.scheme } : {}),
+      tiles: ["/api/new-map/basemap-tile/{z}/{x}/{y}"]
     };
+    delete (sources.carto as Record<string, unknown>).url;
   }
   if (style && typeof style === "object") {
     const origin = requestOrigin(request);

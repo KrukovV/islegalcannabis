@@ -52,9 +52,8 @@ export default function MapGeoDock({
     clearSelectedGeo();
     if (currentGeo?.source === "gps" && currentGeoView) {
       applyGeoToMap(currentGeoView, { recenter: true });
-      return;
     }
-    retry();
+    void retry();
   }, [applyGeoToMap, clearSelectedGeo, currentGeo?.source, currentGeoView, retry]);
 
   useEffect(() => {
