@@ -1,7 +1,6 @@
 "use client";
 
-import maplibre from "maplibre-gl";
-import "maplibre-gl/dist/maplibre-gl.css";
+import maplibre from "maplibre-gl/dist/maplibre-gl.js";
 
 import { createMap } from "./createMap";
 import { attachHoverController } from "./hoverController";

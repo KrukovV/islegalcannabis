@@ -8,7 +8,6 @@ import ServiceWorkerGuard from "@/plugins/serviceWorkerGuard";
 import { NEW_MAP_WATER_COLOR } from "@/new-map/mapPalette";
 import { getStaticCountriesAsset } from "@/new-map/staticCountries";
 
-const NEW_MAP_COUNTRIES_URL = getStaticCountriesAsset().url;
 const YANDEX_METRIKA_ID = 108419114;
 const MS_VALIDATE_CONTENT = "8160A885E417B2396DD1C0633F13C70F";
 const NEW_MAP_FIRST_VISUAL_EVENT = "new-map:first-visual-ready";
@@ -70,6 +69,7 @@ export default async function RootLayout({
   const routeHeaders = await headers();
   const htmlLang = routeHeaders.get("x-route-locale") || "en";
   const showVercelAnalytics = !isLocalHost(routeHeaders.get("host") || "");
+  const countriesUrl = getStaticCountriesAsset().url;
   return (
     <html lang={htmlLang} suppressHydrationWarning>
       <head>
@@ -84,12 +84,7 @@ export default async function RootLayout({
           href="https://tiles.basemaps.cartocdn.com"
           crossOrigin="anonymous"
         />
-        <link
-          rel="preload"
-          href={NEW_MAP_COUNTRIES_URL}
-          as="fetch"
-          crossOrigin="anonymous"
-        />
+        <link rel="preload" as="fetch" href={countriesUrl} crossOrigin="anonymous" />
         <Script id="yandex-metrika" strategy="afterInteractive">
           {`
             (function(w,d){

@@ -1,4 +1,5 @@
-import maplibregl, { type StyleSpecification } from "maplibre-gl";
+import maplibregl from "maplibre-gl/dist/maplibre-gl.js";
+import type { StyleSpecification } from "maplibre-gl";
 import type { LegalCountryCollection, NewMapBootResult } from "./map.types";
 import { NEW_MAP_OCEAN_BACKGROUND } from "./mapPalette";
 import { emitFirstVisualReady, markNewMapTrace } from "./startupTrace";
@@ -1010,14 +1011,34 @@ export function createMap(
       map.off("style.load", onStyleReady);
       map.off("moveend", ensureFlatCamera);
       map.off("zoomend", loadUsStatesWhenZoomed);
-      if (map.getLayer(NEW_MAP_US_STATES_LINE_LAYER_ID)) map.removeLayer(NEW_MAP_US_STATES_LINE_LAYER_ID);
-      if (map.getLayer(NEW_MAP_US_STATES_FILL_LAYER_ID)) map.removeLayer(NEW_MAP_US_STATES_FILL_LAYER_ID);
-      if (map.getLayer(NEW_MAP_SUPPLEMENTAL_SEA_LAYER_ID)) map.removeLayer(NEW_MAP_SUPPLEMENTAL_SEA_LAYER_ID);
-      if (map.getLayer(NEW_MAP_ADMIN_LAYER_ID)) map.removeLayer(NEW_MAP_ADMIN_LAYER_ID);
-      if (map.getLayer(NEW_MAP_FILL_LAYER_ID)) map.removeLayer(NEW_MAP_FILL_LAYER_ID);
-      if (map.getSource(NEW_MAP_US_STATES_SOURCE_ID)) map.removeSource(NEW_MAP_US_STATES_SOURCE_ID);
-      if (map.getSource(NEW_MAP_SUPPLEMENTAL_SEA_SOURCE_ID)) map.removeSource(NEW_MAP_SUPPLEMENTAL_SEA_SOURCE_ID);
-      if (map.getSource(NEW_MAP_SOURCE_ID)) map.removeSource(NEW_MAP_SOURCE_ID);
+      const removeLayerIfExists = (layerId: string) => {
+        if (!map.getLayer(layerId)) return;
+        try {
+          map.removeLayer(layerId);
+        } catch {
+          // ignore stale-layer races during map teardown
+        }
+      };
+      const removeSourceIfExists = (sourceId: string) => {
+        if (!map.getSource(sourceId)) return;
+        try {
+          map.removeSource(sourceId);
+        } catch {
+          // ignore stale-source races while the map is already unloading
+        }
+      };
+
+      removeLayerIfExists(NEW_MAP_US_STATES_LINE_LAYER_ID);
+      removeLayerIfExists(NEW_MAP_US_STATES_FILL_LAYER_ID);
+      removeLayerIfExists(NEW_MAP_SUPPLEMENTAL_SEA_LAYER_ID);
+      removeLayerIfExists(NEW_MAP_ADMIN_LAYER_ID);
+      removeLayerIfExists(NEW_MAP_FILL_LAYER_ID);
+      removeLayerIfExists(NEW_MAP_POINT_LAYER_ID);
+      removeLayerIfExists(NEW_MAP_TERRITORY_HITBOX_LAYER_ID);
+      removeLayerIfExists(NEW_MAP_TERRITORY_LABEL_LAYER_ID);
+      removeSourceIfExists(NEW_MAP_US_STATES_SOURCE_ID);
+      removeSourceIfExists(NEW_MAP_SUPPLEMENTAL_SEA_SOURCE_ID);
+      removeSourceIfExists(NEW_MAP_SOURCE_ID);
       map.remove();
     }
   };

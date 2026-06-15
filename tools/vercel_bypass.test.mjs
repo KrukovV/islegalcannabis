@@ -17,6 +17,7 @@ import {
 } from "./vercel_bypass.mjs";
 import {
   VERCEL_BYPASS_FLOW,
+  buildBypassHeaders,
   buildVercelBypassHeaders as buildCookieWarmupHeaders,
   isLikelyVercelChallenge,
   redactSensitive as redactWarmupSensitive
@@ -113,6 +114,12 @@ test("shared Vercel bypass helper defaults to context request cookie warmup", ()
       [VERCEL_BYPASS_HEADER]: TEST_SECRET,
       [VERCEL_SET_BYPASS_COOKIE_HEADER]: "true"
     });
+    assert.deepEqual(buildBypassHeaders(), {
+      [VERCEL_BYPASS_HEADER]: TEST_SECRET,
+      [VERCEL_SET_BYPASS_COOKIE_HEADER]: "true"
+    });
+    assert.equal(typeof buildBypassHeaders()[VERCEL_BYPASS_HEADER], "string");
+    assert.equal(typeof buildBypassHeaders()[VERCEL_SET_BYPASS_COOKIE_HEADER], "string");
     assert.deepEqual(buildCookieWarmupHeaders({ sameSiteNone: true }), {
       [VERCEL_BYPASS_HEADER]: TEST_SECRET,
       [VERCEL_SET_BYPASS_COOKIE_HEADER]: "samesitenone"
@@ -142,10 +149,11 @@ test("production smoke runner uses cookie warmup and measured repeatability arti
   assert.doesNotMatch(smoke, /mHHbgb/);
 });
 
-test("production zoom ocean runner uses cookie warmup without secret URL mode", () => {
+test("production zoom ocean runner uses reusable storageState without secret URL mode", () => {
   const zoom = fs.readFileSync(path.join(ROOT, "tools", "prod_zoom_ocean_repeatability.mjs"), "utf8");
 
-  assert.match(zoom, /warmVercelBypass\(context, baseUrl/);
+  assert.match(zoom, /createProdContextWithBypass/);
+  assert.doesNotMatch(zoom, /warmVercelBypass\(/);
   assert.match(zoom, /installVercelChallengeRecorder\(page/);
   assert.match(zoom, /acquireProjectProcessSlot/);
   assert.match(zoom, /artifacts", "prod-repeatability"/);
@@ -274,8 +282,9 @@ test("docs require single-context low-rate production audits", () => {
   assert.match(dev, /cookie evidence stays diagnostic/i);
   assert.match(liveProbe, /seed_cookie_observed/);
   assert.match(liveProbe, /warmVercelBypass\(context, seedBaseUrl/);
-  assert.match(bypassHelper, /maxRedirects: 0/);
-  assert.match(bypassHelper, /redirect_policy: "maxRedirects=0"/);
+  assert.match(bypassHelper, /options\.maxRedirects \?\? 0/);
+  assert.match(bypassHelper, /maxRedirects,/);
+  assert.match(bypassHelper, /redirect_policy: `maxRedirects=\$\{maxRedirects\}`/);
   assert.match(liveProbe, /cookie_detected/);
   assert.match(liveProbe, /cookie_count/);
   assert.match(liveProbe, /cookie_name/);

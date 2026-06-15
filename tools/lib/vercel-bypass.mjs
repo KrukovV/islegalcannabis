@@ -55,11 +55,24 @@ export function getVercelBypassSecret(options = {}) {
   return secret;
 }
 
+export function buildBypassHeaders(options = {}) {
+  const secret = getVercelBypassSecret({ required: options.required !== false, secret: options.secret });
+  if (!secret) return {};
+  const cookie = options.cookie !== false;
+  const headers = {
+    [VERCEL_BYPASS_HEADER]: String(secret)
+  };
+  if (cookie) {
+    headers[VERCEL_SET_BYPASS_COOKIE_HEADER] = options.sameSiteNone ? "samesitenone" : "true";
+  }
+  return headers;
+}
+
 export function buildVercelBypassHeaders(options = {}) {
   const secret = getVercelBypassSecret({ required: options.required !== false, secret: options.secret });
   if (!secret) return {};
   return {
-    [VERCEL_BYPASS_HEADER]: secret,
+    [VERCEL_BYPASS_HEADER]: String(secret),
     [VERCEL_SET_BYPASS_COOKIE_HEADER]: options.sameSiteNone ? "samesitenone" : "true"
   };
 }
@@ -109,9 +122,11 @@ export async function warmVercelBypass(browserContext, baseUrl, options = {}) {
     required: options.required !== false
   });
   const before = await browserContext.cookies(url.origin).catch(() => []);
+  const maxRedirects = Number(options.maxRedirects ?? 0);
   const response = await browserContext.request.get(seedUrl, {
     headers,
-    maxRedirects: 0,
+    failOnStatusCode: false,
+    maxRedirects,
     timeout: Number(options.timeoutMs || 45000)
   });
   const body = await response.text().catch(() => "");
@@ -136,7 +151,7 @@ export async function warmVercelBypass(browserContext, baseUrl, options = {}) {
     seed_url: redactSensitive(seedUrl, { secret }),
     request_headers: [VERCEL_BYPASS_HEADER, VERCEL_SET_BYPASS_COOKIE_HEADER],
     cookie_mode: options.sameSiteNone ? "samesitenone" : "true",
-    redirect_policy: "maxRedirects=0",
+    redirect_policy: `maxRedirects=${maxRedirects}`,
     warmup_status: response.status(),
     warmup_ms: Date.now() - startedAt,
     cookie_observed: bypassCookies.length > 0,

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import NewMapClientEntry from "./NewMapClientEntry";
 import { formatVisibleRuntimeStamp } from "@/lib/runtimeIdentity";
 import { getStaticCountriesAsset } from "@/new-map/staticCountries";
 import { getNewMapRuntimeIdentity } from "./runtimeConfig";
+import NewMapClientEntry from "./NewMapClientEntry";
 
 type NewMapPageProps = {
   searchParams?: Promise<Record<string, string | string[] | undefined>>;

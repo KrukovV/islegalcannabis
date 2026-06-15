@@ -21,6 +21,7 @@ Standard app API responses built with `apps/web/src/lib/api/response.ts` include
 
 ## New Map cold-start contract
 - `/new-map`, `/`, and `/c/[code]` must use one MapLibre runtime and one countries SSOT payload.
+- `MapRoot` is now mounted from `apps/web/src/app/new-map/NewMapClientEntry.tsx` through an initial defer gate (1.2s timeout + interaction/first-visual wakeup) so map bundle loading is not on the immediate critical render path.
 - Runtime countries data is served from `/static/countries/countries.<content-hash>.json`.
 - The hash is content-derived and deterministic; changing map truth or geometry changes the URL.
 - The static countries asset must send `Cache-Control: public, max-age=31536000, immutable`.
@@ -30,6 +31,7 @@ Standard app API responses built with `apps/web/src/lib/api/response.ts` include
 - Countries payload fetch is intentionally deferred until map mount in `MapRoot`; root layout must not perform inline prefetch execution for `countries.json`.
 - Parent-covered territories that lack standalone Natural Earth polygons, such as `GF`, `GP`, `MQ`, `RE`, and `YT`, must remain first-class map jurisdictions. Their fallback point dots may be hidden when the parent polygon already covers the land, but the runtime must preserve `pointFallbackVisibility`, `pointFallbackLabel`, transparent click hitboxes, and card-index popup entries so clicks resolve to the territory (`GF`) rather than the parent country (`FR`).
 - Root `/new-map` cold start must not eagerly request optional country card index or US-state payloads. Card index may load for SEO/selected geo flows; US states may load after US-state selection or zoom threshold.
+- `maplibre-gl` external stylesheet import is intentionally avoided to keep the initial CSS request set minimal; required map/libre class hooks are provided in `MapRoot.module.css`.
 - Static countries budget: raw <= 2.5 MB, gzip <= 900 KiB, brotli <= 600 KiB. Local/prod measurements use `tools/measure_new_map_payload.mjs`.
 - Map startup diagnostics must expose countries transfer/decoded size, optional payload transfer, long tasks, `NM_T7_FIRST_FILL_RENDERED`, screenshot path, and cache hit/miss signals so local/prod cold-start performance is measurable.
 - `/new-map` JS diagnostics must expose first-party script transfer, estimated unused JS, legacy-polyfill signals, initial/city PNG screenshots, and city-label latency after zoom. Local/prod measurements use `tools/measure_new_map_js_city_perf.mjs`; final prod gating uses `data/baselines/new_map_js_city_quality_baseline.json`. Modern production builds must not ship Next's module polyfill bundle; legacy detection is limited to real polyfill-module patterns, not normal Baseline API calls.
@@ -89,6 +91,8 @@ Standard app API responses built with `apps/web/src/lib/api/response.ts` include
 - Protected Vercel production QA bypass is specified in `docs/VERCEL_BYPASS.md`.
 - Lint runs before Smoke/UI and any lint error fails the run.
 - Final `pass_cycle` must run the one-request Vercel root diagnostic access/render check for production `/new-map`, write a PNG screenshot and timing measurements, and compare them against `data/baselines/prod_live_quality_baseline.json`.
+- After a Vercel `403`/`x-vercel-mitigated=challenge`, production recovery must start with `tools/prod_vercel_access_probe.mjs` and must not run `pass_cycle.sh` until the access probe, one screenshot seed, short matrix, full matrix, and legacy prod audits have passed in order.
+- Production recovery must preserve `Reports/vercel-bypass-recovery/known-good-run.json` with the last successful matrix parameters and must fail fast on apex/www origin mismatch.
 - Scenario-level production UI audits must reuse one browser context for all audited countries, states, popups, and screenshots. Root seed requests remain diagnostic, but `BYPASS_COOKIE_PRESENT` is not a mandatory gate for screenshot capture.
 - Production evidence must distinguish browser app access from bypass diagnostics. `ok=1` proves the real app rendered; cookie observations such as `seed_cookie_observed=1` and `cookie_detected=1` are recorded for forensics only and do not block screenshot capture by themselves.
 - Production QA must be low-rate: deploy polling uses bounded `/api/build-meta` attempts, live audits run serially, and a Vercel Security Checkpoint is recorded as failure/blocker evidence instead of being retried in a tight reload loop.

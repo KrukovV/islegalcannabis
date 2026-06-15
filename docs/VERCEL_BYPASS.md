@@ -35,6 +35,7 @@ The official Vercel automation bypass is documented at:
   - `rel="preconnect"` for `https://basemaps.cartocdn.com` and `https://tiles.basemaps.cartocdn.com` in `apps/web/src/app/layout.tsx`.
   - `rel="preload"` + `as="fetch"` for `/static/countries/countries.<hash>.json` in `apps/web/src/app/layout.tsx`.
   - countries payload JSON is fetched from `MapRoot` during mount, without head-inline prefetch scripts.
+  - map runtime mount is deferred in `apps/web/src/app/new-map/NewMapClientEntry.tsx`: 1.2s timeout + interaction/first-visual wakeup, then `MapRoot` mount.
 - The shared helper path is single-source: `tools/lib/vercel-bypass.mjs` + `tools/vercel_bypass_live_probe.mjs` + `tools/vercel_bypass.test.mjs`.
 
 ## Stability Evidence Baseline (Local + Production Controls)
@@ -42,9 +43,9 @@ The official Vercel automation bypass is documented at:
 - Single-context flow: one `BrowserContext`, one warmed bypass seed, one page family, one challenge handling policy.
 - Static-first card-index flow verified by runner tests and production campaign scripts.
 - Local startup proof (most recent):
-  - `NEW_MAP_PAYLOAD`: total 2121.7 KiB, first-party 2121.7 KiB, scripts 1213.6 KiB, estimated unused script transfer 0.1 KiB.
-  - `NEW_MAP_JS_CITY`: first-party script 1213.6 KiB, estimated unused source 0.7 KiB, legacy signals 0, `legacy_transfer_bytes=0`.
-  - `NETWORK_TREE`: baseline critical path in same process around ~3.9s after map bootstrap changes with two preconnects active.
+  - `NEW_MAP_PAYLOAD`: total 2125.5 KiB, first-party 2125.5 KiB, scripts 1217.2 KiB, estimated unused script transfer 0.1 KiB, `NM_T7_FIRST_FILL_RENDERED=961ms`.
+  - `NEW_MAP_JS_CITY`: first-party script 1217.2 KiB, estimated unused source 0.7 KiB, legacy signals 0, `legacy_transfer_bytes=0`.
+  - `NETWORK_TREE`: local/QA probe now shows critical path about 2.8s with 2 preconnects after the deferred map mount change.
 - Production stability remains evidence-driven and bounded by challenge policy: each prod hypothesis uses exactly one seed attempt + one low-rate run, with explicit stop on challenge.
 - Secret handling remains bounded to environment variables; no bypass secret is ever committed or placed in reports/URLs.
 
@@ -66,6 +67,15 @@ The shared implementation lives in:
 - `tools/vercel_bypass_live_probe.mjs`
 - `tools/prod_live_quality_gate.mjs`
 - `tools/pass_cycle.sh`
+
+## Current local perf adjustment note
+
+- The `maplibre-gl/dist/maplibre-gl.css` stylesheet is no longer imported directly from `apps/web/src/new-map/mapRuntime.ts`.
+- `MapRoot` keeps styling dependencies in its module CSS (`MapRoot.module.css`) so map boot now avoids an additional render-blocking stylesheet request in local startup captures.
+- Latest local `NETWORK_TREE` capture after this change (`after-remove-maplibre-css`) shows:
+  - CSS requests: `3` (runtime no longer requests `node_modules_maplibre-gl_dist_maplibre-gl_d52c492a.css`)
+  - `critical_transfer_kib=412.9`
+  - `critical_end_ms=5879`
 
 ## Environment Variables
 
@@ -101,6 +111,29 @@ or by the default budget-preserving skip line:
 PROD_EXTENDED_TAIL_SKIPPED=1 reason=PROD_BUDGET_DEFAULT
 ```
 
+## Recovery After A Challenge Window
+
+When production returns `403` with `x-vercel-mitigated=challenge`, do not start `pass_cycle.sh` or a full screenshot matrix. Recovery is staged and low-rate:
+
+1. Preserve the blocker artifact.
+2. Cool down before the next production request.
+3. Run only `tools/prod_vercel_access_probe.mjs --modes=method2-cookie --runs=1`.
+4. Continue to one screenshot seed only after the access probe decision is `READY_FOR_SCREENSHOT_MATRIX`.
+5. Continue to the short matrix only after the screenshot seed passes.
+6. Continue to the full matrix only after the short matrix passes.
+7. Run `bash tools/pass_cycle.sh` only after the staged production proof is green.
+
+The latest known-good full matrix is recorded in:
+
+- `Reports/vercel-bypass-recovery/known-good-run.json`
+
+The canonical recovery probe writes:
+
+- `Reports/vercel-bypass-recovery/latest.json`
+- `Reports/vercel-bypass-recovery/latest.md`
+
+The probe must keep the bypass secret out of stdout, JSON, paths, screenshots, and trace/HAR artifacts. Allowed secret evidence is limited to `secret_present`, `secret_hash_prefix`, `secret_length_ok`, and `secret_leak_guard`.
+
 ## Artifacts
 
 - `Reports/vercel-bypass-live/last_run.json`
@@ -120,7 +153,7 @@ Both matrix reports passed 3 sessions x Chromium+WebKit x 15 territories x 5 zoo
 
 ## New-Map JS Payload Optimization
 
-Map runtime optional features are now loaded lazily to reduce first-load JS cost while preserving one-map runtime contract:
+Map runtime mount is now deferred to keep first paint and critical CSS/JS path smaller while preserving one-map runtime contract:
 
 - `MapRoot` itself is loaded from `apps/web/src/app/new-map/NewMapClientEntry.tsx` using `next/dynamic` (`ssr: false`).
 - Non-essential map overlays and dock components are loaded lazily (`AsciiOverlay`, `ViewportCountryPopup`, `MapGeoDock`).
@@ -132,36 +165,36 @@ Measured comparison (local `/new-map` probe, same browser/runtime, one change se
 
 | Metric | Before | After | Delta |
 |---|---:|---:|---:|
-| Total Transfer (KiB) | 2297.6 | 2121.7 | -174.1 |
-| First-Party Transfer (KiB) | 2297.6 | 2121.7 | -174.1 |
-| Script Transfer (KiB) | 1388.6 | 1213.6 | -173.8 |
-| First Paint Fill (ms) | 4915 | 3313 | -1602 |
-| First Fill Long Task Max (ms) | 2367 | 1945 | -422 |
-| Long Task Count | 8 | 9 | +1 |
-| Total Long-Task ms | 3839 | 4822 | +983 |
+| Total Transfer (KiB) | 2125.6 | 2125.5 | -0.1 |
+| First-Party Transfer (KiB) | 2125.6 | 2125.5 | -0.1 |
+| Script Transfer (KiB) | 1216.8 | 1217.2 | +0.4 |
+| First Paint Fill (ms) | 2746 | 961 | -1785 |
+| First Fill Long Task Max (ms) | 2157 | 1166 | -991 |
+| Long Task Count | 7 | 10 | +3 |
+| Total Long-Task ms | 4241 | 3779 | -462 |
 
 ## Latest verification cycle (2026-06-15)
 
-- `bash tools/pass_cycle.sh` with `VERCEL_AUTOMATION_BYPASS_SECRET` passed:
+- `bash tools/pass_cycle.sh` with `VERCEL_AUTOMATION_BYPASS_SECRET` previously passed (pre-change):
   - `PROD_LIVE_OK=1`
   - `PROD_LIVE_METHOD` completed in `14811 ms`
   - `PROD_LIVE_SCREENSHOT=Reports/vercel-bypass-live/method2_api_cookie_seed.png`
   - `PROD_EXTENDED_TAIL_SKIPPED=1 reason=PROD_BUDGET_DEFAULT`
 - Local before/after delta (latest stable local probe set):
-  - total transfer: `2,350,959 -> 2,172,662 (-178,297 bytes, -174.1 KiB)`
-  - first-party transfer: `2,350,959 -> 2,172,662 (-174.1 KiB)`
-  - script transfer: `1,420,761 -> 1,242,760 (-178,001 bytes, -173.8 KiB)`
-  - `NM_T7_FIRST_FILL_RENDERED`: `4,915 -> 3,631 (-1,284 ms)`
-  - long tasks: `count 8 -> 10`, `total 3,839 -> 4,262`, `max 2,367 -> 1,854`
+  - total transfer: `2,175,649 -> 2,176,554 (+905 bytes, +0.4 KiB)`
+  - first-party transfer: `2,175,649 -> 2,176,554 (+0.4 KiB)`
+  - script transfer: `1,245,260 -> 1,246,165 (+905 bytes, +0.4 KiB)`
+  - `NM_T7_FIRST_FILL_RENDERED`: `2,746 -> 961 (-1,785 ms)`
+  - long tasks: `count 7 -> 10`, `total 4,241 -> 3,779 (-462 ms)`, `max 2,157 -> 1,166`
 - JS unused-byte delta:
-  - `first_party_chunk_unused_source_bytes: 52,565 -> 743`
-  - `first_party_estimated_unused_transfer_bytes: 8,919 -> 111`
-  - `first_party_chunk_unused_pct: 0.6 -> 0`
+  - `first_party_chunk_unused_source_bytes: 743 -> 743`
+  - `first_party_estimated_unused_transfer_bytes: 113 -> 113`
+  - `first_party_chunk_unused_pct: 0 -> 0`
 
 JS label-flow evidence:
 
-- First-party script transfer: 1213.6 KiB (vs 1388.6 KiB before)
-- Estimated unused transfer: 0.1 KiB (vs 8.7 KiB before)
+- First-party script transfer: 1217.2 KiB (vs 1216.8 KiB before)
+- Estimated unused transfer: 0.1 KiB (vs 0.1 KiB before)
 - Legacy polyfill signals: 0 (before 0)
 - City/Country zoom label counters were unchanged and still timeout-driven on both captured baseline files, so label-speed optimization is currently neutral and tracked by existing timeout thresholds.
 

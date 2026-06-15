@@ -13,9 +13,9 @@ import { acquireProjectProcessSlot } from "./runtime/processSlots.mjs";
 import {
   getVercelBypassSecret,
   installVercelChallengeRecorder,
-  redactSensitive,
-  warmVercelBypass
+  redactSensitive
 } from "./lib/vercel-bypass.mjs";
+import { createProdContextWithBypass } from "./lib/vercel-bypass-session.mjs";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DEFAULT_TERRITORIES = [
@@ -39,7 +39,9 @@ const DEFAULT_TERRITORIES = [
 function argValue(name, fallback = "") {
   const prefix = `--${name}=`;
   const found = process.argv.find((arg) => arg.startsWith(prefix));
-  return found ? found.slice(prefix.length) : fallback;
+  if (found) return found.slice(prefix.length);
+  const index = process.argv.indexOf(`--${name}`);
+  return index >= 0 ? process.argv[index + 1] || fallback : fallback;
 }
 
 function sha256(value) {
@@ -240,7 +242,7 @@ async function writeMontage(rows, outputPath) {
 }
 
 async function runCampaign() {
-  const baseUrl = normalizeBaseUrl(process.env.PROD_BASE_URL || process.env.PROD_AUDIT_TARGET || "https://islegal.info");
+  const baseUrl = normalizeBaseUrl(argValue("base-url", process.env.PROD_BASE_URL || process.env.PROD_AUDIT_TARGET || "https://www.islegal.info"));
   const secret = getVercelBypassSecret();
   const runId = new Date().toISOString().replace(/[-:]/g, "").replace(/\..+$/, "");
   const artifactDir = path.join(repoRoot, "artifacts", "prod-repeatability", runId);
@@ -250,10 +252,14 @@ async function runCampaign() {
   const cycles = Math.max(1, Number(argValue("cycles", process.env.ZOOM_CYCLES || "5")) || 5);
   const runs = Math.max(1, Number(argValue("runs", process.env.ZOOM_RUNS || "3")) || 3);
   const cooldownMs = Math.max(0, Number(argValue("cooldown-ms", process.env.COOLDOWN_MS || "30000")) || 0);
+  const stopOnChallenge = argValue("stop-on-challenge", process.env.ZOOM_STOP_ON_CHALLENGE || "0") !== "0";
+  const bypassState = argValue("bypass-state", process.env.VERCEL_BYPASS_STATE || "playwright/.auth/vercel-bypass.production.json");
+  const noBypassWarmupIfStateValid = argValue("no-bypass-warmup-if-state-valid", process.env.NO_BYPASS_WARMUP_IF_STATE_VALID || "0") !== "0";
   await ensureDir(screenshotDir);
 
   const rows = [];
   const sessions = [];
+  let stopCampaign = false;
   for (let run = 1; run <= runs; run += 1) {
     for (const browserName of browsers) {
       const config = browserConfig(browserName);
@@ -262,26 +268,67 @@ async function runCampaign() {
         headless: process.env.PROD_ZOOM_HEADLESS === "0" ? false : true
       });
       try {
-        const context = await browser.newContext({ viewport: { width: 1600, height: 900 }, deviceScaleFactor: 1 });
+        let created = null;
+        try {
+          created = await createProdContextWithBypass(browser, {
+            baseUrl,
+            statePath: bypassState,
+            noWarmupIfStateValid: noBypassWarmupIfStateValid,
+            stopOnChallenge,
+            validateExisting: false,
+            maxAgeMs: 30 * 60 * 1000
+          });
+        } catch (error) {
+          const challenge = error.code === "VERCEL_CHALLENGE_WINDOW";
+          sessions.push({
+            run,
+            browser: config.label,
+            result: challenge ? "challenge" : "fail",
+            stop_reason: error.code || error.message || "BYPASS_STATE_UNAVAILABLE",
+            challenge_count: challenge ? 1 : 0,
+            rows: 0,
+            storage_state_used: false,
+            storage_state_path: bypassState,
+            bypass_warmup_count: Number(error.report?.bypass_warmup_count || 0),
+            seed_request_count: Number(error.report?.seed_request_count || 0),
+            context_count: 0,
+            page_count: 0,
+            document_navigation_count: 0,
+            storage_state_validation_status: error.report?.storage_state_validation_status || "ERROR"
+          });
+          if (challenge && stopOnChallenge) stopCampaign = true;
+          if (stopCampaign) break;
+          continue;
+        }
+        const { context } = created;
         try {
           const page = await context.newPage();
+          created.session.page_count += 1;
           const recorder = installVercelChallengeRecorder(page, { baseUrl, secret });
-          const bypass = await warmVercelBypass(context, baseUrl, { secret });
           const session = {
             run,
             browser: config.label,
-            bypass,
+            bypass: {
+              storage_state_used: Boolean(created.session.storage_state_used),
+              storage_state_path: created.session.storage_state_path,
+              storage_state_validation_status: created.session.storage_state_validation_status
+            },
             result: "fail",
             challenge_count: 0,
-            rows: 0
+            rows: 0,
+            storage_state_used: Boolean(created.session.storage_state_used),
+            storage_state_written: Boolean(created.session.storage_state_written),
+            storage_state_path: created.session.storage_state_path,
+            storage_state_validation_status: created.session.storage_state_validation_status,
+            bypass_warmup_count: Number(created.session.bypass_warmup_count || 0),
+            seed_request_count: Number(created.session.seed_request_count || 0),
+            context_count: 1,
+            page_count: Number(created.session.page_count || 1),
+            document_navigation_count: 0
           };
           sessions.push(session);
-          if (bypass.challenge_detected) {
-            session.result = "challenge";
-            session.challenge_count = 1;
-            continue;
-          }
           await page.goto(`${baseUrl}/new-map?qa=1`, { waitUntil: "domcontentloaded", timeout: 60000 });
+          session.document_navigation_count += 1;
           await waitForMapReady(page);
           const sessionKey = `run${run}-${config.label}`;
           for (const territory of territories) {
@@ -315,6 +362,9 @@ async function runCampaign() {
             .every((row) => row.result === "pass")
             ? "pass"
             : "fail";
+          if (stopOnChallenge && network.challenge_count > 0) {
+            stopCampaign = true;
+          }
         } finally {
           await context.close().catch(() => undefined);
         }
@@ -322,15 +372,40 @@ async function runCampaign() {
         await browser.close().catch(() => undefined);
         slot.release();
       }
+      if (stopCampaign) break;
       if (cooldownMs > 0) await wait(cooldownMs);
     }
+    if (stopCampaign) break;
   }
 
   const montagePath = await writeMontage(rows, path.join(artifactDir, "summary-ocean-zoom-montage.png"));
+  const aggregateBudget = {
+    bypass_warmup_count: sessions.reduce((sum, session) => sum + Number(session.bypass_warmup_count || 0), 0),
+    seed_request_count: sessions.reduce((sum, session) => sum + Number(session.seed_request_count || 0), 0),
+    context_count: sessions.reduce((sum, session) => sum + Number(session.context_count || 0), 0),
+    page_count: sessions.reduce((sum, session) => sum + Number(session.page_count || 0), 0),
+    document_navigation_count: sessions.reduce((sum, session) => sum + Number(session.document_navigation_count || 0), 0),
+    storage_state_used: sessions.some((session) => session.storage_state_used),
+    storage_state_written: sessions.some((session) => session.storage_state_written),
+    storage_state_path: bypassState,
+    storage_state_validation_status: sessions.map((session) => session.storage_state_validation_status).filter(Boolean).join(",") || "",
+    context_limit: browsers.length * runs,
+    page_limit: browsers.length * runs,
+    document_navigation_limit: browsers.length * runs + 1
+  };
+  aggregateBudget.budget_violation =
+    aggregateBudget.context_count > aggregateBudget.context_limit ||
+    aggregateBudget.page_count > aggregateBudget.page_limit ||
+    aggregateBudget.document_navigation_count > aggregateBudget.document_navigation_limit ||
+    (noBypassWarmupIfStateValid && aggregateBudget.storage_state_used && aggregateBudget.bypass_warmup_count > 1);
+  aggregateBudget.budget_fail_reason = aggregateBudget.budget_violation ? "BYPASS_WARMUP_BUDGET_EXCEEDED" : "";
+  const screenshotsSaved = rows.length > 0 && rows.every((row) => row.screenshots?.transient && row.screenshots?.idle);
+  const blankTileRectCount = rows.filter((row) => row.visual && row.visual.pass === false).length;
   const pass = sessions.length === runs * browsers.length &&
     sessions.every((session) => session.result === "pass") &&
     rows.length === runs * browsers.length * territories.length * cycles * 2 &&
-    rows.every((row) => row.result === "pass");
+    rows.every((row) => row.result === "pass") &&
+    !aggregateBudget.budget_violation;
   const summary = {
     generated_at: new Date().toISOString(),
     run_id: runId,
@@ -341,6 +416,12 @@ async function runCampaign() {
     cycles,
     runs,
     status: pass ? "PASS" : "FAIL",
+    expected_rows: runs * browsers.length * territories.length * cycles * 2,
+    challenge_count: sessions.reduce((sum, session) => sum + Number(session.challenge_count || 0), 0),
+    screenshots_saved: screenshotsSaved,
+    blank_tile_rect_count: blankTileRectCount,
+    no_bypass_warmup_if_state_valid: noBypassWarmupIfStateValid,
+    ...aggregateBudget,
     sessions,
     rows,
     screenshots: {

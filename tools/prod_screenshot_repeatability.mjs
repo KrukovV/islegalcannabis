@@ -17,18 +17,30 @@ import {
   installVercelChallengeRecorder,
   warmVercelBypass
 } from "./lib/vercel-bypass.mjs";
+import { createProdContextWithBypass } from "./lib/vercel-bypass-session.mjs";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const reportRoot = path.join(repoRoot, "Reports", "ProdAudit");
 const repeatabilityRoot = path.join(reportRoot, "repeatability");
 const secret = process.env.VERCEL_AUTOMATION_BYPASS_SECRET || "";
-const target = process.env.PROD_AUDIT_TARGET || "https://www.islegal.info";
-const runCount = Math.max(1, Number(process.env.PROD_REPEATABILITY_RUNS || 3));
+function argValue(name, fallback = "") {
+  const prefix = `--${name}=`;
+  const found = process.argv.find((arg) => arg.startsWith(prefix));
+  if (found) return found.slice(prefix.length);
+  const index = process.argv.indexOf(`--${name}`);
+  if (index >= 0) return process.argv[index + 1] || fallback;
+  return fallback;
+}
+const target = argValue("base-url", process.env.PROD_AUDIT_TARGET || process.env.PROD_BASE_URL || "https://www.islegal.info");
+const runCount = Math.max(1, Number(argValue("runs", process.env.PROD_REPEATABILITY_RUNS || "3")));
 const countryGeo = String(process.env.PROD_REPEATABILITY_COUNTRY_GEO || "AL").toUpperCase();
 const runId = process.env.PROD_REPEATABILITY_RUN_ID || new Date().toISOString().replace(/[-:]/g, "").replace(/\..+$/, "");
 const batchDir = path.join(repeatabilityRoot, runId);
 const repeatabilityArtifactDir = path.join(repoRoot, "artifacts", "prod-repeatability", runId);
-const runDelayMs = Math.max(0, Number(process.env.PROD_REPEATABILITY_RUN_DELAY_MS || 15000));
+const runDelayMs = Math.max(0, Number(argValue("cooldown-ms", process.env.PROD_REPEATABILITY_RUN_DELAY_MS || "15000")));
+const stopOnChallenge = argValue("stop-on-challenge", process.env.PROD_REPEATABILITY_STOP_ON_CHALLENGE || "0") !== "0";
+const bypassState = argValue("bypass-state", process.env.VERCEL_BYPASS_STATE || "");
+const noBypassWarmupIfStateValid = argValue("no-bypass-warmup-if-state-valid", process.env.NO_BYPASS_WARMUP_IF_STATE_VALID || "0") !== "0";
 const seedDiagnosticEnabled = process.env.PROD_REPEATABILITY_SEED_DIAGNOSTIC === "1";
 const headerMode = String(process.env.PROD_REPEATABILITY_HEADER_MODE || "cookie_warmup").toLowerCase();
 const fullUiOnly = process.env.PROD_REPEATABILITY_FULL_UI_ONLY === "1";
@@ -543,6 +555,18 @@ function skippedSeedDiagnostic() {
   };
 }
 
+function storageStateSeedDiagnostic(session = {}) {
+  return {
+    ...skippedSeedDiagnostic(),
+    reason: "BYPASS_STORAGE_STATE_USED",
+    storage_state_used: true,
+    storage_state_path: session.storage_state_path || bypassState || "",
+    storage_state_validation_status: session.storage_state_validation_status || "",
+    bypass_warmup_count: Number(session.bypass_warmup_count || 0),
+    seed_request_count: Number(session.seed_request_count || 0)
+  };
+}
+
 async function sha256File(filePath) {
   const data = await fs.readFile(filePath).catch(() => null);
   if (!data) return "";
@@ -570,6 +594,25 @@ function isFirstPartyUrl(input) {
 }
 
 async function createAuditContext(browser) {
+  if (bypassState) {
+    const created = await createProdContextWithBypass(browser, {
+      baseUrl: target,
+      statePath: bypassState,
+      noWarmupIfStateValid: noBypassWarmupIfStateValid,
+      stopOnChallenge,
+      validateExisting: false,
+      maxAgeMs: 30 * 60 * 1000
+    });
+    return {
+      context: created.context,
+      bypassSession: {
+        ...created.session,
+        context_count: 1,
+        page_count: 0,
+        document_navigation_count: 0
+      }
+    };
+  }
   const contextOptions = {
     viewport: { width: 1600, height: 900 },
     deviceScaleFactor: 1
@@ -593,7 +636,20 @@ async function createAuditContext(browser) {
       await route.continue();
     });
   }
-  return context;
+  return {
+    context,
+    bypassSession: {
+      storage_state_used: false,
+      storage_state_written: false,
+      storage_state_path: "",
+      storage_state_validation_status: "LEGACY_CONTEXT",
+      bypass_warmup_count: 0,
+      seed_request_count: 0,
+      context_count: 1,
+      page_count: 0,
+      document_navigation_count: 0
+    }
+  };
 }
 
 function renderReport(summary) {
@@ -795,11 +851,15 @@ async function runRepeatabilityBatch() {
       if (!baseRepeatable) {
         throw new Error(`BASE_BATCH_NOT_REPEATABLE:${baseBatchId || "missing"}`);
       }
-      const context = await createAuditContext(browser);
+      const audit = await createAuditContext(browser);
+      const { context, bypassSession } = audit;
       try {
         const page = await context.newPage();
+        bypassSession.page_count += 1;
         const recorder = installVercelChallengeRecorder(page, { baseUrl: target, secret });
-        const seed = headerMode === "cookie_warmup"
+        const seed = bypassSession.storage_state_used
+          ? storageStateSeedDiagnostic(bypassSession)
+          : headerMode === "cookie_warmup"
           ? seedFromWarmup(await warmVercelBypass(context, target, { secret }))
           : skippedSeedDiagnostic();
         fullUi = await captureFullUi(page, batchDir).catch((error) => ({
@@ -826,17 +886,22 @@ async function runRepeatabilityBatch() {
       const runLabel = `run-${String(index).padStart(2, "0")}`;
       const runDir = path.join(batchDir, runLabel);
       await ensureDir(runDir);
-      const context = await createAuditContext(browser);
+      const audit = await createAuditContext(browser);
+      const { context, bypassSession } = audit;
       try {
         const page = await context.newPage();
+        bypassSession.page_count += 1;
         const recorder = installVercelChallengeRecorder(page, { baseUrl: target, secret });
-        const seed = headerMode === "cookie_warmup"
+        const seed = bypassSession.storage_state_used
+          ? storageStateSeedDiagnostic(bypassSession)
+          : headerMode === "cookie_warmup"
           ? seedFromWarmup(await warmVercelBypass(context, target, { secret }))
           : seedDiagnosticEnabled
             ? await seedDiagnostic(context, target)
             : skippedSeedDiagnostic();
         const home = await captureRoute(page, target, path.join(runDir, "screenshot-home.png"), { minBytes: minHomeScreenshotBytes });
         const newMap = await captureRoute(page, `${target}/new-map?qa=1`, path.join(runDir, "screenshot-new-map.png"), { minBytes: minMapScreenshotBytes });
+        bypassSession.document_navigation_count += 2;
         const network = recorder.summary();
         const cookiesAfter = await context.cookies(target).catch(() => []);
         const responsePayload = {
@@ -845,11 +910,22 @@ async function runRepeatabilityBatch() {
           batch_id: runId,
           cookie_diagnostic_only: true,
           access_mode: headerMode === "cookie_warmup"
-            ? "context_request_cookie_warmup"
+            ? bypassSession.storage_state_used
+              ? "storage_state_cookie"
+              : "context_request_cookie_warmup"
             : seedDiagnosticEnabled
               ? `header_${headerMode}_with_seed_diagnostic`
               : `header_${headerMode}_known_good_flow`,
           header_mode: headerMode,
+          storage_state_used: Boolean(bypassSession.storage_state_used),
+          storage_state_written: Boolean(bypassSession.storage_state_written),
+          storage_state_path: bypassSession.storage_state_path || "",
+          storage_state_validation_status: bypassSession.storage_state_validation_status || "",
+          bypass_warmup_count: Number(bypassSession.bypass_warmup_count || 0),
+          seed_request_count: Number(bypassSession.seed_request_count || 0),
+          context_count: Number(bypassSession.context_count || 1),
+          page_count: Number(bypassSession.page_count || 1),
+          document_navigation_count: Number(bypassSession.document_navigation_count || 2),
           bypass: headerMode === "cookie_warmup" ? seed : null,
           seed,
           network,
@@ -893,6 +969,9 @@ async function runRepeatabilityBatch() {
         await fs.writeFile(path.join(runDir, "response.json"), `${JSON.stringify(responsePayload, null, 2)}\n`, "utf8");
         await fs.writeFile(path.join(runDir, "headers.json"), `${JSON.stringify(headersPayload, null, 2)}\n`, "utf8");
         runs.push(responsePayload);
+        if (stopOnChallenge && responsePayload.status === "CHALLENGE") {
+          break;
+        }
         const baseRunsRepeatable =
           index === runCount &&
           runs.length === runCount &&
@@ -917,6 +996,9 @@ async function runRepeatabilityBatch() {
       } finally {
         await context.close().catch(() => {});
       }
+      if (stopOnChallenge && runs.at(-1)?.status === "CHALLENGE") {
+        break;
+      }
       if (index < runCount) {
         await new Promise((resolve) => setTimeout(resolve, runDelayMs));
       }
@@ -924,6 +1006,11 @@ async function runRepeatabilityBatch() {
 
     const successCount = runs.filter((run) => run.HOME_PAGE_CAPTURED === 1 && run.NEW_MAP_CAPTURED === 1 && run.status === "PASS").length;
     const challengeCount = runs.filter((run) => run.status === "CHALLENGE").length;
+    const bypassWarmupCount = runs.reduce((sum, run) => sum + Number(run.bypass_warmup_count || 0), 0);
+    const seedRequestCount = runs.reduce((sum, run) => sum + Number(run.seed_request_count || 0), 0);
+    const contextCount = runs.reduce((sum, run) => sum + Number(run.context_count || 0), 0);
+    const pageCount = runs.reduce((sum, run) => sum + Number(run.page_count || 0), 0);
+    const documentNavigationCount = runs.reduce((sum, run) => sum + Number(run.document_navigation_count || 0), 0);
     const repeatable = successCount === runCount;
     const fullUiChallengeDetected = Boolean(
       fullUi?.home?.challenge_detected ||
@@ -955,6 +1042,14 @@ async function runRepeatabilityBatch() {
       ...metrics,
       seed_diagnostic_enabled: seedDiagnosticEnabled,
       header_mode: headerMode,
+      storage_state_used: runs.some((run) => run.storage_state_used),
+      storage_state_path: bypassState || "",
+      no_bypass_warmup_if_state_valid: noBypassWarmupIfStateValid,
+      bypass_warmup_count: bypassWarmupCount,
+      seed_request_count: seedRequestCount,
+      context_count: contextCount,
+      page_count: pageCount,
+      document_navigation_count: documentNavigationCount,
       success_count: successCount,
       challenge_count: challengeCount,
       base_screenshot_repeatability: repeatable,
@@ -994,6 +1089,8 @@ async function runRepeatabilityBatch() {
     console.log(`JS_REPL_BROWSER_MODE=${browserTransport.JS_REPL_BROWSER_MODE}`);
     console.log(`SUCCESS_COUNT=${successCount}`);
     console.log(`CHALLENGE_COUNT=${challengeCount}`);
+    console.log(`STORAGE_STATE_USED=${summary.storage_state_used ? 1 : 0}`);
+    console.log(`BYPASS_WARMUP_COUNT=${summary.bypass_warmup_count}`);
     console.log(`SUCCESS_RATE=${summary.SUCCESS_RATE}`);
     console.log(`CHALLENGE_RATE=${summary.CHALLENGE_RATE}`);
     console.log(`REPEATABLE_PROD_SCREENSHOTS=${summary.repeatable_prod_screenshots ? "YES" : "NO"}`);
