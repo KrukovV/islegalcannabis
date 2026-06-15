@@ -32,7 +32,8 @@ describe("new-map route config", () => {
     const styleSource = fs.readFileSync(stylePath, "utf8");
     const tilejsonSource = fs.readFileSync(sourcePath, "utf8");
 
-    expect(styleSource).toContain('url: "/api/new-map/basemap-source"');
+    expect(styleSource).toContain('tiles: ["/api/new-map/basemap-tile/{z}/{x}/{y}"]');
+    expect(styleSource).toContain('delete (sources.carto as Record<string, unknown>).url;');
     expect(styleSource).toContain('style.glyphs = `${origin}${SAME_ORIGIN_GLYPHS_PATH}`');
     expect(styleSource).toContain('style.sprite = `${origin}${SAME_ORIGIN_SPRITE_PATH}`');
     expect(styleSource).toContain('request.headers.get("host")');

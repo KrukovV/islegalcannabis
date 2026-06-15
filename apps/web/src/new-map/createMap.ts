@@ -373,6 +373,7 @@ export function createMap(
   let countries: LegalCountryCollection = { type: "FeatureCollection", features: [] };
   let mapLoaded = false;
   let bootstrapped = false;
+  let basemapReadyResolved = false;
   let readyResolved = false;
   let cursorHandlersBound = false;
   let destroyed = false;
@@ -382,7 +383,11 @@ export function createMap(
   let firstIdleMarked = false;
   let firstVisualReadyMarked = false;
   let usStatesRequested = false;
+  let resolveBasemapReady = () => {};
   let resolveReady = () => {};
+  const basemapReady = new Promise<void>((resolve) => {
+    resolveBasemapReady = resolve;
+  });
   const ready = new Promise<void>((resolve) => {
     resolveReady = resolve;
   });
@@ -436,6 +441,15 @@ export function createMap(
     firstCountriesReadyMarked = true;
     markNewMapTrace("NM_T4_COUNTRIES_READY");
     markNewMapTrace("NM_T6_COUNTRIES_SOURCE_READY");
+    finalizeFirstVisualReady();
+  };
+
+  const finalizeBasemapReady = () => {
+    if (destroyed || basemapReadyResolved || !mapLoaded) return;
+    const styleReadyForInteraction = firstBasemapReadyMarked || firstStyleDataMarked;
+    if (!styleReadyForInteraction) return;
+    basemapReadyResolved = true;
+    resolveBasemapReady();
   };
 
   const applyData = () => {
@@ -445,7 +459,6 @@ export function createMap(
     countriesSource.setData(countries);
     if (countries.features.length > 0) {
       markCountriesReady();
-      finalizeFirstVisualReady();
     }
   };
 
@@ -843,6 +856,7 @@ export function createMap(
     firstStyleDataMarked = true;
     markNewMapTrace("NM_T2_STYLE_READY");
     markNewMapTrace("NM_T4_STYLEDATA_FIRST");
+    finalizeBasemapReady();
   });
 
   map.on("sourcedata", (event) => {
@@ -850,6 +864,7 @@ export function createMap(
       firstBasemapReadyMarked = true;
       markNewMapTrace("NM_T3_FIRST_TILE");
       markNewMapTrace("NM_T5_SOURCEDATA_BASEMAP_READY");
+      finalizeBasemapReady();
     }
     if (!firstCountriesReadyMarked && event.sourceId === NEW_MAP_SOURCE_ID && event.isSourceLoaded) {
       markCountriesReady();
@@ -861,6 +876,7 @@ export function createMap(
       firstIdleMarked = true;
       markNewMapTrace("NM_T8_IDLE_FIRST");
     }
+    finalizeBasemapReady();
     finalizeFirstVisualReady();
   });
 
@@ -877,7 +893,9 @@ export function createMap(
       loadUsStates();
     }
     mapLoaded = true;
+    finalizeBasemapReady();
     applyData();
+    finalizeFirstVisualReady();
   };
 
   map.on("style.load", onStyleReady);
@@ -889,6 +907,7 @@ export function createMap(
 
   return {
     map,
+    basemapReady,
     ready,
     setData: (nextCountries) => {
       countries = nextCountries;
@@ -897,6 +916,14 @@ export function createMap(
     loadUsStates,
     destroy: () => {
       destroyed = true;
+      if (!basemapReadyResolved) {
+        basemapReadyResolved = true;
+        resolveBasemapReady();
+      }
+      if (!readyResolved) {
+        readyResolved = true;
+        resolveReady();
+      }
       map.getCanvas().style.cursor = "";
       map.off("style.load", onStyleReady);
       map.off("moveend", ensureFlatCamera);

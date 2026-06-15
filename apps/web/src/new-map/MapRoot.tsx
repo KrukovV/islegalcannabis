@@ -831,6 +831,13 @@ export default function MapRoot({
           runtime.setData(countries);
           return countries;
         });
+        await runtime.basemapReady;
+        if (cancelled) {
+          runtime.destroy();
+          runtimeRef.current = null;
+          return;
+        }
+        setMapReady(true);
         await runtime.ready;
         if (cancelled) {
           runtime.destroy();
@@ -838,7 +845,6 @@ export default function MapRoot({
           return;
         }
         setVisualReady(true);
-        setMapReady(true);
         const { attachHoverController } = await import("./hoverController");
         const { bindAsciiMapTriggers } = await import("./ascii/ascii-triggers");
         const hover = attachHoverController(runtime.map, {

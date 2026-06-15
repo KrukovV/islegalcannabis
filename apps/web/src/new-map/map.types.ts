@@ -81,6 +81,7 @@ export type CountryCardEntry = {
 
 export type NewMapBootResult = {
   map: import("maplibre-gl").Map;
+  basemapReady: Promise<void>;
   ready: Promise<void>;
   setData: (_countries: LegalCountryCollection) => void;
   loadUsStates: () => void;
