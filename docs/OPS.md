@@ -289,6 +289,7 @@ node tools/measure_new_map_startup.mjs
 - Webvisor is production-required. Do not turn it off as a performance workaround.
 - Local proof must show zero Yandex/Metrika/Webvisor network resources before `NM_T7_FIRST_FILL_RENDERED` and through a short passive window, then successful counter loading after user interaction or the late idle fallback.
 - Text inputs that can contain user text must carry `ym-disable-keys` unless product/privacy explicitly allows `ym-record-keys`.
+- Google PageSpeed API runs are supported through `GOOGLE_PAGESPEED_API_KEY` and `node tools/measure_pagespeed_api.mjs`; keep the key only in local shell or ignored `.env*` files such as `.env.prod.local`, never in tracked repo files.
 - If PageSpeed reports `mc.yandex.com/solid.ws` errors, verify Yandex network reachability, counter settings, and any CSP allowlist before changing product runtime.
 - If a CSP is added, keep Yandex Metrika/Webvisor domains allowed for scripts, images, frames, and websocket/connect traffic according to the official Yandex Metrika CSP guidance.
 - Segment Webvisor review by device, geo, source, and goals. It is not a replacement for aggregate Metrika reports.

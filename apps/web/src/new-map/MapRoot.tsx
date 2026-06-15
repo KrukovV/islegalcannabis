@@ -5,7 +5,6 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import maplibregl, { type StyleSpecification } from "maplibre-gl";
 import type { RuntimeIdentity } from "@/lib/runtimeIdentity";
 import type { CountryPageData } from "@/lib/countryPageStorage";
-import { deriveCountryCardEntryFromCountryPageData } from "@/lib/countryCardEntry";
 import type { SeoLocale } from "@/lib/seo/i18n";
 import { createMap } from "./createMap";
 import type { CountryCardEntry, LegalCountryCollection, NewMapBootResult } from "./map.types";
@@ -253,6 +252,7 @@ export default function MapRoot({
   const [hoveredGeo, setHoveredGeo] = useState<SelectedGeo>(null);
   const [seoPanelOpen, setSeoPanelOpen] = useState(Boolean(initialGeoCode));
   const [cardIndex, setCardIndex] = useState<Record<string, CountryCardEntry>>({});
+  const [popupSeoFallbackEntry, setPopupSeoFallbackEntry] = useState<CountryCardEntry | null>(null);
   const [popupAnchor, setPopupAnchor] = useState<{ x: number; y: number } | null>(null);
   const [activeRouteSeoData, setActiveRouteSeoData] = useState<CountryPageData | null>(seoCountryData);
   const cardIndexRequestedRef = useRef(false);
@@ -348,15 +348,32 @@ export default function MapRoot({
     !(showSeoOverlay && selectedGeo === String(activeSeoData?.geo_code || "").trim().toUpperCase())
       ? selectedGeo
       : null;
+  useEffect(() => {
+    const normalizedPopupGeo = String(popupGeoCode || "").trim().toUpperCase();
+    const normalizedActiveGeo = String(activeSeoData?.geo_code || "").trim().toUpperCase();
+    if (!normalizedPopupGeo || !activeSeoData || normalizedPopupGeo !== normalizedActiveGeo || cardIndex[normalizedPopupGeo]) {
+      setPopupSeoFallbackEntry(null);
+      return;
+    }
+    let cancelled = false;
+    // Keep the popup parity path, but load the heavy country-card builder only when the route geo is actually opened.
+    void import("@/lib/countryCardEntry").then(({ deriveCountryCardEntryFromCountryPageData }) => {
+      if (cancelled) return;
+      setPopupSeoFallbackEntry(deriveCountryCardEntryFromCountryPageData(activeSeoData));
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [activeSeoData, cardIndex, popupGeoCode]);
   const selectedGeoEntry = useMemo(() => {
     if (!popupGeoCode) return null;
     const indexed = cardIndex[popupGeoCode];
     if (indexed) return indexed;
-    if (activeSeoData && popupGeoCode === activeSeoData.geo_code) {
-      return deriveCountryCardEntryFromCountryPageData(activeSeoData);
+    if (popupSeoFallbackEntry?.geo === popupGeoCode) {
+      return popupSeoFallbackEntry;
     }
     return null;
-  }, [activeSeoData, cardIndex, popupGeoCode]);
+  }, [cardIndex, popupGeoCode, popupSeoFallbackEntry]);
   const seoMarkerEntry = useMemo(() => {
     if (!activeSeoData) return null;
     const cardEntry = cardIndex[activeSeoData.geo_code];
@@ -822,12 +839,14 @@ export default function MapRoot({
               throw new Error(`MAP_WITHOUT_STATUS: ${String(feature.properties?.geo || "UNKNOWN")}`);
             }
           }
-          console.warn(
-            `MAP_RENDER_STATUS sample=${countries.features
-              .slice(0, 5)
-              .map((feature) => `${feature.properties.geo}:${feature.properties.result.status}:${feature.properties.baseColor}:${feature.properties.hoverColor}`)
-              .join(",")}`
-          );
+          if (isNewMapQaEnabled() || process.env.NODE_ENV !== "production") {
+            window.console.debug(
+              `MAP_RENDER_STATUS sample=${countries.features
+                .slice(0, 5)
+                .map((feature) => `${feature.properties.geo}:${feature.properties.result.status}:${feature.properties.baseColor}:${feature.properties.hoverColor}`)
+                .join(",")}`
+            );
+          }
           runtime.setData(countries);
           return countries;
         });

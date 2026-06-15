@@ -746,6 +746,8 @@ async function requestNonStreamAnswer(input: {
           +
         </button>
         <input
+          id="new-map-ai-input"
+          name="query"
           data-ai-input="1"
           data-testid="new-map-ai-input"
           value={query}
