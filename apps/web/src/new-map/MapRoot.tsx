@@ -90,8 +90,10 @@ type NewMapPrefetchCache = {
   style?: Promise<StyleSpecification | null> | null;
   cardIndex?: Promise<Record<string, CountryCardEntry> | null> | null;
 };
-
-const RuntimeParityBadge = dynamic(() => import("@/app/_components/RuntimeParityBadge"), { ssr: false });
+const RuntimeParityBadge =
+  process.env.NODE_ENV === "production"
+    ? null
+    : dynamic(() => import("@/app/_components/RuntimeParityBadge"), { ssr: false });
 const MapGeoDock = dynamic(() => import("./MapGeoDock"), { ssr: false });
 const UnifiedSeoStatusPanel = dynamic(() => import("./components/UnifiedSeoStatusPanel"), { ssr: false });
 const ViewportCountryPopup = dynamic(() => import("./components/ViewportCountryPopup"), { ssr: false });
@@ -258,7 +260,7 @@ export default function MapRoot({
   const cardIndexRequestedRef = useRef(false);
   const selectedFeatureStateRef = useRef<{ source: "legal-countries" | "us-states"; id: string } | null>(null);
   const seoDataByCodeRef = useRef<Record<string, CountryPageData>>({});
-  const showDebugOverlay = runtimeIdentity.runtimeMode !== "production";
+  const showDebugOverlay = process.env.NODE_ENV !== "production" && runtimeIdentity.runtimeMode !== "production";
   const lastAppliedRouteGeoRef = useRef<string | null>(null);
   const seoCountryCode = activeRouteSeoData?.code || null;
   const seoRouteGeoCode = String(activeRouteSeoData?.geo_code || "").trim().toUpperCase() || null;
@@ -949,7 +951,7 @@ export default function MapRoot({
           <div className={styles.card}>
             <div className={styles.cardHeader}>
               <strong>Runtime</strong>
-              <RuntimeParityBadge runtimeIdentity={runtimeIdentity} />
+              {RuntimeParityBadge ? <RuntimeParityBadge runtimeIdentity={runtimeIdentity} /> : null}
             </div>
             <div className={styles.runtime} data-testid="visible-runtime-stamp">{visibleStamp}</div>
             <div className={styles.meta}>ROUTE=/new-map · OWNER=feature-state · WORLDCOPIES=ON</div>
