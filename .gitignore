@@ -33,7 +33,6 @@ apps/web/test-results/
 apps/web/playwright-report/
 test-results/
 playwright-report/
-playwright/.auth/
 *.pem
 *.log
 

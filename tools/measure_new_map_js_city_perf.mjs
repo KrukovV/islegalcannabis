@@ -264,7 +264,7 @@ function summarizeResources(resources, pageOrigin) {
       return false;
     }
   });
-  const basemapTiles = resources.filter((entry) => /\/api\/new-map\/basemap-tile\/|tiles-[a-d]\.basemaps\.cartocdn\.com\/vectortiles\//.test(entry.name));
+  const basemapTiles = resources.filter((entry) => entry.name.includes("/api/new-map/basemap-tile/"));
   return {
     total_transfer_bytes: sum(resources, "transferSize"),
     first_party_transfer_bytes: sum(firstParty, "transferSize"),
@@ -282,21 +282,6 @@ function summarizeResources(resources, pageOrigin) {
         duration: Math.round(entry.duration || 0)
       }))
   };
-}
-
-async function waitForMapReadyState(page) {
-  await page.waitForSelector('[data-testid="new-map-surface"][data-map-ready="1"]', { timeout: 45000 });
-  await page.waitForSelector(".maplibregl-canvas", { state: "attached", timeout: 15000 });
-  await page.waitForFunction(() => {
-    const map = window.__NEW_MAP_DEBUG__?.map;
-    if (!map) return false;
-    const canvas = map?.getCanvas?.();
-    if (!canvas || !(canvas instanceof HTMLCanvasElement)) return false;
-    const rect = canvas.getBoundingClientRect?.();
-    if (!rect || rect.width <= 0 || rect.height <= 0) return false;
-    const features = map?.queryRenderedFeatures?.(undefined, { layers: ["legal-fill"] }) || [];
-    return features.length >= 20;
-  }, { timeout: 60000 });
 }
 
 function buildDelta(current, previous) {
@@ -378,7 +363,7 @@ async function measureLabelZoom(page, options) {
 
     function tileSummary() {
       const resources = performance.getEntriesByType("resource").slice(resourceStart).filter((entry) => {
-        return /\/api\/new-map\/basemap-tile\/|tiles-[a-d]\.basemaps\.cartocdn\.com\/vectortiles\//.test(String(entry.name || ""));
+        return String(entry.name || "").includes("/api/new-map/basemap-tile/");
       });
       return {
         tile_count: resources.length,
@@ -517,7 +502,18 @@ try {
   await client.send("Profiler.startPreciseCoverage", { callCount: true, detailed: true });
 
   await page.goto(bypassSeed.url, { waitUntil: "domcontentloaded", timeout: 60000 });
-  await waitForMapReadyState(page);
+  await page.waitForSelector('[data-testid="new-map-surface"][data-map-ready="1"]', { timeout: 45000 });
+  await page.waitForSelector(".maplibregl-canvas", { state: "attached", timeout: 15000 });
+  await page.waitForFunction(() => {
+    const canvas = document.querySelector(".maplibregl-canvas");
+    if (!(canvas instanceof HTMLCanvasElement)) return false;
+    const rect = canvas.getBoundingClientRect();
+    return rect.width > 0 && rect.height > 0;
+  }, { timeout: 15000 });
+  await page.waitForFunction(() => {
+    const map = window.__NEW_MAP_DEBUG__?.map;
+    return Boolean(map && map.queryRenderedFeatures(undefined, { layers: ["legal-fill"] }).length > 100);
+  }, { timeout: 60000 });
   await page.waitForLoadState("networkidle", { timeout: 15000 }).catch(() => undefined);
   await page.waitForTimeout(settleMs);
 

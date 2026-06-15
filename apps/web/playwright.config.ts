@@ -1,11 +1,4 @@
 const baseURL = process.env.PLAYWRIGHT_BASE_URL || "http://127.0.0.1:3000";
-const vercelBypassSecret = process.env.VERCEL_AUTOMATION_BYPASS_SECRET?.trim();
-const extraHTTPHeaders = vercelBypassSecret
-  ? {
-      "x-vercel-protection-bypass": vercelBypassSecret,
-      "x-vercel-set-bypass-cookie": "true"
-    }
-  : undefined;
 
 export default {
   testDir: "./e2e",
@@ -19,7 +12,6 @@ export default {
   use: {
     baseURL,
     headless: true,
-    ...(extraHTTPHeaders ? { extraHTTPHeaders } : {}),
     launchOptions: {
       args: [
         "--use-angle=swiftshader",

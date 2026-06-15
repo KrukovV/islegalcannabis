@@ -4,11 +4,11 @@ import { createRequire } from "node:module";
 import {
   VERCEL_BYPASS_HEADER,
   VERCEL_SET_BYPASS_COOKIE_HEADER,
+  buildVercelBypassCookieSeedUrl,
+  buildVercelBypassHeaders,
+  diffVercelBypassCookies,
   redactVercelBypassSecret
 } from "./vercel_bypass.mjs";
-import {
-  warmVercelBypass
-} from "./lib/vercel-bypass.mjs";
 
 const repoRoot = process.cwd();
 const require = createRequire(import.meta.url);
@@ -16,11 +16,11 @@ const playwright = require(require.resolve("playwright", {
   paths: [path.join(repoRoot, "apps/web")]
 }));
 
-const targetUrl = process.env.VERCEL_BYPASS_LIVE_URL || "https://www.islegal.info/new-map?qa=1";
+const targetUrl = process.env.VERCEL_BYPASS_LIVE_URL || "https://www.islegal.info/new-map";
 const secret = process.env.VERCEL_AUTOMATION_BYPASS_SECRET || "";
 const reportsDir = path.join(repoRoot, "Reports", "vercel-bypass-live");
 const browserName = process.env.VERCEL_BYPASS_BROWSER || "chromium";
-const appReadyTimeoutMs = Number(process.env.VERCEL_BYPASS_APP_READY_TIMEOUT_MS || 65000);
+const appReadyTimeoutMs = Number(process.env.VERCEL_BYPASS_APP_READY_TIMEOUT_MS || 25000);
 
 function sanitize(value) {
   return redactVercelBypassSecret(value, secret);
@@ -61,17 +61,17 @@ async function waitForAppEvidence(page, startedAt) {
       waits.root = mark("root_ms");
     }).catch(() => undefined),
     page.waitForSelector('[data-testid="new-map-surface"]', {
-      timeout: appReadyTimeoutMs
+      timeout: 15000
     }).then(() => {
       waits.mapSurface = mark("map_surface_ms");
     }).catch(() => undefined),
     page.waitForFunction(() => {
       return document.querySelector('[data-testid="new-map-surface"]')?.getAttribute("data-map-ready") === "1";
-    }, undefined, { timeout: appReadyTimeoutMs }).then(() => {
+    }, undefined, { timeout: 15000 }).then(() => {
       waits.mapReady = mark("map_ready_ms");
     }).catch(() => undefined),
     page.waitForSelector(".maplibregl-canvas", {
-      timeout: appReadyTimeoutMs
+      timeout: 15000
     }).then(() => {
       waits.canvas = mark("canvas_ms");
     }).catch(() => undefined),
@@ -80,7 +80,7 @@ async function waitForAppEvidence(page, startedAt) {
       const map = host.__NEW_MAP_DEBUG__?.map;
       if (!map || typeof map.queryRenderedFeatures !== "function") return false;
       try {
-        return map.queryRenderedFeatures(undefined, { layers: ["legal-fill"] }).length > 0;
+        return map.queryRenderedFeatures({ layers: ["legal-fill"] }).length > 0;
       } catch {
         return false;
       }
@@ -161,30 +161,47 @@ async function inspectPage(page, methodName, startedAt, navigationResponse) {
 }
 
 async function runApiCookieSeed(browser) {
-  const context = await browser.newContext();
+  const context = await browser.newContext({
+    extraHTTPHeaders: buildVercelBypassHeaders(secret, "true")
+  });
   const seedStartedAt = Date.now();
-  const seedBaseUrl = new URL(targetUrl).origin;
-  const bypass = await warmVercelBypass(context, seedBaseUrl, { secret });
-  const seedStatus = bypass.response.status;
+  const seedUrl = buildVercelBypassCookieSeedUrl(targetUrl);
+  const cookiesBefore = await context.cookies();
+  const seedResponse = await context.request.get(seedUrl, {
+    headers: buildVercelBypassHeaders(secret, "true"),
+    maxRedirects: 0,
+    timeout: 45000
+  });
+  const seedHeaders = await seedResponse.headersArray();
+  const seedBody = await seedResponse.text().catch(() => "");
+  const seedSetCookieNames = seedHeaders
+    .filter((header) => header.name.toLowerCase() === "set-cookie")
+    .map((header) => cookieNameFromSetCookie(header.value))
+    .filter(Boolean);
+  const cookiesAfter = await context.cookies();
+  const seededCookies = diffVercelBypassCookies(cookiesBefore, cookiesAfter);
+  const cookieNames = seededCookies.map((cookie) => cookie.name).filter(Boolean);
+  const seedStatus = seedResponse.status();
   const cookieSeeded = seedStatus >= 200 && seedStatus < 400;
-  const cookieDetected = bypass.bypass_cookie_detected === true;
-  const cookieNames = bypass.bypass_cookies || [];
-  const seedChallengeDetected = bypass.challenge_detected === true;
+  const cookieDetected = seededCookies.length > 0;
+  const seedChallengeDetected =
+    hasAccessBlock(seedBody) ||
+    seedResponse.headers()["x-vercel-mitigated"] === "challenge";
   const seedEvidence = {
-    seed_url: bypass.seed_url,
+    seed_url: seedUrl,
     seed_status: seedStatus,
     seed_header_names: [VERCEL_BYPASS_HEADER, VERCEL_SET_BYPASS_COOKIE_HEADER],
-    seed_set_cookie_names: bypass.cookies_after || [],
-    seed_mitigated: bypass.response.x_vercel_mitigated || "",
-    seed_vercel_id: bypass.response.x_vercel_id || "",
+    seed_set_cookie_names: seedSetCookieNames,
+    seed_mitigated: seedResponse.headers()["x-vercel-mitigated"] || "",
+    seed_vercel_id: seedResponse.headers()["x-vercel-id"] || "",
     seed_cookie_observed: cookieDetected,
     cookie_seeded: cookieSeeded,
     cookie_detected: cookieDetected,
-    cookie_count: cookieNames.length,
+    cookie_count: seededCookies.length,
     cookie_name: cookieNames[0] || "",
     cookie_names: cookieNames,
     challenge_detected: seedChallengeDetected,
-    seed_body_sample: bypass.body_sample.slice(0, 240)
+    seed_body_sample: seedBody.slice(0, 240)
   };
 
   const page = await context.newPage();

@@ -2,10 +2,12 @@
 
 import dynamic from "next/dynamic";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import maplibregl from "maplibre-gl";
 import type { RuntimeIdentity } from "@/lib/runtimeIdentity";
 import type { CountryPageData } from "@/lib/countryPageStorage";
 import { deriveCountryCardEntryFromCountryPageData } from "@/lib/countryCardEntry";
 import type { SeoLocale } from "@/lib/seo/i18n";
+import { createMap } from "./createMap";
 import type { CountryCardEntry, LegalCountryCollection, NewMapBootResult } from "./map.types";
 import styles from "./MapRoot.module.css";
 import { NEW_MAP_WATER_COLOR } from "./mapPalette";
@@ -15,14 +17,7 @@ import {
   readVisualViewportSnapshot,
   subscribeToVisualViewportChanges
 } from "./viewportMetrics";
-import type { NewMapRuntimeModule } from "./mapRuntime";
-
-type MaplibreMap = import("maplibre-gl").Map;
-type MaplibreMarker = import("maplibre-gl").Marker;
-
-const AsciiOverlay = dynamic(() => import("./ascii/AsciiOverlay"), { ssr: false });
-const MapGeoDock = dynamic(() => import("./MapGeoDock"), { ssr: false });
-const ViewportCountryPopup = dynamic(() => import("./components/ViewportCountryPopup"), { ssr: false });
+import AsciiOverlay from "./ascii/AsciiOverlay";
 
 type Props = {
   countriesUrl: string;
@@ -55,7 +50,7 @@ type NewMapDebug = {
   mounted: boolean;
   selectedId?: string | null;
   countriesUrl: string;
-  map?: MaplibreMap | null;
+  map?: import("maplibre-gl").Map | null;
   labelGroups?: Record<string, string[]>;
   lastPointerLng?: number | null;
   popupTrace?: PopupPipelineTrace;
@@ -79,8 +74,6 @@ type NewMapQaController = {
   jumpTo: (_lng: number, _lat: number, _zoom: number) => Promise<void>;
   getCamera: () => { lng: number; lat: number; zoom: number };
   getCanvasBox: () => { width: number; height: number };
-  getRenderedLabelStats: () => { country: number; city: number; landscape: number };
-  waitForIdle: () => Promise<void>;
 };
 
 type SelectedGeo = string | null;
@@ -92,10 +85,23 @@ type ActiveGeo = {
   lng?: number;
 } | null;
 
+type NewMapPrefetchCache = {
+  countries?: Promise<LegalCountryCollection | null> | null;
+  cardIndex?: Promise<Record<string, CountryCardEntry> | null> | null;
+};
+
 const RuntimeParityBadge = dynamic(() => import("@/app/_components/RuntimeParityBadge"), { ssr: false });
+const MapGeoDock = dynamic(() => import("./MapGeoDock"), { ssr: false });
 const UnifiedSeoStatusPanel = dynamic(() => import("./components/UnifiedSeoStatusPanel"), { ssr: false });
-const CARD_INDEX_STATIC_URL = "/new-map-card-index.json";
-const CARD_INDEX_API_URL = "/api/new-map/card-index";
+const ViewportCountryPopup = dynamic(() => import("./components/ViewportCountryPopup"), { ssr: false });
+
+function getNewMapPrefetchCache(): NewMapPrefetchCache | null {
+  if (typeof window === "undefined") return null;
+  const host = window as typeof window & {
+    __NEW_MAP_PREFETCH__?: NewMapPrefetchCache;
+  };
+  return host.__NEW_MAP_PREFETCH__ || null;
+}
 
 async function fetchJsonWithRetry<T>(url: string, init: RequestInit, errorPrefix: string): Promise<T> {
   let lastError: unknown = null;
@@ -114,14 +120,6 @@ async function fetchJsonWithRetry<T>(url: string, init: RequestInit, errorPrefix
     }
   }
   throw lastError instanceof Error ? lastError : new Error(errorPrefix);
-}
-
-function isCardIndexPayload(payload: unknown): payload is Record<string, CountryCardEntry> {
-  return Boolean(payload) && typeof payload === "object" && !Array.isArray(payload);
-}
-
-async function requestCardIndex(url: string): Promise<Record<string, CountryCardEntry>> {
-  return fetchJsonWithRetry<Record<string, CountryCardEntry>>(url, { credentials: "same-origin" }, `card_index_request_failed:${url}`);
 }
 
 function markCountriesCacheState(countriesUrl: string) {
@@ -172,11 +170,7 @@ function isNewMapQaEnabled() {
   return new URLSearchParams(window.location.search).get("qa") === "1";
 }
 
-function shouldEnableAsciiOverlay(runtimeIdentity: RuntimeIdentity) {
-  return runtimeIdentity.runtimeMode !== "production";
-}
-
-function installNewMapQaHook(map: MaplibreMap) {
+function installNewMapQaHook(map: maplibregl.Map) {
   if (!isNewMapQaEnabled()) return () => {};
   const host = window as typeof window & {
     __NEW_MAP_QA__?: NewMapQaController;
@@ -208,35 +202,7 @@ function installNewMapQaHook(map: MaplibreMap) {
     getCanvasBox: () => {
       const rect = map.getCanvas().getBoundingClientRect();
       return { width: Math.round(rect.width), height: Math.round(rect.height) };
-    },
-    getRenderedLabelStats: () => {
-      const symbolLayerIds = (map.getStyle().layers || [])
-        .filter((layer) => layer.type === "symbol")
-        .map((layer) => layer.id);
-      const features = symbolLayerIds.length
-        ? map.queryRenderedFeatures(undefined, { layers: symbolLayerIds })
-        : [];
-      const countByLayer = (pattern: RegExp) =>
-        features.filter((feature) => pattern.test(String((feature as { layer?: { id?: string } }).layer?.id || ""))).length;
-      return {
-        country: countByLayer(/country|admin_0|place_country|legal-territory-label/i),
-        city: countByLayer(/place_city|place_town|place_villages|place_hamlet|place_suburbs?/i),
-        landscape: countByLayer(/natural|landscape|mountain|water|marine|ocean|sea|park|poi/i)
-      };
-    },
-    waitForIdle: () =>
-      new Promise<void>((resolve) => {
-        let settled = false;
-        let timeoutId = 0;
-        const finish = () => {
-          if (settled) return;
-          settled = true;
-          window.clearTimeout(timeoutId);
-          resolve();
-        };
-        timeoutId = window.setTimeout(finish, 3000);
-        map.once("idle", finish);
-      })
+    }
   };
   return () => {
     if (host.__NEW_MAP_QA__) delete host.__NEW_MAP_QA__;
@@ -244,7 +210,7 @@ function installNewMapQaHook(map: MaplibreMap) {
 }
 
 function safeSetFeatureState(
-  map: MaplibreMap | null,
+  map: maplibregl.Map | null,
   target: { source: "legal-countries" | "us-states"; id: string },
   state: { selected: boolean }
 ) {
@@ -269,11 +235,10 @@ export default function MapRoot({
   locale = "en"
 }: Props) {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const mapRef = useRef<MaplibreMap | null>(null);
+  const mapRef = useRef<maplibregl.Map | null>(null);
   const runtimeRef = useRef<NewMapBootResult | null>(null);
-  const mapRuntimeModuleRef = useRef<NewMapRuntimeModule | null>(null);
-  const locationMarkerRef = useRef<MaplibreMarker | null>(null);
-  const infoMarkerRef = useRef<MaplibreMarker | null>(null);
+  const locationMarkerRef = useRef<maplibregl.Marker | null>(null);
+  const infoMarkerRef = useRef<maplibregl.Marker | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [mapReady, setMapReady] = useState(false);
   const [visualReady, setVisualReady] = useState(false);
@@ -296,14 +261,6 @@ export default function MapRoot({
   const seoCountryCode = activeRouteSeoData?.code || null;
   const seoRouteGeoCode = String(activeRouteSeoData?.geo_code || "").trim().toUpperCase() || null;
   const shouldLockDocumentScroll = !seoCountryData;
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const host = window as typeof window & {
-      __NEW_MAP_CARD_INDEX__?: Record<string, CountryCardEntry>;
-    };
-    host.__NEW_MAP_CARD_INDEX__ = cardIndex;
-  }, [cardIndex]);
 
   useEffect(() => {
     if (typeof document === "undefined") return;
@@ -508,26 +465,25 @@ export default function MapRoot({
   const loadCardIndex = useCallback(async () => {
     if (cardIndexRequestedRef.current) return null;
     cardIndexRequestedRef.current = true;
+    const prefetched = getNewMapPrefetchCache();
+    const requestCardIndex = () =>
+      fetch("/api/new-map/card-index", {
+        credentials: "same-origin"
+      }).then((response) => {
+        if (!response.ok) {
+          throw new Error(`card_index_fetch_failed:${response.status}`);
+        }
+        return response.json() as Promise<Record<string, CountryCardEntry>>;
+      });
     try {
-      const staticIndex = await requestCardIndex(CARD_INDEX_STATIC_URL);
-      if (isCardIndexPayload(staticIndex)) {
-        setCardIndex(staticIndex);
-        return staticIndex;
-      }
-    } catch (staticError) {
-      window.console.debug(`[new-map-trace] CARD_INDEX_STATIC_FETCH_FAIL ${staticError instanceof Error ? staticError.message : "unknown"}`);
-    }
-    try {
-      const apiIndex = await requestCardIndex(CARD_INDEX_API_URL);
-      if (isCardIndexPayload(apiIndex)) {
-        setCardIndex(apiIndex);
-        return apiIndex;
-      }
-      throw new Error("card_index_api_invalid_payload");
-    } catch (apiError) {
-      const message = apiError instanceof Error ? apiError.message : "card_index_load_failed";
-      window.console.error(`[new-map-trace] CARD_INDEX_LOAD_FAIL ${message}`);
-      setError(message);
+      const nextCardIndex = prefetched?.cardIndex
+        ? await prefetched.cardIndex.then((value) => value || requestCardIndex())
+        : await requestCardIndex();
+      setCardIndex(nextCardIndex || {});
+      return nextCardIndex || {};
+    } catch {
+      cardIndexRequestedRef.current = false;
+      setCardIndex({});
       return null;
     }
   }, []);
@@ -554,27 +510,16 @@ export default function MapRoot({
     }
 
     const markerElement = locationMarkerRef.current?.getElement() || document.createElement("div");
-    markerElement.classList.add(styles.locationMarker);
+    markerElement.className = styles.locationMarker;
     markerElement.setAttribute("role", "img");
     markerElement.setAttribute("aria-label", "Where I am");
     markerElement.setAttribute("title", "Where I am");
     markerElement.setAttribute("data-user-marker", "1");
     markerElement.setAttribute("data-user-marker-label", "Where I am");
     markerElement.setAttribute("data-user-marker-position", `${geo.lng},${geo.lat}`);
-    let markerPin = markerElement.querySelector('[data-user-marker-pin="1"]') as HTMLDivElement | null;
-    if (!markerPin) {
-      markerElement.replaceChildren();
-      markerPin = document.createElement("div");
-      markerPin.setAttribute("data-user-marker-pin", "1");
-      markerElement.appendChild(markerPin);
-    }
-    markerPin.className = styles.locationMarkerPin;
-
-    const mapRuntimeModule = mapRuntimeModuleRef.current;
-    if (!mapRuntimeModule) return;
 
     if (!locationMarkerRef.current) {
-      locationMarkerRef.current = new mapRuntimeModule.maplibreRuntime.Marker({
+      locationMarkerRef.current = new maplibregl.Marker({
         element: markerElement,
         anchor: "bottom"
       })
@@ -620,11 +565,8 @@ export default function MapRoot({
       handleSeoMarkerToggle();
     };
 
-    const mapRuntimeModule = mapRuntimeModuleRef.current;
-    if (!mapRuntimeModule) return;
-
     if (!infoMarkerRef.current) {
-      infoMarkerRef.current = new mapRuntimeModule.maplibreRuntime.Marker({
+      infoMarkerRef.current = new maplibregl.Marker({
         element: button,
         anchor: "bottom"
       })
@@ -841,20 +783,19 @@ export default function MapRoot({
   useEffect(() => {
     let cancelled = false;
     let cleanup = () => {};
-    let unbindAsciiTriggers = () => {};
-    const isAsciiOverlayEnabled = shouldEnableAsciiOverlay(runtimeIdentity);
 
     async function mount() {
       if (!containerRef.current) return;
       try {
-        const mapRuntimeModule = (await import("./mapRuntime")) as NewMapRuntimeModule;
-        mapRuntimeModuleRef.current = mapRuntimeModule;
+        const prefetched = getNewMapPrefetchCache();
         const loadCountries = () =>
           fetchJsonWithRetry<LegalCountryCollection>(countriesUrl, {
             credentials: "same-origin"
           }, "countries_fetch_failed");
-        const countriesPromise = loadCountries();
-        const runtime = mapRuntimeModule.createMap(containerRef.current, {
+        const countriesPromise = prefetched?.countries
+          ? prefetched.countries.then((value) => value || loadCountries())
+          : loadCountries();
+        const runtime = createMap(containerRef.current, {
           onSelectGeo: (geo) => {
             setSelectedGeo(geo);
             setDebugState({ selectedId: geo });
@@ -888,19 +829,16 @@ export default function MapRoot({
         }
         setVisualReady(true);
         setMapReady(true);
-        const hover = mapRuntimeModule.attachHoverController(runtime.map, {
-          onHoverChange: (geo) => setHoveredGeo(geo),
-          onSelectChange: (geo) => setSelectedGeo(geo)
+        const { attachHoverController } = await import("./hoverController");
+        const { bindAsciiMapTriggers } = await import("./ascii/ascii-triggers");
+        const hover = attachHoverController(runtime.map, {
+          onHoverChange: (geo) => setHoveredGeo(geo)
         });
-        if (isAsciiOverlayEnabled) {
-          const { bindAsciiMapTriggers } = await import("./ascii/ascii-triggers");
-          unbindAsciiTriggers = bindAsciiMapTriggers(runtime.map);
-        }
+        const unbindAsciiTriggers = bindAsciiMapTriggers(runtime.map);
         const uninstallQaHook = installNewMapQaHook(runtime.map);
         setDebugState({ mounted: true, countriesUrl, map: isNewMapQaEnabled() ? runtime.map : null, selectedId: null });
         await countriesDataPromise;
         if (cancelled) {
-          mapRuntimeModuleRef.current = null;
           uninstallQaHook();
           unbindAsciiTriggers();
           hover.destroy();
@@ -909,7 +847,6 @@ export default function MapRoot({
           return;
         }
         cleanup = () => {
-          mapRuntimeModuleRef.current = null;
           uninstallQaHook();
           unbindAsciiTriggers();
           hover.destroy();
@@ -1002,26 +939,24 @@ export default function MapRoot({
         data-testid="new-map-surface"
         data-map-ready={mapReady ? "1" : "0"}
       />
-      {shouldEnableAsciiOverlay(runtimeIdentity) ? <AsciiOverlay /> : null}
-      {mapReady ? (
-        <MapGeoDock
-          mapReady={mapReady}
-          cardIndex={cardIndex}
-          selectedGeo={selectedGeoView}
-          routeGeo={
-            seoMarkerEntry
-              ? {
-                  country: seoMarkerEntry.name,
-                  iso2: seoMarkerEntry.code || undefined,
-                  lat: seoMarkerEntry.coordinates?.lat,
-                  lng: seoMarkerEntry.coordinates?.lng
+      <AsciiOverlay />
+      <MapGeoDock
+        mapReady={mapReady}
+        cardIndex={cardIndex}
+        selectedGeo={selectedGeoView}
+        routeGeo={
+          seoMarkerEntry
+            ? {
+                country: seoMarkerEntry.name,
+                iso2: seoMarkerEntry.code || undefined,
+                lat: seoMarkerEntry.coordinates?.lat,
+                lng: seoMarkerEntry.coordinates?.lng
               }
-              : null
-          }
-          clearSelectedGeo={() => setSelectedGeo(null)}
-          applyGeoToMap={applyGeoToMap}
-        />
-      ) : null}
+            : null
+        }
+        clearSelectedGeo={() => setSelectedGeo(null)}
+        applyGeoToMap={applyGeoToMap}
+      />
       {error ? (
         <div className={styles.errorBox} data-testid="new-map-error">
           {error}

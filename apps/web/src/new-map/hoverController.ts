@@ -4,8 +4,6 @@ import {
   NEW_MAP_FILL_LAYER_ID,
   NEW_MAP_POINT_LAYER_ID,
   NEW_MAP_SOURCE_ID,
-  NEW_MAP_TERRITORY_HITBOX_LAYER_ID,
-  NEW_MAP_TERRITORY_LABEL_LAYER_ID,
   NEW_MAP_US_STATES_FILL_LAYER_ID,
   NEW_MAP_US_STATES_SOURCE_ID
 } from "./createMap";
@@ -23,7 +21,6 @@ type HoverControllerOptions = {
   onHoverChange?: (_geo: string | null) => void;
   onSelectChange?: (_geo: string | null) => void;
 };
-const PREFERRED_STACK_FEATURE_GEOS = new Set(["XK"]);
 
 function normalizeLng(lng: number) {
   return ((((lng + 180) % 360) + 360) % 360) - 180;
@@ -41,40 +38,23 @@ function ensureDebugState(): HoverDebugState {
   return host.__NEW_MAP_DEBUG__;
 }
 
-function featureGeo(feature: { id?: string | number; properties?: Record<string, unknown> } | null | undefined) {
-  return String(feature?.properties?.geo || feature?.id || "").trim().toUpperCase();
-}
-
-function pickPointerFeature(features: Array<{ id?: string | number; source?: string; properties?: Record<string, unknown> }>) {
-  return features.find((feature) => PREFERRED_STACK_FEATURE_GEOS.has(featureGeo(feature))) || features[0] || null;
-}
-
 function getGeoIdAtPoint(map: MapLibreMap, point: { x: number; y: number }) {
-  const layerIds = [
-    NEW_MAP_US_STATES_FILL_LAYER_ID,
-    NEW_MAP_TERRITORY_LABEL_LAYER_ID,
-    NEW_MAP_TERRITORY_HITBOX_LAYER_ID,
-    NEW_MAP_POINT_LAYER_ID,
-    NEW_MAP_FILL_LAYER_ID
-  ];
-  let feature: { id?: string | number; source?: string; properties?: Record<string, unknown> } | null = null;
-  for (const layerId of layerIds) {
-    if (!map.getLayer(layerId)) continue;
-    feature = pickPointerFeature(map.queryRenderedFeatures([point.x, point.y], { layers: [layerId] }));
-    if (feature && featureGeo(feature)) break;
-  }
-  if (!feature || !featureGeo(feature)) return null;
+  const features = map.queryRenderedFeatures([point.x, point.y], {
+    layers: [NEW_MAP_US_STATES_FILL_LAYER_ID, NEW_MAP_POINT_LAYER_ID, NEW_MAP_FILL_LAYER_ID]
+  });
+  const feature = features.find((item) => String(item.properties?.geo || item.id || "").trim());
+  if (!feature) return null;
   return {
-    geo: featureGeo(feature),
+    geo: String(feature.properties?.geo || feature.id || "").trim().toUpperCase(),
     source: String(feature.source || "")
   };
 }
 
 function getGeoIdFromLayerEvent(event: MapMouseEvent & { features?: Array<{ id?: string | number; source?: string; properties?: Record<string, unknown> }> }) {
-  const feature = Array.isArray(event.features) ? pickPointerFeature(event.features) : null;
+  const feature = Array.isArray(event.features) ? event.features.find((item) => String(item.properties?.geo || item.id || "").trim()) : null;
   if (!feature) return null;
   return {
-    geo: featureGeo(feature),
+    geo: String(feature.properties?.geo || feature.id || "").trim().toUpperCase(),
     source: String(feature.source || "")
   };
 }
@@ -116,28 +96,22 @@ export function attachHoverController(map: MapLibreMap, options: HoverController
   };
 
   const onLayerMove = (event: MapMouseEvent & { features?: Array<{ id?: string | number; source?: string; properties?: Record<string, unknown> }> }) => {
-    setHoveredId(getGeoIdAtPoint(map, event.point) || getGeoIdFromLayerEvent(event));
+    setHoveredId(getGeoIdFromLayerEvent(event));
   };
 
   const onLeave = () => setHoveredId(null);
   const onClick = (event: MapMouseEvent & { features?: Array<{ id?: string | number; source?: string; properties?: Record<string, unknown> }> }) => {
-    const nextSelection = getGeoIdAtPoint(map, event.point) || getGeoIdFromLayerEvent(event);
+    const nextSelection = getGeoIdFromLayerEvent(event) || getGeoIdAtPoint(map, event.point);
     setSelectedId(nextSelection?.geo ?? null);
   };
 
-  map.on("mousemove", NEW_MAP_TERRITORY_LABEL_LAYER_ID, onLayerMove);
-  map.on("mousemove", NEW_MAP_TERRITORY_HITBOX_LAYER_ID, onLayerMove);
   map.on("mousemove", NEW_MAP_FILL_LAYER_ID, onLayerMove);
   map.on("mousemove", NEW_MAP_POINT_LAYER_ID, onLayerMove);
   map.on("mousemove", NEW_MAP_US_STATES_FILL_LAYER_ID, onLayerMove);
   map.on("mousemove", onMapMove);
-  map.on("mouseleave", NEW_MAP_TERRITORY_LABEL_LAYER_ID, onLeave);
-  map.on("mouseleave", NEW_MAP_TERRITORY_HITBOX_LAYER_ID, onLeave);
   map.on("mouseleave", NEW_MAP_FILL_LAYER_ID, onLeave);
   map.on("mouseleave", NEW_MAP_POINT_LAYER_ID, onLeave);
   map.on("mouseleave", NEW_MAP_US_STATES_FILL_LAYER_ID, onLeave);
-  map.on("click", NEW_MAP_TERRITORY_LABEL_LAYER_ID, onClick);
-  map.on("click", NEW_MAP_TERRITORY_HITBOX_LAYER_ID, onClick);
   map.on("click", NEW_MAP_FILL_LAYER_ID, onClick);
   map.on("click", NEW_MAP_POINT_LAYER_ID, onClick);
   map.on("click", NEW_MAP_US_STATES_FILL_LAYER_ID, onClick);
@@ -161,19 +135,13 @@ export function attachHoverController(map: MapLibreMap, options: HoverController
   return {
     destroy: () => {
       overlayCleanup();
-      map.off("mousemove", NEW_MAP_TERRITORY_LABEL_LAYER_ID, onLayerMove);
-      map.off("mousemove", NEW_MAP_TERRITORY_HITBOX_LAYER_ID, onLayerMove);
       map.off("mousemove", NEW_MAP_FILL_LAYER_ID, onLayerMove);
       map.off("mousemove", NEW_MAP_POINT_LAYER_ID, onLayerMove);
       map.off("mousemove", NEW_MAP_US_STATES_FILL_LAYER_ID, onLayerMove);
       map.off("mousemove", onMapMove);
-      map.off("mouseleave", NEW_MAP_TERRITORY_LABEL_LAYER_ID, onLeave);
-      map.off("mouseleave", NEW_MAP_TERRITORY_HITBOX_LAYER_ID, onLeave);
       map.off("mouseleave", NEW_MAP_FILL_LAYER_ID, onLeave);
       map.off("mouseleave", NEW_MAP_POINT_LAYER_ID, onLeave);
       map.off("mouseleave", NEW_MAP_US_STATES_FILL_LAYER_ID, onLeave);
-      map.off("click", NEW_MAP_TERRITORY_LABEL_LAYER_ID, onClick);
-      map.off("click", NEW_MAP_TERRITORY_HITBOX_LAYER_ID, onClick);
       map.off("click", NEW_MAP_FILL_LAYER_ID, onClick);
       map.off("click", NEW_MAP_POINT_LAYER_ID, onClick);
       map.off("click", NEW_MAP_US_STATES_FILL_LAYER_ID, onClick);

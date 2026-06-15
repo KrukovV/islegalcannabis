@@ -1,9 +1,6 @@
-import maplibregl from "maplibre-gl/dist/maplibre-gl.js";
-import type { StyleSpecification } from "maplibre-gl";
+import maplibregl, { type StyleSpecification } from "maplibre-gl";
 import type { LegalCountryCollection, NewMapBootResult } from "./map.types";
-import { NEW_MAP_OCEAN_BACKGROUND } from "./mapPalette";
 import { emitFirstVisualReady, markNewMapTrace } from "./startupTrace";
-export const NEW_MAP_OCEAN_BACKGROUND_LAYER_ID = "islegal-ocean-background";
 export const NEW_MAP_ADMIN_SOURCE_ID = "admin-boundaries";
 export const NEW_MAP_ADMIN_LAYER_ID = "admin-boundary-line";
 
@@ -17,21 +14,8 @@ export const NEW_MAP_US_STATES_FILL_LAYER_ID = "us-states-fill";
 export const NEW_MAP_US_STATES_LINE_LAYER_ID = "us-states-line";
 const NEW_MAP_SUPPLEMENTAL_SEA_SOURCE_ID = "new-map-supplemental-seas";
 const NEW_MAP_SUPPLEMENTAL_SEA_LAYER_ID = "new-map-supplemental-seas";
-const BASEMAP_STYLE_URL = "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json";
+const BASEMAP_STYLE_URL = "/api/new-map/basemap-style?v=20260601-glyph-sprite-origin-2";
 const MAPLIBRE_WORKER_URL = "/api/new-map/maplibre-worker?v=5.21.1";
-export const INITIAL_OCEAN_STYLE: StyleSpecification = {
-  version: 8,
-  sources: {},
-  layers: [
-    {
-      id: NEW_MAP_OCEAN_BACKGROUND_LAYER_ID,
-      type: "background",
-      paint: {
-        "background-color": NEW_MAP_OCEAN_BACKGROUND
-      }
-    }
-  ]
-};
 
 const DEFAULT_CENTER: [number, number] = [25, 50];
 const DEFAULT_ZOOM = 1.55;
@@ -57,15 +41,6 @@ type CreateMapOptions = {
 };
 type SymbolLayerSpecification = Extract<NonNullable<StyleSpecification["layers"]>[number], { type: "symbol" }>;
 type SymbolTextFieldSpecification = NonNullable<SymbolLayerSpecification["layout"]>["text-field"];
-const PREFERRED_STACK_FEATURE_GEOS = new Set(["XK", "GF"]);
-
-function featureGeo(feature: { id?: string | number; properties?: Record<string, unknown> } | null | undefined) {
-  return String(feature?.properties?.geo || feature?.id || "").trim().toUpperCase();
-}
-
-function pickClickableFeature(features: Array<{ id?: string | number; properties?: Record<string, unknown> }>) {
-  return features.find((feature) => PREFERRED_STACK_FEATURE_GEOS.has(featureGeo(feature))) || features[0] || null;
-}
 
 export function getCountryFeatureAtPoint(map: maplibregl.Map, point: { x: number; y: number }) {
   for (const layerId of [
@@ -74,7 +49,7 @@ export function getCountryFeatureAtPoint(map: maplibregl.Map, point: { x: number
     NEW_MAP_POINT_LAYER_ID,
     NEW_MAP_FILL_LAYER_ID
   ]) {
-    const feature = pickClickableFeature(map.queryRenderedFeatures([point.x, point.y], { layers: [layerId] }));
+    const feature = map.queryRenderedFeatures([point.x, point.y], { layers: [layerId] })[0] ?? null;
     if (feature) return feature;
   }
   return null;
@@ -84,16 +59,6 @@ function configureMapLibreWorkerUrl() {
   if (workerUrlConfigured || typeof window === "undefined") return;
   maplibregl.setWorkerUrl(MAPLIBRE_WORKER_URL);
   workerUrlConfigured = true;
-}
-
-export function getUsStatesDataSourceForRoute(search: string | undefined | null = "") {
-  const params = new URLSearchParams(String(search || "").replace(/^\?/, ""));
-  return params.get("qa") === "1" ? EMPTY_FEATURE_COLLECTION : US_STATES_DATA_URL;
-}
-
-function getUsStatesDataSourceForCurrentRoute() {
-  if (typeof window === "undefined") return US_STATES_DATA_URL;
-  return getUsStatesDataSourceForRoute(window.location.search);
 }
 
 function getUsStateFeatureAtPoint(map: maplibregl.Map, point: { x: number; y: number }) {
@@ -133,62 +98,6 @@ function findFirstSymbolLayerId(map: maplibregl.Map) {
   const layers = map.getStyle().layers || [];
   const symbolLayer = layers.find((layer) => layer.type === "symbol");
   return symbolLayer?.id;
-}
-
-function isOceanFillLayer(layer: NonNullable<StyleSpecification["layers"]>[number]) {
-  const id = String(layer.id || "").toLowerCase();
-  const sourceLayer = String((layer as { "source-layer"?: unknown })["source-layer"] || "").toLowerCase();
-  return (
-    layer.type === "fill" &&
-    (
-      id === "water" ||
-      id.includes("water") ||
-      id.includes("ocean") ||
-      id.includes("sea") ||
-      sourceLayer === "water" ||
-      sourceLayer.includes("water") ||
-      sourceLayer.includes("ocean")
-    )
-  );
-}
-
-function setPaintPropertyIfChanged(map: maplibregl.Map, layerId: string, property: string, value: unknown) {
-  const current = map.getPaintProperty(layerId, property);
-  if (JSON.stringify(current) === JSON.stringify(value)) return;
-  map.setPaintProperty(layerId, property, value);
-}
-
-export function ensureOceanBackgroundLayer(map: maplibregl.Map) {
-  const style = map.getStyle();
-  const layers = style.layers || [];
-  const firstLayerId = layers[0]?.id;
-  if (!map.getLayer(NEW_MAP_OCEAN_BACKGROUND_LAYER_ID)) {
-    map.addLayer(
-      {
-        id: NEW_MAP_OCEAN_BACKGROUND_LAYER_ID,
-        type: "background",
-        paint: {
-          "background-color": NEW_MAP_OCEAN_BACKGROUND
-        }
-      },
-      firstLayerId
-    );
-  } else {
-    setPaintPropertyIfChanged(map, NEW_MAP_OCEAN_BACKGROUND_LAYER_ID, "background-color", NEW_MAP_OCEAN_BACKGROUND);
-  }
-
-  for (const layer of map.getStyle().layers || []) {
-    if (layer.type === "background") {
-      setPaintPropertyIfChanged(map, layer.id, "background-color", NEW_MAP_OCEAN_BACKGROUND);
-      setPaintPropertyIfChanged(map, layer.id, "background-opacity", 1);
-      continue;
-    }
-    if (isOceanFillLayer(layer)) {
-      setPaintPropertyIfChanged(map, layer.id, "fill-color", NEW_MAP_OCEAN_BACKGROUND);
-      setPaintPropertyIfChanged(map, layer.id, "fill-opacity", 1);
-      setPaintPropertyIfChanged(map, layer.id, "fill-antialias", false);
-    }
-  }
 }
 
 function moveNativeWaterLayersAboveCountries(map: maplibregl.Map) {
@@ -474,7 +383,6 @@ export function createMap(
   let firstCountriesReadyMarked = false;
   let firstIdleMarked = false;
   let firstVisualReadyMarked = false;
-  let oceanBackgroundGuardApplying = false;
   let usStatesRequested = false;
   let resolveReady = () => {};
   const ready = new Promise<void>((resolve) => {
@@ -485,7 +393,6 @@ export function createMap(
     __MAP_SELECTED_GEO__?: SelectedGeoCallback;
   };
   configureMapLibreWorkerUrl();
-  container.style.backgroundColor = NEW_MAP_OCEAN_BACKGROUND;
   markNewMapTrace("NM_T2_MAP_CONSTRUCTOR_START");
   const map = new maplibregl.Map({
     container,
@@ -505,19 +412,6 @@ export function createMap(
   });
   markNewMapTrace("NM_T1_MAP_CONSTRUCTOR");
   markNewMapTrace("NM_T3_MAP_INSTANCE_READY");
-  map.getCanvas().style.backgroundColor = NEW_MAP_OCEAN_BACKGROUND;
-
-  const applyOceanBackgroundGuard = () => {
-    if (oceanBackgroundGuardApplying) return;
-    oceanBackgroundGuardApplying = true;
-    try {
-      ensureOceanBackgroundLayer(map);
-    } catch {
-      // The style may be between reload phases; the next styledata/load event will re-apply it.
-    } finally {
-      oceanBackgroundGuardApplying = false;
-    }
-  };
 
   map.dragPan.enable();
   map.scrollZoom.enable();
@@ -897,7 +791,7 @@ export function createMap(
     if (!source) return;
     usStatesRequested = true;
     markNewMapTrace("NM_US_STATES_REQUESTED");
-    source.setData(getUsStatesDataSourceForCurrentRoute());
+    source.setData(US_STATES_DATA_URL);
   };
   const loadUsStatesWhenZoomed = () => {
     if (map.getZoom() >= US_STATES_LOAD_ZOOM) {
@@ -946,9 +840,7 @@ export function createMap(
     host.__MAP_SELECTED_GEO__?.({ iso2, country, lng: event.lngLat.lng, lat: event.lngLat.lat });
   });
 
-  map.once("load", applyOceanBackgroundGuard);
   map.on("styledata", () => {
-    applyOceanBackgroundGuard();
     if (firstStyleDataMarked) return;
     firstStyleDataMarked = true;
     markNewMapTrace("NM_T2_STYLE_READY");
@@ -1011,34 +903,14 @@ export function createMap(
       map.off("style.load", onStyleReady);
       map.off("moveend", ensureFlatCamera);
       map.off("zoomend", loadUsStatesWhenZoomed);
-      const removeLayerIfExists = (layerId: string) => {
-        if (!map.getLayer(layerId)) return;
-        try {
-          map.removeLayer(layerId);
-        } catch {
-          // ignore stale-layer races during map teardown
-        }
-      };
-      const removeSourceIfExists = (sourceId: string) => {
-        if (!map.getSource(sourceId)) return;
-        try {
-          map.removeSource(sourceId);
-        } catch {
-          // ignore stale-source races while the map is already unloading
-        }
-      };
-
-      removeLayerIfExists(NEW_MAP_US_STATES_LINE_LAYER_ID);
-      removeLayerIfExists(NEW_MAP_US_STATES_FILL_LAYER_ID);
-      removeLayerIfExists(NEW_MAP_SUPPLEMENTAL_SEA_LAYER_ID);
-      removeLayerIfExists(NEW_MAP_ADMIN_LAYER_ID);
-      removeLayerIfExists(NEW_MAP_FILL_LAYER_ID);
-      removeLayerIfExists(NEW_MAP_POINT_LAYER_ID);
-      removeLayerIfExists(NEW_MAP_TERRITORY_HITBOX_LAYER_ID);
-      removeLayerIfExists(NEW_MAP_TERRITORY_LABEL_LAYER_ID);
-      removeSourceIfExists(NEW_MAP_US_STATES_SOURCE_ID);
-      removeSourceIfExists(NEW_MAP_SUPPLEMENTAL_SEA_SOURCE_ID);
-      removeSourceIfExists(NEW_MAP_SOURCE_ID);
+      if (map.getLayer(NEW_MAP_US_STATES_LINE_LAYER_ID)) map.removeLayer(NEW_MAP_US_STATES_LINE_LAYER_ID);
+      if (map.getLayer(NEW_MAP_US_STATES_FILL_LAYER_ID)) map.removeLayer(NEW_MAP_US_STATES_FILL_LAYER_ID);
+      if (map.getLayer(NEW_MAP_SUPPLEMENTAL_SEA_LAYER_ID)) map.removeLayer(NEW_MAP_SUPPLEMENTAL_SEA_LAYER_ID);
+      if (map.getLayer(NEW_MAP_ADMIN_LAYER_ID)) map.removeLayer(NEW_MAP_ADMIN_LAYER_ID);
+      if (map.getLayer(NEW_MAP_FILL_LAYER_ID)) map.removeLayer(NEW_MAP_FILL_LAYER_ID);
+      if (map.getSource(NEW_MAP_US_STATES_SOURCE_ID)) map.removeSource(NEW_MAP_US_STATES_SOURCE_ID);
+      if (map.getSource(NEW_MAP_SUPPLEMENTAL_SEA_SOURCE_ID)) map.removeSource(NEW_MAP_SUPPLEMENTAL_SEA_SOURCE_ID);
+      if (map.getSource(NEW_MAP_SOURCE_ID)) map.removeSource(NEW_MAP_SOURCE_ID);
       map.remove();
     }
   };

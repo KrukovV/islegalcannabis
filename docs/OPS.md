@@ -8,20 +8,15 @@ Run one command for CI, checkpoint, and final report generation:
 bash tools/pass_cycle.sh
 ```
 
-`pass_cycle` includes the mandatory live production `/new-map?qa=1` access/render gate. Set `VERCEL_AUTOMATION_BYPASS_SECRET` in the shell before final handoff; missing secret, Vercel access-block pages, missing screenshots, missing map readiness, or degraded live timings fail the run. Extended payload/js/gps production gates are opt-in with `PROD_EXTENDED_TAIL_GATES=1`.
+`pass_cycle` includes mandatory live production `/new-map` gates for access/render and payload/long-task quality. Set `VERCEL_AUTOMATION_BYPASS_SECRET` in the shell before final handoff; missing secret, Vercel access-block pages, missing screenshots, missing map readiness, excessive payload, or degraded live timings fail the run.
 
 Before handoff, verify `Reports/ci-final.txt` contains:
 
 ```text
 PROD_LIVE_OK=1
+PROD_PAYLOAD_OK=1
 POST_CHECKS_OK=1
 HUB_STAGE_REPORT_OK=1
-```
-
-If the extended production tail is not explicitly enabled, verify the budget-preserving line is present:
-
-```text
-PROD_EXTENDED_TAIL_SKIPPED=1 reason=PROD_BUDGET_DEFAULT
 ```
 
 Lint is mandatory before Smoke/UI; any lint error fails the run.
@@ -144,25 +139,14 @@ launchctl load ~/Library/LaunchAgents/com.islegalcannabis.wiki-claims.plist
 - Prod payload run: set `VERCEL_AUTOMATION_BYPASS_SECRET` in the shell and run `node tools/prod_new_map_payload_gate.mjs`.
 - Required evidence: JSON timing report, screenshot, countries transfer/decoded size, optional `card-index`/`us-states` transfer, long-task count/total/max, `NM_T7_FIRST_FILL_RENDERED`, and rendered country feature count.
 - Official optimization references for this gate are Chrome Lighthouse total byte weight and web.dev long-task guidance: `https://developer.chrome.com/docs/lighthouse/performance/total-byte-weight` and `https://web.dev/articles/optimize-long-tasks`.
-- `Network dependency tree` and `uses rel=preconnect` guidance for critical first render is addressed in `app/layout.tsx`:
-  - preconnect to `https://basemaps.cartocdn.com` and `https://tiles.basemaps.cartocdn.com`;
-  - preload `/static/countries/countries.<hash>.json` as a fetch resource with `crossorigin="anonymous"`.
 - Treat `/api/new-map/countries` as compatibility only; the runtime URL should be `/static/countries/countries.<hash>.json`.
 - Root `/new-map` cold start must not eagerly request `/api/new-map/card-index` or `/api/new-map/us-states`; the local e2e guard is `e2e/new-map.preload.spec.ts`.
 - Cleanup policy: `QA/`, `Reports/`, `Artifacts/`, `QUARANTINE/`, Playwright traces, and `~/islegalcannabis_archive/` are rebuildable operational artifacts and must not be deployed or committed.
 
 ## Vercel automation bypass for production QA
-- The current SSOT for this stack is `docs/VERCEL_BYPASS.md`.
-- `JS_REPL_STATUS=REMOVED_UPSTREAM`.
-- Do not spend more time on `js_repl` recovery through `config.toml`, Homebrew reinstall, Codex.app reinstall, or feature toggles unless a concrete supported release is identified.
-- isLegal production browser QA ownership stays in repo scripts: `tools/prod_popup_matrix_audit.mjs`, `tools/prod_screenshot_repeatability.mjs`, `tools/vercel_rca_audit.mjs`, and `tools/vercel_challenge_observe.mjs`.
-- The supported browser execution order is: repo-owned persistent Playwright runner first, Codex browser surfaces such as `browser_use` and `in_app_browser` second when the local `app-server` is available.
-- The local `playwright-interactive` skill still depends on removed `js_repl`; the tracked issue is `Reports/js-repl/skill-depends-on-removed-feature.md`.
-
 - Keep the bypass token only in local shell, CI secrets, or Vercel project settings. Do not commit the token to config, docs, reports, screenshots, or test fixtures.
-- Production Playwright verification uses Vercel's official HTTP header automation bypass through a scoped root seed request. Global per-request bypass headers and no-bypass baselines are not the default final production audit.
-- In this repo, `x-vercel-set-bypass-cookie` is treated as header-only for tests. Query-param bypass is forbidden for Playwright production runs because it can leak into URLs, traces, screenshots, and logs.
-- Official reference: `https://vercel.com/docs/deployment-protection/methods-to-bypass-deployment-protection/protection-bypass-automation`.
+- Production Playwright verification uses the official HTTP header seed flow for diagnostics. Global per-request bypass headers and no-bypass baselines are not part of the final production audit.
+- In this repo, `x-vercel-set-bypass-cookie` is treated as header-only for tests because Vercel support confirmed URL query seeding can be ignored by Bot Protection even though public docs mention query support.
 
 ```bash
 export VERCEL_AUTOMATION_BYPASS_SECRET="<secret from Vercel Deployment Protection>"
@@ -170,13 +154,12 @@ export VERCEL_AUTOMATION_BYPASS_SECRET="<secret from Vercel Deployment Protectio
 
 ### Canonical production QA sequence
 
-- Direct production access is diagnostic only. Every production audit starts with one root diagnostic seed and then navigates in the same browser context.
+- Direct production access is diagnostic only. Every production audit starts with a root diagnostic seed and then navigates only after the app is reachable.
 - If a Vercel Security Checkpoint, Code 21 page, or browser verification page appears, stop manual reloads and preserve the recorded seed/navigation evidence.
 - Before every production audit, run one Method 2 root seed request against `/` for diagnostics, then create the page and reuse that same Playwright browser context for every inspected country, state, popup, and screenshot. `BYPASS_COOKIE_PRESENT` stays diagnostic only.
 - Do not create a fresh context, fresh browser, or full page reload loop per jurisdiction. A checkpoint is a gate failure or test-infrastructure blocker, not a target for rapid retry.
 - Poll deploy readiness through `/api/build-meta` with bounded attempts and at least a small pause between attempts. Do not run tight loops against Vercel while waiting for a new commit to land.
 - Use one worker for live Vercel QA unless a gate script already serializes the run. Production evidence must be low-rate and reproducible.
-- Default final CI navigates to `https://www.islegal.info/new-map?qa=1`; this preserves real app rendering while reducing optional production fetches during the mandatory proof.
 
 ### Method 2: API-context cookie seed
 
@@ -193,11 +176,11 @@ await context.request.get("https://www.islegal.info/", {
 });
 
 const page = await context.newPage();
-await page.goto("https://www.islegal.info/new-map?qa=1", { waitUntil: "domcontentloaded" });
+await page.goto("https://www.islegal.info/new-map", { waitUntil: "domcontentloaded" });
 ```
 
 - Direct same-site production audits use `x-vercel-set-bypass-cookie=true`. Use `samesitenone` only for an explicitly documented embedded/non-direct context such as an iframe.
-- Repeatability audits must use the shared `warmVercelBypass(context, baseUrl)` helper from `tools/lib/vercel-bypass.mjs`. Setting only `x-vercel-protection-bypass` in `extraHTTPHeaders` is not the stable default.
+- Repeatability audits must also create the browser context with both headers through `buildVercelBypassHeaders(secret, "true")`. Setting only `x-vercel-protection-bypass` in `extraHTTPHeaders` is incomplete and regressed the 3/3 screenshot flow.
 - Do not follow redirects on the seed request. Vercel documents the bypass-cookie as a redirect `Set-Cookie`; the audit should capture that first response and record whether the cookie landed in the same browser context.
 - Do not put either `x-vercel-protection-bypass` or `x-vercel-set-bypass-cookie` in the URL for Playwright runs. Query params can leak into traces/screenshots and have produced Vercel Security Checkpoint failures for this project.
 - Use the Method 2 first-party cookie seed for production audit runs because it avoids attaching the bypass header to page, map, font, tile, or analytics requests; cookie absence alone does not invalidate a repeatable screenshot run.
@@ -217,7 +200,7 @@ await page.goto("https://www.islegal.info/new-map?qa=1", { waitUntil: "domconten
 
 ### Live prod access probe
 
-Use the live probe to run one Method 2 root seed request, record cookie diagnostics, and then navigate the browser audit. It reads the secret only from `VERCEL_AUTOMATION_BYPASS_SECRET`, writes sanitized output to `Reports/vercel-bypass-live/last_run.json`, and screenshots the successful audit without writing the token. The default target is `https://www.islegal.info/new-map?qa=1`.
+Use the live probe to run one Method 2 root seed request, record cookie diagnostics, and then navigate the browser audit. It reads the secret only from `VERCEL_AUTOMATION_BYPASS_SECRET`, writes sanitized output to `Reports/vercel-bypass-live/last_run.json`, and screenshots the successful audit without writing the token.
 
 ```bash
 VERCEL_AUTOMATION_BYPASS_SECRET="$VERCEL_AUTOMATION_BYPASS_SECRET" \
@@ -232,15 +215,7 @@ The access error is gone only when the relevant method reports `ok=1`, `access_b
 
 ### Mandatory pass_cycle prod gates
 
-Final `bash tools/pass_cycle.sh` always runs the live access/render gate through `tools/prod_live_quality_gate.mjs`. The access/render gate executes one root diagnostic seed first, navigates to `/new-map?qa=1`, and enforces `data/baselines/prod_live_quality_baseline.json`.
-
-The payload, JS/city-label, and GPS/hover/zoom production gates are intentionally opt-in:
-
-```bash
-PROD_EXTENDED_TAIL_GATES=1 bash tools/pass_cycle.sh
-```
-
-When the opt-in is absent, `Reports/ci-final.txt` must record `PROD_EXTENDED_TAIL_SKIPPED=1 reason=PROD_BUDGET_DEFAULT`. This is the default because a completed live proof already spends a protected production attempt, and the project avoids extra Vercel requests unless a specific production hypothesis requires them.
+Final `bash tools/pass_cycle.sh` runs `tools/prod_live_quality_gate.mjs`, `tools/prod_new_map_payload_gate.mjs`, `tools/prod_new_map_js_city_gate.mjs`, and `tools/measure_new_map_gps_flow.mjs` as mandatory tail gates. The access/render gate executes the one-request root diagnostic seed first, then enforces `data/baselines/prod_live_quality_baseline.json`; the payload gate enforces `data/baselines/new_map_payload_quality_baseline.json`; the JS label gate enforces country/city ZoomIn label latency and JS/legacy budgets from `data/baselines/new_map_js_city_quality_baseline.json`; the GPS gate seeds a stale saved GPS point, then requires fresh GPS marker/center/persistence, desktop hover, ZoomIn city/village labels, ZoomOut country rendering, screenshots, and zero page errors.
 
 Required evidence:
 
@@ -248,17 +223,25 @@ Required evidence:
 - `Reports/vercel-bypass-live/method2_api_cookie_seed.png`
 - `Reports/prod-live-gate/latest.json`
 - `PROD_LIVE_METHOD` lines in `Reports/ci-final.txt` with `elapsed_ms`, `map_ready_ms`, `screenshot_bytes`, and screenshot path.
-- `PROD_EXTENDED_TAIL_SKIPPED=1 reason=PROD_BUDGET_DEFAULT` when the extended tail is not enabled.
-
-Required evidence when `PROD_EXTENDED_TAIL_GATES=1`:
-
-- `Reports/new-map-payload/prod-gate-*.chromium.json` and `PROD_PAYLOAD_METRIC`.
-- `Reports/new-map-js-city/prod-js-city-gate-*.chromium.json` and `PROD_JS_CITY_METRIC`.
-- `Reports/new-map-gps/prod-gps-gate-*.chromium.json` and `PROD_GPS_METRIC`.
+- `Reports/new-map-payload/prod-gate-*.chromium.json`
+- `Reports/new-map-payload/prod-gate-*.chromium.png`
+- `PROD_PAYLOAD_METRIC` line in `Reports/ci-final.txt` with transfer, long-task, first-fill, rendered-country, and screenshot metrics.
+- `Reports/new-map-js-city/prod-js-city-gate-*.chromium.json`
+- `Reports/new-map-js-city/prod-js-city-gate-*.initial.chromium.png`
+- `Reports/new-map-js-city/prod-js-city-gate-*.country.chromium.png`
+- `Reports/new-map-js-city/prod-js-city-gate-*.city.chromium.png`
+- `PROD_JS_CITY_METRIC` line in `Reports/ci-final.txt` with JS transfer, estimated unused JS, legacy-polyfill signals, country-label timing, city-label timing, and screenshot paths.
+- `Reports/new-map-gps/prod-gps-gate-*.chromium.json`
+- `Reports/new-map-gps/prod-gps-gate-*.after-gps.chromium.png`
+- `Reports/new-map-gps/prod-gps-gate-*.after-recenter.chromium.png`
+- `Reports/new-map-gps/prod-gps-gate-*.hover.chromium.png`
+- `Reports/new-map-gps/prod-gps-gate-*.zoom-in.chromium.png`
+- `Reports/new-map-gps/prod-gps-gate-*.zoom-out.chromium.png`
+- `PROD_GPS_METRIC` line in `Reports/ci-final.txt` with stale-GPS refresh, GPS marker/center/recenter/persistence timings, hover result, ZoomIn city/village labels, ZoomOut rendered countries, and screenshot paths.
 
 The gate fails on `missing_secret`, access-block text, wrong title, missing `/new-map` root/surface/readiness/canvas, missing or undersized screenshots, Method 2 seed status outside 2xx/3xx, `elapsed_ms > 90000`, or `map_ready_ms > 60000`.
 
-When enabled, the payload gate fails on missing secret, access-block text, rendered countries below baseline, screenshot below baseline, missing `br`/`gzip` countries encoding, total transfer above `2500 KiB`, countries transfer above `1600 KiB`, first-screen US-state payload above `1 KiB`, long-task count/total/max above baseline, or first-fill above baseline.
+The payload gate fails on missing secret, access-block text, rendered countries below baseline, screenshot below baseline, missing `br`/`gzip` countries encoding, total transfer above `2500 KiB`, countries transfer above `1600 KiB`, first-screen US-state payload above `1 KiB`, long-task count/total/max above baseline, or first-fill above baseline.
 
 Production browser source maps are enabled through `productionBrowserSourceMaps: true` in `apps/web/next.config.ts`. `tools/source_maps_build.test.mjs` runs after `next build` and fails CI if large client chunks do not have `.js.map` files and `sourceMappingURL` comments.
 Production browser targets are modern Baseline. Next's module polyfill bundle is aliased to an empty module in `apps/web/next.config.ts`; `tools/measure_new_map_js_city_perf.mjs` detects only real polyfill-module patterns, not normal modern API calls such as `Object.hasOwn(...)`.
@@ -275,12 +258,13 @@ await context.route("https://www.islegal.info/api/build-meta", async (route) => 
 });
 ```
 
-- For this repo, the canonical production startup probe is header-cookie seeding through `tools/vercel_bypass_live_probe.mjs`:
+- For this repo, the canonical production startup command is header-cookie seeding through `tools/measure_new_map_startup.mjs`:
 
 ```bash
 VERCEL_AUTOMATION_BYPASS_SECRET="$VERCEL_AUTOMATION_BYPASS_SECRET" \
-VERCEL_BYPASS_LIVE_URL="https://www.islegal.info/new-map?qa=1" \
-node tools/vercel_bypass_live_probe.mjs
+VERCEL_BYPASS_COOKIE_MODE="samesitenone" \
+NEW_MAP_PROD_URL="https://www.islegal.info/new-map" \
+node tools/measure_new_map_startup.mjs
 ```
 
 - Use `workers: 1` or an equivalent single-worker run for live Vercel QA. Add small pauses between repeated prod runs if Vercel/CDN rate limits or bot checks appear.

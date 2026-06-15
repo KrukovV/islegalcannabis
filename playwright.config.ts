@@ -7,8 +7,7 @@ const existingUiLock = fs.existsSync(path.join(process.cwd(), "apps", "web", ".n
 const shouldUseExistingUiOnly = process.env.PLAYWRIGHT_USE_EXISTING_UI_ONLY === "1" || existingUiLock;
 
 export default defineConfig({
-  testDir: "./apps/web/e2e",
-  testIgnore: ["**/unit/**"],
+  testDir: "./tests",
   retries: 1,
   workers: 1,
   use: {

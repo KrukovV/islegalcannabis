@@ -1,5 +1,4 @@
 .root {
-  --new-map-ocean-background: var(--new-map-water-color, #d7dcdc);
   --new-map-chatbar-height: 72px;
   --new-map-chatbar-gap: 20px;
   --new-map-chatbar-footprint: 132px;
@@ -21,13 +20,13 @@
   min-height: var(--app-viewport-height, 100dvh);
   overflow: hidden;
   overscroll-behavior: none;
-  background: var(--new-map-ocean-background);
+  background: var(--new-map-water-color, #d4dadc);
 }
 
 .mapSurface {
   position: absolute;
   inset: 0;
-  background: var(--new-map-ocean-background);
+  background: var(--new-map-water-color, #d4dadc);
   visibility: visible;
   touch-action: none;
   overscroll-behavior: none;
@@ -39,9 +38,8 @@
 
 .mapSurface :global(.maplibregl-map),
 .mapSurface :global(.maplibregl-canvas-container),
-.mapSurface :global(.maplibregl-control-container),
 .mapSurface :global(.maplibregl-canvas) {
-  background: var(--new-map-ocean-background);
+  background: var(--new-map-water-color, #d4dadc);
 }
 
 .mapSurface :global(.maplibregl-canvas-container),
@@ -915,25 +913,17 @@
 }
 
 .locationMarker {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 22px;
   height: 22px;
-  pointer-events: none;
-}
-
-.locationMarkerPin {
-  position: absolute;
-  inset: 0;
   border-radius: 50% 50% 50% 0;
   transform: rotate(-45deg);
   background: #5fb8df;
   border: 2px solid rgba(255, 255, 255, 0.96);
   box-shadow: 0 8px 18px rgba(27, 70, 95, 0.28);
+  pointer-events: none;
 }
 
-.locationMarkerPin::after {
+.locationMarker::after {
   content: "";
   position: absolute;
   left: 50%;

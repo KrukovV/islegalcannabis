@@ -21,7 +21,6 @@ const vercelBypassCookieMode = process.env.VERCEL_BYPASS_COOKIE_MODE || "samesit
 function isTrackedMapResource(reqUrl) {
   return (
     reqUrl.includes("/api/new-map/basemap-style") ||
-    reqUrl.includes("basemaps.cartocdn.com/gl/positron-gl-style/style.json") ||
     reqUrl.includes("/api/new-map/card-index") ||
     reqUrl.includes("/api/new-map/countries") ||
     reqUrl.includes("/static/countries/countries.")

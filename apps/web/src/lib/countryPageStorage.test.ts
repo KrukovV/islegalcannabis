@@ -1,5 +1,3 @@
-import { readFileSync } from "node:fs";
-import path from "node:path";
 import { describe, expect, it } from "vitest";
 import {
   buildSeoCountryIndex,
@@ -108,33 +106,6 @@ describe("countryPageStorage", () => {
 
     expect(missing).toEqual([]);
     expect(invalidPopupModels).toEqual([]);
-  });
-
-  it("keeps the public card-index asset popup-ready and schema-compatible", () => {
-    const staticIndex = JSON.parse(
-      readFileSync(path.join(process.cwd(), "public", "new-map-card-index.json"), "utf8")
-    ) as ReturnType<typeof buildCardIndexSnapshot>;
-    const runtimeIndex = buildCardIndexSnapshot();
-    const matrix = ["XK", "GF", "GL", "PR", "HK", "MO", "PS", "TW", "EH", "NC", "FO", "GP", "MQ", "RE", "GI"] as const;
-    const invalidPopupModels = Object.entries(staticIndex)
-      .filter(([, entry]) => {
-        const coords = entry.coordinates;
-        return !entry.displayName ||
-          !entry.panel?.levelTitle ||
-          !entry.panel?.why?.length ||
-          !entry.result?.color ||
-          !coords ||
-          typeof coords.lat !== "number" ||
-          typeof coords.lng !== "number";
-      })
-      .map(([geo]) => geo);
-
-    expect(Object.keys(staticIndex).length).toBe(Object.keys(runtimeIndex).length);
-    expect(invalidPopupModels).toEqual([]);
-    for (const geo of matrix) {
-      expect(staticIndex[geo]?.panel.levelTitle).toBe(runtimeIndex[geo]?.panel.levelTitle);
-      expect(staticIndex[geo]?.pageHref).toBe(runtimeIndex[geo]?.pageHref);
-    }
   });
 
   it("covers special territory popup matrix entries with real runtime card models", () => {

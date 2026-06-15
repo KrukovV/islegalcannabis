@@ -290,9 +290,8 @@ export default function AIBar({ activeGeo, geoStatus, ipStatus, onGpsClick }: Pr
     } catch {
       // ignore storage write issues
     }
-    if (aiInputLocked) return;
     void resetServerDialog();
-  }, [activeGeo?.iso2, aiInputLocked]);
+  }, [activeGeo?.iso2]);
 
   function appendChunkToAssistantMessage(messageId: string, chunk: string) {
     setMessages((current) =>

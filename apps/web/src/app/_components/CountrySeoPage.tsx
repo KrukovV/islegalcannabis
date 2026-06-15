@@ -1,9 +1,9 @@
 import Script from "next/script";
+import NewMapClientEntry from "@/app/new-map/NewMapClientEntry";
 import { getNewMapRuntimeIdentity } from "@/app/new-map/runtimeConfig";
 import { buildSeoCountryIndex, computeCountryHashes, stripCountryPageHashes, type CountryPageData } from "@/lib/countryPageStorage";
 import { deriveCountryCardEntryFromCountryPageData } from "@/lib/countryCardEntry";
 import { formatVisibleRuntimeStamp } from "@/lib/runtimeIdentity";
-import CountryMapClient from "@/app/_components/CountryMapClient";
 import { buildCountryIntentSections } from "@/lib/seo/countryIntentContent";
 import { getLocalizedCountryName, getSeoText, type SeoLocale } from "@/lib/seo/i18n";
 import { localizePanel } from "@/lib/seo/panelLocale";
@@ -166,7 +166,7 @@ export default function CountrySeoPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <CountryMapClient
+      <NewMapClientEntry
         countriesUrl={countriesUrl}
         visibleStamp={visibleStamp}
         runtimeIdentity={runtimeIdentity}

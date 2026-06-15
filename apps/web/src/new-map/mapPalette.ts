@@ -1,2 +1,1 @@
-export const NEW_MAP_OCEAN_BACKGROUND = "#d7dcdc";
-export const NEW_MAP_WATER_COLOR = NEW_MAP_OCEAN_BACKGROUND;
+export const NEW_MAP_WATER_COLOR = "#d7dcdc";

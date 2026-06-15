@@ -8,6 +8,7 @@ import ServiceWorkerGuard from "@/plugins/serviceWorkerGuard";
 import { NEW_MAP_WATER_COLOR } from "@/new-map/mapPalette";
 import { getStaticCountriesAsset } from "@/new-map/staticCountries";
 
+const NEW_MAP_COUNTRIES_URL = getStaticCountriesAsset().url;
 const YANDEX_METRIKA_ID = 108419114;
 const MS_VALIDATE_CONTENT = "8160A885E417B2396DD1C0633F13C70F";
 const NEW_MAP_FIRST_VISUAL_EVENT = "new-map:first-visual-ready";
@@ -61,6 +62,35 @@ export const viewport: Viewport = {
   viewportFit: "cover"
 };
 
+const NEW_MAP_PREFETCH_SCRIPT = `
+(() => {
+  const host = globalThis;
+  const trace = host.__NEW_MAP_TRACE__ || {
+    t0: performance.now(),
+    marks: {},
+    metrics: {}
+  };
+  trace.t0 = typeof trace.t0 === "number" ? trace.t0 : performance.now();
+  trace.marks = trace.marks || {};
+  trace.metrics = trace.metrics || {};
+  host.__NEW_MAP_TRACE__ = trace;
+  trace.marks.NM_T0_ROUTE_START = trace.marks.NM_T0_ROUTE_START || performance.now();
+  if (host.__NEW_MAP_PREFETCH__) return;
+  const loadJson = (url) =>
+    fetch(url, { credentials: "same-origin" })
+      .then((response) => (response.ok ? response.json() : null))
+      .catch(() => null);
+  host.__NEW_MAP_PREFETCH__ = {
+    countries: loadJson("${NEW_MAP_COUNTRIES_URL}")
+  };
+  Promise.allSettled([
+    host.__NEW_MAP_PREFETCH__.countries
+  ]).then(() => {
+    trace.marks.NM_T1_HEAD_PREFETCH_READY = trace.marks.NM_T1_HEAD_PREFETCH_READY || performance.now();
+  });
+})();
+`;
+
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -69,22 +99,11 @@ export default async function RootLayout({
   const routeHeaders = await headers();
   const htmlLang = routeHeaders.get("x-route-locale") || "en";
   const showVercelAnalytics = !isLocalHost(routeHeaders.get("host") || "");
-  const countriesUrl = getStaticCountriesAsset().url;
   return (
     <html lang={htmlLang} suppressHydrationWarning>
       <head>
         <meta name="msvalidate.01" content={MS_VALIDATE_CONTENT} />
-        <link
-          rel="preconnect"
-          href="https://basemaps.cartocdn.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preconnect"
-          href="https://tiles.basemaps.cartocdn.com"
-          crossOrigin="anonymous"
-        />
-        <link rel="preload" as="fetch" href={countriesUrl} crossOrigin="anonymous" />
+        <script dangerouslySetInnerHTML={{ __html: NEW_MAP_PREFETCH_SCRIPT }} />
         <Script id="yandex-metrika" strategy="afterInteractive">
           {`
             (function(w,d){

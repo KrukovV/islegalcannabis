@@ -23,12 +23,11 @@
 - API: `/api/check?country=US&region=CA`, `/api/check?country=DE`
 - CI: `bash tools/pass_cycle.sh`
 - Contract smoke: use pass_cycle unless a narrower task explicitly names a smoke script.
-- Final handoff CI requires `VERCEL_AUTOMATION_BYPASS_SECRET` in env because `pass_cycle` runs the live `/new-map` render gate against `/new-map?qa=1` and JS/source-map thresholds. Extended payload/long-task, country/city ZoomIn, and stale-GPS/hover/ZoomIn/ZoomOut production gates run only when `PROD_EXTENDED_TAIL_GATES=1`. Cookie evidence stays diagnostic.
+- Final handoff CI requires `VERCEL_AUTOMATION_BYPASS_SECRET` in env because `pass_cycle` runs the live `/new-map` render gate, payload/long-task metrics, country/city ZoomIn label timing, stale-GPS refresh/hover/ZoomIn/ZoomOut checks, and JS/source-map thresholds. Cookie evidence stays diagnostic.
 
 ## Vercel production bypass quick run
 - Keep the bypass secret only in the shell/CI secret named `VERCEL_AUTOMATION_BYPASS_SECRET`; never write the secret into docs, configs, reports, screenshots, or URLs.
 - Production audit starts with a root diagnostic seed request and then proceeds to browser navigation. Direct access is diagnostic only.
-- Full bypass contract and artifact locations are in `docs/VERCEL_BYPASS.md`.
 - If Vercel shows a Security Checkpoint or Code 21, stop reloads and run:
 
 ```bash
@@ -48,8 +47,7 @@ node tools/vercel_bypass_live_probe.mjs
 
 ## Перед каждым коммитом
 - Запускать: `bash tools/pass_cycle.sh`.
-- Проверить `Reports/ci-final.txt`: `PROD_LIVE_OK=1`, `POST_CHECKS_OK=1` и `HUB_STAGE_REPORT_OK=1`.
-- Расширенные production gates `PROD_PAYLOAD_OK`, `PROD_JS_CITY_OK`, `PROD_GPS_OK` запускать только явно через `PROD_EXTENDED_TAIL_GATES=1`, чтобы обычный CI не сжигал Vercel attempts после live proof.
+- Проверить `Reports/ci-final.txt`: `PROD_LIVE_OK=1`, `PROD_PAYLOAD_OK=1`, `PROD_JS_CITY_OK=1`, `PROD_GPS_OK=1`, `POST_CHECKS_OK=1` и `HUB_STAGE_REPORT_OK=1`.
 
 ## Как добавить новую юрисдикцию и SEO-страницу
 1) Добавьте JSON в `data/laws/**` по текущей схеме (смотрите существующие файлы).

@@ -14,28 +14,21 @@ const BuildWatcher =
 
 const NEW_MAP_RUNTIME_DELAY_MS = 12000;
 
-function isQaMapAuditRoute(pathname: string | null) {
-  if (!pathname?.startsWith("/new-map")) return false;
-  if (typeof window === "undefined") return false;
-  return new URLSearchParams(window.location.search).get("qa") === "1";
-}
-
 export default function NewMapDeferredRuntime() {
   const pathname = usePathname();
   const isNewMapRoute = pathname?.startsWith("/new-map");
-  const qaMapAuditRoute = isQaMapAuditRoute(pathname);
   const [ready, setReady] = useState(() => !pathname?.startsWith("/new-map") || hasFirstVisualReady());
   const [newMapRuntimeReady, setNewMapRuntimeReady] = useState(false);
 
   useEffect(() => {
-    if (qaMapAuditRoute || !isNewMapRoute || hasFirstVisualReady()) return;
+    if (!isNewMapRoute || hasFirstVisualReady()) return;
     return onFirstVisualReady(() => {
       setReady(true);
     });
-  }, [isNewMapRoute, qaMapAuditRoute]);
+  }, [isNewMapRoute]);
 
   useEffect(() => {
-    if (qaMapAuditRoute || !ready || !isNewMapRoute || newMapRuntimeReady) return;
+    if (!ready || !isNewMapRoute || newMapRuntimeReady) return;
 
     let cancelled = false;
     const activate = () => {
@@ -56,9 +49,9 @@ export default function NewMapDeferredRuntime() {
       window.removeEventListener("wheel", activate);
       window.removeEventListener("keydown", activate);
     };
-  }, [isNewMapRoute, newMapRuntimeReady, qaMapAuditRoute, ready]);
+  }, [isNewMapRoute, newMapRuntimeReady, ready]);
 
-  if (qaMapAuditRoute || !ready || (isNewMapRoute && !newMapRuntimeReady)) return null;
+  if (!ready || (isNewMapRoute && !newMapRuntimeReady)) return null;
 
   return (
     <>
