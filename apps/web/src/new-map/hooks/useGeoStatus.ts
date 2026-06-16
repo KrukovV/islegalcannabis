@@ -98,6 +98,17 @@ type BrowserPositionResult =
   | { ok: true; position: GeolocationPosition }
   | { ok: false; error: Partial<GeolocationPositionError> & { code: number; message?: string } };
 
+function isTransientGeoErrorCode(code: number | undefined) {
+  return code === 2 || code === 3;
+}
+
+function normalizeGeoError(error: Partial<GeolocationPositionError> | null | undefined) {
+  return {
+    code: Number(error?.code || 2),
+    message: error?.message
+  };
+}
+
 function readBrowserPositionResult(options: PositionOptions): Promise<BrowserPositionResult> {
   return new Promise((resolve) => {
     navigator.geolocation.getCurrentPosition(
@@ -114,27 +125,36 @@ function watchBrowserPositionResult(
 ): Promise<BrowserPositionResult> {
   return new Promise((resolve) => {
     let settled = false;
+    let lastTransientError: BrowserPositionResult["error"] | null = null;
     const finish = (result: BrowserPositionResult) => {
       if (settled) return;
       settled = true;
+      navigator.geolocation.clearWatch(watchId);
+      window.clearTimeout(timeoutId);
       resolve(result);
     };
     const watchId = navigator.geolocation.watchPosition(
       (position) => {
-        navigator.geolocation.clearWatch(watchId);
         finish({ ok: true, position });
       },
       (error) => {
-        navigator.geolocation.clearWatch(watchId);
-        finish({ ok: false, error });
+        const normalized = normalizeGeoError(error);
+        if (normalized.code === 1) {
+          finish({ ok: false, error: normalized });
+          return;
+        }
+        if (isTransientGeoErrorCode(normalized.code)) {
+          lastTransientError = normalized;
+          return;
+        }
+        finish({ ok: false, error: normalized });
       },
       options
     );
-    window.setTimeout(() => {
-      navigator.geolocation.clearWatch(watchId);
+    const timeoutId = window.setTimeout(() => {
       finish({
         ok: false,
-        error: {
+        error: lastTransientError || {
           code: 3,
           message: "watch_timeout"
         }
@@ -162,7 +182,7 @@ function shouldRetryWithWatch(
   permission: Awaited<ReturnType<typeof queryGeoPermissionState>>
 ) {
   if (result.ok) return false;
-  if (result.error?.code === 2 || result.error?.code === 3) return true;
+  if (isTransientGeoErrorCode(result.error?.code)) return true;
   return result.error?.code === 1 && permission === "granted";
 }
 
@@ -189,11 +209,11 @@ async function acquireBrowserPosition() {
   if (shouldRetryWithWatch(firstAttempt, permission) || shouldRetryWithWatch(secondAttempt, permission)) {
     const watchAttempt = await watchBrowserPositionResult(
       {
-        enableHighAccuracy: permission === "granted",
-        timeout: 20_000,
+        enableHighAccuracy: true,
+        timeout: 30_000,
         maximumAge: 0
       },
-      20_000
+      30_000
     );
     if (watchAttempt.ok) {
       return watchAttempt.position;

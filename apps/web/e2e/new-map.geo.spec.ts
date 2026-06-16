@@ -182,6 +182,7 @@ test("new-map GPS first click recovers via watchPosition after prompt-like doubl
     window.localStorage.clear();
     const getCalls: Array<{ enableHighAccuracy?: boolean; timeout?: number; maximumAge?: number }> = [];
     const watchCalls: Array<{ enableHighAccuracy?: boolean; timeout?: number; maximumAge?: number }> = [];
+    let watchErrorEmitted = false;
     const host = window as typeof window & {
       __GPS_TEST_CALLS__?: typeof getCalls;
       __GPS_TEST_WATCH_CALLS__?: typeof watchCalls;
@@ -189,7 +190,7 @@ test("new-map GPS first click recovers via watchPosition after prompt-like doubl
     Object.defineProperty(window.navigator, "permissions", {
       configurable: true,
       value: {
-        query: async () => ({ state: "granted" })
+        query: async () => ({ state: "prompt" })
       }
     });
     Object.defineProperty(window.navigator, "geolocation", {
@@ -209,7 +210,7 @@ test("new-map GPS first click recovers via watchPosition after prompt-like doubl
         },
         watchPosition(
           success: PositionCallback,
-          _error: PositionErrorCallback,
+          error: PositionErrorCallback,
           options?: PositionOptions
         ) {
           watchCalls.push({
@@ -217,6 +218,18 @@ test("new-map GPS first click recovers via watchPosition after prompt-like doubl
             timeout: options?.timeout,
             maximumAge: options?.maximumAge
           });
+          window.setTimeout(() => {
+            if (!watchErrorEmitted) {
+              watchErrorEmitted = true;
+              error({
+                code: 2,
+                message: "position_unavailable_warmup",
+                PERMISSION_DENIED: 1,
+                POSITION_UNAVAILABLE: 2,
+                TIMEOUT: 3
+              });
+            }
+          }, 10);
           window.setTimeout(() => {
             success({
               coords: {
@@ -230,7 +243,7 @@ test("new-map GPS first click recovers via watchPosition after prompt-like doubl
               },
               timestamp: Date.now()
             });
-          }, 25);
+          }, 40);
           return 1;
         },
         clearWatch() {}
@@ -278,7 +291,7 @@ test("new-map GPS first click recovers via watchPosition after prompt-like doubl
     { enableHighAccuracy: true, timeout: 25000, maximumAge: 0 }
   ]);
   expect(callState.watchCalls).toEqual([
-    { enableHighAccuracy: true, timeout: 20000, maximumAge: 0 }
+    { enableHighAccuracy: true, timeout: 30000, maximumAge: 0 }
   ]);
 });
 

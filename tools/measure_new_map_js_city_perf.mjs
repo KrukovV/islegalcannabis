@@ -473,16 +473,18 @@ try {
     headless: true,
     args: ["--use-angle=swiftshader", "--use-gl=angle", "--enable-unsafe-swiftshader"]
   });
-  context = await browser.newContext({
+  const newContext = async (includeBypassHeaders) => browser.newContext({
     viewport: { width: 390, height: 844 },
     deviceScaleFactor: 3,
     isMobile: true,
     hasTouch: true,
     userAgent: "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1",
-    extraHTTPHeaders: vercelBypass
+    extraHTTPHeaders: includeBypassHeaders
       ? buildVercelBypassHeaders(vercelBypass, vercelBypassCookieMode)
       : undefined
   });
+  let useBypassHeaders = Boolean(vercelBypass);
+  context = await newContext(useBypassHeaders);
   bypassSeed = buildVercelBypassSeedRequest(url, vercelBypass, {
     cookieMode: vercelBypassCookieMode
   });
@@ -493,6 +495,11 @@ try {
       timeout: 45000
     });
     bypassSeedStatus = seedResponse.status();
+    if (bypassSeedStatus >= 400) {
+      useBypassHeaders = false;
+      await context.close();
+      context = await newContext(false);
+    }
   }
 
   const page = await context.newPage();

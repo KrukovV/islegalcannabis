@@ -234,16 +234,17 @@ async function run() {
   });
 
   const parsed = new URL(url);
-  const contextOptions = {
+  const newContext = async (includeBypassHeaders) => browser.newContext({
     geolocation: { latitude, longitude },
     permissions: ["geolocation"],
-    ...(secret
+    ...(includeBypassHeaders
       ? { extraHTTPHeaders: buildVercelBypassHeaders(secret, "samesitenone") }
       : {})
-  };
-  const context = await browser.newContext(contextOptions);
-  const seed = { enabled: false, status: null, cookie_names: [] };
-  if (secret) {
+  });
+  let useBypassHeaders = Boolean(secret);
+  let context = await newContext(useBypassHeaders);
+  const seed = { enabled: false, status: null, cookie_names: [], fallback_to_public: false };
+  if (useBypassHeaders) {
     const seedResponse = await context.request.get(url, {
       headers: buildVercelBypassHeaders(secret, "samesitenone"),
       maxRedirects: 5,
@@ -252,6 +253,12 @@ async function run() {
     seed.enabled = true;
     seed.status = seedResponse.status();
     seed.cookie_names = (await context.cookies(url)).map((cookie) => cookie.name);
+    if (seed.status >= 400) {
+      seed.fallback_to_public = true;
+      useBypassHeaders = false;
+      await context.close();
+      context = await newContext(false);
+    }
   }
   await context.grantPermissions(["geolocation"], { origin: parsed.origin }).catch(() => undefined);
 
