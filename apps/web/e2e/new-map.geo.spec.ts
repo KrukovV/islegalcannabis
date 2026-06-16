@@ -177,6 +177,111 @@ test("new-map GPS first click retries precise browser position after cached fail
   ]);
 });
 
+test("new-map GPS first click recovers via watchPosition after prompt-like double failure", async ({ page, context }) => {
+  await context.addInitScript((point) => {
+    window.localStorage.clear();
+    const getCalls: Array<{ enableHighAccuracy?: boolean; timeout?: number; maximumAge?: number }> = [];
+    const watchCalls: Array<{ enableHighAccuracy?: boolean; timeout?: number; maximumAge?: number }> = [];
+    const host = window as typeof window & {
+      __GPS_TEST_CALLS__?: typeof getCalls;
+      __GPS_TEST_WATCH_CALLS__?: typeof watchCalls;
+    };
+    Object.defineProperty(window.navigator, "permissions", {
+      configurable: true,
+      value: {
+        query: async () => ({ state: "granted" })
+      }
+    });
+    Object.defineProperty(window.navigator, "geolocation", {
+      configurable: true,
+      value: {
+        getCurrentPosition(
+          _success: PositionCallback,
+          error: PositionErrorCallback,
+          options?: PositionOptions
+        ) {
+          getCalls.push({
+            enableHighAccuracy: options?.enableHighAccuracy,
+            timeout: options?.timeout,
+            maximumAge: options?.maximumAge
+          });
+          error({ code: 2, message: "prompt_race_unavailable", PERMISSION_DENIED: 1, POSITION_UNAVAILABLE: 2, TIMEOUT: 3 });
+        },
+        watchPosition(
+          success: PositionCallback,
+          _error: PositionErrorCallback,
+          options?: PositionOptions
+        ) {
+          watchCalls.push({
+            enableHighAccuracy: options?.enableHighAccuracy,
+            timeout: options?.timeout,
+            maximumAge: options?.maximumAge
+          });
+          window.setTimeout(() => {
+            success({
+              coords: {
+                latitude: point.latitude,
+                longitude: point.longitude,
+                accuracy: 9,
+                altitude: null,
+                altitudeAccuracy: null,
+                heading: null,
+                speed: null
+              },
+              timestamp: Date.now()
+            });
+          }, 25);
+          return 1;
+        },
+        clearWatch() {}
+      }
+    });
+    host.__GPS_TEST_CALLS__ = getCalls;
+    host.__GPS_TEST_WATCH_CALLS__ = watchCalls;
+  }, GPS_POINT);
+  await page.route("**/api/geo/resolve", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        data: {
+          source: "BROWSER",
+          permission: "granted",
+          iso: "CZ",
+          region: null,
+          provider: "test",
+          confidence: "HIGH"
+        }
+      })
+    });
+  });
+
+  await page.goto(QA_ROUTE, { waitUntil: "domcontentloaded" });
+  await waitForMapReady(page);
+
+  await page.getByRole("button", { name: /GPS/i }).click();
+  await page.waitForFunction(() => document.querySelector('[data-user-marker="1"]')?.getAttribute("data-user-marker-position") === "14.4378,50.0755", { timeout: 10000 });
+  await waitForGpsCenter(page);
+
+  const callState = await page.evaluate(() => {
+    const host = window as typeof window & {
+      __GPS_TEST_CALLS__?: Array<{ enableHighAccuracy?: boolean; timeout?: number; maximumAge?: number }>;
+      __GPS_TEST_WATCH_CALLS__?: Array<{ enableHighAccuracy?: boolean; timeout?: number; maximumAge?: number }>;
+    };
+    return {
+      getCalls: host.__GPS_TEST_CALLS__ || [],
+      watchCalls: host.__GPS_TEST_WATCH_CALLS__ || []
+    };
+  });
+  expect(callState.getCalls).toEqual([
+    { enableHighAccuracy: false, timeout: 15000, maximumAge: 60000 },
+    { enableHighAccuracy: true, timeout: 25000, maximumAge: 0 }
+  ]);
+  expect(callState.watchCalls).toEqual([
+    { enableHighAccuracy: true, timeout: 20000, maximumAge: 0 }
+  ]);
+});
+
 test("new-map repeat green GPS click recenters immediately and still refreshes browser GPS", async ({ page }) => {
   await page.addInitScript(() => {
     window.localStorage.setItem("geo", JSON.stringify({

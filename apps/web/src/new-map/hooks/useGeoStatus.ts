@@ -94,30 +94,114 @@ function persistGeo(next: CurrentGeo) {
   }
 }
 
-function readBrowserPosition(options: PositionOptions) {
-  return new Promise<GeolocationPosition>((resolve, reject) => {
-    navigator.geolocation.getCurrentPosition(resolve, reject, options);
+type BrowserPositionResult =
+  | { ok: true; position: GeolocationPosition }
+  | { ok: false; error: Partial<GeolocationPositionError> & { code: number; message?: string } };
+
+function readBrowserPositionResult(options: PositionOptions): Promise<BrowserPositionResult> {
+  return new Promise((resolve) => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => resolve({ ok: true, position }),
+      (error) => resolve({ ok: false, error }),
+      options
+    );
   });
 }
 
-async function acquireBrowserPosition() {
-  try {
-    return await readBrowserPosition({
-      enableHighAccuracy: false,
-      timeout: 15_000,
-      maximumAge: 60_000
-    });
-  } catch (firstError) {
-    try {
-      return await readBrowserPosition({
-        enableHighAccuracy: true,
-        timeout: 25_000,
-        maximumAge: 0
+function watchBrowserPositionResult(
+  options: PositionOptions,
+  timeoutMs: number
+): Promise<BrowserPositionResult> {
+  return new Promise((resolve) => {
+    let settled = false;
+    const finish = (result: BrowserPositionResult) => {
+      if (settled) return;
+      settled = true;
+      resolve(result);
+    };
+    const watchId = navigator.geolocation.watchPosition(
+      (position) => {
+        navigator.geolocation.clearWatch(watchId);
+        finish({ ok: true, position });
+      },
+      (error) => {
+        navigator.geolocation.clearWatch(watchId);
+        finish({ ok: false, error });
+      },
+      options
+    );
+    window.setTimeout(() => {
+      navigator.geolocation.clearWatch(watchId);
+      finish({
+        ok: false,
+        error: {
+          code: 3,
+          message: "watch_timeout"
+        }
       });
-    } catch (secondError) {
-      throw secondError || firstError;
-    }
+    }, timeoutMs);
+  });
+}
+
+async function queryGeoPermissionState() {
+  if (typeof navigator === "undefined" || !navigator.permissions?.query) {
+    return "unsupported";
   }
+  try {
+    const status = await navigator.permissions.query({
+      name: "geolocation" as PermissionName
+    });
+    return status.state;
+  } catch {
+    return "unsupported";
+  }
+}
+
+function shouldRetryWithWatch(
+  result: BrowserPositionResult,
+  permission: Awaited<ReturnType<typeof queryGeoPermissionState>>
+) {
+  if (result.ok) return false;
+  if (result.error?.code === 2 || result.error?.code === 3) return true;
+  return result.error?.code === 1 && permission === "granted";
+}
+
+async function acquireBrowserPosition() {
+  const firstAttempt = await readBrowserPositionResult({
+    enableHighAccuracy: false,
+    timeout: 15_000,
+    maximumAge: 60_000
+  });
+  if (firstAttempt.ok) {
+    return firstAttempt.position;
+  }
+
+  const secondAttempt = await readBrowserPositionResult({
+    enableHighAccuracy: true,
+    timeout: 25_000,
+    maximumAge: 0
+  });
+  if (secondAttempt.ok) {
+    return secondAttempt.position;
+  }
+
+  const permission = await queryGeoPermissionState();
+  if (shouldRetryWithWatch(firstAttempt, permission) || shouldRetryWithWatch(secondAttempt, permission)) {
+    const watchAttempt = await watchBrowserPositionResult(
+      {
+        enableHighAccuracy: permission === "granted",
+        timeout: 20_000,
+        maximumAge: 0
+      },
+      20_000
+    );
+    if (watchAttempt.ok) {
+      return watchAttempt.position;
+    }
+    throw watchAttempt.error || secondAttempt.error || firstAttempt.error;
+  }
+
+  throw secondAttempt.error || firstAttempt.error;
 }
 
 function logGeoFailure(error: unknown) {

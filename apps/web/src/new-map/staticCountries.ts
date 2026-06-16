@@ -141,9 +141,7 @@ function slimFeature(
     properties: {
       geo: feature.properties.geo,
       displayName: feature.properties.displayName,
-      status: feature.properties.result.status,
-      result: feature.properties.result,
-      mapCategory: feature.properties.mapCategory,
+      status: feature.properties.status || feature.properties.result?.status,
       baseColor: feature.properties.baseColor,
       hoverColor: feature.properties.hoverColor,
       pointFallbackVisibility: feature.properties.pointFallbackVisibility,

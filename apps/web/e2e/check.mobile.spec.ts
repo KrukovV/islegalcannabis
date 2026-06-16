@@ -20,8 +20,8 @@ test("/check is mobile-safe at 360px", async ({ page }) => {
   );
   expect(hasOverflow).toBeFalsy();
 
-  await expect(page.getByTestId("sources")).toBeVisible();
-  const sourceLinks = page.getByTestId("source-link");
+  await expect(page.getByTestId("verify-yourself")).toBeVisible();
+  const sourceLinks = page.locator('[data-testid="verify-links"] a, [data-testid="verify-sources"] a');
   await expect(sourceLinks.first()).toBeVisible();
   const sourceText = await sourceLinks.first().innerText();
   expect(sourceText).not.toContain("https://");

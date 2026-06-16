@@ -17,7 +17,6 @@ import {
   readVisualViewportSnapshot,
   subscribeToVisualViewportChanges
 } from "./viewportMetrics";
-import AsciiOverlay from "./ascii/AsciiOverlay";
 
 type Props = {
   countriesUrl: string;
@@ -30,6 +29,7 @@ type Props = {
 };
 
 const EMPTY_SEO_COUNTRY_INDEX: Record<string, CountryPageData> = {};
+const ASCII_OVERLAY_MOUNT_DELAY_MS = 1200;
 
 function parseSeoCodeFromPath(pathname: string): string | null {
   const match = pathname.match(/^\/(?:[a-z]{2}\/)?c\/([^/?#]+)$/i);
@@ -97,6 +97,7 @@ const RuntimeParityBadge =
 const MapGeoDock = dynamic(() => import("./MapGeoDock"), { ssr: false });
 const UnifiedSeoStatusPanel = dynamic(() => import("./components/UnifiedSeoStatusPanel"), { ssr: false });
 const ViewportCountryPopup = dynamic(() => import("./components/ViewportCountryPopup"), { ssr: false });
+const AsciiOverlay = dynamic(() => import("./ascii/AsciiOverlay"), { ssr: false });
 
 function getNewMapPrefetchCache(): NewMapPrefetchCache | null {
   if (typeof window === "undefined") return null;
@@ -245,6 +246,7 @@ export default function MapRoot({
   const [error, setError] = useState<string | null>(null);
   const [mapReady, setMapReady] = useState(false);
   const [visualReady, setVisualReady] = useState(false);
+  const [asciiOverlayMounted, setAsciiOverlayMounted] = useState(false);
   const [keyboardOffset, setKeyboardOffset] = useState(0);
   const [visibleViewportHeight, setVisibleViewportHeight] = useState<number | null>(null);
   const [dockHeight, setDockHeight] = useState(72);
@@ -353,11 +355,15 @@ export default function MapRoot({
   useEffect(() => {
     const normalizedPopupGeo = String(popupGeoCode || "").trim().toUpperCase();
     const normalizedActiveGeo = String(activeSeoData?.geo_code || "").trim().toUpperCase();
-    if (!normalizedPopupGeo || !activeSeoData || normalizedPopupGeo !== normalizedActiveGeo || cardIndex[normalizedPopupGeo]) {
-      setPopupSeoFallbackEntry(null);
-      return;
-    }
     let cancelled = false;
+    if (!normalizedPopupGeo || !activeSeoData || normalizedPopupGeo !== normalizedActiveGeo || cardIndex[normalizedPopupGeo]) {
+      queueMicrotask(() => {
+        if (!cancelled) setPopupSeoFallbackEntry(null);
+      });
+      return () => {
+        cancelled = true;
+      };
+    }
     // Keep the popup parity path, but load the heavy country-card builder only when the route geo is actually opened.
     void import("@/lib/countryCardEntry").then(({ deriveCountryCardEntryFromCountryPageData }) => {
       if (cancelled) return;
@@ -752,6 +758,18 @@ export default function MapRoot({
   }, [countriesUrl]);
 
   useEffect(() => {
+    if (!mapReady) return;
+    let cancelled = false;
+    const timerId = window.setTimeout(() => {
+      if (!cancelled) setAsciiOverlayMounted(true);
+    }, ASCII_OVERLAY_MOUNT_DELAY_MS);
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timerId);
+    };
+  }, [mapReady]);
+
+  useEffect(() => {
     if (!seoCountryData) return;
     let cancelled = false;
     queueMicrotask(() => {
@@ -836,7 +854,7 @@ export default function MapRoot({
           if (cancelled) return;
           markCountriesCacheState(countriesUrl);
           for (const feature of countries.features) {
-            const status = feature.properties?.result?.status;
+            const status = feature.properties?.status || feature.properties?.result?.status;
             if (!status) {
               throw new Error(`MAP_WITHOUT_STATUS: ${String(feature.properties?.geo || "UNKNOWN")}`);
             }
@@ -845,7 +863,9 @@ export default function MapRoot({
             window.console.debug(
               `MAP_RENDER_STATUS sample=${countries.features
                 .slice(0, 5)
-                .map((feature) => `${feature.properties.geo}:${feature.properties.result.status}:${feature.properties.baseColor}:${feature.properties.hoverColor}`)
+                .map((feature) =>
+                  `${feature.properties.geo}:${feature.properties.status || feature.properties.result?.status}:${feature.properties.baseColor}:${feature.properties.hoverColor}`
+                )
                 .join(",")}`
             );
           }
@@ -873,7 +893,7 @@ export default function MapRoot({
         });
         const unbindAsciiTriggers = bindAsciiMapTriggers(runtime.map);
         const uninstallQaHook = installNewMapQaHook(runtime.map);
-        setDebugState({ mounted: true, countriesUrl, map: isNewMapQaEnabled() ? runtime.map : null, selectedId: null });
+        setDebugState({ mounted: true, countriesUrl, map: runtime.map, selectedId: null });
         await countriesDataPromise;
         if (cancelled) {
           uninstallQaHook();
@@ -976,7 +996,7 @@ export default function MapRoot({
         data-testid="new-map-surface"
         data-map-ready={mapReady ? "1" : "0"}
       />
-      <AsciiOverlay />
+      {asciiOverlayMounted ? <AsciiOverlay /> : null}
       <MapGeoDock
         mapReady={mapReady}
         cardIndex={cardIndex}
