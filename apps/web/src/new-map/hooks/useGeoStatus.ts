@@ -97,6 +97,7 @@ function persistGeo(next: CurrentGeo) {
 type BrowserPositionResult =
   | { ok: true; position: GeolocationPosition }
   | { ok: false; error: Partial<GeolocationPositionError> & { code: number; message?: string } };
+type BrowserPositionError = Extract<BrowserPositionResult, { ok: false }>["error"];
 
 function isTransientGeoErrorCode(code: number | undefined) {
   return code === 2 || code === 3;
@@ -125,7 +126,7 @@ function watchBrowserPositionResult(
 ): Promise<BrowserPositionResult> {
   return new Promise((resolve) => {
     let settled = false;
-    let lastTransientError: BrowserPositionResult["error"] | null = null;
+    let lastTransientError: BrowserPositionError | null = null;
     const finish = (result: BrowserPositionResult) => {
       if (settled) return;
       settled = true;
