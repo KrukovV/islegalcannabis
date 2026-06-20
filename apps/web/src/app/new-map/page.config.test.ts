@@ -29,8 +29,10 @@ describe("new-map route config", () => {
   it("keeps public basemap transport on upstream Carto origins instead of same-origin proxy hops", () => {
     const stylePath = path.join(process.cwd(), "src", "app", "api", "new-map", "basemap-style", "route.ts");
     const sourcePath = path.join(process.cwd(), "src", "app", "api", "new-map", "basemap-source", "route.ts");
+    const runtimeUrlsPath = path.join(process.cwd(), "src", "new-map", "runtimeUrls.ts");
     const styleSource = fs.readFileSync(stylePath, "utf8");
     const tilejsonSource = fs.readFileSync(sourcePath, "utf8");
+    const runtimeUrlsSource = fs.readFileSync(runtimeUrlsPath, "utf8");
 
     expect(styleSource).toContain('const UPSTREAM_STYLE_URL = "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json";');
     expect(styleSource).not.toContain('tiles: ["/api/new-map/basemap-tile/{z}/{x}/{y}"]');
@@ -43,5 +45,7 @@ describe("new-map route config", () => {
     expect(tilejsonSource).not.toContain('tilejson.tiles = ["/api/new-map/basemap-tile/{z}/{x}/{y}"];');
     expect(tilejsonSource).toContain('const UPSTREAM_TILEJSON_URL = "https://tiles.basemaps.cartocdn.com/vector/carto.streets/v1/tiles.json";');
     expect(tilejsonSource).not.toContain('dynamic = "force-dynamic"');
+    expect(runtimeUrlsSource).toContain('NEW_MAP_MAPLIBRE_WORKER_URL = "/new-map/maplibre-gl-csp-worker.js?v=5.24.0"');
+    expect(runtimeUrlsSource).not.toContain('NEW_MAP_MAPLIBRE_WORKER_URL = "/api/new-map/maplibre-worker');
   });
 });

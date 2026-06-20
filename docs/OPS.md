@@ -142,6 +142,7 @@ launchctl load ~/Library/LaunchAgents/com.islegalcannabis.wiki-claims.plist
 - Official optimization references for this gate are Chrome Lighthouse total byte weight and web.dev long-task guidance: `https://developer.chrome.com/docs/lighthouse/performance/total-byte-weight` and `https://web.dev/articles/optimize-long-tasks`.
 - Treat `/api/new-map/countries` as compatibility only; the runtime URL should be `/static/countries/countries.<hash>.json`.
 - Treat public basemap transport differently from protected first-party routes: Carto `tiles`, `glyphs`, and `sprite` must stay on upstream Carto origins for prod. Do not rewrite them to same-origin Vercel proxy routes during a “stabilization” pass, because a Vercel challenge on those subrequests can leave GPS/UI apparently alive while country labels, roads, cities, and landscape disappear.
+- Treat the MapLibre CSP worker the same way: the runtime worker URL must stay on a public static asset path, not `/api/new-map/maplibre-worker`, because a challenged worker bootstrap can produce a late client-side exception after the map shell already looks alive.
 - Root `/new-map` cold start must not eagerly request `/api/new-map/card-index` or `/api/new-map/us-states`; the local e2e guard is `e2e/new-map.preload.spec.ts`.
 - Cleanup policy: `QA/`, `Reports/`, `Artifacts/`, `QUARANTINE/`, Playwright traces, and `~/islegalcannabis_archive/` are rebuildable operational artifacts and must not be deployed or committed.
 
