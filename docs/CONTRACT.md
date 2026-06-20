@@ -26,6 +26,7 @@ Standard app API responses built with `apps/web/src/lib/api/response.ts` include
 - The static countries asset must send `Cache-Control: public, max-age=31536000, immutable`.
 - The static countries route must negotiate `br`/`gzip` by `Accept-Encoding`, emit `Vary: Accept-Encoding`, and expose encoded/raw byte headers for measurement.
 - `/api/new-map/countries` remains a compatibility endpoint and must point to the same static asset, not rebuild a second payload truth.
+- `/api/new-map/basemap-style` may recolor or simplify the upstream Carto style, but public `tiles`, `glyphs`, and `sprite` transport must remain on the upstream Carto origins. Rewriting those public basemap assets to same-origin Vercel proxy routes is forbidden for prod because a challenged subrequest can blank labels, roads, and landscape while the app shell still renders.
 - Runtime payload slimming may remove map-unused properties and reduce coordinate precision, but must preserve `geo`, `displayName`, `result.status`, `result.color`, `baseColor`, `hoverColor`, geometry, popup selection, and visual palette.
 - Parent-covered territories that lack standalone Natural Earth polygons, such as `GF`, `GP`, `MQ`, `RE`, and `YT`, must remain first-class map jurisdictions. Their fallback point dots may be hidden when the parent polygon already covers the land, but the runtime must preserve `pointFallbackVisibility`, `pointFallbackLabel`, transparent click hitboxes, and card-index popup entries so clicks resolve to the territory (`GF`) rather than the parent country (`FR`).
 - Root `/new-map` cold start must not eagerly request optional country card index or US-state payloads. Card index may load for SEO/selected geo flows; US states may load after US-state selection or zoom threshold.
@@ -80,7 +81,7 @@ Standard app API responses built with `apps/web/src/lib/api/response.ts` include
 ## Location precedence contract
 - Manual, GPS, and IP location signals resolve in fixed order: `manual > gps > ip`.
 - Tests must keep this order stable in `apps/web/src/lib/location/locationContext.ts`.
-- `data-map-ready="1"` means the basemap is interactive: style, canvas, and enough same-origin basemap state are ready for pan/zoom/GPS recenter and hover wiring. It must not wait on the full countries payload if the basemap can already render and accept interaction.
+- `data-map-ready="1"` means the basemap is interactive: style, canvas, and enough public basemap state are ready for pan/zoom/GPS recenter and hover wiring. It must not wait on the full countries payload if the basemap can already render and accept interaction.
 - `NM_T7_FIRST_FILL_RENDERED` remains the canonical first-paint metric for `legal-fill` country data. It must stay coupled to the countries payload becoming paintable, not to early basemap readiness.
 - GPS button behavior must refresh the browser GPS position on every click. If a stale saved GPS point exists, the UI may recenter it immediately for feedback, but the click must still request fresh geolocation, update the `Where I am` marker, persist the fresh point, and recenter on the fresh point after permission succeeds.
 - Final prod GPS gate must seed stale saved GPS, then verify fresh marker/center/recenter/persistence, desktop hover, ZoomIn to city/village labels, ZoomOut to country rendering, screenshots, and no page errors.

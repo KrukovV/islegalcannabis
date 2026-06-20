@@ -26,20 +26,22 @@ describe("new-map route config", () => {
     expect(source).not.toContain('rel="dns-prefetch" href="https://tiles.basemaps.cartocdn.com"');
   });
 
-  it("keeps basemap metadata same-origin and host-specific", () => {
+  it("keeps public basemap transport on upstream Carto origins instead of same-origin proxy hops", () => {
     const stylePath = path.join(process.cwd(), "src", "app", "api", "new-map", "basemap-style", "route.ts");
     const sourcePath = path.join(process.cwd(), "src", "app", "api", "new-map", "basemap-source", "route.ts");
     const styleSource = fs.readFileSync(stylePath, "utf8");
     const tilejsonSource = fs.readFileSync(sourcePath, "utf8");
 
-    expect(styleSource).toContain('tiles: ["/api/new-map/basemap-tile/{z}/{x}/{y}"]');
-    expect(styleSource).toContain('delete (sources.carto as Record<string, unknown>).url;');
-    expect(styleSource).toContain('style.glyphs = `${origin}${SAME_ORIGIN_GLYPHS_PATH}`');
-    expect(styleSource).toContain('style.sprite = `${origin}${SAME_ORIGIN_SPRITE_PATH}`');
-    expect(styleSource).toContain('request.headers.get("host")');
+    expect(styleSource).toContain('const UPSTREAM_STYLE_URL = "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json";');
+    expect(styleSource).not.toContain('tiles: ["/api/new-map/basemap-tile/{z}/{x}/{y}"]');
+    expect(styleSource).not.toContain('delete (sources.carto as Record<string, unknown>).url;');
+    expect(styleSource).not.toContain("SAME_ORIGIN_GLYPHS_PATH");
+    expect(styleSource).not.toContain("SAME_ORIGIN_SPRITE_PATH");
+    expect(styleSource).not.toContain('request.headers.get("host")');
     expect(styleSource).toContain('dynamic = "force-dynamic"');
-    expect(styleSource).toContain('"Vary": "Host"');
-    expect(tilejsonSource).toContain('tilejson.tiles = ["/api/new-map/basemap-tile/{z}/{x}/{y}"];');
+    expect(styleSource).not.toContain('"Vary": "Host"');
+    expect(tilejsonSource).not.toContain('tilejson.tiles = ["/api/new-map/basemap-tile/{z}/{x}/{y}"];');
+    expect(tilejsonSource).toContain('const UPSTREAM_TILEJSON_URL = "https://tiles.basemaps.cartocdn.com/vector/carto.streets/v1/tiles.json";');
     expect(tilejsonSource).not.toContain('dynamic = "force-dynamic"');
   });
 });
