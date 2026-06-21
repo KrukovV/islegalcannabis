@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { resolveIp } from "@/lib/geo/resolveIp";
+import { acquireBrowserPosition } from "./browserPosition";
 
 export type GeoStatus =
   | { status: "unknown" }
@@ -92,137 +93,6 @@ function persistGeo(next: CurrentGeo) {
   } catch {
     // Ignore storage write failures.
   }
-}
-
-type BrowserPositionResult =
-  | { ok: true; position: GeolocationPosition }
-  | { ok: false; error: Partial<GeolocationPositionError> & { code: number; message?: string } };
-type BrowserPositionError = Extract<BrowserPositionResult, { ok: false }>["error"];
-
-function isTransientGeoErrorCode(code: number | undefined) {
-  return code === 2 || code === 3;
-}
-
-function normalizeGeoError(error: Partial<GeolocationPositionError> | null | undefined) {
-  return {
-    code: Number(error?.code || 2),
-    message: error?.message
-  };
-}
-
-function readBrowserPositionResult(options: PositionOptions): Promise<BrowserPositionResult> {
-  return new Promise((resolve) => {
-    navigator.geolocation.getCurrentPosition(
-      (position) => resolve({ ok: true, position }),
-      (error) => resolve({ ok: false, error }),
-      options
-    );
-  });
-}
-
-function watchBrowserPositionResult(
-  options: PositionOptions,
-  timeoutMs: number
-): Promise<BrowserPositionResult> {
-  return new Promise((resolve) => {
-    let settled = false;
-    let lastTransientError: BrowserPositionError | null = null;
-    const finish = (result: BrowserPositionResult) => {
-      if (settled) return;
-      settled = true;
-      navigator.geolocation.clearWatch(watchId);
-      window.clearTimeout(timeoutId);
-      resolve(result);
-    };
-    const watchId = navigator.geolocation.watchPosition(
-      (position) => {
-        finish({ ok: true, position });
-      },
-      (error) => {
-        const normalized = normalizeGeoError(error);
-        if (normalized.code === 1) {
-          finish({ ok: false, error: normalized });
-          return;
-        }
-        if (isTransientGeoErrorCode(normalized.code)) {
-          lastTransientError = normalized;
-          return;
-        }
-        finish({ ok: false, error: normalized });
-      },
-      options
-    );
-    const timeoutId = window.setTimeout(() => {
-      finish({
-        ok: false,
-        error: lastTransientError || {
-          code: 3,
-          message: "watch_timeout"
-        }
-      });
-    }, timeoutMs);
-  });
-}
-
-async function queryGeoPermissionState() {
-  if (typeof navigator === "undefined" || !navigator.permissions?.query) {
-    return "unsupported";
-  }
-  try {
-    const status = await navigator.permissions.query({
-      name: "geolocation" as PermissionName
-    });
-    return status.state;
-  } catch {
-    return "unsupported";
-  }
-}
-
-function shouldRetryWithWatch(
-  result: BrowserPositionResult,
-  permission: Awaited<ReturnType<typeof queryGeoPermissionState>>
-) {
-  if (result.ok) return false;
-  if (isTransientGeoErrorCode(result.error?.code)) return true;
-  return result.error?.code === 1 && permission === "granted";
-}
-
-async function acquireBrowserPosition() {
-  const firstAttempt = await readBrowserPositionResult({
-    enableHighAccuracy: false,
-    timeout: 15_000,
-    maximumAge: 60_000
-  });
-  if (firstAttempt.ok) {
-    return firstAttempt.position;
-  }
-
-  const secondAttempt = await readBrowserPositionResult({
-    enableHighAccuracy: true,
-    timeout: 25_000,
-    maximumAge: 0
-  });
-  if (secondAttempt.ok) {
-    return secondAttempt.position;
-  }
-
-  const permission = await queryGeoPermissionState();
-  if (shouldRetryWithWatch(firstAttempt, permission) || shouldRetryWithWatch(secondAttempt, permission)) {
-    const watchAttempt = await watchBrowserPositionResult(
-      {
-        enableHighAccuracy: true,
-        timeout: 30_000,
-        maximumAge: 0
-      },
-      30_000
-    );
-    if (watchAttempt.ok) {
-      return watchAttempt.position;
-    }
-    throw watchAttempt.error || secondAttempt.error || firstAttempt.error;
-  }
-
-  throw secondAttempt.error || firstAttempt.error;
 }
 
 function logGeoFailure(error: unknown) {
