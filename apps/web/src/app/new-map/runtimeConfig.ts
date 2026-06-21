@@ -8,7 +8,6 @@ export function getNewMapRuntimeIdentity() {
     buildStamp: getBuildStamp(),
     snapshot: getStatusSnapshotMeta(),
     runtimeMode: process.env.NODE_ENV === "production" ? "production" : "development",
-    expectedOrigin: process.env.RUNTIME_EXPECTED_ORIGIN || "http://127.0.0.1:3000",
     devMode: process.env.NODE_ENV !== "production",
     mapEnabled: true,
     premiumMode: checkPremium() ? "PAID" : "FREE",

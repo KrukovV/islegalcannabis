@@ -65,8 +65,8 @@ export default function CountrySeoPage({
   const seo = getSeoText(locale);
   const runtimeIdentity = getNewMapRuntimeIdentity();
   const visibleStamp = formatVisibleRuntimeStamp(runtimeIdentity);
+  preloadNewMapRouteAssets();
   const countriesUrl = getStaticCountriesAsset().url;
-  preloadNewMapRouteAssets(countriesUrl);
   const seoCountryIndex = buildSeoCountryIndex(data.code);
   const intentSections = buildCountryIntentSections(data, { query, locale });
   const heading = getCountrySeoTitle(data, locale);

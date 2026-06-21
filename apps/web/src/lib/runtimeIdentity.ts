@@ -43,7 +43,13 @@ type BuildRuntimeIdentityInput = {
 };
 
 export function buildRuntimeIdentity(input: BuildRuntimeIdentityInput): RuntimeIdentity {
-  const expectedOrigin = String(input.expectedOrigin || process.env.RUNTIME_EXPECTED_ORIGIN || "http://127.0.0.1:3000");
+  const fallbackExpectedOrigin =
+    input.runtimeMode === "production"
+      ? "https://www.islegal.info"
+      : "http://127.0.0.1:3000";
+  const expectedOrigin = String(
+    input.expectedOrigin || process.env.RUNTIME_EXPECTED_ORIGIN || fallbackExpectedOrigin
+  );
   const devServerPid = String(process.pid);
   return {
     buildId: input.buildStamp.buildId,

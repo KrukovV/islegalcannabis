@@ -17,13 +17,35 @@ describe("new-map route config", () => {
     expect(source).not.toContain("export const NEW_MAP_VISIBLE_STAMP");
   });
 
-  it("keeps early new-map JSON fetches without stale Carto preconnect hints", () => {
+  it("keeps early new-map preload hints without eager head JSON parsing or stale Carto preconnect hints", () => {
     const filePath = path.join(process.cwd(), "src", "app", "layout.tsx");
     const source = fs.readFileSync(filePath, "utf8");
-    expect(source).toContain('countries: loadJson("${NEW_MAP_COUNTRIES_URL}")');
-    expect(source).not.toContain('style: loadJson("${NEW_MAP_STYLE_URL}")');
+    expect(source).not.toContain('countries: loadJson("${NEW_MAP_COUNTRIES_URL}")');
+    expect(source).not.toContain("response.ok ? response.json() : null");
     expect(source).not.toContain('rel="preconnect" href="https://tiles.basemaps.cartocdn.com"');
     expect(source).not.toContain('rel="dns-prefetch" href="https://tiles.basemaps.cartocdn.com"');
+  });
+
+  it("keeps new-map route assets on single-consumer fetch paths without same-origin fetch-preload duplicates", () => {
+    const pagePath = path.join(process.cwd(), "src", "app", "new-map", "page.tsx");
+    const preloadPath = path.join(process.cwd(), "src", "new-map", "preloadRouteAssets.ts");
+    const pageSource = fs.readFileSync(pagePath, "utf8");
+    const preloadSource = fs.readFileSync(preloadPath, "utf8");
+
+    expect(pageSource).not.toContain("preloadNewMapRouteAssets(");
+    expect(preloadSource).not.toContain('crossOrigin: "use-credentials"');
+    expect(preloadSource).toContain('crossOrigin: "anonymous"');
+  });
+
+  it("keeps the prod new-map runtime origin canonical instead of falling back to localhost", () => {
+    const runtimeConfigPath = path.join(process.cwd(), "src", "app", "new-map", "runtimeConfig.ts");
+    const runtimeIdentityPath = path.join(process.cwd(), "src", "lib", "runtimeIdentity.ts");
+    const runtimeConfigSource = fs.readFileSync(runtimeConfigPath, "utf8");
+    const runtimeIdentitySource = fs.readFileSync(runtimeIdentityPath, "utf8");
+
+    expect(runtimeConfigSource).not.toContain('expectedOrigin: process.env.RUNTIME_EXPECTED_ORIGIN || "http://127.0.0.1:3000"');
+    expect(runtimeIdentitySource).toContain('? "https://www.islegal.info"');
+    expect(runtimeIdentitySource).toContain(': "http://127.0.0.1:3000"');
   });
 
   it("keeps public basemap transport on upstream Carto origins instead of same-origin proxy hops", () => {
