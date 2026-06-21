@@ -35,6 +35,7 @@ let workerUrlConfigured = false;
 type SelectedGeoCallback = (_geo: { iso2: string; country: string; lng: number; lat: number } | null) => void;
 type CreateMapOptions = {
   style?: StyleSpecification | string | null;
+  countriesData?: LegalCountryCollection | string;
   onSelectGeo?: (_geo: string | null) => void;
 };
 type SymbolLayerSpecification = Extract<NonNullable<StyleSpecification["layers"]>[number], { type: "symbol" }>;
