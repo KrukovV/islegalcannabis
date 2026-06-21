@@ -6,6 +6,10 @@ import NewMapDeferredRuntime from "./_components/NewMapDeferredRuntime";
 import "./globals.css";
 import ServiceWorkerGuard from "@/plugins/serviceWorkerGuard";
 import { NEW_MAP_WATER_COLOR } from "@/new-map/mapPalette";
+import { getStaticCountriesAsset } from "@/new-map/staticCountries";
+import { NEW_MAP_BASEMAP_STYLE_URL } from "@/new-map/runtimeUrls";
+
+const NEW_MAP_COUNTRIES_URL = getStaticCountriesAsset().url;
 const YANDEX_METRIKA_ID = 108419114;
 const MS_VALIDATE_CONTENT = "8160A885E417B2396DD1C0633F13C70F";
 const NEW_MAP_FIRST_VISUAL_EVENT = "new-map:first-visual-ready";
@@ -72,7 +76,21 @@ const NEW_MAP_PREFETCH_SCRIPT = `
   trace.metrics = trace.metrics || {};
   host.__NEW_MAP_TRACE__ = trace;
   trace.marks.NM_T0_ROUTE_START = trace.marks.NM_T0_ROUTE_START || performance.now();
-  trace.marks.NM_T1_HEAD_PREFETCH_READY = trace.marks.NM_T1_HEAD_PREFETCH_READY || performance.now();
+  if (host.__NEW_MAP_PREFETCH__) return;
+  const loadJson = (url) =>
+    fetch(url, { credentials: "same-origin" })
+      .then((response) => (response.ok ? response.json() : null))
+      .catch(() => null);
+  host.__NEW_MAP_PREFETCH__ = {
+    countries: loadJson("${NEW_MAP_COUNTRIES_URL}"),
+    style: loadJson("${NEW_MAP_BASEMAP_STYLE_URL}")
+  };
+  Promise.allSettled([
+    host.__NEW_MAP_PREFETCH__.countries,
+    host.__NEW_MAP_PREFETCH__.style
+  ]).then(() => {
+    trace.marks.NM_T1_HEAD_PREFETCH_READY = trace.marks.NM_T1_HEAD_PREFETCH_READY || performance.now();
+  });
 })();
 `;
 

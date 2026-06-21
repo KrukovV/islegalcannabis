@@ -43,13 +43,7 @@ type BuildRuntimeIdentityInput = {
 };
 
 export function buildRuntimeIdentity(input: BuildRuntimeIdentityInput): RuntimeIdentity {
-  const fallbackExpectedOrigin =
-    input.runtimeMode === "production"
-      ? "https://www.islegal.info"
-      : "http://127.0.0.1:3000";
-  const expectedOrigin = String(
-    input.expectedOrigin || process.env.RUNTIME_EXPECTED_ORIGIN || fallbackExpectedOrigin
-  );
+  const expectedOrigin = String(input.expectedOrigin || process.env.RUNTIME_EXPECTED_ORIGIN || "http://127.0.0.1:3000");
   const devServerPid = String(process.pid);
   return {
     buildId: input.buildStamp.buildId,
@@ -73,15 +67,35 @@ export function buildRuntimeIdentity(input: BuildRuntimeIdentityInput): RuntimeI
   };
 }
 
-export function formatVisibleRuntimeStamp(runtimeIdentity: RuntimeIdentity) {
+export function formatVisibleRuntimeStamp(runtimeIdentity?: RuntimeIdentity | null) {
+  const safe = runtimeIdentity ?? {
+    buildId: "UNCONFIRMED",
+    commit: "UNCONFIRMED",
+    builtAt: "UNCONFIRMED",
+    datasetHash: "UNCONFIRMED",
+    finalSnapshotId: "UNCONFIRMED",
+    snapshotBuiltAt: "UNCONFIRMED",
+    runtimeMode: "development" as const,
+    expectedOrigin: "http://127.0.0.1:3000",
+    devServerPid: "UNCONFIRMED",
+    sessionMarker: "unknown",
+    devMode: true,
+    mapEnabled: true,
+    premiumMode: "FREE",
+    nearbyMode: "SKIP",
+    mapTiles: "NETWORK" as const,
+    dataSource: "SSOT",
+    mapRenderer: "none" as const,
+    mapRuntime: "removed"
+  };
   return [
-    `BUILD_ID=${runtimeIdentity.buildId}`,
-    `COMMIT=${runtimeIdentity.commit}`,
-    `BUILT=${runtimeIdentity.builtAt}`,
-    `SNAPSHOT=${runtimeIdentity.finalSnapshotId}`,
-    `DATASET=${runtimeIdentity.datasetHash}`,
-    `MODE=${runtimeIdentity.runtimeMode.toUpperCase()}`,
-    `MAP=${runtimeIdentity.mapRenderer.toUpperCase()}`,
-    `RUNTIME=${runtimeIdentity.mapRuntime.toUpperCase()}`
+    `BUILD_ID=${safe.buildId}`,
+    `COMMIT=${safe.commit}`,
+    `BUILT=${safe.builtAt}`,
+    `SNAPSHOT=${safe.finalSnapshotId}`,
+    `DATASET=${safe.datasetHash}`,
+    `MODE=${safe.runtimeMode.toUpperCase()}`,
+    `MAP=${safe.mapRenderer.toUpperCase()}`,
+    `RUNTIME=${safe.mapRuntime.toUpperCase()}`
   ].join(" · ");
 }

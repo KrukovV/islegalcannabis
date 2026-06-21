@@ -40,7 +40,6 @@
     "validate:laws": "node tools/validate-laws.js",
     "validate:iso3166": "node tools/validate-iso3166.js",
     "coverage": "node tools/coverage-report.js",
-    "perf:pagespeed": "node tools/measure_pagespeed_api.mjs",
     "gen:country-names": "node tools/countries/generate-country-names.mjs",
     "smoke:mock": "node tools/smoke/run_smoke.mjs --mode=mock",
     "smoke:live": "node tools/smoke/run_smoke.mjs --mode=live",

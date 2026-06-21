@@ -5,7 +5,7 @@ export type LegalCountryFeatureProperties = {
   geo: string;
   displayName: string;
   status?: ResultStatus;
-  result?: {
+  result: {
     status: ResultStatus;
     color: string;
   };

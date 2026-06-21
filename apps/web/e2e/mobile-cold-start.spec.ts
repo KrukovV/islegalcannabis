@@ -3,7 +3,6 @@ import fs from "node:fs";
 import path from "node:path";
 
 const QA_DIR = path.resolve(process.cwd(), "..", "..", "QA", "mobile", "cold-start");
-const QA_ROUTE = "/new-map?qa=1";
 
 type NewMapTrace = {
   marks?: Record<string, number>;
@@ -11,18 +10,15 @@ type NewMapTrace = {
 };
 
 async function waitForFullMap(page: import("playwright/test").Page) {
-  await page.waitForSelector('[data-testid="new-map-root"]', { state: "attached", timeout: 5000 });
-  await page.waitForSelector('[data-testid="new-map-surface"]', { state: "attached", timeout: 5000 });
-  await page.waitForSelector('[data-testid="new-map-ai-dock"]', { state: "visible", timeout: 20000 });
+  await page.waitForSelector('[data-testid="new-map-ai-dock"]', { state: "visible" });
   await page.waitForFunction(() => {
-    const surface = document.querySelector('[data-testid="new-map-surface"]');
-    if (surface?.getAttribute("data-map-ready") !== "1") return false;
+    const trace = (window as unknown as { __NEW_MAP_TRACE__?: NewMapTrace }).__NEW_MAP_TRACE__;
     const map = (window as unknown as { __NEW_MAP_DEBUG__?: { map?: {
       queryRenderedFeatures: (_geometry?: unknown, _options?: { layers?: string[] }) => unknown[];
     } } }).__NEW_MAP_DEBUG__?.map;
-    if (!map) return false;
+    if (typeof trace?.marks?.NM_T7_FIRST_FILL_RENDERED !== "number" || !map) return false;
     return map.queryRenderedFeatures(undefined, { layers: ["legal-fill"] }).length > 100;
-  }, undefined, { timeout: 20000 });
+  }, { timeout: 20000 });
 }
 
 async function collectStartupState(page: import("playwright/test").Page) {
@@ -75,7 +71,7 @@ test("mobile cold start uses cached static countries payload and keeps map inter
   fs.mkdirSync(QA_DIR, { recursive: true });
   await page.setViewportSize({ width: 390, height: 844 });
 
-  await page.goto(QA_ROUTE, { waitUntil: "domcontentloaded" });
+  await page.goto("/new-map", { waitUntil: "domcontentloaded" });
   await waitForFullMap(page);
   const cold = await collectStartupState(page);
   await page.screenshot({ path: path.join(QA_DIR, "webkit-cold-full-map.png"), fullPage: false });

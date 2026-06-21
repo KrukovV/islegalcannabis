@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { resolveIp } from "@/lib/geo/resolveIp";
-import { acquireBrowserPosition } from "./browserPosition";
 
 export type GeoStatus =
   | { status: "unknown" }
@@ -92,6 +91,32 @@ function persistGeo(next: CurrentGeo) {
     window.localStorage.setItem(GEO_STORAGE_KEY, JSON.stringify(next));
   } catch {
     // Ignore storage write failures.
+  }
+}
+
+function readBrowserPosition(options: PositionOptions) {
+  return new Promise<GeolocationPosition>((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(resolve, reject, options);
+  });
+}
+
+async function acquireBrowserPosition() {
+  try {
+    return await readBrowserPosition({
+      enableHighAccuracy: false,
+      timeout: 15_000,
+      maximumAge: 60_000
+    });
+  } catch (firstError) {
+    try {
+      return await readBrowserPosition({
+        enableHighAccuracy: true,
+        timeout: 25_000,
+        maximumAge: 0
+      });
+    } catch (secondError) {
+      throw secondError || firstError;
+    }
   }
 }
 

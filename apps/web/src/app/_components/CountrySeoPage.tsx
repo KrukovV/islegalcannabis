@@ -7,7 +7,6 @@ import { formatVisibleRuntimeStamp } from "@/lib/runtimeIdentity";
 import { buildCountryIntentSections } from "@/lib/seo/countryIntentContent";
 import { getLocalizedCountryName, getSeoText, type SeoLocale } from "@/lib/seo/i18n";
 import { localizePanel } from "@/lib/seo/panelLocale";
-import { preloadNewMapRouteAssets } from "@/new-map/preloadRouteAssets";
 import { getStaticCountriesAsset } from "@/new-map/staticCountries";
 import styles from "@/app/c/[code]/page.module.css";
 
@@ -65,7 +64,6 @@ export default function CountrySeoPage({
   const seo = getSeoText(locale);
   const runtimeIdentity = getNewMapRuntimeIdentity();
   const visibleStamp = formatVisibleRuntimeStamp(runtimeIdentity);
-  preloadNewMapRouteAssets();
   const countriesUrl = getStaticCountriesAsset().url;
   const seoCountryIndex = buildSeoCountryIndex(data.code);
   const intentSections = buildCountryIntentSections(data, { query, locale });

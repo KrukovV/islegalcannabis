@@ -13,18 +13,7 @@ const REQUIRE_WEBKIT = String(process.env.UI_SMOKE_WEBKIT || "1") !== "0";
 async function auditBrowser(browserName, isMobile) {
   const browserType = browserName === "webkit" ? webkit : chromium;
   const slot = await acquireProjectProcessSlot(`playwright:${browserName}:ui-smoke:${isMobile ? "mobile" : "desktop"}`);
-  const browser = await browserType.launch(
-    browserName === "chromium"
-      ? {
-          headless: true,
-          args: [
-            "--use-angle=swiftshader",
-            "--use-gl=angle",
-            "--enable-unsafe-swiftshader"
-          ]
-        }
-      : { headless: true }
-  );
+  const browser = await browserType.launch({ headless: true });
   const context = await browser.newContext(
     isMobile
       ? {
@@ -37,13 +26,8 @@ async function auditBrowser(browserName, isMobile) {
   const page = await context.newPage();
   try {
     await page.goto(`${BASE_URL}/`, { waitUntil: "domcontentloaded" });
-    await page.waitForSelector("[data-testid='new-map-root']", { state: "attached", timeout: 20000 });
-    await page.waitForSelector("[data-testid='new-map-surface']", { state: "attached", timeout: 20000 });
-    await page.waitForFunction(() => {
-      return document.querySelector("[data-testid='new-map-surface']")?.getAttribute("data-map-ready") === "1";
-    }, undefined, { timeout: 30000 });
-    await page.waitForSelector("[data-testid='runtime-stamp']", { state: "attached", timeout: 20000 });
-    await page.waitForSelector("[data-testid='new-map-ai-dock']", { state: "visible", timeout: 20000 });
+    await page.waitForSelector("[data-testid='map-placeholder']", { timeout: 20000 });
+    await page.waitForSelector("[data-testid='runtime-stamp']", { timeout: 20000 });
     await page.waitForFunction(async () => {
       const badge = document.querySelector("[data-testid='runtime-parity-badge']");
       if (!badge) return false;
@@ -53,10 +37,9 @@ async function auditBrowser(browserName, isMobile) {
     return await page.evaluate(() => {
       const root = document.documentElement;
       const body = document.body;
-      const surface = document.querySelector("[data-testid='new-map-surface']");
+      const placeholder = document.querySelector("[data-testid='map-placeholder']");
       const badge = document.querySelector("[data-testid='runtime-parity-badge']");
       const runtimeStamp = document.querySelector("[data-testid='runtime-stamp']");
-      const dock = document.querySelector("[data-testid='new-map-ai-dock']");
       const legacyRuntimeNodes = Array.from(document.querySelectorAll("[data-map-runtime], [data-testid]")).filter((node) => {
         const runtime = node.getAttribute("data-map-runtime") || "";
         const testId = node.getAttribute("data-testid") || "";
@@ -77,15 +60,12 @@ async function auditBrowser(browserName, isMobile) {
           }
         : null;
       return {
-        surfacePresent: Boolean(surface),
-        surfaceReady: surface?.getAttribute("data-map-ready") === "1",
-        placeholderPresent: Boolean(document.querySelector("[data-testid='map-placeholder']")),
+        placeholderPresent: Boolean(placeholder),
         placeholderLinkPresent: Boolean(document.querySelector("[data-testid='map-placeholder-link']")),
-        dockPresent: Boolean(dock),
         runtimeBadgeActual: badge?.getAttribute("data-runtime-actual") || null,
         runtimeStampPresent: Boolean(document.querySelector("[data-testid='runtime-stamp']")),
         visibleRuntime,
-        mapFrameCount: document.querySelectorAll("[data-testid='new-map-surface']").length,
+        mapFrameCount: document.querySelectorAll("[data-testid='map-frame']").length,
         canvasCount: document.querySelectorAll("canvas").length,
         legacyRuntimeNodeCount: legacyRuntimeNodes.length,
         fullScreenHomeOk:
@@ -159,7 +139,7 @@ for (const [browserName, isMobile] of checks) {
   }
 }
 
-const okCount = results.filter((entry) => entry.surfacePresent && entry.surfaceReady && entry.dockPresent && entry.parityMatches).length;
+const okCount = results.filter((entry) => entry.placeholderPresent && entry.parityMatches).length;
 const failCount = results.length - okCount;
 const lines = [
   `RUN_ID=${RUN_ID}`,
@@ -171,9 +151,8 @@ const lines = [
   `FULL_SCREEN_HOME_MOBILE_OK=${results.filter((entry) => entry.isMobile).every((entry) => entry.fullScreenHomeOk) ? 1 : 0}`,
   `HOME_SINGLE_SCREEN_OK=${results.every((entry) => entry.singleScreenOk) ? 1 : 0}`,
   `HOME_DOCUMENT_SCROLL_OK=${results.every((entry) => entry.documentScrollOk) ? 1 : 0}`,
-  `MAP_RUNTIME_REMOVED=${results.every((entry) => !entry.surfacePresent && entry.placeholderPresent) ? 1 : 0}`,
+  `MAP_RUNTIME_REMOVED=${results.every((entry) => entry.placeholderPresent && entry.mapFrameCount === 0 && entry.legacyRuntimeNodeCount === 1) ? 1 : 0}`,
   `MAP_PLACEHOLDER_ACTIVE=${results.every((entry) => entry.placeholderPresent && entry.placeholderLinkPresent) ? 1 : 0}`,
-  `NEW_MAP_SURFACE_OK=${results.every((entry) => entry.surfacePresent && entry.surfaceReady && entry.dockPresent) ? 1 : 0}`,
   `RUNTIME_PARITY_OK=${results.every((entry) => entry.parityMatches) ? 1 : 0}`
 ];
 
@@ -182,11 +161,10 @@ for (const entry of results) {
   lines.push(`FULL_SCREEN_HOME_${key}_OK=${entry.fullScreenHomeOk ? 1 : 0}`);
   lines.push(`HOME_DOCUMENT_SCROLL_${key}_OK=${entry.documentScrollOk ? 1 : 0}`);
   lines.push(`PLACEHOLDER_${key}_OK=${entry.placeholderPresent ? 1 : 0}`);
-  lines.push(`NEW_MAP_SURFACE_${key}_OK=${entry.surfacePresent && entry.surfaceReady && entry.dockPresent ? 1 : 0}`);
 }
 
 const webkitEntries = results.filter((entry) => entry.browserName === "webkit");
-lines.push(`UI_SMOKE_WEBKIT_OK=${webkitEntries.length === 0 || webkitEntries.every((entry) => entry.surfacePresent && entry.surfaceReady && entry.dockPresent && entry.parityMatches) ? 1 : 0}`);
+lines.push(`UI_SMOKE_WEBKIT_OK=${webkitEntries.length === 0 || webkitEntries.every((entry) => entry.placeholderPresent && entry.parityMatches) ? 1 : 0}`);
 lines.push(
   `UI_SMOKE_DETAILS=${JSON.stringify(
     results.map(({ browserName, isMobile, error, ...rest }) => ({ browserName, isMobile, error: error || null, ...rest }))

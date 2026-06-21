@@ -2,19 +2,23 @@
 
 import dynamic from "next/dynamic";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import type { Map as MapLibreMap, Marker as MapLibreMarker } from "maplibre-gl";
+import maplibregl, { type StyleSpecification } from "maplibre-gl";
 import type { RuntimeIdentity } from "@/lib/runtimeIdentity";
 import type { CountryPageData } from "@/lib/countryPageStorage";
+import { deriveCountryCardEntryFromCountryPageData } from "@/lib/countryCardEntry";
 import type { SeoLocale } from "@/lib/seo/i18n";
+import { createMap } from "./createMap";
 import type { CountryCardEntry, LegalCountryCollection, NewMapBootResult } from "./map.types";
 import styles from "./MapRoot.module.css";
 import { NEW_MAP_WATER_COLOR } from "./mapPalette";
+import { NEW_MAP_BASEMAP_STYLE_URL } from "./runtimeUrls";
 import { hasFirstVisualReady, onFirstVisualReady, resetFirstVisualReady, setNewMapMetric } from "./startupTrace";
 import {
   readVisualViewportKeyboardOffset,
   readVisualViewportSnapshot,
   subscribeToVisualViewportChanges
 } from "./viewportMetrics";
+import AsciiOverlay from "./ascii/AsciiOverlay";
 
 type Props = {
   countriesUrl: string;
@@ -27,7 +31,6 @@ type Props = {
 };
 
 const EMPTY_SEO_COUNTRY_INDEX: Record<string, CountryPageData> = {};
-const ASCII_OVERLAY_MOUNT_DELAY_MS = 1200;
 
 function parseSeoCodeFromPath(pathname: string): string | null {
   const match = pathname.match(/^\/(?:[a-z]{2}\/)?c\/([^/?#]+)$/i);
@@ -84,86 +87,41 @@ type ActiveGeo = {
 } | null;
 
 type NewMapPrefetchCache = {
+  countries?: Promise<LegalCountryCollection | null> | null;
+  style?: Promise<StyleSpecification | null> | null;
   cardIndex?: Promise<Record<string, CountryCardEntry> | null> | null;
-  countries?: Record<string, Promise<LegalCountryCollection> | undefined>;
 };
-const EMPTY_COUNTRIES: LegalCountryCollection = {
-  type: "FeatureCollection",
-  features: []
-};
-const RuntimeParityBadge =
-  process.env.NODE_ENV === "production"
-    ? null
-    : dynamic(() => import("@/app/_components/RuntimeParityBadge"), { ssr: false });
+
+const RuntimeParityBadge = dynamic(() => import("@/app/_components/RuntimeParityBadge"), { ssr: false });
 const MapGeoDock = dynamic(() => import("./MapGeoDock"), { ssr: false });
 const UnifiedSeoStatusPanel = dynamic(() => import("./components/UnifiedSeoStatusPanel"), { ssr: false });
 const ViewportCountryPopup = dynamic(() => import("./components/ViewportCountryPopup"), { ssr: false });
-const AsciiOverlay = dynamic(() => import("./ascii/AsciiOverlay"), { ssr: false });
-
-type CreateMapRuntime = typeof import("./createMap")["createMap"];
-type MapLibreRuntime = typeof import("maplibre-gl");
-type MapRuntimeModules = {
-  createMap: CreateMapRuntime;
-  maplibregl: MapLibreRuntime;
-};
-
-let mapRuntimeModulesPromise: Promise<MapRuntimeModules> | null = null;
-
-function loadMapRuntimeModules() {
-  if (!mapRuntimeModulesPromise) {
-    mapRuntimeModulesPromise = Promise.all([import("./createMap"), import("maplibre-gl")]).then(
-      ([createMapModule, maplibreModule]) => ({
-        createMap: createMapModule.createMap,
-        maplibregl: ("default" in maplibreModule && maplibreModule.default ? maplibreModule.default : maplibreModule) as MapLibreRuntime
-      })
-    );
-  }
-  return mapRuntimeModulesPromise;
-}
-
-if (typeof window !== "undefined") {
-  void loadMapRuntimeModules();
-}
 
 function getNewMapPrefetchCache(): NewMapPrefetchCache | null {
   if (typeof window === "undefined") return null;
   const host = window as typeof window & {
     __NEW_MAP_PREFETCH__?: NewMapPrefetchCache;
   };
-  host.__NEW_MAP_PREFETCH__ = host.__NEW_MAP_PREFETCH__ || {};
-  return host.__NEW_MAP_PREFETCH__;
+  return host.__NEW_MAP_PREFETCH__ || null;
 }
 
-function requestCountriesData(countriesUrl: string) {
-  return fetch(countriesUrl, {
-    cache: "force-cache",
-    credentials: "same-origin",
-    mode: "cors"
-  }).then((response) => {
-    if (!response.ok) {
-      throw new Error(`countries_prefetch_failed:${response.status}`);
-    }
-    return response.json() as Promise<LegalCountryCollection>;
-  });
-}
-
-function prefetchCountriesData(countriesUrl: string) {
-  const prefetch = getNewMapPrefetchCache();
-  if (!prefetch) {
-    return requestCountriesData(countriesUrl);
-  }
-  prefetch.countries = prefetch.countries || {};
-  const cached = prefetch.countries[countriesUrl];
-  if (cached) return cached;
-  const request = requestCountriesData(countriesUrl)
-    .catch((error) => {
-      if (prefetch.countries?.[countriesUrl] === request) {
-        delete prefetch.countries[countriesUrl];
+async function fetchJsonWithRetry<T>(url: string, init: RequestInit, errorPrefix: string): Promise<T> {
+  let lastError: unknown = null;
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    try {
+      const response = await fetch(url, init);
+      if (!response.ok) {
+        throw new Error(`${errorPrefix}:${response.status}`);
       }
-      throw error;
-    });
-  prefetch.countries[countriesUrl] = request;
-  return request;
+      return (await response.json()) as T;
+    } catch (error) {
+      lastError = error;
+      if (attempt === 0) {
+        await new Promise((resolve) => window.setTimeout(resolve, 350));
+      }
+    }
+  }
+  throw lastError instanceof Error ? lastError : new Error(errorPrefix);
 }
 
 function markCountriesCacheState(countriesUrl: string) {
@@ -214,7 +172,7 @@ function isNewMapQaEnabled() {
   return new URLSearchParams(window.location.search).get("qa") === "1";
 }
 
-function installNewMapQaHook(map: MapLibreMap) {
+function installNewMapQaHook(map: maplibregl.Map) {
   if (!isNewMapQaEnabled()) return () => {};
   const host = window as typeof window & {
     __NEW_MAP_QA__?: NewMapQaController;
@@ -254,7 +212,7 @@ function installNewMapQaHook(map: MapLibreMap) {
 }
 
 function safeSetFeatureState(
-  map: MapLibreMap | null,
+  map: maplibregl.Map | null,
   target: { source: "legal-countries" | "us-states"; id: string },
   state: { selected: boolean }
 ) {
@@ -279,14 +237,13 @@ export default function MapRoot({
   locale = "en"
 }: Props) {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const mapRef = useRef<MapLibreMap | null>(null);
+  const mapRef = useRef<maplibregl.Map | null>(null);
   const runtimeRef = useRef<NewMapBootResult | null>(null);
-  const locationMarkerRef = useRef<MapLibreMarker | null>(null);
-  const infoMarkerRef = useRef<MapLibreMarker | null>(null);
+  const locationMarkerRef = useRef<maplibregl.Marker | null>(null);
+  const infoMarkerRef = useRef<maplibregl.Marker | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [mapReady, setMapReady] = useState(false);
   const [visualReady, setVisualReady] = useState(false);
-  const [asciiOverlayMounted, setAsciiOverlayMounted] = useState(false);
   const [keyboardOffset, setKeyboardOffset] = useState(0);
   const [visibleViewportHeight, setVisibleViewportHeight] = useState<number | null>(null);
   const [dockHeight, setDockHeight] = useState(72);
@@ -296,13 +253,12 @@ export default function MapRoot({
   const [hoveredGeo, setHoveredGeo] = useState<SelectedGeo>(null);
   const [seoPanelOpen, setSeoPanelOpen] = useState(Boolean(initialGeoCode));
   const [cardIndex, setCardIndex] = useState<Record<string, CountryCardEntry>>({});
-  const [popupSeoFallbackEntry, setPopupSeoFallbackEntry] = useState<CountryCardEntry | null>(null);
   const [popupAnchor, setPopupAnchor] = useState<{ x: number; y: number } | null>(null);
   const [activeRouteSeoData, setActiveRouteSeoData] = useState<CountryPageData | null>(seoCountryData);
   const cardIndexRequestedRef = useRef(false);
   const selectedFeatureStateRef = useRef<{ source: "legal-countries" | "us-states"; id: string } | null>(null);
   const seoDataByCodeRef = useRef<Record<string, CountryPageData>>({});
-  const showDebugOverlay = process.env.NODE_ENV !== "production" && runtimeIdentity.runtimeMode !== "production";
+  const showDebugOverlay = runtimeIdentity.runtimeMode !== "production";
   const lastAppliedRouteGeoRef = useRef<string | null>(null);
   const seoCountryCode = activeRouteSeoData?.code || null;
   const seoRouteGeoCode = String(activeRouteSeoData?.geo_code || "").trim().toUpperCase() || null;
@@ -392,36 +348,15 @@ export default function MapRoot({
     !(showSeoOverlay && selectedGeo === String(activeSeoData?.geo_code || "").trim().toUpperCase())
       ? selectedGeo
       : null;
-  useEffect(() => {
-    const normalizedPopupGeo = String(popupGeoCode || "").trim().toUpperCase();
-    const normalizedActiveGeo = String(activeSeoData?.geo_code || "").trim().toUpperCase();
-    let cancelled = false;
-    if (!normalizedPopupGeo || !activeSeoData || normalizedPopupGeo !== normalizedActiveGeo || cardIndex[normalizedPopupGeo]) {
-      queueMicrotask(() => {
-        if (!cancelled) setPopupSeoFallbackEntry(null);
-      });
-      return () => {
-        cancelled = true;
-      };
-    }
-    // Keep the popup parity path, but load the heavy country-card builder only when the route geo is actually opened.
-    void import("@/lib/countryCardEntry").then(({ deriveCountryCardEntryFromCountryPageData }) => {
-      if (cancelled) return;
-      setPopupSeoFallbackEntry(deriveCountryCardEntryFromCountryPageData(activeSeoData));
-    });
-    return () => {
-      cancelled = true;
-    };
-  }, [activeSeoData, cardIndex, popupGeoCode]);
   const selectedGeoEntry = useMemo(() => {
     if (!popupGeoCode) return null;
     const indexed = cardIndex[popupGeoCode];
     if (indexed) return indexed;
-    if (popupSeoFallbackEntry?.geo === popupGeoCode) {
-      return popupSeoFallbackEntry;
+    if (activeSeoData && popupGeoCode === activeSeoData.geo_code) {
+      return deriveCountryCardEntryFromCountryPageData(activeSeoData);
     }
     return null;
-  }, [cardIndex, popupGeoCode, popupSeoFallbackEntry]);
+  }, [activeSeoData, cardIndex, popupGeoCode]);
   const seoMarkerEntry = useMemo(() => {
     if (!activeSeoData) return null;
     const cardEntry = cardIndex[activeSeoData.geo_code];
@@ -570,41 +505,35 @@ export default function MapRoot({
   const applyGeoToMap = useCallback((geo: ActiveGeo, options?: { recenter?: boolean }) => {
     const map = mapRef.current;
     if (!map) return;
-    const lng = geo?.lng;
-    const lat = geo?.lat;
-    if (typeof lng !== "number" || typeof lat !== "number") {
+    if (typeof geo?.lng !== "number" || typeof geo?.lat !== "number") {
       locationMarkerRef.current?.remove();
       locationMarkerRef.current = null;
       return;
     }
 
-    void loadMapRuntimeModules().then(({ maplibregl }) => {
-      const activeMap = mapRef.current;
-      if (!activeMap || typeof lng !== "number" || typeof lat !== "number") return;
-      const markerElement = locationMarkerRef.current?.getElement() || document.createElement("div");
-      markerElement.className = styles.locationMarker;
-      markerElement.setAttribute("role", "img");
-      markerElement.setAttribute("aria-label", "Where I am");
-      markerElement.setAttribute("title", "Where I am");
-      markerElement.setAttribute("data-user-marker", "1");
-      markerElement.setAttribute("data-user-marker-label", "Where I am");
-      markerElement.setAttribute("data-user-marker-position", `${lng},${lat}`);
+    const markerElement = locationMarkerRef.current?.getElement() || document.createElement("div");
+    markerElement.className = styles.locationMarker;
+    markerElement.setAttribute("role", "img");
+    markerElement.setAttribute("aria-label", "Where I am");
+    markerElement.setAttribute("title", "Where I am");
+    markerElement.setAttribute("data-user-marker", "1");
+    markerElement.setAttribute("data-user-marker-label", "Where I am");
+    markerElement.setAttribute("data-user-marker-position", `${geo.lng},${geo.lat}`);
 
-      if (!locationMarkerRef.current) {
-        locationMarkerRef.current = new maplibregl.Marker({
-          element: markerElement,
-          anchor: "bottom"
-        })
-          .setLngLat([lng, lat])
-          .addTo(activeMap);
-      } else {
-        locationMarkerRef.current.setLngLat([lng, lat]);
-      }
-    });
+    if (!locationMarkerRef.current) {
+      locationMarkerRef.current = new maplibregl.Marker({
+        element: markerElement,
+        anchor: "bottom"
+      })
+        .setLngLat([geo.lng, geo.lat])
+        .addTo(map);
+    } else {
+      locationMarkerRef.current.setLngLat([geo.lng, geo.lat]);
+    }
 
     if (options?.recenter) {
       map.jumpTo({
-        center: [lng, lat],
+        center: [geo.lng, geo.lat],
         zoom: Math.max(map.getZoom(), 3.2)
       });
     }
@@ -637,23 +566,19 @@ export default function MapRoot({
       event.stopPropagation();
       handleSeoMarkerToggle();
     };
-    let disposed = false;
-    void loadMapRuntimeModules().then(({ maplibregl }) => {
-      if (disposed || !mapRef.current || !markerEntry.coordinates) return;
-      if (!infoMarkerRef.current) {
-        infoMarkerRef.current = new maplibregl.Marker({
-          element: button,
-          anchor: "bottom"
-        })
-          .setLngLat([markerEntry.coordinates.lng, markerEntry.coordinates.lat])
-          .addTo(mapRef.current);
-      } else {
-        infoMarkerRef.current.setLngLat([markerEntry.coordinates.lng, markerEntry.coordinates.lat]);
-      }
-    });
+
+    if (!infoMarkerRef.current) {
+      infoMarkerRef.current = new maplibregl.Marker({
+        element: button,
+        anchor: "bottom"
+      })
+        .setLngLat([markerEntry.coordinates.lng, markerEntry.coordinates.lat])
+        .addTo(map);
+    } else {
+      infoMarkerRef.current.setLngLat([markerEntry.coordinates.lng, markerEntry.coordinates.lat]);
+    }
 
     return () => {
-      disposed = true;
       if (!mapRef.current) return;
       button.onclick = null;
     };
@@ -808,18 +733,6 @@ export default function MapRoot({
   }, [countriesUrl]);
 
   useEffect(() => {
-    if (!mapReady) return;
-    let cancelled = false;
-    const timerId = window.setTimeout(() => {
-      if (!cancelled) setAsciiOverlayMounted(true);
-    }, ASCII_OVERLAY_MOUNT_DELAY_MS);
-    return () => {
-      cancelled = true;
-      window.clearTimeout(timerId);
-    };
-  }, [mapReady]);
-
-  useEffect(() => {
     if (!seoCountryData) return;
     let cancelled = false;
     queueMicrotask(() => {
@@ -876,27 +789,48 @@ export default function MapRoot({
     async function mount() {
       if (!containerRef.current) return;
       try {
-        const countriesDataPromise = prefetchCountriesData(countriesUrl).catch(() => requestCountriesData(countriesUrl));
-        const { createMap } = await loadMapRuntimeModules();
-        if (cancelled || !containerRef.current) return;
+        const prefetched = getNewMapPrefetchCache();
+        const loadCountries = () =>
+          fetchJsonWithRetry<LegalCountryCollection>(countriesUrl, {
+            credentials: "same-origin"
+          }, "countries_fetch_failed");
+        const loadStyle = () =>
+          fetchJsonWithRetry<StyleSpecification>(NEW_MAP_BASEMAP_STYLE_URL, {
+            credentials: "same-origin"
+          }, "basemap_style_fetch_failed");
+        const countriesPromise = prefetched?.countries
+          ? prefetched.countries.then((value) => value || loadCountries())
+          : loadCountries();
+        const style = await (prefetched?.style
+          ? prefetched.style.then((value) => value || loadStyle())
+          : loadStyle()).catch(() => null);
         const runtime = createMap(containerRef.current, {
-          countriesData: EMPTY_COUNTRIES,
+          style,
           onSelectGeo: (geo) => {
             setSelectedGeo(geo);
             setDebugState({ selectedId: geo });
           }
         });
-        void countriesDataPromise
-          .then((countriesData) => {
-            if (cancelled) return;
-            runtime.setData(countriesData);
-          })
-          .catch(() => {
-            if (cancelled) return;
-            setError("countries_fetch_failed");
-          });
         mapRef.current = runtime.map;
         runtimeRef.current = runtime;
+        const countriesDataPromise = countriesPromise.then((countries) => {
+          if (cancelled) return;
+          markCountriesCacheState(countriesUrl);
+          for (const feature of countries.features) {
+            const status = feature.properties?.result?.status;
+            if (!status) {
+              throw new Error(`MAP_WITHOUT_STATUS: ${String(feature.properties?.geo || "UNKNOWN")}`);
+            }
+          }
+          console.warn(
+            `MAP_RENDER_STATUS sample=${countries.features
+              .slice(0, 5)
+              .map((feature) => `${feature.properties.geo}:${feature.properties.result.status}:${feature.properties.baseColor}:${feature.properties.hoverColor}`)
+              .join(",")}`
+          );
+          runtime.setData(countries);
+          return countries;
+        });
         await runtime.basemapReady;
         if (cancelled) {
           runtime.destroy();
@@ -918,8 +852,8 @@ export default function MapRoot({
         });
         const unbindAsciiTriggers = bindAsciiMapTriggers(runtime.map);
         const uninstallQaHook = installNewMapQaHook(runtime.map);
-        markCountriesCacheState(countriesUrl);
-        setDebugState({ mounted: true, countriesUrl, map: runtime.map, selectedId: null });
+        setDebugState({ mounted: true, countriesUrl, map: isNewMapQaEnabled() ? runtime.map : null, selectedId: null });
+        await countriesDataPromise;
         if (cancelled) {
           uninstallQaHook();
           unbindAsciiTriggers();
@@ -996,7 +930,7 @@ export default function MapRoot({
           <div className={styles.card}>
             <div className={styles.cardHeader}>
               <strong>Runtime</strong>
-              {RuntimeParityBadge ? <RuntimeParityBadge runtimeIdentity={runtimeIdentity} /> : null}
+              <RuntimeParityBadge runtimeIdentity={runtimeIdentity} />
             </div>
             <div className={styles.runtime} data-testid="visible-runtime-stamp">{visibleStamp}</div>
             <div className={styles.meta}>ROUTE=/new-map · OWNER=feature-state · WORLDCOPIES=ON</div>
@@ -1021,7 +955,7 @@ export default function MapRoot({
         data-testid="new-map-surface"
         data-map-ready={mapReady ? "1" : "0"}
       />
-      {asciiOverlayMounted ? <AsciiOverlay /> : null}
+      <AsciiOverlay />
       <MapGeoDock
         mapReady={mapReady}
         cardIndex={cardIndex}

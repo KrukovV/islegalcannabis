@@ -141,8 +141,6 @@ launchctl load ~/Library/LaunchAgents/com.islegalcannabis.wiki-claims.plist
 - Interpret `data-map-ready="1"` as early basemap interactivity, not as full countries-payload completion. The canonical full country-paint timing remains `NM_T7_FIRST_FILL_RENDERED`.
 - Official optimization references for this gate are Chrome Lighthouse total byte weight and web.dev long-task guidance: `https://developer.chrome.com/docs/lighthouse/performance/total-byte-weight` and `https://web.dev/articles/optimize-long-tasks`.
 - Treat `/api/new-map/countries` as compatibility only; the runtime URL should be `/static/countries/countries.<hash>.json`.
-- Treat public basemap transport differently from protected first-party routes: Carto `tiles`, `glyphs`, and `sprite` must stay on upstream Carto origins for prod. Do not rewrite them to same-origin Vercel proxy routes during a “stabilization” pass, because a Vercel challenge on those subrequests can leave GPS/UI apparently alive while country labels, roads, cities, and landscape disappear.
-- Treat the MapLibre CSP worker the same way: the runtime worker URL must stay on a public static asset path, not `/api/new-map/maplibre-worker`, because a challenged worker bootstrap can produce a late client-side exception after the map shell already looks alive.
 - Root `/new-map` cold start must not eagerly request `/api/new-map/card-index` or `/api/new-map/us-states`; the local e2e guard is `e2e/new-map.preload.spec.ts`.
 - Cleanup policy: `QA/`, `Reports/`, `Artifacts/`, `QUARANTINE/`, Playwright traces, and `~/islegalcannabis_archive/` are rebuildable operational artifacts and must not be deployed or committed.
 
@@ -187,7 +185,6 @@ await page.goto("https://www.islegal.info/new-map", { waitUntil: "domcontentload
 - Do not follow redirects on the seed request. Vercel documents the bypass-cookie as a redirect `Set-Cookie`; the audit should capture that first response and record whether the cookie landed in the same browser context.
 - Do not put either `x-vercel-protection-bypass` or `x-vercel-set-bypass-cookie` in the URL for Playwright runs. Query params can leak into traces/screenshots and have produced Vercel Security Checkpoint failures for this project.
 - Use the Method 2 first-party cookie seed for production audit runs because it avoids attaching the bypass header to page, map, font, tile, or analytics requests; cookie absence alone does not invalidate a repeatable screenshot run.
-- Method 2 is for protected first-party routes only. Do not try to “fix” public basemap load by scoping bypass headers onto third-party Carto tiles/fonts/sprites; the correct fix is to keep those assets on their upstream public origins instead of tunneling them through Vercel.
 - If a specific first-party subrequest still returns the Vercel checkpoint after the cookie has been seeded, scope the bypass header to that exact first-party route. Do not attach it to third-party map/font/tile/Yandex resources.
 - After base 3/3 succeeds, continue country click, popup, and AI screenshots in the third successful context. Do not create a fourth context solely for full-UI capture.
 
@@ -292,7 +289,6 @@ node tools/measure_new_map_startup.mjs
 - Webvisor is production-required. Do not turn it off as a performance workaround.
 - Local proof must show zero Yandex/Metrika/Webvisor network resources before `NM_T7_FIRST_FILL_RENDERED` and through a short passive window, then successful counter loading after user interaction or the late idle fallback.
 - Text inputs that can contain user text must carry `ym-disable-keys` unless product/privacy explicitly allows `ym-record-keys`.
-- Google PageSpeed API runs are supported through `GOOGLE_PAGESPEED_API_KEY` and `node tools/measure_pagespeed_api.mjs`; keep the key only in local shell or ignored `.env*` files such as `.env.prod.local`, never in tracked repo files.
 - If PageSpeed reports `mc.yandex.com/solid.ws` errors, verify Yandex network reachability, counter settings, and any CSP allowlist before changing product runtime.
 - If a CSP is added, keep Yandex Metrika/Webvisor domains allowed for scripts, images, frames, and websocket/connect traffic according to the official Yandex Metrika CSP guidance.
 - Segment Webvisor review by device, geo, source, and goals. It is not a replacement for aggregate Metrika reports.

@@ -11,10 +11,11 @@ const eslintConfig = defineConfig([
     ".next/**",
     "out/**",
     "build/**",
+    ".worktrees/**",
+    "playwright/**",
     "next-env.d.ts",
     "e2e/**",
     "playwright.config.ts",
-    "public/new-map/maplibre-gl-csp-worker.js",
     "public/vendor/**",
     "vendor/**"
   ]),

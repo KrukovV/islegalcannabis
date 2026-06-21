@@ -21,8 +21,6 @@
     "test": "vitest run",
     "status:engine:audit": "npm exec -- tsx scripts/status-engine-audit-v3.ts",
     "ui:e2e": "npx -y playwright test e2e/favicon.spec.ts e2e/map-render.spec.ts e2e/new-map.geo-perf.spec.ts e2e/new-map.geo.spec.ts e2e/new-map.popup.spec.ts e2e/new-map.preload.spec.ts e2e/mobile-cold-start.spec.ts e2e/us-state-route.spec.ts",
-    "mobile:qa": "npx -y playwright test -c playwright.mobile.config.ts",
-    "mobile:qa:prod": "PW_BASE_URL=https://www.islegal.info npx -y playwright test -c playwright.mobile.config.ts --project=iphone-12-mini-webkit --project=iphone-15-pro-max-webkit --project=pixel-8-chrome --project=galaxy-fold-closed-chrome --project=ipad-pro-chrome",
     "pw:ui": "npx -y playwright test --ui",
     "pw:headed": "npx -y playwright test --headed",
     "pw:state": "npx -y playwright test e2e/us-state-route.spec.ts --headed --project=webkit",

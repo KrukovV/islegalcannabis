@@ -10,6 +10,8 @@ module.exports = [
       "Reports/**",
       "QUARANTINE/**",
       "Artifacts/**",
+      "**/.worktrees/**",
+      "playwright/**",
       "vendor/**",
       "apps/web/public/**",
       "eslint.config.js",
