@@ -8,6 +8,7 @@
 - Actions: "Use my location (GPS)" / "Choose manually".
 - Output: method + confidence (если detected).
 - Если mode="query": показывать "Source: Query parameters" без Detected/Confidence.
+- Если GPS недоступен и используется IP fallback, UI должен показывать `Location may be approximate` (или эквивалент) и продолжать выдавать карту/результаты.
 
 ### 2) Result
 Компоненты (как в Web):

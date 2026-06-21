@@ -129,6 +129,14 @@ function logGeoFailure(error: unknown) {
   });
 }
 
+function extractGeolocationCode(error: unknown): number | undefined {
+  const geoError = error as Partial<GeolocationPositionError> | undefined;
+  if (typeof geoError?.code === "number") {
+    return geoError.code;
+  }
+  return undefined;
+}
+
 export function useGeoStatus() {
   const [geoStatus, setGeoStatus] = useState<GeoStatus>({ status: "unknown" });
   const [currentGeo, setCurrentGeo] = useState<CurrentGeo>(null);
@@ -204,6 +212,16 @@ export function useGeoStatus() {
       });
     }
   }, [currentGeo?.source, setGeo]);
+
+  const handleGeoFailure = useCallback(async () => {
+    setIpStatus({
+      status: "resolving",
+      message: "GPS is unavailable, using approximate location"
+    });
+    await refreshIpGeo();
+    setGeoStatus({ status: "unknown" });
+  }, [refreshIpGeo]);
+
   const requestGeo = useCallback(async () => {
     if (typeof navigator === "undefined" || !navigator.geolocation) {
       setGeoStatus({ status: "unknown" });
@@ -264,9 +282,20 @@ export function useGeoStatus() {
       }
     } catch (error) {
       logGeoFailure(error);
+      const code = extractGeolocationCode(error);
+      if (code === 2 || code === 3) {
+        await handleGeoFailure();
+        return;
+      }
+      if (currentGeo?.source !== "gps") {
+        setIpStatus({
+          status: "unknown",
+          message: "GPS failed. Using approximate location if available."
+        });
+      }
       setGeoStatus({ status: "unknown" });
     }
-  }, [setGeo]);
+  }, [currentGeo?.source, handleGeoFailure, setGeo]);
 
   return { geoStatus, retry: requestGeo, currentGeo, refreshIpGeo, ipStatus, geoReady };
 }

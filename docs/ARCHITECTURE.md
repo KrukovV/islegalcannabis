@@ -14,6 +14,7 @@ The web product is a Next.js App Router app in `apps/web`.
 
 1. User location or manual choice resolves to `{country, region}`.
 2. Location precedence is fixed: `manual > gps > ip`.
+   - If GPS provider returns `UNAVAILABLE` (`code 2`) or timeout (`code 3`), system falls back to IP and keeps location-aware features active with approximate indication.
 3. API and map readers load SSOT-derived country data from `data/**`, `apps/web/public/**`, and generated map assets.
 4. Status derivation produces `rec_final`, `med_final`, `result_status`, `result_color`, penalties, enforcement, explanations, and verification links.
 5. UI renders DTOs and prebuilt models only; UI code must not parse wiki/official sources or compute audit universes.

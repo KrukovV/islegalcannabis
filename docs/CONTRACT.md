@@ -83,6 +83,7 @@ Standard app API responses built with `apps/web/src/lib/api/response.ts` include
 - `data-map-ready="1"` means the basemap is interactive: style, canvas, and enough same-origin basemap state are ready for pan/zoom/GPS recenter and hover wiring. It must not wait on the full countries payload if the basemap can already render and accept interaction.
 - `NM_T7_FIRST_FILL_RENDERED` remains the canonical first-paint metric for `legal-fill` country data. It must stay coupled to the countries payload becoming paintable, not to early basemap readiness.
 - GPS button behavior must refresh the browser GPS position on every click. If a stale saved GPS point exists, the UI may recenter it immediately for feedback, but the click must still request fresh geolocation, update the `Where I am` marker, persist the fresh point, and recenter on the fresh point after permission succeeds.
+- GPS fallback contract: if the browser geolocation provider returns `POSITION_UNAVAILABLE` (code 2) or timeout (code 3), the runtime must automatically run IP-based recovery, keep location functionality usable, and surface an approximate-location hint in UI status rather than hard failing the map flow.
 - Final prod GPS gate must seed stale saved GPS, then verify fresh marker/center/recenter/persistence, desktop hover, ZoomIn to city/village labels, ZoomOut to country rendering, screenshots, and no page errors.
 
 ## Network truth and CI contract

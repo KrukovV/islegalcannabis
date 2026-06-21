@@ -93,4 +93,5 @@
 - `/changes` and `/api/ssot/changes` must read the SSOT diff cache/registry, not compute alternate truth in UI.
 - Status Engine Audit v3 is review-only, emits only `GREEN`/`YELLOW`/`RED`, keeps Cannabis Profile data separate from color, and must not mutate SSOT, API status, map payloads, or map colors.
 - Location precedence is fixed: `manual > gps > ip`.
+  - GPS provider `UNAVAILABLE`/timeout is downgraded to IP recovery; map/location features remain usable with approximate-status messaging.
 - Storage hygiene is enforced: `QUARANTINE` exactly one PASS snapshot, `Reports` operational only, historical archives outside the repo.
